@@ -568,4 +568,20 @@ Trace your own answer before you finish:
 
 Include ONLY what can materially change the answer. Everything you leave out
 should appear in scope.excluded with the reason it cannot matter.
+
+=== CHECK BEFORE YOU RETURN ===
+1. All eleven sections present? (empty lists are fine where nothing applies,
+   but resolution.observations and terminal_producers must NOT be empty)
+2. resolution.question_type set, deadline an ISO time with an offset?
+3. Every party you named anywhere declared in participants?
+4. Every route you named declared in communication_routes?
+5. Every quantity you named introduced by a starting_state entry or a process?
+6. Every parameter used in a precondition or effect declared in that action's
+   "parameters"?
+7. A "provenance" block on every participant, starting_state entry,
+   information entry, route, scheduled event, process and affordance -- and on
+   every nested rate, duration, delivery_delay and attention entry?
+8. Is the terminal FALSE at the start, and produced only by the trajectory?
+9. Something scheduled at or before the deadline?
+10. One complete JSON object, nothing else, not truncated?
 """

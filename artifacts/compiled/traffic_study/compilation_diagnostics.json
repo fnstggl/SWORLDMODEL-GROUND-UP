@@ -1,27 +1,5 @@
 {
-  "action_defs": [
-    "send_finalized_study",
-    "start_reading_study"
-  ],
-  "actors": [
-    "alma_reyes",
-    "external_reviewer",
-    "miguel_santos"
-  ],
-  "channels": [
-    "city_email"
-  ],
-  "processes": [
-    "reading_study"
-  ],
-  "producer_index": {
-    "action:send_finalized_study": 1,
-    "action:start_reading_study": 1,
-    "belief:alma_reyes:need_to_read_study": 1,
-    "info:alma_reyes:finalized_study": 1,
-    "info:miguel_santos:peer_review_signoff": 1,
-    "resource:alma_reyes:study_read_time_minutes": 2
-  },
-  "scheduled_root_events": 4,
-  "stage": "COMPILED"
+  "detail": {},
+  "reason": "terminal_producers is empty: nothing claims to produce the answer",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

@@ -1,13 +1,34 @@
 {
   "detail": {
-    "remaining_defects": [
-      {
-        "detail": "Sister Margaret Doyle cannot receive the safety review via email during her retreat, and the scenario does not provide any alternative mechanism (e.g., printed copy at meeting) for her to obtain the review. Since she votes with the documented safety assessment when provided, her vote cannot be determined without the review. The scenario must specify how she receives the review at the meeting or adjust her voting rule.",
-        "kind": "missing_causal_link",
-        "severity": "critical"
-      }
-    ]
+    "available_evidence_ids": [
+      "e1",
+      "e10",
+      "e11",
+      "e12",
+      "e13",
+      "e14",
+      "e2",
+      "e3",
+      "e4",
+      "e5",
+      "e6",
+      "e7",
+      "e8",
+      "e9"
+    ],
+    "defects": [
+      "participants['Dr. Helen Osei'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Dr. Helen Osei'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Dr. Raj Patel'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Dr. Raj Patel'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Sister Margaret Doyle'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Sister Margaret Doyle'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Tomas Lindqvist'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "participants['Tomas Lindqvist'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+      "resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}"
+    ],
+    "repairable": true
   },
-  "reason": "defects remain after one targeted revision; the scenario is not a truthful account and will not be run",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "reason": "9 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - participants['Dr. Helen Osei'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Dr. Helen Osei'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Dr. Raj Patel'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Dr. Raj Patel'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Sister Margaret Doyle'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Sister Margaret Doyle'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Tomas Lindqvist'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Tomas Lindqvist'].attention[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+  "stage": "INSUFFICIENT_EVIDENCE"
 }

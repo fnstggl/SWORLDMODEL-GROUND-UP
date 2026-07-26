@@ -56,21 +56,26 @@ def compile_case(question: dict, evidence: dict, outdir: str,
 
     try:
         # ---- 1. semantic construction --------------------------------
+        # A contract-compliance failure (a missing section, an unlabelled
+        # assumption, a truncated reply) is a mechanical slip, not a claim the
+        # evidence cannot support. Exactly ONE repair round is allowed, with
+        # the precise error handed back; a second failure ends the run.
         try:
             scenario, raw, prompt, usage = build_scenario(question, evidence,
                                                           model=model)
-        except InsufficientEvidence as miss:
-            # a missing citation is a contract slip, not a claim the evidence
-            # cannot support; allow the one bounded repair, then insist
-            if not miss.detail.get("repairable"):
+        except (SemanticAmbiguity, InsufficientEvidence) as slip:
+            if isinstance(slip, InsufficientEvidence) and \
+                    not slip.detail.get("repairable"):
                 raise
             metrics["semantic_calls"] += 1
             count(getattr(build_scenario, "last_usage", {}) or {})
+            _wj(os.path.join(outdir, "contract_repair.json"),
+                {"first_error": slip.to_dict()})
             scenario, raw, prompt, usage = build_scenario(
                 question, evidence, previous=None, model=model,
-                revision_defects=[{"kind": "uncited_assertion",
+                revision_defects=[{"kind": "contract_compliance",
                                    "detail": REPAIR_INSTRUCTION.format(
-                                       error=miss.reason),
+                                       error=slip.reason),
                                    "severity": "critical"}])
             metrics["revision_calls"] += 1
         metrics["semantic_calls"] += 1
@@ -222,6 +227,15 @@ Fix ONLY this defect and return the complete corrected scenario.
   (in-person speech is a route with "seconds": 0).
 - If it says a quantity was never introduced: ADD a "starting_state" entry of
   kind "quantity" for it, or a process that outputs it.
+- If it says a required section is missing or empty: add it. All eleven
+  sections must be present (an empty LIST is fine where nothing applies, but
+  terminal_producers and resolution.observations must NOT be empty).
+- If it says objects lack provenance: add a "provenance" block to EVERY
+  participant, starting_state entry, information entry, communication route,
+  scheduled event, process and affordance, and to each nested rate, duration,
+  delivery_delay and attention entry.
+- If it says the reply was truncated or not valid JSON: return a SMALLER world
+  containing only what can change the answer, as one complete JSON object.
 - If it says assertions cite no evidence: add "evidence_ids": ["e1", ...] to
   every participant and every starting_state entry, naming the claim ids that
   support it, or set "status": "inferred" where it is your own reasoning.

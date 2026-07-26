@@ -10,7 +10,7 @@ import json
 import re
 
 from .errors import InsufficientEvidence, SemanticAmbiguity
-from .llm import call_json
+from .llm import TruncatedResponse, call_json
 from .schema import (check_evidence_sufficiency, check_provenance,
                      contract_document, validate)
 
@@ -67,7 +67,14 @@ def build_scenario(question: dict, evidence: dict, revision_defects=None,
                  + "\n\nReturn a corrected COMPLETE scenario. Fix exactly these "
                    "defects; do not rebuild the parts that were not criticised.")
     system = SYSTEM.format(contract=contract_document())
-    doc, raw, usage = call_json(system, user, model=model)
+    try:
+        doc, raw, usage = call_json(system, user, model=model)
+    except TruncatedResponse as e:
+        raise SemanticAmbiguity(str(e), {"repairable": True})
+    except json.JSONDecodeError as e:
+        raise SemanticAmbiguity(
+            f"the reply was not valid JSON ({e}). Return one complete JSON "
+            f"object and nothing else.", {"repairable": True})
     # keep the raw reply reachable even when validation refuses it, so a
     # refusal can be inspected rather than merely reported
     build_scenario.last_raw = raw

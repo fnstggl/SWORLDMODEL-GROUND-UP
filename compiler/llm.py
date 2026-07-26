@@ -19,9 +19,15 @@ class ModelUnavailable(RuntimeError):
     pass
 
 
+class TruncatedResponse(ValueError):
+    """The model hit its output limit mid-document. Never salvage a partial
+    world -- a truncated scenario is not a smaller scenario, it is a broken
+    one."""
+
+
 def call_json(system: str, user: str, model: str = "deepseek-chat",
-              temperature: float = 0.0, max_tokens: int = 8000,
-              timeout: float = 300.0) -> tuple:
+              temperature: float = 0.0, max_tokens: int = 16000,
+              timeout: float = 600.0) -> tuple:
     """Return (parsed_object, raw_text, usage). Raises ModelUnavailable on
     transport failure and ValueError if the reply is not JSON."""
     api_key = os.environ.get("DEEPSEEK_API_KEY", "")
@@ -45,7 +51,13 @@ def call_json(system: str, user: str, model: str = "deepseek-chat",
     except (urllib.error.URLError, OSError, TimeoutError) as e:
         raise ModelUnavailable(f"Deepseek API unreachable: {e}") from e
     usage = body.get("usage") or {}
-    raw = body["choices"][0]["message"]["content"]
+    choice = body["choices"][0]
+    raw = choice["message"]["content"]
+    if choice.get("finish_reason") == "length":
+        raise TruncatedResponse(
+            f"the reply hit the {max_tokens}-token output limit and stopped "
+            f"mid-document ({len(raw)} chars). Return a SMALLER world: include "
+            f"only what can change the answer.")
     text = raw.strip()
     if text.startswith("```"):
         text = text.strip("`")

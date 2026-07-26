@@ -4,15 +4,25 @@
       "causal_path": [],
       "defects": [
         {
-          "detail": "No evidence that the board will meet, consider the acquisition, or vote before the deadline. The scenario's action affordance assumes a meeting will occur, but no evidence supports that.",
+          "detail": "No evidence of any board members, meeting schedule, or decision process. The board is invented as a participant without support.",
+          "kind": "missing_participant",
+          "severity": "critical"
+        },
+        {
+          "detail": "No evidence of any event or process that could lead to a board approval. The action affordance 'record board approval' has no preconditions or triggers.",
           "kind": "missing_causal_link",
           "severity": "critical"
+        },
+        {
+          "detail": "Assumes the board has a goal to decide on the Meridian acquisition, but no evidence supports that the acquisition is even under consideration.",
+          "kind": "unsupported_assumption",
+          "severity": "major"
         }
       ],
-      "reasoning": "The evidence package contains no information about the board's schedule, decision-making process, or any concrete steps toward a vote. The scenario correctly notes this uncertainty but cannot produce a confident answer because the causal path from the evidence to a board approval is entirely absent. The scenario's starting state and action affordances are plausible but unsupported by evidence; the simulation would be inventing the key causal link (that the board will meet and vote).",
+      "reasoning": "The evidence contains no information about the board's schedule, decision process, or any concrete steps toward approval. The scenario invents a board with a goal and an action affordance, but there is no evidence that the board is even considering the acquisition, let alone that it will meet and approve it. The starting state correctly notes no approval, but the scenario provides no causal mechanism to produce approval. The uncertainty is noted, but the scenario still asserts a board that can act, which is unsupported. The evidence is insufficient to produce any trajectory that could yield a YES or NO answer.",
       "verdict": "REJECT_INSUFFICIENT_EVIDENCE"
     }
   },
-  "reason": "The evidence package contains no information about the board's schedule, decision-making process, or any concrete steps toward a vote. The scenario correctly notes this uncertainty but cannot produce a confident answer because the causal path from the evidence to a board approval is entirely absent. The scenario's starting state and action affordances are plausible but unsupported by evidence; the simulation would be inventing the key causal link (that the board will meet and vote).",
+  "reason": "The evidence contains no information about the board's schedule, decision process, or any concrete steps toward approval. The scenario invents a board with a goal and an action affordance, but there is no evidence that the board is even considering the acquisition, let alone that it will meet and approve it. The starting state correctly notes no approval, but the scenario provides no causal mechanism to produce approval. The uncertainty is noted, but the scenario still asserts a board that can act, which is unsupported. The evidence is insufficient to produce any trajectory that could yield a YES or NO answer.",
   "stage": "REALITY_REVIEW_REJECTED"
 }
