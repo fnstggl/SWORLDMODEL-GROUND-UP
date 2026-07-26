@@ -1,19 +1,19 @@
 # Reality-fidelity review -- compiled world
 
 **Question.** Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?
-**Answer produced by the trajectory.** `yes` (resolved)
-Reyes has noticed and read the finalized study before the meeting starts.
+**Answer produced by the trajectory.** `no` (cutoff)
+Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.
 
-**How it was produced.** 3 ledger record(s)
+**How it was produced.** 1 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- External reviewer sends sign-off by 10:00 AM on Feb 18.
-- Santos notices sign-off at his next email check (by 11:00 AM at latest).
-- Santos sends finalized study via city email within an hour (by 11:00 AM).
-- City email delivers study to Reyes within a minute (by 11:01 AM).
-- Reyes notices study at her next email check (by 12:00 PM on Feb 18).
-- Reyes starts reading study (1 minute to open).
-- Reyes reads study for at least 60 minutes before meeting start at 7:00 PM on Feb 19.
+- 2026-02-18T10:00:00-06:00: external reviewer sends peer-review sign-off to Santos via city email
+- 2026-02-18T10:01:00-06:00: Santos receives sign-off (email delivery ~1 min)
+- 2026-02-18T10:01:00-06:00 to 10:20:00-06:00: Santos sends finalized study to Reyes (20 min action)
+- 2026-02-18T10:21:00-06:00: Reyes receives study email
+- 2026-02-18T10:30:00-06:00 or 12:30:00-06:00: Reyes notices study at next email check (every 2 hours, first check after 8:30 AM is ~10:30 AM)
+- 2026-02-18T10:30:00-06:00 to 11:45:00-06:00 (or later): Reyes reads study (75 min)
+- 2026-02-19T19:00:00-06:00: Meeting starts; Reyes has read the study
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -31,15 +31,22 @@ reviewer's expected causal path was:
 - **Evidence quality.** The evidence package was hand-frozen; live retrieval
   is deliberately not part of this run.
 
+## Did the actors actually exercise this world?
+- Affordances declared: 2; ever completed: 0
+- Never performed by anyone: ['read_the_finalized_study', 'send_the_finalized_study']
+- Participants who completed no action at all: ['alma_reyes', 'external_reviewer', 'miguel_santos']
+- Intentions the world rejected: 0
+  - none
+**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised, so it reflects the limits of the authored script rather than the situation itself.
+
 ## Honest gaps recorded during compilation
 - Information delivered but with no justified way to notice it: 0
   - none
 - Attention patterns the scenario left uncertain, so no rule was created: 0
   - none
-- Unresolved uncertainties carried by the scenario: 2
-  - Exact time Santos notices the sign-off email and sends the study.
-  - Exact time Reyes checks email after study is delivered.
+- Unresolved uncertainties carried by the scenario: 0
+  - none
 - Deliberately excluded from the world: 3
-  - other council members: Only Reyes's reading matters for the question.
-  - committee clerk: No action by clerk changes the answer.
-  - other traffic studies: Only the Riverside corridor study is relevant.
+  - Other council members: Only Reyes's reading matters for the answer.
+  - Committee clerk: Only mentioned as source of information; does not affect the outcome.
+  - Other corridor items: Only the Riverside corridor study is relevant.

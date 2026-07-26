@@ -39,7 +39,8 @@ def _wl(path, rows):
 
 def compile_case(question: dict, evidence: dict, outdir: str,
                  stage: str = "scripted", model: str = "deepseek-chat",
-                 run: bool = True, scripts: dict | None = None) -> dict:
+                 run: bool = True, scripts: dict | None = None,
+                 reuse_scenario: bool = False) -> dict:
     """Compile one case and (optionally) run it. Returns a result record whose
     'stage' is either COMPILED or the exact failure stage."""
     os.makedirs(outdir, exist_ok=True)
@@ -55,6 +56,20 @@ def compile_case(question: dict, evidence: dict, outdir: str,
         metrics["completion_tokens"] += usage.get("completion_tokens", 0)
 
     try:
+        frozen = os.path.join(outdir, "approved_scenario.json")
+        if reuse_scenario and os.path.exists(frozen):
+            # Replay a previously approved world instead of re-asking the
+            # model. This keeps a fixture's hand-written scripts valid and
+            # makes Stage 1 and Stage 2 comparable: same world, different minds.
+            with open(frozen, encoding="utf-8") as f:
+                scenario = json.load(f)
+            result = {"verdict": "APPROVE", "reasoning": "reused a previously "
+                      "approved scenario; no model call was made",
+                      "causal_path": [], "defects": []}
+            metrics["reused_scenario"] = True
+            return _finish(question, evidence, scenario, result, outdir, stage,
+                           model, run, scripts, metrics)
+
         # ---- 1. semantic construction --------------------------------
         # A contract-compliance failure (a missing section, an unlabelled
         # assumption, a truncated reply) is a mechanical slip, not a claim the
@@ -117,85 +132,8 @@ def compile_case(question: dict, evidence: dict, outdir: str,
                     "is not a truthful account and will not be run",
                     {"remaining_defects": still})
 
-        # ---- 3. deterministic lowering (zero model calls) -------------
-        # A structural defect (a name that resolves to nothing, a parameter an
-        # action never declares) is a mechanical error, not a false claim about
-        # the world, so exactly ONE repair round is allowed -- with the precise
-        # compiler error handed back. Substantive stops (LOWERING_GAP,
-        # NO_CAUSAL_PRODUCER, NOTHING_SCHEDULED) are never repaired: those mean
-        # the world cannot answer its own question.
-        t0 = wallclock.monotonic()
-        try:
-            compiled = lower(scenario, question.get("question", ""))
-        except (InvalidReference, SemanticAmbiguity, NoCausalProducer) as first:
-            defect = [{"kind": "structural_reference_error",
-                       "detail": REPAIR_INSTRUCTION.format(error=first.reason),
-                       "severity": "critical"}]
-            scenario_r, raw_r, _, usage_r = build_scenario(
-                question, evidence, revision_defects=defect, previous=scenario,
-                model=model)
-            metrics["revision_calls"] += 1
-            count(usage_r)
-            _wj(os.path.join(outdir, "structural_repair.json"),
-                {"first_error": first.to_dict(), "repaired_scenario": scenario_r,
-                 "raw_response": raw_r})
-            scenario = scenario_r
-            _wj(os.path.join(outdir, "semantic_scenario.json"), scenario)
-            compiled = lower(scenario, question.get("question", ""))
-        metrics["lowering_ms"] = round((wallclock.monotonic() - t0) * 1000, 1)
-
-        _wj(os.path.join(outdir, "symbol_table.json"), compiled.symbols.to_dict())
-        _wl(os.path.join(outdir, "lowering_trace.jsonl"), compiled.trace)
-        _wj(os.path.join(outdir, "compilation_diagnostics.json"),
-            {**compiled.diagnostics, "stage": COMPILED})
-        _wj(os.path.join(outdir, "runtime_world_snapshot.json"),
-            compiled.world.snapshot())
-        _wj(os.path.join(outdir, "terminal_producer_report.json"),
-            {"terminal": compiled.terminal_spec.to_dict(),
-             "producer_index": compiled.producers if hasattr(compiled, "producers")
-             else compiled.diagnostics.get("producer_index", {}),
-             "terminal_producers_claimed": scenario.get("terminal_producers", []),
-             "reviewer_causal_path": result.get("causal_path", [])})
-
-        metrics["stage"] = COMPILED
-        record = {"stage": COMPILED, "scenario": scenario, "review": result,
-                  "compiled": compiled, "metrics": metrics}
-
-        # ---- 4. execution through the unchanged runtime ---------------
-        if run:
-            if stage == "llm":
-                minds = llm_minds(compiled, scenario)
-            else:
-                # Phase 1: the fixture supplies its own scripted minds. There
-                # is no built-in policy, so a fixture with no script simply
-                # produces a world in which nobody acts -- which is honest.
-                from tests.scripted_minds import scripted_minds
-                minds = scripted_minds(compiled, scripts or {})
-            t1 = wallclock.monotonic()
-            outcome = Engine(compiled.world, minds,
-                             compiled.terminal_spec.to_terminal()).run()
-            metrics["runtime_ms"] = round((wallclock.monotonic() - t1) * 1000, 1)
-            metrics["llm_calls_runtime"] = outcome.metrics.get("llm_calls", 0)
-            record["outcome"] = outcome
-            write_artifacts(outdir, compiled.world, outcome,
-                            _fidelity_review(question, scenario, result,
-                                             compiled, outcome, stage),
-                            wall_ms=metrics["runtime_ms"])
-            replayed = World.from_records(compiled.world.records)
-            _wj(os.path.join(outdir, "terminal_producer_report.json"),
-                {"terminal": compiled.terminal_spec.to_dict(),
-                 "answer": outcome.answer,
-                 "computed_from": (outcome.answer or {}).get("computed_from", []),
-                 "observations": (outcome.answer or {}).get("observations", []),
-                 "lineage": compiled.world.lineage(
-                     next((r["seq"] for r in reversed(compiled.world.records)
-                           if r["op"] == "terminal"), 0)),
-                 "terminal_producers_claimed": scenario.get("terminal_producers", []),
-                 "reviewer_causal_path": result.get("causal_path", []),
-                 "replay_hash_match":
-                     replayed.state_hash() == compiled.world.state_hash()})
-        _wj(os.path.join(outdir, "metrics.json"), metrics)
-        return record
+        return _finish(question, evidence, scenario, result, outdir, stage,
+                       model, run, scripts, metrics)
 
     except CompilationStop as e:
         metrics["stage"] = e.stage
@@ -244,6 +182,96 @@ Fix ONLY this defect and return the complete corrected scenario.
   that produces the outcome ("action_was_completed") or the message actually
   received ("participant_noticed_information") -- and delete any
   "starting_state" belief written on that same topic."""
+
+def _finish(question, evidence, scenario, result, outdir, stage, model, run,
+            scripts, metrics):
+    """Everything after a scenario is approved: lower it, run it, write the
+    artifacts. Shared by the live path and the frozen-scenario path."""
+# ---- 3. deterministic lowering (zero model calls) -------------
+    # A structural defect (a name that resolves to nothing, a parameter an
+    # action never declares) is a mechanical error, not a false claim about
+    # the world, so exactly ONE repair round is allowed -- with the precise
+    # compiler error handed back. Substantive stops (LOWERING_GAP,
+    # NO_CAUSAL_PRODUCER, NOTHING_SCHEDULED) are never repaired: those mean
+    # the world cannot answer its own question.
+    t0 = wallclock.monotonic()
+    try:
+        compiled = lower(scenario, question.get("question", ""))
+    except (InvalidReference, SemanticAmbiguity, NoCausalProducer) as first:
+        defect = [{"kind": "structural_reference_error",
+                   "detail": REPAIR_INSTRUCTION.format(error=first.reason),
+                   "severity": "critical"}]
+        scenario_r, raw_r, _, usage_r = build_scenario(
+            question, evidence, revision_defects=defect, previous=scenario,
+            model=model)
+        metrics["revision_calls"] += 1
+        count(usage_r)
+        _wj(os.path.join(outdir, "structural_repair.json"),
+            {"first_error": first.to_dict(), "repaired_scenario": scenario_r,
+             "raw_response": raw_r})
+        scenario = scenario_r
+        _wj(os.path.join(outdir, "semantic_scenario.json"), scenario)
+        compiled = lower(scenario, question.get("question", ""))
+    metrics["lowering_ms"] = round((wallclock.monotonic() - t0) * 1000, 1)
+
+    # freeze the approved world so a fixture's hand-written scripts stay
+    # valid, and so Stage 1 and Stage 2 run the SAME world
+    _wj(os.path.join(outdir, "approved_scenario.json"), scenario)
+    _wj(os.path.join(outdir, "symbol_table.json"), compiled.symbols.to_dict())
+    _wl(os.path.join(outdir, "lowering_trace.jsonl"), compiled.trace)
+    _wj(os.path.join(outdir, "compilation_diagnostics.json"),
+        {**compiled.diagnostics, "stage": COMPILED})
+    _wj(os.path.join(outdir, "runtime_world_snapshot.json"),
+        compiled.world.snapshot())
+    _wj(os.path.join(outdir, "terminal_producer_report.json"),
+        {"terminal": compiled.terminal_spec.to_dict(),
+         "producer_index": compiled.producers if hasattr(compiled, "producers")
+         else compiled.diagnostics.get("producer_index", {}),
+         "terminal_producers_claimed": scenario.get("terminal_producers", []),
+         "reviewer_causal_path": result.get("causal_path", [])})
+
+    metrics["stage"] = COMPILED
+    record = {"stage": COMPILED, "scenario": scenario, "review": result,
+              "compiled": compiled, "metrics": metrics}
+
+    # ---- 4. execution through the unchanged runtime ---------------
+    if run:
+        if stage == "llm":
+            minds = llm_minds(compiled, scenario)
+        else:
+            # Phase 1: the fixture supplies its own scripted minds. There
+            # is no built-in policy, so a fixture with no script simply
+            # produces a world in which nobody acts -- which is honest.
+            from tests.scripted_minds import scripted_minds
+            minds = scripted_minds(compiled, scripts or {})
+        t1 = wallclock.monotonic()
+        outcome = Engine(compiled.world, minds,
+                         compiled.terminal_spec.to_terminal()).run()
+        metrics["runtime_ms"] = round((wallclock.monotonic() - t1) * 1000, 1)
+        metrics["llm_calls_runtime"] = outcome.metrics.get("llm_calls", 0)
+        record["outcome"] = outcome
+        write_artifacts(outdir, compiled.world, outcome,
+                        _fidelity_review(question, scenario, result,
+                                         compiled, outcome, stage),
+                        wall_ms=metrics["runtime_ms"])
+        replayed = World.from_records(compiled.world.records)
+        _wj(os.path.join(outdir, "terminal_producer_report.json"),
+            {"terminal": compiled.terminal_spec.to_dict(),
+             "answer": outcome.answer,
+             "computed_from": (outcome.answer or {}).get("computed_from", []),
+             "observations": (outcome.answer or {}).get("observations", []),
+             "lineage": compiled.world.lineage(
+                 next((r["seq"] for r in reversed(compiled.world.records)
+                       if r["op"] == "terminal"), 0)),
+             "terminal_producers_claimed": scenario.get("terminal_producers", []),
+             "reviewer_causal_path": result.get("causal_path", []),
+             "replay_hash_match":
+                 replayed.state_hash() == compiled.world.state_hash()})
+    _wj(os.path.join(outdir, "metrics.json"), metrics)
+    return record
+
+    _wj(os.path.join(outdir, "metrics.json"), metrics)
+    return record
 
 
 class CompilationStopWithStage(CompilationStop):

@@ -1,11 +1,12 @@
 {
-  "completion_tokens": 0,
-  "lowering_ms": 0.0,
-  "prompt_tokens": 0,
-  "reviewer_calls": 0,
-  "revision_calls": 0,
-  "runtime_ms": 0.0,
-  "semantic_calls": 0,
+  "completion_tokens": 6346,
+  "llm_calls_runtime": 0,
+  "lowering_ms": 1.4,
+  "prompt_tokens": 17747,
+  "reviewer_calls": 1,
+  "revision_calls": 1,
+  "runtime_ms": 5.5,
+  "semantic_calls": 2,
   "simulation_stage": "scripted",
-  "stage": "SEMANTIC_AMBIGUITY"
+  "stage": "COMPILED"
 }

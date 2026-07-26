@@ -3,6 +3,7 @@
     python3 compile_cases.py                 # all cases, mechanical minds
     python3 compile_cases.py traffic_study   # one case
     python3 compile_cases.py --stage llm     # Stage 2: same worlds, live minds
+    python3 compile_cases.py --reuse         # replay frozen approved worlds
 
 Artifacts land in artifacts/compiled/<case>/.
 """
@@ -17,6 +18,12 @@ CASES_DIR = os.path.join(HERE, "cases")
 OUT_ROOT = os.path.join(HERE, "artifacts", "compiled")
 
 EXPECTED_REFUSAL = {"insufficient_merger"}
+
+#: A case that must refuse has to refuse because the EVIDENCE cannot support a
+#: world -- not because the model tripped over the contract. Stopping at a
+#: formatting slip would be a false positive dressed as a success.
+SUBSTANTIVE_REFUSALS = {"REALITY_REVIEW_REJECTED", "NO_CAUSAL_PRODUCER",
+                        "NOTHING_SCHEDULED", "LOWERING_GAP"}
 
 
 def load(name):
@@ -42,6 +49,7 @@ def load_script(name):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     stage = "llm" if "--stage" in sys.argv and "llm" in sys.argv else "scripted"
+    reuse = "--reuse" in sys.argv     # replay the frozen approved world
     names = args or sorted(
         d for d in os.listdir(CASES_DIR)
         if os.path.isdir(os.path.join(CASES_DIR, d)))
@@ -51,7 +59,8 @@ def main():
         q, e = load(name)
         outdir = os.path.join(OUT_ROOT, name)
         print(f"\n=== {name} ===\n  {q['question']}")
-        result = compile_case(q, e, outdir, stage=stage, scripts=load_script(name))
+    result = compile_case(q, e, outdir, stage=stage,
+                              scripts=load_script(name), reuse_scenario=reuse)
         m = result["metrics"]
         row = {"case": name, "stage": result["stage"],
                "expected_refusal": name in EXPECTED_REFUSAL,
@@ -76,6 +85,8 @@ def main():
                   f"producing records")
         else:
             row["reason"] = result["reason"]
+            row["model_declared_insufficient"] = (
+                result.get("detail", {}).get("declared_by") == "semantic compiler")
             print(f"  {result['stage']}: {result['reason'][:160]}")
         summary.append(row)
 
@@ -89,10 +100,18 @@ def main():
     for r in summary:
         refused = r["stage"] != "COMPILED"
         correct = refused == r["expected_refusal"]
+        note = ""
+        if correct and r["expected_refusal"]:
+            substantive = (r["stage"] in SUBSTANTIVE_REFUSALS
+                           or r.get("model_declared_insufficient"))
+            if not substantive:
+                correct = False
+                note = ("  <- refused on a contract slip, NOT because the "
+                        "evidence is insufficient")
         ok &= correct
         mark = "OK " if correct else "BAD"
         print(f"  [{mark}] {r['case']:<22} {r['stage']:<26} "
-              f"answer={r.get('answer')!r}")
+              f"answer={r.get('answer')!r}{note}")
     print(f"\n{'all cases behaved as required' if ok else 'SOME CASES MISBEHAVED'}")
     return 0 if ok else 1
 

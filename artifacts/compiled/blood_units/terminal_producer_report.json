@@ -133,16 +133,12 @@
   ],
   "replay_hash_match": true,
   "reviewer_causal_path": [
-    "Monday 09:00: Centre has 40 units, hospital has 15 units.",
-    "Monday 09:00-17:00: Collection drive produces 12*8=96 units (total centre: 136).",
-    "Tuesday 09:00-16:00: Collection produces 12*7=84 units (total centre: 220).",
-    "Tuesday 16:00: Shipment of 150 units leaves centre (centre: 70).",
-    "Tuesday 19:00: Shipment arrives at hospital (hospital: 165).",
-    "Wednesday 09:00-17:00: Collection produces 96 units (centre: 166).",
-    "Thursday 09:00-16:00: Collection produces 84 units (centre: 250).",
-    "Thursday 16:00: Shipment of 150 units leaves centre (centre: 100).",
-    "Thursday 19:00: Shipment arrives at hospital (hospital: 315).",
-    "Friday 12:00: Hospital holds 315 units."
+    "Starting state: St. Vincent hospital has 15 units at Monday 9 AM.",
+    "Tuesday 4 PM: Centre ships 150 units to hospital.",
+    "Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).",
+    "Thursday 4 PM: Centre ships another 150 units.",
+    "Thursday ~7 PM: Hospital receives 150 units.",
+    "Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units."
   ],
   "terminal": {
     "conditions": [],
@@ -163,17 +159,16 @@
   },
   "terminal_producers_claimed": [
     {
-      "description": "The hospital's final quantity of usable blood units is the sum of its starting stock (15) plus the two shipments (150 each) that arrive before the deadline. The collection drive adds units to the centre's stock but does not affect the hospital directly; the centre's stock is sufficient to cover both shipments (40 + collected units).",
+      "description": "The final quantity of usable blood units at St. Vincent regional hospital is produced by the starting quantity (15) plus the two scheduled shipments (150 each) that transfer units from the centre. The collection process adds units to the centre's stock, but the centre's stock is not directly observed; only the hospital's quantity matters. The hospital receives 150 units on Tuesday and 150 on Thursday, so total = 15 + 150 + 150 = 315 units.",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
           "e5",
           "e6",
           "e7",
-          "e8",
           "e9"
         ],
-        "note": "The hospital's final quantity is determined by starting stock and scheduled shipments. The centre's collection ensures enough units for shipments."
+        "note": "Starting hospital stock plus two shipments of 150 each."
       }
     }
   ]

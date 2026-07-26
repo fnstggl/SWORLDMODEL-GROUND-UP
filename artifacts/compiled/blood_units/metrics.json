@@ -1,11 +1,11 @@
 {
-  "completion_tokens": 4518,
+  "completion_tokens": 4282,
   "llm_calls_runtime": 0,
-  "lowering_ms": 1.8,
-  "prompt_tokens": 15969,
+  "lowering_ms": 1.7,
+  "prompt_tokens": 15928,
   "reviewer_calls": 1,
   "revision_calls": 1,
-  "runtime_ms": 2.4,
+  "runtime_ms": 2.3,
   "semantic_calls": 2,
   "simulation_stage": "scripted",
   "stage": "COMPILED"

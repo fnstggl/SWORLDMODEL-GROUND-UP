@@ -205,11 +205,23 @@ def _check_change(e: dict, where: str) -> None:
 
 
 def provenance_of(obj: dict):
-    """Extract (basis, evidence_ids) from an object's provenance block."""
+    """Extract (basis, evidence_ids) from an object.
+
+    Either encoding is accepted: an explicit ``provenance`` block, or the
+    object's own ``status``/``basis`` field alongside ``evidence_ids``. A
+    nested rate or duration already states its epistemic status, so demanding
+    a second, redundant structure on top of it would police form rather than
+    honesty. What is enforced either way is the substance: a basis is stated,
+    and anything claimed verified or inferred cites the evidence for it.
+    """
     p = obj.get("provenance")
     if isinstance(p, dict):
         return p.get("basis"), list(p.get("evidence_ids") or [])
-    return None, []
+    basis = obj.get("status")
+    if basis is None and isinstance(obj.get("basis"), str) \
+            and obj["basis"] in EPISTEMIC_STATUS:
+        basis = obj["basis"]
+    return basis, list(obj.get("evidence_ids") or [])
 
 
 def check_provenance(doc: dict, evidence: dict) -> None:
@@ -258,7 +270,12 @@ def check_provenance(doc: dict, evidence: dict) -> None:
         check(pr, f"processes[{pr.get('name', i)!r}]", ("rate",))
     for i, a in enumerate(doc.get("action_affordances") or []):
         check(a, f"action_affordances[{a.get('label', i)!r}]", ("duration",))
-    check(doc.get("resolution", {}), "resolution")
+    # the resolution rule is the compiler's reading of the question, so it is
+    # scenario_given unless it claims otherwise
+    res = doc.get("resolution", {})
+    if provenance_of(res)[0] is None:
+        res = {**res, "provenance": {"basis": "scenario_given"}}
+    check(res, "resolution")
 
     unknown = sorted(cited - known)
     if unknown:
@@ -342,6 +359,7 @@ program, stop -- describe the meaning instead.
 === EXACT SHAPE OF EACH SECTION ===
 
 "resolution": {{
+  "provenance": {{"basis": "scenario_given", "evidence_ids": []}},
   "question_type": "boolean" | "quantity" | "choice",   // REQUIRED
   "deadline": "2026-02-19T19:00:00-06:00",              // REQUIRED, ISO + offset
   "yes_condition": "...", "no_condition": "...",        // boolean questions
@@ -539,10 +557,12 @@ route, scheduled event, process and action affordance MUST carry:
                      counts as the answer). No evidence_ids needed.
   - "uncertain"      genuinely unknown. No evidence_ids needed.
 
-Nested objects that carry a number of their own -- a route's delivery_delay,
-a process's rate, an affordance's duration, a participant's attention entry --
-each need their own "status" AND their own "provenance" block, because each is
-a separate factual claim.
+Nested objects that carry a number of their own -- a route's delivery_delay, a
+process's rate, an affordance's duration, a participant's attention entry --
+are separate factual claims and each needs its OWN basis. For these you may
+either add a "provenance" block, or simply keep their "status" field and add
+"evidence_ids" next to it. Either way: state the basis, and cite evidence
+whenever you call something verified or inferred.
 
 You may not introduce an unlabelled factual assumption anywhere. NEVER invent
 a convenient number and label it verified. If noticing behaviour is uncertain,

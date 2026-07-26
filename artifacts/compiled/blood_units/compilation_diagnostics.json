@@ -6,7 +6,7 @@
   ],
   "channels": [],
   "processes": [
-    "mobile_collection_drive"
+    "blood_collection_drive"
   ],
   "producer_index": {
     "resource:cascade_regional_blood_centre:usable_blood_units": 4,

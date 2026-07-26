@@ -1,0 +1,30 @@
+{
+  "first_error": {
+    "detail": {
+      "available_evidence_ids": [
+        "e1",
+        "e10",
+        "e2",
+        "e3",
+        "e4",
+        "e4b",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "defects": [
+        "participants['Alma Reyes'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "participants['Miguel Santos'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "communication_routes['city email'].delivery_delay: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "action_affordances['send the finalized study'].duration: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "action_affordances['read the finalized study'].duration: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}"
+      ],
+      "repairable": true
+    },
+    "reason": "6 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - participants['Alma Reyes'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - participants['Miguel Santos'].attention[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - communication_routes['city email'].delivery_delay: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - action_affordances['send the finalized study'].duration: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - action_affordances['read the finalized study'].duration: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+    "stage": "INSUFFICIENT_EVIDENCE"
+  }
+}

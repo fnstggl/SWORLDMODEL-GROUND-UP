@@ -1,0 +1,19 @@
+{
+  "first_error": {
+    "detail": {
+      "available_evidence_ids": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "defects": [
+        "action_affordances['board_approve_meridian'].duration: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}"
+      ],
+      "repairable": true
+    },
+    "reason": "2 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - action_affordances['board_approve_meridian'].duration: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+    "stage": "INSUFFICIENT_EVIDENCE"
+  }
+}

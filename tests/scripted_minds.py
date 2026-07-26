@@ -19,6 +19,7 @@ from __future__ import annotations
 
 from datetime import timedelta
 
+from compiler.symbols import slug
 from sworldmodel import Decision, Duration, Intention, Mind
 
 
@@ -57,7 +58,7 @@ class ScriptedMind(Mind):
         params = dict(rule.get("params") or {})
         trigger = rule.get("trigger", "notices")
         if trigger == "notices":
-            want = rule.get("tag")
+            want = slug(rule["tag"]) if rule.get("tag") else None
             for iv in view.new_information:
                 if want and iv.data.get("tag") != want:
                     continue

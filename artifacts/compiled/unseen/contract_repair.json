@@ -1,0 +1,31 @@
+{
+  "first_error": {
+    "detail": {
+      "available_evidence_ids": [
+        "e1",
+        "e10",
+        "e11",
+        "e12",
+        "e13",
+        "e14",
+        "e15",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "defects": [
+        "action_affordances['record all fast']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "action_affordances['record all fast'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}"
+      ],
+      "repairable": true
+    },
+    "reason": "3 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - action_affordances['record all fast']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['record all fast'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+    "stage": "INSUFFICIENT_EVIDENCE"
+  }
+}

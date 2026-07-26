@@ -1,5 +1,29 @@
 {
-  "detail": {},
-  "reason": "terminal_producers is empty: nothing claims to produce the answer",
-  "stage": "SEMANTIC_AMBIGUITY"
+  "action_defs": [
+    "read_the_finalized_study",
+    "send_the_finalized_study"
+  ],
+  "actors": [
+    "alma_reyes",
+    "external_reviewer",
+    "miguel_santos"
+  ],
+  "channels": [
+    "city_email"
+  ],
+  "processes": [],
+  "producer_index": {
+    "action:read_the_finalized_study": 1,
+    "action:send_the_finalized_study": 1,
+    "belief:alma_reyes:riverside_corridor_study_content": 1,
+    "belief:alma_reyes:riverside_corridor_study_status": 1,
+    "belief:external_reviewer:peer_review_signoff": 1,
+    "belief:external_reviewer:riverside_corridor_study_content": 1,
+    "belief:miguel_santos:peer_review_sign_off": 1,
+    "belief:miguel_santos:riverside_corridor_study_content": 1,
+    "info:alma_reyes:finalized_study": 1,
+    "info:miguel_santos:peer_review_signoff": 1
+  },
+  "scheduled_root_events": 1,
+  "stage": "COMPILED"
 }

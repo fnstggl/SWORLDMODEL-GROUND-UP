@@ -10,8 +10,7 @@
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Maintain supply",
-        "Fulfill distribution agreements"
+        "Collect and distribute blood units"
       ],
       "id": "cascade_regional_blood_centre",
       "last_decision_at": null,
@@ -20,7 +19,7 @@
       "noticed_info": [],
       "ongoing_action": null,
       "physical_state": "Operational",
-      "plan": "Run collection drive and ship as scheduled.",
+      "plan": "Collect blood Monday-Friday 9-5, ship 150 units each Tuesday and Thursday at 4 PM.",
       "reconsider": [],
       "relationships": {
         "st_vincent_regional_hospital": "Supplier of blood units via scheduled shipments."
@@ -49,8 +48,8 @@
       "name": "St. Vincent regional hospital",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Operational",
-      "plan": "Receive shipments and manage inventory.",
+      "physical_state": "Has 15 units at start.",
+      "plan": "Receive shipments on Tuesday and Thursday.",
       "reconsider": [],
       "relationships": {
         "cascade_regional_blood_centre": "Recipient of blood shipments."
@@ -70,14 +69,14 @@
   "infos": {},
   "now": "2026-07-21T23:00:00+00:00",
   "processes": {
-    "mobile_collection_drive": {
+    "blood_collection_drive": {
       "active": true,
       "basis": "verified",
       "capacity": null,
       "holder": "cascade_regional_blood_centre",
-      "id": "mobile_collection_drive",
+      "id": "blood_collection_drive",
       "last_applied": "2026-07-21T23:00:00+00:00",
-      "note": "From evidence e2.",
+      "note": "Average throughput from centre report.",
       "rate_per_hour": 12.0,
       "resource": "usable_blood_units"
     }
@@ -90,13 +89,13 @@
   "scheduled_events": [
     {
       "data": {
-        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles begins",
+        "note": "Monday to Friday 9 AM to 5 PM begins",
         "ops": [
           [
             "process.active",
             {
               "active": true,
-              "id": "mobile_collection_drive"
+              "id": "blood_collection_drive"
             }
           ]
         ]
@@ -107,13 +106,13 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles begins",
+        "note": "Monday to Friday 9 AM to 5 PM begins",
         "ops": [
           [
             "process.active",
             {
               "active": true,
-              "id": "mobile_collection_drive"
+              "id": "blood_collection_drive"
             }
           ]
         ]
@@ -124,13 +123,13 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles begins",
+        "note": "Monday to Friday 9 AM to 5 PM begins",
         "ops": [
           [
             "process.active",
             {
               "active": true,
-              "id": "mobile_collection_drive"
+              "id": "blood_collection_drive"
             }
           ]
         ]
@@ -141,13 +140,13 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles ends",
+        "note": "Monday to Friday 9 AM to 5 PM ends",
         "ops": [
           [
             "process.active",
             {
               "active": false,
-              "id": "mobile_collection_drive"
+              "id": "blood_collection_drive"
             }
           ]
         ]
@@ -158,13 +157,13 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles ends",
+        "note": "Monday to Friday 9 AM to 5 PM ends",
         "ops": [
           [
             "process.active",
             {
               "active": false,
-              "id": "mobile_collection_drive"
+              "id": "blood_collection_drive"
             }
           ]
         ]
@@ -175,13 +174,13 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles ends",
+        "note": "Monday to Friday 9 AM to 5 PM ends",
         "ops": [
           [
             "process.active",
             {
               "active": false,
-              "id": "mobile_collection_drive"
+              "id": "blood_collection_drive"
             }
           ]
         ]
@@ -192,7 +191,7 @@
     },
     {
       "data": {
-        "note": "Tuesday shipment: 150 units leave Cascade at 4:00 PM, arrive at hospital at 7:00 PM. (basis: Evidence e7 (shipment days and time) and e9 (shipment size).)",
+        "note": "Tuesday shipment: centre sends 150 units to hospital at 4 PM. (basis: Standing distribution agreement and cooler capacity.)",
         "ops": [
           [
             "resource.transfer",
@@ -211,7 +210,7 @@
     },
     {
       "data": {
-        "note": "Thursday shipment: 150 units leave Cascade at 4:00 PM, arrive at hospital at 7:00 PM. (basis: Evidence e7 (shipment days and time) and e9 (shipment size).)",
+        "note": "Thursday shipment: centre sends 150 units to hospital at 4 PM. (basis: Standing distribution agreement and cooler capacity.)",
         "ops": [
           [
             "resource.transfer",

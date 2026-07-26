@@ -1,18 +1,14 @@
 {
   "causal_path": [
-    "Monday 09:00: Centre has 40 units, hospital has 15 units.",
-    "Monday 09:00-17:00: Collection drive produces 12*8=96 units (total centre: 136).",
-    "Tuesday 09:00-16:00: Collection produces 12*7=84 units (total centre: 220).",
-    "Tuesday 16:00: Shipment of 150 units leaves centre (centre: 70).",
-    "Tuesday 19:00: Shipment arrives at hospital (hospital: 165).",
-    "Wednesday 09:00-17:00: Collection produces 96 units (centre: 166).",
-    "Thursday 09:00-16:00: Collection produces 84 units (centre: 250).",
-    "Thursday 16:00: Shipment of 150 units leaves centre (centre: 100).",
-    "Thursday 19:00: Shipment arrives at hospital (hospital: 315).",
-    "Friday 12:00: Hospital holds 315 units."
+    "Starting state: St. Vincent hospital has 15 units at Monday 9 AM.",
+    "Tuesday 4 PM: Centre ships 150 units to hospital.",
+    "Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).",
+    "Thursday 4 PM: Centre ships another 150 units.",
+    "Thursday ~7 PM: Hospital receives 150 units.",
+    "Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units."
   ],
   "defects": [],
-  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the evidence: starting stocks (40 at centre, 15 at hospital), collection drive (12 units/hour, Mon-Fri 9-17), and shipments (150 units each on Tue and Thu at 16:00, arriving 3 hours later at 19:00). The deadline is Friday noon (12:00). The Tuesday shipment arrives Wednesday 19:00, the Thursday shipment arrives Thursday 19:00, both before the deadline. The hospital's final stock is 15 + 150 + 150 = 315 units. The centre's collection ensures it has enough units to ship (40 + collected units > 300). No missing participants or processes. The terminal is produced by events, not initialization. Uncertainties are minimal and not material.\",\n  \"causal_path\": [\n    \"Monday 09:00: Centre has 40 units, hospital has 15 units.\",\n    \"Monday 09:00-17:00: Collection drive produces 12*8=96 units (total centre: 136).\",\n    \"Tuesday 09:00-16:00: Collection produces 12*7=84 units (total centre: 220).\",\n    \"Tuesday 16:00: Shipment of 150 units leaves centre (centre: 70).\",\n    \"Tuesday 19:00: Shipment arrives at hospital (hospital: 165).\",\n    \"Wednesday 09:00-17:00: Collection produces 96 units (centre: 166).\",\n    \"Thursday 09:00-16:00: Collection produces 84 units (centre: 250).\",\n    \"Thursday 16:00: Shipment of 150 units leaves centre (centre: 100).\",\n    \"Thursday 19:00: Shipment arrives at hospital (hospital: 315).\",\n    \"Friday 12:00: Hospital holds 315 units.\"\n  ],\n  \"defects\": []\n}",
-  "reasoning": "The scenario correctly models the evidence: starting stocks (40 at centre, 15 at hospital), collection drive (12 units/hour, Mon-Fri 9-17), and shipments (150 units each on Tue and Thu at 16:00, arriving 3 hours later at 19:00). The deadline is Friday noon (12:00). The Tuesday shipment arrives Wednesday 19:00, the Thursday shipment arrives Thursday 19:00, both before the deadline. The hospital's final stock is 15 + 150 + 150 = 315 units. The centre's collection ensures it has enough units to ship (40 + collected units > 300). No missing participants or processes. The terminal is produced by events, not initialization. Uncertainties are minimal and not material.",
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the evidence: starting hospital stock of 15 units, two shipments of 150 units each on Tuesday and Thursday at 4 PM, which arrive well before Friday noon. The collection drive adds units to the centre but does not affect the hospital's received quantity. The terminal quantity is 15 + 150 + 150 = 315 units, producible from the starting state and scheduled events. No contradictions, missing participants, or unsupported assumptions. Uncertainties are properly noted.\",\n  \"causal_path\": [\n    \"Starting state: St. Vincent hospital has 15 units at Monday 9 AM.\",\n    \"Tuesday 4 PM: Centre ships 150 units to hospital.\",\n    \"Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).\",\n    \"Thursday 4 PM: Centre ships another 150 units.\",\n    \"Thursday ~7 PM: Hospital receives 150 units.\",\n    \"Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units.\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the evidence: starting hospital stock of 15 units, two shipments of 150 units each on Tuesday and Thursday at 4 PM, which arrive well before Friday noon. The collection drive adds units to the centre but does not affect the hospital's received quantity. The terminal quantity is 15 + 150 + 150 = 315 units, producible from the starting state and scheduled events. No contradictions, missing participants, or unsupported assumptions. Uncertainties are properly noted.",
   "verdict": "APPROVE"
 }

@@ -1,0 +1,37 @@
+{
+  "first_error": {
+    "detail": {
+      "available_evidence_ids": [
+        "e1",
+        "e10",
+        "e11",
+        "e12",
+        "e13",
+        "e14",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "defects": [
+        "participants['Dr. Helen Osei'].attention[0]: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "participants['Dr. Raj Patel'].attention[0]: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "participants['Sister Margaret Doyle'].attention[0]: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "participants['Tomas Lindqvist'].attention[0]: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "communication_routes['hospital email'].delivery_delay: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "communication_routes['manufacturer bulletins'].delivery_delay: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "communication_routes['meeting room speech'].delivery_delay: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "action_affordances['prepare and circulate safety review'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "action_affordances['put motion and vote'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+        "action_affordances['vote'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does."
+      ],
+      "repairable": true
+    },
+    "reason": "10 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - participants['Dr. Helen Osei'].attention[0]: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - participants['Dr. Raj Patel'].attention[0]: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - participants['Sister Margaret Doyle'].attention[0]: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - participants['Tomas Lindqvist'].attention[0]: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - communication_routes['hospital email'].delivery_delay: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - communication_routes['manufacturer bulletins'].delivery_delay: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - communication_routes['meeting room speech'].delivery_delay: basis 'verified' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['prepare and circulate safety review'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['put motion and vote'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['vote'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+    "stage": "INSUFFICIENT_EVIDENCE"
+  }
+}

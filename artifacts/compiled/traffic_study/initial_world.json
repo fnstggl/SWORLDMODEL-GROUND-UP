@@ -1,6 +1,38 @@
 {
   "action_defs": {
-    "send_finalized_study": {
+    "read_the_finalized_study": {
+      "conditions": [
+        {
+          "actors": [
+            "alma_reyes"
+          ],
+          "require": "actor_in"
+        },
+        {
+          "info": "{params.study}",
+          "require": "noticed_info"
+        }
+      ],
+      "description": "read the finalized study -- Reyes opens and reads the finalized study email attachment.",
+      "duration": {
+        "basis": "inferred",
+        "note": "Time to read a 60-page study.",
+        "seconds": 4500.0
+      },
+      "effects": [
+        [
+          "actor.belief",
+          {
+            "actor": "{actor}",
+            "basis": "Action completed.",
+            "statement": "Reyes has read the study.",
+            "topic": "riverside_corridor_study_content"
+          }
+        ]
+      ],
+      "verb": "read_the_finalized_study"
+    },
+    "send_the_finalized_study": {
       "conditions": [
         {
           "actors": [
@@ -13,11 +45,11 @@
           "require": "noticed_info"
         }
       ],
-      "description": "send finalized study -- Santos emails the finalized study to council members after receiving sign-off.",
+      "description": "send the finalized study -- Santos emails the finalized study to Reyes after receiving peer-review sign-off.",
       "duration": {
         "basis": "inferred",
-        "note": "Time to attach and send email.",
-        "seconds": 600.0
+        "note": "Time to attach and send the study.",
+        "seconds": 1200.0
       },
       "effects": [
         [
@@ -25,9 +57,9 @@
           {
             "author": "{actor}",
             "channel": "city_email",
-            "content": "Finalized Riverside corridor traffic study PDF.",
+            "content": "The finalized Riverside corridor traffic study (PDF).",
             "data": {
-              "description": "",
+              "description": "Study sent to Reyes.",
               "tag": "finalized_study"
             },
             "to": [
@@ -36,37 +68,7 @@
           }
         ]
       ],
-      "verb": "send_finalized_study"
-    },
-    "start_reading_study": {
-      "conditions": [
-        {
-          "actors": [
-            "alma_reyes"
-          ],
-          "require": "actor_in"
-        },
-        {
-          "info": "{params.study_email}",
-          "require": "noticed_info"
-        }
-      ],
-      "description": "start reading study -- Reyes opens the email attachment and begins reading.",
-      "duration": {
-        "basis": "inferred",
-        "note": "Time to open and start reading.",
-        "seconds": 60.0
-      },
-      "effects": [
-        [
-          "process.active",
-          {
-            "active": true,
-            "id": "reading_study"
-          }
-        ]
-      ],
-      "verb": "start_reading_study"
+      "verb": "send_the_finalized_study"
     }
   },
   "actions": {},
@@ -89,14 +91,14 @@
             ]
           },
           "check_every_seconds": 7200.0,
-          "note": "Checks email at start of workday and roughly every 2 hours."
+          "note": "Reyes checks email at start of workday and roughly every two hours thereafter."
         }
       },
       "available_info": [],
       "beliefs": {
-        "need_to_read_study": {
-          "basis": "verified: e7",
-          "statement": "Believes she needs to read the study before voting.",
+        "riverside_corridor_study_status": {
+          "basis": "inferred: e4",
+          "statement": "Reyes knows the study is pending peer-review sign-off.",
           "updated_at": "2026-02-18T16:00:00+00:00"
         }
       },
@@ -104,7 +106,7 @@
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Vote responsibly on Riverside corridor item."
+        "Vote responsibly on the Riverside corridor item."
       ],
       "id": "alma_reyes",
       "last_decision_at": null,
@@ -112,28 +114,33 @@
       "name": "Alma Reyes",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Available during work hours.",
-      "plan": "Review study before meeting if possible.",
+      "physical_state": "Healthy",
+      "plan": "Review study when it arrives.",
       "reconsider": [],
-      "relationships": {
-        "miguel_santos": "City transportation engineer who sends studies."
-      },
+      "relationships": {},
       "role": "councilmember",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Due diligence"
+        "Thorough review",
+        "Responsible governance"
       ]
     },
     "external_reviewer": {
       "attention": {},
       "available_info": [],
-      "beliefs": {},
+      "beliefs": {
+        "peer_review_signoff": {
+          "basis": "Committed delivery by 10:00 AM on 18 February.",
+          "statement": "The peer review is complete and the study is approved.",
+          "updated_at": "2026-02-18T16:00:00+00:00"
+        }
+      },
       "commitments": {},
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Deliver sign-off on time."
+        "Complete review on time."
       ],
       "id": "external_reviewer",
       "last_decision_at": null,
@@ -141,11 +148,11 @@
       "name": "external reviewer",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Available.",
-      "plan": "Send sign-off by 10 AM.",
+      "physical_state": "Healthy",
+      "plan": "Send sign-off by 10:00 AM on 18 February.",
       "reconsider": [],
       "relationships": {},
-      "role": "reviewer",
+      "role": "peer reviewer",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
@@ -170,16 +177,22 @@
             ]
           },
           "check_every_seconds": 3600.0,
-          "note": "Checks email hourly during workday."
+          "note": "Santos checks email hourly during working hours."
         }
       },
       "available_info": [],
-      "beliefs": {},
+      "beliefs": {
+        "peer_review_sign_off": {
+          "basis": "inferred: e4",
+          "statement": "Santos expects sign-off by 10:00 AM on 18 February.",
+          "updated_at": "2026-02-18T16:00:00+00:00"
+        }
+      },
       "commitments": {},
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Distribute finalized study promptly."
+        "Complete the study and distribute it."
       ],
       "id": "miguel_santos",
       "last_decision_at": null,
@@ -187,17 +200,16 @@
       "name": "Miguel Santos",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Available during work hours.",
-      "plan": "Send study within an hour of receiving sign-off.",
+      "physical_state": "Healthy",
+      "plan": "Send study after receiving peer-review sign-off.",
       "reconsider": [],
-      "relationships": {
-        "alma_reyes": "Recipient of finalized study."
-      },
+      "relationships": {},
       "role": "transportation engineer",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Timeliness"
+        "Timeliness",
+        "Accuracy"
       ]
     }
   },
@@ -205,7 +217,7 @@
     "city_email": {
       "latency": {
         "basis": "verified",
-        "note": "Delivers within about a minute.",
+        "note": "Email delivery within about a minute.",
         "seconds": 60.0
       },
       "name": "city_email"
@@ -216,87 +228,22 @@
   "history": [],
   "infos": {},
   "now": "2026-02-18T16:00:00+00:00",
-  "processes": {
-    "reading_study": {
-      "active": false,
-      "basis": "inferred",
-      "capacity": null,
-      "holder": "alma_reyes",
-      "id": "reading_study",
-      "last_applied": "2026-02-18T16:00:00+00:00",
-      "note": "Based on 60-90 minutes for 60 pages, assume 1 page per minute.",
-      "rate_per_hour": 60.0,
-      "resource": "study_read_time_minutes"
-    }
-  },
+  "processes": {},
   "relationships": {},
-  "resources": {
-    "alma_reyes:study_read_time_minutes": 0.0
-  },
+  "resources": {},
   "scheduled_events": [
     {
       "data": {
-        "note": "Reyes's work hours begins",
-        "ops": [
-          [
-            "process.active",
-            {
-              "active": true,
-              "id": "reading_study"
-            }
-          ]
-        ]
-      },
-      "kind": "world.ops",
-      "seq": 11,
-      "t": "2026-02-19T14:30:00+00:00"
-    },
-    {
-      "data": {
-        "note": "Reyes's work hours ends",
-        "ops": [
-          [
-            "process.active",
-            {
-              "active": false,
-              "id": "reading_study"
-            }
-          ]
-        ]
-      },
-      "kind": "world.ops",
-      "seq": 12,
-      "t": "2026-02-19T00:00:00+00:00"
-    },
-    {
-      "data": {
-        "note": "Reyes's work hours ends",
-        "ops": [
-          [
-            "process.active",
-            {
-              "active": false,
-              "id": "reading_study"
-            }
-          ]
-        ]
-      },
-      "kind": "world.ops",
-      "seq": 13,
-      "t": "2026-02-20T00:00:00+00:00"
-    },
-    {
-      "data": {
-        "note": "External reviewer sends peer-review sign-off to Santos. (basis: Reviewer committed to deliver by 10 AM on 18 Feb.)",
+        "note": "External reviewer sends peer-review sign-off to Santos. (basis: Committed delivery time per clerk's memo.)",
         "ops": [
           [
             "info.send_new",
             {
               "author": "external_reviewer",
               "channel": "city_email",
-              "content": "Sign-off received. Study is finalized.",
+              "content": "The peer review is complete and the study is approved.",
               "data": {
-                "description": "",
+                "description": "Sign-off sent to Santos.",
                 "tag": "peer_review_signoff"
               },
               "to": [
@@ -307,12 +254,13 @@
         ]
       },
       "kind": "world.ops",
-      "seq": 16,
+      "seq": 11,
       "t": "2026-02-18T16:00:00+00:00"
     }
   ],
   "start": "2026-02-18T16:00:00+00:00",
   "terminal": null,
-  "version": 17,
+  "typed_records": [],
+  "version": 12,
   "watches": {}
 }

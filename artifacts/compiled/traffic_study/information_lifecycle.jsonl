@@ -1,8 +1,4 @@
-{"cause":19,"data":{"author":"external_reviewer","content":"Sign-off received. Study is finalized.","data":{"description":"","tag":"peer_review_signoff"},"id":"i20"},"op":"info.create","seq":20,"t":"2026-02-18T16:00:00+00:00"}
-{"cause":20,"data":{"channel":"city_email","id":"i20","to":"miguel_santos"},"op":"info.send","seq":21,"t":"2026-02-18T16:00:00+00:00"}
-{"cause":23,"data":{"channel":"city_email","id":"i20","to":"miguel_santos"},"op":"info.deliver","seq":24,"t":"2026-02-18T16:01:00+00:00"}
-{"cause":26,"data":{"actor":"miguel_santos","id":"i20"},"op":"info.notice","seq":27,"t":"2026-02-18T17:00:00+00:00"}
-{"cause":38,"data":{"author":"miguel_santos","content":"Finalized Riverside corridor traffic study PDF.","data":{"description":"","tag":"finalized_study"},"id":"i41"},"op":"info.create","seq":41,"t":"2026-02-18T17:10:00+00:00"}
-{"cause":41,"data":{"channel":"city_email","id":"i41","to":"alma_reyes"},"op":"info.send","seq":42,"t":"2026-02-18T17:10:00+00:00"}
-{"cause":46,"data":{"channel":"city_email","id":"i41","to":"alma_reyes"},"op":"info.deliver","seq":47,"t":"2026-02-18T17:11:00+00:00"}
-{"cause":49,"data":{"actor":"alma_reyes","id":"i41"},"op":"info.notice","seq":50,"t":"2026-02-18T18:30:00+00:00"}
+{"cause":14,"data":{"author":"external_reviewer","content":"The peer review is complete and the study is approved.","data":{"description":"Sign-off sent to Santos.","tag":"peer_review_signoff"},"id":"i15"},"op":"info.create","seq":15,"t":"2026-02-18T16:00:00+00:00"}
+{"cause":15,"data":{"channel":"city_email","id":"i15","to":"miguel_santos"},"op":"info.send","seq":16,"t":"2026-02-18T16:00:00+00:00"}
+{"cause":18,"data":{"channel":"city_email","id":"i15","to":"miguel_santos"},"op":"info.deliver","seq":19,"t":"2026-02-18T16:01:00+00:00"}
+{"cause":21,"data":{"actor":"miguel_santos","id":"i15"},"op":"info.notice","seq":22,"t":"2026-02-18T17:00:00+00:00"}

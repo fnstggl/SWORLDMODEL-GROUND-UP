@@ -7,16 +7,12 @@ st_vincent_regional_hospital:usable_blood_units measured at 315
 **How it was produced.** 3 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- Monday 09:00: Centre has 40 units, hospital has 15 units.
-- Monday 09:00-17:00: Collection drive produces 12*8=96 units (total centre: 136).
-- Tuesday 09:00-16:00: Collection produces 12*7=84 units (total centre: 220).
-- Tuesday 16:00: Shipment of 150 units leaves centre (centre: 70).
-- Tuesday 19:00: Shipment arrives at hospital (hospital: 165).
-- Wednesday 09:00-17:00: Collection produces 96 units (centre: 166).
-- Thursday 09:00-16:00: Collection produces 84 units (centre: 250).
-- Thursday 16:00: Shipment of 150 units leaves centre (centre: 100).
-- Thursday 19:00: Shipment arrives at hospital (hospital: 315).
-- Friday 12:00: Hospital holds 315 units.
+- Starting state: St. Vincent hospital has 15 units at Monday 9 AM.
+- Tuesday 4 PM: Centre ships 150 units to hospital.
+- Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).
+- Thursday 4 PM: Centre ships another 150 units.
+- Thursday ~7 PM: Hospital receives 150 units.
+- Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units.
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -47,8 +43,9 @@ Every declared affordance was performed at least once, so the trajectory exercis
   - none
 - Attention patterns the scenario left uncertain, so no rule was created: 0
   - none
-- Unresolved uncertainties carried by the scenario: 0
-  - none
-- Deliberately excluded from the world: 2
-  - Elena Cruz: She oversees receipts but does not affect the collection rate or shipping schedule; her actions are not needed to determine the final quantity.
-  - Any other hospitals or blood centres: Only St. Vincent receives shipments from Cascade; no other parties are involved.
+- Unresolved uncertainties carried by the scenario: 1
+  - Shipment delivery time: 3 hours is inferred, but could vary. However, since shipments are sent at 4 PM and deadline is Friday noon, even with 3-hour delay, units arrive by 7 PM Tuesday and Thursday, well before deadline.
+- Deliberately excluded from the world: 3
+  - Elena Cruz: She oversees receipts but does not affect collection or shipping schedule.
+  - Other hospitals or blood centres: No evidence they receive or supply units.
+  - Weekend operations: Drive closed Saturday/Sunday; no shipments on those days.
