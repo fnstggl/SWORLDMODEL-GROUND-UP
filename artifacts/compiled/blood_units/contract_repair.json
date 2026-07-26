@@ -1,0 +1,27 @@
+{
+  "first_error": {
+    "detail": {
+      "available_evidence_ids": [
+        "e1",
+        "e10",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "defects": [
+        "starting_state[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "starting_state[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "processes['Mobile collection drive'].rate: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+        "resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}"
+      ],
+      "repairable": true
+    },
+    "reason": "4 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - starting_state[0]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - starting_state[1]: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - processes['Mobile collection drive'].rate: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}\n  - resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
+    "stage": "INSUFFICIENT_EVIDENCE"
+  }
+}

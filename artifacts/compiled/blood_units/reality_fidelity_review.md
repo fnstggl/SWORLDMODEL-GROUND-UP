@@ -7,10 +7,16 @@ st_vincent_regional_hospital:usable_blood_units measured at 315
 **How it was produced.** 3 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- St. Vincent hospital starts with 15 units at 9 AM Monday 20 July.
-- Tuesday 21 July: Cascade ships 150 units at 4 PM, arrives at hospital at 7 PM.
-- Thursday 23 July: Cascade ships 150 units at 4 PM, arrives at hospital at 7 PM.
-- By Friday noon, hospital holds 15 + 150 + 150 = 315 units.
+- Monday 09:00: Centre has 40 units, hospital has 15 units.
+- Monday 09:00-17:00: Collection drive produces 12*8=96 units (total centre: 136).
+- Tuesday 09:00-16:00: Collection produces 12*7=84 units (total centre: 220).
+- Tuesday 16:00: Shipment of 150 units leaves centre (centre: 70).
+- Tuesday 19:00: Shipment arrives at hospital (hospital: 165).
+- Wednesday 09:00-17:00: Collection produces 96 units (centre: 166).
+- Thursday 09:00-16:00: Collection produces 84 units (centre: 250).
+- Thursday 16:00: Shipment of 150 units leaves centre (centre: 100).
+- Thursday 19:00: Shipment arrives at hospital (hospital: 315).
+- Friday 12:00: Hospital holds 315 units.
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -34,7 +40,7 @@ reviewer's expected causal path was:
 - Participants who completed no action at all: ['cascade_regional_blood_centre', 'st_vincent_regional_hospital']
 - Intentions the world rejected: 0
   - none
-Every declared affordance was performed at least once, so the answer reflects the world rather than an actor that simply never acted.
+Every declared affordance was performed at least once, so the trajectory exercised the whole compiled world.
 
 ## Honest gaps recorded during compilation
 - Information delivered but with no justified way to notice it: 0
@@ -43,7 +49,6 @@ Every declared affordance was performed at least once, so the answer reflects th
   - none
 - Unresolved uncertainties carried by the scenario: 0
   - none
-- Deliberately excluded from the world: 3
-  - Elena Cruz: She does not affect collection rate or shipping schedule; her role is irrelevant to the quantity.
-  - Any other hospitals or blood centres: Only St. Vincent receives shipments from Cascade; no other parties affect the answer.
-  - Weekend operations: The deadline is Friday noon; the drive is closed on weekends and no shipments occur after Thursday.
+- Deliberately excluded from the world: 2
+  - Elena Cruz: She oversees receipts but does not affect the collection rate or shipping schedule; her actions are not needed to determine the final quantity.
+  - Any other hospitals or blood centres: Only St. Vincent receives shipments from Cascade; no other parties are involved.

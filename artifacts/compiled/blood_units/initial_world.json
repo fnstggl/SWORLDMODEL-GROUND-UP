@@ -10,7 +10,8 @@
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Collect and distribute blood units efficiently."
+        "Maintain supply",
+        "Fulfill distribution agreements"
       ],
       "id": "cascade_regional_blood_centre",
       "last_decision_at": null,
@@ -19,7 +20,7 @@
       "noticed_info": [],
       "ongoing_action": null,
       "physical_state": "Operational",
-      "plan": "Run collection drive Mon-Fri 9-5, ship 150 units on Tuesday and Thursday at 4 PM.",
+      "plan": "Run collection drive and ship as scheduled.",
       "reconsider": [],
       "relationships": {
         "st_vincent_regional_hospital": "Supplier of blood units via scheduled shipments."
@@ -28,8 +29,8 @@
       "tz": "America/Los_Angeles",
       "unprocessed_info": [],
       "values": [
-        "Reliability",
-        "Safety"
+        "Efficiency",
+        "Reliability"
       ]
     },
     "st_vincent_regional_hospital": {
@@ -40,7 +41,7 @@
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Maintain adequate blood supply."
+        "Maintain adequate blood supply"
       ],
       "id": "st_vincent_regional_hospital",
       "last_decision_at": null,
@@ -49,12 +50,12 @@
       "noticed_info": [],
       "ongoing_action": null,
       "physical_state": "Operational",
-      "plan": "Receive shipments and store blood.",
+      "plan": "Receive shipments and manage inventory.",
       "reconsider": [],
       "relationships": {
         "cascade_regional_blood_centre": "Recipient of blood shipments."
       },
-      "role": "hospital",
+      "role": "hospital blood bank",
       "tz": "America/Los_Angeles",
       "unprocessed_info": [],
       "values": [
@@ -70,13 +71,13 @@
   "now": "2026-07-21T23:00:00+00:00",
   "processes": {
     "mobile_collection_drive": {
-      "active": false,
+      "active": true,
       "basis": "verified",
       "capacity": null,
       "holder": "cascade_regional_blood_centre",
       "id": "mobile_collection_drive",
       "last_applied": "2026-07-21T23:00:00+00:00",
-      "note": "From centre's 2026 throughput report (e2).",
+      "note": "From evidence e2.",
       "rate_per_hour": 12.0,
       "resource": "usable_blood_units"
     }
@@ -191,7 +192,7 @@
     },
     {
       "data": {
-        "note": "Tuesday shipment departs Cascade at 4:00 PM, arrives at hospital after 3 hours at 7:00 PM. (basis: Standing distribution agreement (e7) and courier estimate (e8).)",
+        "note": "Tuesday shipment: 150 units leave Cascade at 4:00 PM, arrive at hospital at 7:00 PM. (basis: Evidence e7 (shipment days and time) and e9 (shipment size).)",
         "ops": [
           [
             "resource.transfer",
@@ -210,7 +211,7 @@
     },
     {
       "data": {
-        "note": "Thursday shipment departs Cascade at 4:00 PM, arrives at hospital after 3 hours at 7:00 PM. (basis: Standing distribution agreement (e7) and courier estimate (e8).)",
+        "note": "Thursday shipment: 150 units leave Cascade at 4:00 PM, arrive at hospital at 7:00 PM. (basis: Evidence e7 (shipment days and time) and e9 (shipment size).)",
         "ops": [
           [
             "resource.transfer",
@@ -230,6 +231,7 @@
   ],
   "start": "2026-07-21T23:00:00+00:00",
   "terminal": null,
+  "typed_records": [],
   "version": 17,
   "watches": {}
 }

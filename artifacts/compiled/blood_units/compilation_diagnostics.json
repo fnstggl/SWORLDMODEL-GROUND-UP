@@ -1,23 +1,17 @@
 {
-  "detail": {
-    "available_evidence_ids": [
-      "e1",
-      "e10",
-      "e2",
-      "e3",
-      "e4",
-      "e5",
-      "e6",
-      "e7",
-      "e8",
-      "e9"
-    ],
-    "repairable": true,
-    "uncited": [
-      "starting_state[0] (kind='quantity', subject='Cascade regional blood centre'): 'Usable blood units in stock at start of Monday 9 AM.'",
-      "starting_state[1] (kind='quantity', subject='St. Vincent regional hospital'): 'Usable blood units in hospital bank at start of Monday 9 AM.'"
-    ]
+  "action_defs": [],
+  "actors": [
+    "cascade_regional_blood_centre",
+    "st_vincent_regional_hospital"
+  ],
+  "channels": [],
+  "processes": [
+    "mobile_collection_drive"
+  ],
+  "producer_index": {
+    "resource:cascade_regional_blood_centre:usable_blood_units": 4,
+    "resource:st_vincent_regional_hospital:usable_blood_units": 3
   },
-  "reason": "these assertions cite no evidence at all. Add \"evidence_ids\" listing the claim ids that support each one, or mark it \"status\": \"inferred\" if it is your own reasoning: starting_state[0] (kind='quantity', subject='Cascade regional blood centre'): 'Usable blood units in stock at start of Monday 9 AM.'; starting_state[1] (kind='quantity', subject='St. Vincent regional hospital'): 'Usable blood units in hospital bank at start of Monday 9 AM.'",
-  "stage": "INSUFFICIENT_EVIDENCE"
+  "scheduled_root_events": 8,
+  "stage": "COMPILED"
 }
