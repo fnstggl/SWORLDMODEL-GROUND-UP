@@ -1,0 +1,202 @@
+{
+  "action_defs": {
+    "read_message": {
+      "conditions": [
+        {
+          "info": "{params.info}",
+          "require": "noticed_info"
+        }
+      ],
+      "description": "Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.",
+      "effects": [
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Read message {params.info} in full.",
+            "kind": "note",
+            "source": "{params.info}"
+          }
+        ]
+      ],
+      "verb": "read_message"
+    },
+    "send_message": {
+      "conditions": [
+        {
+          "id": "{params.to}",
+          "require": "actor_exists"
+        },
+        {
+          "name": "{params.channel}",
+          "require": "channel_exists"
+        },
+        {
+          "param": "content",
+          "require": "param_nonempty"
+        }
+      ],
+      "description": "Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+      "effects": [
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "{params.channel}",
+            "content": "{params.content}",
+            "data": "{params.data}",
+            "to": [
+              "{params.to}"
+            ]
+          }
+        ],
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Sent message to {params.to} on {params.channel}: {params.content}",
+            "kind": "note",
+            "source": "{action_id}"
+          }
+        ]
+      ],
+      "verb": "send_message"
+    }
+  },
+  "actions": {},
+  "actors": {
+    "alice": {
+      "attention": {
+        "email": {
+          "basis": "inferred",
+          "calendar": {
+            "close": "17:00",
+            "holidays": [],
+            "open": "09:00",
+            "tz": "America/New_York",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 1800.0,
+          "note": "office worker; checks email roughly every half hour during work hours"
+        }
+      },
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {
+        "c1": {
+          "at": "2026-03-07T02:10:00+00:00",
+          "id": "c1",
+          "resolved": false,
+          "what": "email Bob about the Q2 numbers before the weekend"
+        }
+      },
+      "deferred_wakes": [],
+      "emotional_state": "mildly pressed by the Monday deadline",
+      "goals": [
+        "finalize the Monday Q2 summary with confirmed numbers"
+      ],
+      "id": "alice",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Alice Ramos",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "working a long Friday",
+      "plan": "Finish the weekly review tonight, then get Bob's confirmation before the Monday summary.",
+      "reconsider": [],
+      "relationships": {
+        "bob": "trusted colleague; owns the Q2 pipeline numbers"
+      },
+      "role": "program manager, East Coast office",
+      "tz": "America/New_York",
+      "unprocessed_info": [],
+      "values": [
+        "thorough",
+        "dislikes sending unverified figures"
+      ]
+    },
+    "bob": {
+      "attention": {
+        "email": {
+          "basis": "inferred",
+          "calendar": {
+            "close": "17:00",
+            "holidays": [],
+            "open": "09:00",
+            "tz": "America/Los_Angeles",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 1800.0,
+          "note": "office worker; checks email roughly every half hour during work hours"
+        }
+      },
+      "available_info": [],
+      "beliefs": {
+        "q2_numbers": {
+          "basis": "verified: he closed the books himself on March 3",
+          "statement": "The final Q2 pipeline total is $4.2M, locked on March 3.",
+          "updated_at": "2026-03-06T13:00:00+00:00"
+        }
+      },
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "unwinding into the weekend",
+      "goals": [
+        "keep the quarter-close numbers accurate"
+      ],
+      "id": "bob",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Bob Okafor",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "rested",
+      "plan": "Off for the weekend; back Monday morning.",
+      "reconsider": [],
+      "relationships": {
+        "alice": "trusted colleague preparing the Q2 summary"
+      },
+      "role": "finance lead, West Coast office",
+      "tz": "America/Los_Angeles",
+      "unprocessed_info": [],
+      "values": [
+        "precise",
+        "answers colleagues promptly once he sees a request"
+      ]
+    }
+  },
+  "channels": {
+    "email": {
+      "latency": {
+        "basis": "verified",
+        "note": "typical SMTP relay delivery time",
+        "seconds": 30.0
+      },
+      "name": "email"
+    }
+  },
+  "entities": {},
+  "facts": {},
+  "history": [],
+  "infos": {},
+  "now": "2026-03-06T13:00:00+00:00",
+  "processes": {},
+  "relationships": {},
+  "resources": {},
+  "start": "2026-03-06T13:00:00+00:00",
+  "terminal": null,
+  "version": 10,
+  "watches": {}
+}

@@ -1,0 +1,527 @@
+{
+  "action_defs": {
+    "cast_vote": {
+      "conditions": [
+        {
+          "key": "meeting_open",
+          "require": "fact_equals",
+          "value": true
+        },
+        {
+          "require": "role_in",
+          "roles": [
+            "chair",
+            "member"
+          ]
+        },
+        {
+          "key": "motion",
+          "require": "fact_equals",
+          "value": "{params.motion}"
+        },
+        {
+          "key": "vote:{actor}",
+          "require": "fact_absent"
+        },
+        {
+          "param": "choice",
+          "require": "param_in",
+          "values": [
+            "hold",
+            "cut"
+          ]
+        }
+      ],
+      "description": "Cast your vote on the motion on the floor (members only, meeting in session, one vote each). params: motion, choice (hold|cut).",
+      "effects": [
+        [
+          "fact.set",
+          {
+            "key": "vote:{actor}",
+            "value": "{params.choice}"
+          }
+        ],
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Voted {params.choice} on: {params.motion}",
+            "kind": "note",
+            "source": "{action_id}"
+          }
+        ]
+      ],
+      "verb": "cast_vote"
+    },
+    "prepare_briefing": {
+      "conditions": [
+        {
+          "require": "role_in",
+          "roles": [
+            "staff analyst"
+          ]
+        },
+        {
+          "info": "{params.based_on_info}",
+          "require": "noticed_info"
+        },
+        {
+          "param": "content",
+          "require": "param_nonempty"
+        }
+      ],
+      "description": "Prepare a staff briefing from a noticed release and email it to the committee. params: based_on_info, content.",
+      "effects": [
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "email",
+            "content": "{params.content}",
+            "data": {
+              "based_on": "{params.based_on_info}",
+              "type": "briefing"
+            },
+            "to": {
+              "role_in": [
+                "chair",
+                "member"
+              ]
+            }
+          }
+        ],
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Sent the inflation briefing to the committee.",
+            "kind": "note",
+            "source": "{action_id}"
+          }
+        ]
+      ],
+      "verb": "prepare_briefing"
+    },
+    "propose_motion": {
+      "conditions": [
+        {
+          "key": "meeting_open",
+          "require": "fact_equals",
+          "value": true
+        },
+        {
+          "require": "role_in",
+          "roles": [
+            "chair"
+          ]
+        },
+        {
+          "key": "motion",
+          "require": "fact_absent"
+        },
+        {
+          "param": "motion",
+          "require": "param_nonempty"
+        }
+      ],
+      "description": "Put a motion on the floor (chair only, meeting in session). params: motion.",
+      "effects": [
+        [
+          "fact.set",
+          {
+            "key": "motion",
+            "value": "{params.motion}"
+          }
+        ],
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "meeting_floor",
+            "content": "Motion on the floor: {params.motion}. Please vote.",
+            "data": {
+              "motion": "{params.motion}",
+              "type": "motion"
+            },
+            "to": {
+              "exclude": [
+                "{actor}"
+              ],
+              "role_in": [
+                "chair",
+                "member"
+              ]
+            }
+          }
+        ],
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Put the motion on the floor: {params.motion}",
+            "kind": "note",
+            "source": "{action_id}"
+          }
+        ]
+      ],
+      "verb": "propose_motion"
+    },
+    "read_message": {
+      "conditions": [
+        {
+          "info": "{params.info}",
+          "require": "noticed_info"
+        }
+      ],
+      "description": "Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.",
+      "effects": [
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Read message {params.info} in full.",
+            "kind": "note",
+            "source": "{params.info}"
+          }
+        ]
+      ],
+      "verb": "read_message"
+    },
+    "send_message": {
+      "conditions": [
+        {
+          "id": "{params.to}",
+          "require": "actor_exists"
+        },
+        {
+          "name": "{params.channel}",
+          "require": "channel_exists"
+        },
+        {
+          "param": "content",
+          "require": "param_nonempty"
+        }
+      ],
+      "description": "Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+      "effects": [
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "{params.channel}",
+            "content": "{params.content}",
+            "data": "{params.data}",
+            "to": [
+              "{params.to}"
+            ]
+          }
+        ],
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Sent message to {params.to} on {params.channel}: {params.content}",
+            "kind": "note",
+            "source": "{action_id}"
+          }
+        ]
+      ],
+      "verb": "send_message"
+    }
+  },
+  "actions": {},
+  "actors": {
+    "dana": {
+      "attention": {
+        "email": {
+          "basis": "inferred",
+          "calendar": {
+            "close": "18:00",
+            "holidays": [],
+            "open": "09:00",
+            "tz": "America/Mexico_City",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 3600.0,
+          "note": "senior official; assistant batches email roughly hourly"
+        },
+        "meeting_floor": {
+          "basis": "verified",
+          "calendar": null,
+          "check_every_seconds": null,
+          "note": "present in the meeting room; speech is heard at once"
+        }
+      },
+      "available_info": [],
+      "beliefs": {
+        "inflation": {
+          "basis": "May CPI report",
+          "statement": "Inflation has been running near 4 percent, above target.",
+          "updated_at": "2026-06-23T14:00:00+00:00"
+        }
+      },
+      "commitments": {
+        "m1": {
+          "at": "2026-06-25T16:00:00+00:00",
+          "id": "m1",
+          "resolved": false,
+          "what": "attend the policy meeting"
+        }
+      },
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [
+        "decide the policy rate responsibly"
+      ],
+      "id": "dana",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Dana Ortiz",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "Review incoming analysis before Thursday's meeting.",
+      "reconsider": [],
+      "relationships": {
+        "eli": "committee colleague",
+        "fran": "committee colleague"
+      },
+      "role": "chair",
+      "tz": "America/Mexico_City",
+      "unprocessed_info": [],
+      "values": [
+        "institutionally cautious; discounts single data points"
+      ]
+    },
+    "eli": {
+      "attention": {
+        "email": {
+          "basis": "inferred",
+          "calendar": {
+            "close": "18:00",
+            "holidays": [],
+            "open": "09:00",
+            "tz": "America/Mexico_City",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 1800.0,
+          "note": "checks email frequently between engagements"
+        },
+        "meeting_floor": {
+          "basis": "verified",
+          "calendar": null,
+          "check_every_seconds": null,
+          "note": "present in the meeting room; speech is heard at once"
+        }
+      },
+      "available_info": [],
+      "beliefs": {
+        "inflation": {
+          "basis": "May CPI report",
+          "statement": "Inflation has been running near 4 percent, above target.",
+          "updated_at": "2026-06-23T14:00:00+00:00"
+        }
+      },
+      "commitments": {
+        "m1": {
+          "at": "2026-06-25T16:00:00+00:00",
+          "id": "m1",
+          "resolved": false,
+          "what": "attend the policy meeting"
+        }
+      },
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [
+        "decide the policy rate responsibly"
+      ],
+      "id": "eli",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Elias Roth",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "Review incoming analysis before Thursday's meeting.",
+      "reconsider": [],
+      "relationships": {
+        "dana": "committee colleague",
+        "fran": "committee colleague"
+      },
+      "role": "member",
+      "tz": "America/Mexico_City",
+      "unprocessed_info": [],
+      "values": [
+        "data-driven; responds to new evidence"
+      ]
+    },
+    "fran": {
+      "attention": {
+        "email": {
+          "basis": "verified",
+          "calendar": {
+            "close": "18:00",
+            "holidays": [
+              "2026-06-24",
+              "2026-06-25"
+            ],
+            "open": "09:00",
+            "tz": "America/Mexico_City",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 1800.0,
+          "note": "travel schedule: offline Wednesday-Thursday, resumes Friday"
+        },
+        "meeting_floor": {
+          "basis": "verified",
+          "calendar": null,
+          "check_every_seconds": null,
+          "note": "present in the meeting room; speech is heard at once"
+        }
+      },
+      "available_info": [],
+      "beliefs": {
+        "inflation": {
+          "basis": "May CPI report",
+          "statement": "Inflation has been running near 4 percent, above target.",
+          "updated_at": "2026-06-23T14:00:00+00:00"
+        }
+      },
+      "commitments": {
+        "m1": {
+          "at": "2026-06-25T16:00:00+00:00",
+          "id": "m1",
+          "resolved": false,
+          "what": "attend the policy meeting"
+        }
+      },
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [
+        "decide the policy rate responsibly"
+      ],
+      "id": "fran",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Francisca Duarte",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "Review incoming analysis before Thursday's meeting.",
+      "reconsider": [],
+      "relationships": {
+        "dana": "committee colleague",
+        "eli": "committee colleague"
+      },
+      "role": "member",
+      "tz": "America/Mexico_City",
+      "unprocessed_info": [],
+      "values": [
+        "data-driven; responds to new evidence"
+      ]
+    },
+    "gus": {
+      "attention": {
+        "data_wire": {
+          "basis": "verified",
+          "calendar": {
+            "close": "18:00",
+            "holidays": [],
+            "open": "08:00",
+            "tz": "America/Mexico_City",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": null,
+          "note": "watching the release calendar is his job; the release time is scheduled"
+        }
+      },
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [
+        "brief the committee accurately and fast on new data"
+      ],
+      "id": "gus",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Gustavo Pena",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "Watch Wednesday's inflation release and brief the committee.",
+      "reconsider": [],
+      "relationships": {},
+      "role": "staff analyst",
+      "tz": "America/Mexico_City",
+      "unprocessed_info": [],
+      "values": [
+        "rigorous",
+        "neutral"
+      ]
+    }
+  },
+  "channels": {
+    "data_wire": {
+      "latency": {
+        "basis": "verified",
+        "note": "electronic wire push at release time",
+        "seconds": 5.0
+      },
+      "name": "data_wire"
+    },
+    "email": {
+      "latency": {
+        "basis": "verified",
+        "note": "typical email delivery time",
+        "seconds": 30.0
+      },
+      "name": "email"
+    },
+    "meeting_floor": {
+      "latency": {
+        "basis": "verified",
+        "note": "spoken aloud in the meeting room",
+        "seconds": 0.0
+      },
+      "name": "meeting_floor"
+    }
+  },
+  "entities": {},
+  "facts": {},
+  "history": [],
+  "infos": {},
+  "now": "2026-06-23T14:00:00+00:00",
+  "processes": {},
+  "relationships": {},
+  "resources": {},
+  "start": "2026-06-23T14:00:00+00:00",
+  "terminal": null,
+  "version": 25,
+  "watches": {}
+}

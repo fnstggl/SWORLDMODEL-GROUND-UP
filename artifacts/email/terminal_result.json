@@ -1,0 +1,726 @@
+{
+  "answer": {
+    "answer": "yes",
+    "computed_from": [
+      "record:95"
+    ],
+    "detail": "Alice held Bob's confirmation by 2026-03-09T16:34:00+00:00: Bob confirmed the Q2 numbers: Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3."
+  },
+  "at": "2026-03-09T16:34:00+00:00",
+  "producer_lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": "yes",
+          "computed_from": [
+            "record:95"
+          ],
+          "detail": "Alice held Bob's confirmation by 2026-03-09T16:34:00+00:00: Bob confirmed the Q2 numbers: Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3."
+        },
+        "question": "Does Alice have Bob's confirmation of the final Q2 numbers before Tuesday 2026-03-10 12:00 America/New_York?",
+        "status": "resolved"
+      },
+      "op": "terminal",
+      "seq": 97,
+      "t": "2026-03-09T16:34:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a82"
+        },
+        "event": 86,
+        "kind": "action.complete",
+        "t": "2026-03-09T16:34:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 89,
+      "t": "2026-03-09T16:34:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a82"
+        },
+        "depth": 0,
+        "kind": "action.complete",
+        "t": "2026-03-09T16:34:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 86,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a82"
+        },
+        "event": 83,
+        "kind": "action.start",
+        "t": "2026-03-09T16:30:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 85,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a82"
+        },
+        "depth": 1,
+        "kind": "action.start",
+        "t": "2026-03-09T16:30:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 83,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "based_on_version": 79,
+        "completes_when": null,
+        "duration": {
+          "basis": "inferred",
+          "note": "short reply, quick read",
+          "seconds": 240.0
+        },
+        "id": "a82",
+        "interruptible": false,
+        "interruption_note": "",
+        "note": "Bob replied; reading it",
+        "params": {
+          "content": "Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3.",
+          "info": "i67"
+        },
+        "verb": "read_message"
+      },
+      "op": "action.propose",
+      "seq": 82,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "based_on_version": 79,
+        "intentions": [
+          "read_message"
+        ],
+        "note": "Bob's reply arrived; reading it now",
+        "reasons": [
+          {
+            "channel": "email",
+            "detail": "message from bob on email",
+            "kind": "info_noticed",
+            "ref": "i67"
+          }
+        ]
+      },
+      "op": "actor.decision",
+      "seq": 81,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "reasons": [
+          {
+            "channel": "email",
+            "detail": "message from bob on email",
+            "kind": "info_noticed",
+            "ref": "i67"
+          }
+        ],
+        "rendered": "Current time:\n2026-03-09 12:30:00 America/New_York\n\nTime since your previous relevant decision:\n2 days, 14 hours, 12 minutes\n\nWhy you are being consulted now:\n- info_noticed: message from bob on email\n\nNew information you have just noticed:\n- [email] message i67 from bob: Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3.\n\nYour role: program manager, East Coast office\nYour goals:\n- finalize the Monday Q2 summary with confirmed numbers\nYour dispositions:\n- thorough\n- dislikes sending unverified figures\nYour relationships:\n- bob: trusted colleague; owns the Q2 pipeline numbers\nYour emotional state: mildly pressed by the Monday deadline\nYour physical state: working a long Friday\nYour current plan: Wait for Bob's reply before finalizing the summary.\nYour memories (oldest first):\n- [2026-03-06 21:10:00 America/New_York] (note) Decided to email Bob about the Q2 numbers tonight.\n- [2026-03-06 21:18:00 America/New_York] (note) Sent message to bob on email: Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.\n- [2026-03-09 12:30:00 America/New_York] (observation) Noticed message from bob on email: Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3.\nActions available to you:\n- read_message: Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.\n- send_message: Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+        "world_version": 79
+      },
+      "op": "actor.view",
+      "seq": 80,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "id": "i67"
+      },
+      "op": "info.notice",
+      "seq": 78,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "alice",
+          "basis": "inferred",
+          "channel": "email",
+          "info": "i67",
+          "note": "office worker; checks email roughly every half hour during work hours"
+        },
+        "event": 76,
+        "kind": "info.notice",
+        "t": "2026-03-09T16:30:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 77,
+      "t": "2026-03-09T16:30:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "alice",
+          "basis": "inferred",
+          "channel": "email",
+          "info": "i67",
+          "note": "office worker; checks email roughly every half hour during work hours"
+        },
+        "depth": 0,
+        "kind": "info.notice",
+        "t": "2026-03-09T16:30:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 76,
+      "t": "2026-03-09T16:18:30+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "channel": "email",
+          "info": "i67",
+          "to": "alice"
+        },
+        "event": 69,
+        "kind": "info.deliver",
+        "t": "2026-03-09T16:18:30+00:00"
+      },
+      "op": "event.fired",
+      "seq": 74,
+      "t": "2026-03-09T16:18:30+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "channel": "email",
+          "info": "i67",
+          "to": "alice"
+        },
+        "depth": 0,
+        "kind": "info.deliver",
+        "t": "2026-03-09T16:18:30+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 69,
+      "t": "2026-03-09T16:18:00+00:00"
+    },
+    {
+      "data": {
+        "channel": "email",
+        "id": "i67",
+        "to": "alice"
+      },
+      "op": "info.send",
+      "seq": 68,
+      "t": "2026-03-09T16:18:00+00:00"
+    },
+    {
+      "data": {
+        "author": "bob",
+        "content": "Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3.",
+        "data": {
+          "in_reply_to": "i27",
+          "thread": "q2",
+          "type": "reply"
+        },
+        "id": "i67"
+      },
+      "op": "info.create",
+      "seq": 67,
+      "t": "2026-03-09T16:18:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a57"
+        },
+        "event": 61,
+        "kind": "action.complete",
+        "t": "2026-03-09T16:18:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 64,
+      "t": "2026-03-09T16:18:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a57"
+        },
+        "depth": 0,
+        "kind": "action.complete",
+        "t": "2026-03-09T16:18:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 61,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a57"
+        },
+        "event": 58,
+        "kind": "action.start",
+        "t": "2026-03-09T16:06:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 60,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a57"
+        },
+        "depth": 1,
+        "kind": "action.start",
+        "t": "2026-03-09T16:06:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 58,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "based_on_version": 53,
+        "completes_when": null,
+        "duration": {
+          "basis": "actor_chosen",
+          "note": "double-checks the ledger figure while composing",
+          "seconds": 720.0
+        },
+        "id": "a57",
+        "interruptible": false,
+        "interruption_note": "",
+        "note": "answering Alice's confirmation request",
+        "params": {
+          "channel": "email",
+          "content": "Hi Alice -- confirmed: The final Q2 pipeline total is $4.2M, locked on March 3.",
+          "data": {
+            "in_reply_to": "i27",
+            "thread": "q2",
+            "type": "reply"
+          },
+          "to": "alice"
+        },
+        "verb": "send_message"
+      },
+      "op": "action.propose",
+      "seq": 57,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "based_on_version": 53,
+        "intentions": [
+          "send_message"
+        ],
+        "note": "Replying with the confirmed Q2 total",
+        "reasons": [
+          {
+            "channel": null,
+            "detail": "read_message",
+            "kind": "action_completed",
+            "ref": "a43"
+          }
+        ]
+      },
+      "op": "actor.decision",
+      "seq": 55,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "reasons": [
+          {
+            "channel": null,
+            "detail": "read_message",
+            "kind": "action_completed",
+            "ref": "a43"
+          }
+        ],
+        "rendered": "Current time:\n2026-03-09 09:06:00 America/Los_Angeles\n\nTime since your previous relevant decision:\n6 minutes\n\nWhy you are being consulted now:\n- action_completed: read_message\n\nYou just finished: read_message {'info': 'i27', 'content': \"Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.\"}\n\nYour role: finance lead, West Coast office\nYour goals:\n- keep the quarter-close numbers accurate\nYour dispositions:\n- precise\n- answers colleagues promptly once he sees a request\nYour current beliefs:\n- [q2_numbers] The final Q2 pipeline total is $4.2M, locked on March 3. (basis: verified: he closed the books himself on March 3)\nYour relationships:\n- alice: trusted colleague preparing the Q2 summary\nYour emotional state: Monday-morning inbox triage; slightly rushed\nYour physical state: rested\nYour current plan: Off for the weekend; back Monday morning.\nYour memories (oldest first):\n- [2026-03-09 09:00:00 America/Los_Angeles] (observation) Noticed message from alice on email: Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.\n- [2026-03-09 09:06:00 America/Los_Angeles] (note) Read message i27 in full.\nActions available to you:\n- read_message: Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.\n- send_message: Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+        "world_version": 53
+      },
+      "op": "actor.view",
+      "seq": 54,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a43"
+        },
+        "event": 47,
+        "kind": "action.complete",
+        "t": "2026-03-09T16:06:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 50,
+      "t": "2026-03-09T16:06:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a43"
+        },
+        "depth": 0,
+        "kind": "action.complete",
+        "t": "2026-03-09T16:06:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 47,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a43"
+        },
+        "event": 44,
+        "kind": "action.start",
+        "t": "2026-03-09T16:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 46,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a43"
+        },
+        "depth": 1,
+        "kind": "action.start",
+        "t": "2026-03-09T16:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 44,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "based_on_version": 39,
+        "completes_when": null,
+        "duration": {
+          "basis": "inferred",
+          "note": "reading and re-checking the request",
+          "seconds": 360.0
+        },
+        "id": "a43",
+        "interruptible": false,
+        "interruption_note": "",
+        "note": "new email from Alice; reading it",
+        "params": {
+          "content": "Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.",
+          "info": "i27"
+        },
+        "verb": "read_message"
+      },
+      "op": "action.propose",
+      "seq": 43,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "based_on_version": 39,
+        "intentions": [
+          "read_message"
+        ],
+        "note": "Back at his desk Monday; Alice's email is at the top",
+        "reasons": [
+          {
+            "channel": "email",
+            "detail": "message from alice on email",
+            "kind": "info_noticed",
+            "ref": "i27"
+          }
+        ]
+      },
+      "op": "actor.decision",
+      "seq": 41,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "reasons": [
+          {
+            "channel": "email",
+            "detail": "message from alice on email",
+            "kind": "info_noticed",
+            "ref": "i27"
+          }
+        ],
+        "rendered": "Current time:\n2026-03-09 09:00:00 America/Los_Angeles\n\nWhy you are being consulted now:\n- info_noticed: message from alice on email\n\nNew information you have just noticed:\n- [email] message i27 from alice: Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.\n\nYour role: finance lead, West Coast office\nYour goals:\n- keep the quarter-close numbers accurate\nYour dispositions:\n- precise\n- answers colleagues promptly once he sees a request\nYour current beliefs:\n- [q2_numbers] The final Q2 pipeline total is $4.2M, locked on March 3. (basis: verified: he closed the books himself on March 3)\nYour relationships:\n- alice: trusted colleague preparing the Q2 summary\nYour emotional state: unwinding into the weekend\nYour physical state: rested\nYour current plan: Off for the weekend; back Monday morning.\nYour memories (oldest first):\n- [2026-03-09 09:00:00 America/Los_Angeles] (observation) Noticed message from alice on email: Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.\nActions available to you:\n- read_message: Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.\n- send_message: Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+        "world_version": 39
+      },
+      "op": "actor.view",
+      "seq": 40,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "bob",
+        "id": "i27"
+      },
+      "op": "info.notice",
+      "seq": 38,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "bob",
+          "basis": "inferred",
+          "channel": "email",
+          "info": "i27",
+          "note": "office worker; checks email roughly every half hour during work hours"
+        },
+        "event": 36,
+        "kind": "info.notice",
+        "t": "2026-03-09T16:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 37,
+      "t": "2026-03-09T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "bob",
+          "basis": "inferred",
+          "channel": "email",
+          "info": "i27",
+          "note": "office worker; checks email roughly every half hour during work hours"
+        },
+        "depth": 0,
+        "kind": "info.notice",
+        "t": "2026-03-09T16:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 36,
+      "t": "2026-03-07T02:18:30+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "channel": "email",
+          "info": "i27",
+          "to": "bob"
+        },
+        "event": 29,
+        "kind": "info.deliver",
+        "t": "2026-03-07T02:18:30+00:00"
+      },
+      "op": "event.fired",
+      "seq": 34,
+      "t": "2026-03-07T02:18:30+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "channel": "email",
+          "info": "i27",
+          "to": "bob"
+        },
+        "depth": 0,
+        "kind": "info.deliver",
+        "t": "2026-03-07T02:18:30+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 29,
+      "t": "2026-03-07T02:18:00+00:00"
+    },
+    {
+      "data": {
+        "channel": "email",
+        "id": "i27",
+        "to": "bob"
+      },
+      "op": "info.send",
+      "seq": 28,
+      "t": "2026-03-07T02:18:00+00:00"
+    },
+    {
+      "data": {
+        "author": "alice",
+        "content": "Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.",
+        "data": {
+          "thread": "q2",
+          "type": "question"
+        },
+        "id": "i27"
+      },
+      "op": "info.create",
+      "seq": 27,
+      "t": "2026-03-07T02:18:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a17"
+        },
+        "event": 21,
+        "kind": "action.complete",
+        "t": "2026-03-07T02:18:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 24,
+      "t": "2026-03-07T02:18:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a17"
+        },
+        "depth": 0,
+        "kind": "action.complete",
+        "t": "2026-03-07T02:18:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 21,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a17"
+        },
+        "event": 18,
+        "kind": "action.start",
+        "t": "2026-03-07T02:10:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 20,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a17"
+        },
+        "depth": 1,
+        "kind": "action.start",
+        "t": "2026-03-07T02:10:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 18,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "based_on_version": 12,
+        "completes_when": null,
+        "duration": {
+          "basis": "actor_chosen",
+          "note": "time she takes to compose a short email",
+          "seconds": 480.0
+        },
+        "id": "a17",
+        "interruptible": false,
+        "interruption_note": "",
+        "note": "fulfilling her Friday commitment",
+        "params": {
+          "channel": "email",
+          "content": "Hi Bob -- could you confirm the final Q2 pipeline numbers when you get a chance? I need them for Monday's summary.",
+          "data": {
+            "thread": "q2",
+            "type": "question"
+          },
+          "to": "bob"
+        },
+        "verb": "send_message"
+      },
+      "op": "action.propose",
+      "seq": 17,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "based_on_version": 12,
+        "intentions": [
+          "send_message"
+        ],
+        "note": "Friday evening: sending Bob the Q2 question before logging off",
+        "reasons": [
+          {
+            "channel": null,
+            "detail": "c1: email Bob about the Q2 numbers before the weekend",
+            "kind": "scheduled_commitment",
+            "ref": null
+          }
+        ]
+      },
+      "op": "actor.decision",
+      "seq": 14,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "alice",
+        "reasons": [
+          {
+            "channel": null,
+            "detail": "c1: email Bob about the Q2 numbers before the weekend",
+            "kind": "scheduled_commitment",
+            "ref": null
+          }
+        ],
+        "rendered": "Current time:\n2026-03-06 21:10:00 America/New_York\n\nUpcoming commitments:\n- email Bob about the Q2 numbers before the weekend in 0 minutes (at 2026-03-06 21:10:00 America/New_York)\n\nWhy you are being consulted now:\n- scheduled_commitment: c1: email Bob about the Q2 numbers before the weekend\n\nYour role: program manager, East Coast office\nYour goals:\n- finalize the Monday Q2 summary with confirmed numbers\nYour dispositions:\n- thorough\n- dislikes sending unverified figures\nYour relationships:\n- bob: trusted colleague; owns the Q2 pipeline numbers\nYour emotional state: mildly pressed by the Monday deadline\nYour physical state: working a long Friday\nYour current plan: Finish the weekly review tonight, then get Bob's confirmation before the Monday summary.\nActions available to you:\n- read_message: Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.\n- send_message: Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+        "world_version": 12
+      },
+      "op": "actor.view",
+      "seq": 13,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "alice",
+          "detail": "c1: email Bob about the Q2 numbers before the weekend",
+          "reason": "scheduled_commitment"
+        },
+        "event": 9,
+        "kind": "wake.actor",
+        "t": "2026-03-07T02:10:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 12,
+      "t": "2026-03-07T02:10:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "alice",
+          "detail": "c1: email Bob about the Q2 numbers before the weekend",
+          "reason": "scheduled_commitment"
+        },
+        "depth": 0,
+        "kind": "wake.actor",
+        "t": "2026-03-07T02:10:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 9,
+      "t": "2026-03-06T13:00:00+00:00"
+    }
+  ],
+  "question": "Does Alice have Bob's confirmation of the final Q2 numbers before Tuesday 2026-03-10 12:00 America/New_York?",
+  "status": "resolved"
+}

@@ -1,0 +1,390 @@
+{
+  "answer": {
+    "answer": "hold",
+    "computed_from": [
+      "record:181",
+      "record:186",
+      "record:191"
+    ],
+    "detail": "votes: {'dana': 'hold', 'eli': 'cut', 'fran': 'hold'} -> hold 2-1"
+  },
+  "at": "2026-06-25T16:07:00+00:00",
+  "producer_lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": "hold",
+          "computed_from": [
+            "record:181",
+            "record:186",
+            "record:191"
+          ],
+          "detail": "votes: {'dana': 'hold', 'eli': 'cut', 'fran': 'hold'} -> hold 2-1"
+        },
+        "question": "What does the committee decide on the policy rate at the 2026-06-25 meeting (hold or cut), counted from cast votes?",
+        "status": "resolved"
+      },
+      "op": "terminal",
+      "seq": 199,
+      "t": "2026-06-25T16:07:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a163"
+        },
+        "event": 175,
+        "kind": "action.complete",
+        "t": "2026-06-25T16:07:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 188,
+      "t": "2026-06-25T16:07:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a163"
+        },
+        "depth": 0,
+        "kind": "action.complete",
+        "t": "2026-06-25T16:07:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 175,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a163"
+        },
+        "event": 164,
+        "kind": "action.start",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 174,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a163"
+        },
+        "depth": 3,
+        "kind": "action.start",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 164,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "fran",
+        "based_on_version": 160,
+        "completes_when": null,
+        "duration": {
+          "basis": "actor_chosen",
+          "note": "stating a vote in the room",
+          "seconds": 120.0
+        },
+        "id": "a163",
+        "interruptible": false,
+        "interruption_note": "",
+        "note": "voting on the motion",
+        "params": {
+          "choice": "hold",
+          "motion": "hold the policy rate"
+        },
+        "verb": "cast_vote"
+      },
+      "op": "action.propose",
+      "seq": 163,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "fran",
+        "based_on_version": 160,
+        "intentions": [
+          "cast_vote"
+        ],
+        "note": "Voting hold based on current beliefs",
+        "reasons": [
+          {
+            "channel": "meeting_floor",
+            "detail": "message from dana on meeting_floor",
+            "kind": "info_noticed",
+            "ref": "i133"
+          }
+        ]
+      },
+      "op": "actor.decision",
+      "seq": 162,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "fran",
+        "reasons": [
+          {
+            "channel": "meeting_floor",
+            "detail": "message from dana on meeting_floor",
+            "kind": "info_noticed",
+            "ref": "i133"
+          }
+        ],
+        "rendered": "Current time:\n2026-06-25 10:05:00 America/Mexico_City\n\nTime since your previous relevant decision:\n5 minutes\n\nWhy you are being consulted now:\n- info_noticed: message from dana on meeting_floor\n\nNew information you have just noticed:\n- [meeting_floor] message i133 from dana: Motion on the floor: hold the policy rate. Please vote.\n\nYour role: member\nYour goals:\n- decide the policy rate responsibly\nYour dispositions:\n- data-driven; responds to new evidence\nYour current beliefs:\n- [inflation] Inflation has been running near 4 percent, above target. (basis: May CPI report)\nYour relationships:\n- dana: committee colleague\n- eli: committee colleague\nYour emotional state: attentive; in the meeting\nYour current plan: Review incoming analysis before Thursday's meeting.\nYour memories (oldest first):\n- [2026-06-25 10:05:00 America/Mexico_City] (observation) Noticed message from dana on meeting_floor: Motion on the floor: hold the policy rate. Please vote.\nActions available to you:\n- cast_vote: Cast your vote on the motion on the floor (members only, meeting in session, one vote each). params: motion, choice (hold|cut).\n- prepare_briefing: Prepare a staff briefing from a noticed release and email it to the committee. params: based_on_info, content.\n- propose_motion: Put a motion on the floor (chair only, meeting in session). params: motion.\n- read_message: Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.\n- send_message: Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+        "world_version": 160
+      },
+      "op": "actor.view",
+      "seq": 161,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "fran",
+        "id": "i133"
+      },
+      "op": "info.notice",
+      "seq": 149,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "fran",
+          "basis": "verified",
+          "channel": "meeting_floor",
+          "info": "i133",
+          "note": "present in the meeting room; speech is heard at once"
+        },
+        "event": 144,
+        "kind": "info.notice",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 148,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "fran",
+          "basis": "verified",
+          "channel": "meeting_floor",
+          "info": "i133",
+          "note": "present in the meeting room; speech is heard at once"
+        },
+        "depth": 2,
+        "kind": "info.notice",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 144,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "channel": "meeting_floor",
+          "info": "i133",
+          "to": "fran"
+        },
+        "event": 137,
+        "kind": "info.deliver",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 142,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "channel": "meeting_floor",
+          "info": "i133",
+          "to": "fran"
+        },
+        "depth": 1,
+        "kind": "info.deliver",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 137,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "channel": "meeting_floor",
+        "id": "i133",
+        "to": "fran"
+      },
+      "op": "info.send",
+      "seq": 136,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "author": "dana",
+        "content": "Motion on the floor: hold the policy rate. Please vote.",
+        "data": {
+          "motion": "hold the policy rate",
+          "type": "motion"
+        },
+        "id": "i133"
+      },
+      "op": "info.create",
+      "seq": 133,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a116"
+        },
+        "event": 126,
+        "kind": "action.complete",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 129,
+      "t": "2026-06-25T16:05:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a116"
+        },
+        "depth": 0,
+        "kind": "action.complete",
+        "t": "2026-06-25T16:05:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 126,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a116"
+        },
+        "event": 117,
+        "kind": "action.start",
+        "t": "2026-06-25T16:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 125,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "action": "a116"
+        },
+        "depth": 1,
+        "kind": "action.start",
+        "t": "2026-06-25T16:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 117,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "dana",
+        "based_on_version": 112,
+        "completes_when": null,
+        "duration": {
+          "basis": "actor_chosen",
+          "note": "opening remarks and stating the motion",
+          "seconds": 300.0
+        },
+        "id": "a116",
+        "interruptible": false,
+        "interruption_note": "",
+        "note": "chairing: putting the motion to a vote",
+        "params": {
+          "motion": "hold the policy rate"
+        },
+        "verb": "propose_motion"
+      },
+      "op": "action.propose",
+      "seq": 116,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "dana",
+        "based_on_version": 112,
+        "intentions": [
+          "propose_motion"
+        ],
+        "note": "Meeting open; putting the hold motion on the floor",
+        "reasons": [
+          {
+            "channel": null,
+            "detail": "m1: the policy meeting begins",
+            "kind": "scheduled_commitment",
+            "ref": null
+          }
+        ]
+      },
+      "op": "actor.decision",
+      "seq": 114,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "dana",
+        "reasons": [
+          {
+            "channel": null,
+            "detail": "m1: the policy meeting begins",
+            "kind": "scheduled_commitment",
+            "ref": null
+          }
+        ],
+        "rendered": "Current time:\n2026-06-25 10:00:00 America/Mexico_City\n\nTime since your previous relevant decision:\n20 hours, 40 minutes\n\nUpcoming commitments:\n- attend the policy meeting in 0 minutes (at 2026-06-25 10:00:00 America/Mexico_City)\n\nWhy you are being consulted now:\n- scheduled_commitment: m1: the policy meeting begins\n\nYour role: chair\nYour goals:\n- decide the policy rate responsibly\nYour dispositions:\n- institutionally cautious; discounts single data points\nYour current beliefs:\n- [inflation] Staff analysis: inflation printed below expectations and is approaching target. (basis: staff briefing i51, read in full)\nYour relationships:\n- eli: committee colleague\n- fran: committee colleague\nYour current plan: Review incoming analysis before Thursday's meeting.\nYour memories (oldest first):\n- [2026-06-24 13:00:00 America/Mexico_City] (observation) Noticed message from gus on email: Staff briefing on the June release: June inflation printed 3.1% y/y, below the 3.6% consensus and moving toward target. Staff assessment: inflation is below expectations and approaching target.\n- [2026-06-24 13:20:00 America/Mexico_City] (note) Read message i51 in full.\nActions available to you:\n- cast_vote: Cast your vote on the motion on the floor (members only, meeting in session, one vote each). params: motion, choice (hold|cut).\n- prepare_briefing: Prepare a staff briefing from a noticed release and email it to the committee. params: based_on_info, content.\n- propose_motion: Put a motion on the floor (chair only, meeting in session). params: motion.\n- read_message: Read a message you have noticed. params: info (message id), content (the text, for your own record). Reading takes time.\n- send_message: Compose and send a message. params: to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.",
+        "world_version": 112
+      },
+      "op": "actor.view",
+      "seq": 113,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "dana",
+          "detail": "m1: the policy meeting begins",
+          "reason": "scheduled_commitment"
+        },
+        "event": 22,
+        "kind": "wake.actor",
+        "t": "2026-06-25T16:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 110,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "actor": "dana",
+          "detail": "m1: the policy meeting begins",
+          "reason": "scheduled_commitment"
+        },
+        "depth": 0,
+        "kind": "wake.actor",
+        "t": "2026-06-25T16:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 22,
+      "t": "2026-06-23T14:00:00+00:00"
+    }
+  ],
+  "question": "What does the committee decide on the policy rate at the 2026-06-25 meeting (hold or cut), counted from cast votes?",
+  "status": "resolved"
+}

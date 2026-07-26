@@ -1,0 +1,22 @@
+{"cause":null,"data":{"id":"factory","kind":"plant","properties":{"line":"widget line 1"}},"op":"entity.add","seq":4,"t":"2026-04-06T11:00:00+00:00"}
+{"cause":null,"data":{"id":"acme","kind":"customer","properties":{"name":"Acme Corp"}},"op":"entity.add","seq":5,"t":"2026-04-06T11:00:00+00:00"}
+{"cause":null,"data":{"amount":0,"holder":"factory","name":"widgets"},"op":"resource.set","seq":6,"t":"2026-04-06T11:00:00+00:00"}
+{"cause":null,"data":{"amount":0,"holder":"acme","name":"widgets"},"op":"resource.set","seq":7,"t":"2026-04-06T11:00:00+00:00"}
+{"cause":null,"data":{"attention":{"order_system":{"basis":"inferred","calendar":{"close":"17:00","holidays":[],"open":"08:00","tz":"America/Chicago","workdays":[0,1,2,3,4]},"check_every_seconds":900.0,"note":"order desk checks the order system frequently during shift"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":["ship every order as soon as stock allows"],"id":"mo","last_decision_at":null,"memories":[],"name":"Mo Jackson","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"Run the week's production; fulfill orders as they arrive.","reconsider":[],"relationships":{},"role":"ops manager","tz":"America/Chicago","unprocessed_info":[],"values":["reliable","hates late shipments"]},"op":"actor.add","seq":9,"t":"2026-04-06T11:00:00+00:00"}
+{"cause":null,"data":{"attention":{},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"acme_contact","last_decision_at":null,"memories":[],"name":"Acme receiving desk","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"customer contact","tz":"America/Chicago","unprocessed_info":[],"values":[]},"op":"actor.add","seq":10,"t":"2026-04-06T11:00:00+00:00"}
+{"cause":26,"data":{"key":"order:o1:status","value":"received"},"op":"fact.set","seq":28,"t":"2026-04-06T14:30:00+00:00"}
+{"cause":26,"data":{"key":"order:o1:qty","value":500},"op":"fact.set","seq":29,"t":"2026-04-06T14:30:00+00:00"}
+{"cause":39,"data":{"actor":"mo","content":"Noticed message from acme on order_system: PO o1: 500 widgets, ship as soon as available.","kind":"observation","source":"i30"},"op":"actor.memory","seq":40,"t":"2026-04-06T14:45:00+00:00"}
+{"cause":42,"data":{"actor":"mo","at":null,"id":"c_o1","what":"fulfill PO o1 (500 widgets)"},"op":"actor.commit","seq":43,"t":"2026-04-06T14:45:00+00:00"}
+{"cause":42,"data":{"actor":"mo","content":"New order o1 for 500 widgets; will ship as soon as stock covers it.","kind":"note","source":"i30"},"op":"actor.memory","seq":44,"t":"2026-04-06T14:45:00+00:00"}
+{"cause":48,"data":{"action":"a45","actor":"mo"},"op":"actor.ongoing","seq":51,"t":"2026-04-06T14:45:00+00:00"}
+{"cause":64,"data":{"action":null,"actor":"mo"},"op":"actor.ongoing","seq":66,"t":"2026-04-07T17:30:00+00:00"}
+{"cause":64,"data":{"key":"order:o1:status","value":"shipped"},"op":"fact.set","seq":67,"t":"2026-04-07T17:30:00+00:00"}
+{"cause":64,"data":{"amount":500,"from_holder":"factory","name":"widgets","to_holder":"carrier"},"op":"resource.transfer","seq":68,"t":"2026-04-07T17:30:00+00:00"}
+{"cause":64,"data":{"actor":"mo","content":"Shipped PO o1: 500 widgets handed to the carrier.","kind":"note","source":"a45"},"op":"actor.memory","seq":70,"t":"2026-04-07T17:30:00+00:00"}
+{"cause":72,"data":{"actor":"mo","plan":"Order shipped; watch for the delivery confirmation."},"op":"actor.plan","seq":73,"t":"2026-04-07T17:30:00+00:00"}
+{"cause":77,"data":{"amount":500,"from_holder":"carrier","name":"widgets","to_holder":"acme"},"op":"resource.transfer","seq":78,"t":"2026-04-08T11:30:00+00:00"}
+{"cause":77,"data":{"key":"order:o1:status","value":"delivered"},"op":"fact.set","seq":79,"t":"2026-04-08T11:30:00+00:00"}
+{"cause":94,"data":{"actor":"mo","content":"Noticed message from carrier on order_system: Delivery confirmation: PO o1 (500 widgets) delivered.","kind":"observation","source":"i80"},"op":"actor.memory","seq":95,"t":"2026-04-08T13:00:00+00:00"}
+{"cause":97,"data":{"actor":"mo","id":"c_o1"},"op":"actor.commitment_resolved","seq":98,"t":"2026-04-08T13:00:00+00:00"}
+{"cause":97,"data":{"actor":"mo","basis":"carrier confirmation (i80)","statement":"PO o1 was delivered to the customer.","topic":"order:o1"},"op":"actor.belief","seq":99,"t":"2026-04-08T13:00:00+00:00"}

@@ -1,0 +1,9 @@
+[project]
+name = "sworldmodel"
+version = "0.1.0"
+description = "SWORLDMODEL ground-up kernel: persistent world state + event-driven real-calendar time"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,20 @@
+{"cause":27,"data":{"author":"statistics_wire","content":"June inflation printed 3.1% y/y, below the 3.6% consensus and moving toward target.","data":{"series":"inflation","type":"data_release"},"id":"i29"},"op":"info.create","seq":29,"t":"2026-06-24T14:00:00+00:00"}
+{"cause":29,"data":{"channel":"data_wire","id":"i29","to":"gus"},"op":"info.send","seq":30,"t":"2026-06-24T14:00:00+00:00"}
+{"cause":32,"data":{"channel":"data_wire","id":"i29","to":"gus"},"op":"info.deliver","seq":33,"t":"2026-06-24T14:00:05+00:00"}
+{"cause":35,"data":{"actor":"gus","id":"i29"},"op":"info.notice","seq":36,"t":"2026-06-24T14:00:05+00:00"}
+{"cause":48,"data":{"author":"gus","content":"Staff briefing on the June release: June inflation printed 3.1% y/y, below the 3.6% consensus and moving toward target. Staff assessment: inflation is below expectations and approaching target.","data":{"based_on":"i29","type":"briefing"},"id":"i51"},"op":"info.create","seq":51,"t":"2026-06-24T18:00:05+00:00"}
+{"cause":51,"data":{"channel":"email","id":"i51","to":"dana"},"op":"info.send","seq":52,"t":"2026-06-24T18:00:05+00:00"}
+{"cause":51,"data":{"channel":"email","id":"i51","to":"eli"},"op":"info.send","seq":54,"t":"2026-06-24T18:00:05+00:00"}
+{"cause":51,"data":{"channel":"email","id":"i51","to":"fran"},"op":"info.send","seq":56,"t":"2026-06-24T18:00:05+00:00"}
+{"cause":61,"data":{"channel":"email","id":"i51","to":"dana"},"op":"info.deliver","seq":62,"t":"2026-06-24T18:00:35+00:00"}
+{"cause":64,"data":{"channel":"email","id":"i51","to":"eli"},"op":"info.deliver","seq":65,"t":"2026-06-24T18:00:35+00:00"}
+{"cause":67,"data":{"channel":"email","id":"i51","to":"fran"},"op":"info.deliver","seq":68,"t":"2026-06-24T18:00:35+00:00"}
+{"cause":70,"data":{"actor":"eli","id":"i51"},"op":"info.notice","seq":71,"t":"2026-06-24T18:30:00+00:00"}
+{"cause":89,"data":{"actor":"dana","id":"i51"},"op":"info.notice","seq":90,"t":"2026-06-24T19:00:00+00:00"}
+{"cause":129,"data":{"author":"dana","content":"Motion on the floor: hold the policy rate. Please vote.","data":{"motion":"hold the policy rate","type":"motion"},"id":"i133"},"op":"info.create","seq":133,"t":"2026-06-25T16:05:00+00:00"}
+{"cause":133,"data":{"channel":"meeting_floor","id":"i133","to":"eli"},"op":"info.send","seq":134,"t":"2026-06-25T16:05:00+00:00"}
+{"cause":133,"data":{"channel":"meeting_floor","id":"i133","to":"fran"},"op":"info.send","seq":136,"t":"2026-06-25T16:05:00+00:00"}
+{"cause":139,"data":{"channel":"meeting_floor","id":"i133","to":"eli"},"op":"info.deliver","seq":140,"t":"2026-06-25T16:05:00+00:00"}
+{"cause":142,"data":{"channel":"meeting_floor","id":"i133","to":"fran"},"op":"info.deliver","seq":143,"t":"2026-06-25T16:05:00+00:00"}
+{"cause":145,"data":{"actor":"eli","id":"i133"},"op":"info.notice","seq":146,"t":"2026-06-25T16:05:00+00:00"}
+{"cause":148,"data":{"actor":"fran","id":"i133"},"op":"info.notice","seq":149,"t":"2026-06-25T16:05:00+00:00"}

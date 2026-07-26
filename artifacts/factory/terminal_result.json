@@ -1,0 +1,138 @@
+{
+  "answer": {
+    "answer": 500.0,
+    "computed_from": [
+      "record:78"
+    ],
+    "detail": "Acme's received widgets at the cutoff: 500",
+    "lineage": [
+      {
+        "op": "resource.transfer",
+        "seq": 78
+      },
+      {
+        "op": "event.fired",
+        "seq": 77
+      },
+      {
+        "op": "event.scheduled",
+        "seq": 69
+      },
+      {
+        "op": "event.fired",
+        "seq": 64
+      },
+      {
+        "op": "event.scheduled",
+        "seq": 63
+      },
+      {
+        "op": "event.fired",
+        "seq": 60
+      },
+      {
+        "op": "event.scheduled",
+        "seq": 59
+      },
+      {
+        "op": "event.fired",
+        "seq": 57
+      },
+      {
+        "op": "event.scheduled",
+        "seq": 12
+      }
+    ]
+  },
+  "at": "2026-04-09T17:00:00+00:00",
+  "producer_lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": 500.0,
+          "computed_from": [
+            "record:78"
+          ],
+          "detail": "Acme's received widgets at the cutoff: 500",
+          "lineage": [
+            {
+              "op": "resource.transfer",
+              "seq": 78
+            },
+            {
+              "op": "event.fired",
+              "seq": 77
+            },
+            {
+              "op": "event.scheduled",
+              "seq": 69
+            },
+            {
+              "op": "event.fired",
+              "seq": 64
+            },
+            {
+              "op": "event.scheduled",
+              "seq": 63
+            },
+            {
+              "op": "event.fired",
+              "seq": 60
+            },
+            {
+              "op": "event.scheduled",
+              "seq": 59
+            },
+            {
+              "op": "event.fired",
+              "seq": 57
+            },
+            {
+              "op": "event.scheduled",
+              "seq": 12
+            }
+          ]
+        },
+        "question": "How many widgets has Acme received by Thursday 2026-04-09 12:00 America/Chicago?",
+        "status": "cutoff"
+      },
+      "op": "terminal",
+      "seq": 107,
+      "t": "2026-04-09T17:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "How many widgets has Acme received by Thursday 2026-04-09 12:00 America/Chicago?"
+        },
+        "event": 23,
+        "kind": "terminal.cutoff",
+        "t": "2026-04-09T17:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 105,
+      "t": "2026-04-09T17:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "How many widgets has Acme received by Thursday 2026-04-09 12:00 America/Chicago?"
+        },
+        "depth": 0,
+        "kind": "terminal.cutoff",
+        "t": "2026-04-09T17:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 23,
+      "t": "2026-04-06T11:00:00+00:00"
+    },
+    {
+      "data": {},
+      "op": "genesis.sealed",
+      "seq": 22,
+      "t": "2026-04-06T11:00:00+00:00"
+    }
+  ],
+  "question": "How many widgets has Acme received by Thursday 2026-04-09 12:00 America/Chicago?",
+  "status": "cutoff"
+}

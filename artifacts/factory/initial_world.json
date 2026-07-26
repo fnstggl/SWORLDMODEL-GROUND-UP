@@ -1,0 +1,219 @@
+{
+  "action_defs": {
+    "fulfill_order": {
+      "conditions": [
+        {
+          "require": "role_in",
+          "roles": [
+            "ops manager"
+          ]
+        },
+        {
+          "key": "order:{params.order_id}:status",
+          "require": "fact_equals",
+          "value": "received"
+        }
+      ],
+      "description": "Commit to fulfill an open order: stage stock and ship as soon as inventory covers it. params: order_id, qty. Completes when factory inventory reaches qty.",
+      "effects": [
+        [
+          "fact.set",
+          {
+            "key": "order:{params.order_id}:status",
+            "value": "shipped"
+          }
+        ],
+        [
+          "resource.transfer",
+          {
+            "amount": "{params.qty}",
+            "from_holder": "factory",
+            "name": "widgets",
+            "to_holder": "carrier"
+          }
+        ],
+        [
+          "event.schedule_in",
+          {
+            "basis": "inferred",
+            "data": {
+              "note": "carrier delivers PO {params.order_id}",
+              "ops": [
+                [
+                  "resource.transfer",
+                  {
+                    "amount": "{params.qty}",
+                    "from_holder": "carrier",
+                    "name": "widgets",
+                    "to_holder": "acme"
+                  }
+                ],
+                [
+                  "fact.set",
+                  {
+                    "key": "order:{params.order_id}:status",
+                    "value": "delivered"
+                  }
+                ],
+                [
+                  "info.send_new",
+                  {
+                    "author": "carrier",
+                    "channel": "order_system",
+                    "content": "Delivery confirmation: PO {params.order_id} ({params.qty} widgets) delivered.",
+                    "data": {
+                      "id": "{params.order_id}",
+                      "type": "delivery"
+                    },
+                    "to": [
+                      "mo",
+                      "acme_contact"
+                    ]
+                  }
+                ]
+              ]
+            },
+            "delay_hours": 18,
+            "kind": "world.ops",
+            "note": "regional freight transit time, comparable lanes"
+          }
+        ],
+        [
+          "actor.memory",
+          {
+            "actor": "{actor}",
+            "content": "Shipped PO {params.order_id}: {params.qty} widgets handed to the carrier.",
+            "kind": "note",
+            "source": "{action_id}"
+          }
+        ]
+      ],
+      "verb": "fulfill_order"
+    }
+  },
+  "actions": {},
+  "actors": {
+    "acme_contact": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [],
+      "id": "acme_contact",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Acme receiving desk",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "",
+      "reconsider": [],
+      "relationships": {},
+      "role": "customer contact",
+      "tz": "America/Chicago",
+      "unprocessed_info": [],
+      "values": []
+    },
+    "mo": {
+      "attention": {
+        "order_system": {
+          "basis": "inferred",
+          "calendar": {
+            "close": "17:00",
+            "holidays": [],
+            "open": "08:00",
+            "tz": "America/Chicago",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 900.0,
+          "note": "order desk checks the order system frequently during shift"
+        }
+      },
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [
+        "ship every order as soon as stock allows"
+      ],
+      "id": "mo",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Mo Jackson",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "Run the week's production; fulfill orders as they arrive.",
+      "reconsider": [],
+      "relationships": {},
+      "role": "ops manager",
+      "tz": "America/Chicago",
+      "unprocessed_info": [],
+      "values": [
+        "reliable",
+        "hates late shipments"
+      ]
+    }
+  },
+  "channels": {
+    "order_system": {
+      "latency": {
+        "basis": "verified",
+        "note": "order portal / EDI processing time",
+        "seconds": 60.0
+      },
+      "name": "order_system"
+    }
+  },
+  "entities": {
+    "acme": {
+      "id": "acme",
+      "kind": "customer",
+      "properties": {
+        "name": "Acme Corp"
+      }
+    },
+    "factory": {
+      "id": "factory",
+      "kind": "plant",
+      "properties": {
+        "line": "widget line 1"
+      }
+    }
+  },
+  "facts": {},
+  "history": [],
+  "infos": {},
+  "now": "2026-04-06T11:00:00+00:00",
+  "processes": {
+    "p_line1": {
+      "active": false,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "factory",
+      "id": "p_line1",
+      "last_applied": "2026-04-06T11:00:00+00:00",
+      "note": "rated line speed from the plant spec (scenario-given)",
+      "rate_per_hour": 40.0,
+      "resource": "widgets"
+    }
+  },
+  "relationships": {},
+  "resources": {
+    "acme:widgets": 0.0,
+    "factory:widgets": 0.0
+  },
+  "start": "2026-04-06T11:00:00+00:00",
+  "terminal": null,
+  "version": 22,
+  "watches": {}
+}
