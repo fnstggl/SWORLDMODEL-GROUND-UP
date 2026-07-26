@@ -59,7 +59,7 @@ def main():
         q, e = load(name)
         outdir = os.path.join(OUT_ROOT, name)
         print(f"\n=== {name} ===\n  {q['question']}")
-    result = compile_case(q, e, outdir, stage=stage,
+        result = compile_case(q, e, outdir, stage=stage,
                               scripts=load_script(name), reuse_scenario=reuse)
         m = result["metrics"]
         row = {"case": name, "stage": result["stage"],
