@@ -8,23 +8,23 @@
       },
       "consequences_on_completion": [
         {
-          "about": "board_approval_meridian",
+          "about": "board_approval",
           "change_type": "record_fact",
           "scope": "global",
-          "value": true
+          "value": "approved"
         }
       ],
       "description": "The board votes to approve the Meridian acquisition.",
       "duration": {
-        "description": "The board can approve at any time during business hours.",
+        "description": "Time to hold a board meeting and vote.",
         "status": "inferred",
-        "typical_minutes": 1
+        "typical_minutes": 120
       },
-      "label": "board_approve_meridian",
+      "label": "board approves acquisition",
       "parameters": [],
       "preconditions": [
         {
-          "about": "board_approval_meridian",
+          "about": "board_approval",
           "condition_type": "world_fact_absent",
           "scope": "global"
         }
@@ -38,7 +38,10 @@
       "attention": [],
       "availability": {
         "close": "17:00",
-        "holidays": [],
+        "holidays": [
+          "2026-12-25",
+          "2026-12-26"
+        ],
         "open": "09:00",
         "timezone": "Europe/Oslo",
         "workdays": [
@@ -49,52 +52,21 @@
           4
         ]
       },
-      "causal_relevance": "The board is the only body that can approve the acquisition.",
+      "causal_relevance": "The board is the only entity that can approve the acquisition.",
       "evidence_ids": [
         "e1"
       ],
       "goals": [
-        "Decide on the Meridian acquisition"
+        "decide on Meridian acquisition"
       ],
       "identity_brief": "The board of Halvorsen Group, a privately held logistics company.",
       "initial_emotional_state": "neutral",
-      "initial_physical_state": "functional",
-      "initial_plan": "No known plan to vote on the acquisition.",
+      "initial_physical_state": "operational",
+      "initial_plan": "unknown",
       "kind": "organization",
       "name": "Halvorsen Group Board",
       "relationships": [],
       "role": "board",
-      "timezone": "Europe/Oslo",
-      "values": []
-    },
-    {
-      "attention": [],
-      "availability": {
-        "close": "17:00",
-        "holidays": [],
-        "open": "09:00",
-        "timezone": "Europe/Oslo",
-        "workdays": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ]
-      },
-      "causal_relevance": "The target of the acquisition; its cooperation may be needed.",
-      "evidence_ids": [
-        "e2"
-      ],
-      "goals": [],
-      "identity_brief": "A privately held freight company.",
-      "initial_emotional_state": "neutral",
-      "initial_physical_state": "functional",
-      "initial_plan": "No known plan.",
-      "kind": "organization",
-      "name": "Meridian Freight",
-      "relationships": [],
-      "role": "target",
       "timezone": "Europe/Oslo",
       "values": []
     }
@@ -102,47 +74,56 @@
   "processes": [],
   "resolution": {
     "deadline": "2026-12-31T17:00:00-05:00",
-    "no_condition": "No such fact is recorded by the deadline.",
+    "no_condition": "No approval is recorded by the deadline.",
     "observations": [
       {
-        "about": "board_approval_meridian",
-        "observation_type": "world_fact_exists"
+        "about": "board_approval",
+        "observation_type": "world_fact_is",
+        "value": "approved"
       }
     ],
-    "observed_from": "Check whether a world_fact_exists with about 'board_approval_meridian' exists at the deadline.",
+    "observed_from": "Check whether a fact 'board_approval' exists with value 'approved'.",
     "question_type": "boolean",
-    "yes_condition": "The board of Halvorsen Group records a fact 'approval' for the Meridian acquisition before the deadline."
+    "yes_condition": "The board records an approval before the deadline."
   },
   "scheduled_events": [],
   "scope": {
     "excluded": [
       {
-        "reason": "No evidence about them; they cannot materially change the answer.",
-        "thing": "Any other parties or details"
+        "reason": "No evidence of any action by Meridian; only Halvorsen's board decision matters.",
+        "thing": "Meridian Freight"
+      },
+      {
+        "reason": "No evidence of any negotiation process or terms.",
+        "thing": "negotiation details"
+      },
+      {
+        "reason": "No evidence that public statements affect the board's internal decision.",
+        "thing": "public statements"
       }
     ],
     "included": [
       "Halvorsen Group board",
-      "Meridian Freight"
+      "board approval decision"
     ]
   },
   "starting_state": [
     {
-      "about": "board_approval_meridian",
-      "description": "No board approval has been recorded for the Meridian acquisition.",
+      "about": "board_approval",
+      "description": "No board approval has been recorded yet.",
       "evidence_ids": [
         "e4"
       ],
       "kind": "fact",
       "status": "verified",
       "subject": "Halvorsen Group Board",
-      "value": false
+      "value": "not_approved"
     }
   ],
   "terminal_producers": [
-    "The world_fact_exists observation is produced by the 'board_approve_meridian' action if it completes before the deadline."
+    "The action 'board approves acquisition' produces the fact 'board_approval' with value 'approved'."
   ],
   "uncertainties": [
-    "Whether the board will actually choose to approve the acquisition. The evidence provides no information about the board's intentions, schedule, or decision process."
+    "Whether the board will actually meet and vote before the deadline is unknown; no evidence of any meeting schedule or intention."
   ]
 }

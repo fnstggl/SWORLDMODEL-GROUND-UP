@@ -20,7 +20,7 @@ from sworldmodel.artifacts import write_artifacts
 from .errors import (COMPILED, CompilationStop, InsufficientEvidence,
                      InvalidReference, NoCausalProducer, SemanticAmbiguity)
 from .lower import lower
-from .minds import llm_minds, mechanical_minds
+from .minds import llm_minds
 from .review import blocking_defects, review
 from .semantic import build_scenario
 
@@ -38,8 +38,8 @@ def _wl(path, rows):
 
 
 def compile_case(question: dict, evidence: dict, outdir: str,
-                 stage: str = "mechanical", model: str = "deepseek-chat",
-                 run: bool = True) -> dict:
+                 stage: str = "scripted", model: str = "deepseek-chat",
+                 run: bool = True, scripts: dict | None = None) -> dict:
     """Compile one case and (optionally) run it. Returns a result record whose
     'stage' is either COMPILED or the exact failure stage."""
     os.makedirs(outdir, exist_ok=True)
@@ -158,8 +158,14 @@ def compile_case(question: dict, evidence: dict, outdir: str,
 
         # ---- 4. execution through the unchanged runtime ---------------
         if run:
-            minds = (mechanical_minds(compiled) if stage == "mechanical"
-                     else llm_minds(compiled, scenario))
+            if stage == "llm":
+                minds = llm_minds(compiled, scenario)
+            else:
+                # Phase 1: the fixture supplies its own scripted minds. There
+                # is no built-in policy, so a fixture with no script simply
+                # produces a world in which nobody acts -- which is honest.
+                from tests.scripted_minds import scripted_minds
+                minds = scripted_minds(compiled, scripts or {})
             t1 = wallclock.monotonic()
             outcome = Engine(compiled.world, minds,
                              compiled.terminal_spec.to_terminal()).run()
@@ -285,7 +291,7 @@ reviewer's expected causal path was:
 - The terminal reads world state and cites the records that produced it.
 
 ## What this run does NOT establish
-- **Behavioural realism.** {"Actors here are the deterministic MechanicalMind: on each wake they take the first affordance whose parameters they can fill. That proves the compiled world is executable and that the causal path reaches the terminal. It says nothing about what real people would choose." if stage == "mechanical" else "Actors are live model-backed minds; their choices are plausible but unvalidated. Nothing here calibrates them against real outcomes."}
+- **Behavioural realism.** {"Actors here are the deterministic MechanicalMind: on each wake they take the first affordance whose parameters they can fill. That proves the compiled world is executable and that the causal path reaches the terminal. It says nothing about what real people would choose." if stage == "scripted" else "Actors are live model-backed minds; their choices are plausible but unvalidated. Nothing here calibrates them against real outcomes."}
 - **Forecast accuracy.** No backtest, no calibration, no comparison to a real
   outcome has been performed.
 - **Evidence quality.** The evidence package was hand-frozen; live retrieval
@@ -297,7 +303,7 @@ reviewer's expected causal path was:
 - Participants who completed no action at all: {idle or "none"}
 - Intentions the world rejected: {len(rejected)}
 {chr(10).join("  - " + r.get("actor", "?") + ":" + r.get("verb", "?") + " -- " + str(r.get("reason", ""))[:110] for r in rejected[:8]) or "  - none"}
-{"**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised, so it may reflect the limits of the mechanical policy rather than the situation itself. Re-run this compiled world at Stage 2 (live minds) before drawing any conclusion from it." if artifact_risk else "Every declared affordance was performed at least once, so the answer reflects the world rather than an actor that simply never acted."}
+{"**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised, so it reflects the limits of the authored script rather than the situation itself." if artifact_risk else "Every declared affordance was performed at least once, so the trajectory exercised the whole compiled world."}
 
 ## Honest gaps recorded during compilation
 - Information delivered but with no justified way to notice it: {len(unnoticed)}

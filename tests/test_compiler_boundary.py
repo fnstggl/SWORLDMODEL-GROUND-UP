@@ -56,9 +56,9 @@ def test_ordinary_prose_is_not_refused():
 # ---------------------------------------------------------------------------
 
 def test_semantic_vocabularies_are_small_and_fixed():
-    assert len(CHANGE_TYPES) == 10
-    assert len(PRECONDITION_TYPES) == 7
-    assert len(OBSERVATION_TYPES) == 8
+    assert len(CHANGE_TYPES) == 11
+    assert len(PRECONDITION_TYPES) == 11
+    assert len(OBSERVATION_TYPES) == 9
 
 
 def test_every_observation_type_has_a_runtime_reading():
@@ -69,7 +69,8 @@ def test_every_observation_type_has_a_runtime_reading():
         "quantity_reaches": "resource_at_least",
         "quantity_measured": "resource_measure",
         "action_was_completed": "action_completed",
-        "tally_of_records": "tally_facts",
+        "record_was_made": "record_exists",
+        "tally_of_records": "tally_records",
     }
     assert set(lowered) == set(OBSERVATION_TYPES)
     assert set(lowered.values()) <= OBSERVATION_KINDS

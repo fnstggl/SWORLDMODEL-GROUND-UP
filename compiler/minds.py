@@ -1,104 +1,21 @@
 """Minds for compiled worlds.
 
-Stage 1 uses ``MechanicalMind``: a deterministic policy that, when woken,
-proposes the first affordance whose parameters it can fill from its own local
-view. It is universal (it works for any compiled world) and deliberately not
-intelligent -- its job is to prove that the compiled world is *executable*
-and that the causal path to the terminal actually runs. Any rejection it
-earns is recorded by the world, which is exactly the external-authority
-behaviour we want to see exercised.
+This package contains exactly ONE mind: ``CompiledLLMMind``, the live actor.
 
-Stage 2 swaps in ``CompiledLLMMind`` over the identical compiled world, so
-behaviour changes while world construction is held fixed.
+There is deliberately no built-in "take the first available action" policy.
+Such a thing would be a production actor model in all but name, and any run it
+drove would look like a forecast without being one. Phase 1 runtime
+integration instead uses test-only scripted minds that each acceptance fixture
+supplies for itself (see ``tests/scripted_minds.py``); those prove the
+compiled objects execute, and nothing more.
 
-Neither mind can reach the world, the clock, the queue or another actor: both
-receive only an ActorView and return only a Decision, as the runtime requires.
+The mind cannot reach the world, the clock, the queue or another actor: it
+receives only an ActorView and returns only a Decision, as the runtime
+requires, and everything it returns passes kernel validation.
 """
 from __future__ import annotations
 
-from datetime import timedelta
-
-from sworldmodel import Decision, Duration, Intention, Mind
 from sworldmodel.llm_mind import DeepseekMind
-
-from .symbols import slug
-
-
-class MechanicalMind(Mind):
-    """Deterministic affordance-taker. Proves executability, not realism."""
-
-    def __init__(self, actor_id: str, affordances: dict, order: list) -> None:
-        self.actor_id = actor_id
-        self.affordances = affordances     # verb -> semantic affordance
-        self.order = order                 # verbs, in scenario declaration order
-        self.attempted: set = set()
-
-    def decide(self, view) -> Decision:
-        offered = {v.verb for v in view.available_verbs}
-        for verb in self.order:
-            if verb not in offered:
-                continue
-            spec = self.affordances.get(verb, {})
-            params = self._fill(spec, view)
-            if params is None:
-                continue
-            key = (verb, tuple(sorted((k, str(v)) for k, v in params.items())))
-            if key in self.attempted:
-                continue           # do not re-propose an identical intention
-            self.attempted.add(key)
-            return Decision(
-                intentions=[Intention(verb, params,
-                                      duration=self._duration(spec),
-                                      note=f"taking the available action: "
-                                           f"{spec.get('label', verb)}")],
-                note=f"mechanical policy: first available affordance "
-                     f"({spec.get('label', verb)})")
-        return Decision(note="no affordance available whose parameters I can fill")
-
-    # -- parameter filling from LOCAL view only -------------------------
-    def _fill(self, spec: dict, view):
-        params = {}
-        for p in spec.get("parameters") or []:
-            name = p.get("name")
-            if not name:
-                return None
-            value = self._value_for(p, view)
-            if value is None:
-                return None
-            params[name] = value
-        return params
-
-    def _value_for(self, p: dict, view):
-        source = p.get("fill_from")
-        if source in ("noticed_information", "noticed_information_content"):
-            # tags are written as human phrases and stored slugified, so match
-            # on the canonical form rather than the raw text
-            want = slug(p["tag"]) if p.get("tag") else None
-            for iv in view.new_information:
-                if want and iv.data.get("tag") != want:
-                    continue
-                return (iv.content if source.endswith("content") else iv.id)
-            return None
-        if p.get("allowed_values"):
-            return p["allowed_values"][0]      # deterministic, not meaningful
-        if p.get("default_value") is not None:
-            return p["default_value"]
-        if p.get("value_from_information_field"):
-            field = p["value_from_information_field"]
-            for iv in view.new_information:
-                if field in iv.data:
-                    return iv.data[field]
-            return None
-        return None
-
-    @staticmethod
-    def _duration(spec: dict):
-        d = spec.get("duration") or {}
-        if not d or d.get("typical_minutes") is None:
-            return None                        # completion-condition action
-        basis = "verified" if d.get("status") == "verified" else "inferred"
-        return Duration(timedelta(minutes=float(d["typical_minutes"])), basis,
-                        d.get("description", ""))
 
 
 class CompiledLLMMind(DeepseekMind):
@@ -127,15 +44,6 @@ def _persona_brief(p: dict) -> str:
         if vals:
             lines.append(f"{label}:\n" + "\n".join(f"- {v}" for v in vals))
     return "\n".join(lines)
-
-
-def mechanical_minds(compiled) -> dict:
-    """One MechanicalMind per participant that has at least one affordance."""
-    order = list(compiled.affordances)
-    minds = {}
-    for aid in compiled.world.actors:
-        minds[aid] = MechanicalMind(aid, compiled.affordances, order)
-    return minds
 
 
 def llm_minds(compiled, doc: dict, **kw) -> dict:

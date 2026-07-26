@@ -11,7 +11,8 @@ import re
 
 from .errors import InsufficientEvidence, SemanticAmbiguity
 from .llm import call_json
-from .schema import contract_document, validate, check_evidence_sufficiency
+from .schema import (check_evidence_sufficiency, check_provenance,
+                     contract_document, validate)
 
 SYSTEM = """You reconstruct the smallest real-world situation that can decide a question.
 
@@ -78,6 +79,7 @@ def build_scenario(question: dict, evidence: dict, revision_defects=None,
                                    {"declared_by": "semantic compiler"})
     _reject_runtime_syntax(doc)
     validate(doc)
+    check_provenance(doc, evidence)
     check_evidence_sufficiency(doc, evidence)
     return doc, raw, {"system": system, "user": user}, usage
 

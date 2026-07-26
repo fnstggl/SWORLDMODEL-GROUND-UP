@@ -9,11 +9,13 @@ import copy
 import pytest
 
 from sworldmodel import Engine, World, elapsed, parse_iso
-from compiler import lower, mechanical_minds
+from compiler import lower
+from tests.scripted_minds import scripted_minds
 from compiler.errors import (InvalidReference, LoweringGap, NoCausalProducer,
                              NothingScheduled, SemanticAmbiguity)
 from compiler.schema import validate
-from tests.fixtures_semantic import MESSAGE_CASE, QUANTITY_CASE
+from tests.fixtures_semantic import (MESSAGE_CASE, MESSAGE_CASE_SCRIPT,
+                                     QUANTITY_CASE, QUANTITY_CASE_SCRIPT)
 
 
 def compiled(case):
@@ -41,7 +43,7 @@ def test_message_case_compiles_into_the_runtime():
 
 def test_message_case_runs_to_a_trajectory_derived_answer():
     c = compiled(MESSAGE_CASE)
-    out = Engine(c.world, mechanical_minds(c), c.terminal_spec.to_terminal()).run()
+    out = Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT), c.terminal_spec.to_terminal()).run()
     assert out.status in ("resolved", "cutoff")
     assert out.answer["computed_from"]
     # the request was sent Friday evening; the press officer is in London and
@@ -55,7 +57,7 @@ def test_message_case_runs_to_a_trajectory_derived_answer():
 
 def test_compiled_world_replays_exactly():
     c = compiled(MESSAGE_CASE)
-    Engine(c.world, mechanical_minds(c), c.terminal_spec.to_terminal()).run()
+    Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT), c.terminal_spec.to_terminal()).run()
     replayed = World.from_records(c.world.records)
     assert replayed.state_hash() == c.world.state_hash()
     assert replayed.terminal_result == c.world.terminal_result
@@ -73,7 +75,7 @@ def test_lowering_is_deterministic():
 
 def test_quantity_case_compiles_and_accrues_real_production():
     c = compiled(QUANTITY_CASE)
-    out = Engine(c.world, mechanical_minds(c),
+    out = Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT),
                  c.terminal_spec.to_terminal()).run()
     assert out.status == "cutoff"
     # opening stock 120 + a 200-unit transfer that the line could actually cover
@@ -166,12 +168,26 @@ def test_terminal_with_no_producer_is_refused():
         lower(case)
 
 
-def test_terminal_depending_on_unsupported_noticing_is_refused():
-    """If the evidence cannot justify how someone would notice something, the
-    world must not pretend they will -- and a terminal that depends on it has
-    no producer."""
+def test_unsupported_noticing_yields_unresolved_not_no():
+    """A message really is sent and delivered, so the causal pathway exists --
+    only the NOTICING is unsupported by evidence. That is unresolved
+    uncertainty, not an impossible world, and the honest answer at the cutoff
+    is 'unresolved' rather than 'no'."""
     case = copy.deepcopy(MESSAGE_CASE)
     case["participants"][0]["attention"] = []     # reporter attends nothing
+    c = lower(case)                                # compiles: pathway is real
+    assert c.terminal_spec.uncertain_paths, "the uncertain step was not recorded"
+    out = Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT), c.terminal_spec.to_terminal()).run()
+    assert out.answer["answer"] == "unresolved"
+    assert out.answer["unresolved_because"]
+    # and the world is honest about why: delivered, never noticed
+    assert any(t["step"] == "noticing_uncertain" for t in c.trace)
+
+
+def test_genuinely_impossible_terminal_is_still_refused():
+    """Unresolved uncertainty is distinct from no producer at all."""
+    case = copy.deepcopy(MESSAGE_CASE)
+    case["resolution"]["observations"][0]["tag"] = "a signed affidavit"
     with pytest.raises(NoCausalProducer):
         lower(case)
 
@@ -198,10 +214,12 @@ def test_role_that_no_participant_holds_is_refused():
         lower(case)
 
 
-def test_per_actor_record_in_a_world_event_is_refused():
+def test_record_made_by_a_world_event_must_name_its_maker():
     case = copy.deepcopy(MESSAGE_CASE)
-    case["scheduled_events"][0]["effects"][0]["scope"] = "per_actor"
-    with pytest.raises(LoweringGap, match="acting participant"):
+    case["scheduled_events"][0]["effects"] = [
+        {"change_type": "create_record", "record_type": "sign-off",
+         "value": "granted"}]
+    with pytest.raises(LoweringGap, match="must name who"):
         lower(case)
 
 
@@ -224,4 +242,4 @@ def test_lowering_makes_no_model_calls(monkeypatch):
 
     monkeypatch.setattr(llm, "call_json", explode)
     c = compiled(MESSAGE_CASE)
-    Engine(c.world, mechanical_minds(c), c.terminal_spec.to_terminal()).run()
+    Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT), c.terminal_spec.to_terminal()).run()

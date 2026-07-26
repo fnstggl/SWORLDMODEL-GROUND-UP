@@ -20,8 +20,13 @@ SECTIONS = ("resolution", "scope", "participants", "starting_state",
 #: How the world may change.  Each maps 1:1 onto a universal runtime
 #: operation during lowering; none of them is scenario-specific.
 CHANGE_TYPES = {
-    "record_fact": "Record an objective, publicly checkable fact "
-                   "(a decision record, a status, an outcome).",
+    "record_fact": "Set an objective, publicly checkable fact about the "
+                   "world (a status, a flag, an outcome).",
+    "create_record": "Create a formal typed record made BY someone ABOUT "
+                     "something, carrying a value and the authority it was "
+                     "made under -- a vote, a sign-off, an acceptance, a "
+                     "filing, a confirmation. Use this whenever the answer "
+                     "depends on counting or checking such records.",
     "set_quantity": "Set an objective quantity to a value.",
     "change_quantity": "Increase or decrease an objective quantity.",
     "transfer_resource": "Move an objective quantity from one holder to another.",
@@ -40,8 +45,12 @@ CHANGE_TYPES = {
 PRECONDITION_TYPES = {
     "actor_has_role": "The acting participant holds one of the listed roles.",
     "world_fact_is": "A recorded fact currently has a given value.",
-    "world_fact_absent": "A recorded fact does not exist yet (e.g. has not "
-                         "already acted).",
+    "world_fact_absent": "A recorded fact does not exist yet.",
+    "record_exists": "A typed record of some kind already exists.",
+    "record_absent": "No such typed record exists yet (e.g. this party has "
+                     "not already cast their vote / given their sign-off).",
+    "within_time_window": "The current time is inside a stated window.",
+    "action_already_completed": "An action with a given label has completed.",
     "has_noticed_information": "The acting participant has actually noticed "
                                "the information in question.",
     "has_quantity_at_least": "A holder has at least this much of a quantity.",
@@ -60,11 +69,20 @@ OBSERVATION_TYPES = {
     "quantity_reaches": "A quantity reached at least a level.",
     "quantity_measured": "Read a quantity's final value.",
     "action_was_completed": "An action with this label completed.",
-    "tally_of_records": "Count the records sharing a subject and apply a rule "
-                        "(majority, count of a value, or total count).",
+    "record_was_made": "A typed record of some kind (optionally about a "
+                       "particular subject, optionally by a particular party) "
+                       "exists.",
+    "tally_of_records": "Group typed records of one kind by their value and "
+                        "apply a rule (majority, count of a value, total count).",
 }
 
-EPISTEMIC_STATUS = ("verified", "inferred", "uncertain")
+EPISTEMIC_STATUS = ("verified", "inferred", "scenario_given", "uncertain")
+
+#: Sections whose every entry must carry a provenance block. Nothing factual
+#: enters a compiled world without saying where it came from.
+PROVENANCE_REQUIRED = ("participants", "starting_state", "information",
+                       "communication_routes", "scheduled_events", "processes",
+                       "action_affordances")
 QUESTION_TYPES = ("boolean", "quantity", "choice")
 TALLY_RULES = ("majority", "count_value", "count_all")
 
@@ -184,6 +202,75 @@ def _check_change(e: dict, where: str) -> None:
             {"change": e})
     for sub in e.get("effects", []) or []:      # schedule_future_event nesting
         _check_change(sub, where)
+
+
+def provenance_of(obj: dict):
+    """Extract (basis, evidence_ids) from an object's provenance block."""
+    p = obj.get("provenance")
+    if isinstance(p, dict):
+        return p.get("basis"), list(p.get("evidence_ids") or [])
+    return None, []
+
+
+def check_provenance(doc: dict, evidence: dict) -> None:
+    """Every semantic object states its epistemic basis, and anything claimed
+    as verified or inferred cites the evidence that supports it.
+
+    All violations are collected into one message so a single bounded repair
+    round can fix them together."""
+    known = {c["id"] for c in evidence.get("claims", [])}
+    errs, cited = [], set()
+
+    def check(obj, where, extra_nested=()):
+        basis, ids = provenance_of(obj)
+        if basis is None:
+            errs.append(f"{where}: no provenance block. Add "
+                        f'"provenance": {{"basis": "verified"|"inferred"|'
+                        f'"scenario_given"|"uncertain", "evidence_ids": [...]}}')
+        elif basis not in EPISTEMIC_STATUS:
+            errs.append(f"{where}: provenance.basis is {basis!r}, must be one "
+                        f"of {list(EPISTEMIC_STATUS)}")
+        elif basis in ("verified", "inferred") and not ids:
+            errs.append(f"{where}: basis {basis!r} cites no evidence_ids. "
+                        f"Cite the claims that support it, or use "
+                        f'"scenario_given" / "uncertain" if nothing does.')
+        cited.update(ids)
+        for key in extra_nested:
+            nested = obj.get(key)
+            if isinstance(nested, dict):
+                check(nested, f"{where}.{key}")
+            elif isinstance(nested, list):
+                for j, item in enumerate(nested):
+                    if isinstance(item, dict):
+                        check(item, f"{where}.{key}[{j}]")
+
+    for i, p in enumerate(doc.get("participants") or []):
+        check(p, f"participants[{p.get('name', i)!r}]", ("attention",))
+    for i, s_ in enumerate(doc.get("starting_state") or []):
+        check(s_, f"starting_state[{i}]")
+    for i, inf in enumerate(doc.get("information") or []):
+        check(inf, f"information[{i}]")
+    for i, r in enumerate(doc.get("communication_routes") or []):
+        check(r, f"communication_routes[{r.get('name', i)!r}]", ("delivery_delay",))
+    for i, ev in enumerate(doc.get("scheduled_events") or []):
+        check(ev, f"scheduled_events[{i}] ({str(ev.get('description'))[:40]!r})")
+    for i, pr in enumerate(doc.get("processes") or []):
+        check(pr, f"processes[{pr.get('name', i)!r}]", ("rate",))
+    for i, a in enumerate(doc.get("action_affordances") or []):
+        check(a, f"action_affordances[{a.get('label', i)!r}]", ("duration",))
+    check(doc.get("resolution", {}), "resolution")
+
+    unknown = sorted(cited - known)
+    if unknown:
+        errs.append(f"cites evidence ids that do not exist in the package: "
+                    f"{unknown}")
+    if errs:
+        raise InsufficientEvidence(
+            f"{len(errs)} object(s) lack honest provenance -- the compiler may "
+            f"not introduce an unlabelled factual assumption:\n  - "
+            + "\n  - ".join(errs),
+            {"defects": errs, "repairable": True,
+             "available_evidence_ids": sorted(known)})
 
 
 def check_evidence_sufficiency(doc: dict, evidence: dict) -> None:
@@ -437,13 +524,31 @@ Change objects (used in "effects" and "consequences_on_completion"):
   {{"change_type": "record_private_note", "topic": "<topic>", "content": "...",
     "basis": "...", "participant": "<name>"}}   // "participant" only in scheduled_events
 
-=== HONESTY RULES ===
-Every duration, rate, delay and attention pattern carries a "status" of
-"verified" (documented in the evidence), "inferred" (estimated from
-comparable real situations -- say so in the description) or "uncertain"
-(genuinely unknown). NEVER invent a convenient number and label it verified.
-If noticing behaviour is uncertain, say "uncertain": the world will then leave
-the information delivered but unnoticed, which is the honest outcome.
+=== HONESTY RULES: PROVENANCE ON EVERY OBJECT ===
+EVERY participant, starting_state entry, information entry, communication
+route, scheduled event, process and action affordance MUST carry:
+
+  "provenance": {{"basis": "verified" | "inferred" | "scenario_given" | "uncertain",
+                 "evidence_ids": ["e3", "e7"],
+                 "note": "which claim supports this, or why you inferred it"}}
+
+  - "verified"       the evidence package states it. MUST cite evidence_ids.
+  - "inferred"       your reasoning from the evidence. MUST cite the claims
+                     you reasoned FROM, and say so in the note.
+  - "scenario_given" stipulated by the question itself (the deadline, what
+                     counts as the answer). No evidence_ids needed.
+  - "uncertain"      genuinely unknown. No evidence_ids needed.
+
+Nested objects that carry a number of their own -- a route's delivery_delay,
+a process's rate, an affordance's duration, a participant's attention entry --
+each need their own "status" AND their own "provenance" block, because each is
+a separate factual claim.
+
+You may not introduce an unlabelled factual assumption anywhere. NEVER invent
+a convenient number and label it verified. If noticing behaviour is uncertain,
+say "uncertain": the message will then be delivered and remain unnoticed, and
+the answer may honestly come back "unresolved" -- which is a correct result,
+not a failure.
 
 === IT MUST ACTUALLY BE ABLE TO HAPPEN ===
 Trace your own answer before you finish:

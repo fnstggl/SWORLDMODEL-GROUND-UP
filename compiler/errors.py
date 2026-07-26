@@ -59,8 +59,14 @@ class NothingScheduled(CompilationStop):
 
 COMPILED = "COMPILED"
 
+#: Not a compilation failure. A world can be perfectly well built and still
+#: reach its cutoff without resolving, because an uncertain step (a message
+#: nobody noticed, a decision nobody took) did not occur. That is an honest
+#: outcome and must never be reported as "no".
+UNRESOLVED_UNCERTAINTY = "UNRESOLVED_UNCERTAINTY"
+
 ALL_STAGES = (
     "INSUFFICIENT_EVIDENCE", "SEMANTIC_AMBIGUITY", "REALITY_REVIEW_REJECTED",
     "LOWERING_GAP", "INVALID_REFERENCE", "NO_CAUSAL_PRODUCER",
-    "NOTHING_SCHEDULED", COMPILED,
+    "NOTHING_SCHEDULED", COMPILED, UNRESOLVED_UNCERTAINTY,
 )

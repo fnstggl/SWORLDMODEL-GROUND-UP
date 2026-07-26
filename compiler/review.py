@@ -26,16 +26,25 @@ must not defend it. Judge only whether the proposed scenario is a truthful,
 sufficient account of the real situation described by the evidence.
 
 Check, in order:
-1. Is anything asserted that the evidence CONTRADICTS or plainly does not support?
-2. Is any participant or external process missing WITHOUT WHICH the answer
-   cannot be produced?
-3. Does anyone know something they could not actually know, or fail to be
+1. Is every important object either supported by the evidence or explicitly
+   marked uncertain? Is anything asserted that the evidence CONTRADICTS or
+   plainly does not support?
+2. Was any participant, schedule, duration, rate, authority or consequence
+   INVENTED -- present in the scenario but traceable to no claim, and not
+   labelled "inferred" or "uncertain"?
+3. Is any participant or external process missing WITHOUT WHICH the answer
+   cannot be produced? Was all causally important evidence represented?
+4. Does anyone know something they could not actually know, or fail to be
    given something they plainly would have?
-4. Can the stated resolution actually be produced by the described actions,
-   events and processes? Trace the path explicitly.
-5. Is anything included that cannot change the answer?
-6. Are durations, rates and attention patterns honestly labelled, rather than
-   convenient numbers dressed up as verified fact?
+5. Can the stated resolution actually be produced by TRAJECTORY EVENTS rather
+   than by initialization? Trace the path explicitly. A terminal that is
+   already true in starting_state is a defect.
+6. Is this the SMALLEST causally sufficient world? Are the excluded actors and
+   processes genuinely unable to change the answer?
+7. Is unresolved uncertainty PRESERVED rather than forced to resolve? A
+   scenario that quietly assumes an uncertain step happens, in order to make
+   the question answerable, is defective. Leaving it uncertain -- so the run
+   may end "unresolved" -- is correct.
 
 === WHAT THIS SIMULATION IS, SO YOU JUDGE IT ON ITS OWN TERMS ===
 This run simulates ONE trajectory: the course of events best supported by the

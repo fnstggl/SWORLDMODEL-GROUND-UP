@@ -28,9 +28,20 @@ def load(name):
     return q, e
 
 
+def load_script(name):
+    """A fixture may supply its own scripted minds (test harness only)."""
+    path = os.path.join(CASES_DIR, name, "scripted_minds.py")
+    if not os.path.exists(path):
+        return {}
+    ns = {}
+    with open(path, encoding="utf-8") as f:
+        exec(compile(f.read(), path, "exec"), ns)
+    return ns.get("SCRIPT", {})
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    stage = "llm" if "--stage" in sys.argv and "llm" in sys.argv else "mechanical"
+    stage = "llm" if "--stage" in sys.argv and "llm" in sys.argv else "scripted"
     names = args or sorted(
         d for d in os.listdir(CASES_DIR)
         if os.path.isdir(os.path.join(CASES_DIR, d)))
@@ -40,7 +51,7 @@ def main():
         q, e = load(name)
         outdir = os.path.join(OUT_ROOT, name)
         print(f"\n=== {name} ===\n  {q['question']}")
-        result = compile_case(q, e, outdir, stage=stage)
+        result = compile_case(q, e, outdir, stage=stage, scripts=load_script(name))
         m = result["metrics"]
         row = {"case": name, "stage": result["stage"],
                "expected_refusal": name in EXPECTED_REFUSAL,

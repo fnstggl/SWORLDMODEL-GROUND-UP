@@ -1,0 +1,127 @@
+{
+  "package_id": "ev_savannah_berth8_rhine_meridian",
+  "prepared_at": "2026-08-13T16:45:00-04:00",
+  "note": "Hand-frozen package. No live retrieval.",
+  "claims": [
+    {
+      "id": "e1",
+      "claim": "MV Rhine Meridian (14,320 TEU, LOA 366 m, beam 48.2 m / 158 ft, master Capt. Anders Holm) anchored in Tybee Roads Anchorage A at 11:20 EDT on 2026-08-13 with a declared arrival draft of 45 ft 03 in, awaiting Georgia Ports Authority Garden City Terminal Berth 8; she is on immediate notice for engines and keeps a manned bridge anchor watch monitoring VHF Channels 16 and 13 continuously, so any pilot call reaches the master at once.",
+      "source": "Georgia Ports Authority vessel schedule, 2026-08-13 edition, cross-checked against the Savannah Pilots Association arrival board",
+      "as_of": "2026-08-13T11:35:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e2",
+      "claim": "Savannah Pilots Association Standing Orders (revision of 2025-03-01) contain two binding restrictions: Order 12 states that a vessel drawing more than 44 ft 00 in may commence an inbound Savannah River transit only in the interval beginning 2 hours 00 minutes before and ending 0 hours 30 minutes after predicted high water at Fort Pulaski, with no daylight restriction because the channel ranges are lit and operational; Order 9 states that no such transit may be commenced until the receiving terminal has confirmed a clear berth to the Pilots' dispatcher, because there is no anchorage above the Talmadge Bridge that can hold a vessel of this draft, so deep-draft vessels wait at Tybee Roads. Neither order may be waived by the dispatcher or by an individual pilot; only the Captain of the Port may waive them, on 72 hours' written notice, and no such request has been filed for this vessel.",
+      "source": "Savannah Pilots Association Standing Orders, rev. 2025-03-01, Orders 9 and 12",
+      "as_of": "2025-03-01T00:00:00-05:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e3",
+      "claim": "NOAA Tides and Currents station 8670870 (Fort Pulaski, Georgia) predicts high water at 19:58 EDT on 2026-08-13 at 8.4 ft MLLW, and the next high water at 08:31 EDT on 2026-08-14 at 8.2 ft MLLW. Applying Standing Order 12, the inbound transit window for a vessel over 44 ft draft on the evening of 2026-08-13 therefore runs from 17:58 EDT to 20:28 EDT, and the following window opens at 06:31 EDT on 2026-08-14.",
+      "source": "NOAA Tides and Currents predicted tides, station 8670870 Fort Pulaski GA, published 2026-08-06",
+      "as_of": "2026-08-06T09:00:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e4",
+      "claim": "Garden City Terminal Berth 8 is occupied by MV Cape Ferrol (10,100 TEU, beam 42.8 m / 140 ft, master Capt. Ioannis Vlachos, whose deck and bridge watches are continuously manned alongside and monitor VHF Channels 12 and 16); Berth 6, the terminal's only other berth dredged to 47 ft, is out of service for crane-rail replacement through 2026-08-20; Berths 1 through 5 are limited to a maximum permitted draft of 42 ft. Berth 8 is therefore the only berth in the port at which MV Rhine Meridian can lie at her arrival draft.",
+      "source": "GPA Garden City Terminal berth status notice 2026-159",
+      "as_of": "2026-08-13T06:00:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e5",
+      "claim": "The Berth 8 live vessel operations report shows MV Cape Ferrol with 380 container moves remaining at 13:00 EDT on 2026-08-13 and 58 moves remaining at 16:30 EDT the same day; the operator, Astra Lines, has confirmed through the ship's agent that the vessel will be worked to completion rather than sailing short, because the remaining lift includes 118 reefer units booked to a fixed Rotterdam connection that the terminal has no capacity to roll.",
+      "source": "GPA Garden City Berth 8 live vessel operations report; Astra Lines berth plan relayed by Meridian Marine Agencies",
+      "as_of": "2026-08-13T16:30:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e6",
+      "claim": "Four ship-to-shore cranes are assigned to MV Cape Ferrol at Berth 8 for the whole of 2026-08-13, and the Garden City Terminal Q2 2026 berth productivity report gives a sustained average of 23 moves per crane-hour on vessels of this class, which is 92 gross moves per hour with four cranes working. No crane on Berth 8 is under maintenance restriction on 2026-08-13.",
+      "source": "GPA Garden City Terminal Q2 2026 berth productivity report and the Berth 8 crane assignment sheet for 2026-08-13",
+      "as_of": "2026-07-15T12:00:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e7",
+      "claim": "Under the ILA Local 1414 / GPA working agreement, container gangs at Garden City work 08:00 to 17:00 EDT and 18:00 to 23:00 EDT, with the 17:00 to 18:00 hour an unworked break during which no crane moves are made; GPA placed and the local accepted a four-gang labor order at 15:20 EDT on 2026-08-13 covering the 18:00 to 23:00 shift at Berth 8 specifically to finish the Cape Ferrol load, so the same four cranes resume at 18:00 EDT.",
+      "source": "ILA Local 1414 / Georgia Ports Authority container working agreement, 2025-2029; GPA labor order 2026-08-13-N4 (accepted)",
+      "as_of": "2026-08-13T15:20:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e8",
+      "claim": "Marcus Deveaux, the GPA terminal superintendent responsible for Berth 8, works the 12:00 to 20:00 EDT shift on the apron with a hand-held radio on VHF Channel 12 that he monitors continuously, and at 16:15 EDT on 2026-08-13 he projected to the vessel planner and to the ship's agent that the last container would land on MV Cape Ferrol at approximately 18:10 EDT once the 17:00 to 18:00 break was accounted for. The fact that he made and transmitted this projection at 16:15 is documented in the terminal's operations log; the 18:10 figure itself is his working estimate, not a measurement.",
+      "source": "GPA Garden City Terminal operations log, entry 16:15 EDT 2026-08-13",
+      "as_of": "2026-08-13T16:15:00-04:00",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "id": "e9",
+      "claim": "The GPA Terminal Departure Standards of January 2026 fix three departure durations at Garden City: final lashing and securing of the deck stow takes 40 minutes measured from the landing of the last container; the interval from the docking pilot boarding to all mooring lines gone is 25 minutes, and unmooring may not begin until both lashing is complete and the pilot is aboard, whichever is later; and the departing vessel's stern is clear of the berth face 10 minutes after all lines are gone.",
+      "source": "GPA Terminal Departure Standards, January 2026, sections 3.1 to 3.4",
+      "as_of": "2026-01-15T09:00:00-05:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e10",
+      "claim": "Priya Raghavan, vessel operations manager at Meridian Marine Agencies, which is the appointed agent for both MV Cape Ferrol and MV Rhine Meridian, ordered outbound pilot service for MV Cape Ferrol for 19:00 EDT at 16:30 EDT on 2026-08-13, and inbound pilot service for MV Rhine Meridian for 19:00 EDT at Tybee Roads Anchorage A at 16:35 EDT the same day, both on the basis of Marcus Deveaux's 16:15 projection. The Savannah Pilots Association requires a minimum of 2 hours' notice for a pilot order; both orders exceeded that minimum and both were logged as accepted by the Pilots' dispatcher at 16:36 EDT. Neither order has been amended or cancelled as of the preparation time of this package.",
+      "source": "Savannah Pilots Association dispatch log, 2026-08-13; Meridian Marine Agencies pilot order confirmations 8813-A and 8813-B",
+      "as_of": "2026-08-13T16:36:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e11",
+      "claim": "Roy Tillman staffs the Savannah Pilots Association dispatch desk on a continuously manned 24-hour watch, monitoring VHF Channel 13 and the dispatch telephone line without interruption, so information reaching dispatch is acted on immediately at any hour; the pilot boat Savannah runs from the Tybee pilot station to Tybee Roads Anchorage A in 25 minutes. For 2026-08-13 Tillman has assigned Capt. Dale Wingard as the outbound pilot for MV Cape Ferrol and Capt. Lorraine Beaudry as the inbound pilot for MV Rhine Meridian; Beaudry came off her mandatory 10-hour rest period at 17:00 EDT and stands first on the rotation board, so no rest restriction limits her, and Wingard has been on the board since 14:00 EDT.",
+      "source": "Savannah Pilots Association dispatch standard operating procedure section 2, pilot station transit data, and the pilots' rotation board for 2026-08-13",
+      "as_of": "2026-08-13T16:40:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e12",
+      "claim": "Danielle Okafor, GPA vessel planner and berth coordinator, works the 15:00 to 23:00 EDT shift in the Berth 8 control tower with direct line of sight down the berth face and a base station on VHF Channel 12 that she monitors continuously while on shift, and under GPA berth-control procedure she is the only person authorized to declare a berth clear to Savannah Pilots dispatch. She makes that declaration on observing the departing vessel's stern clear the berth face, transmitting it directly to the dispatcher by radio and telephone. No berth-clear declaration for Berth 8 has been made or scheduled in advance.",
+      "source": "GPA berth-control procedure BC-4 and the Garden City vessel planner shift roster for 2026-08-13",
+      "as_of": "2026-08-13T15:05:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e13",
+      "claim": "Estimated intervals for the inbound mobilization of MV Rhine Meridian, drawn from ordinary Savannah practice for vessels of this class rather than from a published standard: the boarding pilot calls the ship on VHF about 10 minutes before coming alongside to order the anchor heaved to short stay; boarding and transit from the pilot ladder to the bridge takes about 10 minutes; heaving up eight shackles in the 55 ft depths of Anchorage A takes about 30 minutes from the order; the run from Anchorage A to the sea buoy takes about 15 minutes at maneuvering speed; and a berth-clear declaration reaches the Pilots' dispatcher within about 2 minutes of the departing vessel's stern clearing the berth face.",
+      "source": "Meridian Marine Agencies operations desk, comparable-call estimates for 14,000 TEU class arrivals at Savannah",
+      "as_of": "2026-08-13T16:40:00-04:00",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "id": "e14",
+      "claim": "Savannah Pilots Association transit records for 2025 covering 24 inbound transits of vessels of 14,000 TEU and above give an average elapsed time of 3 hours 05 minutes from the sea buoy to all mooring lines fast at Garden City Terminal, inclusive of the tug rendezvous and of swinging the vessel at the Kings Island Turning Basin. For this call, Moran Towing Savannah has confirmed three azimuth stern drive tugs for a 22:15 EDT rendezvous, and Southern Line Handling Services has a mooring gang under foreman Terrell Bass rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14, so neither tugs nor line handlers constrain the docking.",
+      "source": "Savannah Pilots Association 2025 transit time records; Moran Towing Savannah tug order confirmation 26-4471; Southern Line Handling Services berth roster for 2026-08-13",
+      "as_of": "2026-08-13T16:20:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "id": "e15",
+      "claim": "No navigational restriction other than Standing Orders 9 and 12 will bar the transit on the evening of 2026-08-13: the USCG Sector Charleston regulated navigation area for the Savannah River permits two-way passage wherever the combined beam of the meeting vessels is 320 ft or less, and MV Rhine Meridian at 158 ft meeting MV Cape Ferrol at 140 ft totals 298 ft, so the outbound vessel does not have to clear the channel before the inbound vessel enters; and the National Weather Service Charleston marine forecast issued at 16:00 EDT on 2026-08-13 gives southwest winds of 8 to 12 knots and visibility greater than 6 nautical miles through 02:00 EDT on 2026-08-14, well inside the Savannah Pilots' suspension thresholds of 30 knots sustained wind or visibility below 0.5 nautical miles under Standing Order 15.",
+      "source": "USCG Sector Charleston Savannah River regulated navigation area notice; NWS Charleston SC coastal waters marine forecast issued 16:00 EDT 2026-08-13; Savannah Pilots Association Standing Order 15",
+      "as_of": "2026-08-13T16:00:00-04:00",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ]
+}

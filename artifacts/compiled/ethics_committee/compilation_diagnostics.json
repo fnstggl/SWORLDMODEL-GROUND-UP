@@ -1,12 +1,13 @@
 {
   "detail": {
-    "uncited": [
-      "starting_state None",
-      "starting_state None",
-      "starting_state None",
-      "starting_state None"
+    "remaining_defects": [
+      {
+        "detail": "Sister Margaret Doyle cannot receive the safety review via email during her retreat, and the scenario does not provide any alternative mechanism (e.g., printed copy at meeting) for her to obtain the review. Since she votes with the documented safety assessment when provided, her vote cannot be determined without the review. The scenario must specify how she receives the review at the meeting or adjust her voting rule.",
+        "kind": "missing_causal_link",
+        "severity": "critical"
+      }
     ]
   },
-  "reason": "scenario asserts facts with no supporting evidence: starting_state None; starting_state None; starting_state None; starting_state None",
-  "stage": "INSUFFICIENT_EVIDENCE"
+  "reason": "defects remain after one targeted revision; the scenario is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
 }

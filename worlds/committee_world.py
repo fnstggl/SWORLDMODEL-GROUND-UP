@@ -67,11 +67,16 @@ CAST_VOTE = {
         {"require": "fact_equals", "key": "meeting_open", "value": True},
         {"require": "role_in", "roles": ["chair", "member"]},
         {"require": "fact_equals", "key": "motion", "value": "{params.motion}"},
-        {"require": "fact_absent", "key": "vote:{actor}"},
+        {"require": "record_absent", "record_type": "vote", "producer": "{actor}"},
         {"require": "param_in", "param": "choice", "values": ["hold", "cut"]},
     ],
     "effects": [
-        ["fact.set", {"key": "vote:{actor}", "value": "{params.choice}"}],
+        # a vote is a universal TYPED RECORD -- producer, subject, value and
+        # the authority it was cast under. The runtime has no idea what a
+        # vote is; counting them is the same mechanic as counting sign-offs.
+        ["record.add", {"record_type": "vote", "producer": "{actor}",
+                        "subject": "{params.motion}", "value": "{params.choice}",
+                        "authority": "voting member under charter sec. 3"}],
         ["actor.memory", {"actor": "{actor}", "kind": "note",
                           "content": "Voted {params.choice} on: {params.motion}",
                           "source": "{action_id}"}],
@@ -200,11 +205,9 @@ def build(fran_traveling: bool = True):
 
 def make_terminal() -> Terminal:
     def evaluate(world, final):
-        votes = {m: world.facts.get(f"vote:{m}") for m in MEMBERS}
-        cast = {m: v for m, v in votes.items() if v is not None}
-        producers = [f"record:{r['seq']}" for r in world.records
-                     if r["op"] == "fact.set"
-                     and r["data"]["key"].startswith("vote:")]
+        ballots = world.find_records("vote")
+        cast = {r["producer"]: r["value"] for r in ballots}
+        producers = [f"record:{r['seq']}" for r in ballots]
         if len(cast) == len(MEMBERS):
             hold = sum(1 for v in cast.values() if v == "hold")
             cut = len(cast) - hold

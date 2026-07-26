@@ -39,6 +39,7 @@ PROVENANCE_BASES = frozenset({
     "inferred",         # estimated from comparable real-world processes
     "actor_chosen",     # the actor decided to spend this long
     "process_derived",  # computed from rates and quantities in the world
+    "scenario_given",   # stipulated by the question or scenario definition
     "immediate",        # genuinely instantaneous at this resolution
     "unknown",          # explicitly unknown -- flagged, never silent
 })

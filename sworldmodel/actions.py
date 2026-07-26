@@ -23,7 +23,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime
 
-from .simclock import Duration
+from .simclock import Duration, parse_iso as _iso
 
 #: Legal lifecycle transitions (anything else raises WorldIntegrityError).
 ACTION_TRANSITIONS = {
@@ -157,6 +157,34 @@ def check_conditions(world, actor_id: str, params: dict, conditions: list) -> st
             if c["info"] not in world.actors[actor_id].noticed_info:
                 return ("information is local: you have not noticed "
                         f"{c['info']!r}")
+        elif req == "time_window":
+            now = world.clock.now
+            after, before = c.get("after"), c.get("before")
+            if after and now < _iso(after):
+                return f"too early: this is not permitted before {after}"
+            if before and now >= _iso(before):
+                return f"too late: this was only permitted before {before}"
+        elif req == "action_state":
+            hits = [a for a in world.actions.values()
+                    if a["verb"] == c["verb"] and a["state"] == c.get("state", "completed")
+                    and (c.get("actor") is None or a["actor"] == c["actor"])]
+            if not hits:
+                return (f"precondition failed: no {c['verb']!r} action is "
+                        f"{c.get('state', 'completed')}")
+        elif req == "record_exists":
+            if not world.find_records(c.get("record_type"), c.get("subject"),
+                                      c.get("producer")):
+                return (f"precondition failed: no {c.get('record_type')!r} record "
+                        f"exists for subject {c.get('subject')!r}")
+        elif req == "record_absent":
+            if world.find_records(c.get("record_type"), c.get("subject"),
+                                  c.get("producer")):
+                return (f"precondition failed: a {c.get('record_type')!r} record "
+                        f"already exists for subject {c.get('subject')!r}")
+        elif req == "relationship_exists":
+            key = f"{c['src']}|{c['kind']}|{c['dst']}"
+            if key not in world.relationships:
+                return f"precondition failed: no {c['kind']!r} relationship"
         elif req == "resource_at_least":
             if world.resource(c["holder"], c["name"]) < float(c["amount"]) - 1e-9:
                 return (f"insufficient {c['name']} at {c['holder']}: have "
@@ -170,10 +198,22 @@ def check_conditions(world, actor_id: str, params: dict, conditions: list) -> st
 #: Condition kinds the universal evaluator understands.  A definition using
 #: anything else is refused at registration time, not discovered as a
 #: permanent mysterious rejection at run time.
+#: The universal precondition set. Each entry is a general mechanic --
+#: fact comparison, resource comparison, information lifecycle, actor
+#: authority, time window, action lifecycle, record existence, relationship
+#: existence, and parameter validation. Nothing scenario-specific is ever
+#: added here; unsupported meanings return LOWERING_GAP at compile time.
 KNOWN_CONDITIONS = frozenset({
-    "role_in", "actor_in", "fact_equals", "fact_absent", "actor_exists",
-    "channel_exists", "param_nonempty", "param_in", "noticed_info",
+    "fact_equals", "fact_absent",
     "resource_at_least",
+    "noticed_info",
+    "role_in", "actor_in",
+    "time_window",
+    "action_state",
+    "record_exists", "record_absent",
+    "relationship_exists",
+    "actor_exists", "channel_exists",
+    "param_nonempty", "param_in",
 })
 
 

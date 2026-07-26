@@ -618,7 +618,7 @@
       "status": "inferred"
     },
     {
-      "description": "Whether Osei, Patel, and Doyle receive and notice the safety review email before the meeting (Doyle has no email access during retreat).",
+      "description": "Whether Osei and Patel receive and notice the safety review email before the meeting (Doyle has no email access during retreat, so she cannot receive the email; she will only have the review if it is provided in print at the meeting).",
       "evidence_ids": [
         "e12"
       ],

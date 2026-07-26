@@ -10,7 +10,7 @@ from .errors import (ALL_STAGES, COMPILED, CompilationStop, InsufficientEvidence
                      InvalidReference, LoweringGap, NoCausalProducer,
                      NothingScheduled, RealityReviewRejected, SemanticAmbiguity)
 from .lower import CompiledWorld, Lowerer, lower
-from .minds import CompiledLLMMind, MechanicalMind, llm_minds, mechanical_minds
+from .minds import CompiledLLMMind, llm_minds
 from .schema import (CHANGE_TYPES, OBSERVATION_TYPES, PRECONDITION_TYPES,
                      SECTIONS, contract_document, validate)
 from .symbols import SymbolTable, fact_key, slug

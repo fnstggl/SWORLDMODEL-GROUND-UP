@@ -32,9 +32,9 @@ def test_missing_parameters_refused():
 
 def test_tally_rule_validation():
     with pytest.raises(TerminalSpecError, match="tally rule"):
-        Observation("tally_facts", {"key_prefix": "v:", "rule": "guess"})
+        Observation("tally_records", {"record_type": "vote", "rule": "guess"})
     with pytest.raises(TerminalSpecError, match="count_value"):
-        Observation("tally_facts", {"key_prefix": "v:", "rule": "count_value"})
+        Observation("tally_records", {"record_type": "vote", "rule": "count_value"})
 
 
 def test_terminal_shape_validation():
@@ -74,9 +74,9 @@ def factory_run():
 
 def test_fact_observations(committee_run):
     w = committee_run
-    r = Observation("fact_equals", {"key": "vote:eli", "value": "cut"}).read(w)
-    assert r["satisfied"] and r["value"] == "cut" and r["producers"]
-    r = Observation("fact_equals", {"key": "vote:eli", "value": "hold"}).read(w)
+    r = Observation("fact_equals", {"key": "meeting_open", "value": True}).read(w)
+    assert r["satisfied"] and r["value"] is True and r["producers"]
+    r = Observation("fact_equals", {"key": "meeting_open", "value": False}).read(w)
     assert not r["satisfied"]
     r = Observation("fact_exists", {"key": "motion"}).read(w)
     assert r["satisfied"]
@@ -86,27 +86,34 @@ def test_fact_observations(committee_run):
 
 def test_tally_observation(committee_run):
     w = committee_run
-    r = Observation("tally_facts", {"key_prefix": "vote:", "rule": "majority",
-                                    "expected_count": 3}).read(w)
+    r = Observation("tally_records", {"record_type": "vote", "rule": "majority",
+                                      "expected_count": 3}).read(w)
     assert r["satisfied"] and r["value"] == "hold" and len(r["producers"]) == 3
-    r = Observation("tally_facts", {"key_prefix": "vote:", "rule": "count_value",
-                                    "value": "cut"}).read(w)
+    r = Observation("tally_records", {"record_type": "vote", "rule": "count_value",
+                                      "value": "cut"}).read(w)
     assert r["value"] == 1
-    r = Observation("tally_facts", {"key_prefix": "vote:", "rule": "count_all"}).read(w)
+    r = Observation("tally_records", {"record_type": "vote",
+                                      "rule": "count_all"}).read(w)
     assert r["value"] == 3
     # an incomplete tally is not satisfied
-    r = Observation("tally_facts", {"key_prefix": "vote:", "rule": "majority",
-                                    "expected_count": 5}).read(w)
+    r = Observation("tally_records", {"record_type": "vote", "rule": "majority",
+                                      "expected_count": 5}).read(w)
     assert not r["satisfied"]
+    # a record of a different type is simply a different tally
+    assert Observation("record_exists", {"record_type": "vote"}).read(w)["satisfied"]
+    assert not Observation("record_exists",
+                           {"record_type": "signoff"}).read(w)["satisfied"]
 
 
 def test_tally_detects_a_tie():
     from sworldmodel import World, at_local as al
     w = World(al(2026, 1, 1, tz="UTC"))
-    w.apply("fact.set", {"key": "v:a", "value": "yes"}, None)
-    w.apply("fact.set", {"key": "v:b", "value": "no"}, None)
-    r = Observation("tally_facts", {"key_prefix": "v:", "rule": "majority",
-                                    "expected_count": 2}).read(w)
+    w.apply("record.add", {"record_type": "ballot", "producer": "a",
+                           "value": "yes"}, None)
+    w.apply("record.add", {"record_type": "ballot", "producer": "b",
+                           "value": "no"}, None)
+    r = Observation("tally_records", {"record_type": "ballot", "rule": "majority",
+                                      "expected_count": 2}).read(w)
     assert r["value"] == "tie"
 
 
@@ -182,8 +189,8 @@ def test_choice_spec_matches_handwritten_committee_terminal():
     spec = TerminalSpec(
         question=committee_world.QUESTION, cutoff=committee_world.CUTOFF,
         question_type="choice",
-        measure=Observation("tally_facts",
-                            {"key_prefix": "vote:", "rule": "majority",
+        measure=Observation("tally_records",
+                            {"record_type": "vote", "rule": "majority",
                              "expected_count": 3},
                             "majority of cast votes"))
     w, minds, _ = committee_world.build()

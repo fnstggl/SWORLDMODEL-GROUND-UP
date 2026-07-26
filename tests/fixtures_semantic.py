@@ -31,33 +31,38 @@ MESSAGE_CASE = {
         {"name": "Dana Whitfield", "kind": "person", "role": "reporter",
          "timezone": "America/New_York",
          "causal_relevance": "asks for the comment and must receive it",
-         "evidence_ids": ["e1"],
+         "provenance": {"basis": "verified", "evidence_ids": ["e1"], "note": "named in the assignment desk record"},
          "availability": {"timezone": "America/New_York", "workdays": [0, 1, 2, 3, 4],
                           "open": "09:00", "close": "18:00"},
          "attention": [{"route": "work email", "status": "inferred",
                         "description": "checks email every 20 minutes while working",
-                        "check_interval_minutes": 20}]},
+                        "check_interval_minutes": 20,
+                        "provenance": {"basis": "inferred", "evidence_ids": ["e1"], "note": "routine described by her desk"}}]},
         {"name": "Priya Raman", "kind": "person", "role": "press officer",
          "timezone": "Europe/London",
          "causal_relevance": "holds the authority to give an on-record comment",
-         "evidence_ids": ["e2"],
+         "provenance": {"basis": "verified", "evidence_ids": ["e2"], "note": "named as press officer"},
          "availability": {"timezone": "Europe/London", "workdays": [0, 1, 2, 3, 4],
                           "open": "09:00", "close": "17:30"},
          "attention": [{"route": "work email", "status": "inferred",
                         "description": "reviews the press inbox hourly on workdays",
-                        "check_interval_minutes": 60}]},
+                        "check_interval_minutes": 60,
+                        "provenance": {"basis": "inferred", "evidence_ids": ["e2"], "note": "press office practice"}}]},
     ],
     "starting_state": [
         {"subject": "Priya Raman", "kind": "belief",
          "topic": "approved statement",
          "description": "The approved line is that the trial met its primary endpoint.",
-         "visibility": "private", "status": "verified", "evidence_ids": ["e3"]},
+         "visibility": "private", "status": "verified", "evidence_ids": ["e3"],
+         "provenance": {"basis": "verified", "evidence_ids": ["e3"], "note": "the approved line is on file"}},
     ],
     "communication_routes": [
         {"name": "work email",
          "description": "ordinary corporate email",
          "delivery_delay": {"description": "normal electronic delivery",
-                            "status": "verified", "seconds": 45}},
+                            "status": "verified", "seconds": 45,
+                            "provenance": {"basis": "verified", "evidence_ids": ["e5"], "note": "IT service description"}},
+         "provenance": {"basis": "verified", "evidence_ids": ["e5"], "note": "corporate email is the route used"}},
     ],
     "information": [
         {"holder": "Dana Whitfield", "topic": "comment request",
@@ -65,12 +70,14 @@ MESSAGE_CASE = {
          "route": "work email", "already_sent_to": ["Priya Raman"],
          "sent_time": "2026-05-08T18:40:00-04:00",
          "tag": "comment request",
-         "basis": "the reporter's sent-mail record (e4)"},
+         "basis": "the reporter's sent-mail record (e4)",
+         "provenance": {"basis": "verified", "evidence_ids": ["e4"], "note": "sent-mail record"}},
     ],
     "scheduled_events": [
         {"description": "publication deadline passes",
          "time": "2026-05-11T17:00:00-04:00",
          "basis": "the newsroom's stated deadline (e5)",
+         "provenance": {"basis": "scenario_given", "evidence_ids": [], "note": "the question fixes the deadline"},
          "effects": [{"change_type": "record_fact", "about": "publication deadline",
                       "value": "passed"}]},
     ],
@@ -85,7 +92,9 @@ MESSAGE_CASE = {
          "preconditions": [
              {"condition_type": "has_noticed_information", "from_parameter": "request"}],
          "duration": {"description": "time to clear and compose the line",
-                      "status": "inferred", "typical_minutes": 25},
+                      "status": "inferred", "typical_minutes": 25,
+                      "provenance": {"basis": "inferred", "evidence_ids": ["e2"], "note": "comparable press replies"}},
+         "provenance": {"basis": "verified", "evidence_ids": ["e2"], "note": "she holds the authority to comment"},
          "consequences_on_completion": [
              {"change_type": "send_information", "route": "work email",
               "tag": "on record comment",
@@ -181,3 +190,19 @@ QUANTITY_CASE = {
                                 "opening depot stock"]},
     ],
 }
+
+
+# --- TEST-ONLY scripted minds for these fixtures -------------------------
+# Written by hand against the fixture's own affordance labels. Nothing here
+# derives from compiler output, and a run driven by these is not a forecast.
+
+MESSAGE_CASE_SCRIPT = {
+    "Priya Raman": [
+        {"trigger": "notices", "tag": "comment_request",
+         "action": "send an on-record comment",
+         "bind_from_notice": {"request": "id"},
+         "why": "the press officer answers a request she has actually seen"},
+    ],
+}
+
+QUANTITY_CASE_SCRIPT = {}      # nobody acts: this world is purely operational

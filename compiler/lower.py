@@ -25,7 +25,8 @@ from .symbols import SymbolTable, fact_key, slug
 
 #: epistemic status -> runtime provenance basis. "uncertain" is deliberately
 #: absent: an uncertain quantity may not become a concrete number.
-STATUS_BASIS = {"verified": "verified", "inferred": "inferred"}
+STATUS_BASIS = {"verified": "verified", "inferred": "inferred",
+                "scenario_given": "scenario_given"}
 
 
 @dataclass
@@ -48,6 +49,7 @@ class Lowerer:
         self.producers: dict = {}
         self.affordances: dict = {}
         self.attention_routes: dict = {}   # actor id -> {channel ids}
+        self.uncertain_paths: dict = {}    # producer target -> why it may not occur
 
     # ------------------------------------------------------------------
     def log(self, step: str, **kw) -> None:
@@ -479,12 +481,18 @@ class Lowerer:
         """Information can only be NOTICED if that actor actually attends the
         route it arrives on. Recording this distinction is what lets the
         producer check refuse a terminal that depends on unsupported noticing."""
-        if route in self.attention_routes.get(actor_id, set()):
-            self.produced(f"info:{actor_id}:{tag}", by)
-        else:
-            self.log("info_deliverable_but_unnoticed", actor=actor_id, tag=tag,
-                     route=route,
-                     reason="no justified attention rule for this route")
+        self.produced(f"info:{actor_id}:{tag}", by)
+        if route not in self.attention_routes.get(actor_id, set()):
+            # A valid causal pathway exists (it really is sent and delivered);
+            # only the NOTICING is uncertain. That is unresolved uncertainty,
+            # not an impossible world -- the run may legitimately reach its
+            # cutoff without an answer.
+            self.uncertain_paths[f"info:{actor_id}:{tag}"] = (
+                f"the message reaches {actor_id} on {route}, but the evidence "
+                f"does not establish a pattern by which they would notice it")
+            self.log("noticing_uncertain", actor=actor_id, tag=tag, route=route,
+                     reason="delivered, but no justified attention rule; the "
+                            "terminal may remain unresolved")
 
     # ------------------------------------------------------------------
     def _lower_processes(self) -> None:
@@ -653,6 +661,32 @@ class Lowerer:
                     "value": self._maybe_param(c, "value")}
         if ct == "world_fact_absent":
             return {"require": "fact_absent", "key": self._fact_key(c, where)}
+        if ct in ("record_exists", "record_absent"):
+            out = {"require": ct,
+                   "record_type": slug(c.get("record_type", ""), "record")}
+            if c.get("subject") or c.get("subject_from_parameter"):
+                out["subject"] = self._maybe_param(c, "subject")
+            if c.get("made_by_acting_participant"):
+                out["producer"] = "{actor}"
+            elif c.get("made_by"):
+                out["producer"] = self._participant(c["made_by"], where)
+            return out
+        if ct == "within_time_window":
+            out = {"require": "time_window"}
+            for k in ("after", "before"):
+                if c.get(k):
+                    out[k] = self._time(c[k], f"{where}.{k}").isoformat()
+            if len(out) == 1:
+                raise SemanticAmbiguity(
+                    f"{where}: within_time_window needs 'after' and/or 'before'")
+            return out
+        if ct == "action_already_completed":
+            out = {"require": "action_state",
+                   "verb": self.sym.resolve("affordance", c["action_label"], where),
+                   "state": "completed"}
+            if c.get("participant"):
+                out["actor"] = self._participant(c["participant"], where)
+            return out
         if ct == "has_noticed_information":
             param = c.get("from_parameter", "information")
             return {"require": "noticed_info", "info": "{params.%s}" % param}
@@ -698,14 +732,29 @@ class Lowerer:
             about = ch.get("about")
             if not about:
                 raise SemanticAmbiguity(f"{where}: record_fact needs 'about'")
-            scope = ch.get("scope", "global")
-            if scope == "per_actor" and not actor_scope:
-                raise LoweringGap(
-                    f"{where}: a per-actor record needs an acting participant; "
-                    f"scheduled world events have none")
-            key = fact_key(self.sym, about, scope)
+            key = fact_key(self.sym, about)
             self.produced(f"fact:{key}", f"{where}: record_fact")
             return ["fact.set", {"key": key, "value": self._maybe_param(ch, "value")}]
+
+        if ct == "create_record":
+            rtype = ch.get("record_type")
+            if not rtype:
+                raise SemanticAmbiguity(f"{where}: create_record needs a record_type")
+            rt = slug(rtype, "record")
+            subject = self._maybe_param(ch, "subject")
+            producer = ("{actor}" if actor_scope
+                        else (self._participant(ch["made_by"], where)
+                              if ch.get("made_by") else None))
+            if producer is None:
+                raise LoweringGap(
+                    f"{where}: a record made by a world event must name who "
+                    f"made it ('made_by')")
+            self.produced(f"record:{rt}", f"{where}: create_record")
+            return ["record.add",
+                    {"record_type": rt, "producer": producer, "subject": subject,
+                     "value": self._maybe_param(ch, "value"),
+                     "authority": self._literal(ch.get("authority", "")),
+                     "valid": bool(ch.get("valid", True))}]
 
         if ct in ("set_quantity", "change_quantity"):
             holder = self._participant(ch["holder"], where)
@@ -862,8 +911,28 @@ class Lowerer:
     # ------------------------------------------------------------------
     def _lower_terminal(self) -> TerminalSpec:
         res = self.doc["resolution"]
-        obs = [self._lower_observation(o, f"resolution.observations[{i}]")
-               for i, o in enumerate(res["observations"])]
+        obs = []
+        seen_desc = set()
+        for i, o in enumerate(res["observations"]):
+            ob = self._lower_observation(o, f"resolution.observations[{i}]")
+            # each observation needs a distinct label so an uncertain pathway
+            # can be attributed to exactly one of them
+            label = ob.describe or f"observation {i + 1}"
+            while label in seen_desc:
+                label += f" ({i + 1})"
+            seen_desc.add(label)
+            obs.append(Observation(ob.kind, ob.params, label))
+
+        # which readings depend on a step that may simply never occur?
+        uncertain = []
+        for ob in obs:
+            target = _observation_target(ob)
+            why = self.uncertain_paths.get(target)
+            if why:
+                uncertain.append((ob.describe, why))
+                self.log("terminal_depends_on_uncertain_step",
+                         observation=ob.describe, reason=why)
+        uncertain = tuple(uncertain)
         qt = res["question_type"]
         if qt == "boolean":
             return TerminalSpec(
@@ -871,7 +940,8 @@ class Lowerer:
                 cutoff=self.cutoff, question_type="boolean",
                 conditions=tuple(obs),
                 yes_detail=res.get("yes_condition", ""),
-                no_detail=res.get("no_condition", ""))
+                no_detail=res.get("no_condition", ""),
+                uncertain_paths=uncertain)
         if len(obs) != 1:
             raise SemanticAmbiguity(
                 f"a {qt} question needs exactly one observation to read, got "
@@ -912,15 +982,23 @@ class Lowerer:
             if o.get("participant"):
                 params["actor"] = self._participant(o["participant"], where)
             return Observation("action_completed", params, desc)
+        if ot == "record_was_made":
+            params = {"record_type": slug(o.get("record_type", ""), "record")}
+            if o.get("subject"):
+                params["subject"] = o["subject"]
+            if o.get("made_by"):
+                params["producer"] = self._participant(o["made_by"], where)
+            return Observation("record_exists", params, desc)
         if ot == "tally_of_records":
-            params = {"key_prefix": fact_key(self.sym, o["about"], "per_actor")
-                      .replace("{actor}", ""),
+            params = {"record_type": slug(o.get("record_type", ""), "record"),
                       "rule": o["rule"]}
+            if o.get("subject"):
+                params["subject"] = o["subject"]
             if o.get("expected_count") is not None:
                 params["expected_count"] = int(o["expected_count"])
             if o.get("value") is not None:
                 params["value"] = o["value"]
-            return Observation("tally_facts", params, desc)
+            return Observation("tally_records", params, desc)
         raise LoweringGap(f"{where}: observation_type {ot!r} has no universal form")
 
     # ------------------------------------------------------------------
@@ -1001,8 +1079,8 @@ def _observation_target(o: Observation) -> str | None:
         return f"info:{p['actor']}:{p['tag']}"
     if o.kind == "action_completed":
         return f"action:{p['verb']}"
-    if o.kind == "tally_facts":
-        return f"fact:{p['key_prefix']}*"
+    if o.kind in ("record_exists", "tally_records"):
+        return f"record:{p['record_type']}"
     return None
 
 

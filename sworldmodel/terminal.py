@@ -18,10 +18,19 @@ The vocabulary is deliberately tiny and domain-free:
     belief_topic_exists  an actor holds a belief on a topic
     info_noticed_by      an actor noticed information carrying a tag
     action_completed     an action of some verb completed
-    tally_facts          count records matching a key prefix and apply a rule
+    record_exists        a typed record of some type/subject exists
+    tally_records        group typed records by value and apply a rule
 
 "Vote count", "delivery total" and "did she read it" are all expressible
-here; none of them is a special case in the runtime.
+here; none of them is a special case in the runtime. Tallying works over
+*typed records* -- each carrying its producer, subject, value, validity and
+authority -- so counting votes is the same mechanic as counting sign-offs or
+filings, with no committee-specific code anywhere.
+
+A terminal may also legitimately fail to resolve. When a causal pathway
+exists but an uncertain step (an unnoticed message, a decision nobody took)
+did not occur before the cutoff, the honest answer is "unresolved", not
+"no": see ``uncertain_paths``.
 """
 from __future__ import annotations
 
@@ -34,7 +43,7 @@ from .simclock import aware
 OBSERVATION_KINDS = frozenset({
     "fact_equals", "fact_exists", "resource_at_least", "resource_measure",
     "belief_topic_exists", "info_noticed_by", "action_completed",
-    "tally_facts",
+    "record_exists", "tally_records",
 })
 
 TALLY_RULES = frozenset({"majority", "count_value", "count_all"})
@@ -62,7 +71,7 @@ class Observation:
             if req not in self.params:
                 raise TerminalSpecError(
                     f"observation {self.kind!r} requires parameter {req!r}")
-        if self.kind == "tally_facts":
+        if self.kind == "tally_records":
             if self.params["rule"] not in TALLY_RULES:
                 raise TerminalSpecError(
                     f"tally rule must be one of {sorted(TALLY_RULES)}")
@@ -91,7 +100,8 @@ _REQUIRED_PARAMS = {
     "belief_topic_exists": ("actor", "topic"),
     "info_noticed_by": ("actor", "tag"),
     "action_completed": ("verb",),
-    "tally_facts": ("key_prefix", "rule"),
+    "record_exists": ("record_type",),
+    "tally_records": ("record_type", "rule"),
 }
 
 
@@ -196,39 +206,52 @@ def _read_action_completed(obs, world):
                             + (f" by {actor}" if actor else ""))}
 
 
-def _read_tally_facts(obs, world):
-    prefix = obs.params["key_prefix"]
+def _read_record_exists(obs, world):
+    hits = world.find_records(obs.params["record_type"], obs.params.get("subject"),
+                              obs.params.get("producer"))
+    return {"satisfied": bool(hits),
+            "value": [h["value"] for h in hits] or None,
+            "producers": [f"record:{h['seq']}" for h in hits],
+            "detail": (f"{len(hits)} {obs.params['record_type']!r} record(s) exist"
+                       if hits else
+                       f"no {obs.params['record_type']!r} record exists")}
+
+
+def _read_tally_records(obs, world):
+    """Group typed records by their value and apply a counting rule. Domain
+    free: 'majority of votes', 'how many sign-offs', 'did three approve' are
+    the same mechanic."""
+    rtype = obs.params["record_type"]
     rule = obs.params["rule"]
+    subject = obs.params.get("subject")
     expected = obs.params.get("expected_count")
-    entries = {k: v for k, v in world.facts.items() if k.startswith(prefix)}
-    producers = _producers(world, "fact.set",
-                           lambda d: d["key"].startswith(prefix))
+    entries = world.find_records(rtype, subject)
+    producers = [f"record:{r['seq']}" for r in entries]
     counts = {}
-    for v in entries.values():
-        counts[str(v)] = counts.get(str(v), 0) + 1
+    for r in entries:
+        counts[str(r["value"])] = counts.get(str(r["value"]), 0) + 1
     complete = expected is None or len(entries) >= int(expected)
+    label = f"{rtype!r}" + (f" on {subject!r}" if subject else "")
     if rule == "count_all":
         return {"satisfied": complete, "value": len(entries),
                 "producers": producers,
-                "detail": f"{len(entries)} records matching {prefix!r}"}
+                "detail": f"{len(entries)} {label} record(s)"}
     if rule == "count_value":
         want = str(obs.params["value"])
         return {"satisfied": complete, "value": counts.get(want, 0),
                 "producers": producers,
-                "detail": f"{counts.get(want, 0)} of {len(entries)} records "
-                          f"matching {prefix!r} equal {want!r}"}
-    # majority
+                "detail": f"{counts.get(want, 0)} of {len(entries)} {label} "
+                          f"record(s) are {want!r}"}
     if not entries:
         return {"satisfied": False, "value": None, "producers": producers,
-                "detail": f"no records matching {prefix!r}"}
+                "detail": f"no {label} records were made"}
     top = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
-    winner = top[0][0]
     tied = len(top) > 1 and top[1][1] == top[0][1]
-    value = "tie" if tied else winner
+    value = "tie" if tied else top[0][0]
     return {"satisfied": complete, "value": value, "producers": producers,
-            "detail": f"tally over {prefix!r}: {counts} -> {value}"
+            "detail": f"tally of {label}: {counts} -> {value}"
                       + ("" if complete else
-                         f" (incomplete: {len(entries)}/{expected})")}
+                         f" (incomplete: {len(entries)}/{expected} expected)")}
 
 
 _READERS = {
@@ -239,7 +262,8 @@ _READERS = {
     "belief_topic_exists": _read_belief_topic_exists,
     "info_noticed_by": _read_info_noticed_by,
     "action_completed": _read_action_completed,
-    "tally_facts": _read_tally_facts,
+    "record_exists": _read_record_exists,
+    "tally_records": _read_tally_records,
 }
 
 
@@ -261,6 +285,10 @@ class TerminalSpec:
     measure: Observation | None = None   # quantity / choice
     yes_detail: str = ""
     no_detail: str = ""
+    #: describe -> why this observation's causal pathway is uncertain. When an
+    #: unmet observation is listed here, reaching the cutoff means UNRESOLVED,
+    #: not NO: a valid path existed, but an uncertain step did not occur.
+    uncertain_paths: tuple = ()
 
     def __post_init__(self):
         if self.question_type not in QUESTION_TYPES:
@@ -288,11 +316,31 @@ class TerminalSpec:
                             {"observation": o.to_dict(), "read": r}
                             for o, r in reads]}
             if final:
-                unmet = [r["detail"] for _, r in reads if not r["satisfied"]]
+                unmet = [(o, r) for o, r in reads if not r["satisfied"]]
                 producers = [p for _, r in reads for p in r["producers"]]
+                uncertain = {d: why for d, why in self.uncertain_paths}
+                blocked = [(o, r, uncertain[o.describe])
+                           for o, r in unmet if o.describe in uncertain]
+                if blocked:
+                    # a real pathway existed but an uncertain step never
+                    # occurred: unknown stays unknown rather than becoming "no"
+                    return {"answer": "unresolved",
+                            "detail": "the outcome did not resolve before the "
+                                      "cutoff because an uncertain step did not "
+                                      "occur: " + "; ".join(
+                                          f"{r['detail']} ({why})"
+                                          for _, r, why in blocked),
+                            "unresolved_because": [
+                                {"observation": o.to_dict(), "reason": why}
+                                for o, _, why in blocked],
+                            "computed_from": producers or ["terminal.cutoff"],
+                            "observations": [
+                                {"observation": o.to_dict(), "read": r}
+                                for o, r in reads]}
                 return {"answer": "no",
                         "detail": self.no_detail or
-                                  "not satisfied at the cutoff: " + "; ".join(unmet),
+                                  "not satisfied at the cutoff: "
+                                  + "; ".join(r["detail"] for _, r in unmet),
                         "computed_from": producers or ["terminal.cutoff"],
                         "observations": [
                             {"observation": o.to_dict(), "read": r}
@@ -324,7 +372,8 @@ class TerminalSpec:
                 "question_type": self.question_type,
                 "conditions": [o.to_dict() for o in self.conditions],
                 "measure": self.measure.to_dict() if self.measure else None,
-                "yes_detail": self.yes_detail, "no_detail": self.no_detail}
+                "yes_detail": self.yes_detail, "no_detail": self.no_detail,
+                "uncertain_paths": [list(x) for x in self.uncertain_paths]}
 
     @classmethod
     def from_dict(cls, d: dict) -> "TerminalSpec":
@@ -336,4 +385,6 @@ class TerminalSpec:
                    measure=(Observation.from_dict(d["measure"])
                             if d.get("measure") else None),
                    yes_detail=d.get("yes_detail", ""),
-                   no_detail=d.get("no_detail", ""))
+                   no_detail=d.get("no_detail", ""),
+                   uncertain_paths=tuple(tuple(x) for x in
+                                         d.get("uncertain_paths", [])))
