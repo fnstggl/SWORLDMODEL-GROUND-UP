@@ -1,30 +1,27 @@
 {
   "action_defs": [
-    "read_finalized_study",
-    "send_finalized_study_to_council_members"
+    "send_finalized_study",
+    "start_reading_study"
   ],
   "actors": [
     "alma_reyes",
-    "city_email_system",
-    "external_peer_reviewer",
+    "external_reviewer",
     "miguel_santos"
   ],
   "channels": [
     "city_email"
   ],
-  "processes": [],
+  "processes": [
+    "reading_study"
+  ],
   "producer_index": {
-    "action:read_finalized_study": 1,
-    "action:send_finalized_study_to_council_members": 1,
-    "belief:alma_reyes:content_of_finalized_riverside_corridor_traffic_study": 1,
-    "belief:city_email_system:content_of_finalized_riverside_corridor_traffic_study": 1,
-    "belief:external_peer_reviewer:content_of_finalized_riverside_corridor_traffic_study": 1,
-    "belief:external_peer_reviewer:peer_review_sign_off": 1,
-    "belief:miguel_santos:content_of_finalized_riverside_corridor_traffic_study": 1,
-    "fact:peer_review_sign_off_received": 1,
+    "action:send_finalized_study": 1,
+    "action:start_reading_study": 1,
+    "belief:alma_reyes:need_to_read_study": 1,
     "info:alma_reyes:finalized_study": 1,
-    "info:miguel_santos:peer_review_signoff": 1
+    "info:miguel_santos:peer_review_signoff": 1,
+    "resource:alma_reyes:study_read_time_minutes": 2
   },
-  "scheduled_root_events": 1,
+  "scheduled_root_events": 4,
   "stage": "COMPILED"
 }

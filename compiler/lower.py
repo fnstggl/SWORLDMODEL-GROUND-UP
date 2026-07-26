@@ -69,6 +69,7 @@ class Lowerer:
         self.log("start", start=start.isoformat(), cutoff=cutoff.isoformat())
 
         self._register_names()
+        self._preflight()
         self._lower_routes()
         self._lower_participants()
         self._lower_starting_state()
@@ -115,6 +116,136 @@ class Lowerer:
         for a in self.doc["action_affordances"]:
             self.sym.register("affordance", a["label"])
         self.log("symbols", table=self.sym.to_dict())
+
+    # ------------------------------------------------------------------
+    # preflight: report EVERY unresolvable reference at once
+    # ------------------------------------------------------------------
+    def _preflight(self) -> None:
+        """Collect all reference defects in one pass.
+
+        Reporting them one at a time makes a scenario with several missing
+        declarations impossible to fix in a single bounded repair round, so
+        the whole document is checked before anything is built.
+        """
+        errs: list = []
+
+        def want(kind, name, where):
+            if name in (None, ""):
+                errs.append(f"{where}: empty {kind} reference")
+            elif not self.sym.has(kind, name):
+                known = self.sym.names(kind)
+                errs.append(f"{where}: no {kind} named {name!r} "
+                            f"(declared {kind}s: {known})")
+
+        def scan_changes(changes, where, declared_params=None):
+            for i, ch in enumerate(changes or []):
+                if not isinstance(ch, dict):
+                    errs.append(f"{where}: change #{i} is not an object")
+                    continue
+                w = f"{where}.change[{ch.get('change_type', '?')}]"
+                ct = ch.get("change_type")
+                if ct in ("set_quantity", "change_quantity"):
+                    want("participant", ch.get("holder"), w)
+                    want("quantity", ch.get("quantity"), w)
+                elif ct == "transfer_resource":
+                    want("participant", ch.get("from"), w)
+                    want("participant", ch.get("to"), w)
+                    want("quantity", ch.get("quantity"), w)
+                elif ct == "send_information":
+                    want("route", ch.get("route"), w)
+                    if ch.get("from"):
+                        want("participant", ch["from"], w)
+                    to = ch.get("to") or {}
+                    for n in (to.get("participants") or []):
+                        want("participant", n, w)
+                elif ct == "set_relationship":
+                    want("participant", ch.get("from"), w)
+                    want("participant", ch.get("to"), w)
+                elif ct in ("start_process", "stop_process"):
+                    want("process", ch.get("process"), w)
+                elif ct == "record_private_note" and ch.get("participant"):
+                    want("participant", ch["participant"], w)
+                scan_changes(ch.get("effects"), w, declared_params)
+
+        for p in self.doc["participants"]:
+            for rel in p.get("relationships") or []:
+                want("participant", rel.get("to"),
+                     f"participants[{p['name']!r}].relationships")
+            for att in p.get("attention") or []:
+                want("route", att.get("route"),
+                     f"participants[{p['name']!r}].attention")
+
+        for i, s in enumerate(self.doc.get("starting_state") or []):
+            w = f"starting_state[{i}]"
+            kind = s.get("kind", "fact")
+            if kind in ("belief", "relationship") or s.get("subject"):
+                want("participant", s.get("subject"), w)
+            if kind == "relationship":
+                want("participant", s.get("other"), w)
+            if kind == "quantity":
+                q = s.get("quantity") or {}
+                want("participant", q.get("holder"), w)
+
+        for i, inf in enumerate(self.doc.get("information") or []):
+            w = f"information[{i}]"
+            want("participant", inf.get("holder"), w)
+            for n in inf.get("already_sent_to") or []:
+                want("participant", n, w)
+            if inf.get("already_sent_to"):
+                want("route", inf.get("route"), w)
+
+        for i, pr in enumerate(self.doc.get("processes") or []):
+            w = f"processes[{i}] ({pr.get('name')!r})"
+            want("participant", pr.get("owner"), w)
+            want("quantity", pr.get("output_quantity"), w)
+
+        for i, ev in enumerate(self.doc.get("scheduled_events") or []):
+            w = f"scheduled_events[{i}] ({ev.get('description')!r})"
+            scan_changes(ev.get("effects"), w)
+            for wk in ev.get("wakes") or []:
+                want("participant", wk.get("participant"), f"{w}.wakes")
+
+        roles = {p.get("role") for p in self.doc["participants"]}
+        for i, a in enumerate(self.doc["action_affordances"]):
+            w = f"action_affordances[{i}] ({a.get('label')!r})"
+            av = a.get("available_to") or {}
+            for n in av.get("participants") or []:
+                want("participant", n, w)
+            for r in av.get("roles") or []:
+                if r not in roles:
+                    errs.append(f"{w}: available_to names role {r!r} that no "
+                                f"participant holds (roles: "
+                                f"{sorted(x for x in roles if x)})")
+            for c in a.get("preconditions") or []:
+                if c.get("condition_type") == "has_quantity_at_least":
+                    want("participant", c.get("holder"), w)
+                    want("quantity", c.get("quantity"), w)
+            scan_changes(a.get("consequences_on_completion"), w)
+            try:
+                self._check_parameter_references(a, w)
+            except InvalidReference as e:
+                errs.append(e.reason)
+
+        for i, o in enumerate(self.doc["resolution"].get("observations") or []):
+            w = f"resolution.observations[{i}]"
+            ot = o.get("observation_type")
+            if ot in ("participant_holds_belief", "participant_noticed_information"):
+                want("participant", o.get("participant"), w)
+            elif ot in ("quantity_reaches", "quantity_measured"):
+                want("participant", o.get("holder"), w)
+                want("quantity", o.get("quantity"), w)
+            elif ot == "action_was_completed":
+                want("affordance", o.get("action_label"), w)
+                if o.get("participant"):
+                    want("participant", o["participant"], w)
+
+        if errs:
+            raise InvalidReference(
+                f"{len(errs)} reference defect(s) -- every party, route, "
+                f"quantity, process and parameter must be declared before it "
+                f"is used:\n  - " + "\n  - ".join(errs),
+                {"defects": errs})
+        self.log("preflight_ok", participants=len(self.doc["participants"]))
 
     # ------------------------------------------------------------------
     def _participant(self, name, where) -> str:

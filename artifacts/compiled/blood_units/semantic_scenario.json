@@ -18,7 +18,7 @@
           4
         ]
       },
-      "causal_relevance": "Collects blood and ships to hospital.",
+      "causal_relevance": "Operates the mobile collection drive and ships blood to the hospital.",
       "evidence_ids": [
         "e1",
         "e2",
@@ -29,12 +29,12 @@
         "e9"
       ],
       "goals": [
-        "Collect and distribute blood units"
+        "Collect and distribute blood units efficiently."
       ],
-      "identity_brief": "Regional blood centre operating a mobile collection drive.",
-      "initial_emotional_state": "neutral",
-      "initial_physical_state": "operational",
-      "initial_plan": "Operate drive Mon-Fri 9-5, ship 150 units on Tue and Thu at 4 PM.",
+      "identity_brief": "Regional blood centre that collects and distributes blood units.",
+      "initial_emotional_state": "Neutral",
+      "initial_physical_state": "Operational",
+      "initial_plan": "Run collection drive Mon-Fri 9-5, ship 150 units on Tuesday and Thursday at 4 PM.",
       "kind": "organization",
       "name": "Cascade regional blood centre",
       "relationships": [
@@ -45,7 +45,10 @@
       ],
       "role": "blood supplier",
       "timezone": "America/Los_Angeles",
-      "values": []
+      "values": [
+        "Reliability",
+        "Safety"
+      ]
     },
     {
       "attention": [],
@@ -64,18 +67,18 @@
           6
         ]
       },
-      "causal_relevance": "Receives and holds blood units; final quantity is the answer.",
+      "causal_relevance": "Receives blood units and holds them; final quantity is the answer.",
       "evidence_ids": [
         "e6",
         "e8"
       ],
       "goals": [
-        "Maintain blood supply"
+        "Maintain adequate blood supply."
       ],
-      "identity_brief": "Regional hospital that receives blood shipments from the centre.",
-      "initial_emotional_state": "neutral",
-      "initial_physical_state": "operational",
-      "initial_plan": "Receive shipments as scheduled.",
+      "identity_brief": "Regional hospital that receives blood shipments from Cascade.",
+      "initial_emotional_state": "Neutral",
+      "initial_physical_state": "Operational",
+      "initial_plan": "Receive shipments and store blood.",
       "kind": "organization",
       "name": "St. Vincent regional hospital",
       "relationships": [
@@ -86,17 +89,19 @@
       ],
       "role": "hospital",
       "timezone": "America/Los_Angeles",
-      "values": []
+      "values": [
+        "Patient care"
+      ]
     }
   ],
   "processes": [
     {
       "capacity": null,
-      "description": "Collects blood at 12 units per hour during operating hours.",
-      "initially_active": true,
+      "description": "Collects blood units at 12 per hour during operating hours.",
+      "initially_active": false,
       "name": "Mobile collection drive",
       "operating_periods": {
-        "description": "Monday to Friday 9 AM to 5 PM",
+        "description": "Monday to Friday 9:00-17:00 America/Los_Angeles",
         "end": "17:00",
         "start": "09:00",
         "timezone": "America/Los_Angeles",
@@ -112,7 +117,7 @@
       "owner": "Cascade regional blood centre",
       "rate": {
         "amount_per_hour": 12,
-        "note": "From centre's throughput report (e2).",
+        "note": "From centre's 2026 throughput report (e2).",
         "status": "verified"
       }
     }
@@ -133,7 +138,7 @@
   "scheduled_events": [
     {
       "basis": "Standing distribution agreement (e7) and courier estimate (e8).",
-      "description": "Tuesday shipment departs centre at 4 PM, arrives at hospital after 3 hours at 7 PM.",
+      "description": "Tuesday shipment departs Cascade at 4:00 PM, arrives at hospital after 3 hours at 7:00 PM.",
       "effects": [
         {
           "amount": 150,
@@ -145,14 +150,15 @@
       ],
       "evidence_ids": [
         "e7",
-        "e8"
+        "e8",
+        "e9"
       ],
       "time": "2026-07-21T16:00:00-07:00",
       "wakes": []
     },
     {
       "basis": "Standing distribution agreement (e7) and courier estimate (e8).",
-      "description": "Thursday shipment departs centre at 4 PM, arrives at hospital after 3 hours at 7 PM.",
+      "description": "Thursday shipment departs Cascade at 4:00 PM, arrives at hospital after 3 hours at 7:00 PM.",
       "effects": [
         {
           "amount": 150,
@@ -164,7 +170,8 @@
       ],
       "evidence_ids": [
         "e7",
-        "e8"
+        "e8",
+        "e9"
       ],
       "time": "2026-07-23T16:00:00-07:00",
       "wakes": []
@@ -173,15 +180,15 @@
   "scope": {
     "excluded": [
       {
-        "reason": "She does not affect collection rate or shipping schedule; irrelevant to the quantity.",
+        "reason": "She does not affect collection rate or shipping schedule; her role is irrelevant to the quantity.",
         "thing": "Elena Cruz"
       },
       {
-        "reason": "No evidence of interaction with St. Vincent.",
+        "reason": "Only St. Vincent receives shipments from Cascade; no other parties affect the answer.",
         "thing": "Any other hospitals or blood centres"
       },
       {
-        "reason": "Drive is closed weekends; no shipments on weekends.",
+        "reason": "The deadline is Friday noon; the drive is closed on weekends and no shipments occur after Thursday.",
         "thing": "Weekend operations"
       }
     ],
@@ -194,7 +201,7 @@
   },
   "starting_state": [
     {
-      "description": "Initial stock at start of Monday 20 July 9 AM.",
+      "description": "Initial stock at start of Monday 20 July 9:00 AM.",
       "evidence_ids": [
         "e5"
       ],
@@ -208,7 +215,7 @@
       "subject": "Cascade regional blood centre"
     },
     {
-      "description": "Initial stock at start of Monday 20 July 9 AM.",
+      "description": "Initial stock at start of Monday 20 July 9:00 AM.",
       "evidence_ids": [
         "e6"
       ],
@@ -223,7 +230,7 @@
     }
   ],
   "terminal_producers": [
-    "Starting quantity at hospital (15 units) plus two shipments of 150 units each (Tuesday and Thursday) arriving before Friday noon. The collection drive adds units to the centre but does not affect hospital quantity directly; shipments are fixed at 150 units regardless of centre stock (evidence e9). Hospital final quantity = 15 + 150 + 150 = 315 units."
+    "The hospital's final quantity is the sum of its starting 15 units plus the 150 units from Tuesday's shipment and 150 units from Thursday's shipment, both arriving before Friday noon. The collection drive adds units to the centre but does not affect the hospital directly; the centre's stock is irrelevant after shipments. No other transfers occur. Therefore the answer is 15 + 150 + 150 = 315 units."
   ],
   "uncertainties": []
 }

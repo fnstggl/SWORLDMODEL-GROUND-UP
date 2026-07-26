@@ -108,6 +108,21 @@ def test_unknown_participant_reference_refused():
         lower(case)
 
 
+def test_all_reference_defects_are_reported_together():
+    """A scenario with several missing declarations must report them all in
+    one go, so a single bounded repair round can fix them."""
+    case = copy.deepcopy(MESSAGE_CASE)
+    case["action_affordances"][0]["consequences_on_completion"][0]["to"] = {
+        "participants": ["Ghost One"]}
+    case["information"][0]["holder"] = "Ghost Two"
+    case["participants"][0]["attention"][0]["route"] = "carrier pigeon"
+    with pytest.raises(InvalidReference) as ei:
+        lower(case)
+    assert len(ei.value.detail["defects"]) == 3
+    joined = ei.value.reason
+    assert "Ghost One" in joined and "Ghost Two" in joined and "carrier pigeon" in joined
+
+
 def test_duplicate_participant_names_are_ambiguous():
     case = copy.deepcopy(MESSAGE_CASE)
     case["participants"].append(dict(case["participants"][0]))
@@ -172,7 +187,7 @@ def test_world_with_nothing_scheduled_is_refused():
 def test_unknown_quantity_reference_refused():
     case = copy.deepcopy(QUANTITY_CASE)
     case["scheduled_events"][1]["effects"][0]["quantity"] = "gold bars"
-    with pytest.raises(InvalidReference, match="never introduced"):
+    with pytest.raises(InvalidReference, match="no quantity named 'gold bars'"):
         lower(case)
 
 

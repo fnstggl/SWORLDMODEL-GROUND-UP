@@ -7,12 +7,10 @@ st_vincent_regional_hospital:usable_blood_units measured at 315
 **How it was produced.** 3 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- Monday 9 AM: Hospital has 15 units.
-- Tuesday 4 PM: Centre ships 150 units.
-- Tuesday 7 PM: Hospital receives 150 units, total becomes 165.
-- Thursday 4 PM: Centre ships 150 units.
-- Thursday 7 PM: Hospital receives 150 units, total becomes 315.
-- Friday noon: Hospital holds 315 units.
+- St. Vincent hospital starts with 15 units at 9 AM Monday 20 July.
+- Tuesday 21 July: Cascade ships 150 units at 4 PM, arrives at hospital at 7 PM.
+- Thursday 23 July: Cascade ships 150 units at 4 PM, arrives at hospital at 7 PM.
+- By Friday noon, hospital holds 15 + 150 + 150 = 315 units.
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -30,6 +28,14 @@ reviewer's expected causal path was:
 - **Evidence quality.** The evidence package was hand-frozen; live retrieval
   is deliberately not part of this run.
 
+## Did the actors actually exercise this world?
+- Affordances declared: 0; ever completed: 0
+- Never performed by anyone: none
+- Participants who completed no action at all: ['cascade_regional_blood_centre', 'st_vincent_regional_hospital']
+- Intentions the world rejected: 0
+  - none
+Every declared affordance was performed at least once, so the answer reflects the world rather than an actor that simply never acted.
+
 ## Honest gaps recorded during compilation
 - Information delivered but with no justified way to notice it: 0
   - none
@@ -38,6 +44,6 @@ reviewer's expected causal path was:
 - Unresolved uncertainties carried by the scenario: 0
   - none
 - Deliberately excluded from the world: 3
-  - Elena Cruz: She does not affect collection rate or shipping schedule; irrelevant to the quantity.
-  - Any other hospitals or blood centres: No evidence of interaction with St. Vincent.
-  - Weekend operations: Drive is closed weekends; no shipments on weekends.
+  - Elena Cruz: She does not affect collection rate or shipping schedule; her role is irrelevant to the quantity.
+  - Any other hospitals or blood centres: Only St. Vincent receives shipments from Cascade; no other parties affect the answer.
+  - Weekend operations: The deadline is Friday noon; the drive is closed on weekends and no shipments occur after Thursday.

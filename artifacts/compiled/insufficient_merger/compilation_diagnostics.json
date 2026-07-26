@@ -2,6 +2,6 @@
   "detail": {
     "declared_by": "semantic compiler"
   },
-  "reason": "The evidence package contains no information about the board of Halvorsen Group, its members, its schedule, its decision-making process, or any concrete steps toward a decision on the Meridian acquisition. Without any facts about the board's composition, meeting schedule, or the status of the acquisition proposal, it is impossible to construct a world that could decide whether the board approves the acquisition before the deadline.",
+  "reason": "The evidence package contains no information about the board of Halvorsen Group, its members, its schedule, its decision-making process, or any concrete steps toward a decision on the Meridian acquisition. Without any facts about the board's composition, meeting schedule, or the status of the acquisition proposal, it is impossible to construct a world that could decide whether the board will approve the acquisition before the deadline.",
   "stage": "INSUFFICIENT_EVIDENCE"
 }

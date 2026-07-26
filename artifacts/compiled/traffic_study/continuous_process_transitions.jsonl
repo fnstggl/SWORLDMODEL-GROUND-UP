@@ -1,0 +1,4 @@
+{"cause":null,"data":{"active":false,"basis":"inferred","capacity":null,"holder":"alma_reyes","id":"reading_study","note":"Based on 60-90 minutes for 60 pages, assume 1 page per minute.","rate_per_hour":60.0,"resource":"study_read_time_minutes"},"op":"process.add","seq":10,"t":"2026-02-18T16:00:00+00:00"}
+{"cause":61,"data":{"active":true,"id":"reading_study"},"op":"process.active","seq":64,"t":"2026-02-18T18:31:00+00:00"}
+{"cause":67,"data":{"amount":329.0,"clamped":false,"from":"2026-02-18T18:31:00+00:00","id":"reading_study","to":"2026-02-19T00:00:00+00:00"},"op":"process.accrue","seq":68,"t":"2026-02-19T00:00:00+00:00"}
+{"cause":67,"data":{"active":false,"id":"reading_study"},"op":"process.active","seq":69,"t":"2026-02-19T00:00:00+00:00"}

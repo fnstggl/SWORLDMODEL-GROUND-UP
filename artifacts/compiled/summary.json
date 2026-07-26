@@ -1,26 +1,70 @@
 [
   {
-    "case": "traffic_study",
+    "actors": 2,
+    "affordances": 0,
+    "answer": 315.0,
+    "case": "blood_units",
+    "events": 9,
     "expected_refusal": false,
-    "lowering_ms": 0.0,
-    "reason": "the terminal is already satisfied by the starting state, so the simulation would not decide anything: alma_reyes holds belief on 'content_of_finalized_riverside_corridor_traffic_study'. A condition that is true before the world runs is an initialization value, not an outcome.",
+    "lowering_ms": 2.7,
     "reviewer_calls": 1,
     "revision_calls": 0,
-    "runtime_ms": 0.0,
+    "run_status": "cutoff",
+    "runtime_ms": 3.2,
     "semantic_calls": 1,
-    "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 12256
+    "stage": "COMPILED",
+    "tokens": 10195
   },
   {
     "case": "ethics_committee",
     "expected_refusal": false,
     "lowering_ms": 0.0,
-    "reason": "information[0]: no participant named 'Manufacturer'",
-    "reviewer_calls": 1,
-    "revision_calls": 1,
+    "reason": "scenario asserts facts with no supporting evidence: starting_state None; starting_state None; starting_state None; starting_state None",
+    "reviewer_calls": 0,
+    "revision_calls": 0,
     "runtime_ms": 0.0,
+    "semantic_calls": 0,
+    "stage": "INSUFFICIENT_EVIDENCE",
+    "tokens": 0
+  },
+  {
+    "case": "insufficient_merger",
+    "expected_refusal": true,
+    "lowering_ms": 0.0,
+    "reason": "The evidence package contains no information about the board of Halvorsen Group, its members, its schedule, its decision-making process, or any concrete steps toward a decision on the Meridian acquisition. Without any facts about the board's composition, meeting schedule, or the status of the acquisition proposal, it is impossible to construct a world that could decide whether the board will approve the acquisition before the deadline.",
+    "reviewer_calls": 0,
+    "revision_calls": 0,
+    "runtime_ms": 0.0,
+    "semantic_calls": 0,
+    "stage": "INSUFFICIENT_EVIDENCE",
+    "tokens": 0
+  },
+  {
+    "actors": 3,
+    "affordances": 2,
+    "answer": "yes",
+    "case": "traffic_study",
+    "events": 10,
+    "expected_refusal": false,
+    "lowering_ms": 2.4,
+    "reviewer_calls": 1,
+    "revision_calls": 0,
+    "run_status": "resolved",
+    "runtime_ms": 5.9,
     "semantic_calls": 1,
-    "stage": "INVALID_REFERENCE",
-    "tokens": 27387
+    "stage": "COMPILED",
+    "tokens": 12418
+  },
+  {
+    "case": "wage_talks",
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "reason": "the scenario uses template syntax at action_affordances[0].consequences_on_completion[0].content: '{demand}'. Values that come from an action's parameter must use the '<field>_from_parameter' form, not braces inside text.",
+    "reviewer_calls": 0,
+    "revision_calls": 0,
+    "runtime_ms": 0.0,
+    "semantic_calls": 0,
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 0
   }
 ]

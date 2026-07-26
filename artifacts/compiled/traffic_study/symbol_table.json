@@ -1,14 +1,19 @@
 {
   "namespaces": {
     "affordance": {
-      "read finalized study": "read_finalized_study",
-      "send finalized study to council members": "send_finalized_study_to_council_members"
+      "send finalized study": "send_finalized_study",
+      "start reading study": "start_reading_study"
     },
     "participant": {
       "Alma Reyes": "alma_reyes",
       "Miguel Santos": "miguel_santos",
-      "city email system": "city_email_system",
-      "external peer reviewer": "external_peer_reviewer"
+      "external reviewer": "external_reviewer"
+    },
+    "process": {
+      "reading study": "reading_study"
+    },
+    "quantity": {
+      "study_read_time_minutes": "study_read_time_minutes"
     },
     "route": {
       "city email": "city_email"

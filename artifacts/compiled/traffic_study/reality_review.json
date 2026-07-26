@@ -1,14 +1,15 @@
 {
   "causal_path": [
-    "External peer reviewer sends sign-off at 10:00 AM on Feb 18.",
-    "Santos notices sign-off within 60 minutes (by 11:00 AM).",
-    "Santos emails finalized study to Reyes within 20 minutes (by 11:20 AM).",
-    "Reyes notices email within 120 minutes (by 1:20 PM at latest).",
-    "Reyes reads study in 60-90 minutes (by 2:50 PM at latest).",
-    "Reyes holds belief about study content before meeting."
+    "External reviewer sends sign-off by 10:00 AM on Feb 18.",
+    "Santos notices sign-off at his next email check (by 11:00 AM at latest).",
+    "Santos sends finalized study via city email within an hour (by 11:00 AM).",
+    "City email delivers study to Reyes within a minute (by 11:01 AM).",
+    "Reyes notices study at her next email check (by 12:00 PM on Feb 18).",
+    "Reyes starts reading study (1 minute to open).",
+    "Reyes reads study for at least 60 minutes before meeting start at 7:00 PM on Feb 19."
   ],
   "defects": [],
-  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the causal chain: peer reviewer sends sign-off at 10:00 AM on Feb 18; Santos checks email hourly (next check at 10:00 or 11:00), sends study within 20 minutes; Reyes checks email every 2 hours (next check at 8:30 AM on Feb 18 or later), reads study in 60-90 minutes. Even with worst-case delays (Santos notices at 11:00, sends by 11:20; Reyes notices at 12:00 or 14:00, reads by 13:30 or 15:30), Reyes has time before the 7:00 PM meeting on Feb 19. The evidence supports all steps and no contradictions.\",\n  \"causal_path\": [\n    \"External peer reviewer sends sign-off at 10:00 AM on Feb 18.\",\n    \"Santos notices sign-off within 60 minutes (by 11:00 AM).\",\n    \"Santos emails finalized study to Reyes within 20 minutes (by 11:20 AM).\",\n    \"Reyes notices email within 120 minutes (by 1:20 PM at latest).\",\n    \"Reyes reads study in 60-90 minutes (by 2:50 PM at latest).\",\n    \"Reyes holds belief about study content before meeting.\"\n  ],\n  \"defects\": []\n}",
-  "reasoning": "The scenario correctly models the causal chain: peer reviewer sends sign-off at 10:00 AM on Feb 18; Santos checks email hourly (next check at 10:00 or 11:00), sends study within 20 minutes; Reyes checks email every 2 hours (next check at 8:30 AM on Feb 18 or later), reads study in 60-90 minutes. Even with worst-case delays (Santos notices at 11:00, sends by 11:20; Reyes notices at 12:00 or 14:00, reads by 13:30 or 15:30), Reyes has time before the 7:00 PM meeting on Feb 19. The evidence supports all steps and no contradictions.",
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the evidence: external reviewer sends sign-off by 10 AM on Feb 18; Santos checks email hourly and sends study within an hour (by 11 AM at latest); city email delivers within a minute; Reyes checks email every 2 hours during work hours (8:30-18:00) and would notice the study by her next check (e.g., 12:00 if sent at 11:00). She then has from 12:00 to 18:00 on Feb 18 and from 8:30 to 19:00 on Feb 19 to read the 60-page study (60-90 minutes). She has ample time to read it before the 7 PM meeting. The causal path is sound, no contradictions, and all necessary participants and processes are included.\",\n  \"causal_path\": [\n    \"External reviewer sends sign-off by 10:00 AM on Feb 18.\",\n    \"Santos notices sign-off at his next email check (by 11:00 AM at latest).\",\n    \"Santos sends finalized study via city email within an hour (by 11:00 AM).\",\n    \"City email delivers study to Reyes within a minute (by 11:01 AM).\",\n    \"Reyes notices study at her next email check (by 12:00 PM on Feb 18).\",\n    \"Reyes starts reading study (1 minute to open).\",\n    \"Reyes reads study for at least 60 minutes before meeting start at 7:00 PM on Feb 19.\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the evidence: external reviewer sends sign-off by 10 AM on Feb 18; Santos checks email hourly and sends study within an hour (by 11 AM at latest); city email delivers within a minute; Reyes checks email every 2 hours during work hours (8:30-18:00) and would notice the study by her next check (e.g., 12:00 if sent at 11:00). She then has from 12:00 to 18:00 on Feb 18 and from 8:30 to 19:00 on Feb 19 to read the 60-page study (60-90 minutes). She has ample time to read it before the 7 PM meeting. The causal path is sound, no contradictions, and all necessary participants and processes are included.",
   "verdict": "APPROVE"
 }

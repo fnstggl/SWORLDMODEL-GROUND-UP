@@ -8,9 +8,9 @@
       "beliefs": {},
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "neutral",
+      "emotional_state": "Neutral",
       "goals": [
-        "Collect and distribute blood units"
+        "Collect and distribute blood units efficiently."
       ],
       "id": "cascade_regional_blood_centre",
       "last_decision_at": null,
@@ -18,8 +18,8 @@
       "name": "Cascade regional blood centre",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "operational",
-      "plan": "Operate drive Mon-Fri 9-5, ship 150 units on Tue and Thu at 4 PM.",
+      "physical_state": "Operational",
+      "plan": "Run collection drive Mon-Fri 9-5, ship 150 units on Tuesday and Thursday at 4 PM.",
       "reconsider": [],
       "relationships": {
         "st_vincent_regional_hospital": "Supplier of blood units via scheduled shipments."
@@ -27,7 +27,10 @@
       "role": "blood supplier",
       "tz": "America/Los_Angeles",
       "unprocessed_info": [],
-      "values": []
+      "values": [
+        "Reliability",
+        "Safety"
+      ]
     },
     "st_vincent_regional_hospital": {
       "attention": {},
@@ -35,9 +38,9 @@
       "beliefs": {},
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "neutral",
+      "emotional_state": "Neutral",
       "goals": [
-        "Maintain blood supply"
+        "Maintain adequate blood supply."
       ],
       "id": "st_vincent_regional_hospital",
       "last_decision_at": null,
@@ -45,8 +48,8 @@
       "name": "St. Vincent regional hospital",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "operational",
-      "plan": "Receive shipments as scheduled.",
+      "physical_state": "Operational",
+      "plan": "Receive shipments and store blood.",
       "reconsider": [],
       "relationships": {
         "cascade_regional_blood_centre": "Recipient of blood shipments."
@@ -54,7 +57,9 @@
       "role": "hospital",
       "tz": "America/Los_Angeles",
       "unprocessed_info": [],
-      "values": []
+      "values": [
+        "Patient care"
+      ]
     }
   },
   "channels": {},
@@ -65,13 +70,13 @@
   "now": "2026-07-21T23:00:00+00:00",
   "processes": {
     "mobile_collection_drive": {
-      "active": true,
+      "active": false,
       "basis": "verified",
       "capacity": null,
       "holder": "cascade_regional_blood_centre",
       "id": "mobile_collection_drive",
       "last_applied": "2026-07-21T23:00:00+00:00",
-      "note": "From centre's throughput report (e2).",
+      "note": "From centre's 2026 throughput report (e2).",
       "rate_per_hour": 12.0,
       "resource": "usable_blood_units"
     }
@@ -84,7 +89,7 @@
   "scheduled_events": [
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM begins",
+        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles begins",
         "ops": [
           [
             "process.active",
@@ -101,7 +106,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM begins",
+        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles begins",
         "ops": [
           [
             "process.active",
@@ -118,7 +123,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM begins",
+        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles begins",
         "ops": [
           [
             "process.active",
@@ -135,7 +140,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM ends",
+        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles ends",
         "ops": [
           [
             "process.active",
@@ -152,7 +157,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM ends",
+        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles ends",
         "ops": [
           [
             "process.active",
@@ -169,7 +174,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM ends",
+        "note": "Monday to Friday 9:00-17:00 America/Los_Angeles ends",
         "ops": [
           [
             "process.active",
@@ -186,7 +191,7 @@
     },
     {
       "data": {
-        "note": "Tuesday shipment departs centre at 4 PM, arrives at hospital after 3 hours at 7 PM. (basis: Standing distribution agreement (e7) and courier estimate (e8).)",
+        "note": "Tuesday shipment departs Cascade at 4:00 PM, arrives at hospital after 3 hours at 7:00 PM. (basis: Standing distribution agreement (e7) and courier estimate (e8).)",
         "ops": [
           [
             "resource.transfer",
@@ -205,7 +210,7 @@
     },
     {
       "data": {
-        "note": "Thursday shipment departs centre at 4 PM, arrives at hospital after 3 hours at 7 PM. (basis: Standing distribution agreement (e7) and courier estimate (e8).)",
+        "note": "Thursday shipment departs Cascade at 4:00 PM, arrives at hospital after 3 hours at 7:00 PM. (basis: Standing distribution agreement (e7) and courier estimate (e8).)",
         "ops": [
           [
             "resource.transfer",

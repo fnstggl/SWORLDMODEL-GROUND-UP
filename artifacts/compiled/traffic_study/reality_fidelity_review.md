@@ -4,15 +4,16 @@
 **Answer produced by the trajectory.** `yes` (resolved)
 Reyes has noticed and read the finalized study before the meeting starts.
 
-**How it was produced.** 1 ledger record(s)
+**How it was produced.** 3 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- External peer reviewer sends sign-off at 10:00 AM on Feb 18.
-- Santos notices sign-off within 60 minutes (by 11:00 AM).
-- Santos emails finalized study to Reyes within 20 minutes (by 11:20 AM).
-- Reyes notices email within 120 minutes (by 1:20 PM at latest).
-- Reyes reads study in 60-90 minutes (by 2:50 PM at latest).
-- Reyes holds belief about study content before meeting.
+- External reviewer sends sign-off by 10:00 AM on Feb 18.
+- Santos notices sign-off at his next email check (by 11:00 AM at latest).
+- Santos sends finalized study via city email within an hour (by 11:00 AM).
+- City email delivers study to Reyes within a minute (by 11:01 AM).
+- Reyes notices study at her next email check (by 12:00 PM on Feb 18).
+- Reyes starts reading study (1 minute to open).
+- Reyes reads study for at least 60 minutes before meeting start at 7:00 PM on Feb 19.
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -35,11 +36,10 @@ reviewer's expected causal path was:
   - none
 - Attention patterns the scenario left uncertain, so no rule was created: 0
   - none
-- Unresolved uncertainties carried by the scenario: 3
-  - Exact time Santos notices the sign-off email; he checks hourly, so it could be up to 60 minutes after 10:00 AM.
-  - Exact time Reyes notices the study email; she checks every two hours, so it could be up to 120 minutes after delivery.
-  - Reading time may vary between 60 and 90 minutes.
+- Unresolved uncertainties carried by the scenario: 2
+  - Exact time Santos notices the sign-off email and sends the study.
+  - Exact time Reyes checks email after study is delivered.
 - Deliberately excluded from the world: 3
   - other council members: Only Reyes's reading matters for the question.
-  - committee clerk: Only involved in scheduling, not in the reading chain.
-  - other city staff: No causal role in the study finalization or delivery.
+  - committee clerk: No action by clerk changes the answer.
+  - other traffic studies: Only the Riverside corridor study is relevant.

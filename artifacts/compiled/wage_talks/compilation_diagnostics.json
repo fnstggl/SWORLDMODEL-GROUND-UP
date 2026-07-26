@@ -1,41 +1,8 @@
 {
-  "action_defs": [
-    "bright_accepts_employer_s_offer",
-    "bright_tables_revised_demand",
-    "wozniak_accepts_union_s_demand",
-    "wozniak_tables_revised_offer"
-  ],
-  "actors": [
-    "dennis_wozniak",
-    "mediator",
-    "yolanda_bright"
-  ],
-  "channels": [
-    "spoken_in_mediation_room"
-  ],
-  "processes": [],
-  "producer_index": {
-    "action:bright_accepts_employer_s_offer": 1,
-    "action:bright_tables_revised_demand": 1,
-    "action:wozniak_accepts_union_s_demand": 1,
-    "action:wozniak_tables_revised_offer": 1,
-    "belief:dennis_wozniak:union_s_standing_demand": 1,
-    "belief:dennis_wozniak:willingness_to_move_to_4_5": 1,
-    "belief:yolanda_bright:employer_s_standing_offer": 1,
-    "belief:yolanda_bright:willingness_to_move_to_4_5": 1,
-    "fact:acceptance_procedure": 1,
-    "fact:agreement_accepted": 2,
-    "fact:bright_authority": 1,
-    "fact:employer_offer_tabled": 1,
-    "fact:scheduled_session": 1,
-    "fact:session_started": 1,
-    "fact:union_demand_tabled": 1,
-    "fact:wozniak_authority": 1,
-    "info:dennis_wozniak:union_demand": 1,
-    "info:mediator:employer_offer": 1,
-    "info:mediator:union_demand": 1,
-    "info:yolanda_bright:employer_offer": 1
+  "detail": {
+    "path": "action_affordances[0].consequences_on_completion[0].content",
+    "text": "Union demands {demand}%."
   },
-  "scheduled_root_events": 4,
-  "stage": "COMPILED"
+  "reason": "the scenario uses template syntax at action_affordances[0].consequences_on_completion[0].content: '{demand}'. Values that come from an action's parameter must use the '<field>_from_parameter' form, not braces inside text.",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

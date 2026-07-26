@@ -1,9 +1,9 @@
 {
   "deterministic_repeat_run": null,
   "final_hash_match": true,
-  "initial_state_hash": "5ecdfa02693070fc4eaf691403f8f8369f3894e8077d83f8e3d7a41405aa8399",
-  "ledger_records": 64,
-  "original_final_hash": "ba6c9316a1d206fdedf9f16686f93c9e2b042cc00f637877fb5c3edc1da13ca3",
-  "replayed_final_hash": "ba6c9316a1d206fdedf9f16686f93c9e2b042cc00f637877fb5c3edc1da13ca3",
+  "initial_state_hash": "76c9aa178c26a9e98353b974b99480cd032c065b572499c74ee5607de7fffa7a",
+  "ledger_records": 70,
+  "original_final_hash": "10b4438b6ea24aba9044079b55d7e999dc82340e27280dbcb6a801e391435ade",
+  "replayed_final_hash": "10b4438b6ea24aba9044079b55d7e999dc82340e27280dbcb6a801e391435ade",
   "terminal_match": true
 }

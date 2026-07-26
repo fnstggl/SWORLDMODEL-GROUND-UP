@@ -17,8 +17,8 @@ import time as wallclock
 from sworldmodel import Engine, World
 from sworldmodel.artifacts import write_artifacts
 
-from .errors import (COMPILED, CompilationStop, InvalidReference,
-                     NoCausalProducer, SemanticAmbiguity)
+from .errors import (COMPILED, CompilationStop, InsufficientEvidence,
+                     InvalidReference, NoCausalProducer, SemanticAmbiguity)
 from .lower import lower
 from .minds import llm_minds, mechanical_minds
 from .review import blocking_defects, review
@@ -56,7 +56,23 @@ def compile_case(question: dict, evidence: dict, outdir: str,
 
     try:
         # ---- 1. semantic construction --------------------------------
-        scenario, raw, prompt, usage = build_scenario(question, evidence, model=model)
+        try:
+            scenario, raw, prompt, usage = build_scenario(question, evidence,
+                                                          model=model)
+        except InsufficientEvidence as miss:
+            # a missing citation is a contract slip, not a claim the evidence
+            # cannot support; allow the one bounded repair, then insist
+            if not miss.detail.get("repairable"):
+                raise
+            metrics["semantic_calls"] += 1
+            count(getattr(build_scenario, "last_usage", {}) or {})
+            scenario, raw, prompt, usage = build_scenario(
+                question, evidence, previous=None, model=model,
+                revision_defects=[{"kind": "uncited_assertion",
+                                   "detail": REPAIR_INSTRUCTION.format(
+                                       error=miss.reason),
+                                   "severity": "critical"}])
+            metrics["revision_calls"] += 1
         metrics["semantic_calls"] += 1
         count(usage)
         _wj(os.path.join(outdir, "semantic_scenario.json"), scenario)
@@ -200,6 +216,9 @@ Fix ONLY this defect and return the complete corrected scenario.
   (in-person speech is a route with "seconds": 0).
 - If it says a quantity was never introduced: ADD a "starting_state" entry of
   kind "quantity" for it, or a process that outputs it.
+- If it says assertions cite no evidence: add "evidence_ids": ["e1", ...] to
+  every participant and every starting_state entry, naming the claim ids that
+  support it, or set "status": "inferred" where it is your own reasoning.
 - If it says the terminal is ALREADY SATISFIED by the starting state: change
   "resolution.observations" so it observes what actually HAPPENS -- the action
   that produces the outcome ("action_was_completed") or the message actually
@@ -217,11 +236,34 @@ def _fidelity_review(question, scenario, review_result, compiled, outcome,
                      stage) -> str:
     """An honest account of what this compiled run does and does not show."""
     ans = outcome.answer or {}
+    def _text(x, *keys):
+        """Sections may arrive as objects or as bare strings; render either."""
+        if isinstance(x, dict):
+            for k in keys:
+                if x.get(k):
+                    return str(x[k])
+            return json.dumps(x, sort_keys=True)[:200]
+        return str(x)
+
     excl = scenario.get("scope", {}).get("excluded", []) or []
     uncertainties = scenario.get("uncertainties", []) or []
     unnoticed = [t for t in compiled.trace
                  if t["step"] == "info_deliverable_but_unnoticed"]
     omitted = [t for t in compiled.trace if t["step"] == "attention_omitted"]
+
+    # How much of the compiled world did the actors actually exercise? A
+    # negative answer produced by a world where nobody managed to act is a
+    # statement about the minds, not about the situation -- say so plainly.
+    w = compiled.world
+    declared = set(w.action_defs)
+    completed = {a["verb"] for a in w.actions.values() if a["state"] == "completed"}
+    rejected = [r["data"] for r in w.records if r["op"] == "intention.rejected"]
+    never_used = sorted(declared - completed)
+    idle = sorted(aid for aid in w.actors
+                  if not any(a["actor"] == aid and a["state"] == "completed"
+                             for a in w.actions.values()))
+    artifact_risk = (ans.get("answer") in ("no", "no decision", 0, 0.0)
+                     and bool(never_used))
     return f"""# Reality-fidelity review -- compiled world
 
 **Question.** {question['question']}
@@ -249,13 +291,21 @@ reviewer's expected causal path was:
 - **Evidence quality.** The evidence package was hand-frozen; live retrieval
   is deliberately not part of this run.
 
+## Did the actors actually exercise this world?
+- Affordances declared: {len(declared)}; ever completed: {len(completed)}
+- Never performed by anyone: {never_used or "none"}
+- Participants who completed no action at all: {idle or "none"}
+- Intentions the world rejected: {len(rejected)}
+{chr(10).join("  - " + r.get("actor", "?") + ":" + r.get("verb", "?") + " -- " + str(r.get("reason", ""))[:110] for r in rejected[:8]) or "  - none"}
+{"**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised, so it may reflect the limits of the mechanical policy rather than the situation itself. Re-run this compiled world at Stage 2 (live minds) before drawing any conclusion from it." if artifact_risk else "Every declared affordance was performed at least once, so the answer reflects the world rather than an actor that simply never acted."}
+
 ## Honest gaps recorded during compilation
 - Information delivered but with no justified way to notice it: {len(unnoticed)}
 {chr(10).join(f"  - {t['actor']} on route {t['route']} (tag {t['tag']})" for t in unnoticed) or "  - none"}
 - Attention patterns the scenario left uncertain, so no rule was created: {len(omitted)}
 {chr(10).join(f"  - {t['participant']} on {t['route']}: {t['reason']}" for t in omitted) or "  - none"}
 - Unresolved uncertainties carried by the scenario: {len(uncertainties)}
-{chr(10).join(f"  - {u.get('description','')}" for u in uncertainties) or "  - none"}
+{chr(10).join("  - " + _text(u, "description", "uncertainty") for u in uncertainties) or "  - none"}
 - Deliberately excluded from the world: {len(excl)}
-{chr(10).join(f"  - {e.get('thing','')}: {e.get('reason','')}" for e in excl) or "  - none"}
+{chr(10).join("  - " + _text(e, "thing", "excluded") + ": " + _text(e, "reason") for e in excl) or "  - none"}
 """

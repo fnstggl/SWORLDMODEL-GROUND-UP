@@ -8,8 +8,15 @@
       },
       "consequences_on_completion": [
         {
+          "about": "safety_review_status",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": "completed"
+        },
+        {
           "change_type": "send_information",
-          "content": "Safety review showing lower adverse event rate, favorable for compassionate use.",
+          "content": "Safety review based on updated data, concluding therapy is acceptably safe.",
+          "from": "Tomas Lindqvist",
           "route": "hospital email",
           "tag": "safety_review",
           "to": {
@@ -19,17 +26,11 @@
               "Sister Margaret Doyle"
             ]
           }
-        },
-        {
-          "about": "safety_review_circulated",
-          "change_type": "record_fact",
-          "scope": "global",
-          "value": true
         }
       ],
-      "description": "Lindqvist prepares the safety review after noticing the manufacturer update.",
+      "description": "Tomas Lindqvist prepares a safety review after receiving updated data.",
       "duration": {
-        "description": "Half a working day (4 hours).",
+        "description": "Half a working day (4 hours) to prepare.",
         "status": "inferred",
         "typical_minutes": 240
       },
@@ -38,7 +39,7 @@
       "preconditions": [
         {
           "condition_type": "has_noticed_information",
-          "from_parameter": "manufacturer_safety_update"
+          "from_parameter": "updated_safety_data"
         }
       ]
     },
@@ -50,8 +51,15 @@
       },
       "consequences_on_completion": [
         {
+          "about": "motion_put",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": true
+        },
+        {
           "change_type": "send_information",
-          "content": "Motion to approve compassionate use is on the floor.",
+          "content": "Motion to approve compassionate-use request.",
+          "from": "Dr. Helen Osei",
           "route": "meeting room",
           "tag": "motion_to_approve",
           "to": {
@@ -62,13 +70,13 @@
           }
         }
       ],
-      "description": "Chair Osei puts the motion to approve compassionate use after reviewing safety data.",
+      "description": "Chair puts motion to approve compassionate-use request.",
       "duration": {
-        "description": "Opening remarks and motion take about five minutes.",
+        "description": "Opening remarks and motion take about 5 minutes.",
         "status": "inferred",
         "typical_minutes": 5
       },
-      "label": "chair puts motion to approve",
+      "label": "put motion to approve",
       "parameters": [],
       "preconditions": [
         {
@@ -95,52 +103,35 @@
           "about": "vote",
           "change_type": "record_fact",
           "scope": "per_actor",
-          "value": "approve"
+          "value_from_parameter": "vote"
         }
       ],
-      "description": "A member votes to approve the motion.",
+      "description": "Committee members vote on the motion.",
       "duration": {
         "description": "Stating a vote takes a moment.",
         "status": "inferred",
         "typical_minutes": 1
       },
-      "label": "vote approve",
-      "parameters": [],
-      "preconditions": [
+      "label": "vote on motion",
+      "parameters": [
         {
-          "condition_type": "has_noticed_information",
-          "from_parameter": "motion_to_approve"
-        }
-      ]
-    },
-    {
-      "available_to": {
-        "participants": [
-          "Dr. Helen Osei",
-          "Dr. Raj Patel",
-          "Sister Margaret Doyle"
-        ]
-      },
-      "consequences_on_completion": [
-        {
-          "about": "vote",
-          "change_type": "record_fact",
-          "scope": "per_actor",
-          "value": "reject"
+          "allowed_values": [
+            "approve",
+            "reject"
+          ],
+          "description": "Vote choice",
+          "name": "vote"
         }
       ],
-      "description": "A member votes to reject the motion.",
-      "duration": {
-        "description": "Stating a vote takes a moment.",
-        "status": "inferred",
-        "typical_minutes": 1
-      },
-      "label": "vote reject",
-      "parameters": [],
       "preconditions": [
         {
-          "condition_type": "has_noticed_information",
-          "from_parameter": "motion_to_approve"
+          "about": "motion_put",
+          "condition_type": "world_fact_is",
+          "value": true
+        },
+        {
+          "condition_type": "parameter_provided",
+          "parameter": "vote"
         }
       ]
     },
@@ -152,28 +143,28 @@
       },
       "consequences_on_completion": [
         {
-          "about": "committee_decision",
+          "about": "committee_vote_outcome",
           "change_type": "record_fact",
           "scope": "global",
-          "value": "approve"
+          "value": "approved"
         }
       ],
-      "description": "Chair tallies votes and records the committee decision.",
+      "description": "Chair tallies votes and records committee decision.",
       "duration": {
         "description": "Tallying takes a moment.",
         "status": "inferred",
         "typical_minutes": 1
       },
-      "label": "tally votes and record decision",
+      "label": "tally votes and record outcome",
       "parameters": [],
       "preconditions": [
         {
-          "about": "meeting_started",
+          "about": "motion_put",
           "condition_type": "world_fact_is",
           "value": true
         },
         {
-          "about": "committee_decision",
+          "about": "committee_vote_outcome",
           "condition_type": "world_fact_absent",
           "scope": "global"
         }
@@ -183,42 +174,42 @@
   "communication_routes": [
     {
       "delivery_delay": {
-        "description": "Published instantly online.",
+        "description": "Bulletin is published at a specific time; Lindqvist monitors it.",
         "seconds": 0,
         "status": "verified"
       },
-      "description": "Public investor bulletins from the manufacturer.",
+      "description": "Public investor bulletins from the manufacturer, released at known times.",
       "name": "manufacturer bulletins"
     },
     {
       "delivery_delay": {
-        "description": "Delivers within about a minute.",
+        "description": "Email delivery within hospital takes about a minute.",
         "seconds": 60,
         "status": "verified"
       },
-      "description": "Internal hospital email system.",
+      "description": "Internal hospital email system; delivers within about a minute.",
       "name": "hospital email"
     },
     {
       "delivery_delay": {
-        "description": "Instantaneous.",
+        "description": "Speech is heard instantly in the room.",
         "seconds": 0,
         "status": "verified"
       },
-      "description": "In-person meeting room where members hear each other immediately.",
+      "description": "In-person meeting room where members hear motions and votes immediately.",
       "name": "meeting room"
     }
   ],
   "information": [
     {
       "already_sent_to": [],
-      "basis": "Manufacturer investor bulletin released 10 March 2026 8:00 AM.",
-      "content": "Updated trial safety data showing lower rate of severe adverse events.",
+      "basis": "Manufacturer investor bulletin",
+      "content": "Manufacturer released updated trial safety data on 10 March 2026 at 8:00 AM showing lower rate of severe adverse events.",
       "holder": "Tomas Lindqvist",
       "route": "manufacturer bulletins",
       "sent_time": "2026-03-10T08:00:00-05:00",
-      "tag": "manufacturer_safety_update",
-      "topic": "manufacturer safety data"
+      "tag": "updated_safety_data",
+      "topic": "updated trial safety data"
     }
   ],
   "participants": [
@@ -227,14 +218,14 @@
         {
           "bounded_by_availability": true,
           "check_interval_minutes": 60,
-          "description": "Monitors manufacturer bulletins as part of role; acts same working day.",
+          "description": "Monitors manufacturer bulletins as part of role; acts on them same working day.",
           "route": "manufacturer bulletins",
           "status": "inferred"
         },
         {
           "bounded_by_availability": true,
           "check_interval_minutes": 30,
-          "description": "Sends and receives email; checks during work hours.",
+          "description": "Sends and receives email; checks periodically during work hours.",
           "route": "hospital email",
           "status": "verified"
         }
@@ -252,26 +243,26 @@
           4
         ]
       },
-      "causal_relevance": "Prepares safety review that influences committee votes.",
+      "causal_relevance": "Prepares safety review that influences committee votes",
       "evidence_ids": [
         "e4",
         "e6",
         "e7"
       ],
       "goals": [
-        "Provide accurate safety data"
+        "Complete safety review accurately and promptly"
       ],
-      "identity_brief": "Hospital pharmacist responsible for preparing safety reviews.",
+      "identity_brief": "Hospital pharmacist responsible for preparing safety reviews of therapies.",
       "initial_emotional_state": "Neutral",
       "initial_physical_state": "At work",
-      "initial_plan": "Prepare review upon receiving new data",
+      "initial_plan": "Prepare safety review upon receiving updated data",
       "kind": "person",
       "name": "Tomas Lindqvist",
       "relationships": [],
       "role": "hospital pharmacist",
       "timezone": "America/New_York",
       "values": [
-        "Thoroughness"
+        "Professional diligence"
       ]
     },
     {
@@ -285,6 +276,7 @@
         },
         {
           "bounded_by_availability": false,
+          "check_interval_minutes": null,
           "description": "Present in meeting room; hears motions immediately.",
           "route": "meeting room",
           "status": "verified"
@@ -303,25 +295,26 @@
           4
         ]
       },
-      "causal_relevance": "Chairs meeting, votes, and requires current safety data to approve.",
+      "causal_relevance": "Chairs meeting, puts motion, votes; requires current safety data to approve",
       "evidence_ids": [
         "e1",
         "e9"
       ],
       "goals": [
-        "Ensure safe decisions"
+        "Ensure decisions are based on current safety data"
       ],
-      "identity_brief": "Chair of ethics committee, voting member.",
+      "identity_brief": "Chair of the ethics committee, voting member.",
       "initial_emotional_state": "Cautious",
-      "initial_physical_state": "At hospital",
-      "initial_plan": "Attend meeting and vote based on safety data",
+      "initial_physical_state": "At work",
+      "initial_plan": "Attend meeting and vote based on available safety data",
       "kind": "person",
       "name": "Dr. Helen Osei",
       "relationships": [],
       "role": "committee chair",
       "timezone": "America/New_York",
       "values": [
-        "Patient safety"
+        "Patient safety",
+        "Procedural correctness"
       ]
     },
     {
@@ -335,6 +328,7 @@
         },
         {
           "bounded_by_availability": false,
+          "check_interval_minutes": null,
           "description": "Present in meeting room; hears motions immediately.",
           "route": "meeting room",
           "status": "verified"
@@ -353,17 +347,17 @@
           4
         ]
       },
-      "causal_relevance": "Votes to approve if safety review is available and favorable.",
+      "causal_relevance": "Votes to approve if safety review is available and favorable",
       "evidence_ids": [
         "e1",
         "e10"
       ],
       "goals": [
-        "Approve compassionate use when safe"
+        "Approve compassionate use when safety data supports it"
       ],
       "identity_brief": "Voting member of ethics committee.",
       "initial_emotional_state": "Supportive",
-      "initial_physical_state": "At hospital",
+      "initial_physical_state": "At work",
       "initial_plan": "Attend meeting and vote based on safety review",
       "kind": "person",
       "name": "Dr. Raj Patel",
@@ -371,22 +365,31 @@
       "role": "committee member",
       "timezone": "America/New_York",
       "values": [
-        "Patient access"
+        "Patient access",
+        "Evidence-based decisions"
       ]
     },
     {
       "attention": [
         {
           "bounded_by_availability": false,
+          "check_interval_minutes": null,
+          "description": "No email access during retreat from 10 to 12 March.",
+          "route": "hospital email",
+          "status": "verified"
+        },
+        {
+          "bounded_by_availability": false,
+          "check_interval_minutes": null,
           "description": "Present in meeting room; hears motions immediately.",
           "route": "meeting room",
           "status": "verified"
         }
       ],
       "availability": {
-        "close": "17:00",
+        "close": "18:00",
         "holidays": [],
-        "open": "09:00",
+        "open": "08:00",
         "timezone": "America/New_York",
         "workdays": [
           0,
@@ -396,82 +399,56 @@
           4
         ]
       },
-      "causal_relevance": "Votes with documented safety assessment if provided; otherwise votes based on her own judgment (unknown).",
+      "causal_relevance": "Votes with documented safety assessment if provided; off-site retreat before meeting",
       "evidence_ids": [
         "e1",
         "e11",
         "e12"
       ],
       "goals": [
-        "Follow safety guidance"
+        "Vote according to safety assessment"
       ],
-      "identity_brief": "Lay member of ethics committee.",
+      "identity_brief": "Lay member of ethics committee, currently on retreat.",
       "initial_emotional_state": "Neutral",
-      "initial_physical_state": "Off-site on retreat until meeting",
-      "initial_plan": "Attend meeting in person; no email access during retreat",
+      "initial_physical_state": "At retreat (off-site, no email access)",
+      "initial_plan": "Attend meeting in person; vote based on safety review if received before retreat",
       "kind": "person",
       "name": "Sister Margaret Doyle",
       "relationships": [],
       "role": "committee member",
       "timezone": "America/New_York",
       "values": [
-        "Prudence"
+        "Safety",
+        "Conscience"
       ]
     }
   ],
-  "processes": [
-    {
-      "capacity": null,
-      "description": "Lindqvist prepares a safety review based on manufacturer data.",
-      "initially_active": false,
-      "name": "prepare safety review",
-      "operating_periods": {
-        "description": "Lindqvist's work hours",
-        "end": "17:00",
-        "start": "08:00",
-        "timezone": "America/New_York",
-        "workdays": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ]
-      },
-      "output_quantity": "safety_review_prepared",
-      "owner": "Tomas Lindqvist",
-      "rate": {
-        "amount_per_hour": 0.5,
-        "note": "Takes roughly half a working day (4 hours) to prepare.",
-        "status": "inferred"
-      }
-    }
-  ],
+  "processes": [],
   "resolution": {
     "deadline": "2026-03-12T16:00:00-04:00",
-    "no_condition": "The committee does not approve the request (either rejects it or no decision is reached) by the end of the meeting.",
+    "no_condition": "The committee does not record a majority vote to approve the request at the 12 March meeting (either votes against, or no decision is reached).",
     "observations": [
       {
-        "about": "committee_decision",
+        "about": "committee_vote_outcome",
         "observation_type": "world_fact_is",
-        "value": "approve"
+        "value": "approved"
       }
     ],
-    "observed_from": "The recorded fact 'committee_decision' after the meeting ends.",
+    "observed_from": "The recorded fact 'committee_vote_outcome' after the meeting ends.",
     "question_type": "boolean",
-    "yes_condition": "The committee approves the compassionate-use request by majority vote at the 12 March meeting."
+    "yes_condition": "The committee records a majority vote to approve the compassionate-use request at the 12 March meeting."
   },
   "scheduled_events": [
     {
-      "basis": "Evidence e5: manufacturer investor bulletin.",
-      "description": "Manufacturer releases updated safety data.",
+      "basis": "Investor bulletin schedule",
+      "description": "Manufacturer releases updated trial safety data.",
       "effects": [
         {
           "change_type": "send_information",
           "content": "Updated trial safety data showing lower rate of severe adverse events.",
           "from": "Manufacturer",
           "route": "manufacturer bulletins",
-          "tag": "manufacturer_safety_update",
+          "tag": "updated_safety_data",
           "to": {
             "participants": [
               "Tomas Lindqvist"
@@ -486,8 +463,8 @@
       "wakes": []
     },
     {
-      "basis": "Evidence e3: meeting notice.",
-      "description": "Ethics committee meeting starts.",
+      "basis": "Meeting notice",
+      "description": "Committee meeting starts.",
       "effects": [
         {
           "about": "meeting_started",
@@ -499,7 +476,7 @@
       "evidence_ids": [
         "e3"
       ],
-      "time": "2026-03-12T14:00:00-04:00",
+      "time": "2026-03-12T14:00:00-05:00",
       "wakes": [
         {
           "participant": "Dr. Helen Osei",
@@ -519,100 +496,133 @@
   "scope": {
     "excluded": [
       {
-        "reason": "Not needed; only the committee's decision process matters.",
-        "thing": "Details of the patient or therapy"
+        "reason": "Not needed to determine committee decision; only safety data and voting rules matter.",
+        "thing": "Details of the patient or therapy beyond the compassionate-use request"
       },
       {
-        "reason": "No causal relevance to the committee's vote.",
-        "thing": "Other hospital staff or patients"
-      },
-      {
-        "reason": "No evidence they affect the outcome.",
-        "thing": "Other meetings or communications outside the described timeline"
+        "reason": "Cannot materially change the answer.",
+        "thing": "Other hospital operations or staff not involved in this process"
       }
     ],
     "included": [
       "St. Brendan's Hospital ethics committee meeting on 12 March 2026",
-      "Preparation and circulation of safety review by pharmacist Tomas Lindqvist",
+      "Preparation and circulation of safety review by Tomas Lindqvist",
       "Voting behavior of committee members based on available safety data"
     ]
   },
   "starting_state": [
     {
-      "about": "safety_review_requested",
-      "description": "Lindqvist is asked to prepare safety review.",
+      "description": "Believes he should monitor manufacturer bulletins and act on them same working day.",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "belief",
+      "status": "inferred",
+      "subject": "Tomas Lindqvist",
+      "topic": "manufacturer bulletins monitoring"
+    },
+    {
+      "description": "Believes she will not approve without current safety data; considers older adverse-event rate disqualifying.",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "belief",
+      "status": "verified",
+      "subject": "Dr. Helen Osei",
+      "topic": "approval condition"
+    },
+    {
+      "description": "Believes he should approve if safety review is available and favorable.",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "belief",
+      "status": "verified",
+      "subject": "Dr. Raj Patel",
+      "topic": "voting pattern"
+    },
+    {
+      "description": "Believes she should vote with documented safety assessment when provided.",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "belief",
+      "status": "verified",
+      "subject": "Sister Margaret Doyle",
+      "topic": "voting pattern"
+    },
+    {
+      "about": "safety_review_status",
       "evidence_ids": [
         "e4"
       ],
       "kind": "fact",
       "status": "verified",
       "subject": "Tomas Lindqvist",
-      "value": true
+      "value": "not_started"
     },
     {
-      "about": "osei_approval_condition",
-      "description": "Osei will not approve without current safety data; considers older adverse-event rate disqualifying.",
+      "about": "safety_review_received",
       "evidence_ids": [
-        "e9"
+        "e4"
       ],
       "kind": "fact",
       "status": "verified",
       "subject": "Dr. Helen Osei",
-      "value": "requires_current_safety_data"
+      "value": false
     },
     {
-      "about": "patel_voting_pattern",
-      "description": "Patel votes to approve if safety review is available and favorable.",
+      "about": "safety_review_received",
       "evidence_ids": [
-        "e10"
+        "e4"
       ],
       "kind": "fact",
       "status": "verified",
       "subject": "Dr. Raj Patel",
-      "value": "approve_if_favorable_review"
+      "value": false
     },
     {
-      "about": "doyle_voting_pattern",
-      "description": "Doyle votes with documented safety assessment when provided; otherwise her vote is unknown.",
+      "about": "safety_review_received",
       "evidence_ids": [
-        "e11"
+        "e4"
       ],
       "kind": "fact",
       "status": "verified",
       "subject": "Sister Margaret Doyle",
-      "value": "vote_with_safety_assessment_if_provided"
+      "value": false
     },
     {
-      "about": "doyle_retreat",
-      "description": "Doyle is off-site on retreat from 10 to 12 March and has no email contact.",
+      "about": "updated_data_received",
       "evidence_ids": [
-        "e12"
+        "e5"
       ],
       "kind": "fact",
       "status": "verified",
-      "subject": "Sister Margaret Doyle",
-      "value": true
-    },
-    {
-      "description": "Lindqvist is aware of the manufacturer bulletin released on 10 March 2026 at 8:00 AM.",
-      "evidence_ids": [
-        "e5",
-        "e6"
-      ],
-      "kind": "belief",
-      "status": "inferred",
       "subject": "Tomas Lindqvist",
-      "topic": "manufacturer safety data"
+      "value": false
     }
   ],
   "terminal_producers": [
-    "The committee decision is recorded by the chair after tallying votes. The decision is 'approve' if at least two members vote approve; otherwise 'reject' or no decision. The observation checks the recorded fact 'committee_decision'."
+    {
+      "observation": "world_fact_is about committee_vote_outcome = approved",
+      "produced_by": "action_affordance 'tally votes and record outcome' completed by Dr. Helen Osei"
+    }
   ],
   "uncertainties": [
-    "Whether Lindqvist notices the manufacturer bulletin on 10 March and starts the review immediately.",
-    "Whether the review is completed and circulated before the meeting on 12 March.",
-    "Whether Osei notices the review before the meeting and puts the motion.",
-    "Whether Doyle, without email access, receives the review before the meeting (she attends in person, but review is sent by email; she may not see it).",
-    "Doyle's vote when no safety review is provided: not defined by evidence; she may vote either way or abstain, affecting majority."
+    {
+      "description": "Whether Lindqvist notices the updated data on March 10 and completes the review before the meeting.",
+      "evidence_ids": [
+        "e6",
+        "e7"
+      ],
+      "status": "inferred"
+    },
+    {
+      "description": "Whether Osei, Patel, and Doyle receive and notice the safety review email before the meeting (Doyle has no email access during retreat).",
+      "evidence_ids": [
+        "e12"
+      ],
+      "status": "verified"
+    }
   ]
 }

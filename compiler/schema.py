@@ -194,21 +194,33 @@ def check_evidence_sufficiency(doc: dict, evidence: dict) -> None:
         ids = p.get("evidence_ids") or []
         cited.update(ids)
         if not ids:
-            uncited.append(f"participant {p['name']!r}")
-    for s in doc["starting_state"]:
+            uncited.append(f"participants[{p['name']!r}]")
+    for i, s in enumerate(doc["starting_state"]):
         ids = s.get("evidence_ids") or []
         cited.update(ids)
         if not ids and s.get("status") != "inferred":
-            uncited.append(f"starting_state {s.get('description')!r}")
+            label = (s.get("description") or s.get("about")
+                     or s.get("topic") or s.get("subject") or "?")
+            uncited.append(
+                f"starting_state[{i}] (kind={s.get('kind', 'fact')!r}, "
+                f"subject={s.get('subject')!r}): {str(label)[:70]!r}")
     unknown = sorted(cited - known)
     if unknown:
+        # citing evidence that does not exist is a claim about the world that
+        # the package cannot back -- not a formatting slip
         raise InsufficientEvidence(
             f"scenario cites evidence ids that are not in the package: {unknown}",
             {"unknown_ids": unknown, "available": sorted(known)})
     if uncited:
+        # every assertion must be traceable; a missing citation is mechanically
+        # fixable, so it is marked repairable rather than ending the run
         raise InsufficientEvidence(
-            "scenario asserts facts with no supporting evidence: "
-            + "; ".join(uncited[:6]), {"uncited": uncited})
+            "these assertions cite no evidence at all. Add \"evidence_ids\" "
+            "listing the claim ids that support each one, or mark it "
+            "\"status\": \"inferred\" if it is your own reasoning: "
+            + "; ".join(uncited[:8]),
+            {"uncited": uncited, "repairable": True,
+             "available_evidence_ids": sorted(known)})
 
 
 def contract_document() -> str:
