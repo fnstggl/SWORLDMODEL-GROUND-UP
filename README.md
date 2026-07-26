@@ -50,7 +50,7 @@ worlds/                 hand-authored test fixtures (data + scripted minds)
   committee_world.py    small-group decision (release -> briefing -> votes)
   factory_world.py      operational process with quantities (shifts,
                         thresholds, transit)
-tests/                  79 tests: temporal edge cases, kernel invariants,
+tests/                  89 tests: temporal edge cases, kernel invariants,
                         world properties, checkpoint/resume, replay, Phase B
 run_worlds.py           runs everything, verifies, writes artifacts/<world>/
 artifacts/              committed run artifacts (ledgers, views, hashes...)
@@ -89,7 +89,7 @@ of 1, 3 and 7 events for all three worlds).
 ## Running
 
 ```
-python3 -m pytest tests/ -q          # 79 tests, ~6s, stdlib only
+python3 -m pytest tests/ -q          # 89 tests, ~6s, stdlib only
 python3 run_worlds.py                # narrative + artifacts (add --skip-llm
                                      # to skip the live Deepseek actor)
 ```

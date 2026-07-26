@@ -49,8 +49,15 @@ def write_artifacts(outdir: str, world: World, outcome, review_md: str,
     recs = world.records
 
     sealed_idx = next(i for i, r in enumerate(recs) if r["op"] == "genesis.sealed")
-    initial = World.from_records(recs[:sealed_idx + 1])
-    _write_json(os.path.join(outdir, "initial_world.json"), initial.snapshot())
+    prefix = recs[:sealed_idx + 1]
+    initial = World.from_records(prefix)
+    initial_doc = initial.snapshot()
+    # the initial world includes what is already on the calendar
+    initial_doc["scheduled_events"] = [
+        {"seq": r["seq"], "t": r["data"]["t"], "kind": r["data"]["kind"],
+         "data": r["data"]["data"]}
+        for r in prefix if r["op"] == "event.scheduled"]
+    _write_json(os.path.join(outdir, "initial_world.json"), initial_doc)
 
     _write_jsonl(os.path.join(outdir, "event_ledger.jsonl"), recs)
     _write_jsonl(os.path.join(outdir, "actor_wakes.jsonl"),

@@ -13,12 +13,18 @@ import json
 
 from .engine import Engine, Terminal
 from .simclock import iso
-from .world import World, canonical_json
+from .world import World, canonical_json, sha256_of
+
+
+def _queue_hash(world: World) -> str:
+    return sha256_of([[e.seq, e.t.isoformat(), e.kind, e.depth]
+                      for e in world.queue.pending()])
 
 
 def save_checkpoint(world: World, path: str | None = None) -> dict:
     """Snapshot a paused (settled) world.  Contains everything needed to
-    resume exactly: the immutable ledger and the clock position."""
+    resume exactly: the immutable ledger and the clock position, plus
+    verification hashes for both the state and the pending-event queue."""
     if world._pending_wakes:
         raise RuntimeError("checkpoint requires a settled world (no pending wakes)")
     cp = {
@@ -26,6 +32,7 @@ def save_checkpoint(world: World, path: str | None = None) -> dict:
         "now": iso(world.clock.now),
         "ledger_position": world._seq,
         "state_hash": world.state_hash(),
+        "queue_hash": _queue_hash(world),
         "records": list(world.records),
     }
     if path:
@@ -49,7 +56,10 @@ def resume(checkpoint: dict, minds: dict, terminal: Terminal, wire=None) -> Engi
     """
     if checkpoint.get("format") != 1:
         raise RuntimeError(f"unsupported checkpoint format {checkpoint.get('format')!r}")
-    world = World.from_records(checkpoint["records"], live=True)
+    records = checkpoint["records"]
+    if records[-1]["seq"] != checkpoint["ledger_position"]:
+        raise RuntimeError("checkpoint ledger position does not match its records")
+    world = World.from_records(records, live=True)
     before = world._seq
     if wire is not None:
         wire(world)
@@ -57,4 +67,6 @@ def resume(checkpoint: dict, minds: dict, terminal: Terminal, wire=None) -> Engi
             raise RuntimeError("wire() must not write records")
     if world.state_hash() != checkpoint["state_hash"]:
         raise RuntimeError("resumed state hash does not match checkpoint")
+    if "queue_hash" in checkpoint and _queue_hash(world) != checkpoint["queue_hash"]:
+        raise RuntimeError("resumed pending-event queue does not match checkpoint")
     return Engine(world, minds, terminal)

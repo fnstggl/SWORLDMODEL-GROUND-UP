@@ -212,6 +212,218 @@
     "acme:widgets": 0.0,
     "factory:widgets": 0.0
   },
+  "scheduled_events": [
+    {
+      "data": {
+        "note": "shift start (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 11,
+      "t": "2026-04-06T13:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift start (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 12,
+      "t": "2026-04-07T13:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift start (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 13,
+      "t": "2026-04-08T13:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift start (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 14,
+      "t": "2026-04-09T13:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift start (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 15,
+      "t": "2026-04-10T13:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift end (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 16,
+      "t": "2026-04-06T21:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift end (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 17,
+      "t": "2026-04-07T21:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift end (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 18,
+      "t": "2026-04-08T21:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift end (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 19,
+      "t": "2026-04-09T21:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "shift end (verified: plant operating calendar)",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "p_line1"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 20,
+      "t": "2026-04-10T21:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "customer purchase order arrives",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "order:o1:status",
+              "value": "received"
+            }
+          ],
+          [
+            "fact.set",
+            {
+              "key": "order:o1:qty",
+              "value": 500
+            }
+          ],
+          [
+            "info.send_new",
+            {
+              "author": "acme",
+              "channel": "order_system",
+              "content": "PO o1: 500 widgets, ship as soon as available.",
+              "data": {
+                "id": "o1",
+                "qty": 500,
+                "type": "order"
+              },
+              "to": [
+                "mo"
+              ]
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 21,
+      "t": "2026-04-06T14:30:00+00:00"
+    }
+  ],
   "start": "2026-04-06T11:00:00+00:00",
   "terminal": null,
   "version": 22,

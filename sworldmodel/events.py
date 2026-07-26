@@ -38,10 +38,6 @@ class Event:
     def sort_key(self):
         return (self.t, self.depth, self.seq)
 
-    def to_dict(self) -> dict:
-        return {"seq": self.seq, "t": self.t.isoformat(), "kind": self.kind,
-                "data": self.data, "cause": self.cause, "depth": self.depth}
-
 
 class EventQueue:
     """Deterministic priority queue of pending events."""

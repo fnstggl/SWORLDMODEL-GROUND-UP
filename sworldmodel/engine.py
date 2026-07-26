@@ -26,20 +26,30 @@ returns touches the world except through kernel validation.
 from __future__ import annotations
 
 import copy
+import math
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
-from .actions import Intention, TemplateError, check_conditions, subst
+from .actions import Intention, check_conditions, subst
 from .actors import (ACTOR_UPDATE_OPS, ActionView, ActorView, CommitmentView,
                      Decision, InfoView, VerbView)
 from .events import Event, ZeroTimeLoopError
 from .simclock import Duration, aware, iso, parse_iso
-from .world import World, WorldIntegrityError
+from .world import World, WorldIntegrityError, canonical_json
 
-#: Threshold retarget tolerance: projected threshold instants recomputed after
-#: accrual can drift by float rounding; do not churn the schedule for less
-#: than this.
-_WATCH_RETARGET_TOLERANCE = timedelta(seconds=1)
+#: Threshold retarget tolerance: a genuine float-rounding epsilon at datetime
+#: microsecond resolution -- NOT a behavioral constant.  Real retargets
+#: (rate/quantity changes) always move the projection far more than this.
+_WATCH_RETARGET_TOLERANCE = timedelta(milliseconds=1)
+
+#: Projections further out than this are treated as unreachable rather than
+#: risking datetime overflow (an implementation bound, ~100 years).
+_MAX_PROJECTION_HOURS = 100 * 365 * 24
+
+
+def _crossed(amount: float, level: float) -> bool:
+    """Threshold comparison with a relative float tolerance."""
+    return amount >= level - (1e-9 + 1e-9 * abs(level))
 
 
 @dataclass(frozen=True)
@@ -89,7 +99,13 @@ class Engine:
         answer = None
         status = None
         current_instant: datetime | None = None
-        seen_hashes: set = set()
+        seen_states: dict = {}     # (material hash, kind, data) -> min depth seen
+        self._premature = {}       # watch id -> premature fires this instant
+
+        # project thresholds for watches that exist at genesis/resume --
+        # a quiet world must still fire its crossings on time
+        w._ctx_cause = sealed
+        self._reschedule_watches()
 
         while True:
             ev = w.queue.peek()
@@ -101,17 +117,23 @@ class Engine:
 
             if current_instant is None or ev.t != current_instant:
                 current_instant = ev.t
-                seen_hashes = set()
+                seen_states = {}
+                self._premature = {}
                 if ev.t > w.clock.now:
                     w.clock.advance_to(ev.t)
-            elif ev.depth >= 1:
-                # same-instant causal chain: refuse true zero-time loops
-                h = w.material_hash()
-                if h in seen_hashes:
-                    raise ZeroTimeLoopError(
-                        f"identical world state repeated within {iso(ev.t)} "
-                        f"while processing {ev.kind!r}: zero-time loop")
-                seen_hashes.add(h)
+            # zero-time-loop refusal: the same computation (identical material
+            # state + identical event kind/payload) recurring DEEPER in a
+            # same-instant causal chain can never terminate.  Distinct or
+            # sibling (same-depth) inert events are legitimate.
+            key = (w.material_hash(), ev.kind, canonical_json(ev.data))
+            prev_depth = seen_states.get(key)
+            if prev_depth is not None and ev.depth > prev_depth:
+                raise ZeroTimeLoopError(
+                    f"identical world state re-entered by {ev.kind!r} at "
+                    f"{iso(ev.t)} (depth {prev_depth} -> {ev.depth}): "
+                    f"zero-time loop")
+            if prev_depth is None or ev.depth < prev_depth:
+                seen_states[key] = ev.depth
 
             w._ctx_time, w._ctx_depth = ev.t, ev.depth
             fired = w.apply("event.fired",
@@ -119,7 +141,19 @@ class Engine:
                              "data": ev.data}, cause=ev.seq)
             w._ctx_cause = fired
             w.accrue_to(ev.t)          # continuous change from elapsed time
-            self._dispatch(ev)
+            try:
+                self._dispatch(ev)
+            except Exception as e:
+                # never leave a poisoned event half-applied in silence: the
+                # failure is itself a ledger fact, then the world stops
+                # ("wrong worlds should stop", recoverable from an earlier
+                # checkpoint, fully inspectable)
+                try:
+                    w.apply("event.failed",
+                            {"event": ev.seq, "kind": ev.kind,
+                             "error": f"{type(e).__name__}: {e}"}, cause=fired)
+                finally:
+                    raise
             self._reschedule_watches()
             self.metrics["events_processed"] += 1
 
@@ -127,6 +161,7 @@ class Engine:
             settled = nxt is None or nxt.t != ev.t
             if settled and w._pending_wakes:
                 self._consult()
+                self._reschedule_watches()   # interrupts can retire watches
                 nxt = w.queue.peek()
                 settled = nxt is None or nxt.t != ev.t
             if settled and not w._pending_wakes:
@@ -142,6 +177,7 @@ class Engine:
 
         if status == "paused":
             w._ctx_time = None
+            w._ctx_cause = None
             return Outcome("paused", None, w, dict(self.metrics))
 
         terminal_cause = w._ctx_cause
@@ -154,7 +190,8 @@ class Engine:
             terminal_cause = next(
                 (r["seq"] for r in reversed(w.records)
                  if r["op"] == "event.fired"
-                 and r["data"]["kind"] == "terminal.cutoff"), terminal_cause)
+                 and r["data"]["kind"] == "terminal.cutoff"),
+                terminal_cause) or sealed
             answer = self._evaluate(final=True)
             if answer is None:
                 answer = {"answer": "unresolved",
@@ -165,6 +202,7 @@ class Engine:
         w.apply("terminal", {"question": self.terminal.question, "answer": answer,
                              "status": status}, cause=terminal_cause)
         w._ctx_time = None
+        w._ctx_cause = None
         return Outcome(status, answer, w, dict(self.metrics))
 
     # ------------------------------------------------------------------
@@ -188,9 +226,6 @@ class Engine:
         elif k == "world.ops":
             # scheduled scenario events are DATA: sequences of universal ops
             w.run_ops(ev.data.get("ops", []))
-            for wk in ev.data.get("wakes", []):
-                w.wake(wk["actor"], wk.get("kind", "world_changed"),
-                       wk.get("detail", ""), wk.get("ref"), wk.get("channel"))
         elif k == "terminal.cutoff":
             pass  # evaluation happens in run()
         else:
@@ -220,6 +255,12 @@ class Engine:
     def _notice(self, iid: str, aid: str) -> None:
         w = self.world
         info = w.infos[iid]
+        if aid in info["noticed"]:
+            # idempotent: overlapping justified mechanisms may both point at
+            # the same information; noticing happens once
+            w.apply("info.notice_skipped",
+                    {"id": iid, "actor": aid, "reason": "already noticed"})
+            return
         channel = info["sends"].get(aid, {}).get("channel", "")
         nseq = w.apply("info.notice", {"id": iid, "actor": aid})
         w.apply("actor.memory",
@@ -233,16 +274,11 @@ class Engine:
 
     def _wake_event(self, ev: Event) -> None:
         w = self.world
-        aid = ev.data["actor"]
-        actor = w.actors[aid]
-        # a scheduled check (e.g. inbox-check commitment) may justify noticing
-        # information that is available but had no attention rule
-        for ch in ev.data.get("notice_channels", []):
-            for iid in list(actor.available_info):
-                send = w.infos[iid]["sends"].get(aid)
-                if send and send["channel"] == ch:
-                    self._notice(iid, aid)
-        w.wake(aid, ev.data.get("reason", "scheduled"), ev.data.get("detail", ""))
+        if not ev.data.get("reason"):
+            raise WorldIntegrityError(
+                "a wake.actor event must carry an explicit reason -- wake "
+                "triggers are never defaulted")
+        w.wake(ev.data["actor"], ev.data["reason"], ev.data.get("detail", ""))
 
     # -- actions ---------------------------------------------------------
     def _action_start(self, ev: Event) -> None:
@@ -268,12 +304,17 @@ class Engine:
             reason = check_conditions(w, actor_id, act.get("params", {}),
                                       defn.get("conditions", []))
             if reason is not None:
+                # the full reason (which may cite world values) goes to the
+                # LEDGER; the wake detail shown to the actor is value-free --
+                # a failure must not leak state the actor cannot observe
                 w.apply("action.state", {"id": aid, "state": "failed",
                                          "reason": f"stale intention: {reason}",
                                          "observed_version": act["based_on_version"],
                                          "current_version": w.version})
                 w.wake(actor_id, "action_failed",
-                       detail=f"{act['verb']} rejected as stale: {reason}", ref=aid)
+                       detail=f"{act['verb']} could not start: the situation "
+                              f"changed and a precondition no longer holds",
+                       ref=aid)
                 return
         if act.get("completes_when"):
             cw = act["completes_when"]
@@ -319,7 +360,8 @@ class Engine:
                                      "reason": f"failed at completion: {reason}"})
             w.apply("actor.ongoing", {"actor": act["actor"], "action": None})
             w.wake(act["actor"], "action_failed",
-                   detail=f"{act['verb']} failed: {reason}", ref=aid)
+                   detail=f"{act['verb']} did not complete: a completion "
+                          f"condition failed", ref=aid)
             return
         w.apply("action.state", {"id": aid, "state": "completed"})
         w.apply("actor.ongoing", {"actor": act["actor"], "action": None})
@@ -339,7 +381,12 @@ class Engine:
         if wch["fired"]:
             return
         amount = w.resource(wch["holder"], wch["resource"])
-        if amount < wch["level"] - 1e-9:
+        if not _crossed(amount, wch["level"]):
+            self._premature[wid] = self._premature.get(wid, 0) + 1
+            if self._premature[wid] > 1:
+                raise WorldIntegrityError(
+                    f"watch {wid} fired prematurely twice at the same "
+                    f"instant: threshold projection is inconsistent")
             w.apply("watch.premature", {"id": wid, "amount": amount,
                                         "level": wch["level"]})
             return  # _reschedule_watches will retarget from current rates
@@ -354,9 +401,6 @@ class Engine:
             w.wake(reach["wake_actor"], "world_threshold",
                    detail=f"{wch['holder']}:{wch['resource']} reached {wch['level']}",
                    ref=wid)
-        if "event" in reach:
-            w.schedule(reach["event"]["kind"], reach["event"].get("data", {}),
-                       w.clock.now)
 
     def _reschedule_watches(self) -> None:
         """Keep one pending threshold event per unfired watch, derived from
@@ -371,15 +415,17 @@ class Engine:
                     w.cancel_event(seq, f"watch {wid} no longer active")
                 continue
             amount = w.resource(wch["holder"], wch["resource"])
-            if amount >= wch["level"] - 1e-9:
+            if _crossed(amount, wch["level"]):
                 target = w.clock.now
             else:
-                rate = w.aggregate_rate(wch["holder"], wch["resource"])
-                if rate <= 0:
-                    target = None
+                rate = w.effective_rate(wch["holder"], wch["resource"])
+                ceiling = w.attainable_ceiling(wch["holder"], wch["resource"])
+                if rate <= 0 or wch["level"] > ceiling + 1e-9:
+                    target = None   # unreachable under current rates/capacity
                 else:
-                    target = w.clock.now + timedelta(
-                        hours=(wch["level"] - amount) / rate)
+                    hours = (wch["level"] - amount) / rate
+                    target = (None if hours > _MAX_PROJECTION_HOURS
+                              else w.clock.now + timedelta(hours=hours))
             pending = self._watch_events.get(wid)
             if pending is not None and target is not None \
                     and abs(pending[1] - target) <= _WATCH_RETARGET_TOLERANCE:
@@ -415,8 +461,10 @@ class Engine:
         wakes, w._pending_wakes = w._pending_wakes, []
         order: list = []
         by: dict = {}
-        for wk in wakes:
-            by.setdefault(wk["actor"], []) or order.append(wk["actor"])
+        for wk in wakes:                      # group per actor, keep
+            if wk["actor"] not in by:         # first-trigger order
+                by[wk["actor"]] = []
+                order.append(wk["actor"])
             by[wk["actor"]].append(wk)
         self._starting = {}
         for aid in order:
@@ -535,8 +583,9 @@ class Engine:
             self._process_intention(st, intent, dseq, view)
         if decision.wake_me_at is not None:
             when = aware(decision.wake_me_at)
-            if when < w.clock.now:
-                self._violation(st.id, f"requested wake in the past ({iso(when)})", dseq)
+            if when <= w.clock.now:
+                self._violation(st.id, f"requested wake at or before the "
+                                       f"current instant ({iso(when)})", dseq)
             else:
                 w.schedule("wake.actor",
                            {"actor": st.id, "reason": "self_scheduled",
@@ -571,8 +620,6 @@ class Engine:
                 if dur is None and intent.completes_when is None:
                     reject = ("no duration or completion condition; every action "
                               "needs a provenance-labeled duration")
-                elif intent.start_at is not None and aware(intent.start_at) < now:
-                    reject = "start time is in the past"
         if reject is not None:
             w.apply("intention.rejected",
                     {"actor": st.id, "verb": intent.verb, "reason": reject,
@@ -589,13 +636,11 @@ class Engine:
                         "interruption_note": intent.interruption_note,
                         "note": intent.note,
                         "based_on_version": view.world_version}, cause=dseq)
-        start_at = aware(intent.start_at) if intent.start_at else now
-        sev = w.schedule("action.start", {"action": aid}, start_at, cause=prop)
+        sev = w.schedule("action.start", {"action": aid}, now, cause=prop)
         w.apply("action.state", {"id": aid, "state": "scheduled",
                                  "start_event": sev.seq}, cause=prop)
         self.metrics["intentions"] += 1
-        if start_at == now:
-            self._starting[st.id] = True
+        self._starting[st.id] = True
 
     def _watch_pending_cancel(self, wid: str, cause: int) -> None:
         pending = self._watch_events.pop(wid, None)
@@ -639,8 +684,16 @@ class Engine:
             for c in sorted(st.commitments.values(),
                             key=lambda c: (c.at is None, c.at or now, c.id))
             if not c.resolved)
-        verbs = tuple(VerbView(v, d.get("description", ""))
-                      for v, d in sorted(w.action_defs.items()))
+        # only verbs whose authority conditions this actor can satisfy are
+        # presented as available -- a clerk is not offered the chair's gavel
+        verbs = []
+        for v, d in sorted(w.action_defs.items()):
+            authorized = all(st.role in c.get("roles", [])
+                             for c in d.get("conditions", [])
+                             if c.get("require") == "role_in")
+            if authorized:
+                verbs.append(VerbView(v, d.get("description", "")))
+        verbs = tuple(verbs)
         return ActorView(
             actor_id=st.id, name=st.name, role=st.role, tz=st.tz, now=now,
             world_version=w.version,

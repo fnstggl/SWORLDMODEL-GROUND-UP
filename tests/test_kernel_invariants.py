@@ -7,7 +7,7 @@ from datetime import timedelta
 from sworldmodel import (ActorState, AttentionRule, Decision, Duration, Engine,
                         Event, EventQueue, Intention, Mind, SchedulingInPastError,
                         Terminal, World, WorldIntegrityError, ZeroTimeLoopError,
-                        at_local, iso)
+                        at_local, iso, parse_iso)
 
 T0 = at_local(2026, 5, 4, 9, 0, tz="UTC")
 
@@ -135,12 +135,29 @@ def _nested_zero_delay(depth, mutate=False):
     return data
 
 
-def test_zero_time_loop_by_repeated_identical_state():
+def test_zero_time_loop_by_reentered_identical_state():
+    # a same-instant chain that re-enters the exact same computation
+    # (identical state + kind + payload, deeper in the chain) is a loop;
+    # only a kernel/scenario bug can produce it, and the engine must refuse
     w = micro_world()
-    w.schedule("world.ops", _nested_zero_delay(10, mutate=False),
-               T0 + timedelta(hours=1), None)
-    with pytest.raises(ZeroTimeLoopError, match="identical world state"):
+    t1 = T0 + timedelta(hours=1)
+    w.queue.push(Event(seq=900001, t=t1, kind="world.ops",
+                       data={"ops": []}, cause=1, depth=1))
+    w.queue.push(Event(seq=900002, t=t1, kind="world.ops",
+                       data={"ops": []}, cause=1, depth=2))
+    with pytest.raises(ZeroTimeLoopError, match="re-entered"):
         Engine(w, {}, terminal_at()).run()
+
+
+def test_identical_inert_sibling_events_are_legitimate():
+    # two scheduled occurrences with identical payloads at the same instant
+    # and the same causal depth are NOT a loop and must not be refused
+    w = micro_world()
+    t1 = T0 + timedelta(hours=1)
+    w.schedule("world.ops", {"ops": [], "note": "inert"}, t1, None)
+    w.schedule("world.ops", {"ops": [], "note": "inert"}, t1, None)
+    out = Engine(w, {}, terminal_at()).run()
+    assert out.status == "cutoff"
 
 
 def test_zero_time_loop_by_depth_bound():
@@ -149,6 +166,8 @@ def test_zero_time_loop_by_depth_bound():
                T0 + timedelta(hours=1), None)
     with pytest.raises(ZeroTimeLoopError, match="depth"):
         Engine(w, {}, terminal_at()).run()
+    # the poisoned event is recorded as failed, never silently half-applied
+    assert any(r["op"] == "event.failed" for r in w.records)
 
 
 # ---------------------------------------------------------------------------
@@ -358,6 +377,7 @@ def test_hostile_mind_cannot_escape_its_authority():
                  ("fact.set", {"key": "hacked", "value": True}),
                  ("resource.adjust", {"holder": "a1", "name": "item",
                                       "delta": 100}),
+                 ("actor.commitment_resolved", {"actor": "a1", "id": "ghost"}),
                  ("actor.belief", {"actor": "a1", "topic": "fine",
                                    "statement": "legitimate self-update",
                                    "basis": "own reasoning"})],
@@ -368,7 +388,7 @@ def test_hostile_mind_cannot_escape_its_authority():
     Engine(w, {"a1": hostile}, terminal_at()).run()
     violations = [r["data"]["reason"] for r in w.records
                   if r["op"] == "mind.violation"]
-    assert len(violations) == 4                      # a2-belief, fact.set, resource, past wake
+    assert len(violations) == 5     # a2-belief, fact.set, resource, ghost, past wake
     assert "hacked" not in w.actors["a2"].beliefs    # other actor untouched
     assert "hacked" not in w.facts                   # shared state untouched
     assert w.resource("a1", "item") == 0             # quantities untouched
@@ -377,6 +397,9 @@ def test_hostile_mind_cannot_escape_its_authority():
                   if r["op"] == "intention.rejected"]
     assert any("unknown verb" in r for r in rejections)
     assert any("duration" in r for r in rejections)
+    # a refused record never burns a sequence number: the ledger is gapless
+    seqs = [r["seq"] for r in w.records]
+    assert seqs == list(range(1, len(seqs) + 1))
 
 
 def test_view_is_defensively_copied_and_contains_no_other_actor():
@@ -426,6 +449,99 @@ def test_unknown_event_kind_refused():
     w.schedule("mystery.event", {}, T0 + timedelta(hours=1), None)
     with pytest.raises(WorldIntegrityError, match="no scenario-specific"):
         Engine(w, {}, terminal_at()).run()
+
+
+def test_mind_held_references_cannot_rewrite_ledger_or_actions():
+    # regression: a mind keeping the params dict it proposed must not be able
+    # to alter the accepted action or the ledger record after the fact
+    w = micro_world(defs=(TAKE_ITEM,))
+    wake(w, "a1", T0 + timedelta(hours=1))
+    held = {}
+    mind = ScriptMind([Decision(intentions=[Intention(
+        "take_item", held,
+        duration=Duration(timedelta(minutes=1), "actor_chosen", "grab"))])])
+    Engine(w, {"a1": mind}, terminal_at()).run()
+    held["holder"] = "hacked"
+    held["amt"] = 1000
+    act = next(iter(w.actions.values()))
+    assert act["params"] == {}
+    rec = next(r for r in w.records if r["op"] == "action.propose")
+    assert rec["data"]["params"] == {}
+
+
+def test_genesis_watch_fires_on_time_in_a_quiet_world():
+    # a threshold declared at genesis must be projected immediately: in a
+    # world with no other events it still fires at the true crossing instant
+    w = micro_world()
+    w.apply("resource.set", {"holder": "store", "name": "item", "amount": 0}, None)
+    w.apply("process.add", {"id": "p1", "holder": "store", "resource": "item",
+                            "rate_per_hour": 10.0, "active": True,
+                            "basis": "verified", "note": "test rate"}, None)
+    w.apply("watch.add", {"id": "w1", "holder": "store", "resource": "item",
+                          "level": 20.0, "on_reach": {"wake_actor": "a1"},
+                          "basis": "process_derived", "note": "test threshold"},
+            None)
+    mind = ScriptMind([Decision(note="saw the threshold")])
+    Engine(w, {"a1": mind}, terminal_at(hours=8)).run()
+    fired = next(r for r in w.records if r["op"] == "watch.fired")
+    assert parse_iso(fired["t"]) == T0 + timedelta(hours=2)
+    assert mind.views and mind.views[0].reasons[0]["kind"] == "world_threshold"
+
+
+def test_consumption_stops_at_empty():
+    w = micro_world()
+    w.apply("resource.set", {"holder": "store", "name": "item", "amount": 100}, None)
+    w.apply("process.add", {"id": "drain", "holder": "store", "resource": "item",
+                            "rate_per_hour": -40.0, "active": True,
+                            "basis": "verified", "note": "test drain"}, None)
+    Engine(w, {}, terminal_at(hours=8)).run()
+    assert w.resource("store", "item") == 0.0            # never negative
+    assert any(r["op"] == "process.accrue" and r["data"].get("clamped")
+               for r in w.records)
+
+
+def test_capacity_pinned_watch_is_unreachable_not_livelocked():
+    w = micro_world()
+    w.apply("resource.set", {"holder": "store", "name": "item", "amount": 0}, None)
+    w.apply("process.add", {"id": "p1", "holder": "store", "resource": "item",
+                            "rate_per_hour": 10.0, "active": True,
+                            "capacity": 100.0,
+                            "basis": "verified", "note": "test rate"}, None)
+    w.apply("watch.add", {"id": "w1", "holder": "store", "resource": "item",
+                          "level": 150.0, "on_reach": {"wake_actor": "a1"},
+                          "basis": "process_derived", "note": "unreachable"},
+            None)
+    Engine(w, {"a1": ScriptMind([])}, terminal_at(hours=48)).run()
+    assert w.resource("store", "item") == 100.0          # capacity respected
+    assert not any(r["op"] == "watch.premature" for r in w.records)
+    assert not any(r["op"] == "watch.fired" for r in w.records)
+
+
+def test_noticing_is_idempotent():
+    w = micro_world()
+    w.apply("info.create", {"id": "i_z", "author": "a2", "content": "hi",
+                            "data": {}}, None)
+    w.apply("info.send", {"id": "i_z", "to": "a1", "channel": "radio"}, None)
+    w.apply("info.deliver", {"id": "i_z", "to": "a1", "channel": "radio"}, None)
+    eng = Engine(w, {"a1": ScriptMind([])}, terminal_at())
+    eng._notice("i_z", "a1")
+    eng._notice("i_z", "a1")
+    assert [r["op"] for r in w.records].count("info.notice") == 1
+    assert any(r["op"] == "info.notice_skipped" for r in w.records)
+    assert w.actors["a1"].noticed_info == ["i_z"]
+
+
+def test_effects_cannot_forge_information_lifecycle():
+    # scenario effects may send information only through channels; direct
+    # delivery/noticing (bypassing latency and attention) is refused at
+    # definition time
+    w = micro_world()
+    with pytest.raises(WorldIntegrityError, match="not a permitted effect"):
+        w.apply("action.define",
+                {"verb": "brainwash", "description": "x",
+                 "conditions": [],
+                 "effects": [["info.notice", {"id": "i1", "actor": "a2"}]]},
+                None)
 
 
 def test_actor_snapshots_share_no_mutable_references():

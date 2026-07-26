@@ -298,7 +298,7 @@
         "id": "a44",
         "interruptible": false,
         "interruption_note": "",
-        "note": "Confirming the numbers promptly as she needs them for Monday.",
+        "note": "Confirming the numbers promptly as Alice needs them for Monday.",
         "params": {
           "channel": "email",
           "content": "Hi Alice, the final Q2 pipeline total is $4.2M, locked on March 3. Let me know if you need anything else. Best, Bob",

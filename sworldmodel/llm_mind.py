@@ -150,9 +150,12 @@ class DeepseekMind(Mind):
         for it in obj.get("intentions", []) or []:
             dur = None
             if it.get("duration_minutes") is not None:
+                # the actor stated this number, so "actor_chosen" is factual;
+                # an absent justification is RECORDED as absent, never invented
                 dur = Duration(timedelta(minutes=float(it["duration_minutes"])),
-                               it.get("duration_basis", "actor_chosen"),
-                               it.get("duration_note", "chosen by the actor"))
+                               it.get("duration_basis") or "actor_chosen",
+                               it.get("duration_note")
+                               or "stated by the actor; no justification given")
             intentions.append(Intention(verb=it["verb"],
                                         params=it.get("params", {}) or {},
                                         duration=dur, note=it.get("note", "")))

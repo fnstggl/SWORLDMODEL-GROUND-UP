@@ -3,7 +3,7 @@
   "final_hash_match": true,
   "initial_state_hash": "ba87ca493adfb0f2c2dc5f8a8e5bf57ce735b640d8506dd3a92f5c4a10c69dac",
   "ledger_records": 84,
-  "original_final_hash": "6e731b4a7e0e77bd4eb213cf9f01a5b12e82eb4087cecf23dfd83a93fbc2e390",
-  "replayed_final_hash": "6e731b4a7e0e77bd4eb213cf9f01a5b12e82eb4087cecf23dfd83a93fbc2e390",
+  "original_final_hash": "76dd9b93f2639ea02e2f99e861577ff20238f02a849f125546ca93411313677a",
+  "replayed_final_hash": "76dd9b93f2639ea02e2f99e861577ff20238f02a849f125546ca93411313677a",
   "terminal_match": true
 }

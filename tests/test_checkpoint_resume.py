@@ -5,7 +5,7 @@ import json
 
 import pytest
 
-from sworldmodel import Engine, World, resume, save_checkpoint
+from sworldmodel import Engine, Terminal, World, parse_iso, resume, save_checkpoint
 from worlds import committee_world, email_world, factory_world
 
 BUILDERS = {
@@ -77,6 +77,41 @@ def test_checkpoint_requires_settled_world_and_matching_hash():
     _, minds2, t2 = factory_world.build()
     with pytest.raises(RuntimeError, match="hash"):
         resume(tampered, minds2, t2)
+
+
+def test_checkpoint_detects_queue_divergence():
+    w, minds, t = factory_world.build()
+    eng = Engine(w, minds, t)
+    eng.run(stop_after_events=4)
+    cp = save_checkpoint(eng.world)
+    # drop one pending scheduled-event record: state hashing cannot see it
+    # (event.scheduled is a trace op), but the queue verification must
+    recs = list(cp["records"])
+    fired = {r["data"].get("event") for r in recs if r["op"] == "event.fired"}
+    idx = next(i for i in range(len(recs) - 1)
+               if recs[i]["op"] == "event.scheduled" and recs[i]["seq"] not in fired)
+    del recs[idx]
+    tampered = dict(cp, records=recs)
+    _, m2, t2 = factory_world.build()
+    with pytest.raises(RuntimeError, match="queue"):
+        resume(tampered, m2, t2)
+
+
+def test_resume_with_already_elapsed_cutoff_terminates_cleanly():
+    # a resumed segment that processes zero events must still write a valid,
+    # caused terminal record
+    w, minds, t = email_world.build()
+    eng = Engine(w, minds, t)
+    out = eng.run(stop_after_events=2)
+    assert out.status == "paused"
+    cp = save_checkpoint(eng.world)
+    _, m2, _ = email_world.build()
+    early = Terminal(t.question, parse_iso(cp["now"]), t.evaluate)
+    eng2 = resume(cp, m2, early)
+    out2 = eng2.run()
+    assert out2.status == "cutoff" and out2.answer["answer"] == "no"
+    term = next(r for r in eng2.world.records if r["op"] == "terminal")
+    assert term["cause"] is not None
 
 
 def test_wire_hook_may_not_write_records():

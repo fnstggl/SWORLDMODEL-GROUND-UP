@@ -18,8 +18,10 @@ No domain verbs live here.
 """
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
+import math
 from datetime import datetime, timedelta
 
 from .actions import ACTION_TRANSITIONS, validate_action_def
@@ -27,9 +29,27 @@ from .actors import ActorState, Belief, Commitment, Memory
 from .events import (Event, EventQueue, MAX_SAME_INSTANT_DEPTH,
                      SchedulingInPastError, ZeroTimeLoopError)
 from .info import Channel
-from .simclock import (Clock, PROVENANCE_BASES, aware, iso, parse_iso)
+from .simclock import (CONCRETE_BASES, Clock, PROVENANCE_BASES, aware, iso,
+                       parse_iso)
 
 _UNSET = object()
+
+#: Operations permitted inside world.ops events and ActionDef effects.  The
+#: information lifecycle (create/send/deliver/notice) and the action/event
+#: machinery are deliberately NOT here: effects send information only through
+#: the channel+attention mechanics (info.send_new) and schedule only
+#: labeled future events (event.schedule_in) -- nothing can forge a
+#: delivery, force another actor to notice, or rewrite lifecycle state.
+ALLOWED_EFFECT_OPS = frozenset({
+    "fact.set", "entity.add", "entity.set",
+    "resource.set", "resource.adjust", "resource.transfer",
+    "relationship.set",
+    "process.add", "process.active", "process.rate", "watch.add",
+    "actor.memory", "actor.belief", "actor.plan", "actor.emotion",
+    "actor.physical", "actor.commit", "actor.commitment_resolved",
+    "actor.reconsider",
+    "info.send_new", "event.schedule_in",
+})
 
 
 class WorldIntegrityError(RuntimeError):
@@ -89,10 +109,14 @@ class World:
             raise WorldIntegrityError(
                 f"record {op!r} has no cause; after genesis every state "
                 f"transition must name what produced it")
-        self._seq += 1
-        rec = {"seq": self._seq, "t": iso(self.clock.now), "op": op,
+        # deep-copy severs every caller-held reference: a mind (or handler)
+        # keeping the dict it passed in can never rewrite the ledger or the
+        # state reduced from it afterwards
+        data = copy.deepcopy(data)
+        rec = {"seq": self._seq + 1, "t": iso(self.clock.now), "op": op,
                "data": data, "cause": cause}
-        self._reduce(rec)
+        self._reduce(rec)          # raises -> seq untouched, nothing appended
+        self._seq += 1
         self.records.append(rec)
         return self._seq
 
@@ -128,8 +152,8 @@ class World:
         return ev
 
     def cancel_event(self, seq: int, reason: str, cause=_UNSET) -> None:
-        self.queue.cancel(seq)
         self.apply("event.cancelled", {"event": seq, "reason": reason}, cause)
+        self.queue.cancel(seq)     # ledger first: a refused record cancels nothing
 
     # ------------------------------------------------------------------
     # information (create -> send -> deliver is kernel mechanics)
@@ -141,6 +165,9 @@ class World:
         ch = self.channels.get(channel)
         if ch is None:
             raise WorldIntegrityError(f"unknown channel {channel!r}")
+        if not content or not isinstance(content, str):
+            raise WorldIntegrityError(
+                "information requires non-empty textual content")
         iid = f"i{self._seq + 1}"
         cseq = self.apply("info.create",
                           {"id": iid, "author": author, "content": content,
@@ -155,23 +182,60 @@ class World:
     # universal operation sequences (used by world.ops events and by
     # completion effects of declarative actions)
     # ------------------------------------------------------------------
+    def validate_ops(self, ops: list, acting_actor: str | None = None) -> None:
+        """Structural validation of an op sequence -- called BEFORE anything
+        is applied (so bad scenario data cannot half-apply), and also at
+        authoring time (action.define / event.schedule_in payloads)."""
+        for entry in ops:
+            if not isinstance(entry, (list, tuple)) or len(entry) < 2 \
+                    or not isinstance(entry[1], dict):
+                raise WorldIntegrityError(f"malformed op entry {entry!r}")
+            op, data = entry[0], entry[1]
+            if op not in ALLOWED_EFFECT_OPS:
+                raise WorldIntegrityError(
+                    f"op {op!r} is not a permitted effect operation "
+                    f"(allowed: {sorted(ALLOWED_EFFECT_OPS)})")
+            if acting_actor is not None and op.startswith("actor.") \
+                    and data.get("actor") != acting_actor:
+                raise WorldIntegrityError(
+                    f"action effects of {acting_actor!r} may not touch the "
+                    f"private state of {data.get('actor')!r}")
+            if op == "event.schedule_in":
+                if data.get("basis") not in CONCRETE_BASES:
+                    raise WorldIntegrityError(
+                        f"event.schedule_in requires a concrete provenance "
+                        f"basis, got {data.get('basis')!r}")
+                if "delay_hours" not in data and "delay_seconds" not in data:
+                    raise WorldIntegrityError(
+                        "event.schedule_in requires an explicit delay_hours "
+                        "or delay_seconds")
+                if data.get("kind") not in ("world.ops", "wake.actor"):
+                    raise WorldIntegrityError(
+                        f"event.schedule_in may only schedule world.ops or "
+                        f"wake.actor events, got {data.get('kind')!r}")
+                if data.get("kind") == "world.ops":
+                    self.validate_ops(data.get("data", {}).get("ops", []),
+                                      acting_actor)
+                elif not data.get("data", {}).get("actor") \
+                        or not data.get("data", {}).get("reason"):
+                    raise WorldIntegrityError(
+                        "a scheduled wake.actor needs an explicit actor and "
+                        "reason -- wake triggers are never defaulted")
+
     def run_ops(self, ops: list, acting_actor: str | None = None,
                 cause=_UNSET) -> None:
         """Execute a list of [op, data] pairs.  Ops are the universal reducer
         operations plus two macros: ``info.send_new`` (create + send
         information) and ``event.schedule_in`` (schedule a future event with
         a provenance-labeled relative delay).  When executed as the effects
-        of an actor's action, private-state ops are restricted to that actor.
-        """
+        of an actor's action, private-state ops are restricted to that actor,
+        and information/attention mechanics cannot be bypassed (delivery and
+        noticing are never directly writable as effects)."""
         if cause is _UNSET:
             cause = self._ctx_cause
+        self.validate_ops(ops, acting_actor)
         for entry in ops:
             op, data = entry[0], entry[1]
-            if acting_actor is not None and op.startswith("actor.") \
-                    and data.get("actor") != acting_actor:
-                raise WorldIntegrityError(
-                    f"action effects of {acting_actor!r} may not touch the "
-                    f"private state of {data.get('actor')!r}")
             if op == "info.send_new":
                 self.send_info(author=data["author"],
                                recipients=self.resolve_recipients(data["to"]),
@@ -180,10 +244,6 @@ class World:
             elif op == "event.schedule_in":
                 delay = timedelta(hours=float(data.get("delay_hours", 0)),
                                   seconds=float(data.get("delay_seconds", 0)))
-                if data.get("basis") not in PROVENANCE_BASES:
-                    raise WorldIntegrityError(
-                        f"event.schedule_in requires a provenance basis, got "
-                        f"{data.get('basis')!r}")
                 payload = dict(data.get("data", {}))
                 payload.setdefault("note", data.get("note", ""))
                 payload.setdefault("delay_basis", data["basis"])
@@ -220,11 +280,16 @@ class World:
                 continue
             hours = (t - last).total_seconds() / 3600.0
             amount = p["rate_per_hour"] * hours
+            current = self.resources.get(_rkey(p["holder"], p["resource"]), 0.0)
             cap = p.get("capacity")
             clamped = False
             if cap is not None and amount > 0:
-                current = self.resources.get(_rkey(p["holder"], p["resource"]), 0.0)
                 clamped_amount = max(0.0, min(amount, float(cap) - current))
+                clamped = clamped_amount != amount
+                amount = clamped_amount
+            elif amount < 0:
+                # consumption stops at empty: a drained tank does not go negative
+                clamped_amount = max(amount, -max(current, 0.0))
                 clamped = clamped_amount != amount
                 amount = clamped_amount
             if amount == 0 and not clamped:
@@ -236,20 +301,50 @@ class World:
                        {"id": pid, "amount": amount, "clamped": clamped,
                         "from": p["last_applied"], "to": iso(t)}, cause)
 
-    def aggregate_rate(self, holder: str, resource: str) -> float:
-        return sum(p["rate_per_hour"] for p in self.processes.values()
-                   if p["active"] and p["holder"] == holder and p["resource"] == resource)
+    def effective_rate(self, holder: str, resource: str) -> float:
+        """Net rate on a resource right now: capacity-pinned positive
+        processes contribute nothing (a full tank is not filling)."""
+        current = self.resources.get(_rkey(holder, resource), 0.0)
+        rate = 0.0
+        for p in self.processes.values():
+            if not p["active"] or p["holder"] != holder or p["resource"] != resource:
+                continue
+            r = p["rate_per_hour"]
+            cap = p.get("capacity")
+            if r > 0 and cap is not None and current >= float(cap) - 1e-9:
+                continue
+            rate += r
+        return rate
+
+    def attainable_ceiling(self, holder: str, resource: str) -> float:
+        """The highest level active positive processes can push this resource
+        to (inf when any contributing process is uncapped)."""
+        caps = []
+        for p in self.processes.values():
+            if not p["active"] or p["holder"] != holder or p["resource"] != resource:
+                continue
+            if p["rate_per_hour"] <= 0:
+                continue
+            if p.get("capacity") is None:
+                return math.inf
+            caps.append(float(p["capacity"]))
+        return max(caps) if caps else -math.inf
 
     def resource(self, holder: str, name: str) -> float:
         return self.resources.get(f"{holder}:{name}", 0.0)
 
     def lineage(self, seq: int, limit: int = 200) -> list:
         """Walk the cause chain of a record back to its origin: the explicit
-        producer lineage of any state transition or terminal term."""
+        producer lineage of any state transition or terminal term.  Chains
+        are acyclic (a cause always precedes its effect); a truncated walk is
+        marked, never silent."""
         by_seq = {r["seq"]: r for r in self.records}
         chain = []
         cur = by_seq.get(seq)
-        while cur is not None and len(chain) < limit:
+        while cur is not None:
+            if len(chain) >= limit:
+                chain.append({"truncated": True, "at_seq": cur["seq"]})
+                break
             chain.append({"seq": cur["seq"], "t": cur["t"], "op": cur["op"],
                           "data": cur["data"]})
             cur = by_seq.get(cur["cause"]) if cur["cause"] is not None else None
@@ -331,6 +426,9 @@ class World:
         """
         if not records or records[0]["op"] != "world.genesis":
             raise WorldIntegrityError("ledger must begin with world.genesis")
+        if records[0]["data"].get("schema") != 1:
+            raise WorldIntegrityError(
+                f"unsupported ledger schema {records[0]['data'].get('schema')!r}")
         w = cls.__new__(cls)
         w.clock = Clock(parse_iso(records[0]["data"]["start"]))
         w.start = w.clock.now
@@ -432,10 +530,10 @@ def _red_channel_add(w, d, t, rec):
 def _red_process_add(w, d, t, rec):
     if d["id"] in w.processes:
         raise WorldIntegrityError(f"duplicate process {d['id']!r}")
-    if d.get("basis") not in PROVENANCE_BASES:
+    if d.get("basis") not in CONCRETE_BASES:
         raise WorldIntegrityError(
-            f"process {d['id']!r} requires a provenance basis "
-            f"({sorted(PROVENANCE_BASES)}), got {d.get('basis')!r}")
+            f"process {d['id']!r} requires a concrete provenance basis "
+            f"({sorted(CONCRETE_BASES)}), got {d.get('basis')!r}")
     w.processes[d["id"]] = {
         "id": d["id"], "holder": d["holder"], "resource": d["resource"],
         "rate_per_hour": float(d["rate_per_hour"]), "active": bool(d.get("active", False)),
@@ -448,7 +546,12 @@ def _red_action_define(w, d, t, rec):
     if d["verb"] in w.action_defs:
         raise WorldIntegrityError(f"duplicate action definition {d['verb']!r}")
     validate_action_def(d)
-    w.action_defs[d["verb"]] = dict(d)
+    # effects are validated structurally at REGISTRATION time (against the
+    # universal allowlist, with "{actor}" standing for the acting actor), so
+    # bad scenario data is refused before any run, not at fire time
+    for key in ("start_effects", "effects"):
+        w.validate_ops(d.get(key) or [], acting_actor="{actor}")
+    w.action_defs[d["verb"]] = copy.deepcopy(d)
 
 
 def _red_process_active(w, d, t, rec):
@@ -476,7 +579,8 @@ def _red_watch_add(w, d, t, rec):
     if d.get("basis") not in PROVENANCE_BASES:
         raise WorldIntegrityError(f"watch {d['id']!r} requires a provenance basis")
     w.watches[d["id"]] = {"id": d["id"], "holder": d["holder"], "resource": d["resource"],
-                          "level": float(d["level"]), "on_reach": d.get("on_reach", {}),
+                          "level": float(d["level"]),
+                          "on_reach": copy.deepcopy(d.get("on_reach", {})),
                           "basis": d["basis"], "note": d.get("note", ""), "fired": False}
 
 
@@ -532,7 +636,7 @@ def _red_actor_memory(w, d, t, rec):
 
 
 def _red_actor_reconsider(w, d, t, rec):
-    _need_actor(w, d["actor"]).reconsider = list(d["conditions"])
+    _need_actor(w, d["actor"]).reconsider = copy.deepcopy(d["conditions"])
 
 
 def _red_actor_ongoing(w, d, t, rec):
@@ -611,7 +715,7 @@ def _red_info_noticing_unsupported(w, d, t, rec):
 def _red_action_propose(w, d, t, rec):
     if d["id"] in w.actions:
         raise WorldIntegrityError(f"duplicate action {d['id']!r}")
-    act = dict(d)
+    act = copy.deepcopy(d)   # state never aliases ledger records
     act["state"] = "proposed"
     act["proposed_at"] = t
     w.actions[d["id"]] = act

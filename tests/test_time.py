@@ -100,8 +100,23 @@ def test_duration_provenance_is_mandatory():
         Duration(timedelta(hours=1), "because")
     with pytest.raises(ValueError):
         Duration(timedelta(hours=-1), "verified")
-    d = Duration(timedelta(hours=1), "unknown", "explicitly unknown")
-    assert d.basis == "unknown"                            # unknown stays unknown
+    # a concrete number can never be labeled "unknown" -- an unknown duration
+    # is a completion condition or a labeled inference, not a decorated guess
+    with pytest.raises(ValueError):
+        Duration(timedelta(hours=1), "unknown", "explicitly unknown")
+
+
+def test_attention_rules_are_strict():
+    from sworldmodel import AttentionRule
+    cal = BusinessCalendar(tz=NY)
+    with pytest.raises(ValueError):     # cadence needs a calendar anchor
+        AttentionRule(None, timedelta(minutes=30), "inferred", "x")
+    with pytest.raises(ValueError):     # multi-day cadence must be modeled, not rounded
+        AttentionRule(cal, timedelta(days=2), "inferred", "x")
+    with pytest.raises(ValueError):     # concrete behavior can't be "unknown"
+        AttentionRule(cal, timedelta(minutes=30), "unknown", "x")
+    with pytest.raises(ValueError):     # provenance note is mandatory
+        AttentionRule(cal, timedelta(minutes=30), "inferred", "")
 
 
 def test_fmt_span():

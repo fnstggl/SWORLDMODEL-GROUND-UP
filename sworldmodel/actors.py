@@ -22,12 +22,9 @@ from .info import AttentionRule
 from .simclock import fmt_local, fmt_span, iso, parse_iso
 
 
-class MindProtocolError(RuntimeError):
-    """A mind attempted something outside its authority (e.g. updating
-    another actor's private state, or an op outside the whitelist)."""
-
-
 #: Private-state operations a mind may propose about ITSELF, and nothing else.
+#: Violations are recorded in the ledger (mind.violation) and skipped --
+#: containment is enforced, not assumed.
 ACTOR_UPDATE_OPS = frozenset({
     "actor.belief", "actor.plan", "actor.emotion", "actor.physical",
     "actor.relationship", "actor.commit", "actor.commitment_resolved",

@@ -43,7 +43,6 @@ class Intention:
     params: dict = field(default_factory=dict)
     duration: Duration | None = None          # how long the actor plans to take
     completes_when: dict | None = None        # e.g. {"resource_at_least": ["factory","widgets",500]}
-    start_at: datetime | None = None          # None = start now (if validated)
     interruptible: bool = False               # may this action be broken into?
     interruption_note: str = ""               # provenance for the above claim
     note: str = ""                            # the actor's stated reason
@@ -149,12 +148,27 @@ def check_conditions(world, actor_id: str, params: dict, conditions: list) -> st
     return None
 
 
+#: Condition kinds the universal evaluator understands.  A definition using
+#: anything else is refused at registration time, not discovered as a
+#: permanent mysterious rejection at run time.
+KNOWN_CONDITIONS = frozenset({
+    "role_in", "fact_equals", "fact_absent", "actor_exists", "channel_exists",
+    "param_nonempty", "param_in", "noticed_info", "resource_at_least",
+})
+
+
 def validate_action_def(defn: dict) -> None:
-    """Light structural validation when a definition is registered."""
+    """Structural validation when a definition is registered."""
     if not defn.get("verb"):
         raise ValueError("action definition requires a verb")
     for key in ("conditions", "start_effects", "effects", "complete_conditions"):
         if key in defn and not isinstance(defn[key], list):
             raise ValueError(f"action.define {defn['verb']!r}: {key} must be a list")
+    for key in ("conditions", "complete_conditions"):
+        for cond in defn.get(key) or []:
+            if not isinstance(cond, dict) or cond.get("require") not in KNOWN_CONDITIONS:
+                raise ValueError(
+                    f"action.define {defn['verb']!r}: unknown condition "
+                    f"{cond!r} (known: {sorted(KNOWN_CONDITIONS)})")
     if "duration" in defn and defn["duration"] is not None:
         Duration.from_dict(defn["duration"])  # raises if provenance is invalid

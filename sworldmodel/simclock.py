@@ -42,7 +42,12 @@ PROVENANCE_BASES = frozenset({
     "immediate",        # genuinely instantaneous at this resolution
     "unknown",          # explicitly unknown -- flagged, never silent
 })
-DURATION_BASES = PROVENANCE_BASES  # alias
+
+#: Bases acceptable wherever a CONCRETE number (a duration, rate, latency,
+#: cadence) is consumed.  "unknown" is deliberately excluded there: an
+#: unknown duration must be modeled as a completion condition or an
+#: explicitly labeled inference, never as a number wearing an "unknown" tag.
+CONCRETE_BASES = frozenset(PROVENANCE_BASES - {"unknown"})
 
 
 class NonexistentLocalTime(ValueError):
@@ -211,9 +216,11 @@ class Duration:
             raise ValueError(f"Duration.delta must be a timedelta, got {self.delta!r}")
         if self.delta < timedelta(0):
             raise ValueError(f"Duration cannot be negative: {self.delta}")
-        if self.basis not in PROVENANCE_BASES:
+        if self.basis not in CONCRETE_BASES:
             raise ValueError(
-                f"Duration.basis must be one of {sorted(PROVENANCE_BASES)}, got {self.basis!r}")
+                f"Duration.basis must be one of {sorted(CONCRETE_BASES)}, got "
+                f"{self.basis!r} (an unknown duration is a completion "
+                f"condition, not a number labeled 'unknown')")
 
     def to_dict(self) -> dict:
         return {"seconds": self.delta.total_seconds(), "basis": self.basis, "note": self.note}
@@ -271,9 +278,23 @@ class BusinessCalendar:
         return self.is_workday(lt.date()) and self.open_time <= lt.time() < self.close_time
 
     def open_of(self, d: date) -> datetime:
-        # opening times in this module are assumed to be DST-safe wall times
-        # (business hours do not sit inside transition gaps); still strict.
-        return local_instant(datetime.combine(d, self.open_time), self.tz)
+        """The instant this calendar opens on day ``d``.
+
+        Explicit, deterministic DST policy (recorded here, not silent): if
+        the opening wall time falls in a spring-forward gap, the day opens at
+        the first existing wall time after the gap; if it falls in a
+        fall-back overlap, the FIRST occurrence opens the day (fold=0)."""
+        naive = datetime.combine(d, self.open_time)
+        kind = classify_local(naive, self.tz)
+        if kind == "unique":
+            return local_instant(naive, self.tz)
+        if kind == "ambiguous":
+            return local_instant(naive, self.tz, fold=0)
+        for minutes in range(1, 181):
+            cand = naive + timedelta(minutes=minutes)
+            if classify_local(cand, self.tz) == "unique":
+                return local_instant(cand, self.tz)
+        raise ValueError(f"cannot resolve opening time on {d} in {self.tz}")
 
     def next_open(self, at: datetime) -> datetime:
         """Earliest instant >= ``at`` that falls inside working hours."""
@@ -308,8 +329,14 @@ class BusinessCalendar:
         candidate = day_open + k * check_every
         for _ in range(1000):
             if candidate.time() >= self.close_time or candidate.date() != day_open.date():
-                # past closing: the next check happens at the next day's opening
-                return self.next_open(self.open_of(day_open.date()) + timedelta(days=1))
+                # past closing: the next check happens at the next working
+                # day's opening -- CALENDAR-day movement, never +24 elapsed h
+                d = day_open.date()
+                for i in range(1, 400):
+                    nd = d + timedelta(days=i)
+                    if self.is_workday(nd):
+                        return self.open_of(nd)
+                raise ValueError("no working day within 400 days")
             if classify_local(candidate, self.tz) == "unique":
                 cand_utc = local_instant(candidate, self.tz)
                 if cand_utc >= t:

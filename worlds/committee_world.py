@@ -255,7 +255,8 @@ class MemberMind(Mind):
 
     def _choice(self, view) -> str:
         data_driven = any("responds to new evidence" in v for v in view.values)
-        sees_soft_print = "below expectations" in view.beliefs["inflation"].statement
+        belief = view.beliefs.get("inflation")
+        sees_soft_print = bool(belief) and "below expectations" in belief.statement
         return "cut" if (data_driven and sees_soft_print) else "hold"
 
     def decide(self, view):

@@ -520,6 +520,87 @@
   "processes": {},
   "relationships": {},
   "resources": {},
+  "scheduled_events": [
+    {
+      "data": {
+        "note": "scheduled statistical release (verified: official calendar)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "inflation_release",
+              "value": "3.1% y/y (below expectations)"
+            }
+          ],
+          [
+            "info.send_new",
+            {
+              "author": "statistics_wire",
+              "channel": "data_wire",
+              "content": "June inflation printed 3.1% y/y, below the 3.6% consensus and moving toward target.",
+              "data": {
+                "series": "inflation",
+                "type": "data_release"
+              },
+              "to": [
+                "gus"
+              ]
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 20,
+      "t": "2026-06-24T14:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "the policy meeting is called to order (verified: official meeting calendar)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "meeting_open",
+              "value": true
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 21,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "dana",
+        "detail": "m1: the policy meeting begins",
+        "reason": "scheduled_commitment"
+      },
+      "kind": "wake.actor",
+      "seq": 22,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "eli",
+        "detail": "m1: the policy meeting begins",
+        "reason": "scheduled_commitment"
+      },
+      "kind": "wake.actor",
+      "seq": 23,
+      "t": "2026-06-25T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "fran",
+        "detail": "m1: the policy meeting begins",
+        "reason": "scheduled_commitment"
+      },
+      "kind": "wake.actor",
+      "seq": 24,
+      "t": "2026-06-25T16:00:00+00:00"
+    }
+  ],
   "start": "2026-06-23T14:00:00+00:00",
   "terminal": null,
   "version": 25,
