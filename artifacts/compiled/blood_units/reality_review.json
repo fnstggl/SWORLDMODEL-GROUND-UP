@@ -1,14 +1,14 @@
 {
   "causal_path": [
-    "Starting state: St. Vincent hospital has 15 units at Monday 9 AM.",
-    "Tuesday 4 PM: Centre ships 150 units to hospital.",
-    "Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).",
-    "Thursday 4 PM: Centre ships another 150 units.",
-    "Thursday ~7 PM: Hospital receives 150 units.",
-    "Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units."
+    "Starting state: hospital has 15 units",
+    "Tuesday 4pm: centre ships 150 units to hospital",
+    "Tuesday ~7pm: hospital receives 150 units (3-hour transit)",
+    "Thursday 4pm: centre ships 150 units to hospital",
+    "Thursday ~7pm: hospital receives 150 units",
+    "Friday noon: hospital holds 15 + 150 + 150 = 315 units"
   ],
   "defects": [],
-  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the evidence: starting hospital stock of 15 units, two shipments of 150 units each on Tuesday and Thursday at 4 PM, which arrive well before Friday noon. The collection drive adds units to the centre but does not affect the hospital's received quantity. The terminal quantity is 15 + 150 + 150 = 315 units, producible from the starting state and scheduled events. No contradictions, missing participants, or unsupported assumptions. Uncertainties are properly noted.\",\n  \"causal_path\": [\n    \"Starting state: St. Vincent hospital has 15 units at Monday 9 AM.\",\n    \"Tuesday 4 PM: Centre ships 150 units to hospital.\",\n    \"Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).\",\n    \"Thursday 4 PM: Centre ships another 150 units.\",\n    \"Thursday ~7 PM: Hospital receives 150 units.\",\n    \"Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units.\"\n  ],\n  \"defects\": []\n}",
-  "reasoning": "The scenario correctly models the evidence: starting hospital stock of 15 units, two shipments of 150 units each on Tuesday and Thursday at 4 PM, which arrive well before Friday noon. The collection drive adds units to the centre but does not affect the hospital's received quantity. The terminal quantity is 15 + 150 + 150 = 315 units, producible from the starting state and scheduled events. No contradictions, missing participants, or unsupported assumptions. Uncertainties are properly noted.",
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the blood centre collecting at 12 units/hour during operating hours, but only shipments (150 units each on Tuesday and Thursday) transfer units to the hospital. The hospital starts with 15 units, receives 150 on Tuesday (arriving by 7pm, well before Friday noon) and 150 on Thursday (arriving by 7pm, also before Friday noon). No other transfers occur. Thus the hospital holds 15 + 150 + 150 = 315 units by Friday noon. All evidence is properly represented, no unsupported assumptions, and the terminal is produced by the scheduled events.\",\n  \"causal_path\": [\n    \"Starting state: hospital has 15 units\",\n    \"Tuesday 4pm: centre ships 150 units to hospital\",\n    \"Tuesday ~7pm: hospital receives 150 units (3-hour transit)\",\n    \"Thursday 4pm: centre ships 150 units to hospital\",\n    \"Thursday ~7pm: hospital receives 150 units\",\n    \"Friday noon: hospital holds 15 + 150 + 150 = 315 units\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the blood centre collecting at 12 units/hour during operating hours, but only shipments (150 units each on Tuesday and Thursday) transfer units to the hospital. The hospital starts with 15 units, receives 150 on Tuesday (arriving by 7pm, well before Friday noon) and 150 on Thursday (arriving by 7pm, also before Friday noon). No other transfers occur. Thus the hospital holds 15 + 150 + 150 = 315 units by Friday noon. All evidence is properly represented, no unsupported assumptions, and the terminal is produced by the scheduled events.",
   "verdict": "APPROVE"
 }

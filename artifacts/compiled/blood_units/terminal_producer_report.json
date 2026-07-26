@@ -133,12 +133,12 @@
   ],
   "replay_hash_match": true,
   "reviewer_causal_path": [
-    "Starting state: St. Vincent hospital has 15 units at Monday 9 AM.",
-    "Tuesday 4 PM: Centre ships 150 units to hospital.",
-    "Tuesday ~7 PM: Hospital receives 150 units (3-hour transit).",
-    "Thursday 4 PM: Centre ships another 150 units.",
-    "Thursday ~7 PM: Hospital receives 150 units.",
-    "Friday noon deadline: Hospital holds 15 + 150 + 150 = 315 units."
+    "Starting state: hospital has 15 units",
+    "Tuesday 4pm: centre ships 150 units to hospital",
+    "Tuesday ~7pm: hospital receives 150 units (3-hour transit)",
+    "Thursday 4pm: centre ships 150 units to hospital",
+    "Thursday ~7pm: hospital receives 150 units",
+    "Friday noon: hospital holds 15 + 150 + 150 = 315 units"
   ],
   "terminal": {
     "conditions": [],
@@ -159,17 +159,12 @@
   },
   "terminal_producers_claimed": [
     {
-      "description": "The final quantity of usable blood units at St. Vincent regional hospital is produced by the starting quantity (15) plus the two scheduled shipments (150 each) that transfer units from the centre. The collection process adds units to the centre's stock, but the centre's stock is not directly observed; only the hospital's quantity matters. The hospital receives 150 units on Tuesday and 150 on Thursday, so total = 15 + 150 + 150 = 315 units.",
-      "provenance": {
-        "basis": "inferred",
-        "evidence_ids": [
-          "e5",
-          "e6",
-          "e7",
-          "e9"
-        ],
-        "note": "Starting hospital stock plus two shipments of 150 each."
-      }
+      "description": "The hospital's final quantity of usable blood units is the sum of initial 15, plus 150 from Tuesday shipment, plus 150 from Thursday shipment, plus any collection during the week that is not shipped (but all collected units remain at centre; only shipments move to hospital).",
+      "producers": [
+        "starting_state: St. Vincent regional hospital quantity 15",
+        "scheduled_event: Tuesday shipment adds 150",
+        "scheduled_event: Thursday shipment adds 150"
+      ]
     }
   ]
 }

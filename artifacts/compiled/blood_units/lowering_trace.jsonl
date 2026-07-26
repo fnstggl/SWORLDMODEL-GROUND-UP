@@ -7,7 +7,7 @@
 {"amount": 15.0, "holder": "st_vincent_regional_hospital", "name": "usable_blood_units", "step": "starting_quantity"}
 {"active": true, "holder": "cascade_regional_blood_centre", "id": "blood_collection_drive", "quantity": "usable_blood_units", "rate": 12.0, "step": "process"}
 {"end": "17:00:00", "process": "blood_collection_drive", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4]}
-{"at": "2026-07-21T23:00:00+00:00", "description": "Tuesday shipment: centre sends 150 units to hospital at 4 PM.", "ops": 1, "step": "scheduled_event", "wakes": 0}
-{"at": "2026-07-23T23:00:00+00:00", "description": "Thursday shipment: centre sends 150 units to hospital at 4 PM.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-21T23:00:00+00:00", "description": "Tuesday shipment: centre sends 150 units to hospital at 4pm PDT.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-23T23:00:00+00:00", "description": "Thursday shipment: centre sends 150 units to hospital at 4pm PDT.", "ops": 1, "step": "scheduled_event", "wakes": 0}
 {"first": "2026-07-21T23:00:00+00:00", "root_events": 8, "step": "schedulable"}
 {"observations": 1, "step": "producers_verified"}

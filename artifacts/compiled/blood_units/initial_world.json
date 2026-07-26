@@ -18,8 +18,8 @@
       "name": "Cascade regional blood centre",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Operational",
-      "plan": "Collect blood Monday-Friday 9-5, ship 150 units each Tuesday and Thursday at 4 PM.",
+      "physical_state": "Operating",
+      "plan": "Collect blood Mon-Fri 9-5, ship Tue/Thu 4pm",
       "reconsider": [],
       "relationships": {
         "st_vincent_regional_hospital": "Supplier of blood units via scheduled shipments."
@@ -28,8 +28,7 @@
       "tz": "America/Los_Angeles",
       "unprocessed_info": [],
       "values": [
-        "Efficiency",
-        "Reliability"
+        "Efficiency"
       ]
     },
     "st_vincent_regional_hospital": {
@@ -40,7 +39,7 @@
       "deferred_wakes": [],
       "emotional_state": "Neutral",
       "goals": [
-        "Maintain adequate blood supply"
+        "Maintain blood supply"
       ],
       "id": "st_vincent_regional_hospital",
       "last_decision_at": null,
@@ -48,8 +47,8 @@
       "name": "St. Vincent regional hospital",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Has 15 units at start.",
-      "plan": "Receive shipments on Tuesday and Thursday.",
+      "physical_state": "Operating",
+      "plan": "Receive shipments and manage inventory",
       "reconsider": [],
       "relationships": {
         "cascade_regional_blood_centre": "Recipient of blood shipments."
@@ -89,7 +88,7 @@
   "scheduled_events": [
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM begins",
+        "note": "Monday to Friday 9am-5pm PDT begins",
         "ops": [
           [
             "process.active",
@@ -106,7 +105,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM begins",
+        "note": "Monday to Friday 9am-5pm PDT begins",
         "ops": [
           [
             "process.active",
@@ -123,7 +122,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM begins",
+        "note": "Monday to Friday 9am-5pm PDT begins",
         "ops": [
           [
             "process.active",
@@ -140,7 +139,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM ends",
+        "note": "Monday to Friday 9am-5pm PDT ends",
         "ops": [
           [
             "process.active",
@@ -157,7 +156,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM ends",
+        "note": "Monday to Friday 9am-5pm PDT ends",
         "ops": [
           [
             "process.active",
@@ -174,7 +173,7 @@
     },
     {
       "data": {
-        "note": "Monday to Friday 9 AM to 5 PM ends",
+        "note": "Monday to Friday 9am-5pm PDT ends",
         "ops": [
           [
             "process.active",
@@ -191,7 +190,7 @@
     },
     {
       "data": {
-        "note": "Tuesday shipment: centre sends 150 units to hospital at 4 PM. (basis: Standing distribution agreement and cooler capacity.)",
+        "note": "Tuesday shipment: centre sends 150 units to hospital at 4pm PDT. (basis: Standing distribution agreement and cooler capacity.)",
         "ops": [
           [
             "resource.transfer",
@@ -210,7 +209,7 @@
     },
     {
       "data": {
-        "note": "Thursday shipment: centre sends 150 units to hospital at 4 PM. (basis: Standing distribution agreement and cooler capacity.)",
+        "note": "Thursday shipment: centre sends 150 units to hospital at 4pm PDT. (basis: Standing distribution agreement and cooler capacity.)",
         "ops": [
           [
             "resource.transfer",
