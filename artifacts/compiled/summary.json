@@ -1,0 +1,26 @@
+[
+  {
+    "case": "traffic_study",
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "reason": "the terminal is already satisfied by the starting state, so the simulation would not decide anything: alma_reyes holds belief on 'content_of_finalized_riverside_corridor_traffic_study'. A condition that is true before the world runs is an initialization value, not an outcome.",
+    "reviewer_calls": 1,
+    "revision_calls": 0,
+    "runtime_ms": 0.0,
+    "semantic_calls": 1,
+    "stage": "NO_CAUSAL_PRODUCER",
+    "tokens": 12256
+  },
+  {
+    "case": "ethics_committee",
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "reason": "information[0]: no participant named 'Manufacturer'",
+    "reviewer_calls": 1,
+    "revision_calls": 1,
+    "runtime_ms": 0.0,
+    "semantic_calls": 1,
+    "stage": "INVALID_REFERENCE",
+    "tokens": 27387
+  }
+]

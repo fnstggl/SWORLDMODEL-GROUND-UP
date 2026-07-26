@@ -1,0 +1,2 @@
+{"cause":32,"data":{"actor":"yolanda_bright","based_on_version":30,"reason":"precondition failed: fact 'session_active' is None, requires True","verb":"bright_tables_revised_demand"},"op":"intention.rejected","seq":33,"t":"2026-10-29T15:00:00+00:00"}
+{"cause":35,"data":{"actor":"dennis_wozniak","based_on_version":33,"reason":"precondition failed: fact 'session_active' is None, requires True","verb":"wozniak_tables_revised_offer"},"op":"intention.rejected","seq":36,"t":"2026-10-29T15:00:00+00:00"}

@@ -1,0 +1,98 @@
+{
+  "answer": {
+    "answer": "no",
+    "computed_from": [
+      "terminal.cutoff"
+    ],
+    "detail": "No agreement has been recorded as accepted by both sides before the deadline.",
+    "observations": [
+      {
+        "observation": {
+          "describe": "",
+          "kind": "fact_equals",
+          "params": {
+            "key": "agreement_accepted",
+            "value": "yes"
+          }
+        },
+        "read": {
+          "detail": "fact 'agreement_accepted' is None (required 'yes')",
+          "producers": [],
+          "satisfied": false,
+          "value": null
+        }
+      }
+    ]
+  },
+  "at": "2026-11-01T04:59:00+00:00",
+  "producer_lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": "no",
+          "computed_from": [
+            "terminal.cutoff"
+          ],
+          "detail": "No agreement has been recorded as accepted by both sides before the deadline.",
+          "observations": [
+            {
+              "observation": {
+                "describe": "",
+                "kind": "fact_equals",
+                "params": {
+                  "key": "agreement_accepted",
+                  "value": "yes"
+                }
+              },
+              "read": {
+                "detail": "fact 'agreement_accepted' is None (required 'yes')",
+                "producers": [],
+                "satisfied": false,
+                "value": null
+              }
+            }
+          ]
+        },
+        "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?",
+        "status": "cutoff"
+      },
+      "op": "terminal",
+      "seq": 66,
+      "t": "2026-11-01T04:59:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?"
+        },
+        "event": 27,
+        "kind": "terminal.cutoff",
+        "t": "2026-11-01T04:59:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 65,
+      "t": "2026-11-01T04:59:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?"
+        },
+        "depth": 0,
+        "kind": "terminal.cutoff",
+        "t": "2026-11-01T04:59:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 27,
+      "t": "2026-10-29T15:00:00+00:00"
+    },
+    {
+      "data": {},
+      "op": "genesis.sealed",
+      "seq": 26,
+      "t": "2026-10-29T15:00:00+00:00"
+    }
+  ],
+  "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?",
+  "status": "cutoff"
+}

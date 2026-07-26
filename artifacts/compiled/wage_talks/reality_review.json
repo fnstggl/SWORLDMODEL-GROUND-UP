@@ -1,0 +1,13 @@
+{
+  "causal_path": [
+    "Session starts at 10:00 AM Oct 29, setting session_started=yes.",
+    "Bright tables revised demand of 4.5% (45 min caucus), setting union_demand_tabled=yes.",
+    "Wozniak hears the demand, then tables revised offer of 4.5% (45 min caucus), setting employer_offer_tabled=yes.",
+    "Bright accepts the 4.5% offer (momentary), setting agreement_accepted=yes.",
+    "Before deadline (Oct 31 23:59), agreement_accepted=yes is recorded, satisfying yes_condition."
+  ],
+  "defects": [],
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the evidence: Bright can accept \u22654%, Wozniak can offer up to 4.5% only if union moves first. Bright is prepared to table 4.5% at the session. The session on Oct 29 provides time for caucusing (45 min each) and acceptance. If Bright tables 4.5%, Wozniak can offer 4.5% and Bright accepts, producing agreement_accepted=yes before the deadline. No contradictions, missing participants, or wrong information access. The resolution is producible.\",\n  \"causal_path\": [\n    \"Session starts at 10:00 AM Oct 29, setting session_started=yes.\",\n    \"Bright tables revised demand of 4.5% (45 min caucus), setting union_demand_tabled=yes.\",\n    \"Wozniak hears the demand, then tables revised offer of 4.5% (45 min caucus), setting employer_offer_tabled=yes.\",\n    \"Bright accepts the 4.5% offer (momentary), setting agreement_accepted=yes.\",\n    \"Before deadline (Oct 31 23:59), agreement_accepted=yes is recorded, satisfying yes_condition.\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the evidence: Bright can accept \u22654%, Wozniak can offer up to 4.5% only if union moves first. Bright is prepared to table 4.5% at the session. The session on Oct 29 provides time for caucusing (45 min each) and acceptance. If Bright tables 4.5%, Wozniak can offer 4.5% and Bright accepts, producing agreement_accepted=yes before the deadline. No contradictions, missing participants, or wrong information access. The resolution is producible.",
+  "verdict": "APPROVE"
+}

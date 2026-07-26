@@ -1,0 +1,55 @@
+{
+  "producer_index": {
+    "action:bright_accepts_employer_s_offer": 1,
+    "action:bright_tables_revised_demand": 1,
+    "action:wozniak_accepts_union_s_demand": 1,
+    "action:wozniak_tables_revised_offer": 1,
+    "belief:dennis_wozniak:union_s_standing_demand": 1,
+    "belief:dennis_wozniak:willingness_to_move_to_4_5": 1,
+    "belief:yolanda_bright:employer_s_standing_offer": 1,
+    "belief:yolanda_bright:willingness_to_move_to_4_5": 1,
+    "fact:acceptance_procedure": 1,
+    "fact:agreement_accepted": 2,
+    "fact:bright_authority": 1,
+    "fact:employer_offer_tabled": 1,
+    "fact:scheduled_session": 1,
+    "fact:session_started": 1,
+    "fact:union_demand_tabled": 1,
+    "fact:wozniak_authority": 1,
+    "info:dennis_wozniak:union_demand": 1,
+    "info:mediator:employer_offer": 1,
+    "info:mediator:union_demand": 1,
+    "info:yolanda_bright:employer_offer": 1
+  },
+  "reviewer_causal_path": [
+    "Session starts at 10:00 AM Oct 29, setting session_started=yes.",
+    "Bright tables revised demand of 4.5% (45 min caucus), setting union_demand_tabled=yes.",
+    "Wozniak hears the demand, then tables revised offer of 4.5% (45 min caucus), setting employer_offer_tabled=yes.",
+    "Bright accepts the 4.5% offer (momentary), setting agreement_accepted=yes.",
+    "Before deadline (Oct 31 23:59), agreement_accepted=yes is recorded, satisfying yes_condition."
+  ],
+  "terminal": {
+    "conditions": [
+      {
+        "describe": "",
+        "kind": "fact_equals",
+        "params": {
+          "key": "agreement_accepted",
+          "value": "yes"
+        }
+      }
+    ],
+    "cutoff": "2026-11-01T04:59:00+00:00",
+    "measure": null,
+    "no_detail": "No agreement is recorded as accepted by both sides before the deadline.",
+    "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?",
+    "question_type": "boolean",
+    "yes_detail": "An agreement is recorded as accepted by both sides before the deadline."
+  },
+  "terminal_producers_claimed": [
+    {
+      "observation": "world_fact_is about agreement_accepted value yes",
+      "produced_by": "Either 'Bright accepts employer's offer' or 'Wozniak accepts union's demand' action completing and recording the fact."
+    }
+  ]
+}

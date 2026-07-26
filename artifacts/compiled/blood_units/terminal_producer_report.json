@@ -1,0 +1,162 @@
+{
+  "answer": {
+    "answer": 315.0,
+    "computed_from": [
+      "record:7",
+      "record:20",
+      "record:33"
+    ],
+    "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
+    "observations": [
+      {
+        "observation": {
+          "describe": "",
+          "kind": "resource_measure",
+          "params": {
+            "holder": "st_vincent_regional_hospital",
+            "name": "usable_blood_units"
+          }
+        },
+        "read": {
+          "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
+          "producers": [
+            "record:7",
+            "record:20",
+            "record:33"
+          ],
+          "satisfied": true,
+          "value": 315.0
+        }
+      }
+    ]
+  },
+  "computed_from": [
+    "record:7",
+    "record:20",
+    "record:33"
+  ],
+  "lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": 315.0,
+          "computed_from": [
+            "record:7",
+            "record:20",
+            "record:33"
+          ],
+          "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
+          "observations": [
+            {
+              "observation": {
+                "describe": "",
+                "kind": "resource_measure",
+                "params": {
+                  "holder": "st_vincent_regional_hospital",
+                  "name": "usable_blood_units"
+                }
+              },
+              "read": {
+                "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
+                "producers": [
+                  "record:7",
+                  "record:20",
+                  "record:33"
+                ],
+                "satisfied": true,
+                "value": 315.0
+              }
+            }
+          ]
+        },
+        "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+        "status": "cutoff"
+      },
+      "op": "terminal",
+      "seq": 41,
+      "t": "2026-07-24T19:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "How many usable blood units will the regional hospital have received by Friday noon?"
+        },
+        "event": 18,
+        "kind": "terminal.cutoff",
+        "t": "2026-07-24T19:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 39,
+      "t": "2026-07-24T19:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "How many usable blood units will the regional hospital have received by Friday noon?"
+        },
+        "depth": 0,
+        "kind": "terminal.cutoff",
+        "t": "2026-07-24T19:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 18,
+      "t": "2026-07-21T23:00:00+00:00"
+    },
+    {
+      "data": {},
+      "op": "genesis.sealed",
+      "seq": 17,
+      "t": "2026-07-21T23:00:00+00:00"
+    }
+  ],
+  "observations": [
+    {
+      "observation": {
+        "describe": "",
+        "kind": "resource_measure",
+        "params": {
+          "holder": "st_vincent_regional_hospital",
+          "name": "usable_blood_units"
+        }
+      },
+      "read": {
+        "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
+        "producers": [
+          "record:7",
+          "record:20",
+          "record:33"
+        ],
+        "satisfied": true,
+        "value": 315.0
+      }
+    }
+  ],
+  "replay_hash_match": true,
+  "reviewer_causal_path": [
+    "Monday 9 AM: Hospital has 15 units.",
+    "Tuesday 4 PM: Centre ships 150 units.",
+    "Tuesday 7 PM: Hospital receives 150 units, total becomes 165.",
+    "Thursday 4 PM: Centre ships 150 units.",
+    "Thursday 7 PM: Hospital receives 150 units, total becomes 315.",
+    "Friday noon: Hospital holds 315 units."
+  ],
+  "terminal": {
+    "conditions": [],
+    "cutoff": "2026-07-24T19:00:00+00:00",
+    "measure": {
+      "describe": "",
+      "kind": "resource_measure",
+      "params": {
+        "holder": "st_vincent_regional_hospital",
+        "name": "usable_blood_units"
+      }
+    },
+    "no_detail": "",
+    "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+    "question_type": "quantity",
+    "yes_detail": ""
+  },
+  "terminal_producers_claimed": [
+    "Starting quantity at hospital (15 units) plus two shipments of 150 units each (Tuesday and Thursday) arriving before Friday noon. The collection drive adds units to the centre but does not affect hospital quantity directly; shipments are fixed at 150 units regardless of centre stock (evidence e9). Hospital final quantity = 15 + 150 + 150 = 315 units."
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "action_affordances": [
+    {
+      "available_to": {
+        "participants": [
+          "Miguel Santos"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "change_type": "send_information",
+          "content": "Finalized Riverside corridor traffic study PDF.",
+          "description": "Santos sends the study to Reyes.",
+          "from": "Miguel Santos",
+          "route": "city email",
+          "tag": "finalized study",
+          "to": {
+            "participants": [
+              "Alma Reyes"
+            ]
+          }
+        }
+      ],
+      "description": "Santos emails the finalized study to Reyes after receiving peer-review sign-off.",
+      "duration": {
+        "description": "Time to attach and send the study.",
+        "status": "inferred",
+        "typical_minutes": 20
+      },
+      "label": "send finalized study to council members",
+      "parameters": [
+        {
+          "description": "The peer-review sign-off received.",
+          "fill_from": "noticed_information",
+          "name": "signoff",
+          "tag": "peer review signoff"
+        }
+      ],
+      "preconditions": [
+        {
+          "condition_type": "has_noticed_information",
+          "from_parameter": "signoff"
+        }
+      ]
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Alma Reyes"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "basis": "She read it.",
+          "change_type": "record_private_note",
+          "content": "Reyes has read and understood the study.",
+          "participant": "Alma Reyes",
+          "topic": "content of finalized Riverside corridor traffic study"
+        }
+      ],
+      "description": "Reyes reads the finalized study after noticing it in her email.",
+      "duration": {
+        "description": "Time to read a 60-page study.",
+        "status": "inferred",
+        "typical_minutes": 75
+      },
+      "label": "read finalized study",
+      "parameters": [
+        {
+          "description": "The finalized study email.",
+          "fill_from": "noticed_information",
+          "name": "study",
+          "tag": "finalized study"
+        }
+      ],
+      "preconditions": [
+        {
+          "condition_type": "has_noticed_information",
+          "from_parameter": "study"
+        }
+      ]
+    }
+  ],
+  "communication_routes": [
+    {
+      "delivery_delay": {
+        "description": "Internal delivery within about a minute.",
+        "seconds": 60,
+        "status": "verified"
+      },
+      "description": "City email system for internal communication.",
+      "name": "city email"
+    }
+  ],
+  "information": [
+    {
+      "already_sent_to": [],
+      "basis": "Committed to deliver by 10:00 AM on 18 February.",
+      "content": "The study is approved.",
+      "holder": "external peer reviewer",
+      "route": "city email",
+      "sent_time": null,
+      "tag": "peer review signoff",
+      "topic": "peer review sign-off"
+    }
+  ],
+  "participants": [
+    {
+      "attention": [
+        {
+          "bounded_by_availability": true,
+          "check_interval_minutes": 60,
+          "description": "Santos checks email hourly during work hours.",
+          "route": "city email",
+          "status": "inferred"
+        }
+      ],
+      "availability": {
+        "close": "16:30",
+        "holidays": [],
+        "open": "08:00",
+        "timezone": "America/Chicago",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "causal_relevance": "He finalizes the study and sends it to Reyes.",
+      "evidence_ids": [
+        "e3",
+        "e4",
+        "e4b",
+        "e10"
+      ],
+      "goals": [
+        "Finalize and distribute the study before the meeting."
+      ],
+      "identity_brief": "City transportation engineer responsible for the Riverside corridor traffic study.",
+      "initial_emotional_state": "Neutral",
+      "initial_physical_state": "At work",
+      "initial_plan": "Wait for peer-review sign-off, then email the study.",
+      "kind": "person",
+      "name": "Miguel Santos",
+      "relationships": [
+        {
+          "description": "Santos sends finalized studies to Reyes as part of his duties.",
+          "to": "Alma Reyes"
+        }
+      ],
+      "role": "city transportation engineer",
+      "timezone": "America/Chicago",
+      "values": [
+        "Professionalism",
+        "Timeliness"
+      ]
+    },
+    {
+      "attention": [
+        {
+          "bounded_by_availability": true,
+          "check_interval_minutes": 120,
+          "description": "Reyes checks email at start of workday and roughly every two hours.",
+          "route": "city email",
+          "status": "verified"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "holidays": [],
+        "open": "08:30",
+        "timezone": "America/Chicago",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "causal_relevance": "She must read the study before the meeting.",
+      "evidence_ids": [
+        "e1",
+        "e6",
+        "e7",
+        "e8"
+      ],
+      "goals": [
+        "Vote responsibly on the Riverside corridor item."
+      ],
+      "identity_brief": "Austin city councilmember on transportation committee.",
+      "initial_emotional_state": "Neutral",
+      "initial_physical_state": "At work",
+      "initial_plan": "Review study when it arrives.",
+      "kind": "person",
+      "name": "Alma Reyes",
+      "relationships": [
+        {
+          "description": "Reyes receives finalized studies from Santos.",
+          "to": "Miguel Santos"
+        }
+      ],
+      "role": "councilmember",
+      "timezone": "America/Chicago",
+      "values": [
+        "Due diligence",
+        "Responsibility"
+      ]
+    },
+    {
+      "attention": [],
+      "availability": {
+        "close": "17:00",
+        "holidays": [],
+        "open": "09:00",
+        "timezone": "America/Chicago",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "causal_relevance": "Provides sign-off that triggers Santos to send the study.",
+      "evidence_ids": [
+        "e4"
+      ],
+      "goals": [
+        "Complete review by deadline."
+      ],
+      "identity_brief": "External reviewer who must sign off on the study.",
+      "initial_emotional_state": "Neutral",
+      "initial_physical_state": "At work",
+      "initial_plan": "Send sign-off by 10:00 AM on 18 February.",
+      "kind": "person",
+      "name": "external peer reviewer",
+      "relationships": [],
+      "role": "peer reviewer",
+      "timezone": "America/Chicago",
+      "values": [
+        "Accuracy"
+      ]
+    },
+    {
+      "attention": [],
+      "availability": {
+        "close": "23:59",
+        "holidays": [],
+        "open": "00:00",
+        "timezone": "America/Chicago",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Delivers emails between participants.",
+      "evidence_ids": [
+        "e5",
+        "e9"
+      ],
+      "goals": [],
+      "identity_brief": "City email system with internal delivery within about a minute.",
+      "initial_emotional_state": "",
+      "initial_physical_state": "",
+      "initial_plan": "",
+      "kind": "operating system",
+      "name": "city email system",
+      "relationships": [],
+      "role": "email system",
+      "timezone": "America/Chicago",
+      "values": []
+    }
+  ],
+  "processes": [],
+  "resolution": {
+    "deadline": "2026-02-19T19:00:00-06:00",
+    "no_condition": "Reyes has not noticed and read the finalized study before the meeting starts.",
+    "observations": [
+      {
+        "action_label": "read finalized study",
+        "observation_type": "action_was_completed",
+        "participant": "Alma Reyes"
+      }
+    ],
+    "observed_from": "Reyes's action of reading the study completes before the deadline.",
+    "question_type": "boolean",
+    "yes_condition": "Reyes has noticed and read the finalized study before the meeting starts."
+  },
+  "scheduled_events": [
+    {
+      "basis": "Committed delivery time per e4.",
+      "description": "External peer reviewer sends sign-off to Santos.",
+      "effects": [
+        {
+          "change_type": "send_information",
+          "content": "The study is approved.",
+          "description": "Sign-off sent to Santos.",
+          "from": "external peer reviewer",
+          "route": "city email",
+          "tag": "peer review signoff",
+          "to": {
+            "participants": [
+              "Miguel Santos"
+            ]
+          }
+        }
+      ],
+      "evidence_ids": [
+        "e4"
+      ],
+      "time": "2026-02-18T10:00:00-06:00",
+      "wakes": []
+    }
+  ],
+  "scope": {
+    "excluded": [
+      {
+        "reason": "Only Reyes's reading matters for the question.",
+        "thing": "other council members"
+      },
+      {
+        "reason": "Only involved in scheduling, not in the reading chain.",
+        "thing": "committee clerk"
+      },
+      {
+        "reason": "No causal role in the study finalization or delivery.",
+        "thing": "other city staff"
+      }
+    ],
+    "included": [
+      "Miguel Santos",
+      "Alma Reyes",
+      "external peer reviewer",
+      "city email system"
+    ]
+  },
+  "starting_state": [
+    {
+      "about": "peer review sign-off received",
+      "description": "Santos has not yet received peer-review sign-off.",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "fact",
+      "status": "verified",
+      "subject": "Miguel Santos",
+      "value": false
+    }
+  ],
+  "terminal_producers": [
+    {
+      "observation": "action_was_completed: read finalized study by Alma Reyes",
+      "produced_by": "Action 'read finalized study' completes, which records a private note. The observation is the action completion itself."
+    }
+  ],
+  "uncertainties": [
+    {
+      "description": "Exact time Santos notices the sign-off email; he checks hourly, so it could be up to 60 minutes after 10:00 AM.",
+      "status": "inferred"
+    },
+    {
+      "description": "Exact time Reyes notices the study email; she checks every two hours, so it could be up to 120 minutes after delivery.",
+      "status": "inferred"
+    },
+    {
+      "description": "Reading time may vary between 60 and 90 minutes.",
+      "status": "inferred"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{"cutoff": "2026-11-01T04:59:00+00:00", "start": "2026-10-29T15:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"affordance": {"Bright accepts employer's offer": "bright_accepts_employer_s_offer", "Bright tables revised demand": "bright_tables_revised_demand", "Wozniak accepts union's demand": "wozniak_accepts_union_s_demand", "Wozniak tables revised offer": "wozniak_tables_revised_offer"}, "participant": {"Dennis Wozniak": "dennis_wozniak", "Mediator": "mediator", "Yolanda Bright": "yolanda_bright"}, "route": {"spoken in mediation room": "spoken_in_mediation_room"}}}}
+{"basis": "verified", "id": "spoken_in_mediation_room", "name": "spoken in mediation room", "seconds": 0.0, "step": "route"}
+{"attention": ["spoken_in_mediation_room"], "id": "yolanda_bright", "name": "Yolanda Bright", "role": "union lead negotiator", "step": "participant", "tz": "America/Chicago"}
+{"attention": ["spoken_in_mediation_room"], "id": "dennis_wozniak", "name": "Dennis Wozniak", "role": "employer lead negotiator", "step": "participant", "tz": "America/Chicago"}
+{"attention": ["spoken_in_mediation_room"], "id": "mediator", "name": "Mediator", "role": "mediator", "step": "participant", "tz": "America/Chicago"}
+{"key": "bright_authority", "step": "starting_fact"}
+{"key": "wozniak_authority", "step": "starting_fact"}
+{"actor": "yolanda_bright", "step": "starting_belief", "topic": "employer_s_standing_offer"}
+{"actor": "dennis_wozniak", "step": "starting_belief", "topic": "union_s_standing_demand"}
+{"actor": "yolanda_bright", "step": "starting_belief", "topic": "willingness_to_move_to_4_5"}
+{"actor": "dennis_wozniak", "step": "starting_belief", "topic": "willingness_to_move_to_4_5"}
+{"key": "scheduled_session", "step": "starting_fact"}
+{"key": "acceptance_procedure", "step": "starting_fact"}
+{"completion": "duration", "conditions": 3, "effects": 2, "label": "Bright tables revised demand", "step": "affordance", "verb": "bright_tables_revised_demand"}
+{"completion": "duration", "conditions": 4, "effects": 2, "label": "Wozniak tables revised offer", "step": "affordance", "verb": "wozniak_tables_revised_offer"}
+{"completion": "duration", "conditions": 4, "effects": 1, "label": "Bright accepts employer's offer", "step": "affordance", "verb": "bright_accepts_employer_s_offer"}
+{"completion": "duration", "conditions": 4, "effects": 1, "label": "Wozniak accepts union's demand", "step": "affordance", "verb": "wozniak_accepts_union_s_demand"}
+{"at": "2026-10-29T15:00:00+00:00", "description": "Mediated bargaining session begins.", "ops": 1, "step": "scheduled_event", "wakes": 3}
+{"first": "2026-10-29T15:00:00+00:00", "root_events": 4, "step": "schedulable"}
+{"observations": 1, "step": "producers_verified"}
+{"conditions": 1, "step": "terminal_not_preanswered"}

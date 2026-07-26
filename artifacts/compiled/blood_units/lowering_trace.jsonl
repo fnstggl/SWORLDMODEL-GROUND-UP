@@ -1,0 +1,12 @@
+{"cutoff": "2026-07-24T19:00:00+00:00", "start": "2026-07-21T23:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"participant": {"Cascade regional blood centre": "cascade_regional_blood_centre", "St. Vincent regional hospital": "st_vincent_regional_hospital"}, "process": {"Mobile collection drive": "mobile_collection_drive"}, "quantity": {"usable blood units": "usable_blood_units"}}}}
+{"attention": [], "id": "cascade_regional_blood_centre", "name": "Cascade regional blood centre", "role": "blood supplier", "step": "participant", "tz": "America/Los_Angeles"}
+{"attention": [], "id": "st_vincent_regional_hospital", "name": "St. Vincent regional hospital", "role": "hospital", "step": "participant", "tz": "America/Los_Angeles"}
+{"amount": 40.0, "holder": "cascade_regional_blood_centre", "name": "usable_blood_units", "step": "starting_quantity"}
+{"amount": 15.0, "holder": "st_vincent_regional_hospital", "name": "usable_blood_units", "step": "starting_quantity"}
+{"active": true, "holder": "cascade_regional_blood_centre", "id": "mobile_collection_drive", "quantity": "usable_blood_units", "rate": 12.0, "step": "process"}
+{"end": "17:00:00", "process": "mobile_collection_drive", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4]}
+{"at": "2026-07-21T23:00:00+00:00", "description": "Tuesday shipment departs centre at 4 PM, arrives at hospital after 3 hours at 7 PM.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-23T23:00:00+00:00", "description": "Thursday shipment departs centre at 4 PM, arrives at hospital after 3 hours at 7 PM.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"first": "2026-07-21T23:00:00+00:00", "root_events": 8, "step": "schedulable"}
+{"observations": 1, "step": "producers_verified"}

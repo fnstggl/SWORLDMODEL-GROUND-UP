@@ -1,0 +1,282 @@
+{
+  "action_defs": {
+    "read_finalized_study": {
+      "conditions": [
+        {
+          "actors": [
+            "alma_reyes"
+          ],
+          "require": "actor_in"
+        },
+        {
+          "info": "{params.study}",
+          "require": "noticed_info"
+        }
+      ],
+      "description": "read finalized study -- Reyes reads the finalized study after noticing it in her email.",
+      "duration": {
+        "basis": "inferred",
+        "note": "Time to read a 60-page study.",
+        "seconds": 4500.0
+      },
+      "effects": [
+        [
+          "actor.belief",
+          {
+            "actor": "{actor}",
+            "basis": "She read it.",
+            "statement": "Reyes has read and understood the study.",
+            "topic": "content_of_finalized_riverside_corridor_traffic_study"
+          }
+        ]
+      ],
+      "verb": "read_finalized_study"
+    },
+    "send_finalized_study_to_council_members": {
+      "conditions": [
+        {
+          "actors": [
+            "miguel_santos"
+          ],
+          "require": "actor_in"
+        },
+        {
+          "info": "{params.signoff}",
+          "require": "noticed_info"
+        }
+      ],
+      "description": "send finalized study to council members -- Santos emails the finalized study to Reyes after receiving peer-review sign-off.",
+      "duration": {
+        "basis": "inferred",
+        "note": "Time to attach and send the study.",
+        "seconds": 1200.0
+      },
+      "effects": [
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "city_email",
+            "content": "Finalized Riverside corridor traffic study PDF.",
+            "data": {
+              "description": "Santos sends the study to Reyes.",
+              "tag": "finalized_study"
+            },
+            "to": [
+              "alma_reyes"
+            ]
+          }
+        ]
+      ],
+      "verb": "send_finalized_study_to_council_members"
+    }
+  },
+  "actions": {},
+  "actors": {
+    "alma_reyes": {
+      "attention": {
+        "city_email": {
+          "basis": "verified",
+          "calendar": {
+            "close": "18:00",
+            "holidays": [],
+            "open": "08:30",
+            "tz": "America/Chicago",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 7200.0,
+          "note": "Reyes checks email at start of workday and roughly every two hours."
+        }
+      },
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "Neutral",
+      "goals": [
+        "Vote responsibly on the Riverside corridor item."
+      ],
+      "id": "alma_reyes",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Alma Reyes",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "At work",
+      "plan": "Review study when it arrives.",
+      "reconsider": [],
+      "relationships": {
+        "miguel_santos": "Reyes receives finalized studies from Santos."
+      },
+      "role": "councilmember",
+      "tz": "America/Chicago",
+      "unprocessed_info": [],
+      "values": [
+        "Due diligence",
+        "Responsibility"
+      ]
+    },
+    "city_email_system": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [],
+      "id": "city_email_system",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "city email system",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "",
+      "reconsider": [],
+      "relationships": {},
+      "role": "email system",
+      "tz": "America/Chicago",
+      "unprocessed_info": [],
+      "values": []
+    },
+    "external_peer_reviewer": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {
+        "peer_review_sign_off": {
+          "basis": "Committed to deliver by 10:00 AM on 18 February.",
+          "statement": "The study is approved.",
+          "updated_at": "2026-02-18T16:00:00+00:00"
+        }
+      },
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "Neutral",
+      "goals": [
+        "Complete review by deadline."
+      ],
+      "id": "external_peer_reviewer",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "external peer reviewer",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "At work",
+      "plan": "Send sign-off by 10:00 AM on 18 February.",
+      "reconsider": [],
+      "relationships": {},
+      "role": "peer reviewer",
+      "tz": "America/Chicago",
+      "unprocessed_info": [],
+      "values": [
+        "Accuracy"
+      ]
+    },
+    "miguel_santos": {
+      "attention": {
+        "city_email": {
+          "basis": "inferred",
+          "calendar": {
+            "close": "16:30",
+            "holidays": [],
+            "open": "08:00",
+            "tz": "America/Chicago",
+            "workdays": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "check_every_seconds": 3600.0,
+          "note": "Santos checks email hourly during work hours."
+        }
+      },
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "Neutral",
+      "goals": [
+        "Finalize and distribute the study before the meeting."
+      ],
+      "id": "miguel_santos",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Miguel Santos",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "At work",
+      "plan": "Wait for peer-review sign-off, then email the study.",
+      "reconsider": [],
+      "relationships": {
+        "alma_reyes": "Santos sends finalized studies to Reyes as part of his duties."
+      },
+      "role": "city transportation engineer",
+      "tz": "America/Chicago",
+      "unprocessed_info": [],
+      "values": [
+        "Professionalism",
+        "Timeliness"
+      ]
+    }
+  },
+  "channels": {
+    "city_email": {
+      "latency": {
+        "basis": "verified",
+        "note": "Internal delivery within about a minute.",
+        "seconds": 60.0
+      },
+      "name": "city_email"
+    }
+  },
+  "entities": {},
+  "facts": {
+    "peer_review_sign_off_received": false
+  },
+  "history": [],
+  "infos": {},
+  "now": "2026-02-18T16:00:00+00:00",
+  "processes": {},
+  "relationships": {},
+  "resources": {},
+  "scheduled_events": [
+    {
+      "data": {
+        "note": "External peer reviewer sends sign-off to Santos. (basis: Committed delivery time per e4.)",
+        "ops": [
+          [
+            "info.send_new",
+            {
+              "author": "external_peer_reviewer",
+              "channel": "city_email",
+              "content": "The study is approved.",
+              "data": {
+                "description": "Sign-off sent to Santos.",
+                "tag": "peer_review_signoff"
+              },
+              "to": [
+                "miguel_santos"
+              ]
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 13,
+      "t": "2026-02-18T16:00:00+00:00"
+    }
+  ],
+  "start": "2026-02-18T16:00:00+00:00",
+  "terminal": null,
+  "version": 14,
+  "watches": {}
+}

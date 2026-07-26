@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-02-12T00:00:00-06:00",
+      "claim": "Councilmember Alma Reyes sits on the Austin city council transportation committee and will vote on the Riverside corridor item at the 19 February meeting.",
+      "id": "e1",
+      "source": "City of Austin council agenda, published 2026-02-12",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-12T00:00:00-06:00",
+      "claim": "The council meeting begins Thursday 19 February 2026 at 7:00 PM America/Chicago.",
+      "id": "e2",
+      "source": "City of Austin council agenda",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-30T00:00:00-06:00",
+      "claim": "Miguel Santos is the city transportation engineer responsible for finalizing the Riverside corridor traffic study.",
+      "id": "e3",
+      "source": "City staff directory",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-16T14:00:00-06:00",
+      "claim": "Santos told the committee clerk on 16 February that the study is complete except for a final peer-review sign-off, which the external reviewer has committed to deliver by 10:00 AM America/Chicago on 18 February.",
+      "id": "e4",
+      "source": "Clerk's memo to committee members, 2026-02-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-16T14:00:00-06:00",
+      "claim": "Santos's documented practice is to email a finalized study to council members within the hour after he receives peer-review sign-off; the clerk confirms he has done so for every corridor item this term.",
+      "id": "e4b",
+      "source": "Clerk's memo, 2026-02-16, and 2026 distribution log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2025-06-01T00:00:00-05:00",
+      "claim": "City staff distribute finalized studies to council members as PDF attachments on the city email system.",
+      "id": "e5",
+      "source": "Council operating procedure sec. 4.2",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-13T00:00:00-06:00",
+      "claim": "Reyes works Monday to Friday from 8:30 AM to 6:00 PM America/Chicago, and her chief of staff states she reviews council email in a block at the start of each working day and roughly every two hours thereafter.",
+      "id": "e6",
+      "source": "Interview with Reyes's chief of staff, 2026-02-13",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2025-11-04T00:00:00-06:00",
+      "claim": "Reyes has stated publicly that she reads corridor studies in full before voting on them, and that a study arriving the day of a vote is 'not something I can responsibly act on'.",
+      "id": "e7",
+      "source": "Austin Monitor interview, 2025-11-04",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-13T00:00:00-06:00",
+      "claim": "A finalized Riverside corridor study of this type runs roughly 60 pages; comparable studies have taken Reyes's office 60 to 90 minutes to read.",
+      "id": "e8",
+      "source": "Chief of staff, describing prior corridor items",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2025-09-01T00:00:00-05:00",
+      "claim": "City email delivers internally within about a minute.",
+      "id": "e9",
+      "source": "City IT service description",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-16T00:00:00-06:00",
+      "claim": "Santos works Monday to Friday, 8:00 AM to 4:30 PM America/Chicago, and checks email hourly during the working day.",
+      "id": "e10",
+      "source": "City staff schedule and clerk's description",
+      "status": "inferred",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_traffic_study_2026_02",
+  "prepared_at": "2026-02-16T09:00:00-06:00"
+}

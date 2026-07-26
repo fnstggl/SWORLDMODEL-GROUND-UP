@@ -1,0 +1,17 @@
+{
+  "action_defs": [],
+  "actors": [
+    "cascade_regional_blood_centre",
+    "st_vincent_regional_hospital"
+  ],
+  "channels": [],
+  "processes": [
+    "mobile_collection_drive"
+  ],
+  "producer_index": {
+    "resource:cascade_regional_blood_centre:usable_blood_units": 4,
+    "resource:st_vincent_regional_hospital:usable_blood_units": 3
+  },
+  "scheduled_root_events": 8,
+  "stage": "COMPILED"
+}

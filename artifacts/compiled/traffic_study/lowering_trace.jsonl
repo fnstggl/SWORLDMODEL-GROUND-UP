@@ -1,0 +1,15 @@
+{"cutoff": "2026-02-20T01:00:00+00:00", "start": "2026-02-18T16:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"affordance": {"read finalized study": "read_finalized_study", "send finalized study to council members": "send_finalized_study_to_council_members"}, "participant": {"Alma Reyes": "alma_reyes", "Miguel Santos": "miguel_santos", "city email system": "city_email_system", "external peer reviewer": "external_peer_reviewer"}, "route": {"city email": "city_email"}}}}
+{"basis": "verified", "id": "city_email", "name": "city email", "seconds": 60.0, "step": "route"}
+{"attention": ["city_email"], "id": "miguel_santos", "name": "Miguel Santos", "role": "city transportation engineer", "step": "participant", "tz": "America/Chicago"}
+{"attention": ["city_email"], "id": "alma_reyes", "name": "Alma Reyes", "role": "councilmember", "step": "participant", "tz": "America/Chicago"}
+{"attention": [], "id": "external_peer_reviewer", "name": "external peer reviewer", "role": "peer reviewer", "step": "participant", "tz": "America/Chicago"}
+{"attention": [], "id": "city_email_system", "name": "city email system", "role": "email system", "step": "participant", "tz": "America/Chicago"}
+{"key": "peer_review_sign_off_received", "step": "starting_fact"}
+{"actor": "external_peer_reviewer", "step": "initial_knowledge", "topic": "peer_review_sign_off"}
+{"completion": "duration", "conditions": 2, "effects": 1, "label": "send finalized study to council members", "step": "affordance", "verb": "send_finalized_study_to_council_members"}
+{"completion": "duration", "conditions": 2, "effects": 1, "label": "read finalized study", "step": "affordance", "verb": "read_finalized_study"}
+{"at": "2026-02-18T16:00:00+00:00", "description": "External peer reviewer sends sign-off to Santos.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"first": "2026-02-18T16:00:00+00:00", "root_events": 1, "step": "schedulable"}
+{"observations": 1, "step": "producers_verified"}
+{"conditions": 1, "step": "terminal_not_preanswered"}

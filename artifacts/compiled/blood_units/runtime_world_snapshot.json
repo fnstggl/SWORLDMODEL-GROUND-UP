@@ -1,0 +1,88 @@
+{
+  "action_defs": {},
+  "actions": {},
+  "actors": {
+    "cascade_regional_blood_centre": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "neutral",
+      "goals": [
+        "Collect and distribute blood units"
+      ],
+      "id": "cascade_regional_blood_centre",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Cascade regional blood centre",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "operational",
+      "plan": "Operate drive Mon-Fri 9-5, ship 150 units on Tue and Thu at 4 PM.",
+      "reconsider": [],
+      "relationships": {
+        "st_vincent_regional_hospital": "Supplier of blood units via scheduled shipments."
+      },
+      "role": "blood supplier",
+      "tz": "America/Los_Angeles",
+      "unprocessed_info": [],
+      "values": []
+    },
+    "st_vincent_regional_hospital": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {},
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "neutral",
+      "goals": [
+        "Maintain blood supply"
+      ],
+      "id": "st_vincent_regional_hospital",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "St. Vincent regional hospital",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "operational",
+      "plan": "Receive shipments as scheduled.",
+      "reconsider": [],
+      "relationships": {
+        "cascade_regional_blood_centre": "Recipient of blood shipments."
+      },
+      "role": "hospital",
+      "tz": "America/Los_Angeles",
+      "unprocessed_info": [],
+      "values": []
+    }
+  },
+  "channels": {},
+  "entities": {},
+  "facts": {},
+  "history": [],
+  "infos": {},
+  "now": "2026-07-21T23:00:00+00:00",
+  "processes": {
+    "mobile_collection_drive": {
+      "active": true,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "cascade_regional_blood_centre",
+      "id": "mobile_collection_drive",
+      "last_applied": "2026-07-21T23:00:00+00:00",
+      "note": "From centre's throughput report (e2).",
+      "rate_per_hour": 12.0,
+      "resource": "usable_blood_units"
+    }
+  },
+  "relationships": {},
+  "resources": {
+    "cascade_regional_blood_centre:usable_blood_units": 40.0,
+    "st_vincent_regional_hospital:usable_blood_units": 15.0
+  },
+  "start": "2026-07-21T23:00:00+00:00",
+  "terminal": null,
+  "version": 16,
+  "watches": {}
+}

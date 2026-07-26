@@ -52,9 +52,15 @@ class TemplateError(ValueError):
     pass
 
 
+_ESC_OPEN, _ESC_CLOSE = "\x00", "\x01"
+
+
 def subst(obj, ctx: dict):
     """Substitute ``{actor}``, ``{action_id}``, ``{now}`` and ``{params.x}``
     templates through nested data.
+
+    ``{{`` and ``}}`` are literal braces: authored prose can contain braces
+    without being mistaken for a template.
 
     A string that IS exactly one template resolves to the raw value
     (preserving numbers/dicts/lists); a missing ``params.x`` in that exact
@@ -67,6 +73,9 @@ def subst(obj, ctx: dict):
         return [subst(v, ctx) for v in obj]
     if not isinstance(obj, str):
         return obj
+    if "{{" in obj or "}}" in obj:
+        obj = obj.replace("{{", _ESC_OPEN).replace("}}", _ESC_CLOSE)
+        return _unescape(subst(obj, ctx))
     if obj.startswith("{") and obj.endswith("}") and obj.count("{") == 1:
         return _lookup(obj[1:-1], ctx, exact=True)
     out, i = [], 0
@@ -83,7 +92,13 @@ def subst(obj, ctx: dict):
         val = _lookup(obj[j + 1:k], ctx, exact=False)
         out.append(str(val))
         i = k + 1
-    return "".join(out)
+    return _unescape("".join(out))
+
+
+def _unescape(text):
+    if isinstance(text, str) and (_ESC_OPEN in text or _ESC_CLOSE in text):
+        return text.replace(_ESC_OPEN, "{").replace(_ESC_CLOSE, "}")
+    return text
 
 
 def _lookup(path: str, ctx: dict, exact: bool):
@@ -114,6 +129,10 @@ def check_conditions(world, actor_id: str, params: dict, conditions: list) -> st
             if world.actors[actor_id].role not in c["roles"]:
                 return (f"authority: role {world.actors[actor_id].role!r} may not "
                         f"do this (requires one of {c['roles']})")
+        elif req == "actor_in":
+            if actor_id not in c["actors"]:
+                return (f"authority: {actor_id!r} is not among the parties "
+                        f"permitted to do this ({c['actors']})")
         elif req == "fact_equals":
             if world.facts.get(c["key"]) != c["value"]:
                 return (f"precondition failed: fact {c['key']!r} is "
@@ -152,8 +171,9 @@ def check_conditions(world, actor_id: str, params: dict, conditions: list) -> st
 #: anything else is refused at registration time, not discovered as a
 #: permanent mysterious rejection at run time.
 KNOWN_CONDITIONS = frozenset({
-    "role_in", "fact_equals", "fact_absent", "actor_exists", "channel_exists",
-    "param_nonempty", "param_in", "noticed_info", "resource_at_least",
+    "role_in", "actor_in", "fact_equals", "fact_absent", "actor_exists",
+    "channel_exists", "param_nonempty", "param_in", "noticed_info",
+    "resource_at_least",
 })
 
 

@@ -1,0 +1,148 @@
+{
+  "action_affordances": [
+    {
+      "available_to": {
+        "participants": [
+          "Halvorsen Group Board"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "about": "board_approval_meridian",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": true
+        }
+      ],
+      "description": "The board votes to approve the Meridian acquisition.",
+      "duration": {
+        "description": "The board can approve at any time during business hours.",
+        "status": "inferred",
+        "typical_minutes": 1
+      },
+      "label": "board_approve_meridian",
+      "parameters": [],
+      "preconditions": [
+        {
+          "about": "board_approval_meridian",
+          "condition_type": "world_fact_absent",
+          "scope": "global"
+        }
+      ]
+    }
+  ],
+  "communication_routes": [],
+  "information": [],
+  "participants": [
+    {
+      "attention": [],
+      "availability": {
+        "close": "17:00",
+        "holidays": [],
+        "open": "09:00",
+        "timezone": "Europe/Oslo",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "causal_relevance": "The board is the only body that can approve the acquisition.",
+      "evidence_ids": [
+        "e1"
+      ],
+      "goals": [
+        "Decide on the Meridian acquisition"
+      ],
+      "identity_brief": "The board of Halvorsen Group, a privately held logistics company.",
+      "initial_emotional_state": "neutral",
+      "initial_physical_state": "functional",
+      "initial_plan": "No known plan to vote on the acquisition.",
+      "kind": "organization",
+      "name": "Halvorsen Group Board",
+      "relationships": [],
+      "role": "board",
+      "timezone": "Europe/Oslo",
+      "values": []
+    },
+    {
+      "attention": [],
+      "availability": {
+        "close": "17:00",
+        "holidays": [],
+        "open": "09:00",
+        "timezone": "Europe/Oslo",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "causal_relevance": "The target of the acquisition; its cooperation may be needed.",
+      "evidence_ids": [
+        "e2"
+      ],
+      "goals": [],
+      "identity_brief": "A privately held freight company.",
+      "initial_emotional_state": "neutral",
+      "initial_physical_state": "functional",
+      "initial_plan": "No known plan.",
+      "kind": "organization",
+      "name": "Meridian Freight",
+      "relationships": [],
+      "role": "target",
+      "timezone": "Europe/Oslo",
+      "values": []
+    }
+  ],
+  "processes": [],
+  "resolution": {
+    "deadline": "2026-12-31T17:00:00-05:00",
+    "no_condition": "No such fact is recorded by the deadline.",
+    "observations": [
+      {
+        "about": "board_approval_meridian",
+        "observation_type": "world_fact_exists"
+      }
+    ],
+    "observed_from": "Check whether a world_fact_exists with about 'board_approval_meridian' exists at the deadline.",
+    "question_type": "boolean",
+    "yes_condition": "The board of Halvorsen Group records a fact 'approval' for the Meridian acquisition before the deadline."
+  },
+  "scheduled_events": [],
+  "scope": {
+    "excluded": [
+      {
+        "reason": "No evidence about them; they cannot materially change the answer.",
+        "thing": "Any other parties or details"
+      }
+    ],
+    "included": [
+      "Halvorsen Group board",
+      "Meridian Freight"
+    ]
+  },
+  "starting_state": [
+    {
+      "about": "board_approval_meridian",
+      "description": "No board approval has been recorded for the Meridian acquisition.",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "fact",
+      "status": "verified",
+      "subject": "Halvorsen Group Board",
+      "value": false
+    }
+  ],
+  "terminal_producers": [
+    "The world_fact_exists observation is produced by the 'board_approve_meridian' action if it completes before the deadline."
+  ],
+  "uncertainties": [
+    "Whether the board will actually choose to approve the acquisition. The evidence provides no information about the board's intentions, schedule, or decision process."
+  ]
+}

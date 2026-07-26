@@ -1,0 +1,11 @@
+{
+  "decisions": 4,
+  "deferred_wakes": 0,
+  "events_processed": 9,
+  "intentions": 2,
+  "ledger_records": 64,
+  "llm_calls": 0,
+  "pending_events_at_end": 1,
+  "rejections": 0,
+  "wall_ms": 7.1
+}

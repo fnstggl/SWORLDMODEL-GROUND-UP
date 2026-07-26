@@ -1,0 +1,14 @@
+{
+  "causal_path": [
+    "Monday 9 AM: Hospital has 15 units.",
+    "Tuesday 4 PM: Centre ships 150 units.",
+    "Tuesday 7 PM: Hospital receives 150 units, total becomes 165.",
+    "Thursday 4 PM: Centre ships 150 units.",
+    "Thursday 7 PM: Hospital receives 150 units, total becomes 315.",
+    "Friday noon: Hospital holds 315 units."
+  ],
+  "defects": [],
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly traces the hospital's received units: starting with 15 units, plus two scheduled shipments of 150 units each (Tuesday and Thursday) that arrive before Friday noon. The collection drive's output is irrelevant because shipments are fixed at 150 units regardless of centre stock. No contradictions, missing participants, or information access issues. The resolution (315 units) is producible from the described events.\",\n  \"causal_path\": [\n    \"Monday 9 AM: Hospital has 15 units.\",\n    \"Tuesday 4 PM: Centre ships 150 units.\",\n    \"Tuesday 7 PM: Hospital receives 150 units, total becomes 165.\",\n    \"Thursday 4 PM: Centre ships 150 units.\",\n    \"Thursday 7 PM: Hospital receives 150 units, total becomes 315.\",\n    \"Friday noon: Hospital holds 315 units.\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly traces the hospital's received units: starting with 15 units, plus two scheduled shipments of 150 units each (Tuesday and Thursday) that arrive before Friday noon. The collection drive's output is irrelevant because shipments are fixed at 150 units regardless of centre stock. No contradictions, missing participants, or information access issues. The resolution (315 units) is producible from the described events.",
+  "verdict": "APPROVE"
+}

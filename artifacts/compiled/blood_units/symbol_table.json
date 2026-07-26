@@ -1,0 +1,14 @@
+{
+  "namespaces": {
+    "participant": {
+      "Cascade regional blood centre": "cascade_regional_blood_centre",
+      "St. Vincent regional hospital": "st_vincent_regional_hospital"
+    },
+    "process": {
+      "Mobile collection drive": "mobile_collection_drive"
+    },
+    "quantity": {
+      "usable blood units": "usable_blood_units"
+    }
+  }
+}
