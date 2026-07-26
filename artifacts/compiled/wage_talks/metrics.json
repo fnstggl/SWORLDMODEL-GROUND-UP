@@ -1,11 +1,11 @@
 {
-  "completion_tokens": 3182,
+  "completion_tokens": 2997,
   "lowering_ms": 0.0,
-  "prompt_tokens": 5717,
+  "prompt_tokens": 5778,
   "reviewer_calls": 0,
   "revision_calls": 0,
   "runtime_ms": 0.0,
   "semantic_calls": 1,
   "simulation_stage": "scripted",
-  "stage": "INSUFFICIENT_EVIDENCE"
+  "stage": "SEMANTIC_AMBIGUITY"
 }

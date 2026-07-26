@@ -452,7 +452,6 @@
       "attention": [
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
           "description": "On retreat from 10 to 12 March, no email contact; does not check email during retreat",
           "provenance": {
             "basis": "verified",
@@ -550,7 +549,6 @@
         },
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
           "description": "Uses email to send reviews",
           "provenance": {
             "basis": "verified",
@@ -610,6 +608,50 @@
       "values": [
         "Thoroughness",
         "Timeliness"
+      ]
+    },
+    {
+      "attention": [],
+      "availability": {
+        "close": "23:59",
+        "holidays": [],
+        "open": "00:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Releases updated safety data that triggers Lindqvist's review.",
+      "evidence_ids": [
+        "e5"
+      ],
+      "goals": [
+        "Provide updated safety information"
+      ],
+      "identity_brief": "The manufacturer of the unapproved oncology therapy.",
+      "initial_emotional_state": "Neutral",
+      "initial_physical_state": "Operational",
+      "initial_plan": "Release bulletin on schedule",
+      "kind": "organization",
+      "name": "Manufacturer",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "e5 describes the manufacturer and the bulletin."
+      },
+      "relationships": [],
+      "role": "drug manufacturer",
+      "timezone": "America/New_York",
+      "values": [
+        "Transparency"
       ]
     }
   ],

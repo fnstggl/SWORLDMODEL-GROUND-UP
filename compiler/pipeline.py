@@ -25,14 +25,22 @@ from .review import blocking_defects, review
 from .semantic import build_scenario
 
 
+#: Mechanical errors -- a missing section, an undeclared party, template
+#: syntax in prose -- are compiler diagnostics, not false claims about the
+#: world. A real compiler reports them and the author fixes them, so a small
+#: bounded budget is allowed and every use is counted in metrics.
+#: Semantic-truth revision (the reality review) remains strictly ONE round.
+MAX_MECHANICAL_REPAIRS = 3
+
+
 def _wj(path, obj):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2, sort_keys=True, default=str)
         f.write("\n")
 
 
-def _wl(path, rows):
-    with open(path, "w", encoding="utf-8") as f:
+def _wl(path, rows, mode="w"):
+    with open(path, mode, encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, sort_keys=True, default=str) + "\n")
 
@@ -71,28 +79,37 @@ def compile_case(question: dict, evidence: dict, outdir: str,
                            model, run, scripts, metrics)
 
         # ---- 1. semantic construction --------------------------------
-        # A contract-compliance failure (a missing section, an unlabelled
-        # assumption, a truncated reply) is a mechanical slip, not a claim the
-        # evidence cannot support. Exactly ONE repair round is allowed, with
-        # the precise error handed back; a second failure ends the run.
-        try:
-            scenario, raw, prompt, usage = build_scenario(question, evidence,
-                                                          model=model)
-        except (SemanticAmbiguity, InsufficientEvidence) as slip:
-            if isinstance(slip, InsufficientEvidence) and \
-                    not slip.detail.get("repairable"):
-                raise
-            metrics["semantic_calls"] += 1
-            count(getattr(build_scenario, "last_usage", {}) or {})
-            _wj(os.path.join(outdir, "contract_repair.json"),
-                {"first_error": slip.to_dict()})
-            scenario, raw, prompt, usage = build_scenario(
-                question, evidence, previous=None, model=model,
-                revision_defects=[{"kind": "contract_compliance",
-                                   "detail": REPAIR_INSTRUCTION.format(
-                                       error=slip.reason),
-                                   "severity": "critical"}])
-            metrics["revision_calls"] += 1
+        # Contract-compliance failures (missing section, unlabelled
+        # assumption, template syntax in prose, truncated reply) are
+        # mechanical. Each one is handed back verbatim, up to the bounded
+        # budget; the count is recorded so a case that needed help can never
+        # look like one that did not.
+        scenario = raw = prompt = None
+        usage = {}
+        last_error = None
+        for attempt in range(MAX_MECHANICAL_REPAIRS + 1):
+            defects = ([{"kind": "contract_compliance",
+                         "detail": REPAIR_INSTRUCTION.format(error=last_error.reason),
+                         "severity": "critical"}] if last_error else None)
+            try:
+                scenario, raw, prompt, usage = build_scenario(
+                    question, evidence, revision_defects=defects,
+                    previous=None, model=model)
+                break
+            except (SemanticAmbiguity, InsufficientEvidence) as slip:
+                if isinstance(slip, InsufficientEvidence) and \
+                        not slip.detail.get("repairable"):
+                    raise
+                metrics["semantic_calls"] += 1
+                metrics.setdefault("mechanical_repairs", 0)
+                count(getattr(build_scenario, "last_usage", {}) or {})
+                if attempt == MAX_MECHANICAL_REPAIRS:
+                    raise
+                metrics["mechanical_repairs"] += 1
+                last_error = slip
+                _wl(os.path.join(outdir, "contract_repairs.jsonl"),
+                    [{"attempt": attempt + 1, "error": slip.to_dict()}],
+                    mode="a" if attempt else "w")
         metrics["semantic_calls"] += 1
         count(usage)
         _wj(os.path.join(outdir, "semantic_scenario.json"), scenario)
@@ -172,6 +189,11 @@ Fix ONLY this defect and return the complete corrected scenario.
   participant, starting_state entry, information entry, communication route,
   scheduled event, process and affordance, and to each nested rate, duration,
   delivery_delay and attention entry.
+- If it says you used TEMPLATE SYNTAX like '{{something}}' inside text: that
+  text is data, not a template. Either write the literal words, or -- if the
+  value really comes from the action's parameter -- delete the braces from the
+  text and add "content_from_parameter": "<parameter name>" (or
+  "value_from_parameter", "amount_from_parameter") beside it instead.
 - If it says the reply was truncated or not valid JSON: return a SMALLER world
   containing only what can change the answer, as one complete JSON object.
 - If it says assertions cite no evidence: add "evidence_ids": ["e1", ...] to
@@ -181,7 +203,9 @@ Fix ONLY this defect and return the complete corrected scenario.
   "resolution.observations" so it observes what actually HAPPENS -- the action
   that produces the outcome ("action_was_completed") or the message actually
   received ("participant_noticed_information") -- and delete any
-  "starting_state" belief written on that same topic."""
+  "starting_state" belief written on that same topic. Observing a belief a
+  participant ALREADY HOLDS can never answer a question about what happens --
+  observe the action or the noticed message instead."""
 
 def _finish(question, evidence, scenario, result, outdir, stage, model, run,
             scripts, metrics):
@@ -195,23 +219,28 @@ def _finish(question, evidence, scenario, result, outdir, stage, model, run,
     # NO_CAUSAL_PRODUCER, NOTHING_SCHEDULED) are never repaired: those mean
     # the world cannot answer its own question.
     t0 = wallclock.monotonic()
-    try:
-        compiled = lower(scenario, question.get("question", ""))
-    except (InvalidReference, SemanticAmbiguity, NoCausalProducer) as first:
-        defect = [{"kind": "structural_reference_error",
-                   "detail": REPAIR_INSTRUCTION.format(error=first.reason),
-                   "severity": "critical"}]
-        scenario_r, raw_r, _, usage_r = build_scenario(
-            question, evidence, revision_defects=defect, previous=scenario,
-            model=model)
-        metrics["revision_calls"] += 1
-        count(usage_r)
-        _wj(os.path.join(outdir, "structural_repair.json"),
-            {"first_error": first.to_dict(), "repaired_scenario": scenario_r,
-             "raw_response": raw_r})
-        scenario = scenario_r
-        _wj(os.path.join(outdir, "semantic_scenario.json"), scenario)
-        compiled = lower(scenario, question.get("question", ""))
+    last_error = None
+    for attempt in range(MAX_MECHANICAL_REPAIRS + 1):
+        try:
+            compiled = lower(scenario, question.get("question", ""))
+            break
+        except (InvalidReference, SemanticAmbiguity, NoCausalProducer) as err:
+            if attempt == MAX_MECHANICAL_REPAIRS:
+                raise
+            metrics["mechanical_repairs"] = metrics.get("mechanical_repairs", 0) + 1
+            scenario, raw_r, _, usage_r = build_scenario(
+                question, evidence, previous=scenario, model=model,
+                revision_defects=[{"kind": "structural_reference_error",
+                                   "detail": REPAIR_INSTRUCTION.format(
+                                       error=err.reason),
+                                   "severity": "critical"}])
+            metrics["revision_calls"] += 1
+            metrics["prompt_tokens"] += usage_r.get("prompt_tokens", 0)
+            metrics["completion_tokens"] += usage_r.get("completion_tokens", 0)
+            _wl(os.path.join(outdir, "structural_repairs.jsonl"),
+                [{"attempt": attempt + 1, "error": err.to_dict()}],
+                mode="a" if attempt else "w")
+            _wj(os.path.join(outdir, "semantic_scenario.json"), scenario)
     metrics["lowering_ms"] = round((wallclock.monotonic() - t0) * 1000, 1)
 
     # freeze the approved world so a fixture's hand-written scripts stay

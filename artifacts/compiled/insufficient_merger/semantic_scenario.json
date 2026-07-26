@@ -8,32 +8,45 @@
       },
       "consequences_on_completion": [
         {
-          "about": "board approval of Meridian acquisition",
+          "about": "board_approval for Meridian acquisition",
           "change_type": "record_fact",
           "scope": "global",
-          "value": true
+          "value": "approved"
         }
       ],
-      "description": "The board records its approval of the Meridian acquisition.",
+      "description": "The board votes to approve the Meridian acquisition.",
       "duration": {
-        "description": "Time to record the decision.",
+        "description": "Time to deliberate and vote",
         "provenance": {
-          "basis": "uncertain",
-          "evidence_ids": [],
-          "note": "No evidence on how long recording takes."
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "note": "Typical board meeting duration."
         },
-        "status": "uncertain",
-        "typical_minutes": 10
+        "status": "inferred",
+        "typical_minutes": 60
       },
-      "label": "record board approval",
+      "label": "board_approve_acquisition",
       "parameters": [],
-      "preconditions": [],
+      "preconditions": [
+        {
+          "about": "board_meeting_held",
+          "condition_type": "world_fact_is",
+          "value": true
+        },
+        {
+          "about": "board_approval for Meridian acquisition",
+          "condition_type": "world_fact_is",
+          "value": "not_approved"
+        }
+      ],
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e1"
+          "e3"
         ],
-        "note": "The board can approve; the action is the only way to record approval."
+        "note": "Board can approve if meeting occurs."
       }
     }
   ],
@@ -55,25 +68,25 @@
           4
         ]
       },
-      "causal_relevance": "The board must approve the acquisition for the answer to be YES.",
+      "causal_relevance": "The board is the only entity that can approve the acquisition.",
       "evidence_ids": [
         "e1"
       ],
       "goals": [
-        "Decide on Meridian acquisition"
+        "Make decisions on major transactions"
       ],
       "identity_brief": "The board of Halvorsen Group, a privately held logistics company.",
       "initial_emotional_state": "Neutral",
       "initial_physical_state": "Operational",
-      "initial_plan": "No public plan",
+      "initial_plan": "Unknown",
       "kind": "organization",
       "name": "Halvorsen Group Board",
       "provenance": {
-        "basis": "verified",
+        "basis": "inferred",
         "evidence_ids": [
           "e1"
         ],
-        "note": "Halvorsen Group is a company; its board is a standard governance body."
+        "note": "Halvorsen Group exists; board is a standard governance body."
       },
       "relationships": [],
       "role": "board",
@@ -86,25 +99,53 @@
   "processes": [],
   "resolution": {
     "deadline": "2026-12-31T17:00:00-05:00",
-    "measure_description": "Check whether a record of board approval exists.",
-    "no_condition": "No approval is recorded by the deadline.",
+    "no_condition": "The board does not record an approval before the deadline.",
     "observations": [
       {
-        "about": "board approval of Meridian acquisition",
-        "description": "A record of board approval exists.",
-        "observation_type": "record_was_made"
+        "about": "board_approval for Meridian acquisition",
+        "observation_type": "record_was_made",
+        "value": "approved"
       }
     ],
-    "observed_from": "Check whether a record of board approval exists.",
+    "observed_from": "Check whether a record of type 'board_approval' exists with value 'approved' for the Meridian acquisition.",
     "provenance": {
       "basis": "scenario_given",
-      "evidence_ids": [],
-      "note": "The question defines the answer condition."
+      "evidence_ids": []
     },
     "question_type": "boolean",
     "yes_condition": "The board records an approval before the deadline."
   },
-  "scheduled_events": [],
+  "scheduled_events": [
+    {
+      "basis": "inferred",
+      "description": "Board meeting to consider Meridian acquisition",
+      "effects": [
+        {
+          "about": "board_meeting_held",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": true
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Talks reported; a meeting before deadline is plausible."
+      },
+      "time": "2026-12-31T10:00:00+01:00",
+      "wakes": [
+        {
+          "participant": "Halvorsen Group Board",
+          "reason": "Meeting scheduled to discuss acquisition."
+        }
+      ]
+    }
+  ],
   "scope": {
     "excluded": [
       {
@@ -112,8 +153,12 @@
         "thing": "Meridian Freight's internal processes"
       },
       {
-        "reason": "Only the board's recorded approval counts.",
-        "thing": "Public statements or press coverage"
+        "reason": "Not required for the decision.",
+        "thing": "Public statements"
+      },
+      {
+        "reason": "Not needed to determine if approval occurs.",
+        "thing": "Details of negotiations"
       }
     ],
     "included": [
@@ -123,8 +168,7 @@
   },
   "starting_state": [
     {
-      "about": "board approval of Meridian acquisition",
-      "description": "No approval has been recorded yet.",
+      "about": "board_approval for Meridian acquisition",
       "evidence_ids": [
         "e4"
       ],
@@ -138,19 +182,20 @@
       },
       "status": "verified",
       "subject": "Halvorsen Group Board",
-      "value": false
+      "value": "not_approved"
     }
   ],
   "terminal_producers": [
     {
-      "observation": "record_was_made about board approval",
-      "produced_by": "action_affordance 'record board approval' completion"
+      "evidence_ids": [
+        "e3"
+      ],
+      "observation": "record_was_made about board_approval for Meridian acquisition with value approved",
+      "produced_by": "action_affordance board_approve_acquisition completing"
     }
   ],
   "uncertainties": [
-    {
-      "basis": "No evidence of any meeting or decision process.",
-      "description": "Whether the board will actually meet and approve before the deadline."
-    }
+    "Whether the board will actually hold a meeting before the deadline.",
+    "Whether the board will approve the acquisition if a meeting is held."
   ]
 }

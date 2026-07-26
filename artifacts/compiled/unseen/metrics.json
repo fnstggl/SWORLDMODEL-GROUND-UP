@@ -1,7 +1,7 @@
 {
-  "completion_tokens": 13411,
+  "completion_tokens": 6738,
   "lowering_ms": 0.0,
-  "prompt_tokens": 8383,
+  "prompt_tokens": 8444,
   "reviewer_calls": 0,
   "revision_calls": 0,
   "runtime_ms": 0.0,

@@ -1,26 +1,5 @@
 {
-  "detail": {
-    "available_evidence_ids": [
-      "e1",
-      "e10",
-      "e11",
-      "e12",
-      "e13",
-      "e14",
-      "e2",
-      "e3",
-      "e4",
-      "e5",
-      "e6",
-      "e7",
-      "e8",
-      "e9"
-    ],
-    "defects": [
-      "resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}"
-    ],
-    "repairable": true
-  },
-  "reason": "1 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - resolution: no provenance block. Add \"provenance\": {\"basis\": \"verified\"|\"inferred\"|\"scenario_given\"|\"uncertain\", \"evidence_ids\": [...]}",
-  "stage": "INSUFFICIENT_EVIDENCE"
+  "detail": {},
+  "reason": "action_affordances[1] ('put motion and vote'): create_record needs a record_type",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

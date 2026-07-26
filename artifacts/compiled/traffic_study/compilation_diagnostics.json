@@ -1,29 +1,17 @@
 {
-  "action_defs": [
-    "read_the_finalized_study",
-    "send_the_finalized_study"
-  ],
-  "actors": [
-    "alma_reyes",
-    "external_reviewer",
-    "miguel_santos"
-  ],
-  "channels": [
-    "city_email"
-  ],
-  "processes": [],
-  "producer_index": {
-    "action:read_the_finalized_study": 1,
-    "action:send_the_finalized_study": 1,
-    "belief:alma_reyes:riverside_corridor_study_content": 1,
-    "belief:alma_reyes:riverside_corridor_study_status": 1,
-    "belief:external_reviewer:peer_review_signoff": 1,
-    "belief:external_reviewer:riverside_corridor_study_content": 1,
-    "belief:miguel_santos:peer_review_sign_off": 1,
-    "belief:miguel_santos:riverside_corridor_study_content": 1,
-    "info:alma_reyes:finalized_study": 1,
-    "info:miguel_santos:peer_review_signoff": 1
+  "detail": {
+    "already_satisfied": [
+      {
+        "describe": "Reyes has read and understood the finalized study",
+        "kind": "belief_topic_exists",
+        "params": {
+          "actor": "alma_reyes",
+          "topic": "content_of_finalized_riverside_corridor_traffic_study"
+        }
+      }
+    ],
+    "hint": "if the question is whether something HAPPENS, observe the action that produces it (action_was_completed) or the information actually noticed (participant_noticed_information); do not observe a belief topic the participant already holds at the start"
   },
-  "scheduled_root_events": 1,
-  "stage": "COMPILED"
+  "reason": "the terminal is already satisfied by the starting state, so the simulation would not decide anything: alma_reyes holds belief on 'content_of_finalized_riverside_corridor_traffic_study'. A condition that is true before the world runs is an initialization value, not an outcome.",
+  "stage": "NO_CAUSAL_PRODUCER"
 }
