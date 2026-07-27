@@ -529,7 +529,7 @@ def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
     node does not yet change a quantity is wired to the stock its binding
     names. Resolution is holder-first (a holder's single stock needs no
     name match); anything unresolvable is a refusal, not a guess."""
-    defects = []
+    defects, shape_defects = [], []
     for pid, bound in sorted(b.processes.items()):
         if bound.get("decorative"):
             continue
@@ -542,9 +542,13 @@ def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
             continue
         orr = bound.get("output_resource")
         if not orr:
-            defects.append(
+            shape_defects.append(
                 f"{pid}: a continuous process must feed a quantity, but "
-                f"neither the graph nor its binding names one")
+                f"neither the graph nor its binding names one. If this "
+                f"is a person's work toward one outcome (preparing a "
+                f"review, writing a report), it is not a process at "
+                f"all: model it in the causal spine as an actor "
+                f"decision with its duration, producing that outcome")
             continue
         try:
             holder = graph.resolve_any(
@@ -573,6 +577,13 @@ def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
             continue
         graph.add_edge(pid, "changes", target.id,
                        where=f"output of {pid}")
+    if shape_defects:
+        # a step's KIND is spine content; the starting-state document
+        # cannot change what something is
+        raise LoweringGap(
+            "processes with no quantity to feed are mis-shaped steps",
+            {"defects": shape_defects, "repairable": True,
+             "document": "causal_spine"})
     if defects:
         raise LoweringGap(
             "process outputs cannot be connected to real stocks",

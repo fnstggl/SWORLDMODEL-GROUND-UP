@@ -1,16 +1,22 @@
 [
   {
-    "binding_calls": 0,
+    "binding_calls": 18,
     "case": "ethics_committee",
-    "discovery_calls": 8,
+    "discovery_calls": 12,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "starting_state[Manufacturer] discovery is still defective after one targeted repair",
-    "repairs": {},
+    "reason": "process outputs cannot be connected to real stocks",
+    "repairs": {
+      "process:safety_review_circulated": 2,
+      "starting_state[Dr. Helen Osei]": 1,
+      "starting_state[Dr. Raj Patel]": 1,
+      "starting_state[Sister Margaret Doyle]": 1,
+      "starting_state[Tomas Lindqvist]": 1
+    },
     "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 25826
+    "stage": "LOWERING_GAP",
+    "tokens": 67865
   }
 ]

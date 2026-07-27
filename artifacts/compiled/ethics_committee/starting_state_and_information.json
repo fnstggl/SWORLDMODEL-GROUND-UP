@@ -1,0 +1,458 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e13"
+          ],
+          "meaning": "Chair of the ethics committee who puts the motion to a vote.",
+          "over": "chair_puts_motion"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e9"
+          ],
+          "meaning": "Voting member who decides to approve based on current safety data.",
+          "over": "osei_votes_approve"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Checks email several times during the working day.",
+            "meaning": "Continuous attention during working day."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e8",
+            "e12"
+          ],
+          "latency_meaning": "Delivers within about a minute.",
+          "meaning": "Hospital email system, delivers within about a minute.",
+          "name": "hospital email",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Present in the meeting room.",
+            "meaning": "Continuous during meeting."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "latency_meaning": "Immediate.",
+          "meaning": "Face-to-face communication in the meeting room.",
+          "name": "in-person meeting",
+          "role": "both"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Ethics committee meeting on 12 March 2026 at 2:00 PM America/New_York.",
+          "name": "committee meeting",
+          "when": "2026-03-12T14:00:00-05:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Dr. Osei will not approve compassionate use without current safety data, and considers the older adverse-event rate disqualifying.",
+          "name": "will not approve without current safety data",
+          "value": null
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Knows the three voting members: herself, Dr. Raj Patel, and Sister Margaret Doyle.",
+          "name": "committee roster",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Knows the meeting is on 12 March 2026 at 2:00 PM America/New_York.",
+          "name": "meeting schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Knows that Tomas Lindqvist was asked to prepare a safety review and circulate it before the meeting.",
+          "name": "safety review request",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Considers the older adverse-event rate disqualifying for approval.",
+          "name": "older adverse-event rate disqualifying",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Knows that Sister Doyle is off-site on retreat from 10 to 12 March and has no email contact during that time, but attends the meeting in person.",
+          "name": "Doyle off-site retreat",
+          "visibility": "public"
+        }
+      ],
+      "name": "Dr. Helen Osei",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e6",
+            "e7"
+          ],
+          "meaning": "Tomas Lindqvist prepares the safety review incorporating updated data.",
+          "over": "lindqvist_prepares_review"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e7",
+            "e8"
+          ],
+          "meaning": "Tomas Lindqvist circulates the safety review via email.",
+          "over": "safety_review_circulated"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Tomas Lindqvist was asked to prepare a safety review of the therapy and circulate it to members before the meeting.",
+          "name": "request to prepare safety review",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "meaning": "The manufacturer released updated trial safety data on 10 March 2026 at 8:00 AM America/New_York showing a lower rate of severe adverse events.",
+          "name": "updated trial safety data",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The committee meets 12 March 2026 at 2:00 PM America/New_York.",
+          "name": "meeting date and time",
+          "visibility": "public"
+        }
+      ],
+      "name": "Tomas Lindqvist",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e10"
+          ],
+          "meaning": "Dr. Raj Patel is a voting member who can vote to approve the compassionate-use request.",
+          "over": "patel_votes_approve"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Ethics committee meeting to consider compassionate-use request",
+          "name": "committee_meeting",
+          "when": "2026-03-12T14:00:00-05:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Knows the committee has three voting members: Dr. Helen Osei (chair), Dr. Raj Patel, and Sister Margaret Doyle.",
+          "name": "committee_roster",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Knows the committee decides by simple majority of votes cast.",
+          "name": "voting_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Knows the meeting is on 12 March 2026 at 2:00 PM America/New_York.",
+          "name": "meeting_scheduled",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Knows that Tomas Lindqvist was asked to prepare a safety review and circulate it before the meeting.",
+          "name": "safety_review_requested",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Knows Dr. Osei will not approve without current safety data and considers older adverse-event rate disqualifying.",
+          "name": "osei_stance",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Knows he has consistently voted to approve compassionate use where a safety review is available and favourable.",
+          "name": "own_voting_pattern",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Knows Sister Doyle votes with the documented safety assessment when one has been provided.",
+          "name": "doyle_voting_pattern",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Knows he checks email several times during the working day.",
+          "name": "email_availability",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Knows Sister Doyle is off-site on retreat from 10 to 12 March and has no email contact during it, but attends the meeting in person.",
+          "name": "doyle_retreat",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Knows members are present in the meeting room and hear motions put by the chair immediately.",
+          "name": "meeting_procedure",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Knows the manufacturer released updated trial safety data on 10 March 2026 at 8:00 AM America/New_York showing a lower rate of severe adverse events.",
+          "name": "updated_data_released",
+          "visibility": "public"
+        }
+      ],
+      "name": "Dr. Raj Patel",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e11"
+          ],
+          "meaning": "Sister Doyle votes on the motion; her vote counts toward the majority.",
+          "over": "doyle_votes_approve"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e12"
+          ],
+          "meaning": "Attend the ethics committee meeting on 12 March 2026 at 2:00 PM America/New_York.",
+          "name": "committee_meeting",
+          "when": "2026-03-12T14:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Sister Doyle is off-site on retreat from 10 to 12 March and has no email contact during that time, but attends the meeting in person.",
+          "name": "on_retreat"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The committee meets 12 March 2026 at 2:00 PM America/New_York to consider a compassionate-use request.",
+          "name": "meeting_scheduled",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Sister Doyle votes with the documented safety assessment when one has been provided to her.",
+          "name": "voting_record",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Sister Doyle is on retreat from 10 to 12 March and the hospital has no email contact with her during it.",
+          "name": "no_email_during_retreat",
+          "visibility": "private"
+        }
+      ],
+      "name": "Sister Margaret Doyle",
+      "not_available": [
+        {
+          "channel": "",
+          "from": "2026-03-10T00:00:00-05:00",
+          "meaning": "Sister Doyle is on retreat from 10 to 12 March and cannot receive hospital emails during that time.",
+          "to": "2026-03-12T14:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

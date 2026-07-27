@@ -1,0 +1,40 @@
+{
+  "channels": [
+    {
+      "channel": "process:hospital_email",
+      "receivers": [
+        "participant:dr_helen_osei"
+      ],
+      "senders": [
+        "participant:dr_helen_osei"
+      ]
+    },
+    {
+      "channel": "process:in_person_meeting",
+      "receivers": [
+        "participant:dr_helen_osei"
+      ],
+      "senders": [
+        "participant:dr_helen_osei"
+      ]
+    }
+  ],
+  "emergent_components": [
+    "record:meeting_minutes"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:lindqvist_prepares_review",
+    "process:safety_review_circulated"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:committee_meeting",
+    "event:meeting_ends",
+    "event:updated_data_released"
+  ],
+  "warnings": [
+    "process:lindqvist_prepares_review: a process that changes nothing is decorative",
+    "process:safety_review_circulated: a process that changes nothing is decorative"
+  ]
+}

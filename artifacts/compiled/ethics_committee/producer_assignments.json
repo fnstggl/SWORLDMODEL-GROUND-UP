@@ -1,0 +1,113 @@
+{
+  "assignments": [
+    {
+      "producers": [],
+      "step": "meeting_occurs"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e13"
+          ],
+          "kind": "person",
+          "meaning": "Chair of the ethics committee who puts the motion to a vote.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "chair_puts_motion"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Hospital pharmacist who prepares and circulates the safety review via email.",
+          "name": "Tomas Lindqvist"
+        }
+      ],
+      "step": "safety_review_circulated"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e6",
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Hospital pharmacist who prepares the safety review incorporating updated data.",
+          "name": "Tomas Lindqvist"
+        }
+      ],
+      "step": "lindqvist_prepares_review"
+    },
+    {
+      "producers": [],
+      "step": "updated_data_released"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Voting member who decides to approve based on current safety data.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "osei_votes_approve"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Voting member who consistently votes to approve when safety review is favorable.",
+          "name": "Dr. Raj Patel"
+        }
+      ],
+      "step": "patel_votes_approve"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Voting member who votes with the documented safety assessment.",
+          "name": "Sister Margaret Doyle"
+        }
+      ],
+      "step": "doyle_votes_approve"
+    },
+    {
+      "producers": [],
+      "step": "majority_approve"
+    },
+    {
+      "producers": [],
+      "step": "meeting_ends"
+    }
+  ]
+}

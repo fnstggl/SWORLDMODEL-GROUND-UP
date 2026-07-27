@@ -1,0 +1,55 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Hospital administration or legal team",
+      "why_safe": "The committee charter states decisions are by majority vote of the three members; no other actors have a vote or veto."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Patient or family input",
+      "why_safe": "The question asks only about the committee's approval; patient/family input is not part of the voting process."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "External regulatory bodies",
+      "why_safe": "The committee's decision is internal; external approvals are not part of this step."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "lindqvist_prepares_review",
+      "meaning": "Whether Tomas Lindqvist prepared and circulated an updated safety review incorporating the 10 March data before the 12 March meeting, given the timing constraints."
+    },
+    {
+      "about": "safety_review_circulated",
+      "meaning": "Whether the updated safety review was circulated to all members before the meeting, especially to Sister Doyle who was off-site and had no email access."
+    },
+    {
+      "about": "osei_votes_approve",
+      "meaning": "Whether Dr. Osei votes to approve, which depends on whether a current safety review is available and favorable."
+    },
+    {
+      "about": "patel_votes_approve",
+      "meaning": "Whether Dr. Patel votes to approve, which depends on whether a safety review is available and favorable."
+    },
+    {
+      "about": "doyle_votes_approve",
+      "meaning": "Whether Sister Doyle votes to approve, which depends on whether a documented safety assessment has been provided to her."
+    },
+    {
+      "about": "majority_approve",
+      "meaning": "Whether a majority of votes cast are in favor, which depends on the individual votes."
+    }
+  ]
+}
