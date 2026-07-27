@@ -241,6 +241,20 @@ def validate_world(graph: WorldGraph, plan: dict) -> Report:
                 rep.blocking.append(
                     f"terminal term on {t['holder']}:{t['name']}: no process, "
                     f"action, or scheduled event moves this quantity")
+        elif c == "information_sent":
+            sender = t["author"]
+            can_send = False
+            for src, op, data in _all_effect_ops(world) + _scheduled_ops(world):
+                if op == "info.send_new" \
+                        and data.get("author") in (sender, "{actor}"):
+                    can_send = True
+            for key in world.facts:
+                if key.startswith(f"route:") and f":{sender}:" in key:
+                    can_send = True
+            if not can_send:
+                rep.blocking.append(
+                    f"terminal term: {sender!r} has no way to send "
+                    f"information (no route, no sending effect)")
         elif c == "information_noticed":
             target = t["actor"]
             senders = _info_senders(world, target, t.get("author"),

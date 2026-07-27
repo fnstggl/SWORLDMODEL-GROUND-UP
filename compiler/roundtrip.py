@@ -28,6 +28,11 @@ def _expr_english(expr: dict) -> str:
                          f" of type {expr['info_type']!r}"
                          if expr.get("info_type") else ""])
         return f"{expr['actor']!r} has noticed information{extra}"
+    if c == "information_sent":
+        extra = "".join([f" to {expr['to']!r}" if expr.get("to") else "",
+                         f" of type {expr['info_type']!r}"
+                         if expr.get("info_type") else ""])
+        return f"{expr['author']!r} has sent information{extra}"
     if c == "action_completed":
         who = f" by {expr['actor']!r}" if expr.get("actor") else ""
         return f"action {expr['verb']!r} has completed{who}"

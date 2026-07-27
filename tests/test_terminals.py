@@ -101,6 +101,26 @@ def test_information_noticed_check_matches_author_and_type():
     assert other.evaluate(w, False) is None
 
 
+def test_information_sent_check_true_at_send_not_at_notice():
+    w = make_world()
+    from sworldmodel import ActorState
+    w.apply("actor.add", ActorState(id="p1", name="P One", role="observer",
+                                    tz="UTC").to_dict(), None)
+    spec = base_spec(condition={"check": "information_sent",
+                                "author": "origin_x", "to": "p1",
+                                "info_type": "signal_t"})
+    term = build_terminal(spec)
+    assert term.evaluate(w, False) is None
+    w.send_info("origin_x", ["p1"], "wire", "content",
+                data={"type": "signal_t"}, cause=None)
+    ans = term.evaluate(w, False)
+    assert ans["answer"] == "yes" and ans["computed_from"]
+    # a different author never matches
+    other = build_terminal(base_spec(condition={
+        "check": "information_sent", "author": "someone_else"}))
+    assert other.evaluate(w, False) is None
+
+
 # ------------------------------------------------------------ value terminal
 def test_value_resource_reported_at_final():
     w = make_world()

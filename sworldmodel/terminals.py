@@ -43,7 +43,8 @@ from .simclock import parse_iso
 
 CHECK_KINDS = frozenset({
     "fact_equals", "fact_exists", "resource_at_least",
-    "information_noticed", "action_completed", "count_facts_at_least",
+    "information_noticed", "information_sent", "action_completed",
+    "count_facts_at_least",
 })
 
 MODES = frozenset({"condition", "value", "decision_count"})
@@ -73,6 +74,7 @@ def validate_expr(expr) -> None:
         "fact_exists": ("key",),
         "resource_at_least": ("holder", "name", "amount"),
         "information_noticed": ("actor",),
+        "information_sent": ("author",),
         "action_completed": ("verb",),
         "count_facts_at_least": ("prefix", "amount"),
     }[kind]
@@ -155,6 +157,24 @@ def _noticed_matches(world, actor: str, author, info_type) -> list:
         out.append((r["seq"], info["id"]))
     return out
 
+
+def _sent_matches(world, author: str, to, info_type) -> list:
+    """seqs of info.send records where `author` sent (optionally to a
+    specific recipient, optionally of a given type)."""
+    out = []
+    for r in world.records:
+        if r["op"] != "info.send":
+            continue
+        info = world.infos.get(r["data"]["id"])
+        if info is None or info["author"] != author:
+            continue
+        if to is not None and r["data"].get("to") != to:
+            continue
+        if info_type is not None and info["data"].get("type") != info_type:
+            continue
+        out.append(r["seq"])
+    return out
+
 def _completed_matches(world, verb: str, actor) -> list:
     out = []
     for r in world.records:
@@ -204,6 +224,12 @@ def eval_expr(world, expr) -> tuple[bool, list]:
                                    expr.get("info_type"))
         if matches:
             return True, [matches[-1][0]]
+        return False, []
+    if kind == "information_sent":
+        matches = _sent_matches(world, expr["author"], expr.get("to"),
+                                expr.get("info_type"))
+        if matches:
+            return True, matches[-1:]
         return False, []
     if kind == "action_completed":
         matches = _completed_matches(world, expr["verb"], expr.get("actor"))

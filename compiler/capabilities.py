@@ -136,6 +136,7 @@ TERMINAL_CHECKS = {
     "fact_exists": ("key",),
     "resource_at_least": ("holder", "resource", "amount"),
     "information_noticed": ("participant",),
+    "information_sent": ("sender",),
     "action_completed": ("verb",),
     "record_exists": ("record_type", "subject"),
     "count_records_at_least": ("record_type", "subject", "amount"),
@@ -858,6 +859,11 @@ def render_menu() -> str:
                  + "<fields>...}."
                  + "  Combine with {\"all_of\": [..]} / {\"any_of\": [..]}."
                  + "  information_noticed also accepts author and info_type;"
+                 + " information_sent ('sender has sent information',"
+                 + " whether or not it was seen yet) also accepts to and"
+                 + " info_type -- the universal transmit action produces it,"
+                 + " so no scenario verb is needed for plain"
+                 + " sending/replying;"
                  + " record_exists also accepts by (participant) and choice.")
     lines.append("")
     lines.append("Templates: inside define_action effects/requires you may "

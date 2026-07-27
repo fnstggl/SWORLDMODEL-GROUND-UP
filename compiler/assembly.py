@@ -238,6 +238,13 @@ def lower_expr(expr: dict) -> dict:
         if expr.get("info_type"):
             out["info_type"] = expr["info_type"]
         return out
+    if kind == "information_sent":
+        out = {"check": "information_sent", "author": expr["sender"]}
+        if expr.get("to"):
+            out["to"] = expr["to"]
+        if expr.get("info_type"):
+            out["info_type"] = expr["info_type"]
+        return out
     if kind == "action_completed":
         out = {"check": "action_completed", "verb": expr["verb"]}
         if expr.get("participant"):

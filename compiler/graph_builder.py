@@ -109,6 +109,12 @@ def _resolve_expr(g: WorldGraph, expr: dict, errors: list, where: str) -> dict:
         if expr.get("author"):
             expr["author"] = g.registry.resolve_or_error(
                 expr["author"], _HOLDER, errors, where)
+    elif kind == "information_sent":
+        expr["sender"] = g.registry.resolve_or_error(
+            expr["sender"], _HOLDER, errors, where)
+        if expr.get("to"):
+            expr["to"] = g.registry.resolve_or_error(
+                expr["to"], ("participant",), errors, where)
     elif kind == "action_completed":
         if expr.get("participant"):
             expr["participant"] = g.registry.resolve_or_error(
