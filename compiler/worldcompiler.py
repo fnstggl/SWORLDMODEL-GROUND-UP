@@ -190,7 +190,8 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             # a pre-binding skeleton it would misjudge as decorative ----
             from .binding import connect_process_outputs
             t0 = wallclock.monotonic()
-            bind_world(graph, call=call, model=model, into=bindings)
+            bind_world(graph, evidence, call=call, model=model,
+                       into=bindings)
             connect_process_outputs(graph, bindings)
             metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
             _wj(os.path.join(outdir, "canonical_world_graph.json"),

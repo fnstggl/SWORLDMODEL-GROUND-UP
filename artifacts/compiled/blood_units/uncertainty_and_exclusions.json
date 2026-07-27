@@ -1,0 +1,46 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital and the Cascade regional blood centre. Other entities are irrelevant."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Potential disruptions (e.g., weather, equipment failure)",
+      "why_safe": "No evidence suggests any disruptions; assuming normal operations as per evidence."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_stock_after_tuesday_shipment",
+      "meaning": "Whether the centre has enough stock to dispatch the full 150-unit Tuesday shipment after Monday and Tuesday collections, given that Monday collection is 8 hours (9-5) at 12 units/hour = 96 units, Tuesday collection before 4 PM shipment is 7 hours (9-4) at 12 units/hour = 84 units, and initial stock is 40 units. Total available = 40+96+84 = 220 units, which is enough for 150 units, so no uncertainty."
+    },
+    {
+      "about": "centre_stock_before_thursday_shipment",
+      "meaning": "Whether the centre has enough stock to dispatch the full 150-unit Thursday shipment after Wednesday and Thursday collections, given that Wednesday collection is 8 hours (9-5) at 12 units/hour = 96 units, Thursday collection before 4 PM shipment is 7 hours (9-4) at 12 units/hour = 84 units, and stock after Tuesday shipment is 220-150=70 units. Total available = 70+96+84 = 250 units, which is enough for 150 units, so no uncertainty."
+    },
+    {
+      "about": "tuesday_shipment_received",
+      "meaning": "Whether the Tuesday shipment dispatched at 4 PM arrives by Friday noon. Since it takes 3 hours, it arrives Tuesday at 7 PM, well before Friday noon. No uncertainty."
+    },
+    {
+      "about": "thursday_shipment_received",
+      "meaning": "Whether the Thursday shipment dispatched at 4 PM arrives by Friday noon. Since it takes 3 hours, it arrives Thursday at 7 PM, well before Friday noon. No uncertainty."
+    },
+    {
+      "about": "hospital_holds_units_at_deadline",
+      "meaning": "The final number of usable blood units at St. Vincent hospital at Friday noon. This is determined by initial stock (15 units) plus Tuesday shipment (150 units) plus Thursday shipment (150 units) = 315 units. No uncertainty."
+    }
+  ]
+}

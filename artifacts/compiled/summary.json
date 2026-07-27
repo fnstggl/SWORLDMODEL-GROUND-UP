@@ -1,19 +1,21 @@
 [
   {
-    "binding_calls": 0,
+    "binding_calls": 8,
     "case": "blood_units",
-    "discovery_calls": 2,
+    "discovery_calls": 10,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the question admits materially different readings that survived adjudication",
+    "reason": "binding of event:shipment_dispatched_thursday is still defective after one targeted repair",
     "repairs": {
-      "resolution_ambiguity_adjudication": 1
+      "causal_spine": 1,
+      "resolution_ambiguity_adjudication": 1,
+      "starting_state[St. Vincent regional hospital]": 1
     },
     "runtime_ms": 0.0,
-    "stage": "AMBIGUOUS_QUESTION",
-    "tokens": 3638
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 46784
   }
 ]

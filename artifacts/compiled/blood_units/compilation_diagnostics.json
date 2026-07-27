@@ -1,10 +1,11 @@
 {
   "detail": {
-    "ambiguities": [
-      "Whether the hospital's own collection or other sources (beyond the centre's shipments) contribute units before the deadline is not addressed by the evidence; the evidence only covers centre shipments and initial stock.",
-      "Whether the hospital's initial 15 units are still usable at the deadline is not addressed; the evidence does not track usage or expiration."
-    ]
+    "defects": [
+      "amount is missing"
+    ],
+    "document": "binding[event:shipment_dispatched_thursday]",
+    "repairable": false
   },
-  "reason": "the question admits materially different readings that survived adjudication",
-  "stage": "AMBIGUOUS_QUESTION"
+  "reason": "binding of event:shipment_dispatched_thursday is still defective after one targeted repair",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

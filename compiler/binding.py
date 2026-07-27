@@ -151,15 +151,21 @@ def _describe_action(graph: WorldGraph, node) -> dict:
     }
 
 
-def bind_world(graph: WorldGraph, call=call_json,
-               model: str = "deepseek-chat",
+def bind_world(graph: WorldGraph, evidence: dict | None = None,
+               call=call_json, model: str = "deepseek-chat",
                into: Bindings | None = None) -> Bindings:
     """Bind every action, channel, process and record/resource-writing
     event. Raises UnsupportedCapability at the end if any item has no
     faithful universal form -- after trying them all, so the refusal names
     every gap at once. Pass ``into`` to keep the verbatim call log even
-    when binding fails."""
+    when binding fails. The evidence rides along in every prompt: a
+    number the evidence states must be cited from it, never guessed and
+    never nulled for want of sight."""
     b = into if into is not None else Bindings()
+    ev_text = ""
+    if evidence:
+        from .discovery import render_evidence
+        ev_text = render_evidence(evidence) + "\n\n"
 
     for node in graph.by_category("action"):
         ctx = _describe_action(graph, node)
@@ -203,7 +209,7 @@ def bind_world(graph: WorldGraph, call=call_json,
         if node.attrs.get("role") == "channel":
             senders = sorted({graph.node(e.src).name for e in
                               graph.edges_to(node.id, "sends_to")})
-            ask = ("THE ITEM (a communication route):\n"
+            ask = (ev_text + "THE ITEM (a communication route):\n"
                    + json.dumps({"route": node.name,
                                  "meaning": node.meaning,
                                  "latency_meaning":
@@ -227,7 +233,7 @@ def bind_world(graph: WorldGraph, call=call_json,
             actors = sorted(n.name for c in ("participant", "organization",
                                              "population")
                             for n in graph.by_category(c))
-            ask = ("THE ITEM (a continuous process):\n"
+            ask = (ev_text + "THE ITEM (a continuous process):\n"
                    + json.dumps({"process": node.name,
                                  "meaning": node.meaning,
                                  "rate_meaning":
@@ -273,7 +279,7 @@ def bind_world(graph: WorldGraph, call=call_json,
         actors = sorted(n.name for c in ("participant", "organization",
                                          "population")
                         for n in graph.by_category(c))
-        ask = ("THE ITEM (an external scheduled event; nobody decides it, "
+        ask = (ev_text + "THE ITEM (an external scheduled event; nobody decides it, "
                "it happens on its schedule):\n"
                + json.dumps({"event": node.name, "meaning": node.meaning,
                              "when": node.attrs.get("when"),
