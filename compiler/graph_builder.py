@@ -214,11 +214,19 @@ def _b_attention(g, f, errors, ref):
     if errors:
         return None
     node = dict(f, participant=pid, channel=cid)
-    if any(a["participant"] == pid and a["channel"] == cid
-           for a in g.attention):
-        errors.append(f"{ref}: attention for this participant+channel is "
-                      f"already declared")
-        return None
+    existing = next((a for a in g.attention
+                     if a["participant"] == pid and a["channel"] == cid), None)
+    if existing is not None:
+        # a none_known placeholder may be UPGRADED by a real pattern (that
+        # is what a patch pass does); a real pattern is never overwritten
+        if existing["mode"] == "none_known" and f["mode"] != "none_known":
+            g.attention.remove(existing)
+            g.notes.append(f"{ref}: upgraded none_known attention of "
+                           f"{pid} on {cid} to a declared pattern")
+        else:
+            errors.append(f"{ref}: attention for this participant+channel "
+                          f"is already declared")
+            return None
     g.attention.append(node)
     return node
 

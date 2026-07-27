@@ -227,6 +227,11 @@ def compile_question(question: str, asof: str | None = None,
                 continue
             repair_rounds.append(attempt["reasons"])
             corrections = "\n".join(f"- {r}" for r in attempt["reasons"])
+            corrections += (
+                "\nThese corrections ADD requirements.  Everything that was "
+                "already correct in the previous attempt (the cast, the "
+                "channels, the routes, the schedule, the terminal) must be "
+                "produced again in full -- do not shrink the world.")
         result = _finalize(question, asof, mode, evidence_docs, attempt,
                            repair_rounds, trace, out_dir)
     except StageFailed as e:

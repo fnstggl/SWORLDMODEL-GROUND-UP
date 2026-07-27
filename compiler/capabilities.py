@@ -213,7 +213,7 @@ CAPABILITIES = {
             "open_time": {"type": "hhmm"},
             "close_time": {"type": "hhmm"},
             "check_every_minutes": {"type": "num", "concrete": True},
-            "provenance": {"type": "label", "required": True, "concrete": True},
+            "provenance": {"type": "label", "required": True},
             "note": {"type": "str", "required": True},
         }},
     "add_fact": {
@@ -677,6 +677,8 @@ def normalize_expr(expr):
 
 
 def normalize_effects(effects):
+    if isinstance(effects, dict):
+        effects = [effects]          # a single macro not wrapped in a list
     if not isinstance(effects, list):
         return effects
     out = []
@@ -775,6 +777,12 @@ def validate_capability(instance: dict) -> list:
                 errors.append(f"define_action: noticed_information references "
                               f"undeclared param {r.get('param')!r}")
     if cap == "add_attention" and not errors:
+        if fields["mode"] != "none_known" \
+                and fields.get("provenance") == "uncertain":
+            errors.append(
+                "add_attention: an actual attention pattern cannot be "
+                "labeled 'uncertain' -- label the estimate (inferred / "
+                "model_memory_unverified) or use mode none_known")
         if fields["mode"] == "periodic":
             for f in ("tz", "open_time", "close_time", "check_every_minutes"):
                 if f not in fields:

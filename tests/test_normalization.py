@@ -42,6 +42,52 @@ def test_nested_requires_and_effects_normalize():
     assert f["effects"][0]["do"] == "create_record"
 
 
+def test_single_effect_dict_normalizes_to_list():
+    inst = {"capability": "schedule_external_event", "fields": {
+        "name": "ev_x", "at_local": "2026-08-01 09:00", "tz": "UTC",
+        "effects": {"create_record": {"record_type": "r", "subject": "s",
+                                      "per_actor": False, "value": "v"}},
+        "provenance": "inferred", "note": "n"}}
+    assert validate_capability(inst) == []
+    assert isinstance(inst["fields"]["effects"], list)
+    assert inst["fields"]["effects"][0]["do"] == "create_record"
+
+
+def test_none_known_attention_upgrades_but_real_rules_do_not():
+    from compiler import graph_builder
+    from compiler.world_graph import WorldGraph
+    g = WorldGraph()
+    for inst in [
+        {"capability": "add_participant",
+         "fields": {"name": "P", "role": "r", "why_needed": "w"}},
+        {"capability": "add_channel",
+         "fields": {"name": "chan_x", "latency_seconds": 5,
+                    "provenance": "inferred", "note": "n"}},
+        {"capability": "add_attention",
+         "fields": {"participant": "P", "channel": "chan_x",
+                    "mode": "none_known", "provenance": "uncertain",
+                    "note": "unknown at first"}},
+    ]:
+        assert validate_capability(inst) == []
+        assert graph_builder.add_item(g, inst, "x") == []
+    upgrade = {"capability": "add_attention",
+               "fields": {"participant": "P", "channel": "chan_x",
+                          "mode": "periodic", "tz": "UTC",
+                          "open_time": "09:00", "close_time": "17:00",
+                          "check_every_minutes": 30,
+                          "provenance": "inferred", "note": "patched"}}
+    assert validate_capability(upgrade) == []
+    assert graph_builder.add_item(g, upgrade, "y") == []
+    assert len(g.attention) == 1 and g.attention[0]["mode"] == "periodic"
+    dup = {"capability": "add_attention",
+           "fields": {"participant": "P", "channel": "chan_x",
+                      "mode": "continuous", "provenance": "inferred",
+                      "note": "second real rule"}}
+    assert validate_capability(dup) == []
+    assert any("already declared" in e
+               for e in graph_builder.add_item(g, dup, "z"))
+
+
 def test_ambiguous_shapes_still_rejected():
     # two keys: not the single-key nested form -- must NOT be guessed
     inst = {"capability": "set_terminal", "fields": {
