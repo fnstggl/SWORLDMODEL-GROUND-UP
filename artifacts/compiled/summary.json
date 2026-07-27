@@ -2,18 +2,18 @@
   {
     "binding_calls": 0,
     "case": "council_vote",
-    "discovery_calls": 11,
+    "discovery_calls": 13,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "terminal production fails the backward causal proof",
+    "reason": "starting_state[council_votes_on_ordinance] discovery is still defective after one targeted repair",
     "repairs": {
       "producer_assignments": 1
     },
     "runtime_ms": 0.0,
-    "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 34983
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 46582
   }
 ]

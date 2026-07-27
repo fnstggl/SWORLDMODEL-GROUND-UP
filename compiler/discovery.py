@@ -84,11 +84,17 @@ def _prov_defects(item: dict, where: str, valid_ids: frozenset) -> list:
     out = []
     basis = item.get("basis")
     ids = item.get("evidence_ids") or []
+    label = str(item.get("name") or item.get("meaning") or "")[:60]
+    if label:
+        where = f"{where} ({label!r})"
     if basis not in GRAPH_BASES:
         out.append(f"{where}: basis must be one of {GRAPH_BASES}, "
                    f"got {basis!r}")
     elif basis in CITED_BASES and not ids:
-        out.append(f"{where}: {basis!r} must cite evidence_ids")
+        out.append(f"{where}: {basis!r} must cite evidence_ids -- cite "
+                   f"the evidence lines that state it, or if none do, "
+                   f"the honest basis is 'model_memory_unverified' (your "
+                   f"own knowledge) or 'uncertain'")
     bad = [i for i in ids if str(i) not in valid_ids]
     if bad:
         out.append(f"{where}: cited evidence ids do not exist: {bad}")
