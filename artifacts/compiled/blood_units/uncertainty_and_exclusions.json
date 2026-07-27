@@ -1,0 +1,50 @@
+{
+  "exclusions": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "other hospitals or blood centres",
+      "why_safe": "The question asks only about St. Vincent regional hospital's received units; other entities do not affect this count."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz's actions",
+      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not change the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "weekend operations",
+      "why_safe": "The deadline is Friday noon; weekend operations after that are irrelevant."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "collection drive operation",
+      "meaning": "Whether the mobile collection drive operates as scheduled every day from 9 AM to 5 PM without any disruptions (e.g., holidays, closures, or reduced hours) during the week of July 20-24, 2026."
+    },
+    {
+      "about": "collection rate constancy",
+      "meaning": "Whether the average collection rate of 12 usable units per hour holds exactly for each hour the drive is open, or if there is variability that could affect total collected units."
+    },
+    {
+      "about": "initial stock at centre",
+      "meaning": "Whether the centre's initial stock of 40 units at 9 AM Monday is accurate and whether any units are added or removed before the Tuesday shipment."
+    },
+    {
+      "about": "shipment timing",
+      "meaning": "Whether the Tuesday and Thursday shipments depart exactly at 4 PM and arrive exactly 3 hours later (7 PM), and whether the hospital receives them before Friday noon."
+    },
+    {
+      "about": "hospital usage",
+      "meaning": "Whether the hospital uses any blood units between Monday 9 AM and Friday noon, which would reduce the count of usable units on hand."
+    },
+    {
+      "about": "other shipments or transfers",
+      "meaning": "Whether there are any other shipments from the centre to the hospital besides the scheduled Tuesday and Thursday shipments, or any returns or transfers that affect inventory."
+    }
+  ]
+}

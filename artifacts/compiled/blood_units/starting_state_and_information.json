@@ -1,0 +1,124 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Hospital receives shipments but does not control collection or shipping schedule",
+          "over": "hospital_units_at_deadline"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Arrivals occur after 4:00 PM dispatch on Tuesday and Thursday",
+            "meaning": "Continuous upon arrival"
+          },
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "latency_meaning": "About 3 hours from dispatch to receipt",
+          "meaning": "Physical delivery of blood units from centre to hospital",
+          "name": "shipment_receipt",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Shipment dispatched Tuesday 4:00 PM arrives at hospital around 7:00 PM Tuesday",
+          "name": "tuesday_shipment_arrival",
+          "when": "2026-07-21T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Shipment dispatched Thursday 4:00 PM arrives at hospital around 7:00 PM Thursday",
+          "name": "thursday_shipment_arrival",
+          "when": "2026-07-23T19:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital held 15 usable units at 9:00 AM Monday 20 July 2026",
+          "name": "initial_stock",
+          "value": null
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital knows its own blood unit count",
+          "name": "own_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday around 7:00 PM",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [
+        {
+          "channel": null,
+          "from": null,
+          "meaning": "Hospital does not have access to the mobile collection drive operations or schedule changes",
+          "to": null
+        }
+      ],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held by hospital",
+          "name": "blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    }
+  ]
+}

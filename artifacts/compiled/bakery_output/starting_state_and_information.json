@@ -1,0 +1,654 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Loads cooled loaves into van at 8:00 AM.",
+          "over": "first_load"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Departs bakery at 8:10 AM.",
+          "over": "first_van_departure"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "meaning": "Drives to green and hands over loaves at stand.",
+          "over": "first_arrival_handover"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Loads cooled loaves into van at 11:00 AM.",
+          "over": "second_load"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Departs bakery at 11:10 AM.",
+          "over": "second_van_departure"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "meaning": "Drives to green and hands over loaves at stand.",
+          "over": "second_arrival_handover"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Scheduled departure times.",
+            "meaning": "Continuous during drive."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "latency_meaning": "15-minute drive each way.",
+          "meaning": "Physical transport of loaves from bakery to festival stand.",
+          "name": "van_run",
+          "role": "sender"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Depart bakery at 8:10 AM after 10-minute load starting at 8:00 AM.",
+          "name": "first_departure",
+          "when": "2026-08-15T08:10:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Depart bakery at 11:10 AM after 10-minute load starting at 11:00 AM.",
+          "name": "second_departure",
+          "when": "2026-08-15T11:10:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Scheduled to depart bakery at 8:10 AM and 11:10 AM on Saturday 15 August 2026.",
+          "name": "scheduled_departures"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Loads every cooled festival loaf on hand up to van capacity of 90 crated loaves per run.",
+          "name": "load_practice"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Handover at stand occurs immediately on van arrival.",
+          "name": "handover_immediate"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Knows departure times and load procedure.",
+          "name": "schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Knows van carries at most 90 crated loaves per run.",
+          "name": "van_capacity",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Knows loaves must cool 60 minutes before crating.",
+          "name": "cooling_requirement",
+          "visibility": "private"
+        }
+      ],
+      "name": "Jo Fenwick",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Head baker who runs the oven to produce loaves.",
+          "over": "saturday_baking_before_7am"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Head baker scheduled to run the oven.",
+          "over": "oven_run_5am_to_7am"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Head baker who runs the oven to produce loaves.",
+          "over": "saturday_baking_7am_to_10am"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Head baker scheduled to run the oven.",
+          "over": "oven_run_7am_to_10am"
+        }
+      ],
+      "availability": {
+        "close": "15:00",
+        "open": "05:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "During availability",
+            "meaning": "Continuous during working hours."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "latency_meaning": "Immediate",
+          "meaning": "Direct verbal communication at the bakery.",
+          "name": "in-person",
+          "role": "both"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Scheduled to run the oven exclusively on festival loaves from 5:00 AM to 10:00 AM on Saturday 15 August 2026.",
+          "name": "oven_run_5am_to_10am",
+          "when": "2026-08-15T05:00:00-04:00/2026-08-15T10:00:00-04:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Knows the oven schedule and that he is to run it from 5 AM to 10 AM on Saturday.",
+          "name": "production_schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Knows that loaves must cool for 60 minutes before transport.",
+          "name": "cooling_requirement",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Knows that Jo Fenwick departs at 8:00 AM and 11:00 AM after 10-minute load.",
+          "name": "van_schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Knows the van carries at most 90 crated loaves per run.",
+          "name": "van_capacity",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Knows that 20 finished festival loaves were set aside on Friday evening.",
+          "name": "friday_evening_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Knows the oven yields 30 loaves per hour when run continuously.",
+          "name": "oven_rate",
+          "visibility": "private"
+        }
+      ],
+      "name": "Tomas Ilic",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e4"
+          ],
+          "meaning": "Copperwheat Bakery operates the oven and produces loaves.",
+          "over": "saturday_baking_before_7am"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e4"
+          ],
+          "meaning": "Copperwheat Bakery operates the oven.",
+          "over": "oven_run_5am_to_7am"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e4"
+          ],
+          "meaning": "Copperwheat Bakery operates the oven.",
+          "over": "saturday_baking_7am_to_10am"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e4"
+          ],
+          "meaning": "Copperwheat Bakery operates the oven.",
+          "over": "oven_run_7am_to_10am"
+        }
+      ],
+      "availability": {
+        "close": "22:00",
+        "open": "05:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Scheduled runs at 8:10 AM and 11:10 AM.",
+            "meaning": "Continuous during transit."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "latency_meaning": "15-minute drive each way.",
+          "meaning": "Physical transport of loaves by van from bakery to stand.",
+          "name": "van_delivery",
+          "role": "sender"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "At van arrival times.",
+            "meaning": "Continuous during handover."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "latency_meaning": "Instantaneous at arrival.",
+          "meaning": "Immediate handover of loaves upon van arrival at stand.",
+          "name": "stand_handover",
+          "role": "sender"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Tomas Ilic runs the oven exclusively on festival loaves from 5:00 AM to 10:00 AM on Saturday 15 August.",
+          "name": "saturday_baking_schedule",
+          "when": "2026-08-15T05:00:00-04:00/2026-08-15T10:00:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Jo Fenwick departs at 8:10 AM after loading at 8:00 AM, drives 15 minutes, arrives at 8:25 AM.",
+          "name": "first_van_run",
+          "when": "2026-08-15T08:10:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Jo Fenwick departs at 11:10 AM after loading at 11:00 AM, drives 15 minutes, arrives at 11:25 AM.",
+          "name": "second_van_run",
+          "when": "2026-08-15T11:10:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The bakery holds 20 finished festival loaves as of Friday evening.",
+          "name": "festival_loaves_held",
+          "value": "20 loaves"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The stand at Milbrook Green starts Saturday with no stock due to festival rules.",
+          "name": "stand_starts_empty"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The deck oven yields 30 festival loaves per hour when run continuously.",
+          "name": "oven_capacity",
+          "value": "30 loaves per hour"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Loaves must cool for 60 minutes after baking before they can be crated for transport.",
+          "name": "cooling_requirement"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The van can carry at most 90 crated loaves per run.",
+          "name": "van_capacity",
+          "value": "90 loaves"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Fenwick loads every cooled festival loaf on hand up to van capacity.",
+          "name": "loading_practice"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Handover at the stand occurs immediately upon van arrival.",
+          "name": "handover_timing"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Bakery knows it has 20 festival loaves as of Friday evening.",
+          "name": "production_log",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Bakery knows the oven produces 30 loaves per hour.",
+          "name": "oven_rate",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Bakery knows loaves must cool 60 minutes before transport.",
+          "name": "cooling_procedure",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Bakery knows van capacity is 90 loaves per run.",
+          "name": "van_capacity",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Bakery knows Fenwick loads all cooled loaves up to capacity.",
+          "name": "loading_practice",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e7"
+          ],
+          "meaning": "Bakery knows the baking and delivery schedule.",
+          "name": "schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Bakery knows stand starts empty and no overnight storage.",
+          "name": "festival_rules",
+          "visibility": "public"
+        }
+      ],
+      "name": "Copperwheat Bakery",
+      "not_available": [
+        {
+          "from": "2026-08-15T00:00:00-04:00",
+          "meaning": "No other deliveries to the stand before 3:00 PM restock run.",
+          "to": "2026-08-15T15:00:00-04:00"
+        }
+      ],
+      "resources": [
+        {
+          "amount": 20,
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Finished festival loaves held at the bakery.",
+          "name": "festival_loaves",
+          "unit": "loaves"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "18:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Scheduled arrival times.",
+            "meaning": "Continuous upon arrival."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "latency_meaning": "15-minute drive from bakery to green.",
+          "meaning": "Physical delivery of loaves via van from bakery to stand.",
+          "name": "van_delivery",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Co-owner Sara Copperwheat staffs the stand from 8:00 AM on Saturday 15 August 2026.",
+          "name": "stand_staffed_by_sara",
+          "when": "2026-08-15T08:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The stand has no stock at the start of Saturday due to festival rules prohibiting overnight storage.",
+          "name": "stand_starts_empty"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "meaning": "The stand knows that Jo Fenwick will make two van runs from the bakery to the green, departing at 8:00 AM and 11:00 AM, with a 15-minute drive each way, and handover occurs immediately on arrival.",
+          "name": "delivery_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The stand knows that festival rules prohibit overnight storage, so it starts empty.",
+          "name": "no_overnight_storage",
+          "visibility": "public"
+        }
+      ],
+      "name": "Copperwheat Bakery stand",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

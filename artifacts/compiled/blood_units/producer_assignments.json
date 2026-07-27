@@ -1,0 +1,28 @@
+{
+  "assignments": [
+    {
+      "producers": [],
+      "step": "initial_stock"
+    },
+    {
+      "producers": [],
+      "step": "tuesday_shipment_dispatch"
+    },
+    {
+      "producers": [],
+      "step": "tuesday_shipment_arrival"
+    },
+    {
+      "producers": [],
+      "step": "thursday_shipment_dispatch"
+    },
+    {
+      "producers": [],
+      "step": "thursday_shipment_arrival"
+    },
+    {
+      "step": "hospital_units_at_deadline",
+      "unsupported": "This is a condition that is the sum of other steps; it has no independent producer."
+    }
+  ]
+}

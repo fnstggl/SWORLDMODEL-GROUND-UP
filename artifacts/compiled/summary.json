@@ -1,21 +1,23 @@
 [
   {
-    "binding_calls": 9,
+    "actors": 2,
+    "affordances": 0,
+    "answer": 315.0,
+    "artifact_risk": false,
+    "binding_calls": 8,
     "case": "blood_units",
-    "discovery_calls": 11,
+    "discovery_calls": 7,
     "expected_answer": 315.0,
     "expected_refusal": false,
-    "lowering_ms": 0.0,
-    "model_declared_insufficient": false,
+    "lowering_ms": 11.2,
     "pipeline": "discovery",
-    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
-      "causal_spine": 1,
-      "resolution_ambiguity_adjudication": 1,
-      "uncertainty_and_exclusions": 1
+      "process:wednesday_collection": 1,
+      "resolution_ambiguity_adjudication": 1
     },
-    "runtime_ms": 0.0,
-    "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 45762
+    "run_status": "cutoff",
+    "runtime_ms": 6.9,
+    "stage": "COMPILED",
+    "tokens": 32529
   }
 ]

@@ -1,0 +1,44 @@
+{
+  "channels": [
+    {
+      "channel": "process:in_person",
+      "receivers": [
+        "participant:tomas_ilic"
+      ],
+      "senders": [
+        "participant:tomas_ilic"
+      ]
+    },
+    {
+      "channel": "process:van_delivery",
+      "receivers": [
+        "organization:copperwheat_bakery_stand"
+      ],
+      "senders": [
+        "organization:copperwheat_bakery"
+      ]
+    }
+  ],
+  "emergent_components": [
+    "record:delivery_manifest",
+    "resource:loaves_handed_over"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:oven_run_5am_to_7am",
+    "process:oven_run_7am_to_10am",
+    "process:saturday_baking_7am_to_10am",
+    "process:saturday_baking_before_7am"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:first_arrival_handover",
+    "event:first_departure",
+    "event:first_load",
+    "event:oven_run_5am_to_10am",
+    "event:second_arrival_handover",
+    "event:second_departure",
+    "event:second_load"
+  ],
+  "warnings": []
+}

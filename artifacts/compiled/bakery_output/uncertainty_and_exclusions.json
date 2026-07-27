@@ -1,0 +1,76 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e5",
+        "e7"
+      ],
+      "name": "Other bakery staff or volunteers",
+      "why_safe": "Only Sara Copperwheat staffs the stand, and only Tomas Ilic and Jo Fenwick are scheduled for baking and driving. No other personnel are mentioned as involved in production or delivery before noon."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Other vehicles or delivery methods",
+      "why_safe": "The only scheduled deliveries before noon are the two van runs. No other vehicle is due before 3:00 PM."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Overnight storage at stand",
+      "why_safe": "Festival rules prohibit overnight storage, so the stand starts empty."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Loaves from other sources",
+      "why_safe": "Only Copperwheat Bakery supplies its own stand; no other source is mentioned."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "saturday_baking_before_7am",
+      "meaning": "The exact number of loaves baked from 5:00 AM to 7:00 AM is unknown because the oven rate of 30 per hour is an average; actual output may vary."
+    },
+    {
+      "about": "saturday_baking_7am_to_10am",
+      "meaning": "The exact number of loaves baked from 7:00 AM to 10:00 AM is unknown because the oven rate is an average; actual output may vary."
+    },
+    {
+      "about": "cooled_loaves_by_8am",
+      "meaning": "The number of loaves cooled and ready by 8:00 AM depends on the exact baking schedule and cooling time; loaves baked after 7:00 AM may not be cooled by 8:00 AM."
+    },
+    {
+      "about": "cooled_loaves_by_11am",
+      "meaning": "The number of loaves cooled and ready by 11:00 AM depends on the exact baking schedule and cooling time; loaves baked after 10:00 AM are not available."
+    },
+    {
+      "about": "first_load",
+      "meaning": "The exact number of loaves loaded on the first run is unknown because it depends on how many are cooled by 8:00 AM and the van capacity of 90."
+    },
+    {
+      "about": "second_load",
+      "meaning": "The exact number of loaves loaded on the second run is unknown because it depends on how many are cooled by 11:00 AM and the van capacity of 90."
+    },
+    {
+      "about": "first_arrival_handover",
+      "meaning": "The exact number of loaves handed over at the first arrival is unknown because it depends on the first load."
+    },
+    {
+      "about": "second_arrival_handover",
+      "meaning": "The exact number of loaves handed over at the second arrival is unknown because it depends on the second load."
+    },
+    {
+      "about": "loaves_handed_over",
+      "meaning": "The total number of loaves handed over by noon is unknown because it depends on the first and second handovers."
+    }
+  ]
+}

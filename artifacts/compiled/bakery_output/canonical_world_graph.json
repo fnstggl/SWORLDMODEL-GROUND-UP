@@ -1,0 +1,1741 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "record:delivery_manifest",
+      "rel": "produces",
+      "src": "event:first_arrival_handover"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:loaves_handed_over",
+      "rel": "produces",
+      "src": "event:first_arrival_handover"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:first_departure",
+      "rel": "requires",
+      "src": "event:first_arrival_handover"
+    },
+    {
+      "attrs": {
+        "meaning": "first_arrival_handover follows first_van_departure by 15 minutes (inferred)",
+        "offset_minutes": 15.0
+      },
+      "dst": "event:first_departure",
+      "rel": "scheduled_at",
+      "src": "event:first_arrival_handover"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:first_load",
+      "rel": "requires",
+      "src": "event:first_departure"
+    },
+    {
+      "attrs": {
+        "meaning": "first_van_departure follows first_load by 10 minutes (inferred)",
+        "offset_minutes": 10.0
+      },
+      "dst": "event:first_load",
+      "rel": "scheduled_at",
+      "src": "event:first_departure"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:cooled_loaves_by_8am",
+      "rel": "requires",
+      "src": "event:first_load"
+    },
+    {
+      "attrs": {},
+      "dst": "record:delivery_manifest",
+      "rel": "produces",
+      "src": "event:second_arrival_handover"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:loaves_handed_over",
+      "rel": "produces",
+      "src": "event:second_arrival_handover"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:second_departure",
+      "rel": "requires",
+      "src": "event:second_arrival_handover"
+    },
+    {
+      "attrs": {
+        "meaning": "second_arrival_handover follows second_van_departure by 15 minutes (inferred)",
+        "offset_minutes": 15.0
+      },
+      "dst": "event:second_departure",
+      "rel": "scheduled_at",
+      "src": "event:second_arrival_handover"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:second_load",
+      "rel": "requires",
+      "src": "event:second_departure"
+    },
+    {
+      "attrs": {
+        "meaning": "second_van_departure follows second_load by 10 minutes (inferred)",
+        "offset_minutes": 10.0
+      },
+      "dst": "event:second_load",
+      "rel": "scheduled_at",
+      "src": "event:second_departure"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:cooled_loaves_by_11am",
+      "rel": "requires",
+      "src": "event:second_load"
+    },
+    {
+      "attrs": {
+        "meaning": "Bakery that operates the oven."
+      },
+      "dst": "process:oven_run_5am_to_7am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Copperwheat Bakery operates the oven."
+      },
+      "dst": "process:oven_run_5am_to_7am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Bakery that operates the oven."
+      },
+      "dst": "process:oven_run_7am_to_10am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Copperwheat Bakery operates the oven."
+      },
+      "dst": "process:oven_run_7am_to_10am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Bakery that operates the oven."
+      },
+      "dst": "process:saturday_baking_7am_to_10am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Copperwheat Bakery operates the oven."
+      },
+      "dst": "process:saturday_baking_7am_to_10am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Bakery that operates the oven and produces loaves."
+      },
+      "dst": "process:saturday_baking_before_7am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {
+        "meaning": "Copperwheat Bakery operates the oven and produces loaves."
+      },
+      "dst": "process:saturday_baking_before_7am",
+      "rel": "has_authority",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:cooling_requirement",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:festival_loaves_held",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:handover_timing",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:loading_practice",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:oven_capacity",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:stand_starts_empty",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:van_capacity",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cooling_procedure",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:festival_rules",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:loading_practice",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_overnight_storage",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:oven_rate",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:production_log",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:schedule",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "information:van_capacity",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "event:first_departure",
+      "rel": "observes",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "event:oven_run_5am_to_10am",
+      "rel": "observes",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "event:second_departure",
+      "rel": "observes",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "process:van_delivery",
+      "rel": "sends_to",
+      "src": "organization:copperwheat_bakery"
+    },
+    {
+      "attrs": {},
+      "dst": "state:stand_starts_empty",
+      "rel": "has_state",
+      "src": "organization:copperwheat_bakery_stand"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery_stand"
+    },
+    {
+      "attrs": {},
+      "dst": "information:festival_rules",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery_stand"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_overnight_storage",
+      "rel": "knows",
+      "src": "organization:copperwheat_bakery_stand"
+    },
+    {
+      "attrs": {},
+      "dst": "event:first_load",
+      "rel": "observes",
+      "src": "organization:copperwheat_bakery_stand"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Scheduled arrival times.",
+          "meaning": "Continuous upon arrival."
+        }
+      },
+      "dst": "process:van_delivery",
+      "rel": "receives_from",
+      "src": "organization:copperwheat_bakery_stand"
+    },
+    {
+      "attrs": {
+        "meaning": "Driver who makes the van run and hands over loaves at the stand."
+      },
+      "dst": "event:first_arrival_handover",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Drives to green and hands over loaves at stand."
+      },
+      "dst": "event:first_arrival_handover",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Departs bakery at 8:10 AM."
+      },
+      "dst": "event:first_departure",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Driver who departs the bakery at 8:10 AM."
+      },
+      "dst": "event:first_departure",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Driver who loads cooled loaves into the van at 8:00 AM."
+      },
+      "dst": "event:first_load",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Loads cooled loaves into van at 8:00 AM."
+      },
+      "dst": "event:first_load",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Driver who makes the second van run and hands over loaves."
+      },
+      "dst": "event:second_arrival_handover",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Drives to green and hands over loaves at stand."
+      },
+      "dst": "event:second_arrival_handover",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Departs bakery at 11:10 AM."
+      },
+      "dst": "event:second_departure",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Driver who departs at 11:10 AM."
+      },
+      "dst": "event:second_departure",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Driver who loads loaves at 11:00 AM."
+      },
+      "dst": "event:second_load",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Loads cooled loaves into van at 11:00 AM."
+      },
+      "dst": "event:second_load",
+      "rel": "has_authority",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "state:handover_immediate",
+      "rel": "has_state",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "state:load_practice",
+      "rel": "has_state",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "state:scheduled_departures",
+      "rel": "has_state",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cooling_requirement",
+      "rel": "knows",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "information:festival_rules",
+      "rel": "knows",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_overnight_storage",
+      "rel": "knows",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "information:schedule",
+      "rel": "knows",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "information:van_capacity",
+      "rel": "knows",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "event:first_departure",
+      "rel": "observes",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {},
+      "dst": "event:second_departure",
+      "rel": "observes",
+      "src": "participant:jo_fenwick"
+    },
+    {
+      "attrs": {
+        "meaning": "Head baker scheduled to run the oven."
+      },
+      "dst": "process:oven_run_5am_to_7am",
+      "rel": "has_authority",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {
+        "meaning": "Head baker scheduled to run the oven."
+      },
+      "dst": "process:oven_run_7am_to_10am",
+      "rel": "has_authority",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {
+        "meaning": "Head baker who runs the oven to produce loaves."
+      },
+      "dst": "process:saturday_baking_7am_to_10am",
+      "rel": "has_authority",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {
+        "meaning": "Head baker who runs the oven to produce loaves."
+      },
+      "dst": "process:saturday_baking_before_7am",
+      "rel": "has_authority",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cooling_requirement",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:festival_rules",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:friday_evening_stock",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_overnight_storage",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:oven_rate",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:production_schedule",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:van_capacity",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "information:van_schedule",
+      "rel": "knows",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "event:oven_run_5am_to_10am",
+      "rel": "observes",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "During availability",
+          "meaning": "Continuous during working hours."
+        }
+      },
+      "dst": "process:in_person",
+      "rel": "receives_from",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "process:in_person",
+      "rel": "sends_to",
+      "src": "participant:tomas_ilic"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:festival_loaves",
+      "rel": "changes",
+      "src": "process:oven_run_5am_to_7am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:festival_loaves",
+      "rel": "changes",
+      "src": "process:oven_run_7am_to_10am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:festival_loaves",
+      "rel": "changes",
+      "src": "process:saturday_baking_7am_to_10am"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:oven_run_7am_to_10am",
+      "rel": "requires",
+      "src": "process:saturday_baking_7am_to_10am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:festival_loaves",
+      "rel": "changes",
+      "src": "process:saturday_baking_before_7am"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:oven_run_5am_to_7am",
+      "rel": "requires",
+      "src": "process:saturday_baking_before_7am"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:delivery_manifest"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "resource:loaves_handed_over"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:first_arrival_handover",
+      "rel": "requires",
+      "src": "resource:loaves_handed_over"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:second_arrival_handover",
+      "rel": "requires",
+      "src": "resource:loaves_handed_over"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:saturday_baking_7am_to_10am",
+      "rel": "requires",
+      "src": "state:cooled_loaves_by_11am"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:saturday_baking_before_7am",
+      "rel": "requires",
+      "src": "state:cooled_loaves_by_8am"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:friday_evening_loaves",
+      "rel": "requires",
+      "src": "state:cooled_loaves_by_8am"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Loaves from other sources",
+      "why_safe": "Only Copperwheat Bakery supplies its own stand; no other source is mentioned."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e5",
+        "e7"
+      ],
+      "name": "Other bakery staff or volunteers",
+      "why_safe": "Only Sara Copperwheat staffs the stand, and only Tomas Ilic and Jo Fenwick are scheduled for baking and driving. No other personnel are mentioned as involved in production or delivery before noon."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Other vehicles or delivery methods",
+      "why_safe": "The only scheduled deliveries before noon are the two van runs. No other vehicle is due before 3:00 PM."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Overnight storage at stand",
+      "why_safe": "Festival rules prohibit overnight storage, so the stand starts empty."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T08:25:00-04:00"
+      },
+      "category": "event",
+      "id": "event:first_arrival_handover",
+      "meaning": "First van run arrives at the green and loaves are handed over at the stand.",
+      "name": "first_arrival_handover",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T08:10:00-04:00"
+      },
+      "category": "event",
+      "id": "event:first_departure",
+      "meaning": "Depart bakery at 8:10 AM after 10-minute load starting at 8:00 AM.\nFirst van run departs bakery at 8:10 AM after loading.\nJo Fenwick departs at 8:10 AM after loading at 8:00 AM, drives 15 minutes, arrives at 8:25 AM.",
+      "name": "first_departure",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T08:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:first_load",
+      "meaning": "Co-owner Sara Copperwheat staffs the stand from 8:00 AM on Saturday 15 August 2026.\nDriver loads all cooled festival loaves on hand up to 90 into the van at 8:00 AM.",
+      "name": "first_load",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T05:00:00-04:00/2026-08-15T10:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:oven_run_5am_to_10am",
+      "meaning": "Scheduled to run the oven exclusively on festival loaves from 5:00 AM to 10:00 AM on Saturday 15 August 2026.\nTomas Ilic runs the oven exclusively on festival loaves from 5:00 AM to 10:00 AM on Saturday 15 August.",
+      "name": "oven_run_5am_to_10am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T11:25:00-04:00"
+      },
+      "category": "event",
+      "id": "event:second_arrival_handover",
+      "meaning": "Second van run arrives at the green and loaves are handed over at the stand.",
+      "name": "second_arrival_handover",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T11:10:00-04:00"
+      },
+      "category": "event",
+      "id": "event:second_departure",
+      "meaning": "Depart bakery at 11:10 AM after 10-minute load starting at 11:00 AM.\nJo Fenwick departs at 11:10 AM after loading at 11:00 AM, drives 15 minutes, arrives at 11:25 AM.\nSecond van run departs bakery at 11:10 AM after loading.",
+      "name": "second_departure",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-15T11:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:second_load",
+      "meaning": "Driver loads all cooled festival loaves on hand up to 90 into the van at 11:00 AM.",
+      "name": "second_load",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:cooling_procedure",
+      "meaning": "Bakery knows loaves must cool 60 minutes before transport.",
+      "name": "cooling_procedure",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:cooling_requirement",
+      "meaning": "Knows loaves must cool 60 minutes before crating.\nKnows that loaves must cool for 60 minutes before transport.",
+      "name": "cooling_requirement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:delivery_schedule",
+      "meaning": "The stand knows that Jo Fenwick will make two van runs from the bakery to the green, departing at 8:00 AM and 11:00 AM, with a 15-minute drive each way, and handover occurs immediately on arrival.",
+      "name": "delivery_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:festival_rules",
+      "meaning": "Bakery knows stand starts empty and no overnight storage.",
+      "name": "festival_rules",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:friday_evening_stock",
+      "meaning": "Knows that 20 finished festival loaves were set aside on Friday evening.",
+      "name": "friday_evening_stock",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:loading_practice",
+      "meaning": "Bakery knows Fenwick loads all cooled loaves up to capacity.",
+      "name": "loading_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_overnight_storage",
+      "meaning": "The stand knows that festival rules prohibit overnight storage, so it starts empty.",
+      "name": "no_overnight_storage",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:oven_rate",
+      "meaning": "Bakery knows the oven produces 30 loaves per hour.\nKnows the oven yields 30 loaves per hour when run continuously.",
+      "name": "oven_rate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:production_log",
+      "meaning": "Bakery knows it has 20 festival loaves as of Friday evening.",
+      "name": "production_log",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:production_schedule",
+      "meaning": "Knows the oven schedule and that he is to run it from 5 AM to 10 AM on Saturday.",
+      "name": "production_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:schedule",
+      "meaning": "Bakery knows the baking and delivery schedule.\nKnows departure times and load procedure.",
+      "name": "schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:van_capacity",
+      "meaning": "Bakery knows van capacity is 90 loaves per run.\nKnows the van carries at most 90 crated loaves per run.\nKnows van carries at most 90 crated loaves per run.",
+      "name": "van_capacity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:van_schedule",
+      "meaning": "Knows that Jo Fenwick departs at 8:00 AM and 11:00 AM after 10-minute load.",
+      "name": "van_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "22:00",
+          "open": "05:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-08-15T00:00:00-04:00",
+            "meaning": "No other deliveries to the stand before 3:00 PM restock run.",
+            "to": "2026-08-15T15:00:00-04:00"
+          }
+        ],
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:copperwheat_bakery",
+      "meaning": "Bakery that operates the oven and produces loaves.\nBakery that operates the oven.",
+      "name": "Copperwheat Bakery",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:copperwheat_bakery_stand",
+      "meaning": "holder of loaves_handed_over, named by the resolution contract",
+      "name": "Copperwheat Bakery stand",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:jo_fenwick",
+      "meaning": "Driver who departs at 11:10 AM.\nDriver who departs the bakery at 8:10 AM.\nDriver who loads cooled loaves into the van at 8:00 AM.\nDriver who loads loaves at 11:00 AM.\nDriver who makes the second van run and hands over loaves.\nDriver who makes the van run and hands over loaves at the stand.",
+      "name": "Jo Fenwick",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "15:00",
+          "open": "05:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:tomas_ilic",
+      "meaning": "Head baker scheduled to run the oven.\nHead baker who runs the oven to produce loaves.",
+      "name": "Tomas Ilic",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Immediate",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:in_person",
+      "meaning": "Direct verbal communication at the bakery.",
+      "name": "in-person",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:oven_run_5am_to_7am",
+      "meaning": "Oven runs continuously from 5:00 AM to 7:00 AM producing festival loaves at 30 per hour.",
+      "name": "oven_run_5am_to_7am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:oven_run_7am_to_10am",
+      "meaning": "Oven runs continuously from 7:00 AM to 10:00 AM producing festival loaves at 30 per hour.",
+      "name": "oven_run_7am_to_10am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:saturday_baking_7am_to_10am",
+      "meaning": "Festival loaves baked between 7:00 AM and 10:00 AM on Saturday, cooled by 11:00 AM.",
+      "name": "saturday_baking_7am_to_10am",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:saturday_baking_before_7am",
+      "meaning": "Festival loaves baked between 5:00 AM and 7:00 AM on Saturday, cooled by 8:00 AM.",
+      "name": "saturday_baking_before_7am",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "15-minute drive each way.",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:van_delivery",
+      "meaning": "Physical delivery of loaves via van from bakery to stand.\nPhysical transport of loaves by van from bakery to stand.",
+      "name": "van_delivery",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": null,
+        "record_type": "delivery log",
+        "rule": "count_all",
+        "subject": "Copperwheat Bakery stand",
+        "value": null
+      },
+      "category": "record",
+      "id": "record:delivery_manifest",
+      "meaning": "Record of loaves handed over at each van arrival",
+      "name": "delivery_manifest",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 20,
+        "holder": "organization:copperwheat_bakery",
+        "unit": "loaves"
+      },
+      "category": "resource",
+      "id": "resource:festival_loaves",
+      "meaning": "Finished festival loaves held at the bakery.",
+      "name": "festival_loaves",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount_at_least": null,
+        "holder": "organization:copperwheat_bakery_stand",
+        "holder_kind": "organization",
+        "holder_name": "Copperwheat Bakery stand",
+        "unit": "loaves",
+        "unsupported": "This is a condition that is the conjunction of two scheduled events; it has no producer of its own."
+      },
+      "category": "resource",
+      "id": "resource:loaves_handed_over",
+      "meaning": "Total number of festival loaves physically handed over at the stand by noon on Saturday 15 August 2026.\nTotal number of loaves physically handed over at the stand by noon",
+      "name": "loaves_handed_over",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e10",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that is the conjunction of a process; it has no producer of its own.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:cooled_loaves_by_11am",
+      "meaning": "Festival loaves that have cooled for at least 60 minutes and are available for loading at 11:00 AM.",
+      "name": "cooled_loaves_by_11am",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that is the conjunction of an initial fact and a process; it has no producer of its own.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:cooled_loaves_by_8am",
+      "meaning": "Festival loaves that have cooled for at least 60 minutes and are available for loading at 8:00 AM.",
+      "name": "cooled_loaves_by_8am",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:cooling_requirement",
+      "meaning": "Loaves must cool for 60 minutes after baking before they can be crated for transport.",
+      "name": "cooling_requirement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "20 loaves"
+      },
+      "category": "state",
+      "id": "state:festival_loaves_held",
+      "meaning": "The bakery holds 20 finished festival loaves as of Friday evening.",
+      "name": "festival_loaves_held",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:friday_evening_loaves",
+      "meaning": "20 festival loaves baked Friday, cooled, set aside for Saturday.",
+      "name": "friday_evening_loaves",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:handover_immediate",
+      "meaning": "Handover at stand occurs immediately on van arrival.",
+      "name": "handover_immediate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:handover_timing",
+      "meaning": "Handover at the stand occurs immediately upon van arrival.",
+      "name": "handover_timing",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:load_practice",
+      "meaning": "Loads every cooled festival loaf on hand up to van capacity of 90 crated loaves per run.",
+      "name": "load_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:loading_practice",
+      "meaning": "Fenwick loads every cooled festival loaf on hand up to van capacity.",
+      "name": "loading_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "30 loaves per hour"
+      },
+      "category": "state",
+      "id": "state:oven_capacity",
+      "meaning": "The deck oven yields 30 festival loaves per hour when run continuously.",
+      "name": "oven_capacity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:scheduled_departures",
+      "meaning": "Scheduled to depart bakery at 8:10 AM and 11:10 AM on Saturday 15 August 2026.",
+      "name": "scheduled_departures",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:stand_starts_empty",
+      "meaning": "The stand at Milbrook Green starts Saturday with no stock due to festival rules.\nThe stand has no stock at the start of Saturday due to festival rules prohibiting overnight storage.",
+      "name": "stand_starts_empty",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "90 loaves"
+      },
+      "category": "state",
+      "id": "state:van_capacity",
+      "meaning": "The van can carry at most 90 crated loaves per run.",
+      "name": "van_capacity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "quantity",
+        "cutoff": {
+          "meaning": "Noon Eastern Daylight Time on Saturday 15 August 2026",
+          "timezone": "America/New_York",
+          "when": "2026-08-15T12:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": null,
+        "positive_condition": "The count of loaves delivered and handed over at the stand by the cutoff.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The number of festival loaves physically handed over at the Copperwheat Bakery stand at Milbrook Green by noon on Saturday 15 August 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "event": {
+        "first_arrival_handover": "first_arrival_handover",
+        "first_departure": "first_departure",
+        "first_load": "first_load",
+        "oven_run_5am_to_10am": "oven_run_5am_to_10am",
+        "second_arrival_handover": "second_arrival_handover",
+        "second_departure": "second_departure",
+        "second_load": "second_load"
+      },
+      "information": {
+        "cooling_procedure": "cooling_procedure",
+        "cooling_requirement": "cooling_requirement",
+        "delivery_schedule": "delivery_schedule",
+        "festival_rules": "festival_rules",
+        "friday_evening_stock": "friday_evening_stock",
+        "loading_practice": "loading_practice",
+        "no_overnight_storage": "no_overnight_storage",
+        "oven_rate": "oven_rate",
+        "production_log": "production_log",
+        "production_schedule": "production_schedule",
+        "schedule": "schedule",
+        "van_capacity": "van_capacity",
+        "van_schedule": "van_schedule"
+      },
+      "organization": {
+        "Copperwheat Bakery": "copperwheat_bakery",
+        "Copperwheat Bakery stand": "copperwheat_bakery_stand"
+      },
+      "participant": {
+        "Jo Fenwick": "jo_fenwick",
+        "Tomas Ilic": "tomas_ilic"
+      },
+      "process": {
+        "in-person": "in_person",
+        "oven_run_5am_to_7am": "oven_run_5am_to_7am",
+        "oven_run_7am_to_10am": "oven_run_7am_to_10am",
+        "saturday_baking_7am_to_10am": "saturday_baking_7am_to_10am",
+        "saturday_baking_before_7am": "saturday_baking_before_7am",
+        "van_delivery": "van_delivery"
+      },
+      "record": {
+        "delivery_manifest": "delivery_manifest"
+      },
+      "resource": {
+        "festival_loaves": "festival_loaves",
+        "loaves_handed_over": "loaves_handed_over"
+      },
+      "state": {
+        "cooled_loaves_by_11am": "cooled_loaves_by_11am",
+        "cooled_loaves_by_8am": "cooled_loaves_by_8am",
+        "cooling_requirement": "cooling_requirement",
+        "festival_loaves_held": "festival_loaves_held",
+        "friday_evening_loaves": "friday_evening_loaves",
+        "handover_immediate": "handover_immediate",
+        "handover_timing": "handover_timing",
+        "load_practice": "load_practice",
+        "loading_practice": "loading_practice",
+        "oven_capacity": "oven_capacity",
+        "scheduled_departures": "scheduled_departures",
+        "stand_starts_empty": "stand_starts_empty",
+        "van_capacity": "van_capacity"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "event:first_arrival_handover",
+      "meaning": "The exact number of loaves handed over at the first arrival is unknown because it depends on the first load."
+    },
+    {
+      "about": "event:first_load",
+      "meaning": "The exact number of loaves loaded on the first run is unknown because it depends on how many are cooled by 8:00 AM and the van capacity of 90."
+    },
+    {
+      "about": "event:second_arrival_handover",
+      "meaning": "The exact number of loaves handed over at the second arrival is unknown because it depends on the second load."
+    },
+    {
+      "about": "event:second_load",
+      "meaning": "The exact number of loaves loaded on the second run is unknown because it depends on how many are cooled by 11:00 AM and the van capacity of 90."
+    },
+    {
+      "about": "process:saturday_baking_7am_to_10am",
+      "meaning": "The exact number of loaves baked from 7:00 AM to 10:00 AM is unknown because the oven rate is an average; actual output may vary."
+    },
+    {
+      "about": "process:saturday_baking_before_7am",
+      "meaning": "The exact number of loaves baked from 5:00 AM to 7:00 AM is unknown because the oven rate of 30 per hour is an average; actual output may vary."
+    },
+    {
+      "about": "resource:loaves_handed_over",
+      "meaning": "The total number of loaves handed over by noon is unknown because it depends on the first and second handovers."
+    },
+    {
+      "about": "state:cooled_loaves_by_11am",
+      "meaning": "The number of loaves cooled and ready by 11:00 AM depends on the exact baking schedule and cooling time; loaves baked after 10:00 AM are not available."
+    },
+    {
+      "about": "state:cooled_loaves_by_8am",
+      "meaning": "The number of loaves cooled and ready by 8:00 AM depends on the exact baking schedule and cooling time; loaves baked after 7:00 AM may not be cooled by 8:00 AM."
+    }
+  ]
+}
