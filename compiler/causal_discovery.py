@@ -146,8 +146,12 @@ Smallest world: {resolution['smallest_world']}
 
 def discover(question: str, asof: str, resolution: dict,
              registry: EvidenceRegistry, caller: Caller, trace: Trace,
-             corrections: str = "") -> dict:
-    """Run all discovery calls -> {"spine": [...], <category>: [items...]}."""
+             corrections: str = "", previous: dict | None = None) -> dict:
+    """Run all discovery calls -> {"spine": [...], <category>: [items...]}.
+
+    ``previous`` is the prior attempt's description: a repair round EDITS
+    the vetted world (reproduce + amend) instead of re-rolling it -- core
+    pieces must never vanish between rounds."""
     frame = _frame(question, asof, resolution, registry)
     fix = (f"\n\nCORRECTIONS FROM A PREVIOUS ATTEMPT (address them):\n"
            f"{corrections}" if corrections else "")
@@ -169,11 +173,21 @@ Reply with ONLY: {{"steps": [{{"needed": "...", "producible_by": "..."}}]}}"""
                            for s in out["spine"])
     prior_context = ""
     for category, bound, instruction in CATEGORIES:
+        anchor = ""
+        if previous and previous.get(category):
+            prev_lines = "\n".join(
+                f"- ({it['provenance']}) {it['text']}"
+                for it in previous[category])
+            anchor = (f"\nYOUR PREVIOUS ITEMS FOR THIS ASPECT (the vetted "
+                      f"baseline: reproduce them, amended only where the "
+                      f"corrections demand, plus whatever the corrections "
+                      f"newly require -- core pieces must not vanish):\n"
+                      f"{prev_lines}\n")
         user = f"""{frame}
 
 THE CAUSAL SPINE (what must be POSSIBLE, worked backward):
 {spine_text}
-{prior_context}
+{prior_context}{anchor}
 YOUR TASK NOW -- {category.upper()}:
 {instruction}
 

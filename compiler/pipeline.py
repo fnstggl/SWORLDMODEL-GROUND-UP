@@ -92,9 +92,11 @@ def _load_bearing_drops(translations: list, cap: int = 6) -> list:
 # ---------------------------------------------------------------------------
 
 def _attempt(question: str, asof: str, registry: EvidenceRegistry,
-             caller: Caller, trace: Trace, corrections: str) -> dict:
+             caller: Caller, trace: Trace, corrections: str,
+             previous: dict | None = None) -> dict:
+    previous = previous or {}
     res = resolution.resolve(question, asof, registry, caller, trace,
-                             corrections)
+                             corrections, previous.get("resolution"))
     if res.get("modelable") is False:
         return {"outcome": "refused", "resolution": res,
                 "reasons": [res.get("refusal_reason", "not modelable")]}
@@ -102,7 +104,8 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
     start = assembly.to_instant(res["start_local"], res["tz"], notes,
                                 "world start")
     description = causal_discovery.discover(question, asof, res, registry,
-                                            caller, trace, corrections)
+                                            caller, trace, corrections,
+                                            previous.get("description"))
     graph = WorldGraph()
     translations = translation.translate_all(question, res, description,
                                              graph, caller, trace,
@@ -201,9 +204,13 @@ def compile_question(question: str, asof: str | None = None,
         registry = EvidenceRegistry(evidence_docs, mode)
         corrections = ""
         attempt = None
+        previous = None
         for round_no in range(max_repair_rounds + 1):
             attempt = _attempt(question, asof, registry, caller, trace,
-                               corrections)
+                               corrections, previous)
+            if attempt["outcome"] != "refused":
+                previous = {"resolution": attempt.get("resolution"),
+                            "description": attempt.get("description")}
             if attempt["outcome"] == "ok":
                 break
             if attempt["outcome"] == "refused":

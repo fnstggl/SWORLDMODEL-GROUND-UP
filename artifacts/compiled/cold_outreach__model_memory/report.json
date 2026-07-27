@@ -2,41 +2,33 @@
  "question": "Is a concise cold email from an unknown sports-analytics startup founder -- asking Mark Cuban for a 15-minute call and referencing his Cost Plus Drugs playbook -- likely to get a response from him within two weeks?",
  "report": {
   "reasons": [
-   "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
-   "item participants[1] ('The founder is an unnamed sports-analytics startup founder who sends a cold emai') was not expressed: The item describes a possible future action (sending a cold email) by an unnamed founder, but the founder is not a declared participant and cannot be added beca",
-   "item communication[1] (\"The founder has Mark Cuban's known email address (e.g., mark.cuban@dallasmavs.co\") was not expressed: The item describes a relationship (the founder has Mark Cuban's email address) but 'the founder' is not a declared participant, and 'email' is not a declared ch",
-   "item communication[3] (\"Mark Cuban's email system may filter the founder's cold email as spam due to unk\") was not expressed: The item describes a possibility ('may filter') that is already captured by the existing fact 'cuban_spam_filter_unknown_senders'. No new capability is needed.",
-   "item communication[5] (\"Mark Cuban's attention pattern on email is unknown; he may check email irregular\") was not expressed: no valid translation: translate.communication[5]: no valid response after 3 attempts: [\"add_attention.provenance: a concrete number cannot be labeled 'uncertain",
-   "item communication[6] (\"If the email reaches Mark Cuban's inbox and he reads it, his decision to reply d\") was not expressed: The item describes a general uncertainty about a future decision based on personal interest, which cannot be modeled as a deterministic capability, fact, or act",
-   "item actions[0] ('Mark Cuban may read the cold email from the founder if it lands in his inbox and') was not expressed: The item describes a possible future action (reading an email) that is contingent on unknown decisions and filtering, not a defined action with deterministic pr"
+   "item communication[4] ('The founder checks his email inbox daily for replies.') was not expressed: The item describes a habitual action (checking email daily) which is already covered by the existing add_attention declaration for the_founder on email. No new ",
+   "item actions[0] (\"The founder may attempt to send a cold email to Mark Cuban's email address, refe\") was not expressed: The item describes an action by the founder to send a cold email to Mark Cuban, but 'Mark Cuban' is not a declared participant. The only declared participant is",
+   "item actions[1] ('The founder may attempt to check his email inbox daily for replies from Mark Cub') was not expressed: The item describes a daily action (checking email) that is already modeled by the existing add_attention for the_founder on email. No new capability is needed; ",
+   "item actions[2] ('The founder may attempt to send a follow-up email if no reply is received within') was not expressed: The item describes a possible future action (sending a follow-up email) that depends on a condition (no reply received). However, the declared names do not incl",
+   "item actions[3] ('Mark Cuban may attempt to check his email inbox periodically (e.g., daily or mul') was not expressed: The item describes a possible action (Mark Cuban checking email) but does not provide enough detail to define a new action or attention pattern. The participant",
+   "item actions[5] (\"Mark Cuban may attempt to decide whether to reply to the founder's email, consid\") was not expressed: no valid translation: translate.actions[5]: no valid response after 3 attempts: [\"define_action.requires[0]: kind must be one of ['fact_absent', 'fact_equals', "
   ],
   "repair_rounds": [
    [
-    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
-    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
-    "item participants[2] (\"Mark Cuban's decision to reply within 14 days depends on his personal interest, \") was not expressed: The item describes a general uncertainty about a future decision, not a concrete entity, relationship, fact, or action that can be modeled with the available ca",
-    "item communication[3] (\"Mark Cuban's decision to reply within 14 days depends on his personal interest, \") was not expressed: The item states that the outcome depends on unpredictable personal factors, which cannot be modeled as a deterministic capability or fact. It does not describe ",
-    "item actions[0] ('Mark Cuban may read the cold email from the founder if it lands in his inbox and') was not expressed: The item describes a possible future action (reading an email) that is contingent on unknown decisions and filtering, not a defined action with deterministic pr",
-    "item actions[1] ('Mark Cuban may reply to the cold email within 14 days if he reads it and decides') was not expressed: The item describes a possible future action (replying) that depends on decisions and circumstances that are not specified as a defined action with preconditions",
-    "item actions[2] (\"The founder's email may be filtered as spam by Mark Cuban's email system, preven\") was not expressed: The item describes a possibility ('may be filtered') that is already captured by the existing fact 'cuban_spam_filter_unknown_senders'. No new capability is nee",
-    "item actions[3] ('Mark Cuban receives a high volume of emails daily, which reduces the likelihood ') was not expressed: The item describes a general tendency (high email volume reducing likelihood of reading) that is already captured by the declared fact 'cuban_email_volume_high'"
+    "reality review: The founder has no attention pattern and will never act, but in reality a founder who sends a cold email would likely check for a reply and possibly follow up. This precludes any follow-up action, making the simulation unrealistic.: The founder is modeled as never noticing any information, so they cannot receive or act on a reply. In reality, a founder would check their email and could follow up, which affects the likelihood of a response. This omission biases the simulation toward NO. (fix: Give the founder an attention pattern (e.g., checks email daily) so they can notice a reply and potentially follow up.)",
+    "reality review: Spam filtering is declared as active but its effect is not modeled; the email is simply sent and may or may not be noticed. In reality, spam filters often block cold emails from unknown senders, which is a decisive force.: The simulation does not model the spam filter's classification of the founder's email. Without this, the email is guaranteed to reach Cuban's inbox, which is unrealistic. This pre-writes the outcome by removing a key barrier. (fix: Add a probabilistic spam filter that may classify the email as spam, preventing it from reaching Cuban's inbox.)",
+    "reality review requires a fix: participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation? -- The founder's inability to act (no attention pattern) is unrealistic. In reality, a founder who sends a cold email would monitor for replies and could follow up, which affects the outcome. This omission distorts the simulation."
    ],
    [
-    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
     "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
-    "item participants[1] ('The founder is an unnamed sports-analytics startup founder who sends a cold emai') was not expressed: The item describes a possible future action (sending a cold email) by an unnamed founder, but the founder is not a declared participant and cannot be added beca",
-    "item communication[1] (\"The founder has Mark Cuban's known email address (e.g., mark.cuban@dallasmavs.co\") was not expressed: The item describes a relationship (the founder has Mark Cuban's email address) but 'the founder' is not a declared participant, and 'email' is not a declared ch",
-    "item communication[3] (\"Mark Cuban's email system may filter the founder's cold email as spam due to unk\") was not expressed: The item describes a possibility ('may filter') that is already captured by the existing fact 'cuban_spam_filter_unknown_senders'. No new capability is needed.",
-    "item communication[5] (\"Mark Cuban's attention pattern on email is unknown; he may check email irregular\") was not expressed: no valid translation: translate.communication[5]: no valid response after 3 attempts: [\"add_attention.provenance: a concrete number cannot be labeled 'uncertain",
-    "item communication[6] (\"If the email reaches Mark Cuban's inbox and he reads it, his decision to reply d\") was not expressed: The item describes a general uncertainty about a future decision based on personal interest, which cannot be modeled as a deterministic capability, fact, or act",
-    "item actions[0] ('Mark Cuban may read the cold email from the founder if it lands in his inbox and') was not expressed: The item describes a possible future action (reading an email) that is contingent on unknown decisions and filtering, not a defined action with deterministic pr"
+    "item communication[4] ('The founder checks his email inbox daily for replies.') was not expressed: The item describes a habitual action (checking email daily) which is already covered by the existing add_attention declaration for the_founder on email. No new ",
+    "item actions[0] (\"The founder may attempt to send a cold email to Mark Cuban's email address, refe\") was not expressed: The item describes an action by the founder to send a cold email to Mark Cuban, but 'Mark Cuban' is not a declared participant. The only declared participant is",
+    "item actions[1] ('The founder may attempt to check his email inbox daily for replies from Mark Cub') was not expressed: The item describes a daily action (checking email) that is already modeled by the existing add_attention for the_founder on email. No new capability is needed; ",
+    "item actions[2] ('The founder may attempt to send a follow-up email if no reply is received within') was not expressed: The item describes a possible future action (sending a follow-up email) that depends on a condition (no reply received). However, the declared names do not incl",
+    "item actions[3] ('Mark Cuban may attempt to check his email inbox periodically (e.g., daily or mul') was not expressed: The item describes a possible action (Mark Cuban checking email) but does not provide enough detail to define a new action or attention pattern. The participant",
+    "item actions[5] (\"Mark Cuban may attempt to decide whether to reply to the founder's email, consid\") was not expressed: no valid translation: translate.actions[5]: no valid response after 3 attempts: [\"define_action.requires[0]: kind must be one of ['fact_absent', 'fact_equals', "
    ]
   ],
   "reviews": null,
   "validation": {
    "blocking": [
-    "terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
     "dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
    ],
    "dry_run": {
@@ -46,20 +38,12 @@
      "computed_from": [
       "terminal.cutoff"
      ],
-     "detail": "Mark Cuban did not reply within 14 days"
+     "detail": "Cuban does not send a reply within 14 days"
     },
     "status": "cutoff"
    },
-   "needs_review": [
-    "participant 'mark_cuban' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
-    "participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
-   ],
+   "needs_review": [],
    "patchable": [
-    {
-     "actor": "mark_cuban",
-     "channels": [],
-     "kind": "no_attention"
-    },
     {
      "kind": "dead_world"
     }
