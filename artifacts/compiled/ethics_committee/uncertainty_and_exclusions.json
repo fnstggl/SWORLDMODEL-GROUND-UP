@@ -1,0 +1,35 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Other hospital staff or external parties",
+      "why_safe": "Only the three voting members decide; no other actors can vote or influence the outcome directly. The pharmacist's role is only to prepare the review, not to vote."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "safety_review_prepared",
+      "meaning": "Whether Lindqvist prepared the safety review incorporating the updated data before the meeting, given the updated data was released on 10 March and the meeting is on 12 March. It is unknown if he had time to prepare it and circulate it before the meeting."
+    },
+    {
+      "about": "safety_review_circulated",
+      "meaning": "Whether the safety review was circulated to all members before the meeting, especially to Sister Doyle who is off-site on retreat and cannot receive email from 10 to 12 March."
+    },
+    {
+      "about": "doyle_votes_yes",
+      "meaning": "Whether Sister Doyle votes to approve. She votes with the documented safety assessment when provided, but if the review was not provided to her (due to being off-site), her vote is uncertain."
+    },
+    {
+      "about": "osei_votes_yes",
+      "meaning": "Whether Dr. Osei votes to approve. She requires current safety data; if the review is not available or not favorable, she may vote no."
+    },
+    {
+      "about": "patel_votes_yes",
+      "meaning": "Whether Dr. Patel votes to approve. He votes to approve if a safety review is available and favorable; if not available or unfavorable, his vote is uncertain."
+    }
+  ]
+}

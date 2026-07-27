@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "defects": [
+      "state:vote_outcome: action action:chair_announces_outcome writes this terminal component with no prerequisites; an actor cannot write the answer directly unless the resolution contract names that act as the measured terminal (measured_act=None)"
+    ],
+    "repairable": true
+  },
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

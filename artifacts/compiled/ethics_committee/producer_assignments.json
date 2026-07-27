@@ -1,0 +1,118 @@
+{
+  "assignments": [
+    {
+      "producers": [],
+      "step": "meeting_occurs"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e13",
+            "e14"
+          ],
+          "kind": "person",
+          "meaning": "Chair of the ethics committee; puts the motion to a vote.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "chair_puts_motion"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Voting member; decides to vote yes if prerequisites met.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "osei_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Voting member; decides to vote yes if prerequisites met.",
+          "name": "Dr. Raj Patel"
+        }
+      ],
+      "step": "patel_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Voting member; decides to vote yes if prerequisites met.",
+          "name": "Sister Margaret Doyle"
+        }
+      ],
+      "step": "doyle_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "person",
+          "meaning": "Chair; announces the result based on votes cast.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "chair_announces_outcome"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Hospital pharmacist; circulates the review by email.",
+          "name": "Tomas Lindqvist"
+        }
+      ],
+      "step": "safety_review_circulated"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6",
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Hospital pharmacist; prepares the safety review.",
+          "name": "Tomas Lindqvist"
+        }
+      ],
+      "step": "safety_review_prepared"
+    },
+    {
+      "producers": [],
+      "step": "updated_data_released"
+    }
+  ]
+}

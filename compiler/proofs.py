@@ -303,9 +303,12 @@ def backward_causal_proof(graph: WorldGraph) -> dict:
                     failures.append(
                         f"{cid}: action {p} writes this terminal component "
                         f"with no prerequisites; an actor cannot write the "
-                        f"answer directly unless the resolution contract "
+                        f"answer directly. Either the resolution contract "
                         f"names that act as the measured terminal "
-                        f"(measured_act={measured_act!r})")
+                        f"(measured_act={measured_act!r}), or the act "
+                        f"must list the necessary prerequisites that "
+                        f"gate it (the vote it announces, the review it "
+                        f"reports) in the causal spine")
             if pn.category == "event" \
                     and pn.basis not in SCHEDULE_BASES_FOR_TERMINAL \
                     and not _anchored_to_verified(graph, p):

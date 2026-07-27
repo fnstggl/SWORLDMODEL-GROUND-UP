@@ -1,22 +1,18 @@
 [
   {
-    "binding_calls": 10,
-    "case": "wage_talks",
-    "discovery_calls": 10,
-    "expected_answer": "yes",
+    "binding_calls": 0,
+    "case": "ethics_committee",
+    "discovery_calls": 9,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+    "reason": "terminal production fails the backward causal proof",
     "repairs": {
-      "action:negotiator_attends_session": 1,
-      "causal_spine": 1,
-      "starting_state[Dennis Wozniak]": 1,
-      "starting_state[Yolanda Bright]": 1
+      "producer_assignments": 1
     },
     "runtime_ms": 0.0,
-    "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 41746
+    "stage": "NO_CAUSAL_PRODUCER",
+    "tokens": 28925
   }
 ]
