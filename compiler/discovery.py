@@ -491,7 +491,14 @@ def discover(question: dict, evidence: dict, call=call_json,
         "still leave open. The resolution note is authoritative: a "
         "reading it settles is settled and must NOT be declared. Never "
         "pick an open reading silently -- but never manufacture doubt "
-        "about a settled one.\n"
+        "about a settled one. An ambiguity is about what the QUESTION "
+        "MEANS -- which reading of its words -- never about what will "
+        "HAPPEN: whether an actor follows their stated stance, whether a "
+        "scheduled thing occurs absent contrary evidence, whether "
+        "someone intervenes -- those are the simulation's own work, "
+        "carried as actor decisions and declared uncertainties, and "
+        "declaring them as ambiguities falsely refuses a simulable "
+        "question.\n"
         "  basis, evidence_ids: provenance of this terminal definition",
         ctx, lambda d: v_resolution(d, valid_ids), disc, call, model,
         allow_memory)
@@ -509,11 +516,16 @@ def discover(question: dict, evidence: dict, call=call_json,
             "COMPLETE: anything it does not mention (an extra source, a "
             "consumption process, another actor) does not exist in this "
             "world, so a reading that hinges on something unmentioned is "
-            "settled by completeness and must be dropped. Keep an "
-            "ambiguity only if the question and evidence as given still "
-            "leave materially different answers possible. Return the "
-            "complete corrected resolution object (same shape as before), "
-            "with 'ambiguities' containing only the survivors.",
+            "settled by completeness and must be dropped. An entry about "
+            "what will HAPPEN rather than what the question MEANS -- an "
+            "actor changing their stated mind, a scheduled session not "
+            "occurring with no evidence of cancellation, a motion nobody "
+            "is evidenced to plan -- is not an ambiguity at all: drop "
+            "it; the simulation itself decides what happens. Keep an "
+            "ambiguity only if the question's WORDS still admit "
+            "materially different readings. Return the complete "
+            "corrected resolution object (same shape as before), with "
+            "'ambiguities' containing only the survivors.",
             ctx + "\n\nTHE DRAFT RESOLUTION:\n" + json.dumps(doc, indent=1)
             + "\n\nDECLARED AMBIGUITIES TO ADJUDICATE:\n"
             + "\n".join(f"- {a}" for a in doc["ambiguities"]),
