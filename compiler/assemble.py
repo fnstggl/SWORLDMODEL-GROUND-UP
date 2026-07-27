@@ -969,7 +969,12 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         elif node.category in ("state", "record", "resource") \
                 and not node.attrs.get("initial") \
                 and node.attrs.get("amount") is None \
-                and not a.graph.producers_of(sid):
+                and not a.graph.producers_of(sid) \
+                and not any(e.attrs.get("necessity", "necessary")
+                            != "optional"
+                            for e in a.graph.prerequisites_of(sid)):
+            # a condition WITH prerequisites is a conjunction and needs no
+            # producer of its own; the proofs verify its parts
             d.append(f"step {name!r}: no producer is attached and it is "
                      f"not marked unsupported")
     _raise_if(d, "producer_assignments")

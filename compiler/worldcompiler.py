@@ -39,7 +39,8 @@ from .assemble import assemble
 from .binding import bind_world
 from .discovery import discover
 from .emit import emit_scenario
-from .errors import COMPILED, CompilationStop, LoweringMismatch
+from .errors import (COMPILED, CompilationStop, LoweringMismatch,
+                     RealityReviewRejected)
 from .llm import call_json
 from .lower import lower
 from .memory_evidence import draft_memory_evidence
@@ -182,18 +183,60 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
                 forward)
             metrics["proofs_ms"] = round(
                 (wallclock.monotonic() - t0) * 1000, 1)
+
+            # ---- independent causal-reality review -------------------
+            from .reality import raise_for, review_reality
+            t0 = wallclock.monotonic()
+            review, rlog = review_reality(question, evidence, graph,
+                                          backward, forward, call=call,
+                                          model=model)
+            metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+            calls.extend(rlog)
+            metrics["reviewer_calls"] = \
+                metrics.get("reviewer_calls", 0) + 1
+            _wj(os.path.join(outdir, "reality_review.json"), review)
+            raise_for(review)
             break
         except CompilationStop as exc:
-            doc_name = exc.detail.get("document") \
-                if isinstance(exc.detail, dict) else None
+            detail = exc.detail if isinstance(exc.detail, dict) else {}
+            if not detail.get("repairable"):
+                return finish_failure(exc)
+            review = detail.get("review")
+            if review:
+                # the reality review's targeted revision: one round per
+                # document, then the world stands or falls as reviewed
+                docs = sorted({d["document"] for d in review["defects"]})
+                docs = [d for d in docs if d not in repaired_docs]
+                if not docs:
+                    return finish_failure(RealityReviewRejected(
+                        "defects remain after one targeted revision; the "
+                        "world is not a truthful account and will not be "
+                        "run", {"review": review}))
+                t0 = wallclock.monotonic()
+                try:
+                    for doc_name in docs:
+                        repaired_docs.add(doc_name)
+                        repair_document(
+                            disc, doc_name,
+                            [f"{d['what']} -- {d['why_material']}"
+                             for d in review["defects"]
+                             if d["document"] == doc_name],
+                            call=call, model=model)
+                except CompilationStop as exc2:
+                    metrics["model_ms"] += \
+                        (wallclock.monotonic() - t0) * 1000
+                    return finish_failure(exc2)
+                metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+                metrics["assembly_repairs"].extend(
+                    f"review:{d}" for d in docs)
+                continue
+            doc_name = detail.get("document")
             if doc_name is None and exc.stage in (
-                    "NO_CAUSAL_PRODUCER", "INVALID_REFERENCE") \
-                    and exc.detail.get("repairable"):
+                    "NO_CAUSAL_PRODUCER", "INVALID_REFERENCE"):
                 # a proof failure is usually a missing or wrong producer:
                 # route its one repair to the producer assignments
                 doc_name = "producer_assignments"
-            if not doc_name or doc_name in repaired_docs \
-                    or not exc.detail.get("repairable"):
+            if not doc_name or doc_name in repaired_docs:
                 return finish_failure(exc)
             repaired_docs.add(doc_name)
             t0 = wallclock.monotonic()
@@ -251,6 +294,23 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         compiled = lower(scenario, question.get("question", ""))
         metrics["lowering_ms"] = round(
             (wallclock.monotonic() - t0) * 1000, 1)
+
+        # ---- semantic round-trip: the lowered world must mean what the
+        # approved world means, or it does not run ----------------------
+        from .roundtrip import (describe_graph, describe_runtime,
+                                review_equivalence)
+        graph_md = describe_graph(graph, question)
+        runtime_md = describe_runtime(compiled)
+        with open(os.path.join(outdir, "runtime_round_trip.md"), "w",
+                  encoding="utf-8") as f:
+            f.write(runtime_md)
+        t0 = wallclock.monotonic()
+        equivalence, elog = review_equivalence(graph_md, runtime_md,
+                                               call=call, model=model)
+        metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+        calls.extend(elog)
+        _wj(os.path.join(outdir, "semantic_equivalence_review.json"),
+            equivalence)
     except CompilationStop as exc:
         return finish_failure(exc)
 

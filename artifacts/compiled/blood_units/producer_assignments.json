@@ -1,105 +1,43 @@
 {
   "assignments": [
     {
-      "producers": [
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e6",
-            "e10"
-          ],
-          "kind": "operating_process",
-          "meaning": "The hospital's blood bank physically holds and counts the units at the deadline.",
-          "name": "St. Vincent regional hospital blood bank"
-        }
-      ],
-      "step": "hospital_units_at_deadline"
+      "step": "hospital_holds_units_at_deadline",
+      "unsupported": "This is a condition that aggregates other steps; no direct producer."
     },
     {
-      "step": "initial_hospital_units",
-      "unsupported": "Initial fact, no producer needed."
+      "step": "initial_stock_plus_received_shipments_minus_usage",
+      "unsupported": "This is a conjunction of prerequisites; no direct producer."
     },
     {
-      "step": "shipments_received",
-      "unsupported": "Condition, not a step that is produced."
+      "step": "initial_hospital_stock",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "step": "shipments_received_before_deadline",
+      "unsupported": "This is a conjunction of prerequisites; no direct producer."
     },
     {
       "producers": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e7"
+            "e7",
+            "e9"
           ],
           "kind": "organization",
-          "meaning": "The centre dispatches the shipment at 4:00 PM Tuesday.",
+          "meaning": "The centre dispatches the Tuesday shipment as per the standing distribution agreement.",
           "name": "Cascade regional blood centre"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "kind": "external_institution",
-          "meaning": "Transports the shipment to the hospital.",
-          "name": "Courier service"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8",
-            "e10"
-          ],
-          "kind": "operating_process",
-          "meaning": "Receives and logs the shipment.",
-          "name": "St. Vincent regional hospital blood bank"
         }
       ],
-      "step": "tuesday_shipment_received"
+      "step": "tuesday_shipment_dispatched"
     },
     {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "kind": "organization",
-          "meaning": "The centre dispatches the shipment at 4:00 PM Thursday.",
-          "name": "Cascade regional blood centre"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "kind": "external_institution",
-          "meaning": "Transports the shipment to the hospital.",
-          "name": "Courier service"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8",
-            "e10"
-          ],
-          "kind": "operating_process",
-          "meaning": "Receives and logs the shipment.",
-          "name": "St. Vincent regional hospital blood bank"
-        }
-      ],
-      "step": "thursday_shipment_received"
+      "step": "centre_has_sufficient_stock_tuesday",
+      "unsupported": "This is a condition that depends on collection processes; no direct producer."
     },
     {
-      "step": "centre_has_enough_units_tuesday",
-      "unsupported": "Condition, not a step that is produced."
-    },
-    {
-      "step": "centre_has_enough_units_thursday",
-      "unsupported": "Condition, not a step that is produced."
-    },
-    {
-      "step": "centre_initial_units",
-      "unsupported": "Initial fact, no producer needed."
+      "step": "centre_initial_stock",
+      "unsupported": "Initial fact; no producer needed."
     },
     {
       "producers": [
@@ -112,28 +50,15 @@
             "e4"
           ],
           "kind": "operating_process",
-          "meaning": "The drive collects blood at the Portland site.",
-          "name": "Cascade regional blood centre mobile collection drive"
+          "meaning": "The mobile collection drive collects blood units on Monday.",
+          "name": "monday_collection"
         }
       ],
       "step": "monday_collection"
     },
     {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1",
-            "e2",
-            "e3",
-            "e4"
-          ],
-          "kind": "operating_process",
-          "meaning": "The drive collects blood at the Portland site.",
-          "name": "Cascade regional blood centre mobile collection drive"
-        }
-      ],
-      "step": "tuesday_collection"
+      "step": "drive_open_monday",
+      "unsupported": "Initial fact; no producer needed."
     },
     {
       "producers": [
@@ -146,13 +71,75 @@
             "e4"
           ],
           "kind": "operating_process",
-          "meaning": "The drive collects blood at the Portland site.",
-          "name": "Cascade regional blood centre mobile collection drive"
+          "meaning": "The mobile collection drive collects blood units on Tuesday before dispatch.",
+          "name": "tuesday_collection_before_dispatch"
+        }
+      ],
+      "step": "tuesday_collection_before_dispatch"
+    },
+    {
+      "step": "drive_open_tuesday",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The courier transports the shipment from centre to hospital.",
+          "name": "Courier service"
+        }
+      ],
+      "step": "tuesday_shipment_arrives"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The centre dispatches the Thursday shipment as per the standing distribution agreement.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment_dispatched"
+    },
+    {
+      "step": "centre_has_sufficient_stock_thursday",
+      "unsupported": "This is a condition that depends on collection processes; no direct producer."
+    },
+    {
+      "step": "centre_stock_after_tuesday_shipment",
+      "unsupported": "This is a condition that aggregates other steps; no direct producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "kind": "operating_process",
+          "meaning": "The mobile collection drive collects blood units on Wednesday.",
+          "name": "wednesday_collection"
         }
       ],
       "step": "wednesday_collection"
     },
     {
+      "step": "drive_open_wednesday",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
       "producers": [
         {
           "basis": "verified",
@@ -163,11 +150,29 @@
             "e4"
           ],
           "kind": "operating_process",
-          "meaning": "The drive collects blood at the Portland site.",
-          "name": "Cascade regional blood centre mobile collection drive"
+          "meaning": "The mobile collection drive collects blood units on Thursday before dispatch.",
+          "name": "thursday_collection_before_dispatch"
         }
       ],
-      "step": "thursday_collection"
+      "step": "thursday_collection_before_dispatch"
+    },
+    {
+      "step": "drive_open_thursday",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The courier transports the shipment from centre to hospital.",
+          "name": "Courier service"
+        }
+      ],
+      "step": "thursday_shipment_arrives"
     }
   ]
 }

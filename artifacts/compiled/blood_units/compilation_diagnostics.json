@@ -1,11 +1,15 @@
 {
   "detail": {
     "defects": [
-      "state:initial_hospital_units: explicitly marked unsupported (Initial fact, no producer needed.)",
-      "state:shipments_received: explicitly marked unsupported (Condition, not a step that is produced.)"
+      "step 'centre_has_sufficient_stock_thursday': no producer is attached and it is not marked unsupported",
+      "step 'centre_has_sufficient_stock_tuesday': no producer is attached and it is not marked unsupported",
+      "step 'centre_stock_after_tuesday_shipment': no producer is attached and it is not marked unsupported",
+      "step 'initial_stock_plus_received_shipments_minus_usage': no producer is attached and it is not marked unsupported",
+      "step 'shipments_received_before_deadline': no producer is attached and it is not marked unsupported"
     ],
+    "document": "producer_assignments",
     "repairable": true
   },
-  "reason": "terminal production fails the backward causal proof",
-  "stage": "NO_CAUSAL_PRODUCER"
+  "reason": "the producer_assignments document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

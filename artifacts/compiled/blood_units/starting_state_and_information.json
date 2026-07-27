@@ -1,87 +1,24 @@
 {
   "entities": [
     {
-      "initial_state": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e6"
-          ],
-          "meaning": "Usable blood units held at 9:00 AM on Monday 20 July 2026.",
-          "name": "initial_units",
-          "value": 15
-        }
-      ],
-      "name": "St. Vincent regional hospital blood bank",
-      "process_behavior": {
-        "basis": "inferred",
-        "evidence_ids": [
-          "e7",
-          "e8",
-          "e10"
-        ],
-        "meaning": "The hospital blood bank receives shipments from the Cascade regional blood centre and logs them into inventory. It does not control collection or shipping schedules.",
-        "operating_meaning": "The bank receives shipments on Tuesday and Thursday evenings, approximately 3 hours after dispatch at 4:00 PM America/Los_Angeles.",
-        "rate_meaning": "Not applicable; the bank does not produce units at a rate."
-      }
-    },
-    {
       "authority": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1",
-            "e3",
-            "e4"
+            "e7",
+            "e9"
           ],
-          "meaning": "Operates the mobile collection drive on Monday",
-          "over": "monday_collection"
+          "meaning": "The centre dispatches the Tuesday shipment as per the standing distribution agreement.",
+          "over": "tuesday_shipment_dispatched"
         },
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1",
-            "e3",
-            "e4"
+            "e7",
+            "e9"
           ],
-          "meaning": "Operates the mobile collection drive on Tuesday",
-          "over": "tuesday_collection"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1",
-            "e3",
-            "e4"
-          ],
-          "meaning": "Operates the mobile collection drive on Wednesday",
-          "over": "wednesday_collection"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1",
-            "e3",
-            "e4"
-          ],
-          "meaning": "Operates the mobile collection drive on Thursday",
-          "over": "thursday_collection"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "meaning": "Dispatches the Tuesday shipment at 4:00 PM",
-          "over": "tuesday_shipment_received"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "meaning": "Dispatches the Thursday shipment at 4:00 PM",
-          "over": "thursday_shipment_received"
+          "meaning": "The centre dispatches the Thursday shipment as per the standing distribution agreement.",
+          "over": "thursday_shipment_dispatched"
         }
       ],
       "availability": {
@@ -99,15 +36,15 @@
         {
           "attention": {
             "cadence_minutes": null,
-            "calendar_meaning": "Dispatched at 4:00 PM on shipping days",
-            "meaning": "Continuous tracking once dispatched"
+            "calendar_meaning": "Dispatch occurs at scheduled times.",
+            "meaning": "Continuous tracking once dispatched."
           },
           "basis": "inferred",
           "evidence_ids": [
             "e8"
           ],
-          "latency_meaning": "About 3 hours transit time",
-          "meaning": "Physical shipment via courier to hospital",
+          "latency_meaning": "Shipment takes about 3 hours to reach hospital.",
+          "meaning": "Physical transport of blood units via courier to hospital.",
           "name": "courier_service",
           "role": "sender"
         }
@@ -119,7 +56,7 @@
             "e7",
             "e9"
           ],
-          "meaning": "Ship 150 units to St. Vincent regional hospital",
+          "meaning": "Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM",
           "name": "tuesday_shipment",
           "when": "2026-07-21T16:00:00-07:00"
         },
@@ -129,7 +66,7 @@
             "e7",
             "e9"
           ],
-          "meaning": "Ship 150 units to St. Vincent regional hospital",
+          "meaning": "Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM",
           "name": "thursday_shipment",
           "when": "2026-07-23T16:00:00-07:00"
         }
@@ -143,40 +80,6 @@
           "meaning": "Usable blood units held at start of Monday 20 July 2026 at 9:00 AM",
           "name": "initial_stock",
           "value": 40
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e2"
-          ],
-          "meaning": "Average usable units collected per hour while drive is open",
-          "name": "collection_rate",
-          "value": 12
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e3"
-          ],
-          "meaning": "Drive open Monday to Friday 9:00-17:00 America/Los_Angeles",
-          "name": "drive_schedule"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7",
-            "e9"
-          ],
-          "meaning": "Ships 150 units every Tuesday and Thursday at 4:00 PM America/Los_Angeles",
-          "name": "shipping_schedule"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "meaning": "Shipment takes about 3 hours to reach hospital",
-          "name": "shipment_transit_time"
         }
       ],
       "knows": [
@@ -185,7 +88,7 @@
           "evidence_ids": [
             "e5"
           ],
-          "meaning": "Own initial stock of 40 units at 9:00 AM Monday",
+          "meaning": "Centre knows its own stock at 9:00 AM Monday 20 July 2026 is 40 units.",
           "name": "initial_stock",
           "visibility": "private"
         },
@@ -194,7 +97,7 @@
           "evidence_ids": [
             "e2"
           ],
-          "meaning": "Average collection rate of 12 units per hour",
+          "meaning": "Centre knows the mobile drive collects at an average of 12 usable units per hour while open.",
           "name": "collection_rate",
           "visibility": "public"
         },
@@ -203,7 +106,7 @@
           "evidence_ids": [
             "e3"
           ],
-          "meaning": "Drive open Monday to Friday 9:00-17:00",
+          "meaning": "Centre knows the drive is open Monday to Friday 9:00 AM to 5:00 PM.",
           "name": "drive_schedule",
           "visibility": "public"
         },
@@ -212,8 +115,8 @@
           "evidence_ids": [
             "e7"
           ],
-          "meaning": "Ships every Tuesday and Thursday at 4:00 PM",
-          "name": "shipping_schedule",
+          "meaning": "Centre knows shipments are dispatched every Tuesday and Thursday at 4:00 PM.",
+          "name": "shipment_schedule",
           "visibility": "public"
         },
         {
@@ -221,51 +124,18 @@
           "evidence_ids": [
             "e9"
           ],
-          "meaning": "Each shipment is 150 units",
+          "meaning": "Centre knows each shipment moves 150 units.",
           "name": "shipment_capacity",
-          "visibility": "public"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "meaning": "Shipment takes about 3 hours to reach hospital",
-          "name": "transit_time",
           "visibility": "public"
         }
       ],
       "name": "Cascade regional blood centre",
       "not_available": [
         {
-          "from": "2026-07-18T00:00:00-07:00",
-          "meaning": "No collection on weekends (Saturday and Sunday)",
-          "to": "2026-07-20T09:00:00-07:00"
-        },
-        {
-          "from": "2026-07-20T17:00:00-07:00",
-          "meaning": "Drive closed outside 9:00-17:00 on weekdays",
-          "to": "2026-07-21T09:00:00-07:00"
-        },
-        {
-          "from": "2026-07-21T17:00:00-07:00",
-          "meaning": "Drive closed outside 9:00-17:00 on weekdays",
-          "to": "2026-07-22T09:00:00-07:00"
-        },
-        {
-          "from": "2026-07-22T17:00:00-07:00",
-          "meaning": "Drive closed outside 9:00-17:00 on weekdays",
-          "to": "2026-07-23T09:00:00-07:00"
-        },
-        {
-          "from": "2026-07-23T17:00:00-07:00",
-          "meaning": "Drive closed outside 9:00-17:00 on weekdays",
-          "to": "2026-07-24T09:00:00-07:00"
-        },
-        {
-          "from": "2026-07-24T17:00:00-07:00",
-          "meaning": "No collection on Friday after 5:00 PM",
-          "to": "2026-07-25T00:00:00-07:00"
+          "channel": null,
+          "from": null,
+          "meaning": "Centre does not have access to hospital's internal stock levels or usage rates.",
+          "to": null
         }
       ],
       "resources": [
@@ -275,56 +145,11 @@
           "evidence_ids": [
             "e5"
           ],
-          "meaning": "Usable blood units at start of Monday 20 July 2026 9:00 AM",
-          "name": "initial_usable_units",
-          "unit": "units"
-        },
-        {
-          "amount": 12,
-          "basis": "verified",
-          "evidence_ids": [
-            "e2"
-          ],
-          "meaning": "Average usable units collected per hour",
-          "name": "collection_rate_per_hour",
-          "unit": "units/hour"
-        },
-        {
-          "amount": 150,
-          "basis": "verified",
-          "evidence_ids": [
-            "e9"
-          ],
-          "meaning": "Number of units shipped each Tuesday and Thursday",
-          "name": "shipment_capacity",
+          "meaning": "Usable blood units in inventory",
+          "name": "blood_units",
           "unit": "units"
         }
       ],
-      "sent_information": [],
-      "timezone": "America/Los_Angeles"
-    },
-    {
-      "authority": [],
-      "availability": {
-        "close": "23:59",
-        "open": "00:00",
-        "workdays": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
-      },
-      "channels": [],
-      "commitments": [],
-      "initial_state": [],
-      "knows": [],
-      "name": "Courier service",
-      "not_available": [],
-      "resources": [],
       "sent_information": [],
       "timezone": "America/Los_Angeles"
     },
@@ -335,7 +160,7 @@
           "evidence_ids": [
             "e5"
           ],
-          "meaning": "The centre held 40 usable units at 9:00 AM Monday 20 July 2026.",
+          "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
           "name": "initial stock at centre",
           "value": 40
         }
@@ -346,33 +171,81 @@
         "evidence_ids": [
           "e1",
           "e2",
-          "e3",
-          "e4"
+          "e3"
         ],
-        "meaning": "The mobile collection drive collects blood at the Portland site.",
-        "operating_meaning": "Monday to Friday, 9:00 AM to 5:00 PM America/Los_Angeles, during the week of 20-24 July 2026.",
-        "rate_meaning": "12 usable units per hour while open."
+        "meaning": "The mobile collection drive collects blood units at the Portland site.",
+        "operating_meaning": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+        "rate_meaning": "The drive collects at a measured average of 12 usable units per hour while it is open."
+      }
+    },
+    {
+      "communication": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ],
+        "meaning": "The courier service receives dispatch instructions from the Cascade regional blood centre and delivers to St. Vincent regional hospital. There is no evidence of two-way communication or feedback loops."
+      },
+      "initial_information": {
+        "available": [
+          {
+            "basis": "verified",
+            "evidence_ids": [
+              "e7"
+            ],
+            "meaning": "Shipments occur every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+            "name": "shipment schedule"
+          },
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e8"
+            ],
+            "meaning": "A shipment takes about 3 hours to reach the hospital and be received.",
+            "name": "transit time"
+          },
+          {
+            "basis": "verified",
+            "evidence_ids": [
+              "e9"
+            ],
+            "meaning": "Each shipment moves 150 units.",
+            "name": "shipment size"
+          }
+        ],
+        "not_available": [
+          {
+            "basis": "uncertain",
+            "evidence_ids": [],
+            "meaning": "The courier service does not have real-time tracking information beyond the scheduled transit time.",
+            "name": "real-time tracking"
+          }
+        ]
+      },
+      "initial_state": [],
+      "name": "Courier service",
+      "process_behavior": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "meaning": "The courier service transports blood shipments from the Cascade regional blood centre to St. Vincent regional hospital. A shipment takes about 3 hours to reach the hospital and be received into its bank.",
+        "operating_meaning": "The courier service operates on Tuesdays and Thursdays, with shipments dispatched at 4:00 PM America/Los_Angeles and arriving approximately 3 hours later, at 7:00 PM America/Los_Angeles.",
+        "rate_meaning": "Not applicable; the courier service does not have a rate, it transports fixed-size shipments (150 units) on a schedule."
       }
     },
     {
       "authority": [
         {
-          "basis": "inferred",
+          "basis": "verified",
           "evidence_ids": [
-            "e8",
             "e10"
           ],
-          "meaning": "Hospital blood bank receives and logs the Thursday shipment",
-          "over": "thursday_shipment_received"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8",
-            "e10"
-          ],
-          "meaning": "Hospital blood bank receives and logs the Tuesday shipment",
-          "over": "tuesday_shipment_received"
+          "meaning": "Hospital receives shipments from centre; does not control dispatch or collection",
+          "over": "receiving_shipments"
         }
       ],
       "availability": {
@@ -392,10 +265,10 @@
         {
           "attention": {
             "cadence_minutes": null,
-            "calendar_meaning": "Arrivals occur at scheduled times",
+            "calendar_meaning": "Arrivals occur after dispatch at 4 PM on Tuesday and Thursday",
             "meaning": "Continuous upon arrival"
           },
-          "basis": "inferred",
+          "basis": "verified",
           "evidence_ids": [
             "e8"
           ],
@@ -413,7 +286,7 @@
             "e6"
           ],
           "meaning": "Usable blood units held at start of week",
-          "name": "initial_units",
+          "name": "initial_stock",
           "value": 15
         }
       ],
@@ -423,8 +296,8 @@
           "evidence_ids": [
             "e6"
           ],
-          "meaning": "Hospital knows its own initial inventory",
-          "name": "initial_units",
+          "meaning": "Hospital knows its own initial stock of 15 units",
+          "name": "initial_stock",
           "visibility": "private"
         },
         {
@@ -433,8 +306,17 @@
             "e7",
             "e8"
           ],
-          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at about 7:00 PM (3 hours after dispatch at 4:00 PM)",
+          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at about 7 PM (4 PM dispatch + 3 hours)",
           "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Hospital knows each shipment is 150 units",
+          "name": "shipment_size",
           "visibility": "public"
         }
       ],
@@ -454,6 +336,77 @@
       ],
       "sent_information": [],
       "timezone": "America/Los_Angeles"
+    },
+    {
+      "initial_state": [],
+      "name": "monday_collection",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "meaning": "The mobile collection drive at the Portland site collects blood units on Monday.",
+        "operating_meaning": "Monday 20 July 2026, 9:00 AM to 5:00 PM America/Los_Angeles",
+        "rate_meaning": "12 usable units per hour while open"
+      }
+    },
+    {
+      "initial_state": [],
+      "name": "tuesday_collection_before_dispatch",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "meaning": "The mobile collection drive collects blood units at the Portland site on Tuesday before the 4:00 PM dispatch.",
+        "operating_meaning": "Runs from 9:00 AM to 5:00 PM America/Los_Angeles on Tuesday 21 July 2026",
+        "rate_meaning": "12 usable units per hour while open"
+      }
+    },
+    {
+      "initial_state": [],
+      "name": "wednesday_collection",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "meaning": "The mobile collection drive collects blood units on Wednesday.",
+        "operating_meaning": "Open 9:00 AM to 5:00 PM America/Los_Angeles on Wednesday 22 July 2026.",
+        "rate_meaning": "12 usable units per hour while open."
+      }
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "meaning": "Stock at centre after Tuesday dispatch, before Thursday collection",
+          "name": "centre_stock_after_tuesday_shipment"
+        }
+      ],
+      "name": "thursday_collection_before_dispatch",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "meaning": "The mobile collection drive collects blood units on Thursday before the 4:00 PM dispatch.",
+        "operating_meaning": "Thursday 23 July 2026, 9:00 AM to 4:00 PM (7 hours, since dispatch at 4:00 PM stops collection)",
+        "rate_meaning": "12 usable units per hour while open"
+      }
     }
   ]
 }

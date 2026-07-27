@@ -68,6 +68,11 @@ def fake_call(system, user, model="stub", **kw):
         raise AssertionError("unknown entity in: " + system[-200:])
     if "STEP 5" in system:
         return out(copy.deepcopy(UNCERTAINTY))
+    if "causal-reality reviewer" in system:
+        return out({"verdict": "APPROVE", "reasoning": "stub approval",
+                    "causal_path": ["stubbed route"], "defects": []})
+    if "equivalence reviewer" in system:
+        return out({"verdict": "EQUIVALENT", "findings": []})
     if "binding step" in system:
         item = json.loads(user.split("\n\nReturn JSON")[0]
                           .split("):\n", 1)[1])
@@ -148,7 +153,8 @@ def test_call_accounting_is_honest(tmp_path):
     calls = [json.loads(l) for l in
              (tmp_path / "toy" / "model_calls.jsonl").read_text()
              .splitlines()]
-    assert len(calls) == 10
+    # 6 discovery + 4 binding + reality review + equivalence review
+    assert len(calls) == 12
     assert all(c["raw_response"] for c in calls)
 
 
