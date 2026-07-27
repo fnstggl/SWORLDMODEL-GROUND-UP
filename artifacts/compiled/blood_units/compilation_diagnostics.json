@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "defects": [
+      "resource:hospital_units_at_deadline: scheduled event event:shipment_thursday_received (basis 'inferred') writes this terminal component; an inferred or unverified schedule may not assert the answer -- inferred chains must be simulated, not scheduled",
+      "resource:hospital_units_at_deadline: scheduled event event:shipment_tuesday_received (basis 'inferred') writes this terminal component; an inferred or unverified schedule may not assert the answer -- inferred chains must be simulated, not scheduled"
+    ],
+    "repairable": true
+  },
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

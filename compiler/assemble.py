@@ -909,6 +909,47 @@ class Assembler:
                     frontier.append(e.dst)
         return sorted(out)
 
+    def derive_event_anchors(self) -> None:
+        """An inferred event that depends on a verified event and carries
+        its own time IS an anchored consequence: the verified schedule is
+        the root and the inferred part is the offset (a transit, a
+        turnaround), computed from the times the discovery itself gave.
+        Nothing is invented; the dependency and both instants are the
+        model's own claims, restated in the structure the runtime can
+        carry honestly."""
+        from datetime import datetime
+        for ev in self.graph.by_category("event"):
+            if ev.basis in ("verified", "question_given") \
+                    or not ev.attrs.get("when") or ev.attrs.get("anchor"):
+                continue
+            try:
+                t1 = datetime.fromisoformat(str(ev.attrs["when"]))
+            except ValueError:
+                continue
+            for e in self.graph.prerequisites_of(ev.id):
+                if e.attrs.get("necessity", "necessary") == "optional":
+                    continue
+                base = self.graph.node(e.dst)
+                if base.category != "event" or not base.attrs.get("when"):
+                    continue
+                try:
+                    t0 = datetime.fromisoformat(str(base.attrs["when"]))
+                except ValueError:
+                    continue
+                if t1.tzinfo is None or t0.tzinfo is None:
+                    continue
+                offset = (t1 - t0).total_seconds() / 60.0
+                edge = self.graph.add_edge(
+                    ev.id, "scheduled_at", base.id,
+                    {"offset_minutes": offset,
+                     "meaning": f"{ev.name} follows {base.name} by "
+                                f"{offset:g} minutes ({ev.basis})"},
+                    where=f"anchor of {ev.name!r}")
+                self._record("derive_event_anchor",
+                             {"event": ev.name, "anchored_to": base.name,
+                              "offset_minutes": offset}, [], [edge])
+                break
+
     def derive_quantity_mechanisms(self) -> None:
         """Universal resource plumbing: a quantity with no direct producer
         but whose own prerequisite chain reaches events or processes is
@@ -1072,6 +1113,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
                 d.append(f"step {name!r}: no producer is attached and it "
                          f"is not marked unsupported")
     _raise_if(d, "producer_assignments")
+    a.derive_event_anchors()
     a.derive_quantity_mechanisms()
     a.materialize_holders()
 

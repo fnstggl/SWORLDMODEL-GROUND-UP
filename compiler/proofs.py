@@ -259,12 +259,15 @@ def backward_causal_proof(graph: WorldGraph) -> dict:
                         f"names that act as the measured terminal "
                         f"(measured_act={measured_act!r})")
             if pn.category == "event" \
-                    and pn.basis not in SCHEDULE_BASES_FOR_TERMINAL:
+                    and pn.basis not in SCHEDULE_BASES_FOR_TERMINAL \
+                    and not _anchored_to_verified(graph, p):
                 failures.append(
                     f"{cid}: scheduled event {p} (basis {pn.basis!r}) writes "
                     f"this terminal component; an inferred or unverified "
                     f"schedule may not assert the answer -- inferred chains "
-                    f"must be simulated, not scheduled")
+                    f"must be simulated, not scheduled. An inferred "
+                    f"CONSEQUENCE of a verified schedule (an arrival after "
+                    f"a dispatch) is fine when anchored to it")
 
         initially_true = bool(node.attrs.get("initial"))
         if initially_true and not producers:
@@ -303,6 +306,22 @@ def backward_causal_proof(graph: WorldGraph) -> dict:
             "genesis_only_components": genesis_only,
             "components_rooted_in_uncertainty": uncertain_roots,
             "warnings": warnings}
+
+
+def _anchored_to_verified(graph: WorldGraph, event_id: str,
+                          _seen: frozenset = frozenset()) -> bool:
+    """An inferred event whose scheduled_at chain bottoms in a verified or
+    question-given event is a SIMULATED consequence of a real schedule:
+    the root is evidenced and the inferred part is the labeled offset."""
+    if event_id in _seen:
+        return False
+    for e in graph.edges_from(event_id, "scheduled_at"):
+        base = graph.node(e.dst)
+        if base.basis in SCHEDULE_BASES_FOR_TERMINAL:
+            return True
+        if _anchored_to_verified(graph, e.dst, _seen | {event_id}):
+            return True
+    return False
 
 
 def _tree_has_root(tree, kind: str) -> bool:
