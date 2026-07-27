@@ -1,0 +1,71 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-07-30T18:00:00+02:00",
+      "claim": "Noor Haddad holds a confirmed single-ticket booking, reference K7Q4WD, for 12 August 2026: Auralis Air flight AU 412 from Verlan City to Halden International, connecting to AU 780 from Halden International to Port Askel.",
+      "id": "e1",
+      "source": "Auralis booking confirmation",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T18:00:00+02:00",
+      "claim": "AU 412 is scheduled to depart Verlan City at 11:20 AM and arrive at Halden International at 2:05 PM on 12 August 2026.",
+      "id": "e2",
+      "source": "Auralis published timetable",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T18:00:00+02:00",
+      "claim": "AU 780 is scheduled to depart Halden International at 3:00 PM and arrive at Port Askel at 5:10 PM on 12 August 2026.",
+      "id": "e3",
+      "source": "Auralis published timetable",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T18:00:00+02:00",
+      "claim": "Both flights are operated by Auralis Air, and the itinerary is through-ticketed with baggage checked through under the fare rules.",
+      "id": "e4",
+      "source": "Auralis fare conditions on the booking",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T18:00:00+02:00",
+      "claim": "Haddad selected seat 14C on AU 412 and seat 9A on AU 780 when she booked on 30 July.",
+      "id": "e5",
+      "source": "Auralis booking record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-04T09:00:00+02:00",
+      "claim": "Auralis operates the Verlan City to Halden route with 118-seat regional jets.",
+      "id": "e6",
+      "source": "Auralis fleet page",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-04T09:00:00+02:00",
+      "claim": "Haddad is an Auralis Silver frequent-flyer member.",
+      "id": "e7",
+      "source": "Auralis booking record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-04T09:00:00+02:00",
+      "claim": "Auralis's published August 2026 timetable shows AU 780 operating daily.",
+      "id": "e8",
+      "source": "Auralis published timetable",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package, deliberately insufficient: it contains the paper itinerary and decoration only \u2014 nothing about AU 412's operation or punctuality on the day, nothing about Halden International's connection times or layout, and nothing about where Haddad is. A compiler that produces a confident world from this is inventing it.",
+  "package_id": "ev_insufficient_flight_2026_08",
+  "prepared_at": "2026-08-05T09:00:00+02:00"
+}

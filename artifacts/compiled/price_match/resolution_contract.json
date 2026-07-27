@@ -1,0 +1,25 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "Close of business on 31 July 2026, Eastern Daylight Time",
+    "timezone": "America/New_York",
+    "when": "2026-07-31T18:00:00-04:00"
+  },
+  "evidence_ids": [],
+  "measured_act": null,
+  "negative_condition": "Revenue from Torrent 800 headlamp sales in July 2026 is less than $8,000.",
+  "positive_condition": "Revenue from Torrent 800 headlamp sales in July 2026 is at least $8,000.",
+  "proof": [
+    {
+      "holder": "Fernhaven Cycles",
+      "kind": "quantity",
+      "meaning": "Total point-of-sale revenue from Torrent 800 headlamp sales for 1-31 July 2026, measured at close of business on 31 July.",
+      "name": "July 2026 Torrent 800 revenue",
+      "unit": "USD"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "The question resolves to YES if Fernhaven Cycles' point-of-sale revenue from the Torrent 800 headlamp for 1-31 July 2026, measured at the close of business on 31 July, is at least $8,000; otherwise NO."
+}

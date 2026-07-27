@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "Fernhaven Cycles, an independent bike shop in Providence, sells the Torrent 800 headlamp at $25.00, and owner Sam Whitaker sets all prices.",
+      "id": "e1",
+      "source": "Shop price list and ownership record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "Point-of-sale records show the shop sold the Torrent 800 at a steady 12 units per day from 15 June through the 17 July close.",
+      "id": "e2",
+      "source": "Fernhaven POS records",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "Point-of-sale records show $5,100 of Torrent 800 revenue for 1 July through the 17 July close, from 204 units at $25.00.",
+      "id": "e3",
+      "source": "Fernhaven POS records",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T11:00:00-04:00",
+      "claim": "Pedal & Spoke, the only other retailer of the Torrent 800 in the shop's market, posted the lamp at $19.99 on the morning of 18 July with signage stating the summer clearance runs through 31 August.",
+      "id": "e4",
+      "source": "Competitor shelf photo, 2026-07-18",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "During March 2026, when Pedal & Spoke priced the Torrent 800 at $19.50 against Fernhaven's $25.00 for three weeks, Fernhaven's sales of the lamp ran at 7 units per day for the duration and returned to 12 per day once prices matched.",
+      "id": "e5",
+      "source": "Fernhaven POS records, March 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "Whitaker's documented practice is to review and change prices only on the first business day of each month, and he has stated he does not make mid-month price changes.",
+      "id": "e6",
+      "source": "Shop pricing memo and owner interview",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "The shop is open every day from 9:00 AM to 6:00 PM with no closures scheduled through 31 July.",
+      "id": "e7",
+      "source": "Posted shop hours",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T09:00:00-04:00",
+      "claim": "The shop holds over 400 Torrent 800 units in stock.",
+      "id": "e8",
+      "source": "Inventory count, 2026-07-18",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-19T09:00:00-04:00",
+      "claim": "Fourteen selling days remain in July, 18 through 31 July inclusive.",
+      "id": "e9",
+      "source": "Derived from the calendar and posted shop hours",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-18T15:00:00-04:00",
+      "claim": "Whitaker has stated he is prepared to match the clearance price at his 3 August monthly review if it is still in force.",
+      "id": "e10",
+      "source": "Owner interview, 2026-07-18",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_price_match_2026_07",
+  "prepared_at": "2026-07-19T09:00:00-04:00"
+}

@@ -1,0 +1,23 @@
+{
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "name": "Pedal & Spoke",
+      "why_safe": "Pedal & Spoke's lower price may affect Fernhaven's sales rate, but the effect is already captured in the uncertainty about the daily sales rate. Excluding Pedal & Spoke as a separate entity does not change the answer because the question only concerns Fernhaven's revenue, and the competitor's price is only relevant through its potential impact on Fernhaven's sales rate."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "daily_sales_rate_18_to_31",
+      "meaning": "The daily sales rate from 18 to 31 July is unknown. It could remain at 12 per day, drop to 7 per day due to competitor's lower price, or take some other value."
+    },
+    {
+      "about": "price_18_to_31_july",
+      "meaning": "The price of the Torrent 800 from 18 to 31 July is unknown. It is likely $25.00 because Whitaker does not make mid-month changes, but there is a possibility he could change it earlier despite his stated practice."
+    }
+  ]
+}

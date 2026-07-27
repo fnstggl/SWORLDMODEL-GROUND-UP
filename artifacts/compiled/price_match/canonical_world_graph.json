@@ -1,0 +1,955 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "state:no_mid_month_change",
+      "rel": "produces",
+      "src": "action:bring_about_no_mid_month_change"
+    },
+    {
+      "attrs": {},
+      "dst": "state:price_set_july",
+      "rel": "produces",
+      "src": "action:bring_about_price_set_july"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:price_18_to_31_july",
+      "rel": "requires",
+      "src": "event:daily_sales_rate_18_to_31"
+    },
+    {
+      "attrs": {
+        "meaning": "Sam Whitaker does not make mid-month price changes"
+      },
+      "dst": "action:bring_about_no_mid_month_change",
+      "rel": "has_authority",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {
+        "meaning": "Sam Whitaker sets prices for Fernhaven Cycles"
+      },
+      "dst": "action:bring_about_price_set_july",
+      "rel": "has_authority",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "state:daily_sales_rate_18_to_31",
+      "rel": "has_state",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_mid_month_change",
+      "rel": "has_state",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "state:price_18_to_31_july",
+      "rel": "has_state",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "state:price_set_july",
+      "rel": "has_state",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "state:sales_1_to_17_july",
+      "rel": "has_state",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:competitor_price_18_july",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:historical_response",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:inventory_level",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_mid_month_change",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:price_set_july",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:remaining_days",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:sales_1_to_17_july",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shop_hours",
+      "rel": "knows",
+      "src": "organization:fernhaven_cycles"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_no_mid_month_change",
+      "rel": "can_perform",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_price_set_july",
+      "rel": "can_perform",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {
+        "meaning": "Sam Whitaker does not make mid-month price changes."
+      },
+      "dst": "action:bring_about_no_mid_month_change",
+      "rel": "has_authority",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {
+        "meaning": "Sam Whitaker sets all prices at Fernhaven Cycles."
+      },
+      "dst": "action:bring_about_price_set_july",
+      "rel": "has_authority",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_mid_month_change",
+      "rel": "has_state",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "state:prepared_to_match_clearance",
+      "rel": "has_state",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "state:price_set_july",
+      "rel": "has_state",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:competitor_price_18_july",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:competitor_price_19_99",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:historical_sales_drop",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:inventory_over_400",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_mid_month_change",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:prepared_to_match",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:price_25",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:revenue_5100",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:sales_rate_12_per_day",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shop_hours",
+      "rel": "knows",
+      "src": "participant:sam_whitaker"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:july_2026_torrent_800_revenue",
+      "rel": "changes",
+      "src": "process:revenue_accumulated"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:sales_18_to_31_july",
+      "rel": "requires",
+      "src": "process:revenue_accumulated"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:sales_1_to_17_july",
+      "rel": "requires",
+      "src": "process:revenue_accumulated"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:july_2026_torrent_800_revenue",
+      "rel": "changes",
+      "src": "process:sales_18_to_31_july"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:daily_sales_rate_18_to_31",
+      "rel": "requires",
+      "src": "process:sales_18_to_31_july"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:price_18_to_31_july",
+      "rel": "requires",
+      "src": "process:sales_18_to_31_july"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:july_2026_torrent_800_revenue",
+      "rel": "changes",
+      "src": "process:sales_1_to_17_july"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "resource:july_2026_torrent_800_revenue"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:revenue_accumulated",
+      "rel": "requires",
+      "src": "resource:july_2026_torrent_800_revenue"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:no_mid_month_change",
+      "rel": "requires",
+      "src": "state:price_18_to_31_july"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:price_set_july",
+      "rel": "requires",
+      "src": "state:price_18_to_31_july"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "name": "Pedal & Spoke",
+      "why_safe": "Pedal & Spoke's lower price may affect Fernhaven's sales rate, but the effect is already captured in the uncertainty about the daily sales rate. Excluding Pedal & Spoke as a separate entity does not change the answer because the question only concerns Fernhaven's revenue, and the competitor's price is only relevant through its potential impact on Fernhaven's sales rate."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "derived_from_step": "no_mid_month_change"
+      },
+      "category": "action",
+      "id": "action:bring_about_no_mid_month_change",
+      "meaning": "Sam Whitaker can bring about: Whitaker does not change price mid-month, so price remains $25.00 through July",
+      "name": "bring about: no_mid_month_change",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "price_set_july"
+      },
+      "category": "action",
+      "id": "action:bring_about_price_set_july",
+      "meaning": "Sam Whitaker can bring about: Price set at $25.00 for July, as per Whitaker's practice of reviewing prices on first business day of month",
+      "name": "bring about: price_set_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "no_producer_needed": "This is an uncertain exogenous variable; no producer identified.",
+        "step_kind": "uncertain_exogenous",
+        "uncertainty": "Sales rate may drop due to competitor's lower price; historical precedent suggests 7 units/day if price difference persists, but uncertain."
+      },
+      "category": "event",
+      "id": "event:daily_sales_rate_18_to_31",
+      "meaning": "Number of Torrent 800 units sold per day from 18 July to 31 July",
+      "name": "daily_sales_rate_18_to_31",
+      "provenance": {
+        "basis": "uncertain",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:competitor_price_18_july",
+      "meaning": "Pedal & Spoke priced Torrent 800 at $19.99 on July 18",
+      "name": "competitor_price_18_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:competitor_price_19_99",
+      "meaning": "Pedal & Spoke priced Torrent 800 at $19.99 on 18 July, clearance through 31 August.",
+      "name": "competitor_price_19.99",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:historical_response",
+      "meaning": "During March 2026 competitor undercut, sales dropped to 7/day",
+      "name": "historical_response",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:historical_sales_drop",
+      "meaning": "In March 2026, when Pedal & Spoke priced at $19.50, Fernhaven's sales dropped to 7 units per day.",
+      "name": "historical_sales_drop",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:inventory_level",
+      "meaning": "Over 400 Torrent 800 units in stock",
+      "name": "inventory_level",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:inventory_over_400",
+      "meaning": "Over 400 Torrent 800 units in stock.",
+      "name": "inventory_over_400",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_mid_month_change",
+      "meaning": "Sam Whitaker does not make mid-month price changes.\nWhitaker does not change prices mid-month",
+      "name": "no_mid_month_change",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:prepared_to_match",
+      "meaning": "Prepared to match clearance price at 3 August review if still in force.",
+      "name": "prepared_to_match",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:price_25",
+      "meaning": "Torrent 800 price is $25.00.",
+      "name": "price_25",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:price_set_july",
+      "meaning": "Torrent 800 price is $25.00 for July",
+      "name": "price_set_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:remaining_days",
+      "meaning": "14 selling days from July 18 to July 31",
+      "name": "remaining_days",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:revenue_5100",
+      "meaning": "Torrent 800 revenue from 1 July through 17 July close was $5,100 from 204 units.",
+      "name": "revenue_5100",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:sales_1_to_17_july",
+      "meaning": "204 units sold, $5,100 revenue from July 1-17",
+      "name": "sales_1_to_17_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:sales_rate_12_per_day",
+      "meaning": "Sales rate of Torrent 800 was 12 units per day from 15 June through 17 July.",
+      "name": "sales_rate_12_per_day",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:shop_hours",
+      "meaning": "Open daily 9 AM to 6 PM through July 31\nShop open daily 9 AM to 6 PM through 31 July.",
+      "name": "shop_hours",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:fernhaven_cycles",
+      "meaning": "holder of July 2026 Torrent 800 revenue, named by the resolution contract",
+      "name": "Fernhaven Cycles",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:sam_whitaker",
+      "meaning": "Owner who has stated he does not make mid-month price changes\nOwner who sets all prices at Fernhaven Cycles",
+      "name": "Sam Whitaker",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "no_producer_needed": "This is a process that is the conjunction of its prerequisites; no separate producer.",
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:revenue_accumulated",
+      "meaning": "Total revenue from Torrent 800 sales from 1 July to 31 July close of business is accumulated",
+      "name": "revenue_accumulated",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "no_producer_needed": "This is a process that is the conjunction of its prerequisites; no separate producer.",
+        "step_kind": "process",
+        "uncertainty": "Daily sales rate and price are uncertain due to competitor pricing and possible price change only on 1 August."
+      },
+      "category": "process",
+      "id": "process:sales_18_to_31_july",
+      "meaning": "Sales from 18 July to 31 July inclusive, 14 days, at unknown daily rate and price",
+      "name": "sales_18_to_31_july",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "no_producer_needed": "This is a measured record of past sales; no producer needed.",
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:sales_1_to_17_july",
+      "meaning": "204 units sold at $25 each from 1 July to 17 July close, generating $5,100 revenue",
+      "name": "sales_1_to_17_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount_at_least": null,
+        "holder": "organization:fernhaven_cycles",
+        "holder_kind": "organization",
+        "holder_name": "Fernhaven Cycles",
+        "unit": "USD",
+        "unsupported": "This is a condition, not a step that needs a producer."
+      },
+      "category": "resource",
+      "id": "resource:july_2026_torrent_800_revenue",
+      "meaning": "July 2026 Torrent 800 revenue >= $8,000\nTotal point-of-sale revenue from Torrent 800 headlamp sales for 1-31 July 2026, measured at close of business on 31 July.",
+      "name": "July 2026 Torrent 800 revenue",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "amount": 400,
+        "holder": "participant:sam_whitaker",
+        "unit": "units"
+      },
+      "category": "resource",
+      "id": "resource:torrent_800_inventory",
+      "meaning": "Over 400 Torrent 800 units in stock.",
+      "name": "torrent_800_inventory",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 400,
+        "holder": "organization:fernhaven_cycles",
+        "substance": "torrent_800_inventory",
+        "unit": "units"
+      },
+      "category": "resource",
+      "id": "resource:torrent_800_inventory_held_by_fernhaven_cycles",
+      "meaning": "Units of Torrent 800 headlamp in stock",
+      "name": "torrent_800_inventory held by Fernhaven Cycles",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:daily_sales_rate_18_to_31",
+      "meaning": "Sales rate from July 18 to July 31 is uncertain; historical data shows 12/day normally, but 7/day during competitor price undercut",
+      "name": "daily_sales_rate_18_to_31",
+      "provenance": {
+        "basis": "uncertain",
+        "evidence_ids": [
+          "e2",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:no_mid_month_change",
+      "meaning": "Sam Whitaker does not make mid-month price changes.\nWhitaker does not change price mid-month, so price remains $25.00 through July\nWhitaker does not change prices mid-month",
+      "name": "no_mid_month_change",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:prepared_to_match_clearance",
+      "meaning": "Sam Whitaker is prepared to match the clearance price at his 3 August monthly review if it is still in force.",
+      "name": "prepared_to_match_clearance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": true,
+        "no_producer_needed": "This is a condition that is the conjunction of its prerequisites; no separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:price_18_to_31_july",
+      "meaning": "Price of Torrent 800 at Fernhaven Cycles from 18 July to 31 July\nPrice remains $25.00 through July 31",
+      "name": "price_18_to_31_july",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "step_kind": "initial_fact",
+        "value": "25.00"
+      },
+      "category": "state",
+      "id": "state:price_set_july",
+      "meaning": "Price for Torrent 800 set at $25.00 for July\nPrice set at $25.00 for July, as per Whitaker's practice of reviewing prices on first business day of month\nSam Whitaker set the Torrent 800 price at $25.00 for July 2026, and does not change prices mid-month.",
+      "name": "price_set_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "204 units, $5,100"
+      },
+      "category": "state",
+      "id": "state:sales_1_to_17_july",
+      "meaning": "204 units sold from July 1 to July 17, revenue $5,100",
+      "name": "sales_1_to_17_july",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "Close of business on 31 July 2026, Eastern Daylight Time",
+          "timezone": "America/New_York",
+          "when": "2026-07-31T18:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Revenue from Torrent 800 headlamp sales in July 2026 is less than $8,000.",
+        "positive_condition": "Revenue from Torrent 800 headlamp sales in July 2026 is at least $8,000.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The question resolves to YES if Fernhaven Cycles' point-of-sale revenue from the Torrent 800 headlamp for 1-31 July 2026, measured at the close of business on 31 July, is at least $8,000; otherwise NO.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "bring about: no_mid_month_change": "bring_about_no_mid_month_change",
+        "bring about: price_set_july": "bring_about_price_set_july"
+      },
+      "event": {
+        "daily_sales_rate_18_to_31": "daily_sales_rate_18_to_31"
+      },
+      "information": {
+        "competitor_price_18_july": "competitor_price_18_july",
+        "competitor_price_19.99": "competitor_price_19_99",
+        "historical_response": "historical_response",
+        "historical_sales_drop": "historical_sales_drop",
+        "inventory_level": "inventory_level",
+        "inventory_over_400": "inventory_over_400",
+        "no_mid_month_change": "no_mid_month_change",
+        "prepared_to_match": "prepared_to_match",
+        "price_25": "price_25",
+        "price_set_july": "price_set_july",
+        "remaining_days": "remaining_days",
+        "revenue_5100": "revenue_5100",
+        "sales_1_to_17_july": "sales_1_to_17_july",
+        "sales_rate_12_per_day": "sales_rate_12_per_day",
+        "shop_hours": "shop_hours"
+      },
+      "organization": {
+        "Fernhaven Cycles": "fernhaven_cycles"
+      },
+      "participant": {
+        "Sam Whitaker": "sam_whitaker"
+      },
+      "process": {
+        "revenue_accumulated": "revenue_accumulated",
+        "sales_18_to_31_july": "sales_18_to_31_july",
+        "sales_1_to_17_july": "sales_1_to_17_july"
+      },
+      "resource": {
+        "July 2026 Torrent 800 revenue": "july_2026_torrent_800_revenue",
+        "torrent_800_inventory": "torrent_800_inventory",
+        "torrent_800_inventory held by Fernhaven Cycles": "torrent_800_inventory_held_by_fernhaven_cycles"
+      },
+      "state": {
+        "daily_sales_rate_18_to_31": "daily_sales_rate_18_to_31",
+        "no_mid_month_change": "no_mid_month_change",
+        "prepared_to_match_clearance": "prepared_to_match_clearance",
+        "price_18_to_31_july": "price_18_to_31_july",
+        "price_set_july": "price_set_july",
+        "sales_1_to_17_july": "sales_1_to_17_july"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "The daily sales rate from 18 to 31 July is unknown. It could remain at 12 per day, drop to 7 per day due to competitor's lower price, or take some other value.",
+      "topic": "daily_sales_rate_18_to_31"
+    },
+    {
+      "about": "event:daily_sales_rate_18_to_31",
+      "meaning": "Sales rate may drop due to competitor's lower price; historical precedent suggests 7 units/day if price difference persists, but uncertain."
+    },
+    {
+      "about": "process:sales_18_to_31_july",
+      "meaning": "Daily sales rate and price are uncertain due to competitor pricing and possible price change only on 1 August."
+    },
+    {
+      "about": "state:price_18_to_31_july",
+      "meaning": "The price of the Torrent 800 from 18 to 31 July is unknown. It is likely $25.00 because Whitaker does not make mid-month changes, but there is a possibility he could change it earlier despite his stated practice."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "record:wire_initiation_record"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:instruction_delivered_to_hollis"
+  ],
+  "warnings": []
+}

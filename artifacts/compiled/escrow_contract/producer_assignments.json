@@ -1,0 +1,69 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "organization",
+          "meaning": "The escrow company that holds the funds and is authorized to initiate the release wire.",
+          "name": "Landmark Title & Escrow"
+        }
+      ],
+      "step": "wire_initiation"
+    },
+    {
+      "step": "fully_signed_instruction_arrives",
+      "unsupported": "This is a condition that is the conjunction of the preceding steps; it has no independent producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "The seller's principal who must sign the release instruction and dispatch it.",
+          "name": "Ada Fontaine"
+        }
+      ],
+      "step": "fontaine_signs_and_dispatches"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "The buyer's principal who must sign the release instruction and dispatch it.",
+          "name": "Bram Hollis"
+        }
+      ],
+      "step": "hollis_signs_and_dispatches"
+    },
+    {
+      "step": "instruction_delivered_to_hollis",
+      "unsupported": "This is a scheduled event with a verified time; no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "kind": "organization",
+          "meaning": "The escrow company that sent the original release instruction to Hollis.",
+          "name": "Landmark Title & Escrow"
+        }
+      ],
+      "step": "landmark_dispatches_instruction"
+    }
+  ]
+}

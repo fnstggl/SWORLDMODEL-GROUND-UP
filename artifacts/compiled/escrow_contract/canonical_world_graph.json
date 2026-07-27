@@ -1,0 +1,923 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:hollis_signs_and_dispatches",
+      "rel": "requires",
+      "src": "action:fontaine_signs_and_dispatches"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:instruction_delivered_to_hollis",
+      "rel": "requires",
+      "src": "action:hollis_signs_and_dispatches"
+    },
+    {
+      "attrs": {},
+      "dst": "record:wire_initiation_record",
+      "rel": "produces",
+      "src": "action:wire_initiation"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:fully_signed_instruction_arrives",
+      "rel": "requires",
+      "src": "action:wire_initiation"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:landmark_dispatches_instruction",
+      "rel": "requires",
+      "src": "event:instruction_delivered_to_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "action:landmark_dispatches_instruction",
+      "rel": "can_perform",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "action:wire_initiation",
+      "rel": "can_perform",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {
+        "meaning": "Sent original release instruction to Hollis"
+      },
+      "dst": "action:landmark_dispatches_instruction",
+      "rel": "has_authority",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {
+        "meaning": "Authorized to initiate release wire upon receipt of fully executed original instruction"
+      },
+      "dst": "action:wire_initiation",
+      "rel": "has_authority",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:closing_conditions_satisfied",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:escrow_agreement_terms",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:firsttrack_terms",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:fontaine_practice",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:hollis_practice",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:instruction_delivered_to_hollis",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:landmark_practice",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_absences",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "information:routing_memo",
+      "rel": "knows",
+      "src": "organization:landmark_title_escrow"
+    },
+    {
+      "attrs": {},
+      "dst": "action:fontaine_signs_and_dispatches",
+      "rel": "can_perform",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {
+        "meaning": "Ada Fontaine is the person who must sign the release instruction and dispatch it."
+      },
+      "dst": "action:fontaine_signs_and_dispatches",
+      "rel": "has_authority",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_absences",
+      "rel": "has_state",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "state:office_location",
+      "rel": "has_state",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "state:seller_principal",
+      "rel": "has_state",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "state:signing_practice",
+      "rel": "has_state",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:closing_conditions_met",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:escrow_agreement",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:firsttrack_terms",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:hollis_practice",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:instruction_delivered_to_hollis",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:landmark_practice",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:release_condition",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:routing",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "information:routing_memo",
+      "rel": "knows",
+      "src": "participant:ada_fontaine"
+    },
+    {
+      "attrs": {},
+      "dst": "action:hollis_signs_and_dispatches",
+      "rel": "can_perform",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {
+        "meaning": "Bram Hollis is the buyer's principal who must sign the release instruction and dispatch it."
+      },
+      "dst": "action:hollis_signs_and_dispatches",
+      "rel": "has_authority",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:closing_conditions_met",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:escrow_agreement_terms",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:firsttrack_terms",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:fontaine_practice",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:hollis_practice",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:instruction_delivered",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:landmark_practice",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_absences",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "information:routing_memo",
+      "rel": "knows",
+      "src": "participant:bram_hollis"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:wire_initiation_record"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:fontaine_signs_and_dispatches",
+      "rel": "requires",
+      "src": "state:fully_signed_instruction_arrives"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e7"
+      ],
+      "name": "FirstTrack courier",
+      "why_safe": "FirstTrack is the courier service used for document delivery. Its delivery times and pickup schedules are accounted for in the evidence (e7). Excluding the courier as an entity does not affect the causal steps because its performance is already described."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Hollis Development",
+      "why_safe": "Hollis Development is the buyer entity, but its actions are fully represented by its principal Bram Hollis, who is included. Excluding the entity does not affect the causal chain."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Kestrel Yard LLC",
+      "why_safe": "Kestrel Yard LLC is the seller entity, but its actions are fully represented by its principal Ada Fontaine, who is included. Excluding the LLC itself does not affect the causal chain."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Renee Calloway",
+      "why_safe": "Renee Calloway is the escrow officer authorized to release funds, but her actions are part of Landmark's practice and are covered by the entity Landmark Title & Escrow. Excluding her individually does not change the outcome."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:fontaine_signs_and_dispatches",
+      "meaning": "Ada Fontaine signs the original release instruction and dispatches it via FirstTrack's 6:00 PM pickup on a business day before 30 September 2026.",
+      "name": "fontaine_signs_and_dispatches",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:hollis_signs_and_dispatches",
+      "meaning": "Bram Hollis signs the original release instruction and dispatches it via FirstTrack's 6:00 PM pickup on a business day before 30 September 2026.",
+      "name": "hollis_signs_and_dispatches",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:landmark_dispatches_instruction",
+      "meaning": "Landmark sends the original release instruction to Hollis via FirstTrack.",
+      "name": "landmark_dispatches_instruction",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:wire_initiation",
+      "meaning": "Landmark Title & Escrow initiates the release wire to the seller before 5:00 PM ET on 30 September 2026.",
+      "name": "wire_initiation",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "no_producer_needed": "This is a scheduled event with a verified time; no producer needed.",
+        "step_kind": "scheduled_event",
+        "when": "2026-09-24T09:40:00-04:00"
+      },
+      "category": "event",
+      "id": "event:instruction_delivered_to_hollis",
+      "meaning": "The original release instruction is delivered to Hollis Development's Wilmington office by FirstTrack.",
+      "name": "instruction_delivered_to_hollis",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:closing_conditions_met",
+      "meaning": "Ada Fontaine knows that all other closing conditions were satisfied on 22 September.\nAll other closing conditions were satisfied and documented on 22 September, leaving the dual-signed release instruction as the sole outstanding requirement.",
+      "name": "closing_conditions_met",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:closing_conditions_satisfied",
+      "meaning": "All other closing conditions satisfied as of 22 Sept, only dual-signed instruction outstanding",
+      "name": "closing_conditions_satisfied",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:escrow_agreement",
+      "meaning": "Ada Fontaine knows that Landmark Title & Escrow holds $180,000 in escrow for the Kestrel Yard sale.",
+      "name": "escrow_agreement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:escrow_agreement_terms",
+      "meaning": "Release requires single original with wet-ink signatures of both principals\nThe escrow agreement requires a single original release instruction bearing wet-ink signatures of both principals; scanned or faxed copies do not suffice.",
+      "name": "escrow_agreement_terms",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:firsttrack_terms",
+      "meaning": "Ada Fontaine knows that FirstTrack standard overnight delivers next business day by 10:30 AM, no weekend pickup/delivery.\nFirstTrack standard overnight delivers next business day by 10:30 AM, no weekend pickup/delivery\nFirstTrack standard overnight delivers the next business day by 10:30 AM and has no Saturday or Sunday pickup or delivery.",
+      "name": "firsttrack_terms",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:fontaine_practice",
+      "meaning": "Fontaine signs and dispatches same day if instruction arrives before noon, via FirstTrack 6 PM pickup\nFontaine's documented practice is to sign and return escrow originals via the 6:00 PM FirstTrack pickup the same business day when they arrive before noon; her Hartford office is open Monday to Friday 9:00 to 5:00.",
+      "name": "fontaine_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:hollis_practice",
+      "meaning": "Ada Fontaine knows that Hollis signs escrow paperwork no later than the business day after receipt and dispatches same day via FirstTrack 6:00 PM pickup.\nHollis signs next business day and dispatches same day via FirstTrack 6 PM pickup\nHollis's documented practice is to sign escrow paperwork no later than the business day after it reaches his office, and his office dispatches signed originals the same day via FirstTrack's 6:00 PM pickup.",
+      "name": "hollis_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:instruction_delivered",
+      "meaning": "The original release instruction was delivered to Hollis Development's Wilmington office at 9:40 AM on Thursday 24 September.",
+      "name": "instruction_delivered",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:instruction_delivered_to_hollis",
+      "meaning": "Ada Fontaine knows that the instruction was delivered to Hollis on 24 September.\nOriginal instruction delivered to Hollis on 24 Sept at 9:40 AM",
+      "name": "instruction_delivered_to_hollis",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:landmark_practice",
+      "meaning": "Ada Fontaine knows that Landmark initiates release wire same business day when fully executed originals arrive by 2:00 PM cutoff.\nLandmark initiates wire same business day if fully executed originals arrive by 2:00 PM cutoff\nLandmark's practice is to initiate the release wire the same business day when fully executed originals arrive by its 2:00 PM cutoff; Landmark is open Monday to Friday 9:00 to 5:00.",
+      "name": "landmark_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_absences",
+      "meaning": "Both principals have no travel or absences scheduled through 2 Oct\nBoth principals' offices are open Monday to Friday, and neither principal has travel or absences scheduled through 2 October.",
+      "name": "no_absences",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:release_condition",
+      "meaning": "Ada Fontaine knows that the release instruction requires wet-ink signatures of both principals.",
+      "name": "release_condition",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:routing",
+      "meaning": "Ada Fontaine knows the routing: instruction goes from Landmark to Hollis, then to Fontaine, then back to Landmark.",
+      "name": "routing",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:routing_memo",
+      "meaning": "The routing agreed sends the original instruction from Landmark to Hollis for signature, then from Hollis to Fontaine, then from Fontaine back to Landmark.",
+      "name": "routing_memo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:landmark_title_escrow",
+      "meaning": "The escrow company that holds the funds and is authorized to initiate the release wire.\nThe escrow company that sent the original release instruction to Hollis.",
+      "name": "Landmark Title & Escrow",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:ada_fontaine",
+      "meaning": "The seller's principal who must sign the release instruction and dispatch it.",
+      "name": "Ada Fontaine",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:bram_hollis",
+      "meaning": "The buyer's principal who must sign the release instruction and dispatch it.",
+      "name": "Bram Hollis",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "bank record",
+        "rule": "count_all",
+        "subject": "Landmark Title & Escrow",
+        "value": "initiated"
+      },
+      "category": "record",
+      "id": "record:wire_initiation_record",
+      "meaning": "A record from Landmark's bank or internal system showing the wire transfer was initiated before the deadline.",
+      "name": "wire initiation record",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "amount": 180000,
+        "holder": "organization:landmark_title_escrow",
+        "unit": "USD"
+      },
+      "category": "resource",
+      "id": "resource:escrow_funds",
+      "meaning": "Funds held in escrow for Kestrel Yard sale",
+      "name": "escrow_funds",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that is the conjunction of the preceding steps; it has no independent producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:fully_signed_instruction_arrives",
+      "meaning": "The original release instruction bearing wet-ink signatures of both principals arrives at Landmark's office before 2:00 PM on a business day on or before 30 September 2026.",
+      "name": "fully_signed_instruction_arrives",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_absences",
+      "meaning": "Ada Fontaine has no travel or absences scheduled through 2 October.",
+      "name": "no_absences",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:office_location",
+      "meaning": "Ada Fontaine's office is in Hartford.",
+      "name": "office_location",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:seller_principal",
+      "meaning": "Ada Fontaine is the principal of Kestrel Yard LLC, the seller in the Kestrel Yard sale agreement.",
+      "name": "seller_principal",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:signing_practice",
+      "meaning": "Ada Fontaine signs and returns escrow originals via the 6:00 PM FirstTrack pickup the same business day when they arrive before noon.",
+      "name": "signing_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The close of business on 30 September 2026, Eastern Time.",
+          "timezone": "America/New_York",
+          "when": "2026-09-30T17:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Landmark Title & Escrow did not initiate the release wire to the seller before the deadline.",
+        "positive_condition": "Landmark Title & Escrow initiated the release wire to the seller before the deadline.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether Landmark Title & Escrow has initiated the release wire to the seller before 5:00 PM Eastern Time on 30 September 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "fontaine_signs_and_dispatches": "fontaine_signs_and_dispatches",
+        "hollis_signs_and_dispatches": "hollis_signs_and_dispatches",
+        "landmark_dispatches_instruction": "landmark_dispatches_instruction",
+        "wire_initiation": "wire_initiation"
+      },
+      "event": {
+        "instruction_delivered_to_hollis": "instruction_delivered_to_hollis"
+      },
+      "information": {
+        "closing_conditions_met": "closing_conditions_met",
+        "closing_conditions_satisfied": "closing_conditions_satisfied",
+        "escrow_agreement": "escrow_agreement",
+        "escrow_agreement_terms": "escrow_agreement_terms",
+        "firsttrack_terms": "firsttrack_terms",
+        "fontaine_practice": "fontaine_practice",
+        "hollis_practice": "hollis_practice",
+        "instruction_delivered": "instruction_delivered",
+        "instruction_delivered_to_hollis": "instruction_delivered_to_hollis",
+        "landmark_practice": "landmark_practice",
+        "no_absences": "no_absences",
+        "release_condition": "release_condition",
+        "routing": "routing",
+        "routing_memo": "routing_memo"
+      },
+      "organization": {
+        "Landmark Title & Escrow": "landmark_title_escrow"
+      },
+      "participant": {
+        "Ada Fontaine": "ada_fontaine",
+        "Bram Hollis": "bram_hollis"
+      },
+      "record": {
+        "wire initiation record": "wire_initiation_record"
+      },
+      "resource": {
+        "escrow_funds": "escrow_funds"
+      },
+      "state": {
+        "fully_signed_instruction_arrives": "fully_signed_instruction_arrives",
+        "no_absences": "no_absences",
+        "office_location": "office_location",
+        "seller_principal": "seller_principal",
+        "signing_practice": "signing_practice"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:fontaine_signs_and_dispatches",
+      "meaning": "Whether Ada Fontaine receives the instruction before noon on the day it arrives, signs it, and dispatches it via the same-day 6:00 PM pickup."
+    },
+    {
+      "about": "action:hollis_signs_and_dispatches",
+      "meaning": "Whether Bram Hollis signs the instruction on 24 or 25 September, and whether the signed original is dispatched on the same day via FirstTrack's 6:00 PM pickup."
+    },
+    {
+      "about": "action:wire_initiation",
+      "meaning": "Whether Landmark initiates the release wire before the deadline of 2026-09-30T17:00:00-04:00."
+    },
+    {
+      "about": "state:fully_signed_instruction_arrives",
+      "meaning": "Whether the fully signed instruction arrives at Landmark before its 2:00 PM cutoff on a business day before the deadline."
+    }
+  ]
+}
