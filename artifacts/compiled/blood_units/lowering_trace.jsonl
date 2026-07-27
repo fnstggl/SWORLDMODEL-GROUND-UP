@@ -1,0 +1,41 @@
+{"cutoff": "2026-07-24T19:00:00+00:00", "start": "2026-07-20T07:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"participant": {"Cascade regional blood centre": "cascade_regional_blood_centre", "St. Vincent regional hospital": "st_vincent_regional_hospital"}, "process": {"collection_process_friday_morning": "collection_process_friday_morning", "collection_process_monday": "collection_process_monday", "collection_process_thursday": "collection_process_thursday", "collection_process_tuesday": "collection_process_tuesday", "collection_process_wednesday": "collection_process_wednesday"}, "quantity": {"blood_units": "blood_units"}}}}
+{"participants": 2, "step": "preflight_ok"}
+{"attention": [], "id": "cascade_regional_blood_centre", "name": "Cascade regional blood centre", "role": "organization", "step": "participant", "tz": "America/Los_Angeles"}
+{"attention": [], "id": "st_vincent_regional_hospital", "name": "St. Vincent regional hospital", "role": "organization", "step": "participant", "tz": "America/Los_Angeles"}
+{"key": "initial_stock_centre", "step": "starting_fact"}
+{"key": "initial_stock_hospital", "step": "starting_fact"}
+{"amount": 15.0, "holder": "st_vincent_regional_hospital", "name": "blood_units", "step": "starting_quantity"}
+{"amount": 40.0, "holder": "cascade_regional_blood_centre", "name": "blood_units", "step": "starting_quantity"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "collection_rate"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "collection_rate"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "collection_week"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "collection_week"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "drive_schedule"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "drive_schedule"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "initial_stock_centre"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "initial_stock_hospital"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "initial_stock_hospital"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "shipment_capacity"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "shipment_capacity"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "shipment_schedule"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "shipment_transit_time"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "shipment_transit_time"}
+{"actor": "cascade_regional_blood_centre", "step": "initial_knowledge", "topic": "shipping_schedule"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "shipping_schedule"}
+{"active": false, "holder": "cascade_regional_blood_centre", "id": "collection_process_friday_morning", "quantity": "blood_units", "rate": 12.0, "step": "process"}
+{"end": "12:00:00", "process": "collection_process_friday_morning", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4, 5, 6]}
+{"active": false, "holder": "cascade_regional_blood_centre", "id": "collection_process_monday", "quantity": "blood_units", "rate": 12.0, "step": "process"}
+{"end": "17:00:00", "process": "collection_process_monday", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0]}
+{"active": false, "holder": "cascade_regional_blood_centre", "id": "collection_process_thursday", "quantity": "blood_units", "rate": 12.0, "step": "process"}
+{"end": "17:00:00", "process": "collection_process_thursday", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [1, 2, 3, 4, 5]}
+{"active": false, "holder": "cascade_regional_blood_centre", "id": "collection_process_tuesday", "quantity": "blood_units", "rate": 12.0, "step": "process"}
+{"end": "17:00:00", "process": "collection_process_tuesday", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4]}
+{"active": false, "holder": "cascade_regional_blood_centre", "id": "collection_process_wednesday", "quantity": "blood_units", "rate": 12.0, "step": "process"}
+{"end": "17:00:00", "process": "collection_process_wednesday", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4, 5, 6]}
+{"at": "2026-07-21T23:00:00+00:00", "description": "tuesday_shipment_dispatch -- Centre dispatches 150 units to hospital at 4:00 PM Tuesday July 21.\nShipment of 150 units dispatched every Tuesday at 4:00 PM.", "ops": 1, "step": "scheduled_event", "wakes": 1}
+{"at": "2026-07-22T02:00:00+00:00", "description": "tuesday_shipment_arrival -- Shipment of 150 units arrives from centre on Tuesday 21 July 2026 at 7:00 PM America/Los_Angeles.\nTuesday shipment arrives at hospital after 3 hours, at 7:00 PM Tuesday Jul", "ops": 2, "step": "scheduled_event", "wakes": 1}
+{"at": "2026-07-23T23:00:00+00:00", "description": "thursday_shipment_dispatch -- Centre dispatches 150 units to hospital at 4:00 PM Thursday July 23.\nShipment of 150 units dispatched every Thursday at 4:00 PM.", "ops": 1, "step": "scheduled_event", "wakes": 1}
+{"at": "2026-07-24T02:00:00+00:00", "description": "thursday_shipment_arrival -- Shipment of 150 units arrives from centre on Thursday 23 July 2026 at 7:00 PM America/Los_Angeles.\nThursday shipment arrives at hospital after 3 hours, at 7:00 PM Thursday", "ops": 2, "step": "scheduled_event", "wakes": 1}
+{"first": "2026-07-20T16:00:00+00:00", "root_events": 18, "step": "schedulable"}
+{"observations": 1, "step": "producers_verified"}

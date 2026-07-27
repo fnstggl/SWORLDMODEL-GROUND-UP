@@ -1,0 +1,18 @@
+{
+  "namespaces": {
+    "participant": {
+      "Cascade regional blood centre": "cascade_regional_blood_centre",
+      "St. Vincent regional hospital": "st_vincent_regional_hospital"
+    },
+    "process": {
+      "collection_process_friday_morning": "collection_process_friday_morning",
+      "collection_process_monday": "collection_process_monday",
+      "collection_process_thursday": "collection_process_thursday",
+      "collection_process_tuesday": "collection_process_tuesday",
+      "collection_process_wednesday": "collection_process_wednesday"
+    },
+    "quantity": {
+      "blood_units": "blood_units"
+    }
+  }
+}

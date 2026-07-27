@@ -1,17 +1,11 @@
 {
   "causal_path": [
-    "Initial hospital stock: 15 units at Monday 9 AM",
-    "Tuesday dispatch at 4 PM, arrival at 7 PM: +150 units",
-    "Thursday dispatch at 4 PM, arrival at 7 PM: +150 units",
-    "Total hospital stock at Friday noon: 315 units"
+    "Initial hospital stock: 15 units at 9 AM Monday",
+    "Tuesday shipment dispatched 4 PM Tuesday, arrives 7 PM Tuesday: +150 units",
+    "Thursday shipment dispatched 4 PM Thursday, arrives 7 PM Thursday: +150 units",
+    "Hospital stock at Friday noon: 15 + 150 + 150 = 315 units"
   ],
-  "defects": [
-    {
-      "document": "uncertainty_and_exclusions",
-      "what": "Preserved uncertainties about collection and shipment events (collection processes, dispatch/arrival events) are listed as uncertain, but the evidence provides no such uncertainty; all schedules and rates are verified.",
-      "why_material": "Removing these uncertainties would make the output deterministic (315 units), whereas including them could allow different outcomes, changing the simulation result."
-    }
-  ],
-  "reasoning": "The world introduces preserved uncertainties about collection and shipment events (e.g., whether the drive operates as scheduled) that are not supported by the evidence. The evidence states these as verified schedules and averages, so the world must treat them deterministically. This uncertainty could change the terminal hospital stock, making it a material defect.",
-  "verdict": "TARGETED_REVISION"
+  "defects": [],
+  "reasoning": "The world faithfully models the evidence: initial stocks, collection rates, shipment schedule and transit time, leading to hospital stock of 315 units at the deadline. The causal chain is complete, all producers are correctly attached, and no material omissions or errors exist.",
+  "verdict": "APPROVE"
 }

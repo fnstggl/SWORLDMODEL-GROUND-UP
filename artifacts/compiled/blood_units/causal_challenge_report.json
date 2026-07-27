@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "id": "participant_ablation",
+      "necessary_for_terminal": [],
+      "note": "survival without a participant is not itself a defect (a passive holder, an operator of a scheduled event); it is named so the reviewer can judge inclusion",
+      "result": "report",
+      "world_survives_without": [
+        "Cascade regional blood centre",
+        "St. Vincent regional hospital"
+      ]
+    },
+    {
+      "id": "process_ablation",
+      "processes": {
+        "collection_process_friday_morning": "terminal still producible",
+        "collection_process_monday": "terminal still producible",
+        "collection_process_thursday": "terminal still producible",
+        "collection_process_tuesday": "terminal still producible",
+        "collection_process_wednesday": "terminal still producible"
+      },
+      "result": "report"
+    },
+    {
+      "id": "route_ablation",
+      "result": "report",
+      "routes": {}
+    },
+    {
+      "enforced_by": "backward_causal_proof",
+      "id": "terminal_at_genesis",
+      "result": "pass"
+    },
+    {
+      "enforced_by": "backward_causal_proof",
+      "id": "report_vs_process",
+      "result": "pass"
+    },
+    {
+      "enforced_by": "backward_causal_proof",
+      "id": "direct_terminal_write",
+      "result": "pass"
+    },
+    {
+      "elements": [
+        "Cascade regional blood centre",
+        "collection_process_friday_morning",
+        "collection_process_monday",
+        "collection_process_thursday",
+        "collection_process_tuesday",
+        "collection_process_wednesday"
+      ],
+      "id": "causally_disconnected",
+      "note": "included but unable to affect the answer; the reviewer judges whether inclusion is decorative",
+      "result": "report"
+    },
+    {
+      "declared_uncertainties": 0,
+      "exact_times_not_from_evidence": [
+        {
+          "basis": "inferred",
+          "event": "thursday_shipment_arrival",
+          "when": "2026-07-23T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "event": "tuesday_shipment_arrival",
+          "when": "2026-07-21T19:00:00-07:00"
+        }
+      ],
+      "id": "silent_uncertainty_resolution",
+      "note": "an inferred exact time beside zero declared uncertainty is where silent resolution hides",
+      "result": "report"
+    },
+    {
+      "id": "perturbation_invariance",
+      "note": "ids and ordering are code-owned; rebuild must be the identity",
+      "result": "pass"
+    }
+  ],
+  "exact_replay": true,
+  "failed": []
+}

@@ -1,0 +1,22 @@
+{"cause":null,"data":{"active":false,"basis":"verified","capacity":null,"holder":"cascade_regional_blood_centre","id":"collection_process_friday_morning","note":"e2: measured average of 12 usable units per hour","rate_per_hour":12.0,"resource":"blood_units"},"op":"process.add","seq":24,"t":"2026-07-20T07:00:00+00:00"}
+{"cause":null,"data":{"active":false,"basis":"verified","capacity":null,"holder":"cascade_regional_blood_centre","id":"collection_process_monday","note":"Centre's 2026 throughput report: average 12 usable units per hour.","rate_per_hour":12.0,"resource":"blood_units"},"op":"process.add","seq":27,"t":"2026-07-20T07:00:00+00:00"}
+{"cause":null,"data":{"active":false,"basis":"verified","capacity":null,"holder":"cascade_regional_blood_centre","id":"collection_process_thursday","note":"Centre's 2026 throughput report","rate_per_hour":12.0,"resource":"blood_units"},"op":"process.add","seq":30,"t":"2026-07-20T07:00:00+00:00"}
+{"cause":null,"data":{"active":false,"basis":"verified","capacity":null,"holder":"cascade_regional_blood_centre","id":"collection_process_tuesday","note":"Centre's 2026 throughput report: average 12 usable units per hour","rate_per_hour":12.0,"resource":"blood_units"},"op":"process.add","seq":33,"t":"2026-07-20T07:00:00+00:00"}
+{"cause":null,"data":{"active":false,"basis":"verified","capacity":null,"holder":"cascade_regional_blood_centre","id":"collection_process_wednesday","note":"Centre's 2026 throughput report: average 12 usable units per hour.","rate_per_hour":12.0,"resource":"blood_units"},"op":"process.add","seq":36,"t":"2026-07-20T07:00:00+00:00"}
+{"cause":49,"data":{"active":true,"id":"collection_process_monday"},"op":"process.active","seq":50,"t":"2026-07-20T16:00:00+00:00"}
+{"cause":51,"data":{"amount":96.0,"clamped":false,"from":"2026-07-20T16:00:00+00:00","id":"collection_process_monday","to":"2026-07-21T00:00:00+00:00"},"op":"process.accrue","seq":52,"t":"2026-07-21T00:00:00+00:00"}
+{"cause":51,"data":{"active":false,"id":"collection_process_monday"},"op":"process.active","seq":53,"t":"2026-07-21T00:00:00+00:00"}
+{"cause":54,"data":{"active":true,"id":"collection_process_tuesday"},"op":"process.active","seq":55,"t":"2026-07-21T16:00:00+00:00"}
+{"cause":56,"data":{"amount":84.0,"clamped":false,"from":"2026-07-21T16:00:00+00:00","id":"collection_process_tuesday","to":"2026-07-21T23:00:00+00:00"},"op":"process.accrue","seq":57,"t":"2026-07-21T23:00:00+00:00"}
+{"cause":62,"data":{"amount":12.0,"clamped":false,"from":"2026-07-21T23:00:00+00:00","id":"collection_process_tuesday","to":"2026-07-22T00:00:00+00:00"},"op":"process.accrue","seq":63,"t":"2026-07-22T00:00:00+00:00"}
+{"cause":62,"data":{"active":false,"id":"collection_process_tuesday"},"op":"process.active","seq":64,"t":"2026-07-22T00:00:00+00:00"}
+{"cause":71,"data":{"active":true,"id":"collection_process_wednesday"},"op":"process.active","seq":72,"t":"2026-07-22T16:00:00+00:00"}
+{"cause":73,"data":{"amount":96.0,"clamped":false,"from":"2026-07-22T16:00:00+00:00","id":"collection_process_wednesday","to":"2026-07-23T00:00:00+00:00"},"op":"process.accrue","seq":74,"t":"2026-07-23T00:00:00+00:00"}
+{"cause":73,"data":{"active":false,"id":"collection_process_wednesday"},"op":"process.active","seq":75,"t":"2026-07-23T00:00:00+00:00"}
+{"cause":76,"data":{"active":true,"id":"collection_process_thursday"},"op":"process.active","seq":77,"t":"2026-07-23T16:00:00+00:00"}
+{"cause":78,"data":{"amount":84.0,"clamped":false,"from":"2026-07-23T16:00:00+00:00","id":"collection_process_thursday","to":"2026-07-23T23:00:00+00:00"},"op":"process.accrue","seq":79,"t":"2026-07-23T23:00:00+00:00"}
+{"cause":84,"data":{"amount":12.0,"clamped":false,"from":"2026-07-23T23:00:00+00:00","id":"collection_process_thursday","to":"2026-07-24T00:00:00+00:00"},"op":"process.accrue","seq":85,"t":"2026-07-24T00:00:00+00:00"}
+{"cause":84,"data":{"active":false,"id":"collection_process_thursday"},"op":"process.active","seq":86,"t":"2026-07-24T00:00:00+00:00"}
+{"cause":93,"data":{"active":true,"id":"collection_process_friday_morning"},"op":"process.active","seq":94,"t":"2026-07-24T16:00:00+00:00"}
+{"cause":95,"data":{"amount":36.0,"clamped":false,"from":"2026-07-24T16:00:00+00:00","id":"collection_process_friday_morning","to":"2026-07-24T19:00:00+00:00"},"op":"process.accrue","seq":96,"t":"2026-07-24T19:00:00+00:00"}
+{"cause":95,"data":{"active":false,"id":"collection_process_friday_morning"},"op":"process.active","seq":97,"t":"2026-07-24T19:00:00+00:00"}
