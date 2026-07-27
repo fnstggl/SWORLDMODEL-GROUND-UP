@@ -325,7 +325,13 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                   else "")
                + ("  amounts: for each resource it changes, {resource "
                   "name: {\"kind\": \"transfer\"|\"adjust\", \"amount\": "
-                  "number, \"from\": holder, \"to\": holder}}\n"
+                  "number, \"from\": holder, \"to\": holder}}. A stated "
+                  "capacity ('up to N', 'holds N') is a CEILING, not the "
+                  "load: the amount is what the evidence's stocks, rates "
+                  "and windows make available to this occurrence at its "
+                  "moment, capped at N -- compute it and show the "
+                  "arithmetic in a note. Only when the evidence states "
+                  "the movement itself is N is N the amount\n"
                   if any(t["category"] == "resource" for t in residue)
                   else "")
                + ("  messages: for each information it delivers, "

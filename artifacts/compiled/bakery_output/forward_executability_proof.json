@@ -1,0 +1,27 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "resource:loaves_delivered"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:first_load",
+    "process:saturday_baking_5_to_10am",
+    "process:saturday_baking_5_to_7am",
+    "process:second_load"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:first_arrival_handover",
+    "event:first_departure",
+    "event:oven_run_saturday",
+    "event:second_arrival_handover",
+    "event:second_departure"
+  ],
+  "warnings": [
+    "process:first_load: a process that changes nothing is decorative",
+    "process:saturday_baking_5_to_10am: a process that changes nothing is decorative",
+    "process:saturday_baking_5_to_7am: a process that changes nothing is decorative",
+    "process:second_load: a process that changes nothing is decorative"
+  ]
+}

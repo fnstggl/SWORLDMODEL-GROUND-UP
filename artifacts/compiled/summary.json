@@ -1,8 +1,8 @@
 [
   {
-    "binding_calls": 14,
+    "binding_calls": 16,
     "case": "bakery_output",
-    "discovery_calls": 16,
+    "discovery_calls": 19,
     "expected_answer": 170.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
@@ -11,16 +11,16 @@
     "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
       "causal_spine": 1,
-      "process:saturday_baking": 1,
+      "process:saturday_baking_5_to_10am": 1,
+      "process:saturday_baking_5_to_7am": 1,
       "resolution_ambiguity_adjudication": 1,
-      "starting_state[Copperwheat Bakery stand at Milbrook Green]": 1,
-      "starting_state[Copperwheat Bakery]": 1,
-      "starting_state[Jo Fenwick]": 1,
-      "starting_state[Tomas Ilic]": 1,
-      "uncertainty_and_exclusions": 1
+      "starting_state[Copperwheat Bakery stand at Milbrook Green]": 2,
+      "starting_state[Copperwheat Bakery]": 2,
+      "starting_state[Jo Fenwick]": 2,
+      "starting_state[Tomas Ilic]": 2
     },
     "runtime_ms": 0.0,
     "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 80906
+    "tokens": 106312
   }
 ]

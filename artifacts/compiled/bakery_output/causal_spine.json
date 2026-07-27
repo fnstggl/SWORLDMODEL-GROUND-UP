@@ -1,0 +1,276 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "Festival loaves physically handed over at the stand by noon on Saturday 15 August 2026.",
+      "name": "loaves_delivered",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "first_arrival_handover"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "second_arrival_handover"
+        }
+      ],
+      "produces_proof": [
+        "loaves_delivered"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "First van run arrives at the green and loaves are handed over at the stand.",
+      "name": "first_arrival_handover",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "first_departure"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-15T08:25:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "First van run departs bakery at 8:00 AM after 10-minute load.",
+      "name": "first_departure",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "first_load"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-15T08:00:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "process",
+      "meaning": "Loading of cooled festival loaves into van for first run, up to 90 loaves.",
+      "name": "first_load",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "cooled_loaves_before_8am"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e5",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Festival loaves that have cooled for at least 60 minutes and are available for loading before 8:00 AM.",
+      "name": "cooled_loaves_before_8am",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "friday_evening_loaves"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "saturday_baked_before_7am"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "initial_fact",
+      "meaning": "20 finished festival loaves baked on Friday 14 August, fully cooled, set aside for Saturday.",
+      "name": "friday_evening_loaves",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Festival loaves baked on Saturday 15 August that finish cooling before 8:00 AM (i.e., baked before 7:00 AM).",
+      "name": "saturday_baked_before_7am",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "saturday_baking_5_to_7am"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "kind": "process",
+      "meaning": "Oven runs continuously from 5:00 AM to 7:00 AM producing festival loaves at 30 per hour.",
+      "name": "saturday_baking_5_to_7am",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Second van run arrives at the green and loaves are handed over at the stand before noon.",
+      "name": "second_arrival_handover",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "second_departure"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-15T11:25:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Second van run departs bakery at 11:00 AM after 10-minute load.",
+      "name": "second_departure",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "second_load"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-15T11:00:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "process",
+      "meaning": "Loading of cooled festival loaves into van for second run, up to 90 loaves.",
+      "name": "second_load",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "cooled_loaves_before_11am"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Festival loaves that have cooled for at least 60 minutes and are available for loading before 11:00 AM.",
+      "name": "cooled_loaves_before_11am",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "saturday_baked_before_10am"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Festival loaves baked on Saturday that finish cooling before 11:00 AM (i.e., baked before 10:00 AM).",
+      "name": "saturday_baked_before_10am",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "saturday_baking_5_to_10am"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "kind": "process",
+      "meaning": "Oven runs continuously from 5:00 AM to 10:00 AM producing festival loaves at 30 per hour.",
+      "name": "saturday_baking_5_to_10am",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}
