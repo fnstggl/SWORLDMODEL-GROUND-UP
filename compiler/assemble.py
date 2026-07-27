@@ -1011,6 +1011,55 @@ class Assembler:
                 self._record("derive_quantity_mechanism",
                              {"resource": rs.name, "mechanism": m}, [], [e])
 
+    def dedupe_events(self) -> None:
+        """Two scheduled events at the same instant whose effects touch
+        the same target are one happening under two names -- a spine
+        revision names one set, an entity's commitments the other, and
+        running both would double-count. Merged into the first id
+        (deterministic), meanings absorbed, every edge redirected."""
+        by_when: dict = {}
+        for ev in self.graph.by_category("event"):
+            when = ev.attrs.get("when")
+            if when:
+                by_when.setdefault(str(when), []).append(ev.id)
+        for when, ids in sorted(by_when.items()):
+            if len(ids) < 2:
+                continue
+            targets = {i: {e.dst for e in
+                           self.graph.edges_from(i, "produces")
+                           + self.graph.edges_from(i, "changes")}
+                       for i in ids}
+            merged: dict = {}
+            for i in sorted(ids):
+                home = None
+                for keep in merged:
+                    if targets[i] & merged[keep] or not targets[i] \
+                            or not merged[keep]:
+                        home = keep
+                        break
+                if home is None:
+                    merged[i] = set(targets[i])
+                    continue
+                merged[home] |= targets[i]
+                dup = self.graph.node(i)
+                self.graph.absorb(home, dup.meaning, dup.basis,
+                                  dup.evidence_ids,
+                                  where=f"dedupe {dup.name!r}")
+                for e in list(self.graph.edges):
+                    if e.src == i and e.dst != home:
+                        self.graph.add_edge(home, e.rel, e.dst,
+                                            dict(e.attrs), where="dedupe")
+                    if e.dst == i and e.src != home:
+                        self.graph.add_edge(e.src, e.rel, home,
+                                            dict(e.attrs), where="dedupe")
+                self.graph.remove_node(i)
+                for name, sid in list(self._step_ids.items()):
+                    if sid == i:
+                        self._step_ids[name] = home
+                self._record("dedupe_event",
+                             {"kept": home, "merged": dup.name,
+                              "when": when}, [], [])
+
     def prune_dead_routes(self) -> None:
         """A channel with no sender or no receiver, carrying no declared
         in-flight message, can never move anything: it is debris from an
@@ -1272,6 +1321,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         if any(boundary.values()):
             _collect(d, a.add_information_boundary, name, boundary)
     _raise_if(d, "starting_state_and_information")
+    a.dedupe_events()
     a.prune_dead_routes()
     a.wire_operated_processes()
 

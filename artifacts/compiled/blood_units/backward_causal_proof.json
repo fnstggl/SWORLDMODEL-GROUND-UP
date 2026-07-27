@@ -5,128 +5,83 @@
         "node": "resource:hospital_units_at_deadline",
         "prerequisites": [
           {
-            "node": "state:hospital_initial_stock",
-            "root": "initial_fact"
-          },
-          {
             "derived_condition": true,
-            "node": "state:hospital_receives_thursday_shipment",
+            "node": "state:initial_stock_plus_received_shipments",
             "prerequisites": [
               {
-                "node": "event:thursday_shipment_dispatched",
-                "prerequisites": [
-                  {
-                    "derived_condition": true,
-                    "node": "state:centre_has_enough_stock_thursday",
-                    "prerequisites": [
-                      {
-                        "node": "process:thursday_collection_before_4pm",
-                        "root": "process"
-                      },
-                      {
-                        "node": "process:wednesday_collection",
-                        "root": "process"
-                      },
-                      {
-                        "derived_condition": true,
-                        "node": "state:centre_stock_after_tuesday_shipment",
-                        "prerequisites": [
-                          {
-                            "derived_condition": true,
-                            "node": "state:centre_has_enough_stock_tuesday",
-                            "prerequisites": [
-                              {
-                                "node": "process:monday_collection",
-                                "root": "process"
-                              },
-                              {
-                                "node": "process:tuesday_collection_before_4pm",
-                                "root": "process"
-                              },
-                              {
-                                "node": "state:centre_initial_stock",
-                                "root": "initial_fact"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "root": "scheduled_event"
-              }
-            ]
-          },
-          {
-            "derived_condition": true,
-            "node": "state:hospital_receives_tuesday_shipment",
-            "prerequisites": [
+                "node": "state:hospital_initial_stock",
+                "root": "initial_fact"
+              },
               {
-                "node": "event:tuesday_shipment_dispatched",
+                "derived_condition": true,
+                "node": "state:shipment_received_by_deadline",
                 "prerequisites": [
                   {
-                    "derived_condition": true,
-                    "node": "state:centre_has_enough_stock_tuesday",
-                    "prerequisites": [
-                      {
-                        "node": "process:monday_collection",
-                        "root": "process"
-                      },
-                      {
-                        "node": "process:tuesday_collection_before_4pm",
-                        "root": "process"
-                      },
-                      {
-                        "node": "state:centre_initial_stock",
-                        "root": "initial_fact"
-                      }
-                    ]
+                    "alt_group": "shipment_route",
+                    "satisfied_by": {
+                      "node": "event:shipment_dispatched_thursday",
+                      "prerequisites": [
+                        {
+                          "derived_condition": true,
+                          "node": "state:centre_has_enough_stock_thursday",
+                          "prerequisites": [
+                            {
+                              "node": "process:collection_monday",
+                              "root": "process"
+                            },
+                            {
+                              "node": "process:collection_thursday",
+                              "root": "process"
+                            },
+                            {
+                              "node": "process:collection_tuesday",
+                              "root": "process"
+                            },
+                            {
+                              "node": "process:collection_wednesday",
+                              "root": "process"
+                            },
+                            {
+                              "node": "state:centre_initial_stock",
+                              "root": "initial_fact"
+                            }
+                          ]
+                        }
+                      ],
+                      "root": "scheduled_event"
+                    }
                   }
-                ],
-                "root": "scheduled_event"
+                ]
               }
             ]
           }
         ],
         "via": {
-          "node": "event:thursday_shipment_dispatched",
+          "node": "event:shipment_dispatched_thursday",
           "prerequisites": [
             {
               "derived_condition": true,
               "node": "state:centre_has_enough_stock_thursday",
               "prerequisites": [
                 {
-                  "node": "process:thursday_collection_before_4pm",
+                  "node": "process:collection_monday",
                   "root": "process"
                 },
                 {
-                  "node": "process:wednesday_collection",
+                  "node": "process:collection_thursday",
                   "root": "process"
                 },
                 {
-                  "derived_condition": true,
-                  "node": "state:centre_stock_after_tuesday_shipment",
-                  "prerequisites": [
-                    {
-                      "derived_condition": true,
-                      "node": "state:centre_has_enough_stock_tuesday",
-                      "prerequisites": [
-                        {
-                          "node": "process:monday_collection",
-                          "root": "process"
-                        },
-                        {
-                          "node": "process:tuesday_collection_before_4pm",
-                          "root": "process"
-                        },
-                        {
-                          "node": "state:centre_initial_stock",
-                          "root": "initial_fact"
-                        }
-                      ]
-                    }
-                  ]
+                  "node": "process:collection_tuesday",
+                  "root": "process"
+                },
+                {
+                  "node": "process:collection_wednesday",
+                  "root": "process"
+                },
+                {
+                  "node": "state:centre_initial_stock",
+                  "root": "initial_fact"
                 }
               ]
             }
@@ -141,8 +96,8 @@
         "event"
       ],
       "producers": [
-        "event:thursday_shipment_dispatched",
-        "event:tuesday_shipment_dispatched"
+        "event:shipment_dispatched_thursday",
+        "event:shipment_dispatched_tuesday"
       ]
     }
   ],

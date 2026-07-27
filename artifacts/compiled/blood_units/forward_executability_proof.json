@@ -5,19 +5,20 @@
   ],
   "information_paths": [],
   "operating_processes": [
-    "process:monday_collection",
-    "process:thursday_collection_before_4pm",
-    "process:tuesday_collection_before_4pm",
-    "process:wednesday_collection"
+    "process:collection_friday",
+    "process:collection_monday",
+    "process:collection_thursday",
+    "process:collection_tuesday",
+    "process:collection_wednesday"
   ],
   "parameter_binding": "deferred to the binding stage",
   "scheduled_roots": [
-    "event:receive_thursday_shipment",
-    "event:receive_tuesday_shipment",
+    "event:shipment_dispatched_thursday",
+    "event:shipment_dispatched_tuesday",
     "event:thursday_shipment",
-    "event:thursday_shipment_dispatched",
-    "event:tuesday_shipment",
-    "event:tuesday_shipment_dispatched"
+    "event:tuesday_shipment"
   ],
-  "warnings": []
+  "warnings": [
+    "process:collection_friday: a process that changes nothing is decorative"
+  ]
 }

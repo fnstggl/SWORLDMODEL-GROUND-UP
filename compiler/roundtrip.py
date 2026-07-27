@@ -62,6 +62,16 @@ def describe_graph(graph: WorldGraph, question: dict,
         if producers:
             out.append(f"  producible by: "
                        f"{', '.join(graph.node(p).name for p in producers)}")
+        if n.category == "resource":
+            holder = n.attrs.get("holder")
+            for rs in graph.by_category("resource"):
+                if rs.id != cid and rs.attrs.get("holder") == holder \
+                        and rs.attrs.get("amount") is not None:
+                    out.append(
+                        f"  opening stock counted: {rs.attrs['amount']} "
+                        f"{rs.attrs.get('unit') or ''} already held by "
+                        f"{graph.node(holder).name if holder else '?'} "
+                        f"(one substance; unified at lowering)")
 
     out.append("\n## Who and what exists")
     for cat in ACTORS:

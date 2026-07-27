@@ -256,6 +256,28 @@ def test_quantity_mechanisms_derive_from_the_prerequisite_chain():
         "scheduled_event"
 
 
+def test_duplicate_events_at_one_instant_merge():
+    """A spine's dispatch and an entity's commitment naming the same
+    16:00 happening must not double-count."""
+    res, spine, prod, state, unc = docs()
+    spine["steps"].append({
+        "name": "tuesday dispatch", "kind": "scheduled_event",
+        "meaning": "the standing 16:00 dispatch",
+        "when": "2026-03-03T16:00:00-05:00",
+        "basis": "verified", "evidence_ids": ["e1"]})
+    state["entities"][0].setdefault("commitments", []).append({
+        "name": "tuesday shipment leaves",
+        "meaning": "the same standing dispatch, under the entity's name",
+        "when": "2026-03-03T16:00:00-05:00",
+        "basis": "verified", "evidence_ids": ["e1"]})
+    g, tr = assemble(res, spine, prod, state, unc,
+                     valid_evidence_ids=EVIDENCE_IDS)
+    at_four = [n for n in g.by_category("event")
+               if n.attrs.get("when") == "2026-03-03T16:00:00-05:00"]
+    assert len(at_four) == 1
+    assert any(t["op"] == "dedupe_event" for t in tr)
+
+
 def test_process_step_with_its_own_process_producer_merges():
     res, spine, prod, state, unc = docs()
     spine["steps"].insert(0, {
