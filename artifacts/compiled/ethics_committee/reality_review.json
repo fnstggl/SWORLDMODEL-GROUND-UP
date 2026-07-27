@@ -1,0 +1,37 @@
+{
+  "causal_path": [
+    "Updated data released on 10 March.",
+    "Lindqvist prepares safety review incorporating updated data (process runs on 10 March).",
+    "Lindqvist circulates safety review via email (process runs until meeting start).",
+    "Osei, Patel, and possibly Doyle receive the review (Doyle cannot access email, so uncertain).",
+    "Meeting begins at 2 PM.",
+    "Osei puts motion to vote (requires review circulated, so may not happen if not circulated).",
+    "If motion put, members vote: Patel yes if review favorable, Osei yes if review favorable, Doyle yes if review provided and favorable, else no.",
+    "If majority yes, approval; if not, no decision.",
+    "Meeting ends at 4 PM."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Two processes (lindqvist_prepares_review and safety_review_circulated) both accrue into 'safety_review' with overlapping operating windows, causing double counting. Also, circulation rate is 0.0833/hour (12 hours), contradicting evidence of near-instant email delivery.",
+      "why_material": "This prevents the safety review from being reliably available before the meeting, blocking all votes that require it, and could lead to incorrect simulation of timing."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Action 'chair_puts_motion' requires 'safety_review_circulated', but evidence only says Osei will not approve without current data; she could still put the motion and vote no.",
+      "why_material": "If the review is not circulated, the motion cannot be put, preventing any vote, whereas in reality a vote could occur (with Osei voting no). This could change outcome from no decision to denial."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "Sister Doyle is assumed unable to receive the safety review because she cannot access email during retreat, but evidence does not preclude Lindqvist providing a hard copy or presenting the review at the meeting.",
+      "why_material": "If Doyle could receive the review at the meeting, she might vote yes, changing the majority outcome."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Continuous process 'lindqvist_prepares_review' operates only on 10 March 09-17, but evidence does not restrict preparation to that day; it could be done on 11 or 12 March. Also, rate 0.25/hour over 8 hours would produce 2 units, not 1.",
+      "why_material": "This could prevent the review from being prepared in time if Lindqvist doesn't complete it on 10 March, or cause double production, affecting availability."
+    }
+  ],
+  "reasoning": "The world has multiple material defects. First, the two processes accruing into 'safety_review' double-count and the circulation rate contradicts evidence (near-instant delivery). Second, 'chair_puts_motion' requires 'safety_review_circulated', but evidence does not require this for putting the motion\u2014Osei could put it and vote no. Third, Doyle's inability to receive the review is assumed without evidence; she could receive a hard copy at the meeting. These defects change whether a vote can occur and the outcome, so revision is needed.",
+  "verdict": "TARGETED_REVISION"
+}

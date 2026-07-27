@@ -1,0 +1,190 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The ethics committee meets on 12 March 2026 at 2:00 PM America/New_York to consider the compassionate-use request.",
+      "name": "meeting_occurs",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "",
+      "when": "2026-03-12T14:00:00-05:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9",
+        "e14"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dr. Osei puts the motion to approve the compassionate-use request to a vote, after opening remarks (about 5 minutes).",
+      "name": "chair_puts_motion",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "meeting_occurs"
+        },
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "",
+      "when": ""
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "process",
+      "meaning": "Lindqvist completes and circulates the safety review to committee members via hospital email, which delivers within about a minute.",
+      "name": "safety_review_circulated",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "lindqvist_prepares_review"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "",
+      "when": ""
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e7"
+      ],
+      "kind": "process",
+      "meaning": "Lindqvist prepares the safety review, incorporating the updated trial safety data released on 10 March.",
+      "name": "lindqvist_prepares_review",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "updated_data_released"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "",
+      "when": ""
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Manufacturer releases updated trial safety data on 10 March 2026 at 8:00 AM America/New_York.",
+      "name": "updated_data_released",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "",
+      "when": "2026-03-10T08:00:00-05:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dr. Osei votes in favor of the request, given that a current safety review is available and favorable.",
+      "name": "osei_votes_yes",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "chair_puts_motion"
+        },
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [
+        "meeting minutes"
+      ],
+      "uncertainty": "",
+      "when": ""
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dr. Patel votes in favor of the request, as he consistently does when a safety review is available and favorable.",
+      "name": "patel_votes_yes",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "chair_puts_motion"
+        },
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [
+        "meeting minutes"
+      ],
+      "uncertainty": "",
+      "when": ""
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Sister Doyle votes in favor of the request, as she votes with the documented safety assessment when provided.",
+      "name": "doyle_votes_yes",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "chair_puts_motion"
+        },
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [
+        "meeting minutes"
+      ],
+      "uncertainty": "",
+      "when": ""
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "kind": "scheduled_event",
+      "meaning": "The meeting ends at 4:00 PM Eastern Time on 12 March 2026; no further votes are counted after this time.",
+      "name": "meeting_ends",
+      "prerequisites": [
+        {
+          "alt_group": "",
+          "necessity": "necessary",
+          "step": "meeting_occurs"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "",
+      "when": "2026-03-12T16:00:00-05:00"
+    }
+  ]
+}

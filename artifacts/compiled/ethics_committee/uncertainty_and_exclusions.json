@@ -1,0 +1,43 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Hospital administration or other staff",
+      "why_safe": "The committee's decision is made solely by the three voting members; no other actors have a vote or can influence the outcome within the meeting."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "External regulatory bodies",
+      "why_safe": "The question is about the committee's approval, not about external authorization. The committee's decision is independent of outside bodies for this step."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "lindqvist_prepares_review",
+      "meaning": "Whether Lindqvist prepared and circulated the safety review incorporating the updated data before the meeting, given the updated data was released on 10 March and the meeting is on 12 March. It is unknown if he had time to prepare and circulate it, and if he did, whether it was received by all members before the meeting."
+    },
+    {
+      "about": "osei_votes_yes",
+      "meaning": "Whether Dr. Osei votes to approve. She requires current safety data; if the review is not circulated or is unfavorable, she may vote no. If the review is favorable and circulated, she may vote yes."
+    },
+    {
+      "about": "patel_votes_yes",
+      "meaning": "Whether Dr. Patel votes to approve. He votes to approve if a safety review is available and favorable. If the review is not available or unfavorable, he may vote no."
+    },
+    {
+      "about": "doyle_votes_yes",
+      "meaning": "Whether Sister Doyle votes to approve. She votes with the documented safety assessment if one has been provided to her. Since she is off-site on retreat and cannot receive email, it is uncertain whether she has the review before the meeting. If she does not have it, her vote is unknown."
+    },
+    {
+      "about": "meeting_ends",
+      "meaning": "Whether the meeting ends before a decision is reached. If the required votes are not cast, there is no decision."
+    }
+  ]
+}

@@ -1,0 +1,1675 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "event:attend_ethics_committee_meeting",
+      "rel": "requires",
+      "src": "action:chair_puts_motion"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "process:safety_review_circulated",
+      "rel": "requires",
+      "src": "action:chair_puts_motion"
+    },
+    {
+      "attrs": {},
+      "dst": "record:meeting_minutes",
+      "rel": "produces",
+      "src": "action:doyle_votes_no"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "requires",
+      "src": "action:doyle_votes_no"
+    },
+    {
+      "attrs": {},
+      "dst": "record:meeting_minutes",
+      "rel": "produces",
+      "src": "action:doyle_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "requires",
+      "src": "action:doyle_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "process:safety_review_circulated",
+      "rel": "requires",
+      "src": "action:doyle_votes_yes"
+    },
+    {
+      "attrs": {},
+      "dst": "record:meeting_minutes",
+      "rel": "produces",
+      "src": "action:osei_votes_no"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "requires",
+      "src": "action:osei_votes_no"
+    },
+    {
+      "attrs": {},
+      "dst": "record:meeting_minutes",
+      "rel": "produces",
+      "src": "action:osei_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "requires",
+      "src": "action:osei_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "process:safety_review_circulated",
+      "rel": "requires",
+      "src": "action:osei_votes_yes"
+    },
+    {
+      "attrs": {},
+      "dst": "record:meeting_minutes",
+      "rel": "produces",
+      "src": "action:patel_votes_no"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "requires",
+      "src": "action:patel_votes_no"
+    },
+    {
+      "attrs": {},
+      "dst": "record:meeting_minutes",
+      "rel": "produces",
+      "src": "action:patel_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "requires",
+      "src": "action:patel_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "process:safety_review_circulated",
+      "rel": "requires",
+      "src": "action:patel_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "event:attend_ethics_committee_meeting",
+      "rel": "requires",
+      "src": "event:meeting_ends"
+    },
+    {
+      "attrs": {},
+      "dst": "action:chair_puts_motion",
+      "rel": "can_perform",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "action:osei_votes_no",
+      "rel": "can_perform",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "action:osei_votes_yes",
+      "rel": "can_perform",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {
+        "meaning": "Chair of the ethics committee; she puts the motion to a vote."
+      },
+      "dst": "action:chair_puts_motion",
+      "rel": "has_authority",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {
+        "meaning": "Voting member of the ethics committee."
+      },
+      "dst": "action:osei_votes_yes",
+      "rel": "has_authority",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "state:will_not_approve_without_current_safety_data",
+      "rel": "has_state",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_membership",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_roster",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_retreat",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_retreat",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_voting_history",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:her_own_stance",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:lindqvist_monitors",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:manufacturer_bulletin_20260310",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_procedure",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_schedule",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_scheduled",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:osei_stance",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:patel_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:review_prep_time",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_request",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_requested",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:updated_data_released",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:voting_rule",
+      "rel": "knows",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "event:attend_ethics_committee_meeting",
+      "rel": "observes",
+      "src": "participant:dr_helen_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "action:patel_votes_no",
+      "rel": "can_perform",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "action:patel_votes_yes",
+      "rel": "can_perform",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {
+        "meaning": "Dr. Raj Patel is a voting member of the ethics committee and can vote on the motion."
+      },
+      "dst": "action:patel_votes_yes",
+      "rel": "has_authority",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_membership",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_roster",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_retreat",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_retreat",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_voting_history",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:lindqvist_monitors",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:manufacturer_bulletin_20260310",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_procedure",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_schedule",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_scheduled",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:osei_stance",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:patel_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:patel_voting_history",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:review_prep_time",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_request",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_requested",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:updated_data_released",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "information:voting_rule",
+      "rel": "knows",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "event:attend_ethics_committee_meeting",
+      "rel": "observes",
+      "src": "participant:dr_raj_patel"
+    },
+    {
+      "attrs": {},
+      "dst": "action:doyle_votes_no",
+      "rel": "can_perform",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "action:doyle_votes_yes",
+      "rel": "can_perform",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {
+        "meaning": "Sister Doyle is a voting member of the ethics committee and can vote on motions."
+      },
+      "dst": "action:doyle_votes_yes",
+      "rel": "has_authority",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_membership",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_roster",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_retreat",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_retreat",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_voting_history",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:lindqvist_monitors",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:manufacturer_bulletin_20260310",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_procedure",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_schedule",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_scheduled",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:osei_stance",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:patel_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:retreat_absence",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:review_prep_time",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_request",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_requested",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:updated_data_released",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:voting_behavior",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "information:voting_rule",
+      "rel": "knows",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {},
+      "dst": "event:attend_ethics_committee_meeting",
+      "rel": "observes",
+      "src": "participant:sister_margaret_doyle"
+    },
+    {
+      "attrs": {
+        "meaning": "Hospital pharmacist who prepares the safety review incorporating updated data."
+      },
+      "dst": "process:lindqvist_prepares_review",
+      "rel": "has_authority",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {
+        "meaning": "Tomas Lindqvist prepares the safety review."
+      },
+      "dst": "process:lindqvist_prepares_review",
+      "rel": "has_authority",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {
+        "meaning": "Hospital pharmacist who prepares and circulates the safety review via email."
+      },
+      "dst": "process:safety_review_circulated",
+      "rel": "has_authority",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {
+        "meaning": "Tomas Lindqvist circulates the safety review via email."
+      },
+      "dst": "process:safety_review_circulated",
+      "rel": "has_authority",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_membership",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:committee_roster",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_retreat",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_retreat",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:doyle_voting_history",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:lindqvist_monitors",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:manufacturer_bulletin_20260310",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_procedure",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_schedule",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_scheduled",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:osei_stance",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:patel_s_voting_pattern",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:request_to_prepare_review",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:review_prep_time",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_request",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:safety_review_requested",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:updated_data_released",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "information:voting_rule",
+      "rel": "knows",
+      "src": "participant:tomas_lindqvist"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:safety_review",
+      "rel": "changes",
+      "src": "process:lindqvist_prepares_review"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "event:updated_data_released",
+      "rel": "requires",
+      "src": "process:lindqvist_prepares_review"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:safety_review",
+      "rel": "changes",
+      "src": "process:safety_review_circulated"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "process:lindqvist_prepares_review",
+      "rel": "requires",
+      "src": "process:safety_review_circulated"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:meeting_minutes"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "External regulatory bodies",
+      "why_safe": "The question is about the committee's approval, not about external authorization. The committee's decision is independent of outside bodies for this step."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Hospital administration or other staff",
+      "why_safe": "The committee's decision is made solely by the three voting members; no other actors have a vote or can influence the outcome within the meeting."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:chair_puts_motion",
+      "meaning": "Dr. Osei puts the motion to approve the compassionate-use request to a vote, after opening remarks (about 5 minutes).",
+      "name": "chair_puts_motion",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9",
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:doyle_votes_no",
+      "meaning": "Sister Doyle votes against the request if the safety review is not provided or not favorable.",
+      "name": "doyle_votes_no",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:doyle_votes_yes",
+      "meaning": "Sister Doyle votes in favor of the request, as she votes with the documented safety assessment when provided.",
+      "name": "doyle_votes_yes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:osei_votes_no",
+      "meaning": "Dr. Osei votes against the request if the safety review is not available or not favorable.",
+      "name": "osei_votes_no",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:osei_votes_yes",
+      "meaning": "Dr. Osei votes in favor of the request, given that a current safety review is available and favorable.",
+      "name": "osei_votes_yes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:patel_votes_no",
+      "meaning": "Dr. Patel votes against the request if the safety review is not available or not favorable.",
+      "name": "patel_votes_no",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:patel_votes_yes",
+      "meaning": "Dr. Patel votes in favor of the request, as he consistently does when a safety review is available and favorable.",
+      "name": "patel_votes_yes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-03-12T14:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:attend_ethics_committee_meeting",
+      "meaning": "Ethics committee meeting to consider compassionate-use request\nEthics committee meeting to consider compassionate-use request.\nSister Doyle is scheduled to attend the ethics committee meeting on 12 March 2026 at 2:00 PM America/New_York.\nThe ethics committee meets on 12 March 2026 at 2:00 PM America/New_York to consider the compassionate-use request.",
+      "name": "attend_ethics_committee_meeting",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-03-12T16:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:meeting_ends",
+      "meaning": "The meeting ends at 4:00 PM Eastern Time on 12 March 2026; no further votes are counted after this time.",
+      "name": "meeting_ends",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-03-10T08:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:updated_data_released",
+      "meaning": "Manufacturer releases updated trial safety data on 10 March 2026 at 8:00 AM America/New_York.",
+      "name": "updated_data_released",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:committee_membership",
+      "meaning": "Sister Doyle knows she is a voting member of the ethics committee.",
+      "name": "committee_membership",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:committee_roster",
+      "meaning": "Knows the three voting members: herself, Dr. Raj Patel, Sister Margaret Doyle.\nThe committee has three voting members: Dr. Helen Osei (chair), Dr. Raj Patel, and Sister Margaret Doyle.",
+      "name": "committee roster",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:doyle_retreat",
+      "meaning": "Sister Doyle is off-site on retreat from 10 to 12 March and the hospital has no email contact with her during it, but she attends the meeting in person.",
+      "name": "doyle_retreat",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:doyle_s_retreat",
+      "meaning": "Knows Doyle is off-site on retreat from 10 to 12 March and has no email contact during it, but attends the meeting in person.",
+      "name": "Doyle's retreat",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:doyle_s_voting_pattern",
+      "meaning": "Knows Sister Doyle votes with the documented safety assessment when one has been provided.",
+      "name": "Doyle's voting pattern",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:doyle_voting_history",
+      "meaning": "Sister Doyle votes with the documented safety assessment when one has been provided to her.",
+      "name": "doyle_voting_history",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:email_delivery",
+      "meaning": "Hospital email delivers within about a minute.",
+      "name": "email_delivery",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:her_own_stance",
+      "meaning": "Knows she will not approve without current safety data.",
+      "name": "her own stance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:lindqvist_monitors",
+      "meaning": "Lindqvist monitors manufacturer bulletins as part of his role and acts on them the same working day.",
+      "name": "lindqvist_monitors",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:manufacturer_bulletin_20260310",
+      "meaning": "The manufacturer released updated trial safety data on 10 March 2026 at 8:00 AM America/New_York showing a lower rate of severe adverse events.",
+      "name": "manufacturer_bulletin_20260310",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:meeting_procedure",
+      "meaning": "Members are present in the meeting room and hear motions put by the chair immediately.",
+      "name": "meeting_procedure",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:meeting_schedule",
+      "meaning": "Knows the meeting is on 12 March 2026 at 2:00 PM America/New_York.",
+      "name": "meeting schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:meeting_scheduled",
+      "meaning": "Sister Doyle knows the committee meets on 12 March 2026 at 2:00 PM America/New_York.\nThe committee meets 12 March 2026 at 2:00 PM America/New_York to consider a compassionate-use request.\nThe committee meets 12 March 2026 at 2:00 PM America/New_York.",
+      "name": "meeting_scheduled",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:osei_stance",
+      "meaning": "Dr. Osei will not approve compassionate use without current safety data, and considers the older adverse-event rate disqualifying.",
+      "name": "osei_stance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:patel_s_voting_pattern",
+      "meaning": "Knows Dr. Patel consistently votes to approve when a safety review is available and favourable.",
+      "name": "Patel's voting pattern",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:patel_voting_history",
+      "meaning": "Dr. Patel has consistently voted to approve compassionate use where a safety review is available and favourable.",
+      "name": "patel_voting_history",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:request_to_prepare_review",
+      "meaning": "Tomas Lindqvist was asked to prepare a safety review of the therapy and circulate it to members before the meeting.",
+      "name": "request_to_prepare_review",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:retreat_absence",
+      "meaning": "Sister Doyle knows she is on retreat from 10 to 12 March and cannot be reached by email during that time, but she will attend the meeting in person.",
+      "name": "retreat_absence",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:review_prep_time",
+      "meaning": "A safety review of this kind takes Lindqvist roughly half a working day to prepare.",
+      "name": "review_prep_time",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:safety_review_request",
+      "meaning": "Knows that Tomas Lindqvist was asked to prepare a safety review and circulate it before the meeting.",
+      "name": "safety review request",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:safety_review_requested",
+      "meaning": "Hospital pharmacist Tomas Lindqvist was asked to prepare a safety review and circulate it to members before the meeting.",
+      "name": "safety_review_requested",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:updated_data_released",
+      "meaning": "The manufacturer released updated trial safety data on 10 March 2026 at 8:00 AM America/New_York showing a lower rate of severe adverse events.",
+      "name": "updated_data_released",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:voting_behavior",
+      "meaning": "Sister Doyle knows she votes with the documented safety assessment when one has been provided to her.",
+      "name": "voting_behavior",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:voting_rule",
+      "meaning": "Sister Doyle knows the committee decides by simple majority of votes cast.\nThe committee decides by simple majority of votes cast; the chair puts a motion and members vote in the room.",
+      "name": "voting_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:dr_helen_osei",
+      "meaning": "Chair of the ethics committee; puts the motion to a vote after opening remarks.\nVoting member of the ethics committee; votes no if safety review is not available or not favorable.\nVoting member of the ethics committee; votes yes if safety review is available and favorable.",
+      "name": "Dr. Helen Osei",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e14",
+          "e2",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:dr_raj_patel",
+      "meaning": "Voting member of the ethics committee; votes no if safety review is not available or not favorable.\nVoting member of the ethics committee; votes yes if safety review is available and favorable.",
+      "name": "Dr. Raj Patel",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-03-10T00:00:00-05:00",
+            "meaning": "Sister Doyle is on retreat from 10 March to 12 March and cannot receive hospital emails during that period.",
+            "to": "2026-03-12T14:00:00-05:00"
+          }
+        ],
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:sister_margaret_doyle",
+      "meaning": "Voting member of the ethics committee; votes no if safety review is not provided or not favorable.\nVoting member of the ethics committee; votes yes if safety review is provided and favorable. However, she is off-site on retreat from 10 to 12 March and cannot access hospital email, so she cannot receive the circulated review before the meeting. She attends the meeting in person, but the review is only circulated via email, so she cannot have it at the meeting unless provided in another way. The evidence does not specify any alternative delivery mechanism, so her ability to vote yes is uncertain.",
+      "name": "Sister Margaret Doyle",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e11",
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:tomas_lindqvist",
+      "meaning": "Hospital pharmacist who prepares and circulates the safety review via email.\nHospital pharmacist who prepares the safety review incorporating updated data.",
+      "name": "Tomas Lindqvist",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e6",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:lindqvist_prepares_review",
+      "meaning": "Lindqvist prepares the safety review, incorporating the updated trial safety data released on 10 March.",
+      "name": "lindqvist_prepares_review",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:safety_review_circulated",
+      "meaning": "Lindqvist completes and circulates the safety review to committee members via hospital email, which delivers within about a minute.",
+      "name": "safety_review_circulated",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 3,
+        "record_type": "minutes",
+        "rule": "majority",
+        "subject": "committee members",
+        "value": null
+      },
+      "category": "record",
+      "id": "record:meeting_minutes",
+      "meaning": "The official minutes of the 12 March meeting recording the motion and the votes of each member.",
+      "name": "meeting minutes",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 0,
+        "holder": "participant:tomas_lindqvist",
+        "unit": "document"
+      },
+      "category": "resource",
+      "id": "resource:safety_review",
+      "meaning": "Safety review document of the therapy, to be prepared and circulated.",
+      "name": "safety_review",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:will_not_approve_without_current_safety_data",
+      "meaning": "Dr. Osei will not approve compassionate use without current safety data, and considers the older adverse-event rate disqualifying.",
+      "name": "will not approve without current safety data",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The meeting ends at 4:00 PM Eastern Time on 12 March 2026; any votes cast after that time do not count.",
+          "timezone": "America/New_York",
+          "when": "2026-03-12T16:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The committee does not approve the request, meaning a majority of votes cast are against, or no decision is reached because the required votes are not cast before the meeting ends.",
+        "positive_condition": "The committee approves the request, meaning a majority of votes cast are in favor.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The committee's recorded votes under its own majority rule determine whether the compassionate-use request is approved or not at the 12 March meeting.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "chair_puts_motion": "chair_puts_motion",
+        "doyle_votes_no": "doyle_votes_no",
+        "doyle_votes_yes": "doyle_votes_yes",
+        "osei_votes_no": "osei_votes_no",
+        "osei_votes_yes": "osei_votes_yes",
+        "patel_votes_no": "patel_votes_no",
+        "patel_votes_yes": "patel_votes_yes"
+      },
+      "event": {
+        "attend_ethics_committee_meeting": "attend_ethics_committee_meeting",
+        "meeting_ends": "meeting_ends",
+        "updated_data_released": "updated_data_released"
+      },
+      "information": {
+        "Doyle's retreat": "doyle_s_retreat",
+        "Doyle's voting pattern": "doyle_s_voting_pattern",
+        "Patel's voting pattern": "patel_s_voting_pattern",
+        "committee roster": "committee_roster",
+        "committee_membership": "committee_membership",
+        "doyle_retreat": "doyle_retreat",
+        "doyle_voting_history": "doyle_voting_history",
+        "email_delivery": "email_delivery",
+        "her own stance": "her_own_stance",
+        "lindqvist_monitors": "lindqvist_monitors",
+        "manufacturer_bulletin_20260310": "manufacturer_bulletin_20260310",
+        "meeting schedule": "meeting_schedule",
+        "meeting_procedure": "meeting_procedure",
+        "meeting_scheduled": "meeting_scheduled",
+        "osei_stance": "osei_stance",
+        "patel_voting_history": "patel_voting_history",
+        "request_to_prepare_review": "request_to_prepare_review",
+        "retreat_absence": "retreat_absence",
+        "review_prep_time": "review_prep_time",
+        "safety review request": "safety_review_request",
+        "safety_review_requested": "safety_review_requested",
+        "updated_data_released": "updated_data_released",
+        "voting_behavior": "voting_behavior",
+        "voting_rule": "voting_rule"
+      },
+      "participant": {
+        "Dr. Helen Osei": "dr_helen_osei",
+        "Dr. Raj Patel": "dr_raj_patel",
+        "Sister Margaret Doyle": "sister_margaret_doyle",
+        "Tomas Lindqvist": "tomas_lindqvist"
+      },
+      "process": {
+        "lindqvist_prepares_review": "lindqvist_prepares_review",
+        "safety_review_circulated": "safety_review_circulated"
+      },
+      "record": {
+        "meeting minutes": "meeting_minutes"
+      },
+      "resource": {
+        "safety_review": "safety_review"
+      },
+      "state": {
+        "will not approve without current safety data": "will_not_approve_without_current_safety_data"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "Whether the safety review, if prepared, is favorable. The updated data shows lower adverse events, but the review could still be unfavorable due to other factors. This affects votes of Osei and Patel.",
+      "topic": "safety_review_favorable"
+    },
+    {
+      "about": "action:doyle_votes_yes",
+      "meaning": "Whether Sister Doyle votes to approve. She votes with the documented safety assessment if one has been provided to her. Since she is off-site on retreat and cannot receive email, it is uncertain whether she has the review before the meeting. If she does not have it, her vote is unknown."
+    },
+    {
+      "about": "action:osei_votes_yes",
+      "meaning": "Whether Dr. Osei votes to approve. She requires current safety data; if the review is not circulated or is unfavorable, she may vote no. If the review is favorable and circulated, she may vote yes."
+    },
+    {
+      "about": "action:patel_votes_yes",
+      "meaning": "Whether Dr. Patel votes to approve. He votes to approve if a safety review is available and favorable. If the review is not available or unfavorable, he may vote no."
+    },
+    {
+      "about": "event:meeting_ends",
+      "meaning": "Whether the meeting ends before a decision is reached. If the required votes are not cast, there is no decision."
+    },
+    {
+      "about": "process:lindqvist_prepares_review",
+      "meaning": "Whether Lindqvist prepared and circulated the safety review incorporating the updated data before the meeting, given the updated data was released on 10 March and the meeting is on 12 March. It is unknown if he had time to prepare and circulate it, and if he did, whether it was received by all members before the meeting."
+    }
+  ]
+}
