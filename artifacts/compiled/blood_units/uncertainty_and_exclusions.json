@@ -1,0 +1,103 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e6",
+        "e7"
+      ],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's receipts from Cascade regional blood centre. No other sources or destinations are mentioned."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e4"
+      ],
+      "name": "Weekend collections",
+      "why_safe": "The drive is only open Monday to Friday, and the deadline is Friday noon, so weekend collections are irrelevant."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e4",
+        "e7"
+      ],
+      "name": "Friday collection",
+      "why_safe": "The deadline is Friday noon, and the drive opens at 9am Friday. However, any collection on Friday would not be shipped until the next scheduled shipment (Tuesday or Thursday), which is after the deadline. Therefore, Friday collection cannot affect the hospital's stock by Friday noon."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Blood wastage or usage at hospital",
+      "why_safe": "The question asks for units 'received', not units remaining after usage. Usage does not affect the count of received units."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre's stock after Monday collection and Tuesday collection before 4pm is at least 150 units to dispatch the Tuesday shipment. The centre initial stock is 40, Monday collection is 12 units/hour * 8 hours = 96 units, so after Monday stock is 136. Tuesday collection before 4pm is 12 units/hour * 7 hours (9am to 4pm) = 84 units, so total before Tuesday shipment is 136+84=220, which is >=150. So this step is actually certain."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre's stock after Tuesday shipment, Wednesday collection, and Thursday collection before 4pm is at least 150 units. After Tuesday shipment, stock = 220-150=70. Wednesday collection: 12*8=96, so after Wednesday stock=166. Thursday collection before 4pm: 12*7=84, so total before Thursday shipment=250, which is >=150. So this step is also certain."
+    },
+    {
+      "about": "hospital_receives_tuesday_shipment",
+      "meaning": "Whether the Tuesday shipment dispatched at 4pm arrives and is received by the hospital before Friday noon. Since shipment takes 3 hours, it arrives at 7pm Tuesday, well before Friday noon. So certain."
+    },
+    {
+      "about": "hospital_receives_thursday_shipment",
+      "meaning": "Whether the Thursday shipment dispatched at 4pm arrives and is received by the hospital before Friday noon. It arrives at 7pm Thursday, before Friday noon. So certain."
+    },
+    {
+      "about": "hospital_initial_stock",
+      "meaning": "The hospital held 15 units at Monday 9am. This is given."
+    },
+    {
+      "about": "centre_initial_stock",
+      "meaning": "The centre held 40 units at Monday 9am. Given."
+    },
+    {
+      "about": "monday_collection",
+      "meaning": "Collection on Monday from 9am to 5pm: 8 hours * 12 units/hour = 96 units. Certain."
+    },
+    {
+      "about": "tuesday_collection_before_4pm",
+      "meaning": "Collection on Tuesday from 9am to 4pm: 7 hours * 12 = 84 units. Certain."
+    },
+    {
+      "about": "wednesday_collection",
+      "meaning": "Collection on Wednesday from 9am to 5pm: 8 hours * 12 = 96 units. Certain."
+    },
+    {
+      "about": "thursday_collection_before_4pm",
+      "meaning": "Collection on Thursday from 9am to 4pm: 7 hours * 12 = 84 units. Certain."
+    },
+    {
+      "about": "tuesday_shipment_dispatched",
+      "meaning": "The centre dispatches 150 units on Tuesday at 4pm. Certain given enough stock."
+    },
+    {
+      "about": "thursday_shipment_dispatched",
+      "meaning": "The centre dispatches 150 units on Thursday at 4pm. Certain given enough stock."
+    },
+    {
+      "about": "centre_stock_after_tuesday_shipment",
+      "meaning": "Stock after Tuesday shipment: 220-150=70. Certain."
+    }
+  ]
+}

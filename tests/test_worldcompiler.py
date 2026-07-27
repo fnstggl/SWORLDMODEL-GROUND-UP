@@ -74,8 +74,9 @@ def fake_call(system, user, model="stub", **kw):
     if "equivalence reviewer" in system:
         return out({"verdict": "EQUIVALENT", "findings": []})
     if "binding step" in system:
-        item = json.loads(user.split("\n\nReturn JSON")[0]
-                          .split("):\n", 1)[1])
+        body = user.split("THE ITEM", 1)[1]
+        item = json.loads(body.split("):\n", 1)[1]
+                          .split("\n\nReturn JSON")[0])
         if "route" in item:
             return out({"delivery_seconds": 60,
                         "status": "model_memory_unverified",
