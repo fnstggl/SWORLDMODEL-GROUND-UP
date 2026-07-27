@@ -1075,21 +1075,16 @@ class Assembler:
             if len(producers) < 2:
                 continue
             def upstream_of(ev):
-                seen, out, frontier = set(), set(), [ev]
-                while frontier:
-                    cur = frontier.pop()
-                    if cur in seen:
-                        continue
-                    seen.add(cur)
-                    for e in (self.graph.edges_from(cur, "requires")
-                              + self.graph.edges_from(cur,
-                                                      "scheduled_at")):
-                        n = self.graph.node(e.dst)
-                        if n.category == "event":
-                            out.add(e.dst)
-                            frontier.append(e.dst)
-                        elif n.category == "state":
-                            frontier.append(e.dst)
+                """DIRECT departure links only: an arrival requires or is
+                anchored to its own dispatch. A connection through an
+                intermediate stock condition means sequential independent
+                movements (Tuesday's and Thursday's shipments), which
+                both transfer."""
+                out = set()
+                for e in (self.graph.edges_from(ev, "requires")
+                          + self.graph.edges_from(ev, "scheduled_at")):
+                    if self.graph.node(e.dst).category == "event":
+                        out.add(e.dst)
                 return out
             for ev in list(producers):
                 ups = upstream_of(ev) & set(producers)

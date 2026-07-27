@@ -1,0 +1,79 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units; other entities are irrelevant."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e7"
+      ],
+      "name": "Weekend collections or shipments",
+      "why_safe": "The drive is only open Monday to Friday, and shipments are only Tuesday and Thursday; weekend operations are not part of the schedule."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Blood wastage or transfusions at the hospital",
+      "why_safe": "The question asks for units received, not units consumed; wastage or usage does not affect the count of received units."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_stock_after_tuesday_shipment",
+      "meaning": "The centre's stock after the Tuesday shipment is dispatched is unknown because the Monday and Tuesday collection amounts are not specified; only the average rate is known, but actual collections may vary."
+    },
+    {
+      "about": "monday_collection",
+      "meaning": "The actual number of units collected on Monday is unknown; only the average rate of 12 units per hour is given, but actual collection may differ."
+    },
+    {
+      "about": "tuesday_collection_before_4pm",
+      "meaning": "The actual number of units collected on Tuesday before 4 PM is unknown; only the average rate is given."
+    },
+    {
+      "about": "wednesday_collection",
+      "meaning": "The actual number of units collected on Wednesday is unknown; only the average rate is given."
+    },
+    {
+      "about": "thursday_collection_before_4pm",
+      "meaning": "The actual number of units collected on Thursday before 4 PM is unknown; only the average rate is given."
+    },
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre has at least 150 units to ship on Tuesday is uncertain because the centre's stock after Monday and Tuesday collections is unknown."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre has at least 150 units to ship on Thursday is uncertain because the centre's stock after Tuesday shipment, Wednesday and Thursday collections is unknown."
+    },
+    {
+      "about": "tuesday_shipment_dispatched",
+      "meaning": "It is uncertain whether the Tuesday shipment actually occurs because it depends on the centre having enough stock."
+    },
+    {
+      "about": "thursday_shipment_dispatched",
+      "meaning": "It is uncertain whether the Thursday shipment actually occurs because it depends on the centre having enough stock."
+    },
+    {
+      "about": "tuesday_shipment_received",
+      "meaning": "It is uncertain whether the Tuesday shipment is received by the hospital because it depends on dispatch and timing."
+    },
+    {
+      "about": "thursday_shipment_received",
+      "meaning": "It is uncertain whether the Thursday shipment is received by the hospital by Friday noon because the shipment takes 3 hours and is dispatched at 4 PM Thursday, arriving at 7 PM Thursday, which is before Friday noon, so it should be received, but if not dispatched, it won't be."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "Monday collection adds 96 units to centre stock",
+        "Tuesday collection before 4pm adds 84 units",
+        "Tuesday shipment transfers 150 units to hospital (arrives 7pm Tuesday)",
+        "Wednesday collection adds 96 units",
+        "Thursday collection before 4pm adds 84 units",
+        "Thursday shipment transfers 150 units to hospital (arrives 7pm Thursday)",
+        "Hospital holds initial 15 plus 300 from shipments = 315 units at Friday noon"
+      ],
+      "defects": [
+        {
+          "document": "causal_spine",
+          "what": "Uncertainty declarations about collection amounts treat average rates as uncertain, contradicting the instruction that labeled averages are deterministic.",
+          "why_material": "Introduces unnecessary branches that could prevent shipments from occurring, changing the number of units received."
+        },
+        {
+          "document": "causal_spine",
+          "what": "Initial stock variable 'initial_stock' is set to 15 but centre holds 40 units.",
+          "why_material": "Would incorrectly reduce centre stock, potentially causing shipments to fail."
+        },
+        {
+          "document": "producer_assignments",
+          "what": "Thursday shipment transfers from 'hospital_units_at_deadline' instead from centre stock.",
+          "why_material": "Would incorrectly deduct from hospital stock rather than centre, making the simulation inconsistent."
+        },
+        {
+          "document": "resolution_contract",
+          "what": "Terminal lists only thursday_shipment as producer, missing tuesday_shipment.",
+          "why_material": "Would cause the terminal to be calculated without the Tuesday shipment, resulting in an incorrect count."
+        }
+      ],
+      "reasoning": "The world has several defects that would change the simulation's output. The terminal's producer list omits the Tuesday shipment, initial stock for the centre is incorrectly set to 15 instead of 40, the Thursday shipment transfers from the wrong resource, and uncertainty about collection amounts is introduced without evidence support. These need correction for the world to produce the correct number of units received by Friday noon.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

@@ -1,0 +1,25 @@
+{
+  "ambiguities": [],
+  "answer_type": "quantity",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "Friday noon Pacific Daylight Time, the deadline for the hospital to have received units.",
+    "timezone": "America/Los_Angeles",
+    "when": "2026-07-24T12:00:00-07:00"
+  },
+  "evidence_ids": [],
+  "measured_act": null,
+  "negative_condition": null,
+  "positive_condition": "The hospital holds a specific number of usable blood units at the deadline.",
+  "proof": [
+    {
+      "holder": "St. Vincent regional hospital",
+      "kind": "quantity",
+      "meaning": "The number of usable blood units in St. Vincent hospital's inventory at the deadline.",
+      "name": "hospital_units_at_deadline",
+      "unit": "units"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday noon, July 24, 2026."
+}
