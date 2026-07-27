@@ -6,19 +6,21 @@
     {
       "attention": [],
       "availability": {
-        "close": "17:00",
+        "close": "23:59",
         "holidays": [],
-        "open": "09:00",
+        "open": "00:00",
         "timezone": "America/Los_Angeles",
         "workdays": [
           0,
           1,
           2,
           3,
-          4
+          4,
+          5,
+          6
         ]
       },
-      "causal_relevance": "Collects blood and ships to hospital.",
+      "causal_relevance": "Collects and ships blood units to hospital.",
       "evidence_ids": [
         "e1",
         "e2",
@@ -32,9 +34,9 @@
         "Collect and distribute blood units"
       ],
       "identity_brief": "Regional blood centre operating mobile collection drive.",
-      "initial_emotional_state": "Neutral",
-      "initial_physical_state": "Operating",
-      "initial_plan": "Collect blood Mon-Fri 9-5, ship Tue/Thu 4pm",
+      "initial_emotional_state": "",
+      "initial_physical_state": "",
+      "initial_plan": "",
       "kind": "organization",
       "name": "Cascade regional blood centre",
       "provenance": {
@@ -58,9 +60,7 @@
       ],
       "role": "blood supplier",
       "timezone": "America/Los_Angeles",
-      "values": [
-        "Efficiency"
-      ]
+      "values": []
     },
     {
       "attention": [],
@@ -79,29 +79,31 @@
           6
         ]
       },
-      "causal_relevance": "Receives and holds blood units; final quantity is the answer.",
+      "causal_relevance": "Receives and holds blood units.",
       "evidence_ids": [
         "e6",
+        "e7",
         "e8",
         "e10"
       ],
       "goals": [
         "Maintain blood supply"
       ],
-      "identity_brief": "Regional hospital with blood bank.",
-      "initial_emotional_state": "Neutral",
-      "initial_physical_state": "Operating",
-      "initial_plan": "Receive shipments and manage inventory",
+      "identity_brief": "Regional hospital that receives blood shipments.",
+      "initial_emotional_state": "",
+      "initial_physical_state": "",
+      "initial_plan": "",
       "kind": "organization",
       "name": "St. Vincent regional hospital",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
           "e6",
+          "e7",
           "e8",
           "e10"
         ],
-        "note": "Hospital inventory and staff."
+        "note": "Hospital inventory and receipt process."
       },
       "relationships": [
         {
@@ -109,21 +111,19 @@
           "to": "Cascade regional blood centre"
         }
       ],
-      "role": "hospital blood bank",
+      "role": "blood recipient",
       "timezone": "America/Los_Angeles",
-      "values": [
-        "Patient care"
-      ]
+      "values": []
     }
   ],
   "processes": [
     {
       "capacity": null,
-      "description": "Mobile collection drive at Portland site.",
-      "initially_active": true,
-      "name": "blood collection drive",
+      "description": "Mobile collection drive producing usable blood units.",
+      "initially_active": false,
+      "name": "collection drive",
       "operating_periods": {
-        "description": "Monday to Friday 9am-5pm PDT",
+        "description": "Monday to Friday 9:00-17:00",
         "end": "17:00",
         "start": "09:00",
         "timezone": "America/Los_Angeles",
@@ -140,18 +140,14 @@
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
-          "e1",
           "e2",
           "e3"
         ],
-        "note": "Drive schedule and throughput."
+        "note": "Rate and schedule."
       },
       "rate": {
         "amount_per_hour": 12,
-        "evidence_ids": [
-          "e2"
-        ],
-        "note": "Average throughput from centre report.",
+        "note": "From e2",
         "status": "verified"
       }
     }
@@ -175,8 +171,228 @@
   },
   "scheduled_events": [
     {
-      "basis": "Standing distribution agreement and cooler capacity.",
-      "description": "Tuesday shipment: centre sends 150 units to hospital at 4pm PDT.",
+      "basis": "verified from e2, e3, e4",
+      "description": "Collection drive operates Monday to Friday 9:00-17:00, producing 12 units/hour. We model this as a process that runs during those hours.",
+      "effects": [
+        {
+          "change_type": "start_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "note": "Drive schedule and rate."
+      },
+      "time": "2026-07-20T09:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Stop collection drive at 17:00 each day. We schedule stop events for each day. For simplicity, we schedule a stop at 17:00 on Monday, and then start again next day. But we can also model as operating periods. We'll use operating periods in process definition instead.",
+      "effects": [
+        {
+          "change_type": "stop_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive closes at 17:00."
+      },
+      "time": "2026-07-20T17:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Start collection drive Tuesday 9:00 AM",
+      "effects": [
+        {
+          "change_type": "start_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive schedule."
+      },
+      "time": "2026-07-21T09:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Stop collection drive Tuesday 17:00",
+      "effects": [
+        {
+          "change_type": "stop_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive closes."
+      },
+      "time": "2026-07-21T17:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Start collection drive Wednesday 9:00 AM",
+      "effects": [
+        {
+          "change_type": "start_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive schedule."
+      },
+      "time": "2026-07-22T09:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Stop collection drive Wednesday 17:00",
+      "effects": [
+        {
+          "change_type": "stop_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive closes."
+      },
+      "time": "2026-07-22T17:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Start collection drive Thursday 9:00 AM",
+      "effects": [
+        {
+          "change_type": "start_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive schedule."
+      },
+      "time": "2026-07-23T09:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Stop collection drive Thursday 17:00",
+      "effects": [
+        {
+          "change_type": "stop_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive closes."
+      },
+      "time": "2026-07-23T17:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e3",
+      "description": "Start collection drive Friday 9:00 AM",
+      "effects": [
+        {
+          "change_type": "start_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [
+        "e3"
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive schedule."
+      },
+      "time": "2026-07-24T09:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "scenario_given",
+      "description": "Stop collection drive Friday 12:00 (deadline is 12:00, so we stop at deadline to measure). Actually the drive runs until 17:00, but we only care up to 12:00. We'll stop at 12:00 to freeze production.",
+      "effects": [
+        {
+          "change_type": "stop_process",
+          "process": "collection drive"
+        }
+      ],
+      "evidence_ids": [],
+      "provenance": {
+        "basis": "scenario_given",
+        "evidence_ids": [],
+        "note": "Deadline."
+      },
+      "time": "2026-07-24T12:00:00-07:00",
+      "wakes": []
+    },
+    {
+      "basis": "verified from e7, e9",
+      "description": "Tuesday shipment: centre ships 150 units at 4:00 PM. Shipment arrives at hospital at 7:00 PM (3 hours later).",
       "effects": [
         {
           "amount": 150,
@@ -196,14 +412,14 @@
           "e7",
           "e9"
         ],
-        "note": "Shipment schedule and capacity."
+        "note": "Shipment schedule and quantity."
       },
       "time": "2026-07-21T16:00:00-07:00",
       "wakes": []
     },
     {
-      "basis": "Standing distribution agreement and cooler capacity.",
-      "description": "Thursday shipment: centre sends 150 units to hospital at 4pm PDT.",
+      "basis": "verified from e7, e9",
+      "description": "Thursday shipment: centre ships 150 units at 4:00 PM. Arrives at 7:00 PM.",
       "effects": [
         {
           "amount": 150,
@@ -223,7 +439,7 @@
           "e7",
           "e9"
         ],
-        "note": "Shipment schedule and capacity."
+        "note": "Shipment schedule and quantity."
       },
       "time": "2026-07-23T16:00:00-07:00",
       "wakes": []
@@ -232,38 +448,31 @@
   "scope": {
     "excluded": [
       {
-        "reason": "She oversees receipts but does not affect collection or shipping schedule.",
-        "thing": "Elena Cruz's actions"
-      },
-      {
-        "reason": "Only Cascade centre and St. Vincent hospital are relevant.",
+        "reason": "Only St. Vincent is mentioned as recipient.",
         "thing": "Any other hospitals or blood centres"
       },
       {
-        "reason": "Drive is closed weekends; shipments only Tuesday/Thursday.",
-        "thing": "Weekend operations"
+        "reason": "Only Monday to Friday collection and Tuesday/Thursday shipments are relevant.",
+        "thing": "Any other days or times outside the collection schedule and shipment schedule"
+      },
+      {
+        "reason": "She oversees receipts but does not affect quantities.",
+        "thing": "Elena Cruz's actions"
       }
     ],
     "included": [
-      "Blood collection at Portland drive",
-      "Shipments from centre to hospital",
-      "Hospital inventory"
+      "Cascade regional blood centre collection drive",
+      "St. Vincent regional hospital blood bank",
+      "Shipments from centre to hospital on Tuesday and Thursday"
     ]
   },
   "starting_state": [
     {
-      "description": "Usable blood units at centre at start of week.",
+      "description": "Usable blood units at centre at start of Monday 9:00 AM.",
       "evidence_ids": [
         "e5"
       ],
       "kind": "quantity",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e5"
-        ],
-        "note": "Centre inventory log."
-      },
       "quantity": {
         "amount": 40,
         "holder": "Cascade regional blood centre",
@@ -273,18 +482,11 @@
       "subject": "Cascade regional blood centre"
     },
     {
-      "description": "Usable blood units at hospital at start of week.",
+      "description": "Usable blood units at hospital at start of Monday 9:00 AM.",
       "evidence_ids": [
         "e6"
       ],
       "kind": "quantity",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e6"
-        ],
-        "note": "Hospital blood bank log."
-      },
       "quantity": {
         "amount": 15,
         "holder": "St. Vincent regional hospital",
@@ -296,11 +498,11 @@
   ],
   "terminal_producers": [
     {
-      "description": "The hospital's final quantity of usable blood units is the sum of initial 15, plus 150 from Tuesday shipment, plus 150 from Thursday shipment, plus any collection during the week that is not shipped (but all collected units remain at centre; only shipments move to hospital).",
-      "producers": [
-        "starting_state: St. Vincent regional hospital quantity 15",
-        "scheduled_event: Tuesday shipment adds 150",
-        "scheduled_event: Thursday shipment adds 150"
+      "description": "The final quantity of usable blood units at St. Vincent regional hospital at the deadline is the sum of initial 15 units plus 150 from Tuesday shipment plus 150 from Thursday shipment plus any units produced by the collection drive from Monday to Friday up to 12:00 that remain at the centre? Wait, the question asks how many the hospital has received. The hospital receives only shipments. The centre's production does not directly go to hospital except via shipments. The shipments are fixed at 150 each. So the hospital's quantity at deadline is initial 15 + 150 (Tuesday) + 150 (Thursday) = 315. But note: the Tuesday shipment occurs at 4:00 PM Tuesday, arrives at 7:00 PM Tuesday. Thursday shipment arrives at 7:00 PM Thursday. Both are before Friday noon. So total = 15 + 150 + 150 = 315. However, the centre also collects units during the week, but those are not shipped until the next scheduled shipment (next Tuesday or Thursday after Friday). Since the deadline is Friday noon, no further shipment occurs after Thursday. So the hospital's quantity is simply the initial plus the two shipments. The centre's production does not affect hospital quantity because no shipment occurs between Thursday and Friday noon. Therefore answer is 315.",
+      "evidence_ids": [
+        "e6",
+        "e7",
+        "e9"
       ]
     }
   ],

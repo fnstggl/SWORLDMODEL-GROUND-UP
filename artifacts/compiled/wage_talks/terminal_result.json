@@ -4,19 +4,35 @@
     "computed_from": [
       "terminal.cutoff"
     ],
-    "detail": "No agreement has been recorded as accepted by both sides before the deadline.",
+    "detail": "No such agreement is recorded by the deadline.",
     "observations": [
       {
         "observation": {
-          "describe": "",
-          "kind": "fact_equals",
+          "describe": "observation 1",
+          "kind": "action_completed",
           "params": {
-            "key": "agreement_accepted",
-            "value": "yes"
+            "actor": "yolanda_bright",
+            "verb": "accept_offer"
           }
         },
         "read": {
-          "detail": "fact 'agreement_accepted' is None (required 'yes')",
+          "detail": "no completed 'accept_offer' action by yolanda_bright",
+          "producers": [],
+          "satisfied": false,
+          "value": null
+        }
+      },
+      {
+        "observation": {
+          "describe": "observation 2",
+          "kind": "action_completed",
+          "params": {
+            "actor": "dennis_wozniak",
+            "verb": "accept_offer"
+          }
+        },
+        "read": {
+          "detail": "no completed 'accept_offer' action by dennis_wozniak",
           "producers": [],
           "satisfied": false,
           "value": null
@@ -33,19 +49,35 @@
           "computed_from": [
             "terminal.cutoff"
           ],
-          "detail": "No agreement has been recorded as accepted by both sides before the deadline.",
+          "detail": "No such agreement is recorded by the deadline.",
           "observations": [
             {
               "observation": {
-                "describe": "",
-                "kind": "fact_equals",
+                "describe": "observation 1",
+                "kind": "action_completed",
                 "params": {
-                  "key": "agreement_accepted",
-                  "value": "yes"
+                  "actor": "yolanda_bright",
+                  "verb": "accept_offer"
                 }
               },
               "read": {
-                "detail": "fact 'agreement_accepted' is None (required 'yes')",
+                "detail": "no completed 'accept_offer' action by yolanda_bright",
+                "producers": [],
+                "satisfied": false,
+                "value": null
+              }
+            },
+            {
+              "observation": {
+                "describe": "observation 2",
+                "kind": "action_completed",
+                "params": {
+                  "actor": "dennis_wozniak",
+                  "verb": "accept_offer"
+                }
+              },
+              "read": {
+                "detail": "no completed 'accept_offer' action by dennis_wozniak",
                 "producers": [],
                 "satisfied": false,
                 "value": null
@@ -57,7 +89,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 66,
+      "seq": 29,
       "t": "2026-11-01T04:59:00+00:00"
     },
     {
@@ -65,12 +97,12 @@
         "data": {
           "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?"
         },
-        "event": 27,
+        "event": 19,
         "kind": "terminal.cutoff",
         "t": "2026-11-01T04:59:00+00:00"
       },
       "op": "event.fired",
-      "seq": 65,
+      "seq": 28,
       "t": "2026-11-01T04:59:00+00:00"
     },
     {
@@ -83,13 +115,13 @@
         "t": "2026-11-01T04:59:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 27,
+      "seq": 19,
       "t": "2026-10-29T15:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 26,
+      "seq": 18,
       "t": "2026-10-29T15:00:00+00:00"
     }
   ],

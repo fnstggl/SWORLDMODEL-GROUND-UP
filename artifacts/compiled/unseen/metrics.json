@@ -1,12 +1,12 @@
 {
-  "completion_tokens": 28575,
+  "completion_tokens": 29767,
   "lowering_ms": 0.0,
-  "mechanical_repairs": 1,
-  "prompt_tokens": 66557,
-  "reviewer_calls": 2,
-  "revision_calls": 1,
+  "mechanical_repairs": 3,
+  "prompt_tokens": 40617,
+  "reviewer_calls": 1,
+  "revision_calls": 0,
   "runtime_ms": 0.0,
-  "semantic_calls": 2,
+  "semantic_calls": 3,
   "simulation_stage": "scripted",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "stage": "SEMANTIC_AMBIGUITY"
 }

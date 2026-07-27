@@ -3,8 +3,8 @@
     "answer": 315.0,
     "computed_from": [
       "record:7",
-      "record:20",
-      "record:33"
+      "record:47",
+      "record:68"
     ],
     "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
     "observations": [
@@ -21,8 +21,8 @@
           "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
           "producers": [
             "record:7",
-            "record:20",
-            "record:33"
+            "record:47",
+            "record:68"
           ],
           "satisfied": true,
           "value": 315.0
@@ -32,8 +32,8 @@
   },
   "computed_from": [
     "record:7",
-    "record:20",
-    "record:33"
+    "record:47",
+    "record:68"
   ],
   "lineage": [
     {
@@ -42,8 +42,8 @@
           "answer": 315.0,
           "computed_from": [
             "record:7",
-            "record:20",
-            "record:33"
+            "record:47",
+            "record:68"
           ],
           "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
           "observations": [
@@ -60,8 +60,8 @@
                 "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
                 "producers": [
                   "record:7",
-                  "record:20",
-                  "record:33"
+                  "record:47",
+                  "record:68"
                 ],
                 "satisfied": true,
                 "value": 315.0
@@ -73,7 +73,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 41,
+      "seq": 82,
       "t": "2026-07-24T19:00:00+00:00"
     },
     {
@@ -81,12 +81,12 @@
         "data": {
           "question": "How many usable blood units will the regional hospital have received by Friday noon?"
         },
-        "event": 18,
+        "event": 31,
         "kind": "terminal.cutoff",
         "t": "2026-07-24T19:00:00+00:00"
       },
       "op": "event.fired",
-      "seq": 39,
+      "seq": 81,
       "t": "2026-07-24T19:00:00+00:00"
     },
     {
@@ -99,14 +99,14 @@
         "t": "2026-07-24T19:00:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 18,
-      "t": "2026-07-21T23:00:00+00:00"
+      "seq": 31,
+      "t": "2026-07-20T16:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 17,
-      "t": "2026-07-21T23:00:00+00:00"
+      "seq": 30,
+      "t": "2026-07-20T16:00:00+00:00"
     }
   ],
   "observations": [
@@ -123,8 +123,8 @@
         "detail": "st_vincent_regional_hospital:usable_blood_units measured at 315",
         "producers": [
           "record:7",
-          "record:20",
-          "record:33"
+          "record:47",
+          "record:68"
         ],
         "satisfied": true,
         "value": 315.0
@@ -133,12 +133,10 @@
   ],
   "replay_hash_match": true,
   "reviewer_causal_path": [
-    "Starting state: hospital has 15 units",
-    "Tuesday 4pm: centre ships 150 units to hospital",
-    "Tuesday ~7pm: hospital receives 150 units (3-hour transit)",
-    "Thursday 4pm: centre ships 150 units to hospital",
-    "Thursday ~7pm: hospital receives 150 units",
-    "Friday noon: hospital holds 15 + 150 + 150 = 315 units"
+    "Initial hospital stock: 15 units (e6)",
+    "Tuesday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)",
+    "Thursday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)",
+    "Friday noon: no further shipments; total = 15 + 150 + 150 = 315"
   ],
   "terminal": {
     "conditions": [],
@@ -159,11 +157,11 @@
   },
   "terminal_producers_claimed": [
     {
-      "description": "The hospital's final quantity of usable blood units is the sum of initial 15, plus 150 from Tuesday shipment, plus 150 from Thursday shipment, plus any collection during the week that is not shipped (but all collected units remain at centre; only shipments move to hospital).",
-      "producers": [
-        "starting_state: St. Vincent regional hospital quantity 15",
-        "scheduled_event: Tuesday shipment adds 150",
-        "scheduled_event: Thursday shipment adds 150"
+      "description": "The final quantity of usable blood units at St. Vincent regional hospital at the deadline is the sum of initial 15 units plus 150 from Tuesday shipment plus 150 from Thursday shipment plus any units produced by the collection drive from Monday to Friday up to 12:00 that remain at the centre? Wait, the question asks how many the hospital has received. The hospital receives only shipments. The centre's production does not directly go to hospital except via shipments. The shipments are fixed at 150 each. So the hospital's quantity at deadline is initial 15 + 150 (Tuesday) + 150 (Thursday) = 315. But note: the Tuesday shipment occurs at 4:00 PM Tuesday, arrives at 7:00 PM Tuesday. Thursday shipment arrives at 7:00 PM Thursday. Both are before Friday noon. So total = 15 + 150 + 150 = 315. However, the centre also collects units during the week, but those are not shipped until the next scheduled shipment (next Tuesday or Thursday after Friday). Since the deadline is Friday noon, no further shipment occurs after Thursday. So the hospital's quantity is simply the initial plus the two shipments. The centre's production does not affect hospital quantity because no shipment occurs between Thursday and Friday noon. Therefore answer is 315.",
+      "evidence_ids": [
+        "e6",
+        "e7",
+        "e9"
       ]
     }
   ]

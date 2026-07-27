@@ -5,7 +5,7 @@
       "St. Vincent regional hospital": "st_vincent_regional_hospital"
     },
     "process": {
-      "blood collection drive": "blood_collection_drive"
+      "collection drive": "collection_drive"
     },
     "quantity": {
       "usable blood units": "usable_blood_units"

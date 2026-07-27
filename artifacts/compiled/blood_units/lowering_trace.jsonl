@@ -1,13 +1,23 @@
-{"cutoff": "2026-07-24T19:00:00+00:00", "start": "2026-07-21T23:00:00+00:00", "step": "start"}
-{"step": "symbols", "table": {"namespaces": {"participant": {"Cascade regional blood centre": "cascade_regional_blood_centre", "St. Vincent regional hospital": "st_vincent_regional_hospital"}, "process": {"blood collection drive": "blood_collection_drive"}, "quantity": {"usable blood units": "usable_blood_units"}}}}
+{"cutoff": "2026-07-24T19:00:00+00:00", "start": "2026-07-20T16:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"participant": {"Cascade regional blood centre": "cascade_regional_blood_centre", "St. Vincent regional hospital": "st_vincent_regional_hospital"}, "process": {"collection drive": "collection_drive"}, "quantity": {"usable blood units": "usable_blood_units"}}}}
 {"participants": 2, "step": "preflight_ok"}
 {"attention": [], "id": "cascade_regional_blood_centre", "name": "Cascade regional blood centre", "role": "blood supplier", "step": "participant", "tz": "America/Los_Angeles"}
-{"attention": [], "id": "st_vincent_regional_hospital", "name": "St. Vincent regional hospital", "role": "hospital blood bank", "step": "participant", "tz": "America/Los_Angeles"}
+{"attention": [], "id": "st_vincent_regional_hospital", "name": "St. Vincent regional hospital", "role": "blood recipient", "step": "participant", "tz": "America/Los_Angeles"}
 {"amount": 40.0, "holder": "cascade_regional_blood_centre", "name": "usable_blood_units", "step": "starting_quantity"}
 {"amount": 15.0, "holder": "st_vincent_regional_hospital", "name": "usable_blood_units", "step": "starting_quantity"}
-{"active": true, "holder": "cascade_regional_blood_centre", "id": "blood_collection_drive", "quantity": "usable_blood_units", "rate": 12.0, "step": "process"}
-{"end": "17:00:00", "process": "blood_collection_drive", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4]}
-{"at": "2026-07-21T23:00:00+00:00", "description": "Tuesday shipment: centre sends 150 units to hospital at 4pm PDT.", "ops": 1, "step": "scheduled_event", "wakes": 0}
-{"at": "2026-07-23T23:00:00+00:00", "description": "Thursday shipment: centre sends 150 units to hospital at 4pm PDT.", "ops": 1, "step": "scheduled_event", "wakes": 0}
-{"first": "2026-07-21T23:00:00+00:00", "root_events": 8, "step": "schedulable"}
+{"active": false, "holder": "cascade_regional_blood_centre", "id": "collection_drive", "quantity": "usable_blood_units", "rate": 12.0, "step": "process"}
+{"end": "17:00:00", "process": "collection_drive", "start": "09:00:00", "step": "operating_periods", "tz": "America/Los_Angeles", "workdays": [0, 1, 2, 3, 4]}
+{"at": "2026-07-20T16:00:00+00:00", "description": "Collection drive operates Monday to Friday 9:00-17:00, producing 12 units/hour. We model this as a process that runs during those hours.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-21T00:00:00+00:00", "description": "Stop collection drive at 17:00 each day. We schedule stop events for each day. For simplicity, we schedule a stop at 17:00 on Monday, and then start again next day. But we can also model as operating periods. We'll use operating periods in process definition instead.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-21T16:00:00+00:00", "description": "Start collection drive Tuesday 9:00 AM", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-22T00:00:00+00:00", "description": "Stop collection drive Tuesday 17:00", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-22T16:00:00+00:00", "description": "Start collection drive Wednesday 9:00 AM", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-23T00:00:00+00:00", "description": "Stop collection drive Wednesday 17:00", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-23T16:00:00+00:00", "description": "Start collection drive Thursday 9:00 AM", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-24T00:00:00+00:00", "description": "Stop collection drive Thursday 17:00", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-24T16:00:00+00:00", "description": "Start collection drive Friday 9:00 AM", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-24T19:00:00+00:00", "description": "Stop collection drive Friday 12:00 (deadline is 12:00, so we stop at deadline to measure). Actually the drive runs until 17:00, but we only care up to 12:00. We'll stop at 12:00 to freeze production.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-21T23:00:00+00:00", "description": "Tuesday shipment: centre ships 150 units at 4:00 PM. Shipment arrives at hospital at 7:00 PM (3 hours later).", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-23T23:00:00+00:00", "description": "Thursday shipment: centre ships 150 units at 4:00 PM. Arrives at 7:00 PM.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"first": "2026-07-20T16:00:00+00:00", "root_events": 21, "step": "schedulable"}
 {"observations": 1, "step": "producers_verified"}

@@ -1,10 +1,11 @@
 {
   "action_defs": {
-    "bright_accepts_employer_offer": {
+    "accept_offer": {
       "conditions": [
         {
           "actors": [
-            "yolanda_bright"
+            "yolanda_bright",
+            "dennis_wozniak"
           ],
           "require": "actor_in"
         },
@@ -13,249 +14,127 @@
           "require": "noticed_info"
         },
         {
-          "key": "session_active",
+          "key": "session_started",
           "require": "fact_equals",
           "value": true
         }
       ],
-      "description": "Bright accepts employer offer -- Yolanda Bright accepts the employer's tabled offer at the table.",
+      "description": "accept offer -- A negotiator accepts the other side's tabled offer at the table, recording an agreement.",
       "duration": {
-        "basis": "verified",
-        "note": "Immediate verbal acceptance.",
-        "seconds": 0.0
+        "basis": "inferred",
+        "note": "Momentary; acceptance is stated at the table.",
+        "seconds": 60.0
       },
       "effects": [
         [
           "fact.set",
           {
             "key": "agreement_accepted",
-            "value": "yes"
-          }
-        ]
-      ],
-      "verb": "bright_accepts_employer_offer"
-    },
-    "bright_tables_revised_demand": {
-      "conditions": [
-        {
-          "actors": [
-            "yolanda_bright"
-          ],
-          "require": "actor_in"
-        },
-        {
-          "key": "session_active",
-          "require": "fact_equals",
-          "value": true
-        }
-      ],
-      "description": "Bright tables revised demand -- Yolanda Bright tables a revised wage demand at the bargaining table.",
-      "duration": {
-        "basis": "inferred",
-        "note": "Time to formulate and table offer, about 45 minutes.",
-        "seconds": 2700.0
-      },
-      "effects": [
-        [
-          "info.send_new",
-          {
-            "author": "{actor}",
-            "channel": "bargaining_table",
-            "content": "Union demands {demand}% wage increase.",
-            "data": {
-              "description": "Union's revised demand communicated to employer and mediator.",
-              "tag": "union_demand"
-            },
-            "to": [
-              "dennis_wozniak",
-              "mediator"
-            ]
-          }
-        ]
-      ],
-      "verb": "bright_tables_revised_demand"
-    },
-    "mediator_ends_session": {
-      "conditions": [
-        {
-          "actors": [
-            "mediator"
-          ],
-          "require": "actor_in"
-        },
-        {
-          "key": "session_active",
-          "require": "fact_equals",
-          "value": true
-        }
-      ],
-      "description": "Mediator ends session -- Mediator closes the bargaining session, making it inactive.",
-      "duration": {
-        "basis": "verified",
-        "note": "Immediate.",
-        "seconds": 0.0
-      },
-      "effects": [
-        [
-          "fact.set",
-          {
-            "key": "session_active",
-            "value": false
-          }
-        ]
-      ],
-      "verb": "mediator_ends_session"
-    },
-    "mediator_starts_session": {
-      "conditions": [
-        {
-          "actors": [
-            "mediator"
-          ],
-          "require": "actor_in"
-        },
-        {
-          "key": "session_active",
-          "require": "fact_absent"
-        }
-      ],
-      "description": "Mediator starts session -- Mediator opens the bargaining session, making it active.",
-      "duration": {
-        "basis": "verified",
-        "note": "Immediate.",
-        "seconds": 0.0
-      },
-      "effects": [
-        [
-          "fact.set",
-          {
-            "key": "session_active",
             "value": true
           }
-        ]
-      ],
-      "verb": "mediator_starts_session"
-    },
-    "wozniak_accepts_union_demand": {
-      "conditions": [
-        {
-          "actors": [
-            "dennis_wozniak"
-          ],
-          "require": "actor_in"
-        },
-        {
-          "info": "{params.accepted_demand}",
-          "require": "noticed_info"
-        },
-        {
-          "key": "session_active",
-          "require": "fact_equals",
-          "value": true
-        }
-      ],
-      "description": "Wozniak accepts union demand -- Dennis Wozniak accepts the union's tabled demand at the table.",
-      "duration": {
-        "basis": "verified",
-        "note": "Immediate verbal acceptance.",
-        "seconds": 0.0
-      },
-      "effects": [
-        [
-          "fact.set",
-          {
-            "key": "agreement_accepted",
-            "value": "yes"
-          }
-        ]
-      ],
-      "verb": "wozniak_accepts_union_demand"
-    },
-    "wozniak_tables_revised_offer": {
-      "conditions": [
-        {
-          "actors": [
-            "dennis_wozniak"
-          ],
-          "require": "actor_in"
-        },
-        {
-          "key": "session_active",
-          "require": "fact_equals",
-          "value": true
-        }
-      ],
-      "description": "Wozniak tables revised offer -- Dennis Wozniak tables a revised wage offer at the bargaining table.",
-      "duration": {
-        "basis": "inferred",
-        "note": "Time to formulate and table offer, about 45 minutes.",
-        "seconds": 2700.0
-      },
-      "effects": [
+        ],
         [
           "info.send_new",
           {
             "author": "{actor}",
-            "channel": "bargaining_table",
-            "content": "Employer offers {offer}% wage increase.",
+            "channel": "spoken_at_mediation_table",
+            "content": "{params.accepted_offer}",
             "data": {
-              "description": "Employer's revised offer communicated to union and mediator.",
-              "tag": "employer_offer"
+              "description": "The negotiator announces acceptance.",
+              "tag": "acceptance"
             },
             "to": [
               "yolanda_bright",
-              "mediator"
+              "dennis_wozniak"
             ]
           }
         ]
       ],
-      "verb": "wozniak_tables_revised_offer"
+      "verb": "accept_offer"
+    },
+    "table_offer": {
+      "conditions": [
+        {
+          "actors": [
+            "yolanda_bright",
+            "dennis_wozniak"
+          ],
+          "require": "actor_in"
+        },
+        {
+          "key": "session_started",
+          "require": "fact_equals",
+          "value": true
+        }
+      ],
+      "description": "table offer -- A negotiator states a wage offer at the mediation table. The offer is heard immediately by the other negotiator.",
+      "duration": {
+        "basis": "inferred",
+        "note": "Time to formulate and state the offer; approximately 45 minutes if caucus needed, but can be done immediately if prepared.",
+        "seconds": 2700.0
+      },
+      "effects": [
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "spoken_at_mediation_table",
+            "content": "{params.wage_offer}",
+            "data": {
+              "description": "The negotiator tables a wage offer of X percent.",
+              "tag": "wage_offer"
+            },
+            "to": [
+              "yolanda_bright",
+              "dennis_wozniak"
+            ]
+          }
+        ],
+        [
+          "fact.set",
+          {
+            "key": "last_tabled_offer",
+            "value": "{params.wage_offer}"
+          }
+        ]
+      ],
+      "verb": "table_offer"
     }
   },
   "actions": {},
   "actors": {
     "dennis_wozniak": {
       "attention": {
-        "bargaining_table": {
+        "spoken_at_mediation_table": {
           "basis": "verified",
-          "calendar": {
-            "close": "23:59",
-            "holidays": [],
-            "open": "00:00",
-            "tz": "America/Chicago",
-            "workdays": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              6
-            ]
-          },
+          "calendar": null,
           "check_every_seconds": null,
-          "note": "Attends mediated sessions in person and hears offers immediately."
+          "note": "Hears offers immediately when spoken."
         }
       },
       "available_info": [],
       "beliefs": {
-        "employer_s_willingness_to_compromise": {
-          "basis": "verified: e9",
-          "statement": "Believes he will move to 4.5% if union comes down first.",
+        "authority_to_accept_wage_increase": {
+          "basis": "verified: e2",
+          "statement": "Wozniak believes he can accept up to 4.5% without board approval.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         },
-        "union_s_standing_demand": {
-          "basis": "inferred: e5",
-          "statement": "Believes union's standing demand is 5%.",
+        "current_offers": {
+          "basis": "verified: e5",
+          "statement": "Wozniak believes the union's demand is 5% and employer's offer is 3.5% as of 26 Oct.",
+          "updated_at": "2026-10-29T15:00:00+00:00"
+        },
+        "wozniak_s_condition_for_4_5": {
+          "basis": "verified: e9",
+          "statement": "Wozniak will move to 4.5% only if union first comes down from 5%.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         }
       },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Cautious, willing to move to 4.5% if union comes down first",
+      "emotional_state": "Cautious, willing to move to 4.5% if union comes down.",
       "goals": [
-        "Reach agreement without exceeding 4.5%",
-        "Avoid strike"
+        "Reach an agreement without exceeding 4.5% wage increase."
       ],
       "id": "dennis_wozniak",
       "last_decision_at": null,
@@ -263,114 +142,51 @@
       "name": "Dennis Wozniak",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy",
-      "plan": "At mediated session, wait for union to move from 5% before offering 4.5%.",
+      "physical_state": "Healthy, present at mediation.",
+      "plan": "Offer 4.5% only if union reduces demand from 5%.",
       "reconsider": [],
       "relationships": {
-        "mediator": "Facilitates sessions",
-        "yolanda_bright": "Counterpart in negotiations"
+        "yolanda_bright": "Counterpart in negotiations."
       },
       "role": "employer lead negotiator",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Cost control",
-        "Operational stability"
-      ]
-    },
-    "mediator": {
-      "attention": {
-        "bargaining_table": {
-          "basis": "verified",
-          "calendar": {
-            "close": "23:59",
-            "holidays": [],
-            "open": "00:00",
-            "tz": "America/Chicago",
-            "workdays": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              6
-            ]
-          },
-          "check_every_seconds": null,
-          "note": "Present at session, hears all offers."
-        }
-      },
-      "available_info": [],
-      "beliefs": {},
-      "commitments": {},
-      "deferred_wakes": [],
-      "emotional_state": "Professional",
-      "goals": [
-        "Facilitate agreement"
-      ],
-      "id": "mediator",
-      "last_decision_at": null,
-      "memories": [],
-      "name": "Mediator",
-      "noticed_info": [],
-      "ongoing_action": null,
-      "physical_state": "Healthy",
-      "plan": "Conduct session on 29 October.",
-      "reconsider": [],
-      "relationships": {
-        "dennis_wozniak": "Facilitates negotiations",
-        "yolanda_bright": "Facilitates negotiations"
-      },
-      "role": "mediator",
-      "tz": "America/Chicago",
-      "unprocessed_info": [],
-      "values": [
-        "Neutrality"
+        "Cost control"
       ]
     },
     "yolanda_bright": {
       "attention": {
-        "bargaining_table": {
+        "spoken_at_mediation_table": {
           "basis": "verified",
-          "calendar": {
-            "close": "23:59",
-            "holidays": [],
-            "open": "00:00",
-            "tz": "America/Chicago",
-            "workdays": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              6
-            ]
-          },
+          "calendar": null,
           "check_every_seconds": null,
-          "note": "Attends mediated sessions in person and hears offers immediately."
+          "note": "Hears offers immediately when spoken."
         }
       },
       "available_info": [],
       "beliefs": {
-        "employer_s_standing_offer": {
-          "basis": "inferred: e5",
-          "statement": "Believes employer's standing offer is 3.5%.",
+        "authority_to_accept_wage_increase": {
+          "basis": "verified: e3",
+          "statement": "Bright believes she can accept 4% or higher.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         },
-        "union_s_willingness_to_compromise": {
+        "bright_s_planned_offer": {
           "basis": "verified: e10",
-          "statement": "Believes she is prepared to come down to 4.5%.",
+          "statement": "Bright is prepared to come down to 4.5% at the mediated session.",
+          "updated_at": "2026-10-29T15:00:00+00:00"
+        },
+        "current_offers": {
+          "basis": "verified: e5",
+          "statement": "Bright believes the union's demand is 5% and employer's offer is 3.5% as of 26 Oct.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         }
       },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Determined but willing to compromise",
+      "emotional_state": "Determined but willing to compromise to avoid strike.",
       "goals": [
-        "Reach agreement to avoid strike",
-        "Secure at least 4% wage increase"
+        "Reach a wage agreement of at least 4% to avoid a strike."
       ],
       "id": "yolanda_bright",
       "last_decision_at": null,
@@ -378,36 +194,32 @@
       "name": "Yolanda Bright",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy",
-      "plan": "At the mediated session, propose 4.5% if needed to get employer to move.",
+      "physical_state": "Healthy, present at mediation.",
+      "plan": "Propose 4.5% at the mediated session if needed.",
       "reconsider": [],
       "relationships": {
-        "dennis_wozniak": "Counterpart in negotiations",
-        "mediator": "Facilitates sessions"
+        "dennis_wozniak": "Counterpart in negotiations."
       },
       "role": "union lead negotiator",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Fair wages",
-        "Avoiding strike"
+        "Fair wages for workers"
       ]
     }
   },
   "channels": {
-    "bargaining_table": {
+    "spoken_at_mediation_table": {
       "latency": {
         "basis": "verified",
-        "note": "Immediate, as parties are present.",
+        "note": "Instantaneous",
         "seconds": 0.0
       },
-      "name": "bargaining_table"
+      "name": "spoken_at_mediation_table"
     }
   },
   "entities": {},
-  "facts": {
-    "scheduled_session": "2026-10-29T10:00:00-05:00"
-  },
+  "facts": {},
   "history": [],
   "infos": {},
   "now": "2026-10-29T15:00:00+00:00",
@@ -417,37 +229,45 @@
   "scheduled_events": [
     {
       "data": {
+        "note": "Mediated bargaining session begins at 10:00 AM on 29 October 2026. (basis: Mediator's scheduling notice)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "session_started",
+              "value": true
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 15,
+      "t": "2026-10-29T15:00:00+00:00"
+    },
+    {
+      "data": {
         "actor": "yolanda_bright",
-        "detail": "Session start",
+        "detail": "Session start.",
         "reason": "session_start"
       },
       "kind": "wake.actor",
-      "seq": 23,
+      "seq": 16,
       "t": "2026-10-29T15:00:00+00:00"
     },
     {
       "data": {
         "actor": "dennis_wozniak",
-        "detail": "Session start",
+        "detail": "Session start.",
         "reason": "session_start"
       },
       "kind": "wake.actor",
-      "seq": 24,
-      "t": "2026-10-29T15:00:00+00:00"
-    },
-    {
-      "data": {
-        "actor": "mediator",
-        "detail": "Session start",
-        "reason": "session_start"
-      },
-      "kind": "wake.actor",
-      "seq": 25,
+      "seq": 17,
       "t": "2026-10-29T15:00:00+00:00"
     }
   ],
   "start": "2026-10-29T15:00:00+00:00",
   "terminal": null,
-  "version": 26,
+  "typed_records": [],
+  "version": 18,
   "watches": {}
 }

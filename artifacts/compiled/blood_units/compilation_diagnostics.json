@@ -6,12 +6,12 @@
   ],
   "channels": [],
   "processes": [
-    "blood_collection_drive"
+    "collection_drive"
   ],
   "producer_index": {
     "resource:cascade_regional_blood_centre:usable_blood_units": 4,
     "resource:st_vincent_regional_hospital:usable_blood_units": 3
   },
-  "scheduled_root_events": 8,
+  "scheduled_root_events": 21,
   "stage": "COMPILED"
 }

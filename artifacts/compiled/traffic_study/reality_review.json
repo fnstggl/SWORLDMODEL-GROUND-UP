@@ -1,14 +1,13 @@
 {
   "causal_path": [
-    "External Reviewer sends sign-off at 10:00 AM Feb 18",
-    "Santos notices sign-off at his next email check (by 11:00 AM)",
-    "Santos finalizes and sends study within 30 minutes (by 11:30 AM)",
-    "Study arrives in Reyes's inbox within 1 minute",
-    "Reyes notices study at her next email check (12:30 PM)",
-    "Reyes reads study (60-90 minutes) before meeting at 7:00 PM"
+    "External Reviewer sends sign-off at 10:00 on 18 Feb",
+    "Santos notices sign-off by 11:00 (hourly check)",
+    "Santos sends finalized study within 20 minutes (by 11:20)",
+    "Reyes checks email at 12:30 or 14:30 on 18 Feb (or 8:30 on 19 Feb) and notices the study",
+    "Reyes has noticed the study before 19:00 on 19 Feb"
   ],
   "defects": [],
-  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the evidence: the external reviewer sends sign-off at 10 AM on Feb 18; Santos, checking email hourly, notices it by 11 AM at latest and sends the study within 30 minutes (by 11:30 AM). Reyes checks email at start of day (8:30 AM) and every two hours thereafter, so she would check at 10:30 AM, 12:30 PM, etc. The study arrives before 11:30 AM, so she notices it at her 12:30 PM check. She has time to read it (60-90 minutes) before the meeting at 7 PM. The terminal is produced by Reyes's attention cycle. No contradictions, missing participants, or unsupported assumptions.\",\n  \"causal_path\": [\n    \"External Reviewer sends sign-off at 10:00 AM Feb 18\",\n    \"Santos notices sign-off at his next email check (by 11:00 AM)\",\n    \"Santos finalizes and sends study within 30 minutes (by 11:30 AM)\",\n    \"Study arrives in Reyes's inbox within 1 minute\",\n    \"Reyes notices study at her next email check (12:30 PM)\",\n    \"Reyes reads study (60-90 minutes) before meeting at 7:00 PM\"\n  ],\n  \"defects\": []\n}",
-  "reasoning": "The scenario correctly models the evidence: the external reviewer sends sign-off at 10 AM on Feb 18; Santos, checking email hourly, notices it by 11 AM at latest and sends the study within 30 minutes (by 11:30 AM). Reyes checks email at start of day (8:30 AM) and every two hours thereafter, so she would check at 10:30 AM, 12:30 PM, etc. The study arrives before 11:30 AM, so she notices it at her 12:30 PM check. She has time to read it (60-90 minutes) before the meeting at 7 PM. The terminal is produced by Reyes's attention cycle. No contradictions, missing participants, or unsupported assumptions.",
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the causal chain: External Reviewer sends sign-off at 10:00 on 18 Feb; Santos, checking email hourly, notices it by 11:00 at latest; he sends the study within 20 minutes (by 11:20); Reyes checks email every 2 hours starting at 8:30 on 18 Feb and 19 Feb; she will notice the study at her next check after 11:20 on 18 Feb (e.g., 12:30 or 14:30) or at 8:30 on 19 Feb if she misses it on 18 Feb. In all cases, she notices before the 19:00 meeting on 19 Feb. The terminal is produced by Reyes's attention schedule and the sending action. No unsupported assumptions; uncertainties are minimal and do not affect the outcome.\",\n  \"causal_path\": [\n    \"External Reviewer sends sign-off at 10:00 on 18 Feb\",\n    \"Santos notices sign-off by 11:00 (hourly check)\",\n    \"Santos sends finalized study within 20 minutes (by 11:20)\",\n    \"Reyes checks email at 12:30 or 14:30 on 18 Feb (or 8:30 on 19 Feb) and notices the study\",\n    \"Reyes has noticed the study before 19:00 on 19 Feb\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the causal chain: External Reviewer sends sign-off at 10:00 on 18 Feb; Santos, checking email hourly, notices it by 11:00 at latest; he sends the study within 20 minutes (by 11:20); Reyes checks email every 2 hours starting at 8:30 on 18 Feb and 19 Feb; she will notice the study at her next check after 11:20 on 18 Feb (e.g., 12:30 or 14:30) or at 8:30 on 19 Feb if she misses it on 18 Feb. In all cases, she notices before the 19:00 meeting on 19 Feb. The terminal is produced by Reyes's attention schedule and the sending action. No unsupported assumptions; uncertainties are minimal and do not affect the outcome.",
   "verdict": "APPROVE"
 }

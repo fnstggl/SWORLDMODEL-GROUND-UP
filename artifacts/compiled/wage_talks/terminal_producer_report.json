@@ -1,55 +1,217 @@
 {
-  "producer_index": {
-    "action:bright_accepts_employer_s_offer": 1,
-    "action:bright_tables_revised_demand": 1,
-    "action:wozniak_accepts_union_s_demand": 1,
-    "action:wozniak_tables_revised_offer": 1,
-    "belief:dennis_wozniak:union_s_standing_demand": 1,
-    "belief:dennis_wozniak:willingness_to_move_to_4_5": 1,
-    "belief:yolanda_bright:employer_s_standing_offer": 1,
-    "belief:yolanda_bright:willingness_to_move_to_4_5": 1,
-    "fact:acceptance_procedure": 1,
-    "fact:agreement_accepted": 2,
-    "fact:bright_authority": 1,
-    "fact:employer_offer_tabled": 1,
-    "fact:scheduled_session": 1,
-    "fact:session_started": 1,
-    "fact:union_demand_tabled": 1,
-    "fact:wozniak_authority": 1,
-    "info:dennis_wozniak:union_demand": 1,
-    "info:mediator:employer_offer": 1,
-    "info:mediator:union_demand": 1,
-    "info:yolanda_bright:employer_offer": 1
+  "answer": {
+    "answer": "no",
+    "computed_from": [
+      "terminal.cutoff"
+    ],
+    "detail": "No such agreement is recorded by the deadline.",
+    "observations": [
+      {
+        "observation": {
+          "describe": "observation 1",
+          "kind": "action_completed",
+          "params": {
+            "actor": "yolanda_bright",
+            "verb": "accept_offer"
+          }
+        },
+        "read": {
+          "detail": "no completed 'accept_offer' action by yolanda_bright",
+          "producers": [],
+          "satisfied": false,
+          "value": null
+        }
+      },
+      {
+        "observation": {
+          "describe": "observation 2",
+          "kind": "action_completed",
+          "params": {
+            "actor": "dennis_wozniak",
+            "verb": "accept_offer"
+          }
+        },
+        "read": {
+          "detail": "no completed 'accept_offer' action by dennis_wozniak",
+          "producers": [],
+          "satisfied": false,
+          "value": null
+        }
+      }
+    ]
   },
+  "computed_from": [
+    "terminal.cutoff"
+  ],
+  "lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": "no",
+          "computed_from": [
+            "terminal.cutoff"
+          ],
+          "detail": "No such agreement is recorded by the deadline.",
+          "observations": [
+            {
+              "observation": {
+                "describe": "observation 1",
+                "kind": "action_completed",
+                "params": {
+                  "actor": "yolanda_bright",
+                  "verb": "accept_offer"
+                }
+              },
+              "read": {
+                "detail": "no completed 'accept_offer' action by yolanda_bright",
+                "producers": [],
+                "satisfied": false,
+                "value": null
+              }
+            },
+            {
+              "observation": {
+                "describe": "observation 2",
+                "kind": "action_completed",
+                "params": {
+                  "actor": "dennis_wozniak",
+                  "verb": "accept_offer"
+                }
+              },
+              "read": {
+                "detail": "no completed 'accept_offer' action by dennis_wozniak",
+                "producers": [],
+                "satisfied": false,
+                "value": null
+              }
+            }
+          ]
+        },
+        "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?",
+        "status": "cutoff"
+      },
+      "op": "terminal",
+      "seq": 29,
+      "t": "2026-11-01T04:59:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?"
+        },
+        "event": 19,
+        "kind": "terminal.cutoff",
+        "t": "2026-11-01T04:59:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 28,
+      "t": "2026-11-01T04:59:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?"
+        },
+        "depth": 0,
+        "kind": "terminal.cutoff",
+        "t": "2026-11-01T04:59:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 19,
+      "t": "2026-10-29T15:00:00+00:00"
+    },
+    {
+      "data": {},
+      "op": "genesis.sealed",
+      "seq": 18,
+      "t": "2026-10-29T15:00:00+00:00"
+    }
+  ],
+  "observations": [
+    {
+      "observation": {
+        "describe": "observation 1",
+        "kind": "action_completed",
+        "params": {
+          "actor": "yolanda_bright",
+          "verb": "accept_offer"
+        }
+      },
+      "read": {
+        "detail": "no completed 'accept_offer' action by yolanda_bright",
+        "producers": [],
+        "satisfied": false,
+        "value": null
+      }
+    },
+    {
+      "observation": {
+        "describe": "observation 2",
+        "kind": "action_completed",
+        "params": {
+          "actor": "dennis_wozniak",
+          "verb": "accept_offer"
+        }
+      },
+      "read": {
+        "detail": "no completed 'accept_offer' action by dennis_wozniak",
+        "producers": [],
+        "satisfied": false,
+        "value": null
+      }
+    }
+  ],
+  "replay_hash_match": true,
   "reviewer_causal_path": [
-    "Session starts at 10:00 AM Oct 29, setting session_started=yes.",
-    "Bright tables revised demand of 4.5% (45 min caucus), setting union_demand_tabled=yes.",
-    "Wozniak hears the demand, then tables revised offer of 4.5% (45 min caucus), setting employer_offer_tabled=yes.",
-    "Bright accepts the 4.5% offer (momentary), setting agreement_accepted=yes.",
-    "Before deadline (Oct 31 23:59), agreement_accepted=yes is recorded, satisfying yes_condition."
+    "Mediated session starts on 29 Oct 2026 at 10:00 AM.",
+    "Bright tables 4.5% (as prepared per e10).",
+    "Wozniak hears the offer (e7).",
+    "Wozniak's condition (e9) is satisfied; he accepts the 4.5% offer.",
+    "Bright hears acceptance (e7).",
+    "Both acceptance actions are recorded (e11).",
+    "Agreement is reached before the strike deadline."
   ],
   "terminal": {
     "conditions": [
       {
-        "describe": "",
-        "kind": "fact_equals",
+        "describe": "observation 1",
+        "kind": "action_completed",
         "params": {
-          "key": "agreement_accepted",
-          "value": "yes"
+          "actor": "yolanda_bright",
+          "verb": "accept_offer"
+        }
+      },
+      {
+        "describe": "observation 2",
+        "kind": "action_completed",
+        "params": {
+          "actor": "dennis_wozniak",
+          "verb": "accept_offer"
         }
       }
     ],
     "cutoff": "2026-11-01T04:59:00+00:00",
     "measure": null,
-    "no_detail": "No agreement is recorded as accepted by both sides before the deadline.",
+    "no_detail": "No such agreement is recorded by the deadline.",
     "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?",
     "question_type": "boolean",
-    "yes_detail": "An agreement is recorded as accepted by both sides before the deadline."
+    "uncertain_paths": [],
+    "yes_detail": "Both Yolanda Bright and Dennis Wozniak have recorded acceptance of the same wage agreement before the deadline."
   },
   "terminal_producers_claimed": [
     {
-      "observation": "world_fact_is about agreement_accepted value yes",
-      "produced_by": "Either 'Bright accepts employer's offer' or 'Wozniak accepts union's demand' action completing and recording the fact."
+      "description": "Yolanda Bright's acceptance action (action_was_completed) is produced by her performing 'accept offer' after noticing a wage offer from Wozniak.",
+      "producers": [
+        "Yolanda Bright",
+        "action_affordances[1]"
+      ]
+    },
+    {
+      "description": "Dennis Wozniak's acceptance action (action_was_completed) is produced by him performing 'accept offer' after noticing a wage offer from Bright.",
+      "producers": [
+        "Dennis Wozniak",
+        "action_affordances[1]"
+      ]
     }
   ]
 }

@@ -4,7 +4,7 @@
     "computed_from": [
       "terminal.cutoff"
     ],
-    "detail": "Reyes has not noticed the finalized study before the meeting starts",
+    "detail": "Reyes has not noticed the finalized study before the meeting starts.",
     "observations": [
       {
         "observation": {
@@ -35,7 +35,7 @@
           "computed_from": [
             "terminal.cutoff"
           ],
-          "detail": "Reyes has not noticed the finalized study before the meeting starts",
+          "detail": "Reyes has not noticed the finalized study before the meeting starts.",
           "observations": [
             {
               "observation": {
@@ -59,7 +59,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 25,
+      "seq": 34,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -67,12 +67,12 @@
         "data": {
           "question": "Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?"
         },
-        "event": 11,
+        "event": 17,
         "kind": "terminal.cutoff",
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.fired",
-      "seq": 24,
+      "seq": 33,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -85,13 +85,13 @@
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 11,
+      "seq": 17,
       "t": "2026-02-18T16:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 10,
+      "seq": 16,
       "t": "2026-02-18T16:00:00+00:00"
     }
   ],
@@ -115,12 +115,11 @@
   ],
   "replay_hash_match": true,
   "reviewer_causal_path": [
-    "External Reviewer sends sign-off at 10:00 AM Feb 18",
-    "Santos notices sign-off at his next email check (by 11:00 AM)",
-    "Santos finalizes and sends study within 30 minutes (by 11:30 AM)",
-    "Study arrives in Reyes's inbox within 1 minute",
-    "Reyes notices study at her next email check (12:30 PM)",
-    "Reyes reads study (60-90 minutes) before meeting at 7:00 PM"
+    "External Reviewer sends sign-off at 10:00 on 18 Feb",
+    "Santos notices sign-off by 11:00 (hourly check)",
+    "Santos sends finalized study within 20 minutes (by 11:20)",
+    "Reyes checks email at 12:30 or 14:30 on 18 Feb (or 8:30 on 19 Feb) and notices the study",
+    "Reyes has noticed the study before 19:00 on 19 Feb"
   ],
   "terminal": {
     "conditions": [
@@ -135,16 +134,16 @@
     ],
     "cutoff": "2026-02-20T01:00:00+00:00",
     "measure": null,
-    "no_detail": "Reyes has not noticed the finalized study before the meeting starts",
+    "no_detail": "Reyes has not noticed the finalized study before the meeting starts.",
     "question": "Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?",
     "question_type": "boolean",
     "uncertain_paths": [],
-    "yes_detail": "Reyes has noticed the finalized study before the meeting starts"
+    "yes_detail": "Reyes has noticed the finalized study before the meeting starts."
   },
   "terminal_producers_claimed": [
     {
-      "observation": "participant_noticed_information: Alma Reyes, tag 'finalized study'",
-      "produced_by": "Reyes's attention on city email (check_interval 120 min) noticing the email sent by Santos's action 'finalize and send study'"
+      "observation": "participant_noticed_information: Alma Reyes, tag finalized study",
+      "produced_by": "Alma Reyes's attention on city email route, checking email at intervals. The information is sent by Miguel Santos via the 'send finalized study' action. Reyes notices it if she checks email after the study arrives and before the deadline."
     }
   ]
 }

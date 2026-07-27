@@ -2,16 +2,18 @@
 
 **Question.** Will the union and the employer reach a signed wage agreement before the strike deadline?
 **Answer produced by the trajectory.** `no` (cutoff)
-No agreement has been recorded as accepted by both sides before the deadline.
+No such agreement is recorded by the deadline.
 
 **How it was produced.** 1 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- Mediator starts session at 10:00 on Oct 29
-- Bright tables revised demand of 4.5% (45 min caucus)
-- Wozniak hears the demand and, per his plan, accepts it immediately (or tables 4.5% which Bright accepts)
-- agreement_accepted is recorded as yes
-- Before deadline, agreement exists
+- Mediated session starts on 29 Oct 2026 at 10:00 AM.
+- Bright tables 4.5% (as prepared per e10).
+- Wozniak hears the offer (e7).
+- Wozniak's condition (e9) is satisfied; he accepts the 4.5% offer.
+- Bright hears acceptance (e7).
+- Both acceptance actions are recorded (e11).
+- Agreement is reached before the strike deadline.
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -29,16 +31,24 @@ reviewer's expected causal path was:
 - **Evidence quality.** The evidence package was hand-frozen; live retrieval
   is deliberately not part of this run.
 
+## Did the actors actually exercise this world?
+- Affordances declared: 2; ever completed: 0
+- Never performed by anyone: ['accept_offer', 'table_offer']
+- Participants who completed no action at all: ['dennis_wozniak', 'yolanda_bright']
+- Intentions the world rejected: 0
+  - none
+**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised, so it reflects the limits of the authored script rather than the situation itself.
+
 ## Honest gaps recorded during compilation
 - Information delivered but with no justified way to notice it: 0
   - none
 - Attention patterns the scenario left uncertain, so no rule was created: 0
   - none
 - Unresolved uncertainties carried by the scenario: 3
-  - Whether Bright will table 4.5% or 5% at the session.
-  - Whether Wozniak will move to 4.5% if union comes down to 4.5%.
-  - Whether the session will produce an agreement before the deadline.
+  - Whether Bright will actually table 4.5% as planned, or stick to 5%.
+  - Whether Wozniak will move to 4.5% if Bright tables 4.5% first, given his condition that union must come down first.
+  - Whether the session will produce an offer that both can accept within the time available.
 - Deliberately excluded from the world: 3
-  - Individual warehouse workers: They do not directly negotiate or accept the agreement; their ratification is already reflected in Bright's authority.
-  - Other union or company staff: Only the lead negotiators have authority to accept offers at the table.
-  - External events after the deadline: The question is resolved at the deadline.
+  - Details of union ratification vote beyond Bright's authority: Bright already has authority to accept 4% or higher; no further vote needed.
+  - Details of Kessler Logistics board approval beyond Wozniak's authority: Wozniak has authority up to 4.5% without board; no board involvement needed.
+  - Other bargaining sessions or informal communications: Only the mediated session on 29 Oct is scheduled; no other opportunities before deadline.

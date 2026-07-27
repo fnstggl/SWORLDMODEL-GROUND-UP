@@ -417,9 +417,16 @@ Observation shapes (pick the observation_type, then give its fields):
     "quantity": "<quantity name>"}}
   {{"observation_type": "action_was_completed", "action_label": "<affordance label>",
     "participant": "<optional name>"}}
-  {{"observation_type": "tally_of_records", "about": "<what each record is about>",
+  {{"observation_type": "record_was_made", "record_type": "<same string as the
+    create_record that makes them>", "subject": "<optional>",
+    "made_by": "<optional participant name>"}}
+  {{"observation_type": "tally_of_records",
+    "record_type": "<THE SAME STRING as the create_record change that makes
+    these records -- e.g. 'vote', 'sign-off', 'acceptance'>",
+    "subject": "<optional: only count records about this>",
     "rule": "majority" | "count_value" | "count_all",
-    "expected_count": <how many records must exist>, "value": <for count_value>}}
+    "expected_count": <how many records must exist before the tally is final>,
+    "value": <required only for count_value>}}
 
 "scope": {{"included": ["..."], "excluded": [{{"thing": "...", "reason": "..."}}]}}
 
@@ -540,7 +547,14 @@ or in an effect MUST appear in "parameters".
 Precondition objects:
   {{"condition_type": "actor_has_role", "roles": ["chair"]}}
   {{"condition_type": "world_fact_is", "about": "...", "value": <v>}}
-  {{"condition_type": "world_fact_absent", "about": "...", "scope": "per_actor"}}
+  {{"condition_type": "world_fact_absent", "about": "..."}}
+  {{"condition_type": "record_exists", "record_type": "vote",
+    "subject": "<optional>", "made_by": "<optional participant name>"}}
+  {{"condition_type": "record_absent", "record_type": "vote",
+    "made_by_acting_participant": true}}     // "has not already voted"
+  {{"condition_type": "within_time_window", "after": "<ISO>", "before": "<ISO>"}}
+  {{"condition_type": "action_already_completed", "action_label": "<label>",
+    "participant": "<optional name>"}}
   {{"condition_type": "has_noticed_information", "from_parameter": "<parameter name>"}}
   {{"condition_type": "has_quantity_at_least", "holder": "...", "quantity": "...",
     "amount": 100}}
@@ -549,8 +563,17 @@ Precondition objects:
 
 Change objects (used in "effects" and "consequences_on_completion"):
   {{"change_type": "record_fact", "about": "...", "value": <v>,
-    "scope": "global" | "per_actor",         // per_actor = one record per actor
     "value_from_parameter": "choice"}}       // instead of a fixed value
+  {{"change_type": "create_record",
+    "record_type": "vote",                   // the kind of record; the SAME
+                                             // string your tally_of_records or
+                                             // record_was_made observation reads
+    "subject": "<what it is about>",         // or "subject_from_parameter"
+    "value": "hold",                         // or "value_from_parameter": "choice"
+    "authority": "<under what authority it was made>",
+    "made_by": "<participant name>"}}        // ONLY in scheduled_events; inside
+                                             // an action the acting party is
+                                             // the maker automatically
   {{"change_type": "set_quantity" | "change_quantity", "quantity": "...",
     "holder": "...", "amount": <n> | "delta": <n>}}
   {{"change_type": "transfer_resource", "quantity": "...", "from": "...",
@@ -617,6 +640,18 @@ Trace your own answer before you finish:
 Include ONLY what can materially change the answer. Everything you leave out
 should appear in scope.excluded with the reason it cannot matter.
 
+COUNTING THINGS -- copy this pattern. The record_type strings MUST match:
+  affordance "cast a vote" -> consequences_on_completion:
+     [{{"change_type": "create_record", "record_type": "vote",
+        "subject_from_parameter": "motion", "value_from_parameter": "choice",
+        "authority": "voting member under the charter"}}]
+  its preconditions:
+     [{{"condition_type": "record_absent", "record_type": "vote",
+        "made_by_acting_participant": true}}]
+  resolution.observations:
+     [{{"observation_type": "tally_of_records", "record_type": "vote",
+        "rule": "majority", "expected_count": 3}}]
+
 === CHECK BEFORE YOU RETURN ===
 1. All eleven sections present? (empty lists are fine where nothing applies,
    but resolution.observations and terminal_producers must NOT be empty)
@@ -626,6 +661,8 @@ should appear in scope.excluded with the reason it cannot matter.
 5. Every quantity you named introduced by a starting_state entry or a process?
 6. Every parameter used in a precondition or effect declared in that action's
    "parameters"?
+6b. Does every create_record have a "record_type", and does every
+   tally_of_records / record_was_made read that SAME record_type string?
 7. A "provenance" block on every participant, starting_state entry,
    information entry, route, scheduled event, process and affordance -- and on
    every nested rate, duration, delivery_delay and attention entry?

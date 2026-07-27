@@ -1,40 +1,5 @@
 {
-  "detail": {
-    "available_producers": [
-      "action:prepare_and_circulate_safety_review",
-      "action:present_safety_review_at_meeting",
-      "action:put_motion_to_approve",
-      "action:vote_on_motion",
-      "belief:dr_helen_osei:safety_data_currency",
-      "belief:dr_raj_patel:voting_pattern",
-      "belief:sister_margaret_doyle:voting_pattern",
-      "belief:tomas_lindqvist:safety_review_preparation",
-      "belief:tomas_lindqvist:updated_trial_safety_data",
-      "fact:meeting_started",
-      "fact:motion_put",
-      "info:dr_helen_osei:safety_review",
-      "info:dr_raj_patel:safety_review",
-      "info:dr_raj_patel:safety_review_presented",
-      "info:sister_margaret_doyle:safety_review",
-      "info:sister_margaret_doyle:safety_review_presented",
-      "info:tomas_lindqvist:updated_safety_data",
-      "record:vote"
-    ],
-    "missing": [
-      {
-        "needs": "record:record",
-        "observation": {
-          "describe": "observation 1",
-          "kind": "tally_records",
-          "params": {
-            "record_type": "record",
-            "rule": "majority",
-            "value": "approve"
-          }
-        }
-      }
-    ]
-  },
-  "reason": "the terminal reads state that nothing in this world can produce: tally_records needs record:record",
-  "stage": "NO_CAUSAL_PRODUCER"
+  "detail": {},
+  "reason": "'tally_of_records' needs a 'record_type' naming the kind of record being read, and it must be the SAME string used by the create_record change that makes them",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

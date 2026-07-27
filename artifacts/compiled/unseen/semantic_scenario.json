@@ -8,26 +8,30 @@
       },
       "consequences_on_completion": [
         {
+          "about": "berth clear declaration made",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": true
+        },
+        {
           "change_type": "send_information",
           "content": "Berth 8 clear",
+          "description": "Danielle Okafor declares berth clear to Pilots dispatch.",
           "from": "Danielle Okafor",
           "route": "VHF Channel 12",
           "tag": "berth clear",
           "to": {
             "participants": [
-              "Savannah Pilots Association"
+              "Roy Tillman"
             ]
           }
         }
       ],
       "description": "Danielle Okafor declares Berth 8 clear after Cape Ferrol stern clears berth face.",
       "duration": {
-        "description": "Time to observe and transmit declaration.",
-        "evidence_ids": [
-          "e13"
-        ],
+        "description": "Instantaneous (radio transmission).",
         "status": "inferred",
-        "typical_minutes": 2
+        "typical_minutes": 0
       },
       "label": "declare berth clear",
       "parameters": [],
@@ -36,66 +40,102 @@
           "about": "Cape Ferrol stern clear",
           "condition_type": "world_fact_is",
           "value": true
+        },
+        {
+          "about": "berth clear declaration made",
+          "condition_type": "world_fact_absent",
+          "scope": "global"
         }
       ],
       "provenance": {
-        "basis": "inferred",
+        "basis": "verified",
         "evidence_ids": [
-          "e12",
-          "e13"
+          "e12"
         ]
       }
     },
     {
       "available_to": {
         "participants": [
-          "Roy Tillman"
+          "Capt. Lorraine Beaudry",
+          "GPA Garden City Terminal"
         ]
       },
       "consequences_on_completion": [
         {
-          "change_type": "schedule_future_event",
-          "delay": {
-            "description": "Pilot boat transit time.",
-            "hours": 0,
-            "minutes": 25,
-            "status": "verified"
-          },
-          "description": "Pilot boat departs for Rhine Meridian",
-          "effects": [
-            {
-              "about": "Pilot boat en route",
-              "change_type": "record_fact",
-              "scope": "global",
-              "value": true
-            }
-          ]
+          "about": "MV Rhine Meridian all fast at Berth 8",
+          "authority": "from_parameter",
+          "change_type": "create_record",
+          "record_type": "all_fast_record",
+          "subject": "MV Rhine Meridian",
+          "value": "all fast",
+          "value_from_parameter": "authority"
         }
       ],
-      "description": "Roy Tillman dispatches inbound pilot boat upon receiving berth clear declaration.",
+      "description": "Pilot and terminal each create an all-fast record upon mooring.",
       "duration": {
-        "description": "Time to dispatch pilot boat.",
-        "evidence_ids": [
-          "e11"
-        ],
-        "status": "verified",
+        "description": "Instantaneous.",
+        "status": "inferred",
         "typical_minutes": 0
       },
-      "label": "dispatch inbound pilot",
+      "label": "create all fast record",
       "parameters": [
         {
-          "description": "Berth clear declaration",
-          "fill_from": "noticed_information",
-          "name": "berth clear",
-          "tag": "berth clear"
+          "allowed_values": [
+            "Savannah Pilots Association",
+            "GPA Garden City Terminal"
+          ],
+          "description": "Which authority creates the record.",
+          "name": "authority"
         }
       ],
       "preconditions": [
         {
-          "condition_type": "has_noticed_information",
-          "from_parameter": "berth clear"
+          "about": "all fast at Berth 8",
+          "condition_type": "world_fact_is",
+          "value": true
+        },
+        {
+          "about": "MV Rhine Meridian all fast at Berth 8",
+          "condition_type": "record_absent",
+          "record_type": "all_fast_record",
+          "scope": "per_actor"
         }
       ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e14"
+        ],
+        "note": "Standard practice to record all fast."
+      }
+    }
+  ],
+  "communication_routes": [
+    {
+      "delivery_delay": {
+        "description": "Instantaneous for parties monitoring.",
+        "seconds": 0,
+        "status": "verified"
+      },
+      "description": "Terminal operations channel used by GPA personnel and vessels alongside.",
+      "name": "VHF Channel 12",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8",
+          "e12"
+        ]
+      }
+    },
+    {
+      "delivery_delay": {
+        "description": "Instantaneous for parties monitoring.",
+        "seconds": 0,
+        "status": "verified"
+      },
+      "description": "Pilot dispatch and bridge-to-bridge channel.",
+      "name": "VHF Channel 13",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -104,54 +144,8 @@
       }
     },
     {
-      "available_to": {
-        "participants": [
-          "Capt. Lorraine Beaudry"
-        ]
-      },
-      "consequences_on_completion": [
-        {
-          "about": "Rhine Meridian all fast at Berth 8",
-          "change_type": "record_fact",
-          "scope": "global",
-          "value": true
-        }
-      ],
-      "description": "Capt. Lorraine Beaudry boards Rhine Meridian and transits to Berth 8.",
-      "duration": {
-        "description": "Time from pilot boat arrival to all fast at Berth 8: 10 min boarding + 30 min heave up + 15 min to sea buoy + 3h05m transit = 4h00m total.",
-        "evidence_ids": [
-          "e13",
-          "e14"
-        ],
-        "status": "inferred",
-        "typical_minutes": 240
-      },
-      "label": "board and transit Rhine Meridian",
-      "parameters": [],
-      "preconditions": [
-        {
-          "about": "Pilot boat arrived at Rhine Meridian",
-          "condition_type": "world_fact_is",
-          "value": true
-        }
-      ],
-      "provenance": {
-        "basis": "inferred",
-        "evidence_ids": [
-          "e13",
-          "e14"
-        ]
-      }
-    }
-  ],
-  "communication_routes": [
-    {
       "delivery_delay": {
-        "description": "Instantaneous for vessels monitoring.",
-        "evidence_ids": [
-          "e1"
-        ],
+        "description": "Instantaneous for parties monitoring.",
         "seconds": 0,
         "status": "verified"
       },
@@ -166,53 +160,27 @@
     },
     {
       "delivery_delay": {
-        "description": "Instantaneous for vessels monitoring.",
-        "evidence_ids": [
-          "e1"
-        ],
+        "description": "Instantaneous when call is answered.",
         "seconds": 0,
         "status": "verified"
       },
-      "description": "Bridge-to-bridge navigational channel.",
-      "name": "VHF Channel 13",
+      "description": "Telephone line to Pilots dispatch desk.",
+      "name": "Dispatch telephone",
       "provenance": {
         "basis": "verified",
-        "evidence_ids": [
-          "e1"
-        ]
-      }
-    },
-    {
-      "delivery_delay": {
-        "description": "Instantaneous for those monitoring.",
-        "evidence_ids": [
-          "e8",
-          "e12"
-        ],
-        "seconds": 0,
-        "status": "verified"
-      },
-      "description": "Terminal operations channel.",
-      "name": "VHF Channel 12",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e8",
-          "e12"
-        ]
-      }
-    },
-    {
-      "delivery_delay": {
-        "description": "Instantaneous when answered.",
         "evidence_ids": [
           "e11"
-        ],
-        "seconds": 0,
+        ]
+      }
+    },
+    {
+      "delivery_delay": {
+        "description": "25 minutes from station to Anchorage A.",
+        "seconds": 1500,
         "status": "verified"
       },
-      "description": "Telephone line to pilots dispatch.",
-      "name": "Dispatch telephone",
+      "description": "Physical transport of pilot from Tybee pilot station to vessel.",
+      "name": "Pilot boat Savannah",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -224,11 +192,11 @@
   "information": [
     {
       "already_sent_to": [
-        "Savannah Pilots Association"
+        "Roy Tillman"
       ],
-      "basis": "Evidence e10.",
-      "content": "Outbound pilot for Cape Ferrol at 19:00 EDT, inbound pilot for Rhine Meridian at 19:00 EDT.",
-      "holder": "Meridian Marine Agencies",
+      "basis": "e10",
+      "content": "Outbound pilot for Cape Ferrol at 19:00 EDT; inbound pilot for Rhine Meridian at 19:00 EDT.",
+      "holder": "Savannah Pilots Association",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -236,27 +204,29 @@
         ]
       },
       "route": "Dispatch telephone",
-      "sent_time": "2026-08-13T16:35:00-04:00",
-      "tag": "pilot order",
+      "sent_time": "2026-08-13T16:36:00-04:00",
+      "tag": "pilot order accepted",
       "topic": "pilot orders"
     },
     {
       "already_sent_to": [
-        "Meridian Marine Agencies"
+        "Danielle Okafor",
+        "Marcus Deveaux"
       ],
-      "basis": "Evidence e8.",
+      "basis": "e8",
       "content": "Last container at approximately 18:10 EDT.",
-      "holder": "Marcus Deveaux",
+      "holder": "GPA Garden City Terminal",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
           "e8"
-        ]
+        ],
+        "note": "Estimate transmitted via radio; inferred from operations log."
       },
       "route": "VHF Channel 12",
       "sent_time": "2026-08-13T16:15:00-04:00",
-      "tag": "cargo projection",
-      "topic": "cargo completion projection"
+      "tag": "completion estimate",
+      "topic": "Cape Ferrol completion estimate"
     }
   ],
   "participants": [
@@ -264,21 +234,15 @@
       "attention": [
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Manned bridge anchor watch monitoring continuously.",
-          "evidence_ids": [
-            "e1"
-          ],
+          "check_interval_minutes": 0,
+          "description": "Manned bridge anchor watch continuously monitoring VHF 16 and 13.",
           "route": "VHF Channel 16",
           "status": "verified"
         },
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Manned bridge anchor watch monitoring continuously.",
-          "evidence_ids": [
-            "e1"
-          ],
+          "check_interval_minutes": 0,
+          "description": "Manned bridge anchor watch continuously monitoring VHF 13.",
           "route": "VHF Channel 13",
           "status": "verified"
         }
@@ -298,7 +262,7 @@
           6
         ]
       },
-      "causal_relevance": "Subject of the all-fast record.",
+      "causal_relevance": "Subject of the all-fast record; its arrival time determines the answer.",
       "evidence_ids": [
         "e1"
       ],
@@ -307,8 +271,8 @@
       ],
       "identity_brief": "14,320 TEU container ship, LOA 366 m, beam 48.2 m, draft 45 ft 3 in, master Capt. Anders Holm.",
       "initial_emotional_state": "N/A",
-      "initial_physical_state": "Anchored at Tybee Roads Anchorage A.",
-      "initial_plan": "Await pilot for inbound transit.",
+      "initial_physical_state": "Anchored at Tybee Roads Anchorage A at 11:20 EDT 2026-08-13, awaiting pilot.",
+      "initial_plan": "Receive inbound pilot, transit to Berth 8, moor.",
       "kind": "operating system",
       "name": "MV Rhine Meridian",
       "provenance": {
@@ -326,22 +290,9 @@
       "attention": [
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Dispatch desk monitors continuously.",
-          "evidence_ids": [
-            "e11"
-          ],
-          "route": "VHF Channel 13",
-          "status": "verified"
-        },
-        {
-          "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Dispatch desk monitors continuously.",
-          "evidence_ids": [
-            "e11"
-          ],
-          "route": "Dispatch telephone",
+          "check_interval_minutes": 0,
+          "description": "Roy Tillman monitors continuously.",
+          "route": "Dispatch telephone and VHF Channel 13",
           "status": "verified"
         }
       ],
@@ -360,19 +311,19 @@
           6
         ]
       },
-      "causal_relevance": "Provides pilots and docking report.",
+      "causal_relevance": "Provides docking pilot who declares all fast and creates docking report.",
       "evidence_ids": [
         "e2",
         "e10",
         "e11"
       ],
       "goals": [
-        "Safely transit vessels"
+        "Safely dock vessels in compliance with standing orders"
       ],
-      "identity_brief": "Association of licensed pilots for Savannah River.",
+      "identity_brief": "Association of licensed pilots providing navigation services on the Savannah River.",
       "initial_emotional_state": "N/A",
-      "initial_physical_state": "Operational.",
-      "initial_plan": "Dispatch pilots as ordered.",
+      "initial_physical_state": "Dispatch desk manned 24/7; pilots available.",
+      "initial_plan": "Dispatch outbound pilot for Cape Ferrol and inbound pilot for Rhine Meridian as ordered.",
       "kind": "organization",
       "name": "Savannah Pilots Association",
       "provenance": {
@@ -383,23 +334,25 @@
           "e11"
         ]
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "description": "Coordinates berth clearance and pilotage.",
+          "to": "GPA Garden City Terminal"
+        }
+      ],
       "role": "pilot dispatch and docking",
       "timezone": "America/New_York",
       "values": [
-        "Compliance with Standing Orders"
+        "Safety",
+        "Efficiency"
       ]
     },
     {
       "attention": [
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Terminal superintendent and vessel planner monitor continuously.",
-          "evidence_ids": [
-            "e8",
-            "e12"
-          ],
+          "check_interval_minutes": 0,
+          "description": "Marcus Deveaux and Danielle Okafor monitor continuously during shifts.",
           "route": "VHF Channel 12",
           "status": "verified"
         }
@@ -419,23 +372,22 @@
           6
         ]
       },
-      "causal_relevance": "Operates Berth 8 and maintains vessel log.",
+      "causal_relevance": "Operates Berth 8, creates vessel log, declares berth clear.",
       "evidence_ids": [
         "e4",
         "e5",
         "e6",
         "e7",
         "e8",
-        "e9",
         "e12"
       ],
       "goals": [
-        "Efficient berth operations"
+        "Efficient vessel turnaround"
       ],
-      "identity_brief": "Georgia Ports Authority container terminal.",
+      "identity_brief": "Georgia Ports Authority container terminal at Garden City, Savannah.",
       "initial_emotional_state": "N/A",
-      "initial_physical_state": "Berth 8 occupied by MV Cape Ferrol.",
-      "initial_plan": "Complete Cape Ferrol cargo and clear berth.",
+      "initial_physical_state": "Berth 8 occupied by Cape Ferrol; Berth 6 out of service.",
+      "initial_plan": "Complete Cape Ferrol, clear berth, receive Rhine Meridian.",
       "kind": "organization",
       "name": "GPA Garden City Terminal",
       "provenance": {
@@ -446,37 +398,35 @@
           "e6",
           "e7",
           "e8",
-          "e9",
           "e12"
         ]
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "description": "Coordinates berth clearance and pilotage.",
+          "to": "Savannah Pilots Association"
+        }
+      ],
       "role": "terminal operator",
       "timezone": "America/New_York",
       "values": [
-        "Safety",
-        "Productivity"
+        "Productivity",
+        "Safety"
       ]
     },
     {
       "attention": [
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Bridge watches monitor continuously.",
-          "evidence_ids": [
-            "e4"
-          ],
+          "check_interval_minutes": 0,
+          "description": "Bridge watches monitor VHF 12 and 16 continuously.",
           "route": "VHF Channel 12",
           "status": "verified"
         },
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Bridge watches monitor continuously.",
-          "evidence_ids": [
-            "e4"
-          ],
+          "check_interval_minutes": 0,
+          "description": "Bridge watches monitor VHF 16 continuously.",
           "route": "VHF Channel 16",
           "status": "verified"
         }
@@ -496,18 +446,18 @@
           6
         ]
       },
-      "causal_relevance": "Occupies Berth 8 until departure.",
+      "causal_relevance": "Must depart before Rhine Meridian can berth; its departure timing affects berth availability.",
       "evidence_ids": [
         "e4",
         "e5"
       ],
       "goals": [
-        "Complete cargo and depart"
+        "Complete cargo operations and depart"
       ],
       "identity_brief": "10,100 TEU container ship, beam 42.8 m, master Capt. Ioannis Vlachos.",
       "initial_emotional_state": "N/A",
-      "initial_physical_state": "Alongside Berth 8, cargo operations ongoing.",
-      "initial_plan": "Depart after cargo completion.",
+      "initial_physical_state": "Alongside Berth 8, with 58 moves remaining at 16:30 EDT.",
+      "initial_plan": "Complete loading, lash, depart with outbound pilot.",
       "kind": "operating system",
       "name": "MV Cape Ferrol",
       "provenance": {
@@ -525,66 +475,9 @@
     {
       "attention": [
         {
-          "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Communicates with pilots dispatch.",
-          "evidence_ids": [
-            "e10"
-          ],
-          "route": "Dispatch telephone",
-          "status": "verified"
-        }
-      ],
-      "availability": {
-        "close": "23:59",
-        "holidays": [],
-        "open": "00:00",
-        "timezone": "America/New_York",
-        "workdays": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
-      },
-      "causal_relevance": "Orders pilot services.",
-      "evidence_ids": [
-        "e10",
-        "e13"
-      ],
-      "goals": [
-        "Coordinate vessel movements"
-      ],
-      "identity_brief": "Appointed agent for both vessels.",
-      "initial_emotional_state": "N/A",
-      "initial_physical_state": "Operational.",
-      "initial_plan": "Order pilot services based on projections.",
-      "kind": "organization",
-      "name": "Meridian Marine Agencies",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e10",
-          "e13"
-        ]
-      },
-      "relationships": [],
-      "role": "ship agent",
-      "timezone": "America/New_York",
-      "values": []
-    },
-    {
-      "attention": [
-        {
           "bounded_by_availability": true,
-          "check_interval_minutes": null,
+          "check_interval_minutes": 0,
           "description": "Monitors continuously while on shift.",
-          "evidence_ids": [
-            "e12"
-          ],
           "route": "VHF Channel 12",
           "status": "verified"
         }
@@ -604,17 +497,17 @@
           6
         ]
       },
-      "causal_relevance": "Only person authorized to declare berth clear.",
+      "causal_relevance": "Only person authorized to declare berth clear; her declaration triggers inbound transit.",
       "evidence_ids": [
         "e12"
       ],
       "goals": [
-        "Declare berth clear when safe"
+        "Clear berth efficiently"
       ],
       "identity_brief": "Works 15:00-23:00 EDT shift in Berth 8 control tower.",
       "initial_emotional_state": "Professional",
       "initial_physical_state": "On shift, in control tower.",
-      "initial_plan": "Monitor departure and declare berth clear.",
+      "initial_plan": "Monitor Cape Ferrol departure, declare berth clear when stern clears.",
       "kind": "person",
       "name": "Danielle Okafor",
       "provenance": {
@@ -623,33 +516,25 @@
           "e12"
         ]
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "description": "Communicates berth-clear declaration to dispatch.",
+          "to": "Savannah Pilots Association"
+        }
+      ],
       "role": "GPA vessel planner and berth coordinator",
       "timezone": "America/New_York",
       "values": [
-        "Safety"
+        "Accuracy"
       ]
     },
     {
       "attention": [
         {
           "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Monitors continuously.",
-          "evidence_ids": [
-            "e11"
-          ],
+          "check_interval_minutes": 0,
+          "description": "Monitors pilot dispatch communications.",
           "route": "VHF Channel 13",
-          "status": "verified"
-        },
-        {
-          "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Monitors continuously.",
-          "evidence_ids": [
-            "e11"
-          ],
-          "route": "Dispatch telephone",
           "status": "verified"
         }
       ],
@@ -668,17 +553,74 @@
           6
         ]
       },
-      "causal_relevance": "Receives berth-clear declaration and dispatches inbound pilot.",
+      "causal_relevance": "Boards Rhine Meridian, conducts transit, declares all fast.",
       "evidence_ids": [
         "e11"
       ],
       "goals": [
-        "Dispatch pilots promptly"
+        "Safely dock vessel"
       ],
-      "identity_brief": "Staffs dispatch desk on 24-hour watch.",
+      "identity_brief": "Savannah pilot, assigned as inbound pilot for Rhine Meridian.",
+      "initial_emotional_state": "Rested, professional",
+      "initial_physical_state": "Available after rest period ending 17:00 EDT.",
+      "initial_plan": "Board Rhine Meridian at Tybee Roads, transit to Berth 8, dock.",
+      "kind": "person",
+      "name": "Capt. Lorraine Beaudry",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      },
+      "relationships": [
+        {
+          "description": "Employee.",
+          "to": "Savannah Pilots Association"
+        }
+      ],
+      "role": "inbound pilot for MV Rhine Meridian",
+      "timezone": "America/New_York",
+      "values": [
+        "Safety",
+        "Compliance"
+      ]
+    },
+    {
+      "attention": [
+        {
+          "bounded_by_availability": false,
+          "check_interval_minutes": 0,
+          "description": "Monitors continuously.",
+          "route": "Dispatch telephone and VHF Channel 13",
+          "status": "verified"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "holidays": [],
+        "open": "00:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Receives berth-clear declaration and relays to inbound pilot.",
+      "evidence_ids": [
+        "e11"
+      ],
+      "goals": [
+        "Coordinate pilot assignments"
+      ],
+      "identity_brief": "24-hour watch dispatcher.",
       "initial_emotional_state": "Professional",
       "initial_physical_state": "On duty.",
-      "initial_plan": "Monitor channels and dispatch pilots.",
+      "initial_plan": "Monitor communications, dispatch pilots as needed.",
       "kind": "person",
       "name": "Roy Tillman",
       "provenance": {
@@ -687,7 +629,12 @@
           "e11"
         ]
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "description": "Employee.",
+          "to": "Savannah Pilots Association"
+        }
+      ],
       "role": "Savannah Pilots Association dispatcher",
       "timezone": "America/New_York",
       "values": [
@@ -697,120 +644,9 @@
     {
       "attention": [
         {
-          "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Monitors when on duty.",
-          "evidence_ids": [
-            "e11"
-          ],
-          "route": "VHF Channel 13",
-          "status": "verified"
-        }
-      ],
-      "availability": {
-        "close": "23:59",
-        "holidays": [],
-        "open": "00:00",
-        "timezone": "America/New_York",
-        "workdays": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
-      },
-      "causal_relevance": "Pilots MV Rhine Meridian inbound.",
-      "evidence_ids": [
-        "e11"
-      ],
-      "goals": [
-        "Safely dock vessel"
-      ],
-      "identity_brief": "Assigned inbound pilot, off rest at 17:00 EDT.",
-      "initial_emotional_state": "Professional",
-      "initial_physical_state": "Available after rest period.",
-      "initial_plan": "Board Rhine Meridian and transit to Berth 8.",
-      "kind": "person",
-      "name": "Capt. Lorraine Beaudry",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e11"
-        ]
-      },
-      "relationships": [],
-      "role": "inbound pilot",
-      "timezone": "America/New_York",
-      "values": [
-        "Safety"
-      ]
-    },
-    {
-      "attention": [
-        {
-          "bounded_by_availability": false,
-          "check_interval_minutes": null,
-          "description": "Monitors when on duty.",
-          "evidence_ids": [
-            "e11"
-          ],
-          "route": "VHF Channel 13",
-          "status": "verified"
-        }
-      ],
-      "availability": {
-        "close": "23:59",
-        "holidays": [],
-        "open": "00:00",
-        "timezone": "America/New_York",
-        "workdays": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
-      },
-      "causal_relevance": "Pilots MV Cape Ferrol outbound.",
-      "evidence_ids": [
-        "e11"
-      ],
-      "goals": [
-        "Safely depart vessel"
-      ],
-      "identity_brief": "Assigned outbound pilot, on board since 14:00 EDT.",
-      "initial_emotional_state": "Professional",
-      "initial_physical_state": "Available.",
-      "initial_plan": "Board Cape Ferrol and depart.",
-      "kind": "person",
-      "name": "Capt. Dale Wingard",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e11"
-        ]
-      },
-      "relationships": [],
-      "role": "outbound pilot",
-      "timezone": "America/New_York",
-      "values": [
-        "Safety"
-      ]
-    },
-    {
-      "attention": [
-        {
           "bounded_by_availability": true,
-          "check_interval_minutes": null,
+          "check_interval_minutes": 0,
           "description": "Monitors continuously while on shift.",
-          "evidence_ids": [
-            "e8"
-          ],
           "route": "VHF Channel 12",
           "status": "verified"
         }
@@ -830,41 +666,47 @@
           6
         ]
       },
-      "causal_relevance": "Provided projection of cargo completion time.",
+      "causal_relevance": "Provided estimate of Cape Ferrol completion time, which drove pilot orders.",
       "evidence_ids": [
         "e8"
       ],
       "goals": [
-        "Monitor cargo operations"
+        "Ensure efficient cargo operations"
       ],
       "identity_brief": "Works 12:00-20:00 EDT shift on apron.",
       "initial_emotional_state": "Professional",
       "initial_physical_state": "On shift.",
-      "initial_plan": "Monitor operations and communicate projections.",
+      "initial_plan": "Monitor operations, communicate with vessel planner.",
       "kind": "person",
       "name": "Marcus Deveaux",
       "provenance": {
-        "basis": "verified",
+        "basis": "inferred",
         "evidence_ids": [
           "e8"
-        ]
+        ],
+        "note": "His shift and monitoring are inferred from typical practice; the estimate is documented."
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "description": "Employee.",
+          "to": "GPA Garden City Terminal"
+        }
+      ],
       "role": "GPA terminal superintendent",
       "timezone": "America/New_York",
       "values": [
-        "Efficiency"
+        "Productivity"
       ]
     }
   ],
   "processes": [
     {
       "capacity": null,
-      "description": "Crane operations loading/unloading Cape Ferrol.",
+      "description": "Crane operations to load remaining containers onto Cape Ferrol.",
       "initially_active": true,
       "name": "Cape Ferrol cargo operations",
       "operating_periods": {
-        "description": "Day shift 08:00-17:00, evening shift 18:00-23:00, break 17:00-18:00.",
+        "description": "Day shift 08:00-17:00, evening shift 18:00-23:00 with break 17:00-18:00.",
         "end": "23:00",
         "start": "08:00",
         "timezone": "America/New_York",
@@ -889,11 +731,29 @@
       },
       "rate": {
         "amount_per_hour": 92,
-        "evidence_ids": [
-          "e6"
-        ],
-        "note": "23 moves per crane-hour, 4 cranes = 92 gross moves per hour.",
+        "note": "4 cranes at 23 moves/crane-hour (e6).",
         "status": "verified"
+      }
+    },
+    {
+      "capacity": null,
+      "description": "Transit from sea buoy to Berth 8 including docking.",
+      "initially_active": false,
+      "name": "Rhine Meridian transit",
+      "operating_periods": null,
+      "output_quantity": "mooring lines fast",
+      "owner": "MV Rhine Meridian",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e14"
+        ],
+        "note": "Transit time from sea buoy to all fast."
+      },
+      "rate": {
+        "amount_per_hour": 0.324,
+        "note": "3h05m average transit time (e14); rate is 1/3.0833 per hour.",
+        "status": "inferred"
       }
     }
   ],
@@ -902,27 +762,33 @@
     "no_condition": "Otherwise.",
     "observations": [
       {
-        "about": "Savannah Pilots Association docking report for MV Rhine Meridian at Berth 8",
-        "observation_type": "record_was_made"
-      },
-      {
-        "about": "GPA Garden City Berth 8 vessel log for MV Rhine Meridian",
-        "observation_type": "record_was_made"
+        "about": "MV Rhine Meridian all fast at Berth 8",
+        "expected_count": 2,
+        "observation_type": "tally_of_records",
+        "record_type": "all_fast_record",
+        "rule": "count_value",
+        "value": "all fast"
       }
     ],
-    "observed_from": "Check whether the docking report and vessel log records exist with all-fast time at or before deadline.",
+    "observed_from": "Check whether both records exist with all-fast time \u2264 deadline. If they disagree, pilot's report governs.",
     "provenance": {
       "basis": "scenario_given",
       "evidence_ids": []
     },
     "question_type": "boolean",
-    "yes_condition": "The Savannah Pilots Association docking report and the GPA Garden City Berth 8 vessel log both record an 'all fast' time for MV Rhine Meridian at Berth 8 at or before 2026-08-13T23:59:00-04:00."
+    "yes_condition": "Both the Savannah Pilots Association docking report and the GPA Garden City Berth 8 vessel log record an 'all fast' time for MV Rhine Meridian at Berth 8 at an instant at or before 2026-08-13T23:59:00-04:00."
   },
   "scheduled_events": [
     {
-      "basis": "Marcus Deveaux's projection at 16:15 EDT.",
-      "description": "Last container lands on MV Cape Ferrol at approximately 18:10 EDT.",
+      "basis": "Marcus Deveaux's estimate (e8) and productivity rates (e6, e7).",
+      "description": "Cape Ferrol cargo operations complete; last container lands.",
       "effects": [
+        {
+          "amount": 0,
+          "change_type": "set_quantity",
+          "holder": "MV Cape Ferrol",
+          "quantity": "remaining container moves"
+        },
         {
           "about": "Cape Ferrol cargo complete",
           "change_type": "record_fact",
@@ -931,20 +797,25 @@
         }
       ],
       "evidence_ids": [
-        "e8"
+        "e8",
+        "e6",
+        "e7"
       ],
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e8"
-        ]
+          "e8",
+          "e6",
+          "e7"
+        ],
+        "note": "Estimated from 58 moves at 92 moves/hour, accounting for 17:00-18:00 break."
       },
       "time": "2026-08-13T18:10:00-04:00",
       "wakes": []
     },
     {
-      "basis": "GPA departure standards section 3.1.",
-      "description": "Cape Ferrol lashing complete 40 minutes after last container.",
+      "basis": "GPA Terminal Departure Standards (e9).",
+      "description": "Cape Ferrol lashing complete (40 min after last container).",
       "effects": [
         {
           "about": "Cape Ferrol lashing complete",
@@ -966,34 +837,60 @@
       "wakes": []
     },
     {
-      "basis": "Pilot order for 19:00 EDT.",
-      "description": "Outbound pilot boards Cape Ferrol at 19:00 EDT.",
+      "basis": "Pilot order for 19:00, but boarding cannot occur before lashing complete; assumed boarding at lashing completion.",
+      "description": "Outbound pilot boards Cape Ferrol (pilot ordered for 19:00, but boarding may occur after lashing complete).",
       "effects": [
         {
-          "about": "Outbound pilot aboard Cape Ferrol",
+          "about": "outbound pilot aboard Cape Ferrol",
           "change_type": "record_fact",
           "scope": "global",
           "value": true
         }
       ],
       "evidence_ids": [
-        "e10"
+        "e10",
+        "e9"
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e9"
+        ],
+        "note": "Pilot order at 19:00, but unmooring cannot start until lashing complete; boarding likely at 18:50."
+      },
+      "time": "2026-08-13T18:50:00-04:00",
+      "wakes": []
+    },
+    {
+      "basis": "GPA Terminal Departure Standards (e9).",
+      "description": "Cape Ferrol unmooring complete (25 min after pilot aboard and lashing complete).",
+      "effects": [
+        {
+          "about": "Cape Ferrol unmooring complete",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": true
+        }
+      ],
+      "evidence_ids": [
+        "e9"
       ],
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
-          "e10"
+          "e9"
         ]
       },
-      "time": "2026-08-13T19:00:00-04:00",
+      "time": "2026-08-13T19:15:00-04:00",
       "wakes": []
     },
     {
-      "basis": "GPA departure standards section 3.2.",
-      "description": "Cape Ferrol unmooring complete 25 minutes after pilot aboard and lashing complete (whichever later). Lashing complete at 18:50, pilot aboard at 19:00, so unmooring starts at 19:00 and completes at 19:25.",
+      "basis": "GPA Terminal Departure Standards (e9).",
+      "description": "Cape Ferrol stern clear of berth face (10 min after unmooring).",
       "effects": [
         {
-          "about": "Cape Ferrol unmooring complete",
+          "about": "Cape Ferrol stern clear",
           "change_type": "record_fact",
           "scope": "global",
           "value": true
@@ -1012,41 +909,25 @@
       "wakes": []
     },
     {
-      "basis": "GPA departure standards section 3.3.",
-      "description": "Cape Ferrol stern clear of berth face 10 minutes after unmooring complete.",
+      "basis": "e12 and e13 (2 min estimate).",
+      "description": "Danielle Okafor declares berth clear (within 2 min of stern clear).",
       "effects": [
         {
-          "about": "Cape Ferrol stern clear",
+          "about": "berth clear declaration made",
           "change_type": "record_fact",
           "scope": "global",
           "value": true
-        }
-      ],
-      "evidence_ids": [
-        "e9"
-      ],
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e9"
-        ]
-      },
-      "time": "2026-08-13T19:35:00-04:00",
-      "wakes": []
-    },
-    {
-      "basis": "GPA berth-control procedure BC-4 and estimated 2-minute delay.",
-      "description": "Danielle Okafor declares berth clear to pilots dispatch within 2 minutes of stern clear.",
-      "effects": [
+        },
         {
           "change_type": "send_information",
           "content": "Berth 8 clear",
+          "description": "Danielle Okafor declares berth clear to Pilots dispatch.",
           "from": "Danielle Okafor",
           "route": "VHF Channel 12",
           "tag": "berth clear",
           "to": {
             "participants": [
-              "Savannah Pilots Association"
+              "Roy Tillman"
             ]
           }
         }
@@ -1060,68 +941,46 @@
         "evidence_ids": [
           "e12",
           "e13"
-        ]
+        ],
+        "note": "2-minute interval from stern clear to declaration is inferred from e13."
       },
-      "time": "2026-08-13T19:37:00-04:00",
+      "time": "2026-08-13T19:27:00-04:00",
       "wakes": []
     },
     {
-      "basis": "Pilot boat transit time from e11.",
-      "description": "Inbound pilot boat departs for Rhine Meridian upon berth clear declaration. Pilot boat transit to Tybee Roads Anchorage A takes 25 minutes.",
+      "basis": "Berth clear declaration triggers boarding; pilot already at Tybee station.",
+      "description": "Inbound pilot Capt. Beaudry boards Rhine Meridian (after berth clear and within transit window).",
       "effects": [
         {
-          "change_type": "schedule_future_event",
-          "delay": {
-            "description": "Pilot boat transit time.",
-            "hours": 0,
-            "minutes": 25,
-            "status": "verified"
-          },
-          "description": "Pilot boat arrives at Rhine Meridian",
-          "effects": [
-            {
-              "about": "Pilot boat arrived at Rhine Meridian",
-              "change_type": "record_fact",
-              "scope": "global",
-              "value": true
-            }
-          ]
+          "about": "inbound pilot aboard Rhine Meridian",
+          "change_type": "record_fact",
+          "scope": "global",
+          "value": true
         }
       ],
       "evidence_ids": [
-        "e11"
-      ],
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e11"
-        ]
-      },
-      "time": "2026-08-13T19:37:00-04:00",
-      "wakes": []
-    },
-    {
-      "basis": "Calculated from previous event.",
-      "description": "Pilot boat arrives at Rhine Meridian at 20:02 EDT (19:37 + 25 min).",
-      "effects": [],
-      "evidence_ids": [
-        "e11"
+        "e10",
+        "e11",
+        "e13"
       ],
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e11"
-        ]
+          "e10",
+          "e11",
+          "e13"
+        ],
+        "note": "Pilot ordered for 19:00, but boarding occurs after berth clear; assumed immediate boarding at 19:27."
       },
-      "time": "2026-08-13T20:02:00-04:00",
+      "time": "2026-08-13T19:27:00-04:00",
       "wakes": []
     },
     {
-      "basis": "Estimated 10 minutes for boarding from e13.",
-      "description": "Pilot boards Rhine Meridian at 20:12 EDT (10 min after arrival for boarding and transit to bridge).",
+      "basis": "e13 (30 min to heave anchor).",
+      "description": "Rhine Meridian heaves anchor and begins transit (30 min after boarding).",
       "effects": [
         {
-          "about": "Inbound pilot aboard Rhine Meridian",
+          "about": "Rhine Meridian transit started",
           "change_type": "record_fact",
           "scope": "global",
           "value": true
@@ -1134,105 +993,122 @@
         "basis": "inferred",
         "evidence_ids": [
           "e13"
-        ]
+        ],
+        "note": "30 minutes from boarding to anchor aweigh is inferred from e13."
+      },
+      "time": "2026-08-13T19:57:00-04:00",
+      "wakes": []
+    },
+    {
+      "basis": "e13 (15 min run from Anchorage A to sea buoy).",
+      "description": "Rhine Meridian arrives at sea buoy (15 min after anchor aweigh).",
+      "effects": [],
+      "evidence_ids": [
+        "e13"
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e13"
+        ],
+        "note": "15 minutes at maneuvering speed."
       },
       "time": "2026-08-13T20:12:00-04:00",
       "wakes": []
     },
     {
-      "basis": "Estimated 30 minutes to heave up from e13.",
-      "description": "Anchor aweigh at 20:42 EDT (30 min heave up).",
+      "basis": "e14 (average 3h05m transit from sea buoy to all fast).",
+      "description": "Rhine Meridian all fast at Berth 8 (3h05m after sea buoy).",
       "effects": [
         {
-          "about": "Rhine Meridian anchor aweigh",
+          "amount": 1,
+          "change_type": "set_quantity",
+          "holder": "MV Rhine Meridian",
+          "quantity": "mooring lines fast"
+        },
+        {
+          "about": "all fast at Berth 8",
           "change_type": "record_fact",
           "scope": "global",
           "value": true
-        }
-      ],
-      "evidence_ids": [
-        "e13"
-      ],
-      "provenance": {
-        "basis": "inferred",
-        "evidence_ids": [
-          "e13"
-        ]
-      },
-      "time": "2026-08-13T20:42:00-04:00",
-      "wakes": []
-    },
-    {
-      "basis": "Estimated 15 minutes from e13.",
-      "description": "Rhine Meridian reaches sea buoy at 20:57 EDT (15 min from Anchorage A to sea buoy).",
-      "effects": [
+        },
         {
-          "about": "Rhine Meridian at sea buoy",
-          "change_type": "record_fact",
-          "scope": "global",
-          "value": true
-        }
-      ],
-      "evidence_ids": [
-        "e13"
-      ],
-      "provenance": {
-        "basis": "inferred",
-        "evidence_ids": [
-          "e13"
-        ]
-      },
-      "time": "2026-08-13T20:57:00-04:00",
-      "wakes": []
-    },
-    {
-      "basis": "Average transit time 3h05m from e14.",
-      "description": "Rhine Meridian all fast at Berth 8 at 00:02 EDT on 2026-08-14 (3h05m transit from sea buoy).",
-      "effects": [
+          "about": "MV Rhine Meridian all fast at Berth 8",
+          "authority": "Savannah Pilots Association",
+          "change_type": "create_record",
+          "provenance": {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e14"
+            ],
+            "note": "Record created by pilot upon all fast."
+          },
+          "record_type": "all_fast_record",
+          "subject": "MV Rhine Meridian",
+          "value": "all fast"
+        },
         {
-          "about": "Rhine Meridian all fast at Berth 8",
-          "change_type": "record_fact",
-          "scope": "global",
-          "value": true
+          "about": "MV Rhine Meridian all fast at Berth 8",
+          "authority": "GPA Garden City Terminal",
+          "change_type": "create_record",
+          "provenance": {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e14"
+            ],
+            "note": "Record created by terminal upon all fast."
+          },
+          "record_type": "all_fast_record",
+          "subject": "MV Rhine Meridian",
+          "value": "all fast"
         }
       ],
       "evidence_ids": [
         "e14"
       ],
       "provenance": {
-        "basis": "verified",
+        "basis": "inferred",
         "evidence_ids": [
           "e14"
-        ]
+        ],
+        "note": "3h05m average transit time from sea buoy to all fast for vessels of this class."
       },
-      "time": "2026-08-14T00:02:00-04:00",
+      "time": "2026-08-13T23:17:00-04:00",
       "wakes": []
     }
   ],
   "scope": {
     "excluded": [
       {
-        "reason": "No material impact on the question.",
-        "thing": "Other vessels, terminals, berths, weather events, or regulatory bodies"
+        "reason": "Only Berth 8 can accommodate the vessel's draft per e4.",
+        "thing": "Other berths or terminals"
+      },
+      {
+        "reason": "e15 confirms no restrictions on the evening of 2026-08-13.",
+        "thing": "Weather or navigational restrictions beyond those cited"
+      },
+      {
+        "reason": "Only Cape Ferrol's departure and Rhine Meridian's berthing matter.",
+        "thing": "Other vessels or port operations"
       }
     ],
     "included": [
       "MV Rhine Meridian",
       "Savannah Pilots Association",
       "GPA Garden City Terminal",
-      "MV Cape Ferrol",
-      "Meridian Marine Agencies",
-      "Danielle Okafor",
-      "Roy Tillman",
-      "Capt. Lorraine Beaudry",
-      "Capt. Dale Wingard",
-      "Marcus Deveaux"
+      "Berth 8",
+      "Tybee Roads Anchorage A",
+      "Fort Pulaski tide window",
+      "Standing Orders 9 and 12",
+      "MV Cape Ferrol departure",
+      "Pilot orders and dispatch",
+      "Berth-clear declaration",
+      "All-fast record creation"
     ]
   },
   "starting_state": [
     {
-      "about": "location",
-      "description": "Anchored at Tybee Roads Anchorage A.",
+      "about": "anchored at Tybee Roads Anchorage A",
       "evidence_ids": [
         "e1"
       ],
@@ -1245,29 +1121,28 @@
       },
       "status": "verified",
       "subject": "MV Rhine Meridian",
-      "value": "Tybee Roads Anchorage A"
+      "value": true
     },
     {
-      "about": "location",
-      "description": "Alongside Berth 8, cargo operations ongoing.",
       "evidence_ids": [
-        "e4",
-        "e5"
+        "e1"
       ],
-      "kind": "fact",
+      "kind": "quantity",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
-          "e4",
-          "e5"
+          "e1"
         ]
       },
+      "quantity": {
+        "amount": 0,
+        "holder": "MV Rhine Meridian",
+        "name": "mooring lines fast"
+      },
       "status": "verified",
-      "subject": "MV Cape Ferrol",
-      "value": "Berth 8"
+      "subject": "MV Rhine Meridian"
     },
     {
-      "description": "Remaining container moves at 16:30 EDT.",
       "evidence_ids": [
         "e5"
       ],
@@ -1287,8 +1162,7 @@
       "subject": "MV Cape Ferrol"
     },
     {
-      "about": "berth availability",
-      "description": "Berth 8 is the only berth that can accommodate Rhine Meridian's draft.",
+      "about": "Berth 8 occupied by",
       "evidence_ids": [
         "e4"
       ],
@@ -1301,11 +1175,10 @@
       },
       "status": "verified",
       "subject": "GPA Garden City Terminal",
-      "value": "Berth 8 only"
+      "value": "MV Cape Ferrol"
     },
     {
-      "about": "berth 6 status",
-      "description": "Berth 6 out of service until 2026-08-20.",
+      "about": "Berth 6 out of service",
       "evidence_ids": [
         "e4"
       ],
@@ -1318,96 +1191,10 @@
       },
       "status": "verified",
       "subject": "GPA Garden City Terminal",
-      "value": "out of service"
+      "value": true
     },
     {
-      "about": "Standing Order 12",
-      "description": "Standing Order 12: transit window for draft >44 ft is 2h before to 0.5h after high water.",
-      "evidence_ids": [
-        "e2"
-      ],
-      "kind": "fact",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e2"
-        ]
-      },
-      "status": "verified",
-      "subject": "Savannah Pilots Association",
-      "value": "active"
-    },
-    {
-      "about": "Standing Order 9",
-      "description": "Standing Order 9: transit requires clear berth confirmation.",
-      "evidence_ids": [
-        "e2"
-      ],
-      "kind": "fact",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e2"
-        ]
-      },
-      "status": "verified",
-      "subject": "Savannah Pilots Association",
-      "value": "active"
-    },
-    {
-      "about": "high water time",
-      "description": "High water at Fort Pulaski at 19:58 EDT on 2026-08-13.",
-      "evidence_ids": [
-        "e3"
-      ],
-      "kind": "fact",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e3"
-        ]
-      },
-      "status": "verified",
-      "subject": "NOAA Tides",
-      "value": "2026-08-13T19:58:00-04:00"
-    },
-    {
-      "about": "next high water time",
-      "description": "Next high water at 08:31 EDT on 2026-08-14.",
-      "evidence_ids": [
-        "e3"
-      ],
-      "kind": "fact",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e3"
-        ]
-      },
-      "status": "verified",
-      "subject": "NOAA Tides",
-      "value": "2026-08-14T08:31:00-04:00"
-    },
-    {
-      "about": "pilot orders",
-      "description": "Ordered outbound pilot for Cape Ferrol at 19:00 EDT and inbound pilot for Rhine Meridian at 19:00 EDT.",
-      "evidence_ids": [
-        "e10"
-      ],
-      "kind": "fact",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e10"
-        ]
-      },
-      "status": "verified",
-      "subject": "Meridian Marine Agencies",
-      "value": "ordered"
-    },
-    {
-      "about": "berth clear authority",
-      "description": "Only person authorized to declare berth clear.",
+      "about": "berth clear declaration made",
       "evidence_ids": [
         "e12"
       ],
@@ -1419,55 +1206,103 @@
         ]
       },
       "status": "verified",
-      "subject": "Danielle Okafor",
-      "value": "Danielle Okafor"
+      "subject": "GPA Garden City Terminal",
+      "value": false
     },
     {
-      "about": "departure standards",
-      "description": "Departure standards: lashing 40 min, unmooring 25 min, stern clear 10 min after lines gone.",
+      "about": "inbound pilot order for Rhine Meridian accepted",
       "evidence_ids": [
-        "e9"
+        "e10"
       ],
       "kind": "fact",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
-          "e9"
+          "e10"
         ]
       },
       "status": "verified",
-      "subject": "GPA Garden City Terminal",
-      "value": "active"
+      "subject": "Savannah Pilots Association",
+      "value": true
     },
     {
-      "description": "Arrival draft.",
+      "about": "outbound pilot order for Cape Ferrol accepted",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      },
+      "status": "verified",
+      "subject": "Savannah Pilots Association",
+      "value": true
+    },
+    {
+      "about": "departure completed",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      },
+      "status": "verified",
+      "subject": "MV Cape Ferrol",
+      "value": false
+    },
+    {
+      "about": "all fast at Berth 8",
       "evidence_ids": [
         "e1"
       ],
-      "kind": "quantity",
+      "kind": "fact",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
           "e1"
         ]
       },
-      "quantity": {
-        "amount": 45.25,
-        "holder": "MV Rhine Meridian",
-        "name": "draft"
-      },
       "status": "verified",
-      "subject": "MV Rhine Meridian"
+      "subject": "MV Rhine Meridian",
+      "value": false
     }
   ],
   "terminal_producers": [
     {
-      "description": "The Savannah Pilots Association docking report and GPA Berth 8 vessel log record all-fast time for MV Rhine Meridian at Berth 8 at or before deadline.",
-      "produced_by": [
-        "action_affordances['board and transit Rhine Meridian'].consequences_on_completion[0]",
-        "scheduled_events[11].effects[0]"
+      "description": "The all-fast records are created by the 'create all fast record' action performed by Capt. Lorraine Beaudry and GPA Garden City Terminal after the scheduled event 'Rhine Meridian all fast at Berth 8' sets the fact.",
+      "evidence_ids": [
+        "e14"
       ]
     }
   ],
-  "uncertainties": []
+  "uncertainties": [
+    {
+      "description": "Actual completion time of Cape Ferrol cargo may differ from 18:10 estimate.",
+      "effect": "Could shift all subsequent events.",
+      "evidence_ids": [
+        "e8"
+      ]
+    },
+    {
+      "description": "Actual transit time from sea buoy to all fast may differ from 3h05m average.",
+      "effect": "Could shift all-fast time.",
+      "evidence_ids": [
+        "e14"
+      ]
+    },
+    {
+      "description": "Berth-clear declaration may be delayed beyond 2 minutes after stern clear.",
+      "effect": "Could delay inbound boarding.",
+      "evidence_ids": [
+        "e13"
+      ]
+    }
+  ]
 }

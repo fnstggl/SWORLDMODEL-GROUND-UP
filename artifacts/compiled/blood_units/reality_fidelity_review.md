@@ -7,12 +7,10 @@ st_vincent_regional_hospital:usable_blood_units measured at 315
 **How it was produced.** 3 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- Starting state: hospital has 15 units
-- Tuesday 4pm: centre ships 150 units to hospital
-- Tuesday ~7pm: hospital receives 150 units (3-hour transit)
-- Thursday 4pm: centre ships 150 units to hospital
-- Thursday ~7pm: hospital receives 150 units
-- Friday noon: hospital holds 15 + 150 + 150 = 315 units
+- Initial hospital stock: 15 units (e6)
+- Tuesday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)
+- Thursday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)
+- Friday noon: no further shipments; total = 15 + 150 + 150 = 315
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -46,6 +44,6 @@ Every declared affordance was performed at least once, so the trajectory exercis
 - Unresolved uncertainties carried by the scenario: 0
   - none
 - Deliberately excluded from the world: 3
-  - Elena Cruz's actions: She oversees receipts but does not affect collection or shipping schedule.
-  - Any other hospitals or blood centres: Only Cascade centre and St. Vincent hospital are relevant.
-  - Weekend operations: Drive is closed weekends; shipments only Tuesday/Thursday.
+  - Any other hospitals or blood centres: Only St. Vincent is mentioned as recipient.
+  - Any other days or times outside the collection schedule and shipment schedule: Only Monday to Friday collection and Tuesday/Thursday shipments are relevant.
+  - Elena Cruz's actions: She oversees receipts but does not affect quantities.

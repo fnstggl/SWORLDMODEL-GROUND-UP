@@ -1,13 +1,5 @@
 {
-  "detail": {
-    "remaining_defects": [
-      {
-        "detail": "The scenario schedules all-fast at 00:02 EDT, which is after the deadline, but does not explicitly state that the answer is NO. The resolution condition should be evaluated as NO based on the scheduled events.",
-        "kind": "wrong_resolution_rule",
-        "severity": "major"
-      }
-    ]
-  },
-  "reason": "defects remain after one targeted revision; the scenario is not a truthful account and will not be run",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "detail": {},
+  "reason": "'tally_of_records' needs a 'record_type' naming the kind of record being read, and it must be the SAME string used by the create_record change that makes them",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

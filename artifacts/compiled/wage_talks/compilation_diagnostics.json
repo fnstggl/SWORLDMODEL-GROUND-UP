@@ -1,24 +1,33 @@
 {
-  "detail": {
-    "available_evidence_ids": [
-      "e1",
-      "e10",
-      "e11",
-      "e2",
-      "e3",
-      "e4",
-      "e5",
-      "e6",
-      "e7",
-      "e8",
-      "e9"
-    ],
-    "defects": [
-      "action_affordances[\"Yolanda Bright accepts the employer's offer\"].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-      "action_affordances[\"Dennis Wozniak accepts the union's demand\"].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does."
-    ],
-    "repairable": true
+  "action_defs": [
+    "accept_offer",
+    "table_offer"
+  ],
+  "actors": [
+    "dennis_wozniak",
+    "yolanda_bright"
+  ],
+  "channels": [
+    "spoken_at_mediation_table"
+  ],
+  "processes": [],
+  "producer_index": {
+    "action:accept_offer": 1,
+    "action:table_offer": 1,
+    "belief:dennis_wozniak:authority_to_accept_wage_increase": 1,
+    "belief:dennis_wozniak:current_offers": 1,
+    "belief:dennis_wozniak:wozniak_s_condition_for_4_5": 1,
+    "belief:yolanda_bright:authority_to_accept_wage_increase": 1,
+    "belief:yolanda_bright:bright_s_planned_offer": 1,
+    "belief:yolanda_bright:current_offers": 1,
+    "fact:agreement_accepted": 1,
+    "fact:last_tabled_offer": 1,
+    "fact:session_started": 1,
+    "info:dennis_wozniak:acceptance": 1,
+    "info:dennis_wozniak:wage_offer": 1,
+    "info:yolanda_bright:acceptance": 1,
+    "info:yolanda_bright:wage_offer": 1
   },
-  "reason": "2 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - action_affordances[\"Yolanda Bright accepts the employer's offer\"].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances[\"Dennis Wozniak accepts the union's demand\"].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-  "stage": "INSUFFICIENT_EVIDENCE"
+  "scheduled_root_events": 3,
+  "stage": "COMPILED"
 }

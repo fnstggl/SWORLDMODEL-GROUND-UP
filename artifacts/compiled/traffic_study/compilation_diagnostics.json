@@ -1,6 +1,6 @@
 {
   "action_defs": [
-    "finalize_and_send_study"
+    "send_finalized_study"
   ],
   "actors": [
     "alma_reyes",
@@ -12,13 +12,15 @@
   ],
   "processes": [],
   "producer_index": {
-    "action:finalize_and_send_study": 1,
-    "fact:finalized_study_noticed": 1,
+    "action:send_finalized_study": 1,
+    "belief:external_reviewer:peer_review_sign_off": 1,
     "fact:finalized_study_sent": 1,
-    "fact:peer_review_sign_off_received": 1,
+    "fact:noticed_finalized_study": 1,
     "info:alma_reyes:finalized_study": 1,
-    "info:miguel_santos:peer_review_signoff": 1
+    "info:miguel_santos:peer_review_sign_off": 1,
+    "resource:alma_reyes:finalized_study_received": 1,
+    "resource:miguel_santos:peer_review_sign_off_received": 1
   },
-  "scheduled_root_events": 1,
+  "scheduled_root_events": 2,
   "stage": "COMPILED"
 }

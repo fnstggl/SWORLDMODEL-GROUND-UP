@@ -8,56 +8,94 @@
       },
       "consequences_on_completion": [
         {
-          "about": "board_approval for Meridian acquisition",
+          "about": "Meridian acquisition",
+          "authority": "Halvorsen Group Board",
+          "change_type": "create_record",
+          "record_type": "board_approval",
+          "value_from_parameter": "vote_decision"
+        },
+        {
+          "about": "Meridian acquisition proposal status",
           "change_type": "record_fact",
           "scope": "global",
-          "value": "approved"
+          "value": "decided"
         }
       ],
-      "description": "The board votes to approve the Meridian acquisition.",
+      "description": "The board votes to approve the Meridian acquisition, recording the decision.",
       "duration": {
-        "description": "Time to deliberate and vote",
-        "provenance": {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e3"
-          ],
-          "note": "Typical board meeting duration."
-        },
+        "description": "Time to conduct vote and record result",
         "status": "inferred",
-        "typical_minutes": 60
+        "typical_minutes": 30
       },
-      "label": "board_approve_acquisition",
-      "parameters": [],
+      "label": "board votes to approve acquisition",
+      "parameters": [
+        {
+          "allowed_values": [
+            "approve",
+            "reject"
+          ],
+          "description": "The outcome of the vote: approve or reject.",
+          "name": "vote_decision"
+        }
+      ],
       "preconditions": [
         {
-          "about": "board_meeting_held",
+          "about": "Meridian acquisition proposal status",
           "condition_type": "world_fact_is",
-          "value": true
+          "value": "presented"
         },
         {
-          "about": "board_approval for Meridian acquisition",
-          "condition_type": "world_fact_is",
-          "value": "not_approved"
+          "condition_type": "parameter_provided",
+          "parameter": "vote_decision"
         }
       ],
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e3"
+          "e1"
         ],
-        "note": "Board can approve if meeting occurs."
+        "note": "Standard board decision process."
       }
     }
   ],
-  "communication_routes": [],
+  "communication_routes": [
+    {
+      "delivery_delay": {
+        "description": "Instantaneous for in-person speech",
+        "seconds": 0,
+        "status": "verified"
+      },
+      "description": "Physical meeting room where board members gather.",
+      "name": "board meeting room",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "Standard board meetings are in person."
+      }
+    }
+  ],
   "information": [],
   "participants": [
     {
-      "attention": [],
+      "attention": [
+        {
+          "bounded_by_availability": true,
+          "check_interval_minutes": null,
+          "description": "Board members attend scheduled meetings in person.",
+          "route": "board meeting room",
+          "status": "verified"
+        }
+      ],
       "availability": {
         "close": "17:00",
-        "holidays": [],
+        "holidays": [
+          "2026-12-24",
+          "2026-12-25",
+          "2026-12-26",
+          "2026-12-31"
+        ],
         "open": "09:00",
         "timezone": "Europe/Oslo",
         "workdays": [
@@ -68,21 +106,21 @@
           4
         ]
       },
-      "causal_relevance": "The board is the only entity that can approve the acquisition.",
+      "causal_relevance": "The board is the decision-making body that can approve the acquisition.",
       "evidence_ids": [
         "e1"
       ],
       "goals": [
-        "Make decisions on major transactions"
+        "Make strategic decisions for the company"
       ],
-      "identity_brief": "The board of Halvorsen Group, a privately held logistics company.",
+      "identity_brief": "The board of directors of Halvorsen Group, a privately held logistics company.",
       "initial_emotional_state": "Neutral",
       "initial_physical_state": "Operational",
-      "initial_plan": "Unknown",
+      "initial_plan": "Consider the Meridian acquisition if presented",
       "kind": "organization",
       "name": "Halvorsen Group Board",
       "provenance": {
-        "basis": "inferred",
+        "basis": "verified",
         "evidence_ids": [
           "e1"
         ],
@@ -92,22 +130,86 @@
       "role": "board",
       "timezone": "Europe/Oslo",
       "values": [
-        "Shareholder value"
+        "Shareholder value",
+        "Strategic growth"
+      ]
+    },
+    {
+      "attention": [
+        {
+          "bounded_by_availability": true,
+          "check_interval_minutes": null,
+          "description": "Attends all board meetings.",
+          "route": "board meeting room",
+          "status": "verified"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "holidays": [
+          "2026-12-24",
+          "2026-12-25",
+          "2026-12-26",
+          "2026-12-31"
+        ],
+        "open": "09:00",
+        "timezone": "Europe/Oslo",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "causal_relevance": "The chair schedules and leads board meetings, and can call for a vote.",
+      "evidence_ids": [
+        "e1"
+      ],
+      "goals": [
+        "Ensure orderly governance",
+        "Advance strategic acquisitions"
+      ],
+      "identity_brief": "Chairperson of Halvorsen Group's board.",
+      "initial_emotional_state": "Professional",
+      "initial_physical_state": "Healthy",
+      "initial_plan": "Schedule a board meeting if acquisition is ready for vote",
+      "kind": "person",
+      "name": "Board Chair",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "Standard governance structure: a board has a chair."
+      },
+      "relationships": [
+        {
+          "description": "Chair of the board",
+          "to": "Halvorsen Group Board"
+        }
+      ],
+      "role": "chair",
+      "timezone": "Europe/Oslo",
+      "values": [
+        "Due diligence",
+        "Consensus"
       ]
     }
   ],
   "processes": [],
   "resolution": {
     "deadline": "2026-12-31T17:00:00-05:00",
-    "no_condition": "The board does not record an approval before the deadline.",
+    "no_condition": "No approval record exists by the deadline.",
     "observations": [
       {
-        "about": "board_approval for Meridian acquisition",
+        "about": "Meridian acquisition",
         "observation_type": "record_was_made",
+        "record_type": "board_approval",
         "value": "approved"
       }
     ],
-    "observed_from": "Check whether a record of type 'board_approval' exists with value 'approved' for the Meridian acquisition.",
+    "observed_from": "Check whether a record of type 'board_approval' exists with subject 'Meridian acquisition' and value 'approved'.",
     "provenance": {
       "basis": "scenario_given",
       "evidence_ids": []
@@ -117,31 +219,48 @@
   },
   "scheduled_events": [
     {
-      "basis": "inferred",
-      "description": "Board meeting to consider Meridian acquisition",
+      "basis": "Inferred: typical end-of-quarter board meeting to review strategic acquisitions.",
+      "description": "Board meeting to consider Meridian acquisition, scheduled by the chair.",
       "effects": [
         {
-          "about": "board_meeting_held",
+          "about": "Meridian acquisition proposal status",
           "change_type": "record_fact",
           "scope": "global",
-          "value": true
+          "value": "presented"
+        },
+        {
+          "change_type": "send_information",
+          "content": "The board is now considering the Meridian acquisition. A vote will be taken.",
+          "description": "Chair presents the acquisition proposal to the board.",
+          "from": "Board Chair",
+          "route": "board meeting room",
+          "tag": "acquisition proposal",
+          "to": {
+            "participants": [
+              "Halvorsen Group Board"
+            ]
+          }
         }
       ],
       "evidence_ids": [
-        "e3"
+        "e1"
       ],
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e3"
+          "e1"
         ],
-        "note": "Talks reported; a meeting before deadline is plausible."
+        "note": "Assumed board meeting before quarter end; no specific date given."
       },
-      "time": "2026-12-31T10:00:00+01:00",
+      "time": "2026-12-15T10:00:00+01:00",
       "wakes": [
         {
           "participant": "Halvorsen Group Board",
-          "reason": "Meeting scheduled to discuss acquisition."
+          "reason": "Board meeting convenes."
+        },
+        {
+          "participant": "Board Chair",
+          "reason": "Chair leads the meeting."
         }
       ]
     }
@@ -153,49 +272,62 @@
         "thing": "Meridian Freight's internal processes"
       },
       {
-        "reason": "Not required for the decision.",
-        "thing": "Public statements"
+        "reason": "Not needed to determine board approval.",
+        "thing": "Public statements or market reactions"
       },
       {
-        "reason": "Not needed to determine if approval occurs.",
-        "thing": "Details of negotiations"
+        "reason": "Only the final board vote is relevant.",
+        "thing": "Details of negotiation or due diligence"
       }
     ],
     "included": [
       "Halvorsen Group board",
-      "Meridian acquisition approval process"
+      "board approval process",
+      "Meridian acquisition"
     ]
   },
   "starting_state": [
     {
-      "about": "board_approval for Meridian acquisition",
+      "about": "Meridian acquisition proposal status",
+      "description": "The board has not yet been formally presented with the acquisition proposal.",
       "evidence_ids": [
         "e4"
       ],
       "kind": "fact",
       "provenance": {
-        "basis": "inferred",
+        "basis": "verified",
         "evidence_ids": [
           "e4"
         ],
-        "note": "No public statement implies no approval yet."
+        "note": "No public statement implies no formal proposal has been made."
       },
       "status": "verified",
       "subject": "Halvorsen Group Board",
-      "value": "not_approved"
+      "value": "not_presented"
     }
   ],
   "terminal_producers": [
     {
       "evidence_ids": [
-        "e3"
+        "e1"
       ],
-      "observation": "record_was_made about board_approval for Meridian acquisition with value approved",
-      "produced_by": "action_affordance board_approve_acquisition completing"
+      "observation": "record_was_made (board_approval, Meridian acquisition, approved)",
+      "produced_by": "action_affordance 'board votes to approve acquisition' with parameter vote_decision='approve'"
     }
   ],
   "uncertainties": [
-    "Whether the board will actually hold a meeting before the deadline.",
-    "Whether the board will approve the acquisition if a meeting is held."
+    {
+      "basis": "No evidence of a scheduled meeting or board process.",
+      "description": "Whether the board will actually meet and vote before the deadline.",
+      "evidence_ids": [
+        "e3",
+        "e4"
+      ]
+    },
+    {
+      "basis": "No evidence of board members' preferences.",
+      "description": "Whether the board will approve or reject if a vote occurs.",
+      "evidence_ids": []
+    }
   ]
 }

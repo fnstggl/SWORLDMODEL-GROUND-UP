@@ -1,18 +1,15 @@
 {
   "namespaces": {
     "affordance": {
-      "Bright accepts employer's offer": "bright_accepts_employer_s_offer",
-      "Bright tables revised demand": "bright_tables_revised_demand",
-      "Wozniak accepts union's demand": "wozniak_accepts_union_s_demand",
-      "Wozniak tables revised offer": "wozniak_tables_revised_offer"
+      "accept offer": "accept_offer",
+      "table offer": "table_offer"
     },
     "participant": {
       "Dennis Wozniak": "dennis_wozniak",
-      "Mediator": "mediator",
       "Yolanda Bright": "yolanda_bright"
     },
     "route": {
-      "spoken in mediation room": "spoken_in_mediation_room"
+      "spoken at mediation table": "spoken_at_mediation_table"
     }
   }
 }

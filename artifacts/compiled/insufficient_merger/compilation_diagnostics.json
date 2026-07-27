@@ -1,20 +1,28 @@
 {
   "detail": {
-    "available_evidence_ids": [
-      "e1",
-      "e2",
-      "e3",
-      "e4"
-    ],
-    "defects": [
-      "communication_routes['board meeting room']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-      "communication_routes['board meeting room'].delivery_delay: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-      "scheduled_events[0] ('Board meeting to consider Meridian acqui'): basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-      "action_affordances['board votes to approve acquisition']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-      "action_affordances['board votes to approve acquisition'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does."
-    ],
-    "repairable": true
+    "review": {
+      "causal_path": [],
+      "defects": [
+        {
+          "detail": "Scheduled board meeting on 2026-12-15 is invented; no evidence supports any meeting date.",
+          "kind": "unsupported_assumption",
+          "severity": "critical"
+        },
+        {
+          "detail": "No evidence of board members, chair, or their availability; these are invented.",
+          "kind": "missing_participant",
+          "severity": "critical"
+        },
+        {
+          "detail": "No evidence that the acquisition proposal will be presented to the board before the deadline.",
+          "kind": "missing_causal_link",
+          "severity": "critical"
+        }
+      ],
+      "reasoning": "The evidence package contains no information about the board's schedule, decision-making process, or the status of the acquisition proposal beyond vague rumors. The scenario invents a board meeting on December 15, 2026, and a standard board decision process without any evidentiary support. The uncertainties are correctly noted, but the scenario still asserts a specific scheduled event and action affordances that are not grounded in evidence. The question cannot be answered from the given evidence; any trajectory would be speculative.",
+      "verdict": "REJECT_INSUFFICIENT_EVIDENCE"
+    }
   },
-  "reason": "5 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - communication_routes['board meeting room']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - communication_routes['board meeting room'].delivery_delay: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - scheduled_events[0] ('Board meeting to consider Meridian acqui'): basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['board votes to approve acquisition']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['board votes to approve acquisition'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
-  "stage": "INSUFFICIENT_EVIDENCE"
+  "reason": "The evidence package contains no information about the board's schedule, decision-making process, or the status of the acquisition proposal beyond vague rumors. The scenario invents a board meeting on December 15, 2026, and a standard board decision process without any evidentiary support. The uncertainties are correctly noted, but the scenario still asserts a specific scheduled event and action affordances that are not grounded in evidence. The question cannot be answered from the given evidence; any trajectory would be speculative.",
+  "stage": "REALITY_REVIEW_REJECTED"
 }

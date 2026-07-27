@@ -1,14 +1,12 @@
 {
   "causal_path": [
-    "Starting state: hospital has 15 units",
-    "Tuesday 4pm: centre ships 150 units to hospital",
-    "Tuesday ~7pm: hospital receives 150 units (3-hour transit)",
-    "Thursday 4pm: centre ships 150 units to hospital",
-    "Thursday ~7pm: hospital receives 150 units",
-    "Friday noon: hospital holds 15 + 150 + 150 = 315 units"
+    "Initial hospital stock: 15 units (e6)",
+    "Tuesday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)",
+    "Thursday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)",
+    "Friday noon: no further shipments; total = 15 + 150 + 150 = 315"
   ],
   "defects": [],
-  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the blood centre collecting at 12 units/hour during operating hours, but only shipments (150 units each on Tuesday and Thursday) transfer units to the hospital. The hospital starts with 15 units, receives 150 on Tuesday (arriving by 7pm, well before Friday noon) and 150 on Thursday (arriving by 7pm, also before Friday noon). No other transfers occur. Thus the hospital holds 15 + 150 + 150 = 315 units by Friday noon. All evidence is properly represented, no unsupported assumptions, and the terminal is produced by the scheduled events.\",\n  \"causal_path\": [\n    \"Starting state: hospital has 15 units\",\n    \"Tuesday 4pm: centre ships 150 units to hospital\",\n    \"Tuesday ~7pm: hospital receives 150 units (3-hour transit)\",\n    \"Thursday 4pm: centre ships 150 units to hospital\",\n    \"Thursday ~7pm: hospital receives 150 units\",\n    \"Friday noon: hospital holds 15 + 150 + 150 = 315 units\"\n  ],\n  \"defects\": []\n}",
-  "reasoning": "The scenario correctly models the blood centre collecting at 12 units/hour during operating hours, but only shipments (150 units each on Tuesday and Thursday) transfer units to the hospital. The hospital starts with 15 units, receives 150 on Tuesday (arriving by 7pm, well before Friday noon) and 150 on Thursday (arriving by 7pm, also before Friday noon). No other transfers occur. Thus the hospital holds 15 + 150 + 150 = 315 units by Friday noon. All evidence is properly represented, no unsupported assumptions, and the terminal is produced by the scheduled events.",
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the collection drive and shipments. The hospital's received units are initial 15 plus two shipments of 150 each (Tuesday and Thursday), totaling 315 by Friday noon. No further shipments occur before the deadline. All evidence is properly used, no unsupported assumptions, and the terminal is produced by scheduled events.\",\n  \"causal_path\": [\n    \"Initial hospital stock: 15 units (e6)\",\n    \"Tuesday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)\",\n    \"Thursday shipment: 150 units transferred at 16:00, arrives by 19:00 (e7, e9)\",\n    \"Friday noon: no further shipments; total = 15 + 150 + 150 = 315\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the collection drive and shipments. The hospital's received units are initial 15 plus two shipments of 150 each (Tuesday and Thursday), totaling 315 by Friday noon. No further shipments occur before the deadline. All evidence is properly used, no unsupported assumptions, and the terminal is produced by scheduled events.",
   "verdict": "APPROVE"
 }
