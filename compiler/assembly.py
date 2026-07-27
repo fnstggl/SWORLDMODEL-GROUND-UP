@@ -74,12 +74,21 @@ def expand_effects(effects: list, evidence: list | None,
         do = eff["do"]
         if do == "send_information":
             to = eff["to"]
+            author = eff["author"] if external_author else "{actor}"
             ops.append(["info.send_new", {
-                "author": eff["author"] if external_author else "{actor}",
+                "author": author,
                 "to": to if isinstance(to, list) else {"role_in": to["roles"]},
                 "channel": eff["channel"],
                 "content": eff["content_template"],
                 "data": {"type": eff.get("info_type") or _GENERIC_INFO_TYPE}}])
+            # a message carries its return path: receiving it grants each
+            # named recipient the route back to the author on that channel
+            # (universal information lifecycle, not scenario meaning)
+            if isinstance(to, list):
+                for recipient in to:
+                    ops.append(["fact.set", {
+                        "key": f"route:{eff['channel']}:{recipient}:{author}",
+                        "value": True}])
         elif do == "create_record":
             value = eff.get("choice_template", eff.get("value"))
             ops.append(["fact.set", {"key": record_key(eff), "value": value}])
@@ -138,6 +147,8 @@ def builtin_action_defs() -> list:
                                "channel": "{params.channel}",
                                "content": "{params.content}",
                                "data": {"type": "{params.info_type}"}}],
+            ["fact.set", {"key": "route:{params.channel}:{params.to}:{actor}",
+                          "value": True}],
             ["actor.memory", {"actor": "{actor}", "kind": "note",
                               "content": "Sent information to {params.to} on "
                                          "{params.channel}: {params.content}",

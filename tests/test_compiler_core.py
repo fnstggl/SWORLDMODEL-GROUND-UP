@@ -229,6 +229,37 @@ def test_authorized_verbs_only_offered_to_authorized_roles():
     assert "review_information" in world.action_defs
 
 
+def test_messages_grant_reply_routes():
+    """The information lifecycle: receiving a message grants the recipient
+    the route back to its author -- so a reply-shaped terminal is
+    producible even when no static reverse route was declared."""
+    items = [i for i in neutral_items()
+             if not (i["capability"] == "add_channel_access"
+                     and i["fields"]["sender"] == "Person B")]
+    items = [i for i in items if i["capability"] != "set_terminal"]
+    items.append(cap(
+        "set_terminal",
+        question_restated="does person_b send person_a a typed notice?",
+        mode="condition", cutoff_local="2026-07-30 12:00",
+        tz="America/New_York",
+        condition={"check": "information_sent", "sender": "Person B",
+                   "to": "Person A", "info_type": "outcome_notice"},
+        yes_means="y", no_means="n"))
+    g = build_graph(items)
+    plan, errors = assemble(g, START)
+    assert errors == []
+    # no static B->A route was declared...
+    world, _, _ = lower(plan)
+    assert "route:channel_c:person_b:person_a" not in world.facts
+    # ...but the scenario action's send grants A->B's author return path,
+    # and the backward check accepts route-granting effects as producers
+    report = validate_world(g, plan)
+    assert report.ok(), report.blocking
+    defn = world.action_defs["transmit_information"]
+    assert any(op == "fact.set" and "route:" in str(d.get("key"))
+               for op, d in defn["effects"] if isinstance(d, dict))
+
+
 def test_record_exists_by_name_resolves_to_id():
     items = [i for i in neutral_items() if i["capability"] != "set_terminal"]
     items.append(cap(

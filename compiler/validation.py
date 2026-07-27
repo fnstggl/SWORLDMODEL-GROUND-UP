@@ -244,17 +244,42 @@ def validate_world(graph: WorldGraph, plan: dict) -> Report:
         elif c == "information_sent":
             sender = t["author"]
             can_send = False
-            for src, op, data in _all_effect_ops(world) + _scheduled_ops(world):
-                if op == "info.send_new" \
-                        and data.get("author") in (sender, "{actor}"):
+            srole = world.actors[sender].role if sender in world.actors else None
+            # scenario sends: authored by the sender, or actor-authored
+            # actions the sender is authorized to attempt
+            for verb, d in world.action_defs.items():
+                roles = [cd["roles"] for cd in d.get("conditions", [])
+                         if cd.get("require") == "role_in"]
+                authorized = not roles or srole in roles[0]
+                for op, data in _iter_ops(d.get("effects", [])
+                                          + d.get("start_effects", [])):
+                    if op == "info.send_new" \
+                            and (data.get("author") == sender
+                                 or (data.get("author") == "{actor}"
+                                     and authorized
+                                     and verb != "transmit_information")):
+                        can_send = True
+            for src, op, data in _scheduled_ops(world):
+                if op == "info.send_new" and data.get("author") == sender:
                     can_send = True
+            # the universal transmit path: a genesis route, or a route
+            # granted later by any send's return path
             for key in world.facts:
-                if key.startswith(f"route:") and f":{sender}:" in key:
+                parts = key.split(":")
+                if key.startswith("route:") and len(parts) == 4 \
+                        and parts[2] == sender:
                     can_send = True
+            for src, op, data in _all_effect_ops(world) + _scheduled_ops(world):
+                if op == "fact.set":
+                    parts = str(data.get("key", "")).split(":")
+                    if len(parts) == 4 and parts[0] == "route" \
+                            and parts[2] in (sender, "{params.to}"):
+                        can_send = True
             if not can_send:
                 rep.blocking.append(
                     f"terminal term: {sender!r} has no way to send "
-                    f"information (no route, no sending effect)")
+                    f"information (no route exists or is ever granted, and "
+                    f"no sending effect is authorized for them)")
         elif c == "information_noticed":
             target = t["actor"]
             senders = _info_senders(world, target, t.get("author"),
