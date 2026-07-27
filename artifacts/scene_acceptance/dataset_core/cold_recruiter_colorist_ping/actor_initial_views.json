@@ -23,13 +23,13 @@
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "Petra is a senior colorist currently employed and happily so. She is not actively looking for new opportunities. She receives professional messages occasionally and may or may not respond depending on her interest and availability.",
+    "content": "Petra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is available to the recruiter. The message will be sent at the start time.",
+    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter has identified Petra Kovac as a potential candidate for a senior colorist opening at Torchlight Media. They have prepared a first-contact message to send to Petra.",
+    "content": "The recruiter has identified Petra Kovac as a potential candidate for an opening at Torchlight Media. They have prepared a first-contact message to send to Petra.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is available to the recruiter. The message will be sent at the start time.",
+    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter.",
     "source": "scene_manifest:shared_context"
    }
   ],

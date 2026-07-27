@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Applicant",
-   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no direct influence over the decision beyond providing required documentation."
+   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no special influence or inside knowledge about the review process."
   },
   {
-   "name": "Permit Office",
-   "private_context": "The Permit Office reviews applications and makes approval decisions based on completeness and compliance with regulations. They have a backlog and process applications in order of submission."
+   "name": "Permit Reviewer",
+   "private_context": "The Permit Reviewer is responsible for evaluating the application. They have a standard workload and follow established procedures. They are not predisposed to approve or deny."
   }
  ],
- "shared_context": "The permit application was submitted before July 27, 2026. The Permit Office has all necessary documentation. The office operates during business hours and aims to process applications within 30 days, but delays are possible due to workload.",
+ "shared_context": "A permit application has been submitted and is pending review. The review process typically takes several weeks. The deadline for approval is the end of August 2026.",
  "starting_events": [
   {
    "time": "2026-07-27T09:00:00-05:00",
-   "description": "The permit application is in the Permit Office's queue for review.",
+   "description": "The permit application is in the queue for review.",
    "visible_to": [
-    "Permit Office"
+    "Permit Reviewer"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the Permit Office issued an approval decision for the permit before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the permit was approved (i.e., an official approval record is created) on or before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
 }

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the five members of Ostara Foods' advisory board settle on a date for their autumn strategy offsite within the next three weeks?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-08-19T09:00:00+01:00, the persistent event history shows that the CEO's assistant or any advisor announces a settled date for the autumn strategy offsite (e.g., by sending a confirmation message to all advisors). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a specific date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., an email or calendar invitation confirming the date). Otherwise resolve NO.",
   "cutoff": "2026-08-19T09:00:00+01:00",
   "world_id": "w_5c1d282cabfc"
  },

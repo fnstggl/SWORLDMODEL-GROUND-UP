@@ -23,13 +23,13 @@
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Maya is a tenant. She texted her landlord Stavros this morning about a broken water heater. She hopes for a reply soon.",
+    "content": "Maya is a tenant whose water heater is broken. She texted her landlord Stavros this morning about it. She hopes for a reply soon.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Maya and Stavros have a landlord-tenant relationship. They communicate via text message. The water heater is broken and needs attention.",
+    "content": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. The text was sent via standard SMS. Stavros has the ability to reply via text.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply, depending on his priorities and availability.",
+    "content": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply, depending on his schedule and priorities.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Maya and Stavros have a landlord-tenant relationship. They communicate via text message. The water heater is broken and needs attention.",
+    "content": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. The text was sent via standard SMS. Stavros has the ability to reply via text.",
     "source": "scene_manifest:shared_context"
    }
   ],

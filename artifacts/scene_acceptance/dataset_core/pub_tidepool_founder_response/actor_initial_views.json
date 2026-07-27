@@ -23,56 +23,13 @@
    {
     "t": "2026-09-03T22:00:00+00:00",
     "kind": "context",
-    "content": "The founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. They have received email inquiries from two journalists about the viral thread. The founder is considering whether and how to respond publicly.",
+    "content": "The founder knows that the company's head of support has privately confirmed that some critical reviews were taken down. The founder has received emails from two journalists requesting comment. The founder is deciding whether to post a public response to the viral thread.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-03T22:00:00+00:00",
     "kind": "context",
-    "content": "A viral thread on social media, with two million views and screenshots that appear genuine, accuses Tidepool of deleting critical reviews. Two journalists have emailed Tidepool for comment. The thread is publicly visible and has generated significant attention.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "head_of_support_at_tidepool": {
-  "id": "head_of_support_at_tidepool",
-  "name": "Head of Support at Tidepool",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-09-03T22:00:00+00:00",
-    "kind": "context",
-    "content": "The head of support has privately confirmed to the founder that some takedowns of critical reviews happened. They are aware of the viral thread and the journalists' inquiries.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-09-03T22:00:00+00:00",
-    "kind": "context",
-    "content": "A viral thread on social media, with two million views and screenshots that appear genuine, accuses Tidepool of deleting critical reviews. Two journalists have emailed Tidepool for comment. The thread is publicly visible and has generated significant attention.",
+    "content": "A viral thread accusing Tidepool of deleting critical reviews has accumulated two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder can post a public response on the same platform.",
     "source": "scene_manifest:shared_context"
    }
   ],

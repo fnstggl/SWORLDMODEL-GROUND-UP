@@ -21,19 +21,62 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "ABC News/Washington Post is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls.",
+     "content": "ABC News/Washington Post is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2012-10-01T13:00:00+00:00"
     },
     {
-     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2012-10-01T13:00:00+00:00"
     }
    ],
    "name": "ABC News/Washington Post",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "cbs_news_new_york_times": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "cbs_news_new_york_times",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "CBS News/New York Times is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2012-10-01T13:00:00+00:00"
+    },
+    {
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2012-10-01T13:00:00+00:00"
+    }
+   ],
+   "name": "CBS News/New York Times",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,19 +107,62 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Gallup is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls.",
+     "content": "Gallup is a major national polling organization. It has the capability to conduct and release head-to-head surveys of the Obama-Romney race. It has no pre-existing commitment to release a survey in the first week of October 2012.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2012-10-01T13:00:00+00:00"
     },
     {
-     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2012-10-01T13:00:00+00:00"
     }
    ],
    "name": "Gallup",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "nbc_news_wall_street_journal": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "nbc_news_wall_street_journal",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "NBC News/Wall Street Journal is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2012-10-01T13:00:00+00:00"
+    },
+    {
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2012-10-01T13:00:00+00:00"
+    }
+   ],
+   "name": "NBC News/Wall Street Journal",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -107,19 +193,62 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Pew Research Center is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls.",
+     "content": "Pew Research Center is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2012-10-01T13:00:00+00:00"
     },
     {
-     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2012-10-01T13:00:00+00:00"
     }
    ],
    "name": "Pew Research Center",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "reuters_ipsos": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "reuters_ipsos",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Reuters/Ipsos is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2012-10-01T13:00:00+00:00"
+    },
+    {
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2012-10-01T13:00:00+00:00"
+    }
+   ],
+   "name": "Reuters/Ipsos",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -145,7 +274,7 @@
  "entities": {},
  "facts": {
   "scene:question": "During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?",
-  "scene:shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012."
+  "scene:shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012."
  },
  "history": [],
  "infos": {},
@@ -155,6 +284,6 @@
  "resources": {},
  "start": "2012-10-01T13:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 22,
  "watches": {}
 }

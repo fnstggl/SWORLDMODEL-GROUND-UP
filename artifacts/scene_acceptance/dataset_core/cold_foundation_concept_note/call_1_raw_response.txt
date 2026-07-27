@@ -1,21 +1,21 @@
 {
   "actors": [
     {
-      "name": "Lucia Ferreyra",
-      "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note about a potential project and intends to send it to the Alder Foundation's program officer. She hopes for a substantive response within a month."
+      "name": "Program Officer (Alder Foundation)",
+      "private_context": "The program officer receives many unsolicited concept notes and typically responds only to those that closely match the foundation's current funding priorities. They have no prior relationship with Lucia Ferreyra."
     },
     {
-      "name": "Program Officer at Alder Foundation",
-      "private_context": "The program officer at the Alder Foundation receives many unsolicited concept notes. They have discretion over which ones to respond to substantively, and typically respond only to those that align closely with the foundation's current priorities. They have no prior relationship with Lucia Ferreyra."
+      "name": "Lucia Ferreyra",
+      "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared a concept note for the Alder Foundation and intends to submit it. She hopes for a substantive response within a month."
     }
   ],
-  "shared_context": "The Alder Foundation is a grantmaking organization. Unsolicited concept notes can be submitted through a general email address or an online portal, and are reviewed by program officers. A substantive response means a reply that engages with the content of the concept note, such as requesting more information, scheduling a meeting, or providing feedback, as opposed to a generic acknowledgment or rejection.",
+  "shared_context": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
   "starting_events": [
     {
       "time": "2026-09-01T09:00:00-05:00",
-      "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's program officer via the established submission channel.",
+      "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's submissions email address.",
       "visible_to": ["Lucia Ferreyra"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response (i.e., a reply that engages with the content of the concept note, not an automated acknowledgment or form rejection) to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
 }

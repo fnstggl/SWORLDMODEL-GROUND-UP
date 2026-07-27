@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +99,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Ravi",
-   "private_context": "Ravi wants to buy a 2019 hatchback. He has a maximum budget of 40,000 rupees less than the seller's asking price. He is willing to negotiate and can make an offer."
+   "private_context": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He has three days before the listing expires."
   },
   {
    "name": "Seller",
-   "private_context": "The seller is listing a 2019 hatchback with a posted price. They are willing to negotiate but have a minimum acceptable price that is 40,000 rupees above Ravi's budget. The listing expires in three days."
+   "private_context": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. The listing expires in three days."
   }
  ],
- "shared_context": "A 2019 hatchback is listed for sale by a private seller. The seller's asking price and Ravi's maximum budget are 40,000 rupees apart. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller can communicate through the listing platform or other means to negotiate the price.",
+ "shared_context": "There is a 2019 hatchback listed for sale by a private seller. Ravi and the seller are 40,000 rupees apart on price. The listing will expire on 2026-08-23T10:00:00+05:30. They can communicate through the listing platform or other means.",
  "starting_events": [
   {
    "time": "2026-08-20T10:00:00+05:30",
-   "description": "Ravi sees the listing for the 2019 hatchback and notes the price difference. The seller's listing is active with three days remaining.",
+   "description": "Ravi and the seller are aware of each other's positions: Ravi has made an offer 40,000 rupees below the seller's asking price, and the seller has not yet accepted or countered.",
    "visible_to": [
     "Ravi",
     "Seller"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price and a sale is finalized (e.g., a binding agreement or payment made). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Ravi and the seller agreed on a price (e.g., a binding acceptance or signed agreement) before 2026-08-23T10:00:00+05:30. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

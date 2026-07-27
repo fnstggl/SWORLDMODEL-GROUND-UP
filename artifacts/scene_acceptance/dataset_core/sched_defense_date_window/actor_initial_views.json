@@ -23,13 +23,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
+    "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
+    "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
+    "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
+    "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
+    "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
+    "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He has three committee members and wants to find a date that works for all. He is aware of the ten-day deadline to converge on a date.",
+    "content": "Femi is a doctoral candidate who needs to schedule a defense date in November. He has three committee members. He wants to find a date that works for all.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
+    "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
     "source": "scene_manifest:shared_context"
    }
   ],

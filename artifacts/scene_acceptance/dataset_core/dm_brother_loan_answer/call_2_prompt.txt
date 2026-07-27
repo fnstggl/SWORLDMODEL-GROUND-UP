@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +99,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Rosa",
-   "private_context": "Rosa needs 2,000 pesos until payday. She has asked her brother Emilio for a loan via text message. She hopes for a yes-or-no answer within 48 hours."
+   "private_context": "Rosa needs a 2,000-peso loan until payday and has sent a text to her brother Emilio asking for it. She hopes for a clear yes-or-no answer within 48 hours."
   },
   {
    "name": "Emilio",
-   "private_context": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation and relationship with Rosa before deciding."
+   "private_context": "Emilio received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation, relationship with Rosa, and other factors before deciding whether and how to reply."
   }
  ],
- "shared_context": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text.",
+ "shared_context": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text. The cutoff for a response is 48 hours from the start time.",
  "starting_events": [
   {
    "time": "2026-09-04T19:00:00-06:00",
-   "description": "Rosa's text message requesting a 2,000-peso loan until payday is present in Emilio's phone, sent earlier.",
+   "description": "Rosa's text requesting a 2,000-peso loan until payday is already in Emilio's inbox, sent before this time.",
    "visible_to": [
     "Rosa",
     "Emilio"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa containing a clear yes or no answer to the loan request before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa containing a clear yes or no answer to the loan request before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

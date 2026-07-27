@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The scene treats the Academic Senate as a single actor, but a senate is a collective body whose decision emerges from the votes of its individual members. The question asks about a social decision-making process that requires simulating interactions among distinct members with potentially differing views. A single monolithic actor cannot simulate the internal debate, voting, or the possibility of sending back to committee, which involves procedural motions by individual members. The scene is not simulatable as a social scene with the given actor set.",
-   "correction": "The scene should include individual members or factions (e.g., faculty representatives, administrators, student representatives) with their own private contexts and preferences, and allow for discussion and voting procedures. Alternatively, if the runtime cannot simulate multiple actors, the question may not be suitable for this simulator."
+   "problem": "The scene treats the Academic Senate as a single monolithic actor, but a deliberative body that votes is composed of individual members whose interactions and voting decisions are the core of the social simulation. The question asks about a decision made by a group, which inherently involves internal deliberation, debate, and voting. Modeling the entire senate as one actor with a single private context and no internal structure makes it impossible to simulate the social dynamics that lead to the outcome. The scene is not simulatable as a social scene because it lacks the necessary granularity of actors.",
+   "correction": "The scene must include individual senators or at least factions/committees that can deliberate and vote. Without this, the simulation cannot meaningfully model the social process of passing, rejecting, or sending back a motion."
   }
  ]
 }

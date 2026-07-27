@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?",
-  "resolution": "Resolve YES if a motion to adopt the precept is passed by a majority vote at the January meeting and recorded in the minutes before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Kettlewell Parish Council formally adopted next year's precept at its January meeting before the hard cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2027-01-21T22:00:00+00:00",
   "world_id": "w_1d6c68a61057"
  },

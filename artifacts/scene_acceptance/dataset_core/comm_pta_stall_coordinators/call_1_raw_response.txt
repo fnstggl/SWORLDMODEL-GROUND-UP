@@ -1,33 +1,17 @@
 {
   "actors": [
     {
-      "name": "PTA subcommittee chair",
-      "private_context": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from the school community and plan to reach out to them before the October planning meeting. The chair is aware of the October 19 meeting deadline."
-    },
-    {
-      "name": "Potential volunteer 1",
-      "private_context": "A parent who has helped with school events before and is generally willing to volunteer if asked directly. They have not yet been contacted about the winter fair."
-    },
-    {
-      "name": "Potential volunteer 2",
-      "private_context": "A parent who is busy with work but might consider coordinating a stall if the time commitment is clear. They have not yet been contacted."
-    },
-    {
-      "name": "Potential volunteer 3",
-      "private_context": "A local business owner who has sponsored school events in the past and might be interested in running a stall. They have not yet been contacted."
-    },
-    {
-      "name": "Potential volunteer 4",
-      "private_context": "A teacher who is already involved in after-school activities and may not have extra time. They have not yet been contacted."
+      "name": "PTA Subcommittee for the Winter Fair",
+      "private_context": "The subcommittee is responsible for organizing the winter fair and needs to recruit four stall coordinators. It has a meeting scheduled for October 19, 2026. The subcommittee has not yet recruited any stall coordinators as of the simulation start."
     }
   ],
-  "shared_context": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
+  "shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee will hold its October planning meeting on 2026-10-19 at 21:00. Potential coordinators may be recruited before or at that meeting.",
   "starting_events": [
     {
       "time": "2026-09-21T19:00:00-05:00",
-      "description": "The PTA subcommittee chair begins the process of recruiting stall coordinators for the winter fair.",
-      "visible_to": ["PTA subcommittee chair"]
+      "description": "The PTA subcommittee begins its recruitment efforts for four stall coordinators.",
+      "visible_to": ["PTA Subcommittee for the Winter Fair"]
     }
   ],
-  "resolution": "Resolve YES if, by the hard cutoff time, the persistent event history shows that at least four distinct individuals have agreed to serve as stall coordinators for the winter fair. Otherwise resolve NO."
+  "resolution": "Resolve YES if the persistent event history shows that four stall coordinators have been recruited (i.e., have agreed to serve) by the end of the October planning meeting (2026-10-19T21:00:00-05:00). Otherwise resolve NO."
 }

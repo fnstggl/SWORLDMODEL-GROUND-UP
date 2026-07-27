@@ -2,24 +2,24 @@
   "actors": [
     {
       "name": "Co-founder 1",
-      "private_context": "Co-founder 1 is aware of the January price increase proposal and has some opinion on it. They know that a decision needs to be made before the all-hands on the 18th. They have not yet discussed the final decision with the other co-founders."
+      "private_context": "Co-founder 1 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th."
     },
     {
       "name": "Co-founder 2",
-      "private_context": "Co-founder 2 is aware of the January price increase proposal and has some opinion on it. They know that a decision needs to be made before the all-hands on the 18th. They have not yet discussed the final decision with the other co-founders."
+      "private_context": "Co-founder 2 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th."
     },
     {
       "name": "Co-founder 3",
-      "private_context": "Co-founder 3 is aware of the January price increase proposal and has some opinion on it. They know that a decision needs to be made before the all-hands on the 18th. They have not yet discussed the final decision with the other co-founders."
+      "private_context": "Co-founder 3 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th."
     }
   ],
-  "shared_context": "Brightline Software has three co-founders. There is a proposal to increase prices in January. The all-hands meeting is scheduled for December 18th, 2026. The co-founders can communicate with each other and with the team. The team is aware that a decision about the price increase is pending.",
+  "shared_context": "Brightline Software has three co-founders who jointly make major decisions. The January price increase is under consideration. The all-hands meeting is scheduled for 2026-12-18 at 10:00 AM Pacific Time. The co-founders can communicate with each other and with the team via email, messaging, or in-person meetings. The team expects to be informed of the decision at or before the all-hands meeting.",
   "starting_events": [
     {
       "time": "2026-12-01T09:00:00-08:00",
-      "description": "The simulation begins. No decision has been made yet about the January price increase. The co-founders have not yet communicated a decision to the team.",
+      "description": "The simulation begins. No decision has been made yet about the January price increase.",
       "visible_to": ["Co-founder 1", "Co-founder 2", "Co-founder 3"]
     }
   ],
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-12-18T10:00:00-08:00, the persistent event history shows that the three co-founders have collectively decided whether the January price increase is going ahead and that they have communicated that decision to the team (e.g., via an announcement, email, or meeting). Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2026-12-18T10:00:00-08:00, the three co-founders have collectively decided whether the January price increase is going ahead and have communicated that decision to the team (e.g., via an announcement at the all-hands or a prior message). Otherwise resolve NO at the cutoff."
 }

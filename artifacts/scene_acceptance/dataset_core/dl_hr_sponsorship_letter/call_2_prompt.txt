@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +99,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Kwame",
-   "private_context": "Kwame needs a sponsorship letter from his employer's HR team for his visa-renewal appointment on November 9th. He has not yet received the letter and is unsure if HR will issue it in time. He can contact HR to request or follow up."
+   "private_context": "Kwame needs a sponsorship letter from his employer's HR team for his visa renewal. He has a visa-renewal appointment on November 9th. He is aware of the deadline and wants the letter issued before then."
   },
   {
    "name": "HR Team",
-   "private_context": "The HR team is responsible for issuing sponsorship letters for employees. They have received Kwame's request for a sponsorship letter but have not yet processed or issued it. They may have internal policies or workload affecting their response time."
+   "private_context": "The HR team handles employment-related documentation, including sponsorship letters. They have received or may receive requests from employees. They have their own processes and priorities."
   }
  ],
- "shared_context": "Kwame is an employee of the company. The HR team has the ability to issue sponsorship letters. The visa-renewal appointment is on November 9th, 2026. The current time is October 26th, 2026, 9:00 AM.",
+ "shared_context": "Kwame is an employee of the company. The HR team is responsible for issuing sponsorship letters. The visa-renewal appointment is on November 9th. The current time is October 26th, leaving about two weeks before the deadline.",
  "starting_events": [
   {
    "time": "2026-10-26T09:00:00+01:00",
-   "description": "Kwame has previously requested a sponsorship letter from HR, but no letter has been issued yet.",
+   "description": "Kwame decides to request the sponsorship letter from the HR team.",
    "visible_to": [
-    "Kwame",
-    "HR Team"
+    "Kwame"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before November 9th, 2026, 9:00 AM. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

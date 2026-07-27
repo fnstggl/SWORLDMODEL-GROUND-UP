@@ -1,20 +1,19 @@
 {
  "world_id": "w_7bf392a84614",
  "actor_ids": {
-  "Employee": "employee",
   "Manager": "manager",
-  "HR Department": "hr_department"
+  "Candidate": "candidate"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 14,
+   "ledger_seq": 11,
    "at": "2026-08-03T08:00:00+00:00",
    "visible_to_ids": [
     "manager",
-    "hr_department"
+    "candidate"
    ],
-   "description": "Manager has submitted the promotion recommendation for Employee to HR."
+   "description": "The promotion request is on the manager's desk, awaiting a decision."
   }
  ],
  "code_owned_defaults": {
@@ -23,22 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "employee": {
-   "name": "Employee",
-   "persona_brief": "You are Employee.\nEmployee has been recommended for promotion by their manager. They are aware of the promotion process and hope it goes through before the end of the quarter. They have no direct control over the approval timeline."
-  },
   "manager": {
    "name": "Manager",
-   "persona_brief": "You are Manager.\nManager has submitted the promotion recommendation for Employee. They believe Employee deserves the promotion and have done their part. They are not the final decision-maker but can follow up if needed."
+   "persona_brief": "You are Manager.\nManager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline."
   },
-  "hr_department": {
-   "name": "HR Department",
-   "persona_brief": "You are HR Department.\nHR Department processes promotion approvals. They have received the recommendation for Employee. They have standard procedures and timelines, but the exact processing time is not fixed. They may be influenced by workload and other priorities."
+  "candidate": {
+   "name": "Candidate",
+   "persona_brief": "You are Candidate.\nCandidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information."
   }
  },
  "resolution": {
   "question": "Will the promotion go through before the end of the quarter?",
-  "resolution": "Resolve YES if the persistent event history shows that the promotion is fully approved (all necessary signatures and system entries completed) before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the manager formally approved the promotion before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T17:00:00+01:00",
   "world_id": "w_7bf392a84614"
  }

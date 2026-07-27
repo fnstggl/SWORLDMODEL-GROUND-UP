@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -100,26 +101,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Bramblewick Studios (as a decision-making entity)",
-   "private_context": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision within two weeks after her final interview. The hiring manager mentioned that budget sign-off is still pending with the finance lead. The studio must decide whether to send Elin an offer or rejection."
+   "name": "Bramblewick Studios",
+   "private_context": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision, offer or rejection within two weeks after her final interview. The hiring manager mentioned that budget sign-off was still pending with the finance lead."
   },
   {
    "name": "Elin Bjork",
-   "private_context": "Elin Bjork has completed her final interview with Bramblewick Studios. She is waiting to hear back with a decision, offer, or rejection within the two weeks promised by the art director."
+   "private_context": "Elin Bjork has completed her final interview with Bramblewick Studios. The art director promised her a decision, offer or rejection within two weeks. She is waiting to hear back."
   }
  ],
- "shared_context": "The art director of Bramblewick Studios promised Elin Bjork a decision, offer, or rejection within two weeks after her final interview. The two-week period ends on 2026-10-23T16:00:00+01:00. Elin's final interview went well, but budget sign-off is pending with the finance lead.",
+ "shared_context": "The final interview ended on 2026-10-09T16:00:00+01:00. The art director's promise of a decision within two weeks is known to both parties. The studio is in a crunch period and budget sign-off is pending.",
  "starting_events": [
   {
    "time": "2026-10-09T16:00:00+01:00",
-   "description": "Elin Bjork's final interview has concluded. The two-week period for Bramblewick Studios to send a decision begins now.",
+   "description": "Elin Bjork's final interview concludes. The art director promises a decision, offer or rejection within two weeks.",
    "visible_to": [
     "Elin Bjork",
-    "Bramblewick Studios (as a decision-making entity)"
+    "Bramblewick Studios"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Bramblewick Studios sent Elin Bjork any decision, offer, or rejection before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Bramblewick Studios sent Elin Bjork any communication that constitutes a decision, offer or rejection before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

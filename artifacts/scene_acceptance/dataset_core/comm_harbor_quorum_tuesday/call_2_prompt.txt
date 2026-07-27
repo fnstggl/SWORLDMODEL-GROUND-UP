@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,46 +102,50 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Chair",
-   "private_context": "The chair has never missed a session and intends to attend this rescheduled meeting. They are aware of the quorum requirement of five members."
+   "private_context": "The chair has never missed a session and intends to attend this rescheduled meeting as well."
   },
   {
    "name": "Member 1",
-   "private_context": "Has confirmed attendance for the rescheduled Tuesday evening meeting."
+   "private_context": "One of the two members who are traveling during the school-holiday week; may not be able to attend."
   },
   {
    "name": "Member 2",
-   "private_context": "Has confirmed attendance for the rescheduled Tuesday evening meeting."
+   "private_context": "The other traveling member; may not be able to attend."
   },
   {
    "name": "Member 3",
-   "private_context": "Has confirmed attendance for the rescheduled Tuesday evening meeting."
+   "private_context": "Has already confirmed attendance at the rescheduled meeting."
   },
   {
    "name": "Member 4",
-   "private_context": "Is traveling during the school-holiday week and cannot attend the rescheduled meeting."
+   "private_context": "Has already confirmed attendance at the rescheduled meeting."
   },
   {
    "name": "Member 5",
-   "private_context": "Is traveling during the school-holiday week and cannot attend the rescheduled meeting."
+   "private_context": "Has already confirmed attendance at the rescheduled meeting."
   },
   {
    "name": "Member 6",
-   "private_context": "Has not yet responded about attendance for the rescheduled meeting. May or may not attend."
+   "private_context": "One of the remaining four members whose attendance is uncertain."
   },
   {
    "name": "Member 7",
-   "private_context": "Has not yet responded about attendance for the rescheduled meeting. May or may not attend."
+   "private_context": "One of the remaining four members whose attendance is uncertain."
   },
   {
    "name": "Member 8",
-   "private_context": "Has not yet responded about attendance for the rescheduled meeting. May or may not attend."
+   "private_context": "One of the remaining four members whose attendance is uncertain."
+  },
+  {
+   "name": "Member 9",
+   "private_context": "One of the remaining four members whose attendance is uncertain."
   }
  ],
- "shared_context": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
+ "shared_context": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
  "starting_events": [
   {
    "time": "2026-08-09T08:00:00-07:00",
-   "description": "The rescheduled Tuesday evening meeting is upcoming. The chair and three confirmed members plan to attend. Two members are traveling and cannot attend. Three members have not yet responded.",
+   "description": "The committee's rescheduled Tuesday evening meeting is set for 2026-08-11T19:00:00-07:00. The chair and three members have confirmed; two are traveling; four have not yet indicated their plans.",
    "visible_to": [
     "Chair",
     "Member 1",
@@ -150,11 +155,12 @@ THE COMPILED SCENE (exact manifest under review):
     "Member 5",
     "Member 6",
     "Member 7",
-    "Member 8"
+    "Member 8",
+    "Member 9"
    ]
   }
  ],
- "resolution": "Resolve YES if at least five members are present at the meeting start time (2026-08-11T19:00:00-07:00) or whenever the meeting is called to order, as recorded in the meeting minutes or attendance log. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES if at least five members (including the chair) are physically present at the meeting location at the scheduled start time or within 15 minutes thereafter, as recorded in the meeting minutes or attendance log. Otherwise resolve NO at the hard cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

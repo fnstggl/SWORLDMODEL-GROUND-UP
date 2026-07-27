@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Priya",
-   "private_context": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, but she just learned she must go on a work trip that day. She wants to reschedule to a new slot before Wednesday noon. She has the front desk's phone number and can call or email them."
+   "private_context": "Priya has a dental cleaning scheduled for Thursday, but she needs to reschedule due to a work trip. She wants to find a new slot before Wednesday noon."
   },
   {
-   "name": "Maple Row Dental front desk",
-   "private_context": "The front desk manages appointment scheduling. They have availability for dental cleanings on various days and times, but their schedule is not fully known to Priya. They are willing to accommodate rescheduling if possible."
+   "name": "Front Desk",
+   "private_context": "The front desk at Maple Row Dental manages appointment scheduling. They have availability information for various slots and can propose alternatives."
   }
  ],
- "shared_context": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday, 2026-08-13. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The deadline for agreement is Wednesday, 2026-08-12 at noon.",
+ "shared_context": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
  "starting_events": [
   {
    "time": "2026-08-10T08:00:00-04:00",
-   "description": "Priya becomes aware of the work trip conflict and decides to contact Maple Row Dental to reschedule.",
+   "description": "Priya decides to contact Maple Row Dental to reschedule her Thursday cleaning.",
    "visible_to": [
     "Priya"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Priya and the Maple Row Dental front desk have agreed on a specific new appointment slot before 2026-08-12T12:00:00-04:00. Resolve NO if no such agreement is reached by that time."
+ "resolution": "Resolve YES if the persistent event history shows that Priya and the front desk have agreed on a new appointment slot before 2026-08-12T12:00:00-04:00. Otherwise resolve NO."
 }

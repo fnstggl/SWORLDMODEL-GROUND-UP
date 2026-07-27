@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,24 +102,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CEO of Kestrel Analytics",
-   "private_context": "The CEO is considering the five-year lease on Riverside Wharf. They know headcount plans were cut 20% last quarter and half the team is remote. The CFO privately prefers a shorter term. The CEO must decide before the landlord's option expires next Friday."
+   "private_context": "CEO is considering the proposed five-year lease on Riverside Wharf office. CFO has privately told CEO she prefers a shorter term. Headcount plans were cut 20% last quarter and half the team is remote. CEO must decide whether to sign or walk away before the landlord's option expires next Friday."
   },
   {
    "name": "Landlord of Riverside Wharf",
-   "private_context": "The landlord has offered six months rent-free as an incentive. They have set an option expiration date of next Friday (2026-08-21) for the CEO to sign or walk away."
+   "private_context": "Landlord has offered six months rent-free as an incentive for the lease. The option to sign expires next Friday, 2026-08-21."
   }
  ],
- "shared_context": "Kestrel Analytics is considering a five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday (2026-08-21). The CEO must decide by then.",
+ "shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday, 2026-08-21. The CEO has the authority to sign or walk away.",
  "starting_events": [
   {
    "time": "2026-08-10T09:00:00+01:00",
-   "description": "The CEO of Kestrel Analytics is aware of the proposed five-year lease on Riverside Wharf and the landlord's offer of six months rent-free. The option expires next Friday.",
+   "description": "The CEO of Kestrel Analytics is aware of the proposed five-year lease on Riverside Wharf office and the landlord's offer of six months rent-free. The deadline to sign is next Friday.",
    "visible_to": [
     "CEO of Kestrel Analytics"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff (2026-08-21T17:00:00+01:00). Resolve NO if the CEO explicitly walks away or the deadline passes without signing."
+ "resolution": "Resolve YES if the persistent event history shows that the CEO of Kestrel Analytics signed the lease before 2026-08-21T17:00:00+01:00. Resolve NO if the CEO walked away or did not sign by that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The question asks about a counterfactual historical event (whether a 2019 merger would have closed if a CFO had not resigned). The simulation is set in 2026, long after the historical period in question, and the actors are generic corporate entities without specific decision-makers. The scene cannot simulate the counterfactual because it lacks the actual historical actors (e.g., the CFO, board members) and the relevant context of 2019. The resolution condition is also unobservable: the simulation cannot determine whether the merger 'would have closed' in a counterfactual scenario. This is a past counterfactual dressed up as a future simulation, and the question lacks sufficient information to identify the decision-maker or the observed resolving event.",
-   "correction": "The scene should be rewritten to simulate the actual historical period (autumn 2019) with specific named actors (e.g., the CFO, board members) and a decision point that can be simulated. However, since the question is inherently counterfactual and the user has not provided the necessary details, the appropriate verdict is ABSTAIN."
+   "problem": "The question asks about a historical counterfactual (2019 merger) but the simulation is set in 2026, which is after the known outcome. The scene does not specify that it is a counterfactual simulation starting from a point before the outcome, and the resolution condition (checking if merger closed before cutoff) would rely on model memory of the actual historical outcome, which is not allowed. The scene is essentially a past counterfactual dressed up as a future simulation.",
+   "correction": "Either set the simulation start time before the 2019 merger decision (e.g., 2019-08-01) and treat it as a counterfactual with no knowledge of the actual outcome, or clarify that the simulation is a counterfactual replay. However, the current setup is not simulatable as a social scene because the actors are vague and the resolution depends on historical fact."
   }
  ]
 }

@@ -1,21 +1,21 @@
 {
   "actors": [
     {
-      "name": "Kestrel Analytics support team members",
-      "private_context": "Each team member has their own individual morale level, concerns about job security, workload, and team dynamics. They have heard rumors about a reorg but have no official details yet."
+      "name": "Support Team Members",
+      "private_context": "The support team at Kestrel Analytics is aware of the upcoming reorg. They have varying levels of job security concerns and expectations about changes in workload, reporting structure, and team culture. They have not yet experienced the reorg's effects."
     },
     {
-      "name": "Kestrel Analytics management",
-      "private_context": "Management has decided on a reorg of the support team. They have a plan for the new structure and timeline, but have not yet communicated it to the team. They are aware that morale may be affected."
+      "name": "Kestrel Analytics Management",
+      "private_context": "Management has planned and is about to implement a reorganization of the support team. They have specific goals for efficiency and cost reduction but have not communicated all details to the team. They will oversee the reorg process."
     }
   ],
-  "shared_context": "Kestrel Analytics is a company with a support team. A reorganization (reorg) of the support team is planned. The reorg has not been announced to the team yet. The start time is 2026-09-01T09:00:00+01:00.",
+  "shared_context": "Kestrel Analytics is a company with a support team that handles customer inquiries. A reorganization (reorg) of the support team is scheduled to begin on 2026-09-01. The reorg may involve changes to team structure, roles, responsibilities, and reporting lines. Morale refers to the team's overall job satisfaction, confidence, and enthusiasm.",
   "starting_events": [
     {
       "time": "2026-09-01T09:00:00+01:00",
-      "description": "The reorg is still unannounced. No events have occurred yet.",
-      "visible_to": []
+      "description": "The reorg of Kestrel Analytics' support team officially begins. Management starts implementing changes.",
+      "visible_to": ["Support Team Members", "Kestrel Analytics Management"]
     }
   ],
-  "resolution": "UNRESOLVABLE: The question asks about an internal state (morale) with no observable proxy provided. Morale is not directly observable, and no specific observable events (e.g., survey results, turnover rates) are specified to measure it."
+  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history contains credible evidence (e.g., survey results, manager observations, or team communications) that support team morale is better than before the reorg. Resolve NO if evidence indicates morale is the same or worse, or if no credible evidence is available."
 }

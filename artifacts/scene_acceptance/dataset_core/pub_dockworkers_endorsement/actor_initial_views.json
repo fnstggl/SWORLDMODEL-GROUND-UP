@@ -23,13 +23,13 @@
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local has not yet decided whether to endorse the port automation memorandum or to issue a press release.",
+    "content": "The local's executive board met twice last week without issuing a statement. The local is aware of the port automation memorandum and is considering whether to endorse it. There is internal disagreement: a rank-and-file caucus has been leafleting against the memorandum. The international union endorsed a similar deal at another port last month, which may influence but does not bind the local.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The international union endorsed a similar deal at another port last month. The local can issue a press release at any time before Monday. The port automation memorandum is a known topic of discussion.",
+    "content": "The port automation memorandum exists and is a matter of public record. The local can issue a press release through standard channels. The deadline for a decision is before Monday, 2026-08-31.",
     "source": "scene_manifest:shared_context"
    }
   ],

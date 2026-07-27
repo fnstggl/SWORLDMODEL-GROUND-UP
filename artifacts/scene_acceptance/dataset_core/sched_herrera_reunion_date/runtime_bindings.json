@@ -1,25 +1,15 @@
 {
  "world_id": "w_677e0c447bae",
  "actor_ids": {
-  "Tia Marisol": "tia_marisol",
-  "Cousin pushing Oaxaca 1": "cousin_pushing_oaxaca_1",
-  "Cousin pushing Oaxaca 2": "cousin_pushing_oaxaca_2",
-  "Cousin pushing Oaxaca 3": "cousin_pushing_oaxaca_3",
-  "Cousin pushing San Antonio 1": "cousin_pushing_san_antonio_1",
-  "Cousin pushing San Antonio 2": "cousin_pushing_san_antonio_2"
+  "Herrera cousins (14 members)": "herrera_cousins_14_members"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 23,
+   "ledger_seq": 8,
    "at": "2026-08-01T16:00:00+00:00",
    "visible_to_ids": [
-    "tia_marisol",
-    "cousin_pushing_oaxaca_1",
-    "cousin_pushing_oaxaca_2",
-    "cousin_pushing_oaxaca_3",
-    "cousin_pushing_san_antonio_1",
-    "cousin_pushing_san_antonio_2"
+    "herrera_cousins_14_members"
    ],
    "description": "The group chat is active with ongoing discussion about the reunion location and date."
   }
@@ -30,34 +20,14 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "tia_marisol": {
-   "name": "Tia Marisol",
-   "persona_brief": "You are Tia Marisol.\nMarisol is the eldest cousin. She says she will go with the majority but keeps changing the subject to catering. She wants the reunion to happen but is indecisive about location."
-  },
-  "cousin_pushing_oaxaca_1": {
-   "name": "Cousin pushing Oaxaca 1",
-   "persona_brief": "You are Cousin pushing Oaxaca 1.\nOne of the three cousins advocating for Oaxaca. Wants the reunion in Oaxaca."
-  },
-  "cousin_pushing_oaxaca_2": {
-   "name": "Cousin pushing Oaxaca 2",
-   "persona_brief": "You are Cousin pushing Oaxaca 2.\nSecond cousin advocating for Oaxaca."
-  },
-  "cousin_pushing_oaxaca_3": {
-   "name": "Cousin pushing Oaxaca 3",
-   "persona_brief": "You are Cousin pushing Oaxaca 3.\nThird cousin advocating for Oaxaca."
-  },
-  "cousin_pushing_san_antonio_1": {
-   "name": "Cousin pushing San Antonio 1",
-   "persona_brief": "You are Cousin pushing San Antonio 1.\nOne of the two cousins advocating for San Antonio."
-  },
-  "cousin_pushing_san_antonio_2": {
-   "name": "Cousin pushing San Antonio 2",
-   "persona_brief": "You are Cousin pushing San Antonio 2.\nSecond cousin advocating for San Antonio."
+  "herrera_cousins_14_members": {
+   "name": "Herrera cousins (14 members)",
+   "persona_brief": "You are Herrera cousins (14 members).\nEach cousin has their own preferences and constraints for the reunion. Three cousins (names unknown) push for Oaxaca, two for San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. Other cousins have not expressed strong preferences yet."
   }
  },
  "resolution": {
   "question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
-  "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message in the group chat explicitly states a specific weekend and a specific town for the reunion, and no subsequent message contradicts or reopens the decision. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that the group chat contains a message or messages that collectively specify both a weekend (e.g., a specific date range in spring 2027) and a town (e.g., Oaxaca or San Antonio) for the reunion, and that no subsequent message contradicts that agreement. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T22:00:00-06:00",
   "world_id": "w_677e0c447bae"
  }

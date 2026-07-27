@@ -23,13 +23,13 @@
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Lives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote.",
+    "content": "Lives near the proposed site. Has heard strong opinions from neighbors. Undecided on the vote.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
+    "content": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Lives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote.",
+    "content": "Lives near the proposed site. Has heard strong opinions from neighbors. Leaning against relocation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
+    "content": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote.",
+    "content": "No personal stake in location. Has read the letters in the paper. Undecided.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
+    "content": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote.",
+    "content": "No personal stake in location. Has read the letters in the paper. Supports relocation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
+    "content": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -195,13 +195,13 @@
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote.",
+    "content": "No personal stake in location. Has read the letters in the paper. Supports relocation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T15:00:00+00:00",
     "kind": "context",
-    "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
+    "content": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
     "source": "scene_manifest:shared_context"
    }
   ],

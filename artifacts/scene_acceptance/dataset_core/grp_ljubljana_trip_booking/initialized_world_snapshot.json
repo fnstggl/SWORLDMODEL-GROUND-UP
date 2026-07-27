@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "One of the six friends. Has a new job with limited leave. Interested in the trip but availability is constrained.",
+     "content": "One of the six friends. Has a new job with limited leave, so has specific date constraints for the trip.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
+     "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "One of the six friends. Has a new job with limited leave. Interested in the trip but availability is constrained.",
+     "content": "One of the six friends. Has a new job with limited leave, so has specific date constraints for the trip.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
+     "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "One of the six friends. No special constraints mentioned.",
+     "content": "One of the six friends. No special constraints mentioned beyond being part of the group.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
+     "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -150,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "One of the six friends. No special constraints mentioned.",
+     "content": "One of the six friends. No special constraints mentioned beyond being part of the group.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
+     "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -193,13 +193,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "One of the six friends. No special constraints mentioned.",
+     "content": "One of the six friends. No special constraints mentioned beyond being part of the group.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
+     "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -236,13 +236,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Jaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird train fares end on the 15th. He has no particular constraints on leave.",
+     "content": "Jaka is one of the six friends. He usually ends up doing the booking for group trips. He is aware that the early-bird train fares end on the 15th and that the apartment they liked last year is still listed. He wants to secure the booking but needs agreement on dates from the group.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
+     "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -274,7 +274,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the six university friends in the Ljubljana-trip group chat agree on dates and book the apartment before early-bird train fares end on the 15th?",
-  "scene:shared_context": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages."
+  "scene:shared_context": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates."
  },
  "history": [],
  "infos": {},

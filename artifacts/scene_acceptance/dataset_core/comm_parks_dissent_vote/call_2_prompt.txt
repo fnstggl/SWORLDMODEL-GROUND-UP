@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,30 +102,30 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Committee Member 1",
-   "private_context": "Lives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote."
+   "private_context": "Lives near the proposed site. Has heard strong opinions from neighbors. Undecided on the vote."
   },
   {
    "name": "Committee Member 2",
-   "private_context": "Lives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote."
+   "private_context": "Lives near the proposed site. Has heard strong opinions from neighbors. Leaning against relocation."
   },
   {
    "name": "Committee Member 3",
-   "private_context": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote."
+   "private_context": "No personal stake in location. Has read the letters in the paper. Undecided."
   },
   {
    "name": "Committee Member 4",
-   "private_context": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote."
+   "private_context": "No personal stake in location. Has read the letters in the paper. Supports relocation."
   },
   {
    "name": "Committee Member 5",
-   "private_context": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote."
+   "private_context": "No personal stake in location. Has read the letters in the paper. Supports relocation."
   }
  ],
- "shared_context": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
+ "shared_context": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
  "starting_events": [
   {
    "time": "2026-09-14T09:00:00-06:00",
-   "description": "The committee members are aware of the upcoming Thursday session and the scheduled vote on the skate-park relocation.",
+   "description": "The committee members are aware of the upcoming Thursday session and the skate-park relocation item.",
    "visible_to": [
     "Committee Member 1",
     "Committee Member 2",
@@ -134,7 +135,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during Thursday's session. Resolve NO if the session concludes with no vote against (i.e., all votes are in favor or the vote does not occur). If the session does not occur by the cutoff, resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

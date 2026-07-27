@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +99,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dr. Tanaka",
-   "private_context": "Dr. Tanaka has prepared a survey protocol for a research study. They intend to submit it to the Ashvale University research ethics board for approval. They are aware of the upcoming monthly meeting and hope for approval."
+   "private_context": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision at the next monthly meeting. They have no prior relationship with board members and have not received any preliminary feedback."
   },
   {
    "name": "Ashvale University Research Ethics Board",
-   "private_context": "The board is a committee that reviews research protocols. It meets monthly. It has received or will receive Dr. Tanaka's survey protocol. The board will consider the protocol at its next monthly meeting, which occurs before the hard cutoff."
+   "private_context": "The board is a committee that reviews research protocols. It meets monthly. The next meeting is scheduled before the cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at that meeting. Board members have no prior knowledge of Dr. Tanaka or the protocol beyond the submitted materials."
   }
  ],
- "shared_context": "Ashvale University has a research ethics board that meets monthly to review protocols. The next monthly meeting is scheduled before 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is under consideration. The board can approve, request amendments, or reject the protocol.",
+ "shared_context": "Ashvale University's research ethics board holds monthly meetings to review protocols. Dr. Tanaka's survey protocol has been submitted and is on the agenda for the next meeting, which occurs before 2026-10-06T18:00:00+09:00. The board can approve, request amendments, or reject the protocol. The decision will be communicated to Dr. Tanaka after the meeting.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+09:00",
-   "description": "Dr. Tanaka submits the survey protocol to the Ashvale University research ethics board for review.",
+   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University research ethics board. The board's next monthly meeting is scheduled before the cutoff.",
    "visible_to": [
     "Dr. Tanaka",
     "Ashvale University Research Ethics Board"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the board has communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the board communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

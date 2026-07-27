@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The communications lead is at an offsite all morning and may not be reachable. They are responsible for sending customer incident notices per the runbook.",
+     "content": "The Communications Lead is at an offsite all morning and may not be reachable. They are responsible for sending incident notices to enterprise customers per the runbook.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-21T04:00:00+00:00"
     },
     {
-     "content": "The tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours (by 10:00). The communications lead is at an offsite all morning. The company has the ability to send emails to enterprise customers.",
+     "content": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The Communications Lead is at an offsite all morning.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-21T04:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Nimbus Freight has an incident runbook that requires emailing affected enterprise customers within four hours of an outage. The tracking portal has been down since 06:00. The status page already acknowledges the outage.",
+     "content": "Nimbus Freight has an incident runbook requiring customer email within four hours of outage start. The status page already acknowledges the outage. The company can decide to send the email even without the Communications Lead.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-21T04:00:00+00:00"
     },
     {
-     "content": "The tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours (by 10:00). The communications lead is at an offsite all morning. The company has the ability to send emails to enterprise customers.",
+     "content": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The Communications Lead is at an offsite all morning.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-21T04:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Nimbus Freight's tracking portal has been down since 06:00. Will the company email affected enterprise customers an incident notice before noon?",
-  "scene:shared_context": "The tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours (by 10:00). The communications lead is at an offsite all morning. The company has the ability to send emails to enterprise customers."
+  "scene:shared_context": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The Communications Lead is at an offsite all morning."
  },
  "history": [],
  "infos": {},

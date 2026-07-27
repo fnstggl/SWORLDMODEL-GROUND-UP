@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "marguerite"
    ],
-   "description": "Marguerite sees the one-star review on the major review site."
+   "description": "Marguerite sees the one-star review on the review site."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "marguerite": {
    "name": "Marguerite",
-   "persona_brief": "You are Marguerite.\nMarguerite is the owner of the Copper Kettle bistro. She usually replies to reviews within days, often defensively. She knows the bistro was short two servers on the night in question."
+   "persona_brief": "You are Marguerite.\nMarguerite is the owner of the Copper Kettle bistro. She typically replies to most reviews within days, and her replies tend to be defensive. She has just become aware of a one-star review posted last night complaining about a 45-minute wait on a night the bistro was short two servers."
   }
  },
  "resolution": {
   "question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
-  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the major review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-06T09:00:00-04:00",
   "world_id": "w_044c80706ef3"
  }

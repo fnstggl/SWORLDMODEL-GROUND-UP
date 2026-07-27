@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,30 +99,30 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Student 1",
-   "private_context": "Student 1 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight."
+   "private_context": "Student 1 has prepared a chapter they want to present, but is open to negotiation. They want the group to reach an agreement tonight."
   },
   {
    "name": "Student 2",
-   "private_context": "Student 2 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight."
+   "private_context": "Student 2 has a strong preference for a specific chapter and is willing to argue for it. They want the group to decide tonight."
   },
   {
    "name": "Student 3",
-   "private_context": "Student 3 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight."
+   "private_context": "Student 3 is flexible and mainly wants to avoid a difficult chapter. They hope the group can agree quickly."
   },
   {
    "name": "Student 4",
-   "private_context": "Student 4 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight."
+   "private_context": "Student 4 has not prepared any preference and is willing to take whatever is left. They just want the meeting to be productive."
   },
   {
    "name": "Student 5",
-   "private_context": "Student 5 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight."
+   "private_context": "Student 5 has a preferred chapter but is willing to compromise. They want to avoid conflict and reach consensus."
   }
  ],
- "shared_context": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00.",
+ "shared_context": "The five students are members of an actuarial study group. They have a meeting scheduled tonight at 19:00 to decide who presents which chapter at Saturday's session. There are five chapters to cover, one per student. The meeting is expected to last until 23:00. Each student has their own preferences and constraints, but no prior agreements have been made.",
  "starting_events": [
   {
    "time": "2026-08-19T19:00:00+08:00",
-   "description": "The five students begin their meeting to discuss chapter assignments for Saturday's session.",
+   "description": "The five students gather for their scheduled meeting to discuss chapter assignments for Saturday's session.",
    "visible_to": [
     "Student 1",
     "Student 2",
@@ -131,7 +132,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff at 2026-08-19T23:00:00+08:00, the persistent event history shows that all five students have explicitly agreed on a complete assignment of each chapter to a presenter for Saturday's session. Otherwise resolve NO."
+ "resolution": "Resolve YES if, by 2026-08-19T23:00:00+08:00, the persistent event history shows that all five students have explicitly agreed on a complete assignment of each chapter to a specific student. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

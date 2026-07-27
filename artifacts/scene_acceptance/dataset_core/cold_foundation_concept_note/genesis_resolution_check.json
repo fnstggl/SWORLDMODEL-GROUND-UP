@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the program officer at the Alder Foundation respond substantively to nonprofit director Lucia Ferreyra's unsolicited concept note within one month?",
-  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response (i.e., a reply that engages with the content of the concept note, not an automated acknowledgment or form rejection) to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-01T09:00:00-05:00",
   "world_id": "w_2f90cede6453"
  },

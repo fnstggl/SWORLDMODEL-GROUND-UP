@@ -23,56 +23,13 @@
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "The CEO knows Torchlight Media is shutting down permanently on the 14th. They have scheduled an all-hands meeting for the 15th. They have not decided whether to take questions at that meeting.",
+    "content": "The CEO knows Torchlight Media is shutting down permanently on the 14th. The all-hands meeting is scheduled for the 15th. The CEO has not decided whether to take questions at that meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "Torchlight Media is shutting down permanently on the 14th. An all-hands meeting is scheduled for the 15th. The CEO may or may not take questions at that meeting.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "employees": {
-  "id": "employees",
-  "name": "Employees",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-09-01T07:00:00+00:00",
-    "kind": "context",
-    "content": "Employees know the company is shutting down on the 14th and that an all-hands is scheduled for the 15th. They are uncertain whether the CEO will take questions.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-09-01T07:00:00+00:00",
-    "kind": "context",
-    "content": "Torchlight Media is shutting down permanently on the 14th. An all-hands meeting is scheduled for the 15th. The CEO may or may not take questions at that meeting.",
+    "content": "Torchlight Media is shutting down permanently on the 14th. An all-hands meeting is scheduled for the 15th. The CEO is expected to address employees at that meeting.",
     "source": "scene_manifest:shared_context"
    }
   ],

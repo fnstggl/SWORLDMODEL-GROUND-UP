@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. Will he reply to her before tomorrow evening?",
-  "resolution": "Resolve YES if the persistent event history shows that Stavros sent a reply to Maya's text before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Stavros sent a reply text to Maya before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-07-29T20:00:00-04:00",
   "world_id": "w_8e910576b236"
  },

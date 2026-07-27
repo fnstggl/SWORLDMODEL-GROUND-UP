@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,20 +102,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Marguerite",
-   "private_context": "Marguerite is the owner of the Copper Kettle bistro. She usually replies to reviews within days, often defensively. She knows the bistro was short two servers on the night in question."
+   "private_context": "Marguerite is the owner of the Copper Kettle bistro. She typically replies to most reviews within days, and her replies tend to be defensive. She has just become aware of a one-star review posted last night complaining about a 45-minute wait on a night the bistro was short two servers."
   }
  ],
- "shared_context": "A one-star review of the Copper Kettle bistro complaining about a 45-minute wait on a night the bistro was short two servers was posted on a major review site last night. Marguerite can see the review and can post a public reply on the site.",
+ "shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review mentions a 45-minute wait and that the bistro was short two servers that night. The review site allows business owners to post public replies to reviews.",
  "starting_events": [
   {
    "time": "2026-08-30T09:00:00-04:00",
-   "description": "Marguerite sees the one-star review on the major review site.",
+   "description": "Marguerite sees the one-star review on the review site.",
    "visible_to": [
     "Marguerite"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the major review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

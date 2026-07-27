@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,35 +99,35 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tenants' Association of the Aurora Block",
-   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have expressed interest in the role, but no decision has been made yet."
+   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have expressed interest in the role."
   },
   {
-   "name": "Resident 1",
-   "private_context": "Has shown interest in becoming treasurer. May attend the meeting and may volunteer or accept nomination."
+   "name": "Interested Resident 1",
+   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
   },
   {
-   "name": "Resident 2",
-   "private_context": "Has shown interest in becoming treasurer. May attend the meeting and may volunteer or accept nomination."
+   "name": "Interested Resident 2",
+   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
   },
   {
-   "name": "Resident 3",
-   "private_context": "Has shown interest in becoming treasurer. May attend the meeting and may volunteer or accept nomination."
+   "name": "Interested Resident 3",
+   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
   }
  ],
- "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight at 18:30. The meeting is scheduled to last until 21:30. One agenda item is the election of a treasurer. Three residents have indicated interest in the position. The association's members will decide through a vote during the meeting.",
+ "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The association's members will decide on the election during the meeting.",
  "starting_events": [
   {
    "time": "2026-09-02T18:30:00+02:00",
    "description": "The first meeting of the season of the Aurora Block tenants' association begins.",
    "visible_to": [
     "Tenants' Association of the Aurora Block",
-    "Resident 1",
-    "Resident 2",
-    "Resident 3"
+    "Interested Resident 1",
+    "Interested Resident 2",
+    "Interested Resident 3"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected by the association during the meeting before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected by the association during the meeting before the cutoff at 21:30. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

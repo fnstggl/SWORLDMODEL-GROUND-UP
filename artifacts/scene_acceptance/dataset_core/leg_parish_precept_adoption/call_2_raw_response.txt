@@ -1,10 +1,4 @@
 {
-  "verdict": "ABSTAIN",
-  "defects": [
-    {
-      "path": "scene",
-      "problem": "The scene treats 'Kettlewell Parish Council' as a single actor, but a council is a collective body whose decision requires multiple members. The question asks whether the council will adopt the precept, which is a group decision. The scene does not include individual councillors or a chair, so it cannot simulate the social dynamics of a vote or formal adoption. The resolution depends on a 'persistent event history' that is not defined, and the starting event merely schedules a meeting without any decision-making process. This is not a simulatable social scene; it is a placeholder for a factual lookup.",
-      "correction": "The scene must include individual councillors or at least a chair and clerk to allow deliberation and a vote. Alternatively, if the question is about a known historical outcome, it should be treated as a lookup, not a simulation."
-    }
-  ]
+ "verdict": "APPROVE",
+ "defects": []
 }

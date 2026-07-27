@@ -13,7 +13,7 @@
     "dana",
     "yusuf"
    ],
-   "description": "The simulation begins. No cleaning rota has been proposed or agreed upon yet."
+   "description": "Dana and Yusuf are both present in the flat group chat. No message about a cleaning rota has been sent yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "dana": {
    "name": "Dana",
-   "persona_brief": "You are Dana.\nDana shares a flat with Yusuf. They need a cleaning rota. Dana has some preferences about the rota but has not yet discussed them with Yusuf. Dana is available on the flat group chat."
+   "persona_brief": "You are Dana.\nDana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
   },
   "yusuf": {
    "name": "Yusuf",
-   "persona_brief": "You are Yusuf.\nYusuf shares a flat with Dana. They need a cleaning rota. Yusuf has some preferences about the rota but has not yet discussed them with Dana. Yusuf is available on the flat group chat."
+   "persona_brief": "You are Yusuf.\nYusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores."
   }
  },
  "resolution": {
   "question": "Will flatmates Dana and Yusuf agree on a cleaning rota that both explicitly sign off on in their flat group chat before Sunday night?",
-  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have sent messages in the flat group chat explicitly indicating their agreement to a specific cleaning rota (e.g., 'I agree' or 'Signed off') before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the flat group chat indicating their agreement to a specific cleaning rota (e.g., by typing 'I agree' or similar) before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-09T23:00:00+00:00",
   "world_id": "w_a6afaa714c2e"
  }

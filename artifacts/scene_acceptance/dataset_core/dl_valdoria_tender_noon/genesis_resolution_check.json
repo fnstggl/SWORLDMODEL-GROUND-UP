@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Nimbus Freight's bid team get the Valdoria postal-contract tender signed by both required directors and submitted before Friday's 12:00 deadline?",
-  "resolution": "Resolve YES only if the persistent event history shows that both Director A and Director B signed the tender and it was submitted before 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that both required directors signed the tender document and the signed document was submitted before Friday 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-28T12:00:00+02:00",
   "world_id": "w_3f63bab4589d"
  },

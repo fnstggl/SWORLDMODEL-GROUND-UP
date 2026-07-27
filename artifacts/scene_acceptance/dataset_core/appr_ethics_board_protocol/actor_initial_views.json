@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T00:00:00+00:00",
     "kind": "context",
-    "content": "The board is a committee that reviews research protocols. It meets monthly. It has received or will receive Dr. Tanaka's survey protocol. The board will consider the protocol at its next monthly meeting, which occurs before the hard cutoff.",
+    "content": "The board is a committee that reviews research protocols. It meets monthly. The next meeting is scheduled before the cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at that meeting. Board members have no prior knowledge of Dr. Tanaka or the protocol beyond the submitted materials.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T00:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University has a research ethics board that meets monthly to review protocols. The next monthly meeting is scheduled before 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is under consideration. The board can approve, request amendments, or reject the protocol.",
+    "content": "Ashvale University's research ethics board holds monthly meetings to review protocols. Dr. Tanaka's survey protocol has been submitted and is on the agenda for the next meeting, which occurs before 2026-10-06T18:00:00+09:00. The board can approve, request amendments, or reject the protocol. The decision will be communicated to Dr. Tanaka after the meeting.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T00:00:00+00:00",
     "kind": "context",
-    "content": "Dr. Tanaka has prepared a survey protocol for a research study. They intend to submit it to the Ashvale University research ethics board for approval. They are aware of the upcoming monthly meeting and hope for approval.",
+    "content": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision at the next monthly meeting. They have no prior relationship with board members and have not received any preliminary feedback.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T00:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University has a research ethics board that meets monthly to review protocols. The next monthly meeting is scheduled before 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is under consideration. The board can approve, request amendments, or reject the protocol.",
+    "content": "Ashvale University's research ethics board holds monthly meetings to review protocols. Dr. Tanaka's survey protocol has been submitted and is on the agenda for the next meeting, which occurs before 2026-10-06T18:00:00+09:00. The board can approve, request amendments, or reject the protocol. The decision will be communicated to Dr. Tanaka after the meeting.",
     "source": "scene_manifest:shared_context"
    }
   ],

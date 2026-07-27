@@ -1,17 +1,4 @@
 {
  "errors": [],
- "warnings": [
-  "actor names 'Working Group Member 1' and 'Working Group Member 10' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 11' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 12' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 13' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 14' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 15' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 16' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 17' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 18' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 1' and 'Working Group Member 19' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 2' and 'Working Group Member 20' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
-  "actor names 'Working Group Member 2' and 'Working Group Member 21' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)"
- ]
+ "warnings": []
 }

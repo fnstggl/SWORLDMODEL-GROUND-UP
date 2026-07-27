@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the neighbors on Alder Court fill all fourteen slots of the meal train they started for the Okafor family within four days?",
-  "resolution": "Resolve YES if the persistent event history shows that all 14 slots were claimed (i.e., signed up for) by 2026-10-09T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that all fourteen slots of the meal train were filled (i.e., signed up for) by 2026-10-09T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-09T09:00:00-04:00",
   "world_id": "w_8e95e3a32bd9"
  },

@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,20 +99,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Academic Senate",
-   "private_context": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It consists of faculty representatives, administrators, and student representatives. The senate has a standing committee on educational policy that has reviewed the pass-fail grading motion and forwarded it to the full senate with a recommendation. Individual members have varying opinions on the motion, but no formal commitments have been made publicly."
+   "private_context": "The senate is a deliberative body that votes on academic policy. Its members have varying views on pass-fail grading, but no prior commitment has been made. The motion is on the agenda for the October plenary."
   }
  ],
- "shared_context": "Ashvale University's academic senate will hold its October plenary meeting on 2026-10-15 at 10:00 AM. The agenda includes a motion to adopt a pass-fail grading option for undergraduate courses. The motion was previously discussed in the educational policy committee, which has sent it to the full senate with a recommendation. The senate will vote on whether to pass, reject, or send the motion back to committee. The outcome is uncertain.",
+ "shared_context": "Ashvale University's academic senate will hold its October plenary on 2026-10-15. A motion to adopt pass-fail grading is on the agenda. The senate can pass, reject, or send the motion back to committee. The meeting is scheduled to occur before the hard cutoff.",
  "starting_events": [
   {
    "time": "2026-10-01T09:00:00-05:00",
-   "description": "The academic senate's agenda for the October plenary is published, listing the pass-fail grading motion as an item for discussion and vote.",
+   "description": "The academic senate's agenda for the October plenary includes the pass-fail grading motion.",
    "visible_to": [
     "Academic Senate"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the motion at the October plenary. Resolve NO if the persistent event history shows that the senate rejected the motion. Resolve SEND_BACK if the persistent event history shows that the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve as NO_DECISION."
+ "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the motion at the October plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

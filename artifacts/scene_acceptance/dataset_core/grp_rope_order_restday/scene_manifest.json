@@ -2,30 +2,30 @@
  "actors": [
   {
    "name": "Expedition Leader",
-   "private_context": "The leader has asked the four-person climbing team to decide on a summit-day rope order during tomorrow's rest-day meeting. The leader wants the team to agree on a plan."
+   "private_context": "The leader wants the team to decide on a rope order for summit day. They have asked the team to discuss and pick one during tomorrow's rest-day meeting."
   },
   {
    "name": "Climber 1",
-   "private_context": "Climber 1 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team."
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
   },
   {
    "name": "Climber 2",
-   "private_context": "Climber 2 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team."
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
   },
   {
    "name": "Climber 3",
-   "private_context": "Climber 3 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team."
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
   },
   {
    "name": "Climber 4",
-   "private_context": "Climber 4 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team."
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
   }
  ],
- "shared_context": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day.",
+ "shared_context": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
  "starting_events": [
   {
    "time": "2026-09-01T07:00:00+05:45",
-   "description": "The team is at base camp, resting. The rest-day meeting is scheduled for tomorrow.",
+   "description": "The team is at base camp. The rest-day meeting is scheduled for tomorrow.",
    "visible_to": [
     "Expedition Leader",
     "Climber 1",
@@ -35,5 +35,5 @@
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that during the rest-day meeting on 2026-09-02, the four climbers collectively agreed on a specific rope order (e.g., by verbal consensus, vote, or explicit decision recorded in the meeting). Resolve NO if by 2026-09-02T19:00:00+05:45 no such agreement has been reached, or if the meeting did not occur, or if the rope order was not picked."
+ "resolution": "Resolve YES if the persistent event history shows that the team actually picks a summit-day rope order during the rest-day meeting before the hard cutoff. Otherwise resolve NO at the cutoff."
 }

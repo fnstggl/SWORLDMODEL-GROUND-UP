@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "recruiter_from_torchlight_media"
    ],
-   "description": "The recruiter sends the first-contact message about the opening to Petra Kovac."
+   "description": "The recruiter sends the first-contact message to Petra Kovac about the opening at Torchlight Media."
   }
  ],
  "code_owned_defaults": {
@@ -23,11 +23,11 @@
  "personas": {
   "recruiter_from_torchlight_media": {
    "name": "Recruiter from Torchlight Media",
-   "persona_brief": "You are Recruiter from Torchlight Media.\nThe recruiter has identified Petra Kovac as a potential candidate for a senior colorist opening at Torchlight Media. They have prepared a first-contact message to send to Petra."
+   "persona_brief": "You are Recruiter from Torchlight Media.\nThe recruiter has identified Petra Kovac as a potential candidate for an opening at Torchlight Media. They have prepared a first-contact message to send to Petra."
   },
   "petra_kovac": {
    "name": "Petra Kovac",
-   "persona_brief": "You are Petra Kovac.\nPetra is a senior colorist currently employed and happily so. She is not actively looking for new opportunities. She receives professional messages occasionally and may or may not respond depending on her interest and availability."
+   "persona_brief": "You are Petra Kovac.\nPetra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability."
   }
  },
  "resolution": {

@@ -2,18 +2,18 @@
   "actors": [
     {
       "name": "Recruiter from Torchlight Media",
-      "private_context": "The recruiter has identified Petra Kovac as a potential candidate for a senior colorist opening at Torchlight Media. They have prepared a first-contact message to send to Petra."
+      "private_context": "The recruiter has identified Petra Kovac as a potential candidate for an opening at Torchlight Media. They have prepared a first-contact message to send to Petra."
     },
     {
       "name": "Petra Kovac",
-      "private_context": "Petra is a senior colorist currently employed and happily so. She is not actively looking for new opportunities. She receives professional messages occasionally and may or may not respond depending on her interest and availability."
+      "private_context": "Petra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability."
     }
   ],
-  "shared_context": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is available to the recruiter. The message will be sent at the start time.",
+  "shared_context": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter.",
   "starting_events": [
     {
       "time": "2026-09-07T10:00:00+02:00",
-      "description": "The recruiter sends the first-contact message about the opening to Petra Kovac.",
+      "description": "The recruiter sends the first-contact message to Petra Kovac about the opening at Torchlight Media.",
       "visible_to": ["Recruiter from Torchlight Media"]
     }
   ],

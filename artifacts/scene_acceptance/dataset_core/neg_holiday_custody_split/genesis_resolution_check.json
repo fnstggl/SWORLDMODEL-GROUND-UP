@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Separated parents Ingrid and Mattias are negotiating who takes the children for the December holidays. Will they reach a written agreement before their mediator's final scheduled session in six weeks?",
-  "resolution": "Resolve YES if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-13T17:00:00+01:00",
   "world_id": "w_ae66dd5d940a"
  },

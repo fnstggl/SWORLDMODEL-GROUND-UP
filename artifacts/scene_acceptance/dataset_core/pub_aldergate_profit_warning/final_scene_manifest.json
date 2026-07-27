@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Aldergate Rail",
-   "private_context": "Aldergate Rail is aware of a delay in its signaling contract. It has not yet decided whether to issue a market warning before its scheduled interim results day on November 5. The firm considers its obligations under market disclosure rules and the potential impact on its reputation and share price."
+   "private_context": "Aldergate Rail is a listed firm. It has a signaling-contract delay that may be material to the market. It has not yet decided whether to issue a warning before its scheduled interim results day on November 5. The board and management are aware of the delay and its potential impact."
   }
  ],
- "shared_context": "Aldergate Rail is a listed company. It has a scheduled interim results day on November 5. Market regulations may require timely disclosure of material delays. The firm has a signaling contract that is experiencing a delay.",
+ "shared_context": "Aldergate Rail is a publicly listed company. Its interim results are scheduled for release on November 5. The company has a signaling-contract delay that could affect its financial outlook. Market regulations may require timely disclosure of material information.",
  "starting_events": [
   {
    "time": "2026-10-01T08:00:00+00:00",
-   "description": "Aldergate Rail is aware of the signaling-contract delay and is considering whether to warn the market before the interim results day.",
+   "description": "Aldergate Rail's management is aware of the signaling-contract delay and is considering whether to issue a market warning before the scheduled interim results day.",
    "visible_to": [
     "Aldergate Rail"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Aldergate Rail issued a market warning about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the hard cutoff at 2026-11-05T07:00:00+00:00, Aldergate Rail issues a public warning to the market about the signaling-contract delay (e.g., via a regulatory filing, press release, or stock exchange announcement). Otherwise resolve NO."
 }

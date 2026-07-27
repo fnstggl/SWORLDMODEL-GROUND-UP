@@ -32,6 +32,11 @@ MAX_TECHNICAL_RETRIES_PER_SLOT = 1
 
 SOCKET_TIMEOUT_S = 90.0
 TOTAL_READ_DEADLINE_S = 300.0
+#: wall-clock bound on the ENTIRE provider request (connect + headers +
+#: body).  Socket timeouts are per operation, so a server dripping headers
+#: could otherwise stretch far past any deadline; the whole request runs in
+#: a worker thread abandoned at this bound.
+TOTAL_REQUEST_DEADLINE_S = 330.0
 
 
 class CompilerCallBudgetExceeded(RuntimeError):
@@ -56,6 +61,30 @@ class SceneCaller:
 
     # -- provider ------------------------------------------------------
     def _call_api(self, system: str, user: str):
+        """The whole request (connect + headers + body) runs in a worker
+        thread joined against TOTAL_REQUEST_DEADLINE_S -- a stalled or
+        header-dripping server becomes a TimeoutError, never a hang."""
+        import threading
+        box: dict = {}
+
+        def work():
+            try:
+                box["result"] = self._do_request(system, user)
+            except BaseException as e:      # delivered to the caller thread
+                box["error"] = e
+
+        th = threading.Thread(target=work, daemon=True)
+        th.start()
+        th.join(TOTAL_REQUEST_DEADLINE_S)
+        if th.is_alive():
+            raise TimeoutError(
+                f"provider request exceeded the "
+                f"{TOTAL_REQUEST_DEADLINE_S:.0f}s total request deadline")
+        if "error" in box:
+            raise box["error"]
+        return box["result"]
+
+    def _do_request(self, system: str, user: str):
         api_key = os.environ.get("DEEPSEEK_API_KEY", "")
         if not api_key:
             raise TechnicalFailure("DEEPSEEK_API_KEY is not set")
@@ -115,8 +144,10 @@ class SceneCaller:
                 parsed = json.loads(_strip_fences(raw))
                 self.requests.append(entry)
                 return {"parsed": parsed, "raw": raw, "slot": slot}
-            except (urllib.error.URLError, OSError, TimeoutError,
-                    json.JSONDecodeError, KeyError) as e:
+            except Exception as e:
+                # EVERY attempt is logged, whatever the failure class --
+                # an unexpected transport exception must not consume a
+                # semantic slot invisibly
                 entry["duration_s"] = round(time.monotonic() - t0, 3)
                 entry["error"] = f"{type(e).__name__}: {e}"
                 self.requests.append(entry)

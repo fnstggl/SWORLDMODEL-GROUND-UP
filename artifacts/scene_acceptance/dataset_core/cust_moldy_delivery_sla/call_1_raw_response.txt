@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Hana Suzuki",
-      "private_context": "Hana Suzuki received a moldy delivery from Ostara Foods. She wants to file a complaint and expects a substantive reply within 24 hours as advertised. She has the contact information for Ostara Foods' support desk."
+      "private_context": "Hana Suzuki received a moldy delivery from Ostara Foods. She has drafted a complaint and intends to send it to Ostara Foods' support desk. She expects a reply within 24 hours as advertised."
     },
     {
       "name": "Ostara Foods Support Desk",
-      "private_context": "The support desk handles customer complaints and aims to respond within 24 hours. They have standard procedures for handling complaints about moldy deliveries, which may include offering refunds or replacements. They are aware of the advertised 24-hour response window."
+      "private_context": "The support desk handles customer complaints and aims to respond within 24 hours. They have not yet received Hana Suzuki's complaint."
     }
   ],
-  "shared_context": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a moldy delivery and intends to contact the support desk. The support desk can receive complaints via email, phone, or online form.",
+  "shared_context": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
   "starting_events": [
     {
       "time": "2026-08-19T13:00:00+09:00",
-      "description": "Hana Suzuki sends a complaint to Ostara Foods' support desk about the moldy delivery, requesting a resolution or substantive reply.",
+      "description": "Hana Suzuki sends her complaint about the moldy delivery to Ostara Foods' support desk.",
       "visible_to": ["Hana Suzuki"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply (not an automated acknowledgment) to Hana Suzuki before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff."
 }

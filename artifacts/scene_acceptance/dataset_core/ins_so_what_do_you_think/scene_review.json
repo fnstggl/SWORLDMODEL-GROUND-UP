@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The question 'So, what do you think?' is generic and lacks any identifying context about the topic, the actors, or the setting. The scene invents generic placeholder actors 'Speaker' and 'Listener' with no connection to any specific persons or situation from the question. This is an invented stand-in for unspecified parties, making the scene insufficiently grounded.",
-   "correction": "The question must provide enough information to identify the decision-maker and the observed resolving event. Without that, the scene cannot be approved."
+   "problem": "The question 'So, what do you think?' lacks any context about the topic, the relationship between actors, or the setting. The scene invents generic 'Speaker' and 'Listener' actors with no identifying references from the question. The resolution depends on whether Listener says something, but without any topic or social context, the simulation is not meaningfully social or simulatable by an actor-based runtime. The scene is essentially a blank slate that cannot produce a meaningful outcome.",
+   "correction": "The question must provide enough information to identify the decision-maker, the topic, and the observable resolving event. Without that, the scene cannot be approved."
   }
  ]
 }

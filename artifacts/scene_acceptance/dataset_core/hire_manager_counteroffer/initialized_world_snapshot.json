@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Sanjay has just handed in his notice at Nimbus Freight this morning. He leads the only team that understands the legacy routing system. He has an outside offer with a thirty percent salary increase. He is uncertain whether his manager will make a counteroffer.",
+     "content": "Sanjay has just handed in his notice at Nimbus Freight this morning. He has an outside offer with a thirty percent salary increase. He leads the only team that understands the legacy routing system.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-27T05:30:00+00:00"
     },
     {
-     "content": "Sanjay handed in his notice at Nimbus Freight this morning, 2026-07-27. The company has a standard process for counteroffers, but the manager has discretion. The legacy routing system is critical and Sanjay's team is the only one that understands it.",
+     "content": "Sanjay works at Nimbus Freight and leads the only team that understands the legacy routing system. His manager has the authority to make a counteroffer. The company's standard process for counteroffers is unknown. The simulation runs from 2026-07-27T11:00:00+05:30 to 2026-08-03T18:00:00+05:30 (five working days).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-27T05:30:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation notice this morning. She must decide whether to make a counteroffer to retain him.",
+     "content": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation this morning.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-27T05:30:00+00:00"
     },
     {
-     "content": "Sanjay handed in his notice at Nimbus Freight this morning, 2026-07-27. The company has a standard process for counteroffers, but the manager has discretion. The legacy routing system is critical and Sanjay's team is the only one that understands it.",
+     "content": "Sanjay works at Nimbus Freight and leads the only team that understands the legacy routing system. His manager has the authority to make a counteroffer. The company's standard process for counteroffers is unknown. The simulation runs from 2026-07-27T11:00:00+05:30 to 2026-08-03T18:00:00+05:30 (five working days).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-27T05:30:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Sanjay handed in his notice at Nimbus Freight this morning. Will his manager come back with a counteroffer within five working days?",
-  "scene:shared_context": "Sanjay handed in his notice at Nimbus Freight this morning, 2026-07-27. The company has a standard process for counteroffers, but the manager has discretion. The legacy routing system is critical and Sanjay's team is the only one that understands it."
+  "scene:shared_context": "Sanjay works at Nimbus Freight and leads the only team that understands the legacy routing system. His manager has the authority to make a counteroffer. The company's standard process for counteroffers is unknown. The simulation runs from 2026-07-27T11:00:00+05:30 to 2026-08-03T18:00:00+05:30 (five working days)."
  },
  "history": [],
  "infos": {},

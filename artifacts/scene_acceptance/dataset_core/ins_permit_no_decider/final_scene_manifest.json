@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Applicant",
-   "private_context": "Applicant has submitted a permit application and wants it approved by the end of August. Applicant has no special influence over the process."
+   "private_context": "The Applicant has submitted a permit application to the relevant authority. They want the permit approved by the end of August. They have no further information about the review process."
   },
   {
    "name": "Permit Reviewer",
-   "private_context": "Permit Reviewer is responsible for evaluating the application. They follow standard procedures and have a backlog of applications. They have no prior knowledge of the Applicant."
+   "private_context": "The Permit Reviewer is responsible for evaluating permit applications. They have received the Applicant's submission and will process it according to standard procedures. They have no prior relationship with the Applicant."
   }
  ],
- "shared_context": "The permit application is complete and pending review. The review process typically takes several weeks. The deadline for approval is end of August 2026.",
+ "shared_context": "A permit application has been submitted by the Applicant to the Permit Reviewer. The review process involves checking compliance with regulations, and the Reviewer may request additional information. The deadline for approval is the end of August 2026.",
  "starting_events": [
   {
    "time": "2026-07-27T09:00:00-05:00",
-   "description": "The permit application is in the queue for review.",
+   "description": "The permit application is in the Reviewer's queue, awaiting review.",
    "visible_to": [
     "Permit Reviewer"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the permit was officially approved before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the permit was officially approved by the Permit Reviewer before the cutoff of 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
 }

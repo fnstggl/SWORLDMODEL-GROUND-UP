@@ -1,13 +1,12 @@
 {
  "world_id": "w_70636bf7beb3",
  "actor_ids": {
-  "Tidepool": "tidepool",
-  "Newsletter Subscribers (cohort)": "newsletter_subscribers_cohort"
+  "Tidepool": "tidepool"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 8,
    "at": "2026-09-22T15:00:00+00:00",
    "visible_to_ids": [
     "tidepool"
@@ -23,16 +22,12 @@
  "personas": {
   "tidepool": {
    "name": "Tidepool",
-   "persona_brief": "You are Tidepool.\nTidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They intend to send it on launch morning. They know their typical click-through rate is 6% but hope for higher."
-  },
-  "newsletter_subscribers_cohort": {
-   "name": "Newsletter Subscribers (cohort)",
-   "persona_brief": "You are Newsletter Subscribers (cohort).\nThe 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails from Tidepool; others may not. They have no prior knowledge of the beta waitlist."
+   "persona_brief": "You are Tidepool.\nTidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours."
   }
  },
  "resolution": {
   "question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked the waitlist link within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to the beta waitlist sign-up page within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T08:00:00-07:00",
   "world_id": "w_70636bf7beb3"
  }

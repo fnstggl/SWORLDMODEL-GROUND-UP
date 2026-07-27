@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note about a potential project and intends to send it to the Alder Foundation's program officer. She hopes for a substantive response within a month.",
+    "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared a concept note for the Alder Foundation and intends to submit it. She hopes for a substantive response within a month.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The Alder Foundation is a grantmaking organization. Unsolicited concept notes can be submitted through a general email address or an online portal, and are reviewed by program officers. A substantive response means a reply that engages with the content of the concept note, such as requesting more information, scheduling a meeting, or providing feedback, as opposed to a generic acknowledgment or rejection.",
+    "content": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "program_officer_at_alder_foundation": {
-  "id": "program_officer_at_alder_foundation",
-  "name": "Program Officer at Alder Foundation",
+ "program_officer_alder_foundation": {
+  "id": "program_officer_alder_foundation",
+  "name": "Program Officer (Alder Foundation)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The program officer at the Alder Foundation receives many unsolicited concept notes. They have discretion over which ones to respond to substantively, and typically respond only to those that align closely with the foundation's current priorities. They have no prior relationship with Lucia Ferreyra.",
+    "content": "The program officer receives many unsolicited concept notes and typically responds only to those that closely match the foundation's current funding priorities. They have no prior relationship with Lucia Ferreyra.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The Alder Foundation is a grantmaking organization. Unsolicited concept notes can be submitted through a general email address or an online portal, and are reviewed by program officers. A substantive response means a reply that engages with the content of the concept note, such as requesting more information, scheduling a meeting, or providing feedback, as opposed to a generic acknowledgment or rejection.",
+    "content": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
     "source": "scene_manifest:shared_context"
    }
   ],

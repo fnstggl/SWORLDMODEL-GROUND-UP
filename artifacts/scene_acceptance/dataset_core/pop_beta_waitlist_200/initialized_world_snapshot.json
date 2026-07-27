@@ -2,49 +2,6 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "newsletter_subscribers_cohort": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "newsletter_subscribers_cohort",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "The 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails from Tidepool; others may not. They have no prior knowledge of the beta waitlist.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-09-22T15:00:00+00:00"
-    },
-    {
-     "content": "Tidepool will send a beta launch email to its 5,000 newsletter subscribers on the morning of 2026-09-22. The email contains a personal note from the founder and a waitlist link above the fold. The typical click-through rate for Tidepool's newsletters is 6%.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-09-22T15:00:00+00:00"
-    }
-   ],
-   "name": "Newsletter Subscribers (cohort)",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
   "tidepool": {
    "attention": {
     "scene": {
@@ -64,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Tidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They intend to send it on launch morning. They know their typical click-through rate is 6% but hope for higher.",
+     "content": "Tidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-22T15:00:00+00:00"
     },
     {
-     "content": "Tidepool will send a beta launch email to its 5,000 newsletter subscribers on the morning of 2026-09-22. The email contains a personal note from the founder and a waitlist link above the fold. The typical click-through rate for Tidepool's newsletters is 6%.",
+     "content": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-22T15:00:00+00:00"
@@ -102,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
-  "scene:shared_context": "Tidepool will send a beta launch email to its 5,000 newsletter subscribers on the morning of 2026-09-22. The email contains a personal note from the founder and a waitlist link above the fold. The typical click-through rate for Tidepool's newsletters is 6%."
+  "scene:shared_context": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist."
  },
  "history": [],
  "infos": {},
@@ -112,6 +69,6 @@
  "resources": {},
  "start": "2026-09-22T15:00:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 8,
  "watches": {}
 }

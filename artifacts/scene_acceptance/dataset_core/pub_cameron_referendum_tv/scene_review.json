@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The scene lacks sufficient information to identify the decision-maker or the observed resolving event. The question asks about a specific historical outcome (whether David Cameron appeared in a televised set-piece event), but the scene does not include the broadcasters or organizers who would decide on and schedule such events, nor does it include any mechanism for Cameron to decide or be invited. The resolution depends on external events not modeled, making it a factual lookup disguised as a simulation.",
-   "correction": "The scene cannot be fixed without adding actors and events that are not specified in the question or context. The question is about a known historical fact, not a simulatable social interaction."
+   "problem": "The scene lacks the necessary actors to simulate the decision. The question asks whether David Cameron will appear in a televised set-piece event, which requires at least one other actor (e.g., a broadcaster or event organizer) to invite or schedule such an event. Without any such actor, the simulation cannot produce the event; the single actor David Cameron cannot unilaterally cause his own appearance in a televised event. The scene is insufficient to simulate the social interaction required.",
+   "correction": "Include at least one actor representing a broadcaster or event organizer who can decide to hold a televised set-piece event and invite Cameron, or provide context that such events are already scheduled."
   }
  ]
 }

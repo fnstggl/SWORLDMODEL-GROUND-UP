@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,24 +99,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Priya",
-   "private_context": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, but she just learned she must go on a work trip that day. She wants to reschedule to a new slot before Wednesday noon. She has the front desk's phone number and can call or email them."
+   "private_context": "Priya has a dental cleaning scheduled for Thursday, but she needs to reschedule due to a work trip. She wants to find a new slot before Wednesday noon."
   },
   {
-   "name": "Maple Row Dental front desk",
-   "private_context": "The front desk manages appointment scheduling. They have availability for dental cleanings on various days and times, but their schedule is not fully known to Priya. They are willing to accommodate rescheduling if possible."
+   "name": "Front Desk",
+   "private_context": "The front desk at Maple Row Dental manages appointment scheduling. They have availability information for various slots and can propose alternatives."
   }
  ],
- "shared_context": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday, 2026-08-13. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The deadline for agreement is Wednesday, 2026-08-12 at noon.",
+ "shared_context": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
  "starting_events": [
   {
    "time": "2026-08-10T08:00:00-04:00",
-   "description": "Priya becomes aware of the work trip conflict and decides to contact Maple Row Dental to reschedule.",
+   "description": "Priya decides to contact Maple Row Dental to reschedule her Thursday cleaning.",
    "visible_to": [
     "Priya"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Priya and the Maple Row Dental front desk have agreed on a specific new appointment slot before 2026-08-12T12:00:00-04:00. Resolve NO if no such agreement is reached by that time."
+ "resolution": "Resolve YES if the persistent event history shows that Priya and the front desk have agreed on a new appointment slot before 2026-08-12T12:00:00-04:00. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

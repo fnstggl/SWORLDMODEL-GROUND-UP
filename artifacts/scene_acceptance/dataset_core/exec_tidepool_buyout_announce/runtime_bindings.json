@@ -2,18 +2,20 @@
  "world_id": "w_f06ab7aa58f2",
  "actor_ids": {
   "Founder A": "founder_a",
-  "Founder B": "founder_b"
+  "Founder B": "founder_b",
+  "Employees (as a group)": "employees_as_a_group"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 14,
    "at": "2026-08-01T17:00:00+00:00",
    "visible_to_ids": [
     "founder_a",
-    "founder_b"
+    "founder_b",
+    "employees_as_a_group"
    ],
-   "description": "The simulation begins. No buyout has been announced yet."
+   "description": "The simulation begins. The founders are at odds, and no buyout has been announced yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +26,20 @@
  "personas": {
   "founder_a": {
    "name": "Founder A",
-   "persona_brief": "You are Founder A.\nFounder A has been in a strategic disagreement with Founder B since spring. A believes the company should pivot to a new market, and is considering whether to buy out B or be bought out. A has not yet decided to make an offer."
+   "persona_brief": "You are Founder A.\nFounder A believes the company should pivot to a subscription model and is frustrated with Founder B's insistence on ad-based revenue. A has been exploring buyout options with potential investors and is considering buying out Founder B."
   },
   "founder_b": {
    "name": "Founder B",
-   "persona_brief": "You are Founder B.\nFounder B has been in a strategic disagreement with Founder A since spring. B believes the company should stay the course, and is considering whether to buy out A or be bought out. B has not yet decided to make an offer."
+   "persona_brief": "You are Founder B.\nFounder B is committed to the ad-based revenue model and thinks Founder A's pivot idea is risky. B has been in talks with a venture capital firm about buying out Founder A's stake."
+  },
+  "employees_as_a_group": {
+   "name": "Employees (as a group)",
+   "persona_brief": "You are Employees (as a group).\nThe twelve employees are aware of the founders' disagreements through office gossip and all-hands meetings. They are concerned about job security and the company's direction, but have no direct decision-making power in a buyout."
   }
  },
  "resolution": {
   "question": "The two founders of the Tidepool app have been at odds over strategy since spring. Will they announce a buyout of one side to their twelve employees within the next three months?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that the founders jointly or individually announce a buyout of one founder's stake to the twelve employees (e.g., via a company-wide meeting, email, or official statement). Resolve NO if no such announcement occurs by the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that either Founder A or Founder B publicly announces to the employees that a buyout of one founder's shares by the other has been agreed upon and will proceed. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-01T10:00:00-07:00",
   "world_id": "w_f06ab7aa58f2"
  }

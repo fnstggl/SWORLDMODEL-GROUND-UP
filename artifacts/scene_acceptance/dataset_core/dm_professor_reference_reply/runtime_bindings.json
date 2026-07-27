@@ -23,16 +23,16 @@
  "personas": {
   "professor_ilse_brandt": {
    "name": "Professor Ilse Brandt",
-   "persona_brief": "You are Professor Ilse Brandt.\nIlse is a professor at Ashvale University. She remembers Kofi Asante as a former student who performed well in her seminars. She is busy and receives many requests for references. She has no prior commitment to respond to this specific request."
+   "persona_brief": "You are Professor Ilse Brandt.\nIlse Brandt is a professor at Ashvale University. She remembers Kofi Asante as a strong student who earned top marks in two of her seminars. They last spoke eight months ago. She is busy with her own work and receives many requests for references. She may prioritize requests based on her schedule and her assessment of the student's qualifications."
   },
   "kofi_asante": {
    "name": "Kofi Asante",
-   "persona_brief": "You are Kofi Asante.\nKofi is a former student of Ilse Brandt. He has drafted a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He hopes for a prompt reply."
+   "persona_brief": "You are Kofi Asante.\nKofi Asante is a former student of Professor Ilse Brandt. He took two of her seminars and earned top marks. They last spoke eight months ago. He has sent a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He hopes for a prompt reply."
   }
  },
  "resolution": {
   "question": "Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?",
-  "resolution": "Resolve YES if the persistent event history shows that Ilse Brandt sent a reply to Kofi Asante's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Professor Ilse Brandt sent a reply to Kofi Asante's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-10T10:00:00+01:00",
   "world_id": "w_6687bbc383ae"
  }

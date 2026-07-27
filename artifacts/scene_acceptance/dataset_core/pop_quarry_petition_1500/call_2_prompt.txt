@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,31 +102,30 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Petition organizers",
-   "private_context": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator."
+   "private_context": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They need 1,500 total by the deadline. They are aware of the counter-flyer from the quarry operator."
   },
   {
    "name": "Quarry operator",
-   "private_context": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and have an interest in preventing the petition from succeeding."
+   "private_context": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to prevent the petition from reaching 1,500 signatures."
+  },
+  {
+   "name": "Town residents (cohort)",
+   "private_context": "The town has 19,000 residents. Some may be undecided, some may support or oppose the quarry extension. They may encounter petition drives or counter-flyers."
   }
  ],
- "shared_context": "The town has 19,000 residents. The quarry extension is a local issue. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks from the start time (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week.",
+ "shared_context": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
  "starting_events": [
   {
    "time": "2026-08-03T09:00:00-06:00",
-   "description": "The petition organizers have 400 signatures and continue their signature collection efforts.",
+   "description": "Petition organizers have 400 signatures and continue their drive. The quarry operator's counter-flyer is in circulation.",
    "visible_to": [
-    "Petition organizers"
-   ]
-  },
-  {
-   "time": "2026-08-03T09:00:00-06:00",
-   "description": "The quarry operator's counter-flyer is in circulation, opposing the petition.",
-   "visible_to": [
-    "Quarry operator"
+    "Petition organizers",
+    "Quarry operator",
+    "Town residents (cohort)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before the deadline (2026-09-14T17:00:00-06:00). Otherwise resolve NO at the deadline."
+ "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before the deadline. Otherwise resolve NO at the deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

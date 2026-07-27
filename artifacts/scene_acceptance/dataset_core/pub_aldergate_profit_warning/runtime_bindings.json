@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "aldergate_rail"
    ],
-   "description": "Aldergate Rail is aware of the signaling-contract delay and is considering whether to warn the market before the interim results day."
+   "description": "Aldergate Rail's management is aware of the signaling-contract delay and is considering whether to issue a market warning before the scheduled interim results day."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "aldergate_rail": {
    "name": "Aldergate Rail",
-   "persona_brief": "You are Aldergate Rail.\nAldergate Rail is aware of a delay in its signaling contract. It has not yet decided whether to issue a market warning before its scheduled interim results day on November 5. The firm considers its obligations under market disclosure rules and the potential impact on its reputation and share price."
+   "persona_brief": "You are Aldergate Rail.\nAldergate Rail is a listed firm. It has a signaling-contract delay that may be material to the market. It has not yet decided whether to issue a warning before its scheduled interim results day on November 5. The board and management are aware of the delay and its potential impact."
   }
  },
  "resolution": {
   "question": "Will the listed firm Aldergate Rail warn the market about its signaling-contract delay before its scheduled interim results day on November 5?",
-  "resolution": "Resolve YES if the persistent event history shows that Aldergate Rail issued a market warning about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the hard cutoff at 2026-11-05T07:00:00+00:00, Aldergate Rail issues a public warning to the market about the signaling-contract delay (e.g., via a regulatory filing, press release, or stock exchange announcement). Otherwise resolve NO.",
   "cutoff": "2026-11-05T07:00:00+00:00",
   "world_id": "w_ee6912817db2"
  }

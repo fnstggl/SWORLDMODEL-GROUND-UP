@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,20 +99,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Priya",
-   "private_context": "Priya wants to apply to a program. She believes the deadline is sometime in the future, but she has not checked the exact date recently. She is unaware that the deadline has already passed."
+   "private_context": "Priya wants to apply to a program. She is aware that the deadline passed a month before applications opened, but she still intends to submit an application. She has not yet submitted."
   }
  ],
- "shared_context": "The program's application deadline was a month before applications opened, meaning the deadline has already passed. The application system is online and will reject any submission after the deadline. Priya has access to the application portal and can submit at any time.",
+ "shared_context": "The program's deadline passed a month before applications opened. The application system is still accepting submissions, but the deadline has already passed.",
  "starting_events": [
   {
    "time": "2026-08-05T09:00:00+05:30",
-   "description": "Priya decides to start working on her application for the program.",
+   "description": "Priya has not yet submitted her application. The deadline has already passed.",
    "visible_to": [
     "Priya"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Priya actually submitted the application before the deadline (i.e., before the deadline passed). Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Priya submitted an application before the hard cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -2,14 +2,14 @@
   "actors": [
     {
       "name": "Nurse Karolina",
-      "private_context": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She is aware of the Friday 15:00 rota lock deadline."
+      "private_context": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She will not be available to swap herself after the rota locks."
     },
     {
       "name": "Colleagues in the ward",
-      "private_context": "The colleagues are nurses who can see the swap channel. They may be interested in picking up extra shifts or swapping, but have no prior commitment to Karolina's request."
+      "private_context": "The colleagues are nurses who can see the swap channel. Some may be interested in picking up an extra shift for pay or flexibility, but none have a prior commitment to take this shift."
     }
   ],
-  "shared_context": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+  "shared_context": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00, after which no changes are possible. Karolina's post is visible to all colleagues in the channel.",
   "starting_events": [
     {
       "time": "2026-08-12T07:30:00+02:00",
@@ -17,5 +17,5 @@
       "visible_to": ["Nurse Karolina", "Colleagues in the ward"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the shift (e.g., by posting a reply or updating the rota) before Friday 15:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the shift (e.g., by posting a reply or using the swap system) before the rota locks at 2026-08-14T15:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,14 +102,14 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CFO",
-   "private_context": "The CFO pushed back on the original budget, leading to an eight percent reduction. They have weekly meetings with the CMO and a decent working relationship. They are aware of the upcoming leadership offsite on the 21st where the campaign is on the agenda."
+   "private_context": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
   },
   {
    "name": "CMO",
-   "private_context": "The CMO leads the marketing team and revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. They know the offsite agenda lists the campaign as a topic."
+   "private_context": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
   }
  ],
- "shared_context": "Ostara Foods has a leadership offsite scheduled for September 21, 2026. The offsite agenda includes the campaign as a topic. The CFO and CMO have weekly meetings and work together decently. The revised Q4 budget is eight percent below the original ask.",
+ "shared_context": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
  "starting_events": [
   {
    "time": "2026-09-08T09:00:00+01:00",

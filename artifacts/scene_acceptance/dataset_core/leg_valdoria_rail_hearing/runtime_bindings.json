@@ -13,7 +13,7 @@
     "transport_committee_chair",
     "transport_committee_members"
    ],
-   "description": "The rail franchise bill is formally referred to the transport committee, starting the sixty-day window for scheduling a public hearing."
+   "description": "The transport committee is in session. The Chair has the agenda for the day, which does not include scheduling a hearing on the rail franchise bill."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "transport_committee_chair": {
    "name": "Transport Committee Chair",
-   "persona_brief": "You are Transport Committee Chair.\nThe Chair is responsible for scheduling committee business. They are aware of the sixty-day window for scheduling a public hearing on the rail franchise bill. They have their own political considerations and workload priorities."
+   "persona_brief": "You are Transport Committee Chair.\nThe Chair is responsible for setting the committee's agenda and scheduling public hearings. They are aware of the sixty-day window for scheduling a hearing on the rail franchise bill. The Chair has not yet decided whether to schedule a hearing."
   },
   "transport_committee_members": {
    "name": "Transport Committee Members",
-   "persona_brief": "You are Transport Committee Members.\nThe committee members have varying opinions on the rail franchise bill. They may have preferences for or against holding a hearing, but no formal position has been taken yet."
+   "persona_brief": "You are Transport Committee Members.\nThe committee members have varying opinions on the rail franchise bill. Some may push for a hearing, others may oppose it. They can vote on scheduling if the Chair brings it to a vote."
   }
  },
  "resolution": {
   "question": "Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?",
-  "resolution": "Resolve YES if the persistent event history shows that the transport committee scheduled a public hearing on the rail franchise bill on or before 2026-09-30T18:00:00+03:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the transport committee scheduled a public hearing on the rail franchise bill on or before 2026-09-13T23:59:59+03:00. Otherwise resolve NO at the hard cutoff of 2026-09-30T18:00:00+03:00.",
   "cutoff": "2026-09-30T18:00:00+03:00",
   "world_id": "w_04e49ccba4a7"
  }

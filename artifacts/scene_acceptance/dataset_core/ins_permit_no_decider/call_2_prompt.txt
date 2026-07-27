@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,24 +99,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Applicant",
-   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no direct influence over the decision beyond providing required documentation."
+   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no special influence or inside knowledge about the review process."
   },
   {
-   "name": "Permit Office",
-   "private_context": "The Permit Office reviews applications and makes approval decisions based on completeness and compliance with regulations. They have a backlog and process applications in order of submission."
+   "name": "Permit Reviewer",
+   "private_context": "The Permit Reviewer is responsible for evaluating the application. They have a standard workload and follow established procedures. They are not predisposed to approve or deny."
   }
  ],
- "shared_context": "The permit application was submitted before July 27, 2026. The Permit Office has all necessary documentation. The office operates during business hours and aims to process applications within 30 days, but delays are possible due to workload.",
+ "shared_context": "A permit application has been submitted and is pending review. The review process typically takes several weeks. The deadline for approval is the end of August 2026.",
  "starting_events": [
   {
    "time": "2026-07-27T09:00:00-05:00",
-   "description": "The permit application is in the Permit Office's queue for review.",
+   "description": "The permit application is in the queue for review.",
    "visible_to": [
-    "Permit Office"
+    "Permit Reviewer"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the Permit Office issued an approval decision for the permit before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the permit was approved (i.e., an official approval record is created) on or before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

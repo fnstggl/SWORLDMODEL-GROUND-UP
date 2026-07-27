@@ -23,13 +23,13 @@
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now facing a US quarantine. He is considering his options, including direct communication with President Kennedy. He has not yet decided whether to send a letter.",
+    "content": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options and may decide to communicate directly with President Kennedy.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "On October 22, 1962, President Kennedy delivered a televised address announcing a quarantine of Cuba to prevent further Soviet missile shipments. The world is now aware of the crisis. Diplomatic channels exist for direct communication between the leaders, including through their embassies and the White House\u2013Kremlin teletype (the 'hotline' is not yet established, but letters can be sent via diplomatic pouch or cable).",
+    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet shipments of offensive military equipment. The world is on edge as the Cuban Missile Crisis unfolds. Direct communication between the leaders is possible through diplomatic channels.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "Kennedy has just announced a quarantine of Cuba. He is awaiting Soviet reactions and is open to receiving direct communications from Khrushchev. He has not yet received any letter from Khrushchev.",
+    "content": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba in response to the discovery of Soviet missiles. He is prepared to receive communications from Khrushchev and is considering possible responses.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "On October 22, 1962, President Kennedy delivered a televised address announcing a quarantine of Cuba to prevent further Soviet missile shipments. The world is now aware of the crisis. Diplomatic channels exist for direct communication between the leaders, including through their embassies and the White House\u2013Kremlin teletype (the 'hotline' is not yet established, but letters can be sent via diplomatic pouch or cable).",
+    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet shipments of offensive military equipment. The world is on edge as the Cuban Missile Crisis unfolds. Direct communication between the leaders is possible through diplomatic channels.",
     "source": "scene_manifest:shared_context"
    }
   ],

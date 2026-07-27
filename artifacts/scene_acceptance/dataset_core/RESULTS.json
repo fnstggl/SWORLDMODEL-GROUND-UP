@@ -7,10 +7,10 @@
    "category": "organizational_approval",
    "historical": true,
    "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'NASA Senior Managers' without identifying specific individuals. The question refers to 'NASA's senior managers' but does not name them; however, in a historical simulation, these are specific known individuals (e.g., James Webb, George Mueller, etc.",
+   "reason": "scene: The scene treats 'NASA Senior Managers' as a single monolithic actor, but the question refers to 'NASA's senior managers' as a group that makes a public announcement. However, the scene lacks sufficient detail to identify who exactly makes the decision and announcement. More critically, the r",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.37,
+   "wall_s": 6.4,
    "actors": [
     "NASA Senior Managers"
    ],
@@ -25,10 +25,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.14,
+   "wall_s": 4.78,
    "actors": [
     "Dr. Tanaka",
-    "Ashvale University Research Ethics Board (REB)"
+    "Ashvale University Research Ethics Board"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_ethics_board_protocol"
   },
@@ -41,10 +41,11 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.47,
+   "wall_s": 5.33,
    "actors": [
     "Principal of Petersfield Secondary",
-    "Geography Department Head"
+    "Geography Department Head",
+    "Deputy Head"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_field_trip_signoff"
   },
@@ -53,11 +54,11 @@
    "kind": "sufficient",
    "category": "organizational_approval",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Veldt Solar Legal Team' standing in for an unspecified party. The question does not identify any specific individuals or roles within the legal team, making it impossible to simulate a meaningful social interaction. The resolution depends on an inte",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.95,
+   "wall_s": 4.05,
    "actors": [
     "Veldt Solar Legal Team"
    ],
@@ -69,14 +70,12 @@
    "category": "organizational_approval",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene includes a generic 'Calibration Committee' and 'VP' as actors, but the question does not identify specific individuals or a defined committee. These are placeholder actors standing in for unspecified parties, which violates the rule against generic placeholder actors.",
+   "reason": "scene: The scene invents a 'VP' actor and a calibration process that are not referenced in the question or context. The question only mentions 'manager Rosa Maria', 'her report Jonas', 'promotion case', 'calibration', and 'VP sign-off', but does not specify that the VP is a distinct individual or th",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.1,
+   "wall_s": 6.43,
    "actors": [
     "Rosa Maria",
-    "Jonas",
-    "Calibration Committee",
     "VP"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_promotion_vp_signoff"
@@ -90,7 +89,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.24,
+   "wall_s": 4.2,
    "actors": [
     "CFO",
     "CMO"
@@ -106,7 +105,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.79,
+   "wall_s": 4.19,
    "actors": [
     "Dev Patel",
     "Harborview Credit Union Security Team"
@@ -122,9 +121,9 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.81,
+   "wall_s": 4.4,
    "actors": [
-    "Ashvale University annual-fund caller",
+    "Ashvale University Annual-Fund Caller",
     "Dr. Renata Sousa"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_alumni_first_pledge"
@@ -138,7 +137,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.67,
+   "wall_s": 4.5,
    "actors": [
     "Bao Tran",
     "Brewery Manager 1",
@@ -156,10 +155,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.69,
+   "wall_s": 4.57,
    "actors": [
-    "Lucia Ferreyra",
-    "Program Officer at the Alder Foundation"
+    "Program Officer (Alder Foundation)",
+    "Lucia Ferreyra"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_foundation_concept_note"
   },
@@ -172,7 +171,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.64,
+   "wall_s": 3.99,
    "actors": [
     "Yusuf Ndiaye",
     "Ines Duarte"
@@ -188,7 +187,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.35,
+   "wall_s": 4.79,
    "actors": [
     "Anouk Visser",
     "Founder of Veldt Solar"
@@ -200,11 +199,11 @@
    "kind": "sufficient",
    "category": "cold_outreach",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The recruiter is a generic placeholder actor ('Recruiter from Torchlight Media') with no identifying information. The question does not specify a particular recruiter, so this is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.03,
+   "wall_s": 3.7,
    "actors": [
     "Recruiter from Torchlight Media",
     "Petra Kovac"
@@ -220,9 +219,49 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.92,
+   "wall_s": 12.63,
    "actors": [
-    "Gustavo"
+    "Gustavo",
+    "Procurement Lead 1",
+    "Procurement Lead 2",
+    "Procurement Lead 3",
+    "Procurement Lead 4",
+    "Procurement Lead 5",
+    "Procurement Lead 6",
+    "Procurement Lead 7",
+    "Procurement Lead 8",
+    "Procurement Lead 9",
+    "Procurement Lead 10",
+    "Procurement Lead 11",
+    "Procurement Lead 12",
+    "Procurement Lead 13",
+    "Procurement Lead 14",
+    "Procurement Lead 15",
+    "Procurement Lead 16",
+    "Procurement Lead 17",
+    "Procurement Lead 18",
+    "Procurement Lead 19",
+    "Procurement Lead 20",
+    "Procurement Lead 21",
+    "Procurement Lead 22",
+    "Procurement Lead 23",
+    "Procurement Lead 24",
+    "Procurement Lead 25",
+    "Procurement Lead 26",
+    "Procurement Lead 27",
+    "Procurement Lead 28",
+    "Procurement Lead 29",
+    "Procurement Lead 30",
+    "Procurement Lead 31",
+    "Procurement Lead 32",
+    "Procurement Lead 33",
+    "Procurement Lead 34",
+    "Procurement Lead 35",
+    "Procurement Lead 36",
+    "Procurement Lead 37",
+    "Procurement Lead 38",
+    "Procurement Lead 39",
+    "Procurement Lead 40"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_sdr_discovery_call"
   },
@@ -231,14 +270,14 @@
    "kind": "sufficient",
    "category": "committee_participation",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Current Chair' and 'Kettlewell Allotment Society Members' without identifying specific individuals. The question does not name any particular person, so these are invented stand-ins for unspecified parties, violating the rule against generic placehol",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.42,
+   "wall_s": 4.62,
    "actors": [
-    "Current Chair",
-    "Kettlewell Allotment Society Members"
+    "Chair (stepping down)",
+    "Kettlewell Allotment Society members"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_allotment_chair_nominee"
   },
@@ -251,7 +290,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.55,
+   "wall_s": 4.5,
    "actors": [
     "French Presidency of COP21",
     "National Delegations"
@@ -263,18 +302,22 @@
    "kind": "sufficient",
    "category": "committee_participation",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene includes three unnamed members (Member A, Member B, Member C, etc.) who are not identified in the question or context. The question only specifies 'two members are traveling, three others have already confirmed, and the chair has never missed a session.' The remaining three members ",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.6,
+   "wall_s": 5.78,
    "actors": [
     "Chair",
-    "Member A",
-    "Member B",
-    "Member C",
-    "Member D",
-    "Member E"
+    "Member 1",
+    "Member 2",
+    "Member 3",
+    "Member 4",
+    "Member 5",
+    "Member 6",
+    "Member 7",
+    "Member 8",
+    "Member 9"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_harbor_quorum_tuesday"
   },
@@ -287,13 +330,13 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.9,
+   "wall_s": 4.79,
    "actors": [
-    "Committee Member A",
-    "Committee Member B",
-    "Committee Member C",
-    "Committee Member D",
-    "Committee Member E"
+    "Committee Member 1",
+    "Committee Member 2",
+    "Committee Member 3",
+    "Committee Member 4",
+    "Committee Member 5"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_parks_dissent_vote"
   },
@@ -303,16 +346,12 @@
    "category": "committee_participation",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors ('Potential volunteer 1', 'Potential volunteer 2', etc.) that are not identified in the question or context. The question does not specify any particular individuals, so these are invented stand-ins for unspecified parties, violating the rule against ",
+   "reason": "scene: The scene treats the PTA subcommittee as a single actor, but the question asks whether the subcommittee will recruit four stall coordinators. The subcommittee itself is the recruiter, not a potential recruit. The actors who would be recruited (the stall coordinators) are not present, and the ",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.95,
+   "wall_s": 5.72,
    "actors": [
-    "PTA subcommittee chair",
-    "Potential volunteer 1",
-    "Potential volunteer 2",
-    "Potential volunteer 3",
-    "Potential volunteer 4"
+    "PTA Subcommittee for the Winter Fair"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_pta_stall_coordinators"
   },
@@ -321,16 +360,16 @@
    "kind": "sufficient",
    "category": "committee_participation",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Resident 1', 'Resident 2', 'Resident 3' to represent the three residents who have shown interest, but the question does not identify these individuals. The actors are unnamed and lack any distinguishing characteristics, making them insufficiently spe",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.5,
+   "wall_s": 4.55,
    "actors": [
     "Tenants' Association of the Aurora Block",
-    "Resident 1",
-    "Resident 2",
-    "Resident 3"
+    "Interested Resident 1",
+    "Interested Resident 2",
+    "Interested Resident 3"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_tenants_elect_treasurer"
   },
@@ -339,13 +378,13 @@
    "kind": "sufficient",
    "category": "committee_participation",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Interchange Format Working Group members' to represent 21 unnamed individuals. The question does not identify any specific members, so the scene invents an unspecified party. This violates the rule against generic placeholder actors standing in for ",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.5,
+   "wall_s": 4.42,
    "actors": [
-    "Interchange Format Working Group members"
+    "Interchange Format Working Group (21 members)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_wg_ballot_return"
   },
@@ -358,7 +397,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.24,
+   "wall_s": 3.65,
    "actors": [
     "Marguerite"
    ],
@@ -373,10 +412,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.54,
+   "wall_s": 4.1,
    "actors": [
     "Deepa",
-    "Catering Manager at Willow & Thyme"
+    "Catering Manager"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_caterer_allergy_answer"
   },
@@ -389,7 +428,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.15,
+   "wall_s": 5.15,
    "actors": [
     "Marisol",
     "Harborview Credit Union"
@@ -405,7 +444,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.8,
+   "wall_s": 4.33,
    "actors": [
     "Hana Suzuki",
     "Ostara Foods Support Desk"
@@ -417,14 +456,14 @@
    "kind": "sufficient",
    "category": "customer_response",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Communications Lead' who is not identified in the question or context. The question mentions 'the communications lead' but does not provide a name or unique identifier; this is an unnamed but uniquely identified person from the context, which is leg",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.7,
+   "wall_s": 4.36,
    "actors": [
     "Communications Lead",
-    "Nimbus Freight"
+    "Nimbus Freight (as an organization)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_outage_notice_by_noon"
   },
@@ -437,7 +476,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.5,
+   "wall_s": 5.11,
    "actors": [
     "Account Manager (Brightline Software)",
     "Fenwick & Sloane representative"
@@ -453,7 +492,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.56,
+   "wall_s": 5.22,
    "actors": [
     "Rustam",
     "Manufacturer's second-line team"
@@ -469,11 +508,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.65,
+   "wall_s": 4.32,
    "actors": [
     "Lucia Ferreyra",
-    "Co-director",
-    "Fiscal Sponsor"
+    "Co-director"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_alder_grant_portal"
   },
@@ -488,8 +526,8 @@
    "provider_requests": 2,
    "wall_s": 4.27,
    "actors": [
-    "Part-time bookkeeper",
-    "Herrera bakery"
+    "Bookkeeper",
+    "Herrera Bakery"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_bakery_payroll_return"
   },
@@ -502,7 +540,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.43,
+   "wall_s": 3.94,
    "actors": [
     "Kwame",
     "HR Team"
@@ -518,7 +556,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.89,
+   "wall_s": 4.67,
    "actors": [
     "Dr. Tanaka",
     "Co-author A",
@@ -535,10 +573,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.46,
+   "wall_s": 4.33,
    "actors": [
     "Kofi",
-    "Second referee"
+    "Second Referee"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_second_referee_36h"
   },
@@ -547,15 +585,15 @@
    "kind": "sufficient",
    "category": "deadline_bounded_action",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Director A' and 'Director B' for unspecified parties. The question does not identify the two required directors, so these are invented stand-ins. This violates the rule against generic placeholder actors.",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.56,
+   "wall_s": 5.38,
    "actors": [
-    "Nimbus Freight bid team",
-    "Director A",
-    "Director B"
+    "Nimbus Freight's bid team",
+    "Director 1",
+    "Director 2"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_valdoria_tender_noon"
   },
@@ -568,7 +606,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.59,
+   "wall_s": 4.35,
    "actors": [
     "Dario",
     "Selin"
@@ -584,7 +622,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.79,
+   "wall_s": 5.5,
    "actors": [
     "Rosa",
     "Emilio"
@@ -600,7 +638,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.77,
+   "wall_s": 4.86,
    "actors": [
     "Tomasz",
     "Kestrel Analytics"
@@ -615,8 +653,8 @@
    "status": "compiled",
    "reason": "",
    "semantic_calls": 2,
-   "provider_requests": 3,
-   "wall_s": 8.51,
+   "provider_requests": 2,
+   "wall_s": 4.4,
    "actors": [
     "Premier Khrushchev",
     "President Kennedy"
@@ -632,7 +670,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.58,
+   "wall_s": 4.7,
    "actors": [
     "Maya Okonkwo",
     "Stavros"
@@ -648,7 +686,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.38,
+   "wall_s": 5.21,
    "actors": [
     "Professor Ilse Brandt",
     "Kofi Asante"
@@ -664,7 +702,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.62,
+   "wall_s": 4.82,
    "actors": [
     "Mr. Abernathy",
     "Chioma Eze"
@@ -680,10 +718,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.01,
+   "wall_s": 5.0,
    "actors": [
-    "Veldt Solar executive team",
-    "Pilot team"
+    "Executive Team (collective)",
+    "Pilot Team"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_balcony_pilot_verdict"
   },
@@ -696,7 +734,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.62,
+   "wall_s": 5.08,
    "actors": [
     "Apple Inc.",
     "Steve Jobs"
@@ -712,7 +750,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.66,
+   "wall_s": 4.94,
    "actors": [
     "Co-founder 1",
     "Co-founder 2",
@@ -729,10 +767,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.89,
+   "wall_s": 4.48,
    "actors": [
-    "Managing Director of Torchlight Media",
-    "Works Council of Torchlight Media"
+    "Managing Director",
+    "Works Council"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_restructure_consultation"
   },
@@ -745,7 +783,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.82,
+   "wall_s": 5.19,
    "actors": [
     "Owner of Fenwick & Sloane",
     "Deputy (Buying)",
@@ -762,10 +800,11 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.72,
+   "wall_s": 5.71,
    "actors": [
     "Founder A",
-    "Founder B"
+    "Founder B",
+    "Employees (as a group)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_tidepool_buyout_announce"
   },
@@ -778,7 +817,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.33,
+   "wall_s": 4.51,
    "actors": [
     "CEO of Kestrel Analytics",
     "Landlord of Riverside Wharf"
@@ -790,13 +829,13 @@
    "kind": "sufficient",
    "category": "small_group_coordination",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a single collective actor 'Cheap Detour (band as a collective decision-making unit)' to represent four distinct members. This is a generic placeholder that obscures the individual decision-makers and their interactions. The question asks about the actions of four specific membe",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.57,
+   "wall_s": 4.24,
    "actors": [
-    "Cheap Detour (band as a collective decision-making unit)"
+    "Cheap Detour (band as a unit)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_band_setlist_rehearsal"
   },
@@ -809,11 +848,11 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.16,
+   "wall_s": 4.79,
    "actors": [
-    "Family A",
-    "Family B",
-    "Family C"
+    "Family 1",
+    "Family 2",
+    "Family 3"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_carpool_rota_by_monday"
   },
@@ -822,16 +861,18 @@
    "kind": "sufficient",
    "category": "small_group_coordination",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors ('Friend with limited leave 1', 'Friend with limited leave 2', 'Other three friends') for parties the question never identifies. The question mentions 'six university friends' but only names Jaka; the others are unspecified. The scene invents stand-in",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.86,
+   "wall_s": 5.73,
    "actors": [
     "Jaka",
-    "Friend with limited leave 1",
-    "Friend with limited leave 2",
-    "Other three friends"
+    "Friend 1",
+    "Friend 2",
+    "Friend 3",
+    "Friend 4",
+    "Friend 5"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_ljubljana_trip_booking"
   },
@@ -840,14 +881,14 @@
    "kind": "sufficient",
    "category": "small_group_coordination",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Neighbors of Alder Court' to represent an unspecified group of sixty households. The question does not identify any specific neighbors, and the scene invents a collective actor that cannot be individually simulated. This violates the rule against ge",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.65,
+   "wall_s": 4.9,
    "actors": [
     "Fran",
-    "Neighbors of Alder Court"
+    "Neighbors on Alder Court"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_meal_train_fill"
   },
@@ -860,12 +901,13 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.39,
+   "wall_s": 4.42,
    "actors": [
-    "Expedition leader",
+    "Expedition Leader",
     "Climber 1",
     "Climber 2",
-    "Climber 3"
+    "Climber 3",
+    "Climber 4"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_rope_order_restday"
   },
@@ -874,11 +916,11 @@
    "kind": "sufficient",
    "category": "small_group_coordination",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The actors are generic placeholders ('Student 1' through 'Student 5') with no identifying information from the question or context. The question does not name the students, so the scene invents unnamed stand-ins for unspecified parties, violating the rule against generic placeholder actors.",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.81,
+   "wall_s": 5.95,
    "actors": [
     "Student 1",
     "Student 2",
@@ -894,10 +936,10 @@
    "category": "hiring_response",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene lacks any other actors who could affect Dmytro's decision or the application process. The question is about a social decision (applying for a role), which inherently involves interactions with others (e.g., HR, managers, colleagues). Without any other actors, the simulation reduces ",
+   "reason": "scene: The scene lacks any other actor who could affect Dmytro's decision or the application process. The question is about a social decision (applying for a role), but the scene only includes Dmytro. There is no manager, HR, colleague, or any other person who could influence, discuss, or be involve",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.82,
+   "wall_s": 5.42,
    "actors": [
     "Dmytro"
    ],
@@ -912,7 +954,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.92,
+   "wall_s": 4.15,
    "actors": [
     "Sanjay",
     "Sanjay's manager"
@@ -928,7 +970,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.11,
+   "wall_s": 4.75,
    "actors": [
     "Wanjiru Kamau",
     "Kestrel Analytics"
@@ -940,15 +982,16 @@
    "kind": "sufficient",
    "category": "hiring_response",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Referee 1' and 'Referee 2' for parties the question never identifies. The question mentions 'both referees listed by shortlisted candidate Aoife Byrne' but does not provide their names or any identifying information. The scene invents unnamed stand-i",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.59,
+   "wall_s": 5.34,
    "actors": [
-    "Recruiter",
+    "Aoife Byrne",
     "Referee 1",
-    "Referee 2"
+    "Referee 2",
+    "Recruiter"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_referees_return_calls"
   },
@@ -957,13 +1000,13 @@
    "kind": "sufficient",
    "category": "hiring_response",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Bramblewick Studios (as a decision-making entity)' to represent an unspecified decision-making process. The question does not identify who within the studio makes the decision, and the scene invents an entity that cannot be simulated as a single act",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.59,
+   "wall_s": 4.43,
    "actors": [
-    "Bramblewick Studios (as a decision-making entity)",
+    "Bramblewick Studios",
     "Elin Bjork"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_studio_decision_promised"
@@ -977,7 +1020,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.24,
+   "wall_s": 4.71,
    "actors": [
     "Noor Haddad",
     "Subtitling Agency"
@@ -989,13 +1032,13 @@
    "kind": "sufficient",
    "category": "hiring_response",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Calloway Regional Hospital HR Department' standing in for an unspecified party. The question does not identify any specific decision-maker or individual within the HR department, and the scene invents an institutional actor without sufficient ground",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.86,
+   "wall_s": 4.04,
    "actors": [
-    "Calloway Regional Hospital HR Department"
+    "Calloway Regional Hospital HR"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_wardclerk_interview_invites"
   },
@@ -1004,11 +1047,11 @@
    "kind": "insufficient",
    "category": "contradictory_premise",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'CEO' without identifying a specific named individual. The question refers to 'the CEO' of Torchlight Media, but no name is provided in the question or context, making this an invented stand-in for an unspecified party. This violates the rule against",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.49,
+   "wall_s": 3.48,
    "actors": [
     "CEO"
    ],
@@ -1020,10 +1063,10 @@
    "category": "empty_question",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: No question provided.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is empty, so there is no social scenario to simulate.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 1.34,
+   "wall_s": 1.22,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_bare_question_mark"
   },
@@ -1033,10 +1076,10 @@
    "category": "pure_physics",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision-maker or observable social event; it is a pure physics/operations question.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision or actor who can decide or act; it is a pure physics/operations question with no social simulation to perfor",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.18,
+   "wall_s": 3.0,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_battery_cold_start"
   },
@@ -1046,10 +1089,10 @@
    "category": "pure_physics",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a structural engineering calculation with no social decision or observable social event to simulate.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a structural engineering calculation with no social decision or actor interaction to simulate.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 1.66,
+   "wall_s": 2.0,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_beam_load_physics"
   },
@@ -1059,10 +1102,10 @@
    "category": "pure_fact_lookup",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a pure factual lookup with no social decision to simulate.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a factual lookup, not a social simulation with observable decisions or actions.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 1.44,
+   "wall_s": 1.67,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_capital_lookup"
   },
@@ -1072,10 +1115,10 @@
    "category": "matter_of_taste",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a subjective comparison with no observable social event or decision that can be measured; it is a matter of opinion, not a resolvable social simulation.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a subjective comparison with no observable social event or decision to simulate.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 1.99,
+   "wall_s": 1.68,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_city_nicer_taste"
   },
@@ -1085,13 +1128,12 @@
    "category": "vague_no_observable",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors ('Company CEO', 'Market Analyst') for parties the question never identifies. The question asks about 'the company' without specifying which company, and no identifying information is provided. The actors are invented stand-ins for unspecified parties,",
+   "reason": "scene: The question asks 'Will things get better for the company next quarter?' but the scene provides no specific company identity, no financial data, no market conditions, and no decision-makers with concrete information. The single actor 'Company leadership' is a generic placeholder with no priva",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.47,
+   "wall_s": 5.78,
    "actors": [
-    "Company CEO",
-    "Market Analyst"
+    "Company leadership"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_company_improve_vague"
   },
@@ -1101,10 +1143,10 @@
    "category": "contradictory_premise",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The premise is self-contradictory: the deadline passed a month before applications opened, which is impossible in a normal timeline. This makes the scene unsimulatable as a coherent social scenario.",
+   "reason": "scene: The question asks whether Priya will submit before the deadline, but the deadline passed a month before applications opened, which is a self-contradictory or impossible premise. The scene cannot simulate a meaningful social decision under these conditions.",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.8,
+   "wall_s": 4.02,
    "actors": [
     "Priya"
    ],
@@ -1116,13 +1158,13 @@
    "category": "past_counterfactual",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler: UNRESOLVABLE: The question is a past counterfactual about an event that would have occurred in the past, and no future observation can resolve an alternate past.",
+   "reason": "compiler: UNRESOLVABLE: The question asks about a past counterfactual (whether Rosa would have gotten the interview if she had applied earlier last spring), which cannot be resolved by observing future events from the simulation start time.",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.96,
+   "wall_s": 3.17,
    "actors": [
     "Rosa",
-    "Hiring Committee"
+    "Hiring Manager"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_earlier_application_cf"
   },
@@ -1132,10 +1174,10 @@
    "category": "unstated_feelings",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler: UNRESOLVABLE: The question asks about an internal state (happiness) with no observable proxy provided by the user. Happiness is a subjective feeling that cannot be directly observed in the simulation's event history.",
+   "reason": "compiler: UNRESOLVABLE: The question asks about an internal state ('happy') with no observable proxy provided; happiness is not directly observable in the simulation's event history.",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.52,
+   "wall_s": 2.79,
    "actors": [
     "User"
    ],
@@ -1147,10 +1189,10 @@
    "category": "matter_of_taste",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about an internal aesthetic preference ('prettier') with no user-provided observable proxy, so no social event can resolve it.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a subjective aesthetic comparison with no observable social event that could resolve it.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 1.68,
+   "wall_s": 1.8,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_logo_prettier_taste"
   },
@@ -1160,10 +1202,10 @@
    "category": "past_counterfactual",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The question asks about a counterfactual historical event (whether a 2019 merger would have closed if a CFO had not resigned). The simulation is set in 2026, long after the historical period in question, and the actors are generic corporate entities without specific decision-makers. The scene",
+   "reason": "scene: The question asks about a historical counterfactual (2019 merger) but the simulation is set in 2026, which is after the known outcome. The scene does not specify that it is a counterfactual simulation starting from a point before the outcome, and the resolution condition (checking if merger c",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.96,
+   "wall_s": 6.39,
    "actors": [
     "Aldergate Rail",
     "Valdoria Metro"
@@ -1175,14 +1217,14 @@
    "kind": "insufficient",
    "category": "missing_observable_outcome",
    "historical": false,
-   "status": "abstained",
-   "reason": "compiler: UNRESOLVABLE: The question asks about an internal state (morale) with no observable proxy provided. Morale is not directly observable, and no specific observable events (e.g., survey results, turnover rates) are specified to measure it.",
-   "semantic_calls": 1,
-   "provider_requests": 1,
-   "wall_s": 3.54,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.06,
    "actors": [
-    "Kestrel Analytics support team members",
-    "Kestrel Analytics management"
+    "Support Team Members",
+    "Kestrel Analytics Management"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_morale_no_observable"
   },
@@ -1195,10 +1237,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.73,
+   "wall_s": 4.24,
    "actors": [
-    "Neighbor A",
-    "Neighbor B"
+    "Resident",
+    "Neighbors"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_neighbors_improve_vague"
   },
@@ -1208,13 +1250,13 @@
    "category": "missing_decision_maker",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Applicant' and 'Permit Office' that are not identified in the question. The question does not specify any particular applicant or permit office, so these are invented stand-ins for unspecified parties, violating the rule against generic placeholder a",
+   "reason": "scene: The question asks about a specific permit approval, but the scene provides no identifying details about the permit, the applicant, the reviewing body, or the jurisdiction. The actors 'Applicant' and 'Permit Reviewer' are generic placeholders with no connection to any real or referenced entity",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.02,
+   "wall_s": 5.35,
    "actors": [
     "Applicant",
-    "Permit Office"
+    "Permit Reviewer"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_permit_no_decider"
   },
@@ -1227,11 +1269,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.11,
+   "wall_s": 4.14,
    "actors": [
-    "Employee",
     "Manager",
-    "HR Department"
+    "Candidate"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_promotion_no_decider"
   },
@@ -1241,10 +1282,10 @@
    "category": "unstated_feelings",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler: UNRESOLVABLE: The question asks about an internal emotional state ('regret') with no observable proxy provided by the user. Regret is a subjective feeling that cannot be directly observed in the simulation's event history.",
+   "reason": "compiler: UNRESOLVABLE: The question asks about an internal emotional state ('regret') with no observable proxy provided; regret is not directly observable in the event history.",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 3.32,
+   "wall_s": 3.03,
    "actors": [
     "User",
     "Partner"
@@ -1256,14 +1297,16 @@
    "kind": "insufficient",
    "category": "missing_observable_outcome",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The actor 'Amara's coworkers' is a generic placeholder group, not individually identified. The question asks about 'coworkers' but does not specify who they are, so the scene invents an unspecified party. This violates the rule against generic placeholder actors standing in for parties the qu",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.33,
+   "wall_s": 5.6,
    "actors": [
     "Amara",
-    "Amara's coworkers"
+    "Coworker 1",
+    "Coworker 2",
+    "Coworker 3"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_respect_no_observable"
   },
@@ -1273,14 +1316,11 @@
    "category": "empty_question",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The question 'So, what do you think?' is generic and lacks any identifying context about the topic, the actors, or the setting. The scene invents generic placeholder actors 'Speaker' and 'Listener' with no connection to any specific persons or situation from the question. This is an invented ",
-   "semantic_calls": 2,
-   "provider_requests": 2,
-   "wall_s": 5.49,
-   "actors": [
-    "Speaker",
-    "Listener"
-   ],
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question does not refer to any party who could decide or act, and no observable social event is described.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.33,
+   "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_so_what_do_you_think"
   },
   {
@@ -1289,10 +1329,10 @@
    "category": "pure_fact_lookup",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a factual lookup about a past event, not a social decision to simulate.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a pure factual lookup with no social decision to simulate.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 1.38,
+   "wall_s": 1.49,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_treaty_year_lookup"
   },
@@ -1305,7 +1345,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.12,
+   "wall_s": 4.41,
    "actors": [
     "Sunmark housing cooperative board",
     "Sunmark housing cooperative members"
@@ -1317,12 +1357,14 @@
    "kind": "sufficient",
    "category": "legislative_institutional",
    "historical": true,
-   "status": "failed",
-   "reason": "TECHNICAL_FAILURE: call_1_scene: provider request failed after 2 attempts: Expecting ',' delimiter: line 9 column 3 (char 752)",
-   "semantic_calls": 1,
+   "status": "abstained",
+   "reason": "scene: The scene includes only F. W. de Klerk as an actor, but the resolution depends on an observable event (delivery of an address) that requires at minimum an audience or institutional context to be meaningfully simulated. The question asks about a real historical event, and the scene lacks any o",
+   "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.92,
-   "actors": [],
+   "wall_s": 6.11,
+   "actors": [
+    "F. W. de Klerk"
+   ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_deklerk_opening_address"
   },
   {
@@ -1330,11 +1372,11 @@
    "kind": "sufficient",
    "category": "legislative_institutional",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a single generic actor 'Kettlewell Parish Council' to represent the entire council, but the question asks about a decision made by a collective body. The council's internal decision-making process cannot be simulated with a single actor that has no internal structure or individ",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.49,
+   "wall_s": 4.38,
    "actors": [
     "Kettlewell Parish Council"
    ],
@@ -1345,13 +1387,13 @@
    "kind": "sufficient",
    "category": "legislative_institutional",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Parent group' that is not a uniquely identified party from the question or context. The question and context mention 'a parent group' but do not provide a specific name or identity, making this an invented stand-in for an unspecified party.",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.71,
+   "wall_s": 4.21,
    "actors": [
-    "Marvin Bay Unified school board (seven trustees)",
+    "Marlin Bay Unified school board (as a body)",
     "Parent group"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_school_board_start_times"
@@ -1362,10 +1404,10 @@
    "category": "legislative_institutional",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene uses a single generic actor 'Academic Senate' to represent the entire decision-making body, but the question involves a deliberative vote with multiple members holding varying opinions. The scene does not include individual senators or a chair with distinct perspectives, making it i",
+   "reason": "scene: The scene treats the Academic Senate as a single monolithic actor, but a deliberative body that votes is composed of individual members whose interactions and voting decisions are the core of the social simulation. The question asks about a decision made by a group, which inherently involves ",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.99,
+   "wall_s": 5.86,
    "actors": [
     "Academic Senate"
    ],
@@ -1376,11 +1418,11 @@
    "kind": "sufficient",
    "category": "legislative_institutional",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a single generic actor 'Riverton city council' to represent a multi-member body. The question asks whether the council will hold a second reading, which is a decision made by individual council members through voting and scheduling. A single collective actor cannot simulate the",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.7,
+   "wall_s": 4.47,
    "actors": [
     "Riverton city council"
    ],
@@ -1391,13 +1433,14 @@
    "kind": "sufficient",
    "category": "legislative_institutional",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a single generic actor 'Republic of Valdoria's parliamentary transport committee' which is an invented institutional stand-in. The question does not identify specific committee members or a chair with decision-making authority. The committee as a collective cannot meaningfully ",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.65,
+   "wall_s": 5.0,
    "actors": [
-    "Republic of Valdoria's parliamentary transport committee"
+    "Transport Committee Chair",
+    "Transport Committee Members"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_valdoria_rail_hearing"
   },
@@ -1410,10 +1453,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.65,
+   "wall_s": 4.35,
    "actors": [
-    "Donald Trump",
-    "Hillary Clinton"
+    "Hillary Clinton",
+    "Donald Trump"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_alsmith_dinner_2016"
   },
@@ -1423,10 +1466,10 @@
    "category": "mixed_social_scheduled",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene lacks any other actors (e.g., club members, weather service, or a communication channel) that the president would interact with to confirm the party. The president alone cannot 'confirm' to themselves; confirmation requires a recipient or audience. The resolution expects a 'persiste",
+   "reason": "scene: The scene lacks sufficient information to identify the decision-maker or the observed resolving event. The astronomy club president is an invented actor not referenced in the question or context; the question only mentions 'the astronomy club's president' as a role, but the scene provides no ",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.79,
+   "wall_s": 5.8,
    "actors": [
     "Astronomy Club President"
    ],
@@ -1441,10 +1484,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.11,
+   "wall_s": 4.58,
    "actors": [
     "Priya",
-    "Alder Court neighbors (collective)"
+    "Alder Court neighbors (as a group)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_marathon_water_table"
   },
@@ -1453,14 +1496,13 @@
    "kind": "sufficient",
    "category": "mixed_social_scheduled",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Parents' group coordinator' and 'Cast member (student)' without identifying specific individuals from the question. The question does not name any specific parent or student, so these are invented stand-ins for unspecified parties, violating the rul",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.77,
+   "wall_s": 3.84,
    "actors": [
-    "Parents' group coordinator",
-    "Cast member (student)"
+    "Parents' group"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_play_flowers_by_curtain"
   },
@@ -1473,7 +1515,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.97,
+   "wall_s": 4.01,
    "actors": [
     "Femi",
     "Femi's mother"
@@ -1489,7 +1531,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.7,
+   "wall_s": 5.29,
    "actors": [
     "CEO",
     "Design Partner 1",
@@ -1507,10 +1549,11 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.53,
+   "wall_s": 4.37,
    "actors": [
     "Leila",
-    "Prospective Advisor"
+    "Advisor",
+    "Co-founder"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_advisor_equity_agreement"
   },
@@ -1523,7 +1566,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.12,
+   "wall_s": 4.78,
    "actors": [
     "Bill",
     "Osei family"
@@ -1539,7 +1582,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.07,
+   "wall_s": 4.55,
    "actors": [
     "Dana",
     "Yusuf"
@@ -1555,7 +1598,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.53,
+   "wall_s": 4.2,
    "actors": [
     "Ravi",
     "Seller"
@@ -1571,7 +1614,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.4,
+   "wall_s": 4.68,
    "actors": [
     "Ingrid",
     "Mattias",
@@ -1588,7 +1631,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.76,
+   "wall_s": 4.99,
    "actors": [
     "Chen Wei",
     "Torchlight Media"
@@ -1604,7 +1647,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.79,
+   "wall_s": 4.41,
    "actors": [
     "Gerald",
     "Amara"
@@ -1620,11 +1663,14 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.59,
+   "wall_s": 5.3,
    "actors": [
     "Gallup",
     "Pew Research Center",
-    "ABC News/Washington Post"
+    "ABC News/Washington Post",
+    "NBC News/Wall Street Journal",
+    "CBS News/New York Times",
+    "Reuters/Ipsos"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_2012_poll_releases"
   },
@@ -1637,10 +1683,9 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.76,
+   "wall_s": 4.44,
    "actors": [
-    "Tidepool",
-    "Newsletter subscribers"
+    "Tidepool"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_beta_waitlist_200"
   },
@@ -1649,13 +1694,13 @@
    "kind": "sufficient",
    "category": "representative_population",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The actor 'Villagers of Kettlewell' is a generic placeholder for an unspecified group. The question does not identify any specific villagers, and the scene invents a collective actor that cannot be meaningfully simulated as an individual decision-maker. This violates the rule against generic ",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.52,
+   "wall_s": 4.18,
    "actors": [
-    "Kettlewell parish clerk",
+    "Kettlewell Parish Clerk",
     "Villagers of Kettlewell"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_bus_meeting_turnout"
@@ -1665,14 +1710,14 @@
    "kind": "sufficient",
    "category": "representative_population",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Calloway Regional Hospital employees' to represent 400 unnamed individuals. The question does not identify any specific employees, so this is an invented stand-in for unspecified parties. The scene cannot simulate 400 distinct actors with meaningful",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.19,
+   "wall_s": 4.68,
    "actors": [
-    "Calloway Regional Hospital employees",
-    "HR department"
+    "HR Department",
+    "Employees (400 individuals)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_engagement_survey_60"
   },
@@ -1685,10 +1730,11 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.4,
+   "wall_s": 5.07,
    "actors": [
     "Petition organizers",
-    "Quarry operator"
+    "Quarry operator",
+    "Town residents (cohort)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_quarry_petition_1500"
   },
@@ -1698,13 +1744,15 @@
    "category": "representative_population",
    "historical": false,
    "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Invited parents (as a cohort)' to represent 120 unnamed parents. The question does not identify any specific parent, so this is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
+   "reason": "scene: The scene includes only 3 generic parent actors to represent 120 invited parents, which is insufficient to simulate whether more than half will RSVP. The question requires a collective outcome from 120 individuals, but the scene provides no mechanism to model the behavior of all 120 parents. ",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.8,
+   "wall_s": 6.61,
    "actors": [
-    "Petersfield Secondary School administration",
-    "Invited parents (as a cohort)"
+    "Petersfield Secondary School Administration",
+    "Parent 1",
+    "Parent 2",
+    "Parent 3"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_townhall_rsvp_half"
   },
@@ -1713,11 +1761,11 @@
    "kind": "sufficient",
    "category": "public_communication",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses a generic placeholder actor 'Aldergate Rail' as a single entity, but the question involves a decision by a firm's leadership. The actor 'Aldergate Rail' is not a specific decision-maker; it is a corporate entity. The scene lacks any named individuals (e.g., CEO, board members) ",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.36,
+   "wall_s": 4.05,
    "actors": [
     "Aldergate Rail"
    ],
@@ -1729,10 +1777,10 @@
    "category": "public_communication",
    "historical": true,
    "status": "abstained",
-   "reason": "scene: The scene lacks any other actors or entities (e.g., broadcasters, event organizers, interviewers) that are necessary for the occurrence of a televised set-piece event. The question asks whether Cameron will appear in such an event, which requires at least one other party to host or conduct it",
+   "reason": "scene: The scene lacks the necessary actors to simulate the decision. The question asks whether David Cameron will appear in a televised set-piece event, which requires at least one other actor (e.g., a broadcaster or event organizer) to invite or schedule such an event. Without any such actor, the ",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.78,
+   "wall_s": 5.08,
    "actors": [
     "David Cameron"
    ],
@@ -1747,10 +1795,9 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.95,
+   "wall_s": 4.17,
    "actors": [
-    "Marlin Bay dockworkers' union local",
-    "Rank-and-file caucus"
+    "Marlin Bay dockworkers' union local"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_dockworkers_endorsement"
   },
@@ -1763,7 +1810,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.61,
+   "wall_s": 5.09,
    "actors": [
     "Head Teacher",
     "Parent 1",
@@ -1781,7 +1828,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.13,
+   "wall_s": 3.93,
    "actors": [
     "Mayor of Riverton"
    ],
@@ -1796,10 +1843,9 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.12,
+   "wall_s": 4.19,
    "actors": [
-    "Tidepool founder",
-    "Tidepool head of support"
+    "Founder of Tidepool"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_tidepool_founder_response"
   },
@@ -1812,7 +1858,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.63,
+   "wall_s": 4.94,
    "actors": [
     "McCain campaign",
     "Obama campaign"
@@ -1824,17 +1870,18 @@
    "kind": "sufficient",
    "category": "scheduling",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Advisor 1' through 'Advisor 5' without any identifying information from the question or context. The question refers to 'the five members of Ostara Foods' advisory board' but provides no names or distinguishing characteristics. The scene invents thes",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.21,
+   "wall_s": 4.74,
    "actors": [
     "Advisor 1",
     "Advisor 2",
     "Advisor 3",
     "Advisor 4",
-    "Advisor 5"
+    "Advisor 5",
+    "CEO's assistant"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_advisory_offsite_date"
   },
@@ -1843,11 +1890,11 @@
    "kind": "sufficient",
    "category": "scheduling",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The committee members are generic placeholders ('Committee Member 1', 'Committee Member 2', 'Committee Member 3') with no identifying information from the question. The question does not specify who these members are, so the scene invents unnamed stand-ins for unspecified parties, violating t",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 6.25,
+   "wall_s": 4.66,
    "actors": [
     "Femi Adeyemi",
     "Committee Member 1",
@@ -1865,10 +1912,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.26,
+   "wall_s": 3.72,
    "actors": [
     "Priya",
-    "Maple Row Dental front desk"
+    "Front Desk"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_dental_reslot"
   },
@@ -1877,11 +1924,11 @@
    "kind": "sufficient",
    "category": "scheduling",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The scene uses generic placeholder actors 'Loomis & Hale LLP' and 'New Client' without identifying specific individuals who will make scheduling decisions. The question does not name any specific person at the law firm or the client, so the actors are invented stand-ins for unspecified partie",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.87,
+   "wall_s": 4.72,
    "actors": [
     "Loomis & Hale LLP",
     "New Client"
@@ -1897,10 +1944,9 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.85,
+   "wall_s": 4.79,
    "actors": [
-    "Herrera cousins (group chat participants)",
-    "Tia Marisol"
+    "Herrera cousins (14 members)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_herrera_reunion_date"
   },
@@ -1909,14 +1955,14 @@
    "kind": "sufficient",
    "category": "scheduling",
    "historical": false,
-   "status": "abstained",
-   "reason": "scene: The actor 'Ward colleagues (collective)' is a generic placeholder for unspecified parties. The question does not identify any specific colleague, so the scene invents an unnamed collective to stand in for an unspecified group, which violates the rule against generic placeholder actors.",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.66,
+   "wall_s": 4.94,
    "actors": [
     "Nurse Karolina",
-    "Ward colleagues (collective)"
+    "Colleagues in the ward"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_ward_shift_swap"
   }
@@ -1925,18 +1971,18 @@
   "total": 120,
   "sufficient": {
    "n": 100,
-   "compiled_first_pass": 64.0,
+   "compiled_first_pass": 91.0,
    "corrected": 0.0,
-   "schema_success": 99.0,
-   "instantiated": 64.0,
-   "abstained": 35,
-   "failed": 1
+   "schema_success": 100.0,
+   "instantiated": 91.0,
+   "abstained": 9,
+   "failed": 0
   },
   "insufficient": {
    "n": 20,
-   "honest_abstention_or_structured": 90.0,
-   "abstained": 18,
-   "compiled_anyway": 2
+   "honest_abstention_or_structured": 75.0,
+   "abstained": 15,
+   "compiled_anyway": 5
   },
   "semantic_calls": {
    "median": 2.0,
@@ -1944,15 +1990,9 @@
    "over_budget": 0
   },
   "wall_s": {
-   "median": 4.79,
-   "p95": 6.6
+   "median": 4.5600000000000005,
+   "p95": 5.95
   },
-  "failures": [
-   {
-    "id": "leg_deklerk_opening_address",
-    "status": "failed",
-    "reason": "TECHNICAL_FAILURE: call_1_scene: provider request failed after 2 attempts: Expecting ',' delimiter: line 9 column 3 (char 752)"
-   }
-  ]
+  "failures": []
  }
 }

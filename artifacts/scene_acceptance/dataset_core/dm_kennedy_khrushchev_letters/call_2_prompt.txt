@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,18 +99,18 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Premier Khrushchev",
-   "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now facing a US quarantine. He is considering his options, including direct communication with President Kennedy. He has not yet decided whether to send a letter."
+   "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options and may decide to communicate directly with President Kennedy."
   },
   {
    "name": "President Kennedy",
-   "private_context": "Kennedy has just announced a quarantine of Cuba. He is awaiting Soviet reactions and is open to receiving direct communications from Khrushchev. He has not yet received any letter from Khrushchev."
+   "private_context": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba in response to the discovery of Soviet missiles. He is prepared to receive communications from Khrushchev and is considering possible responses."
   }
  ],
- "shared_context": "On October 22, 1962, President Kennedy delivered a televised address announcing a quarantine of Cuba to prevent further Soviet missile shipments. The world is now aware of the crisis. Diplomatic channels exist for direct communication between the leaders, including through their embassies and the White House\u2013Kremlin teletype (the 'hotline' is not yet established, but letters can be sent via diplomatic pouch or cable).",
+ "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet shipments of offensive military equipment. The world is on edge as the Cuban Missile Crisis unfolds. Direct communication between the leaders is possible through diplomatic channels.",
  "starting_events": [
   {
    "time": "1962-10-22T20:00:00-05:00",
-   "description": "President Kennedy finishes his televised address announcing the quarantine of Cuba.",
+   "description": "President Kennedy delivers his televised address announcing the quarantine of Cuba.",
    "visible_to": [
     "President Kennedy",
     "Premier Khrushchev"

@@ -1,26 +1,17 @@
 {
   "actors": [
     {
-      "name": "Company CEO",
-      "private_context": "The CEO is responsible for the company's performance and has access to internal financial reports, sales data, and strategic plans. They are optimistic about a new product launch scheduled for early next quarter but are concerned about supply chain disruptions."
-    },
-    {
-      "name": "Market Analyst",
-      "private_context": "The analyst follows the company and its industry, publishing reports and forecasts. They have no inside information beyond public data and industry trends."
+      "name": "Company leadership",
+      "private_context": "The leadership is aware of current financial struggles and is considering strategic changes. They have no certainty about future outcomes."
     }
   ],
-  "shared_context": "The company is a mid-sized technology firm that has faced declining revenues over the past two quarters. A new product is set to launch in early Q4 2026. The broader market is volatile with potential regulatory changes. The company's stock price has been fluctuating.",
+  "shared_context": "The company operates in a competitive market. The next quarter runs from October to December 2026. No major external shocks are known at the start.",
   "starting_events": [
     {
       "time": "2026-10-01T09:00:00-05:00",
-      "description": "The new quarter begins. The company's sales team starts executing the Q4 sales plan, which includes the new product launch.",
-      "visible_to": ["Company CEO"]
-    },
-    {
-      "time": "2026-10-01T09:00:00-05:00",
-      "description": "The market analyst begins reviewing Q3 earnings reports and preparing a Q4 outlook for the company.",
-      "visible_to": ["Market Analyst"]
+      "description": "The new quarter begins. The company's financial performance for the previous quarter is known internally.",
+      "visible_to": ["Company leadership"]
     }
   ],
-  "resolution": "Resolve YES if, by the hard cutoff, the company's quarterly earnings report (or equivalent public financial statement) shows an increase in net profit or revenue compared to the previous quarter. Otherwise resolve NO."
+  "resolution": "Resolve YES only if the persistent event history shows that the company's quarterly revenue or profit (as reported in official financial statements) increased compared to the previous quarter by the cutoff. Otherwise resolve NO at the cutoff."
 }

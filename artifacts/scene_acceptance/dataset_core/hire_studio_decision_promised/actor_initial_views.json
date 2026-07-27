@@ -1,7 +1,7 @@
 {
- "bramblewick_studios_as_a_decision_making_entity": {
-  "id": "bramblewick_studios_as_a_decision_making_entity",
-  "name": "Bramblewick Studios (as a decision-making entity)",
+ "bramblewick_studios": {
+  "id": "bramblewick_studios",
+  "name": "Bramblewick Studios",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-10-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision within two weeks after her final interview. The hiring manager mentioned that budget sign-off is still pending with the finance lead. The studio must decide whether to send Elin an offer or rejection.",
+    "content": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision, offer or rejection within two weeks after her final interview. The hiring manager mentioned that budget sign-off was still pending with the finance lead.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The art director of Bramblewick Studios promised Elin Bjork a decision, offer, or rejection within two weeks after her final interview. The two-week period ends on 2026-10-23T16:00:00+01:00. Elin's final interview went well, but budget sign-off is pending with the finance lead.",
+    "content": "The final interview ended on 2026-10-09T16:00:00+01:00. The art director's promise of a decision within two weeks is known to both parties. The studio is in a crunch period and budget sign-off is pending.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Elin Bjork has completed her final interview with Bramblewick Studios. She is waiting to hear back with a decision, offer, or rejection within the two weeks promised by the art director.",
+    "content": "Elin Bjork has completed her final interview with Bramblewick Studios. The art director promised her a decision, offer or rejection within two weeks. She is waiting to hear back.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The art director of Bramblewick Studios promised Elin Bjork a decision, offer, or rejection within two weeks after her final interview. The two-week period ends on 2026-10-23T16:00:00+01:00. Elin's final interview went well, but budget sign-off is pending with the finance lead.",
+    "content": "The final interview ended on 2026-10-09T16:00:00+01:00. The art director's promise of a decision within two weeks is known to both parties. The studio is in a crunch period and budget sign-off is pending.",
     "source": "scene_manifest:shared_context"
    }
   ],

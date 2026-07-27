@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Lucia Ferreyra's two-person nonprofit submit its completed Alder Foundation application before the portal closes at 17:00 on the 30th?",
-  "resolution": "Resolve YES only if the persistent event history shows that the completed application (including the countersigned budget spreadsheet) was successfully submitted to the Alder Foundation portal before 17:00 on 2026-09-30. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the completed application was submitted to the Alder Foundation portal before 17:00 on 2026-09-30. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T17:00:00-05:00",
   "world_id": "w_0a44f364e2d2"
  },

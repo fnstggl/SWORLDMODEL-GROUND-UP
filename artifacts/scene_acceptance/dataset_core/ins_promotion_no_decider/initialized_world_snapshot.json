@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "employee": {
+  "candidate": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,66 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "employee",
+   "id": "candidate",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Employee has been recommended for promotion by their manager. They are aware of the promotion process and hope it goes through before the end of the quarter. They have no direct control over the approval timeline.",
+     "content": "Candidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T08:00:00+00:00"
     },
     {
-     "content": "The company has a promotion process that involves manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion must be fully approved by that date to count as going through before the end of the quarter.",
+     "content": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T08:00:00+00:00"
     }
    ],
-   "name": "Employee",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "hr_department": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "hr_department",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "HR Department processes promotion approvals. They have received the recommendation for Employee. They have standard procedures and timelines, but the exact processing time is not fixed. They may be influenced by workload and other priorities.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-08-03T08:00:00+00:00"
-    },
-    {
-     "content": "The company has a promotion process that involves manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion must be fully approved by that date to count as going through before the end of the quarter.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-08-03T08:00:00+00:00"
-    }
-   ],
-   "name": "HR Department",
+   "name": "Candidate",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -107,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Manager has submitted the promotion recommendation for Employee. They believe Employee deserves the promotion and have done their part. They are not the final decision-maker but can follow up if needed.",
+     "content": "Manager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T08:00:00+00:00"
     },
     {
-     "content": "The company has a promotion process that involves manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion must be fully approved by that date to count as going through before the end of the quarter.",
+     "content": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T08:00:00+00:00"
@@ -145,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the promotion go through before the end of the quarter?",
-  "scene:shared_context": "The company has a promotion process that involves manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion must be fully approved by that date to count as going through before the end of the quarter."
+  "scene:shared_context": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required."
  },
  "history": [],
  "infos": {},
@@ -155,6 +112,6 @@
  "resources": {},
  "start": "2026-08-03T08:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 11,
  "watches": {}
 }

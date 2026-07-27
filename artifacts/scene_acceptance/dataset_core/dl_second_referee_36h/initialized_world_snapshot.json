@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Kofi has asked a referee to upload a letter of recommendation for a fellowship. The referee is the second referee. Kofi knows the deadline is 36 hours from now. Kofi does not know if the referee has started or will complete the upload.",
+     "content": "Kofi has asked a second referee to upload a letter for a fellowship application. The referee has not yet uploaded it. Kofi knows the portal deadline is 2026-09-15T09:00:00+00:00.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-13T21:00:00+00:00"
     },
     {
-     "content": "The fellowship portal accepts referee letters via upload. The hard deadline is 2026-09-15T09:00:00+00:00. The current time is 2026-09-13T21:00:00+00:00. The referee has the necessary link or instructions to upload the letter.",
+     "content": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-13T21:00:00+00:00"
@@ -64,19 +64,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The second referee has agreed to write a letter for Kofi's fellowship. They have the letter ready or are working on it. They are aware of the deadline but have other commitments. They may or may not prioritize this upload.",
+     "content": "The second referee has been asked by Kofi to upload a letter for a fellowship application. They have not yet done so. They may have other commitments or may be unaware of the deadline.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-13T21:00:00+00:00"
     },
     {
-     "content": "The fellowship portal accepts referee letters via upload. The hard deadline is 2026-09-15T09:00:00+00:00. The current time is 2026-09-13T21:00:00+00:00. The referee has the necessary link or instructions to upload the letter.",
+     "content": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-13T21:00:00+00:00"
     }
    ],
-   "name": "Second referee",
+   "name": "Second Referee",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Kofi's second referee upload her letter before the fellowship portal's hard deadline 36 hours from now?",
-  "scene:shared_context": "The fellowship portal accepts referee letters via upload. The hard deadline is 2026-09-15T09:00:00+00:00. The current time is 2026-09-13T21:00:00+00:00. The referee has the necessary link or instructions to upload the letter."
+  "scene:shared_context": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00."
  },
  "history": [],
  "infos": {},

@@ -13,7 +13,7 @@
     "bill",
     "osei_family"
    ],
-   "description": "Bill and the Osei family are aware of the fence damage and have had initial discussions about cost sharing, but no agreement has been reached."
+   "description": "The shared fence is damaged from the recent storm. Bill and the Osei family are aware of the damage and the disagreement over payment."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "bill": {
    "name": "Bill",
-   "persona_brief": "You are Bill.\nBill believes the fence is shared property and the Osei family should pay half the repair cost. He is willing to negotiate but will consider small claims if no agreement is reached."
+   "persona_brief": "You are Bill.\nBill believes the fence damage was caused by a storm and thinks the cost should be shared equally. He is willing to discuss but wants to avoid small claims court."
   },
   "osei_family": {
    "name": "Osei family",
-   "persona_brief": "You are Osei family.\nThe Osei family believes the fence is Bill's responsibility or that they should pay less than half. They prefer to avoid court but are firm on their position."
+   "persona_brief": "You are Osei family.\nThe Osei family believes Bill is responsible for the fence damage or that the cost split should be different. They are open to negotiation but may consider small claims if no agreement is reached."
   }
  },
  "resolution": {
   "question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Bill and the Osei family have both agreed to a specific cost split (e.g., 50-50 or another proportion) and have communicated that agreement to each other. Resolve NO if no such agreement is recorded by the cutoff.",
+  "resolution": "Resolve YES if, before 2026-10-02T12:00:00-05:00, the persistent event history shows that Bill and the Osei family have mutually agreed on a cost split for the fence repair and no small claims case has been filed. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-02T12:00:00-05:00",
   "world_id": "w_1f5dd10a9b4c"
  }

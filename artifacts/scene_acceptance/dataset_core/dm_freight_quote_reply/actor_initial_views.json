@@ -23,13 +23,13 @@
    {
     "t": "2026-08-11T07:00:00+00:00",
     "kind": "context",
-    "content": "Kestrel Analytics is a mid-size existing customer that ships roughly monthly. They have sent an email requesting an updated shipping quote to Tomasz's personal work address. They expect a reply but have no special arrangement for expedited handling.",
+    "content": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight that ships roughly monthly. They have sent an email request for an updated shipping quote to Tomasz's personal work address.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-11T07:00:00+00:00",
     "kind": "context",
-    "content": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday. The cutoff for reply is Friday 2026-08-14 at 17:00 local time.",
+    "content": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-11T07:00:00+00:00",
     "kind": "context",
-    "content": "Tomasz is Nimbus Freight's account manager, handling about forty accounts. He has just returned from leave on Wednesday 2026-08-12. He has not yet seen the email from Kestrel Analytics. He prioritizes requests based on urgency and relationship, but has many emails to catch up on.",
+    "content": "Tomasz is the account manager at Nimbus Freight handling about forty accounts. He has been on leave and returns on Wednesday 2026-08-12. He may have many emails to catch up on. He knows Kestrel Analytics as a mid-size existing customer that ships monthly.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-11T07:00:00+00:00",
     "kind": "context",
-    "content": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday. The cutoff for reply is Friday 2026-08-14 at 17:00 local time.",
+    "content": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
     "source": "scene_manifest:shared_context"
    }
   ],

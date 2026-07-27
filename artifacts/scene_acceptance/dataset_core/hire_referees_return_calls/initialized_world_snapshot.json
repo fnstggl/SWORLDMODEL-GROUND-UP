@@ -2,6 +2,49 @@
  "action_defs": {},
  "actions": {},
  "actors": {
+  "aoife_byrne": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "aoife_byrne",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Aoife Byrne is a shortlisted candidate. She has provided the names of two referees to the recruiter. She wants the referees to respond to the recruiter's calls.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-14T08:00:00+00:00"
+    },
+    {
+     "content": "The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter has called both referees listed by Aoife Byrne. The referees have not yet returned the calls as of the simulation start time.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-14T08:00:00+00:00"
+    }
+   ],
+   "name": "Aoife Byrne",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
   "recruiter": {
    "attention": {
     "scene": {
@@ -21,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The recruiter has been trying to contact the two referees listed by Aoife Byrne. They have the referees' contact information and need to speak with both before the interview panel meets next Thursday.",
+     "content": "The recruiter is responsible for contacting the referees of shortlisted candidates. They have called both referees listed by Aoife Byrne and are waiting for return calls. They need the referees' responses before the interview panel meets next Thursday.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-14T08:00:00+00:00"
     },
     {
-     "content": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter needs to speak with both referees before the interview panel meets next Thursday (2026-08-20). The recruiter has been making calls to the referees. The referees have not yet returned the calls as of the simulation start time.",
+     "content": "The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter has called both referees listed by Aoife Byrne. The referees have not yet returned the calls as of the simulation start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-14T08:00:00+00:00"
@@ -64,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Referee 1 is one of the referees listed by Aoife Byrne. They may or may not be aware of the recruiter's attempts to contact them. They have their own schedule and priorities.",
+     "content": "Referee 1 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be willing or able to return the call before the interview panel meets.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-14T08:00:00+00:00"
     },
     {
-     "content": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter needs to speak with both referees before the interview panel meets next Thursday (2026-08-20). The recruiter has been making calls to the referees. The referees have not yet returned the calls as of the simulation start time.",
+     "content": "The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter has called both referees listed by Aoife Byrne. The referees have not yet returned the calls as of the simulation start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-14T08:00:00+00:00"
@@ -107,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Referee 2 is one of the referees listed by Aoife Byrne. They may or may not be aware of the recruiter's attempts to contact them. They have their own schedule and priorities.",
+     "content": "Referee 2 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be willing or able to return the call before the interview panel meets.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-14T08:00:00+00:00"
     },
     {
-     "content": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter needs to speak with both referees before the interview panel meets next Thursday (2026-08-20). The recruiter has been making calls to the referees. The referees have not yet returned the calls as of the simulation start time.",
+     "content": "The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter has called both referees listed by Aoife Byrne. The referees have not yet returned the calls as of the simulation start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-14T08:00:00+00:00"
@@ -145,7 +188,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will both referees listed by shortlisted candidate Aoife Byrne return the recruiter's calls before the interview panel meets next Thursday?",
-  "scene:shared_context": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter needs to speak with both referees before the interview panel meets next Thursday (2026-08-20). The recruiter has been making calls to the referees. The referees have not yet returned the calls as of the simulation start time."
+  "scene:shared_context": "The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter has called both referees listed by Aoife Byrne. The referees have not yet returned the calls as of the simulation start time."
  },
  "history": [],
  "infos": {},
@@ -155,6 +198,6 @@
  "resources": {},
  "start": "2026-08-14T08:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 17,
  "watches": {}
 }

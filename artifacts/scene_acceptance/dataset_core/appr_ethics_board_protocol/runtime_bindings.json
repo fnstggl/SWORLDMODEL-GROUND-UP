@@ -13,7 +13,7 @@
     "dr_tanaka",
     "ashvale_university_research_ethics_board"
    ],
-   "description": "Dr. Tanaka submits the survey protocol to the Ashvale University research ethics board for review."
+   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University research ethics board. The board's next monthly meeting is scheduled before the cutoff."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "dr_tanaka": {
    "name": "Dr. Tanaka",
-   "persona_brief": "You are Dr. Tanaka.\nDr. Tanaka has prepared a survey protocol for a research study. They intend to submit it to the Ashvale University research ethics board for approval. They are aware of the upcoming monthly meeting and hope for approval."
+   "persona_brief": "You are Dr. Tanaka.\nDr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision at the next monthly meeting. They have no prior relationship with board members and have not received any preliminary feedback."
   },
   "ashvale_university_research_ethics_board": {
    "name": "Ashvale University Research Ethics Board",
-   "persona_brief": "You are Ashvale University Research Ethics Board.\nThe board is a committee that reviews research protocols. It meets monthly. It has received or will receive Dr. Tanaka's survey protocol. The board will consider the protocol at its next monthly meeting, which occurs before the hard cutoff."
+   "persona_brief": "You are Ashvale University Research Ethics Board.\nThe board is a committee that reviews research protocols. It meets monthly. The next meeting is scheduled before the cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at that meeting. Board members have no prior knowledge of Dr. Tanaka or the protocol beyond the submitted materials."
   }
  },
  "resolution": {
   "question": "Will Ashvale University's research ethics board approve, request amendments to, or reject Dr. Tanaka's survey protocol at or before its next monthly meeting?",
-  "resolution": "Resolve YES if the persistent event history shows that the board has communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the board communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-06T18:00:00+09:00",
   "world_id": "w_b2bf99ddfb67"
  }

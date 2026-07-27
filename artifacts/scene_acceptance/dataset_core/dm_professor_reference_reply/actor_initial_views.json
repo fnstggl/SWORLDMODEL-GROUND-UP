@@ -23,13 +23,13 @@
    {
     "t": "2026-08-03T09:00:00+00:00",
     "kind": "context",
-    "content": "Kofi is a former student of Ilse Brandt. He has drafted a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He hopes for a prompt reply.",
+    "content": "Kofi Asante is a former student of Professor Ilse Brandt. He took two of her seminars and earned top marks. They last spoke eight months ago. He has sent a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He hopes for a prompt reply.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T09:00:00+00:00",
     "kind": "context",
-    "content": "Kofi Asante took two seminars taught by Professor Ilse Brandt at Ashvale University and earned top marks in both. They last spoke eight months ago. Kofi has a message prepared to send to Ilse via email, which is a standard channel for such requests. Ilse can reply via email.",
+    "content": "Kofi Asante has sent a message to Professor Ilse Brandt via email (or another established channel) asking for a reference letter for a museum fellowship. The message is polite and specific. The deadline for the fellowship is in three weeks from the simulation start time. Professor Brandt can reply via the same channel.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-03T09:00:00+00:00",
     "kind": "context",
-    "content": "Ilse is a professor at Ashvale University. She remembers Kofi Asante as a former student who performed well in her seminars. She is busy and receives many requests for references. She has no prior commitment to respond to this specific request.",
+    "content": "Ilse Brandt is a professor at Ashvale University. She remembers Kofi Asante as a strong student who earned top marks in two of her seminars. They last spoke eight months ago. She is busy with her own work and receives many requests for references. She may prioritize requests based on her schedule and her assessment of the student's qualifications.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T09:00:00+00:00",
     "kind": "context",
-    "content": "Kofi Asante took two seminars taught by Professor Ilse Brandt at Ashvale University and earned top marks in both. They last spoke eight months ago. Kofi has a message prepared to send to Ilse via email, which is a standard channel for such requests. Ilse can reply via email.",
+    "content": "Kofi Asante has sent a message to Professor Ilse Brandt via email (or another established channel) asking for a reference letter for a museum fellowship. The message is polite and specific. The deadline for the fellowship is in three weeks from the simulation start time. Professor Brandt can reply via the same channel.",
     "source": "scene_manifest:shared_context"
    }
   ],

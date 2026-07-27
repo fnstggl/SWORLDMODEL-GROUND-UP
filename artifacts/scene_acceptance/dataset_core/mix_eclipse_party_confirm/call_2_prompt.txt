@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,20 +99,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Astronomy Club President",
-   "private_context": "The president is responsible for deciding whether the pier viewing party goes ahead. They are aware of the partial solar eclipse on the 12th and need to consider weather forecasts, safety, and logistics. They have not yet made a final decision."
+   "private_context": "The president is responsible for deciding whether the pier viewing party for the solar eclipse goes ahead. They need to consider weather forecasts, equipment availability, and any logistical issues. They have not yet made a decision as of the simulation start."
   }
  ],
- "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club has planned a pier viewing party for that event. The club president is expected to confirm by the 10th whether the party will proceed. Weather forecasts and other conditions may influence the decision.",
+ "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club typically holds a pier viewing party for such events. The president is expected to confirm by the 10th whether the party is going ahead. The simulation starts on 2026-08-01.",
  "starting_events": [
   {
    "time": "2026-08-01T09:00:00-07:00",
-   "description": "The simulation begins. The astronomy club president has not yet confirmed the pier viewing party.",
+   "description": "The simulation begins. No decision has been made yet about the pier viewing party.",
    "visible_to": [
     "Astronomy Club President"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the astronomy club president actually communicated a confirmation (e.g., via message, announcement, or public statement) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the astronomy club president has confirmed (by any means, e.g., announcement, message, or public statement) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

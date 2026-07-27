@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "The Peace of Westphalia is a historical event. The question asks for the year it was signed.",
+  "shared_context": "The Peace of Westphalia is a historical treaty. The question asks for its signing year, which is a factual historical date.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is a factual lookup about a past event, not a social decision to simulate."
+  "resolution": "UNRESOLVABLE: The question is a pure factual lookup with no social decision to simulate."
 }

@@ -1,7 +1,7 @@
 {
  "world_id": "w_0b1b243c529e",
  "actor_ids": {
-  "Bramblewick Studios (as a decision-making entity)": "bramblewick_studios_as_a_decision_making_entity",
+  "Bramblewick Studios": "bramblewick_studios",
   "Elin Bjork": "elin_bjork"
  },
  "event_records": [
@@ -11,9 +11,9 @@
    "at": "2026-10-09T15:00:00+00:00",
    "visible_to_ids": [
     "elin_bjork",
-    "bramblewick_studios_as_a_decision_making_entity"
+    "bramblewick_studios"
    ],
-   "description": "Elin Bjork's final interview has concluded. The two-week period for Bramblewick Studios to send a decision begins now."
+   "description": "Elin Bjork's final interview concludes. The art director promises a decision, offer or rejection within two weeks."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "bramblewick_studios_as_a_decision_making_entity": {
-   "name": "Bramblewick Studios (as a decision-making entity)",
-   "persona_brief": "You are Bramblewick Studios (as a decision-making entity).\nBramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision within two weeks after her final interview. The hiring manager mentioned that budget sign-off is still pending with the finance lead. The studio must decide whether to send Elin an offer or rejection."
+  "bramblewick_studios": {
+   "name": "Bramblewick Studios",
+   "persona_brief": "You are Bramblewick Studios.\nBramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision, offer or rejection within two weeks after her final interview. The hiring manager mentioned that budget sign-off was still pending with the finance lead."
   },
   "elin_bjork": {
    "name": "Elin Bjork",
-   "persona_brief": "You are Elin Bjork.\nElin Bjork has completed her final interview with Bramblewick Studios. She is waiting to hear back with a decision, offer, or rejection within the two weeks promised by the art director."
+   "persona_brief": "You are Elin Bjork.\nElin Bjork has completed her final interview with Bramblewick Studios. The art director promised her a decision, offer or rejection within two weeks. She is waiting to hear back."
   }
  },
  "resolution": {
   "question": "Will Bramblewick Studios send Elin Bjork any decision, offer or rejection, within the two weeks their art director promised at the end of her final interview?",
-  "resolution": "Resolve YES if the persistent event history shows that Bramblewick Studios sent Elin Bjork any decision, offer, or rejection before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Bramblewick Studios sent Elin Bjork any communication that constitutes a decision, offer or rejection before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-23T16:00:00+01:00",
   "world_id": "w_0b1b243c529e"
  }

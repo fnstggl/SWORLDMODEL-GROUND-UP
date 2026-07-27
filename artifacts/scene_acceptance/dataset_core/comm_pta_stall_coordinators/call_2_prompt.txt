@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,37 +98,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "PTA subcommittee chair",
-   "private_context": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from the school community and plan to reach out to them before the October planning meeting. The chair is aware of the October 19 meeting deadline."
-  },
-  {
-   "name": "Potential volunteer 1",
-   "private_context": "A parent who has helped with school events before and is generally willing to volunteer if asked directly. They have not yet been contacted about the winter fair."
-  },
-  {
-   "name": "Potential volunteer 2",
-   "private_context": "A parent who is busy with work but might consider coordinating a stall if the time commitment is clear. They have not yet been contacted."
-  },
-  {
-   "name": "Potential volunteer 3",
-   "private_context": "A local business owner who has sponsored school events in the past and might be interested in running a stall. They have not yet been contacted."
-  },
-  {
-   "name": "Potential volunteer 4",
-   "private_context": "A teacher who is already involved in after-school activities and may not have extra time. They have not yet been contacted."
+   "name": "PTA Subcommittee for the Winter Fair",
+   "private_context": "The subcommittee is responsible for organizing the winter fair and needs to recruit four stall coordinators. It has a meeting scheduled for October 19, 2026. The subcommittee has not yet recruited any stall coordinators as of the simulation start."
   }
  ],
- "shared_context": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
+ "shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee will hold its October planning meeting on 2026-10-19 at 21:00. Potential coordinators may be recruited before or at that meeting.",
  "starting_events": [
   {
    "time": "2026-09-21T19:00:00-05:00",
-   "description": "The PTA subcommittee chair begins the process of recruiting stall coordinators for the winter fair.",
+   "description": "The PTA subcommittee begins its recruitment efforts for four stall coordinators.",
    "visible_to": [
-    "PTA subcommittee chair"
+    "PTA Subcommittee for the Winter Fair"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff time, the persistent event history shows that at least four distinct individuals have agreed to serve as stall coordinators for the winter fair. Otherwise resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that four stall coordinators have been recruited (i.e., have agreed to serve) by the end of the October planning meeting (2026-10-19T21:00:00-05:00). Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

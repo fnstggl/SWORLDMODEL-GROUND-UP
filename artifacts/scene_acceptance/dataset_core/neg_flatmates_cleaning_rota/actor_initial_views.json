@@ -23,13 +23,13 @@
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Dana shares a flat with Yusuf. They need a cleaning rota. Dana has some preferences about the rota but has not yet discussed them with Yusuf. Dana is available on the flat group chat.",
+    "content": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
+    "content": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Yusuf shares a flat with Dana. They need a cleaning rota. Yusuf has some preferences about the rota but has not yet discussed them with Dana. Yusuf is available on the flat group chat.",
+    "content": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
+    "content": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,23 +1,17 @@
 {
  "world_id": "w_9f8bf1d5d9e7",
  "actor_ids": {
-  "Alice": "alice",
-  "Bob": "bob",
-  "Carol": "carol",
-  "Dave": "dave"
+  "Cheap Detour (band as a unit)": "cheap_detour_band_as_a_unit"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 17,
+   "ledger_seq": 8,
    "at": "2026-09-07T17:00:00+00:00",
    "visible_to_ids": [
-    "alice",
-    "bob",
-    "carol",
-    "dave"
+    "cheap_detour_band_as_a_unit"
    ],
-   "description": "The band members are aware that they need to finalize the setlist before or during Thursday's rehearsal. They have a partial list of five songs tentatively agreed upon: 'Sweet Child O' Mine', 'Superstition', 'Uptown Funk', 'Bohemian Rhapsody', and 'Don't Stop Believin''. The remaining seven slots are open for discussion, with each member having differing preferences for the remaining songs."
+   "description": "The band members are aware of the upcoming rehearsal and the need to finalize the setlist."
   }
  ],
  "code_owned_defaults": {
@@ -26,26 +20,14 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "alice": {
-   "name": "Alice",
-   "persona_brief": "You are Alice.\nLead vocalist and rhythm guitarist. Prefers classic rock and upbeat songs. Wants to include 'Sweet Child O' Mine' and 'Livin' on a Prayer'. Tends to be assertive in discussions."
-  },
-  "bob": {
-   "name": "Bob",
-   "persona_brief": "You are Bob.\nLead guitarist. Prefers blues and funk. Wants to include 'Superstition' and 'Pride and Joy'. Often compromises but has strong opinions on guitar-heavy songs."
-  },
-  "carol": {
-   "name": "Carol",
-   "persona_brief": "You are Carol.\nBassist and backing vocalist. Prefers pop and dance songs. Wants to include 'Uptown Funk' and 'Get Lucky'. Tries to keep the peace but pushes for crowd-pleasers."
-  },
-  "dave": {
-   "name": "Dave",
-   "persona_brief": "You are Dave.\nDrummer. Prefers classic rock and ballads. Wants to include 'Bohemian Rhapsody' and 'Don't Stop Believin''. Usually goes along with the group but has a few must-haves."
+  "cheap_detour_band_as_a_unit": {
+   "name": "Cheap Detour (band as a unit)",
+   "persona_brief": "You are Cheap Detour (band as a unit).\nThe four members have a wedding gig on Saturday and need to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has personal preferences and song ideas, but no agreement has been reached yet."
   }
  },
  "resolution": {
   "question": "Will the four members of the covers band Cheap Detour settle their twelve-song wedding setlist at or before Thursday's rehearsal?",
-  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before 2026-09-10T22:00:00+01:00. Otherwise resolve NO.",
+  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO.",
   "cutoff": "2026-09-10T22:00:00+01:00",
   "world_id": "w_9f8bf1d5d9e7"
  }

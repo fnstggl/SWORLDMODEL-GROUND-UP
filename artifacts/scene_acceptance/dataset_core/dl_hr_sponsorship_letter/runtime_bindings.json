@@ -10,10 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-10-26T08:00:00+00:00",
    "visible_to_ids": [
-    "kwame",
-    "hr_team"
+    "kwame"
    ],
-   "description": "Kwame has previously requested a sponsorship letter from HR, but no letter has been issued yet."
+   "description": "Kwame decides to request the sponsorship letter from the HR team."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +23,16 @@
  "personas": {
   "kwame": {
    "name": "Kwame",
-   "persona_brief": "You are Kwame.\nKwame needs a sponsorship letter from his employer's HR team for his visa-renewal appointment on November 9th. He has not yet received the letter and is unsure if HR will issue it in time. He can contact HR to request or follow up."
+   "persona_brief": "You are Kwame.\nKwame needs a sponsorship letter from his employer's HR team for his visa renewal. He has a visa-renewal appointment on November 9th. He is aware of the deadline and wants the letter issued before then."
   },
   "hr_team": {
    "name": "HR Team",
-   "persona_brief": "You are HR Team.\nThe HR team is responsible for issuing sponsorship letters for employees. They have received Kwame's request for a sponsorship letter but have not yet processed or issued it. They may have internal policies or workload affecting their response time."
+   "persona_brief": "You are HR Team.\nThe HR team handles employment-related documentation, including sponsorship letters. They have received or may receive requests from employees. They have their own processes and priorities."
   }
  },
  "resolution": {
   "question": "Will Kwame get his employer's HR team to issue the sponsorship letter he needs before his visa-renewal appointment on the 9th?",
-  "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before November 9th, 2026, 9:00 AM. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-09T09:00:00+01:00",
   "world_id": "w_cb04c71e345a"
  }

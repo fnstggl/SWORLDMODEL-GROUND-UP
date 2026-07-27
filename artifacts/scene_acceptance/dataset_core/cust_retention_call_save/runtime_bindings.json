@@ -2,7 +2,7 @@
  "world_id": "w_62914afab5b2",
  "actor_ids": {
   "Account Manager (Brightline Software)": "account_manager_brightline_software",
-  "Fenwick & Sloane Representative": "fenwick_sloane_representative"
+  "Fenwick & Sloane representative": "fenwick_sloane_representative"
  },
  "event_records": [
   {
@@ -13,7 +13,7 @@
     "account_manager_brightline_software",
     "fenwick_sloane_representative"
    ],
-   "description": "The retention call is scheduled to occur sometime this week. No call has taken place yet."
+   "description": "The scheduled retention call between Brightline Software's account manager and Fenwick & Sloane's representative begins."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "account_manager_brightline_software": {
    "name": "Account Manager (Brightline Software)",
-   "persona_brief": "You are Account Manager (Brightline Software).\nThe account manager is responsible for retaining Fenwick & Sloane as a customer. They have prepared talking points for the retention call, including options for pausing the subscription. They are aware that Fenwick & Sloane has expressed dissatisfaction and is considering cancellation."
+   "persona_brief": "You are Account Manager (Brightline Software).\nThe account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The account manager has been trained to offer a pause option as a retention tactic and has authority to propose a pause. They want to persuade the retailer to pause instead of cancel."
   },
   "fenwick_sloane_representative": {
-   "name": "Fenwick & Sloane Representative",
-   "persona_brief": "You are Fenwick & Sloane Representative.\nThe representative is the point of contact for the subscription. They have been authorized by Fenwick & Sloane to discuss the subscription status. They are leaning towards cancellation due to budget constraints and perceived lack of value, but are open to hearing alternatives."
+   "name": "Fenwick & Sloane representative",
+   "persona_brief": "You are Fenwick & Sloane representative.\nThe representative is the point of contact for the subscription. They have been directed by their organization to cancel the subscription due to budget cuts or dissatisfaction. They are open to hearing alternatives but are leaning toward cancellation. They have the authority to decide on a pause if it meets their needs."
   }
  },
  "resolution": {
   "question": "Will Brightline Software's account manager persuade the retailer Fenwick & Sloane to pause rather than cancel their subscription during this week's scheduled retention call?",
-  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that Fenwick & Sloane agreed to pause their subscription (i.e., did not cancel and explicitly opted for a pause). Resolve NO if they cancel, or if no agreement to pause is reached by the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Fenwick & Sloane's representative explicitly agreed to pause the subscription (rather than cancel) before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-11T17:00:00-07:00",
   "world_id": "w_62914afab5b2"
  }

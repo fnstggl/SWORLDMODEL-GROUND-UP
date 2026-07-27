@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Marguerite",
-      "private_context": "Marguerite is the owner of the Copper Kettle bistro. She usually replies to reviews within days, often defensively. She knows the bistro was short two servers on the night in question."
+      "private_context": "Marguerite is the owner of the Copper Kettle bistro. She typically replies to most reviews within days, and her replies tend to be defensive. She has just become aware of a one-star review posted last night complaining about a 45-minute wait on a night the bistro was short two servers."
     }
   ],
-  "shared_context": "A one-star review of the Copper Kettle bistro complaining about a 45-minute wait on a night the bistro was short two servers was posted on a major review site last night. Marguerite can see the review and can post a public reply on the site.",
+  "shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review mentions a 45-minute wait and that the bistro was short two servers that night. The review site allows business owners to post public replies to reviews.",
   "starting_events": [
     {
       "time": "2026-08-30T09:00:00-04:00",
-      "description": "Marguerite sees the one-star review on the major review site.",
+      "description": "Marguerite sees the one-star review on the review site.",
       "visible_to": ["Marguerite"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the major review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff."
 }

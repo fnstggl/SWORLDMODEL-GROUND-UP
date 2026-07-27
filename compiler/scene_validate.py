@@ -9,24 +9,32 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def parse_ts(s: str) -> datetime:
     return datetime.fromisoformat(s.replace("Z", "+00:00"))
 
 
+def _strip_invisibles(s: str) -> str:
+    """Remove zero-width/format characters (Unicode category Cf): a name or
+    resolution made only of invisibles must count as empty, and invisible
+    infixes must not make identical names distinct."""
+    return "".join(ch for ch in s if unicodedata.category(ch) != "Cf")
+
+
 def norm_name(name: str) -> str:
-    """Normalization key for actor-name comparison: NFKC, collapsed
-    whitespace, casefold, stripped surrounding punctuation."""
-    s = unicodedata.normalize("NFKC", name)
+    """Normalization key for actor-name comparison: NFKC, invisibles
+    stripped, collapsed whitespace, casefold, stripped surrounding
+    punctuation."""
+    s = _strip_invisibles(unicodedata.normalize("NFKC", name))
     s = re.sub(r"\s+", " ", s).strip()
     s = s.strip(".,;:!?'\"()[]{}")
     return s.casefold()
 
 
 def display_name(name: str) -> str:
-    s = unicodedata.normalize("NFKC", name)
+    s = _strip_invisibles(unicodedata.normalize("NFKC", name))
     return re.sub(r"\s+", " ", s).strip()
 
 
@@ -36,8 +44,14 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
     errors: list = []
     warnings: list = []
     notes: list = []
-    start = parse_ts(start_iso)
-    cutoff = parse_ts(cutoff_iso)
+    try:
+        start = parse_ts(start_iso)
+        cutoff = parse_ts(cutoff_iso)
+        if start.tzinfo is None or cutoff.tzinfo is None:
+            raise ValueError("start/cutoff must be timezone-aware")
+    except (ValueError, TypeError) as e:
+        # caller-owned inputs are still validated, never raised through
+        return None, {"notes": []}, [f"invalid start/cutoff: {e}"], []
     if cutoff <= start:
         errors.append(f"cutoff {cutoff_iso} is not after start {start_iso}")
 
@@ -86,7 +100,12 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
         if t.tzinfo is None:
             errors.append(f"starting_events[{i}].time is not timezone-aware")
             continue
-        desc = re.sub(r"\s+", " ", e["description"]).strip()
+        desc = re.sub(r"\s+", " ",
+                      _strip_invisibles(e["description"])).strip()
+        if not desc:
+            errors.append(f"starting_events[{i}].description is empty after "
+                          f"normalization")
+            continue
         vis = []
         for v in e["visible_to"]:
             k = norm_name(v)
@@ -107,6 +126,7 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
                          f"start; it is applied at the start instant as "
                          f"already-occurred state")
             t = start
+        t = t.astimezone(timezone.utc)      # one instant, one identity
         exact = (t.isoformat(), desc.casefold(), tuple(sorted(vis)))
         if exact in seen_exact:
             notes.append(f"starting_events[{i}] is an exact duplicate; "
@@ -123,9 +143,10 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
                        "visible_to": vis})
 
     # ---- resolution ---------------------------------------------------
-    resolution = manifest["resolution"].strip()
+    resolution = re.sub(r"\s+", " ",
+                        _strip_invisibles(manifest["resolution"])).strip()
     if not resolution:
-        errors.append("resolution is empty")
+        errors.append("resolution is empty after normalization")
     if resolution.upper().startswith("UNRESOLVABLE"):
         errors.append(f"scene declared unresolvable by the compiler: "
                       f"{resolution}")
@@ -134,7 +155,10 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
             errors.append(
                 f"the resolution literally appears as starting_events[{i}]: "
                 f"the terminal must not already be an occurred event")
-    shared = re.sub(r"\s+", " ", manifest["shared_context"]).strip()
+    shared = re.sub(r"\s+", " ",
+                    _strip_invisibles(manifest["shared_context"])).strip()
+    if not shared:
+        errors.append("shared_context is empty after normalization")
 
     normalized = {"actors": actors, "shared_context": shared,
                   "starting_events": events, "resolution": resolution}

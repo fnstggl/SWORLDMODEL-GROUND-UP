@@ -143,6 +143,35 @@ def test_resolution_as_occurred_event_is_rejected():
     assert any("must not already be an occurred event" in e for e in errors)
 
 
+def test_hostile_invisibles_offsets_and_bad_frames():
+    """Agent D regressions: zero-width names/resolutions are empty; equal
+    instants in different offsets are exact duplicates; malformed caller
+    start/cutoff returns errors instead of raising; ws-variant resolution
+    still matches an occurred event."""
+    m = json.loads(json.dumps(MANIFEST))
+    m["actors"].append({"name": "​", "private_context": "ghost"})
+    _, _, errors, _ = validate_scene(m, START, CUTOFF)
+    assert any("normalizes to empty" in e for e in errors)
+    m = json.loads(json.dumps(MANIFEST))
+    m["resolution"] = "​​"
+    _, _, errors, _ = validate_scene(m, START, CUTOFF)
+    assert any("resolution is empty" in e for e in errors)
+    m = json.loads(json.dumps(MANIFEST))
+    m["starting_events"].append(dict(m["starting_events"][0],
+                                     time="2026-07-27T14:00:00Z"))
+    scene, _, errors, _ = validate_scene(m, START, CUTOFF)   # same instant
+    assert errors == [] and len(scene["starting_events"]) == 1
+    for bad_start in ("2026-07-27T09:00", "sideways", "2026-13-45T99:99"):
+        _, _, errors, _ = validate_scene(
+            json.loads(json.dumps(MANIFEST)), bad_start, CUTOFF)
+        assert any("invalid start/cutoff" in e for e in errors), bad_start
+    m = json.loads(json.dumps(MANIFEST))
+    m["resolution"] = "A  sends the   prepared message to B."
+    m["starting_events"][0]["description"] = "A sends the prepared message to B."
+    _, _, errors, _ = validate_scene(m, START, CUTOFF)
+    assert any("must not already be an occurred event" in e for e in errors)
+
+
 # ----------------------------------------------------------------- adapter
 def build_world():
     scene, _, errors, _ = validate_scene(

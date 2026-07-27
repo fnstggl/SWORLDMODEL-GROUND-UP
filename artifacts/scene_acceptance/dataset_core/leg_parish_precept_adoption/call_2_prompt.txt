@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,20 +99,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Kettlewell Parish Council",
-   "private_context": "The council is a body of elected members. Its standing orders require the precept for the next financial year to be formally adopted at the January meeting. The council has a draft precept figure prepared by the clerk, but no formal decision has been made yet."
+   "private_context": "The council is a body of elected members. It must formally adopt the precept for the next financial year at its January meeting, as required by its standing orders. The council has a chairperson and a clerk. The meeting is scheduled for a date in January 2027."
   }
  ],
- "shared_context": "Kettlewell Parish Council's January meeting is scheduled to take place before the hard cutoff. The meeting agenda includes the item 'Adoption of Precept for 2027-28'. The council's standing orders require formal adoption at this meeting. The draft precept figure is available to all councillors.",
+ "shared_context": "Kettlewell Parish Council is a local government body. Its standing orders require the council to formally adopt the precept for the next financial year at its January meeting. The precept is the amount of council tax the parish council will collect. The meeting is scheduled to occur before the hard cutoff date of 2027-01-21T22:00:00+00:00.",
  "starting_events": [
   {
    "time": "2027-01-04T09:00:00+00:00",
-   "description": "The January meeting of Kettlewell Parish Council is scheduled to begin. The agenda includes the precept adoption item.",
+   "description": "The January meeting of Kettlewell Parish Council is scheduled to take place. The agenda includes the formal adoption of next year's precept.",
    "visible_to": [
     "Kettlewell Parish Council"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the council formally adopted the precept at its January meeting before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Kettlewell Parish Council formally adopted next year's precept at its January meeting before the hard cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

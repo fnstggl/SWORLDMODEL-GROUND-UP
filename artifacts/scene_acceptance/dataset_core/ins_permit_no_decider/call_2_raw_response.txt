@@ -1,10 +1,10 @@
 {
-  "verdict": "ABSTAIN",
-  "defects": [
-    {
-      "path": "scene",
-      "problem": "The scene uses generic placeholder actors 'Applicant' and 'Permit Office' that are not identified in the question. The question does not specify any particular applicant or permit office, so these are invented stand-ins for unspecified parties, violating the rule against generic placeholder actors.",
-      "correction": "The question lacks sufficient information to identify the specific actors involved. The scene cannot be constructed without inventing actors, which is not allowed. Therefore, the scene should be abstained."
-    }
-  ]
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The question asks about a specific permit approval, but the scene provides no identifying details about the permit, the applicant, the reviewing body, or the jurisdiction. The actors 'Applicant' and 'Permit Reviewer' are generic placeholders with no connection to any real or referenced entity. The scene lacks sufficient information to determine who the decision-maker is or what the observed resolving event (official approval record) refers to. This is an insufficiently specified simulation.",
+   "correction": "The question must provide enough context to identify the specific permit, the decision-making authority, and the criteria for approval. Without such details, the scene cannot be meaningfully simulated."
+  }
+ ]
 }

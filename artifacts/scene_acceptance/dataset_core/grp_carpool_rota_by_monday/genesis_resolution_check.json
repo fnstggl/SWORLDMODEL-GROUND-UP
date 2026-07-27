@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
-  "resolution": "Resolve YES if, before the cutoff (2026-09-07T08:00:00+12:00), the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., via a shared message or document indicating each family's assigned days). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of who drives which days). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-07T08:00:00+12:00",
   "world_id": "w_940acfd23314"
  },

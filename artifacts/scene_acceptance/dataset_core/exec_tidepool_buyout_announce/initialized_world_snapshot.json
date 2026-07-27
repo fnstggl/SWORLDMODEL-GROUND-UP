@@ -2,6 +2,49 @@
  "action_defs": {},
  "actions": {},
  "actors": {
+  "employees_as_a_group": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "employees_as_a_group",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The twelve employees are aware of the founders' disagreements through office gossip and all-hands meetings. They are concerned about job security and the company's direction, but have no direct decision-making power in a buyout.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T17:00:00+00:00"
+    },
+    {
+     "content": "Tidepool is a mobile app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The company has no board of directors; the founders hold equal equity and decision-making power. The employees have no formal role in a buyout decision.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T17:00:00+00:00"
+    }
+   ],
+   "name": "Employees (as a group)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
   "founder_a": {
    "attention": {
     "scene": {
@@ -21,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Founder A has been in a strategic disagreement with Founder B since spring. A believes the company should pivot to a new market, and is considering whether to buy out B or be bought out. A has not yet decided to make an offer.",
+     "content": "Founder A believes the company should pivot to a subscription model and is frustrated with Founder B's insistence on ad-based revenue. A has been exploring buyout options with potential investors and is considering buying out Founder B.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T17:00:00+00:00"
     },
     {
-     "content": "Tidepool is an app company with twelve employees. The two founders have equal ownership and decision-making power. The employees are aware of the founders' disagreement but not of any specific buyout plans. The company has no formal process for buyouts; any announcement would be made by the founders to the employees.",
+     "content": "Tidepool is a mobile app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The company has no board of directors; the founders hold equal equity and decision-making power. The employees have no formal role in a buyout decision.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T17:00:00+00:00"
@@ -64,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Founder B has been in a strategic disagreement with Founder A since spring. B believes the company should stay the course, and is considering whether to buy out A or be bought out. B has not yet decided to make an offer.",
+     "content": "Founder B is committed to the ad-based revenue model and thinks Founder A's pivot idea is risky. B has been in talks with a venture capital firm about buying out Founder A's stake.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T17:00:00+00:00"
     },
     {
-     "content": "Tidepool is an app company with twelve employees. The two founders have equal ownership and decision-making power. The employees are aware of the founders' disagreement but not of any specific buyout plans. The company has no formal process for buyouts; any announcement would be made by the founders to the employees.",
+     "content": "Tidepool is a mobile app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The company has no board of directors; the founders hold equal equity and decision-making power. The employees have no formal role in a buyout decision.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T17:00:00+00:00"
@@ -102,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "The two founders of the Tidepool app have been at odds over strategy since spring. Will they announce a buyout of one side to their twelve employees within the next three months?",
-  "scene:shared_context": "Tidepool is an app company with twelve employees. The two founders have equal ownership and decision-making power. The employees are aware of the founders' disagreement but not of any specific buyout plans. The company has no formal process for buyouts; any announcement would be made by the founders to the employees."
+  "scene:shared_context": "Tidepool is a mobile app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The company has no board of directors; the founders hold equal equity and decision-making power. The employees have no formal role in a buyout decision."
  },
  "history": [],
  "infos": {},
@@ -112,6 +155,6 @@
  "resources": {},
  "start": "2026-08-01T17:00:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 14,
  "watches": {}
 }

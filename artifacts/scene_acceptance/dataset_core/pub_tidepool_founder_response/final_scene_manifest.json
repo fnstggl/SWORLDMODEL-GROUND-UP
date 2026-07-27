@@ -2,23 +2,18 @@
  "actors": [
   {
    "name": "Founder of Tidepool",
-   "private_context": "The founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. They have received email inquiries from two journalists about the viral thread. The founder is considering whether and how to respond publicly."
-  },
-  {
-   "name": "Head of Support at Tidepool",
-   "private_context": "The head of support has privately confirmed to the founder that some takedowns of critical reviews happened. They are aware of the viral thread and the journalists' inquiries."
+   "private_context": "The founder knows that the company's head of support has privately confirmed that some critical reviews were taken down. The founder has received emails from two journalists requesting comment. The founder is deciding whether to post a public response to the viral thread."
   }
  ],
- "shared_context": "A viral thread on social media, with two million views and screenshots that appear genuine, accuses Tidepool of deleting critical reviews. Two journalists have emailed Tidepool for comment. The thread is publicly visible and has generated significant attention.",
+ "shared_context": "A viral thread accusing Tidepool of deleting critical reviews has accumulated two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder can post a public response on the same platform.",
  "starting_events": [
   {
    "time": "2026-09-03T15:00:00-07:00",
-   "description": "The viral thread accusing Tidepool of deleting critical reviews is circulating publicly with two million views. The founder has been informed by the head of support that some takedowns occurred. Two journalists have sent emails requesting comment.",
+   "description": "The viral thread accusing Tidepool of deleting critical reviews is publicly visible with two million views and screenshots.",
    "visible_to": [
-    "Founder of Tidepool",
-    "Head of Support at Tidepool"
+    "Founder of Tidepool"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the founder of Tidepool posted a public response (e.g., a statement, tweet, or post) addressing the accusations before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the founder posted a public response to the viral thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
 }

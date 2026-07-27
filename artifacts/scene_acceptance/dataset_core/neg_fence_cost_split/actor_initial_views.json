@@ -23,13 +23,13 @@
    {
     "t": "2026-08-02T17:00:00+00:00",
     "kind": "context",
-    "content": "Bill believes the fence is shared property and the Osei family should pay half the repair cost. He is willing to negotiate but will consider small claims if no agreement is reached.",
+    "content": "Bill believes the fence damage was caused by a storm and thinks the cost should be shared equally. He is willing to discuss but wants to avoid small claims court.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-02T17:00:00+00:00",
     "kind": "context",
-    "content": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. The fence needs repair. Both parties have discussed the issue but have not yet agreed on how to split the cost. They have two months to reach an agreement before the option of small claims court becomes more likely.",
+    "content": "Bill and the Osei family are neighbors who share a fence that was damaged in a storm. The fence needs repair, and there is a dispute over who should pay and in what proportion. Both parties can communicate directly or through informal channels. There is a two-month window to reach an agreement before the hard cutoff.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-02T17:00:00+00:00",
     "kind": "context",
-    "content": "The Osei family believes the fence is Bill's responsibility or that they should pay less than half. They prefer to avoid court but are firm on their position.",
+    "content": "The Osei family believes Bill is responsible for the fence damage or that the cost split should be different. They are open to negotiation but may consider small claims if no agreement is reached.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-02T17:00:00+00:00",
     "kind": "context",
-    "content": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. The fence needs repair. Both parties have discussed the issue but have not yet agreed on how to split the cost. They have two months to reach an agreement before the option of small claims court becomes more likely.",
+    "content": "Bill and the Osei family are neighbors who share a fence that was damaged in a storm. The fence needs repair, and there is a dispute over who should pay and in what proportion. Both parties can communicate directly or through informal channels. There is a two-month window to reach an agreement before the hard cutoff.",
     "source": "scene_manifest:shared_context"
    }
   ],

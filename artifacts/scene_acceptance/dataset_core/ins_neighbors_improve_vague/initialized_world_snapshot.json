@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "neighbor_a": {
+  "neighbors": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "neighbor_a",
+   "id": "neighbors",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Neighbor A has been in a dispute with Neighbor B over property boundaries and noise complaints. A is frustrated and considering legal action, but also open to mediation if B shows willingness.",
+     "content": "The neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T10:00:00+00:00"
     },
     {
-     "content": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
+     "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T10:00:00+00:00"
     }
    ],
-   "name": "Neighbor A",
+   "name": "Neighbors",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "neighbor_b": {
+  "resident": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "neighbor_b",
+   "id": "resident",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Neighbor B is aware of the tension with A but believes A is overreacting. B is not inclined to apologize or change behavior, but might consider a compromise if it avoids escalation.",
+     "content": "The resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T10:00:00+00:00"
     },
     {
-     "content": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
+     "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T10:00:00+00:00"
     }
    ],
-   "name": "Neighbor B",
+   "name": "Resident",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the situation with the neighbors improve over the next few months?",
-  "scene:shared_context": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction."
+  "scene:shared_context": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently."
  },
  "history": [],
  "infos": {},

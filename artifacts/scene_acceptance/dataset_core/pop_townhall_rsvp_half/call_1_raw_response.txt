@@ -2,20 +2,28 @@
   "actors": [
     {
       "name": "Petersfield Secondary School Administration",
-      "private_context": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior knowledge of which parents will RSVP."
+      "private_context": "The school has sent invitations to 120 parents for a curriculum-change town hall scheduled for a date after the cutoff. They need to know how many parents will attend to plan logistics. They have no prior RSVPs yet."
     },
     {
-      "name": "Invited Parents (as a cohort)",
-      "private_context": "Each of the 120 parents received an invitation to the town hall. They may or may not RSVP by the deadline. Their individual decisions are unknown."
+      "name": "Parent 1",
+      "private_context": "One of the 120 invited parents. May or may not RSVP. Has their own schedule and interest in the curriculum change."
+    },
+    {
+      "name": "Parent 2",
+      "private_context": "Another invited parent. May or may not RSVP. Has their own schedule and interest."
+    },
+    {
+      "name": "Parent 3",
+      "private_context": "Another invited parent. May or may not RSVP. Has their own schedule and interest."
     }
   ],
-  "shared_context": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
+  "shared_context": "Petersfield Secondary School has invited 120 parents to a town hall about curriculum changes. The town hall is scheduled for a date after the cutoff. Parents can RSVP by the Friday before the event, which is 2026-10-16. The school has provided a method for parents to RSVP (e.g., online form, phone, email).",
   "starting_events": [
     {
       "time": "2026-10-05T09:00:00+01:00",
-      "description": "The simulation begins. Invitations have already been sent to 120 parents. No RSVPs have been received yet.",
+      "description": "Invitations have been sent to 120 parents. No RSVPs have been received yet.",
       "visible_to": ["Petersfield Secondary School Administration"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that more than 60 parents (i.e., > half of 120) have sent an RSVP (either 'yes' or 'no') by 2026-10-16T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that more than 60 distinct parents (out of the 120 invited) have sent an RSVP (either yes or no) by 2026-10-16T17:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Chen Wei",
-   "private_context": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. They have received an initial page rate offer and are preparing a counteroffer today. They want to settle on a rate within a week."
+   "private_context": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. She is preparing to make a counteroffer on the page rate today. She wants a rate she considers fair and hopes to reach an agreement within a week."
   },
   {
    "name": "Torchlight Media",
-   "private_context": "Torchlight Media is a publisher that wants to commission Chen Wei for a twelve-page project. They have made an initial page rate offer and are open to negotiation. They have a standard process for approving rate changes."
+   "private_context": "Torchlight Media is a publisher that has offered Chen Wei a twelve-page commission. They have received her initial counteroffer and are considering it. They have a standard range for page rates and are open to negotiation but have budget constraints."
   }
  ],
- "shared_context": "Chen Wei and Torchlight Media are in negotiation over the page rate for a twelve-page commission. Chen Wei is preparing to send a counteroffer today, August 6, 2026. Both parties have each other's contact information and can communicate via email or other means. The negotiation has a one-week window from today to reach an agreement.",
+ "shared_context": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is making a counteroffer on the page rate today, August 6, 2026. Both parties can communicate via email or phone. The negotiation has a one-week window until August 13, 2026.",
  "starting_events": [
   {
    "time": "2026-08-06T14:00:00+08:00",
-   "description": "Chen Wei sends their opening counteroffer to Torchlight Media regarding the page rate for the twelve-page commission.",
+   "description": "Chen Wei sends her counteroffer on the page rate to Torchlight Media.",
    "visible_to": [
     "Chen Wei"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff at 2026-08-13T14:00:00+08:00, the persistent event history shows that both Chen Wei and Torchlight Media have explicitly agreed to a specific page rate for the twelve-page commission (e.g., via signed contract, email acceptance, or other documented mutual consent). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the cutoff on 2026-08-13T14:00:00+08:00, the persistent event history shows that both Chen Wei and Torchlight Media have agreed to a specific page rate for the twelve-page commission (e.g., via signed contract, email acceptance, or other documented mutual agreement). Otherwise resolve NO at the cutoff."
 }

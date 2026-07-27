@@ -15,7 +15,7 @@
     "co_founder_2",
     "co_founder_3"
    ],
-   "description": "The simulation begins. No decision has been made yet about the January price increase. The co-founders have not yet communicated a decision to the team."
+   "description": "The simulation begins. No decision has been made yet about the January price increase."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "co_founder_1": {
    "name": "Co-founder 1",
-   "persona_brief": "You are Co-founder 1.\nCo-founder 1 is aware of the January price increase proposal and has some opinion on it. They know that a decision needs to be made before the all-hands on the 18th. They have not yet discussed the final decision with the other co-founders."
+   "persona_brief": "You are Co-founder 1.\nCo-founder 1 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th."
   },
   "co_founder_2": {
    "name": "Co-founder 2",
-   "persona_brief": "You are Co-founder 2.\nCo-founder 2 is aware of the January price increase proposal and has some opinion on it. They know that a decision needs to be made before the all-hands on the 18th. They have not yet discussed the final decision with the other co-founders."
+   "persona_brief": "You are Co-founder 2.\nCo-founder 2 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th."
   },
   "co_founder_3": {
    "name": "Co-founder 3",
-   "persona_brief": "You are Co-founder 3.\nCo-founder 3 is aware of the January price increase proposal and has some opinion on it. They know that a decision needs to be made before the all-hands on the 18th. They have not yet discussed the final decision with the other co-founders."
+   "persona_brief": "You are Co-founder 3.\nCo-founder 3 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th."
   }
  },
  "resolution": {
   "question": "Will Brightline Software's three co-founders decide whether the January price increase is going ahead, and tell the team, before the all-hands on the 18th?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-12-18T10:00:00-08:00, the persistent event history shows that the three co-founders have collectively decided whether the January price increase is going ahead and that they have communicated that decision to the team (e.g., via an announcement, email, or meeting). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2026-12-18T10:00:00-08:00, the three co-founders have collectively decided whether the January price increase is going ahead and have communicated that decision to the team (e.g., via an announcement at the all-hands or a prior message). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-12-18T10:00:00-08:00",
   "world_id": "w_619f857bd038"
  }

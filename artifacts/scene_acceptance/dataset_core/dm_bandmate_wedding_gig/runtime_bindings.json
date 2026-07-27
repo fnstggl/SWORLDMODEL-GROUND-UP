@@ -23,11 +23,11 @@
  "personas": {
   "dario": {
    "name": "Dario",
-   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her asking about it. He hopes for a response within ten days."
+   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her asking this. He hopes for a response within ten days."
   },
   "selin": {
    "name": "Selin",
-   "persona_brief": "You are Selin.\nSelin is a busy gigging musician in Istanbul. She parted on good terms with Dario two years ago. She receives many messages and may or may not respond promptly."
+   "persona_brief": "You are Selin.\nSelin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario when their band dissolved two years ago. She has just received Dario's message asking her to play at his October wedding."
   }
  },
  "resolution": {

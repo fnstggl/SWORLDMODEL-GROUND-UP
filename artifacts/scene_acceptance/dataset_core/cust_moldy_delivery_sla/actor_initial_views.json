@@ -23,13 +23,13 @@
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "Hana Suzuki received a moldy delivery from Ostara Foods. She wants to file a complaint and expects a substantive reply within 24 hours as advertised. She has the contact information for Ostara Foods' support desk.",
+    "content": "Hana Suzuki received a moldy delivery from Ostara Foods. She has drafted a complaint and intends to send it to Ostara Foods' support desk. She expects a reply within 24 hours as advertised.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a moldy delivery and intends to contact the support desk. The support desk can receive complaints via email, phone, or online form.",
+    "content": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "The support desk handles customer complaints and aims to respond within 24 hours. They have standard procedures for handling complaints about moldy deliveries, which may include offering refunds or replacements. They are aware of the advertised 24-hour response window.",
+    "content": "The support desk handles customer complaints and aims to respond within 24 hours. They have not yet received Hana Suzuki's complaint.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a moldy delivery and intends to contact the support desk. The support desk can receive complaints via email, phone, or online form.",
+    "content": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
     "source": "scene_manifest:shared_context"
    }
   ],

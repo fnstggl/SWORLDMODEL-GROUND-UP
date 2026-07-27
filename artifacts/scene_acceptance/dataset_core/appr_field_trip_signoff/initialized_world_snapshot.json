@@ -2,6 +2,49 @@
  "action_defs": {},
  "actions": {},
  "actors": {
+  "deputy_head": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "deputy_head",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The deputy head is on leave until late September. They are the required signatory for the new risk-assessment form. They are not currently available to sign.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T07:30:00+00:00"
+    },
+    {
+     "content": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T07:30:00+00:00"
+    }
+   ],
+   "name": "Deputy Head",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
   "geography_department_head": {
    "attention": {
     "scene": {
@@ -21,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The geography department head has prepared the proposal for the coastal field trip, including a risk assessment. They know the new coach operator and that the risk-assessment form needs an extra signature from the deputy head, who is on leave until late September. They want the principal to sign off before the half-term deadline for sending parental consent letters.",
+     "content": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head. They know the deputy head is on leave until late September. They want the principal to sign off before the half-term deadline.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-07T07:30:00+00:00"
     },
     {
-     "content": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, there is a new coach operator and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for approval.",
+     "content": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-07T07:30:00+00:00"
@@ -45,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "principal": {
+  "principal_of_petersfield_secondary": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +103,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "principal",
+   "id": "principal_of_petersfield_secondary",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The principal is responsible for approving school trips. They are aware that the geography department's coastal field trip has run without incident for four years. They know the deputy head is on leave until late September, and that the risk-assessment form now requires the deputy head's signature. The principal may have concerns about the new coach operator and the missing signature.",
+     "content": "The principal is responsible for approving school trips. They are aware of the geography department's proposed coastal field trip and the half-term deadline for sending parental consent letters. They have no prior concerns about the trip, which has run without incident for four years.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-07T07:30:00+00:00"
     },
     {
-     "content": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, there is a new coach operator and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for approval.",
+     "content": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-07T07:30:00+00:00"
     }
    ],
-   "name": "Principal",
+   "name": "Principal of Petersfield Secondary",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the principal of Petersfield Secondary sign off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters?",
-  "scene:shared_context": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, there is a new coach operator and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for approval."
+  "scene:shared_context": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration."
  },
  "history": [],
  "infos": {},
@@ -112,6 +155,6 @@
  "resources": {},
  "start": "2026-09-07T07:30:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 14,
  "watches": {}
 }

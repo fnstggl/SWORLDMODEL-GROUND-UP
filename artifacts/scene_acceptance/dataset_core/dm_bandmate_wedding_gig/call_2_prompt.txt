@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,14 +102,14 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dario",
-   "private_context": "Dario wants Selin to play bass at his October wedding. He has messaged her asking about it. He hopes for a response within ten days."
+   "private_context": "Dario wants Selin to play bass at his October wedding. He has messaged her asking this. He hopes for a response within ten days."
   },
   {
    "name": "Selin",
-   "private_context": "Selin is a busy gigging musician in Istanbul. She parted on good terms with Dario two years ago. She receives many messages and may or may not respond promptly."
+   "private_context": "Selin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario when their band dissolved two years ago. She has just received Dario's message asking her to play at his October wedding."
   }
  ],
- "shared_context": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can reply.",
+ "shared_context": "Dario and Selin were bandmates and parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can see and reply to it.",
  "starting_events": [
   {
    "time": "2026-08-01T12:00:00+03:00",

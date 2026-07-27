@@ -24,11 +24,11 @@
  "personas": {
   "cfo": {
    "name": "CFO",
-   "persona_brief": "You are CFO.\nThe CFO pushed back on the original budget, leading to an eight percent reduction. They have weekly meetings with the CMO and a decent working relationship. They are aware of the upcoming leadership offsite on the 21st where the campaign is on the agenda."
+   "persona_brief": "You are CFO.\nThe CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
   },
   "cmo": {
    "name": "CMO",
-   "persona_brief": "You are CMO.\nThe CMO leads the marketing team and revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. They know the offsite agenda lists the campaign as a topic."
+   "persona_brief": "You are CMO.\nThe CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
   }
  },
  "resolution": {

@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -100,26 +101,30 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Principal",
-   "private_context": "The principal is responsible for approving school trips. They are aware that the geography department's coastal field trip has run without incident for four years. They know the deputy head is on leave until late September, and that the risk-assessment form now requires the deputy head's signature. The principal may have concerns about the new coach operator and the missing signature."
+   "name": "Principal of Petersfield Secondary",
+   "private_context": "The principal is responsible for approving school trips. They are aware of the geography department's proposed coastal field trip and the half-term deadline for sending parental consent letters. They have no prior concerns about the trip, which has run without incident for four years."
   },
   {
    "name": "Geography Department Head",
-   "private_context": "The geography department head has prepared the proposal for the coastal field trip, including a risk assessment. They know the new coach operator and that the risk-assessment form needs an extra signature from the deputy head, who is on leave until late September. They want the principal to sign off before the half-term deadline for sending parental consent letters."
+   "private_context": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head. They know the deputy head is on leave until late September. They want the principal to sign off before the half-term deadline."
+  },
+  {
+   "name": "Deputy Head",
+   "private_context": "The deputy head is on leave until late September. They are the required signatory for the new risk-assessment form. They are not currently available to sign."
   }
  ],
- "shared_context": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, there is a new coach operator and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for approval.",
+ "shared_context": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration.",
  "starting_events": [
   {
    "time": "2026-09-07T08:30:00+01:00",
-   "description": "The geography department head submits the coastal field trip proposal and risk assessment to the principal for sign-off.",
+   "description": "The geography department head submits the proposed coastal field trip paperwork to the principal's office, including the risk-assessment form that still needs the deputy head's signature.",
    "visible_to": [
     "Geography Department Head",
-    "Principal"
+    "Principal of Petersfield Secondary"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the principal signed off on the geography department's proposed coastal field trip before 2026-10-16T15:30:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the trip before the half-term deadline (2026-10-16T15:30:00+01:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -13,7 +13,7 @@
     "noor_haddad",
     "subtitling_agency"
    ],
-   "description": "The simulation begins. Noor's test piece is already with the agency, awaiting evaluation."
+   "description": "The simulation begins. Noor Haddad's test piece has already been submitted and is with the agency for evaluation."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "noor_haddad": {
    "name": "Noor Haddad",
-   "persona_brief": "You are Noor Haddad.\nNoor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, as quoted. She has no prior relationship with the agency beyond this submission."
+   "persona_brief": "You are Noor Haddad.\nNoor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects a response within one month from the submission date. She has no prior relationship with the agency beyond this test."
   },
   "subtitling_agency": {
    "name": "Subtitling Agency",
-   "persona_brief": "You are Subtitling Agency.\nThe agency receives many test submissions and evaluates them on an ad hoc basis. They quoted a one-month turnaround for feedback. They have no prior relationship with Noor."
+   "persona_brief": "You are Subtitling Agency.\nThe subtitling agency received a paid test piece from freelance translator Noor Haddad. The agency quoted a one-month turnaround for feedback. The agency has its own internal process for evaluating test pieces and may or may not respond within that timeframe."
   }
  },
  "resolution": {
   "question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
-  "resolution": "Resolve YES if the persistent event history shows that the agency sent a response to Noor (by any means) before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the subtitling agency actually sent a response to Noor Haddad before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-02T10:00:00+02:00",
   "world_id": "w_082487898991"
  }

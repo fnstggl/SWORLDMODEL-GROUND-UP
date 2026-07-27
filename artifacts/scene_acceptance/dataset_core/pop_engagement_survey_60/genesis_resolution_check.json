@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will at least 60 of the 400 employees at Calloway Regional Hospital complete the annual engagement survey during its two-week window?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 60 employees submitted a completed survey before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 60 employees submitted a completed survey response before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-15T17:00:00-05:00",
   "world_id": "w_52be22e52661"
  },

@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene invents a 'VP' actor and a calibration process that are not referenced in the question or context. The question only mentions 'manager Rosa Maria', 'her report Jonas', 'promotion case', 'calibration', and 'VP sign-off', but does not specify that the VP is a distinct individual or that calibration is a meeting. The scene also invents a specific submission event and a scheduled calibration meeting, which are unsupported by the question. The question lacks enough information to identify the decision-maker (the VP is a role, but the scene treats it as a single actor without justification) and the observed resolving event (calibration and sign-off are processes, not discrete observable events). This is an insufficiently specified social scene.",
+   "correction": "The question does not provide enough detail to construct a simulatable scene. The user must specify who the VP is, what calibration entails, and how the outcome is observable."
+  }
+ ]
 }

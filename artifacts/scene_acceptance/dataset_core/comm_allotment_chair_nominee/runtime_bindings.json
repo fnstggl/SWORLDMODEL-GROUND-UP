@@ -1,8 +1,8 @@
 {
  "world_id": "w_d5074892faaa",
  "actor_ids": {
-  "Chair": "chair",
-  "Society members": "society_members"
+  "Chair (stepping down)": "chair_stepping_down",
+  "Kettlewell Allotment Society members": "kettlewell_allotment_society_members"
  },
  "event_records": [
   {
@@ -10,9 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-08-25T17:00:00+00:00",
    "visible_to_ids": [
-    "society_members"
+    "kettlewell_allotment_society_members"
    ],
-   "description": "The chair announces their intention to step down at the upcoming annual general meeting."
+   "description": "The chair's intention to step down is known to the membership, but no formal announcement has been made at a meeting. The AGM is scheduled for 2026-09-29."
   }
  ],
  "code_owned_defaults": {
@@ -21,18 +21,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "chair": {
-   "name": "Chair",
-   "persona_brief": "You are Chair.\nThe chair has decided to step down and will announce this at the upcoming annual general meeting. They have not yet identified a successor and are not actively recruiting one."
+  "chair_stepping_down": {
+   "name": "Chair (stepping down)",
+   "persona_brief": "You are Chair (stepping down).\nThe chair has decided to step down and will announce this at the upcoming annual general meeting. They have no preferred successor and will not influence the election."
   },
-  "society_members": {
-   "name": "Society members",
-   "persona_brief": "You are Society members.\nThe members are aware that the chair is stepping down, but no one has yet expressed interest in standing for the position. Some members may be considering it privately."
+  "kettlewell_allotment_society_members": {
+   "name": "Kettlewell Allotment Society members",
+   "persona_brief": "You are Kettlewell Allotment Society members.\nThe members are aware of the upcoming AGM and the chair's intention to step down. Some may be considering standing for chair, but no one has publicly declared their candidacy yet."
   }
  },
  "resolution": {
   "question": "The Kettlewell allotment society's chair is stepping down. Will anyone volunteer to stand for chair before nominations close at the annual general meeting in five weeks?",
-  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that at least one society member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, by the hard cutoff (2026-09-29T20:00:00+01:00), the persistent event history shows that at least one member has submitted a valid nomination to stand for chair. Otherwise resolve NO.",
   "cutoff": "2026-09-29T20:00:00+01:00",
   "world_id": "w_d5074892faaa"
  }

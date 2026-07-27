@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Mayor of Riverton",
-      "private_context": "The mayor is aware of this morning's third water-main burst and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs factors like public concern, media attention, and operational updates from the water department."
+      "private_context": "The mayor is aware of this morning's third water-main burst and the public concern it is generating. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out or staying silent."
     }
   ],
-  "shared_context": "Riverton has experienced three water-main bursts, the most recent occurring this morning (2026-08-12). The bursts have caused localized disruptions but no citywide emergency. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media).",
+  "shared_context": "Riverton has experienced three water-main bursts this morning (2026-08-12). The third burst occurred earlier today. The mayor's office is the usual channel for official public statements. The public and local media are paying attention.",
   "starting_events": [
     {
       "time": "2026-08-12T07:00:00-06:00",
-      "description": "The third water-main burst is reported to the mayor's office.",
+      "description": "The third water-main burst of the morning has occurred. The mayor is aware of it.",
       "visible_to": ["Mayor of Riverton"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the mayor of Riverton issued any public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the mayor of Riverton issued a public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at the cutoff."
 }

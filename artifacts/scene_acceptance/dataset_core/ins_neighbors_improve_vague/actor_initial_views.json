@@ -1,7 +1,7 @@
 {
- "neighbor_a": {
-  "id": "neighbor_a",
-  "name": "Neighbor A",
+ "neighbors": {
+  "id": "neighbors",
+  "name": "Neighbors",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "Neighbor A has been in a dispute with Neighbor B over property boundaries and noise complaints. A is frustrated and considering legal action, but also open to mediation if B shows willingness.",
+    "content": "The neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
+    "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "neighbor_b": {
-  "id": "neighbor_b",
-  "name": "Neighbor B",
+ "resident": {
+  "id": "resident",
+  "name": "Resident",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "Neighbor B is aware of the tension with A but believes A is overreacting. B is not inclined to apologize or change behavior, but might consider a compromise if it avoids escalation.",
+    "content": "The resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
+    "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
     "source": "scene_manifest:shared_context"
    }
   ],

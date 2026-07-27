@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,30 +98,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Employee",
-   "private_context": "Employee has been recommended for promotion by their manager. They are aware of the promotion process and hope it goes through before the end of the quarter. They have no direct control over the approval timeline."
-  },
-  {
    "name": "Manager",
-   "private_context": "Manager has submitted the promotion recommendation for Employee. They believe Employee deserves the promotion and have done their part. They are not the final decision-maker but can follow up if needed."
+   "private_context": "Manager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline."
   },
   {
-   "name": "HR Department",
-   "private_context": "HR Department processes promotion approvals. They have received the recommendation for Employee. They have standard procedures and timelines, but the exact processing time is not fixed. They may be influenced by workload and other priorities."
+   "name": "Candidate",
+   "private_context": "Candidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information."
   }
  ],
- "shared_context": "The company has a promotion process that involves manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion must be fully approved by that date to count as going through before the end of the quarter.",
+ "shared_context": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
  "starting_events": [
   {
    "time": "2026-08-03T09:00:00+01:00",
-   "description": "Manager has submitted the promotion recommendation for Employee to HR.",
+   "description": "The promotion request is on the manager's desk, awaiting a decision.",
    "visible_to": [
     "Manager",
-    "HR Department"
+    "Candidate"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the promotion is fully approved (all necessary signatures and system entries completed) before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at that cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the manager formally approved the promotion before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

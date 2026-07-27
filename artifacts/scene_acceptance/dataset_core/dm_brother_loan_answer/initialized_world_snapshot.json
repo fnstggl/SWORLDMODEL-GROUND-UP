@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation and relationship with Rosa before deciding.",
+     "content": "Emilio received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation, relationship with Rosa, and other factors before deciding whether and how to reply.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-05T01:00:00+00:00"
     },
     {
-     "content": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text.",
+     "content": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text. The cutoff for a response is 48 hours from the start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-05T01:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Rosa needs 2,000 pesos until payday. She has asked her brother Emilio for a loan via text message. She hopes for a yes-or-no answer within 48 hours.",
+     "content": "Rosa needs a 2,000-peso loan until payday and has sent a text to her brother Emilio asking for it. She hopes for a clear yes-or-no answer within 48 hours.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-05T01:00:00+00:00"
     },
     {
-     "content": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text.",
+     "content": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text. The cutoff for a response is 48 hours from the start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-05T01:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Rosa asked her brother Emilio by text for a 2,000-peso loan until payday. Will Emilio give her a yes-or-no answer within 48 hours?",
-  "scene:shared_context": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text."
+  "scene:shared_context": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text. The cutoff for a response is 48 hours from the start time."
  },
  "history": [],
  "infos": {},

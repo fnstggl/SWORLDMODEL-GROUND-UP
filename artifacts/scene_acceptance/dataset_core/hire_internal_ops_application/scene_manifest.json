@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Dmytro",
-   "private_context": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has his own assessment of his qualifications, career ambitions, and any personal circumstances that may influence his decision."
+   "private_context": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role. He has not yet decided whether to apply. He may have personal considerations (e.g., confidence, career goals, concerns about workload or competition) that affect his decision."
   }
  ],
- "shared_context": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07 at 17:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system.",
+ "shared_context": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system.",
  "starting_events": [
   {
    "time": "2026-08-17T09:00:00+02:00",
-   "description": "The operations-manager role is open for applications. Dmytro is aware of the posting.",
+   "description": "The operations-manager role is posted and visible to all employees, including Dmytro.",
    "visible_to": [
     "Dmytro"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Dmytro submitted a formal application for the operations-manager role before 2026-09-07T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Dmytro submitted a formal application for the operations-manager role before the cutoff. Otherwise resolve NO at the cutoff."
 }

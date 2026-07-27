@@ -23,13 +23,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo is a mid-tier sales rep at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one discovery call per sixty cold emails.",
+    "content": "Gustavo is a mid-tier sales representative at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email each lead this week. His usual booking rate is about one discovery call per sixty cold emails.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -195,13 +195,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -238,13 +238,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -281,13 +281,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -324,13 +324,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -367,13 +367,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -410,13 +410,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -453,13 +453,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -496,13 +496,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -539,13 +539,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -582,13 +582,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -625,13 +625,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -668,13 +668,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -711,13 +711,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -754,13 +754,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -797,13 +797,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -840,13 +840,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -883,13 +883,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -926,13 +926,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -969,13 +969,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1012,13 +1012,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1055,13 +1055,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1098,13 +1098,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1141,13 +1141,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1184,13 +1184,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1227,13 +1227,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1270,13 +1270,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1313,13 +1313,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1356,13 +1356,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1399,13 +1399,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1442,13 +1442,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1485,13 +1485,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1528,13 +1528,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1571,13 +1571,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1614,13 +1614,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1657,13 +1657,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1700,13 +1700,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -1743,13 +1743,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via standard email channels. The leads may or may not respond to such emails. A discovery call is a scheduled phone or video conversation to discuss the software.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
     "source": "scene_manifest:shared_context"
    }
   ],

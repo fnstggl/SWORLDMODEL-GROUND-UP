@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Noor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, as quoted. She has no prior relationship with the agency beyond this submission.",
+     "content": "Noor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects a response within one month from the submission date. She has no prior relationship with the agency beyond this test.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-02T08:00:00+00:00"
     },
     {
-     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond.",
+     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The submission date is not specified, but the simulation starts on 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00, which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-02T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The agency receives many test submissions and evaluates them on an ad hoc basis. They quoted a one-month turnaround for feedback. They have no prior relationship with Noor.",
+     "content": "The subtitling agency received a paid test piece from freelance translator Noor Haddad. The agency quoted a one-month turnaround for feedback. The agency has its own internal process for evaluating test pieces and may or may not respond within that timeframe.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-02T08:00:00+00:00"
     },
     {
-     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond.",
+     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The submission date is not specified, but the simulation starts on 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00, which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-02T08:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
-  "scene:shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond."
+  "scene:shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The submission date is not specified, but the simulation starts on 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00, which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff."
  },
  "history": [],
  "infos": {},

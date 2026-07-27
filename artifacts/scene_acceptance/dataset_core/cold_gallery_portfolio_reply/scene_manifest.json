@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Yusuf Ndiaye",
-   "private_context": "Yusuf is a painter who has prepared an unsolicited portfolio to send to Marlin Bay gallery. He hopes for a substantive reply from the curator."
+   "private_context": "Yusuf is a painter who has prepared a portfolio of his work. He wants to get his work exhibited at Marlin Bay gallery. He has no prior relationship with Ines Duarte."
   },
   {
    "name": "Ines Duarte",
-   "private_context": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that catch her interest; otherwise she may send an automated acknowledgment or nothing."
+   "private_context": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly interest her. She has no prior knowledge of Yusuf Ndiaye."
   }
  ],
- "shared_context": "Marlin Bay gallery has a public email address for submissions. Yusuf can send his portfolio to that address. Ines has access to the gallery's email system and can choose to reply or not.",
+ "shared_context": "Marlin Bay gallery has a public email address for submissions. Yusuf can send his portfolio to that address. The gallery has an automated acknowledgment system that replies to all incoming emails. Ines checks the gallery's email inbox periodically.",
  "starting_events": [
   {
    "time": "2026-08-10T11:00:00+00:00",
-   "description": "Yusuf sends his unsolicited portfolio to Marlin Bay gallery's submissions email.",
+   "description": "Yusuf sends his portfolio via email to Marlin Bay gallery's submissions address.",
    "visible_to": [
     "Yusuf Ndiaye"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Ines Duarte sent a reply to Yusuf Ndiaye (beyond an automated acknowledgment) before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Ines Duarte sent a personal (non-automated) reply to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at the cutoff."
 }

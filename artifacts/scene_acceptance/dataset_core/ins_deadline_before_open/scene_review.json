@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The premise is self-contradictory: the deadline passed a month before applications opened, which is impossible in a normal timeline. This makes the scene unsimulatable as a coherent social scenario.",
-   "correction": "The question must be clarified or corrected to have a consistent timeline before a scene can be constructed."
+   "problem": "The question asks whether Priya will submit before the deadline, but the deadline passed a month before applications opened, which is a self-contradictory or impossible premise. The scene cannot simulate a meaningful social decision under these conditions.",
+   "correction": "The premise is logically impossible and cannot be resolved through simulation. Abstain."
   }
  ]
 }

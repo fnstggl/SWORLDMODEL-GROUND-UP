@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,32 +98,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Company CEO",
-   "private_context": "The CEO is responsible for the company's performance and has access to internal financial reports, sales data, and strategic plans. They are optimistic about a new product launch scheduled for early next quarter but are concerned about supply chain disruptions."
-  },
-  {
-   "name": "Market Analyst",
-   "private_context": "The analyst follows the company and its industry, publishing reports and forecasts. They have no inside information beyond public data and industry trends."
+   "name": "Company leadership",
+   "private_context": "The leadership is aware of current financial struggles and is considering strategic changes. They have no certainty about future outcomes."
   }
  ],
- "shared_context": "The company is a mid-sized technology firm that has faced declining revenues over the past two quarters. A new product is set to launch in early Q4 2026. The broader market is volatile with potential regulatory changes. The company's stock price has been fluctuating.",
+ "shared_context": "The company operates in a competitive market. The next quarter runs from October to December 2026. No major external shocks are known at the start.",
  "starting_events": [
   {
    "time": "2026-10-01T09:00:00-05:00",
-   "description": "The new quarter begins. The company's sales team starts executing the Q4 sales plan, which includes the new product launch.",
+   "description": "The new quarter begins. The company's financial performance for the previous quarter is known internally.",
    "visible_to": [
-    "Company CEO"
-   ]
-  },
-  {
-   "time": "2026-10-01T09:00:00-05:00",
-   "description": "The market analyst begins reviewing Q3 earnings reports and preparing a Q4 outlook for the company.",
-   "visible_to": [
-    "Market Analyst"
+    "Company leadership"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff, the company's quarterly earnings report (or equivalent public financial statement) shows an increase in net profit or revenue compared to the previous quarter. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that the company's quarterly revenue or profit (as reported in official financial statements) increased compared to the previous quarter by the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

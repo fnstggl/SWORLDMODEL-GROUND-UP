@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -102,21 +103,21 @@ THE COMPILED SCENE (exact manifest under review):
   },
   {
    "name": "Harborview Credit Union",
-   "private_context": "Harborview Credit Union has a policy for provisional crediting of disputed charges. They received Marisol's dispute today. They must decide whether to provisionally credit the $320 within ten business days."
+   "private_context": "Harborview Credit Union has a policy for handling card disputes. It received Marisol's dispute today. It may provisionally credit disputed amounts within ten business days, subject to its internal review process."
   }
  ],
- "shared_context": "Marisol filed a dispute with Harborview Credit Union regarding a $320 card charge on 2026-10-14. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (assuming business days Monday-Friday, excluding weekends and any holidays). The credit union has the ability to provisionally credit the amount or not.",
+ "shared_context": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a $320 charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually 2026-10-14 is a Wednesday, so ten business days later is 2026-10-28, a Wednesday). The credit union has the ability to provisionally credit the amount within that window.",
  "starting_events": [
   {
    "time": "2026-10-14T10:00:00-08:00",
-   "description": "Marisol files a dispute with Harborview Credit Union for a $320 card charge and is informed of a ten-business-day window for provisional credit.",
+   "description": "Marisol files a dispute with Harborview Credit Union for a $320 card charge. She is quoted a ten-business-day window for provisional credit.",
    "visible_to": [
     "Marisol",
     "Harborview Credit Union"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Harborview Credit Union actually provisionally credited Marisol's account for $320 before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Harborview Credit Union provisionally credited $320 to Marisol's account on or before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

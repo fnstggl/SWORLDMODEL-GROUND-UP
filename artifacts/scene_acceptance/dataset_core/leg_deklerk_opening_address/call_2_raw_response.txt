@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene includes only F. W. de Klerk as an actor, but the resolution depends on an observable event (delivery of an address) that requires at minimum an audience or institutional context to be meaningfully simulated. The question asks about a real historical event, and the scene lacks any other actors (e.g., parliamentary officials, media, or witnesses) who could observe and record the delivery. Without such actors, the simulation cannot produce a verifiable outcome; the event is not externally observable within the scene's actor set. Additionally, the scene does not specify how the delivery would be recorded or confirmed, making the resolution unenforceable.",
+   "correction": "Add at least one actor who can observe and report the delivery (e.g., a parliamentary secretary or a journalist) and include a mechanism for recording the event in the persistent event history."
+  }
+ ]
 }

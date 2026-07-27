@@ -1,24 +1,24 @@
 {
  "actors": [
   {
-   "name": "Marvin Bay Unified school board (7 trustees)",
-   "private_context": "The board has the later-start-times proposal on its agenda for both September meetings. Two trustees are up for re-election in November and may be sensitive to public opinion. The proposal has been tabled twice since spring."
+   "name": "Marlin Bay Unified school board (as a body)",
+   "private_context": "The board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board has tabled the proposal twice before. The board may decide to take a recorded vote or not."
   },
   {
    "name": "Parent group",
    "private_context": "The group has promised to pack the public-comment period at the September meetings to advocate for the later-start-times proposal."
   }
  ],
- "shared_context": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can take a recorded vote on the proposal at either meeting. The parent group plans to attend and speak during public comment.",
+ "shared_context": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can choose to take a recorded vote on the proposal at either meeting.",
  "starting_events": [
   {
    "time": "2026-09-01T08:00:00-07:00",
-   "description": "The school board's first September meeting is scheduled. The later-start-times proposal is on the agenda.",
+   "description": "The school board's September meeting schedule is set; the later-start-times proposal is on the agenda for both meetings.",
    "visible_to": [
-    "Marvin Bay Unified school board (7 trustees)",
+    "Marlin Bay Unified school board (as a body)",
     "Parent group"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the school board took a recorded vote on the later-start-times proposal at either of its two September meetings before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the board took a recorded vote on the later-start-times proposal at either of its two September meetings before the cutoff. Otherwise resolve NO at the cutoff."
 }

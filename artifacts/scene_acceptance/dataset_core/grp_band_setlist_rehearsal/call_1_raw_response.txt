@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Cheap Detour (band as a unit)",
-      "private_context": "The four members of Cheap Detour need to agree on a twelve-song wedding setlist. They have a rehearsal scheduled for Thursday, 2026-09-10. They have not yet settled the setlist."
+      "private_context": "The four members have a wedding gig on Saturday and need to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has personal preferences and song ideas, but no agreement has been reached yet."
     }
   ],
-  "shared_context": "Cheap Detour is a covers band. They have been booked to play a wedding and need to finalize a twelve-song setlist. The rehearsal is on Thursday, 2026-09-10 at an unspecified time before the hard cutoff at 22:00. The band members can communicate with each other before and during the rehearsal.",
+  "shared_context": "The band Cheap Detour has a wedding gig on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at an unspecified time before 22:00. The setlist must be twelve songs. No setlist has been settled yet.",
   "starting_events": [
     {
       "time": "2026-09-07T18:00:00+01:00",
-      "description": "The simulation starts. The four members of Cheap Detour have not yet settled the setlist for the wedding.",
+      "description": "The band members are aware of the upcoming rehearsal and the need to finalize the setlist.",
       "visible_to": ["Cheap Detour (band as a unit)"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the four members of Cheap Detour have collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (i.e., before 2026-09-10T22:00:00+01:00). Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO."
 }

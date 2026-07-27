@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +99,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Kofi",
-   "private_context": "Kofi has asked a referee to upload a letter of recommendation for a fellowship. The referee is the second referee. Kofi knows the deadline is 36 hours from now. Kofi does not know if the referee has started or will complete the upload."
+   "private_context": "Kofi has asked a second referee to upload a letter for a fellowship application. The referee has not yet uploaded it. Kofi knows the portal deadline is 2026-09-15T09:00:00+00:00."
   },
   {
-   "name": "Second referee",
-   "private_context": "The second referee has agreed to write a letter for Kofi's fellowship. They have the letter ready or are working on it. They are aware of the deadline but have other commitments. They may or may not prioritize this upload."
+   "name": "Second Referee",
+   "private_context": "The second referee has been asked by Kofi to upload a letter for a fellowship application. They have not yet done so. They may have other commitments or may be unaware of the deadline."
   }
  ],
- "shared_context": "The fellowship portal accepts referee letters via upload. The hard deadline is 2026-09-15T09:00:00+00:00. The current time is 2026-09-13T21:00:00+00:00. The referee has the necessary link or instructions to upload the letter.",
+ "shared_context": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00.",
  "starting_events": [
   {
    "time": "2026-09-13T21:00:00+00:00",
-   "description": "The simulation begins. Kofi's second referee has not yet uploaded the letter. The deadline is 36 hours away.",
+   "description": "The simulation begins. The second referee has not yet uploaded the letter.",
    "visible_to": [
     "Kofi",
-    "Second referee"
+    "Second Referee"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the second referee's letter was successfully uploaded to the fellowship portal before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the second referee uploaded the letter before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

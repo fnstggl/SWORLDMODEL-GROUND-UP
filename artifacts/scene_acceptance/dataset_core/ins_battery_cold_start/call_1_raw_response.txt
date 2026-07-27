@@ -1,12 +1,12 @@
 {
   "actors": [],
-  "shared_context": "A 12-volt battery has been sitting in an unheated garage at minus 20 degrees Celsius for six weeks. The truck is in the garage. The battery's state of charge and health are unknown. The temperature is minus 20 Celsius.",
+  "shared_context": "A 12-volt battery is installed in a truck. The truck is parked in an unheated garage. The ambient temperature has been minus 20 degrees Celsius for six weeks prior to the simulation start. The battery's condition (age, state of charge, health) is unknown. The truck's starter and electrical system are assumed functional under normal conditions.",
   "starting_events": [
     {
       "time": "2026-12-01T08:00:00-06:00",
-      "description": "The battery begins its six-week period of sitting in the unheated garage at minus 20 Celsius.",
+      "description": "The truck has been sitting in the unheated garage at minus 20°C for six weeks. The battery is in the same state as at the start of that period.",
       "visible_to": []
     }
   ],
-  "resolution": "UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision-maker or observable social event; it is a pure physics/operations question."
+  "resolution": "UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision or actor who can decide or act; it is a pure physics/operations question with no social simulation to perform."
 }

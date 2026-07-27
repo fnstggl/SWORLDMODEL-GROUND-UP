@@ -21,7 +21,8 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +99,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Account Manager (Brightline Software)",
-   "private_context": "The account manager is responsible for retaining Fenwick & Sloane as a customer. They have prepared talking points for the retention call, including options for pausing the subscription. They are aware that Fenwick & Sloane has expressed dissatisfaction and is considering cancellation."
+   "private_context": "The account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The account manager has been trained to offer a pause option as a retention tactic and has authority to propose a pause. They want to persuade the retailer to pause instead of cancel."
   },
   {
-   "name": "Fenwick & Sloane Representative",
-   "private_context": "The representative is the point of contact for the subscription. They have been authorized by Fenwick & Sloane to discuss the subscription status. They are leaning towards cancellation due to budget constraints and perceived lack of value, but are open to hearing alternatives."
+   "name": "Fenwick & Sloane representative",
+   "private_context": "The representative is the point of contact for the subscription. They have been directed by their organization to cancel the subscription due to budget cuts or dissatisfaction. They are open to hearing alternatives but are leaning toward cancellation. They have the authority to decide on a pause if it meets their needs."
   }
  ],
- "shared_context": "Brightline Software provides a SaaS product to Fenwick & Sloane. A scheduled retention call is set for this week (between 2026-09-08 and 2026-09-11). The call will involve the account manager and the Fenwick & Sloane representative. The subscription is currently active but Fenwick & Sloane has indicated they may cancel.",
+ "shared_context": "Brightline Software provides a software subscription to Fenwick & Sloane. A retention call is scheduled for this week (between 2026-09-08 and 2026-09-11). During the call, the account manager can propose a pause option. Fenwick & Sloane's subscription is currently active but they have indicated a desire to cancel.",
  "starting_events": [
   {
    "time": "2026-09-08T09:00:00-07:00",
-   "description": "The retention call is scheduled to occur sometime this week. No call has taken place yet.",
+   "description": "The scheduled retention call between Brightline Software's account manager and Fenwick & Sloane's representative begins.",
    "visible_to": [
     "Account Manager (Brightline Software)",
-    "Fenwick & Sloane Representative"
+    "Fenwick & Sloane representative"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that Fenwick & Sloane agreed to pause their subscription (i.e., did not cancel and explicitly opted for a pause). Resolve NO if they cancel, or if no agreement to pause is reached by the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Fenwick & Sloane's representative explicitly agreed to pause the subscription (rather than cancel) before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

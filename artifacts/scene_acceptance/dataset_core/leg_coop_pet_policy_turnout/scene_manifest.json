@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Sunmark housing cooperative board",
-   "private_context": "The board has called a special general meeting for the 12th to vote on amending the pet policy. They know the bylaws require a two-thirds member turnout for the amendment to pass. They have sent out notices to all members about the meeting and the proposed amendment."
+   "private_context": "The board has called a special general meeting for the 12th to vote on amending the pet policy. They know the bylaws require a two-thirds member turnout for the amendment to pass. They have sent out notices to all members."
   },
   {
    "name": "Sunmark housing cooperative members",
-   "private_context": "Each member has received notice of the special general meeting on the 12th and the proposed pet policy amendment. They have their own preferences and schedules, and may or may not attend the meeting."
+   "private_context": "Each member has received notice of the special general meeting on the 12th regarding the pet policy amendment. They are aware of the meeting date and time, and that their attendance is needed to reach the required turnout."
   }
  ],
- "shared_context": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. The special general meeting is scheduled for 2026-09-12. The meeting will be held in person at the cooperative's common hall. Members can attend in person or submit a proxy vote in advance. The board has sent out meeting notices and the proposed amendment text to all members.",
+ "shared_context": "Sunmark housing cooperative's bylaws require a two-thirds member turnout for amendments to the pet policy. A special general meeting has been called for the 12th to vote on such an amendment. The meeting will be held at the cooperative's common room at 7 PM. Members can attend in person or by proxy.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+02:00",
-   "description": "The board has sent out notices to all members about the special general meeting on the 12th and the proposed pet policy amendment.",
+   "description": "The board has sent notices to all members about the special general meeting on the 12th to vote on amending the pet policy.",
    "visible_to": [
     "Sunmark housing cooperative board",
     "Sunmark housing cooperative members"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that at least two-thirds of all members attended the meeting (in person or by proxy) and the amendment was voted on. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least two-thirds of the cooperative's members attended the special general meeting (in person or by proxy) on the 12th. Otherwise resolve NO at the cutoff."
 }

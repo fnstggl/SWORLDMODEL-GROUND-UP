@@ -1,8 +1,8 @@
 {
  "world_id": "w_b8ccf1140398",
  "actor_ids": {
-  "Neighbor A": "neighbor_a",
-  "Neighbor B": "neighbor_b"
+  "Resident": "resident",
+  "Neighbors": "neighbors"
  },
  "event_records": [
   {
@@ -10,10 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-01T10:00:00+00:00",
    "visible_to_ids": [
-    "neighbor_a",
-    "neighbor_b"
+    "resident",
+    "neighbors"
    ],
-   "description": "The current situation is tense but stable; no new incident has occurred in the past week."
+   "description": "The current situation with the neighbors is tense but stable; no new incident has occurred at this moment."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "neighbor_a": {
-   "name": "Neighbor A",
-   "persona_brief": "You are Neighbor A.\nNeighbor A has been in a dispute with Neighbor B over property boundaries and noise complaints. A is frustrated and considering legal action, but also open to mediation if B shows willingness."
+  "resident": {
+   "name": "Resident",
+   "persona_brief": "You are Resident.\nThe resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action."
   },
-  "neighbor_b": {
-   "name": "Neighbor B",
-   "persona_brief": "You are Neighbor B.\nNeighbor B is aware of the tension with A but believes A is overreacting. B is not inclined to apologize or change behavior, but might consider a compromise if it avoids escalation."
+  "neighbors": {
+   "name": "Neighbors",
+   "persona_brief": "You are Neighbors.\nThe neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior."
   }
  },
  "resolution": {
   "question": "Will the situation with the neighbors improve over the next few months?",
-  "resolution": "Resolve YES if, by the cutoff, the persistent event history shows that both neighbors have taken at least one observable cooperative action (e.g., attending mediation, signing an agreement, or publicly ceasing a complaint) and no new serious conflict (e.g., police call, lawsuit filing) has occurred. Otherwise resolve NO.",
+  "resolution": "Resolve YES if, by the cutoff, the persistent event history shows a clear, observable improvement in neighbor relations (e.g., a friendly interaction, a resolved dispute, or a mutual agreement). Otherwise resolve NO.",
   "cutoff": "2026-11-01T12:00:00+02:00",
   "world_id": "w_b8ccf1140398"
  }

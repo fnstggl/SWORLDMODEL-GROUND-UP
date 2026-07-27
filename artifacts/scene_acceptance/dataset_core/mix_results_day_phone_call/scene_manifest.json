@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Femi",
-   "private_context": "Femi expects to pass his exams. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on her all Thursday morning."
+   "private_context": "Femi expects to pass his exams. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on all Thursday morning."
   },
   {
    "name": "Femi's mother",
-   "private_context": "She has said she will keep her phone on her all Thursday morning. She expects Femi to call after results are released."
+   "private_context": "She has told Femi she will keep her phone on all Thursday morning. She is available to receive calls."
   }
  ],
- "shared_context": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his result online or through the university portal at that time. He can call his mother using his phone. The hard cutoff for resolution is 12:00 noon that day.",
+ "shared_context": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his result online or through the university portal at that time. He has his mother's phone number and can call her.",
  "starting_events": [
   {
    "time": "2026-08-13T09:00:00+01:00",
-   "description": "Ashvale University releases exam results.",
+   "description": "Ashvale University releases exam results. Femi's result becomes available to him.",
    "visible_to": [
     "Femi"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother and communicated his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother and they spoke about his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff."
 }
