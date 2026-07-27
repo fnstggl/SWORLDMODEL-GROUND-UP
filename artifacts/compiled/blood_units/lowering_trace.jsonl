@@ -1,0 +1,18 @@
+{"cutoff": "2026-07-24T19:00:00+00:00", "start": "2026-07-21T23:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"participant": {"Courier service": "courier_service", "St. Vincent regional hospital": "st_vincent_regional_hospital"}, "quantity": {"blood_units": "blood_units"}}}}
+{"participants": 2, "step": "preflight_ok"}
+{"attention": [], "id": "courier_service", "name": "Courier service", "role": "operating_process", "step": "participant", "tz": "UTC"}
+{"attention": [], "id": "st_vincent_regional_hospital", "name": "St. Vincent regional hospital", "role": "organization", "step": "participant", "tz": "America/Los_Angeles"}
+{"key": "initial_stock", "step": "starting_fact"}
+{"amount": 15.0, "holder": "st_vincent_regional_hospital", "name": "blood_units", "step": "starting_quantity"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "own_initial_stock"}
+{"actor": "courier_service", "step": "initial_knowledge", "topic": "shipment_quantity"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "shipment_quantity"}
+{"actor": "courier_service", "step": "initial_knowledge", "topic": "shipment_schedule"}
+{"actor": "st_vincent_regional_hospital", "step": "initial_knowledge", "topic": "shipment_schedule"}
+{"at": "2026-07-21T23:00:00+00:00", "description": "tuesday_shipment_departure -- Centre dispatches 150 units to hospital at 4:00 PM Tuesday July 21.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-22T02:00:00+00:00", "description": "tuesday_shipment_arrival -- Tuesday shipment arrives at hospital", "ops": 1, "step": "scheduled_event", "wakes": 1}
+{"at": "2026-07-23T23:00:00+00:00", "description": "thursday_shipment_departure -- Centre dispatches 150 units to hospital at 4:00 PM Thursday July 23.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"at": "2026-07-24T02:00:00+00:00", "description": "thursday_shipment_arrival -- Thursday shipment arrives at hospital", "ops": 1, "step": "scheduled_event", "wakes": 1}
+{"first": "2026-07-21T23:00:00+00:00", "root_events": 6, "step": "schedulable"}
+{"observations": 1, "step": "producers_verified"}

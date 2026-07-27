@@ -1,0 +1,11 @@
+{
+  "namespaces": {
+    "participant": {
+      "Courier service": "courier_service",
+      "St. Vincent regional hospital": "st_vincent_regional_hospital"
+    },
+    "quantity": {
+      "blood_units": "blood_units"
+    }
+  }
+}

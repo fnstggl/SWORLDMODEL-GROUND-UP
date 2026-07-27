@@ -245,3 +245,80 @@ def check_transfer_feasibility(graph: WorldGraph, bindings) -> None:
             "the world's own numbers cannot cover its scheduled "
             "commitments", {"defects": defects, "repairable": True,
                             "document": "causal_spine"})
+
+
+def check_decorative_coverage(graph: WorldGraph, bindings) -> dict:
+    """A decorative process claims the scheduled transfers already carry
+    its work. That premise is checkable: some bound movement must
+    actually credit each stock the process was wired to change. Returns
+    {binding item key -> defect} for every decorative claim nothing
+    covers; empty when all claims hold."""
+    classes = substance_classes(graph, bindings)
+
+    def class_of(rid):
+        return classes.get(rid, graph.node(rid).name)
+
+    credited = set()
+    for bound in (list(bindings.events.values())
+                  + list(bindings.actions.values())):
+        for rname, spec in sorted((bound or {}).get("amounts", {}).items()
+                                  if isinstance(bound, dict) else []):
+            rid = graph.maybe("resource", rname)
+            if rid is None or not isinstance(spec, dict):
+                continue
+            amount = spec.get("amount")
+            if not isinstance(amount, (int, float)):
+                continue
+            if spec.get("kind") == "transfer" and spec.get("to"):
+                hid = _actor_id(graph, spec.get("to"))
+                if hid:
+                    credited.add((hid, class_of(rid)))
+            elif spec.get("kind") == "adjust" and amount > 0:
+                holder = graph.node(rid).attrs.get("holder")
+                if holder:
+                    credited.add((holder, class_of(rid)))
+
+    fed_by_working_process = set()
+    for pid, bound in bindings.processes.items():
+        if (bound or {}).get("decorative"):
+            continue
+        for e in (graph.edges_from(pid, "changes")
+                  + graph.edges_from(pid, "produces")):
+            target = graph.node(e.dst)
+            if target.category == "resource" \
+                    and target.attrs.get("holder"):
+                fed_by_working_process.add(
+                    (target.attrs["holder"], class_of(target.id)))
+
+    covered = credited | fed_by_working_process
+    defects = {}
+    for pid in sorted(bindings.processes):
+        bound = bindings.processes[pid] or {}
+        if not bound.get("decorative"):
+            continue
+        try:
+            node = graph.node(pid)
+        except Exception:
+            continue
+        for e in (graph.edges_from(pid, "changes")
+                  + graph.edges_from(pid, "produces")):
+            target = graph.node(e.dst)
+            if target.category != "resource":
+                continue
+            holder = target.attrs.get("holder")
+            if not holder:
+                continue
+            if (holder, class_of(target.id)) not in covered:
+                defects[f"process:{node.name}"] = (
+                    f"you marked {node.name!r} decorative, but nothing "
+                    f"else moves {class_of(target.id)!r} for "
+                    f"{graph.node(holder).name!r}: no bound transfer or "
+                    f"adjustment credits that stock and no working "
+                    f"process feeds it. The decorative claim ('the "
+                    f"transfers already carry it') is false in this "
+                    f"world. If this mechanism really moves the stock, "
+                    f"bind its quantitative work (a rate over its "
+                    f"operating window); if the movement is really a "
+                    f"one-off shipment, the world is missing that "
+                    f"transfer and this binding cannot paper over it.")
+    return defects

@@ -116,3 +116,39 @@ def test_unplaceable_event_suppresses_the_verdict():
         "to": "Northside depot"}}}
     # the inflow cannot be placed in time, so no accusation is computable
     check_transfer_feasibility(g, b)          # no raise
+
+
+def test_uncovered_decorative_claim_is_a_defect():
+    from compiler.feasibility import check_decorative_coverage
+    g, org, rs = depot_world(opening=15.0)
+    pr = g.add_node("process", "shipment arrival", "delivers the goods",
+                    "question_given")
+    g.add_edge(pr, "changes", rs)
+    b = Bindings()
+    b.processes[pr] = {"decorative": True, "why": "transfers carry it"}
+    defects = check_decorative_coverage(g, b)
+    assert list(defects) == ["process:shipment arrival"]
+    assert "false" in defects["process:shipment arrival"]
+
+    # a bound transfer crediting the stock makes the same claim true
+    ev = dispatch(g, "2026-03-02T09:00:00-05:00", name="delivery in")
+    b.events[ev] = {"amounts": {"parcels": {
+        "kind": "transfer", "amount": 30, "from": None,
+        "to": "Northside depot"}}}
+    assert check_decorative_coverage(g, b) == {}
+
+
+def test_working_process_covers_a_decorative_sibling():
+    from compiler.feasibility import check_decorative_coverage
+    g, org, rs = depot_world(opening=0.0)
+    working = g.add_node("process", "sorting line", "produces parcels",
+                         "question_given")
+    wrapper = g.add_node("process", "intake desk", "receives the output",
+                         "question_given")
+    g.add_edge(working, "changes", rs)
+    g.add_edge(wrapper, "changes", rs)
+    b = Bindings()
+    b.processes[working] = {"amount_per_hour": 5,
+                            "rate_status": "verified"}
+    b.processes[wrapper] = {"decorative": True, "why": "the line feeds it"}
+    assert check_decorative_coverage(g, b) == {}

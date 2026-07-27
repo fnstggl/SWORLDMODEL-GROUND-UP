@@ -1,0 +1,168 @@
+{
+  "entities": [
+    {
+      "communication": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ],
+        "meaning": "The courier receives shipment orders from the blood centre and delivers to the hospital. No further communication details are specified."
+      },
+      "initial_information": {
+        "available": [
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e7"
+            ],
+            "meaning": "The courier knows that shipments depart every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+            "name": "shipment schedule"
+          },
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e8"
+            ],
+            "meaning": "The courier knows that transit time is approximately 3 hours.",
+            "name": "transit time"
+          }
+        ],
+        "not_available": [
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e10"
+            ],
+            "meaning": "The courier does not have information about the blood centre's collection rate or current inventory levels.",
+            "name": "collection rate or inventory levels"
+          }
+        ]
+      },
+      "initial_state": [],
+      "name": "Courier service",
+      "process_behavior": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ],
+        "meaning": "The courier service transports shipments from the blood centre to St. Vincent regional hospital. A shipment takes about 3 hours from departure to receipt at the hospital.",
+        "operating_meaning": "The courier service operates on Tuesdays and Thursdays, with shipments departing at 4:00 PM America/Los_Angeles and arriving approximately 3 hours later.",
+        "rate_meaning": "Not applicable; the courier service operates on a fixed schedule, not a rate."
+      }
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Hospital blood bank staff available to receive shipments during working hours",
+            "meaning": "Continuous attention during business hours"
+          },
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "latency_meaning": "3 hours from departure to receipt",
+          "meaning": "Physical delivery of blood units by courier",
+          "name": "courier_delivery",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Tuesday shipment arrives at hospital",
+          "name": "tuesday_shipment_arrival",
+          "when": "2026-07-21T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Thursday shipment arrives at hospital",
+          "name": "thursday_shipment_arrival",
+          "when": "2026-07-23T19:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held at start of week",
+          "name": "initial_stock",
+          "value": 15
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital knows its own initial stock of 15 units",
+          "name": "own_initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Hospital knows each shipment contains 150 units",
+          "name": "shipment_quantity",
+          "visibility": "public"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units in hospital bank",
+          "name": "blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    }
+  ]
+}

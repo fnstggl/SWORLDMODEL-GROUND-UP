@@ -40,7 +40,7 @@ from .binding import bind_world
 from .discovery import discover
 from .emit import emit_scenario
 from .errors import (COMPILED, CompilationStop, LoweringMismatch,
-                     RealityReviewRejected)
+                     RealityReviewRejected, SemanticAmbiguity)
 from .llm import call_json
 from .lower import lower
 from .memory_evidence import draft_memory_evidence
@@ -188,12 +188,28 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             # ---- binding BEFORE the review: the reviewer must see the
             # fully wired world (rates, amounts, stock connections), not
             # a pre-binding skeleton it would misjudge as decorative ----
-            from .binding import connect_process_outputs
-            from .feasibility import check_transfer_feasibility
+            from .binding import connect_process_outputs, rebind_items
+            from .feasibility import (check_decorative_coverage,
+                                      check_transfer_feasibility)
             t0 = wallclock.monotonic()
             bind_world(graph, evidence, call=call, model=model,
                        into=bindings)
             connect_process_outputs(graph, bindings)
+            # a decorative claim ('the transfers already carry it') must
+            # be true: one rebind with the numbers, then it must hold
+            uncovered = check_decorative_coverage(graph, bindings)
+            if uncovered:
+                rebind_items(bindings, set(uncovered),
+                             "\n".join(uncovered.values()), call, model)
+                connect_process_outputs(graph, bindings)
+                still = check_decorative_coverage(graph, bindings)
+                if still:
+                    raise SemanticAmbiguity(
+                        "a decorative process claim is false and stayed "
+                        "false after one targeted repair",
+                        {"defects": sorted(still.values()),
+                         "repairable": False})
+                metrics["decorative_rebinds"] = sorted(uncovered)
             metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
             # the world's own numbers must cover its scheduled
             # commitments -- deterministically, before any reviewer

@@ -1,0 +1,518 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "meaning": "The courier service that transports the shipment from the centre to the hospital and delivers it into the bank."
+      },
+      "dst": "process:thursday_shipment_arrival",
+      "rel": "has_authority",
+      "src": "organization:courier_service"
+    },
+    {
+      "attrs": {
+        "meaning": "The courier service that transports the shipment from the centre to the hospital and delivers it into the bank."
+      },
+      "dst": "process:tuesday_shipment_arrival",
+      "rel": "has_authority",
+      "src": "organization:courier_service"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_quantity",
+      "rel": "knows",
+      "src": "organization:courier_service"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_schedule",
+      "rel": "knows",
+      "src": "organization:courier_service"
+    },
+    {
+      "attrs": {},
+      "dst": "state:initial_stock",
+      "rel": "has_state",
+      "src": "organization:st_vincent_regional_hospital"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_initial_stock",
+      "rel": "knows",
+      "src": "organization:st_vincent_regional_hospital"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_quantity",
+      "rel": "knows",
+      "src": "organization:st_vincent_regional_hospital"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_schedule",
+      "rel": "knows",
+      "src": "organization:st_vincent_regional_hospital"
+    },
+    {
+      "attrs": {},
+      "dst": "event:thursday_shipment_arrival",
+      "rel": "observes",
+      "src": "organization:st_vincent_regional_hospital"
+    },
+    {
+      "attrs": {},
+      "dst": "event:tuesday_shipment_arrival",
+      "rel": "observes",
+      "src": "organization:st_vincent_regional_hospital"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:hospital_units_at_deadline",
+      "rel": "changes",
+      "src": "process:thursday_shipment_arrival"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:thursday_shipment_departure",
+      "rel": "requires",
+      "src": "process:thursday_shipment_arrival"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:hospital_units_at_deadline",
+      "rel": "changes",
+      "src": "process:tuesday_shipment_arrival"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:tuesday_shipment_departure",
+      "rel": "requires",
+      "src": "process:tuesday_shipment_arrival"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "resource:hospital_units_at_deadline"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:thursday_shipment_arrival",
+      "rel": "requires",
+      "src": "resource:hospital_units_at_deadline"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:tuesday_shipment_arrival",
+      "rel": "requires",
+      "src": "resource:hospital_units_at_deadline"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:initial_stock",
+      "rel": "requires",
+      "src": "resource:hospital_units_at_deadline"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz's actions",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not change the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's received quantity."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "weekend operations",
+      "why_safe": "The deadline is Friday noon; weekend operations after that are irrelevant."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-07-23T19:00:00-07:00"
+      },
+      "category": "event",
+      "id": "event:thursday_shipment_arrival",
+      "meaning": "Thursday shipment arrives at hospital",
+      "name": "thursday_shipment_arrival",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "no_producer_needed": "Scheduled event, no producer needed.",
+        "step_kind": "scheduled_event",
+        "when": "2026-07-23T16:00:00-07:00"
+      },
+      "category": "event",
+      "id": "event:thursday_shipment_departure",
+      "meaning": "Centre dispatches 150 units to hospital at 4:00 PM Thursday July 23.",
+      "name": "thursday_shipment_departure",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-07-21T19:00:00-07:00"
+      },
+      "category": "event",
+      "id": "event:tuesday_shipment_arrival",
+      "meaning": "Tuesday shipment arrives at hospital",
+      "name": "tuesday_shipment_arrival",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "no_producer_needed": "Scheduled event, no producer needed.",
+        "step_kind": "scheduled_event",
+        "when": "2026-07-21T16:00:00-07:00"
+      },
+      "category": "event",
+      "id": "event:tuesday_shipment_departure",
+      "meaning": "Centre dispatches 150 units to hospital at 4:00 PM Tuesday July 21.",
+      "name": "tuesday_shipment_departure",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:own_initial_stock",
+      "meaning": "Hospital knows its own initial stock of 15 units",
+      "name": "own_initial_stock",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:shipment_quantity",
+      "meaning": "Hospital knows each shipment contains 150 units",
+      "name": "shipment_quantity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:shipment_schedule",
+      "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM",
+      "name": "shipment_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "The courier service transports shipments from the blood centre to St. Vincent regional hospital. A shipment takes about 3 hours from departure to receipt at the hospital.",
+            "operating_meaning": "The courier service operates on Tuesdays and Thursdays, with shipments departing at 4:00 PM America/Los_Angeles and arriving approximately 3 hours later.",
+            "rate_meaning": "Not applicable; the courier service operates on a fixed schedule, not a rate."
+          }
+        ],
+        "producer_kind": "operating_process"
+      },
+      "category": "organization",
+      "id": "organization:courier_service",
+      "meaning": "The courier service that transports the shipment from the centre to the hospital and delivers it into the bank.",
+      "name": "Courier service",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "timezone": "America/Los_Angeles"
+      },
+      "category": "organization",
+      "id": "organization:st_vincent_regional_hospital",
+      "meaning": "holder of hospital_units_at_deadline, named by the resolution contract",
+      "name": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:thursday_shipment_arrival",
+      "meaning": "Thursday shipment arrives at hospital and is received into bank, adding 150 units.",
+      "name": "thursday_shipment_arrival",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:tuesday_shipment_arrival",
+      "meaning": "Tuesday shipment arrives at hospital and is received into bank, adding 150 units.",
+      "name": "tuesday_shipment_arrival",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 15,
+        "holder": "organization:st_vincent_regional_hospital",
+        "unit": "units"
+      },
+      "category": "resource",
+      "id": "resource:blood_units",
+      "meaning": "Usable blood units in hospital bank",
+      "name": "blood_units",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount_at_least": null,
+        "holder": "organization:st_vincent_regional_hospital",
+        "holder_kind": "organization",
+        "holder_name": "St. Vincent regional hospital",
+        "unit": "units",
+        "unsupported": "Condition with prerequisites; no separate producer."
+      },
+      "category": "resource",
+      "id": "resource:hospital_units_at_deadline",
+      "meaning": "The number of usable blood units in St. Vincent's blood bank at the deadline.\nTotal usable units in hospital bank at Friday noon = initial 15 + Tuesday 150 + Thursday 150 = 315.",
+      "name": "hospital_units_at_deadline",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial fact, no producer needed.",
+        "step_kind": "initial_fact",
+        "value": 15
+      },
+      "category": "state",
+      "id": "state:initial_stock",
+      "meaning": "St. Vincent hospital holds 15 usable units at 9:00 AM Monday July 20.\nUsable blood units held at start of week",
+      "name": "initial_stock",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "quantity",
+        "cutoff": {
+          "meaning": "Friday noon Pacific Daylight Time, the deadline for the hospital to have received units.",
+          "timezone": "America/Los_Angeles",
+          "when": "2026-07-24T12:00:00-07:00"
+        },
+        "measured_act": null,
+        "negative_condition": null,
+        "positive_condition": "The hospital holds N usable units at the deadline.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday noon, July 24, 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "event": {
+        "thursday_shipment_arrival": "thursday_shipment_arrival",
+        "thursday_shipment_departure": "thursday_shipment_departure",
+        "tuesday_shipment_arrival": "tuesday_shipment_arrival",
+        "tuesday_shipment_departure": "tuesday_shipment_departure"
+      },
+      "information": {
+        "own_initial_stock": "own_initial_stock",
+        "shipment_quantity": "shipment_quantity",
+        "shipment_schedule": "shipment_schedule"
+      },
+      "organization": {
+        "Courier service": "courier_service",
+        "St. Vincent regional hospital": "st_vincent_regional_hospital"
+      },
+      "process": {
+        "thursday_shipment_arrival": "thursday_shipment_arrival",
+        "tuesday_shipment_arrival": "tuesday_shipment_arrival"
+      },
+      "resource": {
+        "blood_units": "blood_units",
+        "hospital_units_at_deadline": "hospital_units_at_deadline"
+      },
+      "state": {
+        "initial_stock": "initial_stock"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "How many usable units the centre has at the time of each shipment departure (Tuesday and Thursday 4 PM), given that the drive collects during the week and the centre may also have other inflows/outflows not mentioned.",
+      "topic": "centre stock after Monday 9 AM"
+    },
+    {
+      "about": null,
+      "meaning": "Whether the mobile collection drive operates as scheduled on each day of the week, and whether the average rate of 12 units per hour holds exactly for each hour open. Also, whether any collected units are added to the centre's stock before shipments depart.",
+      "topic": "collection drive operation"
+    },
+    {
+      "about": null,
+      "meaning": "Whether the hospital uses any of its own stock between Monday 9 AM and Friday noon, and whether it receives any other shipments besides the Tuesday and Thursday ones.",
+      "topic": "hospital stock changes"
+    },
+    {
+      "about": null,
+      "meaning": "Whether the Tuesday and Thursday shipments each contain exactly 150 units, as per the cooler capacity, and whether the centre has enough stock to fill them. Also, whether the shipment includes units collected that day.",
+      "topic": "shipment content"
+    },
+    {
+      "about": null,
+      "meaning": "Whether the 3-hour travel time is exact, and whether the Thursday shipment arrives before Friday noon (departure Thursday 4 PM, arrival ~7 PM Thursday, so yes, but need to confirm no delays).",
+      "topic": "timing precision"
+    }
+  ]
+}

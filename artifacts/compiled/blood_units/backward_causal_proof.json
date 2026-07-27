@@ -1,0 +1,59 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:hospital_units_at_deadline",
+        "prerequisites": [
+          {
+            "node": "process:thursday_shipment_arrival",
+            "prerequisites": [
+              {
+                "node": "event:thursday_shipment_departure",
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "process"
+          },
+          {
+            "node": "process:tuesday_shipment_arrival",
+            "prerequisites": [
+              {
+                "node": "event:tuesday_shipment_departure",
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "process"
+          },
+          {
+            "node": "state:initial_stock",
+            "root": "initial_fact"
+          }
+        ],
+        "via": {
+          "node": "process:thursday_shipment_arrival",
+          "prerequisites": [
+            {
+              "node": "event:thursday_shipment_departure",
+              "root": "scheduled_event"
+            }
+          ],
+          "root": "process"
+        }
+      },
+      "component": "resource:hospital_units_at_deadline",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "process"
+      ],
+      "producers": [
+        "process:thursday_shipment_arrival",
+        "process:tuesday_shipment_arrival"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

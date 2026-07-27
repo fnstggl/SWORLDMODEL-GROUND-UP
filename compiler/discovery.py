@@ -565,7 +565,13 @@ def discover(question: dict, evidence: dict, call=call_json,
         "  basis, evidence_ids\n"
         "A step that directly produces a terminal proof QUANTITY must be "
         "a real mechanism that moves it -- a scheduled dispatch, a "
-        "transfer, a process -- never the holder 'having' it.\n"
+        "transfer, a process -- never the holder 'having' it. A "
+        "fixed-size movement of stock between holders at a stated moment "
+        "(a shipment of N units, a payment of N) is a scheduled_event "
+        "whose occurrence transfers that amount; only sustained "
+        "accumulation or consumption at a rate over a window is a "
+        "process. Do not model one movement as both an event and a "
+        "wrapper process around its arrival.\n"
         "The resolution proof names are: " + json.dumps(list(proof_names)),
         ctx + "\n\nTHE TERMINAL (from step 1):\n"
         + json.dumps(doc, indent=1),

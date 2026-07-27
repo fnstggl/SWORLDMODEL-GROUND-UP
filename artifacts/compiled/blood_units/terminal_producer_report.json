@@ -1,0 +1,56 @@
+{
+  "answer": {
+    "answer": 15.0,
+    "computed_from": [
+      "record:5"
+    ],
+    "detail": "st_vincent_regional_hospital:blood_units measured at 15",
+    "observations": [
+      {
+        "observation": {
+          "describe": "The number of usable blood units in St. Vincent's blood bank at the deadline.\nTotal usable units in hospital bank at Friday noon = initial 15 + Tuesday 150 + Thursday 150 = 315.",
+          "kind": "resource_measure",
+          "params": {
+            "holder": "st_vincent_regional_hospital",
+            "name": "blood_units"
+          }
+        },
+        "read": {
+          "detail": "st_vincent_regional_hospital:blood_units measured at 15",
+          "producers": [
+            "record:5"
+          ],
+          "satisfied": true,
+          "value": 15.0
+        }
+      }
+    ]
+  },
+  "computed_from": [
+    "record:5"
+  ],
+  "graph_producer_lineage": {
+    "resource:hospital_units_at_deadline": [
+      "process:thursday_shipment_arrival",
+      "process:tuesday_shipment_arrival"
+    ]
+  },
+  "replay_hash_match": true,
+  "terminal": {
+    "conditions": [],
+    "cutoff": "2026-07-24T19:00:00+00:00",
+    "measure": {
+      "describe": "The number of usable blood units in St. Vincent's blood bank at the deadline.\nTotal usable units in hospital bank at Friday noon = initial 15 + Tuesday 150 + Thursday 150 = 315.",
+      "kind": "resource_measure",
+      "params": {
+        "holder": "st_vincent_regional_hospital",
+        "name": "blood_units"
+      }
+    },
+    "no_detail": "",
+    "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+    "question_type": "quantity",
+    "uncertain_paths": [],
+    "yes_detail": ""
+  }
+}
