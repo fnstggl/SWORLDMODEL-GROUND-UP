@@ -1,0 +1,56 @@
+{
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Blood usage at hospital",
+      "why_safe": "The question asks for units received, not net after usage. Usage does not affect receipt count."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "Other blood sources (e.g., other centres, donations at hospital)",
+      "why_safe": "No evidence of any other source. The only scheduled shipments are from Cascade centre."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Spoilage or loss of units",
+      "why_safe": "No evidence of spoilage or loss. The collection rate is 'usable units', implying quality control. Excluding loss is safe because any loss would reduce the answer, but the question asks for received units; if loss occurs, the answer would be lower, but we have no evidence to quantify it. However, the resolution note says 'the number of units the hospital actually holds' \u2013 if units are lost after receipt, that would affect holdings. But no evidence of such loss. We assume no loss."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz's actions",
+      "why_safe": "She oversees receipts but does not control collection or shipping. Her actions do not affect the number of units received."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre's stock at 4pm Tuesday (after Monday and Tuesday collections) is at least 150 units to dispatch the Tuesday shipment. The centre starts with 40 units, collects 12 units/hour for 8 hours Monday (96 units) and 7 hours Tuesday before 4pm (84 units), total 220 units, which is enough. However, if any units are lost or discarded, stock might be insufficient. The evidence does not mention any losses."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre's stock at 4pm Thursday (after Wednesday and Thursday collections, minus Tuesday shipment) is at least 150 units. After Tuesday shipment, stock is 220-150=70 units. Wednesday collection: 8 hours * 12 = 96 units, total 166. Thursday collection before 4pm: 7 hours * 12 = 84 units, total 250. Enough. But again, no losses considered."
+    },
+    {
+      "about": "tuesday_shipment_arrives",
+      "meaning": "Whether the Tuesday shipment arrives before Friday noon. Dispatched Tuesday 4pm, takes 3 hours, arrives Tuesday 7pm. Well before deadline. Certain."
+    },
+    {
+      "about": "thursday_shipment_arrives",
+      "meaning": "Whether the Thursday shipment arrives before Friday noon. Dispatched Thursday 4pm, arrives Thursday 7pm. Certain."
+    },
+    {
+      "about": "hospital_initial_stock",
+      "meaning": "The hospital starts with 15 units at Monday 9am. No evidence of any usage or other receipts. So it remains until shipments arrive. Certain."
+    }
+  ]
+}

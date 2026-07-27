@@ -981,6 +981,32 @@ class Assembler:
                 self._record("derive_quantity_mechanism",
                              {"resource": rs.name, "mechanism": m}, [], [e])
 
+    def wire_operated_processes(self) -> None:
+        """A continuous process with no stock connection, operated by an
+        actor who holds exactly one stock, feeds that stock: the drive its
+        centre runs collects into the centre's inventory. Deterministic
+        connection from the graph's own operatorship and holdings; a
+        process whose target stays ambiguous waits for its binding."""
+        for pr in self.graph.by_category("process"):
+            if pr.attrs.get("role") == "channel":
+                continue
+            if any(self.graph.node(e.dst).category == "resource"
+                   for e in self.graph.edges_from(pr.id, "changes")
+                   + self.graph.edges_from(pr.id, "produces")):
+                continue
+            operators = sorted({
+                e.src for e in self.graph.edges_to(pr.id, "has_authority")})
+            held = sorted({rs.id for rs in self.graph.by_category("resource")
+                           for op in operators
+                           if rs.attrs.get("holder") == op})
+            if len(held) == 1:
+                edge = self.graph.add_edge(
+                    pr.id, "changes", held[0],
+                    where=f"operated process {pr.name!r}")
+                self._record("wire_operated_process",
+                             {"process": pr.name, "stock": held[0]},
+                             [], [edge])
+
     def materialize_holders(self) -> None:
         """A measured quantity's holder is a real entity even when it
         produces nothing (a hospital that only receives). It was named by
@@ -1165,6 +1191,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         if any(boundary.values()):
             _collect(d, a.add_information_boundary, name, boundary)
     _raise_if(d, "starting_state_and_information")
+    a.wire_operated_processes()
 
     d = []
     for item in uncertainty.get("uncertainties") or []:
