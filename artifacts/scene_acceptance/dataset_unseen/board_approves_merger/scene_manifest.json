@@ -1,0 +1,29 @@
+{
+ "actors": [
+  {
+   "name": "Jane Holloway",
+   "private_context": "CEO of Apex Dynamics. She has been leading the merger talks with Zenith Corp for three months and strongly supports approval. She believes the merger will benefit the company and has been working to persuade other board members."
+  },
+  {
+   "name": "Mark Torres",
+   "private_context": "CFO of Apex Dynamics. He has expressed concerns about the valuation of Zenith Corp in the merger. He is skeptical about the deal and may vote against it unless convinced otherwise."
+  },
+  {
+   "name": "Board of Directors (collective)",
+   "private_context": "The board of Apex Dynamics consists of several members who have varying opinions on the merger. They will vote on the proposal at the September 12 meeting. Their individual stances are not fully known to each other, but the division between CEO and CFO is public."
+  }
+ ],
+ "shared_context": "Apex Dynamics is a mid-sized robotics firm. Merger talks with Zenith Corp have been ongoing for three months. A board meeting is scheduled for September 12, 2026 at 10 AM Eastern to vote on the merger. The CEO and CFO have publicly differing views.",
+ "starting_events": [
+  {
+   "time": "2026-08-15T09:00:00-04:00",
+   "description": "The board of Apex Dynamics is aware of the upcoming September 12 meeting to vote on the merger with Zenith Corp. No further events have occurred yet.",
+   "visible_to": [
+    "Jane Holloway",
+    "Mark Torres",
+    "Board of Directors (collective)"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the board of directors of Apex Dynamics voted to approve the merger with Zenith Corp at the September 12 meeting. Otherwise resolve NO at the cutoff."
+}

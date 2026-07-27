@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Judge Patricia O'Neill",
+      "private_context": "Judge O'Neill is a federal district judge. She has received a motion for a preliminary injunction against the construction of a new highway. She is aware of the legal arguments and evidence presented by both sides. She must decide whether to issue the injunction by September 30. She has no prior relationship with the parties beyond this case."
+    }
+  ],
+  "shared_context": "A lawsuit has been filed seeking to stop the construction of a new highway. The plaintiffs have moved for a preliminary injunction. The court has received briefs and evidence. The deadline for the judge's decision is September 30, 2026.",
+  "starting_events": [
+    {
+      "time": "2026-09-01T00:00:00-04:00",
+      "description": "The motion for a preliminary injunction is fully briefed and submitted to Judge O'Neill for decision.",
+      "visible_to": ["Judge Patricia O'Neill"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Judge Patricia O'Neill issued a preliminary injunction against the construction of the new highway on or before September 30, 2026. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The starting event states that Ravi has made an offer 40,000 rupees below the seller's asking price, and the seller has not yet accepted or countered. This pre-decides that an offer has been made, which may not be the case; the question only says they are 40,000 rupees apart, not that an offer has been made. This could influence the negotiation process."
+  },
+  {
+   "aspect": "invented_precision",
+   "severity": "MINOR",
+   "detail": "The scene specifies that the listing expires on 2026-08-23T10:00:00+05:30, which is derived from the question's cutoff, but the question does not specify the exact time of expiration; it only says 'three days before the seller's posted listing expires'. The exact time is an invented precision."
+  }
+ ],
+ "id": "neg_hatchback_price_gap"
+}

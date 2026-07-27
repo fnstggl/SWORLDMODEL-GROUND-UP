@@ -1,0 +1,8 @@
+{
+ "question": "Will St. Mary's Hospital implement the new patient visitation policy by October 1?",
+ "start": "2026-09-01T00:00:00-05:00",
+ "cutoff": "2026-10-01T23:59:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

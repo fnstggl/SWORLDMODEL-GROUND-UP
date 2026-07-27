@@ -1,0 +1,46 @@
+{
+ "world_id": "w_4cb24c62aa4a",
+ "actor_ids": {
+  "Japan's Foreign Minister": "japan_s_foreign_minister",
+  "South Korea's Foreign Minister": "south_korea_s_foreign_minister",
+  "China's Foreign Minister": "china_s_foreign_minister"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-07-31T15:00:00+00:00",
+   "visible_to_ids": [
+    "japan_s_foreign_minister",
+    "south_korea_s_foreign_minister",
+    "china_s_foreign_minister"
+   ],
+   "description": "The foreign ministers of Japan, South Korea, and China are each aware of North Korea's recent missile test and the upcoming UN General Assembly."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "japan_s_foreign_minister": {
+   "name": "Japan's Foreign Minister",
+   "persona_brief": "You are Japan's Foreign Minister.\nJapan's foreign minister is aware of North Korea's recent missile test and is considering whether to pursue a joint statement with South Korea and China. Japan has historically taken a firm stance against North Korea's missile provocations and values coordination with allies and partners."
+  },
+  "south_korea_s_foreign_minister": {
+   "name": "South Korea's Foreign Minister",
+   "persona_brief": "You are South Korea's Foreign Minister.\nSouth Korea's foreign minister is aware of the missile test and is weighing the benefits of a joint statement. South Korea seeks to maintain regional stability and has a complex relationship with both North Korea and China."
+  },
+  "china_s_foreign_minister": {
+   "name": "China's Foreign Minister",
+   "persona_brief": "You are China's Foreign Minister.\nChina's foreign minister is aware of the missile test and is cautious about condemning North Korea publicly. China prefers dialogue and may be reluctant to join a joint statement that could strain relations with North Korea."
+  }
+ },
+ "resolution": {
+  "question": "Will the foreign ministers of Japan, South Korea, and China issue a joint statement condemning North Korea's missile test before the UN General Assembly in September?",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that the foreign ministers of Japan, South Korea, and China jointly issued a statement condemning North Korea's missile test. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-20T23:59:00+09:00",
+  "world_id": "w_4cb24c62aa4a"
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "question": "Will the Nobel Prize in Physiology or Medicine be awarded to a woman in 2026?",
+ "start": "2026-10-01T00:00:00+02:00",
+ "cutoff": "2026-10-05T23:59:00+02:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

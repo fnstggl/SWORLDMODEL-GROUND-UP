@@ -1,0 +1,160 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "autoparts_inc": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "autoparts_inc",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "AutoParts Inc. has offered the proposed contract and awaits ratification. They have a strike contingency plan but prefer ratification. They have no further leverage until the vote.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    },
+    {
+     "content": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    }
+   ],
+   "name": "AutoParts Inc.",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "uaw_local_1012_leadership": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "uaw_local_1012_leadership",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The leadership has negotiated the proposed contract with AutoParts Inc. They recommend ratification but are uncertain of the membership's vote. They are responsible for organizing the ratification vote.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    },
+    {
+     "content": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    }
+   ],
+   "name": "UAW Local 1012 leadership",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "uaw_local_1012_membership": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "uaw_local_1012_membership",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The membership has been briefed on the proposed contract terms. They have varying opinions on wages, benefits, and job security. They must vote to ratify or reject by the strike deadline.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    },
+    {
+     "content": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    }
+   ],
+   "name": "UAW Local 1012 membership",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the United Auto Workers Local 1012 ratify the proposed contract with AutoParts Inc. by the strike deadline of September 5?",
+  "scene:shared_context": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-20T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-20T04:00:00+00:00",
+ "terminal": null,
+ "version": 14,
+ "watches": {}
+}

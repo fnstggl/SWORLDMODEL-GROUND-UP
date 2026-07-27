@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "mike_mccarthy": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "mike_mccarthy",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "McCarthy is the head coach of the Dallas Cowboys. He was involved in a sideline incident during a preseason game. He has not yet been notified of any disciplinary action. He hopes to avoid a suspension and is preparing for the regular season.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T04:00:00+00:00"
+    },
+    {
+     "content": "The NFL is investigating a sideline incident involving Dallas Cowboys head coach Mike McCarthy that occurred during a preseason game. The league's personal conduct policy allows for fines or suspensions. The first game of the regular season is scheduled for September 2026. The NFL Commissioner has the authority to impose discipline.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T04:00:00+00:00"
+    }
+   ],
+   "name": "Mike McCarthy",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "nfl_commissioner": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "nfl_commissioner",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The Commissioner is responsible for player and coach discipline. They have reviewed reports of the sideline incident involving Mike McCarthy and are considering whether to impose a suspension. The Commissioner is aware of the league's personal conduct policy and past precedents for similar incidents.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T04:00:00+00:00"
+    },
+    {
+     "content": "The NFL is investigating a sideline incident involving Dallas Cowboys head coach Mike McCarthy that occurred during a preseason game. The league's personal conduct policy allows for fines or suspensions. The first game of the regular season is scheduled for September 2026. The NFL Commissioner has the authority to impose discipline.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T04:00:00+00:00"
+    }
+   ],
+   "name": "NFL Commissioner",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the NFL suspend Dallas Cowboys head coach Mike McCarthy for the first game of the season due to the sideline incident?",
+  "scene:shared_context": "The NFL is investigating a sideline incident involving Dallas Cowboys head coach Mike McCarthy that occurred during a preseason game. The league's personal conduct policy allows for fines or suspensions. The first game of the regular season is scheduled for September 2026. The NFL Commissioner has the authority to impose discipline."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-15T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-15T04:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

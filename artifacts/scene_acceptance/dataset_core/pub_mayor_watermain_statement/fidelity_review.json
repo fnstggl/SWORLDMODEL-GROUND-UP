@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene includes only the mayor, but the decision to issue a statement may involve other actors such as a press secretary, communications staff, or city council. Their absence could materially affect the outcome."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The mayor's private context states they have not yet decided, which is appropriate. However, the shared context mentions 'the mayor's office is the usual channel' which is fine. No leakage."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MINOR",
+   "detail": "The starting events only state the mayor is aware, which is fine. No pre-decision."
+  }
+ ],
+ "id": "pub_mayor_watermain_statement"
+}

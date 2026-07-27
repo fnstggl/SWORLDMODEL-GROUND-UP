@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "judge_patricia_o_neill": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "judge_patricia_o_neill",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Judge O'Neill is a federal district judge. She has received a motion for a preliminary injunction against the construction of a new highway. She is aware of the legal arguments and evidence presented by both sides. She must decide whether to issue the injunction by September 30. She has no prior relationship with the parties beyond this case.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T04:00:00+00:00"
+    },
+    {
+     "content": "A lawsuit has been filed seeking to stop the construction of a new highway. The plaintiffs have moved for a preliminary injunction. The court has received briefs and evidence. The deadline for the judge's decision is September 30, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T04:00:00+00:00"
+    }
+   ],
+   "name": "Judge Patricia O'Neill",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Judge Patricia O'Neill issue a preliminary injunction against the construction of the new highway by September 30?",
+  "scene:shared_context": "A lawsuit has been filed seeking to stop the construction of a new highway. The plaintiffs have moved for a preliminary injunction. The court has received briefs and evidence. The deadline for the judge's decision is September 30, 2026."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T04:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

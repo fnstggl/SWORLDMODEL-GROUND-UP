@@ -1,0 +1,11 @@
+{
+  "actors": [
+    {
+      "name": "CEO of TechCorp",
+      "private_context": "The CEO has access to internal reports, market analyses, and strategic plans. Their confidence is an internal state not directly observable."
+    }
+  ],
+  "shared_context": "TechCorp is a technology company. The CEO's feelings about the company's future are not publicly known.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question asks about an internal feeling (confidence) with no observable proxy provided; no observable event can resolve whether the CEO feels confident."
+}

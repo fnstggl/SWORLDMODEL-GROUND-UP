@@ -1,0 +1,46 @@
+{
+ "world_id": "w_e2bb52f3ddea",
+ "actor_ids": {
+  "UAW Local 1012 membership": "uaw_local_1012_membership",
+  "UAW Local 1012 leadership": "uaw_local_1012_leadership",
+  "AutoParts Inc.": "autoparts_inc"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-08-20T04:00:00+00:00",
+   "visible_to_ids": [
+    "uaw_local_1012_membership",
+    "uaw_local_1012_leadership",
+    "autoparts_inc"
+   ],
+   "description": "The ratification vote process begins. UAW Local 1012 leadership schedules a vote to be completed by the strike deadline."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "uaw_local_1012_membership": {
+   "name": "UAW Local 1012 membership",
+   "persona_brief": "You are UAW Local 1012 membership.\nThe membership has been briefed on the proposed contract terms. They have varying opinions on wages, benefits, and job security. They must vote to ratify or reject by the strike deadline."
+  },
+  "uaw_local_1012_leadership": {
+   "name": "UAW Local 1012 leadership",
+   "persona_brief": "You are UAW Local 1012 leadership.\nThe leadership has negotiated the proposed contract with AutoParts Inc. They recommend ratification but are uncertain of the membership's vote. They are responsible for organizing the ratification vote."
+  },
+  "autoparts_inc": {
+   "name": "AutoParts Inc.",
+   "persona_brief": "You are AutoParts Inc..\nAutoParts Inc. has offered the proposed contract and awaits ratification. They have a strike contingency plan but prefer ratification. They have no further leverage until the vote."
+  }
+ },
+ "resolution": {
+  "question": "Will the United Auto Workers Local 1012 ratify the proposed contract with AutoParts Inc. by the strike deadline of September 5?",
+  "resolution": "Resolve YES if the persistent event history shows that UAW Local 1012 membership voted to ratify the proposed contract before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-05T23:59:00-04:00",
+  "world_id": "w_e2bb52f3ddea"
+ }
+}

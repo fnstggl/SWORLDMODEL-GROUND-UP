@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "sarah_jenkins": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "sarah_jenkins",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Sarah Jenkins is the EPA administrator. She has been reviewing the permit for six months. She is aware of lobbying from environmental groups and promises of jobs from Arctic Drilling Inc. She is expected to make a decision by the end of September.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T08:00:00+00:00"
+    },
+    {
+     "content": "The EPA has been reviewing the permit for the new oil drilling project in Alaska for six months. Environmental groups have lobbied against it, while Arctic Drilling Inc. has promised jobs. The deadline for a decision is September 30, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T08:00:00+00:00"
+    }
+   ],
+   "name": "Sarah Jenkins",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Environmental Protection Agency (EPA) approve the permit for the new oil drilling project in Alaska by September 30?",
+  "scene:shared_context": "The EPA has been reviewing the permit for the new oil drilling project in Alaska for six months. Environmental groups have lobbied against it, while Arctic Drilling Inc. has promised jobs. The deadline for a decision is September 30, 2026."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-15T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-15T08:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

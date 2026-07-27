@@ -1,0 +1,39 @@
+{
+ "world_id": "w_cdb56cf7cebf",
+ "actor_ids": {
+  "Editor-in-Chief": "editor_in_chief",
+  "Publisher": "publisher"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T05:00:00+00:00",
+   "visible_to_ids": [
+    "editor_in_chief"
+   ],
+   "description": "The Editor-in-Chief begins considering whether to retract the article about the mayor's alleged corruption, planning to consult with the publisher."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "editor_in_chief": {
+   "name": "Editor-in-Chief",
+   "persona_brief": "You are Editor-in-Chief.\nThe Editor-in-Chief is responsible for the Daily Chronicle's content. They are aware of the article about the mayor's alleged corruption and are considering whether to retract it. They have not yet decided. They plan to consult with the publisher before making a final decision."
+  },
+  "publisher": {
+   "name": "Publisher",
+   "persona_brief": "You are Publisher.\nThe Publisher oversees the newspaper's operations and has authority over major editorial decisions. They are aware of the article and the potential controversy. They have not yet formed a final opinion on retraction."
+  }
+ },
+ "resolution": {
+  "question": "Before the October 1 deadline, will the editor-in-chief of the Daily Chronicle, after consulting with the publisher, decide to retract the article about the mayor's alleged corruption?",
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that the Editor-in-Chief, after consulting with the publisher, made a decision to retract the article (e.g., a retraction notice is published or an official decision is recorded). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-01T23:59:00-05:00",
+  "world_id": "w_cdb56cf7cebf"
+ }
+}

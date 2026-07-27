@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "St. Mary's Hospital Administration",
+   "private_context": "The administration is considering a new patient visitation policy. They have the authority to implement policy changes. They are aware of the October 1 deadline but have not yet decided on the policy details or implementation timeline."
+  }
+ ],
+ "shared_context": "St. Mary's Hospital currently has an existing patient visitation policy. A proposal for a new policy has been drafted and is under review. The hospital operates under standard administrative procedures for policy changes, which may involve approvals and communication to staff.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T00:00:00-05:00",
+   "description": "The hospital administration begins its review of the proposed new patient visitation policy.",
+   "visible_to": [
+    "St. Mary's Hospital Administration"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that St. Mary's Hospital has officially announced or implemented the new patient visitation policy by October 1, 2026 at 23:59. Otherwise resolve NO."
+}

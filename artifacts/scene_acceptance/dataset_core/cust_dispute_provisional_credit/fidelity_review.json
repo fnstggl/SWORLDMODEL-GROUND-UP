@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "invented_precision",
+   "severity": "MAJOR",
+   "detail": "The scene states that the ten-business-day window ends on 2026-10-28, a Wednesday, and that 2026-10-14 is a Wednesday. However, the question does not specify the day of the week, and the context does not provide a calendar. The calculation of business days including a federal holiday on 2026-10-12 is unsupported and may be incorrect (the holiday is before the start date). This precision is invented and could affect the deadline calculation."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The shared context includes the exact end date of the window (2026-10-28), which is derived from Marisol's private knowledge of the quoted window. This information should be private to Marisol unless the credit union also communicated it. The credit union's private context does not mention knowing the exact end date, but the shared context leaks it."
+  }
+ ],
+ "id": "cust_dispute_provisional_credit"
+}

@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "MAJOR",
+   "detail": "The scene includes 'Villagers of Kettlewell' as a single actor, but the question asks about at least thirty villagers attending. This collective actor cannot produce a count of distinct individuals, making it impossible to determine if the threshold is met. The world should include individual villagers or a mechanism to count distinct attendees."
+  }
+ ],
+ "id": "pop_bus_meeting_turnout"
+}

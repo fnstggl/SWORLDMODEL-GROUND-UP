@@ -1,0 +1,29 @@
+{
+ "actors": [
+  {
+   "name": "UAW Local 1012 membership",
+   "private_context": "The membership has been briefed on the proposed contract terms. They have varying opinions on wages, benefits, and job security. They must vote to ratify or reject by the strike deadline."
+  },
+  {
+   "name": "UAW Local 1012 leadership",
+   "private_context": "The leadership has negotiated the proposed contract with AutoParts Inc. They recommend ratification but are uncertain of the membership's vote. They are responsible for organizing the ratification vote."
+  },
+  {
+   "name": "AutoParts Inc.",
+   "private_context": "AutoParts Inc. has offered the proposed contract and awaits ratification. They have a strike contingency plan but prefer ratification. They have no further leverage until the vote."
+  }
+ ],
+ "shared_context": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+ "starting_events": [
+  {
+   "time": "2026-08-20T00:00:00-04:00",
+   "description": "The ratification vote process begins. UAW Local 1012 leadership schedules a vote to be completed by the strike deadline.",
+   "visible_to": [
+    "UAW Local 1012 membership",
+    "UAW Local 1012 leadership",
+    "AutoParts Inc."
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that UAW Local 1012 membership voted to ratify the proposed contract before the cutoff. Otherwise resolve NO at the cutoff."
+}

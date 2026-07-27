@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states that the board's decision will be communicated after the meeting, but the resolution requires a decision communicated before the cutoff. This pre-decides that the board must meet and decide before the cutoff, which may not be guaranteed if the meeting is scheduled but could be postponed or cancelled."
+  }
+ ],
+ "id": "appr_ethics_board_protocol"
+}

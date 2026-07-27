@@ -1,0 +1,52 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "MAJOR",
+   "detail": "The scene includes 'Neighbors on Alder Court' as a single actor, but the question asks about filling all fourteen slots, which depends on individual decisions. Modeling them as a collective may obscure the dynamics of individual sign-ups, but it is acceptable for simplicity. However, the scene does not include any mechanism for neighbors to communicate or influence each other beyond the app, which might be necessary for the outcome. Still, the main defect is that the scene does not specify that the neighbors are the ones who can sign up; it only says they are aware. The actor 'Neighbors on Alder Court' is ambiguous: it could be interpreted as all 60 households, but the question specifies 'neighbors on Alder Court' which might be a subset. The scene should clarify that the neighbors on Alder Court are the ones who can sign up, and that there are exactly 14 slots. The shared context says 'sixty-household neighborhood app' but the question is about Alder Court neighbors, which may be a subset. This could lead to incorrect simulation if the app includes non-Alder Court neighbors. This is a major defect because it misaligns the actor set with the question."
+  },
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The Okafor family is not included as an actor. While they are the recipients, they might influence the outcome (e.g., by posting updates or expressing needs). However, the question is about neighbors filling slots, so the Okafors are not materially relevant to the decision to sign up. But the scene includes 'the Okafor family' in shared context, which is fine. No missing actor."
+  },
+  {
+   "aspect": "decorative",
+   "severity": "NONE",
+   "detail": "Both actors are necessary: Fran started the train and knows the status; neighbors are the ones who sign up."
+  },
+  {
+   "aspect": "invented_precision",
+   "severity": "MINOR",
+   "detail": "The scene states 'eight slots were claimed the first evening' which is given in context. The time '2026-10-05T09:00:00-04:00' is the start time from the question. No invented precision beyond what is given."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "NONE",
+   "detail": "Private contexts are appropriate: Fran knows the status; neighbors know about the sign-up. Shared context includes the sign-up details, which are public on the app. No leakage."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "CRITICAL",
+   "detail": "The scene states that eight slots were already claimed. This is given in context, but it pre-decides that at least eight slots are filled, which is part of the starting condition. However, the question asks if all fourteen will be filled within four days from start. The starting condition of eight filled is given, so it's not pre-deciding the outcome; it's setting the initial state. But the scene includes 'Fran wants the remaining slots to be filled within four days' which is a desire, not a decision. However, the resolution says 'Resolve YES if the persistent event history shows that all fourteen slots were filled...' This is correct. No prewriting of future choices."
+  },
+  {
+   "aspect": "observable_resolution",
+   "severity": "NONE",
+   "detail": "The resolution is an observable event: the sign-up slots being filled, recorded in the app's history."
+  },
+  {
+   "aspect": "leakage",
+   "severity": "NONE",
+   "detail": "No post-start outcome knowledge appears."
+  },
+  {
+   "aspect": "genuinely_open",
+   "severity": "NONE",
+   "detail": "The simulation can produce either YES or NO depending on neighbor decisions."
+  }
+ ],
+ "id": "grp_meal_train_fill"
+}

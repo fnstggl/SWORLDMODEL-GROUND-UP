@@ -1,0 +1,8 @@
+{
+ "question": "Will the Federal Reserve raise interest rates at its September 2026 meeting?",
+ "start": "2026-08-01T00:00:00-04:00",
+ "cutoff": "2026-09-20T23:59:00-04:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

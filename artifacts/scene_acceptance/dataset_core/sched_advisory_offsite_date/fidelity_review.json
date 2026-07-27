@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "info_boundaries",
+   "severity": "MAJOR",
+   "detail": "The CEO's assistant's private context includes that two advisors have responded, which is shared knowledge (the assistant knows who responded, but the fact that two responded is known to all who see the poll results). However, the assistant's context also says 'The assistant can follow up and coordinate to finalize a date.' This implies a capability or intention that may not be common knowledge and could influence the simulation. More critically, the shared context states 'Two advisors have already responded' and 'The remaining three have not yet responded.' This is information that the assistant would know, but the advisors might not know who has responded. The shared context should only contain information known to all actors. Here, it's plausible that all advisors know that a poll was sent and that some have responded, but not necessarily which ones. The scene leaks the exact count and status of responses into shared context, which might not be known to all advisors."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'The deadline for settling a date is within three weeks from 2026-07-29.' This imposes a deadline that may not be part of the original question or common knowledge. The question asks if they will settle within three weeks, but the scene explicitly states that as a deadline, which could pre-decide the urgency and behavior of actors. The resolution also mirrors this deadline. This could pre-decide the outcome by making the deadline salient."
+  },
+  {
+   "aspect": "observable_resolution",
+   "severity": "MINOR",
+   "detail": "The resolution specifies 'an email or calendar invitation confirming the date' as evidence. This is reasonable, but it might be too narrow; other forms of agreement (e.g., verbal confirmation in a meeting) could also constitute settling on a date. However, since the simulation is text-based, this is acceptable."
+  }
+ ],
+ "id": "sched_advisory_offsite_date"
+}

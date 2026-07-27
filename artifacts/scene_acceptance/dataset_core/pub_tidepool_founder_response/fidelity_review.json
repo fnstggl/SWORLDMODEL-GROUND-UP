@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The head of support and journalists are materially relevant actors whose actions (e.g., leaking, pressuring) could affect the founder's decision, but they are not included as actors."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The founder's private context includes knowledge of the head of support's confirmation and journalist emails, but these are not shared with other actors; however, the shared context does not leak private info."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MINOR",
+   "detail": "The starting events only state the thread is visible, which is fine, but the resolution is correctly open."
+  }
+ ],
+ "id": "pub_tidepool_founder_response"
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the Environmental Protection Agency (EPA) approve the permit for the new oil drilling project in Alaska by September 30?",
+  "resolution": "Resolve YES if the persistent event history shows that the EPA, through Sarah Jenkins, officially approved the permit on or before September 30, 2026. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-30T23:59:00-08:00",
+  "world_id": "w_20d53995ee8e"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

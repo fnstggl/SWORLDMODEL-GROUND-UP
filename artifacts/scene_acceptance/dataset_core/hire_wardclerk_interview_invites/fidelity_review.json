@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene includes only HR as an actor, but the applicants are materially relevant because they could withdraw, decline, or be unreachable, affecting the count of invitations. Without applicants as actors, the simulation cannot model such possibilities."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The shared context states 'Eleven applications were received' which is public knowledge, but it also says 'The hospital typically invites some applicants for interview within two weeks of closing.' This is a general practice, not private, but it might be considered a minor assumption."
+  }
+ ],
+ "id": "hire_wardclerk_interview_invites"
+}
