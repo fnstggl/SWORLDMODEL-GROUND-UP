@@ -1,0 +1,16 @@
+{
+  "causal_path": [
+    "Initial hospital stock: 15 units at Monday 9 AM",
+    "Tuesday collection accrues to centre (84 units by 4 PM)",
+    "Tuesday shipment dispatches 150 units at 4 PM",
+    "Tuesday shipment arrives at hospital at 7 PM Tuesday, adding 150 units",
+    "Wednesday collection accrues to centre (96 units)",
+    "Thursday collection accrues to centre (84 units by 4 PM)",
+    "Thursday shipment dispatches 150 units at 4 PM",
+    "Thursday shipment arrives at hospital at 7 PM Thursday, adding 150 units",
+    "Hospital holds 15 + 150 + 150 = 315 units at Friday noon"
+  ],
+  "defects": [],
+  "reasoning": "The world faithfully reconstructs the evidence: hospital initial stock of 15 units plus two scheduled shipments of 150 units each (Tuesday and Thursday) that arrive before Friday noon, yielding 315 units at the deadline. No usage evidence exists, so no deduction. The collection processes ensure the centre has sufficient stock, but even without them the shipments are fixed and scheduled. All causal steps are present, no missing actors, and the terminal matches the resolution note. Minor inconsistency in collection operating hours does not affect hospital receipts because shipments are fixed and centre stock always exceeds 150.",
+  "verdict": "APPROVE"
+}

@@ -1,0 +1,629 @@
+{
+  "action_affordances": [],
+  "communication_routes": [],
+  "information": [
+    {
+      "content": "Measured average of 12 usable units per hour while drive is open",
+      "holder": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Measured average of 12 usable units per hour while drive is open"
+      },
+      "topic": "collection_rate"
+    },
+    {
+      "content": "Measured average of 12 usable units per hour while drive is open",
+      "holder": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Measured average of 12 usable units per hour while drive is open"
+      },
+      "topic": "collection_rate"
+    },
+    {
+      "content": "Drive open Monday to Friday 9 AM to 5 PM America/Los_Angeles",
+      "holder": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive open Monday to Friday 9 AM to 5 PM America/Los_Angeles"
+      },
+      "topic": "drive_schedule"
+    },
+    {
+      "content": "Drive open Monday to Friday 9 AM to 5 PM America/Los_Angeles",
+      "holder": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Drive open Monday to Friday 9 AM to 5 PM America/Los_Angeles"
+      },
+      "topic": "drive_schedule"
+    },
+    {
+      "content": "40 usable units at 9 AM Monday 20 July 2026",
+      "holder": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "40 usable units at 9 AM Monday 20 July 2026"
+      },
+      "topic": "initial_stock"
+    },
+    {
+      "content": "Hospital knows its own initial stock of 15 units",
+      "holder": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Hospital knows its own initial stock of 15 units"
+      },
+      "topic": "own_initial_stock"
+    },
+    {
+      "content": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM\nShipments every Tuesday and Thursday at 4 PM, each 150 units",
+      "holder": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "note": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM\nShipments every Tuesday and Thursday at 4 PM, each 150 units"
+      },
+      "topic": "shipment_schedule"
+    },
+    {
+      "content": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM\nShipments every Tuesday and Thursday at 4 PM, each 150 units",
+      "holder": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "note": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM\nShipments every Tuesday and Thursday at 4 PM, each 150 units"
+      },
+      "topic": "shipment_schedule"
+    },
+    {
+      "content": "Shipment takes about 3 hours to reach hospital",
+      "holder": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Shipment takes about 3 hours to reach hospital"
+      },
+      "topic": "shipment_transit_time"
+    },
+    {
+      "content": "Shipment takes about 3 hours to reach hospital",
+      "holder": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Shipment takes about 3 hours to reach hospital"
+      },
+      "topic": "shipment_transit_time"
+    }
+  ],
+  "participants": [
+    {
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "timezone": "America/Los_Angeles",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "causal_relevance": "Operates the mobile collection drive that collects units.",
+      "kind": "organization",
+      "name": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "Operates the mobile collection drive that collects units."
+      },
+      "role": "organization",
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "timezone": "America/Los_Angeles",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "holder of hospital_units_at_deadline, named by the resolution contract",
+      "kind": "organization",
+      "name": "St. Vincent regional hospital",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10"
+        ],
+        "note": "holder of hospital_units_at_deadline, named by the resolution contract"
+      },
+      "role": "organization",
+      "timezone": "America/Los_Angeles"
+    }
+  ],
+  "processes": [
+    {
+      "description": "The mobile drive collects units on Monday July 20, 2026 from 9:00 AM to 5:00 PM PDT at 12 units/hour, producing 96 units.",
+      "name": "monday_collection",
+      "operating_periods": {
+        "description": "operating period",
+        "end": "17:00",
+        "from_date": "2026-07-20",
+        "start": "09:00",
+        "timezone": "America/Los_Angeles",
+        "until_date": "2026-07-20",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "output_quantity": "blood_units",
+      "owner": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "note": "The mobile drive collects units on Monday July 20, 2026 from 9:00 AM to 5:00 PM PDT at 12 units/hour, producing 96 units."
+      },
+      "rate": {
+        "amount_per_hour": 12,
+        "note": "Centre's 2026 throughput report",
+        "status": "verified"
+      }
+    },
+    {
+      "description": "The mobile drive collects units on Thursday July 23, 2026 from 9:00 AM to 4:00 PM PDT (7 hours) at 12 units/hour, producing 84 units.",
+      "name": "thursday_collection_before_4pm",
+      "operating_periods": {
+        "description": "operating period",
+        "end": "17:00",
+        "from_date": "2026-07-23",
+        "start": "09:00",
+        "timezone": "America/Los_Angeles",
+        "until_date": "2026-07-23",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "output_quantity": "blood_units",
+      "owner": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "note": "The mobile drive collects units on Thursday July 23, 2026 from 9:00 AM to 4:00 PM PDT (7 hours) at 12 units/hour, producing 84 units."
+      },
+      "rate": {
+        "amount_per_hour": 12,
+        "note": "e2: measured average of 12 usable units per hour",
+        "status": "verified"
+      }
+    },
+    {
+      "description": "The mobile drive collects units on Tuesday July 21, 2026 from 9:00 AM to 4:00 PM PDT (7 hours) at 12 units/hour, producing 84 units.",
+      "name": "tuesday_collection_before_4pm",
+      "operating_periods": {
+        "description": "operating period",
+        "end": "17:00",
+        "from_date": "2026-07-21",
+        "start": "09:00",
+        "timezone": "America/Los_Angeles",
+        "until_date": "2026-07-21",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "output_quantity": "blood_units",
+      "owner": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "note": "The mobile drive collects units on Tuesday July 21, 2026 from 9:00 AM to 4:00 PM PDT (7 hours) at 12 units/hour, producing 84 units."
+      },
+      "rate": {
+        "amount_per_hour": 12,
+        "note": "e2: measured average of 12 usable units per hour",
+        "status": "verified"
+      }
+    },
+    {
+      "description": "The mobile drive collects units on Wednesday July 22, 2026 from 9:00 AM to 5:00 PM PDT at 12 units/hour, producing 96 units.",
+      "name": "wednesday_collection",
+      "operating_periods": {
+        "description": "operating period",
+        "end": "17:00",
+        "from_date": "2026-07-22",
+        "start": "09:00",
+        "timezone": "America/Los_Angeles",
+        "until_date": "2026-07-22",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "output_quantity": "blood_units",
+      "owner": "Cascade regional blood centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ],
+        "note": "The mobile drive collects units on Wednesday July 22, 2026 from 9:00 AM to 5:00 PM PDT at 12 units/hour, producing 96 units."
+      },
+      "rate": {
+        "amount_per_hour": 12,
+        "note": "e2: measured average of 12 usable units per hour",
+        "status": "verified"
+      }
+    }
+  ],
+  "resolution": {
+    "deadline": "2026-07-24T12:00:00-07:00",
+    "no_condition": "",
+    "observations": [
+      {
+        "description": "St. Vincent regional hospital holds a specific number of usable blood units at Friday noon, July 24, 2026.\nThe number of usable blood units in St. Vincent regional hospital's blood bank at the deadline.",
+        "holder": "St. Vincent regional hospital",
+        "observation_type": "quantity_measured",
+        "quantity": "blood_units"
+      }
+    ],
+    "observed_from": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday noon, July 24, 2026.",
+    "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+    "question_type": "quantity",
+    "yes_condition": "The hospital holds a specific number of usable blood units at the deadline."
+  },
+  "scheduled_events": [
+    {
+      "basis": "verified: e7, e9",
+      "description": "tuesday_shipment -- Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM\nThe centre dispatches 150 units on Tuesday July 21, 2026 at 4:00 PM PDT.",
+      "effects": [
+        {
+          "about": "tuesday_shipment",
+          "change_type": "record_fact",
+          "value": "occurred"
+        }
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e9"
+        ],
+        "note": "Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM\nThe centre dispatches 150 units on Tuesday July 21, 2026 at 4:00 PM PDT."
+      },
+      "time": "2026-07-21T16:00:00-07:00",
+      "wakes": [
+        {
+          "participant": "Cascade regional blood centre",
+          "reason": "scheduled: tuesday_shipment"
+        }
+      ]
+    },
+    {
+      "basis": "inferred: e7, e8, e9",
+      "description": "tuesday_shipment_receipt -- Receive shipment from centre on Tuesday\nThe Tuesday shipment of 150 units is received at the hospital by 7:00 PM Tuesday July 21, 2026 (shipped at 4:00 PM, 3-hour transit).",
+      "effects": [
+        {
+          "about": "tuesday_shipment_receipt",
+          "change_type": "record_fact",
+          "value": "occurred"
+        },
+        {
+          "amount": 150,
+          "change_type": "transfer_resource",
+          "from": "Cascade regional blood centre",
+          "quantity": "blood_units",
+          "to": "St. Vincent regional hospital"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "note": "Receive shipment from centre on Tuesday\nThe Tuesday shipment of 150 units is received at the hospital by 7:00 PM Tuesday July 21, 2026 (shipped at 4:00 PM, 3-ho"
+      },
+      "time": "2026-07-21T19:00:00-07:00",
+      "wakes": [
+        {
+          "participant": "St. Vincent regional hospital",
+          "reason": "scheduled: tuesday_shipment_receipt"
+        }
+      ]
+    },
+    {
+      "basis": "verified: e7, e9",
+      "description": "thursday_shipment -- Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM\nThe centre dispatches 150 units on Thursday July 23, 2026 at 4:00 PM PDT.",
+      "effects": [
+        {
+          "about": "thursday_shipment",
+          "change_type": "record_fact",
+          "value": "occurred"
+        }
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e9"
+        ],
+        "note": "Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM\nThe centre dispatches 150 units on Thursday July 23, 2026 at 4:00 PM PDT."
+      },
+      "time": "2026-07-23T16:00:00-07:00",
+      "wakes": [
+        {
+          "participant": "Cascade regional blood centre",
+          "reason": "scheduled: thursday_shipment"
+        }
+      ]
+    },
+    {
+      "basis": "inferred: e7, e8, e9",
+      "description": "thursday_shipment_receipt -- Receive shipment from centre on Thursday\nThe Thursday shipment of 150 units is received at the hospital by 7:00 PM Thursday July 23, 2026 (shipped at 4:00 PM, 3-hour trans",
+      "effects": [
+        {
+          "about": "thursday_shipment_receipt",
+          "change_type": "record_fact",
+          "value": "occurred"
+        },
+        {
+          "amount": 150,
+          "change_type": "transfer_resource",
+          "from": "Cascade regional blood centre",
+          "quantity": "blood_units",
+          "to": "St. Vincent regional hospital"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "note": "Receive shipment from centre on Thursday\nThe Thursday shipment of 150 units is received at the hospital by 7:00 PM Thursday July 23, 2026 (shipped at 4:00 PM, 3"
+      },
+      "time": "2026-07-23T19:00:00-07:00",
+      "wakes": [
+        {
+          "participant": "St. Vincent regional hospital",
+          "reason": "scheduled: thursday_shipment_receipt"
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "excluded": [
+      {
+        "reason": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received.",
+        "thing": "Elena Cruz"
+      },
+      {
+        "reason": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect this hospital's receipts.",
+        "thing": "Other hospitals or blood centres"
+      },
+      {
+        "reason": "The question asks for 'received' units, not 'available' or 'usable' at the deadline. The resolution note says 'the number of units the hospital actually holds at the deadline', which could imply net of usage. However, no evidence of usage is provided, so we assume no usage. Excluding usage is safe because the evidence does not mention any consumption, and the question's deadline is Friday noon, after the last shipment arrives Thursday evening. Without evidence of usage, the received units equal the sum of initial stock and shipments.",
+        "thing": "Blood unit usage or wastage at the hospital"
+      }
+    ],
+    "included": [
+      "Cascade regional blood centre",
+      "St. Vincent regional hospital",
+      "monday_collection",
+      "thursday_collection_before_4pm",
+      "tuesday_collection_before_4pm",
+      "wednesday_collection"
+    ]
+  },
+  "starting_state": [
+    {
+      "about": "centre_initial_stock",
+      "description": "The centre held 40 usable units at 9:00 AM Monday July 20, 2026.",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "The centre held 40 usable units at 9:00 AM Monday July 20, 2026."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "hospital_initial_stock",
+      "description": "St. Vincent hospital held 15 usable units at 9:00 AM Monday July 20, 2026.",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "St. Vincent hospital held 15 usable units at 9:00 AM Monday July 20, 2026."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "initial_stock",
+      "description": "Usable blood units held at start of Monday 20 July 2026 at 9:00 AM\nUsable blood units held at start of week",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ],
+        "note": "Usable blood units held at start of Monday 20 July 2026 at 9:00 AM\nUsable blood units held at start of week"
+      },
+      "status": "verified",
+      "value": "15"
+    },
+    {
+      "description": "Usable blood units in stock",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "quantity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Usable blood units in stock"
+      },
+      "quantity": {
+        "amount": 40,
+        "holder": "Cascade regional blood centre",
+        "name": "blood_units"
+      },
+      "status": "verified",
+      "subject": "Cascade regional blood centre"
+    },
+    {
+      "description": "Usable blood units in hospital blood bank",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "quantity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Usable blood units in hospital blood bank"
+      },
+      "quantity": {
+        "amount": 15,
+        "holder": "St. Vincent regional hospital",
+        "name": "blood_units"
+      },
+      "status": "verified",
+      "subject": "St. Vincent regional hospital"
+    }
+  ],
+  "terminal_producers": [
+    {
+      "can_be_produced_by": [
+        "thursday_shipment_receipt (event)",
+        "tuesday_shipment_receipt (event)"
+      ],
+      "terminal_component": "hospital_units_at_deadline"
+    }
+  ],
+  "uncertainties": [
+    {
+      "description": "The exact number of units the hospital holds at Friday noon is uncertain because it depends on whether the Thursday shipment is received before the deadline. The shipment dispatches at 4 PM Thursday and takes 3 hours, arriving at 7 PM Thursday, which is before Friday noon. So it is received. But the hospital's initial stock and the two shipments (Tuesday and Thursday) are known: 15 + 150 + 150 = 315. However, any usage or wastage between receipt and deadline is not mentioned; the evidence does not state that the hospital uses or discards units. So the number is 315 if no consumption. But consumption is plausible but not evidenced. So the uncertainty is whether the hospital uses any units between Tuesday and Friday noon. (about: hospital_holds_units_at_deadline)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether the centre has at least 150 units to ship on Thursday is uncertain because the collection rates and timings are known, but the exact stock after Tuesday and subsequent collections is not fully specified. However, the evidence implies the centre can always meet the shipment because the drive collects enough; but the exact stock is not verified. (about: centre_has_enough_stock_thursday)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "The centre's stock after the Tuesday shipment is not explicitly given; it depends on collections and the shipment amount, but the shipment is fixed at 150 units and the centre's initial stock plus collections may be more or less than 150. However, the evidence states the shipment moves 150 units, implying the centre has at least that many. The exact remaining stock after Tuesday is unknown but not needed for the hospital's received units. (about: centre_stock_after_tuesday_shipment)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    }
+  ]
+}

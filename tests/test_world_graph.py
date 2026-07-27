@@ -148,3 +148,24 @@ def test_from_dict_re_validates():
     d["nodes"][0]["provenance"]["basis"] = "probably"
     with pytest.raises(SemanticAmbiguity, match="basis must be one of"):
         WorldGraph.from_dict(d)
+
+
+def test_removed_names_leave_the_symbol_table():
+    """A removed node vanishes entirely: the serialized table names only
+    the live world, rebuild is the identity, and the freed name and id
+    behave exactly as if never registered."""
+    import json
+
+    g = WorldGraph()
+    keep = g.add_node("process", "line assembly", "kept", "question_given")
+    gone = g.add_node("process", "courier service", "pruned",
+                      "question_given")
+    g.remove_node(gone)
+    d1 = g.to_dict()
+    assert "courier service" not in json.dumps(d1)
+    assert WorldGraph.from_dict(d1).to_dict() == d1
+    # re-registration mints the original id, not a removal-history suffix
+    again = g.add_node("process", "courier service", "back",
+                       "question_given")
+    assert again == gone
+    assert g.maybe("process", "line assembly") == keep

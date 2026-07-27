@@ -295,7 +295,10 @@ class WorldGraph:
         it fall back to world level (the honesty survives the debris)."""
         self.node(node_id)
         name = self.nodes[node_id].name
+        category = self.nodes[node_id].category
         del self.nodes[node_id]
+        self.symbols.unregister(category, name,
+                                node_id.split(":", 1)[1])
         kept = []
         for e in self.edges:
             if node_id in (e.src, e.dst):

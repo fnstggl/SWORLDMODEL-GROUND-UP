@@ -91,6 +91,18 @@ class SymbolTable:
     def display(self, kind: str, ident: str) -> str:
         return self._display.get(f"{kind}:{ident}", ident)
 
+    def unregister(self, kind: str, name: str, ident: str) -> None:
+        """Forget a registered name: its lookup key, its reserved id and
+        its display form. The table must always describe exactly the live
+        world -- a stale entry would resolve references to nothing, and a
+        reserved-but-dead id would make ids depend on removal history
+        instead of being reproducible from the surviving content."""
+        key = self._key(name)
+        if self._by_kind.get(kind, {}).get(key) == ident:
+            del self._by_kind[kind][key]
+        self._used_ids.get(kind, set()).discard(ident)
+        self._display.pop(f"{kind}:{ident}", None)
+
     @staticmethod
     def _key(name: str) -> str:
         return slug(name)

@@ -1,19 +1,19 @@
 [
   {
-    "binding_calls": 6,
+    "binding_calls": 7,
     "case": "blood_units",
     "discovery_calls": 7,
     "expected_answer": 315.0,
     "expected_refusal": false,
-    "lowering_ms": 5.5,
+    "lowering_ms": 43.9,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the lowered world does not mean what the approved world means (MATERIAL_OMISSION)",
+    "reason": "causal challenge tests failed; the compiled world must not run",
     "repairs": {
       "resolution_ambiguity_adjudication": 1
     },
     "runtime_ms": 0.0,
     "stage": "LOWERING_MISMATCH",
-    "tokens": 29074
+    "tokens": 30056
   }
 ]

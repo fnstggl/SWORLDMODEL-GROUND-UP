@@ -1,0 +1,9 @@
+{
+  "detail": {
+    "failed": [
+      "perturbation_invariance"
+    ]
+  },
+  "reason": "causal challenge tests failed; the compiled world must not run",
+  "stage": "LOWERING_MISMATCH"
+}
