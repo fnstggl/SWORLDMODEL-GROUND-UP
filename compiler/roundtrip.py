@@ -180,9 +180,9 @@ def describe_runtime(compiled) -> str:
         out.append(f"- {k} = {_j(v)}")
 
     out.append("\n## Quantities at genesis")
-    for holder, stocks in sorted((snap.get("resources") or {}).items()):
-        for name, amount in sorted(stocks.items()):
-            out.append(f"- {holder} holds {amount} of {name}")
+    for key, amount in sorted((snap.get("resources") or {}).items()):
+        holder, _, name = str(key).partition(":")
+        out.append(f"- {holder} holds {amount} of {name or key}")
 
     out.append("\n## Scheduled queue at genesis")
     for ev in sorted(compiled.world.queue.pending(),

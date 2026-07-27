@@ -1,0 +1,52 @@
+{
+  "assignments": [
+    {
+      "step": "initial_stock",
+      "unsupported": "Initial fact, no producer needed."
+    },
+    {
+      "step": "tuesday_shipment_departure",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8",
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The centre dispatches the shipment and the courier service delivers it; the hospital receives it.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_shipment_arrival"
+    },
+    {
+      "step": "thursday_shipment_departure",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8",
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The centre dispatches the shipment and the courier service delivers it; the hospital receives it.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment_arrival"
+    },
+    {
+      "step": "hospital_units_at_deadline",
+      "unsupported": "Condition with prerequisites; no independent mechanism."
+    }
+  ]
+}

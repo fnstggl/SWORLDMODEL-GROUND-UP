@@ -1,0 +1,11 @@
+{
+  "causal_path": [
+    "Initial hospital stock: 15 units at Monday 9 AM",
+    "Tuesday shipment departs at 4 PM Tuesday, arrives at 7 PM Tuesday: +150 units",
+    "Thursday shipment departs at 4 PM Thursday, arrives at 7 PM Thursday: +150 units",
+    "Total at Friday noon: 15 + 150 + 150 = 315 units"
+  ],
+  "defects": [],
+  "reasoning": "The world correctly identifies the terminal as the number of usable units held at St. Vincent hospital at Friday noon. The backward causal chain is complete: initial stock (15) plus two scheduled shipments (150 each) arriving before the deadline. Producers (Cascade centre, courier, hospital) are correctly assigned based on evidence. No missing actors or processes; excluded items (other hospitals, Elena Cruz, disruptions) are causally safe. Uncertainty about centre stock dynamics and collection drive is preserved and does not affect the terminal because shipments are fixed at 150 units each. The terminal emerges from scheduled events, not initialization. The mechanical warnings about dead routes are irrelevant because the shipments are scheduled events, not continuous processes.",
+  "verdict": "APPROVE"
+}

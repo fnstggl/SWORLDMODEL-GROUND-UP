@@ -1,0 +1,270 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The centre dispatches the Tuesday shipment.",
+          "over": "tuesday_shipment_departure"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The centre dispatches the Thursday shipment.",
+          "over": "thursday_shipment_departure"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Shipments depart at scheduled times.",
+            "meaning": "Continuous during transit."
+          },
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "latency_meaning": "Shipment takes about 3 hours to reach the hospital.",
+          "meaning": "Physical transport of blood units via courier.",
+          "name": "courier_service",
+          "role": "sender"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "meaning": "Shipment of 150 units departs every Tuesday at 4:00 PM America/Los_Angeles.",
+          "name": "tuesday_shipment",
+          "when": "2026-07-21T16:00:00-07:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "meaning": "Shipment of 150 units departs every Thursday at 4:00 PM America/Los_Angeles.",
+          "name": "thursday_shipment",
+          "when": "2026-07-23T16:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+          "name": "stock_at_monday_9am",
+          "value": 40
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The drive collects at an average of 12 usable units per hour while open.",
+          "name": "collection_rate",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The drive is open Monday to Friday 9:00 AM to 5:00 PM America/Los_Angeles.",
+          "name": "drive_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The centre held 40 usable units at 9:00 AM Monday 20 July 2026.",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Shipments depart every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Each shipment moves 150 units.",
+          "name": "shipment_capacity",
+          "visibility": "public"
+        }
+      ],
+      "name": "Cascade regional blood centre",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 40,
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Usable blood units held by the centre at the start of the week.",
+          "name": "stock",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Hospital receives and counts units, but does not control collection or shipping schedule",
+          "over": "hospital_units_at_deadline"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Receives shipments at scheduled times",
+            "meaning": "Continuous attention during business hours"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "latency_meaning": "3 hours from dispatch to receipt",
+          "meaning": "Physical delivery of blood units by courier",
+          "name": "courier_delivery",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Scheduled arrival of Tuesday shipment",
+          "name": "tuesday_shipment_arrival",
+          "when": "2026-07-21T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Scheduled arrival of Thursday shipment",
+          "name": "thursday_shipment_arrival",
+          "when": "2026-07-23T19:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held at start of week",
+          "name": "initial_stock",
+          "value": 15
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital knows its own initial stock",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Hospital knows each shipment is 150 units",
+          "name": "shipment_quantity",
+          "visibility": "public"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units in hospital blood bank",
+          "name": "usable_blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    }
+  ]
+}
