@@ -1,0 +1,2383 @@
+{
+  "action_affordances": [
+    {
+      "available_to": {
+        "participants": [
+          "Carla Bianchi"
+        ]
+      },
+      "consequences_on_completion": [],
+      "description": "Carla Bianchi is physically present in the chamber at the time of the vote.",
+      "duration": {
+        "description": "Physically entering a chamber and being present takes about a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e4",
+            "e10"
+          ],
+          "note": "Physically entering a chamber and being present takes about a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "bianchi_present",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e10"
+        ],
+        "note": "Carla Bianchi is physically present in the chamber at the time of the vote."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Carla Bianchi"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "change_type": "create_record",
+          "record_type": "vote tally",
+          "subject": "Ordinance 2026-14",
+          "value": "yes"
+        }
+      ],
+      "description": "Carla Bianchi votes in favor of Ordinance 2026-14.",
+      "duration": {
+        "description": "Voting typically takes less than a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e9",
+            "e10"
+          ],
+          "note": "Voting typically takes less than a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "bianchi_vote_yes",
+      "parameters": [],
+      "preconditions": [
+        {
+          "action_label": "bianchi_present",
+          "condition_type": "action_already_completed"
+        },
+        {
+          "condition_type": "record_absent",
+          "made_by_acting_participant": true,
+          "record_type": "vote tally"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9",
+          "e10"
+        ],
+        "note": "Carla Bianchi votes in favor of Ordinance 2026-14."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Ellsworth Falls Village Council"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "about": "item_on_agenda",
+          "change_type": "record_fact",
+          "value": "true"
+        }
+      ],
+      "description": "Ellsworth Falls Village Council can bring about: Ordinance 2026-14 is on the published agenda for the 8 September session.",
+      "duration": {
+        "description": "Adding an item to a published agenda typically takes about an hour of administrative work.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "note": "Adding an item to a published agenda typically takes about an hour of administrative work."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 60
+      },
+      "label": "bring about: item_on_agenda",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Ellsworth Falls Village Council can bring about: Ordinance 2026-14 is on the published agenda for the 8 September session."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Rosa Delgado"
+        ]
+      },
+      "consequences_on_completion": [],
+      "description": "Rosa Delgado is physically present in the chamber at the time of the vote.",
+      "label": "delgado_present",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Rosa Delgado is physically present in the chamber at the time of the vote."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Rosa Delgado"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "change_type": "create_record",
+          "record_type": "vote tally",
+          "subject": "Ordinance 2026-14",
+          "value": "yes"
+        }
+      ],
+      "description": "Rosa Delgado votes in favor of Ordinance 2026-14.",
+      "duration": {
+        "description": "A single vote takes about a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "note": "A single vote takes about a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "delgado_vote_yes",
+      "parameters": [],
+      "preconditions": [
+        {
+          "action_label": "delgado_present",
+          "condition_type": "action_already_completed"
+        },
+        {
+          "condition_type": "record_absent",
+          "made_by_acting_participant": true,
+          "record_type": "vote tally"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Rosa Delgado votes in favor of Ordinance 2026-14."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Adaeze Okonkwo"
+        ]
+      },
+      "consequences_on_completion": [],
+      "description": "The sponsor does not move postponement of the item.",
+      "duration": {
+        "description": "A sponsor stating no postponement takes about a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "note": "A sponsor stating no postponement takes about a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "no_postponement",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "The sponsor does not move postponement of the item."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Adaeze Okonkwo"
+        ]
+      },
+      "consequences_on_completion": [],
+      "description": "Adaeze Okonkwo is physically present in the chamber at the time of the vote.",
+      "duration": {
+        "description": "Physical presence is instantaneous once the person is in the chamber; 1 minute accounts for walking to a designated spot.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "note": "Physical presence is instantaneous once the person is in the chamber; 1 minute accounts for walking to a designated spot."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "okonkwo_present",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Adaeze Okonkwo is physically present in the chamber at the time of the vote."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Adaeze Okonkwo"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "change_type": "create_record",
+          "record_type": "vote tally",
+          "subject": "Ordinance 2026-14",
+          "value": "yes"
+        }
+      ],
+      "description": "Adaeze Okonkwo votes in favor of Ordinance 2026-14.",
+      "duration": {
+        "description": "A single vote takes about a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "note": "A single vote takes about a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "okonkwo_vote_yes",
+      "parameters": [],
+      "preconditions": [
+        {
+          "action_label": "okonkwo_present",
+          "condition_type": "action_already_completed"
+        },
+        {
+          "condition_type": "record_absent",
+          "made_by_acting_participant": true,
+          "record_type": "vote tally"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Adaeze Okonkwo votes in favor of Ordinance 2026-14."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Gareth Pryce"
+        ]
+      },
+      "consequences_on_completion": [],
+      "description": "Gareth Pryce is physically present in the chamber at the time of the vote.",
+      "label": "pryce_present",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Gareth Pryce is physically present in the chamber at the time of the vote."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Gareth Pryce"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "change_type": "create_record",
+          "record_type": "vote tally",
+          "subject": "Ordinance 2026-14",
+          "value": "yes"
+        }
+      ],
+      "description": "Gareth Pryce votes in favor of Ordinance 2026-14.",
+      "duration": {
+        "description": "Voting by voice or show of hands takes about a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "note": "Voting by voice or show of hands takes about a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "pryce_vote_yes",
+      "parameters": [],
+      "preconditions": [
+        {
+          "action_label": "pryce_present",
+          "condition_type": "action_already_completed"
+        },
+        {
+          "condition_type": "record_absent",
+          "made_by_acting_participant": true,
+          "record_type": "vote tally"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Gareth Pryce votes in favor of Ordinance 2026-14."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Minh Tran"
+        ]
+      },
+      "consequences_on_completion": [],
+      "description": "Minh Tran is physically present in the chamber at the time of the vote.",
+      "label": "tran_present",
+      "parameters": [],
+      "preconditions": [],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Minh Tran is physically present in the chamber at the time of the vote."
+      }
+    },
+    {
+      "available_to": {
+        "participants": [
+          "Minh Tran"
+        ]
+      },
+      "consequences_on_completion": [
+        {
+          "change_type": "create_record",
+          "record_type": "vote tally",
+          "subject": "Ordinance 2026-14",
+          "value": "yes"
+        }
+      ],
+      "description": "Minh Tran votes in favor of Ordinance 2026-14.",
+      "duration": {
+        "description": "A single vote takes about a minute.",
+        "provenance": {
+          "basis": "model_memory_unverified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "note": "A single vote takes about a minute."
+        },
+        "status": "model_memory_unverified",
+        "typical_minutes": 1
+      },
+      "label": "tran_vote_yes",
+      "parameters": [],
+      "preconditions": [
+        {
+          "action_label": "tran_present",
+          "condition_type": "action_already_completed"
+        },
+        {
+          "condition_type": "record_absent",
+          "made_by_acting_participant": true,
+          "record_type": "vote tally"
+        }
+      ],
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Minh Tran votes in favor of Ordinance 2026-14."
+      }
+    }
+  ],
+  "communication_routes": [],
+  "information": [
+    {
+      "content": "Bianchi knows she filed notice of absence for the 8 September session.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi knows she filed notice of absence for the 8 September session."
+      },
+      "topic": "absence_notice"
+    },
+    {
+      "content": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.\nBianchi filed written notice that she is absent from the 8 September session.\nRosa Delgado may or may not know that Bianchi filed an absence notice; evidence does not state she knows.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her"
+      },
+      "topic": "bianchi_absence_notice"
+    },
+    {
+      "content": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.\nBianchi filed written notice that she is absent from the 8 September session.\nRosa Delgado may or may not know that Bianchi filed an absence notice; evidence does not state she knows.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her"
+      },
+      "topic": "bianchi_absence_notice"
+    },
+    {
+      "content": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.\nBianchi filed written notice that she is absent from the 8 September session.\nRosa Delgado may or may not know that Bianchi filed an absence notice; evidence does not state she knows.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her"
+      },
+      "topic": "bianchi_absence_notice"
+    },
+    {
+      "content": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.\nBianchi filed written notice that she is absent from the 8 September session.\nRosa Delgado may or may not know that Bianchi filed an absence notice; evidence does not state she knows.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her"
+      },
+      "topic": "bianchi_absence_notice"
+    },
+    {
+      "content": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.\nBianchi filed written notice that she is absent from the 8 September session.\nRosa Delgado may or may not know that Bianchi filed an absence notice; evidence does not state she knows.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her"
+      },
+      "topic": "bianchi_absence_notice"
+    },
+    {
+      "content": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.\nBianchi filed written notice that she is absent from the 8 September session.\nRosa Delgado may or may not know that Bianchi filed an absence notice; evidence does not state she knows.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice of absence from the 8 September session.\nBianchi filed written notice that she is absent from the 8 September session to attend her"
+      },
+      "topic": "bianchi_absence_notice"
+    },
+    {
+      "content": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi co-sponsored the ordinance and has publicly supported it since June."
+      },
+      "topic": "bianchi_support"
+    },
+    {
+      "content": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi co-sponsored the ordinance and has publicly supported it since June."
+      },
+      "topic": "bianchi_support"
+    },
+    {
+      "content": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi co-sponsored the ordinance and has publicly supported it since June."
+      },
+      "topic": "bianchi_support"
+    },
+    {
+      "content": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi co-sponsored the ordinance and has publicly supported it since June."
+      },
+      "topic": "bianchi_support"
+    },
+    {
+      "content": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi co-sponsored the ordinance and has publicly supported it since June."
+      },
+      "topic": "bianchi_support"
+    },
+    {
+      "content": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi co-sponsored the ordinance and has publicly supported it since June."
+      },
+      "topic": "bianchi_support"
+    },
+    {
+      "content": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14."
+      },
+      "topic": "council_agenda"
+    },
+    {
+      "content": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14."
+      },
+      "topic": "council_agenda"
+    },
+    {
+      "content": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14."
+      },
+      "topic": "council_agenda"
+    },
+    {
+      "content": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14."
+      },
+      "topic": "council_agenda"
+    },
+    {
+      "content": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14."
+      },
+      "topic": "council_agenda"
+    },
+    {
+      "content": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Rosa Delgado knows the council agenda for 8 September includes final action on Ordinance 2026-14."
+      },
+      "topic": "council_agenda"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_composition"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_composition"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_composition"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_composition"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_composition"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_composition"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_membership"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_membership"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_membership"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_membership"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_membership"
+    },
+    {
+      "content": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ],
+        "note": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi."
+      },
+      "topic": "council_membership"
+    },
+    {
+      "content": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it."
+      },
+      "topic": "delgado_opposition"
+    },
+    {
+      "content": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it."
+      },
+      "topic": "delgado_opposition"
+    },
+    {
+      "content": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it."
+      },
+      "topic": "delgado_opposition"
+    },
+    {
+      "content": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it."
+      },
+      "topic": "delgado_opposition"
+    },
+    {
+      "content": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it."
+      },
+      "topic": "delgado_opposition"
+    },
+    {
+      "content": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.\nDelgado opposes the ordinance and intends to vote against it."
+      },
+      "topic": "delgado_opposition"
+    },
+    {
+      "content": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordina"
+      },
+      "topic": "okonkwo_support"
+    },
+    {
+      "content": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordina"
+      },
+      "topic": "okonkwo_support"
+    },
+    {
+      "content": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordina"
+      },
+      "topic": "okonkwo_support"
+    },
+    {
+      "content": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordina"
+      },
+      "topic": "okonkwo_support"
+    },
+    {
+      "content": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordina"
+      },
+      "topic": "okonkwo_support"
+    },
+    {
+      "content": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.\nOkonkwo sponsored the ordinance and supports it.\nOkonkwo supports the ordina"
+      },
+      "topic": "okonkwo_support"
+    },
+    {
+      "content": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it."
+      },
+      "topic": "opposes_ordinance"
+    },
+    {
+      "content": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it."
+      },
+      "topic": "opposes_ordinance"
+    },
+    {
+      "content": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it."
+      },
+      "topic": "opposes_ordinance"
+    },
+    {
+      "content": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it."
+      },
+      "topic": "opposes_ordinance"
+    },
+    {
+      "content": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it."
+      },
+      "topic": "opposes_ordinance"
+    },
+    {
+      "content": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it."
+      },
+      "topic": "opposes_ordinance"
+    },
+    {
+      "content": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session."
+      },
+      "topic": "ordinance_agenda"
+    },
+    {
+      "content": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session."
+      },
+      "topic": "ordinance_agenda"
+    },
+    {
+      "content": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session."
+      },
+      "topic": "ordinance_agenda"
+    },
+    {
+      "content": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session."
+      },
+      "topic": "ordinance_agenda"
+    },
+    {
+      "content": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session."
+      },
+      "topic": "ordinance_agenda"
+    },
+    {
+      "content": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14 at the 8 September session."
+      },
+      "topic": "ordinance_agenda"
+    },
+    {
+      "content": "Rosa Delgado knows she opposes Ordinance 2026-14.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Rosa Delgado knows she opposes Ordinance 2026-14."
+      },
+      "topic": "ordinance_opposition"
+    },
+    {
+      "content": "Bianchi knows she supports Ordinance 2026-14.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ],
+        "note": "Bianchi knows she supports Ordinance 2026-14."
+      },
+      "topic": "ordinance_support"
+    },
+    {
+      "content": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that members must be physically present to vote.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that memb"
+      },
+      "topic": "physical_presence_rule"
+    },
+    {
+      "content": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that members must be physically present to vote.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that memb"
+      },
+      "topic": "physical_presence_rule"
+    },
+    {
+      "content": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that members must be physically present to vote.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that memb"
+      },
+      "topic": "physical_presence_rule"
+    },
+    {
+      "content": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that members must be physically present to vote.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that memb"
+      },
+      "topic": "physical_presence_rule"
+    },
+    {
+      "content": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that members must be physically present to vote.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that memb"
+      },
+      "topic": "physical_presence_rule"
+    },
+    {
+      "content": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that members must be physically present to vote.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Bianchi knows council rules require physical presence to vote.\nMembers must be physically present to vote; no remote participation.\nRosa Delgado knows that memb"
+      },
+      "topic": "physical_presence_rule"
+    },
+    {
+      "content": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "topic": "postponement_rule"
+    },
+    {
+      "content": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "topic": "postponement_rule"
+    },
+    {
+      "content": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "topic": "postponement_rule"
+    },
+    {
+      "content": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "topic": "postponement_rule"
+    },
+    {
+      "content": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "topic": "postponement_rule"
+    },
+    {
+      "content": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "topic": "postponement_rule"
+    },
+    {
+      "content": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vot"
+      },
+      "topic": "pryce_opposition"
+    },
+    {
+      "content": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vot"
+      },
+      "topic": "pryce_opposition"
+    },
+    {
+      "content": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vot"
+      },
+      "topic": "pryce_opposition"
+    },
+    {
+      "content": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vot"
+      },
+      "topic": "pryce_opposition"
+    },
+    {
+      "content": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vot"
+      },
+      "topic": "pryce_opposition"
+    },
+    {
+      "content": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "note": "Bianchi knows Pryce opposes the ordinance in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vot"
+      },
+      "topic": "pryce_opposition"
+    },
+    {
+      "content": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council."
+      },
+      "topic": "quorum_and_vote_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council."
+      },
+      "topic": "quorum_and_vote_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council."
+      },
+      "topic": "quorum_and_vote_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council."
+      },
+      "topic": "quorum_and_vote_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council."
+      },
+      "topic": "quorum_and_vote_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council."
+      },
+      "topic": "quorum_and_vote_rule"
+    },
+    {
+      "content": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum."
+      },
+      "topic": "quorum_and_vote_rules"
+    },
+    {
+      "content": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum."
+      },
+      "topic": "quorum_and_vote_rules"
+    },
+    {
+      "content": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum."
+      },
+      "topic": "quorum_and_vote_rules"
+    },
+    {
+      "content": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum."
+      },
+      "topic": "quorum_and_vote_rules"
+    },
+    {
+      "content": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum."
+      },
+      "topic": "quorum_and_vote_rules"
+    },
+    {
+      "content": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Bianchi knows the charter requires three affirmative votes for adoption and three members for quorum."
+      },
+      "topic": "quorum_and_vote_rules"
+    },
+    {
+      "content": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires three affirmative votes.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires thr"
+      },
+      "topic": "quorum_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires three affirmative votes.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires thr"
+      },
+      "topic": "quorum_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires three affirmative votes.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires thr"
+      },
+      "topic": "quorum_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires three affirmative votes.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires thr"
+      },
+      "topic": "quorum_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires three affirmative votes.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires thr"
+      },
+      "topic": "quorum_rule"
+    },
+    {
+      "content": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires three affirmative votes.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members.\nRosa Delgado knows that quorum is three members and adoption requires thr"
+      },
+      "topic": "quorum_rule"
+    },
+    {
+      "content": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September."
+      },
+      "topic": "session_agenda"
+    },
+    {
+      "content": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September."
+      },
+      "topic": "session_agenda"
+    },
+    {
+      "content": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September."
+      },
+      "topic": "session_agenda"
+    },
+    {
+      "content": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September."
+      },
+      "topic": "session_agenda"
+    },
+    {
+      "content": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September."
+      },
+      "topic": "session_agenda"
+    },
+    {
+      "content": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Bianchi knows the council agenda includes final action on Ordinance 2026-14 on 8 September."
+      },
+      "topic": "session_agenda"
+    },
+    {
+      "content": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14."
+      },
+      "topic": "session_scheduled"
+    },
+    {
+      "content": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14."
+      },
+      "topic": "session_scheduled"
+    },
+    {
+      "content": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14."
+      },
+      "topic": "session_scheduled"
+    },
+    {
+      "content": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14."
+      },
+      "topic": "session_scheduled"
+    },
+    {
+      "content": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14."
+      },
+      "topic": "session_scheduled"
+    },
+    {
+      "content": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The regular session is scheduled for 8 September 2026 at 7:00 PM with final action on Ordinance 2026-14."
+      },
+      "topic": "session_scheduled"
+    },
+    {
+      "content": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance.",
+      "holder": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance."
+      },
+      "topic": "tran_support"
+    },
+    {
+      "content": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance.",
+      "holder": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance."
+      },
+      "topic": "tran_support"
+    },
+    {
+      "content": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance.",
+      "holder": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance."
+      },
+      "topic": "tran_support"
+    },
+    {
+      "content": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance.",
+      "holder": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance."
+      },
+      "topic": "tran_support"
+    },
+    {
+      "content": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance.",
+      "holder": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance."
+      },
+      "topic": "tran_support"
+    },
+    {
+      "content": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance.",
+      "holder": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ],
+        "note": "Bianchi knows Tran is prepared to vote for the ordinance.\nTran stated he is prepared to vote for the ordinance."
+      },
+      "topic": "tran_support"
+    }
+  ],
+  "participants": [
+    {
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "As sponsor, Okonkwo can move postponement under council rules.\nOkonkwo decides how to vote.\nOkonkwo decides whether to attend the session.",
+      "kind": "person",
+      "name": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11",
+          "e4",
+          "e5"
+        ],
+        "note": "As sponsor, Okonkwo can move postponement under council rules.\nOkonkwo decides how to vote.\nOkonkwo decides whether to attend the session."
+      },
+      "role": "person",
+      "timezone": "America/New_York"
+    },
+    {
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Bianchi decides how to vote, if present.\nBianchi decides whether to attend, though she has filed notice of absence.",
+      "kind": "person",
+      "name": "Carla Bianchi",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e4",
+          "e9"
+        ],
+        "note": "Bianchi decides how to vote, if present.\nBianchi decides whether to attend, though she has filed notice of absence."
+      },
+      "role": "person",
+      "timezone": "America/New_York"
+    },
+    {
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Pryce decides how to vote.\nPryce decides whether to attend the session.",
+      "kind": "person",
+      "name": "Gareth Pryce",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e8"
+        ],
+        "note": "Pryce decides how to vote.\nPryce decides whether to attend the session."
+      },
+      "role": "person",
+      "timezone": "America/New_York"
+    },
+    {
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Tran decides how to vote.\nTran decides whether to attend the session.",
+      "kind": "person",
+      "name": "Minh Tran",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e6"
+        ],
+        "note": "Tran decides how to vote.\nTran decides whether to attend the session."
+      },
+      "role": "person",
+      "timezone": "America/New_York"
+    },
+    {
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "causal_relevance": "Delgado decides how to vote.\nDelgado decides whether to attend the session.",
+      "kind": "person",
+      "name": "Rosa Delgado",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e7"
+        ],
+        "note": "Delgado decides how to vote.\nDelgado decides whether to attend the session."
+      },
+      "role": "person",
+      "timezone": "America/New_York"
+    },
+    {
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "timezone": "America/New_York",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "causal_relevance": "The council schedules and holds regular sessions.\nThe council sets the agenda for its sessions.",
+      "kind": "organization",
+      "name": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The council schedules and holds regular sessions.\nThe council sets the agenda for its sessions."
+      },
+      "role": "organization",
+      "timezone": "America/New_York"
+    }
+  ],
+  "processes": [],
+  "resolution": {
+    "deadline": "2026-09-08T22:00:00-04:00",
+    "no_condition": "The ordinance receives fewer than three affirmative votes, or the vote fails to occur, or adoption occurs at a later session.",
+    "observations": [
+      {
+        "description": "At least three council members vote affirmatively on Ordinance 2026-14.\nThe official record of the vote on Ordinance 2026-14 at the 8 September session.",
+        "expected_count": 3,
+        "observation_type": "tally_of_records",
+        "record_type": "vote tally",
+        "rule": "count_value",
+        "subject": "Ordinance 2026-14",
+        "value": "affirmative"
+      }
+    ],
+    "observed_from": "The question is resolved by whether Ordinance 2026-14 receives at least three affirmative votes from the five-member council at the 8 September 2026 regular session.",
+    "question": "Will the Ellsworth Falls Village Council adopt Ordinance 2026-14, the Riverwalk Overlay, at its regular session on 8 September 2026?",
+    "question_type": "boolean",
+    "yes_condition": "The ordinance receives at least three affirmative votes at the 8 September session."
+  },
+  "scheduled_events": [
+    {
+      "basis": "verified: e10, e2",
+      "description": "council_session -- Attend her daughter's naval academy induction in Annapolis on the evening of 8 September 2026.\nRegular session of Ellsworth Falls Village Council on 8 September 2026 at 7:00 PM at v",
+      "effects": [
+        {
+          "about": "council_session",
+          "change_type": "record_fact",
+          "value": "occurred"
+        }
+      ],
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e2"
+        ],
+        "note": "Attend her daughter's naval academy induction in Annapolis on the evening of 8 September 2026.\nRegular session of Ellsworth Falls Village Council on 8 September"
+      },
+      "time": "2026-09-08T19:00:00-04:00",
+      "wakes": [
+        {
+          "participant": "Ellsworth Falls Village Council",
+          "reason": "scheduled: council_session"
+        },
+        {
+          "participant": "Adaeze Okonkwo",
+          "reason": "scheduled: council_session"
+        },
+        {
+          "participant": "Carla Bianchi",
+          "reason": "scheduled: council_session"
+        },
+        {
+          "participant": "Gareth Pryce",
+          "reason": "scheduled: council_session"
+        },
+        {
+          "participant": "Minh Tran",
+          "reason": "scheduled: council_session"
+        },
+        {
+          "participant": "Rosa Delgado",
+          "reason": "scheduled: council_session"
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "excluded": [
+      {
+        "reason": "The ordinance adoption requires only council member votes; other officials have no role in the vote outcome.",
+        "thing": "Other village officials or staff"
+      },
+      {
+        "reason": "Council members have stated their positions publicly; public input could theoretically change votes, but there is no evidence of any such change occurring before the cutoff.",
+        "thing": "Public input or lobbying"
+      },
+      {
+        "reason": "The question is about adoption at the session; legal challenges after adoption are irrelevant to whether adoption occurs.",
+        "thing": "Legal challenges or procedural errors"
+      }
+    ],
+    "included": [
+      "Adaeze Okonkwo",
+      "Carla Bianchi",
+      "Ellsworth Falls Village Council",
+      "Gareth Pryce",
+      "Minh Tran",
+      "Rosa Delgado"
+    ]
+  },
+  "starting_state": [
+    {
+      "about": "absent_notice_filed",
+      "description": "Bianchi filed written notice with the village clerk on 2 September that she is absent from the 8 September session to attend her daughter's naval academy induction in Annapolis that evening.",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ],
+        "note": "Bianchi filed written notice with the village clerk on 2 September that she is absent from the 8 September session to attend her daughter's naval academy induct"
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "item_on_agenda",
+      "description": "Ordinance 2026-14 is on the published agenda for the 8 September session.",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "Ordinance 2026-14 is on the published agenda for the 8 September session."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "opposes_ordinance",
+      "description": "Rosa Delgado opposes Ordinance 2026-14 and intends to vote against it.",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ],
+        "note": "Rosa Delgado opposes Ordinance 2026-14 and intends to vote against it."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "ordinance_on_agenda",
+      "description": "The published agenda lists final action on Ordinance 2026-14, the Riverwalk Overlay.",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The published agenda lists final action on Ordinance 2026-14, the Riverwalk Overlay."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "physical_presence_required",
+      "description": "Members must be physically present in the chamber to vote; no remote participation.",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "note": "Members must be physically present in the chamber to vote; no remote participation."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "postponement_rule",
+      "description": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "note": "An item listed for final action is voted on at that session unless its sponsor moves postponement."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "quorum_rule",
+      "description": "Quorum is three members; adoption requires affirmative vote of at least three members of the full five-member council.",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ],
+        "note": "Quorum is three members; adoption requires affirmative vote of at least three members of the full five-member council."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "regular_session_scheduled",
+      "description": "The council has a regular session scheduled for 8 September 2026 at 7:00 PM at village hall.",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ],
+        "note": "The council has a regular session scheduled for 8 September 2026 at 7:00 PM at village hall."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "sponsor_of_ordinance",
+      "description": "Okonkwo is the sponsor of Ordinance 2026-14.",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ],
+        "note": "Okonkwo is the sponsor of Ordinance 2026-14."
+      },
+      "status": "verified",
+      "value": "true"
+    },
+    {
+      "about": "supports_ordinance",
+      "description": "Carla Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.\nMinh Tran stated he is prepared to vote for Ordinance 2026-14 as drafted.\nOkonkwo supports Ordinance 2026-14 and wants final action at the 8 September session.",
+      "evidence_ids": [
+        "e5",
+        "e6",
+        "e9"
+      ],
+      "kind": "fact",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e9"
+        ],
+        "note": "Carla Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.\nMinh Tran stated he is prepared to vote for Ordinance 2026-14 as drafted."
+      },
+      "status": "verified",
+      "value": "yes"
+    }
+  ],
+  "terminal_producers": [
+    {
+      "can_be_produced_by": [
+        "bianchi_vote_yes (action)",
+        "delgado_vote_yes (action)",
+        "okonkwo_vote_yes (action)",
+        "pryce_vote_yes (action)",
+        "tran_vote_yes (action)"
+      ],
+      "terminal_component": "vote_record"
+    }
+  ],
+  "uncertainties": [
+    {
+      "description": "Whether at least three members vote yes is uncertain because it depends on the votes of those present. Known positions: Okonkwo yes, Tran yes, Delgado no, Pryce no, Bianchi absent (likely). So at most two yes votes are certain; a third yes would require either Bianchi attending and voting yes (unlikely) or one of the opponents changing their vote. (about: affirmative_votes_at_least_three)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether the regular session on 8 September 2026 actually occurs is uncertain due to potential cancellations (e.g., weather, emergency, lack of quorum). (about: session_held)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Bianchi has filed an absence notice, so it is highly likely she will not be present, but it is uncertain whether she might change plans or attend despite the notice. (about: bianchi_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Bianchi has filed notice of absence, but may still attend. (about: bianchi_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Bianchi has stated support, but may change her vote; also she may be absent. (about: bianchi_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Bianchi is likely absent, but if present, she has supported the ordinance and would likely vote yes. (about: bianchi_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Delgado may choose to attend or not. (about: delgado_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether Delgado will be physically present is uncertain; no statement about attendance. (about: delgado_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Delgado has stated opposition, but could change her vote. (about: delgado_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Delgado has stated opposition, but may change her vote. (about: delgado_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Okonkwo, the sponsor, may decide to move postponement. (about: no_postponement)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether the sponsor or another member moves to postpone the item is uncertain. Okonkwo currently wants final action, but could change her mind. (about: no_postponement)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Okonkwo may choose to attend or not. (about: okonkwo_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether Okonkwo will be physically present is uncertain; she has not indicated otherwise, but no firm commitment. (about: okonkwo_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Okonkwo has stated support, but could change her vote. (about: okonkwo_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Okonkwo has stated support, but may change her vote. (about: okonkwo_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Pryce may choose to attend or not. (about: pryce_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether Pryce will be physically present is uncertain; no statement about attendance. (about: pryce_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Pryce has stated opposition, but could change his vote. (about: pryce_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Pryce has stated opposition, but may change his vote. (about: pryce_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Tran may choose to attend or not. (about: tran_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether Tran will be physically present is uncertain; no statement about attendance. (about: tran_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Tran has stated he is prepared to vote for it, but may change his vote. (about: tran_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Tran has stated support, but could change his vote. (about: tran_vote_yes)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether at least three members are physically present is uncertain. Bianchi has filed an absence, so at most four may attend. If only three attend, quorum is met; if fewer, not. (about: quorum_present)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    },
+    {
+      "description": "Whether the vote actually takes place at the 8 September session is uncertain because it depends on the session being held and the item not being postponed. The session is scheduled, but unforeseen events could cancel it. Also, under council rules, the sponsor (Okonkwo) could move postponement; her current intention is to proceed, but she could change her mind. (about: vote_occurs)",
+      "evidence_ids": [],
+      "supported_possibilities": [],
+      "type": "causal"
+    }
+  ]
+}

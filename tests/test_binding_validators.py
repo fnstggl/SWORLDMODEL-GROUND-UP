@@ -84,3 +84,16 @@ def test_stale_bindings_are_pruned_after_a_graph_rebuild():
     assert list(b.processes) == [keep]
     assert list(b.slots) == ["process:kept"]
     assert b.substance_identities == []
+
+
+def test_missing_duration_teaches_the_near_instant_rule():
+    from compiler.binding import _v_action
+    doc = {"duration_minutes": None,
+           "duration_status": "model_memory_unverified",
+           "duration_note": "presence is a state", "parameters": []}
+    defects = _v_action(doc, [], [], [])
+    assert any("near-instant" in x for x in defects)
+    ok = {"duration_minutes": 1,
+          "duration_status": "model_memory_unverified",
+          "duration_note": "walking into the chamber", "parameters": []}
+    assert _v_action(ok, [], [], []) == []

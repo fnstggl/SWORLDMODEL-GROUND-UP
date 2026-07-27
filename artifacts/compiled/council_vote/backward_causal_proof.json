@@ -1,0 +1,36 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:vote_record",
+        "via": {
+          "node": "action:bianchi_vote_yes",
+          "prerequisites": [
+            {
+              "node": "action:bianchi_present",
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:vote_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:bianchi_vote_yes",
+        "action:delgado_vote_yes",
+        "action:okonkwo_vote_yes",
+        "action:pryce_vote_yes",
+        "action:tran_vote_yes"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

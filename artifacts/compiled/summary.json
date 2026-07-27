@@ -2,26 +2,16 @@
   {
     "binding_calls": 12,
     "case": "council_vote",
-    "discovery_calls": 20,
+    "discovery_calls": 10,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "terminal production fails the backward causal proof",
-    "repairs": {
-      "causal_spine": 1,
-      "process:Council vote on Ordinance 2026-14": 1,
-      "producer_assignments": 1,
-      "starting_state[Adaeze Okonkwo]": 2,
-      "starting_state[Carla Bianchi]": 1,
-      "starting_state[Council vote on Ordinance 2026-14]": 1,
-      "starting_state[Gareth Pryce]": 1,
-      "starting_state[Minh Tran]": 1,
-      "starting_state[Rosa Delgado]": 1
-    },
+    "reason": "the code-generated scenario failed its own contract; this is a compiler defect, not a model error: action_affordances[3] ('delgado_present'): needs either a duration or a completion_condition -- an action cannot take no time",
+    "repairs": {},
     "runtime_ms": 0.0,
-    "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 98065
+    "stage": "LOWERING_MISMATCH",
+    "tokens": 47262
   }
 ]

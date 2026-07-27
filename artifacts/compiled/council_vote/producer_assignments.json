@@ -1,0 +1,200 @@
+{
+  "assignments": [
+    {
+      "step": "vote_occurs",
+      "unsupported": "This is a condition with prerequisites (session_held, item_on_agenda, no_postponement) and no mechanism of its own; it is a conjunction."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "organization",
+          "meaning": "The council schedules and holds regular sessions.",
+          "name": "Ellsworth Falls Village Council"
+        }
+      ],
+      "step": "session_held"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "organization",
+          "meaning": "The council sets the agenda for its sessions.",
+          "name": "Ellsworth Falls Village Council"
+        }
+      ],
+      "step": "item_on_agenda"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "As sponsor, Okonkwo can move postponement under council rules.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "no_postponement"
+    },
+    {
+      "step": "quorum_present",
+      "unsupported": "This is a condition with prerequisites (the presence steps) and no mechanism of its own; it is a conjunction."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "person",
+          "meaning": "Okonkwo decides whether to attend the session.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "person",
+          "meaning": "Tran decides whether to attend the session.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "person",
+          "meaning": "Delgado decides whether to attend the session.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "person",
+          "meaning": "Pryce decides whether to attend the session.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Bianchi decides whether to attend, though she has filed notice of absence.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_present"
+    },
+    {
+      "step": "affirmative_votes_at_least_three",
+      "unsupported": "This is a condition with prerequisites (the vote steps) and no mechanism of its own; it is a conjunction. The step produces proof (vote_record) but that is a measured record; the real mechanisms are the individual votes."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Okonkwo decides how to vote.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Tran decides how to vote.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Delgado decides how to vote.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Pryce decides how to vote.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Bianchi decides how to vote, if present.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_vote_yes"
+    }
+  ]
+}

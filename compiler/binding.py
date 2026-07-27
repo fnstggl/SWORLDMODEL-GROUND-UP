@@ -408,8 +408,16 @@ def _v_action(doc, wants_records, wants_amounts, wants_info) -> list:
     d = []
     if not isinstance(doc, dict):
         return ["reply must be a JSON object"]
-    _num(doc, "duration_minutes", d, required=False, minimum=0)
-    if doc.get("duration_minutes") is not None:
+    missing_dur: list = []
+    _num(doc, "duration_minutes", missing_dur, minimum=0)
+    d.extend(x + ". An act always takes time: a near-instant act (being "
+                 "present, raising a hand, casting a vote, signing) "
+                 "takes about a minute -- give that number with an "
+                 "honest status. If this names a lasting state rather "
+                 "than an act, the time is what entering that state "
+                 "takes"
+             for x in missing_dur)
+    if not missing_dur:
         _status_ok(doc, "duration_status", d)
     if not isinstance(doc.get("parameters", []), list):
         d.append("parameters must be a list")

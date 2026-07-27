@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "inner": {
+      "detail": {},
+      "reason": "action_affordances[3] ('delgado_present'): needs either a duration or a completion_condition -- an action cannot take no time",
+      "stage": "SEMANTIC_AMBIGUITY"
+    }
+  },
+  "reason": "the code-generated scenario failed its own contract; this is a compiler defect, not a model error: action_affordances[3] ('delgado_present'): needs either a duration or a completion_condition -- an action cannot take no time",
+  "stage": "LOWERING_MISMATCH"
+}
