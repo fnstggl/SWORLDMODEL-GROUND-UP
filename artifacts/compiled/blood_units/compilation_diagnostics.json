@@ -1,0 +1,15 @@
+{
+  "detail": {
+    "findings": [
+      {
+        "material_because": "Without collections, the centre's stock is insufficient to dispatch the Tuesday and Thursday shipments, resulting in a different final quantity at the hospital (likely zero or negative) compared to the approved world's 315 units.",
+        "what": "The continuous collection processes (monday_collection, tuesday_collection_before_dispatch, wednesday_collection, thursday_collection_before_dispatch) are all marked as inactive, preventing blood from being collected and accruing to the centre's stock, which is necessary to have sufficient stock for the scheduled shipments.",
+        "where": "Runtime world, Processes section"
+      }
+    ],
+    "repairable": false,
+    "verdict": "MATERIAL_OMISSION"
+  },
+  "reason": "the lowered world does not mean what the approved world means (MATERIAL_OMISSION)",
+  "stage": "LOWERING_MISMATCH"
+}

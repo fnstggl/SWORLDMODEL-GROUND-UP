@@ -1,0 +1,15 @@
+{
+  "causal_path": [
+    "Centre starts with 40 units; hospital starts with 15 units.",
+    "Monday collection adds 96 units to centre.",
+    "Tuesday collection before dispatch adds 84 units to centre.",
+    "Tuesday shipment of 150 units dispatched at 4 PM, arrives at hospital at 7 PM.",
+    "Wednesday collection adds 96 units to centre.",
+    "Thursday collection before dispatch adds 84 units to centre.",
+    "Thursday shipment of 150 units dispatched at 4 PM, arrives at hospital at 7 PM.",
+    "Hospital holds initial 15 + Tuesday 150 + Thursday 150 = 315 units at Friday noon."
+  ],
+  "defects": [],
+  "reasoning": "The world faithfully models the evidence: initial stocks, collection rates, shipment schedules, and transit times are correct. All necessary causal steps are present, and the terminal (315 units) follows deterministically. Minor inconsistency in Tuesday collection operating window does not affect the outcome.",
+  "verdict": "APPROVE"
+}

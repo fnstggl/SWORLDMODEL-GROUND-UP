@@ -1,0 +1,46 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not affect collection rates or shipping schedules; her actions do not change the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Any other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital and Cascade regional blood centre; other entities are irrelevant."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Potential delays or disruptions (e.g., weather, traffic)",
+      "why_safe": "No evidence suggests any delays; the shipment time is given as about 3 hours and is assumed consistent."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre's stock at 4:00 PM Tuesday (after Monday and Tuesday collections) is at least 150 units to dispatch the full shipment. The centre starts with 40 units, collects 12 units/hour for 8 hours on Monday (96 units) and 7 hours on Tuesday (84 units) before 4:00 PM, totalling 220 units. So it has enough. No uncertainty."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre's stock at 4:00 PM Thursday (after Wednesday and Thursday collections) is at least 150 units. After Tuesday dispatch, centre stock is 220 - 150 = 70 units. Wednesday collection: 12 units/hour for 8 hours = 96 units, total 166 units. Thursday collection before 4:00 PM: 7 hours = 84 units, total 250 units. So it has enough. No uncertainty."
+    },
+    {
+      "about": "tuesday_shipment_arrives",
+      "meaning": "The shipment dispatched at 4:00 PM Tuesday arrives at the hospital at 7:00 PM Tuesday, which is before Friday noon. So it is received. No uncertainty."
+    },
+    {
+      "about": "thursday_shipment_arrives",
+      "meaning": "The shipment dispatched at 4:00 PM Thursday arrives at 7:00 PM Thursday, before Friday noon. So it is received. No uncertainty."
+    },
+    {
+      "about": "hospital_holds_units_at_deadline",
+      "meaning": "The total units the hospital holds at Friday noon: initial 15 + Tuesday shipment 150 + Thursday shipment 150 = 315 units. No uncertainty."
+    }
+  ]
+}

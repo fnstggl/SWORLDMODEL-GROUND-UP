@@ -116,3 +116,94 @@ def test_uncited_numeric_estimates_carry_the_honest_label():
     doc = emit_scenario(graph, b, QUESTION)
     (aff,) = doc["action_affordances"]
     assert aff["duration"]["status"] == "model_memory_unverified"
+
+
+# ---------------------------------------------------------------------------
+# same-holder substance identity: the binder's verdict merges or keeps apart
+# ---------------------------------------------------------------------------
+
+def stock_docs():
+    """A depot's opening stock is declared under one name while the
+    terminal measures the same goods under another; a scheduled delivery
+    transfers more in."""
+    res, spine, prod, state, unc = docs()
+    res["answer_type"] = "quantity"
+    res["cutoff"] = {"when": "2026-03-06T17:00:00-05:00",
+                     "timezone": "America/New_York", "meaning": "cutoff"}
+    res["positive_condition"] = "The depot's parcel count at the cutoff."
+    res["proof"] = [{"kind": "quantity",
+                     "name": "parcels counted at the depot",
+                     "meaning": "the number of parcels the depot holds",
+                     "unit": "parcels", "holder": "Northside depot",
+                     "holder_kind": "organization"}]
+    spine["steps"] = [
+        {"name": "morning delivery", "kind": "scheduled_event",
+         "meaning": "a van delivers 20 parcels to the depot",
+         "when": "2026-03-02T10:00:00-05:00",
+         "produces_proof": ["parcels counted at the depot"],
+         "basis": "verified", "evidence_ids": ["e1"]}]
+    prod["assignments"] = []
+    state["entities"] = [
+        {"name": "Northside depot", "timezone": "America/New_York",
+         "availability": {"workdays": [0, 1, 2, 3, 4],
+                          "open": "09:00", "close": "17:00"},
+         "resources": [{"name": "stored parcels",
+                        "meaning": "parcels already on the depot floor",
+                        "amount": 15, "unit": "parcels",
+                        "basis": "verified", "evidence_ids": ["e2"]}]}]
+    unc["uncertainties"] = []
+    unc["exclusions"] = []
+    return res, spine, prod, state, unc
+
+
+def stock_bindings(graph, same=None):
+    b = Bindings()
+    ev = graph.resolve("event", "morning delivery", "test")
+    b.events[ev] = {"amounts": {"parcels counted at the depot":
+                                {"kind": "transfer", "amount": 20,
+                                 "from": None, "to": "Northside depot"}}}
+    if same is not None:
+        depot = graph.resolve("organization", "Northside depot", "test")
+        b.substance_identities.append(
+            {"holder": depot,
+             "a": graph.resolve("resource", "stored parcels", "test"),
+             "b": graph.resolve("resource", "parcels counted at the depot",
+                                "test"),
+             "same": same, "why": "test"})
+    return b
+
+
+def _quantity_names(doc):
+    starting = {e["quantity"]["name"] for e in doc["starting_state"]
+                if e.get("kind") == "quantity"}
+    (obs,) = doc["resolution"]["observations"]
+    return starting, obs["quantity"]
+
+
+def test_unconfirmed_same_holder_stocks_stay_apart():
+    graph, _ = assemble(*stock_docs(), valid_evidence_ids=EVIDENCE_IDS)
+    doc = emit_scenario(graph, stock_bindings(graph), QUESTION)
+    starting, measured = _quantity_names(doc)
+    # nothing established identity, so the opening stock keeps its own
+    # name and the measured quantity keeps its own
+    assert measured not in starting
+
+
+def test_binder_confirmed_identity_merges_the_stocks():
+    graph, _ = assemble(*stock_docs(), valid_evidence_ids=EVIDENCE_IDS)
+    doc = emit_scenario(graph, stock_bindings(graph, same=True), QUESTION)
+    starting, measured = _quantity_names(doc)
+    # one substance: the opening balance, the measured total and the
+    # delivery all speak of the same runtime quantity
+    assert measured in starting
+    (ev,) = doc["scheduled_events"]
+    (eff,) = [e for e in ev["effects"]
+              if e["change_type"] == "transfer_resource"]
+    assert eff["quantity"] == measured
+
+
+def test_binder_denied_identity_keeps_the_stocks_apart():
+    graph, _ = assemble(*stock_docs(), valid_evidence_ids=EVIDENCE_IDS)
+    doc = emit_scenario(graph, stock_bindings(graph, same=False), QUESTION)
+    starting, measured = _quantity_names(doc)
+    assert measured not in starting

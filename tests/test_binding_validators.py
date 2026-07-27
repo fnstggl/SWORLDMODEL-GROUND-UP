@@ -1,0 +1,52 @@
+"""The binding validators refuse malformed small fields with teaching
+defects, so the one targeted repair can fix them."""
+from compiler.binding import _v_process, _v_substance
+
+
+def _base():
+    return {"amount_per_hour": 12, "rate_status": "verified",
+            "rate_note": "measured", "output_resource": None}
+
+
+def test_dated_operating_window_is_accepted():
+    doc = _base()
+    doc["operating"] = {"timezone": "America/Los_Angeles",
+                        "workdays": [0], "start": "09:00", "end": "17:00",
+                        "from_date": "2026-07-20",
+                        "until_date": "2026-07-20"}
+    assert _v_process(doc) == []
+
+
+def test_operating_dates_must_parse():
+    doc = _base()
+    doc["operating"] = {"timezone": "UTC", "workdays": [0],
+                        "start": "09:00", "end": "17:00",
+                        "from_date": "July 20", "until_date": "2026-07-20"}
+    assert any("from_date" in x for x in _v_process(doc))
+
+
+def test_operating_window_must_not_be_reversed():
+    doc = _base()
+    doc["operating"] = {"timezone": "UTC", "workdays": [0, 1],
+                        "start": "09:00", "end": "17:00",
+                        "from_date": "2026-07-21",
+                        "until_date": "2026-07-20"}
+    assert any("before" in x for x in _v_process(doc))
+
+
+def test_single_date_must_list_its_own_weekday():
+    doc = _base()
+    # 2026-07-20 is a Monday (weekday 0); workdays says Tuesday only
+    doc["operating"] = {"timezone": "UTC", "workdays": [1],
+                        "start": "09:00", "end": "17:00",
+                        "from_date": "2026-07-20",
+                        "until_date": "2026-07-20"}
+    assert any("weekday" in x for x in _v_process(doc))
+
+
+def test_substance_verdict_must_be_boolean_and_grounded():
+    assert _v_substance({"same_substance": True, "why": "same goods"}) == []
+    assert any("true or false" in x for x in
+               _v_substance({"same_substance": "yes", "why": "x"}))
+    assert any("why" in x for x in
+               _v_substance({"same_substance": False, "why": ""}))

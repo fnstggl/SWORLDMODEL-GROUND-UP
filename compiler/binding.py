@@ -21,6 +21,7 @@ first-pass success.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import date
 import json
 
 from .errors import (InvalidReference, LoweringGap, SemanticAmbiguity,
@@ -66,6 +67,7 @@ class Bindings:
     channels: dict = field(default_factory=dict)
     processes: dict = field(default_factory=dict)
     events: dict = field(default_factory=dict)
+    substance_identities: list = field(default_factory=list)
     calls: list = field(default_factory=list)
     repairs: dict = field(default_factory=dict)
     tokens: int = 0
@@ -248,7 +250,13 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                    "  rate_note: one line of grounding\n"
                    "  operating: {\"timezone\": IANA zone, \"workdays\": "
                    "[Monday=0..Sunday=6], \"start\": \"HH:MM\", \"end\": "
-                   "\"HH:MM\"} or null if it runs continuously\n"
+                   "\"HH:MM\"} or null if it runs continuously. When the "
+                   "meaning ties the process to one specific calendar day "
+                   "or a bounded date range, also give \"from_date\" and "
+                   "\"until_date\" (YYYY-MM-DD; equal for a single day): "
+                   "without them the process recurs on every listed "
+                   "workday of the whole simulated period, which is wrong "
+                   "for a dated occurrence\n"
                    "  output_resource: {\"name\": the quantity it "
                    "accumulates, \"holder\": which listed participant's "
                    "stock it feeds} -- null only if 'outputs' above "
@@ -306,6 +314,53 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                    lambda d: _v_event(d, residue), b, call, model)
         if doc is not None:
             b.events[node.id] = doc
+
+    # Two stocks recorded at the same holder are either one physical
+    # substance described twice (they must merge into a single runtime
+    # quantity, or transfers and measurements silently miss each other)
+    # or genuinely different goods (they must stay apart). That identity
+    # is semantic, so the model settles it -- one small ask per pair --
+    # and code merges accordingly in the emitter.
+    measured = set(graph.measured_components())
+    by_holder: dict = {}
+    for rs in graph.by_category("resource"):
+        if rs.attrs.get("holder"):
+            by_holder.setdefault(rs.attrs["holder"], []).append(rs)
+    for holder_id in sorted(by_holder):
+        stocks = sorted(by_holder[holder_id], key=lambda n: n.id)
+        for i in range(len(stocks)):
+            for j in range(i + 1, len(stocks)):
+                ra, rb = stocks[i], stocks[j]
+
+                def _stock(n):
+                    return {"name": n.name, "meaning": n.meaning,
+                            "declared_amount": n.attrs.get("amount"),
+                            "unit": n.attrs.get("unit"),
+                            "measured_by_the_question": n.id in measured}
+
+                ask = (ev_text
+                       + "THE ITEM (two stocks recorded at the same "
+                         "holder):\n"
+                       + json.dumps(
+                           {"holder": graph.node(holder_id).name,
+                            "stock_a": _stock(ra),
+                            "stock_b": _stock(rb)}, indent=1)
+                       + "\n\nAre these two names the SAME physical "
+                         "substance held by this holder (one stock "
+                         "described twice, e.g. an opening balance and "
+                         "the measured total of the same goods), or "
+                         "genuinely different substances? Decide only "
+                         "from the meanings and evidence above.\n"
+                         "Return JSON exactly:\n"
+                         "  same_substance: true or false\n"
+                         "  why: one sentence of grounding")
+                doc = _ask(f"substance:{ra.name}~{rb.name}", ask,
+                           _v_substance, b, call, model)
+                if doc is not None:
+                    b.substance_identities.append(
+                        {"holder": holder_id, "a": ra.id, "b": rb.id,
+                         "same": bool(doc.get("same_substance")),
+                         "why": str(doc.get("why") or "")})
 
     if b.unsupported:
         raise UnsupportedCapability(
@@ -378,11 +433,43 @@ def _v_process(doc) -> list:
         for k in ("start", "end"):
             if not str(op.get(k) or "").strip():
                 d.append(f"operating.{k} is missing (HH:MM)")
+        window = {}
+        for k in ("from_date", "until_date"):
+            if op.get(k) is not None:
+                try:
+                    window[k] = date.fromisoformat(str(op[k]))
+                except ValueError:
+                    d.append(f"operating.{k} must be YYYY-MM-DD")
+        if len(window) == 2:
+            if window["until_date"] < window["from_date"]:
+                d.append("operating.until_date is before operating."
+                         "from_date")
+            elif (window["from_date"] == window["until_date"]
+                  and isinstance(op.get("workdays"), list)
+                  and op["workdays"]
+                  and window["from_date"].weekday() not in op["workdays"]):
+                d.append(
+                    f"operating dates name the single day "
+                    f"{window['from_date'].isoformat()} but workdays "
+                    f"{op['workdays']} exclude its weekday "
+                    f"{window['from_date'].weekday()}; a single-date "
+                    f"process must list that date's weekday")
     orr = doc.get("output_resource")
     if orr is not None:
         for k in ("name", "holder"):
             if not str(orr.get(k) or "").strip():
                 d.append(f"output_resource.{k} is missing")
+    return d
+
+
+def _v_substance(doc) -> list:
+    d = []
+    if not isinstance(doc, dict):
+        return ["reply must be a JSON object"]
+    if not isinstance(doc.get("same_substance"), bool):
+        d.append("same_substance must be true or false")
+    if not str(doc.get("why") or "").strip():
+        d.append("'why' must ground the decision in one sentence")
     return d
 
 

@@ -245,3 +245,42 @@ def test_lowering_makes_no_model_calls(monkeypatch):
     monkeypatch.setattr(llm, "call_json", explode)
     c = compiled(MESSAGE_CASE)
     Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT), c.terminal_spec.to_terminal()).run()
+
+
+def test_dated_operating_periods_clip_the_recurrence():
+    """A process tied to one calendar day must fire exactly once, not on
+    every matching workday of the simulated window."""
+    case = copy.deepcopy(QUANTITY_CASE)
+    case["processes"][0]["operating_periods"]["from_date"] = "2026-09-17"
+    case["processes"][0]["operating_periods"]["until_date"] = "2026-09-17"
+    c = compiled(case)
+    starts = [e for e in c.world.queue.pending()
+              if e.kind == "world.ops"
+              and any(op[0] == "process.active" and op[1]["active"]
+                      for op in e.data.get("ops", []))]
+    assert len(starts) == 1
+    assert str(starts[0].t).startswith("2026-09-17")
+
+
+def test_dated_operating_periods_anchor_the_world_start():
+    """A dated process that begins before every scheduled event moves the
+    world's starting instant back so its work is not silently lost."""
+    case = copy.deepcopy(QUANTITY_CASE)
+    case["processes"][0]["operating_periods"]["from_date"] = "2026-09-14"
+    case["processes"][0]["operating_periods"]["until_date"] = "2026-09-14"
+    c = compiled(case)
+    # midnight of the 14th in Berlin, stored in UTC
+    assert str(c.world.start) == "2026-09-13 22:00:00+00:00"
+    starts = [e for e in c.world.queue.pending()
+              if e.kind == "world.ops"
+              and any(op[0] == "process.active" and op[1]["active"]
+                      for op in e.data.get("ops", []))]
+    assert len(starts) == 1
+    assert str(starts[0].t).startswith("2026-09-14")
+
+
+def test_malformed_operating_dates_are_refused():
+    case = copy.deepcopy(QUANTITY_CASE)
+    case["processes"][0]["operating_periods"]["from_date"] = "not-a-date"
+    with pytest.raises(LoweringGap, match="from_date"):
+        compiled(case)

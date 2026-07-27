@@ -259,8 +259,15 @@ def describe_runtime(compiled) -> str:
                      key=lambda e: (str(e.t), e.seq)):
         data = getattr(ev, "data", {}) or {}
         note = data.get("note") or data.get("reason") or ""
-        ops = [op[0] if isinstance(op, list) else str(op)
-               for op in (data.get("ops") or [])]
+        ops = []
+        for op in (data.get("ops") or []):
+            if isinstance(op, list) and len(op) > 1 \
+                    and isinstance(op[1], dict) and op[1].get("id"):
+                ops.append(f"{op[0]}:{op[1]['id']}")
+            elif isinstance(op, list):
+                ops.append(op[0])
+            else:
+                ops.append(str(op))
         out.append(f"- {ev.t}: {ev.kind} {ops} {note[:140]}")
 
     out.append("\n## Action definitions (what actors MAY do)")
@@ -274,6 +281,10 @@ def describe_runtime(compiled) -> str:
             out.append(f"  duration: {_j(d['duration'])}")
 
     out.append("\n## Processes")
+    out.append("('active' is only the state at genesis: a process with "
+               "operating periods starts inactive and the scheduled "
+               "'operating period begins/ends' entries in the queue above "
+               "switch it on and off; its work accrues while switched on)")
     for pid, p in sorted((snap.get("processes") or {}).items()):
         out.append(f"- {pid}: {_j(p)}")
     return "\n".join(out) + "\n"

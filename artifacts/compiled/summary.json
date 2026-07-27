@@ -1,20 +1,19 @@
 [
   {
-    "binding_calls": 9,
+    "binding_calls": 6,
     "case": "blood_units",
-    "discovery_calls": 8,
+    "discovery_calls": 7,
     "expected_answer": 315.0,
     "expected_refusal": false,
-    "lowering_ms": 0.0,
+    "lowering_ms": 5.5,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "process outputs cannot be connected to real stocks",
+    "reason": "the lowered world does not mean what the approved world means (MATERIAL_OMISSION)",
     "repairs": {
-      "process:Courier service": 1,
       "resolution_ambiguity_adjudication": 1
     },
     "runtime_ms": 0.0,
-    "stage": "LOWERING_GAP",
-    "tokens": 34543
+    "stage": "LOWERING_MISMATCH",
+    "tokens": 29074
   }
 ]

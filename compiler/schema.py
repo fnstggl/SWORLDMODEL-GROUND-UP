@@ -512,7 +512,9 @@ hear it at once.
   "capacity": null,
   "initially_active": false,
   "operating_periods": {{"description": "day shift", "timezone": "Europe/Berlin",
-                         "workdays": [0,1,2,3,4], "start": "06:00", "end": "14:00"}}
+                         "workdays": [0,1,2,3,4], "start": "06:00", "end": "14:00",
+                         // only when the process runs on specific dates:
+                         "from_date": "2026-09-17", "until_date": "2026-09-17"}}
 }}]
 
 "action_affordances": [{{

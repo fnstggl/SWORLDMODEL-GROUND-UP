@@ -240,6 +240,13 @@ class Emitter:
                                            or rs.name) == base]
                         if len(matches) == 1:
                             union(matches[0].id, rid)
+        # same-holder identities the binding settled: two stock entries
+        # the model confirmed are one physical substance merge here
+        known = {rs.id for rs in self.g.by_category("resource")}
+        for ident in getattr(self.b, "substance_identities", None) or []:
+            if ident.get("same") and ident.get("a") in known \
+                    and ident.get("b") in known:
+                union(ident["a"], ident["b"])
         # a process and the stocks it feeds share the substance already
         # (changes edges); nothing to unify there beyond names below
         groups: dict = {}
@@ -731,6 +738,9 @@ class Emitter:
                     "timezone": op.get("timezone"),
                     "workdays": op.get("workdays"),
                     "start": op.get("start"), "end": op.get("end")}
+                for k in ("from_date", "until_date"):
+                    if op.get(k):
+                        entry["operating_periods"][k] = op[k]
             out.append(entry)
         return out
 

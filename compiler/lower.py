@@ -289,8 +289,14 @@ class Lowerer:
             op = pr.get("operating_periods") or {}
             if op.get("from_date"):
                 tz = op.get("timezone") or "UTC"
+                try:
+                    offset = _offset_for(tz, str(op["from_date"]))
+                except ValueError as e:
+                    raise LoweringGap(
+                        f"processes[].operating_periods.from_date "
+                        f"unusable ({e})")
                 cands.append(self._time(f"{op['from_date']}T00:00:00"
-                                        + _offset_for(tz, op["from_date"]),
+                                        + offset,
                                         "processes[].operating_periods.from_date"))
         if not cands:
             raise NothingScheduled(
@@ -557,9 +563,20 @@ class Lowerer:
         holidays = frozenset(date.fromisoformat(d)
                              for d in periods.get("holidays", []) or [])
         # the window is the simulation window: from the world's start to the
-        # deadline. Not invented -- it is exactly the period being simulated.
+        # deadline. Not invented -- it is exactly the period being simulated,
+        # narrowed further when the scenario dates the process explicitly
+        # (a drive held on one particular day must not recur all week).
         d0 = self.world.start.astimezone(_zone(tz)).date()
         d1 = self.cutoff.astimezone(_zone(tz)).date()
+        try:
+            if periods.get("from_date"):
+                d0 = max(d0, date.fromisoformat(str(periods["from_date"])))
+            if periods.get("until_date"):
+                d1 = min(d1, date.fromisoformat(str(periods["until_date"])))
+        except ValueError as e:
+            raise LoweringGap(
+                f"{where}: operating_periods from_date/until_date "
+                f"unusable ({e})")
         for t in recurring(tz, start_t, d0, d1, workdays, holidays):
             if t < self.world.start or t > self.cutoff:
                 continue
