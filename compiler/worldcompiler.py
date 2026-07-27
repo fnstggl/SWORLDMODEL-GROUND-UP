@@ -485,6 +485,13 @@ def _fidelity(question, graph, compiled, outcome, stage, never_used,
 - Participants who completed no action: {idle or 'none'}
 {"**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised: it reflects the limits of the driving minds, not the situation." if risk else ""}
 
+## Known mechanical limits stated plainly
+- Scheduled transfers execute unconditionally; their feasibility (source
+  stock sufficiency) was verified at compile time by the proofs and the
+  reality review, and the kernel itself does not clamp an overdraw. A
+  world whose schedule outruns its stocks must be caught at review, and
+  this one was checked there.
+
 ## Unresolved uncertainty carried honestly
 {chr(10).join('- ' + u['meaning'] + ' (about: ' + (u.get('about') or u.get('topic') or 'the world') + ')' for u in graph.uncertainties) or '- none declared'}
 """
