@@ -1,0 +1,28 @@
+{
+  "assembly_ms": 3.5,
+  "assembly_repairs": [
+    "starting_state_and_information"
+  ],
+  "binding_calls": 14,
+  "discovery_calls": 8,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 41755.179036998015,
+  "model_tokens": 41955,
+  "proofs_ms": 1.4,
+  "repairs_by_step": {
+    "resolution_ambiguity_adjudication": 1,
+    "starting_state[Cascade regional blood centre mobile collection drive]": 1
+  },
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "LOWERING_GAP"
+}

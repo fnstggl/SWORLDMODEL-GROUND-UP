@@ -243,6 +243,12 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
             actors = sorted(n.name for c in ("participant", "organization",
                                              "population")
                             for n in graph.by_category(c))
+            stocks = [{"name": rs.name,
+                       "holder": (graph.node(rs.attrs["holder"]).name
+                                  if rs.attrs.get("holder") else None),
+                       "amount": rs.attrs.get("amount"),
+                       "unit": rs.attrs.get("unit")}
+                      for rs in graph.by_category("resource")]
             ask = (ev_text + "THE ITEM (a continuous process):\n"
                    + json.dumps({"process": node.name,
                                  "meaning": node.meaning,
@@ -251,7 +257,8 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                                  "operating_meaning":
                                      node.attrs.get("operating_meaning"),
                                  "outputs": outputs,
-                                 "participants_in_world": actors}, indent=1)
+                                 "participants_in_world": actors,
+                                 "stocks_in_world": stocks}, indent=1)
                    + "\n\nReturn JSON exactly:\n"
                    "  amount_per_hour: number, the supported rate\n"
                    "  rate_status: status for that number\n"
@@ -268,7 +275,10 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                    "  output_resource: {\"name\": the quantity it "
                    "accumulates, \"holder\": which listed participant's "
                    "stock it feeds} -- null only if 'outputs' above "
-                   "already names a quantity\n"
+                   "already names a quantity. Prefer a stock from "
+                   "stocks_in_world (its holder and name exactly); name "
+                   "a holder with no listed stock only when the evidence "
+                   "says the stock exists and was simply never counted\n"
                    "If this mechanism does no continuous quantitative "
                    "work (a role; a transport, courier or delivery step "
                    "whose fixed-size shipments the scheduled transfers "
@@ -534,8 +544,11 @@ def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
             defects.append(
                 f"{pid}: cannot identify {orr['name']!r} held by "
                 f"{orr['holder']!r} among {[r.id for r in held]}; if the "
-                f"holder's opening stock of it was never declared, add it "
-                f"to their starting-state resources")
+                f"holder's opening stock of it was never declared, "
+                f"declare it in that entity's 'resources' list (name, "
+                f"meaning, amount, unit, basis, evidence_ids) -- NOT as "
+                f"an initial_state fact: a fact cannot be moved, "
+                f"consumed or measured as a quantity")
             continue
         graph.add_edge(pid, "changes", target.id,
                        where=f"output of {pid}")
