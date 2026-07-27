@@ -1,0 +1,68 @@
+{
+  "ambiguities": [],
+  "answer_type": "quantity",
+  "basis": "inferred",
+  "cutoff": {
+    "meaning": "Friday noon Pacific Daylight Time, the deadline for the hospital to have received units.",
+    "timezone": "America/Los_Angeles",
+    "when": "2026-07-24T12:00:00-07:00"
+  },
+  "evidence_ids": [
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e5",
+    "e6",
+    "e7",
+    "e8",
+    "e9"
+  ],
+  "measured_act": null,
+  "negative_condition": null,
+  "positive_condition": "The hospital holds N usable units at the deadline.",
+  "proof": [
+    {
+      "holder": "St. Vincent regional hospital",
+      "kind": "quantity",
+      "meaning": "Usable units at St. Vincent hospital at start of week (Monday 9 AM).",
+      "name": "hospital_initial_stock",
+      "unit": "units"
+    },
+    {
+      "holder": "Cascade regional blood centre",
+      "kind": "quantity",
+      "meaning": "Usable units at Cascade regional blood centre at start of week (Monday 9 AM).",
+      "name": "centre_initial_stock",
+      "unit": "units"
+    },
+    {
+      "holder": "Cascade regional blood centre",
+      "kind": "quantity",
+      "meaning": "Average usable units collected per hour at the mobile drive.",
+      "name": "collection_rate",
+      "unit": "units per hour"
+    },
+    {
+      "holder": "Cascade regional blood centre",
+      "kind": "quantity",
+      "meaning": "Number of units shipped each Tuesday and Thursday at 4 PM.",
+      "name": "shipment_size",
+      "unit": "units"
+    },
+    {
+      "kind": "state",
+      "meaning": "Whether the hospital receives a shipment before the deadline (shipments on Tuesday and Thursday, arriving ~3 hours later).",
+      "name": "hospital_receives_shipment"
+    },
+    {
+      "holder": "St. Vincent regional hospital",
+      "kind": "quantity",
+      "meaning": "Usable units at St. Vincent hospital at Friday noon.",
+      "name": "hospital_final_stock",
+      "unit": "units"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday noon, July 24, 2026."
+}

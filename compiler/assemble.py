@@ -1085,10 +1085,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
             continue
         plist = assignment.get("producers") or []
         if not plist:
-            d.append(f"step {name!r} has neither producers nor an explicit "
-                     f"'unsupported' marking; every causal step needs one "
-                     f"or the other")
-            continue
+            continue      # explicit none-needed; the post-check enforces
         _collect(d, a.attach_assignment, name, plist)
     # Every causal step must now be producible or honestly unsupported.
     for name, sid in sorted(a._step_ids.items()):

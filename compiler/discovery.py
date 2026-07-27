@@ -183,10 +183,10 @@ def v_producers(doc: dict, valid_ids: frozenset, step_names: tuple) -> list:
             d.append(f"{w}: names no causal step")
         if a.get("unsupported"):
             continue
-        plist = a.get("producers") or []
-        if not plist:
-            d.append(f"{w}: needs producers or an explicit 'unsupported'")
-        for p in plist:
+        # an explicit empty producers list means 'nothing produces this'
+        # (an initial fact, a self-standing schedule); the assembly
+        # post-check enforces which steps genuinely need mechanisms
+        for p in a.get("producers") or []:
             pw = f"{w} producer {p.get('name')!r}"
             d += _need_str(p, ("name",), pw)
             if p.get("kind") not in PRODUCER_KINDS:
