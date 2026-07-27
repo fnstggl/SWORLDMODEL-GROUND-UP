@@ -26,7 +26,7 @@ from dataclasses import dataclass, field
 from sworldmodel import canonical_json
 
 from . import scene_prompts
-from .scene_adapter import instantiate_scene, world_id_for
+from .scene_adapter import instantiate_scene
 from .scene_llm import (CompilerCallBudgetExceeded, SceneCaller,
                         TechnicalFailure)
 from .scene_resolution import NLResolution, build_nl_terminal

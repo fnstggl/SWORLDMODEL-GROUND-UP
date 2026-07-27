@@ -301,7 +301,9 @@ def test_malformed_provider_output_fails_structurally():
     result, _ = compile_scripted(["this is not json", "still not json"])
     assert result.status == "failed"
     assert "TECHNICAL_FAILURE" in result.reason
-    result, _ = compile_scripted([{"actors": [], "shared_context": "x",
+    result, _ = compile_scripted([{"actors": [{"name": "A",
+                                               "private_context": "x"}],
+                                   "shared_context": "x",
                                    "starting_events": [], "resolution": "r",
                                    "extra": 1}])
     assert result.status == "failed"
