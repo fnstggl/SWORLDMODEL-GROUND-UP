@@ -1,0 +1,880 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The council schedules and holds its regular session.",
+          "over": "session_occurs"
+        }
+      ],
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Council regular session on 8 September 2026 at 7:00 PM at village hall.",
+          "name": "regular_session",
+          "when": "2026-09-08T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The council has scheduled its regular session for 8 September 2026 at 7:00 PM at village hall, with Ordinance 2026-14 on the agenda for final action.",
+          "name": "scheduled_session"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Quorum is three members; adoption of an ordinance requires at least three affirmative votes of the full five-member council.",
+          "name": "quorum_rule"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Members must be physically present to vote; no remote participation.",
+          "name": "physical_presence_required"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+          "name": "postponement_rule"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo supports Ordinance 2026-14 and wants final action on 8 September.",
+          "name": "okonkwo_supports",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Tran is prepared to vote for Ordinance 2026-14.",
+          "name": "tran_supports",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Delgado opposes Ordinance 2026-14 and intends to vote against it.",
+          "name": "delgado_opposes",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+          "name": "pryce_opposes",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.",
+          "name": "bianchi_supports",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.",
+          "name": "bianchi_absent",
+          "visibility": "public"
+        }
+      ],
+      "name": "Ellsworth Falls Village Council",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi decided to be absent to attend her daughter's induction.",
+          "over": "bianchi_absent"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Attend her daughter's naval academy induction in Annapolis on 8 September 2026 evening.",
+          "name": "daughter_induction",
+          "when": "2026-09-08T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.",
+          "name": "supports_ordinance"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction in Annapolis that evening.",
+          "name": "absent_from_session"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Bianchi knows she is a member of the Ellsworth Falls Village Council.",
+          "name": "council_membership",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Bianchi knows the regular session is scheduled for 8 September 2026 at 7:00 PM.",
+          "name": "session_scheduled",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Bianchi knows Ordinance 2026-14 is on the agenda for final action.",
+          "name": "ordinance_on_agenda",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Bianchi knows quorum is three members and adoption requires three affirmative votes.",
+          "name": "quorum_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Bianchi knows members must be physically present to vote.",
+          "name": "physical_presence_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Bianchi knows Okonkwo supports the ordinance and wants final action on 8 September.",
+          "name": "okonkwo_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Bianchi knows Tran is prepared to vote for the ordinance.",
+          "name": "tran_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Bianchi knows Delgado opposes the ordinance and intends to vote against it.",
+          "name": "delgado_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Bianchi knows Pryce opposes the ordinance and intends to vote against it.",
+          "name": "pryce_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Bianchi knows she supports the ordinance.",
+          "name": "own_support",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi knows she will be absent from the session.",
+          "name": "own_absence",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Bianchi knows an item listed for final action is voted on unless its sponsor moves postponement.",
+          "name": "postponement_rule",
+          "visibility": "public"
+        }
+      ],
+      "name": "Carla Bianchi",
+      "not_available": [
+        {
+          "from": "2026-09-08T19:00:00-04:00",
+          "meaning": "Bianchi will be physically absent from the council chamber during the 8 September session.",
+          "to": "2026-09-08T22:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo decides to be present and vote yes.",
+          "over": "okonkwo_present_and_votes_yes"
+        }
+      ],
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Council regular session on 8 September 2026 at 7:00 PM at village hall.",
+          "name": "regular_session",
+          "when": "2026-09-08T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo supports Ordinance 2026-14 and wants final action at the 8 September session.",
+          "name": "supports_ordinance"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo sponsored Ordinance 2026-14.",
+          "name": "sponsor_of_ordinance"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, Carla Bianchi.",
+          "name": "council_composition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Regular session on 8 September 2026 at 7:00 PM, agenda includes final action on Ordinance 2026-14.",
+          "name": "session_scheduled",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Quorum is three members; adoption requires affirmative vote of at least three members of the full five-member council.",
+          "name": "quorum_and_vote_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Members must be physically present to vote; no remote participation.",
+          "name": "physical_presence_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo supports the ordinance and wants final action at the 8 September session.",
+          "name": "own_support",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Tran stated he is prepared to vote for the ordinance as drafted.",
+          "name": "tran_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Delgado opposes the ordinance and intends to vote against it.",
+          "name": "delgado_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Pryce opposes the ordinance in its current form and intends to vote against it.",
+          "name": "pryce_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Bianchi co-sponsored the ordinance and has publicly supported it since June.",
+          "name": "bianchi_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction.",
+          "name": "bianchi_absence_notice",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+          "name": "postponement_rule",
+          "visibility": "public"
+        }
+      ],
+      "name": "Adaeze Okonkwo",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Minh Tran decides to be present and vote yes.",
+          "over": "tran_present_and_votes_yes"
+        }
+      ],
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Regular session of the Ellsworth Falls Village Council on 8 September 2026 at 7:00 PM.",
+          "name": "council_session",
+          "when": "2026-09-08T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Minh Tran stated he is prepared to vote for Ordinance 2026-14 as drafted.",
+          "name": "supports_ordinance",
+          "value": "yes"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The agenda includes final action on Ordinance 2026-14.",
+          "name": "council_agenda",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Quorum is three members; adoption requires at least three affirmative votes.",
+          "name": "quorum_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Members must be physically present to vote.",
+          "name": "physical_presence_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo supports the ordinance and wants final action on 8 September.",
+          "name": "okonkwo_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Delgado opposes the ordinance and intends to vote against it.",
+          "name": "delgado_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Pryce opposes the ordinance and intends to vote against it.",
+          "name": "pryce_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Bianchi co-sponsored and supports the ordinance.",
+          "name": "bianchi_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi filed notice she will be absent on 8 September.",
+          "name": "bianchi_absence",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "An item listed for final action is voted on unless the sponsor moves postponement.",
+          "name": "postponement_rule",
+          "visibility": "public"
+        }
+      ],
+      "name": "Minh Tran",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Rosa Delgado has the authority to decide to be present and vote no on Ordinance 2026-14.",
+          "over": "delgado_present_and_votes_no"
+        }
+      ],
+      "availability": {
+        "close": "22:00",
+        "open": "07:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Regular session of the Ellsworth Falls Village Council on 8 September 2026 at 7:00 PM.",
+          "name": "council_session",
+          "when": "2026-09-08T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Rosa Delgado opposes Ordinance 2026-14 and intends to vote against it.",
+          "name": "opposes_ordinance",
+          "value": null
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+          "name": "council_membership",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The regular session is on 8 September 2026 at 7:00 PM, with final action on Ordinance 2026-14.",
+          "name": "session_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+          "name": "quorum_and_vote_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Members must be physically present to vote; no remote participation.",
+          "name": "physical_presence_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo supports the ordinance and wants final action on 8 September.",
+          "name": "okonkwo_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Tran is prepared to vote for the ordinance.",
+          "name": "tran_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Pryce opposes the ordinance and intends to vote against it.",
+          "name": "pryce_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Bianchi co-sponsored and supports the ordinance.",
+          "name": "bianchi_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi filed notice she will be absent from the 8 September session.",
+          "name": "bianchi_absence",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "An item listed for final action is voted on unless its sponsor moves postponement.",
+          "name": "postponement_rule",
+          "visibility": "public"
+        }
+      ],
+      "name": "Rosa Delgado",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Gareth Pryce decides whether to be present and vote no.",
+          "over": "pryce_present_and_votes_no"
+        }
+      ],
+      "availability": {
+        "close": "21:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Council regular session on 8 September 2026 at 7:00 PM at village hall.",
+          "name": "regular_session",
+          "when": "2026-09-08T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Gareth Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+          "name": "opposes_ordinance"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The council agenda lists final action on Ordinance 2026-14 at the 8 September session.",
+          "name": "ordinance_agenda",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Quorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+          "name": "charter_requirements",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Members must be physically present to vote; no remote participation.",
+          "name": "physical_presence_rule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonkwo supports the ordinance and wants final action on 8 September.",
+          "name": "okonkwo_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Tran is prepared to vote for the ordinance.",
+          "name": "tran_support",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Delgado opposes the ordinance and intends to vote against it.",
+          "name": "delgado_opposition",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bianchi filed notice she will be absent from the 8 September session.",
+          "name": "bianchi_absence",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "An item listed for final action is voted on unless its sponsor moves postponement.",
+          "name": "postponement_rule",
+          "visibility": "public"
+        }
+      ],
+      "name": "Gareth Pryce",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

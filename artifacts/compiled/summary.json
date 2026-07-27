@@ -1,22 +1,19 @@
 [
   {
-    "binding_calls": 6,
+    "binding_calls": 0,
     "case": "council_vote",
-    "discovery_calls": 18,
+    "discovery_calls": 11,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the world cannot execute from genesis",
+    "reason": "terminal production fails the backward causal proof",
     "repairs": {
-      "action:bianchi_absent": 1,
-      "causal_spine": 1,
-      "producer_assignments": 2,
-      "starting_state[Carla Bianchi]": 1
+      "producer_assignments": 1
     },
     "runtime_ms": 0.0,
-    "stage": "INVALID_REFERENCE",
-    "tokens": 72641
+    "stage": "NO_CAUSAL_PRODUCER",
+    "tokens": 34983
   }
 ]

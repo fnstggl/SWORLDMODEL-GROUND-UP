@@ -283,13 +283,19 @@ def backward_causal_proof(graph: WorldGraph) -> dict:
                 f"or delivery cannot replace the process it reports unless "
                 f"the question explicitly resolves from the report")
 
-        # direct terminal write by an actor
+        # direct terminal write by an actor. A COUNTED record is exempt:
+        # each act contributes one entry and the tally is computed at the
+        # terminal, so no single act writes THE answer.
         measured_act = term.attrs.get("measured_act")
         measured_act_id = graph.maybe("action", measured_act) \
             if measured_act else None
+        counted = (node.category == "record"
+                   and (node.attrs.get("rule") in ("count_value", "tally")
+                        or node.attrs.get("expected_count") is not None))
         for p in producers:
             pn = graph.node(p)
-            if pn.category == "action" and p != measured_act_id:
+            if pn.category == "action" and p != measured_act_id \
+                    and not counted:
                 necessary = [e for e in graph.prerequisites_of(p)
                              if e.attrs.get("necessity", "necessary")
                              != "optional"]

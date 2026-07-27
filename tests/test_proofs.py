@@ -327,3 +327,27 @@ def test_population_held_authority_covers_individual_performers():
     g.add_edge(ada, "can_perform", act)
     g.add_edge(body, "has_authority", act)
     forward_executability_proof(g)      # collective authority: no block
+
+
+def test_counted_records_accept_prerequisite_free_contributions():
+    """Each cast vote writes one entry of a counted record; the tally is
+    the terminal's own arithmetic, so no single act writes THE answer."""
+    from compiler.graph import WorldGraph
+    from compiler.proofs import backward_causal_proof
+
+    g = WorldGraph()
+    g.add_node("terminal", "terminal", "how many vote yes",
+               "question_given", attrs={"answer_type": "quantity",
+                                        "cutoff": {"when": "x"}})
+    rec = g.add_node("record", "vote record", "votes on record",
+                     "question_given",
+                     attrs={"record_type": "vote", "rule": "count_value",
+                            "value": "yes"})
+    g.add_edge(rec, "measured_by_terminal", "terminal:terminal")
+    ada = g.add_node("participant", "Ada Lin", "a member",
+                     "question_given")
+    act = g.add_node("action", "ada votes yes", "casts a yes vote",
+                     "question_given")
+    g.add_edge(ada, "can_perform", act)
+    g.add_edge(act, "produces", rec)
+    backward_causal_proof(g)          # no direct-write refusal
