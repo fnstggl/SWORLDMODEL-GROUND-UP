@@ -2,25 +2,59 @@
  "question": "Is a concise cold email from an unknown sports-analytics startup founder -- asking Mark Cuban for a 15-minute call and referencing his Cost Plus Drugs playbook -- likely to get a response from him within two weeks?",
  "report": {
   "reasons": [
-   "The outcome depends on Mark Cuban's subjective decision to read and reply, which cannot be modeled as a deterministic process or observable event without predicting his internal mental state. No evidence documents are available to infer his behavior, and the question asks for a likelihood, which is a probabilistic judgment beyond the scope of a deterministic simulation."
+   "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+   "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+   "item participants[1] ('Mark Cuban may delegate email screening to an assistant or use automated filteri') was not expressed: The item describes a possibility ('may delegate') that is already captured by the declared fact 'mark_cuban_delegates_email_screening'. No new capability is nee",
+   "item participants[3] (\"The email must pass spam filters and not be bounced to reach Mark Cuban's inbox.\") was not expressed: The item describes a precondition for email delivery (spam filtering, bounce avoidance) that is not a participant, aggregate, or any other capability in the men",
+   "item participants[4] (\"Mark Cuban's decision to reply within 14 days depends on his interest in the ema\") was not expressed: The item describes a conditional future decision ('depends on his interest... availability... priorities') which is a simulation outcome, not a capability that ",
+   "item communication[1] ('The founder can send an email to any email address they choose, including Mark C') was not expressed: references could not be resolved: communication[1]: unknown name 'email' -- every reference must be a declared name (declared: ['mark_cuban', 'the_founder'])",
+   "item communication[2] (\"Mark Cuban's email system may have spam filters that could block the email befor\") was not expressed: The item describes a possibility ('may have spam filters') that is a property of Mark Cuban's email system, not a capability that can be modeled with the given ",
+   "item communication[3] ('Mark Cuban is a billionaire entrepreneur and investor, known for being active on') was not expressed: The item describes Mark Cuban's general reputation but provides no specific, actionable information about his attention pattern on any declared channel. The pre"
   ],
-  "resolution": {
-   "answer_mode": "condition",
-   "cutoff_local": "",
-   "cutoff_tz": "",
-   "horizon_note": "",
-   "horizon_provenance": "",
-   "modelable": false,
-   "no_means": "",
-   "observable_outcome": "",
-   "reframed": false,
-   "reframing_note": "",
-   "refusal_reason": "The outcome depends on Mark Cuban's subjective decision to read and reply, which cannot be modeled as a deterministic process or observable event without predicting his internal mental state. No evidence documents are available to infer his behavior, and the question asks for a likelihood, which is a probabilistic judgment beyond the scope of a deterministic simulation.",
-   "smallest_world": "",
-   "start_local": "",
-   "tz": "",
-   "yes_means": ""
+  "repair_rounds": [
+   [
+    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "item communication[3] ('Mark Cuban likely delegates email screening to an assistant or uses automated fi') was not expressed: no valid translation: translate.communication[3]: no valid response after 3 attempts: [\"add_attention.provenance: a concrete number cannot be labeled 'uncertain",
+    "item communication[4] ('Mark Cuban is known to be active on social media and in business, but his specif') was not expressed: no valid translation: translate.communication[4]: no valid response after 3 attempts: [\"add_attention.provenance: a concrete number cannot be labeled 'uncertain",
+    "item actions[0] ('Mark Cuban may delegate email screening to an assistant, who may filter out the ') was not expressed: The item describes a possibility ('may delegate') that is already captured by the declared fact 'mark_cuban_delegates_email_screening'. No new capability is nee",
+    "item actions[1] ('Mark Cuban may read the email himself if it passes spam and assistant filters.') was not expressed: The item describes a conditional possibility ('may read') that cannot be expressed as a single capability without inventing probabilities or schedules. It is be",
+    "item actions[2] ('Mark Cuban may decide to reply to the email within 14 days if he finds the start') was not expressed: The item describes a possible future decision by Mark Cuban, which is a simulation outcome, not a capability that can be defined as an action. Actions define wh",
+    "item actions[3] ('The founder may send the email to an incorrect or outdated email address, preven') was not expressed: The item describes a possible failure mode (incorrect/outdated address) that is a precondition for an action, not an action itself. It cannot be expressed as a "
+   ],
+   [
+    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+    "item participants[1] ('Mark Cuban may delegate email screening to an assistant or use automated filteri') was not expressed: The item describes a possibility ('may delegate') that is already captured by the declared fact 'mark_cuban_delegates_email_screening'. No new capability is nee",
+    "item participants[3] (\"The email must pass spam filters and not be bounced to reach Mark Cuban's inbox.\") was not expressed: The item describes a precondition for email delivery (spam filtering, bounce avoidance) that is not a participant, aggregate, or any other capability in the men",
+    "item participants[4] (\"Mark Cuban's decision to reply within 14 days depends on his interest in the ema\") was not expressed: The item describes a conditional future decision ('depends on his interest... availability... priorities') which is a simulation outcome, not a capability that ",
+    "item communication[1] ('The founder can send an email to any email address they choose, including Mark C') was not expressed: references could not be resolved: communication[1]: unknown name 'email' -- every reference must be a declared name (declared: ['mark_cuban', 'the_founder'])",
+    "item communication[2] (\"Mark Cuban's email system may have spam filters that could block the email befor\") was not expressed: The item describes a possibility ('may have spam filters') that is a property of Mark Cuban's email system, not a capability that can be modeled with the given ",
+    "item communication[3] ('Mark Cuban is a billionaire entrepreneur and investor, known for being active on') was not expressed: The item describes Mark Cuban's general reputation but provides no specific, actionable information about his attention pattern on any declared channel. The pre"
+   ]
+  ],
+  "reviews": null,
+  "validation": {
+   "blocking": [
+    "terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
+   ],
+   "dry_run": {
+    "events_fired": 1,
+    "final_answer": {
+     "answer": "no",
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "Mark Cuban does not send a reply email within 14 days."
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [
+    "participant 'mark_cuban' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
+    "participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
+   ],
+   "warnings": []
   }
  },
- "status": "refused"
+ "status": "failed"
 }
