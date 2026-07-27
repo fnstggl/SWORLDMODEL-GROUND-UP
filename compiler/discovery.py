@@ -394,18 +394,29 @@ def repair_document(disc: Discovery, doc_name: str, defects: list,
                   "exist; ignore defects about other entities), change "
                   "nothing else, and return the complete corrected JSON "
                   "object:\n" + "\n".join(f"- {d}" for d in defects))
-        try:
-            doc, raw, usage = call(last["prompt"]["system"], user,
-                                   model=model)
-            err = None
-        except (TruncatedResponse, ValueError) as exc:
-            doc, raw, usage, err = None, "", {}, str(exc)
-        disc.calls.append({"step": step, "attempt": "assembly_repair",
-                           "prompt": {"system": last["prompt"]["system"],
-                                      "user": user},
-                           "raw_response": raw, "usage": usage})
-        disc.tokens += (usage or {}).get("total_tokens", 0)
-        remaining = [err] if err else disc.validators[step](doc)
+        doc, raw, remaining = None, "", []
+        for attempt in ("assembly_repair", "assembly_repair_shape_fix"):
+            prompt_user = user if attempt == "assembly_repair" else (
+                user + "\n\nYOUR CORRECTED ANSWER STILL HAS SHAPE "
+                "DEFECTS -- fix ONLY these and return the complete "
+                "object again:\n"
+                + "\n".join(f"- {d}" for d in remaining)
+                + "\n\nTHE ANSWER TO FIX:\n" + raw)
+            try:
+                doc, raw, usage = call(last["prompt"]["system"],
+                                       prompt_user, model=model)
+                err = None
+            except (TruncatedResponse, ValueError) as exc:
+                doc, raw, usage, err = None, "", {}, str(exc)
+            disc.calls.append({"step": step, "attempt": attempt,
+                               "prompt": {"system":
+                                          last["prompt"]["system"],
+                                          "user": prompt_user},
+                               "raw_response": raw, "usage": usage})
+            disc.tokens += (usage or {}).get("total_tokens", 0)
+            remaining = [err] if err else disc.validators[step](doc)
+            if not remaining:
+                break
         if remaining:
             raise SemanticAmbiguity(
                 f"{step} is still defective after its assembly repair",

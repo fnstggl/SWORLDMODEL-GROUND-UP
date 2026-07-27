@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "defects": [
+      "exclusions[2]: 'verified' must cite evidence_ids"
+    ],
+    "document": "uncertainty_and_exclusions",
+    "repairable": false
+  },
+  "reason": "uncertainty_and_exclusions is still defective after its assembly repair",
+  "stage": "SEMANTIC_AMBIGUITY"
+}
