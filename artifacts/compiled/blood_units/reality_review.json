@@ -1,0 +1,18 @@
+{
+  "causal_path": [
+    "Hospital starts with 15 units.",
+    "Centre collects 12 units/hour Mon\u2013Thu 9\u20135 (single process).",
+    "Tuesday shipment dispatches at 4 PM Tuesday, arrives 7 PM Tuesday, transfers 150 to hospital.",
+    "Thursday shipment dispatches at 4 PM Thursday, arrives 7 PM Thursday, transfers 150 to hospital.",
+    "By Friday noon, hospital holds 15 + 150 + 150 = 315 units."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "The Tuesday shipment arrival is not modeled as a scheduled event; only the dispatch is listed. The arrival and transfer of 150 units to the hospital is missing from the scheduled external events and the forward proof does not include it as a scheduled root.",
+      "why_material": "Without this event, the hospital does not receive the 150 units from Tuesday, reducing the terminal number from 315 to 165."
+    }
+  ],
+  "reasoning": "The world correctly interprets the question and initial stock, but omits a scheduled arrival event for the Tuesday shipment, which is necessary for the hospital to receive those 150 units. This defect is material because it would change the terminal from 315 to 165. The overlapping collection processes are not material as they do not affect the outcome.",
+  "verdict": "TARGETED_REVISION"
+}

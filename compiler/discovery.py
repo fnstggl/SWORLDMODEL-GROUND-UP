@@ -571,7 +571,11 @@ def discover(question: dict, evidence: dict, call=call_json,
         "whose occurrence transfers that amount; only sustained "
         "accumulation or consumption at a rate over a window is a "
         "process. Do not model one movement as both an event and a "
-        "wrapper process around its arrival.\n"
+        "wrapper process around its arrival. Model each occurrence "
+        "separately and completely: a Tuesday shipment and a Thursday "
+        "shipment are two events, and when delivery takes time, each "
+        "needs its own arrival step producing the receiving stock -- a "
+        "dispatch without its arrival never delivers anything.\n"
         "The resolution proof names are: " + json.dumps(list(proof_names)),
         ctx + "\n\nTHE TERMINAL (from step 1):\n"
         + json.dumps(doc, indent=1),
