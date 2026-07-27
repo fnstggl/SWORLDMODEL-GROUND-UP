@@ -50,6 +50,18 @@ class EvidenceRegistry:
         if mode == "evidence_docs" and not self.docs:
             raise ValueError("evidence_docs mode requires at least one document")
 
+    def normalize_ref(self, ref: str) -> str:
+        """Citation hygiene: models copy the 'doc <id>' prefix from the
+        rendered evidence block -- strip it when the remainder is a real
+        document id (unambiguous)."""
+        ref = ref.strip()
+        if ref not in self.docs:
+            for prefix in ("doc ", "docs ", "document "):
+                if ref.lower().startswith(prefix) \
+                        and ref[len(prefix):].strip() in self.docs:
+                    return ref[len(prefix):].strip()
+        return ref
+
     def check_claim(self, label: str, evidence: list | None, where: str) -> list:
         """Deterministic enforcement -> list of error strings.  Citations are
         checked against real documents only in evidence_docs mode; in
@@ -58,6 +70,9 @@ class EvidenceRegistry:
         citation."""
         errors = []
         if self.mode == "evidence_docs":
+            if isinstance(evidence, list):
+                evidence[:] = [self.normalize_ref(r) for r in evidence
+                               if isinstance(r, str)]
             for ref in evidence or []:
                 if ref not in self.docs:
                     errors.append(f"{where}: cites unknown document {ref!r}")
