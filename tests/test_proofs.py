@@ -283,3 +283,22 @@ def test_threshold_of_optional_contributions_roots_through_its_parts():
     assert r2.rooted(c2) is None
     reasons = r2.why_not(c2)
     assert any("nobody can_perform" in x for x in reasons)
+
+
+def test_an_orphan_measured_record_teaches_produces_proof_and_routes():
+    from compiler.graph import WorldGraph
+    from compiler.proofs import backward_causal_proof
+    from compiler.errors import NoCausalProducer
+
+    g = WorldGraph()
+    g.add_node("terminal", "terminal", "how many voted yes",
+               "question_given", attrs={"answer_type": "quantity",
+                                        "cutoff": {"when": "x"}})
+    rec = g.add_node("record", "vote record", "cast votes on record",
+                     "question_given", attrs={"record_type": "vote"})
+    g.add_edge(rec, "measured_by_terminal", "terminal:terminal")
+    with pytest.raises(NoCausalProducer) as ei:
+        backward_causal_proof(g)
+    (defect,) = ei.value.detail["defects"]
+    assert "produces_proof" in defect
+    assert ei.value.detail["document"] == "causal_spine"

@@ -1,0 +1,150 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:vote_record"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Other council members or alternates",
+      "why_safe": "The council has exactly five members as per e1; no alternates or substitutes are mentioned in the evidence."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2",
+        "e11"
+      ],
+      "name": "Public comment or procedural delays",
+      "why_safe": "The agenda lists final action (e2), and rules allow voting unless postponed (e11); no evidence suggests public comment would prevent a vote."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Remote participation",
+      "why_safe": "Council rules require physical presence and no remote provision exists (e4), so remote voting is impossible."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "expected_count": 3,
+        "initial": true,
+        "record_type": "vote tally",
+        "rule": "count_value",
+        "subject": "Ordinance 2026-14",
+        "value": "affirmative"
+      },
+      "category": "record",
+      "id": "record:vote_record",
+      "meaning": "The official record of the vote on Ordinance 2026-14 at the 8 September session, showing each council member's vote.",
+      "name": "vote_record",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e10",
+          "e11",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The end of the regular session on 8 September 2026, after which the vote outcome is known.",
+          "timezone": "America/New_York",
+          "when": "2026-09-08T22:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Ordinance 2026-14 receives fewer than three affirmative votes (including a tie or failure) at the 8 September session, or is not voted on at that session.",
+        "positive_condition": "Ordinance 2026-14 receives at least three affirmative votes at the 8 September session.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The question is resolved by whether Ordinance 2026-14 receives at least three affirmative votes from the five-member council at the 8 September 2026 regular session.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10",
+          "e11"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "record": {
+        "vote_record": "vote_record"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "Whether Bianchi will indeed be absent as notified; if she unexpectedly attends, she would likely vote yes.",
+      "topic": "Bianchi's absence"
+    },
+    {
+      "about": null,
+      "meaning": "Whether Delgado will be present and vote no, as she stated opposition, but no explicit commitment to attend.",
+      "topic": "Delgado's vote on 8 September"
+    },
+    {
+      "about": null,
+      "meaning": "Whether Okonkwo will be present and vote yes, as she stated support, but no explicit vote commitment is recorded.",
+      "topic": "Okonkwo's vote on 8 September"
+    },
+    {
+      "about": null,
+      "meaning": "Whether Okonkwo or another member will move to postpone the vote, which would prevent adoption at this session.",
+      "topic": "Postponement motion"
+    },
+    {
+      "about": null,
+      "meaning": "Whether Pryce will be present and vote no, as he stated opposition, but no explicit commitment to attend.",
+      "topic": "Pryce's vote on 8 September"
+    },
+    {
+      "about": null,
+      "meaning": "Whether at least three members will be physically present to constitute a quorum.",
+      "topic": "Quorum"
+    },
+    {
+      "about": null,
+      "meaning": "Whether Tran will be present and vote yes, as he stated he is prepared to vote for the ordinance, but no explicit commitment to attend.",
+      "topic": "Tran's vote on 8 September"
+    }
+  ]
+}

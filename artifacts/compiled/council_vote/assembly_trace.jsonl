@@ -1,0 +1,13 @@
+{"created": ["record:vote_record", "terminal:terminal"], "edges": [["record:vote_record", "measured_by_terminal", "terminal:terminal"]], "inputs": {"answer_type": "boolean", "cutoff": "2026-09-08T22:00:00-04:00"}, "op": "define_outcome"}
+{"created": [], "edges": [], "inputs": {"bound_to": "record:vote_record", "kind": "initial_fact", "name": "vote_record"}, "op": "add_causal_step"}
+{"created": [], "edges": [], "inputs": {"about": "Okonkwo's vote on 8 September"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"about": "Tran's vote on 8 September"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"about": "Delgado's vote on 8 September"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"about": "Pryce's vote on 8 September"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"about": "Bianchi's absence"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"about": "Quorum"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"about": "Postponement motion"}, "op": "add_uncertainty"}
+{"created": [], "edges": [], "inputs": {"name": "Other council members or alternates"}, "op": "exclude_as_irrelevant"}
+{"created": [], "edges": [], "inputs": {"name": "Remote participation"}, "op": "exclude_as_irrelevant"}
+{"created": [], "edges": [], "inputs": {"name": "Public comment or procedural delays"}, "op": "exclude_as_irrelevant"}
+{"created": [], "edges": [], "inputs": {"actors": 0}, "op": "finish"}

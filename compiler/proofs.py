@@ -211,6 +211,15 @@ class _Rootedness:
             return [f"{n.id}: explicitly marked unsupported "
                     f"({n.attrs['unsupported']}){teach}"]
         reasons = []
+        if n.category == "record" and not self.g.producers_of(node_id) \
+                and not self.g.prerequisites_of(node_id) \
+                and not n.attrs.get("initial"):
+            return [f"{n.id}: no act or mechanism makes this record. The "
+                    f"act steps whose act IS this record (each cast "
+                    f"vote, each signature, each filing) must declare "
+                    f"produces_proof: [{n.name!r}] in the causal spine; "
+                    f"a counted record cannot float free of the acts it "
+                    f"counts"]
         if n.category == "action" and not self.g.performers_of(node_id):
             reasons.append(f"{n.id}: an action nobody can_perform")
         if n.category == "event" and not (
@@ -314,9 +323,11 @@ def backward_causal_proof(graph: WorldGraph) -> dict:
     if failures:
         defects = sorted(set(failures))
         detail = {"defects": defects, "repairable": True}
-        if all("must LIST its parts" in d for d in defects):
-            # a partless conjunction's parts are spine content: route
-            # the one repair to the document that can actually add them
+        if all("must LIST its parts" in d or "in the causal spine" in d
+               for d in defects):
+            # missing parts and missing produces_proof declarations are
+            # spine content: route the one repair to the document that
+            # can actually add them
             detail["document"] = "causal_spine"
         raise NoCausalProducer(
             "terminal production fails the backward causal proof", detail)

@@ -1,0 +1,27 @@
+{
+  "assembly_ms": 0.9,
+  "assembly_repairs": [
+    "producer_assignments"
+  ],
+  "binding_calls": 0,
+  "discovery_calls": 5,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 13453.135810003005,
+  "model_tokens": 9397,
+  "proofs_ms": 0.0,
+  "repairs_by_step": {
+    "producer_assignments": 1
+  },
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

@@ -1,0 +1,17 @@
+{
+  "steps": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "kind": "initial_fact",
+      "meaning": "The official record of the vote on Ordinance 2026-14 at the 8 September session, showing each council member's vote.",
+      "name": "vote_record",
+      "prerequisites": [],
+      "produces_proof": [
+        "vote_record"
+      ],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

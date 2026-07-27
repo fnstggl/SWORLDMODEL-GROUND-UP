@@ -1,17 +1,19 @@
 [
   {
-    "binding_calls": 12,
+    "binding_calls": 0,
     "case": "council_vote",
-    "discovery_calls": 10,
+    "discovery_calls": 5,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the code-generated scenario failed its own contract; this is a compiler defect, not a model error: action_affordances[3] ('delgado_present'): needs either a duration or a completion_condition -- an action cannot take no time",
-    "repairs": {},
+    "reason": "terminal production fails the backward causal proof",
+    "repairs": {
+      "producer_assignments": 1
+    },
     "runtime_ms": 0.0,
-    "stage": "LOWERING_MISMATCH",
-    "tokens": 47262
+    "stage": "NO_CAUSAL_PRODUCER",
+    "tokens": 9397
   }
 ]
