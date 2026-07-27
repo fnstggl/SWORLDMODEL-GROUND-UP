@@ -20,8 +20,10 @@ API_URL = "https://api.deepseek.com/chat/completions"
 CA_BUNDLE = "/root/.ccr/ca-bundle.crt"
 DEFAULT_MODEL = "deepseek-chat"
 
-#: Backstop against runaway compiles (a generous multiple of a normal run).
-MAX_CALLS_PER_COMPILE = 250
+#: Backstop against runaway compiles.  Three full anchored repair rounds
+#: with patches legitimately reach ~280 calls; this bounds true runaways
+#: without starving the terminal translation at the end of round three.
+MAX_CALLS_PER_COMPILE = 400
 
 
 class LLMUnavailable(RuntimeError):

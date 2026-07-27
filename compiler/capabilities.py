@@ -689,7 +689,7 @@ def normalize_expr(expr):
     return expr
 
 
-def normalize_effects(effects):
+def normalize_effects(effects, in_action: bool = False):
     if isinstance(effects, dict):
         effects = [effects]          # a single macro not wrapped in a list
     if not isinstance(effects, list):
@@ -697,8 +697,13 @@ def normalize_effects(effects):
     out = []
     for eff in effects:
         eff = _norm_keyed(eff, EFFECT_MACROS, "do")
-        if isinstance(eff, dict) and isinstance(eff.get("effects"), list):
-            eff = dict(eff, effects=normalize_effects(eff["effects"]))
+        if isinstance(eff, dict):
+            if in_action and eff.get("do") == "send_information" \
+                    and "author" in eff:
+                eff = {k: v for k, v in eff.items() if k != "author"}
+            if isinstance(eff.get("effects"), (list, dict)):
+                eff = dict(eff, effects=normalize_effects(eff["effects"],
+                                                          in_action))
         out.append(eff)
     return out
 
@@ -735,7 +740,11 @@ def normalize_capability(instance) -> None:
         elif t == "expr":
             fields[fname] = normalize_expr(v)
         elif t == "effects":
-            fields[fname] = normalize_effects(v)
+            # inside an action the acting participant IS the author: a
+            # supplied author field is redundant at best and impossible at
+            # worst, so it is dropped before validation
+            fields[fname] = normalize_effects(
+                v, in_action=(instance.get("capability") == "define_action"))
         elif t == "requires" and isinstance(v, list):
             fields[fname] = [_norm_keyed(r, REQUIRE_KINDS, "kind") for r in v]
         elif t == "params" and isinstance(v, dict):
