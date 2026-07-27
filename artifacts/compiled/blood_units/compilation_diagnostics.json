@@ -1,0 +1,29 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "Hospital initial stock: 15 units at Mon 9am",
+        "Tuesday shipment: 150 units dispatched 4pm Tue, received 7pm Tue",
+        "Hospital stock after Tue: 165 units",
+        "Thursday shipment: 150 units dispatched 4pm Thu, received 7pm Thu",
+        "Hospital stock at Fri noon: 315 units"
+      ],
+      "defects": [
+        {
+          "document": "uncertainty_and_exclusions",
+          "what": "Collection rate is treated as fixed 12 units/hour, but evidence (e2) specifies it is a 'measured average', implying stochastic variation. This deterministic treatment overstates certainty about the centre's stock and thus about shipment feasibility.",
+          "why_material": "If actual collection is lower than average, the centre might not have 150 units for a shipment, reducing hospital receipts. Conversely, higher collection would not increase shipment size (capped at 150). The exact probability of shortfall is unknown, so the outcome is uncertain."
+        },
+        {
+          "document": "uncertainty_and_exclusions",
+          "what": "Hospital blood usage is not addressed; the world implicitly assumes zero usage, but no evidence supports this. The terminal counts units 'held', which can be reduced by usage.",
+          "why_material": "Without usage data, the number of units held at the deadline could be less than the sum of initial stock and receipts. Ignoring usage silently resolves a material uncertainty."
+        }
+      ],
+      "reasoning": "The world treats the collection rate (12 units/hour) as deterministic, but the evidence states it is a 'measured average', introducing real uncertainty. Additionally, the world assumes no hospital blood usage, but usage is unaddressed in evidence, silently resolving uncertainty. Both defects materially affect the terminal number.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}
