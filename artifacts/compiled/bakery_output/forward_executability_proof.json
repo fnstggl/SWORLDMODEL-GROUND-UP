@@ -1,0 +1,27 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "resource:loaves_delivered"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:load_van_1",
+    "process:load_van_2",
+    "process:saturday_baking"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:oven_run_saturday",
+    "event:stand_staffed",
+    "event:van_arrival_1",
+    "event:van_arrival_2",
+    "event:van_departure_1",
+    "event:van_departure_2",
+    "event:van_run_2"
+  ],
+  "warnings": [
+    "process:load_van_1: a process that changes nothing is decorative",
+    "process:load_van_2: a process that changes nothing is decorative",
+    "process:saturday_baking: a process that changes nothing is decorative"
+  ]
+}

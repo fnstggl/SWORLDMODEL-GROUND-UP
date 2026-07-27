@@ -1,0 +1,40 @@
+{
+  "causal_path": [
+    "Friday evening: 20 loaves cooled and set aside.",
+    "Saturday 5-10 AM: oven produces up to 150 loaves at 30/hr.",
+    "Loaves must cool 60 min before transport.",
+    "First van loads at ~7:50 AM (per evidence) or ~8:00 AM (world), departs at 8:00 AM (evidence) or 8:10 AM (world), arrives 8:15 AM (evidence) or 8:25 AM (world). Maximum available for first van: 20 Friday + Saturday loaves baked by 7:00 AM (60 loaves) = 80 loaves.",
+    "First van delivers up to 80 loaves (evidence) or 90 (world assumption).",
+    "Second van loads at ~10:50 AM (evidence) or ~11:00 AM (world), departs at 11:00 AM (evidence) or 11:10 AM (world), arrives 11:15 AM (evidence) or 11:25 AM (world). Remaining loaves: 90 Saturday loaves baked from 7-10 AM, but those baked after 9:50 AM may not be ready. Maximum available: about 70-90, but total produced 150, minus first van ~80 leaves ~70 for second van.",
+    "Total delivered by noon: at most 150 loaves (evidence) vs 180 (world)."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Van departure and arrival times are 10 minutes later than evidence states (e.g., departure at 08:10 instead of 08:00).",
+      "why_material": "Shifts cooling availability window, potentially reducing number of loaves cooled in time for first run."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Transfer amounts of 90 loaves per run are assumed without verifying that enough loaves exist; total production is only 170 loaves, and after cooling, first van can carry at most 80, leaving at most 90 for second, but not 90+90.",
+      "why_material": "Results in delivered count (180) exceeding possible production (170) and cooling constraints; simulation would incorrectly report 180 loaves."
+    },
+    {
+      "document": "causal_spine",
+      "what": "No stock for festival loaves at the bakery is modeled; transfers from 'Copperwheat Bakery' have no source stock to deduct from, so runtime would fail or treat as infinite.",
+      "why_material": "Breaks conservation; the transfers cannot be executed correctly, making the simulation unenforceable."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "The continuous processes 'load_van_1' and 'saturday_baking' are declared to accrue into 'festival_loaves_friday_evening', but this stock is not the bakery's inventory; the baking process should accrue into a distinct Saturday loaf stock, and loading is not a continuous process.",
+      "why_material": "Confuses the causal flow; the accrual is not connected to the transfers, so loaves are never actually produced or transferred."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "Initial state declares 'Copperwheat Bakery holds 20 loaves of festival_loaves_friday_evening', but this stock is not defined as a deductable asset of the organization; the transfer from the organization does not reference this stock.",
+      "why_material": "Leads to inconsistency in stock tracking; the initial 20 loaves are not available for transfer."
+    }
+  ],
+  "reasoning": "The world assumes two van runs each deliver 90 loaves (180 total), but evidence supports at most 170 loaves produced (20 Friday + 150 Saturday) and cooling constraints reduce availability further. The departure times are shifted 10 minutes later than evidence, affecting cooling windows. The transfer amounts are hardcoded without verifying stock, and the baking process does not properly connect to the deliveries (no stock deduction from bakery). These defects make the simulation produce an incorrect number.",
+  "verdict": "TARGETED_REVISION"
+}

@@ -1,0 +1,42 @@
+{
+  "assembly_ms": 6.2,
+  "assembly_repairs": [
+    "review:causal_spine",
+    "review:starting_state_and_information",
+    "review:uncertainty_and_exclusions"
+  ],
+  "binding_calls": 14,
+  "discovery_calls": 16,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 233543.20683300466,
+  "model_tokens": 80906,
+  "proofs_ms": 1.1,
+  "repairs_by_step": {
+    "causal_spine": 1,
+    "process:saturday_baking": 1,
+    "resolution_ambiguity_adjudication": 1,
+    "starting_state[Copperwheat Bakery stand at Milbrook Green]": 1,
+    "starting_state[Copperwheat Bakery]": 1,
+    "starting_state[Jo Fenwick]": 1,
+    "starting_state[Tomas Ilic]": 1,
+    "uncertainty_and_exclusions": 1
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 2,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "REALITY_REVIEW_REJECTED",
+  "stale_bindings_dropped": [
+    "process:saturday_baking_1",
+    "process:saturday_baking_2"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:loaves_delivered",
+        "prerequisites": [
+          {
+            "node": "event:van_arrival_1",
+            "prerequisites": [
+              {
+                "node": "event:van_departure_1",
+                "prerequisites": [
+                  {
+                    "node": "process:load_van_1",
+                    "prerequisites": [
+                      {
+                        "derived_condition": true,
+                        "node": "state:cooled_loaves_available_1",
+                        "prerequisites": [
+                          {
+                            "node": "process:saturday_baking",
+                            "root": "process"
+                          },
+                          {
+                            "node": "state:friday_evening_loaves",
+                            "root": "initial_fact"
+                          }
+                        ]
+                      }
+                    ],
+                    "root": "process"
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          },
+          {
+            "node": "event:van_arrival_2",
+            "prerequisites": [
+              {
+                "node": "event:van_departure_2",
+                "prerequisites": [
+                  {
+                    "node": "process:load_van_2",
+                    "prerequisites": [
+                      {
+                        "derived_condition": true,
+                        "node": "state:cooled_loaves_available_2",
+                        "prerequisites": [
+                          {
+                            "node": "process:saturday_baking",
+                            "root": "process"
+                          }
+                        ]
+                      }
+                    ],
+                    "root": "process"
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          }
+        ],
+        "via": {
+          "node": "event:van_arrival_1",
+          "prerequisites": [
+            {
+              "node": "event:van_departure_1",
+              "prerequisites": [
+                {
+                  "node": "process:load_van_1",
+                  "prerequisites": [
+                    {
+                      "derived_condition": true,
+                      "node": "state:cooled_loaves_available_1",
+                      "prerequisites": [
+                        {
+                          "node": "process:saturday_baking",
+                          "root": "process"
+                        },
+                        {
+                          "node": "state:friday_evening_loaves",
+                          "root": "initial_fact"
+                        }
+                      ]
+                    }
+                  ],
+                  "root": "process"
+                }
+              ],
+              "root": "scheduled_event"
+            }
+          ],
+          "root": "scheduled_event"
+        }
+      },
+      "component": "resource:loaves_delivered",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "event"
+      ],
+      "producers": [
+        "event:van_arrival_1",
+        "event:van_arrival_2"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

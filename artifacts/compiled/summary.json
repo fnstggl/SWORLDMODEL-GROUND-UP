@@ -1,23 +1,26 @@
 [
   {
-    "actors": 2,
-    "affordances": 0,
-    "answer": 315.0,
-    "artifact_risk": false,
-    "binding_calls": 18,
-    "case": "blood_units",
-    "discovery_calls": 7,
-    "expected_answer": 315.0,
+    "binding_calls": 14,
+    "case": "bakery_output",
+    "discovery_calls": 16,
+    "expected_answer": 170.0,
     "expected_refusal": false,
-    "lowering_ms": 10.5,
+    "lowering_ms": 0.0,
+    "model_declared_insufficient": false,
     "pipeline": "discovery",
+    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
-      "process:collection_process_monday": 2,
-      "resolution_ambiguity_adjudication": 1
+      "causal_spine": 1,
+      "process:saturday_baking": 1,
+      "resolution_ambiguity_adjudication": 1,
+      "starting_state[Copperwheat Bakery stand at Milbrook Green]": 1,
+      "starting_state[Copperwheat Bakery]": 1,
+      "starting_state[Jo Fenwick]": 1,
+      "starting_state[Tomas Ilic]": 1,
+      "uncertainty_and_exclusions": 1
     },
-    "run_status": "cutoff",
-    "runtime_ms": 13.4,
-    "stage": "COMPILED",
-    "tokens": 50096
+    "runtime_ms": 0.0,
+    "stage": "REALITY_REVIEW_REJECTED",
+    "tokens": 80906
   }
 ]

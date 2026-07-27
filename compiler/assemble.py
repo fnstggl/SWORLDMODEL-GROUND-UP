@@ -649,6 +649,11 @@ class Assembler:
         when, anchor = item.get("when"), item.get("anchor")
         if not when and not anchor:
             d.append(f"scheduled event {name!r}: needs 'when' or 'anchor'")
+        if when and ("/" in str(when) or ".." in str(when)):
+            d.append(f"scheduled event {name!r}: an event happens at one "
+                     f"instant, but 'when' is a range ({when!r}); a "
+                     f"window of continuous work is a process with "
+                     f"operating hours, not an event")
         if d:
             raise SemanticAmbiguity("scheduled event has defects",
                                     {"defects": d})

@@ -1,0 +1,144 @@
+{
+  "assignments": [
+    {
+      "step": "loaves_delivered",
+      "unsupported": "This is a condition that aggregates the results of van_arrival_1 and van_arrival_2; it is not a separate producible step."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Driver who operates the van and makes the scheduled run.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "van_arrival_1"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Driver who operates the van and makes the scheduled run.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "van_arrival_2"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Driver who departs after loading.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "van_departure_1"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Driver who departs after loading.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "van_departure_2"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Driver who loads the van per practice.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "load_van_1"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Driver who loads the van per practice.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "load_van_2"
+    },
+    {
+      "step": "cooled_loaves_available_1",
+      "unsupported": "This is a condition that depends on the availability of loaves from friday_evening_loaves and saturday_baking_1; it is not a separate producible step."
+    },
+    {
+      "step": "cooled_loaves_available_2",
+      "unsupported": "This is a condition that depends on saturday_baking_2; it is not a separate producible step."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "Bakery that produced the loaves on Friday.",
+          "name": "Copperwheat Bakery"
+        }
+      ],
+      "step": "friday_evening_loaves"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Head baker scheduled to run the oven.",
+          "name": "Tomas Ilic"
+        }
+      ],
+      "step": "saturday_baking_1"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Head baker scheduled to run the oven.",
+          "name": "Tomas Ilic"
+        }
+      ],
+      "step": "saturday_baking_2"
+    }
+  ]
+}
