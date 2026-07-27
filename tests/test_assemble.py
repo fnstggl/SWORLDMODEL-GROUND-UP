@@ -327,3 +327,31 @@ def test_trace_records_every_operation_with_its_results():
     boundary = [t for t in trace
                 if t["op"] == "add_information_boundary"]
     assert len(boundary) == 2
+
+
+def test_actor_producing_a_record_gets_a_ministerial_action():
+    """A clerk named as producer of a formal record performs the act of
+    making it -- derived plumbing, not a refusal."""
+    from tests.fixtures_discovery import EVIDENCE_IDS, docs
+    res, spine, prod, state, unc = docs()
+    res["proof"] = list(res["proof"]) + [
+        {"kind": "record", "name": "session minutes",
+         "record_type": "minutes", "rule": "count_value",
+         "value": "adopted", "expected_count": 1,
+         "meaning": "the clerk's formal minutes"}]
+    prod["assignments"] = (prod.get("assignments") or []) + [
+        {"step": "session minutes",
+         "producers": [{"name": "Village clerk", "kind": "person",
+                        "meaning": "keeps the minutes",
+                        "basis": "verified", "evidence_ids": ["e1"]}]}]
+    state["entities"] = state["entities"] + [
+        {"name": "Village clerk", "timezone": "America/New_York",
+         "availability": {"workdays": [0, 1, 2, 3, 4],
+                          "open": "09:00", "close": "17:00"}}]
+    graph, _ = assemble(res, spine, prod, state, unc,
+                        valid_evidence_ids=EVIDENCE_IDS)
+    act = graph.resolve("action", "record: session minutes", "test")
+    clerk = graph.resolve("participant", "Village clerk", "test")
+    rec = graph.resolve("record", "session minutes", "test")
+    assert any(e.dst == act for e in graph.edges_from(clerk, "can_perform"))
+    assert any(e.dst == rec for e in graph.edges_from(act, "produces"))

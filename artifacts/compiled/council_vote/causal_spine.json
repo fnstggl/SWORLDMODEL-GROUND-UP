@@ -1,0 +1,264 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3"
+      ],
+      "kind": "condition",
+      "meaning": "The official minutes or roll-call record of the 8 September session showing each member's vote on Ordinance 2026-14 is produced, with at least three affirmative votes.",
+      "name": "council_vote_record_produced",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vote_taken"
+        }
+      ],
+      "produces_proof": [
+        "Council vote record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "The council votes on Ordinance 2026-14 at the 8 September session, with at least three affirmative votes.",
+      "name": "vote_taken",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "quorum_present"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "item_not_postponed"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "three_affirmative_votes_cast"
+        }
+      ],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e3",
+        "e4",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "At least three council members are physically present in the chamber at the time of the vote.",
+      "name": "quorum_present",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "okonkwo_present"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tran_present"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "delgado_present"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pryce_present"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "bianchi_absent"
+        }
+      ],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "kind": "initial_fact",
+      "meaning": "Council member Adaeze Okonkwo is physically present in the chamber at the 8 September session.",
+      "name": "okonkwo_present",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "kind": "initial_fact",
+      "meaning": "Council member Minh Tran is physically present in the chamber at the 8 September session.",
+      "name": "tran_present",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "kind": "initial_fact",
+      "meaning": "Council member Rosa Delgado is physically present in the chamber at the 8 September session.",
+      "name": "delgado_present",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "kind": "initial_fact",
+      "meaning": "Council member Gareth Pryce is physically present in the chamber at the 8 September session.",
+      "name": "pryce_present",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Council member Carla Bianchi is absent from the 8 September session due to attending her daughter's naval academy induction.",
+      "name": "bianchi_absent",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": "2026-09-08T19:00:00-04:00"
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "kind": "actor_decision",
+      "meaning": "The sponsor (Okonkwo) does not move to postpone the item, so it is voted on as scheduled.",
+      "name": "item_not_postponed",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "At least three council members vote affirmatively on Ordinance 2026-14.",
+      "name": "three_affirmative_votes_cast",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "okonkwo_votes_yes"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tran_votes_yes"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "delgado_votes_no"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pryce_votes_no"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "bianchi_absent"
+        }
+      ],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Council member Adaeze Okonkwo votes in favor of Ordinance 2026-14.",
+      "name": "okonkwo_votes_yes",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Council member Minh Tran votes in favor of Ordinance 2026-14.",
+      "name": "tran_votes_yes",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Council member Rosa Delgado votes against Ordinance 2026-14.",
+      "name": "delgado_votes_no",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Council member Gareth Pryce votes against Ordinance 2026-14.",
+      "name": "pryce_votes_no",
+      "prerequisites": [],
+      "produces_proof": null,
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

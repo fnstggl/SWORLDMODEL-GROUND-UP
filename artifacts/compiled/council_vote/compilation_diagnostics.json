@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "defects": [
+      "step 'council_vote_record_produced' is a formal record; if 'Village clerk' truly makes it, the making is an actor decision -- add it to the spine as kind actor_decision (the act IS the record) -- otherwise attach the institutional mechanism that produces it"
+    ],
+    "document": "producer_assignments",
+    "repairable": true
+  },
+  "reason": "the producer_assignments document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

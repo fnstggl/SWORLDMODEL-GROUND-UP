@@ -461,12 +461,34 @@ class Assembler:
                     {"meaning": producer.get("meaning", "operates it")},
                     where=f"producer {step_name!r}"))
         elif cat in ACTORS and step.category == "record":
-            raise SemanticAmbiguity(
-                f"step {step_name!r} is a formal record; if "
-                f"{producer['name']!r} truly makes it, the making is an "
-                f"actor decision -- add it to the spine as kind "
-                f"actor_decision (the act IS the record) -- otherwise "
-                f"attach the institutional mechanism that produces it")
+            # An actor producing a formal record performs the ministerial
+            # act of making it: actor -can_perform-> action -produces->
+            # record, prerequisites inherited -- the same universal
+            # plumbing as bringing a condition about. No new document is
+            # needed for what the discovery already said.
+            act_name = f"record: {step_name}"
+            act_id = self.graph.maybe("action", act_name)
+            record_meaning = \
+                f"{producer['name']} makes the record: {step.meaning}"
+            if act_id is None:
+                act_id = self.graph.add_node(
+                    "action", act_name, record_meaning,
+                    basis, ids, attrs={"derived_from_step": step_name},
+                    where=f"producer for {step_name!r}")
+                created.append(act_id)
+                edges.append(self.graph.add_edge(
+                    act_id, "produces", step_id,
+                    where=f"producer {step_name!r}"))
+                for e in self.graph.prerequisites_of(step_id):
+                    if e.dst != act_id:
+                        edges.append(self.graph.add_edge(
+                            act_id, "requires", e.dst, dict(e.attrs),
+                            where=f"producer {step_name!r}"))
+            else:
+                self.graph.absorb(act_id, record_meaning, basis, ids,
+                                  where=f"producer for {step_name!r}")
+            edges.append(self.graph.add_edge(pid, "can_perform", act_id,
+                                             where=f"producer {step_name!r}"))
         elif cat in ACTORS:
             # A person producing a condition acts through an action. Derive
             # the universal plumbing: actor -can_perform-> action -produces->

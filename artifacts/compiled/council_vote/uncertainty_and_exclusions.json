@@ -1,0 +1,67 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Other village officials or staff",
+      "why_safe": "Only council members vote on ordinances; others have no role in the vote outcome."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Public comment or lobbying",
+      "why_safe": "Council rules do not allow public input to change the voting procedure or quorum requirements."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3"
+      ],
+      "name": "Legal challenges or external review",
+      "why_safe": "The question is about adoption at the session; post-adoption challenges do not affect the vote itself."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "item_not_postponed",
+      "meaning": "Whether Okonkwo, as sponsor, moves to postpone the item before the vote is taken. The rules allow postponement, and her intention is unknown."
+    },
+    {
+      "about": "okonkwo_present",
+      "meaning": "Whether Okonkwo will be physically present at the session. No evidence confirms her attendance."
+    },
+    {
+      "about": "tran_present",
+      "meaning": "Whether Tran will be physically present at the session. No evidence confirms his attendance."
+    },
+    {
+      "about": "delgado_present",
+      "meaning": "Whether Delgado will be physically present at the session. No evidence confirms her attendance."
+    },
+    {
+      "about": "pryce_present",
+      "meaning": "Whether Pryce will be physically present at the session. No evidence confirms his attendance."
+    },
+    {
+      "about": "okonkwo_votes_yes",
+      "meaning": "Whether Okonkwo will vote yes if present. She stated support, but no binding commitment."
+    },
+    {
+      "about": "tran_votes_yes",
+      "meaning": "Whether Tran will vote yes if present. He stated he is prepared to vote yes, but no binding commitment."
+    },
+    {
+      "about": "delgado_votes_no",
+      "meaning": "Whether Delgado will vote no if present. She stated intent, but no binding commitment."
+    },
+    {
+      "about": "pryce_votes_no",
+      "meaning": "Whether Pryce will vote no if present. He stated intent, but no binding commitment."
+    }
+  ]
+}

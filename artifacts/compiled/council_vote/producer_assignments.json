@@ -1,0 +1,160 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "person",
+          "meaning": "The village clerk produces the official minutes or roll-call record of the session.",
+          "name": "Village clerk"
+        }
+      ],
+      "step": "council_vote_record_produced"
+    },
+    {
+      "step": "vote_taken",
+      "unsupported": "This is a condition that is a conjunction of prerequisites; no separate producer."
+    },
+    {
+      "step": "quorum_present",
+      "unsupported": "This is a condition that is a conjunction of prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "kind": "person",
+          "meaning": "Council member who decides to attend the session.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "kind": "person",
+          "meaning": "Council member who decides to attend the session.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "kind": "person",
+          "meaning": "Council member who decides to attend the session.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "kind": "person",
+          "meaning": "Council member who decides to attend the session.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Council member who is absent due to attending her daughter's naval academy induction.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_absent"
+    },
+    {
+      "producers": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "kind": "person",
+          "meaning": "Sponsor of the ordinance who could move postponement.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "item_not_postponed"
+    },
+    {
+      "step": "three_affirmative_votes_cast",
+      "unsupported": "This is a condition that is a conjunction of prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who votes in favor.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who votes in favor.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who votes against.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_votes_no"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who votes against.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_votes_no"
+    }
+  ]
+}
