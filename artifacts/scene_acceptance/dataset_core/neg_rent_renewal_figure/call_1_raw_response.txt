@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Gerald",
-      "private_context": "Gerald is the landlord. He proposed a 9% rent increase. He wants to maximize rental income but is aware that the building has two vacant units and that Amara has been a reliable tenant for four years. He is willing to negotiate but has a bottom line he hasn't disclosed."
+      "private_context": "Gerald is the landlord. He proposed a nine percent rent increase. He knows the building has two vacant units and that comparable one-bedrooms nearby list about five percent above Amara's current rent. He wants to maximize rental income but also avoid vacancy."
     },
     {
       "name": "Amara",
-      "private_context": "Amara is the tenant. She wants to hold the increase to 4%. She has paid on time for four years and knows comparable one-bedrooms nearby list about 5% above her current rent. She is considering her options, including moving if the increase is too high."
+      "private_context": "Amara is the tenant. She wants to hold the increase at four percent. She has paid on time for four years. She knows the building has two vacant units and that comparable one-bedrooms nearby list about five percent above her current rent. She wants a fair deal and may consider moving if necessary."
     }
   ],
-  "shared_context": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026). Gerald has proposed a 9% increase; Amara wants 4%. They have not yet reached an agreement. They can communicate to negotiate a renewal figure before the lease ends.",
+  "shared_context": "Gerald has proposed a nine percent rent increase. Amara wants to hold at four percent. Amara's lease lapses at the end of next month (August 31, 2026). The building has two vacant units. Comparable one-bedrooms nearby list about five percent above Amara's current rent. Negotiations are ongoing; no agreement has been reached yet.",
   "starting_events": [
     {
       "time": "2026-07-30T18:00:00-04:00",
-      "description": "Gerald and Amara are aware of the rent increase proposal and counterproposal. No further communication has occurred yet.",
+      "description": "Gerald and Amara are aware of each other's initial positions (nine percent vs. four percent) and the upcoming lease expiration. No further events have occurred.",
       "visible_to": ["Gerald", "Amara"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that Gerald and Amara signed a lease renewal agreement before 2026-08-31T23:59:00-04:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that Gerald and Amara both signed a renewal agreement with a rent increase figure before 2026-08-31T23:59:00-04:00. Otherwise resolve NO at the cutoff."
 }

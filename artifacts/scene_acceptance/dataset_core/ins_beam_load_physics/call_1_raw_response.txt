@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "A four-meter Douglas-fir beam spans three meters between posts. The beam is subject to a 40-pounds-per-square-foot snow load. The question is whether it will sag without exceeding acceptable limits. No social actors are involved; the outcome depends on structural engineering principles.",
+  "shared_context": "A four-meter Douglas-fir beam spans three meters between two posts. The beam is subject to a snow load of 40 pounds per square foot. The structural adequacy of the beam under this load is a matter of engineering calculation, not social decision.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is purely about structural physics with no social decision-making or observable social event; it cannot be modeled as a social scene."
+  "resolution": "UNRESOLVABLE: The question is a structural engineering calculation with no social decision or observable social event to simulate."
 }

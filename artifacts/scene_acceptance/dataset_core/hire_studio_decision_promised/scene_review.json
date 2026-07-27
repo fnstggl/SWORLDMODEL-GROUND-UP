@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses a generic placeholder actor 'Bramblewick Studios (as a decision-making entity)' to represent an unspecified decision-making process. The question does not identify who within the studio makes the decision, and the scene invents an entity that cannot be simulated as a single actor with private context. This is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
+   "correction": "The scene must identify specific human actors (e.g., the art director, finance lead, hiring manager) who are materially involved in the decision, or if the question does not provide them, the scene should be abstained from."
+  }
+ ]
 }

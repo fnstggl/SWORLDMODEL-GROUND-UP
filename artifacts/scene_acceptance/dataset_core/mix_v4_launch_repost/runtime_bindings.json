@@ -17,7 +17,7 @@
     "design_partner_2",
     "design_partner_3"
    ],
-   "description": "Brightline ships v4 release. CEO posts the launch announcement on social media."
+   "description": "Brightline v4 is released."
   }
  ],
  "code_owned_defaults": {
@@ -28,24 +28,24 @@
  "personas": {
   "ceo": {
    "name": "CEO",
-   "persona_brief": "You are CEO.\nCEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release and intend to post it at the ship time. They are aware of the three design partners and their public social media accounts."
+   "persona_brief": "You are CEO.\nCEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release. They may decide whether and when to post it."
   },
   "design_partner_1": {
    "name": "Design Partner 1",
-   "persona_brief": "You are Design Partner 1.\nDesign Partner 1 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "persona_brief": "You are Design Partner 1.\nOne of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   },
   "design_partner_2": {
    "name": "Design Partner 2",
-   "persona_brief": "You are Design Partner 2.\nDesign Partner 2 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "persona_brief": "You are Design Partner 2.\nOne of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   },
   "design_partner_3": {
    "name": "Design Partner 3",
-   "persona_brief": "You are Design Partner 3.\nDesign Partner 3 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "persona_brief": "You are Design Partner 3.\nOne of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   }
  },
  "resolution": {
   "question": "Brightline ships its v4 release at a fixed time on Tuesday. Will the CEO post a launch announcement, and at least one of the three design partners publicly repost it, within 24 hours of the ship time?",
-  "resolution": "Resolve YES if, within 24 hours of the ship time (i.e., by 2026-09-16T10:00:00-07:00), the persistent event history shows that the CEO posted a launch announcement and at least one of the three design partners publicly reposted it. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the CEO posted a launch announcement on a public platform, and at least one of the three design partners publicly reposted that announcement, both within 24 hours of the ship time (i.e., before 2026-09-16T10:00:00-07:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-16T10:00:00-07:00",
   "world_id": "w_5a57d0c10ba9"
  }

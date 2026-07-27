@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,10 +98,10 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Veldt Solar Legal Team",
-   "private_context": "The legal team has received the revised supplier contract today (2026-08-18) for review. They have internal procedures for contract clearance, but the timeline depends on workload, complexity, and any issues found. They are aware of the ten-working-day expectation but have not committed to a specific deadline."
+   "private_context": "The legal team has received a revised supplier contract for review. They have internal procedures for contract clearance, and their workload and priorities are known only to them. They may have concerns about the revised terms."
   }
  ],
- "shared_context": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance before signature. The review process typically involves checking for legal risks, compliance, and alignment with company policies. The team operates during standard business hours on working days.",
+ "shared_context": "Veldt Solar's legal team received the revised supplier contract on 2026-08-18 at 11:00. The contract requires legal clearance before signature. The team has ten working days (until 2026-09-01 at 17:00) to clear it. The contract's content and any prior negotiations are not specified further.",
  "starting_events": [
   {
    "time": "2026-08-18T11:00:00+02:00",
@@ -104,7 +111,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature (e.g., by sending a clearance notification or signing off) before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -23,13 +23,13 @@
    {
     "t": "2026-09-02T08:00:00+00:00",
     "kind": "context",
-    "content": "Noor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects a response within one month, as quoted by the agency. She has no other information about the agency's internal processes.",
+    "content": "Noor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, by 2026-10-02. She has no prior relationship with the agency beyond this submission.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-02T08:00:00+00:00",
     "kind": "context",
-    "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The simulation starts at 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00.",
+    "content": "Noor Haddad submitted a paid test piece to the subtitling agency on or before 2026-09-02. The agency quoted a one-month turnaround for feedback. The agency has a process for evaluating test pieces and communicating results to candidates.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-02T08:00:00+00:00",
     "kind": "context",
-    "content": "The agency receives test pieces from freelance translators and has a stated policy of one-month turnaround for responses. The agency's internal review process and decision-making are not known to Noor.",
+    "content": "The agency receives test pieces from freelance translators and evaluates them. They quoted a one-month turnaround for feedback. They have many submissions to process and may prioritize based on their own criteria.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-02T08:00:00+00:00",
     "kind": "context",
-    "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The simulation starts at 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00.",
+    "content": "Noor Haddad submitted a paid test piece to the subtitling agency on or before 2026-09-02. The agency quoted a one-month turnaround for feedback. The agency has a process for evaluating test pieces and communicating results to candidates.",
     "source": "scene_manifest:shared_context"
    }
   ],

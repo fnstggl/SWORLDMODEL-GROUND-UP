@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,25 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Speaker",
-   "private_context": "Speaker has just asked 'So, what do you think?' and is waiting for a response from the Listener. Speaker is interested in the Listener's opinion."
+   "private_context": "Speaker has just asked 'So, what do you think?' and is waiting for a response from the listener. Speaker has no prior knowledge of the listener's opinion on the topic."
   },
   {
    "name": "Listener",
-   "private_context": "Listener heard the question 'So, what do you think?' and may or may not have an opinion to share. Listener can choose to respond or not."
+   "private_context": "Listener has been asked for their opinion by the speaker. Listener has their own private thoughts on the matter but has not yet expressed them."
   }
  ],
- "shared_context": "Speaker and Listener are in a conversation. The question has been asked and is awaiting a reply.",
+ "shared_context": "The speaker and listener are in a conversation. The speaker has just asked 'So, what do you think?' referring to some topic previously discussed or implied. The listener can respond verbally or in another manner.",
  "starting_events": [
   {
    "time": "2026-08-20T14:00:00-03:00",
-   "description": "Speaker asks 'So, what do you think?'",
+   "description": "Speaker asks 'So, what do you think?' to the listener.",
    "visible_to": [
     "Speaker",
     "Listener"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Listener actually said something in response to the question before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the listener actually communicated a substantive response (verbal, written, or otherwise) to the speaker before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

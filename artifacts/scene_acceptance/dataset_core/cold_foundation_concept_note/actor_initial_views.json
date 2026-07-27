@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note for the Alder Foundation and intends to send it to the program officer. She hopes for a substantive response within a month.",
+    "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note describing a project she hopes the Alder Foundation will fund. She intends to send it to the program officer at the Alder Foundation. She has no prior relationship with the program officer.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively.",
+    "content": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the program officer via email. The program officer may read it and decide whether to respond substantively (e.g., with a request for a full proposal, a meeting invitation, or detailed feedback) within a month.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "program_officer_at_alder_foundation": {
-  "id": "program_officer_at_alder_foundation",
-  "name": "Program Officer at Alder Foundation",
+ "program_officer_at_the_alder_foundation": {
+  "id": "program_officer_at_the_alder_foundation",
+  "name": "Program Officer at the Alder Foundation",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The program officer at the Alder Foundation receives many unsolicited proposals. They have no prior relationship with Lucia Ferreyra. They may respond substantively if the concept note aligns with the foundation's priorities and is well-prepared, but they are not obligated to respond.",
+    "content": "The program officer at the Alder Foundation receives many unsolicited concept notes. They have discretion over which ones to respond to substantively. They have no prior knowledge of Lucia Ferreyra or her organization.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively.",
+    "content": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the program officer via email. The program officer may read it and decide whether to respond substantively (e.g., with a request for a full proposal, a meeting invitation, or detailed feedback) within a month.",
     "source": "scene_manifest:shared_context"
    }
   ],

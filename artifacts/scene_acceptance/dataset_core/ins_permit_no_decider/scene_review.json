@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses generic placeholder actors 'Applicant' and 'Permit Office' that are not identified in the question. The question does not specify any particular applicant or permit office, so these are invented stand-ins for unspecified parties, violating the rule against generic placeholder actors.",
+   "correction": "The question lacks sufficient information to identify the specific actors involved. The scene cannot be constructed without inventing actors, which is not allowed. Therefore, the scene should be abstained."
+  }
+ ]
 }

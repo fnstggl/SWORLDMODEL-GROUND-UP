@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,26 +98,26 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CEO",
-   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release and intend to post it at the ship time. They are aware of the three design partners and their public social media accounts."
+   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release. They may decide whether and when to post it."
   },
   {
    "name": "Design Partner 1",
-   "private_context": "Design Partner 1 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   },
   {
    "name": "Design Partner 2",
-   "private_context": "Design Partner 2 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   },
   {
    "name": "Design Partner 3",
-   "private_context": "Design Partner 3 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   }
  ],
- "shared_context": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and can repost the CEO's announcement on their own social media accounts. The ship time is the simulation start time.",
+ "shared_context": "Brightline is releasing v4 at a fixed time on Tuesday, 2026-09-15. The CEO has a launch announcement post ready. The three design partners are publicly known and have social media accounts. The ship time is 2026-09-15T10:00:00-07:00.",
  "starting_events": [
   {
    "time": "2026-09-15T10:00:00-07:00",
-   "description": "Brightline ships v4 release. CEO posts the launch announcement on social media.",
+   "description": "Brightline v4 is released.",
    "visible_to": [
     "CEO",
     "Design Partner 1",
@@ -119,7 +126,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if, within 24 hours of the ship time (i.e., by 2026-09-16T10:00:00-07:00), the persistent event history shows that the CEO posted a launch announcement and at least one of the three design partners publicly reposted it. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the CEO posted a launch announcement on a public platform, and at least one of the three design partners publicly reposted that announcement, both within 24 hours of the ship time (i.e., before 2026-09-16T10:00:00-07:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

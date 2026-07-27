@@ -21,148 +21,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "ABC News/Washington Post is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
+     "content": "ABC News/Washington Post is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2012-10-01T13:00:00+00:00"
     },
     {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2012-10-01T13:00:00+00:00"
     }
    ],
    "name": "ABC News/Washington Post",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "cbs_news_new_york_times": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "cbs_news_new_york_times",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "CBS News/New York Times is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    },
-    {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    }
-   ],
-   "name": "CBS News/New York Times",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "cnn_orc_international": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "cnn_orc_international",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "CNN/ORC International is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    },
-    {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    }
-   ],
-   "name": "CNN/ORC International",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "fox_news": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "fox_news",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "Fox News is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    },
-    {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    }
-   ],
-   "name": "Fox News",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -193,62 +64,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Gallup is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
+     "content": "Gallup is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2012-10-01T13:00:00+00:00"
     },
     {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2012-10-01T13:00:00+00:00"
     }
    ],
    "name": "Gallup",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "nbc_news_wall_street_journal": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "nbc_news_wall_street_journal",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "NBC News/Wall Street Journal is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    },
-    {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    }
-   ],
-   "name": "NBC News/Wall Street Journal",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -279,62 +107,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Pew Research Center is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
+     "content": "Pew Research Center is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2012-10-01T13:00:00+00:00"
     },
     {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
+     "content": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2012-10-01T13:00:00+00:00"
     }
    ],
    "name": "Pew Research Center",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "reuters_ipsos": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "reuters_ipsos",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "Reuters/Ipsos is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    },
-    {
-     "content": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2012-10-01T13:00:00+00:00"
-    }
-   ],
-   "name": "Reuters/Ipsos",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -360,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?",
-  "scene:shared_context": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event."
+  "scene:shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012."
  },
  "history": [],
  "infos": {},
@@ -370,6 +155,6 @@
  "resources": {},
  "start": "2012-10-01T13:00:00+00:00",
  "terminal": null,
- "version": 28,
+ "version": 14,
  "watches": {}
 }

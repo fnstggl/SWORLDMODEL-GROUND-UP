@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The actor 'Amara's coworkers' is a generic placeholder group, not individually identified. The question asks about 'coworkers' but does not specify who they are, so the scene invents an unspecified party. This violates the rule against generic placeholder actors standing in for parties the question never identifies.",
+   "correction": "The question lacks enough information to identify the specific coworkers or the decision-maker. The scene cannot be meaningfully simulated without named individuals."
+  }
+ ]
 }

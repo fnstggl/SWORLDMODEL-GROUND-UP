@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,24 +98,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Chen Wei",
-   "private_context": "Chen Wei is an illustrator who has received a commission offer from Torchlight Media for a twelve-page project. She is preparing to make a counteroffer on the page rate today. She has her own minimum acceptable rate and hopes to negotiate a favorable deal."
+   "private_context": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. They have received an initial offer and are preparing a counteroffer on the page rate. Chen Wei wants to secure a rate they consider fair and is willing to negotiate."
   },
   {
    "name": "Torchlight Media",
-   "private_context": "Torchlight Media is a publisher that wants to commission a twelve-page illustration project from Chen Wei. They have made an initial offer and are awaiting her counteroffer. They have a budget and a maximum acceptable page rate for this project."
+   "private_context": "Torchlight Media is a publisher that wants to commission Chen Wei for a twelve-page project. They have made an initial offer on the page rate and are aware that Chen Wei may counter. They have a standard negotiation process and a maximum budget they are willing to spend."
   }
  ],
- "shared_context": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+ "shared_context": "Chen Wei and Torchlight Media are in active negotiations for a twelve-page illustration commission. Chen Wei is preparing to send a counteroffer on the page rate today, 2026-08-06. Both parties have each other's contact information and can communicate via email or other agreed channels. The negotiation has a one-week window from today to reach an agreement.",
  "starting_events": [
   {
    "time": "2026-08-06T14:00:00+08:00",
-   "description": "Chen Wei sends her counteroffer on the page rate to Torchlight Media.",
+   "description": "Chen Wei sends their opening counteroffer on the page rate to Torchlight Media.",
    "visible_to": [
     "Chen Wei"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff at 2026-08-13T14:00:00+08:00, the persistent event history shows that both Chen Wei and Torchlight Media have agreed on a specific page rate for the twelve-page commission (e.g., via a mutual acceptance message or signed contract). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before 2026-08-13T14:00:00+08:00, the persistent event history shows that both Chen Wei and Torchlight Media have explicitly agreed to a specific page rate for the twelve-page commission (e.g., via a signed contract, email acceptance, or other documented mutual consent). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

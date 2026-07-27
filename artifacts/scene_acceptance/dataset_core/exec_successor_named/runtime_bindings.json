@@ -1,7 +1,7 @@
 {
  "world_id": "w_e90e1ae506ed",
  "actor_ids": {
-  "Owner": "owner",
+  "Owner of Fenwick & Sloane": "owner_of_fenwick_sloane",
   "Deputy (Buying)": "deputy_buying",
   "Deputy (Operations)": "deputy_operations"
  },
@@ -11,7 +11,7 @@
    "ledger_seq": 14,
    "at": "2026-09-15T09:00:00+00:00",
    "visible_to_ids": [
-    "owner"
+    "owner_of_fenwick_sloane"
    ],
    "description": "The owner is at the store, aware of the need to decide on a successor before holiday trading starts."
   }
@@ -22,22 +22,22 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "owner": {
-   "name": "Owner",
-   "persona_brief": "You are Owner.\nOwner has run Fenwick & Sloane for 31 years. She must decide which deputy (buying or operations) will succeed her as general manager. Her accountant has advised settling the decision before seasonal hires arrive. She has not yet made a public announcement."
+  "owner_of_fenwick_sloane": {
+   "name": "Owner of Fenwick & Sloane",
+   "persona_brief": "You are Owner of Fenwick & Sloane.\nOwner has run the store for 31 years. She has two deputies: one runs buying, the other runs operations. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about who will take over. She has not yet made a decision or announced a successor."
   },
   "deputy_buying": {
    "name": "Deputy (Buying)",
-   "persona_brief": "You are Deputy (Buying).\nDeputy in charge of buying. Aware that staff are asking about succession. Interested in the general manager position."
+   "persona_brief": "You are Deputy (Buying).\nRuns the buying department. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position."
   },
   "deputy_operations": {
    "name": "Deputy (Operations)",
-   "persona_brief": "You are Deputy (Operations).\nDeputy in charge of operations. Aware that staff are asking about succession. Interested in the general manager position."
+   "persona_brief": "You are Deputy (Operations).\nRuns the operations department. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position."
   }
  },
  "resolution": {
   "question": "Will the retiring owner of Fenwick & Sloane name which of her two deputies will take over as general manager before holiday trading starts on November 1?",
-  "resolution": "Resolve YES if, before 2026-11-01T09:00:00+00:00, the owner publicly announces which deputy will take over as general manager (e.g., via a store-wide announcement, email, or official notice). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the owner publicly named a successor (either deputy or another person) as general manager before 2026-11-01T09:00:00+00:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-01T09:00:00+00:00",
   "world_id": "w_e90e1ae506ed"
  }

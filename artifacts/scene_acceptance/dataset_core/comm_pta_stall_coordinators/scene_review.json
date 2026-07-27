@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses generic placeholder actors ('Potential volunteer 1', 'Potential volunteer 2', etc.) that are not identified in the question or context. The question does not specify any particular individuals, so these are invented stand-ins for unspecified parties, violating the rule against generic placeholder actors.",
+   "correction": "The question lacks sufficient information to identify the decision-maker or the specific individuals involved. The scene cannot be constructed without inventing actors, which is not permissible. Therefore, the scene should be abstained."
+  }
+ ]
 }

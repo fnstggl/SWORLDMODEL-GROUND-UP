@@ -1,17 +1,19 @@
 {
  "world_id": "w_677e0c447bae",
  "actor_ids": {
-  "Herrera cousins (group chat)": "herrera_cousins_group_chat"
+  "Herrera cousins (group chat participants)": "herrera_cousins_group_chat_participants",
+  "Tia Marisol": "tia_marisol"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 8,
+   "ledger_seq": 11,
    "at": "2026-08-01T16:00:00+00:00",
    "visible_to_ids": [
-    "herrera_cousins_group_chat"
+    "herrera_cousins_group_chat_participants",
+    "tia_marisol"
    ],
-   "description": "The group chat is active with ongoing discussion about the reunion location and date. No decision has been made yet."
+   "description": "The group chat is active with ongoing discussion about the reunion. Three cousins have expressed preference for Oaxaca, two for San Antonio. Tia Marisol has indicated she will go with the majority but has been changing the subject to catering."
   }
  ],
  "code_owned_defaults": {
@@ -20,14 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "herrera_cousins_group_chat": {
-   "name": "Herrera cousins (group chat)",
-   "persona_brief": "You are Herrera cousins (group chat).\nThe fourteen cousins have been discussing a spring reunion. Three cousins (names unknown) strongly prefer Oaxaca; two prefer San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. No consensus has been reached yet. Each cousin has their own schedule constraints and preferences, but these are not fully known to others."
+  "herrera_cousins_group_chat_participants": {
+   "name": "Herrera cousins (group chat participants)",
+   "persona_brief": "You are Herrera cousins (group chat participants).\nEach cousin has their own preferences and availability for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio. Tia Marisol privately prefers to go with the majority but is also concerned about catering. Other cousins may have unstated preferences."
+  },
+  "tia_marisol": {
+   "name": "Tia Marisol",
+   "persona_brief": "You are Tia Marisol.\nShe is the eldest and influential. She says she will go with the majority but keeps changing the subject to catering. She may have her own private constraints or preferences regarding the reunion."
   }
  },
  "resolution": {
   "question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
-  "resolution": "Resolve YES only if the persistent event history shows that before the cutoff (2026-09-30T22:00:00-06:00) a specific weekend and a specific town have been explicitly agreed upon by the group (e.g., a message stating 'We'll do X weekend in Y town' with no further dispute). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message is sent in the group chat that explicitly states a specific weekend and a specific town for the reunion, and no subsequent message contradicts or retracts that decision before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T22:00:00-06:00",
   "world_id": "w_677e0c447bae"
  }

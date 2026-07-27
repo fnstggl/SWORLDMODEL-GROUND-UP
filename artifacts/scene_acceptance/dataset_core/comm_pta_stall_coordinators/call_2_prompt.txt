@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,36 +98,36 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "PTA subcommittee chair",
-   "private_context": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from previous events and the school community. They plan to reach out to candidates before the October planning meeting."
+   "private_context": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from the school community and plan to reach out to them before the October planning meeting."
   },
   {
    "name": "Potential volunteer 1",
-   "private_context": "A parent who has helped with school events before. They are busy but open to being asked. They have not yet been contacted about the winter fair."
+   "private_context": "A parent who has been involved in previous school events. They are aware of the winter fair but have not yet been contacted about coordinating a stall. They are generally willing to help if asked and if the time commitment is manageable."
   },
   {
    "name": "Potential volunteer 2",
-   "private_context": "A parent who is new to the school this year. They are interested in getting involved but have not yet been approached. They are unsure about time commitment."
+   "private_context": "A parent who is new to the school this year. They have not yet participated in any PTA activities. They might be interested in getting involved but are not actively seeking opportunities."
   },
   {
    "name": "Potential volunteer 3",
-   "private_context": "A local business owner whose child attends the school. They have sponsored events in the past but have not volunteered as a coordinator. They are considering it if asked."
+   "private_context": "A local business owner whose child attends the school. They have sponsored school events before and might be willing to coordinate a stall if it provides visibility for their business."
   },
   {
    "name": "Potential volunteer 4",
-   "private_context": "A teacher at the school who has coordinated stalls before. They are willing to help again if asked, but have not been approached yet."
+   "private_context": "A teacher at the school who has helped with the winter fair in previous years. They are already busy with other school responsibilities but might be persuaded to coordinate a stall if no one else steps up."
   }
  ],
- "shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+ "shared_context": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair has a list of potential volunteers and can contact them via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The fair itself is later in the year.",
  "starting_events": [
   {
    "time": "2026-09-21T19:00:00-05:00",
-   "description": "The PTA subcommittee chair begins the recruitment process for four stall coordinators.",
+   "description": "The PTA subcommittee chair begins reaching out to potential volunteers to recruit stall coordinators.",
    "visible_to": [
     "PTA subcommittee chair"
    ]
   }
  ],
- "resolution": "Resolve YES if, by 2026-10-19T21:00:00-05:00, the persistent event history shows that at least four individuals have explicitly agreed to serve as stall coordinators for the winter fair. Otherwise resolve NO."
+ "resolution": "Resolve YES if, by 2026-10-19T21:00:00-05:00, the persistent event history shows that at least four individuals have agreed to serve as stall coordinators for the winter fair. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

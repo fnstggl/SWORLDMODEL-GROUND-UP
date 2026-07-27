@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Ingrid",
-   "private_context": "Ingrid wants the children for the December holidays, especially for her family's large Lucia gathering. She is on speaking terms with Mattias and has a lawyer. She knows the mediator flagged travel dates as the only open issue."
+   "private_context": "Ingrid wants the children for the December holidays, especially for her family's large Lucia gathering on December 13. She is aware that Mattias has a deposit on a ski trip for the first week of the break. She is on speaking terms with Mattias and has a lawyer."
   },
   {
    "name": "Mattias",
-   "private_context": "Mattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is on speaking terms with Ingrid and has a lawyer. He knows the mediator flagged travel dates as the only open issue."
+   "private_context": "Mattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is aware of Ingrid's family's Lucia gathering. He is on speaking terms with Ingrid and has a lawyer."
   },
   {
    "name": "Mediator",
-   "private_context": "The mediator has a final scheduled session in six weeks (by 2026-10-13). They have flagged travel dates as the only open issue. They facilitate communication between Ingrid and Mattias."
+   "private_context": "The mediator has scheduled a final session in six weeks (by October 13, 2026). They have flagged travel dates as the only open issue between Ingrid and Mattias. They are neutral and aim to facilitate a written agreement."
   }
  ],
- "shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement would resolve the matter. The final scheduled session is in six weeks (by 2026-10-13).",
+ "shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement is sought before the mediator's final scheduled session in six weeks (by October 13, 2026).",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+01:00",
-   "description": "The negotiation period begins. Ingrid and Mattias are aware of the mediator's final session deadline in six weeks.",
+   "description": "Ingrid and Mattias begin negotiations over the December holiday schedule, with the mediator available to facilitate.",
    "visible_to": [
     "Ingrid",
     "Mattias",

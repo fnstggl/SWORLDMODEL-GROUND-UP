@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+  "verdict": "ABSTAIN",
+  "defects": [
+    {
+      "path": "scene",
+      "problem": "The scene uses a generic placeholder actor 'Interchange Format Working Group members' to represent 21 unnamed individuals. The question does not identify any specific members, so the scene invents an unspecified party. This violates the rule against generic placeholder actors standing in for parties the question never identifies.",
+      "correction": "The question lacks sufficient information to identify the individual decision-makers. Without named or uniquely identified members, the scene cannot simulate their individual behaviors meaningfully. The scene should be abstained from."
+    }
+  ]
 }

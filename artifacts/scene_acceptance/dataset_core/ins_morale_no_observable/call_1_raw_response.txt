@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Kestrel Analytics support team members",
-      "private_context": "Each team member has their own morale level, job satisfaction, and personal expectations about the upcoming reorg. They have heard rumors but lack official details."
+      "private_context": "Each team member has their own individual morale level, concerns about job security, workload, and team dynamics. They have heard rumors about a reorg but have no official details yet."
     },
     {
       "name": "Kestrel Analytics management",
-      "private_context": "Management has decided on a reorg plan that will affect the support team. They have not yet communicated the details to the team. They believe the reorg will improve efficiency but are uncertain about morale impact."
+      "private_context": "Management has decided on a reorg of the support team. They have a plan for the new structure and timeline, but have not yet communicated it to the team. They are aware that morale may be affected."
     }
   ],
-  "shared_context": "Kestrel Analytics is a company with a support team. A reorganization (reorg) is planned and will be announced to the support team on 2026-09-01. The reorg may involve changes to roles, reporting lines, or team structure. The team's morale after the reorg is the subject of interest.",
+  "shared_context": "Kestrel Analytics is a company with a support team. A reorganization (reorg) of the support team is planned. The reorg has not been announced to the team yet. The start time is 2026-09-01T09:00:00+01:00.",
   "starting_events": [
     {
       "time": "2026-09-01T09:00:00+01:00",
-      "description": "Management announces the reorg details to the support team.",
-      "visible_to": ["Kestrel Analytics support team members", "Kestrel Analytics management"]
+      "description": "The reorg is still unannounced. No events have occurred yet.",
+      "visible_to": []
     }
   ],
-  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that a majority of support team members have expressed (in any observable form, such as survey responses, public statements, or documented feedback) that their morale is better than before the reorg. Otherwise resolve NO."
+  "resolution": "UNRESOLVABLE: The question asks about an internal state (morale) with no observable proxy provided. Morale is not directly observable, and no specific observable events (e.g., survey results, turnover rates) are specified to measure it."
 }

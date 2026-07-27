@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -93,35 +100,25 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "CEO",
-   "private_context": "CEO has stayed publicly neutral on the balcony-panel pilot. They are aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins. They must decide whether to greenlight or shelve the pilot at the quarterly review, balancing the head of product's enthusiasm and the CFO's concerns."
+   "name": "Veldt Solar executive team",
+   "private_context": "The executive team consists of the CEO, CFO, and head of product. They will decide at the quarterly review whether to shelve or greenlight the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to the utility-scale line; the CEO has stayed publicly neutral."
   },
   {
-   "name": "CFO",
-   "private_context": "CFO wants the engineers reassigned to the utility-scale line. They view the balcony-panel pilot as a resource drain with thin margins, despite strong reviews. They will advocate for shelving the pilot at the quarterly review."
-  },
-  {
-   "name": "Head of Product",
-   "private_context": "Head of Product champions the balcony-panel pilot. They see the strong reviews as evidence of potential and want to continue the pilot despite the sales shortfall. They will advocate for greenlighting the pilot at the quarterly review."
-  },
-  {
-   "name": "Pilot Team",
-   "private_context": "The pilot team is awaiting the executive decision on whether the pilot will be shelved or greenlit. They have no direct influence on the decision but will be informed of the outcome."
+   "name": "Pilot team",
+   "private_context": "The pilot team is awaiting the executive decision on the balcony-panel pilot. They are aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins."
   }
  ],
- "shared_context": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The executive team (CEO, CFO, Head of Product) will meet to decide whether to shelve or greenlight the pilot. The decision will be communicated to the pilot team within the same week.",
+ "shared_context": "The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The quarterly review is scheduled for the week of 2026-10-05. The executive team will decide whether to shelve or greenlight the pilot and communicate the decision to the pilot team.",
  "starting_events": [
   {
    "time": "2026-10-05T09:00:00+02:00",
-   "description": "The quarterly review meeting begins with the CEO, CFO, and Head of Product present to discuss the balcony-panel pilot.",
+   "description": "The quarterly review begins with the executive team discussing the balcony-panel pilot.",
    "visible_to": [
-    "CEO",
-    "CFO",
-    "Head of Product"
+    "Veldt Solar executive team"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff (2026-10-16T18:00:00+02:00), the persistent event history shows that the executive team formally decided to greenlight or shelve the pilot and that decision was communicated to the pilot team. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the executive team formally communicated a decision (either shelve or greenlight) to the pilot team before 2026-10-16T18:00:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

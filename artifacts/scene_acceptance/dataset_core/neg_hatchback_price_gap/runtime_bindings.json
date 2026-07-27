@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-20T04:30:00+00:00",
    "visible_to_ids": [
-    "ravi"
+    "ravi",
+    "seller"
    ],
-   "description": "Ravi sees the listing for the 2019 hatchback and considers making an offer."
+   "description": "Ravi and the seller are aware of the 40,000 rupee gap. No agreement has been reached yet."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +24,16 @@
  "personas": {
   "ravi": {
    "name": "Ravi",
-   "persona_brief": "You are Ravi.\nRavi wants to buy a 2019 hatchback. He has a maximum budget of 40,000 rupees less than the seller's listed price. He is willing to negotiate and can make an offer."
+   "persona_brief": "You are Ravi.\nRavi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He can decide to offer a different price or accept the seller's counteroffer. He has three days before the listing expires."
   },
   "seller": {
    "name": "Seller",
-   "persona_brief": "You are Seller.\nThe seller has listed a 2019 hatchback at a certain price. They are willing to negotiate but have a minimum acceptable price that is 40,000 rupees above Ravi's budget. The listing expires in three days."
+   "persona_brief": "You are Seller.\nThe seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. They can decide to accept, reject, or counteroffer. The listing expires in three days."
   }
  },
  "resolution": {
   "question": "Ravi and the private seller of a 2019 hatchback are 40,000 rupees apart. Will they agree on a price in the three days before the seller's posted listing expires?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price (e.g., a binding message exchange indicating acceptance of an offer). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price (e.g., a message accepting an offer, a signed agreement, or a payment). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-23T10:00:00+05:30",
   "world_id": "w_7928f36f065c"
  }

@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,45 +101,35 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Jaka",
-   "private_context": "Jaka is the one who usually books the apartment. He is aware of the early-bird deadline on the 15th and wants to secure the apartment they liked last year. He is willing to coordinate but needs agreement from the others."
+   "private_context": "Jaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird fares end on the 15th. He has no specific constraints on leave."
   },
   {
-   "name": "Friend1",
-   "private_context": "Friend1 has a new job with limited leave. They are interested in the trip but need to confirm dates that work with their schedule."
+   "name": "Friend with limited leave 1",
+   "private_context": "This friend has a new job with limited leave. They need to coordinate dates that fit their leave allowance."
   },
   {
-   "name": "Friend2",
-   "private_context": "Friend2 has a new job with limited leave. They are interested in the trip but need to confirm dates that work with their schedule."
+   "name": "Friend with limited leave 2",
+   "private_context": "This friend has a new job with limited leave. They need to coordinate dates that fit their leave allowance."
   },
   {
-   "name": "Friend3",
-   "private_context": "Friend3 is flexible and eager to go on the trip. They have no major constraints."
-  },
-  {
-   "name": "Friend4",
-   "private_context": "Friend4 is flexible and eager to go on the trip. They have no major constraints."
-  },
-  {
-   "name": "Friend5",
-   "private_context": "Friend5 is flexible and eager to go on the trip. They have no major constraints."
+   "name": "Other three friends",
+   "private_context": "These three friends are part of the group chat. They have no specific constraints mentioned beyond being available for the trip."
   }
  ],
- "shared_context": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+ "shared_context": "There is a group chat with six university friends planning a trip to Ljubljana. They are considering an apartment they liked last year, which is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
  "starting_events": [
   {
    "time": "2026-08-01T10:00:00+02:00",
-   "description": "The group chat is active. No messages have been sent yet regarding this year's trip.",
+   "description": "The group chat is active. No dates have been agreed upon yet, and no booking has been made.",
    "visible_to": [
     "Jaka",
-    "Friend1",
-    "Friend2",
-    "Friend3",
-    "Friend4",
-    "Friend5"
+    "Friend with limited leave 1",
+    "Friend with limited leave 2",
+    "Other three friends"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that all six friends have agreed on specific dates and the apartment has been booked before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that all six friends have agreed on specific dates and Jaka (or someone else) has completed the booking of the apartment before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

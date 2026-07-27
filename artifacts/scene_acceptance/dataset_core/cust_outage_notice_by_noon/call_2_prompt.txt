@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,11 +101,11 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Communications Lead",
-   "private_context": "The Communications Lead is at an offsite all morning and may not be immediately reachable. They are responsible for sending incident notices to enterprise customers per the runbook."
+   "private_context": "The Communications Lead is at an offsite all morning and may not be reachable. They are responsible for deciding whether to send the incident notice to enterprise customers."
   },
   {
-   "name": "Nimbus Freight (as an organization)",
-   "private_context": "Nimbus Freight has an incident runbook that requires emailing affected enterprise customers within four hours of an outage. The tracking portal has been down since 06:00. The status page already acknowledges the outage."
+   "name": "Nimbus Freight",
+   "private_context": "Nimbus Freight has an incident runbook that requires customer email within four hours of outage start. The tracking portal has been down since 06:00. The status page already acknowledges the outage."
   }
  ],
  "shared_context": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The communications lead is at an offsite all morning.",
@@ -107,7 +114,7 @@ THE COMPILED SCENE (exact manifest under review):
    "time": "2026-08-21T06:00:00+02:00",
    "description": "Nimbus Freight's tracking portal goes down.",
    "visible_to": [
-    "Nimbus Freight (as an organization)"
+    "Nimbus Freight"
    ]
   }
  ],

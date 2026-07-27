@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Academic Senate",
-   "private_context": "The senate is a deliberative body with members who have varying views on pass-fail grading. The motion has been introduced and is on the agenda for the October plenary. The senate's decision will be made by vote at the plenary."
+   "private_context": "The Academic Senate is the faculty governance body of Ashvale University. It has a chair, a secretary, and voting members drawn from faculty across departments. The senate has received a motion to adopt pass-fail grading for the current semester. Members have varying opinions on the motion, but no formal vote has been taken yet. The chair sets the agenda and controls debate."
   }
  ],
- "shared_context": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
+ "shared_context": "Ashvale University's academic senate will hold its October plenary meeting on a date between October 1 and October 30, 2026. The meeting agenda includes a motion to adopt pass-fail grading for the current semester. The motion may be passed, rejected, or sent back to committee. The senate operates under standard parliamentary procedure. The outcome will be recorded in the official minutes.",
  "starting_events": [
   {
    "time": "2026-10-01T09:00:00-05:00",
-   "description": "The academic senate's October plenary is scheduled for 2026-10-15. The pass-fail grading motion is on the agenda.",
+   "description": "The academic senate's October plenary meeting is scheduled to occur before the cutoff. The pass-fail grading motion is on the agenda.",
    "visible_to": [
     "Academic Senate"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the senate passed the motion at the plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the pass-fail grading motion at its October plenary before the cutoff. Resolve NO if the persistent event history shows that the senate rejected the motion or sent it back to committee before the cutoff. If no final action is recorded by the cutoff, resolve NO."
 }

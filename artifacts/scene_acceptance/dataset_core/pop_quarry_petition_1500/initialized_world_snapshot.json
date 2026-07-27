@@ -21,19 +21,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "They have gathered 400 signatures so far, mostly at the farmers market. They need 1,500 total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator.",
+     "content": "They have collected 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "Riverton has 19,000 residents. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks (2026-09-14T17:00:00-06:00). The organizers have collected 400 signatures in the first fortnight. The quarry operator distributed a counter-flyer last week.",
+     "content": "Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks from the simulation start. The organizers have already gathered 400 signatures. A counter-flyer from the quarry operator appeared last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
-   "name": "Petition Organizers",
+   "name": "Petition organizers",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,19 +64,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "They distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to avoid the council debate.",
+     "content": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and have an interest in preventing the petition from reaching 1,500 signatures.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "Riverton has 19,000 residents. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks (2026-09-14T17:00:00-06:00). The organizers have collected 400 signatures in the first fortnight. The quarry operator distributed a counter-flyer last week.",
+     "content": "Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks from the simulation start. The organizers have already gathered 400 signatures. A counter-flyer from the quarry operator appeared last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
-   "name": "Quarry Operator",
+   "name": "Quarry operator",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the residents' petition against the Riverton quarry extension collect the 1,500 signatures needed to trigger a council debate before the submission deadline in six weeks?",
-  "scene:shared_context": "Riverton has 19,000 residents. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks (2026-09-14T17:00:00-06:00). The organizers have collected 400 signatures in the first fortnight. The quarry operator distributed a counter-flyer last week."
+  "scene:shared_context": "Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks from the simulation start. The organizers have already gathered 400 signatures. A counter-flyer from the quarry operator appeared last week."
  },
  "history": [],
  "infos": {},

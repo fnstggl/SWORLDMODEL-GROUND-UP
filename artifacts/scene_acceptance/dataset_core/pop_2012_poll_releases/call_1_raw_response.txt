@@ -2,38 +2,24 @@
   "actors": [
     {
       "name": "Gallup",
-      "private_context": "Gallup is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+      "private_context": "Gallup is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls."
     },
     {
       "name": "Pew Research Center",
-      "private_context": "Pew Research Center is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+      "private_context": "Pew Research Center is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls."
     },
     {
       "name": "ABC News/Washington Post",
-      "private_context": "ABC News/Washington Post is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
-    },
-    {
-      "name": "NBC News/Wall Street Journal",
-      "private_context": "NBC News/Wall Street Journal is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
-    },
-    {
-      "name": "CBS News/New York Times",
-      "private_context": "CBS News/New York Times is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
-    },
-    {
-      "name": "CNN/ORC International",
-      "private_context": "CNN/ORC International is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
-    },
-    {
-      "name": "Fox News",
-      "private_context": "Fox News is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
-    },
-    {
-      "name": "Reuters/Ipsos",
-      "private_context": "Reuters/Ipsos is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+      "private_context": "ABC News/Washington Post is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls."
     }
   ],
-  "shared_context": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
-  "starting_events": [],
-  "resolution": "Resolve YES if, by 2012-10-08T21:00:00-04:00, the persistent event history shows that at least three distinct major national polling organizations publicly released a new head-to-head survey of the Obama-Romney race during the period from 2012-10-01T09:00:00-04:00 to 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
+  "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
+  "starting_events": [
+    {
+      "time": "2012-10-01T09:00:00-04:00",
+      "description": "The simulation begins. No new polls have been released yet this week.",
+      "visible_to": ["Gallup", "Pew Research Center", "ABC News/Washington Post"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that at least three distinct major national polling organizations publicly released new head-to-head Obama-Romney surveys between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
 }

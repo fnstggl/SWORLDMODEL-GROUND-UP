@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Chioma Eze is a parent of a child in Mr. Abernathy's year-five class. She wants her son's seating changed and has written an email to Mr. Abernathy about it. She has not yet sent the email.",
+     "content": "Chioma Eze is a parent of a child in Mr. Abernathy's class. She has sent an email requesting a seating change for her son. She expects a response before the weekend.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-16T07:00:00+00:00"
     },
     {
-     "content": "Petersfield Primary School uses email as a standard communication channel between teachers and parents. The weekend starts after Friday, 2026-09-18. Mr. Abernathy typically checks his email during school hours and may also check in the evenings.",
+     "content": "Chioma Eze has sent an email to Mr. Abernathy regarding her son's seating change. The email was sent before the start time and is in Mr. Abernathy's inbox. The weekend begins after 2026-09-19T08:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-16T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and prioritizes those that are urgent or directly about classroom issues. He has not yet seen Chioma Eze's email.",
+     "content": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives emails from parents and typically responds during school hours or in the evening. He may prioritize urgent matters.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-16T07:00:00+00:00"
     },
     {
-     "content": "Petersfield Primary School uses email as a standard communication channel between teachers and parents. The weekend starts after Friday, 2026-09-18. Mr. Abernathy typically checks his email during school hours and may also check in the evenings.",
+     "content": "Chioma Eze has sent an email to Mr. Abernathy regarding her son's seating change. The email was sent before the start time and is in Mr. Abernathy's inbox. The weekend begins after 2026-09-19T08:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-16T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Mr. Abernathy, a year-five teacher at Petersfield Primary, respond to parent Chioma Eze's email about her son's seating change before the weekend?",
-  "scene:shared_context": "Petersfield Primary School uses email as a standard communication channel between teachers and parents. The weekend starts after Friday, 2026-09-18. Mr. Abernathy typically checks his email during school hours and may also check in the evenings."
+  "scene:shared_context": "Chioma Eze has sent an email to Mr. Abernathy regarding her son's seating change. The email was sent before the start time and is in Mr. Abernathy's inbox. The weekend begins after 2026-09-19T08:00:00+01:00."
  },
  "history": [],
  "infos": {},

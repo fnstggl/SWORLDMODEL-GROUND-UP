@@ -3,19 +3,15 @@
     {
       "name": "User",
       "private_context": "The user is considering a job offer and wants to know if they will be happy taking it. They have their own preferences, values, and expectations about the job, but these are not specified further."
-    },
-    {
-      "name": "Employer",
-      "private_context": "The employer has extended a job offer to the user and expects a decision. They have standard hiring processes and may have other candidates."
     }
   ],
-  "shared_context": "The user has received a job offer from the employer. The job has certain characteristics (salary, location, responsibilities, culture, etc.) that are known to both parties. The user has not yet accepted or declined the offer.",
+  "shared_context": "The user has received a job offer. The job has certain characteristics (salary, location, responsibilities, culture, etc.) that are known to the user but not specified in detail. The user can accept or decline the offer.",
   "starting_events": [
     {
       "time": "2026-08-17T09:00:00-07:00",
-      "description": "The user is aware of the job offer and is deliberating whether to accept it.",
+      "description": "The user is aware of the job offer and is considering whether to accept it.",
       "visible_to": ["User"]
     }
   ],
-  "resolution": "UNRESOLVABLE: The question asks about an internal subjective state ('happy') that cannot be directly observed or verified through external events. Happiness is a personal feeling that cannot be reliably measured by an external observer, so no observable resolution condition can be defined."
+  "resolution": "UNRESOLVABLE: The question asks about an internal state (happiness) with no observable proxy provided by the user. Happiness is a subjective feeling that cannot be directly observed in the simulation's event history."
 }

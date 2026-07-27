@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Kwame get his employer's HR team to issue the sponsorship letter he needs before his visa-renewal appointment on the 9th?",
-  "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the HR team actually issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-09T09:00:00+01:00",
   "world_id": "w_cb04c71e345a"
  },

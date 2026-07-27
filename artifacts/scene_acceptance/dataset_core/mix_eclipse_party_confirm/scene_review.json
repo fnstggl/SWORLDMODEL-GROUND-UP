@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene lacks any other actors (e.g., club members, weather service, or a communication channel) that the president would interact with to confirm the party. The president alone cannot 'confirm' to themselves; confirmation requires a recipient or audience. The resolution expects a 'persistent event history' showing communication, but no other actors are present to receive or record that communication, making the scene unsimulatable as a social interaction.",
+   "correction": "Add at least one other actor (e.g., a club member or a public announcement system) to whom the president can communicate the confirmation, and ensure the shared context includes that actor's awareness of the decision."
+  }
+ ]
 }

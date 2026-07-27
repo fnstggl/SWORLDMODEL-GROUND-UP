@@ -13,7 +13,7 @@
     "mccain_campaign",
     "obama_campaign"
    ],
-   "description": "The simulation begins. Both campaigns are aware of the scheduled debate and have not yet publicly confirmed participation."
+   "description": "The McCain and Obama campaigns have received invitations to the first presidential debate. Neither has publicly confirmed participation."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "mccain_campaign": {
    "name": "McCain campaign",
-   "persona_brief": "You are McCain campaign.\nThe McCain campaign has been negotiating debate terms and is aware of the scheduled debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They may have internal considerations about the debate format, timing, or other conditions."
+   "persona_brief": "You are McCain campaign.\nThe McCain campaign has received an invitation to the first presidential debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They are considering the terms and logistics."
   },
   "obama_campaign": {
    "name": "Obama campaign",
-   "persona_brief": "You are Obama campaign.\nThe Obama campaign has been negotiating debate terms and is aware of the scheduled debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They may have internal considerations about the debate format, timing, or other conditions."
+   "persona_brief": "You are Obama campaign.\nThe Obama campaign has received an invitation to the first presidential debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They are considering the terms and logistics."
   }
  },
  "resolution": {
   "question": "Will the McCain and Obama campaigns both publicly confirm their candidates' participation in the first 2008 presidential debate at the University of Mississippi before the scheduled debate day?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2008-09-26T12:00:00-05:00, the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public statement confirming their candidate's participation in the debate. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the hard cutoff, both the McCain campaign and the Obama campaign have issued a public statement (e.g., press release, official announcement) confirming their candidate's participation in the debate. Resolve NO otherwise.",
   "cutoff": "2008-09-26T12:00:00-05:00",
   "world_id": "w_7cbc8bb5102f"
  }

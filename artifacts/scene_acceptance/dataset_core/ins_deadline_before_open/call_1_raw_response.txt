@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Priya",
-      "private_context": "Priya wants to apply to a program. She believes the deadline is 2026-09-05, but the actual deadline passed a month before applications opened. She is unaware of this discrepancy."
+      "private_context": "Priya wants to apply to a program. She believes the deadline is sometime in the future, but she has not checked the exact date recently. She is unaware that the deadline has already passed."
     }
   ],
-  "shared_context": "The program's application deadline is 2026-09-05 according to publicly available information. However, the actual deadline passed a month before applications opened, a fact not widely known.",
+  "shared_context": "The program's application deadline was a month before applications opened, meaning the deadline has already passed. The application system is online and will reject any submission after the deadline. Priya has access to the application portal and can submit at any time.",
   "starting_events": [
     {
       "time": "2026-08-05T09:00:00+05:30",
-      "description": "Priya begins preparing her application for the program, believing the deadline is 2026-09-05.",
+      "description": "Priya decides to start working on her application for the program.",
       "visible_to": ["Priya"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Priya submitted her application before 2026-09-05T09:00:00+05:30. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that Priya actually submitted the application before the deadline (i.e., before the deadline passed). Otherwise resolve NO at the hard cutoff."
 }

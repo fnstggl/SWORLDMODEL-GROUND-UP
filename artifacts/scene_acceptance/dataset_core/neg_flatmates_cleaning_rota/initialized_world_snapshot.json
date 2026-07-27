@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores.",
+     "content": "Dana wants a cleaning rota that feels fair and is willing to negotiate. Dana has some preferences about task distribution but is open to discussion.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-04T19:00:00+00:00"
     },
     {
-     "content": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. The current date is 2026-08-04T19:00:00+00:00, and the deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00). No cleaning rota has been proposed yet in the chat.",
+     "content": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-04T19:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and may be open to agreeing if the terms are acceptable.",
+     "content": "Yusuf wants a cleaning rota that is simple and not too demanding. Yusuf has some preferences about task distribution but is open to discussion.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-04T19:00:00+00:00"
     },
     {
-     "content": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. The current date is 2026-08-04T19:00:00+00:00, and the deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00). No cleaning rota has been proposed yet in the chat.",
+     "content": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-04T19:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will flatmates Dana and Yusuf agree on a cleaning rota that both explicitly sign off on in their flat group chat before Sunday night?",
-  "scene:shared_context": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. The current date is 2026-08-04T19:00:00+00:00, and the deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00). No cleaning rota has been proposed yet in the chat."
+  "scene:shared_context": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00)."
  },
  "history": [],
  "infos": {},

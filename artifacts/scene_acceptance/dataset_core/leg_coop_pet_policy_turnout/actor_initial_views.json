@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "The board has called a special general meeting for the 12th to vote on amending the pet policy. They need at least two-thirds of members to turn out for the amendment to pass. They have sent out notices and are hoping for high attendance.",
+    "content": "The board has called a special general meeting for the 12th to vote on amending the pet policy. They know the bylaws require a two-thirds member turnout for the amendment to pass. They have sent out notices to all members about the meeting and the proposed amendment.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "The Sunmark housing cooperative's bylaws require a two-thirds member turnout to amend the pet policy. A special general meeting has been called for the 12th to vote on this amendment. The meeting will be held at the cooperative's community hall. Members have been notified via email and posted notices.",
+    "content": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. A special general meeting has been called for 2026-09-12 to vote on such an amendment. The meeting will be held at the cooperative's common hall. Members can attend in person or by proxy. The cutoff for counting turnout is the end of the meeting, scheduled for 22:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "Members have received notice of the special general meeting on the 12th regarding the pet policy amendment. Each member has their own schedule, interest in the issue, and likelihood of attending. Some may be in favor of the amendment, some opposed, and some indifferent.",
+    "content": "Each member has received notice of the special general meeting on the 12th and the proposed pet policy amendment. They have their own preferences and schedules, and may or may not attend the meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "The Sunmark housing cooperative's bylaws require a two-thirds member turnout to amend the pet policy. A special general meeting has been called for the 12th to vote on this amendment. The meeting will be held at the cooperative's community hall. Members have been notified via email and posted notices.",
+    "content": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. A special general meeting has been called for 2026-09-12 to vote on such an amendment. The meeting will be held at the cooperative's common hall. Members can attend in person or by proxy. The cutoff for counting turnout is the end of the meeting, scheduled for 22:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -13,7 +13,7 @@
     "neighbor_a",
     "neighbor_b"
    ],
-   "description": "The current situation is that the neighbors are not on speaking terms, with no recent communication."
+   "description": "The current situation is tense but stable; no new incident has occurred in the past week."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "neighbor_a": {
    "name": "Neighbor A",
-   "persona_brief": "You are Neighbor A.\nNeighbor A has had some disagreements with Neighbor B recently, such as noise complaints and property boundary issues. A is frustrated but open to reconciliation if B shows willingness."
+   "persona_brief": "You are Neighbor A.\nNeighbor A has been in a dispute with Neighbor B over property boundaries and noise complaints. A is frustrated and considering legal action, but also open to mediation if B shows willingness."
   },
   "neighbor_b": {
    "name": "Neighbor B",
-   "persona_brief": "You are Neighbor B.\nNeighbor B feels that Neighbor A has been unreasonable about minor issues. B is defensive but not opposed to improving relations if A makes the first move."
+   "persona_brief": "You are Neighbor B.\nNeighbor B is aware of the tension with A but believes A is overreacting. B is not inclined to apologize or change behavior, but might consider a compromise if it avoids escalation."
   }
  },
  "resolution": {
   "question": "Will the situation with the neighbors improve over the next few months?",
-  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., a friendly conversation, a joint activity, or a written agreement) that the relationship has improved compared to the start. Otherwise resolve NO.",
+  "resolution": "Resolve YES if, by the cutoff, the persistent event history shows that both neighbors have taken at least one observable cooperative action (e.g., attending mediation, signing an agreement, or publicly ceasing a complaint) and no new serious conflict (e.g., police call, lawsuit filing) has occurred. Otherwise resolve NO.",
   "cutoff": "2026-11-01T12:00:00+02:00",
   "world_id": "w_b8ccf1140398"
  }

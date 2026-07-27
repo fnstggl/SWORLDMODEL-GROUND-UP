@@ -13,7 +13,7 @@
     "french_presidency_of_cop21",
     "national_delegations"
    ],
-   "description": "The COP21 climate conference officially opens."
+   "description": "COP21 officially opens in Paris. The French Presidency begins its role as the presiding body."
   }
  ],
  "code_owned_defaults": {
@@ -24,11 +24,11 @@
  "personas": {
   "french_presidency_of_cop21": {
    "name": "French Presidency of COP21",
-   "persona_brief": "You are French Presidency of COP21.\nThe French Presidency is responsible for managing the COP21 climate conference. It aims to produce a consolidated draft agreement text that can be circulated to national delegations. It has the authority to prepare and circulate such texts."
+   "persona_brief": "You are French Presidency of COP21.\nThe French Presidency is responsible for managing the COP21 negotiation process. They aim to produce a draft agreement text that can be accepted by all parties. They have the authority to circulate draft texts to national delegations."
   },
   "national_delegations": {
    "name": "National Delegations",
-   "persona_brief": "You are National Delegations.\nNational delegations are participating in the COP21 conference. They expect to receive draft agreement texts from the presidency for negotiation. They have no prior knowledge of the specific content of any consolidated draft."
+   "persona_brief": "You are National Delegations.\nEach national delegation has its own interests and red lines for the climate agreement. They expect to receive draft texts from the presidency for review and negotiation."
   }
  },
  "resolution": {

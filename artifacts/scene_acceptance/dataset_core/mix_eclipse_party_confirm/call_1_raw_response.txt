@@ -2,17 +2,16 @@
   "actors": [
     {
       "name": "Astronomy Club President",
-      "private_context": "The president is responsible for deciding whether the pier viewing party goes ahead. They are aware of the eclipse schedule and need to consider weather forecasts, equipment availability, and any logistical issues. They have not yet made a decision as of the simulation start."
+      "private_context": "The president is responsible for deciding whether the pier viewing party goes ahead. They are aware of the partial solar eclipse on the 12th and need to consider weather forecasts, safety, and logistics. They have not yet made a final decision."
     }
   ],
-  "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club typically holds a pier viewing party for such events. The president is expected to confirm by the 10th whether the party is going ahead. Weather forecasts and other conditions may influence the decision."
-  ,
+  "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club has planned a pier viewing party for that event. The club president is expected to confirm by the 10th whether the party will proceed. Weather forecasts and other conditions may influence the decision.",
   "starting_events": [
     {
       "time": "2026-08-01T09:00:00-07:00",
-      "description": "The simulation begins. No decision has been made yet about the viewing party.",
+      "description": "The simulation begins. The astronomy club president has not yet confirmed the pier viewing party.",
       "visible_to": ["Astronomy Club President"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the astronomy club president has publicly confirmed (e.g., via club announcement, email, or social media) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the astronomy club president actually communicated a confirmation (e.g., via message, announcement, or public statement) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff."
 }

@@ -2,14 +2,14 @@
   "actors": [
     {
       "name": "Premier Khrushchev",
-      "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now aware of President Kennedy's October 22 address announcing a quarantine. He is considering his options, including direct communication with Kennedy. He has not yet decided whether to send a letter."
+      "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now facing a US quarantine. He is considering his options, including direct communication with President Kennedy. He has not yet decided whether to send a letter."
     },
     {
       "name": "President Kennedy",
-      "private_context": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba in response to Soviet missile installations. He is prepared to receive communications from Khrushchev and is considering possible responses."
+      "private_context": "Kennedy has just announced a quarantine of Cuba. He is awaiting Soviet reactions and is open to receiving direct communications from Khrushchev. He has not yet received any letter from Khrushchev."
     }
   ],
-  "shared_context": "On October 22, 1962, President Kennedy delivered a televised address announcing a naval quarantine of Cuba to prevent further Soviet missile shipments. The world is now aware of the escalating crisis. Diplomatic channels between the US and Soviet Union exist, including the ability to send direct letters via embassy or other means.",
+  "shared_context": "On October 22, 1962, President Kennedy delivered a televised address announcing a quarantine of Cuba to prevent further Soviet missile shipments. The world is now aware of the crisis. Diplomatic channels exist for direct communication between the leaders, including through their embassies and the White House–Kremlin teletype (the 'hotline' is not yet established, but letters can be sent via diplomatic pouch or cable).",
   "starting_events": [
     {
       "time": "1962-10-22T20:00:00-05:00",

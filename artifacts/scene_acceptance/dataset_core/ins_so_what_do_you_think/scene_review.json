@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The question 'So, what do you think?' is generic and lacks any identifying context about the topic, the actors, or the setting. The scene invents generic placeholder actors 'Speaker' and 'Listener' with no connection to any specific persons or situation from the question. This is an invented stand-in for unspecified parties, making the scene insufficiently grounded.",
+   "correction": "The question must provide enough information to identify the decision-maker and the observed resolving event. Without that, the scene cannot be approved."
+  }
+ ]
 }

@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,30 +98,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "David Cameron",
-   "private_context": "Cameron is Prime Minister and has called the EU referendum for 23 June 2016. He is leading the Remain campaign. He has a busy schedule and must decide which televised events to attend, balancing campaign strategy, government duties, and personal preference."
-  },
-  {
-   "name": "BBC",
-   "private_context": "BBC is a major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders."
-  },
-  {
-   "name": "ITV",
-   "private_context": "ITV is another major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders."
+   "private_context": "Cameron is Prime Minister and has publicly stated he will campaign for the UK to remain in the EU. He has not yet decided whether to appear in any televised set-piece events about the referendum, but is aware of the approaching polling day and the possibility of such events."
   }
  ],
- "shared_context": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
+ "shared_context": "The UK EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates or major interviews) about the referendum may be organized by broadcasters. The Prime Minister's participation in such events is not yet confirmed.",
  "starting_events": [
   {
    "time": "2016-05-02T09:00:00+01:00",
-   "description": "The EU referendum campaign is ongoing. Broadcasters are planning televised set-piece events. No specific event featuring David Cameron has been announced yet.",
+   "description": "The simulation begins. No televised set-piece event about the EU referendum involving David Cameron has occurred yet.",
    "visible_to": [
-    "David Cameron",
-    "BBC",
-    "ITV"
+    "David Cameron"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum before 2016-06-20T22:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the cutoff on 2016-06-20T22:00:00+01:00, the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

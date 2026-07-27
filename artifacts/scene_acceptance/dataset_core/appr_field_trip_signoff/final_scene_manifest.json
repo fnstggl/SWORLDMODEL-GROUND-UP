@@ -1,24 +1,23 @@
 {
  "actors": [
   {
-   "name": "Principal",
-   "private_context": "The principal is responsible for approving school trips and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the geography department's coastal field trip, which has run without incident for four years. They know the deputy head is on leave until late September."
+   "name": "Principal of Petersfield Secondary",
+   "private_context": "The principal is responsible for approving school trips. They are aware that the geography department's coastal field trip has run without incident for four years. They know the deputy head is on leave until late September, and that the risk-assessment form now requires the deputy head's signature. The principal may have their own criteria for signing off, such as ensuring all paperwork is complete and risks are acceptable."
   },
   {
    "name": "Geography Department Head",
-   "private_context": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head (who is on leave until late September). They want the principal to sign off before the half-term deadline for sending parental consent letters."
+   "private_context": "The geography department head has prepared the proposed coastal field trip. They know the trip has run without incident for four years. They are aware that this year there is a new coach operator and that the risk-assessment form needs an extra signature from the deputy head, who is on leave until late September. They want the principal to sign off before the half-term deadline for sending parental consent letters."
   }
  ],
- "shared_context": "The coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching. The geography department head can submit the proposal to the principal for approval.",
+ "shared_context": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the proposed coastal field trip. The trip has run without incident for four years. This year, there is a new coach operator and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The geography department head can submit the trip proposal and risk-assessment to the principal for approval. The principal can sign off on the trip. The deadline for sending parental consent letters is before half-term.",
  "starting_events": [
   {
    "time": "2026-09-07T08:30:00+01:00",
-   "description": "The geography department head submits the proposed coastal field trip paperwork to the principal for sign-off.",
+   "description": "The geography department head has the proposed coastal field trip and risk-assessment form ready to submit to the principal for approval.",
    "visible_to": [
-    "Geography Department Head",
-    "Principal"
+    "Geography Department Head"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the trip before the hard cutoff of 2026-10-16T15:30:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the principal actually signed off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the hard cutoff."
 }

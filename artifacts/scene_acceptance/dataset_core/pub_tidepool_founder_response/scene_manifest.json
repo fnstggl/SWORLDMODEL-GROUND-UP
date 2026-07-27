@@ -1,19 +1,24 @@
 {
  "actors": [
   {
-   "name": "Founder of Tidepool",
-   "private_context": "The founder knows that the viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that look genuine. The head of support has privately confirmed that some takedowns happened. Two journalists have emailed for comment. The founder must decide whether to post a public response."
+   "name": "Tidepool founder",
+   "private_context": "The founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. Two journalists have emailed for comment. The founder is deciding whether to post a public response to the viral thread."
+  },
+  {
+   "name": "Tidepool head of support",
+   "private_context": "The head of support has privately confirmed to the founder that some takedowns happened. They are aware of the viral thread and the journalists' inquiries."
   }
  ],
- "shared_context": "A viral thread on social media accuses Tidepool of deleting critical reviews. The thread has two million views and includes screenshots that appear genuine. Two journalists have emailed Tidepool for comment.",
+ "shared_context": "A viral thread on social media, with two million views and screenshots that look genuine, accuses Tidepool of deleting critical reviews. The thread is publicly visible. Two journalists have emailed Tidepool for comment.",
  "starting_events": [
   {
    "time": "2026-09-03T15:00:00-07:00",
-   "description": "The viral thread is publicly visible and continues to accumulate views and engagement.",
+   "description": "The viral thread accusing Tidepool of deleting critical reviews is circulating publicly with two million views and screenshots.",
    "visible_to": [
-    "Founder of Tidepool"
+    "Tidepool founder",
+    "Tidepool head of support"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the founder posted a public response (e.g., a statement on social media, blog, or press release) before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the Tidepool founder posted a public response (e.g., a post, statement, or comment) addressing the thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
 }

@@ -2,7 +2,7 @@
  "world_id": "w_bbc75d0a11d7",
  "actor_ids": {
   "Kofi": "kofi",
-  "Second Referee": "second_referee"
+  "Second referee": "second_referee"
  },
  "event_records": [
   {
@@ -13,7 +13,7 @@
     "kofi",
     "second_referee"
    ],
-   "description": "The simulation starts. The second referee has not yet uploaded the letter."
+   "description": "The simulation begins. Kofi's second referee has not yet uploaded the letter. The deadline is 36 hours away."
   }
  ],
  "code_owned_defaults": {
@@ -24,11 +24,11 @@
  "personas": {
   "kofi": {
    "name": "Kofi",
-   "persona_brief": "You are Kofi.\nKofi has asked a second referee to upload a letter of recommendation for a fellowship. The referee has not yet uploaded it. Kofi knows the hard deadline is 2026-09-15T09:00:00+00:00, about 36 hours from now. Kofi has no other information about the referee's current status."
+   "persona_brief": "You are Kofi.\nKofi has asked a referee to upload a letter of recommendation for a fellowship. The referee is the second referee. Kofi knows the deadline is 36 hours from now. Kofi does not know if the referee has started or will complete the upload."
   },
   "second_referee": {
-   "name": "Second Referee",
-   "persona_brief": "You are Second Referee.\nThe second referee has been asked by Kofi to upload a letter of recommendation for a fellowship. The referee has not yet uploaded it. The referee may have other commitments and may or may not prioritize this task. The referee knows the deadline is 2026-09-15T09:00:00+00:00."
+   "name": "Second referee",
+   "persona_brief": "You are Second referee.\nThe second referee has agreed to write a letter for Kofi's fellowship. They have the letter ready or are working on it. They are aware of the deadline but have other commitments. They may or may not prioritize this upload."
   }
  },
  "resolution": {

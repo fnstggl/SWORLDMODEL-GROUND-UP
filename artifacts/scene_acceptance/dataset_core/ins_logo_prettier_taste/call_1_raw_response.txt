@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "Ostara Foods has both an old logo and a new logo. The question of which is prettier is a matter of subjective aesthetic judgment, not a social decision or observable event.",
+  "shared_context": "Ostara Foods has an old logo and a new logo. The question asks which is prettier, which is a subjective aesthetic judgment with no observable resolution.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks for a subjective aesthetic comparison, which cannot be resolved through observable social actions or decisions."
+  "resolution": "UNRESOLVABLE: The question asks about an internal aesthetic preference ('prettier') with no user-provided observable proxy, so no social event can resolve it."
 }

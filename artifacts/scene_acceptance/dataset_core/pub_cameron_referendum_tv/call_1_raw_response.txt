@@ -2,24 +2,16 @@
   "actors": [
     {
       "name": "David Cameron",
-      "private_context": "Cameron is Prime Minister and has called the EU referendum for 23 June 2016. He is leading the Remain campaign. He has a busy schedule and must decide which televised events to attend, balancing campaign strategy, government duties, and personal preference."
-    },
-    {
-      "name": "BBC",
-      "private_context": "BBC is a major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders."
-    },
-    {
-      "name": "ITV",
-      "private_context": "ITV is another major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders."
+      "private_context": "Cameron is Prime Minister and has publicly stated he will campaign for the UK to remain in the EU. He has not yet decided whether to appear in any televised set-piece events about the referendum, but is aware of the approaching polling day and the possibility of such events."
     }
   ],
-  "shared_context": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
+  "shared_context": "The UK EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates or major interviews) about the referendum may be organized by broadcasters. The Prime Minister's participation in such events is not yet confirmed.",
   "starting_events": [
     {
       "time": "2016-05-02T09:00:00+01:00",
-      "description": "The EU referendum campaign is ongoing. Broadcasters are planning televised set-piece events. No specific event featuring David Cameron has been announced yet.",
-      "visible_to": ["David Cameron", "BBC", "ITV"]
+      "description": "The simulation begins. No televised set-piece event about the EU referendum involving David Cameron has occurred yet.",
+      "visible_to": ["David Cameron"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum before 2016-06-20T22:00:00+01:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if, before the cutoff on 2016-06-20T22:00:00+01:00, the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum. Otherwise resolve NO."
 }

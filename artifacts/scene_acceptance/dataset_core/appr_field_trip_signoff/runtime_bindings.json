@@ -1,7 +1,7 @@
 {
  "world_id": "w_0a9a8f1957c8",
  "actor_ids": {
-  "Principal": "principal",
+  "Principal of Petersfield Secondary": "principal_of_petersfield_secondary",
   "Geography Department Head": "geography_department_head"
  },
  "event_records": [
@@ -10,10 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-09-07T07:30:00+00:00",
    "visible_to_ids": [
-    "geography_department_head",
-    "principal"
+    "geography_department_head"
    ],
-   "description": "The geography department head submits the proposed coastal field trip paperwork to the principal for sign-off."
+   "description": "The geography department head has the proposed coastal field trip and risk-assessment form ready to submit to the principal for approval."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +21,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "principal": {
-   "name": "Principal",
-   "persona_brief": "You are Principal.\nThe principal is responsible for approving school trips and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the geography department's coastal field trip, which has run without incident for four years. They know the deputy head is on leave until late September."
+  "principal_of_petersfield_secondary": {
+   "name": "Principal of Petersfield Secondary",
+   "persona_brief": "You are Principal of Petersfield Secondary.\nThe principal is responsible for approving school trips. They are aware that the geography department's coastal field trip has run without incident for four years. They know the deputy head is on leave until late September, and that the risk-assessment form now requires the deputy head's signature. The principal may have their own criteria for signing off, such as ensuring all paperwork is complete and risks are acceptable."
   },
   "geography_department_head": {
    "name": "Geography Department Head",
-   "persona_brief": "You are Geography Department Head.\nThe geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head (who is on leave until late September). They want the principal to sign off before the half-term deadline for sending parental consent letters."
+   "persona_brief": "You are Geography Department Head.\nThe geography department head has prepared the proposed coastal field trip. They know the trip has run without incident for four years. They are aware that this year there is a new coach operator and that the risk-assessment form needs an extra signature from the deputy head, who is on leave until late September. They want the principal to sign off before the half-term deadline for sending parental consent letters."
   }
  },
  "resolution": {
   "question": "Will the principal of Petersfield Secondary sign off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters?",
-  "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the trip before the hard cutoff of 2026-10-16T15:30:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the principal actually signed off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-10-16T15:30:00+01:00",
   "world_id": "w_0a9a8f1957c8"
  }

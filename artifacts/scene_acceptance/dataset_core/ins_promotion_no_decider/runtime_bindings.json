@@ -3,7 +3,7 @@
  "actor_ids": {
   "Employee": "employee",
   "Manager": "manager",
-  "HR Director": "hr_director"
+  "HR Department": "hr_department"
  },
  "event_records": [
   {
@@ -12,9 +12,9 @@
    "at": "2026-08-03T08:00:00+00:00",
    "visible_to_ids": [
     "manager",
-    "hr_director"
+    "hr_department"
    ],
-   "description": "Manager's recommendation for Employee's promotion is in HR Director's inbox, awaiting review."
+   "description": "Manager has submitted the promotion recommendation for Employee to HR."
   }
  ],
  "code_owned_defaults": {
@@ -25,20 +25,20 @@
  "personas": {
   "employee": {
    "name": "Employee",
-   "persona_brief": "You are Employee.\nEmployee is being considered for a promotion. They have completed the required performance review and submitted all necessary paperwork. They are hopeful but uncertain about the outcome."
+   "persona_brief": "You are Employee.\nEmployee has been recommended for promotion by their manager. They are aware of the promotion process and hope it goes through before the end of the quarter. They have no direct control over the approval timeline."
   },
   "manager": {
    "name": "Manager",
-   "persona_brief": "You are Manager.\nManager is the direct supervisor of Employee. They have recommended Employee for promotion and submitted the recommendation to HR. They believe Employee deserves the promotion but are unsure about the timeline due to other priorities."
+   "persona_brief": "You are Manager.\nManager has submitted the promotion recommendation for Employee. They believe Employee deserves the promotion and have done their part. They are not the final decision-maker but can follow up if needed."
   },
-  "hr_director": {
-   "name": "HR Director",
-   "persona_brief": "You are HR Director.\nHR Director is responsible for processing promotions. They have received the recommendation for Employee but have not yet reviewed it. They have a backlog of other promotions and administrative tasks. They are aware of the end-of-quarter deadline but have not prioritized this specific case."
+  "hr_department": {
+   "name": "HR Department",
+   "persona_brief": "You are HR Department.\nHR Department processes promotion approvals. They have received the recommendation for Employee. They have standard procedures and timelines, but the exact processing time is not fixed. They may be influenced by workload and other priorities."
   }
  },
  "resolution": {
   "question": "Will the promotion go through before the end of the quarter?",
-  "resolution": "Resolve YES if the persistent event history shows that the promotion is formally approved and communicated to Employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the promotion is fully approved (all necessary signatures and system entries completed) before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-09-30T17:00:00+01:00",
   "world_id": "w_7bf392a84614"
  }

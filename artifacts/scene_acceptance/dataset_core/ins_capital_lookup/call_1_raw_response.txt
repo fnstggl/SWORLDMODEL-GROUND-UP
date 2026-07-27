@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "The capital of Kyrgyzstan is a factual piece of geographic knowledge.",
+  "shared_context": "The capital of Kyrgyzstan is a factual question that can be answered from general knowledge.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks for a factual lookup, not a social simulation with decision-makers and observable events."
+  "resolution": "UNRESOLVABLE: The question is a pure factual lookup with no social decision to simulate."
 }

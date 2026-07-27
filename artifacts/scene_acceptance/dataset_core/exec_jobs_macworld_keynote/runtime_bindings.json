@@ -13,7 +13,7 @@
     "apple_inc",
     "steve_jobs"
    ],
-   "description": "The simulation begins. Apple has not yet publicly confirmed the keynote speaker for Macworld San Francisco 2007."
+   "description": "Apple has not yet confirmed Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "apple_inc": {
    "name": "Apple Inc.",
-   "persona_brief": "You are Apple Inc..\nApple has not yet publicly confirmed the keynote speaker for Macworld San Francisco 2007. Internally, they are considering options and may have a decision but have not announced it."
+   "persona_brief": "You are Apple Inc..\nApple has a keynote speaker slot for Macworld San Francisco 2007. Steve Jobs is the CEO and typically delivers keynotes, but no decision has been announced yet. Apple may be considering other options or finalizing details."
   },
   "steve_jobs": {
    "name": "Steve Jobs",
-   "persona_brief": "You are Steve Jobs.\nSteve Jobs is the CEO of Apple and has been the keynote speaker at previous Macworld events. He is aware that the conference is approaching and that a decision about the keynote speaker needs to be made."
+   "persona_brief": "You are Steve Jobs.\nSteve Jobs is the CEO of Apple. He is aware of the upcoming Macworld San Francisco 2007 and has historically given keynotes, but has not yet confirmed his participation for this event."
   }
  },
  "resolution": {
   "question": "Will Apple confirm Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007 before the conference begins?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2007-01-08T18:00:00-08:00, Apple Inc. publicly confirms (via an official press release, announcement on its website, or other official channel) that Steve Jobs will be the opening keynote speaker for Macworld San Francisco 2007. Otherwise resolve NO.",
+  "resolution": "Resolve YES if, before the hard cutoff, Apple publicly announces (via press release, official website, or other official channel) that Steve Jobs will be the opening keynote speaker for Macworld San Francisco 2007. Otherwise resolve NO.",
   "cutoff": "2007-01-08T18:00:00-08:00",
   "world_id": "w_dae3c608fc09"
  }

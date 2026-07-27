@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Neighbor A",
-   "private_context": "Neighbor A has had some disagreements with Neighbor B recently, such as noise complaints and property boundary issues. A is frustrated but open to reconciliation if B shows willingness."
+   "private_context": "Neighbor A has been in a dispute with Neighbor B over property boundaries and noise complaints. A is frustrated and considering legal action, but also open to mediation if B shows willingness."
   },
   {
    "name": "Neighbor B",
-   "private_context": "Neighbor B feels that Neighbor A has been unreasonable about minor issues. B is defensive but not opposed to improving relations if A makes the first move."
+   "private_context": "Neighbor B is aware of the tension with A but believes A is overreacting. B is not inclined to apologize or change behavior, but might consider a compromise if it avoids escalation."
   }
  ],
- "shared_context": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently.",
+ "shared_context": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
  "starting_events": [
   {
    "time": "2026-08-01T12:00:00+02:00",
-   "description": "The current situation is that the neighbors are not on speaking terms, with no recent communication.",
+   "description": "The current situation is tense but stable; no new incident has occurred in the past week.",
    "visible_to": [
     "Neighbor A",
     "Neighbor B"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., a friendly conversation, a joint activity, or a written agreement) that the relationship has improved compared to the start. Otherwise resolve NO."
+ "resolution": "Resolve YES if, by the cutoff, the persistent event history shows that both neighbors have taken at least one observable cooperative action (e.g., attending mediation, signing an agreement, or publicly ceasing a complaint) and no new serious conflict (e.g., police call, lawsuit filing) has occurred. Otherwise resolve NO."
 }

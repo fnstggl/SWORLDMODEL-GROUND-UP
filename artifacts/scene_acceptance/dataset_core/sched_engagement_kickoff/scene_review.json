@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses generic placeholder actors 'Loomis & Hale LLP' and 'New Client' without identifying specific individuals who will make scheduling decisions. The question does not name any specific person at the law firm or the client, so the actors are invented stand-ins for unspecified parties. This violates the rule against generic placeholder actors.",
+   "correction": "The question lacks sufficient information to identify the decision-makers or the observed resolving event. The scene cannot be meaningfully simulated without named individuals."
+  }
+ ]
 }

@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Wanjiru Kamau",
-   "private_context": "Wanjiru has received a data-engineer offer from Kestrel Analytics with a one-week deadline. She is currently employed in telecom, earning less than the offer's 15% raise. She is tired of shift-adjacent support work. Her partner is midway through a nursing program in Nairobi, and she values stability and proximity to support her partner. She must decide whether to accept the offer before the deadline."
+   "private_context": "Wanjiru Kamau is a data engineer currently working in telecom, doing shift-adjacent support work. She is tired of this work. She has a partner midway through a nursing program in Nairobi. She received a job offer from Kestrel Analytics on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current salary and is fully remote. She must decide whether to accept or decline before the deadline."
   },
   {
    "name": "Kestrel Analytics",
    "private_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They await her definitive answer before the deadline passes."
   }
  ],
- "shared_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday, 2026-08-03, with a one-week deadline expiring on 2026-08-10T17:00:00+03:00. The offer includes a 15% raise over her current telecom salary and is fully remote. Wanjiru's partner is midway through a nursing program in Nairobi.",
+ "shared_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current telecom salary and fully remote. The deadline is 2026-08-10T17:00:00+03:00.",
  "starting_events": [
   {
    "time": "2026-08-03T17:00:00+03:00",
-   "description": "Wanjiru Kamau receives the offer from Kestrel Analytics with a one-week deadline.",
+   "description": "Wanjiru Kamau receives the job offer from Kestrel Analytics with a one-week deadline.",
    "visible_to": [
     "Wanjiru Kamau"
    ]

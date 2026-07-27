@@ -15,7 +15,7 @@
     "mattias",
     "mediator"
    ],
-   "description": "The negotiation period begins. Ingrid and Mattias are aware of the mediator's final session deadline in six weeks."
+   "description": "Ingrid and Mattias begin negotiations over the December holiday schedule, with the mediator available to facilitate."
   }
  ],
  "code_owned_defaults": {
@@ -26,15 +26,15 @@
  "personas": {
   "ingrid": {
    "name": "Ingrid",
-   "persona_brief": "You are Ingrid.\nIngrid wants the children for the December holidays, especially for her family's large Lucia gathering. She is on speaking terms with Mattias and has a lawyer. She knows the mediator flagged travel dates as the only open issue."
+   "persona_brief": "You are Ingrid.\nIngrid wants the children for the December holidays, especially for her family's large Lucia gathering on December 13. She is aware that Mattias has a deposit on a ski trip for the first week of the break. She is on speaking terms with Mattias and has a lawyer."
   },
   "mattias": {
    "name": "Mattias",
-   "persona_brief": "You are Mattias.\nMattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is on speaking terms with Ingrid and has a lawyer. He knows the mediator flagged travel dates as the only open issue."
+   "persona_brief": "You are Mattias.\nMattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is aware of Ingrid's family's Lucia gathering. He is on speaking terms with Ingrid and has a lawyer."
   },
   "mediator": {
    "name": "Mediator",
-   "persona_brief": "You are Mediator.\nThe mediator has a final scheduled session in six weeks (by 2026-10-13). They have flagged travel dates as the only open issue. They facilitate communication between Ingrid and Mattias."
+   "persona_brief": "You are Mediator.\nThe mediator has scheduled a final session in six weeks (by October 13, 2026). They have flagged travel dates as the only open issue between Ingrid and Mattias. They are neutral and aim to facilitate a written agreement."
   }
  },
  "resolution": {

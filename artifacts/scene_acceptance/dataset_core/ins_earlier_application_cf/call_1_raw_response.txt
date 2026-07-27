@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Rosa",
-      "private_context": "Rosa is an applicant who submitted her application a week later than she could have. She believes her qualifications are strong and wonders if timing affected the outcome."
+      "private_context": "Rosa is considering whether to send an application for a job or program. She has not yet sent it. She is aware of the deadline and her own timeline."
     },
     {
       "name": "Hiring Committee",
-      "private_context": "The Hiring Committee reviews applications and decides whom to interview. They have a standard process: applications received by a certain date are considered in the first round; later applications may be reviewed if time permits. They do not know Rosa personally."
+      "private_context": "The hiring committee reviews applications and decides whom to interview. They have not yet received Rosa's application. They follow their standard review process."
     }
   ],
-  "shared_context": "Last spring, there was a job opening that required applications. Rosa submitted her application one week after the earliest possible date. The Hiring Committee received many applications and conducted interviews. The exact cutoff date for guaranteed consideration is not publicly known.",
+  "shared_context": "There is a job or program application process with a deadline. Rosa's application is not yet submitted. The hiring committee will review applications after the deadline and invite selected candidates for interviews.",
   "starting_events": [
     {
       "time": "2026-08-01T09:00:00-06:00",
-      "description": "Rosa reflects on her application timing from last spring and wonders if submitting a week earlier would have led to an interview.",
+      "description": "Rosa has not yet sent her application. The application deadline is in the future.",
       "visible_to": ["Rosa"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that the Hiring Committee actually offered Rosa an interview after receiving her application (regardless of timing). Otherwise resolve NO at the cutoff."
+  "resolution": "UNRESOLVABLE: The question is a past counterfactual about an event that would have occurred in the past, and no future observation can resolve an alternate past."
 }

@@ -23,13 +23,13 @@
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "Femi expects to pass. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on all Thursday morning.",
+    "content": "Femi expects to pass his exams. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on her all Thursday morning.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University releases exam results at 09:00 on Thursday. Femi can access his result at that time. He can call his mother using his phone. The cutoff for resolution is noon that day.",
+    "content": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his result online or through the university portal at that time. He can call his mother using his phone. The hard cutoff for resolution is 12:00 noon that day.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "She has told Femi she will keep her phone on all Thursday morning. She is available to receive calls.",
+    "content": "She has said she will keep her phone on her all Thursday morning. She expects Femi to call after results are released.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University releases exam results at 09:00 on Thursday. Femi can access his result at that time. He can call his mother using his phone. The cutoff for resolution is noon that day.",
+    "content": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his result online or through the university portal at that time. He can call his mother using his phone. The hard cutoff for resolution is 12:00 noon that day.",
     "source": "scene_manifest:shared_context"
    }
   ],

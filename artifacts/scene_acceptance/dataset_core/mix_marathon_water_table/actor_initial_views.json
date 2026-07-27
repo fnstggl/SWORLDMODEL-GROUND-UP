@@ -23,13 +23,13 @@
    {
     "t": "2026-10-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Nine households said they are in on the app. They have discussed the water table all month. No specific plan for who brings what or when to set up has been finalized beyond the general idea.",
+    "content": "Nine households on Alder Court have discussed setting up a water table for the marathon and said they are in. They have a neighborhood app for communication. No one has yet set up the table. They may or may not coordinate effectively.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-08T15:00:00+00:00",
     "kind": "context",
-    "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table but no concrete arrangements have been made yet.",
+    "content": "The Riverton marathon starts Sunday at 07:00. The first runners pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed the water table all month on the app. Nine households said they are in. Priya has bought cups. The table has not been set up yet as of the simulation start time.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Priya has already bought cups for the water table. She is one of the Alder Court neighbors who discussed the plan on the app. She may or may not coordinate setup with others.",
+    "content": "Priya has already bought cups for the water table. She is one of the nine households that said they are in. She may coordinate with neighbors or take initiative, but has not yet set up the table.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-08T15:00:00+00:00",
     "kind": "context",
-    "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table but no concrete arrangements have been made yet.",
+    "content": "The Riverton marathon starts Sunday at 07:00. The first runners pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed the water table all month on the app. Nine households said they are in. Priya has bought cups. The table has not been set up yet as of the simulation start time.",
     "source": "scene_manifest:shared_context"
    }
   ],

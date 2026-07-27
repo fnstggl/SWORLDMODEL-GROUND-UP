@@ -1,15 +1,10 @@
 {
- "verdict": "REVISE",
- "defects": [
-  {
-   "path": "actors",
-   "problem": "The only actor is 'Academic Senate', which is a collective body. The scene needs individual senators or at least a chair to deliberate and vote. A single collective actor cannot simulate internal debate or voting.",
-   "correction": "Replace 'Academic Senate' with individual actors: e.g., 'Senate Chair', 'Senator A', 'Senator B', etc., each with appropriate private context reflecting their stance or role."
-  },
-  {
-   "path": "starting_events",
-   "problem": "The starting event merely restates the agenda. It does not set up any initial interactions or positions among actors, leaving the simulation with no initial state to act upon.",
-   "correction": "Add a starting event where the senate chair opens the plenary and introduces the motion, or where senators express initial opinions, to provide a basis for simulation."
-  }
- ]
+  "verdict": "ABSTAIN",
+  "defects": [
+    {
+      "path": "scene",
+      "problem": "The scene uses a single generic actor 'Academic Senate' to represent the entire decision-making body, but the question involves a deliberative vote with multiple members holding varying opinions. The scene does not include individual senators or a chair with distinct perspectives, making it impossible to simulate a meaningful social deliberation. The actor is a placeholder for an unspecified group, which violates the rule against generic placeholder actors.",
+      "correction": "The scene must include at least a chair and a few named senators with distinct stances to allow a simulatable debate and vote."
+    }
+  ]
 }

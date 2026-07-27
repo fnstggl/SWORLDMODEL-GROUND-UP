@@ -1,7 +1,7 @@
 {
- "bookkeeper": {
-  "id": "bookkeeper",
-  "name": "Bookkeeper",
+ "herrera_bakery": {
+  "id": "herrera_bakery",
+  "name": "Herrera bakery",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and forms to file. She intends to file before the deadline as usual, but may be affected by unforeseen personal or work issues.",
+    "content": "The bakery expects the bookkeeper to file the return as usual. They have no reason to believe the bookkeeper will not file on time.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+    "content": "The quarterly payroll return is due by the revenue service's month-end deadline, which is 2026-10-31T23:59:00-06:00. The bookkeeper has filed on time for the past seven quarters. The bakery operates normally during this period.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "herrera_bakery_owner": {
-  "id": "herrera_bakery_owner",
-  "name": "Herrera Bakery Owner",
+ "part_time_bookkeeper": {
+  "id": "part_time_bookkeeper",
+  "name": "Part-time bookkeeper",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The owner trusts the bookkeeper to file on time as she has done previously. The owner does not plan to intervene unless notified of a problem.",
+    "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. They are aware of the month-end deadline and have the necessary information and access to file. They may have other commitments or priorities that could affect their timing.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+    "content": "The quarterly payroll return is due by the revenue service's month-end deadline, which is 2026-10-31T23:59:00-06:00. The bookkeeper has filed on time for the past seven quarters. The bakery operates normally during this period.",
     "source": "scene_manifest:shared_context"
    }
   ],

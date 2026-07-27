@@ -1,24 +1,23 @@
 {
  "actors": [
   {
-   "name": "Managing Director",
-   "private_context": "The managing director has made a restructuring decision and must decide whether to inform staff before the works council's consultation deadline at the end of September. They are aware of the deadline and the potential consequences of informing or not informing staff."
+   "name": "Managing Director of Torchlight Media",
+   "private_context": "The managing director is aware of the restructuring decision and must decide whether and when to inform staff. They know the works council's consultation deadline is at the end of September."
   },
   {
-   "name": "Works Council",
-   "private_context": "The works council has a consultation deadline at the end of September. They are expecting to be informed about restructuring decisions that affect employees."
+   "name": "Works Council of Torchlight Media",
+   "private_context": "The works council is expecting to be consulted on the restructuring decision before the end of September deadline. They have no prior knowledge of the decision details."
   }
  ],
- "shared_context": "Torchlight Media is undergoing restructuring. The managing director has the authority to inform staff about the decision. The works council's consultation deadline is at the end of September 2026. The managing director can communicate with staff through official channels.",
+ "shared_context": "Torchlight Media is undergoing a restructuring. The managing director has the authority to inform staff about the decision. The works council must be consulted before the end of September. The current date is September 1, 2026.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+02:00",
-   "description": "The simulation begins. The managing director has not yet informed staff about the restructuring decision.",
+   "description": "The managing director has the restructuring decision finalized but has not yet informed staff or the works council.",
    "visible_to": [
-    "Managing Director",
-    "Works Council"
+    "Managing Director of Torchlight Media"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed staff (e.g., via an official announcement or meeting) before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the managing director informed staff of the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

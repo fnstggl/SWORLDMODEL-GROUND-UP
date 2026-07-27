@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,25 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Bill",
-   "private_context": "Bill believes the fence damage was caused by a storm that affected both properties equally, so costs should be split 50/50. He is willing to negotiate but wants to avoid small claims court. He has some savings but prefers not to pay more than half."
+   "private_context": "Bill believes the fence is a shared responsibility and expects the Osei family to pay half. He is willing to negotiate but prefers to avoid court. He has limited savings and is concerned about costs."
   },
   {
    "name": "Osei family",
-   "private_context": "The Osei family believes the fence is older on Bill's side or that Bill's tree fell on it, so Bill should pay more or all. They are open to discussion but will consider small claims if no fair agreement is reached. They have limited budget for repairs."
+   "private_context": "The Osei family believes the fence is Bill's responsibility because it is on his property line. They are open to discussion but want to minimize their own expenses. They have some flexibility in their budget."
   }
  ],
- "shared_context": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. Both neighbors need to repair or replace it. The fence is on the property line. There is no prior written agreement about fence maintenance. Local laws may require shared costs for boundary fences, but specifics are unclear to both parties.",
+ "shared_context": "A storm has damaged the shared fence between Bill's property and the Osei family's property. The fence is old and its exact ownership is unclear from property records. Both parties have homeowner's insurance that may cover some damage, but deductibles apply. They have exchanged initial messages but no agreement yet. Small claims court is an option if they cannot agree.",
  "starting_events": [
   {
    "time": "2026-08-02T12:00:00-05:00",
-   "description": "Bill and the Osei family are aware of the fence damage and have had initial informal discussions but no agreement yet.",
+   "description": "Bill and the Osei family are aware of the fence damage and have had initial discussions but no agreement on cost sharing.",
    "visible_to": [
     "Bill",
     "Osei family"
    ]
   }
  ],
- "resolution": "Resolve YES only if, before the cutoff, the persistent event history shows that Bill and the Osei family both communicated a mutual agreement on a specific cost split (e.g., 50/50, 60/40, etc.) and no small claims filing has occurred. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Bill and the Osei family have both agreed to a specific cost split (e.g., 50/50 or other proportion) and have communicated that agreement to each other, and no small claims filing has occurred. Resolve NO if no such agreement is reached by the cutoff, or if either party files a small claims case before the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

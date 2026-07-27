@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The recruiter is a generic placeholder actor ('Recruiter from Torchlight Media') with no identifying information. The question does not specify a particular recruiter, so this is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
+   "correction": "The scene cannot be approved as-is because it relies on an unnamed recruiter. To proceed, the question would need to identify the recruiter or the scene must be revised to use a specific named recruiter from context, but since the question provides no such information, the scene is insufficient."
+  }
+ ]
 }

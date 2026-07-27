@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the promotion go through before the end of the quarter?",
-  "resolution": "Resolve YES if the persistent event history shows that the promotion is formally approved and communicated to Employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the promotion is fully approved (all necessary signatures and system entries completed) before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-09-30T17:00:00+01:00",
   "world_id": "w_7bf392a84614"
  },

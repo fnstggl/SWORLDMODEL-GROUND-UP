@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "A 12-volt battery has been sitting in an unheated garage at minus 20 Celsius for six weeks. The truck is present and has not been started during that period.",
+  "shared_context": "A 12-volt battery has been sitting in an unheated garage at minus 20 degrees Celsius for six weeks. The truck is in the garage. The battery's state of charge and health are unknown. The temperature is minus 20 Celsius.",
   "starting_events": [
     {
       "time": "2026-12-01T08:00:00-06:00",
@@ -8,5 +8,5 @@
       "visible_to": []
     }
   ],
-  "resolution": "UNRESOLVABLE: The question is about a physical battery's performance, which depends on electrochemical processes and does not involve social actors or decisions. No social scene can be constructed."
+  "resolution": "UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision-maker or observable social event; it is a pure physics/operations question."
 }

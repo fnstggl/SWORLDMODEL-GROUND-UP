@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Amara",
-      "private_context": "Amara wants to be respected by her coworkers. She is aware of her own performance and interactions but uncertain how others perceive her."
+      "private_context": "Amara is a professional who wants to earn more respect from her coworkers. She is aware of her current standing and has some ideas about how to improve it, but she hasn't decided on a specific plan."
     },
     {
-      "name": "Coworkers (collective)",
-      "private_context": "Each coworker has their own impressions of Amara based on past interactions. They may change their respect level based on future events."
+      "name": "Amara's coworkers",
+      "private_context": "The coworkers are a group of individuals who work with Amara. They have their own perceptions of Amara based on past interactions, but no specific recent events have changed their views. They are open to updating their opinions based on future behavior."
     }
   ],
-  "shared_context": "Amara works in an office environment with her coworkers. They interact regularly on work tasks and informal settings. Respect is subjective and may be inferred from observable behaviors such as seeking her opinion, deferring to her, or positive feedback.",
+  "shared_context": "Amara and her coworkers work together in the same office environment. They interact regularly on work tasks and informal occasions. The quarter runs from October 1, 2026 to December 31, 2026.",
   "starting_events": [
     {
       "time": "2026-10-01T09:00:00-04:00",
-      "description": "The quarter begins. Amara and her coworkers are at work.",
-      "visible_to": ["Amara", "Coworkers (collective)"]
+      "description": "The quarter begins. Amara and her coworkers are present at work.",
+      "visible_to": ["Amara", "Amara's coworkers"]
     }
   ],
-  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., coworkers explicitly state increased respect, seek her advice more frequently, or defer to her decisions) that indicates a net increase in respect from the start. Otherwise resolve NO."
+  "resolution": "Resolve YES only if the persistent event history shows that at least one coworker explicitly communicates increased respect for Amara (e.g., verbal praise, promotion recommendation, or similar observable act) before the cutoff. Otherwise resolve NO at the cutoff."
 }

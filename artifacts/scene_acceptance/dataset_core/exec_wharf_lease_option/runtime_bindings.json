@@ -10,10 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-08-10T08:00:00+00:00",
    "visible_to_ids": [
-    "ceo_of_kestrel_analytics",
-    "landlord_of_riverside_wharf"
+    "ceo_of_kestrel_analytics"
    ],
-   "description": "The CEO of Kestrel Analytics has the proposed five-year lease on the Riverside Wharf office under consideration. The landlord's option expiration is set for next Friday at 5pm."
+   "description": "The CEO of Kestrel Analytics has the proposed lease documents and is aware of the deadline. No decision has been made yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +23,16 @@
  "personas": {
   "ceo_of_kestrel_analytics": {
    "name": "CEO of Kestrel Analytics",
-   "persona_brief": "You are CEO of Kestrel Analytics.\nCEO is considering the proposed five-year lease on Riverside Wharf office. CFO has privately told CEO she prefers a shorter term. Headcount plans were cut 20% last quarter and half the team is remote. CEO has not yet decided whether to sign or walk away."
+   "persona_brief": "You are CEO of Kestrel Analytics.\nCEO is considering the Riverside Wharf lease. They know headcount plans were cut 20% last quarter and half the team is remote. The landlord has offered six months rent-free. The CFO privately prefers a shorter term. CEO must decide before the option expires next Friday."
   },
   "landlord_of_riverside_wharf": {
    "name": "Landlord of Riverside Wharf",
-   "persona_brief": "You are Landlord of Riverside Wharf.\nLandlord has offered six months rent-free as an incentive. Landlord has set an option expiration next Friday (2026-08-21T17:00:00+01:00) for the CEO to sign or walk away."
+   "persona_brief": "You are Landlord of Riverside Wharf.\nLandlord has offered a proposed five-year lease with six months rent-free. The option to sign expires next Friday. Landlord is waiting for the CEO's decision."
   }
  },
  "resolution": {
   "question": "Will Kestrel Analytics' CEO sign, or walk away from, the proposed five-year lease on the Riverside Wharf office before the landlord's option expires next Friday?",
-  "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the option expiration (2026-08-21T17:00:00+01:00). Resolve NO if the CEO did not sign by that time (walked away or let option expire).",
+  "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-21T17:00:00+01:00",
   "world_id": "w_797c134735e5"
  }

@@ -21,19 +21,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The caller has a script for first-time asks and a list of alumni to contact. They are scheduled to call Dr. Renata Sousa during this shift. They have no prior relationship with Renata.",
+     "content": "The caller is assigned to phone Dr. Renata Sousa for a first-time donation ask. They have a script and a list of alumni to call, and they will make the call during the evening shift.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T21:00:00+00:00"
     },
     {
-     "content": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026.",
+     "content": "Ashvale University has an annual fund that contacts alumni for donations. The caller will phone Renata at some point during the month. Renata can be reached at her phone number on file. The call may go to voicemail or be answered. If answered, the caller will make a first-time ask for a pledge. A pledge is a commitment to donate a specific amount by a future date, not an immediate payment.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T21:00:00+00:00"
     }
    ],
-   "name": "Ashvale University Annual-Fund Caller",
+   "name": "Ashvale University annual-fund caller",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Renata is an alumna of Ashvale University who has never donated. She has her own financial priorities and may or may not be receptive to a phone solicitation. She does not know the caller.",
+     "content": "Renata is an alumna of Ashvale University who has never donated. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown. She may answer the phone or not, and if she does, she may listen to the ask and decide whether to pledge.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T21:00:00+00:00"
     },
     {
-     "content": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026.",
+     "content": "Ashvale University has an annual fund that contacts alumni for donations. The caller will phone Renata at some point during the month. Renata can be reached at her phone number on file. The call may go to voicemail or be answered. If answered, the caller will make a first-time ask for a pledge. A pledge is a commitment to donate a specific amount by a future date, not an immediate payment.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T21:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
-  "scene:shared_context": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026."
+  "scene:shared_context": "Ashvale University has an annual fund that contacts alumni for donations. The caller will phone Renata at some point during the month. Renata can be reached at her phone number on file. The call may go to voicemail or be answered. If answered, the caller will make a first-time ask for a pledge. A pledge is a commitment to donate a specific amount by a future date, not an immediate payment."
  },
  "history": [],
  "infos": {},

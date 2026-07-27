@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -105,10 +105,10 @@ THE COMPILED SCENE (exact manifest under review):
   },
   {
    "name": "Founder of Veldt Solar",
-   "private_context": "The founder of Veldt Solar receives many unsolicited emails. They may respond to interview requests if the opportunity seems worthwhile and fits their schedule. They have no prior relationship with Anouk."
+   "private_context": "The founder of Veldt Solar receives many cold emails. They may or may not respond to interview requests depending on their interest, availability, and alignment with their goals. They have no prior relationship with Anouk."
   }
  ],
- "shared_context": "Anouk has the email address of the founder of Veldt Solar and can send an email. The founder can read and reply to emails. The simulation runs from 2026-08-05T09:00:00+02:00 to 2026-08-19T09:00:00+02:00.",
+ "shared_context": "Anouk has the email address of the founder of Veldt Solar. The email can be sent and received through standard email channels. The simulation starts at 2026-08-05T09:00:00+02:00 and ends at 2026-08-19T09:00:00+02:00.",
  "starting_events": [
   {
    "time": "2026-08-05T09:00:00+02:00",
@@ -118,7 +118,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent a reply to Anouk's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent any reply to Anouk's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

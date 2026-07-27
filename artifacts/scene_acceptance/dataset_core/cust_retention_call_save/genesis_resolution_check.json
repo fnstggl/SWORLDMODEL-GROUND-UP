@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Brightline Software's account manager persuade the retailer Fenwick & Sloane to pause rather than cancel their subscription during this week's scheduled retention call?",
-  "resolution": "Resolve YES if the persistent event history shows that Fenwick & Sloane's representative explicitly agreed to pause (rather than cancel) the subscription during or after the call, before the cutoff. Resolve NO if the representative explicitly rejected the pause offer and proceeded with cancellation, or if no agreement to pause is recorded by the cutoff.",
+  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that Fenwick & Sloane's representative explicitly agreed to pause the subscription (e.g., stated 'we will pause' or signed a pause agreement) during or after the call. Resolve NO if they explicitly cancel, let the subscription lapse, or no agreement to pause is recorded by the cutoff.",
   "cutoff": "2026-09-11T17:00:00-07:00",
   "world_id": "w_62914afab5b2"
  },

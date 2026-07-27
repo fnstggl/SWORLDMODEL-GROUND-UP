@@ -2,26 +2,26 @@
  "actors": [
   {
    "name": "CEO",
-   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release and intend to post it at the ship time. They are aware of the three design partners and their public social media accounts."
+   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release. They may decide whether and when to post it."
   },
   {
    "name": "Design Partner 1",
-   "private_context": "Design Partner 1 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   },
   {
    "name": "Design Partner 2",
-   "private_context": "Design Partner 2 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   },
   {
    "name": "Design Partner 3",
-   "private_context": "Design Partner 3 is one of Brightline's design partners for v4. They have access to the v4 release and may or may not choose to repost the CEO's announcement. They have no prior commitment to repost."
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost the CEO's announcement if they see it and choose to."
   }
  ],
- "shared_context": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and can repost the CEO's announcement on their own social media accounts. The ship time is the simulation start time.",
+ "shared_context": "Brightline is releasing v4 at a fixed time on Tuesday, 2026-09-15. The CEO has a launch announcement post ready. The three design partners are publicly known and have social media accounts. The ship time is 2026-09-15T10:00:00-07:00.",
  "starting_events": [
   {
    "time": "2026-09-15T10:00:00-07:00",
-   "description": "Brightline ships v4 release. CEO posts the launch announcement on social media.",
+   "description": "Brightline v4 is released.",
    "visible_to": [
     "CEO",
     "Design Partner 1",
@@ -30,5 +30,5 @@
    ]
   }
  ],
- "resolution": "Resolve YES if, within 24 hours of the ship time (i.e., by 2026-09-16T10:00:00-07:00), the persistent event history shows that the CEO posted a launch announcement and at least one of the three design partners publicly reposted it. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the CEO posted a launch announcement on a public platform, and at least one of the three design partners publicly reposted that announcement, both within 24 hours of the ship time (i.e., before 2026-09-16T10:00:00-07:00). Otherwise resolve NO at the cutoff."
 }

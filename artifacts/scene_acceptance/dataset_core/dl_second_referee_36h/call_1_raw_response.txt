@@ -2,19 +2,19 @@
   "actors": [
     {
       "name": "Kofi",
-      "private_context": "Kofi has asked a second referee to upload a letter of recommendation for a fellowship. The referee has not yet uploaded it. Kofi knows the hard deadline is 2026-09-15T09:00:00+00:00, about 36 hours from now. Kofi has no other information about the referee's current status."
+      "private_context": "Kofi has asked a referee to upload a letter of recommendation for a fellowship. The referee is the second referee. Kofi knows the deadline is 36 hours from now. Kofi does not know if the referee has started or will complete the upload."
     },
     {
-      "name": "Second Referee",
-      "private_context": "The second referee has been asked by Kofi to upload a letter of recommendation for a fellowship. The referee has not yet uploaded it. The referee may have other commitments and may or may not prioritize this task. The referee knows the deadline is 2026-09-15T09:00:00+00:00."
+      "name": "Second referee",
+      "private_context": "The second referee has agreed to write a letter for Kofi's fellowship. They have the letter ready or are working on it. They are aware of the deadline but have other commitments. They may or may not prioritize this upload."
     }
   ],
-  "shared_context": "The fellowship portal accepts referee letters until the hard deadline of 2026-09-15T09:00:00+00:00. The second referee has not yet uploaded the letter as of 2026-09-13T21:00:00+00:00. The referee can upload the letter at any time before the deadline via the portal.",
+  "shared_context": "The fellowship portal accepts referee letters via upload. The hard deadline is 2026-09-15T09:00:00+00:00. The current time is 2026-09-13T21:00:00+00:00. The referee has the necessary link or instructions to upload the letter.",
   "starting_events": [
     {
       "time": "2026-09-13T21:00:00+00:00",
-      "description": "The simulation starts. The second referee has not yet uploaded the letter.",
-      "visible_to": ["Kofi", "Second Referee"]
+      "description": "The simulation begins. Kofi's second referee has not yet uploaded the letter. The deadline is 36 hours away.",
+      "visible_to": ["Kofi", "Second referee"]
     }
   ],
   "resolution": "Resolve YES if the persistent event history shows that the second referee's letter was successfully uploaded to the fellowship portal before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at the cutoff."

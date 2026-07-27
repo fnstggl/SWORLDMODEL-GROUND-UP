@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses a generic placeholder actor 'Parents' group coordinator' and 'Cast member (student)' without identifying specific individuals from the question. The question does not name any specific parent or student, so these are invented stand-ins for unspecified parties, violating the rule against generic placeholder actors.",
+   "correction": "The question lacks enough information to identify the decision-maker or the observed resolving event. The parents' group is an unspecified collective, and no individual actors are named. The scene cannot be meaningfully simulated without concrete actors."
+  }
+ ]
 }

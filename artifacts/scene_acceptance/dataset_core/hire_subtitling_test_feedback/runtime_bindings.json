@@ -10,10 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-09-02T08:00:00+00:00",
    "visible_to_ids": [
-    "noor_haddad",
     "subtitling_agency"
    ],
-   "description": "Noor Haddad's test piece has been submitted and is with the agency. The one-month period begins now."
+   "description": "Noor Haddad's test piece is in the agency's queue for evaluation."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +23,16 @@
  "personas": {
   "noor_haddad": {
    "name": "Noor Haddad",
-   "persona_brief": "You are Noor Haddad.\nNoor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects a response within one month, as quoted by the agency. She has no other information about the agency's internal processes."
+   "persona_brief": "You are Noor Haddad.\nNoor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, by 2026-10-02. She has no prior relationship with the agency beyond this submission."
   },
   "subtitling_agency": {
    "name": "Subtitling Agency",
-   "persona_brief": "You are Subtitling Agency.\nThe agency receives test pieces from freelance translators and has a stated policy of one-month turnaround for responses. The agency's internal review process and decision-making are not known to Noor."
+   "persona_brief": "You are Subtitling Agency.\nThe agency receives test pieces from freelance translators and evaluates them. They quoted a one-month turnaround for feedback. They have many submissions to process and may prioritize based on their own criteria."
   }
  },
  "resolution": {
   "question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
-  "resolution": "Resolve YES if the persistent event history shows that the agency sent a response to Noor Haddad before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the agency sent any communication to Noor Haddad regarding her test piece before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-02T10:00:00+02:00",
   "world_id": "w_082487898991"
  }

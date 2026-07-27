@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,22 +101,22 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dr. Tanaka",
-   "private_context": "Tanaka is the lead author and has blocked out the final weekend (Sep 5-6) to integrate all revisions. She is aware of the 14-day deadline (Sep 7 23:59). She knows one co-author has patchy email until Sep 1."
+   "private_context": "Tanaka is the lead author responsible for integrating the final revised manuscript. She has blocked out the final weekend (September 5-6) to complete the integration. She is aware of the 14-day deadline (September 7, 23:59). She knows one co-author is at a field station with patchy email until September 1."
   },
   {
    "name": "Co-author A",
-   "private_context": "Co-author A is at a field station with patchy email until Sep 1. They have their part of the revisions to complete and send to Tanaka."
+   "private_context": "Co-author A is at a field station with patchy email until September 1. They have contributed writing revisions and need to send their final edits to Tanaka."
   },
   {
    "name": "Co-author B",
-   "private_context": "Co-author B has normal email access and is responsible for their portion of the revisions. They are aware of the deadline."
+   "private_context": "Co-author B has contributed writing revisions and is expected to send their final edits to Tanaka. Their availability is not constrained."
   }
  ],
- "shared_context": "The journal requires the revised manuscript to be uploaded by Sep 7 23:59 (14 days from initial decision). The revisions are mostly writing, not new experiments. Tanaka will integrate all parts and submit.",
+ "shared_context": "The journal requires the revised manuscript to be uploaded by September 7, 2026, 23:59 (14 days from the initial submission). The revisions are mostly writing, not new experiments. Tanaka will integrate all contributions and upload the manuscript.",
  "starting_events": [
   {
    "time": "2026-08-24T09:00:00+09:00",
-   "description": "The 14-day resubmission deadline clock starts. All authors are aware of the deadline.",
+   "description": "The 14-day resubmission deadline clock starts. Dr. Tanaka and co-authors are aware of the deadline and the need to submit revisions.",
    "visible_to": [
     "Dr. Tanaka",
     "Co-author A",
@@ -117,7 +124,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the revised manuscript was successfully uploaded to the journal system before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the revised manuscript was successfully uploaded to the journal's submission system before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

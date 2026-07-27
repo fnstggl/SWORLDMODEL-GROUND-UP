@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "femi"
    ],
-   "description": "Ashvale University releases exam results. Femi can now access his result."
+   "description": "Ashvale University releases exam results."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "femi": {
    "name": "Femi",
-   "persona_brief": "You are Femi.\nFemi expects to pass. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on all Thursday morning."
+   "persona_brief": "You are Femi.\nFemi expects to pass his exams. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on her all Thursday morning."
   },
   "femi_s_mother": {
    "name": "Femi's mother",
-   "persona_brief": "You are Femi's mother.\nShe has told Femi she will keep her phone on all Thursday morning. She is available to receive calls."
+   "persona_brief": "You are Femi's mother.\nShe has said she will keep her phone on her all Thursday morning. She expects Femi to call after results are released."
   }
  },
  "resolution": {
   "question": "Ashvale University releases exam results at 09:00 on Thursday. Will Femi call his mother with his result before noon that day?",
-  "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother with his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother and communicated his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-13T12:00:00+01:00",
   "world_id": "w_83b08e70bea7"
  }

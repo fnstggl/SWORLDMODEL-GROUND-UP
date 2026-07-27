@@ -10,10 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-08-01T09:00:00+00:00",
    "visible_to_ids": [
-    "dario",
-    "selin"
+    "dario"
    ],
-   "description": "Dario's message to Selin is already in her inbox, unread or read but not yet answered."
+   "description": "Dario sends a message to Selin asking if she will play bass at his October wedding."
   }
  ],
  "code_owned_defaults": {
@@ -24,11 +23,11 @@
  "personas": {
   "dario": {
    "name": "Dario",
-   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her asking. He hopes for a response within ten days."
+   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her asking about it. He hopes for a response within ten days."
   },
   "selin": {
    "name": "Selin",
-   "persona_brief": "You are Selin.\nSelin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario two years ago when their band dissolved. She has received Dario's message but has not yet responded."
+   "persona_brief": "You are Selin.\nSelin is a busy gigging musician in Istanbul. She parted on good terms with Dario two years ago. She receives many messages and may or may not respond promptly."
   }
  },
  "resolution": {

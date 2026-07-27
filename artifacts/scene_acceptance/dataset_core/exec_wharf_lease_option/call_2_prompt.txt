@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,25 +101,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CEO of Kestrel Analytics",
-   "private_context": "CEO is considering the proposed five-year lease on Riverside Wharf office. CFO has privately told CEO she prefers a shorter term. Headcount plans were cut 20% last quarter and half the team is remote. CEO has not yet decided whether to sign or walk away."
+   "private_context": "CEO is considering the Riverside Wharf lease. They know headcount plans were cut 20% last quarter and half the team is remote. The landlord has offered six months rent-free. The CFO privately prefers a shorter term. CEO must decide before the option expires next Friday."
   },
   {
    "name": "Landlord of Riverside Wharf",
-   "private_context": "Landlord has offered six months rent-free as an incentive. Landlord has set an option expiration next Friday (2026-08-21T17:00:00+01:00) for the CEO to sign or walk away."
+   "private_context": "Landlord has offered a proposed five-year lease with six months rent-free. The option to sign expires next Friday. Landlord is waiting for the CEO's decision."
   }
  ],
- "shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday at 5pm. Headcount plans were cut 20% last quarter and half the team is remote. The CFO has privately told the CEO she prefers a shorter term.",
+ "shared_context": "Kestrel Analytics is considering a five-year lease on Riverside Wharf office space. The landlord has offered six months rent-free. The option to sign expires on 2026-08-21T17:00:00+01:00. The CEO must decide whether to sign or walk away.",
  "starting_events": [
   {
    "time": "2026-08-10T09:00:00+01:00",
-   "description": "The CEO of Kestrel Analytics has the proposed five-year lease on the Riverside Wharf office under consideration. The landlord's option expiration is set for next Friday at 5pm.",
+   "description": "The CEO of Kestrel Analytics has the proposed lease documents and is aware of the deadline. No decision has been made yet.",
    "visible_to": [
-    "CEO of Kestrel Analytics",
-    "Landlord of Riverside Wharf"
+    "CEO of Kestrel Analytics"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the option expiration (2026-08-21T17:00:00+01:00). Resolve NO if the CEO did not sign by that time (walked away or let option expire)."
+ "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

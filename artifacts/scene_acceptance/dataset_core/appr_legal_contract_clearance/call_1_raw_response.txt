@@ -2,10 +2,10 @@
   "actors": [
     {
       "name": "Veldt Solar Legal Team",
-      "private_context": "The legal team has received the revised supplier contract today (2026-08-18) for review. They have internal procedures for contract clearance, but the timeline depends on workload, complexity, and any issues found. They are aware of the ten-working-day expectation but have not committed to a specific deadline."
+      "private_context": "The legal team has received a revised supplier contract for review. They have internal procedures for contract clearance, and their workload and priorities are known only to them. They may have concerns about the revised terms."
     }
   ],
-  "shared_context": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance before signature. The review process typically involves checking for legal risks, compliance, and alignment with company policies. The team operates during standard business hours on working days.",
+  "shared_context": "Veldt Solar's legal team received the revised supplier contract on 2026-08-18 at 11:00. The contract requires legal clearance before signature. The team has ten working days (until 2026-09-01 at 17:00) to clear it. The contract's content and any prior negotiations are not specified further.",
   "starting_events": [
     {
       "time": "2026-08-18T11:00:00+02:00",
@@ -13,5 +13,5 @@
       "visible_to": ["Veldt Solar Legal Team"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature (e.g., by sending a clearance notification or signing off) before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

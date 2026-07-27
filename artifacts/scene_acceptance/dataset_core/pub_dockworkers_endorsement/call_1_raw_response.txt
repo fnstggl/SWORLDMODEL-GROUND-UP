@@ -1,21 +1,21 @@
 {
   "actors": [
     {
-      "name": "Marlin Bay Dockworkers' Union Local Executive Board",
-      "private_context": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse the memorandum."
+      "name": "Marlin Bay dockworkers' union local",
+      "private_context": "The local's executive board met twice last week without issuing a statement. The local is aware of a rank-and-file caucus leafleting against the port automation memorandum. The local has not yet decided whether to endorse the memorandum or not, and has not yet issued a press release."
     },
     {
-      "name": "Rank-and-File Caucus",
-      "private_context": "The caucus has been leafleting against the memorandum. They oppose the automation deal and want the local to reject it."
+      "name": "Rank-and-file caucus",
+      "private_context": "The caucus is leafleting against the port automation memorandum. They want the local to oppose the memorandum."
     }
   ],
-  "shared_context": "The port automation memorandum is a proposal that the union local may endorse or oppose. The local's executive board can issue a press release stating its position. The international union endorsed a similar deal at another port last month. The hard cutoff for the resolution is 2026-08-31T09:00:00-07:00.",
+  "shared_context": "The international union endorsed a similar deal at another port last month. The port automation memorandum is a current issue. The local can issue a press release at any time before Monday.",
   "starting_events": [
     {
       "time": "2026-08-27T09:00:00-07:00",
       "description": "The simulation begins. No press release has been issued yet by the local.",
-      "visible_to": ["Marlin Bay Dockworkers' Union Local Executive Board", "Rank-and-File Caucus"]
+      "visible_to": ["Marlin Bay dockworkers' union local", "Rank-and-file caucus"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that the Marlin Bay Dockworkers' Union Local Executive Board actually sent a press release before 2026-08-31T09:00:00-07:00 that explicitly states whether it endorses the port automation memorandum. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating whether it endorses the port automation memorandum. Otherwise resolve NO at the cutoff."
 }

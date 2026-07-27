@@ -21,7 +21,7 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation, their relationship, and other factors before deciding.",
+     "content": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation and relationship with Rosa before deciding.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-05T01:00:00+00:00"

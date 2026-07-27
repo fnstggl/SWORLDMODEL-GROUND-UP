@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
-  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-06T09:00:00-04:00",
   "world_id": "w_044c80706ef3"
  },

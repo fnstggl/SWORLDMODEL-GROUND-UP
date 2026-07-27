@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "The Peace of Westphalia is a historical treaty. The current date is 2026-09-10T10:00:00+02:00.",
+  "shared_context": "The Peace of Westphalia is a historical event. The question asks for the year it was signed.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks for a historical fact that is not determined by any social interaction or decision within the simulation timeframe."
+  "resolution": "UNRESOLVABLE: The question is a factual lookup about a past event, not a social decision to simulate."
 }

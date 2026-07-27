@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Parents' group coordinator",
-   "private_context": "The coordinator is responsible for organizing the collection for cast flowers. They have a list of parents who have pledged contributions and need to collect the money, purchase flowers, and arrange handover backstage before curtain. They are aware of the Friday 19:00 deadline."
+   "private_context": "The coordinator is responsible for organizing the collection for cast flowers and ensuring they are handed over backstage before the curtain. They have a list of parents who have contributed and know the play starts at 19:00 on Friday."
   },
   {
    "name": "Cast member (student)",
-   "private_context": "A student in the play who expects flowers from the parents' group. They know the performance starts at 19:00 on Friday and that the parents' group usually organizes flowers."
+   "private_context": "A student in the play who is aware that the parents' group might bring flowers backstage before the show. They have no specific information about the collection status."
   }
  ],
- "shared_context": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group typically collects money from parents to buy flowers for the cast and hands them over backstage before the curtain rises. The handover must occur before 19:00 on Friday.",
+ "shared_context": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group typically collects money for flowers and arranges delivery backstage before the curtain. The school has a backstage area accessible before the show.",
  "starting_events": [
   {
    "time": "2026-11-16T09:00:00+00:00",
-   "description": "The parents' group coordinator begins the process of collecting contributions and arranging flowers for the cast.",
+   "description": "The parents' group coordinator begins organizing the flower collection for the cast.",
    "visible_to": [
     "Parents' group coordinator"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the parents' group actually handed over flowers to the cast backstage before 19:00 on Friday 2026-11-20. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the parents' group actually handed over flowers to the cast backstage before 19:00 on 2026-11-20. Otherwise resolve NO at the cutoff."
 }

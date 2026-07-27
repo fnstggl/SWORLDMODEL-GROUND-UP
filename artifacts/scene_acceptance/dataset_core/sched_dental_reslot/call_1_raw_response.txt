@@ -2,14 +2,14 @@
   "actors": [
     {
       "name": "Priya",
-      "private_context": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, at Maple Row Dental. She just learned she must go on a work trip that conflicts with that appointment. She wants to reschedule to a new slot before Wednesday noon. She has the front desk's phone number and can call or email them."
+      "private_context": "Priya has a dental cleaning scheduled for Thursday, but she needs to move it because of a work trip. She intends to contact Maple Row Dental front desk to reschedule."
     },
     {
       "name": "Maple Row Dental front desk",
-      "private_context": "The front desk manages appointment scheduling. They have availability for dental cleanings on various days and times. They are willing to reschedule patients when possible, but may have limited slots. They do not know Priya's specific request yet."
+      "private_context": "The front desk manages appointment scheduling. They have availability for rescheduling but have not yet been contacted by Priya about this specific change."
     }
   ],
-  "shared_context": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, at Maple Row Dental. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon, 2026-08-12T12:00:00-04:00.",
+  "shared_context": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon.",
   "starting_events": [
     {
       "time": "2026-08-10T08:00:00-04:00",
@@ -17,5 +17,5 @@
       "visible_to": ["Priya"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Priya and the front desk have agreed on a new appointment slot before the cutoff (2026-08-12T12:00:00-04:00). Resolve NO otherwise."
+  "resolution": "Resolve YES only if the persistent event history shows that Priya and the Maple Row Dental front desk have agreed on a new appointment slot before Wednesday noon (2026-08-12T12:00:00-04:00). Otherwise resolve NO at the cutoff."
 }

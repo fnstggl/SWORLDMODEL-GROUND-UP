@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Cheap Detour (band as a collective decision-making unit)",
-      "private_context": "The four members have a shared goal of agreeing on a twelve-song wedding setlist. They have individual preferences and may have discussed ideas informally, but no setlist has been finalized. They are aware of the Thursday rehearsal deadline."
+      "private_context": "The band has a wedding gig on Saturday 2026-09-12 and needs to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday 2026-09-10 at 19:00. Members have individual preferences but no prior agreement on the setlist."
     }
   ],
-  "shared_context": "Cheap Detour is a covers band with four members. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band typically communicates via a group chat and in-person meetings.",
+  "shared_context": "Cheap Detour is a covers band with four members. They have been booked to play a wedding on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at 19:00. The setlist of twelve songs has not yet been settled. The band communicates via a group chat and in person at rehearsals.",
   "starting_events": [
     {
       "time": "2026-09-07T18:00:00+01:00",
-      "description": "The band members are aware that they need to finalize the setlist before or during Thursday's rehearsal.",
+      "description": "The band members are aware of the upcoming wedding gig and the need to finalize the setlist. No setlist has been agreed upon yet.",
       "visible_to": ["Cheap Detour (band as a collective decision-making unit)"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before 2026-09-10T22:00:00+01:00. Otherwise resolve NO."
+  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO at the cutoff."
 }

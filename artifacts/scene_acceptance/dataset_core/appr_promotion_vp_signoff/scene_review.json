@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene includes a generic 'Calibration Committee' and 'VP' as actors, but the question does not identify specific individuals or a defined committee. These are placeholder actors standing in for unspecified parties, which violates the rule against generic placeholder actors.",
+   "correction": "The question lacks sufficient information to identify the decision-makers (calibration committee members and VP). Without named individuals or a clear institutional structure, the scene cannot be reliably simulated. Abstain."
+  }
+ ]
 }

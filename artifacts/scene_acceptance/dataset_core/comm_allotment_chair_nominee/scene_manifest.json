@@ -1,24 +1,24 @@
 {
  "actors": [
   {
-   "name": "Kettlewell Allotment Society Chair",
-   "private_context": "The chair is stepping down and has not yet identified a successor. They want the society to continue smoothly and hope someone will volunteer."
+   "name": "Current Chair",
+   "private_context": "The current chair is stepping down and has announced this at the upcoming AGM. They are not seeking re-election and have no preference about who succeeds them."
   },
   {
-   "name": "Kettlewell Allotment Society Members (collective)",
-   "private_context": "The members are aware the chair is stepping down. Some may be interested in the role but are uncertain about the time commitment or whether others will step forward. No member has publicly declared an intention to stand."
+   "name": "Kettlewell Allotment Society Members",
+   "private_context": "The members are aware that the chair is stepping down and that nominations close at the AGM in five weeks. Some members may be considering standing, but no one has publicly declared an intention yet."
   }
  ],
- "shared_context": "The Kettlewell Allotment Society holds an annual general meeting in five weeks, at which nominations for chair close. The current chair has announced they are stepping down. Any member may volunteer to stand for chair before the meeting.",
+ "shared_context": "The Kettlewell Allotment Society holds an annual general meeting on 2026-09-29 at 20:00. The current chair has announced they are stepping down. Nominations for the position of chair close at the start of the AGM. Any member may nominate themselves or another member, subject to the society's rules.",
  "starting_events": [
   {
    "time": "2026-08-25T18:00:00+01:00",
-   "description": "The chair's stepping down is announced to the membership.",
+   "description": "The current chair's resignation is announced to the membership, and the call for nominations is opened.",
    "visible_to": [
-    "Kettlewell Allotment Society Chair",
-    "Kettlewell Allotment Society Members (collective)"
+    "Current Chair",
+    "Kettlewell Allotment Society Members"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that at least one member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the hard cutoff at 2026-09-29T20:00:00+01:00, the persistent event history shows that at least one member has submitted a valid nomination for the position of chair. Otherwise resolve NO."
 }

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The mayor is aware of the three water-main bursts this morning and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs factors like public concern, media attention, and operational updates from the water department.",
+     "content": "The mayor is aware of this morning's third water-main burst and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs political and operational factors privately.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-12T13:00:00+00:00"
     },
     {
-     "content": "Riverton experienced a third water-main burst this morning (2026-08-12). The bursts have caused localized disruptions but no widespread emergency. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media).",
+     "content": "Riverton has experienced three water-main bursts this morning, the most recent at approximately 2026-08-12T06:30:00-06:00. The bursts have caused localized disruptions but no reported injuries. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media, or press conference).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-12T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the mayor of Riverton issue any public statement about the water-main failures within 48 hours of this morning's third burst?",
-  "scene:shared_context": "Riverton experienced a third water-main burst this morning (2026-08-12). The bursts have caused localized disruptions but no widespread emergency. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media)."
+  "scene:shared_context": "Riverton has experienced three water-main bursts this morning, the most recent at approximately 2026-08-12T06:30:00-06:00. The bursts have caused localized disruptions but no reported injuries. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media, or press conference)."
  },
  "history": [],
  "infos": {},

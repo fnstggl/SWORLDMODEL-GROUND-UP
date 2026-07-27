@@ -5,7 +5,7 @@
       "private_context": "Marguerite is the owner of the Copper Kettle bistro. She replies to most reviews within days, usually defensively. She knows the bistro was short two servers on the night in question."
     }
   ],
-  "shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night (2026-08-29). The review complains about a 45-minute wait. The review site allows owners to post public replies to reviews.",
+  "shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night, complaining about a 45-minute wait. The review is publicly visible. Marguerite can post a public reply to the review through the site's interface.",
   "starting_events": [
     {
       "time": "2026-08-30T09:00:00-04:00",
@@ -13,5 +13,5 @@
       "visible_to": ["Marguerite"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review on the review site before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that Marguerite posted a public reply to the review before 2026-09-06T09:00:00-04:00. Otherwise resolve NO at the cutoff."
 }

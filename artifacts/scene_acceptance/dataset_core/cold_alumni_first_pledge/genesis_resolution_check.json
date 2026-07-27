@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
-  "resolution": "Resolve YES only if the persistent event history shows that Dr. Renata Sousa made a pledge (any amount) to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Renata made a pledge (verbally committed to donate a specific amount) to the caller before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-31T21:00:00-03:00",
   "world_id": "w_ae9990a18905"
  },

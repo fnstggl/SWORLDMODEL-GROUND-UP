@@ -1,136 +1,7 @@
 {
- "ceo": {
-  "id": "ceo",
-  "name": "CEO",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-10-05T07:00:00+00:00",
-    "kind": "context",
-    "content": "CEO has stayed publicly neutral on the balcony-panel pilot. They are aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins. They must decide whether to greenlight or shelve the pilot at the quarterly review, balancing the head of product's enthusiasm and the CFO's concerns.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-10-05T07:00:00+00:00",
-    "kind": "context",
-    "content": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The executive team (CEO, CFO, Head of Product) will meet to decide whether to shelve or greenlight the pilot. The decision will be communicated to the pilot team within the same week.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "cfo": {
-  "id": "cfo",
-  "name": "CFO",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-10-05T07:00:00+00:00",
-    "kind": "context",
-    "content": "CFO wants the engineers reassigned to the utility-scale line. They view the balcony-panel pilot as a resource drain with thin margins, despite strong reviews. They will advocate for shelving the pilot at the quarterly review.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-10-05T07:00:00+00:00",
-    "kind": "context",
-    "content": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The executive team (CEO, CFO, Head of Product) will meet to decide whether to shelve or greenlight the pilot. The decision will be communicated to the pilot team within the same week.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "head_of_product": {
-  "id": "head_of_product",
-  "name": "Head of Product",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-10-05T07:00:00+00:00",
-    "kind": "context",
-    "content": "Head of Product champions the balcony-panel pilot. They see the strong reviews as evidence of potential and want to continue the pilot despite the sales shortfall. They will advocate for greenlighting the pilot at the quarterly review.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-10-05T07:00:00+00:00",
-    "kind": "context",
-    "content": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The executive team (CEO, CFO, Head of Product) will meet to decide whether to shelve or greenlight the pilot. The decision will be communicated to the pilot team within the same week.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
  "pilot_team": {
   "id": "pilot_team",
-  "name": "Pilot Team",
+  "name": "Pilot team",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -152,13 +23,56 @@
    {
     "t": "2026-10-05T07:00:00+00:00",
     "kind": "context",
-    "content": "The pilot team is awaiting the executive decision on whether the pilot will be shelved or greenlit. They have no direct influence on the decision but will be informed of the outcome.",
+    "content": "The pilot team is awaiting the executive decision on the balcony-panel pilot. They are aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-05T07:00:00+00:00",
     "kind": "context",
-    "content": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The executive team (CEO, CFO, Head of Product) will meet to decide whether to shelve or greenlight the pilot. The decision will be communicated to the pilot team within the same week.",
+    "content": "The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The quarterly review is scheduled for the week of 2026-10-05. The executive team will decide whether to shelve or greenlight the pilot and communicate the decision to the pilot team.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "veldt_solar_executive_team": {
+  "id": "veldt_solar_executive_team",
+  "name": "Veldt Solar executive team",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T07:00:00+00:00",
+    "kind": "context",
+    "content": "The executive team consists of the CEO, CFO, and head of product. They will decide at the quarterly review whether to shelve or greenlight the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to the utility-scale line; the CEO has stayed publicly neutral.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T07:00:00+00:00",
+    "kind": "context",
+    "content": "The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The quarterly review is scheduled for the week of 2026-10-05. The executive team will decide whether to shelve or greenlight the pilot and communicate the decision to the pilot team.",
     "source": "scene_manifest:shared_context"
    }
   ],

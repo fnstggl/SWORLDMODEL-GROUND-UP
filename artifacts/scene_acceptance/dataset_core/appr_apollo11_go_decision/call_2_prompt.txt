@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,20 +98,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "NASA Senior Managers",
-   "private_context": "They are responsible for the Apollo 11 program and must decide whether to publicly announce a go decision for the July launch window after the flight readiness review. They have access to technical assessments and schedules, but the outcome of the review is not yet determined."
+   "private_context": "They are responsible for the Apollo 11 mission and must decide whether to give a go for the July launch window. They have access to technical reports and recommendations from engineers and flight directors. They are aware of the upcoming flight readiness review process."
   }
  ],
- "shared_context": "The flight readiness review process for Apollo 11 is ongoing. A public announcement of a go decision for the July launch window would be made by senior managers after the review concludes. The review is expected to be completed before the end of June 1969.",
+ "shared_context": "Apollo 11 is scheduled for a July 1969 launch window. A flight readiness review process is underway to assess the mission's readiness. The review will conclude with a decision on whether to proceed with the launch. The decision will be publicly announced.",
  "starting_events": [
   {
    "time": "1969-06-01T09:00:00-04:00",
-   "description": "The flight readiness review process for Apollo 11 is underway.",
+   "description": "The flight readiness review process for Apollo 11 begins.",
    "visible_to": [
     "NASA Senior Managers"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that NASA senior managers publicly announced a go decision for Apollo 11's July launch window. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that NASA's senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

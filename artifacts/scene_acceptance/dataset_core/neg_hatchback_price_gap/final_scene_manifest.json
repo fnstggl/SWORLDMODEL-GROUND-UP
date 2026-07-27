@@ -2,22 +2,23 @@
  "actors": [
   {
    "name": "Ravi",
-   "private_context": "Ravi wants to buy a 2019 hatchback. He has a maximum budget of 40,000 rupees less than the seller's listed price. He is willing to negotiate and can make an offer."
+   "private_context": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He can decide to offer a different price or accept the seller's counteroffer. He has three days before the listing expires."
   },
   {
    "name": "Seller",
-   "private_context": "The seller has listed a 2019 hatchback at a certain price. They are willing to negotiate but have a minimum acceptable price that is 40,000 rupees above Ravi's budget. The listing expires in three days."
+   "private_context": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. They can decide to accept, reject, or counteroffer. The listing expires in three days."
   }
  ],
- "shared_context": "A 2019 hatchback is listed for sale by a private seller. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller are 40,000 rupees apart in their price expectations. They can communicate through the listing platform or other means to negotiate.",
+ "shared_context": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The current price difference is 40,000 rupees. The seller's listing will expire on 2026-08-23T10:00:00+05:30.",
  "starting_events": [
   {
    "time": "2026-08-20T10:00:00+05:30",
-   "description": "Ravi sees the listing for the 2019 hatchback and considers making an offer.",
+   "description": "Ravi and the seller are aware of the 40,000 rupee gap. No agreement has been reached yet.",
    "visible_to": [
-    "Ravi"
+    "Ravi",
+    "Seller"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price (e.g., a binding message exchange indicating acceptance of an offer). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price (e.g., a message accepting an offer, a signed agreement, or a payment). Otherwise resolve NO at the cutoff."
 }

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Chen Wei is an illustrator who has received a commission offer from Torchlight Media for a twelve-page project. She is preparing to make a counteroffer on the page rate today. She has her own minimum acceptable rate and hopes to negotiate a favorable deal.",
+     "content": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. They have received an initial offer and are preparing a counteroffer on the page rate. Chen Wei wants to secure a rate they consider fair and is willing to negotiate.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-06T06:00:00+00:00"
     },
     {
-     "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+     "content": "Chen Wei and Torchlight Media are in active negotiations for a twelve-page illustration commission. Chen Wei is preparing to send a counteroffer on the page rate today, 2026-08-06. Both parties have each other's contact information and can communicate via email or other agreed channels. The negotiation has a one-week window from today to reach an agreement.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-06T06:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Torchlight Media is a publisher that wants to commission a twelve-page illustration project from Chen Wei. They have made an initial offer and are awaiting her counteroffer. They have a budget and a maximum acceptable page rate for this project.",
+     "content": "Torchlight Media is a publisher that wants to commission Chen Wei for a twelve-page project. They have made an initial offer on the page rate and are aware that Chen Wei may counter. They have a standard negotiation process and a maximum budget they are willing to spend.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-06T06:00:00+00:00"
     },
     {
-     "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+     "content": "Chen Wei and Torchlight Media are in active negotiations for a twelve-page illustration commission. Chen Wei is preparing to send a counteroffer on the page rate today, 2026-08-06. Both parties have each other's contact information and can communicate via email or other agreed channels. The negotiation has a one-week window from today to reach an agreement.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-06T06:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will illustrator Chen Wei and Torchlight Media settle on a page rate for a twelve-page commission within one week of her opening counteroffer today?",
-  "scene:shared_context": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00."
+  "scene:shared_context": "Chen Wei and Torchlight Media are in active negotiations for a twelve-page illustration commission. Chen Wei is preparing to send a counteroffer on the page rate today, 2026-08-06. Both parties have each other's contact information and can communicate via email or other agreed channels. The negotiation has a one-week window from today to reach an agreement."
  },
  "history": [],
  "infos": {},

@@ -6,10 +6,10 @@
   },
   {
    "name": "Founder of Veldt Solar",
-   "private_context": "The founder of Veldt Solar receives many unsolicited emails. They may respond to interview requests if the opportunity seems worthwhile and fits their schedule. They have no prior relationship with Anouk."
+   "private_context": "The founder of Veldt Solar receives many cold emails. They may or may not respond to interview requests depending on their interest, availability, and alignment with their goals. They have no prior relationship with Anouk."
   }
  ],
- "shared_context": "Anouk has the email address of the founder of Veldt Solar and can send an email. The founder can read and reply to emails. The simulation runs from 2026-08-05T09:00:00+02:00 to 2026-08-19T09:00:00+02:00.",
+ "shared_context": "Anouk has the email address of the founder of Veldt Solar. The email can be sent and received through standard email channels. The simulation starts at 2026-08-05T09:00:00+02:00 and ends at 2026-08-19T09:00:00+02:00.",
  "starting_events": [
   {
    "time": "2026-08-05T09:00:00+02:00",
@@ -19,5 +19,5 @@
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent a reply to Anouk's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent any reply to Anouk's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

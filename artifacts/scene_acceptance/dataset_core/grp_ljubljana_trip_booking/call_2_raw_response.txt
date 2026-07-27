@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses generic placeholder actors ('Friend with limited leave 1', 'Friend with limited leave 2', 'Other three friends') for parties the question never identifies. The question mentions 'six university friends' but only names Jaka; the others are unspecified. The scene invents stand-ins for unspecified parties, which violates the rule against generic placeholder actors.",
+   "correction": "The question does not provide enough information to identify the other five friends individually. Without specific identities, the scene cannot be properly simulated. The scene should be abstained from."
+  }
+ ]
 }

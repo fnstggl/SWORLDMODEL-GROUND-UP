@@ -1,4 +1,6 @@
 {
  "errors": [],
- "warnings": []
+ "warnings": [
+  "actor names 'Sanjay' and \"Sanjay's manager\" contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)"
+ ]
 }

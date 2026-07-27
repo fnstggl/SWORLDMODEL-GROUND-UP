@@ -2,49 +2,6 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "employees_as_a_group": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "employees_as_a_group",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "The twelve employees are aware of the founders' disagreements but have not been officially informed of any buyout plans. They are uncertain about the company's future and are watching for any announcements.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-08-01T17:00:00+00:00"
-    },
-    {
-     "content": "Tidepool is a small app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout of one founder by the other would require an announcement to the employees. The company operates in a jurisdiction where such announcements are typically made in a formal meeting or via official communication.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-08-01T17:00:00+00:00"
-    }
-   ],
-   "name": "Employees (as a group)",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
   "founder_a": {
    "attention": {
     "scene": {
@@ -64,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Founder A believes the app should pivot to a subscription model and has been pushing for this change since spring. A is frustrated with the strategic deadlock and is considering buying out Founder B to gain full control.",
+     "content": "Founder A believes the app should pivot to a subscription model and is frustrated with Founder B's insistence on staying ad-supported. A has been considering buying out B or leaving the company.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T17:00:00+00:00"
     },
     {
-     "content": "Tidepool is a small app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout of one founder by the other would require an announcement to the employees. The company operates in a jurisdiction where such announcements are typically made in a formal meeting or via official communication.",
+     "content": "Tidepool is a mobile app company with twelve employees. The two founders have been in strategic disagreement since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The employees are aware of the tension but not of any specific buyout plans.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T17:00:00+00:00"
@@ -107,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Founder B believes the app should remain free with ads and has been resisting A's pivot proposals since spring. B is frustrated with the deadlock and is considering buying out Founder A to implement B's vision.",
+     "content": "Founder B is committed to the ad-supported model and thinks A's pivot would alienate users. B has been exploring options to buy out A or force a change.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T17:00:00+00:00"
     },
     {
-     "content": "Tidepool is a small app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout of one founder by the other would require an announcement to the employees. The company operates in a jurisdiction where such announcements are typically made in a formal meeting or via official communication.",
+     "content": "Tidepool is a mobile app company with twelve employees. The two founders have been in strategic disagreement since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The employees are aware of the tension but not of any specific buyout plans.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T17:00:00+00:00"
@@ -145,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "The two founders of the Tidepool app have been at odds over strategy since spring. Will they announce a buyout of one side to their twelve employees within the next three months?",
-  "scene:shared_context": "Tidepool is a small app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout of one founder by the other would require an announcement to the employees. The company operates in a jurisdiction where such announcements are typically made in a formal meeting or via official communication."
+  "scene:shared_context": "Tidepool is a mobile app company with twelve employees. The two founders have been in strategic disagreement since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The employees are aware of the tension but not of any specific buyout plans."
  },
  "history": [],
  "infos": {},
@@ -155,6 +112,6 @@
  "resources": {},
  "start": "2026-08-01T17:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 11,
  "watches": {}
 }

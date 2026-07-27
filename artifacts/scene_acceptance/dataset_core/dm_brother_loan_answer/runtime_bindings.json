@@ -13,7 +13,7 @@
     "rosa",
     "emilio"
    ],
-   "description": "Rosa's text message requesting a 2,000-peso loan until payday is present in Emilio's inbox, sent earlier."
+   "description": "Rosa's text message requesting a 2,000-peso loan until payday is present in Emilio's phone, sent earlier."
   }
  ],
  "code_owned_defaults": {
@@ -28,12 +28,12 @@
   },
   "emilio": {
    "name": "Emilio",
-   "persona_brief": "You are Emilio.\nEmilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation, their relationship, and other factors before deciding."
+   "persona_brief": "You are Emilio.\nEmilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation and relationship with Rosa before deciding."
   }
  },
  "resolution": {
   "question": "Rosa asked her brother Emilio by text for a 2,000-peso loan until payday. Will Emilio give her a yes-or-no answer within 48 hours?",
-  "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa with a clear yes or no answer before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa containing a clear yes or no answer to the loan request before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-06T19:00:00-06:00",
   "world_id": "w_48ce349f80db"
  }

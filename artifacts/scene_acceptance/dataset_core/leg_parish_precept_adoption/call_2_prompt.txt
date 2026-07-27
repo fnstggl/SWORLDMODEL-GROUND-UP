@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,20 +98,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Kettlewell Parish Council",
-   "private_context": "The council is a body of elected members. Its standing orders require formal adoption of the precept at the January meeting. The council has a draft precept prepared by the clerk. Some members may have concerns about the proposed amount, but no formal decision has been made yet."
+   "private_context": "The council is a body of elected members. Its standing orders require the precept for the next financial year to be formally adopted at the January meeting. The council has a chairperson and a clerk. The council members have varying views on the appropriate precept level, but no decision has been made yet."
   }
  ],
- "shared_context": "Kettlewell Parish Council's January meeting is scheduled to take place on a date in January 2027. The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting.",
+ "shared_context": "Kettlewell Parish Council's January meeting is scheduled to take place before the hard cutoff. The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require formal adoption at this meeting. The precept is the portion of council tax that goes to the parish council.",
  "starting_events": [
   {
    "time": "2027-01-04T09:00:00+00:00",
-   "description": "The January meeting of Kettlewell Parish Council is scheduled to begin. The agenda includes the item for formal adoption of the precept.",
+   "description": "The council's clerk has circulated the agenda for the January meeting, which includes the precept adoption item.",
    "visible_to": [
     "Kettlewell Parish Council"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the council formally adopted the precept at the January meeting before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the council formally adopted the precept at its January meeting before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

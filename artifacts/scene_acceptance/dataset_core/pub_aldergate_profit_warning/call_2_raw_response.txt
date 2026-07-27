@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+  "verdict": "ABSTAIN",
+  "defects": [
+    {
+      "path": "scene",
+      "problem": "The scene uses a generic placeholder actor 'Aldergate Rail' as a single entity, but the question involves a decision by a firm's leadership. The actor 'Aldergate Rail' is not a specific decision-maker; it is a corporate entity. The scene lacks any named individuals (e.g., CEO, board members) who would actually make the decision. This is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
+      "correction": "The scene must include specific named actors (e.g., CEO, CFO, board members) who are the actual decision-makers, or the question must be rejected as insufficiently specified."
+    }
+  ]
 }

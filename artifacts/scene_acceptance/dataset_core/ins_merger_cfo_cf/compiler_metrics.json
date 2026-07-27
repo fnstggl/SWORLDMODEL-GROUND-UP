@@ -1,36 +1,27 @@
 {
- "semantic_calls": 3,
+ "semantic_calls": 2,
  "semantic_slots": [
   "call_1_scene",
-  "call_2_review",
-  "call_3_correction"
+  "call_2_review"
  ],
- "provider_requests": 3,
- "total_prompt_tokens": 3997,
- "total_completion_tokens": 943,
+ "provider_requests": 2,
+ "total_prompt_tokens": 3003,
+ "total_completion_tokens": 619,
  "per_slot": {
   "call_1_scene": {
    "attempts": 1,
-   "duration_s": 3.908,
-   "prompt_tokens": 1462,
-   "completion_tokens": 362
+   "duration_s": 3.522,
+   "prompt_tokens": 1648,
+   "completion_tokens": 359
   },
   "call_2_review": {
    "attempts": 1,
-   "duration_s": 3.66,
-   "prompt_tokens": 1175,
-   "completion_tokens": 322
-  },
-  "call_3_correction": {
-   "attempts": 1,
-   "duration_s": 2.477,
-   "prompt_tokens": 1360,
-   "completion_tokens": 259
+   "duration_s": 3.438,
+   "prompt_tokens": 1355,
+   "completion_tokens": 260
   }
  },
- "wall_s": 10.05,
+ "wall_s": 6.96,
  "compiler_version": "minimal_scene_v1",
- "evidence_mode": "model_memory_unverified",
- "repaired_compile": true,
- "world_id": "w_351358c11a26"
+ "evidence_mode": "model_memory_unverified"
 }

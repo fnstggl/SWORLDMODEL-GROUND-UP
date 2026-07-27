@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,24 +98,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Applicant",
-   "private_context": "Applicant has submitted a permit application and wants it approved by the end of August. Applicant has no special influence over the process."
+   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no direct influence over the decision beyond providing required documentation."
   },
   {
-   "name": "Permit Reviewer",
-   "private_context": "Permit Reviewer is responsible for evaluating the application. They follow standard procedures and have a backlog of applications. They have no prior knowledge of the Applicant."
+   "name": "Permit Office",
+   "private_context": "The Permit Office reviews applications and makes approval decisions based on completeness and compliance with regulations. They have a backlog and process applications in order of submission."
   }
  ],
- "shared_context": "The permit application is complete and pending review. The review process typically takes several weeks. The deadline for approval is end of August 2026.",
+ "shared_context": "The permit application was submitted before July 27, 2026. The Permit Office has all necessary documentation. The office operates during business hours and aims to process applications within 30 days, but delays are possible due to workload.",
  "starting_events": [
   {
    "time": "2026-07-27T09:00:00-05:00",
-   "description": "The permit application is in the queue for review.",
+   "description": "The permit application is in the Permit Office's queue for review.",
    "visible_to": [
-    "Permit Reviewer"
+    "Permit Office"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the permit was officially approved before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the Permit Office issued an approval decision for the permit before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

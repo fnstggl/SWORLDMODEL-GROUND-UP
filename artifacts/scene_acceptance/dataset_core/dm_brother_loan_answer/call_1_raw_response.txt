@@ -6,16 +6,16 @@
     },
     {
       "name": "Emilio",
-      "private_context": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation, their relationship, and other factors before deciding."
+      "private_context": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has not yet responded. He may consider his own financial situation and relationship with Rosa before deciding."
     }
   ],
   "shared_context": "Rosa and Emilio are siblings. Rosa sent a text message to Emilio requesting a 2,000-peso loan until payday. The message was sent before the simulation start time. Emilio has the message and can reply via text.",
   "starting_events": [
     {
       "time": "2026-09-04T19:00:00-06:00",
-      "description": "Rosa's text message requesting a 2,000-peso loan until payday is present in Emilio's inbox, sent earlier.",
+      "description": "Rosa's text message requesting a 2,000-peso loan until payday is present in Emilio's phone, sent earlier.",
       "visible_to": ["Rosa", "Emilio"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa with a clear yes or no answer before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa containing a clear yes or no answer to the loan request before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at the cutoff."
 }

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The REB is a committee that reviews research protocols. They have received Dr. Tanaka's survey protocol and will consider it at their next monthly meeting. The board operates by consensus or majority vote. Members have varying expertise and may have concerns about the protocol.",
+     "content": "The REB is a committee that reviews research protocols involving human subjects. They have received Dr. Tanaka's survey protocol and will consider it at their next monthly meeting. The board operates under standard procedures and may approve, request amendments, or reject protocols.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T00:00:00+00:00"
     },
     {
-     "content": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+     "content": "Ashvale University's research ethics board holds monthly meetings to review submitted protocols. The next meeting is scheduled before the hard cutoff of 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is on the agenda for that meeting. The board will make a decision at or before that meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T00:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision and have no prior relationship with board members. They have not received any communication from the board since submission.",
+     "content": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision and hope for approval without major amendments.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T00:00:00+00:00"
     },
     {
-     "content": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+     "content": "Ashvale University's research ethics board holds monthly meetings to review submitted protocols. The next meeting is scheduled before the hard cutoff of 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is on the agenda for that meeting. The board will make a decision at or before that meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T00:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Ashvale University's research ethics board approve, request amendments to, or reject Dr. Tanaka's survey protocol at or before its next monthly meeting?",
-  "scene:shared_context": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting."
+  "scene:shared_context": "Ashvale University's research ethics board holds monthly meetings to review submitted protocols. The next meeting is scheduled before the hard cutoff of 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is on the agenda for that meeting. The board will make a decision at or before that meeting."
  },
  "history": [],
  "infos": {},

@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,22 +98,22 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Family A",
-   "private_context": "Family A has two children who need to be driven to school. They are eager to set up a carpool to share the driving burden. They have not yet discussed specific preferences or constraints with the other families."
+   "private_context": "Family A has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
   },
   {
    "name": "Family B",
-   "private_context": "Family B has one child. They are interested in a carpool but have a tight morning schedule and can only drive on certain days. They have not yet shared this constraint."
+   "private_context": "Family B has one child. They are open to participating in a carpool but have constraints on certain mornings. They have not yet discussed preferences with the other families."
   },
   {
    "name": "Family C",
-   "private_context": "Family C has three children. They are open to a carpool but are concerned about fitting everyone in one car. They have not yet raised this concern."
+   "private_context": "Family C has three children. They are keen to set up a rota to reduce driving burden. They have not yet discussed preferences with the other families."
   }
  ],
- "shared_context": "Three families live on the same cul-de-sac. They are trying to agree on a weekly driving rota for a school-run carpool before term starts on Monday morning (2026-09-07). They can communicate with each other via phone, text, or in person. No rota has been proposed yet.",
+ "shared_context": "The three families live on the same cul-de-sac and their children attend the same school. Term starts on Monday 2026-09-07. They have not yet agreed on a weekly driving rota. They can communicate via a group chat or in person. Each family has a car and can drive on some days.",
  "starting_events": [
   {
    "time": "2026-09-02T09:00:00+12:00",
-   "description": "The three families are aware of the need to arrange a carpool and have expressed mutual interest in principle, but no specific rota has been discussed.",
+   "description": "The three families are aware of each other and the need to arrange a carpool before term starts. No rota has been proposed yet.",
    "visible_to": [
     "Family A",
     "Family B",
@@ -114,7 +121,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff (2026-09-07T08:00:00+12:00), the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., via a shared message or verbal agreement recorded in the simulation). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of which family drives on which days). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -15,7 +15,7 @@
     "family_b",
     "family_c"
    ],
-   "description": "The three families are aware of the need to arrange a carpool and have expressed mutual interest in principle, but no specific rota has been discussed."
+   "description": "The three families are aware of each other and the need to arrange a carpool before term starts. No rota has been proposed yet."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "family_a": {
    "name": "Family A",
-   "persona_brief": "You are Family A.\nFamily A has two children who need to be driven to school. They are eager to set up a carpool to share the driving burden. They have not yet discussed specific preferences or constraints with the other families."
+   "persona_brief": "You are Family A.\nFamily A has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
   },
   "family_b": {
    "name": "Family B",
-   "persona_brief": "You are Family B.\nFamily B has one child. They are interested in a carpool but have a tight morning schedule and can only drive on certain days. They have not yet shared this constraint."
+   "persona_brief": "You are Family B.\nFamily B has one child. They are open to participating in a carpool but have constraints on certain mornings. They have not yet discussed preferences with the other families."
   },
   "family_c": {
    "name": "Family C",
-   "persona_brief": "You are Family C.\nFamily C has three children. They are open to a carpool but are concerned about fitting everyone in one car. They have not yet raised this concern."
+   "persona_brief": "You are Family C.\nFamily C has three children. They are keen to set up a rota to reduce driving burden. They have not yet discussed preferences with the other families."
   }
  },
  "resolution": {
   "question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
-  "resolution": "Resolve YES if, before the cutoff (2026-09-07T08:00:00+12:00), the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., via a shared message or verbal agreement recorded in the simulation). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of which family drives on which days). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-07T08:00:00+12:00",
   "world_id": "w_940acfd23314"
  }

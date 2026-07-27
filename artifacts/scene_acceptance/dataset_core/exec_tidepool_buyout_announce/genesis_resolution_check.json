@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "The two founders of the Tidepool app have been at odds over strategy since spring. Will they announce a buyout of one side to their twelve employees within the next three months?",
-  "resolution": "Resolve YES if, before the hard cutoff, there is a persistent record (e.g., meeting minutes, official email, or public announcement) that a buyout of one founder by the other has been announced to the employees. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before 2026-11-01T10:00:00-07:00, a buyout of one founder by the other is formally announced to the twelve employees (e.g., via an all-hands meeting, email, or official communication). Otherwise resolve NO.",
   "cutoff": "2026-11-01T10:00:00-07:00",
   "world_id": "w_f06ab7aa58f2"
  },

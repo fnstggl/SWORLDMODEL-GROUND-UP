@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the catering manager at Willow & Thyme answer bride-to-be Deepa's emailed question about nut-free menu options before her tasting on Saturday morning?",
-  "resolution": "Resolve YES only if the persistent event history shows that the catering manager actually sent a reply to Deepa's email before 2026-09-19T11:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the catering manager sent a reply to Deepa's email before 2026-09-19T11:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-19T11:00:00+01:00",
   "world_id": "w_920abf6ec3f3"
  },

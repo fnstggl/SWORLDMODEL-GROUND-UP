@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,30 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Founder A",
-   "private_context": "Founder A believes the app should pivot to a subscription model and has been pushing for this change since spring. A is frustrated with the strategic deadlock and is considering buying out Founder B to gain full control."
+   "private_context": "Founder A believes the app should pivot to a subscription model and is frustrated with Founder B's insistence on staying ad-supported. A has been considering buying out B or leaving the company."
   },
   {
    "name": "Founder B",
-   "private_context": "Founder B believes the app should remain free with ads and has been resisting A's pivot proposals since spring. B is frustrated with the deadlock and is considering buying out Founder A to implement B's vision."
-  },
-  {
-   "name": "Employees (as a group)",
-   "private_context": "The twelve employees are aware of the founders' disagreements but have not been officially informed of any buyout plans. They are uncertain about the company's future and are watching for any announcements."
+   "private_context": "Founder B is committed to the ad-supported model and thinks A's pivot would alienate users. B has been exploring options to buy out A or force a change."
   }
  ],
- "shared_context": "Tidepool is a small app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout of one founder by the other would require an announcement to the employees. The company operates in a jurisdiction where such announcements are typically made in a formal meeting or via official communication.",
+ "shared_context": "Tidepool is a mobile app company with twelve employees. The two founders have been in strategic disagreement since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The employees are aware of the tension but not of any specific buyout plans.",
  "starting_events": [
   {
    "time": "2026-08-01T10:00:00-07:00",
-   "description": "The simulation begins with the founders still at odds and no buyout announcement having been made yet.",
+   "description": "The founders continue their ongoing strategic disagreement. No buyout announcement has been made yet.",
    "visible_to": [
     "Founder A",
-    "Founder B",
-    "Employees (as a group)"
+    "Founder B"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, there is a persistent record (e.g., meeting minutes, official email, or public announcement) that a buyout of one founder by the other has been announced to the employees. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before 2026-11-01T10:00:00-07:00, a buyout of one founder by the other is formally announced to the twelve employees (e.g., via an all-hands meeting, email, or official communication). Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

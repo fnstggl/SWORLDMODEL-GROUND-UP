@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+  "verdict": "ABSTAIN",
+  "defects": [
+    {
+      "path": "scene",
+      "problem": "The committee members are generic placeholders ('Committee Member 1', 'Committee Member 2', 'Committee Member 3') with no identifying information from the question. The question does not specify who these members are, so the scene invents unnamed stand-ins for unspecified parties, violating the rule against generic placeholder actors.",
+      "correction": "The scene cannot be approved because it relies on invented, unspecified actors. To proceed, the question must identify the committee members or the scene must be revised to use only actors explicitly named in the question."
+    }
+  ]
 }

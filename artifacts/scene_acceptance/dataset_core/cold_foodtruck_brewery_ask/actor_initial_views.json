@@ -23,13 +23,13 @@
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Bao runs a well-reviewed banh mi food truck and wants a regular weekend parking spot at a brewery. He plans to approach three brewery managers in person this Saturday. He has no prior agreements with any of them.",
+    "content": "Bao runs a well-reviewed banh mi truck and wants a regular weekend spot. He plans to approach three brewery managers in person this Saturday about parking on their lots. He knows two of the breweries already host rotating food trucks, and the third never has.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Bao plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time. Each brewery has a manager on site during those hours. Bao can speak with each manager if they are available and willing.",
+    "content": "It is Saturday, 2026-08-08, 10:00 AM local time. Bao Tran plans to visit three breweries in person to ask their managers about parking his food truck on their lots. The breweries are open and managers are likely present during the day. The day ends at 8:00 PM.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Manager of a brewery that already hosts rotating food trucks. They are open to new trucks but have limited slots and prefer trucks that attract customers. They have not heard of Bao before.",
+    "content": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks or satisfied with current arrangement.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Bao plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time. Each brewery has a manager on site during those hours. Bao can speak with each manager if they are available and willing.",
+    "content": "It is Saturday, 2026-08-08, 10:00 AM local time. Bao Tran plans to visit three breweries in person to ask their managers about parking his food truck on their lots. The breweries are open and managers are likely present during the day. The day ends at 8:00 PM.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Manager of a brewery that already hosts rotating food trucks. They are satisfied with current lineup and rarely add new trucks. They have not heard of Bao before.",
+    "content": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks or satisfied with current arrangement.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Bao plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time. Each brewery has a manager on site during those hours. Bao can speak with each manager if they are available and willing.",
+    "content": "It is Saturday, 2026-08-08, 10:00 AM local time. Bao Tran plans to visit three breweries in person to ask their managers about parking his food truck on their lots. The breweries are open and managers are likely present during the day. The day ends at 8:00 PM.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Manager of a brewery that never has food trucks. They have a policy against outside food vendors, but may consider exceptions if approached. They have not heard of Bao before.",
+    "content": "Manager of a brewery that never hosts food trucks. May have reasons for not doing so, or may be open to the idea.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-08T15:00:00+00:00",
     "kind": "context",
-    "content": "Bao plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time. Each brewery has a manager on site during those hours. Bao can speak with each manager if they are available and willing.",
+    "content": "It is Saturday, 2026-08-08, 10:00 AM local time. Bao Tran plans to visit three breweries in person to ask their managers about parking his food truck on their lots. The breweries are open and managers are likely present during the day. The day ends at 8:00 PM.",
     "source": "scene_manifest:shared_context"
    }
   ],

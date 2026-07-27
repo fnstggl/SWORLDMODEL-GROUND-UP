@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Neighbor A has had some disagreements with Neighbor B recently, such as noise complaints and property boundary issues. A is frustrated but open to reconciliation if B shows willingness.",
+     "content": "Neighbor A has been in a dispute with Neighbor B over property boundaries and noise complaints. A is frustrated and considering legal action, but also open to mediation if B shows willingness.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T10:00:00+00:00"
     },
     {
-     "content": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently.",
+     "content": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T10:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Neighbor B feels that Neighbor A has been unreasonable about minor issues. B is defensive but not opposed to improving relations if A makes the first move.",
+     "content": "Neighbor B is aware of the tension with A but believes A is overreacting. B is not inclined to apologize or change behavior, but might consider a compromise if it avoids escalation.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T10:00:00+00:00"
     },
     {
-     "content": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently.",
+     "content": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T10:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the situation with the neighbors improve over the next few months?",
-  "scene:shared_context": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently."
+  "scene:shared_context": "The two neighbors share a property line and have had multiple disagreements in the past year. Local mediation services are available if both parties agree to participate. The weather is warm and outdoor activities are common, which may increase friction."
  },
  "history": [],
  "infos": {},

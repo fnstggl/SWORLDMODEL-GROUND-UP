@@ -1,24 +1,30 @@
 {
  "actors": [
   {
-   "name": "CEO",
-   "private_context": "CEO is responsible for the company's performance and has access to internal financial reports, sales forecasts, and strategic plans. They are optimistic about a new product launch scheduled for next quarter but are aware of potential supply chain issues."
+   "name": "Company CEO",
+   "private_context": "The CEO is responsible for the company's performance and has access to internal financial reports, sales data, and strategic plans. They are optimistic about a new product launch scheduled for early next quarter but are concerned about supply chain disruptions."
   },
   {
-   "name": "CFO",
-   "private_context": "CFO has detailed knowledge of the company's cash flow, debt obligations, and cost structure. They are concerned about rising interest rates and a potential slowdown in customer spending."
+   "name": "Market Analyst",
+   "private_context": "The analyst follows the company and its industry, publishing reports and forecasts. They have no inside information beyond public data and industry trends."
   }
  ],
- "shared_context": "The company operates in a competitive market. The next quarter (Q4 2026) will include the holiday season, which typically boosts sales. The company has a new product launching in November. Macroeconomic indicators show mixed signals: consumer confidence is moderate, and supply chain disruptions are possible.",
+ "shared_context": "The company is a mid-sized technology firm that has faced declining revenues over the past two quarters. A new product is set to launch in early Q4 2026. The broader market is volatile with potential regulatory changes. The company's stock price has been fluctuating.",
  "starting_events": [
   {
    "time": "2026-10-01T09:00:00-05:00",
-   "description": "The CEO and CFO begin the quarter with a meeting to review the outlook.",
+   "description": "The new quarter begins. The company's sales team starts executing the Q4 sales plan, which includes the new product launch.",
    "visible_to": [
-    "CEO",
-    "CFO"
+    "Company CEO"
+   ]
+  },
+  {
+   "time": "2026-10-01T09:00:00-05:00",
+   "description": "The market analyst begins reviewing Q3 earnings reports and preparing a Q4 outlook for the company.",
+   "visible_to": [
+    "Market Analyst"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the company's quarterly revenue or profit (as publicly reported or internally recorded) exceeds the previous quarter's figures by any amount before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, by the hard cutoff, the company's quarterly earnings report (or equivalent public financial statement) shows an increase in net profit or revenue compared to the previous quarter. Otherwise resolve NO."
 }

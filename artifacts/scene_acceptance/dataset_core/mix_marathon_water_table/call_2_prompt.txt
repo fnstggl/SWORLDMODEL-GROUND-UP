@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,25 +101,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Priya",
-   "private_context": "Priya has already bought cups for the water table. She is one of the Alder Court neighbors who discussed the plan on the app. She may or may not coordinate setup with others."
+   "private_context": "Priya has already bought cups for the water table. She is one of the nine households that said they are in. She may coordinate with neighbors or take initiative, but has not yet set up the table."
   },
   {
    "name": "Alder Court neighbors (collective)",
-   "private_context": "Nine households said they are in on the app. They have discussed the water table all month. No specific plan for who brings what or when to set up has been finalized beyond the general idea."
+   "private_context": "Nine households on Alder Court have discussed setting up a water table for the marathon and said they are in. They have a neighborhood app for communication. No one has yet set up the table. They may or may not coordinate effectively."
   }
  ],
- "shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table but no concrete arrangements have been made yet.",
+ "shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed the water table all month on the app. Nine households said they are in. Priya has bought cups. The table has not been set up yet as of the simulation start time.",
  "starting_events": [
   {
    "time": "2026-10-08T09:00:00-06:00",
-   "description": "The Alder Court neighbors have discussed the water table on the app all month. Nine households said they are in. Priya has bought cups. No one has yet set up the table or confirmed a time to do so.",
+   "description": "Simulation begins. No water table has been set up yet. The neighbors have discussed plans but no action has been taken beyond Priya buying cups.",
    "visible_to": [
     "Priya",
     "Alder Court neighbors (collective)"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that a water table was actually set up at the Alder Court corner before 08:30 on Sunday (2026-10-11T08:30:00-06:00). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that a water table was actually set up at the Alder Court corner before 2026-10-11T08:30:00-06:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

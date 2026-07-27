@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,24 +98,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Lucia Ferreyra",
-   "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note for the Alder Foundation and intends to send it to the program officer. She hopes for a substantive response within a month."
+   "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note describing a project she hopes the Alder Foundation will fund. She intends to send it to the program officer at the Alder Foundation. She has no prior relationship with the program officer."
   },
   {
-   "name": "Program Officer at Alder Foundation",
-   "private_context": "The program officer at the Alder Foundation receives many unsolicited proposals. They have no prior relationship with Lucia Ferreyra. They may respond substantively if the concept note aligns with the foundation's priorities and is well-prepared, but they are not obligated to respond."
+   "name": "Program Officer at the Alder Foundation",
+   "private_context": "The program officer at the Alder Foundation receives many unsolicited concept notes. They have discretion over which ones to respond to substantively. They have no prior knowledge of Lucia Ferreyra or her organization."
   }
  ],
- "shared_context": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively.",
+ "shared_context": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the program officer via email. The program officer may read it and decide whether to respond substantively (e.g., with a request for a full proposal, a meeting invitation, or detailed feedback) within a month.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00-05:00",
-   "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's program officer via the foundation's submission channel.",
+   "description": "Lucia Ferreyra sends her unsolicited concept note to the program officer at the Alder Foundation via email.",
    "visible_to": [
     "Lucia Ferreyra"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response (e.g., a detailed email, request for more information, or meeting invitation) to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response to Lucia Ferreyra (e.g., a request for a full proposal, a meeting invitation, or detailed feedback) before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Priya needs to move her Thursday dental cleaning because of a work trip. Will she and the Maple Row Dental front desk agree on a new slot by Wednesday noon?",
-  "resolution": "Resolve YES if the persistent event history shows that Priya and the front desk have agreed on a new appointment slot before the cutoff (2026-08-12T12:00:00-04:00). Resolve NO otherwise.",
+  "resolution": "Resolve YES only if the persistent event history shows that Priya and the Maple Row Dental front desk have agreed on a new appointment slot before Wednesday noon (2026-08-12T12:00:00-04:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-12T12:00:00-04:00",
   "world_id": "w_7ba71a44956f"
  },

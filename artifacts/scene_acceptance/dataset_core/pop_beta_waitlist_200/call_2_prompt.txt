@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,18 +101,18 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tidepool",
-   "private_context": "Tidepool is sending a launch email to its 5,000 newsletter subscribers. It wants at least 200 clicks to the beta waitlist within 72 hours. The email includes a personal note from the founder and the waitlist link is above the fold. Tidepool knows the typical click-through rate is 6% but hopes the personal note will increase it."
+   "private_context": "Tidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They plan to send it on launch morning. They know their typical click-through rate is 6% but hope for higher due to the personal note and prominent link."
   },
   {
-   "name": "Newsletter Subscribers (cohort)",
-   "private_context": "Each subscriber has their own habits and interests. Some may open the email, some may not. Those who open may or may not click the link. The cohort's aggregate behavior is uncertain."
+   "name": "Newsletter subscribers",
+   "private_context": "The 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails regularly, others rarely. They have no prior knowledge of the beta waitlist or the personal note."
   }
  ],
- "shared_context": "Tidepool's newsletter has 5,000 subscribers. The launch email will be sent at 2026-09-22T08:00:00-07:00. The email contains a personal note from the founder and a waitlist link above the fold. The typical click-through rate for this newsletter is 6%.",
+ "shared_context": "Tidepool will send a beta launch email to its 5,000 newsletter subscribers on 2026-09-22 at 08:00:00-07:00. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may open the email and click the link within 72 hours.",
  "starting_events": [
   {
    "time": "2026-09-22T08:00:00-07:00",
-   "description": "Tidepool sends the launch email to all 5,000 subscribers.",
+   "description": "Tidepool sends the beta launch email to all 5,000 newsletter subscribers.",
    "visible_to": [
     "Tidepool"
    ]

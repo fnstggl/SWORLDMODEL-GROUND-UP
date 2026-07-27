@@ -27,7 +27,7 @@
      "t": "2026-08-05T07:00:00+00:00"
     },
     {
-     "content": "Anouk has the email address of the founder of Veldt Solar and can send an email. The founder can read and reply to emails. The simulation runs from 2026-08-05T09:00:00+02:00 to 2026-08-19T09:00:00+02:00.",
+     "content": "Anouk has the email address of the founder of Veldt Solar. The email can be sent and received through standard email channels. The simulation starts at 2026-08-05T09:00:00+02:00 and ends at 2026-08-19T09:00:00+02:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-05T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The founder of Veldt Solar receives many unsolicited emails. They may respond to interview requests if the opportunity seems worthwhile and fits their schedule. They have no prior relationship with Anouk.",
+     "content": "The founder of Veldt Solar receives many cold emails. They may or may not respond to interview requests depending on their interest, availability, and alignment with their goals. They have no prior relationship with Anouk.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-05T07:00:00+00:00"
     },
     {
-     "content": "Anouk has the email address of the founder of Veldt Solar and can send an email. The founder can read and reply to emails. The simulation runs from 2026-08-05T09:00:00+02:00 to 2026-08-19T09:00:00+02:00.",
+     "content": "Anouk has the email address of the founder of Veldt Solar. The email can be sent and received through standard email channels. The simulation starts at 2026-08-05T09:00:00+02:00 and ends at 2026-08-19T09:00:00+02:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-05T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
-  "scene:shared_context": "Anouk has the email address of the founder of Veldt Solar and can send an email. The founder can read and reply to emails. The simulation runs from 2026-08-05T09:00:00+02:00 to 2026-08-19T09:00:00+02:00."
+  "scene:shared_context": "Anouk has the email address of the founder of Veldt Solar. The email can be sent and received through standard email channels. The simulation starts at 2026-08-05T09:00:00+02:00 and ends at 2026-08-19T09:00:00+02:00."
  },
  "history": [],
  "infos": {},

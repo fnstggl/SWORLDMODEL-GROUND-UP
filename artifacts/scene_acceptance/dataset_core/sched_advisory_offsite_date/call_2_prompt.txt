@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,30 +101,30 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Advisor 1",
-   "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+   "private_context": "Has seen the poll from the CEO's assistant. Has not yet responded. Has personal scheduling constraints for the autumn."
   },
   {
    "name": "Advisor 2",
-   "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+   "private_context": "Has seen the poll from the CEO's assistant. Has not yet responded. Has personal scheduling constraints for the autumn."
   },
   {
    "name": "Advisor 3",
-   "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+   "private_context": "Has seen the poll from the CEO's assistant. Has not yet responded. Has personal scheduling constraints for the autumn."
   },
   {
    "name": "Advisor 4",
-   "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
+   "private_context": "Has seen the poll from the CEO's assistant. Has already responded with their availability."
   },
   {
    "name": "Advisor 5",
-   "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
+   "private_context": "Has seen the poll from the CEO's assistant. Has already responded with their availability."
   }
  ],
- "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+ "shared_context": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant has sent a poll to all five advisors with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The poll is the only mechanism for settling on a date; a date is settled when all five advisors have agreed on one of the four weekends.",
  "starting_events": [
   {
    "time": "2026-07-29T09:00:00+01:00",
-   "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisors. Two advisors have already responded.",
+   "description": "The CEO's assistant's poll with four candidate weekends has been sent to all five advisors. Two advisors have already responded with their availability.",
    "visible_to": [
     "Advisor 1",
     "Advisor 2",
@@ -127,7 +134,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., all advisors have confirmed availability for a specific weekend, or a decision has been announced). Otherwise resolve NO."
+ "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that all five advisors have agreed on a specific weekend for the offsite (e.g., via poll responses or direct communication). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

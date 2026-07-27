@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,25 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Aldergate Rail",
-   "private_context": "Aldergate Rail is a railway company pursuing a merger with Valdoria Metro. The merger is under regulatory review and requires internal approvals. The CFO resigned in autumn 2019, which may have affected the merger process. Aldergate Rail's leadership is evaluating whether to proceed with the merger despite the CFO's departure."
+   "private_context": "Aldergate Rail is pursuing a merger with Valdoria Metro. Its CFO resigned in autumn 2019, which may have affected the merger process. The company is evaluating whether to proceed with the merger given the CFO's departure."
   },
   {
    "name": "Valdoria Metro",
-   "private_context": "Valdoria Metro is a metro system operator considering a merger with Aldergate Rail. The merger is subject to regulatory approval and internal board decisions. Valdoria Metro is aware of the CFO's resignation at Aldergate Rail and is assessing its impact on the merger."
+   "private_context": "Valdoria Metro is considering the merger with Aldergate Rail. It is aware of the CFO's resignation and is assessing the implications for the merger's viability."
   }
  ],
- "shared_context": "The proposed merger between Aldergate Rail and Valdoria Metro was announced in 2019. The CFO of Aldergate Rail resigned in autumn 2019. The merger requires approval from both companies' boards and relevant regulators. The resignation may have implications for the merger's financial structuring and internal support.",
+ "shared_context": "In 2019, Aldergate Rail and Valdoria Metro were in merger negotiations. The CFO of Aldergate Rail resigned in autumn 2019. The merger had not yet closed at the time of the CFO's resignation. The simulation starts at 2026-09-01T09:00:00+00:00, with the merger still pending and the CFO's resignation a past event.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+00:00",
-   "description": "The CFO of Aldergate Rail has resigned in autumn 2019. The merger process is ongoing, with both companies considering next steps.",
+   "description": "The merger between Aldergate Rail and Valdoria Metro remains pending. The CFO of Aldergate Rail resigned in autumn 2019, and the companies are at a decision point regarding whether to close the merger.",
    "visible_to": [
     "Aldergate Rail",
     "Valdoria Metro"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the merger between Aldergate Rail and Valdoria Metro closed before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the merger between Aldergate Rail and Valdoria Metro closed before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

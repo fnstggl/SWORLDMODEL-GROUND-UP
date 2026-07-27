@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -90,26 +97,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Kettlewell Parish Clerk",
-   "private_context": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees and hope for a good turnout."
+   "name": "Kettlewell parish clerk",
+   "private_context": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They hope for good turnout but have no control over who attends."
   },
   {
-   "name": "Kettlewell villagers (as a cohort)",
-   "private_context": "Villagers have seen the notices about the meeting. Some may be concerned about the bus-route cut, but attendance is voluntary and depends on individual interest and availability."
+   "name": "Villagers of Kettlewell",
+   "private_context": "The villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but attendance is voluntary and depends on individual interest and availability. The previous meeting's attendance of 22 is known to some."
   }
  ],
- "shared_context": "An open meeting about the bus-route cut is scheduled to take place in Kettlewell. The parish clerk has posted notices around the village. The meeting is open to all villagers. The last similar meeting had 22 attendees.",
+ "shared_context": "An open meeting about the bus-route cut is scheduled in Kettlewell. The parish clerk has posted notices in public places. The meeting will take place at a local venue. Attendance is open to all villagers. The last such meeting drew 22 attendees.",
  "starting_events": [
   {
    "time": "2026-09-10T09:00:00+01:00",
-   "description": "The parish clerk has posted notices about the open meeting.",
+   "description": "The parish clerk has posted notices about the open meeting regarding the bus-route cut.",
    "visible_to": [
-    "Kettlewell Parish Clerk",
-    "Kettlewell villagers (as a cohort)"
+    "Kettlewell parish clerk",
+    "Villagers of Kettlewell"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least 30 distinct villagers attended the meeting before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least thirty distinct villagers attended the open meeting before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -29,7 +29,7 @@
    {
     "t": "2026-08-30T13:00:00+00:00",
     "kind": "context",
-    "content": "A one-star review of the Copper Kettle bistro was posted on a major review site last night (2026-08-29). The review complains about a 45-minute wait. The review site allows owners to post public replies to reviews.",
+    "content": "A one-star review of the Copper Kettle bistro was posted on a major review site last night, complaining about a 45-minute wait. The review is publicly visible. Marguerite can post a public reply to the review through the site's interface.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -2,58 +2,43 @@
  "actors": [
   {
    "name": "Chair",
-   "private_context": "The chair has never missed a session and intends to attend this meeting as well. They are aware of the reschedule and the school-holiday week."
+   "private_context": "The chair has never missed a session and intends to attend this rescheduled meeting. They are aware of the quorum requirement and the school-holiday week."
   },
   {
-   "name": "Member 1",
-   "private_context": "Member 1 is traveling during the school-holiday week and cannot attend the rescheduled meeting."
+   "name": "Member A",
+   "private_context": "One of the two traveling members. They are out of town during the school-holiday week and unlikely to attend."
   },
   {
-   "name": "Member 2",
-   "private_context": "Member 2 is traveling during the school-holiday week and cannot attend the rescheduled meeting."
+   "name": "Member B",
+   "private_context": "The other traveling member. They are also out of town and unlikely to attend."
   },
   {
-   "name": "Member 3",
-   "private_context": "Member 3 has confirmed attendance at the rescheduled meeting."
+   "name": "Member C",
+   "private_context": "One of the three members who have already confirmed attendance. They plan to be present."
   },
   {
-   "name": "Member 4",
-   "private_context": "Member 4 has confirmed attendance at the rescheduled meeting."
+   "name": "Member D",
+   "private_context": "Another of the three confirmed members. They plan to be present."
   },
   {
-   "name": "Member 5",
-   "private_context": "Member 5 has confirmed attendance at the rescheduled meeting."
-  },
-  {
-   "name": "Member 6",
-   "private_context": "Member 6 has not yet confirmed attendance; their plans are unknown."
-  },
-  {
-   "name": "Member 7",
-   "private_context": "Member 7 has not yet confirmed attendance; their plans are unknown."
-  },
-  {
-   "name": "Member 8",
-   "private_context": "Member 8 has not yet confirmed attendance; their plans are unknown."
+   "name": "Member E",
+   "private_context": "The third confirmed member. They plan to be present."
   }
  ],
- "shared_context": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+ "shared_context": "The Marlin Bay harbor advisory committee has nine members. Five members are needed for quorum. The meeting is rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The remaining three members have not yet indicated their availability.",
  "starting_events": [
   {
    "time": "2026-08-09T08:00:00-07:00",
-   "description": "The committee's rescheduled Tuesday evening meeting is announced. Two members are traveling, three have confirmed, and the chair has never missed a session. The remaining four members have not yet confirmed.",
+   "description": "The rescheduled Tuesday evening meeting is announced. The chair and three members have confirmed attendance; two members are traveling; three members' availability is unknown.",
    "visible_to": [
     "Chair",
-    "Member 1",
-    "Member 2",
-    "Member 3",
-    "Member 4",
-    "Member 5",
-    "Member 6",
-    "Member 7",
-    "Member 8"
+    "Member A",
+    "Member B",
+    "Member C",
+    "Member D",
+    "Member E"
    ]
   }
  ],
- "resolution": "Resolve YES if at least five members (including the chair) are physically present at the meeting location at the scheduled start time or within a reasonable grace period (e.g., 15 minutes). Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least five members (including the chair) are physically present at the meeting location at the scheduled start time. Otherwise resolve NO at the hard cutoff."
 }

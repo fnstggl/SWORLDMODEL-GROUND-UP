@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses a generic placeholder actor 'Communications Lead' who is not identified in the question or context. The question mentions 'the communications lead' but does not provide a name or unique identifier; this is an unnamed but uniquely identified person from the context, which is legitimate. However, the actor 'Nimbus Freight' is an organization, not an individual actor capable of making decisions or sending emails in a social simulator. The scene lacks a concrete decision-maker who can act (e.g., a specific employee or system). The resolution depends on an action (sending an email) that requires a human actor, but the only human actor is the Communications Lead who is unreachable. The scene does not specify who else could send the email, making it unclear how the action can occur. This is not a simulatable social scene because the decision-making entity is missing or ill-defined.",
+   "correction": "Replace 'Nimbus Freight' with a specific actor who can send the email, such as 'Incident Manager' or 'On-call Engineer', and ensure the Communications Lead's role is clear. Alternatively, if the Communications Lead is the only one who can decide, the scene must explain how the decision can be made despite being unreachable."
+  }
+ ]
 }

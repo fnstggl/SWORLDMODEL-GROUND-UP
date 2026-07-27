@@ -2,21 +2,20 @@
  "actors": [
   {
    "name": "Dario",
-   "private_context": "Dario wants Selin to play bass at his October wedding. He has messaged her asking. He hopes for a response within ten days."
+   "private_context": "Dario wants Selin to play bass at his October wedding. He has messaged her asking about it. He hopes for a response within ten days."
   },
   {
    "name": "Selin",
-   "private_context": "Selin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario two years ago when their band dissolved. She has received Dario's message but has not yet responded."
+   "private_context": "Selin is a busy gigging musician in Istanbul. She parted on good terms with Dario two years ago. She receives many messages and may or may not respond promptly."
   }
  ],
- "shared_context": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent before the simulation start time.",
+ "shared_context": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can reply.",
  "starting_events": [
   {
    "time": "2026-08-01T12:00:00+03:00",
-   "description": "Dario's message to Selin is already in her inbox, unread or read but not yet answered.",
+   "description": "Dario sends a message to Selin asking if she will play bass at his October wedding.",
    "visible_to": [
-    "Dario",
-    "Selin"
+    "Dario"
    ]
   }
  ],

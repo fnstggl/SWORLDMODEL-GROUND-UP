@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,26 +98,26 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tenants' Association of the Aurora Block",
-   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have shown interest in the role. The association has no prior knowledge of which candidate will be chosen or if an election will succeed."
+   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have expressed interest in the role, but no decision has been made yet."
   },
   {
    "name": "Resident 1",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+   "private_context": "Has shown interest in becoming treasurer. May attend the meeting and may volunteer or accept nomination."
   },
   {
    "name": "Resident 2",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+   "private_context": "Has shown interest in becoming treasurer. May attend the meeting and may volunteer or accept nomination."
   },
   {
    "name": "Resident 3",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+   "private_context": "Has shown interest in becoming treasurer. May attend the meeting and may volunteer or accept nomination."
   }
  ],
- "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight, starting at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The meeting will proceed with attendees present; the election outcome depends on nominations, votes, and whether a candidate accepts.",
+ "shared_context": "The tenants' association of the Aurora Block is holding its first meeting of the season tonight at 18:30. The meeting will include an election for treasurer. Three residents have shown interest in the position. The meeting is scheduled to last until 21:30.",
  "starting_events": [
   {
    "time": "2026-09-02T18:30:00+02:00",
-   "description": "The first meeting of the season of the Aurora Block tenants' association begins.",
+   "description": "The tenants' association meeting begins.",
    "visible_to": [
     "Tenants' Association of the Aurora Block",
     "Resident 1",
@@ -119,7 +126,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected (i.e., a person accepted the role and was confirmed by the association) before the cutoff at 2026-09-02T21:30:00+02:00. Otherwise resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected during the meeting (i.e., a vote was held and a candidate accepted the position) before the cutoff at 2026-09-02T21:30:00+02:00. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,25 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Donald Trump",
-   "private_context": "Trump is the Republican presidential nominee. He has been invited to the Al Smith Dinner on October 20, 2016. He is considering whether to attend, weighing the tradition of the event against his campaign schedule and potential political benefits or drawbacks."
+   "private_context": "Donald Trump is the Republican Party's presidential nominee. He has been invited to the Al Smith Memorial Foundation Dinner on October 20, 2016. He has not yet confirmed attendance. He may consider the political implications and his schedule."
   },
   {
    "name": "Hillary Clinton",
-   "private_context": "Clinton is the Democratic presidential nominee. She has been invited to the Al Smith Dinner on October 20, 2016. She is considering whether to attend, aware of the tradition and the potential for the event to be a positive or negative campaign moment."
+   "private_context": "Hillary Clinton is the Democratic Party's presidential nominee. She has been invited to the Al Smith Memorial Foundation Dinner on October 20, 2016. She has not yet confirmed attendance. She may consider the political implications and her schedule."
   }
  ],
- "shared_context": "The Al Smith Memorial Foundation Dinner is a charitable event held annually in New York City, traditionally attended by major-party presidential candidates. The 2016 dinner is scheduled for October 20, 2016. Both nominees have been invited. The event is known for its lighthearted, bipartisan atmosphere, but attendance is not mandatory. The decision to attend is made by each candidate individually, and their campaigns may consider scheduling conflicts, political strategy, and the potential for media coverage.",
+ "shared_context": "The Al Smith Memorial Foundation Dinner is a charitable event held annually in New York City, traditionally attended by major-party presidential candidates. The dinner is scheduled for October 20, 2016. Both major-party nominees have been invited. As of October 1, 2016, neither has publicly confirmed whether they will attend in person.",
  "starting_events": [
   {
    "time": "2016-10-01T09:00:00-04:00",
-   "description": "Both Donald Trump and Hillary Clinton have received invitations to the Al Smith Dinner on October 20, 2016. No public confirmation of attendance has been made by either campaign as of this time.",
+   "description": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016. Invitations have been extended to both major-party presidential nominees, Donald Trump and Hillary Clinton. Neither has publicly confirmed attendance.",
    "visible_to": [
     "Donald Trump",
     "Hillary Clinton"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that both Donald Trump and Hillary Clinton physically attended the Al Smith Dinner on October 20, 2016. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that both Donald Trump and Hillary Clinton actually attended the Al Smith Memorial Foundation Dinner in person on October 20, 2016. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

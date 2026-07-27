@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,30 +101,30 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Committee Member A",
-   "private_context": "Lives near the proposed site. Has received many emails from constituents both for and against the relocation. Personally leans against the move due to noise concerns but has not publicly stated a position."
+   "private_context": "Lives near the proposed skate-park relocation site. Has received many emails from constituents both for and against. Has not yet decided how to vote."
   },
   {
    "name": "Committee Member B",
-   "private_context": "Lives near the proposed site. Has heard from neighbors who are strongly in favor of the relocation for safety reasons. Undecided but feels pressure from the community."
+   "private_context": "Lives near the proposed skate-park relocation site. Has received many emails from constituents both for and against. Has not yet decided how to vote."
   },
   {
    "name": "Committee Member C",
-   "private_context": "Does not live near the site. Has read the letters in the local paper and attended one public comment session. Generally supports the relocation as a way to improve park usage."
+   "private_context": "Does not live near the site. Has followed the public comments and letters. Has not yet decided how to vote."
   },
   {
    "name": "Committee Member D",
-   "private_context": "Does not live near the site. Has received a mix of input but is concerned about the cost. Leaning against the relocation but open to persuasion."
+   "private_context": "Does not live near the site. Has followed the public comments and letters. Has not yet decided how to vote."
   },
   {
    "name": "Committee Member E",
-   "private_context": "Does not live near the site. Has strong opinions from the public comment periods and is firmly in favor of the relocation."
+   "private_context": "Does not live near the site. Has followed the public comments and letters. Has not yet decided how to vote."
   }
  ],
- "shared_context": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+ "shared_context": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members.",
  "starting_events": [
   {
    "time": "2026-09-14T09:00:00-06:00",
-   "description": "The committee members are aware of the upcoming vote on Thursday. No further events have occurred yet.",
+   "description": "The committee members are aware of the upcoming Thursday session and the skate-park relocation vote.",
    "visible_to": [
     "Committee Member A",
     "Committee Member B",
@@ -127,7 +134,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during Thursday's session. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session before the cutoff. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

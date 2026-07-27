@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-04T19:00:00+00:00",
    "visible_to_ids": [
-    "dana"
+    "dana",
+    "yusuf"
    ],
-   "description": "Dana drafts a proposed cleaning rota and sends it to the flat group chat, tagging Yusuf for his review and sign-off."
+   "description": "Dana and Yusuf are aware that they need to agree on a cleaning rota. No proposal has been made yet."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +24,16 @@
  "personas": {
   "dana": {
    "name": "Dana",
-   "persona_brief": "You are Dana.\nDana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
+   "persona_brief": "You are Dana.\nDana wants a cleaning rota that feels fair and is willing to negotiate. Dana has some preferences about task distribution but is open to discussion."
   },
   "yusuf": {
    "name": "Yusuf",
-   "persona_brief": "You are Yusuf.\nYusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and may be open to agreeing if the terms are acceptable."
+   "persona_brief": "You are Yusuf.\nYusuf wants a cleaning rota that is simple and not too demanding. Yusuf has some preferences about task distribution but is open to discussion."
   }
  },
  "resolution": {
   "question": "Will flatmates Dana and Yusuf agree on a cleaning rota that both explicitly sign off on in their flat group chat before Sunday night?",
-  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the group chat indicating their agreement (e.g., 'I agree', 'Signed off', or similar) before the cutoff time. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have sent messages in the flat group chat explicitly stating their agreement to a specific cleaning rota before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-09T23:00:00+00:00",
   "world_id": "w_a6afaa714c2e"
  }

@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "CFO",
-      "private_context": "The CFO previously pushed back on the marketing team's original Q4 budget, leading to a revised proposal eight percent lower. The CFO has a decent working relationship with the CMO and meets weekly. The CFO has not yet decided whether to approve the revised budget."
+      "private_context": "The CFO pushed back on the original Q4 budget, leading to an eight percent reduction. They have a decent working relationship with the CMO and meet weekly. The CFO is aware of the upcoming leadership offsite on the 21st where the campaign is on the agenda."
     },
     {
       "name": "CMO",
-      "private_context": "The CMO leads the marketing team and has revised the Q4 budget to be eight percent below the original ask after the CFO's pushback. The CMO has a decent working relationship with the CFO and meets weekly. The CMO wants the revised budget approved before the leadership offsite."
+      "private_context": "The CMO leads the marketing team and revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have a decent working relationship with the CFO and meet weekly. The CMO wants the revised budget approved before the offsite."
     }
   ],
-  "shared_context": "Ostara Foods has a leadership offsite scheduled for September 21, 2026, where the campaign is listed as a topic. The CFO and CMO have weekly meetings. The revised Q4 budget is eight percent below the original ask. The CFO has not yet communicated a decision on the revised budget.",
+  "shared_context": "Ostara Foods has a leadership offsite scheduled for September 21, 2026. The offsite agenda lists the campaign as a topic. The CFO and CMO have weekly meetings. The revised Q4 budget is eight percent below the original ask.",
   "starting_events": [
     {
       "time": "2026-09-08T09:00:00+01:00",
-      "description": "The simulation begins. The CFO and CMO are aware of the revised Q4 budget proposal and the upcoming offsite. No decision has been made yet.",
-      "visible_to": ["CFO", "CMO"]
+      "description": "The marketing team's revised Q4 budget is ready for CFO approval.",
+      "visible_to": ["CMO"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the marketing team (or the CMO) before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the CFO formally approved the revised Q4 budget before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

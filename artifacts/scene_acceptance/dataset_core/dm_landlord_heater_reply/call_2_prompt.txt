@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,18 +98,18 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Maya Okonkwo",
-   "private_context": "Maya texted her landlord Stavros this morning about a broken water heater. She hopes for a reply soon."
+   "private_context": "Maya is a tenant. She texted her landlord Stavros this morning about a broken water heater. She hopes for a reply soon."
   },
   {
    "name": "Stavros",
-   "private_context": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply depending on his schedule and priorities."
+   "private_context": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply, depending on his priorities and availability."
   }
  ],
- "shared_context": "Maya Okonkwo is a tenant. Stavros is her landlord. The water heater is broken. Maya sent a text message to Stavros this morning (2026-07-28) about the issue. Stavros has the message and can reply via text.",
+ "shared_context": "Maya and Stavros have a landlord-tenant relationship. They communicate via text message. The water heater is broken and needs attention.",
  "starting_events": [
   {
    "time": "2026-07-28T08:30:00-04:00",
-   "description": "Maya Okonkwo sends a text message to Stavros about the broken water heater.",
+   "description": "Maya sends a text message to Stavros about the broken water heater.",
    "visible_to": [
     "Maya Okonkwo"
    ]

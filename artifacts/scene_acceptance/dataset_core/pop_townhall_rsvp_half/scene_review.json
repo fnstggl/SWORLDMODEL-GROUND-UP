@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses a generic placeholder actor 'Invited parents (as a cohort)' to represent 120 unnamed parents. The question does not identify any specific parent, so this is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
+   "correction": "The question lacks enough information to identify the decision-makers or the observed resolving event. The scene cannot be simulated as a social scene with individual actors because the parents are not individually identified and their decisions are aggregated. Abstain."
+  }
+ ]
 }

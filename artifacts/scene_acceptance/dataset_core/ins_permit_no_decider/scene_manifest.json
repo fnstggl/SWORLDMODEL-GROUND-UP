@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Applicant",
-   "private_context": "Applicant has submitted a permit application and wants it approved by the end of August. Applicant has no special influence over the process."
+   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no direct influence over the decision beyond providing required documentation."
   },
   {
-   "name": "Permit Reviewer",
-   "private_context": "Permit Reviewer is responsible for evaluating the application. They follow standard procedures and have a backlog of applications. They have no prior knowledge of the Applicant."
+   "name": "Permit Office",
+   "private_context": "The Permit Office reviews applications and makes approval decisions based on completeness and compliance with regulations. They have a backlog and process applications in order of submission."
   }
  ],
- "shared_context": "The permit application is complete and pending review. The review process typically takes several weeks. The deadline for approval is end of August 2026.",
+ "shared_context": "The permit application was submitted before July 27, 2026. The Permit Office has all necessary documentation. The office operates during business hours and aims to process applications within 30 days, but delays are possible due to workload.",
  "starting_events": [
   {
    "time": "2026-07-27T09:00:00-05:00",
-   "description": "The permit application is in the queue for review.",
+   "description": "The permit application is in the Permit Office's queue for review.",
    "visible_to": [
-    "Permit Reviewer"
+    "Permit Office"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the permit was officially approved before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the Permit Office issued an approval decision for the permit before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
 }

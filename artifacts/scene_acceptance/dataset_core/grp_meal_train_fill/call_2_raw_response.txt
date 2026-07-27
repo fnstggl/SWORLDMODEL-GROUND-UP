@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene uses a generic placeholder actor 'Neighbors of Alder Court' to represent an unspecified group of sixty households. The question does not identify any specific neighbors, and the scene invents a collective actor that cannot be individually simulated. This violates the rule against generic placeholder actors standing in for parties the question never identifies.",
+   "correction": "The scene cannot be salvaged without identifying specific neighbors or a mechanism for individual decision-making. The question lacks sufficient information to simulate the social dynamics of sixty unnamed households."
+  }
+ ]
 }

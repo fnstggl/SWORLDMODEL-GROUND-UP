@@ -2,5 +2,5 @@
   "actors": [],
   "shared_context": "",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: No question was provided."
+  "resolution": "UNRESOLVABLE: No question provided."
 }

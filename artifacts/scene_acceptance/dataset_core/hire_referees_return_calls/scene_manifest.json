@@ -1,31 +1,27 @@
 {
  "actors": [
   {
-   "name": "Aoife Byrne",
-   "private_context": "Aoife Byrne is a shortlisted candidate for a position. She has provided the names of two referees to the recruiter. She wants the referees to respond to the recruiter's calls before the interview panel meets next Thursday."
+   "name": "Recruiter",
+   "private_context": "The recruiter has been trying to contact two referees listed by Aoife Byrne. They have left messages for both referees and hopes to hear back before the interview panel meets next Thursday."
   },
   {
    "name": "Referee 1",
-   "private_context": "Referee 1 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be aware of the urgency."
+   "private_context": "Referee 1 is a professional who may be busy and may or may not return calls promptly. They have no prior relationship with the recruiter beyond being listed as a referee."
   },
   {
    "name": "Referee 2",
-   "private_context": "Referee 2 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be aware of the urgency."
-  },
-  {
-   "name": "Recruiter",
-   "private_context": "The recruiter is responsible for contacting the referees of shortlisted candidates. They have called both referees listed by Aoife Byrne but have not yet received a return call. They need the referees' responses before the interview panel meets next Thursday."
+   "private_context": "Referee 2 is a professional who may be busy and may or may not return calls promptly. They have no prior relationship with the recruiter beyond being listed as a referee."
   }
  ],
- "shared_context": "The interview panel is scheduled to meet on Thursday, 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received return calls. The referees have the recruiter's contact information and can return the calls at any time before the meeting.",
+ "shared_context": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter has attempted to contact these referees by phone and left messages. The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter needs to hear back from both referees before that meeting.",
  "starting_events": [
   {
    "time": "2026-08-14T09:00:00+01:00",
-   "description": "The recruiter has already called both referees listed by Aoife Byrne. Neither referee has returned the call yet.",
+   "description": "The recruiter has already left voicemail messages for both referees requesting a call back.",
    "visible_to": [
     "Recruiter"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that both referees actually returned the recruiter's calls before 2026-08-20T09:00:00+01:00. Otherwise resolve NO at that cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that both referees actually returned the recruiter's calls before 2026-08-20T09:00:00+01:00. Otherwise resolve NO at the cutoff."
 }
