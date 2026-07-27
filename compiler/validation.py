@@ -298,6 +298,9 @@ def validate_world(graph: WorldGraph, plan: dict) -> Report:
                 f"participant {aid!r} has no attention pattern, no scheduled "
                 f"wake, and no watch: they will never act unless something "
                 f"else is added -- is that the real situation?")
+            if world.channels:
+                rep.patchable.append({"kind": "no_attention", "actor": aid,
+                                      "channels": sorted(world.channels)})
 
     # -- forward: authority sanity for every defined verb ---------------
     for verb, d in sorted(world.action_defs.items()):

@@ -142,7 +142,7 @@ def test_review_objection_triggers_one_repair_round():
 
 def test_second_rejection_fails_with_reasons():
     script = Script(one_round(REVISE, APPROVE) + one_round(REVISE, APPROVE))
-    result = compile_scripted(script)
+    result = compile_scripted(script, max_repair_rounds=1)
     assert result.status == "failed"
     assert any("unrealistic" in r for r in result.report["reasons"])
 

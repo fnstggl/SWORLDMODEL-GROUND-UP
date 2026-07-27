@@ -124,9 +124,11 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
                 "description": description, "translations": translations,
                 "reasons": [f"assembly: {e}" for e in errors] + dropped}
     report = validation.validate_world(graph, plan)
-    if not report.ok() and report.patchable:
+    if report.patchable:
         # surgical repair first: one targeted translation per finding beats
-        # re-rolling the whole world description
+        # re-rolling the whole world description.  This runs for blocking
+        # findings AND for review-magnet findings (a participant who could
+        # never act), so reviewers see the patched world.
         patch_records = translation.translate_patches(
             question, res, graph, report.patchable[:4], caller, trace,
             corrections)
@@ -136,7 +138,9 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
                                                evidence_of=evidence_map.get)
             if not errors2:
                 report2 = validation.validate_world(graph, plan2)
-                if len(report2.blocking) < len(report.blocking):
+                better = (len(report2.blocking), len(report2.needs_review)) \
+                    <= (len(report.blocking), len(report.needs_review))
+                if better:
                     plan, report = plan2, report2
     if not report.ok():
         dropped = _load_bearing_drops(translations)
@@ -192,7 +196,7 @@ def compile_question(question: str, asof: str | None = None,
                      evidence_docs: list | None = None,
                      caller: Caller | None = None,
                      out_dir: str | None = None,
-                     max_repair_rounds: int = 1) -> CompileResult:
+                     max_repair_rounds: int = 2) -> CompileResult:
     """The public entry point.  Never raises: every outcome -- compiled,
     refused, or failed -- is a structured CompileResult with artifacts."""
     asof = asof or _dt.date.today().isoformat()
@@ -205,6 +209,7 @@ def compile_question(question: str, asof: str | None = None,
         corrections = ""
         attempt = None
         previous = None
+        challenged = False
         for round_no in range(max_repair_rounds + 1):
             attempt = _attempt(question, asof, registry, caller, trace,
                                corrections, previous)
@@ -214,11 +219,12 @@ def compile_question(question: str, asof: str | None = None,
             if attempt["outcome"] == "ok":
                 break
             if attempt["outcome"] == "refused":
-                # a refusal must survive one challenge: decision-dependent,
-                # "likely to", and normative questions are modelable by
-                # doctrine, and only a repeated refusal is final
-                if round_no >= max_repair_rounds:
+                # a refusal must survive exactly one challenge:
+                # decision-dependent, "likely to", and normative questions
+                # are modelable by doctrine, and a repeated refusal is final
+                if challenged or round_no >= max_repair_rounds:
                     break
+                challenged = True
                 repair_rounds.append(attempt["reasons"])
                 corrections = (
                     "You refused this question as unmodelable, saying:\n"

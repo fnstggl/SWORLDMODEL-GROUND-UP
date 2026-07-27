@@ -2,67 +2,127 @@
  "question": "Is a concise cold email from an unknown sports-analytics startup founder -- asking Mark Cuban for a 15-minute call and referencing his Cost Plus Drugs playbook -- likely to get a response from him within two weeks?",
  "report": {
   "reasons": [
-   "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
-   "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
-   "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
-   "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
-   "item participants[3] ('Mark Cuban receives a high volume of emails daily, and his response rate to cold') was not expressed: The item describes a general fact about Mark Cuban's email volume and response rate, not a participant or aggregate to add. It belongs to a different category (",
-   "item participants[4] (\"The email references Mark Cuban's Cost Plus Drugs playbook, which may increase h\") was not expressed: The item describes a belief or potential effect on Mark Cuban's interest, which is not a participant, aggregate, or any other capability in the allowed list for",
-   "item participants[5] ('The email must pass spam filters and be seen by Mark Cuban or his delegate withi') was not expressed: The item describes a condition (email passing spam filters and being seen) rather than a participant or aggregate. It belongs to a different category (e.g., cha",
-   "item communication[0] (\"The founder sends the email to Mark Cuban's known business email address, which \") was not expressed: references could not be resolved: communication[0]: unknown name 'email' -- every reference must be a declared name (declared: ['mark_cuban', 'the_founder'])",
-   "item communication[3] (\"Mark Cuban's typical email checking pattern is unknown; he may check multiple ti\") was not expressed: The item describes a pattern of attention (email checking) but does not name a channel that has been declared. The only declared names are participants 'the_fou",
-   "item actions[0] (\"The founder can send a concise cold email to Mark Cuban's known business email a\") was not expressed: The channel 'email' is not declared. The item states the founder can send an email, but no channel named 'email' exists in the declared names. To model this, a "
+   "reality review: Mark Cuban's attention pattern is declared as checking every 480 minutes, but the model also says his email checking habits are uncertain and may be delegated. This contradiction and the fixed schedule pre-write the outcome instead of letting it emerge from realistic uncertainty.: The world declares a deterministic attention schedule for Mark Cuban (every 480 min, 09-17, all days) but also lists multiple items stating his checking habits are uncertain and may involve delegation. This inconsistency distorts reality: in reality, Cuban's attention is not a fixed clock; it depends on his personal workflow and delegation. The fixed schedule makes it too likely he will see the email, pre-judging the outcome. (fix: Remove the fixed attention pattern for Mark Cuban. Instead, model his email checking as an uncertain process: either declare no known pattern (information may remain unnoticed) or add a process that checks email at random intervals (but chance is not allowed). Alternatively, model an assistant who screens emails with a realistic but uncertain rule, without pre-determining the outcome.)",
+   "reality review: The spam filter process is declared as always active but with no effect on delivery; the fact 'cold_email_cost_plus_drugs_reduces_spam_filter' is a pre-written outcome that bypasses realistic filtering uncertainty.: The spam filter is modeled as an ongoing process with rate 0.0/h, meaning it never actually changes anything. Yet the fact 'cold_email_cost_plus_drugs_reduces_spam_filter = True' pre-writes that the email will bypass spam filtering because it references Cost Plus Drugs. This is a deterministic rule that guarantees delivery, ignoring real-world uncertainty about spam filters. In reality, even relevant cold emails can be filtered. (fix: Remove the fact that pre-writes spam filter bypass. Instead, model the spam filter as a process that may or may not filter the email based on content, but without a deterministic rule. Since chance is not allowed, the only honest approach is to leave the outcome uncertain: do not pre-decide whether the email lands in inbox or spam.)",
+   "reality review: The founder has no attention pattern, so they can never read a reply from Mark Cuban. This makes the terminal condition impossible to satisfy, pre-writing a 'NO' outcome.: The founder has no attention pattern, no scheduled wake, and no watch. This means any reply sent by Mark Cuban will remain unnoticed by the founder, so the terminal condition ('mark_cuban has noticed information from the_founder of type cold_email_reply') can never be true. This pre-writes a 'NO' answer regardless of what Mark Cuban does, which is not realistic: in reality, the founder would check their email and see a reply. (fix: Give the founder a realistic attention pattern for email, e.g., checking every 60-480 minutes during waking hours. Alternatively, model the founder as having a watch on their email inbox so they notice incoming replies immediately. Without this, the simulation cannot produce a 'YES' outcome.)",
+   "meaning review: Mark Cuban's email address mismatch: The approved description states Mark Cuban's email address is mark.cuban@markcuban.com, but the runtime reconstruction uses mcuban@dallasmavs.com. This changes the route and could affect delivery. (fix: Change the email address in the runtime to mark.cuban@markcuban.com.)",
+   "meaning review: Spam filter process always active: The approved description says spam filtering is uncertain (may or may not filter), but the runtime has spam_filter_unknown_senders always active and running at start, making it deterministic rather than uncertain. (fix: Make the spam filter process probabilistic or allow it to be inactive based on uncertainty.)",
+   "meaning review: Founder's startup working product/revenue fact: The approved description excludes this as uncertain, but the runtime sets founder_startup_working_product_or_revenue = True as a fact, which is not described and may influence Mark Cuban's decision. (fix: Remove this fact or mark it as uncertain.)",
+   "meaning review: Mark Cuban's email checking schedule: The approved description says the exact cadence is unknown, but the runtime specifies a fixed schedule (every 480 minutes, 09:00-17:00, all days). This over-constrains the uncertainty. (fix: Make the email checking schedule variable or uncertain, e.g., random intervals.)",
+   "reality review requires a fix: participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation? -- The founder has no attention pattern, so they can never notice a reply. This pre-writes a 'NO' outcome, which is not realistic. The founder would check their email and see a reply if one is sent."
   ],
   "repair_rounds": [
    [
-    "reality review: participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: The founder is defined as a participant but has no attention pattern, no scheduled wake, and no watch. This means the founder will never act after sending the initial email, which is unrealistic. In reality, the founder would check for a reply and potentially follow up. However, since the question only asks about Mark Cuban's response within two weeks, the founder's inaction after sending does not affect the outcome. The founder's lack of attention does not distort the simulation because the founder's only required action is sending the email, which is already scheduled. The founder does not need to act further to determine if Mark Cuban responds. Therefore, this is acceptable. (fix: No fix needed; the founder's role is complete after sending.)"
+    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+    "item participants[1] (\"Mark Cuban's decision to reply to a cold email within two weeks depends on his p\") was not expressed: The item describes an uncertain future decision that cannot be modeled as a capability, fact, or scheduled event. It does not specify a concrete action, resourc",
+    "item communication[3] ('Mark Cuban personally checks his email at least once per day, but the exact cade') was not expressed: The item states that the exact cadence and times are unknown, so no concrete attention pattern can be declared. Using mode 'none_known' would mean information r",
+    "item communication[5] (\"The founder can send an email to Mark Cuban's known email address using any stan\") was not expressed: The channel 'email' is not a declared name; no channel named 'email' exists in the declared names list.",
+    "item communication[6] (\"Mark Cuban's decision to reply within two weeks depends on his personal interest\") was not expressed: The item describes a future decision that depends on unspecified personal factors (interest, availability, assistant screening) which cannot be modeled as a det",
+    "item actions[0] ('Mark Cuban may delegate email reading to an assistant who filters messages.') was not expressed: The item describes a possible behavior (delegation) that is not a fixed fact, nor does it define a new action, participant, or other capability. It is a specula",
+    "item actions[1] ('Mark Cuban may personally read the email if it passes spam filters and is not fi') was not expressed: no valid translation: translate.actions[1]: no valid response after 3 attempts: ['define_action.effects[0]: author is only valid in external events (inside an a"
    ],
    [
-    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
-    "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
-    "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
-    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
-    "item participants[3] ('Mark Cuban receives a high volume of emails daily, and his response rate to cold') was not expressed: The item describes a general fact about Mark Cuban's email volume and response rate, not a participant or aggregate to add. It belongs to a different category (",
-    "item participants[4] (\"The email references Mark Cuban's Cost Plus Drugs playbook, which may increase h\") was not expressed: The item describes a belief or potential effect on Mark Cuban's interest, which is not a participant, aggregate, or any other capability in the allowed list for",
-    "item participants[5] ('The email must pass spam filters and be seen by Mark Cuban or his delegate withi') was not expressed: The item describes a condition (email passing spam filters and being seen) rather than a participant or aggregate. It belongs to a different category (e.g., cha",
-    "item communication[0] (\"The founder sends the email to Mark Cuban's known business email address, which \") was not expressed: references could not be resolved: communication[0]: unknown name 'email' -- every reference must be a declared name (declared: ['mark_cuban', 'the_founder'])",
-    "item communication[3] (\"Mark Cuban's typical email checking pattern is unknown; he may check multiple ti\") was not expressed: The item describes a pattern of attention (email checking) but does not name a channel that has been declared. The only declared names are participants 'the_fou",
-    "item actions[0] (\"The founder can send a concise cold email to Mark Cuban's known business email a\") was not expressed: The channel 'email' is not declared. The item states the founder can send an email, but no channel named 'email' exists in the declared names. To model this, a "
+    "reality review: Mark Cuban's attention pattern is declared as checking every 480 minutes, but the model also says his email checking habits are uncertain and may be delegated. This contradiction and the fixed schedule pre-write the outcome instead of letting it emerge from realistic uncertainty.: The world declares a deterministic attention schedule for Mark Cuban (every 480 min, 09-17, all days) but also lists multiple items stating his checking habits are uncertain and may involve delegation. This inconsistency distorts reality: in reality, Cuban's attention is not a fixed clock; it depends on his personal workflow and delegation. The fixed schedule makes it too likely he will see the email, pre-judging the outcome. (fix: Remove the fixed attention pattern for Mark Cuban. Instead, model his email checking as an uncertain process: either declare no known pattern (information may remain unnoticed) or add a process that checks email at random intervals (but chance is not allowed). Alternatively, model an assistant who screens emails with a realistic but uncertain rule, without pre-determining the outcome.)",
+    "reality review: The spam filter process is declared as always active but with no effect on delivery; the fact 'cold_email_cost_plus_drugs_reduces_spam_filter' is a pre-written outcome that bypasses realistic filtering uncertainty.: The spam filter is modeled as an ongoing process with rate 0.0/h, meaning it never actually changes anything. Yet the fact 'cold_email_cost_plus_drugs_reduces_spam_filter = True' pre-writes that the email will bypass spam filtering because it references Cost Plus Drugs. This is a deterministic rule that guarantees delivery, ignoring real-world uncertainty about spam filters. In reality, even relevant cold emails can be filtered. (fix: Remove the fact that pre-writes spam filter bypass. Instead, model the spam filter as a process that may or may not filter the email based on content, but without a deterministic rule. Since chance is not allowed, the only honest approach is to leave the outcome uncertain: do not pre-decide whether the email lands in inbox or spam.)",
+    "reality review: The founder has no attention pattern, so they can never read a reply from Mark Cuban. This makes the terminal condition impossible to satisfy, pre-writing a 'NO' outcome.: The founder has no attention pattern, no scheduled wake, and no watch. This means any reply sent by Mark Cuban will remain unnoticed by the founder, so the terminal condition ('mark_cuban has noticed information from the_founder of type cold_email_reply') can never be true. This pre-writes a 'NO' answer regardless of what Mark Cuban does, which is not realistic: in reality, the founder would check their email and see a reply. (fix: Give the founder a realistic attention pattern for email, e.g., checking every 60-480 minutes during waking hours. Alternatively, model the founder as having a watch on their email inbox so they notice incoming replies immediately. Without this, the simulation cannot produce a 'YES' outcome.)",
+    "meaning review: Mark Cuban's email address mismatch: The approved description states Mark Cuban's email address is mark.cuban@markcuban.com, but the runtime reconstruction uses mcuban@dallasmavs.com. This changes the route and could affect delivery. (fix: Change the email address in the runtime to mark.cuban@markcuban.com.)",
+    "meaning review: Spam filter process always active: The approved description says spam filtering is uncertain (may or may not filter), but the runtime has spam_filter_unknown_senders always active and running at start, making it deterministic rather than uncertain. (fix: Make the spam filter process probabilistic or allow it to be inactive based on uncertainty.)",
+    "meaning review: Founder's startup working product/revenue fact: The approved description excludes this as uncertain, but the runtime sets founder_startup_working_product_or_revenue = True as a fact, which is not described and may influence Mark Cuban's decision. (fix: Remove this fact or mark it as uncertain.)",
+    "meaning review: Mark Cuban's email checking schedule: The approved description says the exact cadence is unknown, but the runtime specifies a fixed schedule (every 480 minutes, 09:00-17:00, all days). This over-constrains the uncertainty. (fix: Make the email checking schedule variable or uncertain, e.g., random intervals.)",
+    "reality review requires a fix: participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation? -- The founder has no attention pattern, so they can never notice a reply. This pre-writes a 'NO' outcome, which is not realistic. The founder would check their email and see a reply if one is sent."
    ]
   ],
-  "reviews": null,
+  "reviews": {
+   "meaning": {
+    "objections": [
+     {
+      "about": "Mark Cuban's email address mismatch",
+      "fix_hint": "Change the email address in the runtime to mark.cuban@markcuban.com.",
+      "objection": "The approved description states Mark Cuban's email address is mark.cuban@markcuban.com, but the runtime reconstruction uses mcuban@dallasmavs.com. This changes the route and could affect delivery.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Spam filter process always active",
+      "fix_hint": "Make the spam filter process probabilistic or allow it to be inactive based on uncertainty.",
+      "objection": "The approved description says spam filtering is uncertain (may or may not filter), but the runtime has spam_filter_unknown_senders always active and running at start, making it deterministic rather than uncertain.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Founder's startup working product/revenue fact",
+      "fix_hint": "Remove this fact or mark it as uncertain.",
+      "objection": "The approved description excludes this as uncertain, but the runtime sets founder_startup_working_product_or_revenue = True as a fact, which is not described and may influence Mark Cuban's decision.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Mark Cuban's email checking schedule",
+      "fix_hint": "Make the email checking schedule variable or uncertain, e.g., random intervals.",
+      "objection": "The approved description says the exact cadence is unknown, but the runtime specifies a fixed schedule (every 480 minutes, 09:00-17:00, all days). This over-constrains the uncertainty.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Founder's timezone",
+      "fix_hint": "No change needed, but ensure consistency with the start time.",
+      "objection": "The approved description does not specify the founder's timezone; the runtime sets it to UTC. This is a minor addition but does not materially affect the outcome.",
+      "severity": "minor"
+     }
+    ],
+    "verdict": "revise"
+   },
+   "reality": {
+    "dispositions": [
+     {
+      "disposition": "must_fix",
+      "finding": 1,
+      "why": "The founder has no attention pattern, so they can never notice a reply. This pre-writes a 'NO' outcome, which is not realistic. The founder would check their email and see a reply if one is sent."
+     }
+    ],
+    "objections": [
+     {
+      "about": "Mark Cuban's attention pattern is declared as checking every 480 minutes, but the model also says his email checking habits are uncertain and may be delegated. This contradiction and the fixed schedule pre-write the outcome instead of letting it emerge from realistic uncertainty.",
+      "fix_hint": "Remove the fixed attention pattern for Mark Cuban. Instead, model his email checking as an uncertain process: either declare no known pattern (information may remain unnoticed) or add a process that checks email at random intervals (but chance is not allowed). Alternatively, model an assistant who screens emails with a realistic but uncertain rule, without pre-determining the outcome.",
+      "objection": "The world declares a deterministic attention schedule for Mark Cuban (every 480 min, 09-17, all days) but also lists multiple items stating his checking habits are uncertain and may involve delegation. This inconsistency distorts reality: in reality, Cuban's attention is not a fixed clock; it depends on his personal workflow and delegation. The fixed schedule makes it too likely he will see the email, pre-judging the outcome.",
+      "severity": "blocking"
+     },
+     {
+      "about": "The spam filter process is declared as always active but with no effect on delivery; the fact 'cold_email_cost_plus_drugs_reduces_spam_filter' is a pre-written outcome that bypasses realistic filtering uncertainty.",
+      "fix_hint": "Remove the fact that pre-writes spam filter bypass. Instead, model the spam filter as a process that may or may not filter the email based on content, but without a deterministic rule. Since chance is not allowed, the only honest approach is to leave the outcome uncertain: do not pre-decide whether the email lands in inbox or spam.",
+      "objection": "The spam filter is modeled as an ongoing process with rate 0.0/h, meaning it never actually changes anything. Yet the fact 'cold_email_cost_plus_drugs_reduces_spam_filter = True' pre-writes that the email will bypass spam filtering because it references Cost Plus Drugs. This is a deterministic rule that guarantees delivery, ignoring real-world uncertainty about spam filters. In reality, even relevant cold emails can be filtered.",
+      "severity": "blocking"
+     },
+     {
+      "about": "The founder has no attention pattern, so they can never read a reply from Mark Cuban. This makes the terminal condition impossible to satisfy, pre-writing a 'NO' outcome.",
+      "fix_hint": "Give the founder a realistic attention pattern for email, e.g., checking every 60-480 minutes during waking hours. Alternatively, model the founder as having a watch on their email inbox so they notice incoming replies immediately. Without this, the simulation cannot produce a 'YES' outcome.",
+      "objection": "The founder has no attention pattern, no scheduled wake, and no watch. This means any reply sent by Mark Cuban will remain unnoticed by the founder, so the terminal condition ('mark_cuban has noticed information from the_founder of type cold_email_reply') can never be true. This pre-writes a 'NO' answer regardless of what Mark Cuban does, which is not realistic: in reality, the founder would check their email and see a reply.",
+      "severity": "blocking"
+     },
+     {
+      "about": "The email delivery latency is 0s, which is unrealistic for real-world email delivery.",
+      "fix_hint": "Set email delivery latency to a realistic value, e.g., 60 seconds, or model it as a process with a small delay.",
+      "objection": "Email delivery latency is set to 0 seconds, which is unrealistic. Real email delivery can take seconds to minutes, and occasional delays or failures occur. While this is minor for a two-week window, it slightly distorts the timing.",
+      "severity": "minor"
+     }
+    ],
+    "verdict": "revise"
+   }
+  },
   "validation": {
-   "blocking": [
-    "terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
-    "terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
-    "terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
-    "dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
-   ],
+   "blocking": [],
    "dry_run": {
-    "events_fired": 1,
+    "events_fired": 4,
     "final_answer": {
      "answer": "no",
      "computed_from": [
       "terminal.cutoff"
      ],
-     "detail": "Mark Cuban does not respond within two weeks"
+     "detail": "Mark Cuban did not reply within two weeks"
     },
     "status": "cutoff"
    },
    "needs_review": [
-    "participant 'mark_cuban' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
     "participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
    ],
-   "patchable": [
-    {
-     "actor": "mark_cuban",
-     "channels": [],
-     "kind": "no_attention"
-    },
-    {
-     "kind": "dead_world"
-    }
-   ],
+   "patchable": [],
    "warnings": []
   }
  },
