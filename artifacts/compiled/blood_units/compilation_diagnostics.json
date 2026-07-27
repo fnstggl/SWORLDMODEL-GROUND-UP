@@ -1,13 +1,10 @@
 {
   "detail": {
     "defects": [
-      "uncertainty: nothing named 'hospital usage rate' exists in state/event/action/process/record/resource/participant/organization/population",
-      "uncertainty: nothing named 'centre collection actual hours' exists in state/event/action/process/record/resource/participant/organization/population",
-      "uncertainty: nothing named 'Thursday shipment arrival time' exists in state/event/action/process/record/resource/participant/organization/population"
+      "resource:hospital_units_at_deadline: explicitly marked unsupported (This is a condition that is the conjunction of its prerequisites; no separate producer.)"
     ],
-    "document": "uncertainty_and_exclusions",
     "repairable": true
   },
-  "reason": "the uncertainty_and_exclusions document has defects",
-  "stage": "SEMANTIC_AMBIGUITY"
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
 }

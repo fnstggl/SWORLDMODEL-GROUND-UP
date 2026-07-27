@@ -167,8 +167,15 @@ class _Rootedness:
         if self.rooted(node_id) is not None:
             return []
         if n.attrs.get("unsupported"):
+            teach = ""
+            if n.category in ("resource", "record"):
+                teach = (". A measured quantity or record is never a "
+                         "conjunction: its value only changes through "
+                         "real mechanisms -- attach the scheduled "
+                         "transfers, processes or actions that change it "
+                         "as its producers")
             return [f"{n.id}: explicitly marked unsupported "
-                    f"({n.attrs['unsupported']})"]
+                    f"({n.attrs['unsupported']}){teach}"]
         reasons = []
         if n.category == "action" and not self.g.performers_of(node_id):
             reasons.append(f"{n.id}: an action nobody can_perform")

@@ -1,52 +1,61 @@
 {
   "exclusions": [
     {
-      "basis": "inferred",
-      "evidence_ids": [
-        "e6",
-        "e7"
-      ],
-      "name": "other hospitals or blood recipients",
-      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's received shipments."
-    },
-    {
       "basis": "verified",
       "evidence_ids": [
         "e10"
       ],
-      "name": "Elena Cruz's actions",
-      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not change the number of units received."
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
     },
     {
-      "basis": "inferred",
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital and Cascade regional blood centre. Other entities are not part of the causal chain."
+    },
+    {
+      "basis": "verified",
       "evidence_ids": [
-        "e7",
-        "e9"
+        "e3",
+        "e4"
       ],
-      "name": "any usage or wastage at the centre",
-      "why_safe": "The centre's stock is only relevant to whether it can ship 150 units; usage or wastage could affect that, but the question is about hospital receipts, not centre operations."
+      "name": "Weekend collections (Saturday/Sunday)",
+      "why_safe": "The drive is only open Monday to Friday, and the week under consideration is Monday to Friday. Weekend collections are irrelevant."
     }
   ],
   "uncertainties": [
     {
-      "about": "hospital usage rate",
-      "meaning": "The rate at which the hospital uses blood units between Monday and Friday noon is unknown. This affects the net units held at the deadline."
+      "about": "hospital_holds_units_at_deadline",
+      "meaning": "The exact number of units the hospital holds at Friday noon is unknown because hospital usage of blood units between Monday morning and Friday noon is not specified."
     },
     {
-      "about": "centre collection actual hours",
-      "meaning": "Whether the collection drive operates exactly as scheduled (9-5 each day) or has any closures or reduced hours is unknown."
+      "about": "initial_stock_plus_received_shipments_minus_usage",
+      "meaning": "The rate or amount of blood usage at the hospital is unknown; it could affect the final count."
     },
     {
-      "about": "centre stock after Tuesday shipment",
-      "meaning": "The exact stock at the centre after the Tuesday shipment is unknown because it depends on collection amounts and any other usage or transfers not mentioned."
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre has at least 150 units to ship on Tuesday depends on Monday's collection and initial stock; Monday's collection is 12 units/hour for 8 hours = 96 units, so initial 40 + 96 = 136, which is less than 150. Thus the centre may not have enough stock for a full 150-unit shipment on Tuesday. The evidence does not specify if partial shipments are allowed or if the centre can use stock from other sources."
     },
     {
-      "about": "centre has enough stock Thursday",
-      "meaning": "Whether the centre has at least 150 units to ship on Thursday is unknown, as it depends on collections and any other demands."
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "After Tuesday's shipment (if any), the centre's stock depends on collections on Tuesday, Wednesday, and Thursday before 4pm. The exact timing and amount of collections on those days is uncertain because the drive operates 9-5 each day, but the shipment at 4pm may not include all of that day's collection if collection continues after 4pm. Also, if Tuesday's shipment was less than 150, the centre's stock may be different."
     },
     {
-      "about": "Thursday shipment arrival time",
-      "meaning": "The exact arrival time of the Thursday shipment is unknown; it may arrive before or after the Friday noon deadline."
+      "about": "tuesday_shipment_dispatched",
+      "meaning": "It is uncertain whether a shipment of 150 units (or any) is dispatched on Tuesday because the centre may not have enough stock."
+    },
+    {
+      "about": "thursday_shipment_dispatched",
+      "meaning": "Similarly uncertain due to stock levels."
+    },
+    {
+      "about": "shipment_received_tuesday",
+      "meaning": "If dispatched, the shipment takes 3 hours, so if dispatched at 4pm, it arrives at 7pm Tuesday. But the deadline is Friday noon, so it would be received before deadline. However, the exact receipt time is not critical."
+    },
+    {
+      "about": "shipment_received_thursday",
+      "meaning": "If dispatched at 4pm Thursday, arrives 7pm Thursday, before Friday noon."
     }
   ]
 }

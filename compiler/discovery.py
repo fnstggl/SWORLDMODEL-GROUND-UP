@@ -144,6 +144,12 @@ def v_spine(doc: dict, valid_ids: frozenset, proof_names: tuple) -> list:
                 s.get("when") or s.get("anchor")):
             d.append(f"{w}: a scheduled_event needs 'when' (calendar time "
                      f"with utc offset) or 'anchor'")
+        when = str(s.get("when") or "")
+        if "/" in when or ".." in when:
+            d.append(f"{w}: an event happens at one instant, but 'when' "
+                     f"is a range ({when!r}); a window of continuous work "
+                     f"is a PROCESS (kind 'process', with its operating "
+                     f"hours), not an event")
         if s.get("kind") == "uncertain_exogenous" \
                 and s.get("basis") != "uncertain":
             d.append(f"{w}: an uncertain_exogenous step carries basis "
@@ -524,8 +530,10 @@ def discover(question: dict, evidence: dict, call=call_json,
         "\"alt_group\": group label when alternative}\n"
         "  produces_proof: list of resolution proof names this step "
         "directly brings about (only for the step that does)\n"
-        "  when: calendar time with utc offset -- ONLY for kind "
-        "scheduled_event, and only when the evidence states the time\n"
+        "  when: ONE calendar instant with utc offset -- ONLY for kind "
+        "scheduled_event, and only when the evidence states the time. "
+        "Something that runs over a window (a drive collecting 9-to-5, a "
+        "line producing all shift) is a PROCESS, never an event\n"
         "  uncertainty: prose if this step's occurrence is genuinely "
         "open\n"
         "  basis, evidence_ids\n"

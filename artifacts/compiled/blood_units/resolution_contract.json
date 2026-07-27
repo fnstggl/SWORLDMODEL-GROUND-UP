@@ -1,23 +1,13 @@
 {
   "ambiguities": [],
   "answer_type": "quantity",
-  "basis": "inferred",
+  "basis": "question_given",
   "cutoff": {
-    "meaning": "The exact deadline by which the hospital must have received the units; the count is taken at that moment.",
+    "meaning": "Friday noon Pacific Daylight Time, the deadline for the hospital to have received units.",
     "timezone": "America/Los_Angeles",
     "when": "2026-07-24T12:00:00-07:00"
   },
-  "evidence_ids": [
-    "e1",
-    "e2",
-    "e3",
-    "e4",
-    "e5",
-    "e6",
-    "e7",
-    "e8",
-    "e9"
-  ],
+  "evidence_ids": [],
   "measured_act": null,
   "negative_condition": null,
   "positive_condition": "The hospital holds a specific number of usable blood units at the deadline.",
@@ -25,11 +15,11 @@
     {
       "holder": "St. Vincent regional hospital",
       "kind": "quantity",
-      "meaning": "The number of usable blood units in St. Vincent regional hospital's inventory at the deadline.",
+      "meaning": "The number of usable blood units in St. Vincent hospital's inventory at the deadline.",
       "name": "hospital_units_at_deadline",
       "unit": "units"
     }
   ],
   "resolves_from_report": false,
-  "terminal_meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday, July 24, 2026, 12:00:00 PM Pacific Time."
+  "terminal_meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday noon, July 24, 2026."
 }
