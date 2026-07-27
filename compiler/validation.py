@@ -309,6 +309,17 @@ def validate_world(graph: WorldGraph, plan: dict) -> Report:
                                 f"{roles[0]} but no participant has such a "
                                 f"role: a dead action pretending to matter")
 
+    # -- integrity: chance encoded as fact pre-writes outcomes -----------
+    for key in sorted(world.facts):
+        low = key.lower()
+        if any(w in low for w in ("probability", "likelihood", "chance",
+                                  "odds")):
+            rep.blocking.append(
+                f"fact {key!r} encodes a numeric chance: the runtime is "
+                f"deterministic and such facts pre-write the outcome -- "
+                f"declare the uncertainty instead and let the trajectory "
+                f"decide")
+
     # -- integrity: scheduled quantity movement on terminal resources ---
     res_terms = {(t["holder"], t["name"]) for t in terminal_terms(spec)
                  if t["check"] == "resource_at_least"}

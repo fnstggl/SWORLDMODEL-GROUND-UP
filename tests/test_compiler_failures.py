@@ -147,6 +147,15 @@ def test_commitment_before_start_is_an_assembly_error():
     assert any("before the" in e and "start" in e for e in errors)
 
 
+def test_chance_encoded_as_fact_is_blocking():
+    items = neutral_items()
+    items.insert(0, cap("add_fact", key="reply_probability", value=0.15,
+                        provenance="inferred", note="invented chance"))
+    report, errors = validate(items)
+    assert errors == []
+    assert any("pre-write the outcome" in b for b in report.blocking)
+
+
 def test_needs_review_findings_are_surfaced_not_silenced():
     # a participant nobody can wake -> needs_review, not silent acceptance
     items = neutral_items()

@@ -16,6 +16,21 @@ from .llm import Caller, Trace
 from .resolution import evidence_block
 from .provenance import EvidenceRegistry
 
+_RUNTIME_BRIEF = """How the runtime works (judge against THIS, not against \
+an imagined simulator):
+- It is deterministic mechanics plus actor models: each participant's \
+decisions are made by their own model AT SIMULATION TIME.  A person can \
+reply/act if they exist, have the ability and route, and can notice the \
+relevant information -- no scripted "decision rule" should exist, and its \
+absence is correct, not a gap.
+- Every participant automatically has two universal actions: transmitting \
+information to anyone they have a route to, and reading information they \
+have noticed.
+- Chance is NOT a runtime primitive.  A numeric "probability" fact is a \
+DEFECT (it pre-writes the outcome): demand declared uncertainty instead, \
+never a probabilistic mechanism.  Whether things happen emerges from the \
+run; likelihoods emerge later across many runs."""
+
 _REALITY_PREAMBLE = """You are an adversarial reality reviewer for a \
 simulation compiler.  A described world will be simulated to answer a real \
 question; your job is to attack its ACCURACY against the real situation as \
@@ -25,11 +40,15 @@ memory.  Hunt for:
 - a wrong or missing decisive force (a person, process, or rule reality \
 has but the world lacks);
 - unrealistic timings, latencies, rates, or attention patterns;
-- uncertainty silently converted into convenient fact;
+- uncertainty silently converted into convenient fact (including numeric \
+"probability" facts -- always a defect);
 - anything that pre-writes the outcome instead of letting it emerge;
 - a terminal that answers a different question than the one asked.
+
+%s
+
 Approve ONLY what the evidence supports.  Be specific; vague unease is not \
-an objection.  Reply with ONLY a JSON object."""
+an objection.  Reply with ONLY a JSON object.""" % _RUNTIME_BRIEF
 
 _MEANING_PREAMBLE = """You are a meaning-preservation reviewer for a \
 simulation compiler.  Compare the APPROVED DESCRIPTION of a world with the \
@@ -39,8 +58,14 @@ drift:
 - things in the runtime that were never described;
 - changed constraints, authority, routes, attention, timing, or terminal \
 meaning.
-Cosmetic wording differences are not drift.  Reply with ONLY a JSON \
-object."""
+Cosmetic wording differences are not drift.
+
+%s
+
+A described "decision" or "possible reply" is PRESERVED when the person \
+exists with the route, ability, and attention to do it -- the deciding \
+itself happens at simulation time and needs no mechanism in the world.  \
+Reply with ONLY a JSON object.""" % _RUNTIME_BRIEF
 
 
 def _validate_review(n_findings: int):
