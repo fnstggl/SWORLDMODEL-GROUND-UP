@@ -2,18 +2,40 @@
  "question": "Is a concise cold email from an unknown sports-analytics startup founder -- asking Mark Cuban for a 15-minute call and referencing his Cost Plus Drugs playbook -- likely to get a response from him within two weeks?",
  "report": {
   "reasons": [
-   "assembly: no terminal was set; a world without a finish line cannot answer anything"
+   "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+   "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
   ],
   "repair_rounds": [
    [
-    "assembly: no terminal was set; a world without a finish line cannot answer anything"
+    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look"
    ],
    [
-    "assembly: no terminal was set; a world without a finish line cannot answer anything"
+    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
    ]
   ],
   "reviews": null,
-  "validation": null
+  "validation": {
+   "blocking": [
+    "terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
+   ],
+   "dry_run": {
+    "events_fired": 1,
+    "final_answer": {
+     "answer": "no",
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "Mark Cuban does not respond within two weeks"
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [
+    "participant 'mark_cuban' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
+   ],
+   "warnings": []
+  }
  },
  "status": "failed"
 }
