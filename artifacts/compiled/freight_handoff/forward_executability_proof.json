@@ -1,0 +1,14 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "record:port_authority_acknowledgment"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:meridian_pacific_flight_mp_118",
+    "event:out_of_office_tuesday"
+  ],
+  "warnings": []
+}

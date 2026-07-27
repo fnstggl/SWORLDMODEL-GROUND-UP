@@ -39,6 +39,7 @@ PROVENANCE_BASES = frozenset({
     "inferred",         # estimated from comparable real-world processes
     "actor_chosen",     # the actor decided to spend this long
     "process_derived",  # computed from rates and quantities in the world
+    "scenario_given",   # stipulated by the question or scenario definition
     "immediate",        # genuinely instantaneous at this resolution
     "unknown",          # explicitly unknown -- flagged, never silent
 })
@@ -349,8 +350,11 @@ class BusinessCalendar:
         return {
             "tz": self.tz,
             "workdays": sorted(self.workdays),
-            "open": self.open_time.isoformat(timespec="minutes"),
-            "close": self.close_time.isoformat(timespec="minutes"),
+            # keep sub-minute precision: an end-of-day boundary of
+            # 23:59:59.999999 must not round down to 23:59:00 and leave a
+            # dead minute in a round-the-clock calendar
+            "open": self.open_time.isoformat(),
+            "close": self.close_time.isoformat(),
             "holidays": sorted(d.isoformat() for d in self.holidays),
         }
 

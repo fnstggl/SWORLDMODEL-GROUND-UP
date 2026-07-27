@@ -1,0 +1,12 @@
+{
+  "detail": {
+    "defects": [
+      "assignment for 'ghost_at_peace' producer 'ghost_acknowledged': kind must be one of ('person', 'organization', 'external_institution', 'institutional_rule', 'population', 'communication_system', 'operating_process', 'physical_process', 'scheduled_event')",
+      "assignment for 'no_unrest_reported' producer 'ghost_at_peace': kind must be one of ('person', 'organization', 'external_institution', 'institutional_rule', 'population', 'communication_system', 'operating_process', 'physical_process', 'scheduled_event')"
+    ],
+    "document": "producer_assignments",
+    "repairable": false
+  },
+  "reason": "producer_assignments discovery is still defective after one targeted repair",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

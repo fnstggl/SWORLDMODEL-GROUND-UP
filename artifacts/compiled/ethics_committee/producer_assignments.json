@@ -1,0 +1,109 @@
+{
+  "assignments": [
+    {
+      "producers": [],
+      "step": "meeting_occurs"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Chair of the ethics committee; she puts the motion to a vote.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "chair_puts_motion"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Hospital pharmacist who prepares and circulates the safety review via email.",
+          "name": "Tomas Lindqvist"
+        }
+      ],
+      "step": "safety_review_circulated"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e6",
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Hospital pharmacist who prepares the safety review.",
+          "name": "Tomas Lindqvist"
+        }
+      ],
+      "step": "lindqvist_prepares_review"
+    },
+    {
+      "producers": [],
+      "step": "updated_data_released"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Voting member of the ethics committee.",
+          "name": "Dr. Helen Osei"
+        }
+      ],
+      "step": "osei_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Voting member of the ethics committee.",
+          "name": "Dr. Raj Patel"
+        }
+      ],
+      "step": "patel_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Voting member of the ethics committee.",
+          "name": "Sister Margaret Doyle"
+        }
+      ],
+      "step": "doyle_votes_yes"
+    },
+    {
+      "producers": [],
+      "step": "meeting_ends"
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Sam Whitaker sets all prices at Fernhaven Cycles.",
+          "over": "price_set_july"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Sam Whitaker does not make mid-month price changes.",
+          "over": "no_mid_month_change"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e6"
+          ],
+          "meaning": "Sam Whitaker set the Torrent 800 price at $25.00 for July 2026, and does not change prices mid-month.",
+          "name": "price_set_july"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Sam Whitaker does not make mid-month price changes.",
+          "name": "no_mid_month_change"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Sam Whitaker is prepared to match the clearance price at his 3 August monthly review if it is still in force.",
+          "name": "prepared_to_match_clearance"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Torrent 800 price is $25.00.",
+          "name": "price_25",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Sales rate of Torrent 800 was 12 units per day from 15 June through 17 July.",
+          "name": "sales_rate_12_per_day",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Torrent 800 revenue from 1 July through 17 July close was $5,100 from 204 units.",
+          "name": "revenue_5100",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Pedal & Spoke priced Torrent 800 at $19.99 on 18 July, clearance through 31 August.",
+          "name": "competitor_price_19.99",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "In March 2026, when Pedal & Spoke priced at $19.50, Fernhaven's sales dropped to 7 units per day.",
+          "name": "historical_sales_drop",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Sam Whitaker does not make mid-month price changes.",
+          "name": "no_mid_month_change",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Shop open daily 9 AM to 6 PM through 31 July.",
+          "name": "shop_hours",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Over 400 Torrent 800 units in stock.",
+          "name": "inventory_over_400",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Prepared to match clearance price at 3 August review if still in force.",
+          "name": "prepared_to_match",
+          "visibility": "private"
+        }
+      ],
+      "name": "Sam Whitaker",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 400,
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Over 400 Torrent 800 units in stock.",
+          "name": "torrent_800_inventory",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Sam Whitaker sets prices for Fernhaven Cycles",
+          "over": "price_set_july"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Sam Whitaker does not make mid-month price changes",
+          "over": "no_mid_month_change"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Price for Torrent 800 set at $25.00 for July",
+          "name": "price_set_july",
+          "value": "25.00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Whitaker does not change prices mid-month",
+          "name": "no_mid_month_change"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "204 units sold from July 1 to July 17, revenue $5,100",
+          "name": "sales_1_to_17_july",
+          "value": "204 units, $5,100"
+        },
+        {
+          "basis": "uncertain",
+          "evidence_ids": [
+            "e2",
+            "e5"
+          ],
+          "meaning": "Sales rate from July 18 to July 31 is uncertain; historical data shows 12/day normally, but 7/day during competitor price undercut",
+          "name": "daily_sales_rate_18_to_31"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1",
+            "e6"
+          ],
+          "meaning": "Price remains $25.00 through July 31",
+          "name": "price_18_to_31_july"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Torrent 800 price is $25.00 for July",
+          "name": "price_set_july",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Whitaker does not change prices mid-month",
+          "name": "no_mid_month_change",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "204 units sold, $5,100 revenue from July 1-17",
+          "name": "sales_1_to_17_july",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Pedal & Spoke priced Torrent 800 at $19.99 on July 18",
+          "name": "competitor_price_18_july",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "During March 2026 competitor undercut, sales dropped to 7/day",
+          "name": "historical_response",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Over 400 Torrent 800 units in stock",
+          "name": "inventory_level",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Open daily 9 AM to 6 PM through July 31",
+          "name": "shop_hours",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "14 selling days from July 18 to July 31",
+          "name": "remaining_days",
+          "visibility": "private"
+        }
+      ],
+      "name": "Fernhaven Cycles",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 400,
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Units of Torrent 800 headlamp in stock",
+          "name": "torrent_800_inventory",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "The registrar releases Amara Osei's official transcript before 12:00 noon Central on Monday 8 June 2026.",
+      "name": "transcript_released",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "financial_hold_lifted"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "registrar_release_within_4_hours"
+        }
+      ],
+      "produces_proof": [
+        "transcript_release_record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e5"
+      ],
+      "kind": "condition",
+      "meaning": "The financial hold on Osei's record is lifted before the registrar can release the transcript.",
+      "name": "financial_hold_lifted",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "bursar_batch_posts_payment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "The registrar releases the transcript within 4 working hours after the financial hold is lifted, and before the deadline.",
+      "name": "registrar_release_within_4_hours",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "financial_hold_lifted"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The bursar's automated reconciliation batch runs and posts Osei's payment, lifting the financial hold.",
+      "name": "bursar_batch_posts_payment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "payment_cleared_by_processor"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-06-08T02:00:00-05:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The electronic check payment is marked cleared by the payment processor.",
+      "name": "payment_cleared_by_processor",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "payment_submitted"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-06-05T18:00:00-05:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Osei submits an electronic check for $1,842 through the portal on Tuesday 2 June 2026 at 2:10 PM.",
+      "name": "payment_submitted",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

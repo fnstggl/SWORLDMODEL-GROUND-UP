@@ -1,0 +1,11 @@
+{
+  "causal_path": [
+    "Initial hospital stock: 15 units at 9 AM Monday",
+    "Tuesday shipment dispatched 4 PM Tuesday, arrives 7 PM Tuesday: +150 units",
+    "Thursday shipment dispatched 4 PM Thursday, arrives 7 PM Thursday: +150 units",
+    "Hospital stock at Friday noon: 15 + 150 + 150 = 315 units"
+  ],
+  "defects": [],
+  "reasoning": "The world faithfully models the evidence: initial stocks, collection rates, shipment schedule and transit time, leading to hospital stock of 315 units at the deadline. The causal chain is complete, all producers are correctly attached, and no material omissions or errors exist.",
+  "verdict": "APPROVE"
+}

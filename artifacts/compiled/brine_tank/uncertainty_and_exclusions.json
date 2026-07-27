@@ -1,0 +1,118 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Other sodium hypochlorite sources",
+      "why_safe": "Evidence e2 states the day tank is the only vessel holding sodium hypochlorite at the plant; no bulk tank, drum store, or other source exists. Therefore, excluding other sources is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "name": "Operator intervention to change rates or schedule",
+      "why_safe": "Evidence e11 states operator Delphine Osgood has no authority to change delivery schedule, quantity, or dosing rates. The district engineer has issued no change orders. Therefore, excluding operator intervention is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Holidays or disruptions",
+      "why_safe": "Evidence e10 states no district, county, or supplier holiday falls between 5 and 12 October 2026, and deliveries are confirmed. Therefore, excluding holidays or disruptions is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Train B running on weekend",
+      "why_safe": "Evidence e6 states Train B runs only Monday through Friday and is shut down on weekends. The weekend of 10-11 October 2026 is included. Therefore, excluding weekend operation is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Train A outage",
+      "why_safe": "Evidence e4 states Train A has run without interruption since March 2026 and no outage is scheduled for October 2026. Therefore, excluding an outage is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "Delivery on other days",
+      "why_safe": "Evidence e7 states deliveries occur only on Tuesdays and Fridays. Therefore, excluding deliveries on other days is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Partial delivery retention at plant",
+      "why_safe": "Evidence e9 states any part of the load that does not fit is retained on the truck and returned; it is not decanted, stored, or left at the plant. Therefore, excluding any product left at the plant beyond the tank capacity is safe."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "initial_volume_oct5",
+      "meaning": "The exact volume at 6:00 AM on Monday 5 October 2026 is given as 3,100 litres, but there is no evidence about measurement error or calibration tolerance. The volume is assumed exact."
+    },
+    {
+      "about": "train_a_consumption_oct5_6am_to_oct6_8am",
+      "meaning": "Train A draws 18 L/h continuously. The duration from 6:00 AM Oct 5 to 8:00 AM Oct 6 is 26 hours, so consumption is 468 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_consumption_oct5_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Monday Oct 5 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "delivery_tuesday_oct6",
+      "meaning": "Delivery of 1,800 litres at 8:00 AM on Tuesday Oct 6. The tank may not have enough capacity to accept the full delivery; any excess is returned. The exact volume added depends on tank level at 8:00 AM."
+    },
+    {
+      "about": "train_a_consumption_oct6_8am_to_oct9_8am",
+      "meaning": "Train A consumes 18 L/h continuously from 8:00 AM Oct 6 to 8:00 AM Oct 9, which is 72 hours, so 1,296 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_consumption_oct6_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Tuesday Oct 6 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_consumption_oct7_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Wednesday Oct 7 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_consumption_oct8_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Thursday Oct 8 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_consumption_oct9_6am_to_8am",
+      "meaning": "Train B runs 2 hours on Friday Oct 9 from 6:00 AM to 8:00 AM at 22 L/h, consuming 44 litres. No uncertainty."
+    },
+    {
+      "about": "delivery_friday_oct9",
+      "meaning": "Delivery of 1,800 litres at 8:00 AM on Friday Oct 9. Again, the tank may not have enough capacity to accept the full delivery; any excess is returned. The exact volume added depends on tank level at 8:00 AM."
+    },
+    {
+      "about": "train_a_consumption_oct9_8am_to_oct12_6am",
+      "meaning": "Train A consumes 18 L/h continuously from 8:00 AM Oct 9 to 6:00 AM Oct 12, which is 70 hours, so 1,260 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_consumption_oct9_8am_to_6pm",
+      "meaning": "Train B runs 10 hours on Friday Oct 9 from 8:00 AM to 6:00 PM at 22 L/h, consuming 220 litres. No uncertainty."
+    },
+    {
+      "about": "train_b_off_weekend",
+      "meaning": "Train B is off on Saturday Oct 10 and Sunday Oct 11, consuming nothing. No uncertainty."
+    },
+    {
+      "about": "final_volume",
+      "meaning": "The final volume at 6:00 AM on Monday Oct 12 is computed from the sequence. The only uncertainties are whether the deliveries on Oct 6 and Oct 9 are fully added or partially returned due to tank capacity. The tank capacity is 4,000 litres, and the computed levels before each delivery determine if any overflow occurs."
+    }
+  ]
+}

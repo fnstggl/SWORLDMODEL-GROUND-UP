@@ -1,0 +1,4 @@
+{
+  "expected_answer": 170.0,
+  "why": "Hand arithmetic from the evidence alone: the 8:00 AM run can carry only loaves cooled by 8:00 — the 20 cooled loaves from Friday (e3) plus Saturday loaves out of the oven by 7:00 AM, i.e. two hours at 30 per hour = 60 (e4, e5, e6): 20 + 60 = 80, within the 90-loaf capacity (e8), handed over on the 8:15 AM arrival (e7, e10). The 11:00 AM run carries the loaves out of the oven from 7:00 to 10:00 AM, 3 x 30 = 90 (e4, e5), all cooled by 11:00 (e6) and exactly at the 90 capacity (e8), handed over on the 11:15 AM arrival — before noon. The stand starts empty and nothing else arrives before the deadline (e2, e9). Total delivered by noon: 80 + 90 = 170."
+}

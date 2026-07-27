@@ -1,0 +1,22 @@
+{
+  "assembly_ms": 0.0,
+  "binding_calls": 0,
+  "discovery_calls": 4,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 24335.209271999927,
+  "model_tokens": 12752,
+  "proofs_ms": 0.0,
+  "repairs_by_step": {},
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

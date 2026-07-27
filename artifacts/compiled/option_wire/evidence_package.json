@@ -1,0 +1,135 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-04-02T00:00:00-04:00",
+      "claim": "Harrow Ridge Land Trust holds a purchase option on the 214-acre Delacroix Farms parcel in Sable County. Under the option agreement an option payment of $46,000 is due to Delacroix Farms LLC by 30 October 2026.",
+      "id": "e1",
+      "source": "Purchase option agreement, executed 2026-04-02",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-06T00:00:00-04:00",
+      "claim": "The trust's board voted on 6 October 2026 to exercise the option and to make the $46,000 payment. The vote is recorded in the approved minutes and has not been rescinded.",
+      "id": "e2",
+      "source": "Board minutes, 2026-10-06, approved",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T08:00:00-04:00",
+      "claim": "The trust's sole bank account is an operating account at Pelham Savings Bank. It held $312,400 on 26 October 2026, far more than the payment requires. The trust holds no other account anywhere.",
+      "id": "e3",
+      "source": "Pelham Savings Bank statement, 2026-10-26; trust financial records",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-19T00:00:00-04:00",
+      "claim": "Delacroix Farms LLC has stated in writing that it will accept the option payment only by wire to the account identified in its 19 October 2026 instructions. It will not accept a cheque, a card payment, or cash. The trust holds no cheque stock in any event.",
+      "id": "e4",
+      "source": "Delacroix Farms letter, 2026-10-19; trust financial records",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-21T00:00:00-04:00",
+      "claim": "The trust's bookkeeper, Ivo Sarraute, verified Delacroix Farms' wire instructions by telephone callback on 21 October 2026 and has loaded them as a saved wire template in Pelham's business banking portal. The template is complete and the $46,000 amount is entered.",
+      "id": "e5",
+      "source": "Pelham business banking portal audit trail; Sarraute's callback note",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-04:00",
+      "claim": "Pelham Savings Bank's same-day wire cutoff is 3:00 PM Eastern, Monday to Friday. The bank is open and processing wires on Friday 30 October 2026, and no bank holiday falls in that week.",
+      "id": "e6",
+      "source": "Pelham Savings Bank business banking terms; 2026 bank holiday calendar",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-04:00",
+      "claim": "Pelham Savings Bank's business banking terms state: \"An outgoing wire requires the authorization of an authorized signer on file for the account.\" The terms supplied in these materials do not describe how a signer is added to or removed from the file, and do not state whether a board resolution alone changes who is on file.",
+      "id": "e7",
+      "source": "Pelham Savings Bank business banking terms, as supplied",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2019-03-11T00:00:00-04:00",
+      "claim": "The signature card on file for the trust's operating account, executed in 2019, authorizes \"the Executive Director and the Treasurer\" of Harrow Ridge Land Trust. This is the only version of the signature card in the record.",
+      "id": "e8",
+      "source": "Pelham Savings Bank signature card, 2019-03-11",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-12T00:00:00-04:00",
+      "claim": "Executive Director Callum Whitfield resigned effective 12 October 2026 and has had no access to the trust's accounts, credentials or premises since that date.",
+      "id": "e9",
+      "source": "Resignation letter, 2026-10-12; trust access revocation log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-06T00:00:00-04:00",
+      "claim": "The trust's treasurer seat has been vacant since 3 August 2026. No successor treasurer has been elected, and the board's next scheduled meeting is 12 November 2026.",
+      "id": "e10",
+      "source": "Board minutes, 2026-08-03 and 2026-10-06; board meeting calendar",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-15T00:00:00-04:00",
+      "claim": "On 15 October 2026 the board voted to name Marguerite Okonjo interim executive director. The materials do not state whether Pelham Savings Bank was notified of the change, whether the signature card was amended, or whether the bank treats an interim executive director as the \"Executive Director\" named on the card.",
+      "id": "e11",
+      "source": "Board minutes, 2026-10-15",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T08:00:00-04:00",
+      "claim": "Okonjo is at the trust's office and available every working day from 26 October through 30 October 2026, and has said she is willing to send the wire.",
+      "id": "e12",
+      "source": "Trust staff calendar; Okonjo's statement",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T08:00:00-04:00",
+      "claim": "Board chair Devrim Aksoy is also available throughout that week. The materials do not state that she is a signer on the trust's account; the signature card in the record names only the Executive Director and the Treasurer.",
+      "id": "e13",
+      "source": "Trust board calendar; Pelham signature card as supplied",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T08:00:00-04:00",
+      "claim": "The bylaws excerpt supplied with these materials covers Articles III through VI -- membership, meetings, quorum, and officer titles. Article VII, \"Disbursements and Signing Authority,\" is not included in the materials provided, and its text does not appear anywhere else in the record.",
+      "id": "e14",
+      "source": "Harrow Ridge Land Trust bylaws, partial excerpt as supplied",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T08:00:00-04:00",
+      "claim": "Ivo Sarraute is a contract bookkeeper, not an officer or employee of the trust. The materials do not state that he holds any authorization on the account; his portal access is described only as data entry.",
+      "id": "e15",
+      "source": "Bookkeeping services agreement; Pelham portal user list as supplied",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-04:00",
+      "claim": "Every date and time in this package is America/New_York, which is UTC-04:00 on 30 October 2026.",
+      "id": "e16",
+      "source": "Package convention",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_option_wire_2026_10",
+  "prepared_at": "2026-10-26T09:00:00-04:00"
+}

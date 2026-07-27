@@ -1,0 +1,970 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:email_delivered",
+      "rel": "requires",
+      "src": "action:reyes_checks_email"
+    },
+    {
+      "attrs": {},
+      "dst": "state:reyes_s_reading_state",
+      "rel": "produces",
+      "src": "action:reyes_reads_study"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:reyes_checks_email",
+      "rel": "requires",
+      "src": "action:reyes_reads_study"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:study_finalized",
+      "rel": "requires",
+      "src": "action:santos_emails_study"
+    },
+    {
+      "attrs": {
+        "meaning": "The external reviewer is the producer of the peer-review sign-off step."
+      },
+      "dst": "event:deliver_peer_review_sign_off",
+      "rel": "has_authority",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {
+        "meaning": "The external reviewer who committed to deliver peer-review sign-off by 10:00 AM on 18 February."
+      },
+      "dst": "event:deliver_peer_review_sign_off",
+      "rel": "has_authority",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "state:committed_to_deliver_sign_off_by_10_00_am_on_18_february",
+      "rel": "has_state",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery_time",
+      "rel": "knows",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_time",
+      "rel": "knows",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "information:santos_schedule",
+      "rel": "knows",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "information:study_expected_by_18_feb",
+      "rel": "knows",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "information:study_is_complete_except_for_sign_off",
+      "rel": "knows",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "event:deliver_peer_review_sign_off",
+      "rel": "observes",
+      "src": "organization:external_reviewer"
+    },
+    {
+      "attrs": {},
+      "dst": "action:reyes_checks_email",
+      "rel": "can_perform",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "action:reyes_reads_study",
+      "rel": "can_perform",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {
+        "meaning": "Alma Reyes checks her email and notices the study."
+      },
+      "dst": "action:reyes_checks_email",
+      "rel": "has_authority",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {
+        "meaning": "Alma Reyes reads the finalized study in full."
+      },
+      "dst": "action:reyes_reads_study",
+      "rel": "has_authority",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:reading_time_60_to_90_minutes",
+      "rel": "has_state",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:reads_studies_before_voting",
+      "rel": "has_state",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:reviews_email_in_block",
+      "rel": "has_state",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:study_arriving_day_of_vote_unacceptable",
+      "rel": "has_state",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:works_monday_to_friday",
+      "rel": "has_state",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery_time",
+      "rel": "knows",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_time",
+      "rel": "knows",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:santos_schedule",
+      "rel": "knows",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:study_expected_by_18_feb",
+      "rel": "knows",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_meeting",
+      "rel": "observes",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [
+            {
+              "from": "2026-02-18T18:00:00-06:00",
+              "meaning": "Reyes does not check email outside her working hours (Mon-Fri 8:30-18:00).",
+              "to": "2026-02-19T08:30:00-06:00"
+            }
+          ],
+          "cadence_minutes": 120,
+          "calendar_meaning": "During working days (Mon-Fri 8:30-18:00), she checks at start of day and then every 2 hours.",
+          "meaning": "Reyes checks email in a block at start of each working day and roughly every two hours thereafter."
+        }
+      },
+      "dst": "process:city_email",
+      "rel": "receives_from",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "process:city_email",
+      "rel": "sends_to",
+      "src": "participant:alma_reyes"
+    },
+    {
+      "attrs": {},
+      "dst": "action:santos_emails_study",
+      "rel": "can_perform",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {
+        "meaning": "Santos is the person who emails the finalized study to council members."
+      },
+      "dst": "action:santos_emails_study",
+      "rel": "has_authority",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "state:peer_review_signoff_expected",
+      "rel": "has_state",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "state:practice_to_email_study",
+      "rel": "has_state",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "state:study_not_finalized",
+      "rel": "has_state",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_meeting_time",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_delivery_time",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_practice",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:meeting_time",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:santos_schedule",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:study_expected_by_18_feb",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "information:study_status",
+      "rel": "knows",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Available 24/7.",
+          "meaning": "Continuous delivery; sender sends and system delivers."
+        }
+      },
+      "dst": "process:city_email_system",
+      "rel": "receives_from",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {},
+      "dst": "process:city_email_system",
+      "rel": "sends_to",
+      "src": "participant:miguel_santos"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:santos_emails_study",
+      "rel": "requires",
+      "src": "state:email_delivered"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "state:reyes_s_reading_state"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:deliver_peer_review_sign_off",
+      "rel": "requires",
+      "src": "state:study_finalized"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other council members",
+      "why_safe": "The question only concerns Councilmember Reyes's reading of the study; others' actions are irrelevant."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Reyes's staff reading the study on her behalf",
+      "why_safe": "The resolution note requires Reyes herself to have noticed and read the study; staff reading does not count."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Technical failures (e.g., email system outage)",
+      "why_safe": "No evidence suggests any such failure; city email delivers within about a minute (e9). Excluding rare outages is safe because they are not indicated."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Reyes may not check email before the meeting if the study arrives late or she is busy."
+      },
+      "category": "action",
+      "id": "action:reyes_checks_email",
+      "meaning": "Reyes checks her email and notices the study.",
+      "name": "reyes_checks_email",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Reyes may not have time to read the full study before the meeting if it arrives late."
+      },
+      "category": "action",
+      "id": "action:reyes_reads_study",
+      "meaning": "Reyes reads the finalized study in full.",
+      "name": "reyes_reads_study",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "organization_action"
+      },
+      "category": "action",
+      "id": "action:santos_emails_study",
+      "meaning": "Santos emails the finalized study to council members within an hour after receiving peer-review sign-off.",
+      "name": "santos_emails_study",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4b"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-02-19T19:00:00-06:00"
+      },
+      "category": "event",
+      "id": "event:council_meeting",
+      "meaning": "Council meeting on Thursday 19 February 2026 at 7:00 PM America/Chicago.",
+      "name": "council_meeting",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-02-18T10:00:00-06:00"
+      },
+      "category": "event",
+      "id": "event:deliver_peer_review_sign_off",
+      "meaning": "Deliver the peer-review sign-off for the Riverside corridor traffic study.\nExternal reviewer delivers peer-review sign-off to Santos.",
+      "name": "deliver peer-review sign-off",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:council_meeting_time",
+      "meaning": "Santos knows the council meeting begins at 7:00 PM on 19 February.",
+      "name": "council_meeting_time",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:email_delivery_time",
+      "meaning": "City email delivers internally within about a minute.",
+      "name": "email_delivery_time",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:email_practice",
+      "meaning": "Santos knows his practice to email finalized study within an hour after sign-off.",
+      "name": "email_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4b"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:meeting_time",
+      "meaning": "Council meeting begins Thursday 19 February 2026 at 7:00 PM America/Chicago.",
+      "name": "meeting_time",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:santos_schedule",
+      "meaning": "Santos works Monday to Friday, 8:00 AM to 4:30 PM America/Chicago, and checks email hourly.",
+      "name": "santos_schedule",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:study_expected_by_18_feb",
+      "meaning": "The peer-review sign-off is committed by 10:00 AM on 18 February, and Santos emails within an hour after that.",
+      "name": "study_expected_by_18_feb",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e4b"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:study_is_complete_except_for_sign_off",
+      "meaning": "The external reviewer knows that the study is complete except for their final peer-review sign-off.",
+      "name": "study is complete except for sign-off",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:study_status",
+      "meaning": "Santos knows the study is complete except for peer-review sign-off, and that sign-off is expected by 10:00 AM on 18 February.",
+      "name": "study_status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "external_institution",
+        "timezone": "America/Chicago"
+      },
+      "category": "organization",
+      "id": "organization:external_reviewer",
+      "meaning": "The external reviewer who committed to deliver peer-review sign-off by 10:00 AM on 18 February.",
+      "name": "External reviewer",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "08:30",
+          "workdays": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Chicago"
+      },
+      "category": "participant",
+      "id": "participant:alma_reyes",
+      "meaning": "Councilmember who checks her email and notices the study.\nCouncilmember who reads the finalized study in full.",
+      "name": "Alma Reyes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "16:30",
+          "open": "08:00",
+          "workdays": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Chicago"
+      },
+      "category": "participant",
+      "id": "participant:miguel_santos",
+      "meaning": "City transportation engineer who emails the finalized study to council members within an hour after receiving peer-review sign-off.",
+      "name": "Miguel Santos",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4b"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Delivers internally within about a minute.",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:city_email",
+      "meaning": "City email system used to distribute finalized studies as PDF attachments.",
+      "name": "city_email",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Delivery within about a minute.",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:city_email_system",
+      "meaning": "The city's internal email system used to distribute finalized studies as PDF attachments.",
+      "name": "City email system",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:committed_to_deliver_sign_off_by_10_00_am_on_18_february",
+      "meaning": "The external reviewer has committed to deliver the peer-review sign-off for the Riverside corridor traffic study by 10:00 AM America/Chicago on 18 February 2026.",
+      "name": "committed to deliver sign-off by 10:00 AM on 18 February",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with a single prerequisite (santos_emails_study) and no separate mechanism; it is a conjunction of that step.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:email_delivered",
+      "meaning": "The email with the study is delivered to Reyes's inbox.",
+      "name": "email_delivered",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:peer_review_signoff_expected",
+      "meaning": "External reviewer committed to deliver sign-off by 10:00 AM on 18 February.",
+      "name": "peer_review_signoff_expected",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:practice_to_email_study",
+      "meaning": "Santos emails finalized study to council members within an hour after receiving peer-review sign-off.",
+      "name": "practice_to_email_study",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4b"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:reading_time_60_to_90_minutes",
+      "meaning": "A finalized Riverside corridor study of this type takes 60 to 90 minutes to read.",
+      "name": "reading_time_60_to_90_minutes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:reads_studies_before_voting",
+      "meaning": "She reads corridor studies in full before voting on them.",
+      "name": "reads_studies_before_voting",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:reviews_email_in_block",
+      "meaning": "She reviews council email in a block at the start of each working day and roughly every two hours thereafter.",
+      "name": "reviews_email_in_block",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {},
+      "category": "state",
+      "id": "state:reyes_s_reading_state",
+      "meaning": "Whether Reyes has read the study before the meeting.",
+      "name": "Reyes's reading state",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:study_arriving_day_of_vote_unacceptable",
+      "meaning": "A study arriving the day of a vote is 'not something I can responsibly act on'.",
+      "name": "study_arriving_day_of_vote_unacceptable",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with a single prerequisite (peer_review_signoff) and no separate mechanism; it is a conjunction of that step.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:study_finalized",
+      "meaning": "The Riverside corridor traffic study is finalized with peer-review sign-off.",
+      "name": "study_finalized",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:study_not_finalized",
+      "meaning": "The Riverside corridor traffic study is not yet finalized; it awaits peer-review sign-off.",
+      "name": "study_not_finalized",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:works_monday_to_friday",
+      "meaning": "Alma Reyes works Monday to Friday from 8:30 AM to 6:00 PM America/Chicago.",
+      "name": "works_monday_to_friday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The council meeting start time; the study must be read before this moment.",
+          "timezone": "America/Chicago",
+          "when": "2026-02-19T19:00:00-06:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Reyes has not read the finalized study before the meeting starts.",
+        "positive_condition": "Reyes has read the finalized study before the meeting starts.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether Councilmember Reyes has actually noticed and read the finalized traffic study before the council meeting begins at 7:00 PM on 2026-02-19.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "reyes_checks_email": "reyes_checks_email",
+        "reyes_reads_study": "reyes_reads_study",
+        "santos_emails_study": "santos_emails_study"
+      },
+      "event": {
+        "council_meeting": "council_meeting",
+        "deliver peer-review sign-off": "deliver_peer_review_sign_off"
+      },
+      "information": {
+        "council_meeting_time": "council_meeting_time",
+        "email_delivery_time": "email_delivery_time",
+        "email_practice": "email_practice",
+        "meeting_time": "meeting_time",
+        "santos_schedule": "santos_schedule",
+        "study is complete except for sign-off": "study_is_complete_except_for_sign_off",
+        "study_expected_by_18_feb": "study_expected_by_18_feb",
+        "study_status": "study_status"
+      },
+      "organization": {
+        "External reviewer": "external_reviewer"
+      },
+      "participant": {
+        "Alma Reyes": "alma_reyes",
+        "Miguel Santos": "miguel_santos"
+      },
+      "process": {
+        "City email system": "city_email_system",
+        "city_email": "city_email"
+      },
+      "state": {
+        "Reyes's reading state": "reyes_s_reading_state",
+        "committed to deliver sign-off by 10:00 AM on 18 February": "committed_to_deliver_sign_off_by_10_00_am_on_18_february",
+        "email_delivered": "email_delivered",
+        "peer_review_signoff_expected": "peer_review_signoff_expected",
+        "practice_to_email_study": "practice_to_email_study",
+        "reading_time_60_to_90_minutes": "reading_time_60_to_90_minutes",
+        "reads_studies_before_voting": "reads_studies_before_voting",
+        "reviews_email_in_block": "reviews_email_in_block",
+        "study_arriving_day_of_vote_unacceptable": "study_arriving_day_of_vote_unacceptable",
+        "study_finalized": "study_finalized",
+        "study_not_finalized": "study_not_finalized",
+        "works_monday_to_friday": "works_monday_to_friday"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "The reviewer committed to deliver by this time, but actual delivery may be delayed.",
+      "topic": "peer_review_signoff"
+    },
+    {
+      "about": null,
+      "meaning": "Whether the external reviewer delivers the sign-off by 10:00 AM on 18 February as committed, or later, or not at all.",
+      "topic": "peer_review_signoff"
+    },
+    {
+      "about": "action:reyes_checks_email",
+      "meaning": "Reyes may not check email before the meeting if the study arrives late or she is busy."
+    },
+    {
+      "about": "action:reyes_checks_email",
+      "meaning": "Whether Reyes checks her email at a time after the study is delivered and before the meeting starts, given her stated schedule but possible deviations."
+    },
+    {
+      "about": "action:reyes_reads_study",
+      "meaning": "Reyes may not have time to read the full study before the meeting if it arrives late."
+    },
+    {
+      "about": "action:reyes_reads_study",
+      "meaning": "Whether Reyes actually reads the study in full after receiving it, given her stated policy but potential for not having time or choosing not to read."
+    },
+    {
+      "about": "action:santos_emails_study",
+      "meaning": "Whether Santos actually emails the study within an hour after receiving sign-off, given his documented practice but potential for delay or failure."
+    }
+  ]
+}

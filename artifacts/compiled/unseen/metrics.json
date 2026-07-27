@@ -1,0 +1,28 @@
+{
+  "assembly_ms": 12.2,
+  "assembly_repairs": [
+    "causal_spine"
+  ],
+  "binding_calls": 0,
+  "discovery_calls": 28,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": false,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 242049.31097099982,
+  "model_tokens": 208851,
+  "proofs_ms": 0.0,
+  "repairs_by_step": {
+    "causal_spine": 1,
+    "starting_state[Priya Raghavan]": 1
+  },
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

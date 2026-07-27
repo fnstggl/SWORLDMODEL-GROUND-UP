@@ -1,0 +1,90 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:agreement_record",
+        "via": {
+          "node": "action:negotiator_accepts_offer",
+          "prerequisites": [
+            {
+              "node": "action:negotiator_attends_session",
+              "prerequisites": [
+                {
+                  "node": "event:bargaining_session_occurs",
+                  "root": "scheduled_event"
+                }
+              ],
+              "root": "actor_choice"
+            },
+            {
+              "node": "action:offer_tabled",
+              "prerequisites": [
+                {
+                  "node": "action:negotiator_decides_to_table_offer",
+                  "prerequisites": [
+                    {
+                      "node": "action:negotiator_attends_session",
+                      "prerequisites": [
+                        {
+                          "node": "event:bargaining_session_occurs",
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "root": "actor_choice"
+                    },
+                    {
+                      "derived_condition": true,
+                      "node": "state:wozniak_condition_met",
+                      "prerequisites": [
+                        {
+                          "node": "action:bright_tables_4_5",
+                          "prerequisites": [
+                            {
+                              "node": "action:negotiator_attends_session",
+                              "prerequisites": [
+                                {
+                                  "node": "event:bargaining_session_occurs",
+                                  "root": "scheduled_event"
+                                }
+                              ],
+                              "root": "actor_choice"
+                            },
+                            {
+                              "node": "event:bargaining_session_occurs",
+                              "root": "scheduled_event"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      ]
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "event:bargaining_session_occurs",
+                  "root": "scheduled_event"
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:agreement_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:negotiator_accepts_offer"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

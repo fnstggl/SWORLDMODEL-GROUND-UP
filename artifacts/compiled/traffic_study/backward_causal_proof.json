@@ -1,0 +1,56 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "state:reyes_s_reading_state",
+        "via": {
+          "node": "action:reyes_reads_study",
+          "prerequisites": [
+            {
+              "node": "action:reyes_checks_email",
+              "prerequisites": [
+                {
+                  "derived_condition": true,
+                  "node": "state:email_delivered",
+                  "prerequisites": [
+                    {
+                      "node": "action:santos_emails_study",
+                      "prerequisites": [
+                        {
+                          "derived_condition": true,
+                          "node": "state:study_finalized",
+                          "prerequisites": [
+                            {
+                              "node": "event:deliver_peer_review_sign_off",
+                              "root": "scheduled_event"
+                            }
+                          ]
+                        }
+                      ],
+                      "root": "actor_choice"
+                    }
+                  ]
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "state:reyes_s_reading_state",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:reyes_reads_study"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

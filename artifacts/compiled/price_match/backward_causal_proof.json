@@ -1,0 +1,74 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:july_2026_torrent_800_revenue",
+        "prerequisites": [
+          {
+            "node": "process:revenue_accumulated",
+            "prerequisites": [
+              {
+                "node": "process:sales_18_to_31_july",
+                "prerequisites": [
+                  {
+                    "node": "event:daily_sales_rate_18_to_31",
+                    "root": "explicit_uncertainty"
+                  },
+                  {
+                    "node": "state:price_18_to_31_july",
+                    "root": "initial_fact"
+                  }
+                ],
+                "root": "process"
+              },
+              {
+                "node": "process:sales_1_to_17_july",
+                "root": "process"
+              }
+            ],
+            "root": "process"
+          }
+        ],
+        "via": {
+          "node": "process:revenue_accumulated",
+          "prerequisites": [
+            {
+              "node": "process:sales_18_to_31_july",
+              "prerequisites": [
+                {
+                  "node": "event:daily_sales_rate_18_to_31",
+                  "root": "explicit_uncertainty"
+                },
+                {
+                  "node": "state:price_18_to_31_july",
+                  "root": "initial_fact"
+                }
+              ],
+              "root": "process"
+            },
+            {
+              "node": "process:sales_1_to_17_july",
+              "root": "process"
+            }
+          ],
+          "root": "process"
+        }
+      },
+      "component": "resource:july_2026_torrent_800_revenue",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "process"
+      ],
+      "producers": [
+        "process:revenue_accumulated"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [
+    "resource:july_2026_torrent_800_revenue"
+  ],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

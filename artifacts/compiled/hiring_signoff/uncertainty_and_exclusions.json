@@ -1,0 +1,43 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Other candidates for ENG-114",
+      "why_safe": "Nandakumar is the sole finalist; no other candidate can affect the outcome."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e3",
+        "e7",
+        "e12"
+      ],
+      "name": "Other Bellrock employees not involved in this process",
+      "why_safe": "Only the named individuals (Okafor, Kolev, Ruiz, panelists) and the screening vendor are relevant to the causal chain."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Technical failures or delays outside normal operations",
+      "why_safe": "No evidence suggests any system outages or unusual delays; assuming normal operation is standard for forecasting."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "Marta Kolev checks email",
+      "meaning": "Whether Kolev will check her work email on the evening of Thursday 30 July, Friday 31 July, Saturday 1 August, or Sunday 2 August, and if so, whether she will record the compensation approval in the applicant-tracking system during that check."
+    },
+    {
+      "about": "Compensation approval recorded",
+      "meaning": "The exact time when the compensation approval is recorded in the applicant-tracking system, if at all, before the deadline."
+    },
+    {
+      "about": "Offer compiled and countersigned",
+      "meaning": "Whether the HR offer desk will receive the recorded approval before 9:00 AM on Monday 3 August, and if so, whether they will compile, countersign, and email the offer letter before 9:00 AM that day, given that the desk is not staffed on weekends and the deadline is before the start of business on Monday."
+    }
+  ]
+}

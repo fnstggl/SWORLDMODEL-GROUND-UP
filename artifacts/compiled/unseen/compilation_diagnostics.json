@@ -1,0 +1,12 @@
+{
+  "detail": {
+    "defects": [
+      "record:gpa_garden_city_berth_8_vessel_log: no act or mechanism makes this record. The act steps whose act IS this record (each cast vote, each signature, each filing) must declare produces_proof: ['GPA Garden City Berth 8 vessel log'] in the causal spine; a counted record cannot float free of the acts it counts",
+      "record:savannah_pilots_association_docking_report: no act or mechanism makes this record. The act steps whose act IS this record (each cast vote, each signature, each filing) must declare produces_proof: ['Savannah Pilots Association docking report'] in the causal spine; a counted record cannot float free of the acts it counts"
+    ],
+    "document": "causal_spine",
+    "repairable": true
+  },
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

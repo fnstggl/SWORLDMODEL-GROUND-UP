@@ -1,0 +1,320 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board creates the official record of approval.",
+          "over": "board_approval_record_created"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board votes to approve the acquisition.",
+          "over": "board_votes_approval"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board holds a meeting to discuss the acquisition.",
+          "over": "board_meeting_held"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board schedules a meeting to consider the acquisition.",
+          "over": "board_meeting_scheduled"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Neither company has made any public statement about a transaction.",
+          "name": "no public statement about transaction",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "A trade publication reported that the two companies 'are understood to have held talks'.",
+          "name": "talks held",
+          "visibility": "public"
+        }
+      ],
+      "name": "Halvorsen Group board",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "Europe/Oslo"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Management develops the acquisition proposal.",
+          "over": "acquisition_proposal_developed"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Management presents the proposal to the board.",
+          "over": "acquisition_proposal_presented"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Halvorsen Group and Meridian Freight are understood to have held talks.",
+          "name": "talks_held",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Neither company has made any public statement about a transaction.",
+          "name": "no_public_statement",
+          "visibility": "public"
+        }
+      ],
+      "name": "Halvorsen Group management",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "Europe/Oslo"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board of Halvorsen Group creates the official record of approval.",
+          "over": "board_approval_record_created"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board votes to approve the acquisition.",
+          "over": "board_votes_approval"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board holds a meeting to discuss the acquisition.",
+          "over": "board_meeting_held"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board schedules a meeting to consider the acquisition.",
+          "over": "board_meeting_scheduled"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Halvorsen Group is a privately held company.",
+          "name": "privately held"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The company's headquarters are in Oslo, Norway.",
+          "name": "headquartered in Oslo"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "As of November 2, 2026, Halvorsen Group has not made any public statement about a transaction with Meridian Freight.",
+          "name": "no public statement about transaction"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Halvorsen Group is understood to have held talks with Meridian Freight, as reported by a trade publication.",
+          "name": "held talks with Meridian Freight",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Halvorsen Group knows that neither company has made a public statement about a transaction.",
+          "name": "no public statement made",
+          "visibility": "public"
+        }
+      ],
+      "name": "Halvorsen Group",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "Europe/Oslo"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Meridian Freight engages in negotiations with Halvorsen Group.",
+          "over": "negotiations_occur"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Meridian Freight makes initial contact with Halvorsen Group.",
+          "over": "initial_contact"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Meridian Freight is a privately held company operating in the logistics sector.",
+          "name": "private_company"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Meridian Freight has not made any public statement about a transaction with Halvorsen Group.",
+          "name": "no_public_statement"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Meridian Freight is aware that talks have been held with Halvorsen Group.",
+          "name": "talks_held",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Meridian Freight knows that neither company has made a public statement about a transaction.",
+          "name": "no_public_statement",
+          "visibility": "public"
+        }
+      ],
+      "name": "Meridian Freight",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "Europe/Oslo"
+    }
+  ]
+}

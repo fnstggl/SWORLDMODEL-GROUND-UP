@@ -1,0 +1,13 @@
+{
+  "detail": {
+    "defects": [
+      "step 'ferry_sailing_arrives': a scheduled_event needs 'when' (calendar time with utc offset) or 'anchor'",
+      "step 'ferry_sailing_departs': a scheduled_event needs 'when' (calendar time with utc offset) or 'anchor'",
+      "step 'penhallow_delivers_to_terminal': a scheduled_event needs 'when' (calendar time with utc offset) or 'anchor'"
+    ],
+    "document": "causal_spine",
+    "repairable": false
+  },
+  "reason": "causal_spine is still defective after its assembly repair",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

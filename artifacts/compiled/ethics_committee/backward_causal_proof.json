@@ -1,0 +1,59 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:meeting_minutes",
+        "via": {
+          "node": "action:doyle_votes_no",
+          "prerequisites": [
+            {
+              "node": "action:chair_puts_motion",
+              "prerequisites": [
+                {
+                  "node": "event:attend_ethics_committee_meeting",
+                  "root": "scheduled_event"
+                },
+                {
+                  "node": "process:safety_review_circulated",
+                  "prerequisites": [
+                    {
+                      "node": "process:lindqvist_prepares_review",
+                      "prerequisites": [
+                        {
+                          "node": "event:updated_data_released",
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "root": "process"
+                    }
+                  ],
+                  "root": "process"
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:meeting_minutes",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:doyle_votes_no",
+        "action:doyle_votes_yes",
+        "action:osei_votes_no",
+        "action:osei_votes_yes",
+        "action:patel_votes_no",
+        "action:patel_votes_yes"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

@@ -1,0 +1,26 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "2026-09-24T09:40:00-04:00: instruction_delivered_to_hollis (scheduled event)",
+        "Bram Hollis signs and dispatches the instruction (hollis_dispatches_signed) - needs instruction_delivered_to_hollis",
+        "Delivery of signed instruction from Hollis to Fontaine (missing process)",
+        "Ada Fontaine signs and dispatches the instruction (fontaine_dispatches_signed) - needs instruction_delivered_to_fontaine",
+        "Delivery of fully signed instruction from Fontaine to Landmark (missing process)",
+        "fully_signed_instruction_arrives at Landmark",
+        "Landmark initiates wire (wire_initiation) - needs fully_signed_instruction_arrives"
+      ],
+      "defects": [
+        {
+          "document": "causal_spine",
+          "what": "Missing processes for delivery of the signed instruction from Hollis to Fontaine and from Fontaine to Landmark. The processes 'delivery_to_landmark' and 'instruction_delivered_to_fontaine' are declared decorative but are essential for causal completeness.",
+          "why_material": "Without these delivery steps, the prerequisite 'fully_signed_instruction_arrives' never becomes true, preventing the wire initiation even when all signing and dispatching actions are taken. This would incorrectly force the negative terminal regardless of actual behavior."
+        }
+      ],
+      "reasoning": "The causal chain is incomplete: the delivery of the signed instruction from Hollis to Fontaine and from Fontaine to Landmark is not modeled. The world declares the necessary delivery processes as decorative, meaning they produce no effect, so the prerequisite 'fully_signed_instruction_arrives' can never be satisfied, preventing the positive terminal from occurring. This is a material defect because without these steps the simulation cannot produce the correct outcome supported by the evidence.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

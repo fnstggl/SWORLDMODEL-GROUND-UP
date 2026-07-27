@@ -1,0 +1,271 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "condition",
+      "meaning": "Noor Haddad is physically present on the aircraft when it departs.",
+      "name": "Haddad aboard AU 780 at departure",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad boards AU 780"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "AU 780 departs Halden International"
+        }
+      ],
+      "produces_proof": [
+        "Haddad aboard AU 780 at departure"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Flight AU 780 departs from Halden International at its scheduled time.",
+      "name": "AU 780 departs Halden International",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-12T15:00:00+02:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Noor Haddad passes through the boarding gate and enters the aircraft.",
+      "name": "Haddad boards AU 780",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad arrives at Halden International"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad has valid boarding pass for AU 780"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "condition",
+      "meaning": "Noor Haddad arrives at Halden International airport, presumably via AU 412.",
+      "name": "Haddad arrives at Halden International",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad boards AU 412 in Verlan City"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "AU 412 arrives at Halden International"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Flight AU 412 arrives at Halden International at its scheduled time.",
+      "name": "AU 412 arrives at Halden International",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "AU 412 departs Verlan City"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-12T14:05:00+02:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Flight AU 412 departs from Verlan City at its scheduled time.",
+      "name": "AU 412 departs Verlan City",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad boards AU 412 in Verlan City"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-12T11:20:00+02:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Noor Haddad boards flight AU 412 in Verlan City.",
+      "name": "Haddad boards AU 412 in Verlan City",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad has valid boarding pass for AU 412"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad arrives at Verlan City airport"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "condition",
+      "meaning": "Noor Haddad possesses a valid boarding pass for AU 780, either issued at check-in or via mobile.",
+      "name": "Haddad has valid boarding pass for AU 780",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad checks in for AU 780"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Noor Haddad completes check-in for AU 780, either online or at the airport.",
+      "name": "Haddad checks in for AU 780",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad has valid booking for AU 780"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Noor Haddad's booking for AU 780 remains valid and not cancelled.",
+      "name": "Haddad has valid booking for AU 780",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "condition",
+      "meaning": "Noor Haddad possesses a valid boarding pass for AU 412.",
+      "name": "Haddad has valid boarding pass for AU 412",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad checks in for AU 412"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Noor Haddad completes check-in for AU 412.",
+      "name": "Haddad checks in for AU 412",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "Haddad has valid booking for AU 412"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Noor Haddad's booking for AU 412 remains valid and not cancelled.",
+      "name": "Haddad has valid booking for AU 412",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Noor Haddad arrives at Verlan City airport in time for AU 412.",
+      "name": "Haddad arrives at Verlan City airport",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

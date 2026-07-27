@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "defects": [
+      "authority of 'Ondrej Malik': 'malik_receives_certificate' is a condition with no producer to hold authority over"
+    ],
+    "document": "starting_state_and_information",
+    "repairable": true
+  },
+  "reason": "the starting_state_and_information document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

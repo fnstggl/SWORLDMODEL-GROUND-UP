@@ -1,0 +1,39 @@
+{
+  "causal_path": [
+    "Baking 5-10 AM produces 150 loaves",
+    "Cooling requires 60 min; first load at 8 AM uses 20 Friday + 60 baked 5-7 = 80 loaves",
+    "First transfer 80 loaves to stand",
+    "Second load at 11 AM uses 60 loaves baked 8-10 (cooled by 11 AM)",
+    "Second transfer 60 loaves to stand",
+    "Total delivered = 140 loaves by noon"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Scheduled events first_arrival_handover and second_arrival_handover transfer 90 loaves each, but evidence indicates only 80 and 60 loaves are available respectively.",
+      "why_material": "Changes terminal answer from 180 to 140 loaves."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Processes first_load, saturday_baking_5_to_10am, saturday_baking_5_to_7am, second_load all accrue into festival_loaves_friday_evening with overlapping windows, causing double-counting. Loading processes should be transfers, not accruals.",
+      "why_material": "Double-counts production and misallocates stock, leading to incorrect available loaves."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "Tomas Ilic has two overlapping processes (5-10 and 5-7); the 5-7 process is redundant and unsupported, potentially double-counting production.",
+      "why_material": "If active, would add extra 60 loaves, altering terminal."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "Initial stock festival_loaves_friday_evening is separate from Copperwheat Bakery's stock; transfers deduct from bakery but production accrues into a different stock, breaking conservation.",
+      "why_material": "Transfers cannot source loaves correctly, affecting load amounts."
+    },
+    {
+      "document": "uncertainty_and_exclusions",
+      "what": "Preserved uncertainties (cooled_loaves_before_8am etc.) are contradicted by fixed transfer amounts; evidence supports deterministic resolution, so uncertainties are misleading.",
+      "why_material": "Creates inconsistency; terminal should be deterministically 140, not an uncertain range."
+    }
+  ],
+  "reasoning": "The world contains multiple material defects: fixed transfer amounts overrule actual availability, overlapping and decorative processes cause double-counting, and stock connections are incorrect. These directly affect the terminal count, so targeted revision is needed.",
+  "verdict": "TARGETED_REVISION"
+}

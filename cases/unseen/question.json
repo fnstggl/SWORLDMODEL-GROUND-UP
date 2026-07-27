@@ -1,0 +1,5 @@
+{
+  "question": "Will the container ship MV Rhine Meridian be recorded as all fast (all mooring lines ashore and secured) at Georgia Ports Authority Garden City Terminal Berth 8 in Savannah, Georgia, on or before 23:59 EDT on 2026-08-13?",
+  "deadline": "2026-08-13T23:59:00-04:00",
+  "resolution_note": "YES if and only if the Savannah Pilots Association docking report and the GPA Garden City Berth 8 vessel log record an 'all fast' time for MV Rhine Meridian at Berth 8 at an instant at or before 2026-08-13T23:59:00-04:00. 'All fast' means every mooring line is ashore and secured as declared by the docking pilot; 'first line ashore' does not count, nor does arrival at the Kings Island Turning Basin. NO if the recorded all-fast time falls after that instant for any reason, including the case where she remains at Tybee Roads Anchorage A overnight and berths on the 2026-08-14 morning high water. NO if she is berthed anywhere other than Garden City Berth 8. If the Berth 8 vessel log and the pilot's docking report disagree, the pilot's docking report governs."
+}

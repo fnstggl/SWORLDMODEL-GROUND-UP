@@ -1,0 +1,34 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "alternative transport (e.g., private boat, helicopter)",
+      "why_safe": "Evidence e9 states the ferry is the only carrier with validated refrigerated storage and Penhallow's cold-chain policy permits handoff only to such carriers, so no alternative transport can be used."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "other vaccine suppliers or stockpiles",
+      "why_safe": "Evidence e2 confirms no other facility on the island stocks the pediatric vaccines, and the only order is with Penhallow."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "ferry_sailing_operates",
+      "meaning": "Whether the ferry will operate on Friday 14 August (the next scheduled sailing day) is unknown because the gale warning ends at 3:00 AM Thursday, but the ferry's decision to resume service after a cancellation is not stated."
+    },
+    {
+      "about": "vaccine_arrives_at_island_dock",
+      "meaning": "If the ferry does not sail before the deadline, the vaccine cannot arrive at the island dock in time."
+    },
+    {
+      "about": "courier_delivers_to_clinic",
+      "meaning": "Even if the vaccine arrives at the island dock, the courier must meet the sailing and deliver to the clinic before 9:00 AM; the timing of the sailing arrival and courier availability are not specified."
+    }
+  ]
+}

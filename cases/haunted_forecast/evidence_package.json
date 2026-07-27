@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-10-12T10:00:00+01:00",
+      "claim": "Harrow House is a Grade II listed 1780s manor in the village of Wexcombe, maintained by the Wexcombe Heritage Trust.",
+      "id": "e1",
+      "source": "Trust property register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-14T15:00:00+01:00",
+      "claim": "Caretaker Edith Marley, employed at the house for 22 years, stated in an interview that footsteps are heard in the long gallery most Octobers, heaviest in the week before All Souls'.",
+      "id": "e2",
+      "source": "Interview with caretaker, 2026-10-14",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-12T10:00:00+01:00",
+      "claim": "Parish burial records show that Josiah Harrow, steward of the house, died there on 2 November 1817.",
+      "id": "e3",
+      "source": "St. Cuthwin's parish register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-12T10:00:00+01:00",
+      "claim": "A 1968 Wexcombe Historical Society pamphlet records the village tradition that the steward walks until his ledger is balanced.",
+      "id": "e4",
+      "source": "Wexcombe Historical Society pamphlet, 1968",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-15T11:00:00+01:00",
+      "claim": "Corin Vale, a medium engaged by the Trust in 2019, stated in an interview that the presence in the gallery seeks acknowledgement, not removal.",
+      "id": "e5",
+      "source": "Interview with Corin Vale, 2026-10-15",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-16T09:00:00+01:00",
+      "claim": "The Trust has scheduled a public All Souls' vigil with candle-lighting in the long gallery for 7:00 PM on 2 November 2026.",
+      "id": "e6",
+      "source": "Trust events calendar",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-16T14:00:00+01:00",
+      "claim": "Rev. Tamsin Oduya of St. Cuthwin's has stated she is prepared to say prayers for the departed at the vigil if the Trust asks.",
+      "id": "e7",
+      "source": "Interview with Rev. Oduya, 2026-10-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-13T10:00:00+01:00",
+      "claim": "The house visitor logbook for October 2025 contains eleven separate entries reporting cold spots in the long gallery.",
+      "id": "e8",
+      "source": "Harrow House visitor logbook",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-16T14:00:00+01:00",
+      "claim": "Trust chair Gordon Pell has stated the Trust takes no position on whether the house is haunted and maintains the vigil as a community tradition.",
+      "id": "e9",
+      "source": "Interview with Gordon Pell, 2026-10-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-12T10:00:00+01:00",
+      "claim": "The same 1968 pamphlet records that in village memory no rite has ever quieted the gallery for more than a season.",
+      "id": "e10",
+      "source": "Wexcombe Historical Society pamphlet, 1968",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_haunted_forecast_2026_10",
+  "prepared_at": "2026-10-20T12:00:00+01:00"
+}

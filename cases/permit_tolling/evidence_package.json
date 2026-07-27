@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-08-10T09:15:00-04:00",
+      "claim": "Hollis Vantour LLC filed building permit application BP-2214 for a two-storey addition at 41 Coldbrook Lane with the Larkspur County Building Department.",
+      "id": "e1",
+      "source": "Larkspur County permit register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2024-01-01T00:00:00-05:00",
+      "claim": "Larkspur County Code sec. 12-407(a): the Building Department must issue a written approval or a written denial of a complete building permit application within fifteen counted business days. If it does neither, the application is deemed approved at 5:00 PM on the fifteenth counted business day.",
+      "id": "e2",
+      "source": "Larkspur County Code, as published",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2024-01-01T00:00:00-05:00",
+      "claim": "Larkspur County Code sec. 12-407(b): a business day is any Monday through Friday on which the Building Department is open. The department is closed on Saturdays, on Sundays, and on any day the county declares its offices closed.",
+      "id": "e3",
+      "source": "Larkspur County Code, as published",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-15T00:00:00-04:00",
+      "claim": "The county has declared its offices closed on Monday 7 September 2026 (Founders' Day) and on Friday 11 September 2026 (a county-wide unpaid furlough day). No other county closure falls between 10 August and 30 September 2026.",
+      "id": "e4",
+      "source": "Larkspur County 2026 closure calendar, adopted 15 June 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T09:15:00-04:00",
+      "claim": "The department accepted BP-2214 as complete at 9:15 AM on Monday 10 August 2026. Under sec. 12-407(c) the count begins on the first business day after an application is accepted as complete.",
+      "id": "e5",
+      "source": "Permit register intake stamp; Larkspur County Code",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2024-01-01T00:00:00-05:00",
+      "claim": "Larkspur County Code sec. 12-407(d): a business day is counted toward the fifteen only if no request for additional information is outstanding at 12:00 noon on that day. A request is outstanding from the moment the department issues it until the moment the department receives a complete response to it.",
+      "id": "e6",
+      "source": "Larkspur County Code, as published",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-13T15:00:00-04:00",
+      "claim": "The department issued a written request for additional information on BP-2214 at 3:00 PM on Thursday 13 August 2026.",
+      "id": "e7",
+      "source": "Department correspondence log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-26T10:00:00-04:00",
+      "claim": "Hollis Vantour LLC delivered a response that the department logged as complete at 10:00 AM on Wednesday 26 August 2026. No further request for additional information has been issued on BP-2214.",
+      "id": "e8",
+      "source": "Department correspondence log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-08T08:00:00-04:00",
+      "claim": "Building Department director Ines Baradaj confirmed in writing on 8 September 2026 that BP-2214 has not been assigned to a plan reviewer, that no reviewer will be assigned to it before 21 September 2026, and that the department issues neither an approval nor a denial on any application before a plan reviewer completes review.",
+      "id": "e9",
+      "source": "Letter from director Baradaj to the applicant, 2026-09-08",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-08T08:00:00-04:00",
+      "claim": "No one outside the Building Department can issue, withdraw or shorten a request for additional information, and the department operates no expedited-review procedure for residential additions. The applicant has requested none and none exists.",
+      "id": "e10",
+      "source": "Department procedures manual; director Baradaj's letter",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-01T00:00:00-04:00",
+      "claim": "Every date and time in this package is America/New_York, which is UTC-04:00 throughout August and September 2026.",
+      "id": "e11",
+      "source": "Package convention",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_permit_tolling_2026_09",
+  "prepared_at": "2026-09-08T09:00:00-04:00"
+}

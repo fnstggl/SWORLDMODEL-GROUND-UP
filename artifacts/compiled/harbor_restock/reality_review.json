@@ -1,0 +1,29 @@
+{
+  "causal_path": [
+    "Order placed Monday 10 Aug",
+    "Penhallow prepares order by Tuesday 11 Aug 08:00",
+    "Penhallow delivers to ferry terminal by 06:00 on sailing day",
+    "Next scheduled cargo sailing before deadline is Wednesday 12 Aug, but cancelled per e8",
+    "No sailing on Thursday, so vaccine cannot reach island before deadline",
+    "Vaccine not at clinic by 09:00 Thursday"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Scheduled events for ferry departure and arrival on Thursday 13 August are unsupported by evidence; ferry only operates Mon/Wed/Fri (e5).",
+      "why_material": "The world would otherwise correctly conclude no delivery before deadline; the fabricated sailing allows an arrival, changing the answer from NO to a possibly YES."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Penhallow delivery to terminal scheduled for Thursday 06:00 is unsupported; e6 ties delivery to sailing days, and Thursday is not a sailing day.",
+      "why_material": "Without a valid sailing, this delivery is irrelevant but creates a false causal path."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "Initial state 'ferry_sailing_cancelled = True' is ambiguous; it should specify only Wednesday, but the world then schedules Thursday sailings, contradicting the cancellation's scope.",
+      "why_material": "Misleading state contributes to the erroneous Thursday sailing assumption."
+    }
+  ],
+  "reasoning": "The world fabricates a Thursday (13 August) ferry sailing at 07:30, but evidence e5 clearly states the ferry accepts refrigerated cargo only on Monday, Wednesday, and Friday. Thursday is not a sailing day. Additionally, the world schedules Penhallow's delivery to the terminal on Thursday morning for a non-existent sailing, contradicting e6 and e5. This misrepresentation makes the world untruthful and materially changes the outcome (it would otherwise correctly conclude the vaccine cannot arrive before the deadline).",
+  "verdict": "REJECT_WRONG_WORLD"
+}

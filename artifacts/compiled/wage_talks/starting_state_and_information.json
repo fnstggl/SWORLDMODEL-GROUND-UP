@@ -1,0 +1,293 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Can accept an offer at or above 4% wage increase.",
+          "over": "negotiator_accepts_offer"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e8"
+          ],
+          "meaning": "Can table a revised offer.",
+          "over": "offer_tabled"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e8"
+          ],
+          "meaning": "Decides whether to table a revised offer.",
+          "over": "negotiator_decides_to_table_offer"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e7"
+          ],
+          "meaning": "Attends the mediated session.",
+          "over": "negotiator_attends_session"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Scheduled mediated bargaining session on 29 October 2026 at 10:00 AM America/Chicago.",
+          "name": "mediated bargaining session",
+          "when": "2026-10-29T10:00:00-05:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Union's standing demand is 5% wage increase as of 26 October 2026.",
+          "name": "union standing demand",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Employer's standing offer is 3.5% wage increase as of 26 October 2026.",
+          "name": "employer standing offer",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Wozniak has authority to accept up to 4.5% without board approval.",
+          "name": "Wozniak's authority limit",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Wozniak will move to 4.5% only if union first comes down from 5%.",
+          "name": "Wozniak's condition to move to 4.5%",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bright is prepared to come down to 4.5% at the mediated session to avoid a strike.",
+          "name": "Bright's preparedness to come down to 4.5%",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Strike deadline is 11:59 PM America/Chicago on 31 October 2026.",
+          "name": "strike deadline",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Mediated bargaining session scheduled for 29 October 2026 at 10:00 AM America/Chicago.",
+          "name": "mediated session scheduled",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Formulating and tabling a revised offer takes roughly 45 minutes of caucus time.",
+          "name": "caucus time estimate",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "An agreement is recorded as accepted when a negotiator accepts the other side's tabled offer at the table.",
+          "name": "agreement acceptance protocol",
+          "visibility": "public"
+        }
+      ],
+      "name": "Yolanda Bright",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Chicago"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Can accept an offer up to 4.5% wage increase without board approval.",
+          "over": "negotiator_accepts_offer"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e8"
+          ],
+          "meaning": "Can table a revised offer.",
+          "over": "offer_tabled"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e8"
+          ],
+          "meaning": "Decides whether to table a revised offer.",
+          "over": "negotiator_decides_to_table_offer"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e7"
+          ],
+          "meaning": "Attends the mediated session.",
+          "over": "negotiator_attends_session"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Scheduled mediated bargaining session on 29 October 2026 at 10:00 AM America/Chicago.",
+          "name": "mediated_bargaining_session",
+          "when": "2026-10-29T10:00:00-05:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Has authority to accept an agreement up to a 4.5 percent wage increase without board approval.",
+          "name": "authority_to_accept",
+          "value": "up to 4.5%"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Employer's standing offer is 3.5 percent wage increase as of 26 October.",
+          "name": "current_offer",
+          "value": "3.5%"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Willing to move to 4.5 percent only if union first comes down from 5 percent.",
+          "name": "willingness_to_move",
+          "value": "conditional"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Union's standing demand is 5 percent wage increase as of 26 October.",
+          "name": "union_demand",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Strike deadline is 11:59 PM America/Chicago on 31 October 2026.",
+          "name": "strike_deadline",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Bright has authority to accept any offer at or above 4 percent wage increase.",
+          "name": "bright_authority",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Bright is prepared to come down to 4.5 percent at the mediated session to avoid a strike.",
+          "name": "bright_willingness",
+          "visibility": "private"
+        }
+      ],
+      "name": "Dennis Wozniak",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Chicago"
+    }
+  ]
+}

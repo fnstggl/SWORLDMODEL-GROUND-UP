@@ -1,0 +1,119 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-11-13T00:00:00-05:00",
+      "claim": "Marchwood Customs Brokerage is the customs broker of record for container HLXU 4471820, shipped by Sanko Kikai K.K. of Osaka to Halbrook Instruments at the Port of Kestrel Bay. Ondrej Malik is Marchwood's only licensed broker.",
+      "id": "e1",
+      "source": "Marchwood engagement letter; port authority broker-of-record filing",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-10T00:00:00-05:00",
+      "claim": "The free time on container HLXU 4471820 at the Kestrel Bay terminal expires at 9:00 AM local time on Wednesday 18 November 2026.",
+      "id": "e2",
+      "source": "Kestrel Bay terminal free-time notice",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-01T00:00:00-04:00",
+      "claim": "America/New_York is UTC-05:00 on 16, 17 and 18 November 2026. Asia/Tokyo is UTC+09:00 and Asia/Singapore is UTC+08:00 on those dates. No jurisdiction referred to in this package observes a public holiday on 16, 17 or 18 November 2026.",
+      "id": "e3",
+      "source": "Package convention; national holiday calendars for 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-13T00:00:00-05:00",
+      "claim": "Malik received the full entry packet for HLXU 4471820 on Friday 13 November 2026. Every document required for the entry is complete and in his possession except the certificate of origin.",
+      "id": "e4",
+      "source": "Marchwood file index for HLXU 4471820",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-16T15:45:00-05:00",
+      "claim": "At 3:40 PM Eastern on Monday 16 November 2026 the Kestrel Bay port authority's automated validator rejected Malik's draft entry because the certificate of origin carried the wrong tariff subheading. At 3:40 PM Eastern the same day Malik emailed Sanko Kikai's compliance officer, Yuki Tamesada, requesting a corrected certificate.",
+      "id": "e5",
+      "source": "Port authority validator log; Marchwood outbound mail log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-01T00:00:00+09:00",
+      "claim": "Yuki Tamesada is the only person at Sanko Kikai authorized to issue or correct a certificate of origin. The company's compliance manual names her the sole holder of the registered export seal, which is held as a credential on her laptop.",
+      "id": "e6",
+      "source": "Sanko Kikai compliance manual, rev. 2026-09",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-14T00:00:00+09:00",
+      "claim": "Tamesada was aboard Meridian Pacific flight MP 118 from Osaka to Singapore on 16 November 2026, departing Osaka at 10:10 PM Japan time on 16 November and landing in Singapore at 4:30 AM Singapore time on 17 November. The carrier's fleet notice confirms the aircraft on this rotation carries no passenger wi-fi and no in-flight messaging, and Tamesada had no other means of receiving or sending email while aboard.",
+      "id": "e7",
+      "source": "Meridian Pacific booking record and fleet notice",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-01T00:00:00+09:00",
+      "claim": "Tamesada's 2026 travel and compliance records show that on each of her eleven arrivals this year she connected from the arrivals hall and cleared her compliance inbox between 45 and 60 minutes after landing, before leaving the airport, and dealt with any pending certificate before anything else. The Singapore arrivals hall provides the public network she used on each of those occasions.",
+      "id": "e8",
+      "source": "Sanko Kikai travel log and compliance-inbox timestamps, 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-01T00:00:00+09:00",
+      "claim": "Issuing a corrected certificate of origin takes Tamesada 20 minutes and requires nothing from any other person: she amends the subheading, applies the seal credential from her laptop, and emails the corrected PDF to the broker.",
+      "id": "e9",
+      "source": "Sanko Kikai compliance manual; timing of her last nine corrections",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-01T00:00:00-04:00",
+      "claim": "Email between Sanko Kikai and Marchwood is delivered within 2 minutes. Neither firm's mail system logged any delivery delay in November 2026.",
+      "id": "e10",
+      "source": "Both firms' mail transport logs",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-02T00:00:00-05:00",
+      "claim": "Malik works 8:00 AM to 5:00 PM Eastern, Monday to Friday. He reads his email at the top of every hour and at half past every hour from 8:00 AM through 4:30 PM, and at no other time. He does not read work email outside those checks, outside working hours, or on non-working days.",
+      "id": "e11",
+      "source": "Marchwood staff schedule; Malik's mail-client access log for 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-02T00:00:00-05:00",
+      "claim": "Malik was out of the office for the whole of Tuesday 17 November 2026 at a mandatory continuing-education session, and accessed neither his email nor the entry filing system that day. Marchwood employs no other licensed broker, and no one else at the firm may prepare or submit an entry.",
+      "id": "e12",
+      "source": "Marchwood staff calendar, set 2 November 2026; port authority broker licence register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-01T00:00:00-04:00",
+      "claim": "Once Malik holds a complete document set, preparing and submitting an entry takes him 45 minutes of working time. The Kestrel Bay port authority's electronic entry system accepts and acknowledges filings 24 hours a day and operated normally throughout 16-18 November 2026.",
+      "id": "e13",
+      "source": "Marchwood filing-time records; port authority system status log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-11-16T15:45:00-05:00",
+      "claim": "Nothing other than the corrected certificate of origin was missing from the entry, and no party other than Tamesada and Malik has any step to perform before the entry can be filed.",
+      "id": "e14",
+      "source": "Port authority validator log; Marchwood file index",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_freight_handoff_2026_11",
+  "prepared_at": "2026-11-16T16:00:00-05:00"
+}

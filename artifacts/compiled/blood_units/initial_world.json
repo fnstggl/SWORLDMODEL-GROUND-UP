@@ -1,0 +1,508 @@
+{
+  "action_defs": {},
+  "actions": {},
+  "actors": {
+    "cascade_regional_blood_centre": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {
+        "collection_rate": {
+          "basis": "held at the start of the situation",
+          "statement": "The drive collects at a measured average of 12 usable units per hour while it is open.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "collection_week": {
+          "basis": "held at the start of the situation",
+          "statement": "The collection week under consideration runs Monday 20 July to Friday 24 July 2026.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "drive_schedule": {
+          "basis": "held at the start of the situation",
+          "statement": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "initial_stock_centre": {
+          "basis": "held at the start of the situation",
+          "statement": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "initial_stock_hospital": {
+          "basis": "held at the start of the situation",
+          "statement": "Hospital knows its own initial stock of 15 units.\nSt. Vincent regional hospital held 15 usable units at the same moment.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipment_capacity": {
+          "basis": "held at the start of the situation",
+          "statement": "The Tuesday and Thursday shipments each move 150 units, the capacity of the centre's transport cooler.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipment_transit_time": {
+          "basis": "held at the start of the situation",
+          "statement": "A shipment takes about 3 hours to reach the hospital and be received into its bank.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipping_schedule": {
+          "basis": "held at the start of the situation",
+          "statement": "The centre ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        }
+      },
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [],
+      "id": "cascade_regional_blood_centre",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "Cascade regional blood centre",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "",
+      "reconsider": [],
+      "relationships": {},
+      "role": "organization",
+      "tz": "America/Los_Angeles",
+      "unprocessed_info": [],
+      "values": []
+    },
+    "st_vincent_regional_hospital": {
+      "attention": {},
+      "available_info": [],
+      "beliefs": {
+        "collection_rate": {
+          "basis": "held at the start of the situation",
+          "statement": "The drive collects at a measured average of 12 usable units per hour while it is open.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "collection_week": {
+          "basis": "held at the start of the situation",
+          "statement": "The collection week under consideration runs Monday 20 July to Friday 24 July 2026.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "drive_schedule": {
+          "basis": "held at the start of the situation",
+          "statement": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "initial_stock_hospital": {
+          "basis": "held at the start of the situation",
+          "statement": "Hospital knows its own initial stock of 15 units.\nSt. Vincent regional hospital held 15 usable units at the same moment.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipment_capacity": {
+          "basis": "held at the start of the situation",
+          "statement": "The Tuesday and Thursday shipments each move 150 units, the capacity of the centre's transport cooler.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipment_schedule": {
+          "basis": "held at the start of the situation",
+          "statement": "Hospital knows shipments arrive every Tuesday and Thursday at 7:00 PM.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipment_transit_time": {
+          "basis": "held at the start of the situation",
+          "statement": "A shipment takes about 3 hours to reach the hospital and be received into its bank.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        },
+        "shipping_schedule": {
+          "basis": "held at the start of the situation",
+          "statement": "The centre ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+          "updated_at": "2026-07-20T07:00:00+00:00"
+        }
+      },
+      "commitments": {},
+      "deferred_wakes": [],
+      "emotional_state": "",
+      "goals": [],
+      "id": "st_vincent_regional_hospital",
+      "last_decision_at": null,
+      "memories": [],
+      "name": "St. Vincent regional hospital",
+      "noticed_info": [],
+      "ongoing_action": null,
+      "physical_state": "",
+      "plan": "",
+      "reconsider": [],
+      "relationships": {},
+      "role": "organization",
+      "tz": "America/Los_Angeles",
+      "unprocessed_info": [],
+      "values": []
+    }
+  },
+  "channels": {},
+  "entities": {},
+  "facts": {
+    "initial_stock_centre": "40 units",
+    "initial_stock_hospital": "true"
+  },
+  "history": [],
+  "infos": {},
+  "now": "2026-07-20T07:00:00+00:00",
+  "processes": {
+    "collection_process_friday_morning": {
+      "active": false,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "cascade_regional_blood_centre",
+      "id": "collection_process_friday_morning",
+      "last_applied": "2026-07-20T07:00:00+00:00",
+      "note": "e2: measured average of 12 usable units per hour",
+      "rate_per_hour": 12.0,
+      "resource": "blood_units"
+    },
+    "collection_process_monday": {
+      "active": false,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "cascade_regional_blood_centre",
+      "id": "collection_process_monday",
+      "last_applied": "2026-07-20T07:00:00+00:00",
+      "note": "Centre's 2026 throughput report: average 12 usable units per hour.",
+      "rate_per_hour": 12.0,
+      "resource": "blood_units"
+    },
+    "collection_process_thursday": {
+      "active": false,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "cascade_regional_blood_centre",
+      "id": "collection_process_thursday",
+      "last_applied": "2026-07-20T07:00:00+00:00",
+      "note": "Centre's 2026 throughput report",
+      "rate_per_hour": 12.0,
+      "resource": "blood_units"
+    },
+    "collection_process_tuesday": {
+      "active": false,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "cascade_regional_blood_centre",
+      "id": "collection_process_tuesday",
+      "last_applied": "2026-07-20T07:00:00+00:00",
+      "note": "Centre's 2026 throughput report: average 12 usable units per hour",
+      "rate_per_hour": 12.0,
+      "resource": "blood_units"
+    },
+    "collection_process_wednesday": {
+      "active": false,
+      "basis": "verified",
+      "capacity": null,
+      "holder": "cascade_regional_blood_centre",
+      "id": "collection_process_wednesday",
+      "last_applied": "2026-07-20T07:00:00+00:00",
+      "note": "Centre's 2026 throughput report: average 12 usable units per hour.",
+      "rate_per_hour": 12.0,
+      "resource": "blood_units"
+    }
+  },
+  "relationships": {},
+  "resources": {
+    "cascade_regional_blood_centre:blood_units": 40.0,
+    "st_vincent_regional_hospital:blood_units": 15.0
+  },
+  "scheduled_events": [
+    {
+      "data": {
+        "note": "operating period begins",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "collection_process_friday_morning"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 25,
+      "t": "2026-07-24T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period ends",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "collection_process_friday_morning"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 26,
+      "t": "2026-07-24T19:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period begins",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "collection_process_monday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 28,
+      "t": "2026-07-20T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period ends",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "collection_process_monday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 29,
+      "t": "2026-07-21T00:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period begins",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "collection_process_thursday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 31,
+      "t": "2026-07-23T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period ends",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "collection_process_thursday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 32,
+      "t": "2026-07-24T00:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period begins",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "collection_process_tuesday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 34,
+      "t": "2026-07-21T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period ends",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "collection_process_tuesday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 35,
+      "t": "2026-07-22T00:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period begins",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": true,
+              "id": "collection_process_wednesday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 37,
+      "t": "2026-07-22T16:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "operating period ends",
+        "ops": [
+          [
+            "process.active",
+            {
+              "active": false,
+              "id": "collection_process_wednesday"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 38,
+      "t": "2026-07-23T00:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "tuesday_shipment_dispatch -- Centre dispatches 150 units to hospital at 4:00 PM Tuesday July 21.\nShipment of 150 units dispatched every Tuesday at 4:00 PM. (basis: verified: e7, e9)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "tuesday_shipment_dispatch",
+              "value": "occurred"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 39,
+      "t": "2026-07-21T23:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "cascade_regional_blood_centre",
+        "detail": "scheduled: tuesday_shipment_dispatch",
+        "reason": "scheduled_tuesday_shipment_dispatch"
+      },
+      "kind": "wake.actor",
+      "seq": 40,
+      "t": "2026-07-21T23:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "tuesday_shipment_arrival -- Shipment of 150 units arrives from centre on Tuesday 21 July 2026 at 7:00 PM America/Los_Angeles.\nTuesday shipment arrives at hospital after 3 hours, at 7:00 PM Tuesday Jul (basis: inferred: e7, e8, e9)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "tuesday_shipment_arrival",
+              "value": "occurred"
+            }
+          ],
+          [
+            "resource.transfer",
+            {
+              "amount": 150,
+              "from_holder": "cascade_regional_blood_centre",
+              "name": "blood_units",
+              "to_holder": "st_vincent_regional_hospital"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 41,
+      "t": "2026-07-22T02:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "st_vincent_regional_hospital",
+        "detail": "scheduled: tuesday_shipment_arrival",
+        "reason": "scheduled_tuesday_shipment_arrival"
+      },
+      "kind": "wake.actor",
+      "seq": 42,
+      "t": "2026-07-22T02:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "thursday_shipment_dispatch -- Centre dispatches 150 units to hospital at 4:00 PM Thursday July 23.\nShipment of 150 units dispatched every Thursday at 4:00 PM. (basis: verified: e7, e9)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "thursday_shipment_dispatch",
+              "value": "occurred"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 43,
+      "t": "2026-07-23T23:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "cascade_regional_blood_centre",
+        "detail": "scheduled: thursday_shipment_dispatch",
+        "reason": "scheduled_thursday_shipment_dispatch"
+      },
+      "kind": "wake.actor",
+      "seq": 44,
+      "t": "2026-07-23T23:00:00+00:00"
+    },
+    {
+      "data": {
+        "note": "thursday_shipment_arrival -- Shipment of 150 units arrives from centre on Thursday 23 July 2026 at 7:00 PM America/Los_Angeles.\nThursday shipment arrives at hospital after 3 hours, at 7:00 PM Thursday (basis: inferred: e7, e8, e9)",
+        "ops": [
+          [
+            "fact.set",
+            {
+              "key": "thursday_shipment_arrival",
+              "value": "occurred"
+            }
+          ],
+          [
+            "resource.transfer",
+            {
+              "amount": 150,
+              "from_holder": "cascade_regional_blood_centre",
+              "name": "blood_units",
+              "to_holder": "st_vincent_regional_hospital"
+            }
+          ]
+        ]
+      },
+      "kind": "world.ops",
+      "seq": 45,
+      "t": "2026-07-24T02:00:00+00:00"
+    },
+    {
+      "data": {
+        "actor": "st_vincent_regional_hospital",
+        "detail": "scheduled: thursday_shipment_arrival",
+        "reason": "scheduled_thursday_shipment_arrival"
+      },
+      "kind": "wake.actor",
+      "seq": 46,
+      "t": "2026-07-24T02:00:00+00:00"
+    }
+  ],
+  "start": "2026-07-20T07:00:00+00:00",
+  "terminal": null,
+  "typed_records": [],
+  "version": 47,
+  "watches": {}
+}

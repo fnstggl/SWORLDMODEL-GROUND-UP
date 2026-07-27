@@ -1,0 +1,157 @@
+{
+  "steps": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "kind": "condition",
+      "meaning": "July 2026 Torrent 800 revenue >= $8,000",
+      "name": "terminal_revenue_condition",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "revenue_accumulated"
+        }
+      ],
+      "produces_proof": [
+        "July 2026 Torrent 800 revenue"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e9"
+      ],
+      "kind": "process",
+      "meaning": "Total revenue from Torrent 800 sales from 1 July to 31 July close of business is accumulated",
+      "name": "revenue_accumulated",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "sales_1_to_17_july"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "sales_18_to_31_july"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "process",
+      "meaning": "204 units sold at $25 each from 1 July to 17 July close, generating $5,100 revenue",
+      "name": "sales_1_to_17_july",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "process",
+      "meaning": "Sales from 18 July to 31 July inclusive, 14 days, at unknown daily rate and price",
+      "name": "sales_18_to_31_july",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "daily_sales_rate_18_to_31"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "price_18_to_31_july"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Daily sales rate and price are uncertain due to competitor pricing and possible price change only on 1 August.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "kind": "uncertain_exogenous",
+      "meaning": "Number of Torrent 800 units sold per day from 18 July to 31 July",
+      "name": "daily_sales_rate_18_to_31",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "price_18_to_31_july"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Sales rate may drop due to competitor's lower price; historical precedent suggests 7 units/day if price difference persists, but uncertain.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Price of Torrent 800 at Fernhaven Cycles from 18 July to 31 July",
+      "name": "price_18_to_31_july",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "price_set_july"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "no_mid_month_change"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e6"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Price set at $25.00 for July, as per Whitaker's practice of reviewing prices on first business day of month",
+      "name": "price_set_july",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Whitaker does not change price mid-month, so price remains $25.00 through July",
+      "name": "no_mid_month_change",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "detail": {
+    "events": [],
+    "processes": []
+  },
+  "reason": "no scheduled event and no operating process: time would never advance and no actor would ever be woken",
+  "stage": "NOTHING_SCHEDULED"
+}

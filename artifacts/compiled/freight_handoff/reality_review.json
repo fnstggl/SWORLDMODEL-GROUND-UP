@@ -1,0 +1,19 @@
+{
+  "causal_path": [
+    "Malik emails Tamesada at 3:40 PM Eastern on Monday 16 Nov.",
+    "Tamesada receives email after landing (4:30 AM Singapore time) and clearing inbox (45-60 min after landing).",
+    "Tamesada issues corrected certificate (20 min) and emails it.",
+    "Malik receives certificate at his next email check (Wednesday 8:00 AM Eastern).",
+    "Malik prepares and submits entry (45 min), finishing by 8:45 AM.",
+    "Port authority acknowledges entry before 9:00 AM deadline."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Action 'corrected_certificate_issued' has duration '~10 min' but evidence e9 states it takes 20 minutes.",
+      "why_material": "If the certificate takes 20 minutes instead of 10, it cannot arrive before Malik's last email check on Monday (4:30 PM), ensuring Malik does not see it until Wednesday. This changes the possible outcomes and affects whether a timely filing is feasible."
+    }
+  ],
+  "reasoning": "The causal world is faithful to the question and evidence, but contains a material defect: the action 'corrected_certificate_issued' is assigned a duration of ~10 minutes, whereas evidence e9 clearly states it takes 20 minutes. This discrepancy could alter the timeline for when the corrected certificate arrives, potentially affecting whether Malik can file before the deadline. All other aspects appear consistent.",
+  "verdict": "TARGETED_REVISION"
+}

@@ -1,0 +1,56 @@
+{
+  "assignments": [
+    {
+      "step": "terminal_revenue_condition",
+      "unsupported": "This is a condition, not a step that needs a producer."
+    },
+    {
+      "step": "revenue_accumulated",
+      "unsupported": "This is a process that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "sales_1_to_17_july",
+      "unsupported": "This is a measured record of past sales; no producer needed."
+    },
+    {
+      "step": "sales_18_to_31_july",
+      "unsupported": "This is a process that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "daily_sales_rate_18_to_31",
+      "unsupported": "This is an uncertain exogenous variable; no producer identified."
+    },
+    {
+      "step": "price_18_to_31_july",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "person",
+          "meaning": "Owner who sets all prices at Fernhaven Cycles",
+          "name": "Sam Whitaker"
+        }
+      ],
+      "step": "price_set_july"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Owner who has stated he does not make mid-month price changes",
+          "name": "Sam Whitaker"
+        }
+      ],
+      "step": "no_mid_month_change"
+    }
+  ]
+}

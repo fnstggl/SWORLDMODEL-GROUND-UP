@@ -1,0 +1,61 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e5",
+        "e7"
+      ],
+      "name": "Other bakery staff or volunteers",
+      "why_safe": "Only Sara Copperwheat staffs the stand, Tomas Ilic runs the oven, and Jo Fenwick drives; no other actors are mentioned as involved in production or delivery before noon."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Third-party delivery services",
+      "why_safe": "The evidence states no bakery vehicle other than the two scheduled runs is due before 3:00 PM, and no other delivery method is mentioned."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Overnight storage at the stand",
+      "why_safe": "Festival rules prohibit overnight storage, so the stand starts empty."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e9"
+      ],
+      "name": "Loaves baked after 10:00 AM",
+      "why_safe": "The oven switches to regular trade at 10:00 AM, and the next delivery is at 3:00 PM, after the deadline."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "saturday_baking_5_to_10am",
+      "meaning": "Whether the oven runs continuously from 5:00 AM to 10:00 AM without interruption, and whether the production rate of 30 loaves per hour holds exactly."
+    },
+    {
+      "about": "cooled_loaves_before_8am",
+      "meaning": "Exactly how many loaves baked between 5:00 AM and 7:00 AM are fully cooled by 8:00 AM, given the 60-minute cooling requirement and the 8:00 AM departure."
+    },
+    {
+      "about": "cooled_loaves_before_11am",
+      "meaning": "Exactly how many loaves baked between 5:00 AM and 10:00 AM are fully cooled by 11:00 AM, given the 60-minute cooling requirement and the 11:00 AM departure."
+    },
+    {
+      "about": "first_load",
+      "meaning": "Whether the van is loaded to its full capacity of 90 loaves or only with the cooled loaves available at 8:00 AM, and whether any loaves from Friday evening are included."
+    },
+    {
+      "about": "second_load",
+      "meaning": "Whether the van is loaded to its full capacity of 90 loaves or only with the cooled loaves available at 11:00 AM."
+    }
+  ]
+}

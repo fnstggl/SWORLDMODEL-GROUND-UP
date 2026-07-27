@@ -1,0 +1,169 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The Trust holds the public All Souls' vigil with candle-lighting in the long gallery at 7:00 PM on 2 November 2026.",
+      "name": "vigil_occurs",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-11-02T19:00:00+00:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Rev. Tamsin Oduya says prayers for the departed at the vigil, if the Trust asks.",
+      "name": "prayers_said",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vigil_occurs"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "trust_asks"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Whether the Trust asks Rev. Oduya is not stated; it is a decision of the Trust.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "organization_action",
+      "meaning": "The Trust asks Rev. Tamsin Oduya to say prayers at the vigil.",
+      "name": "trust_asks",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vigil_occurs"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "The Trust may or may not ask; not specified in evidence.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "The presence in the gallery receives acknowledgement (e.g., through prayers or vigil), which the medium says it seeks.",
+      "name": "ghost_acknowledged",
+      "prerequisites": [
+        {
+          "alt_group": "acknowledgement",
+          "necessity": "optional",
+          "step": "prayers_said"
+        },
+        {
+          "alt_group": "acknowledgement",
+          "necessity": "optional",
+          "step": "vigil_occurs"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Whether acknowledgement leads to peace is uncertain; historical rites have not quieted the gallery for more than a season.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "The spirit is at peace, with no further reports of unrest after the cutoff.",
+      "name": "ghost_at_peace",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "optional",
+          "step": "ghost_acknowledged"
+        }
+      ],
+      "produces_proof": [
+        "visitor logbook entries after cutoff",
+        "caretaker statement"
+      ],
+      "uncertainty": "Whether peace is achieved is uncertain; historical precedent suggests it may not last.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e8"
+      ],
+      "kind": "condition",
+      "meaning": "No reports of footsteps, cold spots, or other disturbances after the vigil and cutoff.",
+      "name": "no_unrest_reported",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ghost_at_peace"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Visitor logbook entries after 2 November 2026 report no unusual phenomena.",
+      "name": "logbook_entries_after_cutoff",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "no_unrest_reported"
+        }
+      ],
+      "produces_proof": [
+        "visitor logbook entries after cutoff"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Caretaker Edith Marley or Trust representative states no disturbances observed after vigil.",
+      "name": "caretaker_statement_given",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "no_unrest_reported"
+        }
+      ],
+      "produces_proof": [
+        "caretaker statement"
+      ],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

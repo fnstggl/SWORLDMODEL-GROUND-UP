@@ -1,0 +1,18 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "resource:july_2026_torrent_800_revenue"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:revenue_accumulated",
+    "process:sales_18_to_31_july",
+    "process:sales_1_to_17_july"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [],
+  "warnings": [
+    "process:sales_18_to_31_july: a process that changes nothing is decorative",
+    "process:sales_1_to_17_july: a process that changes nothing is decorative"
+  ]
+}

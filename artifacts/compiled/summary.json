@@ -1,0 +1,39 @@
+[
+  {
+    "binding_calls": 7,
+    "case": "freight_handoff",
+    "discovery_calls": 10,
+    "expected_answer": "yes",
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "model_declared_insufficient": false,
+    "pipeline": "discovery",
+    "reason": "the starting_state_and_information document has defects",
+    "repairs": {
+      "causal_spine": 1,
+      "starting_state[Ondrej Malik]": 1
+    },
+    "runtime_ms": 0.0,
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 52761
+  },
+  {
+    "binding_calls": 9,
+    "case": "transcript_hold",
+    "discovery_calls": 14,
+    "expected_answer": "no",
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "model_declared_insufficient": false,
+    "pipeline": "discovery",
+    "reason": "processes with no quantity to feed are mis-shaped steps",
+    "repairs": {
+      "action:bring about: registrar_release_within_4_hours": 1,
+      "causal_spine": 1,
+      "producer_assignments": 1
+    },
+    "runtime_ms": 0.0,
+    "stage": "LOWERING_GAP",
+    "tokens": 55648
+  }
+]

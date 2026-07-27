@@ -1,0 +1,36 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Other union or employer representatives",
+      "why_safe": "Bright and Wozniak are the lead negotiators with authority; no other actors are mentioned as having decision-making power in the evidence."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4",
+        "e6"
+      ],
+      "name": "External events (e.g., strikes, lockouts, third-party interventions)",
+      "why_safe": "No evidence suggests any external events that would prevent the session or alter the negotiators' authority before the deadline."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "negotiator_decides_to_table_offer",
+      "meaning": "Whether Bright will actually table a 4.5% offer at the 29 October session, and whether Wozniak will then table a 4.5% offer in response, given their stated intentions but no guarantee of action."
+    },
+    {
+      "about": "negotiator_accepts_offer",
+      "meaning": "Whether either negotiator will accept the other's tabled offer at the session, given that both have authority to accept 4.5% but may not do so if the other does not move first or if other factors intervene."
+    },
+    {
+      "about": "timing",
+      "meaning": "Whether the 45-minute caucus time for formulating offers, plus the time for the session itself, will allow an agreement to be reached and recorded before the 23:59 deadline on 31 October, given the session is on 29 October."
+    }
+  ]
+}

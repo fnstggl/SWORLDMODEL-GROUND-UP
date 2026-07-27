@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-09-01T00:00:00-05:00",
+      "claim": "Local 214 represents 1,200 warehouse workers at Kessler Logistics; its lead negotiator is Yolanda Bright.",
+      "id": "e1",
+      "source": "Union public filing",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-20T00:00:00-05:00",
+      "claim": "Kessler Logistics' lead negotiator is Dennis Wozniak, VP of operations, who has authority to accept an agreement up to a 4.5 percent wage increase without board approval.",
+      "id": "e2",
+      "source": "Company statement to the mediator",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-18T00:00:00-05:00",
+      "claim": "Bright has authority from a ratification vote to accept any offer at or above a 4 percent wage increase.",
+      "id": "e3",
+      "source": "Union ratification vote result, 2026-10-18",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-19T00:00:00-05:00",
+      "claim": "The union set a strike deadline of 11:59 PM America/Chicago on 31 October 2026.",
+      "id": "e4",
+      "source": "Union strike notice",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T09:00:00-05:00",
+      "claim": "As of 26 October the employer's standing offer is a 3.5 percent wage increase and the union's standing demand is 5 percent.",
+      "id": "e5",
+      "source": "Mediator's status memo",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-22T00:00:00-05:00",
+      "claim": "A mediated bargaining session is scheduled for 29 October 2026 at 10:00 AM America/Chicago.",
+      "id": "e6",
+      "source": "Mediator's scheduling notice",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-22T00:00:00-05:00",
+      "claim": "Both negotiators attend mediated sessions in person and hear offers made at the table immediately.",
+      "id": "e7",
+      "source": "Mediation protocol",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-22T00:00:00-05:00",
+      "claim": "Formulating and tabling a revised offer takes a negotiator roughly 45 minutes of caucus time in comparable sessions.",
+      "id": "e8",
+      "source": "Mediator's description of prior rounds",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-26T09:00:00-05:00",
+      "claim": "Wozniak has told the mediator he will move to 4.5 percent, his full authority, only if the union first comes down from 5 percent.",
+      "id": "e9",
+      "source": "Mediator's status memo",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-25T00:00:00-05:00",
+      "claim": "Bright has told her executive board she is prepared to come down to 4.5 percent at the mediated session to avoid a strike.",
+      "id": "e10",
+      "source": "Union executive board minutes, 2026-10-25",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-22T00:00:00-05:00",
+      "claim": "An agreement is recorded as accepted when a negotiator accepts the other side's tabled offer at the table.",
+      "id": "e11",
+      "source": "Mediation protocol",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_wage_talks_2026_10",
+  "prepared_at": "2026-10-26T09:00:00-05:00"
+}

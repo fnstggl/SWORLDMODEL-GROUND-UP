@@ -1,0 +1,147 @@
+{
+  "steps": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Pelham Savings Bank accepts a wire instruction for $46,000 to Delacroix Farms' verified account before 3:00 PM Eastern on 30 October 2026.",
+      "name": "wire_acceptance",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "wire_submission"
+        }
+      ],
+      "produces_proof": [
+        "wire acceptance record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12",
+        "e13",
+        "e15"
+      ],
+      "kind": "actor_decision",
+      "meaning": "An authorized signer submits the wire instruction via Pelham's business banking portal before the cutoff.",
+      "name": "wire_submission",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "authorized_signer_available"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "wire_template_ready"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "sufficient_funds"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "It is uncertain whether an authorized signer will submit the wire instruction before the cutoff.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12",
+        "e13"
+      ],
+      "kind": "condition",
+      "meaning": "At least one person who is an authorized signer on the trust's account is available and willing to submit the wire before the cutoff.",
+      "name": "authorized_signer_available",
+      "prerequisites": [
+        {
+          "alt_group": "signer",
+          "necessity": "alternative",
+          "step": "okonjo_authorized"
+        },
+        {
+          "alt_group": "signer",
+          "necessity": "alternative",
+          "step": "other_authorized_signer"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "It is uncertain whether any authorized signer is available.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e8",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "Marguerite Okonjo is an authorized signer on the trust's account (either as interim executive director or otherwise).",
+      "name": "okonjo_authorized",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "It is uncertain whether Okonjo is an authorized signer; the evidence does not state whether the bank was notified or whether the signature card was amended.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e8",
+        "e9",
+        "e10",
+        "e13"
+      ],
+      "kind": "condition",
+      "meaning": "Another person (e.g., board chair Aksoy) is an authorized signer and available.",
+      "name": "other_authorized_signer",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "It is uncertain whether any other person is an authorized signer; the signature card only names Executive Director and Treasurer, both unavailable.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "condition",
+      "meaning": "The wire template with Delacroix Farms' verified account and $46,000 amount is saved in Pelham's portal.",
+      "name": "wire_template_ready",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "condition",
+      "meaning": "The trust's account holds at least $46,000 on 30 October 2026.",
+      "name": "sufficient_funds",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

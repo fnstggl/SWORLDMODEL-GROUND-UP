@@ -1,0 +1,15 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "state:haddad_aboard_au_780_at_departure"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:au_412_arrives_at_halden_international",
+    "event:au_412_departs_verlan_city",
+    "event:au_780_departs_halden_international"
+  ],
+  "warnings": []
+}

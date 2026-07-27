@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "defects": [
+      "step 'daily_sales_rate_18_to_31': an uncertain_exogenous step carries basis 'uncertain'"
+    ],
+    "document": "causal_spine",
+    "repairable": false
+  },
+  "reason": "causal_spine is still defective after its assembly repair",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

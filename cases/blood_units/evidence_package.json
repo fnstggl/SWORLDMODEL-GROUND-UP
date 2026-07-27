@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-07-01T00:00:00-07:00",
+      "claim": "The Cascade regional blood centre operates a mobile collection drive at its Portland site.",
+      "id": "e1",
+      "source": "Blood centre operations page",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-01T00:00:00-07:00",
+      "claim": "The drive collects at a measured average of 12 usable units per hour while it is open.",
+      "id": "e2",
+      "source": "Centre's 2026 throughput report",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-01T00:00:00-07:00",
+      "claim": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+      "id": "e3",
+      "source": "Published drive schedule",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-01T00:00:00-07:00",
+      "claim": "The collection week under consideration runs Monday 20 July to Friday 24 July 2026.",
+      "id": "e4",
+      "source": "Drive schedule",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-20T09:00:00-07:00",
+      "claim": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+      "id": "e5",
+      "source": "Centre inventory log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-20T09:00:00-07:00",
+      "claim": "St. Vincent regional hospital held 15 usable units at the same moment.",
+      "id": "e6",
+      "source": "Hospital blood bank log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-01T00:00:00-08:00",
+      "claim": "The centre ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+      "id": "e7",
+      "source": "Standing distribution agreement",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-01T00:00:00-07:00",
+      "claim": "A shipment takes about 3 hours to reach the hospital and be received into its bank.",
+      "id": "e8",
+      "source": "Courier service level and prior receipts",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-01T00:00:00-08:00",
+      "claim": "The Tuesday and Thursday shipments each move 150 units, the capacity of the centre's transport cooler.",
+      "id": "e9",
+      "source": "Distribution agreement, cooler specification",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-07:00",
+      "claim": "Bank supervisor Elena Cruz oversees receipts at the hospital but does not control the collection rate or the shipping schedule.",
+      "id": "e10",
+      "source": "Hospital staff directory",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_blood_units_2026_07",
+  "prepared_at": "2026-07-20T07:00:00-07:00"
+}

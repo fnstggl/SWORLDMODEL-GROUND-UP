@@ -1,0 +1,145 @@
+{
+  "assignments": [
+    {
+      "step": "Haddad aboard AU 780 at departure",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites being met."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The airline that operates the flight and is responsible for its departure.",
+          "name": "Auralis Air"
+        }
+      ],
+      "step": "AU 780 departs Halden International"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1",
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "The passenger who decides to board the flight.",
+          "name": "Noor Haddad"
+        }
+      ],
+      "step": "Haddad boards AU 780"
+    },
+    {
+      "step": "Haddad arrives at Halden International",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites being met."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The airline that operates the flight and is responsible for its arrival.",
+          "name": "Auralis Air"
+        }
+      ],
+      "step": "AU 412 arrives at Halden International"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The airline that operates the flight and is responsible for its departure.",
+          "name": "Auralis Air"
+        }
+      ],
+      "step": "AU 412 departs Verlan City"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1",
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "The passenger who decides to board the flight.",
+          "name": "Noor Haddad"
+        }
+      ],
+      "step": "Haddad boards AU 412 in Verlan City"
+    },
+    {
+      "step": "Haddad has valid boarding pass for AU 780",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites being met."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "person",
+          "meaning": "The passenger who decides to check in.",
+          "name": "Noor Haddad"
+        }
+      ],
+      "step": "Haddad checks in for AU 780"
+    },
+    {
+      "producers": [],
+      "step": "Haddad has valid booking for AU 780"
+    },
+    {
+      "step": "Haddad has valid boarding pass for AU 412",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites being met."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "person",
+          "meaning": "The passenger who decides to check in.",
+          "name": "Noor Haddad"
+        }
+      ],
+      "step": "Haddad checks in for AU 412"
+    },
+    {
+      "producers": [],
+      "step": "Haddad has valid booking for AU 412"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "person",
+          "meaning": "The passenger who decides to travel to the airport.",
+          "name": "Noor Haddad"
+        }
+      ],
+      "step": "Haddad arrives at Verlan City airport"
+    }
+  ]
+}

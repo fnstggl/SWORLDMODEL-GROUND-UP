@@ -1,0 +1,27 @@
+{
+  "causal_path": [
+    "Haddad checks in for AU 412",
+    "Haddad arrives at Verlan City airport",
+    "Haddad boards AU 412",
+    "AU 412 departs Verlan City with Haddad",
+    "AU 412 arrives Halden International with Haddad",
+    "Haddad arrives at Halden International",
+    "Haddad checks in for AU 780",
+    "Haddad boards AU 780",
+    "AU 780 departs Halden International with Haddad"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Missing causal link from Haddad boarding AU 412 to her arrival at Halden International. The world contains a scheduled arrival event for AU 412 but no process or transfer that moves Haddad from Verlan to Halden via that flight.",
+      "why_material": "Without this link, the simulation cannot produce Haddad at Halden International, making it impossible for her to board AU 780, so the terminal can never be reached."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "No producer for the prerequisite state 'Haddad arrives at Halden International' that is required for boarding AU 780.",
+      "why_material": "The condition is listed as a need for the boarding action but nothing in the world generates that state, so the boarding action is permanently blocked."
+    }
+  ],
+  "reasoning": "The world lacks a causal mechanism to transport Haddad from Verlan City to Halden International via flight AU 412. The scheduled arrival event does not automatically carry Haddad; there is no process linking her boarding of AU 412 to her presence at Halden. Consequently, the terminal condition (Haddad aboard AU 780) cannot be reached even if all uncertainties resolve favorably.",
+  "verdict": "TARGETED_REVISION"
+}

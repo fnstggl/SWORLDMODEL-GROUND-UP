@@ -1,0 +1,33 @@
+{
+  "channels": [
+    {
+      "channel": "process:city_email",
+      "receivers": [
+        "participant:alma_reyes"
+      ],
+      "senders": [
+        "participant:alma_reyes"
+      ]
+    },
+    {
+      "channel": "process:city_email_system",
+      "receivers": [
+        "participant:miguel_santos"
+      ],
+      "senders": [
+        "participant:miguel_santos"
+      ]
+    }
+  ],
+  "emergent_components": [
+    "state:reyes_s_reading_state"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:council_meeting",
+    "event:deliver_peer_review_sign_off"
+  ],
+  "warnings": []
+}

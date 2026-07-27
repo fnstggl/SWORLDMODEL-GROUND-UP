@@ -1,0 +1,219 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Hollis Vantour LLC files building permit application BP-2214 with the Larkspur County Building Department.",
+      "name": "application_filed",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "initial_fact",
+      "meaning": "The department accepts BP-2214 as complete at 9:15 AM on Monday 10 August 2026.",
+      "name": "application_accepted_complete",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "condition",
+      "meaning": "The fifteen-business-day count begins on the first business day after acceptance, which is Tuesday 11 August 2026.",
+      "name": "count_start",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "application_accepted_complete"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The department issues a written request for additional information on BP-2214 at 3:00 PM on Thursday 13 August 2026.",
+      "name": "request_for_info_issued",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T15:00:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e7"
+      ],
+      "kind": "condition",
+      "meaning": "From the moment the request is issued until the department receives a complete response, the request is outstanding, affecting business day counting.",
+      "name": "request_outstanding_period",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "request_for_info_issued"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Hollis Vantour LLC delivers a complete response to the request, logged at 10:00 AM on Wednesday 26 August 2026.",
+      "name": "response_delivered",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-26T10:00:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e8"
+      ],
+      "kind": "condition",
+      "meaning": "The request for additional information is no longer outstanding after the complete response is received.",
+      "name": "request_resolved",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "response_delivered"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "The business day count resumes on the next business day after the request is resolved, which is Thursday 27 August 2026.",
+      "name": "count_resumes",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "request_resolved"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8"
+      ],
+      "kind": "condition",
+      "meaning": "The fifteenth counted business day arrives at 5:00 PM, triggering deemed approval if no written decision has been issued.",
+      "name": "fifteenth_business_day_arrives",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "count_start"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "count_resumes"
+        }
+      ],
+      "produces_proof": [
+        "deemed approval"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "organization_action",
+      "meaning": "The Building Department issues a written approval of BP-2214 before the deadline.",
+      "name": "written_approval_issued",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "plan_review_completed"
+        }
+      ],
+      "produces_proof": [
+        "written approval"
+      ],
+      "uncertainty": "The department has stated no reviewer will be assigned before 21 September 2026, making written approval before the deadline impossible.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A plan reviewer completes review of BP-2214, a prerequisite for written approval or denial.",
+      "name": "plan_review_completed",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "reviewer_assigned"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "No reviewer will be assigned before 21 September 2026, so this cannot occur before the deadline.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "organization_action",
+      "meaning": "A plan reviewer is assigned to BP-2214.",
+      "name": "reviewer_assigned",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Director confirmed no reviewer will be assigned before 21 September 2026.",
+      "when": null
+    }
+  ]
+}

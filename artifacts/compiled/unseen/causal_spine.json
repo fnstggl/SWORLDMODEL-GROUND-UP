@@ -1,0 +1,541 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e14"
+      ],
+      "kind": "condition",
+      "meaning": "The all-fast time for MV Rhine Meridian at Berth 8 is recorded in the pilot's docking report and the vessel log at or before 23:59 EDT on 2026-08-13.",
+      "name": "all_fast_recorded",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "all_fast_event"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e14"
+      ],
+      "kind": "condition",
+      "meaning": "MV Rhine Meridian is all fast (all mooring lines ashore and secured) at Berth 8.",
+      "name": "all_fast_event",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "berthing_complete"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e14"
+      ],
+      "kind": "condition",
+      "meaning": "The vessel is moored and all lines secured at Berth 8.",
+      "name": "berthing_complete",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "inbound_transit_complete"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "mooring_gang_available"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e14"
+      ],
+      "kind": "condition",
+      "meaning": "MV Rhine Meridian completes its inbound transit from the sea buoy to Berth 8, including swinging at Kings Island Turning Basin.",
+      "name": "inbound_transit_complete",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "inbound_transit_start"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e13",
+        "e14"
+      ],
+      "kind": "condition",
+      "meaning": "MV Rhine Meridian begins its inbound transit from the sea buoy.",
+      "name": "inbound_transit_start",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_aboard_and_anchor_up"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "berth_clear_declaration"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "transit_window_open"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e11",
+        "e13"
+      ],
+      "kind": "condition",
+      "meaning": "Inbound pilot Lorraine Beaudry boards MV Rhine Meridian at Tybee Roads Anchorage A and the anchor is heaved to short stay.",
+      "name": "pilot_aboard_and_anchor_up",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_boarding"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "anchor_heaved"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10",
+        "e11",
+        "e13"
+      ],
+      "kind": "process",
+      "meaning": "Pilot boat Savannah transports Capt. Beaudry to Tybee Roads Anchorage A and she boards MV Rhine Meridian.",
+      "name": "pilot_boarding",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_order_accepted"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_available"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Savannah Pilots Association dispatcher accepts the inbound pilot order for MV Rhine Meridian at 19:00 EDT.",
+      "name": "pilot_order_accepted",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_order_placed"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T16:36:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Meridian Marine Agencies orders inbound pilot service for MV Rhine Meridian at 19:00 EDT.",
+      "name": "pilot_order_placed",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "berth_clear_projection"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Marcus Deveaux projects that Berth 8 will be clear by approximately 18:10 EDT.",
+      "name": "berth_clear_projection",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "cape_ferrol_departure_estimate"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "The estimated time for MV Cape Ferrol to depart Berth 8 is around 18:10 EDT based on remaining moves and crane productivity.",
+      "name": "cape_ferrol_departure_estimate",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "last_container_landed"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "lashing_and_securing"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_boarding_cape_ferrol"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "unmooring"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "stern_clear"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6",
+        "e7"
+      ],
+      "kind": "condition",
+      "meaning": "The last container is landed on MV Cape Ferrol.",
+      "name": "last_container_landed",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "crane_operations_complete"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6",
+        "e7"
+      ],
+      "kind": "process",
+      "meaning": "All container moves on MV Cape Ferrol are completed by the four cranes.",
+      "name": "crane_operations_complete",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "crane_operations_resume"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Crane operations resume at 18:00 EDT after the break.",
+      "name": "crane_operations_resume",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "labor_order_accepted"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T18:00:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "organization_action",
+      "meaning": "GPA places and ILA accepts a four-gang labor order for the 18:00-23:00 shift at Berth 8.",
+      "name": "labor_order_accepted",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "process",
+      "meaning": "Final lashing and securing of deck stow on MV Cape Ferrol takes 40 minutes after last container.",
+      "name": "lashing_and_securing",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "last_container_landed"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10",
+        "e11"
+      ],
+      "kind": "process",
+      "meaning": "Outbound pilot Capt. Dale Wingard boards MV Cape Ferrol.",
+      "name": "pilot_boarding_cape_ferrol",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_order_accepted_cape_ferrol"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Savannah Pilots Association dispatcher accepts the outbound pilot order for MV Cape Ferrol at 19:00 EDT.",
+      "name": "pilot_order_accepted_cape_ferrol",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_order_placed_cape_ferrol"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T16:36:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Meridian Marine Agencies orders outbound pilot service for MV Cape Ferrol at 19:00 EDT.",
+      "name": "pilot_order_placed_cape_ferrol",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "berth_clear_projection"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "process",
+      "meaning": "MV Cape Ferrol unmooring: interval from pilot aboard to all lines gone is 25 minutes.",
+      "name": "unmooring",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_boarding_cape_ferrol"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "lashing_and_securing"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "MV Cape Ferrol's stern clears the berth face 10 minutes after all lines are gone.",
+      "name": "stern_clear",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "unmooring"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e12"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Danielle Okafor declares Berth 8 clear to Savannah Pilots dispatch after MV Cape Ferrol's stern clears the berth face.",
+      "name": "berth_clear_declaration",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "stern_clear"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "condition",
+      "meaning": "The inbound transit window for vessels over 44 ft draft is open from 17:58 EDT to 20:28 EDT on 2026-08-13.",
+      "name": "transit_window_open",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Capt. Lorraine Beaudry is available and not restricted by rest periods.",
+      "name": "pilot_available",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e13"
+      ],
+      "kind": "process",
+      "meaning": "The anchor of MV Rhine Meridian is heaved to short stay, taking about 30 minutes.",
+      "name": "anchor_heaved",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "pilot_boarding"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e14"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Southern Line Handling Services has a mooring gang rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14.",
+      "name": "mooring_gang_available",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

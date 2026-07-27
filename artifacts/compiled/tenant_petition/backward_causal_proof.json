@@ -1,0 +1,108 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:board_clerk_filing_log",
+        "via": {
+          "node": "action:secretary_files_petition",
+          "prerequisites": [
+            {
+              "derived_condition": true,
+              "node": "state:at_least_40_signatures_collected",
+              "prerequisites": [
+                {
+                  "node": "action:okoye_canvasses_tuesday",
+                  "prerequisites": [
+                    {
+                      "node": "action:notice_posted",
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "action:okoye_canvasses_wednesday",
+                  "prerequisites": [
+                    {
+                      "node": "action:notice_posted",
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "state:initial_35_signatures",
+                  "root": "initial_fact"
+                }
+              ]
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:board_clerk_filing_log",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:secretary_files_petition"
+      ]
+    },
+    {
+      "chain": {
+        "node": "record:filed_petition",
+        "via": {
+          "node": "action:secretary_files_petition",
+          "prerequisites": [
+            {
+              "derived_condition": true,
+              "node": "state:at_least_40_signatures_collected",
+              "prerequisites": [
+                {
+                  "node": "action:okoye_canvasses_tuesday",
+                  "prerequisites": [
+                    {
+                      "node": "action:notice_posted",
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "action:okoye_canvasses_wednesday",
+                  "prerequisites": [
+                    {
+                      "node": "action:notice_posted",
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "state:initial_35_signatures",
+                  "root": "initial_fact"
+                }
+              ]
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:filed_petition",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:secretary_files_petition"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

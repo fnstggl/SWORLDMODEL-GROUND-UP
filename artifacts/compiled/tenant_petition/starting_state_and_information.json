@@ -1,0 +1,315 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Dana Okoye is the producer of the canvassing on Tuesday evening.",
+          "over": "okoye_canvasses_tuesday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Dana Okoye is the producer of the canvassing on Wednesday evening.",
+          "over": "okoye_canvasses_wednesday"
+        }
+      ],
+      "availability": {
+        "close": "20:30",
+        "open": "06:30",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Canvass Building 3 on Tuesday 18 August 2026, 6:30-8:30 PM.",
+          "name": "canvass_tuesday",
+          "when": "2026-08-18T18:30:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Canvass Building 3 on Wednesday 19 August 2026, 6:30-8:30 PM.",
+          "name": "canvass_wednesday",
+          "when": "2026-08-19T18:30:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Dana Okoye is the association's only remaining canvasser.",
+          "name": "canvasser"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "She works nursing shifts weekdays 7:00 AM to 5:00 PM.",
+          "name": "work_schedule"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "She has committed to canvass Building 3 on the evenings of Tuesday 18 and Wednesday 19 August.",
+          "name": "canvassing_commitment"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "She canvasses only from 6:30 to 8:30 PM on weekday evenings.",
+          "name": "canvassing_time"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "As of Monday 17 August, 35 signatures collected: 18 in Building 1, 11 in Building 2, 6 in Building 3.",
+          "name": "signature_counts",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Every unit in Buildings 1 and 2 already canvassed; 21 occupied units in Building 3 not yet approached.",
+          "name": "canvass_status",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Superintendent posted canvass notice on Building 3 lobby board at 5:00 PM Monday 17 August.",
+          "name": "notice_posted",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "In each of her four prior two-hour evening sessions, she collected between 6 and 9 signatures.",
+          "name": "prior_performance",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Secretary Lena Park plans to file petition at hearing-room desk at 9:00 AM on hearing day.",
+          "name": "filing_plan",
+          "visibility": "public"
+        }
+      ],
+      "name": "Dana Okoye",
+      "not_available": [
+        {
+          "from": "2026-08-18T07:00:00-04:00",
+          "meaning": "Dana Okoye is unavailable for canvassing during her nursing shifts 7:00 AM to 5:00 PM weekdays.",
+          "to": "2026-08-18T17:00:00-04:00"
+        },
+        {
+          "from": "2026-08-19T07:00:00-04:00",
+          "meaning": "Dana Okoye is unavailable for canvassing during her nursing shifts 7:00 AM to 5:00 PM weekdays.",
+          "to": "2026-08-19T17:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Vic Morales is the superintendent who posted the canvass notice on Building 3's lobby board.",
+          "over": "notice_posted"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Vic Morales posted the association's canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August.",
+          "name": "posted_notice"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Vic Morales knows he posted the notice.",
+          "name": "posted_notice",
+          "visibility": "private"
+        }
+      ],
+      "name": "Vic Morales",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Lena Park is the association secretary who files the petition.",
+          "over": "secretary_files_petition"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Lena Park is committed to filing the petition at the hearing-room desk on 20 August 2026 at 9:00 AM.",
+          "name": "file_petition_on_hearing_day",
+          "when": "2026-08-20T09:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Lena Park holds the signature sheets for the petition.",
+          "name": "holds_signature_sheets"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Lena Park intends to file the petition at the hearing-room desk when it opens at 9:00 AM on hearing day.",
+          "name": "intends_to_file_at_hearing"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Lena Park lives 20 minutes from the board office.",
+          "name": "lives_20_minutes_from_board_office"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e10"
+          ],
+          "meaning": "As of Monday 17 August, 35 verified signatures have been collected.",
+          "name": "signature_totals_as_of_monday",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Dana Okoye will canvass Building 3 on Tuesday 18 and Wednesday 19 August evenings.",
+          "name": "okoye_canvassing_schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Superintendent Morales posted the canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August.",
+          "name": "notice_posted",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Petition must have at least 40 signatures and be filed before hearing opens at 10:00 AM; clerk accepts filings weekdays 9-5 and at hearing-room desk 9:00-9:45 AM on hearing day.",
+          "name": "board_filing_rules",
+          "visibility": "public"
+        }
+      ],
+      "name": "Lena Park",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

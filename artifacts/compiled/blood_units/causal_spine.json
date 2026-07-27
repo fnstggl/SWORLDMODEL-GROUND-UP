@@ -1,0 +1,204 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "initial_fact",
+      "meaning": "St. Vincent hospital holds 15 usable units at 9:00 AM Monday July 20.",
+      "name": "initial_stock_hospital",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "initial_fact",
+      "meaning": "Cascade regional blood centre holds 40 usable units at 9:00 AM Monday July 20.",
+      "name": "initial_stock_centre",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Collection drive operates Monday 9:00-17:00, collecting at 12 units/hour, adding to centre stock.",
+      "name": "collection_process_monday",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Collection drive operates Tuesday 9:00-17:00, collecting at 12 units/hour, adding to centre stock.",
+      "name": "collection_process_tuesday",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Collection drive operates Wednesday 9:00-17:00, collecting at 12 units/hour, adding to centre stock.",
+      "name": "collection_process_wednesday",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Collection drive operates Thursday 9:00-17:00, collecting at 12 units/hour, adding to centre stock.",
+      "name": "collection_process_thursday",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Collection drive operates Friday 9:00-12:00 (until noon), collecting at 12 units/hour, adding to centre stock.",
+      "name": "collection_process_friday_morning",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e9"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Centre dispatches 150 units to hospital at 4:00 PM Tuesday July 21.",
+      "name": "tuesday_shipment_dispatch",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-21T16:00:00-07:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Tuesday shipment arrives at hospital after 3 hours, at 7:00 PM Tuesday July 21, adding 150 units to hospital stock.",
+      "name": "tuesday_shipment_arrival",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tuesday_shipment_dispatch"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-21T19:00:00-07:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e9"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Centre dispatches 150 units to hospital at 4:00 PM Thursday July 23.",
+      "name": "thursday_shipment_dispatch",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-23T16:00:00-07:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Thursday shipment arrives at hospital after 3 hours, at 7:00 PM Thursday July 23, adding 150 units to hospital stock.",
+      "name": "thursday_shipment_arrival",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "thursday_shipment_dispatch"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-23T19:00:00-07:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e8",
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "The number of usable blood units in St. Vincent hospital's inventory at the deadline Friday noon July 24.",
+      "name": "hospital_units_at_deadline",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "initial_stock_hospital"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tuesday_shipment_arrival"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "thursday_shipment_arrival"
+        }
+      ],
+      "produces_proof": [
+        "hospital_units_at_deadline"
+      ],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

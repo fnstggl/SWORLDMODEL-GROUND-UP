@@ -43,7 +43,7 @@ _UNSET = object()
 ALLOWED_EFFECT_OPS = frozenset({
     "fact.set", "entity.add", "entity.set",
     "resource.set", "resource.adjust", "resource.transfer",
-    "relationship.set",
+    "relationship.set", "record.add",
     "process.add", "process.active", "process.rate", "watch.add",
     "actor.memory", "actor.belief", "actor.plan", "actor.emotion",
     "actor.physical", "actor.commit", "actor.commitment_resolved",
@@ -84,6 +84,7 @@ class World:
         self.infos: dict = {}
         self.actions: dict = {}
         self.actors: dict = {}
+        self.typed_records: list = []      # universal typed records
         self.action_defs: dict = {}        # verb -> declarative definition (data)
         self.history: list = []            # completed (fired) events
         self.processed_events: set = set()
@@ -333,6 +334,23 @@ class World:
     def resource(self, holder: str, name: str) -> float:
         return self.resources.get(f"{holder}:{name}", 0.0)
 
+    def find_records(self, record_type: str | None = None, subject=None,
+                     producer=None, valid_only: bool = True) -> list:
+        """Filter typed records. Domain-free: the caller supplies the type and
+        subject, the runtime knows nothing about what they mean."""
+        out = []
+        for r in self.typed_records:
+            if valid_only and not r["valid"]:
+                continue
+            if record_type is not None and r["record_type"] != record_type:
+                continue
+            if subject is not None and r["subject"] != subject:
+                continue
+            if producer is not None and r["producer"] != producer:
+                continue
+            out.append(r)
+        return out
+
     def lineage(self, seq: int, limit: int = 200) -> list:
         """Walk the cause chain of a record back to its origin: the explicit
         producer lineage of any state transition or terminal term.  Chains
@@ -384,6 +402,7 @@ class World:
             "infos": self.infos,
             "actions": self.actions,
             "action_defs": self.action_defs,
+            "typed_records": self.typed_records,
             "actors": {aid: a.to_dict() for aid, a in sorted(self.actors.items())},
             "terminal": self.terminal_result,
         }
@@ -439,6 +458,7 @@ class World:
         w.entities = {}; w.facts = {}; w.relationships = {}; w.resources = {}
         w.processes = {}; w.watches = {}; w.channels = {}; w.infos = {}
         w.actions = {}; w.actors = {}; w.action_defs = {}; w.history = []
+        w.typed_records = []
         w.processed_events = set()
         w.terminal_result = None
         w._ctx_time = None; w._ctx_depth = 0; w._ctx_cause = None
@@ -540,6 +560,25 @@ def _red_process_add(w, d, t, rec):
         "capacity": d.get("capacity"),
         "basis": d["basis"], "note": d.get("note", ""), "last_applied": t,
     }
+
+
+def _red_record_add(w, d, t, rec):
+    """A universal typed record: the general form of 'something was formally
+    recorded' -- a vote, a filing, a sign-off, an acceptance. The runtime
+    knows only the shape, never the meaning."""
+    if not d.get("record_type"):
+        raise WorldIntegrityError("a record needs a record_type")
+    w.typed_records.append({
+        "record_type": d["record_type"],
+        "producer": d.get("producer"),
+        "subject": d.get("subject"),
+        "value": d.get("value"),
+        "t": t,
+        "valid": bool(d.get("valid", True)),
+        "authority": d.get("authority", ""),
+        "producing_event": rec["cause"],
+        "seq": rec["seq"],
+    })
 
 
 def _red_action_define(w, d, t, rec):
@@ -784,6 +823,7 @@ _REDUCERS = {
     "info.deliver": _red_info_deliver,
     "info.notice": _red_info_notice,
     "info.noticing_unsupported": _red_info_noticing_unsupported,
+    "record.add": _red_record_add,
     "action.define": _red_action_define,
     "action.propose": _red_action_propose,
     "action.state": _red_action_state,

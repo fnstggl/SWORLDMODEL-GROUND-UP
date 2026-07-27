@@ -1,0 +1,103 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-06-01T10:00:00-05:00",
+      "claim": "Amara Osei is a degree candidate at Wexford State University. She submitted an official transcript request through the registrar's portal at 10:00 AM on Monday 1 June 2026. The request was accepted and is queued.",
+      "id": "e1",
+      "source": "Registrar's request queue",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "The registrar does not release an official transcript while a financial hold flag is set on the student's record. Osei's record carries a financial hold for an unpaid balance of $1,842.",
+      "id": "e2",
+      "source": "Registrar policy R-12; student account record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-04T14:00:00-05:00",
+      "claim": "The financial hold flag on a student record can be lifted only by the bursar's automated reconciliation batch. Registrar staff have no ability to clear or override the flag and the registrar's system contains no manual override. The registrar confirmed this in writing on 4 June 2026 to Osei's advisor, Dr. Kwesi Amankwah, in reply to his request that the release be expedited.",
+      "id": "e3",
+      "source": "Registrar's reply to Dr. Amankwah, 2026-06-04; registrar system administration guide",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "The bursar's reconciliation batch runs at 2:00 AM America/Chicago on Tuesdays, Wednesdays, Thursdays and Fridays. It does not run on Saturdays, on Sundays, or on Mondays. This schedule has been unchanged since 2023 and no change is planned for June 2026.",
+      "id": "e4",
+      "source": "Bursar's system operations schedule",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "Each run of the batch posts every payment that the university's payment processor has marked cleared and that has not already been posted, and lifts the financial hold on any record whose balance is thereby brought to zero.",
+      "id": "e5",
+      "source": "Bursar's system operations manual, sec. 3",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "Wexford State's payment portal accepts electronic checks only. It has not accepted card payments since March 2026, and the cashier's window that accepted certified checks and cash closed permanently in 2025. No other channel exists for paying a student balance.",
+      "id": "e6",
+      "source": "Bursar's office published payment options",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "The payment processor's rule is that an electronic check submitted on a processor business day before 5:00 PM is marked cleared at 6:00 PM America/Chicago on the third processor business day following the day of submission. The processor's business days are Monday through Friday, and the processor observes no holidays in June 2026.",
+      "id": "e7",
+      "source": "Payment processor service terms, sec. 5; processor 2026 holiday calendar",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-02T14:10:00-05:00",
+      "claim": "Osei submitted an electronic check for the full $1,842 balance through the portal at 2:10 PM on Tuesday 2 June 2026. The submission was accepted, her account held sufficient funds, and the processor has flagged no problem with it.",
+      "id": "e8",
+      "source": "Portal submission receipt; processor status record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-04T00:00:00-05:00",
+      "claim": "This is Osei's only payment. No earlier payment is pending, and no new charge has been added to her account since 1 June 2026.",
+      "id": "e9",
+      "source": "Student account record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "Once a financial hold is lifted, the registrar releases any queued transcript request within 4 working hours. The registrar's office works 8:00 AM to 4:00 PM Monday to Friday and does not work weekends.",
+      "id": "e10",
+      "source": "Registrar service standard; registrar office hours",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "The university, the bursar's office and the registrar's office are open and operating normally on every weekday from 1 June through 12 June 2026. No closure, furlough or holiday falls in that period, and the bursar's automated batch is unaffected by office staffing in any case.",
+      "id": "e11",
+      "source": "University academic calendar; bursar's system operations schedule",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-01T00:00:00-05:00",
+      "claim": "Every date and time in this package is America/Chicago, which is UTC-05:00 throughout June 2026.",
+      "id": "e12",
+      "source": "Package convention",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_transcript_hold_2026_06",
+  "prepared_at": "2026-06-04T17:00:00-05:00"
+}

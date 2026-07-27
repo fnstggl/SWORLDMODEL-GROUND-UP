@@ -1,0 +1,103 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-02-24T00:00:00-05:00",
+      "claim": "Calder & Voss is an online retailer of laboratory glassware and instruments. Priya Rentala bought a rotary evaporator on order CV-88214 and returned it under the company's published returns policy.",
+      "id": "e1",
+      "source": "Order record CV-88214; returns portal record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "Clause 4 of the published returns policy reads in full: \"Refunds are issued within 30 calendar days of the return.\" The policy contains no definition of \"the return\", and no other clause of the policy bears on when the 30-day period begins.",
+      "id": "e2",
+      "source": "Calder & Voss published returns policy, full text as supplied",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "The order confirmation for CV-88214, the packing slip, the printed return-label instructions and the returns portal's on-screen text were all reviewed. None of them defines \"the return\" or states when the 30-day period starts. There is no separate contract, addendum, or terms-of-sale document between Rentala and Calder & Voss.",
+      "id": "e3",
+      "source": "Order documents for CV-88214, reviewed 2026-03-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-03T11:42:00-05:00",
+      "claim": "Trellis Freight's tracking record shows the returned parcel was accepted from Rentala at the Ardmore drop-off point at 11:42 AM on Tuesday 3 March 2026. This is the moment Rentala parted with the goods.",
+      "id": "e4",
+      "source": "Trellis Freight tracking record, parcel TF-6620418",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-12T09:20:00-04:00",
+      "claim": "Calder & Voss's Bexley warehouse scanned the parcel into receiving at 9:20 AM on Thursday 12 March 2026. This is the moment the goods came back into the company's possession.",
+      "id": "e5",
+      "source": "Bexley warehouse receiving log, 2026-03-12",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "The nine-day gap between the two scans is accounted for by Trellis Freight's ground service and four days the parcel spent in Trellis's Marlow consolidation hub. Neither party disputes either date, and both the 3 March acceptance scan and the 12 March receiving scan are verified.",
+      "id": "e6",
+      "source": "Trellis Freight transit report; correspondence between the parties",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "In an email dated 14 March 2026 Rentala wrote that the 30 days run from 3 March, the day she returned the item. In a reply dated 16 March 2026 Calder & Voss's returns team wrote that the 30 days run from 12 March, the day the return was received. Neither message cites any policy text, prior practice, or other authority, and the exchange ended there.",
+      "id": "e7",
+      "source": "Email thread, Rentala and Calder & Voss returns team, 14-16 March 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "Calder & Voss's returns manager, Ines Fabro, confirmed in writing on 16 March 2026 that Rentala's refund for the full purchase price is queued for issue on 8 April 2026.",
+      "id": "e8",
+      "source": "Written confirmation from Ines Fabro, 2026-03-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "Calder & Voss's 2026 refunds log shows 4,318 of 4,318 scheduled refunds issued on their scheduled date, with no exceptions. No party has asked to accelerate or delay Rentala's refund, and no dispute, chargeback or complaint is open on order CV-88214.",
+      "id": "e9",
+      "source": "Calder & Voss refunds log, 2026 to date",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "The published returns policy has never been revised since it was first posted; no FAQ or help-centre page interprets clause 4; and Calder & Voss has no recorded prior practice of applying clause 4 from one date rather than the other. Its refunds log does not record the carrier-acceptance date and the warehouse-receipt date separately, so no course of dealing can be recovered from it.",
+      "id": "e10",
+      "source": "Policy revision history; help-centre index; refunds log schema",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "No statute, regulation, or regulator guidance bearing on when a consumer return period begins is included in these materials, and none is referred to in the policy or in the parties' correspondence.",
+      "id": "e11",
+      "source": "Materials index",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-16T00:00:00-04:00",
+      "claim": "Every date and time in this package is America/New_York.",
+      "id": "e12",
+      "source": "Package convention",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_refund_window_2026_03",
+  "prepared_at": "2026-03-17T09:00:00-04:00"
+}

@@ -1,0 +1,36 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "Initial state: council session scheduled, charter rules known, member positions declared, Bianchi absent notice filed.",
+        "Council session convenes at 2026-09-08T19:00 (or may not, as per uncertainty).",
+        "Okonkwo does not postpone (action).",
+        "Vote is taken (missing step: 'vote_taken' not defined).",
+        "Individual votes: Okonkwo yes, Tran yes, Delgado no, Pryce no.",
+        "Vote record shows 2 yes, 2 no -> fewer than three affirmative votes.",
+        "Terminal resolves to negative."
+      ],
+      "defects": [
+        {
+          "document": "causal_spine",
+          "what": "The condition 'vote_taken' required for vote actions (okonkwo_vote_yes, tran_vote_yes, delgado_vote_no, pryce_vote_no) is never defined as a stock, event, or action. Without it, the vote actions cannot be performed, so the terminal vote_record cannot be produced.",
+          "why_material": "The simulation cannot complete the voting process, making the terminal unreachable or producing no vote record."
+        },
+        {
+          "document": "causal_spine",
+          "what": "The charter quorum requirement (at least three members present) is not modeled. The world has no mechanism to ensure quorum before voting, so votes could be recorded with fewer than three members present, violating the charter.",
+          "why_material": "Without quorum enforcement, the simulation might produce a valid vote record even with only two members present, which would incorrectly resolve the terminal."
+        },
+        {
+          "document": "starting_state_and_information",
+          "what": "The scheduled event 'council_session' has a description that includes 'Attend her daughter's naval academy induction...' which is actually Bianchi's absence reason, not a description of the council session.",
+          "why_material": "This mislabeling could cause confusion but does not affect the causal logic directly; however, it is a factual inaccuracy."
+        }
+      ],
+      "reasoning": "The world has multiple material defects: (1) The condition 'vote_taken' required for individual vote actions is never defined, breaking the causal chain to produce the vote_record. (2) Quorum (at least three members present) is not enforced, although the charter requires it for any vote; without it, the simulation could produce a vote record even with fewer than three present. (3) The scheduled event 'council_session' incorrectly includes a description about Bianchi's absence, which is irrelevant and may cause confusion. These defects would change what the simulation produces.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

@@ -31,9 +31,11 @@ def test_votes_are_validated_actions_not_engine_magic(outcome):
     w = outcome.world
     votes = [a for a in w.actions.values() if a["verb"] == "cast_vote"]
     assert len(votes) == 3 and all(v["state"] == "completed" for v in votes)
-    assert w.facts["vote:dana"] == "hold"
-    assert w.facts["vote:eli"] == "cut"
-    assert w.facts["vote:fran"] == "hold"
+    ballots = {r["producer"]: r["value"] for r in w.find_records("vote")}
+    assert ballots == {"dana": "hold", "eli": "cut", "fran": "hold"}
+    # each ballot carries its own authority provenance and producing event
+    for r in w.find_records("vote"):
+        assert r["authority"] and r["producing_event"] and r["subject"]
 
 
 def test_briefing_timing_and_attention_patterns(outcome):
@@ -64,7 +66,8 @@ def test_terminal_flips_when_fran_is_present():
     out = Engine(w, minds, t).run()
     assert out.answer["answer"] == "cut"
     assert "cut 2-1" in out.answer["detail"]
-    assert w.facts["vote:fran"] == "cut"          # same person, informed vote
+    ballots = {r["producer"]: r["value"] for r in w.find_records("vote")}
+    assert ballots["fran"] == "cut"               # same person, informed vote
 
 
 def test_authority_and_double_vote_guards():
@@ -80,7 +83,8 @@ def test_authority_and_double_vote_guards():
                               CAST_VOTE["conditions"])
     assert reason and "authority" in reason
     # nobody votes twice
-    w.apply("fact.set", {"key": "vote:eli", "value": "cut"}, None)
+    w.apply("record.add", {"record_type": "vote", "producer": "eli",
+                           "subject": "x", "value": "cut"}, None)
     reason = check_conditions(w, "eli", {"motion": "x", "choice": "cut"},
                               CAST_VOTE["conditions"])
     assert reason and "already exists" in reason

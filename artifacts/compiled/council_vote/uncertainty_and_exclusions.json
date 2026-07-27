@@ -1,0 +1,66 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Other village officials or staff",
+      "why_safe": "Only council members vote on ordinances; other officials have no role in adoption."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4",
+        "e7",
+        "e8"
+      ],
+      "name": "Public comment or external influence",
+      "why_safe": "Council rules do not allow public to vote; influence on members is speculative and not evidenced to change stated positions."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Legal challenges or veto",
+      "why_safe": "The question asks only about adoption at the session; post-adoption events are irrelevant to the cutoff."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "council_session_occurs",
+      "meaning": "Whether the session actually convenes as scheduled on 8 September 2026 at 7:00 PM. No evidence confirms it occurs; unexpected events could cancel or postpone it."
+    },
+    {
+      "about": "quorum_present",
+      "meaning": "Whether at least three members are physically present. Bianchi is absent, so quorum requires three of the remaining four to attend. No evidence confirms attendance of Okonkwo, Tran, Delgado, or Pryce."
+    },
+    {
+      "about": "vote_taken",
+      "meaning": "Whether a vote on Ordinance 2026-14 actually occurs. Okonkwo could move postponement, or the session could be adjourned without a vote."
+    },
+    {
+      "about": "okonkwo_vote_yes",
+      "meaning": "Whether Okonkwo votes yes. She supports the ordinance, but her actual vote on the day is not guaranteed."
+    },
+    {
+      "about": "tran_vote_yes",
+      "meaning": "Whether Tran votes yes. He stated support, but could change his mind or be absent."
+    },
+    {
+      "about": "delgado_vote_no",
+      "meaning": "Whether Delgado votes no. She stated opposition, but could be absent or change her vote."
+    },
+    {
+      "about": "pryce_vote_no",
+      "meaning": "Whether Pryce votes no. He stated opposition, but could be absent or change his vote."
+    },
+    {
+      "about": "bianchi_absent",
+      "meaning": "Whether Bianchi is absent. She filed notice, but could still attend; however, evidence strongly suggests absence."
+    },
+    {
+      "about": "at_least_three_yes_votes",
+      "meaning": "Whether the final count reaches three yes votes. With Bianchi absent, only two yes votes are known (Okonkwo and Tran), so at least one more yes is needed from Delgado or Pryce, who both stated opposition."
+    }
+  ]
+}

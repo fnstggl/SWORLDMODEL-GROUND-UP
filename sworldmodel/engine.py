@@ -688,9 +688,11 @@ class Engine:
         # presented as available -- a clerk is not offered the chair's gavel
         verbs = []
         for v, d in sorted(w.action_defs.items()):
-            authorized = all(st.role in c.get("roles", [])
-                             for c in d.get("conditions", [])
-                             if c.get("require") == "role_in")
+            authorized = all(
+                (st.role in c.get("roles", [])) if c.get("require") == "role_in"
+                else (st.id in c.get("actors", []))
+                for c in d.get("conditions", [])
+                if c.get("require") in ("role_in", "actor_in"))
             if authorized:
                 verbs.append(VerbView(v, d.get("description", "")))
         verbs = tuple(verbs)

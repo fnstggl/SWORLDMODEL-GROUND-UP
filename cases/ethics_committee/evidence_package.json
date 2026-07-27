@@ -1,0 +1,119 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-01-15T00:00:00-05:00",
+      "claim": "St. Brendan's Hospital ethics committee has three voting members: Dr. Helen Osei (chair), Dr. Raj Patel, and Sister Margaret Doyle (lay member).",
+      "id": "e1",
+      "source": "Hospital committee roster",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2024-04-01T00:00:00-04:00",
+      "claim": "The committee decides by simple majority of votes cast; the chair puts a motion and members vote in the room.",
+      "id": "e2",
+      "source": "Committee charter sec. 3",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-05T00:00:00-05:00",
+      "claim": "The committee meets 12 March 2026 at 2:00 PM America/New_York to consider a compassionate-use request for an unapproved oncology therapy.",
+      "id": "e3",
+      "source": "Meeting notice",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-05T00:00:00-05:00",
+      "claim": "Hospital pharmacist Tomas Lindqvist was asked to prepare a safety review of the therapy and circulate it to members before the meeting.",
+      "id": "e4",
+      "source": "Chair's request, minuted 2026-03-05",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-10T08:00:00-04:00",
+      "claim": "The manufacturer released updated trial safety data on 10 March 2026 at 8:00 AM America/New_York showing a lower rate of severe adverse events than previously reported.",
+      "id": "e5",
+      "source": "Manufacturer investor bulletin",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2025-08-01T00:00:00-04:00",
+      "claim": "Lindqvist monitors manufacturer bulletins as part of his role and acts on them the same working day.",
+      "id": "e6",
+      "source": "Pharmacy department procedure",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-05T00:00:00-05:00",
+      "claim": "A safety review of this kind takes Lindqvist roughly half a working day to prepare.",
+      "id": "e7",
+      "source": "Comparable prior reviews",
+      "status": "inferred",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2025-09-01T00:00:00-04:00",
+      "claim": "Reviews are circulated to committee members by hospital email, which delivers within about a minute.",
+      "id": "e8",
+      "source": "Hospital IT",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-12T00:00:00-05:00",
+      "claim": "Dr. Osei has said she will not approve compassionate use without current safety data, and considers the older adverse-event rate disqualifying.",
+      "id": "e9",
+      "source": "Minutes of 2026-02-12 meeting",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-15T00:00:00-05:00",
+      "claim": "Dr. Patel has consistently voted to approve compassionate use where a safety review is available and favourable.",
+      "id": "e10",
+      "source": "Voting record 2024-2025",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-15T00:00:00-05:00",
+      "claim": "Sister Doyle votes with the documented safety assessment when one has been provided to her.",
+      "id": "e11",
+      "source": "Voting record 2024-2025",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-03-09T00:00:00-05:00",
+      "claim": "Osei and Patel work at the hospital and check email several times during the working day; Doyle is off-site on retreat from 10 to 12 March and the hospital has no email contact with her during it, but she attends the meeting in person.",
+      "id": "e12",
+      "source": "Chair's assistant, 2026-03-09",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2024-04-01T00:00:00-04:00",
+      "claim": "Members are present in the meeting room and hear motions put by the chair immediately.",
+      "id": "e13",
+      "source": "Committee charter sec. 3",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-02-12T00:00:00-05:00",
+      "claim": "Stating a vote in the room takes a moment; the chair's opening remarks and motion take about five minutes.",
+      "id": "e14",
+      "source": "Prior meeting minutes",
+      "status": "inferred",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_ethics_committee_2026_03",
+  "prepared_at": "2026-03-09T08:00:00-04:00"
+}

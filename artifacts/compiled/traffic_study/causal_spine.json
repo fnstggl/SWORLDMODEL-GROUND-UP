@@ -1,0 +1,115 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "condition",
+      "meaning": "The Riverside corridor traffic study is finalized with peer-review sign-off.",
+      "name": "study_finalized",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "peer_review_signoff"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "External reviewer delivers peer-review sign-off to Santos.",
+      "name": "peer_review_signoff",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "The reviewer committed to deliver by this time, but actual delivery may be delayed.",
+      "when": "2026-02-18T10:00:00-06:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4b"
+      ],
+      "kind": "organization_action",
+      "meaning": "Santos emails the finalized study to council members within an hour after receiving peer-review sign-off.",
+      "name": "santos_emails_study",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "study_finalized"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "process",
+      "meaning": "The email with the study is delivered to Reyes's inbox.",
+      "name": "email_delivered",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "santos_emails_study"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Reyes checks her email and notices the study.",
+      "name": "reyes_checks_email",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "email_delivered"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Reyes may not check email before the meeting if the study arrives late or she is busy.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Reyes reads the finalized study in full.",
+      "name": "reyes_reads_study",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "reyes_checks_email"
+        }
+      ],
+      "produces_proof": [
+        "Reyes's reading state"
+      ],
+      "uncertainty": "Reyes may not have time to read the full study before the meeting if it arrives late.",
+      "when": null
+    }
+  ]
+}

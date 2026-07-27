@@ -1,0 +1,1046 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:notice_posted",
+      "rel": "requires",
+      "src": "action:okoye_canvasses_tuesday"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:notice_posted",
+      "rel": "requires",
+      "src": "action:okoye_canvasses_wednesday"
+    },
+    {
+      "attrs": {},
+      "dst": "record:board_clerk_filing_log",
+      "rel": "produces",
+      "src": "action:secretary_files_petition"
+    },
+    {
+      "attrs": {},
+      "dst": "record:filed_petition",
+      "rel": "produces",
+      "src": "action:secretary_files_petition"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:at_least_40_signatures_collected",
+      "rel": "requires",
+      "src": "action:secretary_files_petition"
+    },
+    {
+      "attrs": {},
+      "dst": "action:okoye_canvasses_tuesday",
+      "rel": "can_perform",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "action:okoye_canvasses_wednesday",
+      "rel": "can_perform",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {
+        "meaning": "Dana Okoye is the producer of the canvassing on Tuesday evening."
+      },
+      "dst": "action:okoye_canvasses_tuesday",
+      "rel": "has_authority",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {
+        "meaning": "Dana Okoye is the producer of the canvassing on Wednesday evening."
+      },
+      "dst": "action:okoye_canvasses_wednesday",
+      "rel": "has_authority",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "state:canvasser",
+      "rel": "has_state",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "state:canvassing_commitment",
+      "rel": "has_state",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "state:canvassing_time",
+      "rel": "has_state",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "state:work_schedule",
+      "rel": "has_state",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_filing_rules",
+      "rel": "knows",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "information:canvass_status",
+      "rel": "knows",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "information:filing_plan",
+      "rel": "knows",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "information:notice_posted",
+      "rel": "knows",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "information:prior_performance",
+      "rel": "knows",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "information:signature_counts",
+      "rel": "knows",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "event:canvass_tuesday",
+      "rel": "observes",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "event:canvass_wednesday",
+      "rel": "observes",
+      "src": "participant:dana_okoye"
+    },
+    {
+      "attrs": {},
+      "dst": "action:secretary_files_petition",
+      "rel": "can_perform",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {
+        "meaning": "Lena Park is the association secretary who files the petition."
+      },
+      "dst": "action:secretary_files_petition",
+      "rel": "has_authority",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "state:holds_signature_sheets",
+      "rel": "has_state",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "state:intends_to_file_at_hearing",
+      "rel": "has_state",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "state:lives_20_minutes_from_board_office",
+      "rel": "has_state",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_filing_rules",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:canvass_status",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:filing_plan",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:notice_posted",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okoye_canvassing_schedule",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:signature_counts",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "information:signature_totals_as_of_monday",
+      "rel": "knows",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "event:file_petition_on_hearing_day",
+      "rel": "observes",
+      "src": "participant:lena_park"
+    },
+    {
+      "attrs": {},
+      "dst": "action:notice_posted",
+      "rel": "can_perform",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {
+        "meaning": "Vic Morales is the superintendent who posted the canvass notice on Building 3's lobby board."
+      },
+      "dst": "action:notice_posted",
+      "rel": "has_authority",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "state:posted_notice",
+      "rel": "has_state",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_filing_rules",
+      "rel": "knows",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "information:canvass_status",
+      "rel": "knows",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "information:filing_plan",
+      "rel": "knows",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "information:notice_posted",
+      "rel": "knows",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "information:posted_notice",
+      "rel": "knows",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "information:signature_counts",
+      "rel": "knows",
+      "src": "participant:vic_morales"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:board_clerk_filing_log"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:filed_petition"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:okoye_canvasses_tuesday",
+      "rel": "requires",
+      "src": "state:at_least_40_signatures_collected"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:okoye_canvasses_wednesday",
+      "rel": "requires",
+      "src": "state:at_least_40_signatures_collected"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:initial_35_signatures",
+      "rel": "requires",
+      "src": "state:at_least_40_signatures_collected"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:secretary_files_petition",
+      "rel": "requires",
+      "src": "state:petition_filed"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:at_least_40_signatures_collected",
+      "rel": "requires",
+      "src": "state:petition_filed"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Alternative filing methods (e.g., mail, email)",
+      "why_safe": "Board rules require filing with the board clerk in person at the hearing-room desk on hearing day (e2); no other method is accepted."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "name": "Other canvassers",
+      "why_safe": "Dana Okoye is the only remaining canvasser per e5; no other canvassers are available to collect signatures."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Signatures from non-current tenants",
+      "why_safe": "All 35 collected signatures are verified current tenants (e10); any future signatures will be checked against the rent roll, so invalid signatures are excluded."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "organization_action"
+      },
+      "category": "action",
+      "id": "action:notice_posted",
+      "meaning": "Superintendent Vic Morales posted the canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August, satisfying the 24-hour advance notice requirement.",
+      "name": "notice_posted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Okoye may not canvass as committed, or may collect fewer than 6 or more than 9 signatures, but historical range is 6-9."
+      },
+      "category": "action",
+      "id": "action:okoye_canvasses_tuesday",
+      "meaning": "Dana Okoye canvasses Building 3 on Tuesday 18 August from 6:30 to 8:30 PM, collecting between 6 and 9 signatures.",
+      "name": "okoye_canvasses_tuesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Okoye may not canvass as committed, or may collect fewer than 6 or more than 9 signatures, but historical range is 6-9."
+      },
+      "category": "action",
+      "id": "action:okoye_canvasses_wednesday",
+      "meaning": "Dana Okoye canvasses Building 3 on Wednesday 19 August from 6:30 to 8:30 PM, collecting between 6 and 9 signatures.",
+      "name": "okoye_canvasses_wednesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Park may be delayed or unable to file, but she has stated her intention and practice."
+      },
+      "category": "action",
+      "id": "action:secretary_files_petition",
+      "meaning": "Association secretary Lena Park files the petition at the hearing-room desk when it opens at 9:00 AM on Thursday 20 August, before the hearing opens at 10:00 AM.",
+      "name": "secretary_files_petition",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-18T18:30:00-04:00"
+      },
+      "category": "event",
+      "id": "event:canvass_tuesday",
+      "meaning": "Canvass Building 3 on Tuesday 18 August 2026, 6:30-8:30 PM.",
+      "name": "canvass_tuesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-19T18:30:00-04:00"
+      },
+      "category": "event",
+      "id": "event:canvass_wednesday",
+      "meaning": "Canvass Building 3 on Wednesday 19 August 2026, 6:30-8:30 PM.",
+      "name": "canvass_wednesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-20T09:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:file_petition_on_hearing_day",
+      "meaning": "Lena Park is committed to filing the petition at the hearing-room desk on 20 August 2026 at 9:00 AM.",
+      "name": "file_petition_on_hearing_day",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_filing_rules",
+      "meaning": "Petition must have at least 40 signatures and be filed before hearing opens at 10:00 AM; clerk accepts filings weekdays 9-5 and at hearing-room desk 9:00-9:45 AM on hearing day.",
+      "name": "board_filing_rules",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:canvass_status",
+      "meaning": "Every unit in Buildings 1 and 2 already canvassed; 21 occupied units in Building 3 not yet approached.",
+      "name": "canvass_status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:filing_plan",
+      "meaning": "Secretary Lena Park plans to file petition at hearing-room desk at 9:00 AM on hearing day.",
+      "name": "filing_plan",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:notice_posted",
+      "meaning": "Superintendent Morales posted the canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August.\nSuperintendent posted canvass notice on Building 3 lobby board at 5:00 PM Monday 17 August.",
+      "name": "notice_posted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:okoye_canvassing_schedule",
+      "meaning": "Dana Okoye will canvass Building 3 on Tuesday 18 and Wednesday 19 August evenings.",
+      "name": "okoye_canvassing_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:posted_notice",
+      "meaning": "Vic Morales knows he posted the notice.",
+      "name": "posted_notice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:prior_performance",
+      "meaning": "In each of her four prior two-hour evening sessions, she collected between 6 and 9 signatures.",
+      "name": "prior_performance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:signature_counts",
+      "meaning": "As of Monday 17 August, 35 signatures collected: 18 in Building 1, 11 in Building 2, 6 in Building 3.",
+      "name": "signature_counts",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:signature_totals_as_of_monday",
+      "meaning": "As of Monday 17 August, 35 verified signatures have been collected.",
+      "name": "signature_totals_as_of_monday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "20:30",
+          "open": "06:30",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-08-18T07:00:00-04:00",
+            "meaning": "Dana Okoye is unavailable for canvassing during her nursing shifts 7:00 AM to 5:00 PM weekdays.",
+            "to": "2026-08-18T17:00:00-04:00"
+          },
+          {
+            "from": "2026-08-19T07:00:00-04:00",
+            "meaning": "Dana Okoye is unavailable for canvassing during her nursing shifts 7:00 AM to 5:00 PM weekdays.",
+            "to": "2026-08-19T17:00:00-04:00"
+          }
+        ],
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:dana_okoye",
+      "meaning": "The association's only remaining canvasser who can collect signatures on Tuesday evening.\nThe association's only remaining canvasser who can collect signatures on Wednesday evening.",
+      "name": "Dana Okoye",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:lena_park",
+      "meaning": "Association secretary who files the petition at the hearing-room desk.",
+      "name": "Lena Park",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:vic_morales",
+      "meaning": "Superintendent who posted the canvass notice on Building 3's lobby board.",
+      "name": "Vic Morales",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "filing log",
+        "rule": "count_all",
+        "subject": "board clerk",
+        "value": null
+      },
+      "category": "record",
+      "id": "record:board_clerk_filing_log",
+      "meaning": "The board clerk's official log or timestamped receipt indicating when the petition was filed.",
+      "name": "board clerk filing log",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "petition",
+        "rule": "count_value",
+        "subject": "Gladwell Court Tenants' Association",
+        "value": 40
+      },
+      "category": "record",
+      "id": "record:filed_petition",
+      "meaning": "The petition document as filed with the board clerk, showing the number of signatures and the filing timestamp.",
+      "name": "filed petition",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; it is not produced by any actor or process.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:at_least_40_signatures_collected",
+      "meaning": "At least 40 valid tenant signatures have been collected and verified by the association.",
+      "name": "at_least_40_signatures_collected",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:canvasser",
+      "meaning": "Dana Okoye is the association's only remaining canvasser.",
+      "name": "canvasser",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:canvassing_commitment",
+      "meaning": "She has committed to canvass Building 3 on the evenings of Tuesday 18 and Wednesday 19 August.",
+      "name": "canvassing_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:canvassing_time",
+      "meaning": "She canvasses only from 6:30 to 8:30 PM on weekday evenings.",
+      "name": "canvassing_time",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:holds_signature_sheets",
+      "meaning": "Lena Park holds the signature sheets for the petition.",
+      "name": "holds_signature_sheets",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "This is an initial fact; no producer needed.",
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:initial_35_signatures",
+      "meaning": "As of Monday 17 August, the association has 35 verified signatures (18 in Building 1, 11 in Building 2, 6 in Building 3).",
+      "name": "initial_35_signatures",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:intends_to_file_at_hearing",
+      "meaning": "Lena Park intends to file the petition at the hearing-room desk when it opens at 9:00 AM on hearing day.",
+      "name": "intends_to_file_at_hearing",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:lives_20_minutes_from_board_office",
+      "meaning": "Lena Park lives 20 minutes from the board office.",
+      "name": "lives_20_minutes_from_board_office",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; it is not produced by any actor or process.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:petition_filed",
+      "meaning": "The petition with at least 40 valid tenant signatures is filed with the board clerk before the hearing opens at 10:00 AM on Thursday 20 August 2026.",
+      "name": "petition_filed",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:posted_notice",
+      "meaning": "Vic Morales posted the association's canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August.",
+      "name": "posted_notice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:work_schedule",
+      "meaning": "She works nursing shifts weekdays 7:00 AM to 5:00 PM.",
+      "name": "work_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The hearing is called to order at 10:00 AM Eastern Daylight Time; the petition must be filed before that moment.",
+          "timezone": "America/New_York",
+          "when": "2026-08-20T10:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Fewer than 40 valid signatures are filed, or the petition is filed after the hearing opens.",
+        "positive_condition": "A petition with at least 40 valid tenant signatures is filed with the board clerk before the hearing opens.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether a petition bearing at least 40 signatures of current tenants is filed with the board clerk before the hearing is called to order at 10:00 AM on Thursday 20 August 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "notice_posted": "notice_posted",
+        "okoye_canvasses_tuesday": "okoye_canvasses_tuesday",
+        "okoye_canvasses_wednesday": "okoye_canvasses_wednesday",
+        "secretary_files_petition": "secretary_files_petition"
+      },
+      "event": {
+        "canvass_tuesday": "canvass_tuesday",
+        "canvass_wednesday": "canvass_wednesday",
+        "file_petition_on_hearing_day": "file_petition_on_hearing_day"
+      },
+      "information": {
+        "board_filing_rules": "board_filing_rules",
+        "canvass_status": "canvass_status",
+        "filing_plan": "filing_plan",
+        "notice_posted": "notice_posted",
+        "okoye_canvassing_schedule": "okoye_canvassing_schedule",
+        "posted_notice": "posted_notice",
+        "prior_performance": "prior_performance",
+        "signature_counts": "signature_counts",
+        "signature_totals_as_of_monday": "signature_totals_as_of_monday"
+      },
+      "participant": {
+        "Dana Okoye": "dana_okoye",
+        "Lena Park": "lena_park",
+        "Vic Morales": "vic_morales"
+      },
+      "record": {
+        "board clerk filing log": "board_clerk_filing_log",
+        "filed petition": "filed_petition"
+      },
+      "state": {
+        "at_least_40_signatures_collected": "at_least_40_signatures_collected",
+        "canvasser": "canvasser",
+        "canvassing_commitment": "canvassing_commitment",
+        "canvassing_time": "canvassing_time",
+        "holds_signature_sheets": "holds_signature_sheets",
+        "initial_35_signatures": "initial_35_signatures",
+        "intends_to_file_at_hearing": "intends_to_file_at_hearing",
+        "lives_20_minutes_from_board_office": "lives_20_minutes_from_board_office",
+        "petition_filed": "petition_filed",
+        "posted_notice": "posted_notice",
+        "work_schedule": "work_schedule"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:okoye_canvasses_tuesday",
+      "meaning": "How many signatures Dana Okoye collects during her Tuesday evening canvass in Building 3 (between 6 and 9 based on prior sessions)."
+    },
+    {
+      "about": "action:okoye_canvasses_tuesday",
+      "meaning": "Okoye may not canvass as committed, or may collect fewer than 6 or more than 9 signatures, but historical range is 6-9."
+    },
+    {
+      "about": "action:okoye_canvasses_wednesday",
+      "meaning": "How many signatures Dana Okoye collects during her Wednesday evening canvass in Building 3 (between 6 and 9 based on prior sessions)."
+    },
+    {
+      "about": "action:okoye_canvasses_wednesday",
+      "meaning": "Okoye may not canvass as committed, or may collect fewer than 6 or more than 9 signatures, but historical range is 6-9."
+    },
+    {
+      "about": "action:secretary_files_petition",
+      "meaning": "Park may be delayed or unable to file, but she has stated her intention and practice."
+    },
+    {
+      "about": "action:secretary_files_petition",
+      "meaning": "Whether Lena Park successfully files the petition before the hearing opens at 10:00 AM on Thursday 20 August, given her stated plan but potential unforeseen delays."
+    },
+    {
+      "about": "state:at_least_40_signatures_collected",
+      "meaning": "Whether the total collected signatures reach at least 40 by the time of filing, given the uncertain outcomes of the two canvassing sessions."
+    }
+  ]
+}

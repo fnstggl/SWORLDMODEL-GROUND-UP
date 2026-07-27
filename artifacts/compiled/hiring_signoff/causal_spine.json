@@ -1,0 +1,132 @@
+{
+  "steps": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "kind": "actor_decision",
+      "meaning": "Bellrock Analytics emails a countersigned offer letter to Priya Nandakumar before 9:00 AM Eastern on Monday 3 August 2026.",
+      "name": "email_sent",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "offer_compiled_and_countersigned"
+        }
+      ],
+      "produces_proof": [
+        "email_sent_record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e12"
+      ],
+      "kind": "organization_action",
+      "meaning": "The HR offer desk compiles and countersigns the offer letter after all approvals are recorded.",
+      "name": "offer_compiled_and_countersigned",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "compensation_approval_recorded"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "panel_feedback_recorded"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "background_checks_complete"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10",
+        "e11"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Marta Kolev records compensation approval in the applicant-tracking system.",
+      "name": "compensation_approval_recorded",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "approval_request_submitted"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "kolev_checks_email"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Devon Okafor submits the compensation approval request for ENG-114 at 2:00 PM Thursday 30 July.",
+      "name": "approval_request_submitted",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-30T14:00:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8",
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Marta Kolev checks work email during her backcountry trip, at approximately 9:00 PM Eastern on one of the evenings from 30 July to 2 August.",
+      "name": "kolev_checks_email",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Kolev may not check email on a given evening due to unforeseen circumstances, but her stated practice is to check each evening.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "All five panelists' written feedback on Nandakumar is recorded by 12:00 PM Thursday 30 July.",
+      "name": "panel_feedback_recorded",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-30T12:00:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Nandakumar's background and reference checks are completed and recorded on 28 July.",
+      "name": "background_checks_complete",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-28T16:00:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "assignments": [
+    {
+      "step": "initial_volume_oct5",
+      "unsupported": "Initial facts need no producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "operating_process",
+          "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour.",
+          "name": "Treatment train A"
+        }
+      ],
+      "step": "train_a_consumption_oct5_6am_to_oct6_8am"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+          "name": "Treatment train B"
+        }
+      ],
+      "step": "train_b_consumption_oct5_6am_to_6pm"
+    },
+    {
+      "step": "delivery_tuesday_oct6",
+      "unsupported": "Scheduled events need no producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "operating_process",
+          "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour.",
+          "name": "Treatment train A"
+        }
+      ],
+      "step": "train_a_consumption_oct6_8am_to_oct9_8am"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+          "name": "Treatment train B"
+        }
+      ],
+      "step": "train_b_consumption_oct6_6am_to_6pm"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+          "name": "Treatment train B"
+        }
+      ],
+      "step": "train_b_consumption_oct7_6am_to_6pm"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+          "name": "Treatment train B"
+        }
+      ],
+      "step": "train_b_consumption_oct8_6am_to_6pm"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+          "name": "Treatment train B"
+        }
+      ],
+      "step": "train_b_consumption_oct9_6am_to_8am"
+    },
+    {
+      "step": "delivery_friday_oct9",
+      "unsupported": "Scheduled events need no producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "operating_process",
+          "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour.",
+          "name": "Treatment train A"
+        }
+      ],
+      "step": "train_a_consumption_oct9_8am_to_oct12_6am"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+          "name": "Treatment train B"
+        }
+      ],
+      "step": "train_b_consumption_oct9_8am_to_6pm"
+    },
+    {
+      "step": "train_b_off_weekend",
+      "unsupported": "Condition with no prerequisites and no mechanism; it is a conjunction of the operating schedule (train B does not run on weekends)."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "kind": "operating_process",
+          "meaning": "Continuous consumption of 18 L/h from the day tank.",
+          "name": "Treatment train A"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "kind": "operating_process",
+          "meaning": "Intermittent consumption of 22 L/h from the day tank during operating hours.",
+          "name": "Treatment train B"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8",
+            "e9",
+            "e10"
+          ],
+          "kind": "scheduled_event",
+          "meaning": "Delivery of 1,800 litres at 8:00 AM on Tuesday 6 October 2026, filling tank to capacity.",
+          "name": "Rennard Chemical delivery on Tuesday 6 October",
+          "when": "2026-10-06T08:00:00-05:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8",
+            "e9",
+            "e10"
+          ],
+          "kind": "scheduled_event",
+          "meaning": "Delivery of 1,800 litres at 8:00 AM on Friday 9 October 2026, filling tank to capacity.",
+          "name": "Rennard Chemical delivery on Friday 9 October",
+          "when": "2026-10-09T08:00:00-05:00"
+        }
+      ],
+      "step": "final_volume"
+    }
+  ]
+}

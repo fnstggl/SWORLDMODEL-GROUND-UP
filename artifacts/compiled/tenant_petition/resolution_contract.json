@@ -1,0 +1,40 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The hearing is called to order at 10:00 AM Eastern Daylight Time; the petition must be filed before that moment.",
+    "timezone": "America/New_York",
+    "when": "2026-08-20T10:00:00-04:00"
+  },
+  "evidence_ids": [
+    "e1",
+    "e2"
+  ],
+  "measured_act": null,
+  "negative_condition": "Fewer than 40 valid signatures are filed, or the petition is filed after the hearing opens.",
+  "positive_condition": "A petition with at least 40 valid tenant signatures is filed with the board clerk before the hearing opens.",
+  "proof": [
+    {
+      "expected_count": 1,
+      "kind": "record",
+      "meaning": "The petition document as filed with the board clerk, showing the number of signatures and the filing timestamp.",
+      "name": "filed petition",
+      "record_type": "petition",
+      "rule": "count_value",
+      "subject": "Gladwell Court Tenants' Association",
+      "value": 40
+    },
+    {
+      "expected_count": 1,
+      "kind": "record",
+      "meaning": "The board clerk's official log or timestamped receipt indicating when the petition was filed.",
+      "name": "board clerk filing log",
+      "record_type": "filing log",
+      "rule": "count_all",
+      "subject": "board clerk"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "Whether a petition bearing at least 40 signatures of current tenants is filed with the board clerk before the hearing is called to order at 10:00 AM on Thursday 20 August 2026."
+}

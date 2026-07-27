@@ -1,0 +1,1115 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "state:registrar_release_within_4_hours",
+      "rel": "produces",
+      "src": "action:bring_about_registrar_release_within_4_hours"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:financial_hold_lifted",
+      "rel": "requires",
+      "src": "action:bring_about_registrar_release_within_4_hours"
+    },
+    {
+      "attrs": {},
+      "dst": "record:transcript_release_record",
+      "rel": "produces",
+      "src": "action:record_transcript_released"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:financial_hold_lifted",
+      "rel": "requires",
+      "src": "action:record_transcript_released"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:registrar_release_within_4_hours",
+      "rel": "requires",
+      "src": "action:record_transcript_released"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:payment_cleared_by_processor",
+      "rel": "requires",
+      "src": "event:bursar_batch_posts_payment"
+    },
+    {
+      "attrs": {
+        "meaning": "bursar_batch_posts_payment follows payment_cleared_by_processor by 3360 minutes (inferred)",
+        "offset_minutes": 3360.0
+      },
+      "dst": "event:payment_cleared_by_processor",
+      "rel": "scheduled_at",
+      "src": "event:bursar_batch_posts_payment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:payment_submitted",
+      "rel": "requires",
+      "src": "event:payment_cleared_by_processor"
+    },
+    {
+      "attrs": {
+        "meaning": "The payment processor marks electronic checks cleared at 6:00 PM on the third processor business day after submission."
+      },
+      "dst": "event:payment_cleared_by_processor",
+      "rel": "has_authority",
+      "src": "organization:payment_processor"
+    },
+    {
+      "attrs": {
+        "meaning": "The payment processor marks the electronic check as cleared after 3 business days."
+      },
+      "dst": "event:payment_cleared_by_processor",
+      "rel": "has_authority",
+      "src": "organization:payment_processor"
+    },
+    {
+      "attrs": {},
+      "dst": "state:business_days",
+      "rel": "has_state",
+      "src": "organization:payment_processor"
+    },
+    {
+      "attrs": {},
+      "dst": "state:payment_cleared_rule",
+      "rel": "has_state",
+      "src": "organization:payment_processor"
+    },
+    {
+      "attrs": {},
+      "dst": "state:processor_rule",
+      "rel": "has_state",
+      "src": "organization:payment_processor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:payment_submission",
+      "rel": "knows",
+      "src": "organization:payment_processor"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_registrar_release_within_4_hours",
+      "rel": "can_perform",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "action:record_transcript_released",
+      "rel": "can_perform",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {
+        "meaning": "Registrar's office releases the transcript within 4 working hours after financial hold is lifted."
+      },
+      "dst": "action:bring_about_registrar_release_within_4_hours",
+      "rel": "has_authority",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {
+        "meaning": "Registrar's office releases the official transcript after financial hold is lifted."
+      },
+      "dst": "record:transcript_release_record",
+      "rel": "has_authority",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {
+        "meaning": "The registrar's office releases the transcript within 4 working hours after the financial hold is lifted."
+      },
+      "dst": "record:transcript_release_record",
+      "rel": "has_authority",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "state:financial_hold_on_osei",
+      "rel": "has_state",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "state:financial_hold_present",
+      "rel": "has_state",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_ability_to_clear_hold",
+      "rel": "has_state",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_manual_override",
+      "rel": "has_state",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "state:release_within_4_working_hours",
+      "rel": "has_state",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "state:transcript_request_queued",
+      "rel": "has_state",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:financial_hold_on_osei",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:financial_hold_present",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_ability_to_clear_hold",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_manual_override",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:payment_submitted",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:release_within_4_working_hours",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transcript_request_queued",
+      "rel": "knows",
+      "src": "organization:registrar_s_office"
+    },
+    {
+      "attrs": {},
+      "dst": "action:payment_submitted",
+      "rel": "can_perform",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "state:degree_candidate",
+      "rel": "has_state",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "state:financial_hold",
+      "rel": "has_state",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "state:payment_submitted",
+      "rel": "has_state",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "state:transcript_request_queued",
+      "rel": "has_state",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:financial_hold_exists",
+      "rel": "knows",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:payment_submitted",
+      "rel": "knows",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transcript_request_submitted",
+      "rel": "knows",
+      "src": "participant:amara_osei"
+    },
+    {
+      "attrs": {},
+      "dst": "state:function",
+      "rel": "has_state",
+      "src": "process:bursar_s_automated_reconciliation_batch"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_manual_override",
+      "rel": "has_state",
+      "src": "process:bursar_s_automated_reconciliation_batch"
+    },
+    {
+      "attrs": {},
+      "dst": "state:schedule",
+      "rel": "has_state",
+      "src": "process:bursar_s_automated_reconciliation_batch"
+    },
+    {
+      "attrs": {},
+      "dst": "event:bursar_batch_posts_payment",
+      "rel": "produces",
+      "src": "process:bursar_s_automated_reconciliation_batch"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:transcript_release_record"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:financial_hold_lifted",
+      "rel": "requires",
+      "src": "record:transcript_release_record"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:registrar_release_within_4_hours",
+      "rel": "requires",
+      "src": "record:transcript_release_record"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:bursar_batch_posts_payment",
+      "rel": "requires",
+      "src": "state:financial_hold_lifted"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:financial_hold_lifted",
+      "rel": "requires",
+      "src": "state:registrar_release_within_4_hours"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "manual override by registrar staff",
+      "why_safe": "Evidence e3 explicitly states that registrar staff have no ability to clear or override the financial hold flag, and the registrar's system contains no manual override. Therefore, excluding any possibility of manual intervention is safe because it is impossible."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "other payment methods (card, cash, certified check)",
+      "why_safe": "Evidence e6 states that the payment portal accepts only electronic checks, card payments have not been accepted since March 2026, and the cashier's window closed permanently in 2025. No other channel exists for paying a student balance. Therefore, excluding other payment methods is safe because they are not available."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "other payments or charges",
+      "why_safe": "Evidence e9 states that Osei's only payment is the electronic check submitted on 2 June, and no earlier payment is pending, and no new charge has been added since 1 June. Therefore, excluding other payments or charges is safe because they do not exist."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "processor holidays or delays",
+      "why_safe": "Evidence e7 states that the processor observes no holidays in June 2026, and the rule for clearing electronic checks is based on processor business days (Monday through Friday). Therefore, excluding processor holidays or delays is safe because none are scheduled."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "name": "university closures or holidays",
+      "why_safe": "Evidence e11 states that the university, bursar's office, and registrar's office are open and operating normally on every weekday from 1 June through 12 June 2026, with no closures, furloughs, or holidays. The bursar's automated batch is unaffected by office staffing. Therefore, excluding closures or holidays is safe because they do not occur."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "derived_from_step": "registrar_release_within_4_hours"
+      },
+      "category": "action",
+      "id": "action:bring_about_registrar_release_within_4_hours",
+      "meaning": "Registrar's office can bring about: The registrar releases the transcript within 4 working hours after the financial hold is lifted, and before the deadline.",
+      "name": "bring about: registrar_release_within_4_hours",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:payment_submitted",
+      "meaning": "Osei submits an electronic check for $1,842 through the portal on Tuesday 2 June 2026 at 2:10 PM.",
+      "name": "payment_submitted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "transcript_released"
+      },
+      "category": "action",
+      "id": "action:record_transcript_released",
+      "meaning": "Registrar's office makes the record: The registrar releases Amara Osei's official transcript before 12:00 noon Central on Monday 8 June 2026.\nThe registrar's system record showing the release timestamp of Amara Osei's official transcript.",
+      "name": "record: transcript_released",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-06-08T02:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:bursar_batch_posts_payment",
+      "meaning": "The bursar's automated reconciliation batch runs and posts Osei's payment, lifting the financial hold.",
+      "name": "bursar_batch_posts_payment",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-06-05T18:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:payment_cleared_by_processor",
+      "meaning": "The electronic check payment is marked cleared by the payment processor.",
+      "name": "payment_cleared_by_processor",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:financial_hold_exists",
+      "meaning": "Amara Osei knows there is a financial hold on her account for $1,842.",
+      "name": "financial hold exists",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:financial_hold_on_osei",
+      "meaning": "Registrar knows that Amara Osei's record has a financial hold.",
+      "name": "financial_hold_on_osei",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:financial_hold_present",
+      "meaning": "The registrar knows that Amara Osei's record has a financial hold.",
+      "name": "financial_hold_present",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_ability_to_clear_hold",
+      "meaning": "Registrar knows they cannot clear the financial hold.",
+      "name": "no_ability_to_clear_hold",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_manual_override",
+      "meaning": "The registrar knows that they cannot override the financial hold.",
+      "name": "no_manual_override",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:payment_submission",
+      "meaning": "Osei submitted an electronic check for $1,842 at 2:10 PM on Tuesday 2 June 2026.\nOsei submitted an electronic check for $1,842 at 2:10 PM on Tuesday 2 June 2026; accepted, sufficient funds, no problem.",
+      "name": "payment_submission",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:payment_submitted",
+      "meaning": "Amara Osei knows she submitted an electronic check payment on 2 June 2026.\nThe registrar may not know about the payment submission unless informed; not stated in evidence.",
+      "name": "payment submitted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:release_within_4_working_hours",
+      "meaning": "Registrar knows the service standard for release within 4 working hours.",
+      "name": "release_within_4_working_hours",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:transcript_request_queued",
+      "meaning": "Registrar knows that Amara Osei's transcript request is queued.\nThe registrar knows that Amara Osei's transcript request is queued.",
+      "name": "transcript_request_queued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:transcript_request_submitted",
+      "meaning": "Amara Osei knows she submitted a transcript request on 1 June 2026.",
+      "name": "transcript request submitted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "external_institution",
+        "timezone": "America/Chicago"
+      },
+      "category": "organization",
+      "id": "organization:payment_processor",
+      "meaning": "The payment processor marks the electronic check as cleared after 3 business days.",
+      "name": "Payment processor",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "16:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/Chicago"
+      },
+      "category": "organization",
+      "id": "organization:registrar_s_office",
+      "meaning": "The registrar's office releases the transcript after financial hold is lifted and within 4 working hours.\nThe registrar's office releases the transcript within 4 working hours after the financial hold is lifted.",
+      "name": "Registrar's office",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Chicago"
+      },
+      "category": "participant",
+      "id": "participant:amara_osei",
+      "meaning": "Osei submitted the electronic check payment through the portal.",
+      "name": "Amara Osei",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "operating_meaning": "Runs at 2:00 AM America/Chicago on Tuesdays, Wednesdays, Thursdays and Fridays.",
+        "producer_kind": "operating_process",
+        "rate_meaning": "Runs at 2:00 AM America/Chicago on Tuesdays, Wednesdays, Thursdays and Fridays."
+      },
+      "category": "process",
+      "id": "process:bursar_s_automated_reconciliation_batch",
+      "meaning": "The automated batch runs at scheduled times and posts payments, lifting financial holds.\nThe batch posts every payment that the university's payment processor has marked cleared and that has not already been posted, and lifts the financial hold on any record whose balance is thereby brought to zero.\nThe batch runs at 2:00 AM America/Chicago on Tuesdays, Wednesdays, Thursdays and Fridays. It does not run on Saturdays, Sundays, or Mondays. Each run posts every payment that the payment processor has marked cleared and that has not already been posted, and lifts the financial hold on any record whose balance is thereby brought to zero.",
+      "name": "Bursar's automated reconciliation batch",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "release log entry",
+        "rule": "count_all",
+        "subject": "Amara Osei's transcript",
+        "value": "released"
+      },
+      "category": "record",
+      "id": "record:transcript_release_record",
+      "meaning": "The registrar releases Amara Osei's official transcript before 12:00 noon Central on Monday 8 June 2026.\nThe registrar's system record showing the release timestamp of Amara Osei's official transcript.",
+      "name": "transcript_release_record",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 1842,
+        "holder": "participant:amara_osei",
+        "unit": "USD"
+      },
+      "category": "resource",
+      "id": "resource:bank_account_funds",
+      "meaning": "Amara Osei's bank account had sufficient funds to cover the electronic check payment.",
+      "name": "bank account funds",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:business_days",
+      "meaning": "Processor business days are Monday through Friday, no holidays in June 2026.\nProcessor business days are Monday through Friday; no holidays in June 2026.",
+      "name": "business_days",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:degree_candidate",
+      "meaning": "Amara Osei is a degree candidate at Wexford State University.",
+      "name": "degree candidate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:financial_hold",
+      "meaning": "Amara Osei's student record carries a financial hold for an unpaid balance of $1,842.",
+      "name": "financial hold",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that is produced by the bursar batch posting payment; it is not a separate action.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:financial_hold_lifted",
+      "meaning": "The financial hold on Osei's record is lifted before the registrar can release the transcript.",
+      "name": "financial_hold_lifted",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:financial_hold_on_osei",
+      "meaning": "Amara Osei's record has a financial hold flag due to unpaid balance of $1,842.",
+      "name": "financial_hold_on_osei",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:financial_hold_present",
+      "meaning": "Amara Osei's record has a financial hold flag due to unpaid balance of $1,842.",
+      "name": "financial_hold_present",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:function",
+      "meaning": "Posts cleared payments and lifts financial holds when balance reaches zero.\nPosts every payment that the payment processor has marked cleared and that has not already been posted, and lifts the financial hold on any record whose balance is thereby brought to zero.",
+      "name": "function",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_ability_to_clear_hold",
+      "meaning": "Registrar staff cannot clear or override the financial hold flag; only bursar's automated batch can lift it.",
+      "name": "no_ability_to_clear_hold",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_manual_override",
+      "meaning": "Registrar staff cannot clear or override the financial hold flag.\nThe batch is automated; registrar staff have no ability to clear or override the financial hold flag.\nThe batch is the only mechanism to lift financial holds; registrar staff cannot override.",
+      "name": "no manual override",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:payment_cleared_rule",
+      "meaning": "An electronic check submitted on a processor business day before 5:00 PM is marked cleared at 6:00 PM on the third processor business day following submission.",
+      "name": "payment_cleared_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:payment_submitted",
+      "meaning": "Amara Osei submitted an electronic check for the full $1,842 balance through the portal at 2:10 PM on Tuesday 2 June 2026.",
+      "name": "payment submitted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:processor_rule",
+      "meaning": "Electronic check submitted on a processor business day before 5:00 PM is marked cleared at 6:00 PM on the third processor business day following submission.",
+      "name": "processor_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:registrar_release_within_4_hours",
+      "meaning": "The registrar releases the transcript within 4 working hours after the financial hold is lifted, and before the deadline.",
+      "name": "registrar_release_within_4_hours",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:release_within_4_working_hours",
+      "meaning": "Once financial hold is lifted, registrar releases queued transcript within 4 working hours.",
+      "name": "release_within_4_working_hours",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:schedule",
+      "meaning": "Runs at 2:00 AM America/Chicago on Tuesdays, Wednesdays, Thursdays and Fridays. Does not run on Saturdays, Sundays, or Mondays.\nRuns at 2:00 AM on Tuesdays, Wednesdays, Thursdays, and Fridays only.",
+      "name": "schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:transcript_request_queued",
+      "meaning": "Amara Osei submitted an official transcript request through the registrar's portal at 10:00 AM on Monday 1 June 2026, and the request is queued.\nAmara Osei's official transcript request is queued and awaiting processing.\nAmara Osei's official transcript request is queued and awaiting release.",
+      "name": "transcript request queued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The deadline for the registrar to have released the transcript.",
+          "timezone": "America/Chicago",
+          "when": "2026-06-08T12:00:00-05:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The transcript has not been released by the deadline, or the release occurs at or after the deadline.",
+        "positive_condition": "The registrar has actually released the official transcript before the deadline.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether the Wexford State University registrar has released Amara Osei's official transcript before 12:00 noon Central on Monday 8 June 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "bring about: registrar_release_within_4_hours": "bring_about_registrar_release_within_4_hours",
+        "payment_submitted": "payment_submitted",
+        "record: transcript_released": "record_transcript_released"
+      },
+      "event": {
+        "bursar_batch_posts_payment": "bursar_batch_posts_payment",
+        "payment_cleared_by_processor": "payment_cleared_by_processor"
+      },
+      "information": {
+        "financial hold exists": "financial_hold_exists",
+        "financial_hold_on_osei": "financial_hold_on_osei",
+        "financial_hold_present": "financial_hold_present",
+        "no_ability_to_clear_hold": "no_ability_to_clear_hold",
+        "no_manual_override": "no_manual_override",
+        "payment submitted": "payment_submitted",
+        "payment_submission": "payment_submission",
+        "release_within_4_working_hours": "release_within_4_working_hours",
+        "transcript request submitted": "transcript_request_submitted",
+        "transcript_request_queued": "transcript_request_queued"
+      },
+      "organization": {
+        "Payment processor": "payment_processor",
+        "Registrar's office": "registrar_s_office"
+      },
+      "participant": {
+        "Amara Osei": "amara_osei"
+      },
+      "process": {
+        "Bursar's automated reconciliation batch": "bursar_s_automated_reconciliation_batch"
+      },
+      "record": {
+        "transcript_release_record": "transcript_release_record"
+      },
+      "resource": {
+        "bank account funds": "bank_account_funds"
+      },
+      "state": {
+        "business_days": "business_days",
+        "degree candidate": "degree_candidate",
+        "financial hold": "financial_hold",
+        "financial_hold_lifted": "financial_hold_lifted",
+        "financial_hold_on_osei": "financial_hold_on_osei",
+        "financial_hold_present": "financial_hold_present",
+        "function": "function",
+        "no manual override": "no_manual_override",
+        "no_ability_to_clear_hold": "no_ability_to_clear_hold",
+        "payment submitted": "payment_submitted",
+        "payment_cleared_rule": "payment_cleared_rule",
+        "processor_rule": "processor_rule",
+        "registrar_release_within_4_hours": "registrar_release_within_4_hours",
+        "release_within_4_working_hours": "release_within_4_working_hours",
+        "schedule": "schedule",
+        "transcript request queued": "transcript_request_queued"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "The transcript will be released after the deadline, so the answer is NO. This is certain based on the timeline.",
+      "topic": "transcript_released"
+    },
+    {
+      "about": "event:bursar_batch_posts_payment",
+      "meaning": "The bursar's batch runs at 2:00 AM on Tuesdays, Wednesdays, Thursdays, and Fridays. The payment is cleared at 6:00 PM on Friday 5 June. The next batch after that clearance would be on Tuesday 9 June at 2:00 AM (since Saturday, Sunday, Monday are skipped). So the batch would post the payment at 2:00 AM on Tuesday 9 June. This is certain given the schedule."
+    },
+    {
+      "about": "event:payment_cleared_by_processor",
+      "meaning": "The exact time when the processor marks the electronic check as cleared is uncertain. The rule says 6:00 PM on the third processor business day after submission. Submission was Tuesday 2 June 2026 at 2:10 PM. The third processor business day is Friday 5 June 2026. So the processor would mark it cleared at 6:00 PM on Friday 5 June. However, if the processor considers the submission after 5:00 PM cutoff, it might be treated as next day. The evidence says submitted before 5:00 PM, so it should be cleared on Friday 5 June at 6:00 PM. But there is a slight uncertainty about the exact interpretation of 'processor business day' and whether the submission time counts as before 5:00 PM. The evidence says submitted at 2:10 PM, which is before 5:00 PM, so it should be cleared on the third business day. So this uncertainty is low."
+    },
+    {
+      "about": "state:financial_hold_lifted",
+      "meaning": "The financial hold is lifted when the batch posts the payment and brings the balance to zero. That would happen at 2:00 AM on Tuesday 9 June. This is certain."
+    },
+    {
+      "about": "state:registrar_release_within_4_hours",
+      "meaning": "Once the hold is lifted, the registrar releases the transcript within 4 working hours. The hold is lifted at 2:00 AM on Tuesday 9 June. The registrar's working hours are 8:00 AM to 4:00 PM. So the 4-hour window starts at 8:00 AM on Tuesday 9 June. The transcript would be released by 12:00 PM (noon) on Tuesday 9 June. The deadline is Monday 8 June at 12:00 PM. So the release would occur after the deadline. This is certain."
+    }
+  ]
+}

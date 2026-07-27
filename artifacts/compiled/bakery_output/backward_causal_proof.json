@@ -1,0 +1,135 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:loaves_delivered",
+        "prerequisites": [
+          {
+            "node": "event:first_arrival_handover",
+            "prerequisites": [
+              {
+                "node": "event:first_departure",
+                "prerequisites": [
+                  {
+                    "node": "process:first_load",
+                    "prerequisites": [
+                      {
+                        "derived_condition": true,
+                        "node": "state:cooled_loaves_before_8am",
+                        "prerequisites": [
+                          {
+                            "node": "state:friday_evening_loaves",
+                            "root": "initial_fact"
+                          },
+                          {
+                            "derived_condition": true,
+                            "node": "state:saturday_baked_before_7am",
+                            "prerequisites": [
+                              {
+                                "node": "process:saturday_baking_5_to_7am",
+                                "root": "process"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "root": "process"
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          },
+          {
+            "node": "event:second_arrival_handover",
+            "prerequisites": [
+              {
+                "node": "event:second_departure",
+                "prerequisites": [
+                  {
+                    "node": "process:second_load",
+                    "prerequisites": [
+                      {
+                        "derived_condition": true,
+                        "node": "state:cooled_loaves_before_11am",
+                        "prerequisites": [
+                          {
+                            "derived_condition": true,
+                            "node": "state:saturday_baked_before_10am",
+                            "prerequisites": [
+                              {
+                                "node": "process:saturday_baking_5_to_10am",
+                                "root": "process"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "root": "process"
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          }
+        ],
+        "via": {
+          "node": "event:first_arrival_handover",
+          "prerequisites": [
+            {
+              "node": "event:first_departure",
+              "prerequisites": [
+                {
+                  "node": "process:first_load",
+                  "prerequisites": [
+                    {
+                      "derived_condition": true,
+                      "node": "state:cooled_loaves_before_8am",
+                      "prerequisites": [
+                        {
+                          "node": "state:friday_evening_loaves",
+                          "root": "initial_fact"
+                        },
+                        {
+                          "derived_condition": true,
+                          "node": "state:saturday_baked_before_7am",
+                          "prerequisites": [
+                            {
+                              "node": "process:saturday_baking_5_to_7am",
+                              "root": "process"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "root": "process"
+                }
+              ],
+              "root": "scheduled_event"
+            }
+          ],
+          "root": "scheduled_event"
+        }
+      },
+      "component": "resource:loaves_delivered",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "event"
+      ],
+      "producers": [
+        "event:first_arrival_handover",
+        "event:second_arrival_handover"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

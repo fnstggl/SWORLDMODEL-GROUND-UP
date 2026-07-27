@@ -1,0 +1,28 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The exact moment grid power is restored, as per the planned outage notice.",
+    "timezone": "America/New_York",
+    "when": "2026-09-22T12:00:00-04:00"
+  },
+  "evidence_ids": [],
+  "measured_act": null,
+  "negative_condition": "The generator's day tank is empty at 12:00 noon on 22 September 2026, or the generator has run dry at any point between 6:00 AM and 12:00 noon that day.",
+  "positive_condition": "The generator's day tank holds fuel at 12:00 noon on 22 September 2026, and the generator has not stopped for want of fuel at any point between 6:00 AM and 12:00 noon that day.",
+  "proof": [
+    {
+      "kind": "state",
+      "meaning": "The volume of diesel fuel in the generator's day tank at 12:00 noon on 22 September 2026.",
+      "name": "day_tank_fuel_level_at_deadline"
+    },
+    {
+      "kind": "state",
+      "meaning": "Whether the generator was running or stopped at any point between 6:00 AM and 12:00 noon on 22 September 2026, and if stopped, the reason.",
+      "name": "generator_running_status"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "Whether the Fenmoor Regional Wastewater Plant's standby generator still has fuel in its day tank at 12:00 noon on Tuesday 22 September 2026, and has not run dry between 6:00 AM and 12:00 noon that day."
+}

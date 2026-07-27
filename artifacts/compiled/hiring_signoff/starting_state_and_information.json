@@ -1,0 +1,454 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "HR offer desk staffer who compiles and countersigns the offer letter",
+          "over": "offer_compiled_and_countersigned"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "HR offer desk staffer who compiles, countersigns, and emails the offer letter",
+          "over": "email_sent"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Offer whose approvals are all recorded by 9:00 AM on a business day is compiled, countersigned, and emailed to the candidate by 5:00 PM that same day",
+          "name": "offer desk practice",
+          "visibility": "public"
+        }
+      ],
+      "name": "Lena Ruiz",
+      "not_available": [
+        {
+          "from": "2026-07-31T17:00:00-04:00",
+          "meaning": "Not available outside work hours (9 AM to 5 PM Eastern, Monday to Friday) and not on weekends",
+          "to": "2026-08-03T09:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "meaning": "Sole compensation approver for requisition ENG-114; recording an approval in the applicant-tracking system takes about two minutes from any device.",
+          "over": "compensation_approval_recorded"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Scheduled to be back in the office at 9:00 AM Monday 3 August.",
+          "name": "back_in_office",
+          "when": "2026-08-03T09:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marta Kolev is on personal leave hiking in the Adirondacks from Thursday 30 July through Sunday 2 August, staying at a lodge with no cell coverage on the trails, and is scheduled to be back in the office at 9:00 AM Monday 3 August.",
+          "name": "on_personal_leave"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Kolev's stated practice on backcountry trips is to check work email once each evening at about 9:00 PM Eastern for roughly 15 minutes over the lodge Wi-Fi.",
+          "name": "backcountry_email_check"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Before departing on 30 July, Kolev reviewed the proposed compensation package for Nandakumar and told Okafor she is prepared to approve it as submitted when the request reaches her.",
+          "name": "prepared_to_approve"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Kolev reviewed the proposed compensation package for Nandakumar and is prepared to approve it as submitted.",
+          "name": "compensation_package_reviewed",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Okafor submitted the compensation approval request for ENG-114 at 2:00 PM Thursday 30 July; the system emails the approver a link immediately on submission.",
+          "name": "approval_request_submitted",
+          "visibility": "private"
+        }
+      ],
+      "name": "Marta Kolev",
+      "not_available": [
+        {
+          "from": "2026-07-30T00:00:00-04:00",
+          "meaning": "Kolev is on personal leave hiking in the Adirondacks from Thursday 30 July through Sunday 2 August, staying at a lodge with no cell coverage on the trails, and is scheduled to be back in the office at 9:00 AM Monday 3 August.",
+          "to": "2026-08-03T09:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Devon Okafor is the recruiter who submitted the compensation approval request.",
+          "over": "approval_request_submitted"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Devon Okafor submitted the compensation approval request for ENG-114 at 2:00 PM Thursday 30 July.",
+          "name": "submitted_approval_request",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Devon Okafor knows that Priya Nandakumar needs the countersigned offer letter before 9:00 AM Eastern on Monday 3 August.",
+          "name": "knows_nandakumar_deadline",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Devon Okafor knows that Marta Kolev is prepared to approve the compensation package as submitted.",
+          "name": "knows_kolev_prepared_to_approve",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Devon Okafor knows that Marta Kolev is on personal leave from 30 July through 2 August.",
+          "name": "knows_kolev_on_leave",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Devon Okafor knows that Marta Kolev checks work email each evening at about 9:00 PM Eastern during her trip.",
+          "name": "knows_kolev_evening_email_check",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Devon Okafor knows that the HR offer desk compiles, countersigns, and emails offers by 5:00 PM on a business day if approvals are recorded by 9:00 AM.",
+          "name": "knows_hr_offer_desk_practice",
+          "value": "true"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Priya Nandakumar needs the countersigned offer letter before 9:00 AM Eastern on Monday 3 August.",
+          "name": "nandakumar_deadline",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Marta Kolev is prepared to approve the compensation package as submitted.",
+          "name": "kolev_prepared_to_approve",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marta Kolev is on personal leave from 30 July through 2 August.",
+          "name": "kolev_on_leave",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Marta Kolev checks work email each evening at about 9:00 PM Eastern during her trip.",
+          "name": "kolev_evening_email_check",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "HR offer desk compiles, countersigns, and emails offers by 5:00 PM on a business day if approvals are recorded by 9:00 AM.",
+          "name": "hr_offer_desk_practice",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Devon Okafor submitted the compensation approval request at 2:00 PM Thursday 30 July.",
+          "name": "approval_request_submitted",
+          "visibility": "private"
+        }
+      ],
+      "name": "Devon Okafor",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "All five panelists recorded written feedback on Nandakumar by 12:00 PM on Thursday 30 July.",
+          "name": "panel_feedback_recorded",
+          "value": "completed"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Panelists know they must record feedback within one business day of the final interview (29 July).",
+          "name": "feedback_deadline",
+          "visibility": "public"
+        }
+      ],
+      "name": "Bellrock Analytics panelists",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [],
+      "name": "Screening vendor",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Fully staffed the week of 27 July.",
+          "name": "Staffing"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Monday to Friday 9:00 AM to 5:00 PM Eastern, not on weekends.",
+          "name": "Hours"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "If approvals are recorded by 9:00 AM on a business day, the offer is compiled, countersigned, and emailed by 5:00 PM that same day.",
+          "name": "Practice"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e6",
+            "e11"
+          ],
+          "meaning": "As of the start of the scenario, compensation approval for ENG-114 has not yet been recorded. Panel feedback and background checks are complete.",
+          "name": "Pending approvals"
+        }
+      ],
+      "name": "HR offer desk",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ],
+        "meaning": "The HR offer desk, run by Lena Ruiz, is staffed Monday to Friday 9:00 AM to 5:00 PM Eastern and not on weekends. Its documented practice is that an offer whose approvals are all recorded by 9:00 AM on a business day is compiled, countersigned, and emailed to the candidate by 5:00 PM that same day.",
+        "operating_meaning": "Runs on business days from 9:00 AM to 5:00 PM Eastern.",
+        "rate_meaning": "One offer per business day if approvals are recorded by 9:00 AM."
+      }
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "All five panelists recorded written feedback on Nandakumar by 12:00 PM Thursday 30 July",
+          "name": "feedback_recorded",
+          "value": "true"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Panelists know they must record feedback within one business day of final interview",
+          "name": "feedback_deadline",
+          "visibility": "public"
+        }
+      ],
+      "name": "Five panelists",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

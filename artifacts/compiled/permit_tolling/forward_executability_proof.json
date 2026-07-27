@@ -1,0 +1,19 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "record:written_approval",
+    "state:deemed_approval"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:count_business_days"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:request_for_info_issued",
+    "event:response_delivered"
+  ],
+  "warnings": [
+    "process:count_business_days: a process that changes nothing is decorative"
+  ]
+}

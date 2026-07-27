@@ -1,0 +1,22 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "state:vaccine_at_clinic"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:courier_delivers_to_clinic"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:cargo_sailings",
+    "event:ferry_sailing_arrives",
+    "event:ferry_sailing_departs",
+    "event:gale_warning_issued",
+    "event:penhallow_delivers_to_terminal",
+    "event:run_immunization_clinic"
+  ],
+  "warnings": [
+    "process:courier_delivers_to_clinic: a process that changes nothing is decorative"
+  ]
+}

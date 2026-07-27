@@ -1,0 +1,110 @@
+{
+  "answer": {
+    "answer": 315.0,
+    "computed_from": [
+      "record:6",
+      "record:67",
+      "record:89"
+    ],
+    "detail": "st_vincent_regional_hospital:blood_units measured at 315",
+    "observations": [
+      {
+        "observation": {
+          "describe": "The number of usable blood units in St. Vincent hospital's inventory at the deadline Friday noon July 24.\nThe number of usable blood units in St. Vincent hospital's inventory at the deadline.",
+          "kind": "resource_measure",
+          "params": {
+            "holder": "st_vincent_regional_hospital",
+            "name": "blood_units"
+          }
+        },
+        "read": {
+          "detail": "st_vincent_regional_hospital:blood_units measured at 315",
+          "producers": [
+            "record:6",
+            "record:67",
+            "record:89"
+          ],
+          "satisfied": true,
+          "value": 315.0
+        }
+      }
+    ]
+  },
+  "at": "2026-07-24T19:00:00+00:00",
+  "producer_lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": 315.0,
+          "computed_from": [
+            "record:6",
+            "record:67",
+            "record:89"
+          ],
+          "detail": "st_vincent_regional_hospital:blood_units measured at 315",
+          "observations": [
+            {
+              "observation": {
+                "describe": "The number of usable blood units in St. Vincent hospital's inventory at the deadline Friday noon July 24.\nThe number of usable blood units in St. Vincent hospital's inventory at the deadline.",
+                "kind": "resource_measure",
+                "params": {
+                  "holder": "st_vincent_regional_hospital",
+                  "name": "blood_units"
+                }
+              },
+              "read": {
+                "detail": "st_vincent_regional_hospital:blood_units measured at 315",
+                "producers": [
+                  "record:6",
+                  "record:67",
+                  "record:89"
+                ],
+                "satisfied": true,
+                "value": 315.0
+              }
+            }
+          ]
+        },
+        "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+        "status": "cutoff"
+      },
+      "op": "terminal",
+      "seq": 99,
+      "t": "2026-07-24T19:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "How many usable blood units will the regional hospital have received by Friday noon?"
+        },
+        "event": 48,
+        "kind": "terminal.cutoff",
+        "t": "2026-07-24T19:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 98,
+      "t": "2026-07-24T19:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "How many usable blood units will the regional hospital have received by Friday noon?"
+        },
+        "depth": 0,
+        "kind": "terminal.cutoff",
+        "t": "2026-07-24T19:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 48,
+      "t": "2026-07-20T07:00:00+00:00"
+    },
+    {
+      "data": {},
+      "op": "genesis.sealed",
+      "seq": 47,
+      "t": "2026-07-20T07:00:00+00:00"
+    }
+  ],
+  "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+  "status": "cutoff"
+}

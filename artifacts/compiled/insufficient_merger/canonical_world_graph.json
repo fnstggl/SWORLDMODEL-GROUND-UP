@@ -1,0 +1,948 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:negotiations_occur",
+      "rel": "requires",
+      "src": "action:acquisition_proposal_developed"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:acquisition_proposal_developed",
+      "rel": "requires",
+      "src": "action:acquisition_proposal_presented"
+    },
+    {
+      "attrs": {},
+      "dst": "record:board_approval_record",
+      "rel": "produces",
+      "src": "action:board_approval_record_created"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:board_meeting_held",
+      "rel": "requires",
+      "src": "action:board_approval_record_created"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:board_votes_approval",
+      "rel": "requires",
+      "src": "action:board_approval_record_created"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:board_meeting_scheduled",
+      "rel": "requires",
+      "src": "action:board_meeting_held"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:acquisition_proposal_developed",
+      "rel": "requires",
+      "src": "action:board_meeting_scheduled"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:acquisition_proposal_presented",
+      "rel": "requires",
+      "src": "action:board_votes_approval"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:board_meeting_held",
+      "rel": "requires",
+      "src": "action:board_votes_approval"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:initial_contact",
+      "rel": "requires",
+      "src": "action:negotiations_occur"
+    },
+    {
+      "attrs": {},
+      "dst": "action:initial_contact",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiations_occur",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {
+        "meaning": "The board of Halvorsen Group creates the official record of approval."
+      },
+      "dst": "action:board_approval_record_created",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {
+        "meaning": "The board holds a meeting to discuss the acquisition."
+      },
+      "dst": "action:board_meeting_held",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {
+        "meaning": "The board schedules a meeting to consider the acquisition."
+      },
+      "dst": "action:board_meeting_scheduled",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {
+        "meaning": "The board votes to approve the acquisition."
+      },
+      "dst": "action:board_votes_approval",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "state:headquartered_in_oslo",
+      "rel": "has_state",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_public_statement_about_transaction",
+      "rel": "has_state",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "state:privately_held",
+      "rel": "has_state",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "information:held_talks_with_meridian_freight",
+      "rel": "knows",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement",
+      "rel": "knows",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_about_transaction",
+      "rel": "knows",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_made",
+      "rel": "knows",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "information:talks_held",
+      "rel": "knows",
+      "src": "organization:halvorsen_group"
+    },
+    {
+      "attrs": {},
+      "dst": "action:board_approval_record_created",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "action:board_meeting_held",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "action:board_meeting_scheduled",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "action:board_votes_approval",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {
+        "meaning": "The board creates the official record of approval."
+      },
+      "dst": "action:board_approval_record_created",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {
+        "meaning": "The board holds a meeting to discuss the acquisition."
+      },
+      "dst": "action:board_meeting_held",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {
+        "meaning": "The board schedules a meeting to consider the acquisition."
+      },
+      "dst": "action:board_meeting_scheduled",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {
+        "meaning": "The board votes to approve the acquisition."
+      },
+      "dst": "action:board_votes_approval",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_about_transaction",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_made",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "information:talks_held",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_board"
+    },
+    {
+      "attrs": {},
+      "dst": "action:acquisition_proposal_developed",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {},
+      "dst": "action:acquisition_proposal_presented",
+      "rel": "can_perform",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {
+        "meaning": "Management develops the acquisition proposal."
+      },
+      "dst": "action:acquisition_proposal_developed",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {
+        "meaning": "Management presents the proposal to the board."
+      },
+      "dst": "action:acquisition_proposal_presented",
+      "rel": "has_authority",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_about_transaction",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_made",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {},
+      "dst": "information:talks_held",
+      "rel": "knows",
+      "src": "organization:halvorsen_group_management"
+    },
+    {
+      "attrs": {},
+      "dst": "action:initial_contact",
+      "rel": "can_perform",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiations_occur",
+      "rel": "can_perform",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {
+        "meaning": "Meridian Freight makes initial contact with Halvorsen Group."
+      },
+      "dst": "action:initial_contact",
+      "rel": "has_authority",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {
+        "meaning": "Meridian Freight engages in negotiations with Halvorsen Group."
+      },
+      "dst": "action:negotiations_occur",
+      "rel": "has_authority",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_public_statement",
+      "rel": "has_state",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "state:private_company",
+      "rel": "has_state",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement",
+      "rel": "knows",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_about_transaction",
+      "rel": "knows",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_public_statement_made",
+      "rel": "knows",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "information:talks_held",
+      "rel": "knows",
+      "src": "organization:meridian_freight"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:board_approval_record"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Competing bidders",
+      "why_safe": "The existence of competing bidders would not prevent the Halvorsen Group board from approving the acquisition; it might affect Meridian's willingness but not the board's action."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Financing arrangements",
+      "why_safe": "Financing is not a prerequisite for board approval; the board can approve subject to financing. Thus, financing uncertainty does not affect the board's ability to record approval."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Regulatory approvals",
+      "why_safe": "The question only concerns board approval, not regulatory or other external approvals. Even if regulatory issues exist, they do not affect whether the board records an approval before the deadline."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Shareholder votes",
+      "why_safe": "Halvorsen Group is privately held, so shareholder votes are not required for board approval. The board's decision is sufficient."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:acquisition_proposal_developed",
+      "meaning": "Halvorsen Group management develops a proposal for the Meridian acquisition.",
+      "name": "acquisition_proposal_developed",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:acquisition_proposal_presented",
+      "meaning": "A formal proposal for the Meridian acquisition is presented to the board.",
+      "name": "acquisition_proposal_presented",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:board_approval_record_created",
+      "meaning": "The Halvorsen Group board creates an official record (e.g., board minutes, resolution) showing approval of the Meridian acquisition before the deadline.",
+      "name": "board_approval_record_created",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:board_meeting_held",
+      "meaning": "A meeting of the Halvorsen Group board is held at which the Meridian acquisition is discussed.",
+      "name": "board_meeting_held",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:board_meeting_scheduled",
+      "meaning": "A board meeting is scheduled to consider the Meridian acquisition.",
+      "name": "board_meeting_scheduled",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:board_votes_approval",
+      "meaning": "The Halvorsen Group board votes to approve the Meridian acquisition.",
+      "name": "board_votes_approval",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "It is uncertain whether initial contact has occurred or will occur; the evidence only mentions 'held talks' without specifics."
+      },
+      "category": "action",
+      "id": "action:initial_contact",
+      "meaning": "Halvorsen Group and Meridian Freight make initial contact regarding a potential acquisition.",
+      "name": "initial_contact",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:negotiations_occur",
+      "meaning": "Halvorsen Group and Meridian Freight engage in negotiations regarding a potential acquisition.",
+      "name": "negotiations_occur",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:held_talks_with_meridian_freight",
+      "meaning": "Halvorsen Group is understood to have held talks with Meridian Freight, as reported by a trade publication.",
+      "name": "held talks with Meridian Freight",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_public_statement",
+      "meaning": "Meridian Freight knows that neither company has made a public statement about a transaction.\nNeither company has made any public statement about a transaction.",
+      "name": "no_public_statement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_public_statement_about_transaction",
+      "meaning": "Neither company has made any public statement about a transaction.",
+      "name": "no public statement about transaction",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_public_statement_made",
+      "meaning": "Halvorsen Group knows that neither company has made a public statement about a transaction.",
+      "name": "no public statement made",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:talks_held",
+      "meaning": "A trade publication reported that the two companies 'are understood to have held talks'.\nHalvorsen Group and Meridian Freight are understood to have held talks.\nMeridian Freight is aware that talks have been held with Halvorsen Group.",
+      "name": "talks held",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "Europe/Oslo"
+      },
+      "category": "organization",
+      "id": "organization:halvorsen_group",
+      "meaning": "Halvorsen Group engages in negotiations with Meridian Freight.\nHalvorsen Group makes initial contact with Meridian Freight.",
+      "name": "Halvorsen Group",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "Europe/Oslo"
+      },
+      "category": "organization",
+      "id": "organization:halvorsen_group_board",
+      "meaning": "The board holds a meeting to discuss the acquisition.\nThe board of Halvorsen Group creates the official record of approval.\nThe board schedules a meeting to consider the acquisition.\nThe board votes to approve the acquisition.",
+      "name": "Halvorsen Group board",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "Europe/Oslo"
+      },
+      "category": "organization",
+      "id": "organization:halvorsen_group_management",
+      "meaning": "Management develops the acquisition proposal.\nManagement presents the proposal to the board.",
+      "name": "Halvorsen Group management",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "Europe/Oslo"
+      },
+      "category": "organization",
+      "id": "organization:meridian_freight",
+      "meaning": "Meridian Freight engages in negotiations with Halvorsen Group.\nMeridian Freight makes initial contact with Halvorsen Group.",
+      "name": "Meridian Freight",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "board resolution",
+        "rule": "count_all",
+        "subject": "Halvorsen Group board",
+        "value": "approval"
+      },
+      "category": "record",
+      "id": "record:board_approval_record",
+      "meaning": "An official record (e.g., board minutes, resolution) showing the board's approval of the Meridian acquisition.",
+      "name": "board_approval_record",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:headquartered_in_oslo",
+      "meaning": "The company's headquarters are in Oslo, Norway.",
+      "name": "headquartered in Oslo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_public_statement",
+      "meaning": "Meridian Freight has not made any public statement about a transaction with Halvorsen Group.",
+      "name": "no_public_statement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_public_statement_about_transaction",
+      "meaning": "As of November 2, 2026, Halvorsen Group has not made any public statement about a transaction with Meridian Freight.",
+      "name": "no public statement about transaction",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:private_company",
+      "meaning": "Meridian Freight is a privately held company operating in the logistics sector.",
+      "name": "private_company",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:privately_held",
+      "meaning": "Halvorsen Group is a privately held company.",
+      "name": "privately held",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The deadline for the board to record approval is December 31, 2026, at 5:00 PM Eastern Time.",
+          "timezone": "America/New_York",
+          "when": "2026-12-31T17:00:00-05:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The board does not record an approval before the deadline.",
+        "positive_condition": "The board records an approval before the deadline.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The Halvorsen Group board records an approval of the Meridian acquisition before the deadline.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "acquisition_proposal_developed": "acquisition_proposal_developed",
+        "acquisition_proposal_presented": "acquisition_proposal_presented",
+        "board_approval_record_created": "board_approval_record_created",
+        "board_meeting_held": "board_meeting_held",
+        "board_meeting_scheduled": "board_meeting_scheduled",
+        "board_votes_approval": "board_votes_approval",
+        "initial_contact": "initial_contact",
+        "negotiations_occur": "negotiations_occur"
+      },
+      "information": {
+        "held talks with Meridian Freight": "held_talks_with_meridian_freight",
+        "no public statement about transaction": "no_public_statement_about_transaction",
+        "no public statement made": "no_public_statement_made",
+        "no_public_statement": "no_public_statement",
+        "talks held": "talks_held"
+      },
+      "organization": {
+        "Halvorsen Group": "halvorsen_group",
+        "Halvorsen Group board": "halvorsen_group_board",
+        "Halvorsen Group management": "halvorsen_group_management",
+        "Meridian Freight": "meridian_freight"
+      },
+      "record": {
+        "board_approval_record": "board_approval_record"
+      },
+      "state": {
+        "headquartered in Oslo": "headquartered_in_oslo",
+        "no public statement about transaction": "no_public_statement_about_transaction",
+        "no_public_statement": "no_public_statement",
+        "private_company": "private_company",
+        "privately held": "privately_held"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:acquisition_proposal_developed",
+      "meaning": "Whether a formal acquisition proposal was developed, by whom, and its content."
+    },
+    {
+      "about": "action:acquisition_proposal_presented",
+      "meaning": "Whether any proposal was presented to the Halvorsen Group board, and if so, when."
+    },
+    {
+      "about": "action:board_approval_record_created",
+      "meaning": "Whether a formal record of board approval has been created."
+    },
+    {
+      "about": "action:board_meeting_held",
+      "meaning": "Whether a board meeting regarding the acquisition has been held."
+    },
+    {
+      "about": "action:board_meeting_scheduled",
+      "meaning": "Whether a board meeting to consider the acquisition has been scheduled, and if so, the date."
+    },
+    {
+      "about": "action:board_votes_approval",
+      "meaning": "Whether the board voted to approve the acquisition, and the outcome of any vote."
+    },
+    {
+      "about": "action:initial_contact",
+      "meaning": "It is uncertain whether initial contact has occurred or will occur; the evidence only mentions 'held talks' without specifics."
+    },
+    {
+      "about": "action:initial_contact",
+      "meaning": "Whether any initial contact between Halvorsen Group and Meridian Freight occurred, and if so, when and between which parties."
+    },
+    {
+      "about": "action:negotiations_occur",
+      "meaning": "Whether formal or informal negotiations took place, their timing, and the parties involved."
+    },
+    {
+      "about": "organization:halvorsen_group_board",
+      "meaning": "The composition, decision-making process, and timeline of the board are unknown."
+    },
+    {
+      "about": "organization:halvorsen_group_management",
+      "meaning": "Management's role, recommendations, and actions regarding the acquisition are unknown."
+    },
+    {
+      "about": "organization:meridian_freight",
+      "meaning": "Meridian's willingness, valuation expectations, and any counter-proposals are unknown."
+    }
+  ]
+}

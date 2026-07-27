@@ -1,0 +1,72 @@
+{
+  "assignments": [
+    {
+      "step": "petition_filed",
+      "unsupported": "This is a condition with prerequisites; it is a conjunction of at_least_40_signatures_collected and secretary_files_petition, not a step that can be produced by any entity."
+    },
+    {
+      "step": "at_least_40_signatures_collected",
+      "unsupported": "This is a condition with prerequisites; it is a conjunction of initial_35_signatures, okoye_canvasses_tuesday, and okoye_canvasses_wednesday, not a step that can be produced by any entity."
+    },
+    {
+      "producers": [],
+      "step": "initial_35_signatures"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "The association's only remaining canvasser who can collect signatures on Tuesday evening.",
+          "name": "Dana Okoye"
+        }
+      ],
+      "step": "okoye_canvasses_tuesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "The association's only remaining canvasser who can collect signatures on Wednesday evening.",
+          "name": "Dana Okoye"
+        }
+      ],
+      "step": "okoye_canvasses_wednesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Superintendent who posted the canvass notice on Building 3's lobby board.",
+          "name": "Vic Morales"
+        }
+      ],
+      "step": "notice_posted"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Association secretary who holds the signature sheets and files documents at the hearing-room desk.",
+          "name": "Lena Park"
+        }
+      ],
+      "step": "secretary_files_petition"
+    }
+  ]
+}

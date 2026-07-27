@@ -1,0 +1,84 @@
+{
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Regulatory approvals",
+      "why_safe": "The question only concerns board approval, not regulatory or other external approvals. Even if regulatory issues exist, they do not affect whether the board records an approval before the deadline."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1"
+      ],
+      "name": "Shareholder votes",
+      "why_safe": "Halvorsen Group is privately held, so shareholder votes are not required for board approval. The board's decision is sufficient."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Financing arrangements",
+      "why_safe": "Financing is not a prerequisite for board approval; the board can approve subject to financing. Thus, financing uncertainty does not affect the board's ability to record approval."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Competing bidders",
+      "why_safe": "The existence of competing bidders would not prevent the Halvorsen Group board from approving the acquisition; it might affect Meridian's willingness but not the board's action."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "initial_contact",
+      "meaning": "Whether any initial contact between Halvorsen Group and Meridian Freight occurred, and if so, when and between which parties."
+    },
+    {
+      "about": "negotiations_occur",
+      "meaning": "Whether formal or informal negotiations took place, their timing, and the parties involved."
+    },
+    {
+      "about": "acquisition_proposal_developed",
+      "meaning": "Whether a formal acquisition proposal was developed, by whom, and its content."
+    },
+    {
+      "about": "acquisition_proposal_presented",
+      "meaning": "Whether any proposal was presented to the Halvorsen Group board, and if so, when."
+    },
+    {
+      "about": "board_meeting_scheduled",
+      "meaning": "Whether a board meeting to consider the acquisition has been scheduled, and if so, the date."
+    },
+    {
+      "about": "board_meeting_held",
+      "meaning": "Whether a board meeting regarding the acquisition has been held."
+    },
+    {
+      "about": "board_votes_approval",
+      "meaning": "Whether the board voted to approve the acquisition, and the outcome of any vote."
+    },
+    {
+      "about": "board_approval_record_created",
+      "meaning": "Whether a formal record of board approval has been created."
+    },
+    {
+      "about": "Halvorsen Group board",
+      "meaning": "The composition, decision-making process, and timeline of the board are unknown."
+    },
+    {
+      "about": "Halvorsen Group management",
+      "meaning": "Management's role, recommendations, and actions regarding the acquisition are unknown."
+    },
+    {
+      "about": "Meridian Freight",
+      "meaning": "Meridian's willingness, valuation expectations, and any counter-proposals are unknown."
+    }
+  ]
+}

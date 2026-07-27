@@ -1,0 +1,5 @@
+{
+  "deadline": "2026-09-22T12:00:00-04:00",
+  "question": "Will the Fenmoor Regional Wastewater Plant's standby generator still have fuel in its day tank when grid power is restored at 12:00 noon on Tuesday 22 September 2026?",
+  "resolution_note": "YES only if the generator's day tank still holds fuel at the deadline and the generator has not stopped for want of fuel at any point between 6:00 AM and 12:00 noon on 22 September 2026. Running dry at any time in that window counts as no."
+}

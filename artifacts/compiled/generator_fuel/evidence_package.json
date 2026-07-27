@@ -1,0 +1,103 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-09-01T00:00:00-04:00",
+      "claim": "The Fenmoor Sanitary District operates the Fenmoor Regional Wastewater Plant on Bracken Road.",
+      "id": "e1",
+      "source": "District facility register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-09T00:00:00-04:00",
+      "claim": "Cordray Electric has confirmed in writing a planned outage of the plant's grid feed from 6:00 AM to 12:00 noon on Tuesday 22 September 2026 for a substation cutover. The notice states that power will be restored at noon and that the outage will last six hours.",
+      "id": "e2",
+      "source": "Cordray Electric planned-outage notice, 2026-09-09",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2019-05-01T00:00:00-04:00",
+      "claim": "The plant has one standby generator: a Trelvane TD-500, rated 500 kW standby, diesel, installed in 2019.",
+      "id": "e3",
+      "source": "Generator nameplate; district asset register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2019-05-01T00:00:00-04:00",
+      "claim": "The generator draws fuel only from its integral day tank, whose usable capacity is 950 litres. There is no bulk fuel tank at the plant, no drum store, and no other fuel source on site.",
+      "id": "e4",
+      "source": "Generator installation drawing G-2; district asset register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-18T08:00:00-04:00",
+      "claim": "A dipstick measurement verified against the tank gauge at 8:00 AM on Friday 18 September 2026 recorded 620 litres of diesel in the day tank.",
+      "id": "e5",
+      "source": "Plant operations log, 2026-09-18",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-18T08:00:00-04:00",
+      "claim": "The generator has not been started since that measurement and is not scheduled to run again before the outage. Nothing else at the plant draws fuel from the day tank.",
+      "id": "e6",
+      "source": "Plant operations log; generator run-hour meter",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-06-17T00:00:00-04:00",
+      "claim": "The plant's essential load during a grid outage consists of the headworks screens, one aeration blower and the return-sludge pumps. The district's power monitor measured this combined load at 310 kW throughout the June 2026 transfer test, and the load is stable across the hours in question.",
+      "id": "e7",
+      "source": "District power monitor trend, June 2026 transfer test",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-04T00:00:00-04:00",
+      "claim": "The automatic transfer switch was exercised on 4 September 2026 and functioned correctly: the generator started, picked up the essential load, and ran until the switch was returned to utility power.",
+      "id": "e8",
+      "source": "Transfer-switch exercise record, 2026-09-04",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "No fuel delivery to the plant is scheduled before 30 September 2026. The district's supply contract with Corbell Petroleum requires five business days' notice for an unscheduled delivery, and no such notice has been given.",
+      "id": "e9",
+      "source": "Corbell Petroleum supply contract, cl. 4; district delivery schedule",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "Plant supervisor Roscoe Tilden will be on site for the whole of the outage. He can start and stop the generator and can shed load manually, but the district's standing outage procedure directs him to carry the full essential load, and he has no authority to obtain fuel or to vary the supply contract.",
+      "id": "e10",
+      "source": "District standing outage procedure OP-3; delegation of authority",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "The plant's operations file contains the generator's maintenance records -- oil and filter changes, coolant service, and the dates of load-bank tests -- but records no quantity of fuel consumed during any run. The district's fuel log records deliveries and delivered volumes only; it does not record usage between deliveries, and no tank reading was taken immediately before or immediately after any past run of the generator.",
+      "id": "e11",
+      "source": "Plant operations file; district fuel log, 2019-2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-01T00:00:00-04:00",
+      "claim": "Every date and time in this package is America/New_York, which is UTC-04:00 on 22 September 2026.",
+      "id": "e12",
+      "source": "Package convention",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_generator_fuel_2026_09",
+  "prepared_at": "2026-09-18T12:00:00-04:00"
+}

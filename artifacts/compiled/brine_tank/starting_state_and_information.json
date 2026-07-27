@@ -1,0 +1,194 @@
+{
+  "entities": [
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Running continuously since March 2026, no scheduled outage in October 2026.",
+          "name": "operating status"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "18 litres per hour.",
+          "name": "dosing rate"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "No authority to change delivery schedule, delivery quantity, or dosing rate; those are set by district engineer with no change order for October 2026.",
+          "name": "authority to change"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Treatment train A has no independent information gathering; it is a process that draws chemical at a fixed rate. It does not receive communications.",
+          "name": "information available"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Treatment train A does not have access to the day tank level, delivery schedule, or train B's operation; it simply draws at its fixed rate.",
+          "name": "information not available"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "None; treatment train A does not send or receive communications.",
+          "name": "communication channels"
+        }
+      ],
+      "name": "Treatment train A",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ],
+        "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour, 24 hours a day, 7 days a week, without interruption.",
+        "operating_meaning": "Runs continuously from at least March 2026 through October 2026, no scheduled outages.",
+        "rate_meaning": "18 litres per hour"
+      }
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "meaning": "Treatment train B is scheduled to run on weekdays only, and is shut down on weekends.",
+          "name": "operating status",
+          "value": "runs weekdays 6:00-18:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Draws 22 litres per hour from the day tank while operating.",
+          "name": "draw rate",
+          "value": "22 L/h"
+        }
+      ],
+      "name": "Treatment train B",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ],
+        "meaning": "Draws sodium hypochlorite from the day tank at 22 litres per hour while running, from 6:00 AM to 6:00 PM on Mondays through Fridays only.",
+        "operating_meaning": "Runs from 6:00 AM to 6:00 PM on weekdays (Monday to Friday), shut down on weekends.",
+        "rate_meaning": "22 litres per hour"
+      }
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "At 6:00 AM on Monday 5 October 2026, the day tank contained 3,100 litres of sodium hypochlorite.",
+          "name": "initial_volume_oct5",
+          "value": 3100
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The day tank knows its own volume at 6:00 AM on 5 October 2026.",
+          "name": "initial_volume_oct5",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "The day tank knows that deliveries occur every Tuesday and Friday at 8:00 AM, each 1,800 litres.",
+          "name": "delivery_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The day tank knows that Train A draws 18 litres per hour continuously.",
+          "name": "train_a_rate",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "meaning": "The day tank knows that Train B draws 22 litres per hour from 6:00 AM to 6:00 PM on weekdays only.",
+          "name": "train_b_rate_and_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The day tank knows its usable capacity is 4,000 litres.",
+          "name": "capacity",
+          "visibility": "private"
+        }
+      ],
+      "name": "Ostrander Road treatment plant day tank",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 3100,
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Sodium hypochlorite stored in the day tank.",
+          "name": "sodium_hypochlorite",
+          "unit": "litres"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Chicago"
+    }
+  ]
+}

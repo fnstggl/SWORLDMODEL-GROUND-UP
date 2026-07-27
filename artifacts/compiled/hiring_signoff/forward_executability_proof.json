@@ -1,0 +1,16 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "record:email_sent_record"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:approval_request_submitted",
+    "event:back_in_office",
+    "event:background_checks_complete",
+    "event:panel_feedback_recorded"
+  ],
+  "warnings": []
+}

@@ -1,0 +1,60 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:port_authority_acknowledgment",
+        "via": {
+          "node": "action:malik_prepares_entry",
+          "prerequisites": [
+            {
+              "node": "state:malik_receives_certificate",
+              "prerequisites": [
+                {
+                  "node": "action:corrected_certificate_issued",
+                  "prerequisites": [
+                    {
+                      "node": "action:malik_requests_correction",
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              ],
+              "via": {
+                "node": "action:bring_about_malik_receives_certificate",
+                "prerequisites": [
+                  {
+                    "node": "action:corrected_certificate_issued",
+                    "prerequisites": [
+                      {
+                        "node": "action:malik_requests_correction",
+                        "root": "actor_choice"
+                      }
+                    ],
+                    "root": "actor_choice"
+                  }
+                ],
+                "root": "actor_choice"
+              }
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:port_authority_acknowledgment",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:malik_prepares_entry",
+        "action:record_entry_submitted_and_acknowledged"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

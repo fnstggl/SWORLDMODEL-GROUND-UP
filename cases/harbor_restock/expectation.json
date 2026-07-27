@@ -1,0 +1,4 @@
+{
+  "expected_answer": "no",
+  "why": "Hand chain from the evidence alone: the order was placed Monday 10 August at 9:00 AM (e3), after Monday's 6:30 AM cold-cargo check-in had passed (e5), and was ready for handoff Tuesday 8:00 AM (e4), so the earliest feasible sailing was Wednesday 12 August (e5, e6). The ferry company cancelled all Wednesday sailings in its Tuesday announcement (e7, e8). The next cold-cargo sailing is Friday 14 August (e5), after the Thursday 9:00 AM deadline, and no alternative carrier can move the doses (e9). Since the clinic holds zero doses and no island source exists (e2), the restock is not on hand before the clinic opens."
+}

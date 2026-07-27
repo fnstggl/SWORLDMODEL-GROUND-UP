@@ -1,0 +1,117 @@
+{
+  "components": [
+    {
+      "chain": {
+        "derived_condition": true,
+        "node": "state:haddad_aboard_au_780_at_departure",
+        "prerequisites": [
+          {
+            "node": "action:haddad_boards_au_780",
+            "prerequisites": [
+              {
+                "derived_condition": true,
+                "node": "state:haddad_arrives_at_halden_international",
+                "prerequisites": [
+                  {
+                    "node": "action:haddad_boards_au_412_in_verlan_city",
+                    "prerequisites": [
+                      {
+                        "node": "action:haddad_arrives_at_verlan_city_airport",
+                        "root": "actor_choice"
+                      },
+                      {
+                        "derived_condition": true,
+                        "node": "state:haddad_has_valid_boarding_pass_for_au_412",
+                        "prerequisites": [
+                          {
+                            "node": "action:haddad_checks_in_for_au_412",
+                            "prerequisites": [
+                              {
+                                "node": "state:haddad_has_valid_booking_for_au_412",
+                                "root": "initial_fact"
+                              }
+                            ],
+                            "root": "actor_choice"
+                          }
+                        ]
+                      }
+                    ],
+                    "root": "actor_choice"
+                  },
+                  {
+                    "node": "event:au_412_arrives_at_halden_international",
+                    "prerequisites": [
+                      {
+                        "node": "event:au_412_departs_verlan_city",
+                        "prerequisites": [
+                          {
+                            "node": "action:haddad_boards_au_412_in_verlan_city",
+                            "prerequisites": [
+                              {
+                                "node": "action:haddad_arrives_at_verlan_city_airport",
+                                "root": "actor_choice"
+                              },
+                              {
+                                "derived_condition": true,
+                                "node": "state:haddad_has_valid_boarding_pass_for_au_412",
+                                "prerequisites": [
+                                  {
+                                    "node": "action:haddad_checks_in_for_au_412",
+                                    "prerequisites": [
+                                      {
+                                        "node": "state:haddad_has_valid_booking_for_au_412",
+                                        "root": "initial_fact"
+                                      }
+                                    ],
+                                    "root": "actor_choice"
+                                  }
+                                ]
+                              }
+                            ],
+                            "root": "actor_choice"
+                          }
+                        ],
+                        "root": "scheduled_event"
+                      }
+                    ],
+                    "root": "scheduled_event"
+                  }
+                ]
+              },
+              {
+                "derived_condition": true,
+                "node": "state:haddad_has_valid_boarding_pass_for_au_780",
+                "prerequisites": [
+                  {
+                    "node": "action:haddad_checks_in_for_au_780",
+                    "prerequisites": [
+                      {
+                        "node": "state:haddad_has_valid_booking_for_au_780",
+                        "root": "initial_fact"
+                      }
+                    ],
+                    "root": "actor_choice"
+                  }
+                ]
+              }
+            ],
+            "root": "actor_choice"
+          },
+          {
+            "node": "event:au_780_departs_halden_international",
+            "root": "scheduled_event"
+          }
+        ]
+      },
+      "component": "state:haddad_aboard_au_780_at_departure",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [],
+      "producers": []
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

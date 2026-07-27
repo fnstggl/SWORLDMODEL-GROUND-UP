@@ -1,0 +1,34 @@
+{
+  "causal_path": [
+    "Revenue from 1-17 July is $5,100 (evidence e3).",
+    "Sales rate from 18-31 July is uncertain (12/day or 7/day based on competitor).",
+    "Revenue needed from 18-31 July is $2,900 (i.e., $8,000 - $5,100).",
+    "14 selling days at $25/unit: 12/day yields $4,200; 7/day yields $2,450.",
+    "Total revenue: $9,300 if 12/day, $7,550 if 7/day.",
+    "Thus, answer is YES if rate is 12, NO if rate is 7; unresolved uncertainty."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Three processes (revenue_accumulated, sales_18_to_31_july, sales_1_to_17_july) all accrue into the same stock July 2026 Torrent 800 revenue with overlapping operating windows (whole month, 18-31, 1-17 respectively). This violates the rule that accruals into one stock must be genuinely distinct mechanisms with non-overlapping hours; it causes double-counting.",
+      "why_material": "If the simulation runs, the revenue stock would be credited multiple times for the same sales periods, producing an incorrect total that could mistakenly cross the $8,000 threshold."
+    },
+    {
+      "document": "causal_spine",
+      "what": "The processes sales_1_to_17_july and sales_18_to_31_july have rates (0.75/hour and 0.5/hour) that are not derived from evidence. The known exact revenue for 1-17 July ($5,100) should be an initial value, not a continuous process. The uncertain daily_sales_rate_18_to_31 is declared but not used to drive any process; the process has its own fixed rate.",
+      "why_material": "The simulation will produce revenue figures that do not match the evidence (e.g., it might accrue $5,100 at a continuous rate rather than as a lump sum, and the second half rate is arbitrary, not reflecting the possible drop to 7/day)."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "The July 2026 Torrent 800 revenue stock is not initialized in the initial state. It is only producible by processes, but those processes have overlapping windows and arbitrary rates, so the stock may start at zero and accumulate incorrectly.",
+      "why_material": "Without an initial value for the known $5,100, the simulation cannot correctly accumulate total revenue; it might start from zero and only generate the ambiguous second-half revenue, missing the first half entirely."
+    },
+    {
+      "document": "uncertainty_and_exclusions",
+      "what": "Uncertainty about daily_sales_rate_18_to_31 is declared but not linked to any process; the process has a fixed rate. The exclusion of Pedal & Spoke is noted, but the effect of its price on sales rate is not modeled\u2014only a historical precedent exists, yet the uncertain variable is not constrained by that precedent.",
+      "why_material": "The simulation will not explore whether the sales rate drops to 7/day (as in March) or remains at 12/day, so it cannot produce the range of possible outcomes needed to answer the question. The answer will be deterministic but unsupported by evidence."
+    }
+  ],
+  "reasoning": "The world has several material defects: (1) Three processes (revenue_accumulated, sales_18_to_31_july, sales_1_to_17_july) all accrue into the same stock with overlapping operating windows, causing double-counting\u2014a violation of the causal spine rule that distinct mechanisms must have non-overlapping claims. (2) The processes use arbitrary rates (0.75/hour, 0.5/hour) not supported by evidence; the uncertain variable daily_sales_rate_18_to_31 is not tied to any process, leaving the dynamics unconstrained. (3) The initial state does not initialize the July 2026 Torrent 800 revenue stock, so the terminal condition has no starting value to accumulate. (4) The revenue from 1-17 July is known exactly ($5,100) but the world models it as a continuous process instead of initializing that amount, losing precision. These defects prevent the world from producing a truthful, causally complete answer.",
+  "verdict": "TARGETED_REVISION"
+}

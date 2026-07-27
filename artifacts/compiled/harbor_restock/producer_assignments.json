@@ -1,0 +1,121 @@
+{
+  "assignments": [
+    {
+      "step": "vaccine_at_clinic",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "The clinic's courier who meets cargo sailings and carries cold-chain deliveries to the clinic.",
+          "name": "clinic courier"
+        }
+      ],
+      "step": "courier_delivers_to_clinic"
+    },
+    {
+      "step": "vaccine_arrives_at_island_dock",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e10"
+          ],
+          "kind": "organization",
+          "meaning": "The ferry company operates the sailing that arrives at Torsey Island.",
+          "name": "Torsey Island Ferry Company"
+        }
+      ],
+      "step": "ferry_sailing_arrives"
+    },
+    {
+      "step": "vaccine_loaded_on_ferry",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "organization",
+          "meaning": "The ferry company operates the sailing that departs from the mainland terminal.",
+          "name": "Torsey Island Ferry Company"
+        }
+      ],
+      "step": "ferry_sailing_departs"
+    },
+    {
+      "step": "ferry_sailing_operates",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "step": "ferry_sailing_not_cancelled",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "step": "gale_warning_ends_before_sailing",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "external_institution",
+          "meaning": "The marine forecast office issued the gale warning.",
+          "name": "marine forecast office"
+        }
+      ],
+      "step": "gale_warning_issued"
+    },
+    {
+      "step": "vaccine_at_ferry_terminal_cold_room",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "organization",
+          "meaning": "Penhallow's driver delivers the cold-chain shipment to the ferry terminal cold room.",
+          "name": "Penhallow Medical Supply"
+        }
+      ],
+      "step": "penhallow_delivers_to_terminal"
+    },
+    {
+      "step": "vaccine_packed_and_ready",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "person",
+          "meaning": "Nurse Maeve Quinlan placed the restock order.",
+          "name": "Maeve Quinlan"
+        }
+      ],
+      "step": "order_placed"
+    }
+  ]
+}

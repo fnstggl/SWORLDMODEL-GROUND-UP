@@ -1,0 +1,48 @@
+{
+  "assignments": [
+    {
+      "step": "initial_fuel_level",
+      "unsupported": "Initial fact, no producer needed."
+    },
+    {
+      "step": "no_fuel_consumption_before_outage",
+      "unsupported": "Condition with prerequisites only, no producer."
+    },
+    {
+      "step": "fuel_level_at_outage_start",
+      "unsupported": "Condition with prerequisites only, no producer."
+    },
+    {
+      "step": "grid_power_outage_starts",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "step": "generator_starts_and_picks_up_load",
+      "unsupported": "Condition with prerequisites only, no producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e7",
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The generator runs and consumes fuel as a physical process.",
+          "name": "Trelvane TD-500 generator"
+        }
+      ],
+      "step": "generator_runs_consuming_fuel"
+    },
+    {
+      "step": "fuel_level_at_deadline",
+      "unsupported": "Condition with prerequisites only, no producer."
+    },
+    {
+      "step": "generator_never_runs_dry",
+      "unsupported": "Condition with prerequisites only, no producer."
+    }
+  ]
+}

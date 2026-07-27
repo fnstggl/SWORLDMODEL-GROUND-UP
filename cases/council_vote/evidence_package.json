@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-08-24T00:00:00-04:00",
+      "claim": "The Ellsworth Falls Village Council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "id": "e1",
+      "source": "Village website, council roster",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-01T00:00:00-04:00",
+      "claim": "The council's regular session is scheduled for Tuesday 8 September 2026 at 7:00 PM at the village hall, and the published agenda lists final action on Ordinance 2026-14, the Riverwalk Overlay.",
+      "id": "e2",
+      "source": "Published council agenda, 2026-09-01",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-24T00:00:00-04:00",
+      "claim": "The village charter sets quorum at three members and provides that adopting an ordinance requires the affirmative vote of at least three members of the full five-member council.",
+      "id": "e3",
+      "source": "Village charter sec. 2.07",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-24T00:00:00-04:00",
+      "claim": "Council rules require members to be physically present in the chamber to vote, and there is no remote-participation provision.",
+      "id": "e4",
+      "source": "Council rules of procedure",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-25T21:00:00-04:00",
+      "claim": "Okonkwo sponsored Ordinance 2026-14, stated at the 25 August work session that she supports it, and told the clerk she wants final action taken at the 8 September session.",
+      "id": "e5",
+      "source": "Work session minutes, 2026-08-25",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-25T21:00:00-04:00",
+      "claim": "Tran stated at the 25 August work session that he is prepared to vote for Ordinance 2026-14 as drafted.",
+      "id": "e6",
+      "source": "Work session minutes, 2026-08-25",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-27T00:00:00-04:00",
+      "claim": "Delgado told the Ellsworth Falls Courier on 27 August that she opposes Ordinance 2026-14 and intends to vote against it.",
+      "id": "e7",
+      "source": "Ellsworth Falls Courier, 2026-08-27",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-01T00:00:00-04:00",
+      "claim": "Pryce wrote in his 1 September constituent newsletter that he opposes Ordinance 2026-14 in its current form and intends to vote against it.",
+      "id": "e8",
+      "source": "Pryce constituent newsletter, 2026-09-01",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-24T00:00:00-04:00",
+      "claim": "Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.",
+      "id": "e9",
+      "source": "Ordinance filing and council statements",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-02T16:00:00-04:00",
+      "claim": "Bianchi filed written notice with the village clerk on 2 September that she is absent from the 8 September session to attend her daughter's naval academy induction in Annapolis that evening.",
+      "id": "e10",
+      "source": "Clerk's absence file, 2026-09-02",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-24T00:00:00-04:00",
+      "claim": "Under council rules an item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "id": "e11",
+      "source": "Council rules of procedure",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_council_vote_2026_09",
+  "prepared_at": "2026-09-04T09:00:00-04:00"
+}

@@ -1,0 +1,160 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "initial_fact",
+      "meaning": "At 8:00 AM on Friday 18 September 2026, the day tank contains 620 litres of diesel.",
+      "name": "initial_fuel_level",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "From 8:00 AM on 18 September 2026 until the start of the outage at 6:00 AM on 22 September 2026, no fuel is consumed from the day tank because the generator is not run and nothing else draws fuel.",
+      "name": "no_fuel_consumption_before_outage",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "initial_fuel_level"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "At 6:00 AM on 22 September 2026, the day tank still contains 620 litres of diesel.",
+      "name": "fuel_level_at_outage_start",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "no_fuel_consumption_before_outage"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Grid power to the plant is cut at 6:00 AM on 22 September 2026 as scheduled.",
+      "name": "grid_power_outage_starts",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-09-22T06:00:00-04:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8",
+        "e7"
+      ],
+      "kind": "condition",
+      "meaning": "Upon loss of grid power, the automatic transfer switch starts the generator and it picks up the essential load of 310 kW.",
+      "name": "generator_starts_and_picks_up_load",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "grid_power_outage_starts"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "fuel_level_at_outage_start"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e11"
+      ],
+      "kind": "process",
+      "meaning": "The generator runs continuously from 6:00 AM to 12:00 noon on 22 September 2026, consuming diesel at a rate determined by the 310 kW load.",
+      "name": "generator_runs_consuming_fuel",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "generator_starts_and_picks_up_load"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "The exact fuel consumption rate is unknown because no past run has recorded fuel usage. However, the generator's rated power and load are known, so consumption can be estimated.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e7",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "At 12:00 noon on 22 September 2026, the day tank contains a certain volume of diesel, which is the initial 620 litres minus the amount consumed during the 6-hour run.",
+      "name": "fuel_level_at_deadline",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "generator_runs_consuming_fuel"
+        }
+      ],
+      "produces_proof": [
+        "day_tank_fuel_level_at_deadline"
+      ],
+      "uncertainty": "The exact fuel level depends on the unknown consumption rate.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e7",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "The generator does not stop for lack of fuel at any point between 6:00 AM and 12:00 noon on 22 September 2026.",
+      "name": "generator_never_runs_dry",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "fuel_level_at_deadline"
+        }
+      ],
+      "produces_proof": [
+        "generator_running_status"
+      ],
+      "uncertainty": "This depends on whether fuel consumption exceeds the initial 620 litres before noon.",
+      "when": null
+    }
+  ]
+}

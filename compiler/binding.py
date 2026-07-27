@@ -1,0 +1,734 @@
+"""The controlled semantic-binding stage.
+
+Between discovery and deterministic lowering sits one tightly controlled
+translation step: for each semantic item -- one action, one channel, one
+process, one event -- an LLM is shown the complete list of universal
+runtime capabilities and the item's own graph context, and fills in ONLY
+the small residue fields code cannot derive (a duration, a latency, a
+rate, an amount, message content, who makes a record). It selects from
+the catalog, fills small fields, or returns UNSUPPORTED. It cannot add
+actors, facts, events, schedules, consequences, processes or uncertainty
+resolutions: everything it returns is validated against the graph, and
+anything else is refused.
+
+Code derives the rest of the plumbing deterministically in the emitter:
+message tags, noticed-information parameters, fact keys, preconditions
+from requires edges, record dedup guards, wakes and recipients.
+
+One targeted repair per item, tracked; a repaired binding is not a
+first-pass success.
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from datetime import date
+import json
+
+from .errors import (InvalidReference, LoweringGap, SemanticAmbiguity,
+                     UnsupportedCapability)
+from .graph import WorldGraph
+from .llm import TruncatedResponse, call_json
+from .schema import CHANGE_TYPES
+from .symbols import slug
+
+STATUSES = ("verified", "inferred", "question_given",
+            "model_memory_unverified")
+
+_CATALOG = (
+    "THE COMPLETE UNIVERSAL CAPABILITY LIST (there are no others; anything "
+    "that cannot be expressed with these is UNSUPPORTED):\n"
+    + "\n".join(f"- {k}: {v}" for k, v in CHANGE_TYPES.items())
+    + "\nDurations, latencies and rates are concrete numbers with a "
+      "status: \"verified\" when the item's evidence states the number, "
+      "\"inferred\" when it follows from the item's evidence, "
+      "\"question_given\" when the question fixes it, and "
+      "\"model_memory_unverified\" when it is your own real-world "
+      "estimate (an ordinary email takes minutes to write; corporate "
+      "email delivers in seconds) -- that label is always allowed here "
+      "and is the honest default for practice-based estimates.\n"
+      "\"inferred\" means it follows by ARITHMETIC FROM NUMBERS THE "
+      "EVIDENCE ITSELF STATES -- adding its stated stocks, multiplying "
+      "its stated rate by its stated window. It NEVER means derived "
+      "from general world knowledge: a typical efficiency, a standard "
+      "consumption figure, a usual speed, a rule of thumb for equipment "
+      "of this class. Such a number did not come from the evidence, and "
+      "labelling it \"inferred\" misrepresents where it came from. If a "
+      "number takes outside knowledge to produce, its only honest label "
+      "is \"model_memory_unverified\".\n"
+      "AND WHERE THE ANSWER TURNS ON IT, DO NOT PRODUCE IT AT ALL. If "
+      "the evidence never states a quantity the world needs -- the rate "
+      "something consumes, how fast a thing works -- return null and "
+      "declare the item {\"unsupported\": \"<what is missing>\"}. A "
+      "confident number standing in for a missing measurement is the "
+      "one thing this compiler must never emit: it converts 'we cannot "
+      "tell' into a precise answer that looks earned. Returning "
+      "unsupported is always available and is never a failure."
+)
+
+_RULES = (
+    "You are the binding step of a world compiler. You translate ONE "
+    "semantic item into the small fields named below -- nothing else. You "
+    "must not invent new facts, participants, actions, events, schedules "
+    "or consequences, and you must not resolve declared uncertainty. Use "
+    "only names that appear in the item's context. If the item's meaning "
+    "cannot be carried faithfully by the universal capabilities, return "
+    "{\"unsupported\": \"<exact reason>\"}. Reply with a single JSON "
+    "object.\n" + _CATALOG
+)
+
+
+@dataclass
+class Bindings:
+    actions: dict = field(default_factory=dict)
+    channels: dict = field(default_factory=dict)
+    processes: dict = field(default_factory=dict)
+    events: dict = field(default_factory=dict)
+    substance_identities: list = field(default_factory=list)
+    calls: list = field(default_factory=list)
+    repairs: dict = field(default_factory=dict)
+    tokens: int = 0
+    unsupported: list = field(default_factory=list)
+    # runtime-only bookkeeping for targeted post-lowering rebinds: the
+    # validator and storage slot of every asked item, keyed by item id
+    validators: dict = field(default_factory=dict)
+    slots: dict = field(default_factory=dict)
+
+
+def _ask(item_id: str, user: str, validator, b: Bindings, call,
+         model: str) -> dict | None:
+    """One binding item: call, validate, at most one targeted repair.
+    Returns None when the model declares the item unsupported."""
+    b.validators.setdefault(item_id, validator)
+    doc, raw, defects = None, "", []
+    for attempt in (0, 1):
+        prompt = user if attempt == 0 else (
+            user + "\n\nYOUR PREVIOUS ANSWER:\n" + raw
+            + "\n\nEXACT DEFECTS -- fix ONLY these and return the complete "
+              "corrected object:\n" + "\n".join(f"- {d}" for d in defects))
+        try:
+            doc, raw, usage = call(_RULES, prompt, model=model)
+            parse_error = None
+        except (TruncatedResponse, ValueError) as exc:
+            doc, raw, usage = None, "", {}
+            parse_error = f"reply unusable: {exc}"
+        b.calls.append({"item": item_id, "attempt": attempt,
+                        "prompt": {"system": _RULES, "user": prompt},
+                        "raw_response": raw, "usage": usage})
+        b.tokens += (usage or {}).get("total_tokens", 0)
+        if parse_error:
+            defects = [parse_error]
+        elif isinstance(doc, dict) and doc.get("unsupported"):
+            b.unsupported.append({"item": item_id,
+                                  "reason": str(doc["unsupported"])})
+            return None
+        else:
+            defects = validator(doc)
+        if not defects:
+            if attempt:
+                b.repairs[item_id] = b.repairs.get(item_id, 0) + 1
+            return doc
+    raise SemanticAmbiguity(
+        f"binding of {item_id} is still defective after one targeted repair",
+        {"document": f"binding[{item_id}]", "defects": defects,
+         "repairable": False})
+
+
+def _status_ok(doc, key, defects, required=True):
+    s = doc.get(key)
+    if s is None and not required:
+        return
+    if s not in STATUSES:
+        defects.append(f"{key} must be one of {STATUSES}, got {s!r}")
+
+
+def _num(doc, key, defects, required=True, minimum=None):
+    v = doc.get(key)
+    if v is None:
+        if required:
+            defects.append(f"{key} is missing")
+        return
+    if not isinstance(v, (int, float)) or isinstance(v, bool):
+        defects.append(f"{key} must be a number, got {v!r}")
+    elif minimum is not None and v < minimum:
+        defects.append(f"{key} must be >= {minimum}")
+
+
+def _describe_action(graph: WorldGraph, node) -> dict:
+    """Everything the binding call may know about one action."""
+    return {
+        "action": node.name, "meaning": node.meaning,
+        "performed_by": [graph.node(p).name
+                         for p in graph.performers_of(node.id)],
+        "needs": [{"what": graph.node(e.dst).name,
+                   "category": graph.node(e.dst).category,
+                   "meaning": graph.node(e.dst).meaning}
+                  for e in graph.prerequisites_of(node.id)],
+        "brings_about": [{"what": graph.node(e.dst).name,
+                          "category": graph.node(e.dst).category,
+                          "meaning": graph.node(e.dst).meaning,
+                          "record_type": graph.node(e.dst).attrs.get(
+                              "record_type"),
+                          "holder": graph.node(e.dst).attrs.get("holder")}
+                         for e in graph.edges_from(node.id, "produces")
+                         + graph.edges_from(node.id, "changes")],
+    }
+
+
+def bind_world(graph: WorldGraph, evidence: dict | None = None,
+               call=call_json, model: str = "deepseek-chat",
+               into: Bindings | None = None) -> Bindings:
+    """Bind every action, channel, process and record/resource-writing
+    event. Raises UnsupportedCapability at the end if any item has no
+    faithful universal form -- after trying them all, so the refusal names
+    every gap at once. Pass ``into`` to keep the verbatim call log even
+    when binding fails. The evidence rides along in every prompt: a
+    number the evidence states must be cited from it, never guessed and
+    never nulled for want of sight."""
+    b = into if into is not None else Bindings()
+    ev_text = ""
+    if evidence:
+        from .discovery import render_evidence
+        ev_text = render_evidence(evidence) + "\n\n"
+    # The rules forbid resolving declared uncertainty, but a binder that
+    # is never SHOWN the declarations cannot obey: it fills the gap the
+    # world just admitted to. Every prompt carries them.
+    if graph.uncertainties:
+        ev_text += (
+            "THIS WORLD HAS ALREADY DECLARED THESE THINGS UNKNOWN. You "
+            "may not supply a number or fact that settles any of them: "
+            "return null and {\"unsupported\": \"<what is missing>\"} "
+            "instead.\n"
+            + "\n".join(
+                f"- {u.get('meaning', '')}"
+                for u in sorted(graph.uncertainties,
+                                key=lambda u: str(u.get("meaning", ""))))
+            + "\n\n")
+
+    for node in graph.by_category("action"):
+        ctx = _describe_action(graph, node)
+        wants_amounts = [t for t in ctx["brings_about"]
+                         if t["category"] == "resource"]
+        wants_records = [t for t in ctx["brings_about"]
+                         if t["category"] == "record"]
+        wants_info = [t for t in ctx["brings_about"]
+                      if t["category"] == "information"]
+        ask = (
+            "THE ITEM (an action an actor may choose; it will NOT be "
+            "scheduled):\n" + json.dumps(ctx, indent=1)
+            + "\n\nReturn JSON with exactly these fields:\n"
+            "  duration_minutes: number, how long performing it really "
+            "takes; null ONLY if genuinely unknowable\n"
+            "  duration_status: status for that number\n"
+            "  duration_note: one line of real-world grounding\n"
+            "  parameters: list of {\"name\", \"meaning\", "
+            "\"allowed_values\": list ONLY when the real world restricts "
+            "the options (a ballot's choices) -- never to pin a predicted "
+            "value} for choices the actor makes when performing it; [] if "
+            "none\n"
+            + ("  record_values: for each record it creates, {record name: "
+               "{\"value\": the value recorded, or "
+               "{\"from_parameter\": parameter name} when the actor's own "
+               "choice is what gets recorded, \"subject\": what it is "
+               "about}}\n" if wants_records else "")
+            + ("  amounts: for each resource it changes, {resource name: "
+               "{\"kind\": \"transfer\"|\"adjust\", \"amount\": number, "
+               "\"from\": holder name (transfer only), \"to\": holder "
+               "name (transfer only)}}\n" if wants_amounts else "")
+            + ("  message_contents: for each information it sends, "
+               "{information name: one-sentence content}\n"
+               if wants_info else ""))
+        doc = _ask(f"action:{node.name}", ask, lambda d: _v_action(
+            d, wants_records, wants_amounts, wants_info), b, call, model)
+        b.slots[f"action:{node.name}"] = ("actions", node.id)
+        if doc is not None:
+            b.actions[node.id] = doc
+
+    for node in graph.by_category("process"):
+        if node.attrs.get("role") == "channel":
+            senders = sorted({graph.node(e.src).name for e in
+                              graph.edges_to(node.id, "sends_to")})
+            ask = (ev_text + "THE ITEM (a communication route):\n"
+                   + json.dumps({"route": node.name,
+                                 "meaning": node.meaning,
+                                 "latency_meaning":
+                                     node.attrs.get("latency_meaning"),
+                                 "used_by": senders}, indent=1)
+                   + "\n\nReturn JSON exactly:\n"
+                   "  delivery_seconds: number, realistic one-way delivery "
+                   "latency\n"
+                   "  status: status for that number\n"
+                   "  note: one line of grounding")
+            doc = _ask(f"channel:{node.name}", ask, _v_channel, b, call,
+                       model)
+            b.slots[f"channel:{node.name}"] = ("channels", node.id)
+            if doc is not None:
+                b.channels[node.id] = doc
+        else:
+            outputs = [{"what": graph.node(e.dst).name,
+                        "category": graph.node(e.dst).category,
+                        "holder": graph.node(e.dst).attrs.get("holder")}
+                       for e in graph.edges_from(node.id, "changes")
+                       + graph.edges_from(node.id, "produces")]
+            actors = sorted(n.name for c in ("participant", "organization",
+                                             "population")
+                            for n in graph.by_category(c))
+            stocks = [{"name": rs.name,
+                       "holder": (graph.node(rs.attrs["holder"]).name
+                                  if rs.attrs.get("holder") else None),
+                       "amount": rs.attrs.get("amount"),
+                       "unit": rs.attrs.get("unit")}
+                      for rs in graph.by_category("resource")]
+            ask = (ev_text + "THE ITEM (a continuous process):\n"
+                   + json.dumps({"process": node.name,
+                                 "meaning": node.meaning,
+                                 "rate_meaning":
+                                     node.attrs.get("rate_meaning"),
+                                 "operating_meaning":
+                                     node.attrs.get("operating_meaning"),
+                                 "outputs": outputs,
+                                 "participants_in_world": actors,
+                                 "stocks_in_world": stocks}, indent=1)
+                   + "\n\nReturn JSON exactly:\n"
+                   "  amount_per_hour: number, the supported rate\n"
+                   "  rate_status: status for that number\n"
+                   "  rate_note: one line of grounding\n"
+                   "  operating: {\"timezone\": IANA zone, \"workdays\": "
+                   "[Monday=0..Sunday=6], \"start\": \"HH:MM\", \"end\": "
+                   "\"HH:MM\"} or null if it runs continuously. When the "
+                   "meaning ties the process to one specific calendar day "
+                   "or a bounded date range, also give \"from_date\" and "
+                   "\"until_date\" (YYYY-MM-DD; equal for a single day): "
+                   "without them the process recurs on every listed "
+                   "workday of the whole simulated period, which is wrong "
+                   "for a dated occurrence\n"
+                   "  output_resource: {\"name\": the quantity it "
+                   "accumulates, \"holder\": which listed participant's "
+                   "stock it feeds} -- null only if 'outputs' above "
+                   "already names a quantity. Prefer a stock from "
+                   "stocks_in_world (its holder and name exactly); name "
+                   "a holder with no listed stock only when the evidence "
+                   "says the stock exists and was simply never counted\n"
+                   "If this mechanism does no continuous quantitative "
+                   "work (a role; a transport, courier or delivery step "
+                   "whose fixed-size shipments the scheduled transfers "
+                   "already carry; or a wrapper around receiving/holding "
+                   "that the transfers already account for), return "
+                   "{\"decorative\": true, \"why\": one sentence} "
+                   "instead.")
+            doc = _ask(f"process:{node.name}", ask, _v_process, b, call,
+                       model)
+            b.slots[f"process:{node.name}"] = ("processes", node.id)
+            if doc is not None:
+                b.processes[node.id] = doc
+
+    for node in graph.by_category("event"):
+        targets = [{"what": graph.node(e.dst).name,
+                    "category": graph.node(e.dst).category,
+                    "record_type": graph.node(e.dst).attrs.get(
+                        "record_type"),
+                    "holder": graph.node(e.dst).attrs.get("holder")}
+                   for e in graph.edges_from(node.id, "produces")
+                   + graph.edges_from(node.id, "changes")]
+        residue = [t for t in targets
+                   if t["category"] in ("record", "resource",
+                                        "information")]
+        if not residue:
+            continue
+        actors = sorted(n.name for c in ("participant", "organization",
+                                         "population")
+                        for n in graph.by_category(c))
+        ask = (ev_text + "THE ITEM (an external scheduled event; nobody decides it, "
+               "it happens on its schedule):\n"
+               + json.dumps({"event": node.name, "meaning": node.meaning,
+                             "when": node.attrs.get("when"),
+                             "brings_about": targets,
+                             "participants_in_world": actors}, indent=1)
+               + "\n\nReturn JSON exactly:\n"
+               + ("  record_makers: for each record it creates, {record "
+                  "name: {\"made_by\": participant name, \"value\": what "
+                  "is recorded, \"subject\": what about}}\n"
+                  if any(t["category"] == "record" for t in residue)
+                  else "")
+               + ("  amounts: for each resource it changes, {resource "
+                  "name: {\"kind\": \"transfer\"|\"adjust\", \"amount\": "
+                  "number, \"from\": holder, \"to\": holder}}. A stated "
+                  "capacity ('up to N', 'holds N') is a CEILING, not the "
+                  "load: the amount is what the evidence's stocks, rates "
+                  "and windows make available to this occurrence at its "
+                  "moment, capped at N -- compute it and show the "
+                  "arithmetic in a note. Only when the evidence states "
+                  "the movement itself is N is N the amount\n"
+                  if any(t["category"] == "resource" for t in residue)
+                  else "")
+               + ("  messages: for each information it delivers, "
+                  "{information name: {\"from\": sender name, \"to\": "
+                  "[recipient names], \"channel\": route name, "
+                  "\"content\": one sentence}}\n"
+                  if any(t["category"] == "information" for t in residue)
+                  else ""))
+        doc = _ask(f"event:{node.name}", ask,
+                   lambda d: _v_event(d, residue), b, call, model)
+        b.slots[f"event:{node.name}"] = ("events", node.id)
+        if doc is not None:
+            b.events[node.id] = doc
+
+    # Two stocks recorded at the same holder are either one physical
+    # substance described twice (they must merge into a single runtime
+    # quantity, or transfers and measurements silently miss each other)
+    # or genuinely different goods (they must stay apart). That identity
+    # is semantic, so the model settles it -- one small ask per pair --
+    # and code merges accordingly in the emitter.
+    measured = set(graph.measured_components())
+    by_holder: dict = {}
+    for rs in graph.by_category("resource"):
+        if rs.attrs.get("holder"):
+            by_holder.setdefault(rs.attrs["holder"], []).append(rs)
+    for holder_id in sorted(by_holder):
+        stocks = sorted(by_holder[holder_id], key=lambda n: n.id)
+        for i in range(len(stocks)):
+            for j in range(i + 1, len(stocks)):
+                ra, rb = stocks[i], stocks[j]
+
+                def _stock(n):
+                    return {"name": n.name, "meaning": n.meaning,
+                            "declared_amount": n.attrs.get("amount"),
+                            "unit": n.attrs.get("unit"),
+                            "measured_by_the_question": n.id in measured}
+
+                ask = (ev_text
+                       + "THE ITEM (two stocks recorded at the same "
+                         "holder):\n"
+                       + json.dumps(
+                           {"holder": graph.node(holder_id).name,
+                            "stock_a": _stock(ra),
+                            "stock_b": _stock(rb)}, indent=1)
+                       + "\n\nAre these two names the SAME physical "
+                         "substance held by this holder -- one stock, "
+                         "one ledger -- or genuinely different KINDS of "
+                         "things (money vs goods)? Time of counting does "
+                         "not matter: an opening balance and a total "
+                         "measured at a later deadline are the SAME "
+                         "substance counted at different moments, and "
+                         "must answer true, or the opening balance will "
+                         "be invisible to the measurement. Decide only "
+                         "from the meanings and evidence above.\n"
+                         "Return JSON exactly:\n"
+                         "  same_substance: true or false\n"
+                         "  why: one sentence of grounding")
+                doc = _ask(f"substance:{ra.name}~{rb.name}", ask,
+                           _v_substance, b, call, model)
+                if doc is not None:
+                    b.substance_identities.append(
+                        {"holder": holder_id, "a": ra.id, "b": rb.id,
+                         "same": bool(doc.get("same_substance")),
+                         "why": str(doc.get("why") or "")})
+
+    if b.unsupported:
+        raise UnsupportedCapability(
+            "semantic items with no faithful universal runtime form",
+            {"items": b.unsupported, "calls": len(b.calls)})
+    return b
+
+
+def _v_action(doc, wants_records, wants_amounts, wants_info) -> list:
+    d = []
+    if not isinstance(doc, dict):
+        return ["reply must be a JSON object"]
+    missing_dur: list = []
+    _num(doc, "duration_minutes", missing_dur, minimum=0)
+    d.extend(x + ". An act always takes time: a near-instant act (being "
+                 "present, raising a hand, casting a vote, signing) "
+                 "takes about a minute -- give that number with an "
+                 "honest status. If this names a lasting state rather "
+                 "than an act, the time is what entering that state "
+                 "takes"
+             for x in missing_dur)
+    if not missing_dur:
+        _status_ok(doc, "duration_status", d)
+    if not isinstance(doc.get("parameters", []), list):
+        d.append("parameters must be a list")
+    for p in doc.get("parameters") or []:
+        if not str(p.get("name") or "").strip():
+            d.append("every parameter needs a name")
+    if wants_records:
+        rv = doc.get("record_values") or {}
+        for t in wants_records:
+            if t["what"] not in rv:
+                d.append(f"record_values must cover {t['what']!r}")
+    if wants_amounts:
+        am = doc.get("amounts") or {}
+        for t in wants_amounts:
+            spec = am.get(t["what"])
+            if not spec:
+                d.append(f"amounts must cover {t['what']!r}")
+                continue
+            if spec.get("kind") not in ("transfer", "adjust"):
+                d.append(f"amounts[{t['what']!r}].kind must be "
+                         f"transfer or adjust")
+            _num(spec, "amount", d)
+    if wants_info:
+        mc = doc.get("message_contents") or {}
+        for t in wants_info:
+            if not str(mc.get(t["what"]) or "").strip():
+                d.append(f"message_contents must cover {t['what']!r}")
+    return d
+
+
+def _v_channel(doc) -> list:
+    d = []
+    if not isinstance(doc, dict):
+        return ["reply must be a JSON object"]
+    _num(doc, "delivery_seconds", d, minimum=0)
+    _status_ok(doc, "status", d)
+    return d
+
+
+def _v_process(doc) -> list:
+    d = []
+    if not isinstance(doc, dict):
+        return ["reply must be a JSON object"]
+    if doc.get("decorative"):
+        if not str(doc.get("why") or "").strip():
+            d.append("a decorative marking needs 'why'")
+        return d
+    missing_rate: list = []
+    _num(doc, "amount_per_hour", missing_rate, minimum=0)
+    d.extend(x + ". If that is because this mechanism does no continuous "
+                 "quantitative work -- it moves or hands over fixed-size "
+                 "shipments that the scheduled transfers already carry -- "
+                 "return {\"decorative\": true, \"why\": one sentence} "
+                 "instead of a rate"
+             for x in missing_rate)
+    if not missing_rate:
+        _status_ok(doc, "rate_status", d)
+    op = doc.get("operating")
+    if op:
+        if not str(op.get("timezone") or "").strip():
+            d.append("operating.timezone is missing")
+        if not isinstance(op.get("workdays"), list):
+            d.append("operating.workdays must be a list")
+        for k in ("start", "end"):
+            if not str(op.get(k) or "").strip():
+                d.append(f"operating.{k} is missing (HH:MM)")
+        window = {}
+        for k in ("from_date", "until_date"):
+            if op.get(k) is not None:
+                try:
+                    window[k] = date.fromisoformat(str(op[k]))
+                except ValueError:
+                    d.append(f"operating.{k} must be YYYY-MM-DD")
+        if len(window) == 2:
+            if window["until_date"] < window["from_date"]:
+                d.append("operating.until_date is before operating."
+                         "from_date")
+            elif (window["from_date"] == window["until_date"]
+                  and isinstance(op.get("workdays"), list)
+                  and op["workdays"]
+                  and window["from_date"].weekday() not in op["workdays"]):
+                d.append(
+                    f"operating dates name the single day "
+                    f"{window['from_date'].isoformat()} but workdays "
+                    f"{op['workdays']} exclude its weekday "
+                    f"{window['from_date'].weekday()}; a single-date "
+                    f"process must list that date's weekday")
+    orr = doc.get("output_resource")
+    if orr is not None:
+        for k in ("name", "holder"):
+            if not str(orr.get(k) or "").strip():
+                d.append(f"output_resource.{k} is missing")
+    return d
+
+
+def _v_substance(doc) -> list:
+    d = []
+    if not isinstance(doc, dict):
+        return ["reply must be a JSON object"]
+    if not isinstance(doc.get("same_substance"), bool):
+        d.append("same_substance must be true or false")
+    if not str(doc.get("why") or "").strip():
+        d.append("'why' must ground the decision in one sentence")
+    return d
+
+
+def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
+    """Deterministic connection, zero model calls: a process whose graph
+    node does not yet change a quantity is wired to the stock its binding
+    names. Resolution is holder-first (a holder's single stock needs no
+    name match); anything unresolvable is a refusal, not a guess."""
+    defects, shape_defects = [], []
+    for pid, bound in sorted(b.processes.items()):
+        if bound.get("decorative"):
+            continue
+        node = graph.node(pid)
+        has_resource = any(
+            graph.node(e.dst).category == "resource"
+            for e in graph.edges_from(pid, "changes")
+            + graph.edges_from(pid, "produces"))
+        if has_resource:
+            continue
+        orr = bound.get("output_resource")
+        if not orr:
+            shape_defects.append(
+                f"{pid}: a continuous process must feed a quantity, but "
+                f"neither the graph nor its binding names one. If this "
+                f"is a person's work toward one outcome (preparing a "
+                f"review, writing a report), it is not a process at "
+                f"all: model it in the causal spine as an actor "
+                f"decision with its duration, producing that outcome")
+            continue
+        try:
+            holder = graph.resolve_any(
+                ("participant", "organization", "population"),
+                orr["holder"], f"output of {pid}")
+        except (InvalidReference, SemanticAmbiguity) as exc:
+            defects.append(str(exc))
+            continue
+        held = [rs for rs in graph.by_category("resource")
+                if rs.attrs.get("holder") == holder]
+        from .symbols import slug as _slug
+        match = [rs for rs in held
+                 if _slug(orr["name"]) in rs.id or rs.id.endswith(
+                     _slug(orr["name"]))]
+        target = (held[0] if len(held) == 1 else
+                  match[0] if len(match) == 1 else None)
+        if target is None:
+            defects.append(
+                f"{pid}: cannot identify {orr['name']!r} held by "
+                f"{orr['holder']!r} among {[r.id for r in held]}; if the "
+                f"holder's opening stock of it was never declared, "
+                f"declare it in that entity's 'resources' list (name, "
+                f"meaning, amount, unit, basis, evidence_ids) -- NOT as "
+                f"an initial_state fact: a fact cannot be moved, "
+                f"consumed or measured as a quantity")
+            continue
+        graph.add_edge(pid, "changes", target.id,
+                       where=f"output of {pid}")
+    if shape_defects:
+        # a step's KIND is spine content; the starting-state document
+        # cannot change what something is
+        raise LoweringGap(
+            "processes with no quantity to feed are mis-shaped steps",
+            {"defects": shape_defects, "repairable": True,
+             "document": "causal_spine"})
+    if defects:
+        raise LoweringGap(
+            "process outputs cannot be connected to real stocks",
+            {"defects": defects, "repairable": True,
+             "document": "starting_state_and_information"})
+
+
+def _v_event(doc, residue) -> list:
+    d = []
+    if not isinstance(doc, dict):
+        return ["reply must be a JSON object"]
+    for t in residue:
+        if t["category"] == "record":
+            spec = (doc.get("record_makers") or {}).get(t["what"])
+            if not spec or not str(spec.get("made_by") or "").strip():
+                d.append(f"record_makers must name made_by for "
+                         f"{t['what']!r}")
+        elif t["category"] == "resource":
+            spec = (doc.get("amounts") or {}).get(t["what"])
+            if not spec:
+                d.append(f"amounts must cover {t['what']!r}")
+            else:
+                if spec.get("kind") not in ("transfer", "adjust"):
+                    d.append(f"amounts[{t['what']!r}].kind must be "
+                             f"transfer or adjust")
+                missing_amt: list = []
+                _num(spec, "amount", missing_amt)
+                d.extend(
+                    x + ". The runtime moves concrete numbers only: if "
+                        "the evidence's stated rates, windows and stocks "
+                        "determine what this occurrence carries, compute "
+                        "that number (status inferred, arithmetic in the "
+                        "note); if truly nothing fixes it, the item is "
+                        "unsupported -- say so instead of null"
+                    for x in missing_amt)
+        elif t["category"] == "information":
+            spec = (doc.get("messages") or {}).get(t["what"])
+            if not spec:
+                d.append(f"messages must cover {t['what']!r}")
+            else:
+                if not str(spec.get("from") or "").strip():
+                    d.append(f"messages[{t['what']!r}] needs 'from'")
+                if not isinstance(spec.get("to"), list) or not spec["to"]:
+                    d.append(f"messages[{t['what']!r}] needs recipient "
+                             f"list 'to'")
+                if not str(spec.get("channel") or "").strip():
+                    d.append(f"messages[{t['what']!r}] needs 'channel'")
+    return d
+
+
+# ---------------------------------------------------------------------------
+# targeted post-lowering rebinds
+# ---------------------------------------------------------------------------
+
+def items_named_in(text: str, b: Bindings) -> set:
+    """Bound items whose node name -- or its runtime slug -- appears
+    verbatim in a review finding. Deterministic string containment; no
+    guessing about what the reviewer meant."""
+    keys = set()
+    for c in b.calls:
+        key = c.get("item") or ""
+        if c.get("attempt") != 0 or ":" not in key:
+            continue
+        prefix, name = key.split(":", 1)
+        if prefix not in ("action", "channel", "process", "event"):
+            continue
+        if name and (name in text or slug(name) in text):
+            keys.add(key)
+    return keys
+
+
+def rebind_items(b: Bindings, item_keys, defect_text: str, call,
+                 model: str) -> list:
+    """One targeted post-lowering repair round: replay the recorded ask
+    for each named item with the equivalence reviewer's defect appended,
+    and replace the stored answer. Everything downstream is re-derived
+    and re-verified by the caller; a second adverse verdict is final.
+    Returns the item keys actually re-asked."""
+    originals: dict = {}
+    for c in b.calls:
+        if c.get("attempt") == 0 and c.get("item") not in originals:
+            originals[c["item"]] = c["prompt"]["user"]
+    redone = []
+    for key in sorted(item_keys):
+        user0 = originals.get(key)
+        validator = b.validators.get(key)
+        slot = b.slots.get(key)
+        if not user0 or validator is None or slot is None:
+            continue
+        user = (user0
+                + "\n\nAFTER LOWERING, an independent equivalence review "
+                  "of the whole world traced this defect to your earlier "
+                  "answer for THE ITEM:\n" + defect_text
+                + "\n\nReturn the complete corrected object for THE ITEM "
+                  "-- fix only what the defect names and keep everything "
+                  "else exactly as the item's meaning requires.")
+        doc = _ask(f"{key}:equivalence_repair", user, validator, b, call,
+                   model)
+        if doc is None:
+            continue          # a late unsupported claim never erases a
+                              # working binding; the re-review will judge
+        store, nid = slot
+        getattr(b, store)[nid] = doc
+        redone.append(key)
+    return redone
+
+
+def prune_dead_bindings(graph: WorldGraph, b: Bindings) -> list:
+    """After a document repair rebuilds the graph, bindings for nodes
+    that no longer exist are dead: drop them (and their rebind slots and
+    settled identities) so no later pass resolves a stale id. The call
+    log keeps the history; re-binding asks fresh for the new nodes."""
+    dropped = []
+    for store in (b.actions, b.channels, b.processes, b.events):
+        for nid in sorted(k for k in store if k not in graph.nodes):
+            del store[nid]
+            dropped.append(nid)
+    b.slots = {k: v for k, v in b.slots.items() if v[1] in graph.nodes}
+    b.substance_identities = [
+        i for i in b.substance_identities
+        if i.get("a") in graph.nodes and i.get("b") in graph.nodes]
+    return dropped

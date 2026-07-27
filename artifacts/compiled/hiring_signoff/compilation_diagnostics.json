@@ -1,0 +1,25 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "Approval request submitted at 2:00 PM Thursday 30 July.",
+        "Kolev checks email on an evening of 30 July to 2 August (uncertain).",
+        "If Kolev checks email on Thursday 30 July, she records compensation approval (taking ~5 min).",
+        "Lena Ruiz, if available on Friday 31 July (workday), compiles and countersigns the offer letter (taking ~30 min).",
+        "Ruiz emails the countersigned offer letter to Nandakumar (taking ~5 min).",
+        "If the email is sent before 9:00 AM Monday 3 August, terminal is positive; otherwise negative."
+      ],
+      "defects": [
+        {
+          "document": "producer_assignments",
+          "what": "Workday indices for Devon Okafor and Lena Ruiz are set to [1,2,3,4,5] (Tuesday to Saturday) instead of [0,1,2,3,4] (Monday to Friday).",
+          "why_material": "This would incorrectly allow actions on Saturday (e.g., compiling the offer) or exclude Monday, potentially changing whether the offer can be emailed before the deadline, directly affecting the terminal outcome."
+        }
+      ],
+      "reasoning": "The causal world captures the essential chain and uncertainties correctly, but the producer assignments for Devon Okafor and Lena Ruiz use incorrect workday indices ([1,2,3,4,5] instead of [0,1,2,3,4]), contradicting the evidence that the HR desk and recruiter work Monday to Friday (Monday=0). This could allow actions on Saturday or exclude Monday, potentially altering the timeline for offer compilation and email, which directly impacts whether the deadline is met. This is a material defect that requires revision.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

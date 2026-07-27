@@ -1,0 +1,381 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Authorized to initiate release wire upon receipt of fully executed original instruction",
+          "over": "wire_initiation"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "meaning": "Sent original release instruction to Hollis",
+          "over": "landmark_dispatches_instruction"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Release requires single original with wet-ink signatures of both principals",
+          "name": "escrow_agreement_terms",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "All other closing conditions satisfied as of 22 Sept, only dual-signed instruction outstanding",
+          "name": "closing_conditions_satisfied",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Original instruction delivered to Hollis on 24 Sept at 9:40 AM",
+          "name": "instruction_delivered_to_hollis",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hollis signs next business day and dispatches same day via FirstTrack 6 PM pickup",
+          "name": "hollis_practice",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Fontaine signs and dispatches same day if instruction arrives before noon, via FirstTrack 6 PM pickup",
+          "name": "fontaine_practice",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "FirstTrack standard overnight delivers next business day by 10:30 AM, no weekend pickup/delivery",
+          "name": "firsttrack_terms",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Both principals have no travel or absences scheduled through 2 Oct",
+          "name": "no_absences",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Landmark initiates wire same business day if fully executed originals arrive by 2:00 PM cutoff",
+          "name": "landmark_practice",
+          "visibility": "private"
+        }
+      ],
+      "name": "Landmark Title & Escrow",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 180000,
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Funds held in escrow for Kestrel Yard sale",
+          "name": "escrow_funds",
+          "unit": "USD"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Ada Fontaine is the person who must sign the release instruction and dispatch it.",
+          "over": "fontaine_signs_and_dispatches"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Ada Fontaine is the principal of Kestrel Yard LLC, the seller in the Kestrel Yard sale agreement.",
+          "name": "seller_principal"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Ada Fontaine's office is in Hartford.",
+          "name": "office_location"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Ada Fontaine signs and returns escrow originals via the 6:00 PM FirstTrack pickup the same business day when they arrive before noon.",
+          "name": "signing_practice"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Ada Fontaine has no travel or absences scheduled through 2 October.",
+          "name": "no_absences"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Ada Fontaine knows that Landmark Title & Escrow holds $180,000 in escrow for the Kestrel Yard sale.",
+          "name": "escrow_agreement",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Ada Fontaine knows that the release instruction requires wet-ink signatures of both principals.",
+          "name": "release_condition",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Ada Fontaine knows that all other closing conditions were satisfied on 22 September.",
+          "name": "closing_conditions_met",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Ada Fontaine knows the routing: instruction goes from Landmark to Hollis, then to Fontaine, then back to Landmark.",
+          "name": "routing",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Ada Fontaine knows that the instruction was delivered to Hollis on 24 September.",
+          "name": "instruction_delivered_to_hollis",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Ada Fontaine knows that Hollis signs escrow paperwork no later than the business day after receipt and dispatches same day via FirstTrack 6:00 PM pickup.",
+          "name": "hollis_practice",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Ada Fontaine knows that FirstTrack standard overnight delivers next business day by 10:30 AM, no weekend pickup/delivery.",
+          "name": "firsttrack_terms",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Ada Fontaine knows that Landmark initiates release wire same business day when fully executed originals arrive by 2:00 PM cutoff.",
+          "name": "landmark_practice",
+          "visibility": "private"
+        }
+      ],
+      "name": "Ada Fontaine",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Bram Hollis is the buyer's principal who must sign the release instruction and dispatch it.",
+          "over": "hollis_signs_and_dispatches"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The original release instruction was delivered to Hollis Development's Wilmington office at 9:40 AM on Thursday 24 September.",
+          "name": "instruction_delivered",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The escrow agreement requires a single original release instruction bearing wet-ink signatures of both principals; scanned or faxed copies do not suffice.",
+          "name": "escrow_agreement_terms",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "All other closing conditions were satisfied and documented on 22 September, leaving the dual-signed release instruction as the sole outstanding requirement.",
+          "name": "closing_conditions_met",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The routing agreed sends the original instruction from Landmark to Hollis for signature, then from Hollis to Fontaine, then from Fontaine back to Landmark.",
+          "name": "routing_memo",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hollis's documented practice is to sign escrow paperwork no later than the business day after it reaches his office, and his office dispatches signed originals the same day via FirstTrack's 6:00 PM pickup.",
+          "name": "hollis_practice",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Fontaine's documented practice is to sign and return escrow originals via the 6:00 PM FirstTrack pickup the same business day when they arrive before noon; her Hartford office is open Monday to Friday 9:00 to 5:00.",
+          "name": "fontaine_practice",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "FirstTrack standard overnight delivers the next business day by 10:30 AM and has no Saturday or Sunday pickup or delivery.",
+          "name": "firsttrack_terms",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Landmark's practice is to initiate the release wire the same business day when fully executed originals arrive by its 2:00 PM cutoff; Landmark is open Monday to Friday 9:00 to 5:00.",
+          "name": "landmark_practice",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Both principals' offices are open Monday to Friday, and neither principal has travel or absences scheduled through 2 October.",
+          "name": "no_absences",
+          "visibility": "public"
+        }
+      ],
+      "name": "Bram Hollis",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

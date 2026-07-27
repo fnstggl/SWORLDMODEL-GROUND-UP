@@ -1,0 +1,112 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:board_approval_record",
+        "via": {
+          "node": "action:board_approval_record_created",
+          "prerequisites": [
+            {
+              "node": "action:board_meeting_held",
+              "prerequisites": [
+                {
+                  "node": "action:board_meeting_scheduled",
+                  "prerequisites": [
+                    {
+                      "node": "action:acquisition_proposal_developed",
+                      "prerequisites": [
+                        {
+                          "node": "action:negotiations_occur",
+                          "prerequisites": [
+                            {
+                              "node": "action:initial_contact",
+                              "root": "actor_choice"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      ],
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              ],
+              "root": "actor_choice"
+            },
+            {
+              "node": "action:board_votes_approval",
+              "prerequisites": [
+                {
+                  "node": "action:acquisition_proposal_presented",
+                  "prerequisites": [
+                    {
+                      "node": "action:acquisition_proposal_developed",
+                      "prerequisites": [
+                        {
+                          "node": "action:negotiations_occur",
+                          "prerequisites": [
+                            {
+                              "node": "action:initial_contact",
+                              "root": "actor_choice"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      ],
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "action:board_meeting_held",
+                  "prerequisites": [
+                    {
+                      "node": "action:board_meeting_scheduled",
+                      "prerequisites": [
+                        {
+                          "node": "action:acquisition_proposal_developed",
+                          "prerequisites": [
+                            {
+                              "node": "action:negotiations_occur",
+                              "prerequisites": [
+                                {
+                                  "node": "action:initial_contact",
+                                  "root": "actor_choice"
+                                }
+                              ],
+                              "root": "actor_choice"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      ],
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:board_approval_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:board_approval_record_created"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

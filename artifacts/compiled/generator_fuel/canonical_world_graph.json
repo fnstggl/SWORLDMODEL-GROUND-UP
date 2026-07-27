@@ -1,0 +1,391 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "meaning": "The generator runs and consumes fuel as a physical process."
+      },
+      "dst": "process:generator_runs_consuming_fuel",
+      "rel": "has_authority",
+      "src": "organization:trelvane_td_500_generator"
+    },
+    {
+      "attrs": {},
+      "dst": "state:fuel_level",
+      "rel": "has_state",
+      "src": "organization:trelvane_td_500_generator"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_fuel_consumption_before_outage",
+      "rel": "has_state",
+      "src": "organization:trelvane_td_500_generator"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:generator_starts_and_picks_up_load",
+      "rel": "requires",
+      "src": "process:generator_runs_consuming_fuel"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "state:day_tank_fuel_level_at_deadline"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:generator_runs_consuming_fuel",
+      "rel": "requires",
+      "src": "state:day_tank_fuel_level_at_deadline"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:no_fuel_consumption_before_outage",
+      "rel": "requires",
+      "src": "state:fuel_level_at_outage_start"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "state:generator_running_status"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:day_tank_fuel_level_at_deadline",
+      "rel": "requires",
+      "src": "state:generator_running_status"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:grid_power_outage_starts",
+      "rel": "requires",
+      "src": "state:generator_starts_and_picks_up_load"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:fuel_level_at_outage_start",
+      "rel": "requires",
+      "src": "state:generator_starts_and_picks_up_load"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:initial_fuel_level",
+      "rel": "requires",
+      "src": "state:no_fuel_consumption_before_outage"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "bulk fuel tank or other fuel sources",
+      "why_safe": "Evidence e4 explicitly states there is no bulk fuel tank, drum store, or other fuel source on site. The generator draws fuel only from its integral day tank. Therefore, excluding other fuel sources is safe because they do not exist."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "fuel deliveries before the deadline",
+      "why_safe": "Evidence e9 states no fuel delivery is scheduled before 30 September 2026, and no unscheduled delivery can be arranged without five business days' notice, which has not been given. Since the deadline is 22 September, no delivery can occur before then. Excluding deliveries is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "name": "generator failure to start or run",
+      "why_safe": "Evidence e8 shows the transfer switch and generator functioned correctly in a recent exercise. There is no evidence of any mechanical issue. Excluding failure is safe because the evidence supports reliable operation."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "manual load shedding by Roscoe Tilden",
+      "why_safe": "Evidence e10 states that Tilden can shed load manually, but the standing procedure directs him to carry the full essential load, and he has no authority to vary the supply contract. Since the procedure is to carry full load, and he is expected to follow it, excluding load shedding is safe for the base case. However, if load shedding were considered, it would reduce fuel consumption, making the answer more likely YES. Excluding it is conservative for a NO answer."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "anchor": null,
+        "no_producer_needed": "Scheduled event, no producer needed.",
+        "step_kind": "scheduled_event",
+        "when": "2026-09-22T06:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:grid_power_outage_starts",
+      "meaning": "Grid power to the plant is cut at 6:00 AM on 22 September 2026 as scheduled.",
+      "name": "grid_power_outage_starts",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "The generator consumes diesel fuel at a rate determined by the load it supplies. The essential load during the outage is 310 kW. The generator's fuel consumption rate is not directly recorded, but can be inferred from typical diesel generator efficiency. A typical diesel generator consumes about 0.25 liters per kWh at full load, but at 310 kW (62% of 500 kW rating), specific fuel consumption is higher, approximately 0.28 L/kWh. Thus, consumption rate is about 86.8 L/h (310 kW * 0.28 L/kWh).",
+            "operating_meaning": "The generator runs continuously from 6:00 AM to 12:00 noon on 22 September 2026, a duration of 6 hours.",
+            "rate_meaning": "Approximately 86.8 liters per hour when supplying the 310 kW essential load."
+          }
+        ],
+        "producer_kind": "operating_process"
+      },
+      "category": "organization",
+      "id": "organization:trelvane_td_500_generator",
+      "meaning": "The generator runs and consumes fuel as a physical process.",
+      "name": "Trelvane TD-500 generator",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process",
+        "uncertainty": "The exact fuel consumption rate is unknown because no past run has recorded fuel usage. However, the generator's rated power and load are known, so consumption can be estimated."
+      },
+      "category": "process",
+      "id": "process:generator_runs_consuming_fuel",
+      "meaning": "The generator runs continuously from 6:00 AM to 12:00 noon on 22 September 2026, consuming diesel at a rate determined by the 310 kW load.",
+      "name": "generator_runs_consuming_fuel",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "no_producer_needed": "Condition with prerequisites only, no producer."
+      },
+      "category": "state",
+      "id": "state:day_tank_fuel_level_at_deadline",
+      "meaning": "At 12:00 noon on 22 September 2026, the day tank contains a certain volume of diesel, which is the initial 620 litres minus the amount consumed during the 6-hour run.\nThe volume of diesel fuel in the generator's day tank at 12:00 noon on 22 September 2026.",
+      "name": "day_tank_fuel_level_at_deadline",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11",
+          "e5",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "620 liters"
+      },
+      "category": "state",
+      "id": "state:fuel_level",
+      "meaning": "The amount of diesel fuel in the day tank at the start of the outage (6:00 AM on 22 September 2026).",
+      "name": "fuel_level",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "Condition with prerequisites only, no producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:fuel_level_at_outage_start",
+      "meaning": "At 6:00 AM on 22 September 2026, the day tank still contains 620 litres of diesel.",
+      "name": "fuel_level_at_outage_start",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "no_producer_needed": "Condition with prerequisites only, no producer."
+      },
+      "category": "state",
+      "id": "state:generator_running_status",
+      "meaning": "The generator does not stop for lack of fuel at any point between 6:00 AM and 12:00 noon on 22 September 2026.\nWhether the generator was running or stopped at any point between 6:00 AM and 12:00 noon on 22 September 2026, and if stopped, the reason.",
+      "name": "generator_running_status",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11",
+          "e5",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "Condition with prerequisites only, no producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:generator_starts_and_picks_up_load",
+      "meaning": "Upon loss of grid power, the automatic transfer switch starts the generator and it picks up the essential load of 310 kW.",
+      "name": "generator_starts_and_picks_up_load",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial fact, no producer needed.",
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:initial_fuel_level",
+      "meaning": "At 8:00 AM on Friday 18 September 2026, the day tank contains 620 litres of diesel.",
+      "name": "initial_fuel_level",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": true,
+        "no_producer_needed": "Condition with prerequisites only, no producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:no_fuel_consumption_before_outage",
+      "meaning": "From 8:00 AM on 18 September 2026 until the start of the outage at 6:00 AM on 22 September 2026, no fuel is consumed from the day tank because the generator is not run and nothing else draws fuel.\nThe generator has not been started since the measurement on 18 September 2026, and no other equipment draws fuel from the day tank, so the fuel level remains 620 liters at the start of the outage.",
+      "name": "no_fuel_consumption_before_outage",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The exact moment grid power is restored, as per the planned outage notice.",
+          "timezone": "America/New_York",
+          "when": "2026-09-22T12:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The generator's day tank is empty at 12:00 noon on 22 September 2026, or the generator has run dry at any point between 6:00 AM and 12:00 noon that day.",
+        "positive_condition": "The generator's day tank holds fuel at 12:00 noon on 22 September 2026, and the generator has not stopped for want of fuel at any point between 6:00 AM and 12:00 noon that day.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether the Fenmoor Regional Wastewater Plant's standby generator still has fuel in its day tank at 12:00 noon on Tuesday 22 September 2026, and has not run dry between 6:00 AM and 12:00 noon that day.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "event": {
+        "grid_power_outage_starts": "grid_power_outage_starts"
+      },
+      "organization": {
+        "Trelvane TD-500 generator": "trelvane_td_500_generator"
+      },
+      "process": {
+        "generator_runs_consuming_fuel": "generator_runs_consuming_fuel"
+      },
+      "state": {
+        "day_tank_fuel_level_at_deadline": "day_tank_fuel_level_at_deadline",
+        "fuel_level": "fuel_level",
+        "fuel_level_at_outage_start": "fuel_level_at_outage_start",
+        "generator_running_status": "generator_running_status",
+        "generator_starts_and_picks_up_load": "generator_starts_and_picks_up_load",
+        "initial_fuel_level": "initial_fuel_level",
+        "no_fuel_consumption_before_outage": "no_fuel_consumption_before_outage"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "The exact fuel consumption rate of the Trelvane TD-500 generator under the essential load of 310 kW is unknown. The evidence does not provide a specific consumption rate (e.g., litres per hour) for this generator at that load. Without this rate, the total fuel consumed over the 6-hour outage cannot be precisely calculated.",
+      "topic": "generator fuel consumption rate"
+    },
+    {
+      "about": null,
+      "meaning": "The generator's actual fuel consumption may vary from nominal rates due to factors like engine condition, load variations, or ambient conditions. The evidence does not provide a measured consumption rate from past runs.",
+      "topic": "generator performance"
+    },
+    {
+      "about": null,
+      "meaning": "The amount of fuel consumed during generator startup and stabilization before picking up the load is unknown. This could affect the total fuel used.",
+      "topic": "generator starting fuel consumption"
+    },
+    {
+      "about": "process:generator_runs_consuming_fuel",
+      "meaning": "The exact fuel consumption rate is unknown because no past run has recorded fuel usage. However, the generator's rated power and load are known, so consumption can be estimated."
+    },
+    {
+      "about": "state:fuel_level_at_outage_start",
+      "meaning": "Although the initial fuel level was 620 litres on 18 September, and no fuel was consumed or added before the outage, the exact fuel level at 6:00 AM on 22 September is not directly measured. It is assumed to be 620 litres, but minor variations (e.g., evaporation, temperature changes) are possible."
+    }
+  ]
+}

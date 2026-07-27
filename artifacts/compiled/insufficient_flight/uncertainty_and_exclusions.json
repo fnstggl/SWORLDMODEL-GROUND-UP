@@ -1,0 +1,86 @@
+{
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e4"
+      ],
+      "name": "Other airlines or flights",
+      "why_safe": "The question is specifically about connection to AU 780; other flights are irrelevant unless rebooking occurs, but rebooking would mean she misses the original flight, which counts as no."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3"
+      ],
+      "name": "Weather or natural disasters",
+      "why_safe": "No evidence mentions weather; excluding it is safe because any such event would be captured under flight delays/cancellations, which are already considered as uncertainties."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Terrorism or security incidents",
+      "why_safe": "No evidence suggests such events; they would affect flights generally, already covered by uncertainties about departure/arrival."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Haddad's personal emergencies or health",
+      "why_safe": "These are captured under uncertainties about her arriving at the airport and boarding; no specific evidence of such issues exists."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Auralis Air's financial or labor issues",
+      "why_safe": "No evidence of strikes or bankruptcy; any operational disruption would be reflected in flight status uncertainties."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "Haddad arrives at Verlan City airport",
+      "meaning": "Whether Haddad will actually go to Verlan City airport on 12 August 2026 is unknown. She might be delayed, fall ill, or choose not to travel."
+    },
+    {
+      "about": "Haddad checks in for AU 412",
+      "meaning": "Whether Haddad will complete check-in for AU 412 (online or at airport) is unknown. She might miss the check-in deadline or have issues."
+    },
+    {
+      "about": "Haddad boards AU 412 in Verlan City",
+      "meaning": "Even if she checks in, she might not board due to security, gate changes, or personal reasons."
+    },
+    {
+      "about": "AU 412 departs Verlan City",
+      "meaning": "Whether AU 412 will depart on time or at all is uncertain due to possible delays, cancellations, or operational issues."
+    },
+    {
+      "about": "AU 412 arrives at Halden International",
+      "meaning": "Even if it departs, arrival could be delayed, causing her to miss the connection."
+    },
+    {
+      "about": "Haddad arrives at Halden International",
+      "meaning": "Whether she arrives at Halden International in time to make the connection is uncertain, depending on flight punctuality and airport procedures."
+    },
+    {
+      "about": "Haddad checks in for AU 780",
+      "meaning": "Whether she will check in for AU 780 (likely automatic if through-ticketed, but still uncertain if she misses the first flight)."
+    },
+    {
+      "about": "Haddad has valid boarding pass for AU 780",
+      "meaning": "Even if checked in, boarding pass issuance could fail due to system issues or security flags."
+    },
+    {
+      "about": "Haddad boards AU 780",
+      "meaning": "She might not board due to gate changes, delays, or personal decisions."
+    },
+    {
+      "about": "AU 780 departs Halden International",
+      "meaning": "The flight could be delayed or cancelled, though it is scheduled daily."
+    },
+    {
+      "about": "Haddad aboard AU 780 at departure",
+      "meaning": "The final step: whether she is physically on the plane when it departs. All prior steps must succeed."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "assembly_ms": 2.3,
+  "assembly_repairs": [
+    "causal_spine",
+    "starting_state_and_information",
+    "review:causal_spine",
+    "review:uncertainty_and_exclusions"
+  ],
+  "binding_calls": 34,
+  "discovery_calls": 13,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 132900.35543199952,
+  "model_tokens": 90152,
+  "proofs_ms": 1.2,
+  "repairs_by_step": {
+    "action:bring about: application_accepted_complete": 1,
+    "action:bring about: count_resumes": 2,
+    "action:bring about: count_start": 2,
+    "action:bring about: deemed_approval_trigger": 1,
+    "action:bring about: request_outstanding_period": 2,
+    "action:bring about: request_resolved": 1,
+    "causal_spine": 2,
+    "starting_state[Larkspur County Building Department]": 1,
+    "uncertainty_and_exclusions": 1
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 1,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "LOWERING_GAP",
+  "stale_bindings_dropped": [
+    "action:bring_about_application_accepted_complete",
+    "action:bring_about_application_filed",
+    "action:bring_about_count_resumes",
+    "action:bring_about_count_start",
+    "action:bring_about_deemed_approval_trigger",
+    "action:bring_about_request_outstanding_period",
+    "action:bring_about_request_resolved",
+    "process:counted_business_days_elapsed",
+    "process:plan_review_completed"
+  ]
+}

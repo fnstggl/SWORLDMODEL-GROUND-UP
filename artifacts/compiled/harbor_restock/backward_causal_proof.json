@@ -1,0 +1,163 @@
+{
+  "components": [
+    {
+      "chain": {
+        "derived_condition": true,
+        "node": "state:vaccine_at_clinic",
+        "prerequisites": [
+          {
+            "node": "process:courier_delivers_to_clinic",
+            "prerequisites": [
+              {
+                "derived_condition": true,
+                "node": "state:vaccine_arrives_at_island_dock",
+                "prerequisites": [
+                  {
+                    "node": "event:ferry_sailing_arrives",
+                    "prerequisites": [
+                      {
+                        "derived_condition": true,
+                        "node": "state:vaccine_loaded_on_ferry",
+                        "prerequisites": [
+                          {
+                            "node": "event:ferry_sailing_departs",
+                            "prerequisites": [
+                              {
+                                "derived_condition": true,
+                                "node": "state:ferry_sailing_operates",
+                                "prerequisites": [
+                                  {
+                                    "derived_condition": true,
+                                    "node": "state:ferry_sailing_not_cancelled",
+                                    "prerequisites": [
+                                      {
+                                        "derived_condition": true,
+                                        "node": "state:gale_warning_ends_before_sailing",
+                                        "prerequisites": [
+                                          {
+                                            "node": "event:gale_warning_issued",
+                                            "root": "scheduled_event"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "root": "scheduled_event"
+                          },
+                          {
+                            "derived_condition": true,
+                            "node": "state:vaccine_at_ferry_terminal_cold_room",
+                            "prerequisites": [
+                              {
+                                "node": "event:penhallow_delivers_to_terminal",
+                                "prerequisites": [
+                                  {
+                                    "derived_condition": true,
+                                    "node": "state:vaccine_packed_and_ready",
+                                    "prerequisites": [
+                                      {
+                                        "node": "action:order_placed",
+                                        "root": "actor_choice"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "root": "scheduled_event"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "root": "scheduled_event"
+                  }
+                ]
+              }
+            ],
+            "root": "process"
+          },
+          {
+            "derived_condition": true,
+            "node": "state:vaccine_arrives_at_island_dock",
+            "prerequisites": [
+              {
+                "node": "event:ferry_sailing_arrives",
+                "prerequisites": [
+                  {
+                    "derived_condition": true,
+                    "node": "state:vaccine_loaded_on_ferry",
+                    "prerequisites": [
+                      {
+                        "node": "event:ferry_sailing_departs",
+                        "prerequisites": [
+                          {
+                            "derived_condition": true,
+                            "node": "state:ferry_sailing_operates",
+                            "prerequisites": [
+                              {
+                                "derived_condition": true,
+                                "node": "state:ferry_sailing_not_cancelled",
+                                "prerequisites": [
+                                  {
+                                    "derived_condition": true,
+                                    "node": "state:gale_warning_ends_before_sailing",
+                                    "prerequisites": [
+                                      {
+                                        "node": "event:gale_warning_issued",
+                                        "root": "scheduled_event"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "root": "scheduled_event"
+                      },
+                      {
+                        "derived_condition": true,
+                        "node": "state:vaccine_at_ferry_terminal_cold_room",
+                        "prerequisites": [
+                          {
+                            "node": "event:penhallow_delivers_to_terminal",
+                            "prerequisites": [
+                              {
+                                "derived_condition": true,
+                                "node": "state:vaccine_packed_and_ready",
+                                "prerequisites": [
+                                  {
+                                    "node": "action:order_placed",
+                                    "root": "actor_choice"
+                                  }
+                                ]
+                              }
+                            ],
+                            "root": "scheduled_event"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ]
+          }
+        ]
+      },
+      "component": "state:vaccine_at_clinic",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [],
+      "producers": []
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

@@ -1,0 +1,92 @@
+{
+  "components": [
+    {
+      "chain": {
+        "derived_condition": true,
+        "node": "state:day_tank_fuel_level_at_deadline",
+        "prerequisites": [
+          {
+            "node": "process:generator_runs_consuming_fuel",
+            "prerequisites": [
+              {
+                "derived_condition": true,
+                "node": "state:generator_starts_and_picks_up_load",
+                "prerequisites": [
+                  {
+                    "node": "event:grid_power_outage_starts",
+                    "root": "scheduled_event"
+                  },
+                  {
+                    "derived_condition": true,
+                    "node": "state:fuel_level_at_outage_start",
+                    "prerequisites": [
+                      {
+                        "node": "state:no_fuel_consumption_before_outage",
+                        "root": "initial_fact"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "root": "process"
+          }
+        ]
+      },
+      "component": "state:day_tank_fuel_level_at_deadline",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [],
+      "producers": []
+    },
+    {
+      "chain": {
+        "derived_condition": true,
+        "node": "state:generator_running_status",
+        "prerequisites": [
+          {
+            "derived_condition": true,
+            "node": "state:day_tank_fuel_level_at_deadline",
+            "prerequisites": [
+              {
+                "node": "process:generator_runs_consuming_fuel",
+                "prerequisites": [
+                  {
+                    "derived_condition": true,
+                    "node": "state:generator_starts_and_picks_up_load",
+                    "prerequisites": [
+                      {
+                        "node": "event:grid_power_outage_starts",
+                        "root": "scheduled_event"
+                      },
+                      {
+                        "derived_condition": true,
+                        "node": "state:fuel_level_at_outage_start",
+                        "prerequisites": [
+                          {
+                            "node": "state:no_fuel_consumption_before_outage",
+                            "root": "initial_fact"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "root": "process"
+              }
+            ]
+          }
+        ]
+      },
+      "component": "state:generator_running_status",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [],
+      "producers": []
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

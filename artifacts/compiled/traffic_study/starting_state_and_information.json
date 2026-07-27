@@ -1,0 +1,212 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e4b"
+          ],
+          "meaning": "Santos is the person who emails the finalized study to council members.",
+          "over": "santos_emails_study"
+        }
+      ],
+      "availability": {
+        "close": "16:30",
+        "open": "08:00",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Available 24/7.",
+            "meaning": "Continuous delivery; sender sends and system delivers."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e9"
+          ],
+          "latency_meaning": "Delivery within about a minute.",
+          "meaning": "The city's internal email system used to distribute finalized studies as PDF attachments.",
+          "name": "City email system",
+          "role": "both"
+        }
+      ],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The Riverside corridor traffic study is not yet finalized; it awaits peer-review sign-off.",
+          "name": "study_not_finalized"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "External reviewer committed to deliver sign-off by 10:00 AM on 18 February.",
+          "name": "peer_review_signoff_expected"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4b"
+          ],
+          "meaning": "Santos emails finalized study to council members within an hour after receiving peer-review sign-off.",
+          "name": "practice_to_email_study"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Santos knows the study is complete except for peer-review sign-off, and that sign-off is expected by 10:00 AM on 18 February.",
+          "name": "study_status"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4b"
+          ],
+          "meaning": "Santos knows his practice to email finalized study within an hour after sign-off.",
+          "name": "email_practice"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Santos knows the council meeting begins at 7:00 PM on 19 February.",
+          "name": "council_meeting_time"
+        }
+      ],
+      "name": "Miguel Santos",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Chicago"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Reyes decides whether to read the finalized study in full",
+          "over": "reyes_reads_study"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Reyes decides when to check her email",
+          "over": "reyes_checks_email"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "08:30",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": 120,
+            "calendar_meaning": "During workdays 8:30-18:00",
+            "meaning": "Reyes checks email at start of workday and roughly every two hours"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6",
+            "e9"
+          ],
+          "latency_meaning": "Delivery within about a minute",
+          "meaning": "City email system for receiving finalized studies as PDF attachments",
+          "name": "City email system",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ],
+          "meaning": "Council meeting to vote on Riverside corridor item",
+          "name": "council_meeting",
+          "when": "2026-02-19T19:00:00-06:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Reyes knows the traffic study is not yet finalized as of the start of the world (before peer review sign-off)",
+          "name": "study_not_yet_finalized",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ],
+          "meaning": "Reyes knows the council meeting is on Feb 19 at 7 PM",
+          "name": "meeting_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Reyes knows she checks email at start of workday and every two hours",
+          "name": "email_checking_habit",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Reyes knows reading a corridor study takes 60-90 minutes",
+          "name": "reading_time",
+          "visibility": "private"
+        }
+      ],
+      "name": "Councilmember Alma Reyes",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Chicago"
+    }
+  ]
+}

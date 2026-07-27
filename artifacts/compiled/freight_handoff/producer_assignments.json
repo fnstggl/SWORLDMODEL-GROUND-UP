@@ -1,0 +1,122 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6",
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Sanko Kikai's compliance officer, sole authorized issuer of corrected certificates of origin.",
+          "name": "Yuki Tamesada"
+        }
+      ],
+      "step": "corrected_certificate_issued"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Marchwood's only licensed broker, who emailed Tamesada at 3:40 PM Eastern on Monday 16 November 2026.",
+          "name": "Ondrej Malik"
+        }
+      ],
+      "step": "malik_requests_correction"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Recipient of Malik's email; she cannot receive it while on a flight without internet.",
+          "name": "Yuki Tamesada"
+        }
+      ],
+      "step": "tamesada_receives_request"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "scheduled_event",
+          "meaning": "Flight that lands in Singapore at 4:30 AM Singapore time on 17 November 2026.",
+          "name": "Meridian Pacific flight MP 118",
+          "when": "2026-11-17T04:30:00+08:00"
+        }
+      ],
+      "step": "tamesada_lands_singapore"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "She clears her compliance inbox 45-60 minutes after landing, based on her usual pattern.",
+          "name": "Yuki Tamesada"
+        }
+      ],
+      "step": "tamesada_clears_inbox"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "He receives the email only during his scheduled email checks (top and half past each hour, 8:00 AM-4:30 PM Eastern, Mon-Fri).",
+          "name": "Ondrej Malik"
+        }
+      ],
+      "step": "malik_receives_certificate"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11",
+            "e12",
+            "e13"
+          ],
+          "kind": "person",
+          "meaning": "He prepares and submits the entry, which takes 45 minutes; he is out of office on Tuesday 17 November.",
+          "name": "Ondrej Malik"
+        }
+      ],
+      "step": "malik_prepares_entry"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e13"
+          ],
+          "kind": "person",
+          "meaning": "He submits the entry to the port authority system; the system acknowledges it.",
+          "name": "Ondrej Malik"
+        }
+      ],
+      "step": "entry_submitted_and_acknowledged"
+    }
+  ]
+}

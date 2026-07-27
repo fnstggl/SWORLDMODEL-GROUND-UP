@@ -1,0 +1,62 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:wire_initiation_record",
+        "via": {
+          "node": "action:wire_initiation",
+          "prerequisites": [
+            {
+              "derived_condition": true,
+              "node": "state:fully_signed_instruction_arrives",
+              "prerequisites": [
+                {
+                  "node": "action:fontaine_dispatches_signed",
+                  "prerequisites": [
+                    {
+                      "node": "process:instruction_delivered_to_fontaine",
+                      "prerequisites": [
+                        {
+                          "node": "action:hollis_dispatches_signed",
+                          "prerequisites": [
+                            {
+                              "node": "event:instruction_delivered_to_hollis",
+                              "prerequisites": [
+                                {
+                                  "node": "action:landmark_dispatches_instruction",
+                                  "root": "actor_choice"
+                                }
+                              ],
+                              "root": "scheduled_event"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      ],
+                      "root": "process"
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              ]
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:wire_initiation_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:wire_initiation"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

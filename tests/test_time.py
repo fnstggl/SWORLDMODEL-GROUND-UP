@@ -122,3 +122,14 @@ def test_attention_rules_are_strict():
 def test_fmt_span():
     assert fmt_span(timedelta(days=11, hours=4)) == "11 days, 4 hours"
     assert fmt_span(timedelta(minutes=0)) == "0 minutes"
+
+
+def test_calendar_serialization_keeps_sub_minute_precision():
+    """A round-the-clock calendar closes at 23:59:59.999999. Truncating that
+    to minutes on the way through the ledger would leave a dead minute every
+    day in ports, hospitals and other 24/7 operations."""
+    cal = BusinessCalendar(tz=NY, workdays=frozenset(range(7)),
+                           open_time=time(0, 0),
+                           close_time=time(23, 59, 59, 999999))
+    assert BusinessCalendar.from_dict(cal.to_dict()).close_time == cal.close_time
+    assert cal.is_open(at_local(2026, 5, 4, 23, 59, 30, tz=NY))

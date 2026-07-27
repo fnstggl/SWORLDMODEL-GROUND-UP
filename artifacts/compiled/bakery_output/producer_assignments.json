@@ -1,0 +1,156 @@
+{
+  "assignments": [
+    {
+      "step": "loaves_delivered",
+      "unsupported": "This is a condition that is the conjunction of two scheduled events; it has no producer of its own."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Driver who makes the van run and hands over loaves at the stand.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "first_arrival_handover"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Driver who departs the bakery at 8:00 AM.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "first_departure"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Driver who loads the van up to 90 loaves.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "first_load"
+    },
+    {
+      "step": "cooled_loaves_before_8am",
+      "unsupported": "This is a condition that is a conjunction of two other conditions; it has no producer of its own."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "Bakery that produced the 20 loaves on Friday.",
+          "name": "Copperwheat Bakery"
+        }
+      ],
+      "step": "friday_evening_loaves"
+    },
+    {
+      "step": "saturday_baked_before_7am",
+      "unsupported": "This is a condition that depends on the baking process; it has no producer of its own."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Head baker who runs the oven from 5:00 AM to 7:00 AM.",
+          "name": "Tomas Ilic"
+        }
+      ],
+      "step": "saturday_baking_5_to_7am"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Driver who makes the second van run and hands over loaves at the stand.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "second_arrival_handover"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Driver who departs the bakery at 11:00 AM.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "second_departure"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Driver who loads the van up to 90 loaves.",
+          "name": "Jo Fenwick"
+        }
+      ],
+      "step": "second_load"
+    },
+    {
+      "step": "cooled_loaves_before_11am",
+      "unsupported": "This is a condition that depends on the baking process; it has no producer of its own."
+    },
+    {
+      "step": "saturday_baked_before_10am",
+      "unsupported": "This is a condition that depends on the baking process; it has no producer of its own."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Head baker who runs the oven from 5:00 AM to 10:00 AM.",
+          "name": "Tomas Ilic"
+        }
+      ],
+      "step": "saturday_baking_5_to_10am"
+    }
+  ]
+}

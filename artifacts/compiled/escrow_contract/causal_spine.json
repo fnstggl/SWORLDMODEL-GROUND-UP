@@ -1,0 +1,118 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Landmark Title & Escrow initiates the release wire to the seller before 5:00 PM ET on 30 September 2026.",
+      "name": "wire_initiation",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "fully_signed_instruction_arrives"
+        }
+      ],
+      "produces_proof": [
+        "wire initiation record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10",
+        "e2"
+      ],
+      "kind": "condition",
+      "meaning": "The original release instruction bearing wet-ink signatures of both principals arrives at Landmark's office before 2:00 PM on a business day on or before 30 September 2026.",
+      "name": "fully_signed_instruction_arrives",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "fontaine_signs_and_dispatches"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8",
+        "e4"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Ada Fontaine signs the original release instruction and dispatches it via FirstTrack's 6:00 PM pickup on a business day before 30 September 2026.",
+      "name": "fontaine_signs_and_dispatches",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "hollis_signs_and_dispatches"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e4"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Bram Hollis signs the original release instruction and dispatches it via FirstTrack's 6:00 PM pickup on a business day before 30 September 2026.",
+      "name": "hollis_signs_and_dispatches",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "instruction_delivered_to_hollis"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The original release instruction is delivered to Hollis Development's Wilmington office by FirstTrack.",
+      "name": "instruction_delivered_to_hollis",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "landmark_dispatches_instruction"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-09-24T09:40:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4",
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Landmark sends the original release instruction to Hollis via FirstTrack.",
+      "name": "landmark_dispatches_instruction",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

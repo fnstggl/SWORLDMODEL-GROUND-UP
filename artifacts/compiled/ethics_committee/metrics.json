@@ -1,0 +1,36 @@
+{
+  "assembly_ms": 8.8,
+  "assembly_repairs": [
+    "starting_state_and_information",
+    "review:causal_spine",
+    "review:producer_assignments",
+    "review:uncertainty_and_exclusions"
+  ],
+  "binding_calls": 22,
+  "discovery_calls": 13,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 227456.226026,
+  "model_tokens": 74705,
+  "proofs_ms": 0.9,
+  "repairs_by_step": {
+    "causal_spine": 1,
+    "process:safety_review_circulated": 1,
+    "producer_assignments": 1,
+    "starting_state[Tomas Lindqvist]": 1,
+    "uncertainty_and_exclusions": 1
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 2,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

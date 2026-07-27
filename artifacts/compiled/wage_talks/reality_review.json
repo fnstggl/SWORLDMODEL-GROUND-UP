@@ -1,0 +1,29 @@
+{
+  "causal_path": [
+    "bargaining_session_occurs (scheduled event) on 2026-10-29T10:00",
+    "negotiator_attends_session (both)",
+    "bright_tables_4_5 (Bright tables 4.5%)",
+    "offer_tabled (should be produced, but not linked)",
+    "negotiator_accepts_offer (one side accepts)",
+    "agreement_record (terminal)"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "The action 'bright_tables_4_5' does not produce the 'offer_tabled' record, so it cannot initiate the acceptance process.",
+      "why_material": "Without this link, Bright tabling a 4.5% offer never leads to an agreement even if both sides are willing."
+    },
+    {
+      "document": "causal_spine",
+      "what": "The prerequisite 'wozniak_condition_met' for 'negotiator_decides_to_table_offer' is not defined as a stock or produced by any action.",
+      "why_material": "Wozniak's action to table an offer never becomes available, preventing his conditional move and the possibility of agreement."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "The condition for Wozniak to move to 4.5% (only after Bright tables first) is not modeled as a state that changes when Bright tables.",
+      "why_material": "The simulation cannot capture the correct sequence of offers based on the evidence, leading to an incorrect outcome."
+    }
+  ],
+  "reasoning": "The world's causal spine is incomplete: the action 'bright_tables_4_5' does not produce 'offer_tabled', and the prerequisite 'wozniak_condition_met' for 'negotiator_decides_to_table_offer' is never defined or set. This breaks the backward chain for agreement acceptance. Additionally, the condition for Wozniak to table an offer depends on Bright tabling first, but this dependency is not modeled as a state change. These defects prevent the simulation from correctly determining whether an agreement can be reached.",
+  "verdict": "TARGETED_REVISION"
+}
