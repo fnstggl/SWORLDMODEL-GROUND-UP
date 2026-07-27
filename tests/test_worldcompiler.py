@@ -186,6 +186,33 @@ def test_an_unscripted_world_answers_no_with_a_loud_flag(tmp_path):
     assert "READ THIS ANSWER WITH CARE" in fidelity
 
 
+def test_a_proof_failure_routes_one_repair_to_the_producers(tmp_path):
+    """First producers answer wrongly marks a needed step unsupported; the
+    backward proof refuses; its one repair replays the producers prompt
+    with the proof's defects and the corrected answer compiles."""
+    state = {"producer_attempts": 0}
+
+    def flaky(system, user, model="stub", **kw):
+        if "STEP 3" in system:
+            state["producer_attempts"] += 1
+            if state["producer_attempts"] == 1:
+                doc = copy.deepcopy(PRODUCERS)
+                doc["assignments"][2] = {
+                    "step": "bob sends a confirmation",
+                    "unsupported": "it results from other steps"}
+                return doc, json.dumps(doc), {"total_tokens": 0}
+        return fake_call(system, user, model, **kw)
+
+    record = compile_question(QUESTION, copy.deepcopy(EVIDENCE),
+                              str(tmp_path / "toy"), scripts=SCRIPT,
+                              call=flaky)
+    assert record["stage"] == COMPILED
+    assert state["producer_attempts"] == 2
+    assert record["metrics"]["assembly_repairs"] == \
+        ["producer_assignments"]
+    assert record["outcome"].answer["answer"] == "yes"
+
+
 def test_unsupported_binding_refuses_with_the_item_named():
     graph, _ = assemble(*docs(), valid_evidence_ids=EVIDENCE_IDS)
 

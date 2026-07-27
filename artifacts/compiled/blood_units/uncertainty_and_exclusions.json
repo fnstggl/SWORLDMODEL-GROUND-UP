@@ -1,0 +1,74 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "Elena Cruz oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect this hospital's stock unless they receive shipments from the same centre, but the centre's shipments are dedicated to St. Vincent per the distribution agreement."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Hospital usage or wastage",
+      "why_safe": "The question asks for 'received' units, not net stock. Usage or wastage does not change the number of units received."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e7",
+        "e8"
+      ],
+      "name": "Collection on Friday 24 July",
+      "why_safe": "The deadline is Friday noon. The collection drive opens at 9 AM, but any units collected Friday would not be shipped until the next scheduled shipment (Tuesday or Thursday), so they cannot be received by Friday noon."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "collection_monday",
+      "meaning": "Whether the collection drive operated on Monday 20 July 2026 as scheduled, and if so, how many units were actually collected (the average rate of 12 units/hour may not hold exactly)."
+    },
+    {
+      "about": "collection_tuesday",
+      "meaning": "Whether the collection drive operated on Tuesday 21 July 2026 as scheduled, and the actual units collected."
+    },
+    {
+      "about": "collection_wednesday",
+      "meaning": "Whether the collection drive operated on Wednesday 22 July 2026 as scheduled, and the actual units collected."
+    },
+    {
+      "about": "collection_thursday",
+      "meaning": "Whether the collection drive operated on Thursday 23 July 2026 as scheduled, and the actual units collected."
+    },
+    {
+      "about": "centre_has_stock_tuesday",
+      "meaning": "Whether the centre had at least 150 usable units in stock at 4:00 PM on Tuesday 21 July 2026 to ship. This depends on initial stock (40) plus collections Monday and Tuesday up to 4 PM, minus any unknown usage or losses."
+    },
+    {
+      "about": "centre_has_stock_thursday",
+      "meaning": "Whether the centre had at least 150 usable units in stock at 4:00 PM on Thursday 23 July 2026 to ship. This depends on stock after Tuesday shipment plus collections Wednesday and Thursday up to 4 PM, minus any unknown usage or losses."
+    },
+    {
+      "about": "tuesday_shipment",
+      "meaning": "Whether the Tuesday shipment actually departed and arrived as scheduled (e.g., no logistical delays)."
+    },
+    {
+      "about": "thursday_shipment",
+      "meaning": "Whether the Thursday shipment actually departed and arrived as scheduled."
+    },
+    {
+      "about": "hospital_units_at_deadline",
+      "meaning": "The final number of usable blood units at St. Vincent regional hospital at Friday noon (deadline). This depends on initial stock (15), plus received shipments (if any), minus any hospital usage or wastage during the week."
+    }
+  ]
+}

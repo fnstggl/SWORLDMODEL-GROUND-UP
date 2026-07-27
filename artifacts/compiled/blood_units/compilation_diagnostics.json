@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "defects": [
+      "resource:hospital_units_at_deadline: explicitly marked unsupported (No producer; it is a condition resulting from other steps.)"
+    ],
+    "repairable": true
+  },
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

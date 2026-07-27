@@ -321,6 +321,32 @@ def _ask(step: str, system: str, user: str, validator, disc: Discovery,
         {"document": step, "defects": defects, "repairable": False})
 
 
+def entity_list(resolution: dict, producers: dict) -> list:
+    """The entities whose starting state must be discovered: every actor
+    or non-channel process producer, plus every measured quantity's holder
+    (who holds the opening stock even when producing nothing)."""
+    entities, seen = [], set()
+    for a in (producers or {}).get("assignments", ()):
+        for p in a.get("producers") or []:
+            key = (p.get("name"), PRODUCER_KINDS.get(p.get("kind")))
+            if key in seen or key[1] is None:
+                continue
+            seen.add(key)
+            if key[1] in ACTORS or (key[1] == "process"
+                                    and p.get("kind")
+                                    != "communication_system"):
+                entities.append({"name": p["name"], "kind": p["kind"]})
+    for p in (resolution or {}).get("proof", ()):
+        if p.get("kind") == "quantity" and p.get("holder"):
+            kind = {"person": "person"}.get(p.get("holder_kind"),
+                                            "organization")
+            key = (p["holder"], PRODUCER_KINDS.get(kind))
+            if key not in seen:
+                seen.add(key)
+                entities.append({"name": p["holder"], "kind": kind})
+    return entities
+
+
 def repair_document(disc: Discovery, doc_name: str, defects: list,
                     call=call_json, model: str = "deepseek-chat") -> bool:
     """One targeted repair of one discovery DOCUMENT, driven by defects
@@ -372,6 +398,16 @@ def repair_document(disc: Discovery, doc_name: str, defects: list,
             disc.spine = doc
         elif step == "producer_assignments":
             disc.producers = doc
+            # a repaired assignment may introduce producers the starting
+            # state has never described; discover them before reassembly
+            fn = getattr(disc, "discover_entity", None)
+            if fn is not None and disc.state_info:
+                have = {e.get("name")
+                        for e in disc.state_info.get("entities", [])}
+                for ent in entity_list(disc.resolution, doc):
+                    if ent["name"] not in have:
+                        disc.state_info["entities"].append(
+                            fn(ent, call, model))
         elif step == "uncertainty_and_exclusions":
             disc.uncertainty = doc
         elif step in ("resolution_contract",
@@ -520,36 +556,20 @@ def discover(question: dict, evidence: dict, call=call_json,
         "  OR unsupported: prose reason nothing can produce it\n"
         "Initial facts and scheduled events need no producers. Actor "
         "decisions need the person/organization/population who could "
-        "choose them.",
+        "choose them. The step the terminal measures ALWAYS needs "
+        "producers -- the mechanisms that actually change that state or "
+        "quantity (a scheduled transfer, a process, an action); 'it "
+        "results from other steps' is not a producer, because "
+        "prerequisites express ordering, not mechanism.",
         ctx + "\n\nTHE CAUSAL STEPS (from step 2):\n"
         + json.dumps(disc.spine, indent=1),
         lambda d: v_producers(d, valid_ids, step_names), disc, call, model,
         allow_memory)
 
     # STEP 4 -- starting state and information boundaries, per entity
-    entities = []
-    seen = set()
-    for a in disc.producers.get("assignments", ()):
-        for p in a.get("producers") or []:
-            key = (p.get("name"), PRODUCER_KINDS.get(p.get("kind")))
-            if key in seen or key[1] is None:
-                continue
-            seen.add(key)
-            if key[1] in ACTORS or (key[1] == "process"
-                                    and p.get("kind") != "communication_system"):
-                entities.append({"name": p["name"], "kind": p["kind"]})
-    # a measured quantity's holder holds the opening stock even when it
-    # produces nothing: it needs its own starting-state discovery
-    for p in disc.resolution.get("proof", ()):
-        if p.get("kind") == "quantity" and p.get("holder"):
-            kind = {"person": "person"}.get(p.get("holder_kind"),
-                                            "organization")
-            key = (p["holder"], PRODUCER_KINDS.get(kind))
-            if key not in seen:
-                seen.add(key)
-                entities.append({"name": p["holder"], "kind": kind})
-    entity_docs = []
-    for ent in entities:
+    entities = entity_list(disc.resolution, disc.producers)
+
+    def discover_entity(ent, ecall=None, emodel=None):
         is_process = PRODUCER_KINDS[ent["kind"]] == "process"
         shape = (
             "Return JSON exactly:\n"
@@ -596,7 +616,7 @@ def discover(question: dict, evidence: dict, call=call_json,
                "have, including windows (travel, retreat, no account)\n")
             + "Include ONLY what the evidence and question support; empty "
               "lists are honest answers. Do not restate other entities.")
-        entity_docs.append(_ask(
+        return _ask(
             f"starting_state[{ent['name']}]",
             _COMMON_RULES + "\n\nSTEP 4 -- STARTING STATE AND INFORMATION "
             "BOUNDARY for ONE entity.\nDescribe only "
@@ -608,8 +628,10 @@ def discover(question: dict, evidence: dict, call=call_json,
             ctx + "\n\nCAUSAL STEPS AND PRODUCERS SO FAR:\n"
             + json.dumps(disc.producers, indent=1),
             lambda d, n=ent["name"]: v_entity(d, valid_ids, n),
-            disc, call, model, allow_memory))
-    disc.state_info = {"entities": entity_docs}
+            disc, ecall or call, emodel or model, allow_memory)
+
+    disc.discover_entity = discover_entity
+    disc.state_info = {"entities": [discover_entity(e) for e in entities]}
 
     # STEP 5 -- uncertainty and exclusions
     disc.uncertainty = _ask(

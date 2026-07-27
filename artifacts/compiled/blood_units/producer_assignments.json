@@ -1,0 +1,112 @@
+{
+  "assignments": [
+    {
+      "step": "hospital_units_at_deadline",
+      "unsupported": "No producer; it is a condition resulting from other steps."
+    },
+    {
+      "step": "initial_stock",
+      "unsupported": "No producer; it is an initial fact."
+    },
+    {
+      "step": "received_shipments",
+      "unsupported": "No producer; it is a condition resulting from shipments."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre that dispatches the Tuesday shipment.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_shipment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre that dispatches the Thursday shipment.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment"
+    },
+    {
+      "step": "centre_has_stock_tuesday",
+      "unsupported": "No producer; it is a condition resulting from stock and collection."
+    },
+    {
+      "step": "centre_has_stock_thursday",
+      "unsupported": "No producer; it is a condition resulting from stock and collection."
+    },
+    {
+      "step": "centre_initial_stock",
+      "unsupported": "No producer; it is an initial fact."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_monday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_tuesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_wednesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_thursday"
+    }
+  ]
+}

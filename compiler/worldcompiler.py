@@ -186,6 +186,12 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         except CompilationStop as exc:
             doc_name = exc.detail.get("document") \
                 if isinstance(exc.detail, dict) else None
+            if doc_name is None and exc.stage in (
+                    "NO_CAUSAL_PRODUCER", "INVALID_REFERENCE") \
+                    and exc.detail.get("repairable"):
+                # a proof failure is usually a missing or wrong producer:
+                # route its one repair to the producer assignments
+                doc_name = "producer_assignments"
             if not doc_name or doc_name in repaired_docs \
                     or not exc.detail.get("repairable"):
                 return finish_failure(exc)
