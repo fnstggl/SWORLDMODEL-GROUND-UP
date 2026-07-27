@@ -120,11 +120,11 @@ party -- by name, role, relation, office, or as a defined group or cohort \
 nine committee members", a band deciding together, an organization acting \
 as a unit) -- that party is a legitimate actor, and numbered stand-ins for \
 referenced-but-unnamed individuals ("the three interested residents" as \
-Resident 1..3) are legitimate identification, not invention.  Refuse only \
-when NOTHING in the question or context picks anyone out ("will the \
-permit be approved" naming no permit, place, applicant, or office \
-anywhere) -- never invent actors for parties the question does not refer \
-to;
+Resident 1..3) are legitimate identification, not invention.  A bare \
+definite description with no distinguishing detail ANYWHERE in the \
+question or context ("the permit", "the promotion", "the neighbors" -- no \
+name, place, organization, or relation to anchor it) is NOT a reference; \
+refuse those rather than inventing a cast for them;
 - there is no observable resolving social event, and the question names an \
 internal state (regret, respect, morale, what someone thinks or feels) \
 with NO user-provided observable proxy -- never invent the proxy yourself;
@@ -182,12 +182,21 @@ INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody \
 in particular must NOT be approved.  ABSTAIN (do not approve, do not \
 revise) when the scene rests on any of these:
 - actors invented for parties the question and context NEVER REFER TO \
-("CEO" and "CFO" for a question that names no company or people at all).  \
-Identification is by reference, not by name: actors matching the \
-question's own referring expressions -- a role, relation, office, defined \
-group, cohort, organization-as-decider, or numbered members of a \
-referenced group -- are CORRECT, and you must not reject them or demand \
-personal names for them;
+("CEO" and "CFO" for a question that names no company or people at all; a \
+cast conjured for a bare "the permit" / "the promotion" with no anchoring \
+detail anywhere).  Identification is by reference, not by name: actors \
+matching the question's own referring expressions -- a role, relation, \
+office, defined group, cohort, organization-as-decider, or numbered \
+members of a referenced group -- are CORRECT, and you must not reject \
+them or demand personal names for them.  An organization, council, \
+committee, firm, club, or team acting as a decision-making unit is a \
+LEGITIMATE single actor: granularity is the scene-builder's choice, and \
+you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a \
+cutoff before the known outcome IS simulatable -- the scene must be built \
+only from what was knowable at the start time.  Abstain for OUTCOME \
+LEAKAGE (post-cutoff knowledge inside the scene), never for the setting \
+being historical;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a \
