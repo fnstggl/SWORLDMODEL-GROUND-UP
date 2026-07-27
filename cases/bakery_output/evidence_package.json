@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "Copperwheat Bakery supplies bread to its own stand at the Milbrook Green festival on Saturday 15 August 2026, and co-owner Sara Copperwheat staffs the stand from 8:00 AM.",
+      "id": "e1",
+      "source": "Festival vendor agreement",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "Festival rules prohibit overnight storage of goods at stands, so the stand starts Saturday with no stock.",
+      "id": "e2",
+      "source": "Festival vendor handbook",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-14T21:00:00-04:00",
+      "claim": "On Friday evening 14 August the bakery holds 20 finished festival loaves, baked that day and fully cooled, set aside for Saturday delivery.",
+      "id": "e3",
+      "source": "Bakery production log, 2026-08-14",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "The bakery's deck oven yields finished festival loaves at a measured 30 per hour when run in continuous batches.",
+      "id": "e4",
+      "source": "Bakery production log, June-July average",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-12T00:00:00-04:00",
+      "claim": "Head baker Tomas Ilic is scheduled to run the oven exclusively on festival loaves from 5:00 AM to 10:00 AM on Saturday 15 August, after which the oven switches to the shop's regular trade.",
+      "id": "e5",
+      "source": "Posted staff rota",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "Bakery procedure requires loaves to cool on racks for 60 minutes after leaving the oven before they may be crated for transport.",
+      "id": "e6",
+      "source": "Bakery handling procedure",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-12T00:00:00-04:00",
+      "claim": "Driver Jo Fenwick is scheduled to make two van runs from the bakery to the green on Saturday, departing at 8:00 AM and 11:00 AM after a 10-minute load, with a 15-minute drive each way.",
+      "id": "e7",
+      "source": "Posted staff rota",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "The van carries at most 90 crated loaves per run, and Fenwick's practice is to load every cooled festival loaf on hand up to that capacity.",
+      "id": "e8",
+      "source": "Van fitting note and prior festival runs",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-12T00:00:00-04:00",
+      "claim": "No bakery vehicle other than the two scheduled morning runs is due at the green before a 3:00 PM restock run.",
+      "id": "e9",
+      "source": "Posted staff rota",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "Handover at the stand takes place immediately on the van's arrival at the green.",
+      "id": "e10",
+      "source": "Prior festival practice",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_bakery_output_2026_08",
+  "prepared_at": "2026-08-14T22:00:00-04:00"
+}

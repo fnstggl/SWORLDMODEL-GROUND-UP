@@ -1,0 +1,56 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood recipients",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units; other entities do not affect this count."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "collection_monday",
+      "meaning": "Whether the collection drive operated as scheduled on Monday 20 July 2026, and whether the average rate of 12 units per hour held for the full 8 hours, yielding 96 units."
+    },
+    {
+      "about": "collection_tuesday",
+      "meaning": "Whether the collection drive operated as scheduled on Tuesday 21 July 2026, and whether the average rate held, yielding 96 units."
+    },
+    {
+      "about": "collection_wednesday",
+      "meaning": "Whether the collection drive operated as scheduled on Wednesday 22 July 2026, and whether the average rate held, yielding 96 units."
+    },
+    {
+      "about": "collection_thursday",
+      "meaning": "Whether the collection drive operated as scheduled on Thursday 23 July 2026, and whether the average rate held, yielding 96 units."
+    },
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre's stock after Monday's collection (and any other changes) is at least 150 units to fulfill the Tuesday shipment."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre's stock after collections Monday through Wednesday (and Tuesday shipment) is at least 150 units to fulfill the Thursday shipment."
+    },
+    {
+      "about": "shipment_tuesday_arrives",
+      "meaning": "Whether the Tuesday shipment actually departs at 4 PM and arrives by 7 PM, and whether the hospital receives and logs it before Friday noon."
+    },
+    {
+      "about": "shipment_thursday_arrives",
+      "meaning": "Whether the Thursday shipment actually departs at 4 PM and arrives by 7 PM, and whether the hospital receives and logs it before Friday noon."
+    },
+    {
+      "about": "hospital_initial_stock",
+      "meaning": "Whether the hospital's stock of 15 units at Monday 9 AM remains unchanged except for shipments (no internal usage or other transfers)."
+    }
+  ]
+}

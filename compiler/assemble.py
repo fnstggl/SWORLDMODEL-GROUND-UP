@@ -886,11 +886,13 @@ class Assembler:
     # finish
     # ------------------------------------------------------------------
     def _nearest_mechanisms(self, node_id: str) -> list:
-        """The first event or process on each necessary-prerequisite path,
-        walking only through condition states. These are the mechanisms
-        that directly move a quantity: the dispatch credits the stock; the
+        """The first event or process on each prerequisite path, walking
+        only through condition states. These are the mechanisms that
+        directly move a quantity: the dispatch credits the stock; the
         collections behind the dispatch credit a different stock and are
-        not descended into."""
+        not descended into. Optional edges are walked too -- a quantity's
+        parts are contributions, not gates, and a shipment that MAY
+        arrive is exactly what the runtime should simulate."""
         out, seen, frontier = [], set(), [node_id]
         while frontier:
             cur = frontier.pop()
@@ -898,8 +900,6 @@ class Assembler:
                 continue
             seen.add(cur)
             for e in self.graph.prerequisites_of(cur):
-                if e.attrs.get("necessity", "necessary") == "optional":
-                    continue
                 n = self.graph.node(e.dst)
                 if n.category in ("event", "process") \
                         and n.attrs.get("role") != "channel":

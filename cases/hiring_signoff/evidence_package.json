@@ -1,0 +1,103 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-07-27T09:00:00-04:00",
+      "claim": "Bellrock Analytics, a Boston data-infrastructure firm, is hiring for senior data engineer requisition ENG-114, and Priya Nandakumar is the sole finalist after on-site interviews.",
+      "id": "e1",
+      "source": "Bellrock careers page and recruiting record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-28T17:00:00-04:00",
+      "claim": "Nandakumar told recruiter Devon Okafor on 28 July that she holds a competing offer expiring at 9:00 AM Eastern on Monday 3 August and that she needs Bellrock's countersigned offer letter in hand before then.",
+      "id": "e2",
+      "source": "Recruiter's call notes, 2026-07-28",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-20T00:00:00-04:00",
+      "claim": "Bellrock recruiting policy lists three preconditions to issuing an offer: all panel feedback recorded, background and reference checks complete, and compensation approval by the requisition's approving VP recorded in the applicant-tracking system.",
+      "id": "e3",
+      "source": "Bellrock recruiting policy sec. 5",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-29T17:00:00-04:00",
+      "claim": "The final panel interview for ENG-114 took place on Wednesday 29 July, and Bellrock policy requires panelists to record written feedback within one business day of the final interview.",
+      "id": "e4",
+      "source": "Interview schedule and recruiting policy sec. 5",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T12:30:00-04:00",
+      "claim": "All five panelists' written feedback on Nandakumar was recorded in the applicant-tracking system by 12:00 PM on Thursday 30 July.",
+      "id": "e5",
+      "source": "Applicant-tracking system audit log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-28T16:00:00-04:00",
+      "claim": "Nandakumar's background and reference checks were completed and recorded on 28 July.",
+      "id": "e6",
+      "source": "Screening vendor report in the recruiting file",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-20T00:00:00-04:00",
+      "claim": "Marta Kolev, VP of Engineering, is the sole compensation approver for requisition ENG-114.",
+      "id": "e7",
+      "source": "Bellrock approval matrix",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-29T12:00:00-04:00",
+      "claim": "Kolev is on personal leave hiking in the Adirondacks from Thursday 30 July through Sunday 2 August, staying at a lodge with no cell coverage on the trails, and is scheduled to be back in the office at 9:00 AM Monday 3 August.",
+      "id": "e8",
+      "source": "Kolev's out-of-office notice and assistant's calendar",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-29T12:00:00-04:00",
+      "claim": "Kolev's stated practice on backcountry trips is to check work email once each evening at about 9:00 PM Eastern for roughly 15 minutes over the lodge Wi-Fi, and her assistant confirms she kept that pattern on her last three trips.",
+      "id": "e9",
+      "source": "Interview with Kolev's assistant, 2026-07-29",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T10:00:00-04:00",
+      "claim": "Before departing on 30 July, Kolev reviewed the proposed compensation package for Nandakumar and told Okafor she is prepared to approve it as submitted when the request reaches her; recording an approval in the applicant-tracking system takes about two minutes from any device.",
+      "id": "e10",
+      "source": "Recruiter's notes and applicant-tracking system user guide",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-30T14:05:00-04:00",
+      "claim": "Okafor submitted the compensation approval request for ENG-114, containing the package Kolev reviewed, in the applicant-tracking system at 2:00 PM Thursday 30 July, and the system emails the approver a link immediately on submission.",
+      "id": "e11",
+      "source": "Applicant-tracking system audit log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-07-27T09:00:00-04:00",
+      "claim": "Bellrock's HR offer desk, run by Lena Ruiz, is staffed Monday to Friday 9:00 AM to 5:00 PM Eastern and not on weekends, is fully staffed the week of 27 July, and its documented practice is that an offer whose approvals are all recorded by 9:00 AM on a business day is compiled, countersigned, and emailed to the candidate by 5:00 PM that same day.",
+      "id": "e12",
+      "source": "HR offer desk service standard and staffing rota",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_hiring_signoff_2026_07",
+  "prepared_at": "2026-07-30T15:00:00-04:00"
+}

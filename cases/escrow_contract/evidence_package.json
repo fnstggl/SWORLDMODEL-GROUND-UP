@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-09-22T09:00:00-04:00",
+      "claim": "Landmark Title & Escrow in Providence holds $180,000 in escrow under the Kestrel Yard sale agreement between Kestrel Yard LLC, whose principal is Ada Fontaine (seller), and Hollis Development, whose principal is Bram Hollis (buyer).",
+      "id": "e1",
+      "source": "Escrow agreement file",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "The escrow agreement provides that Landmark releases the funds only upon receiving the single original release instruction bearing wet-ink signatures of both principals; no notarization is required, and scanned or faxed copies do not suffice.",
+      "id": "e2",
+      "source": "Escrow agreement, release clause",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-22T17:00:00-04:00",
+      "claim": "All other closing conditions were satisfied and documented on 22 September, leaving the dual-signed release instruction as the sole outstanding requirement for release.",
+      "id": "e3",
+      "source": "Escrow officer's condition checklist, 2026-09-22",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "The routing agreed in the closing memo sends the original instruction from Landmark to Hollis for signature, then from Hollis to Fontaine, then from Fontaine back to Landmark.",
+      "id": "e4",
+      "source": "Closing logistics memo",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-24T10:00:00-04:00",
+      "claim": "FirstTrack courier tracking shows the original release instruction, sent by Landmark, was delivered to Hollis Development's Wilmington office at 9:40 AM on Thursday 24 September.",
+      "id": "e5",
+      "source": "FirstTrack tracking record",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "Hollis's documented practice is to sign escrow paperwork no later than the business day after it reaches his office, and his office dispatches signed originals the same day via FirstTrack's 6:00 PM pickup.",
+      "id": "e6",
+      "source": "Buyer's counsel memo on closing logistics",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "The parties ship documents by FirstTrack standard overnight, which delivers the next business day by 10:30 AM and has no Saturday or Sunday pickup or delivery.",
+      "id": "e7",
+      "source": "FirstTrack service terms",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "Fontaine's documented practice is to sign and return escrow originals via the 6:00 PM FirstTrack pickup the same business day when they arrive before noon; her Hartford office is open Monday to Friday 9:00 to 5:00.",
+      "id": "e8",
+      "source": "Seller's counsel memo on closing logistics",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-22T09:00:00-04:00",
+      "claim": "Both principals' offices are open Monday to Friday, and neither principal has travel or absences scheduled through 2 October, per their assistants' calendars.",
+      "id": "e9",
+      "source": "Assistants' calendar confirmations, 2026-09-22",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-15T00:00:00-04:00",
+      "claim": "Landmark escrow officer Renee Calloway is authorized to release the funds, and Landmark's practice is to initiate the release wire the same business day when fully executed originals arrive by its 2:00 PM cutoff; Landmark is open Monday to Friday 9:00 to 5:00.",
+      "id": "e10",
+      "source": "Landmark escrow operations manual",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_escrow_contract_2026_09",
+  "prepared_at": "2026-09-24T16:00:00-04:00"
+}

@@ -219,7 +219,11 @@ def test_quantity_mechanisms_derive_from_the_prerequisite_chain():
     spine["steps"] = [
         {"name": "units at the depot", "kind": "condition",
          "meaning": "the measured stock",
-         "prerequisites": [{"step": "shipment received"}],
+         # a quantity's parts are contributions, not gates: models mark
+         # them optional ('whatever arrives counts') and the mechanism
+         # walk must still find the dispatch
+         "prerequisites": [{"step": "shipment received",
+                            "necessity": "optional"}],
          "basis": "question_given"},
         {"name": "shipment received", "kind": "condition",
          "meaning": "the standing shipment has arrived",
