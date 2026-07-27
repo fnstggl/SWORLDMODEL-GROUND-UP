@@ -353,6 +353,18 @@ def entity_list(resolution: dict, producers: dict) -> list:
     return entities
 
 
+def _discover_new_entities(disc: Discovery, call, model) -> None:
+    """Producers changed: the starting state must describe any producer it
+    has never seen. Existing entity documents stay untouched."""
+    fn = getattr(disc, "discover_entity", None)
+    if fn is None or not disc.state_info:
+        return
+    have = {e.get("name") for e in disc.state_info.get("entities", [])}
+    for ent in entity_list(disc.resolution, disc.producers):
+        if ent["name"] not in have:
+            disc.state_info["entities"].append(fn(ent, call, model))
+
+
 def repair_document(disc: Discovery, doc_name: str, defects: list,
                     call=call_json, model: str = "deepseek-chat") -> bool:
     """One targeted repair of one discovery DOCUMENT, driven by defects
@@ -402,18 +414,16 @@ def repair_document(disc: Discovery, doc_name: str, defects: list,
         disc.repairs[step] = disc.repairs.get(step, 0) + 1
         if step == "causal_spine":
             disc.spine = doc
+            # a revised spine invalidates the producer projections (they
+            # name the old steps): re-project them freshly against the new
+            # spine, then discover any newly introduced producers
+            fn = getattr(disc, "rediscover_producers", None)
+            if fn is not None:
+                fn(call, model)
+                _discover_new_entities(disc, call, model)
         elif step == "producer_assignments":
             disc.producers = doc
-            # a repaired assignment may introduce producers the starting
-            # state has never described; discover them before reassembly
-            fn = getattr(disc, "discover_entity", None)
-            if fn is not None and disc.state_info:
-                have = {e.get("name")
-                        for e in disc.state_info.get("entities", [])}
-                for ent in entity_list(disc.resolution, doc):
-                    if ent["name"] not in have:
-                        disc.state_info["entities"].append(
-                            fn(ent, call, model))
+            _discover_new_entities(disc, call, model)
         elif step == "uncertainty_and_exclusions":
             disc.uncertainty = doc
         elif step in ("resolution_contract",
@@ -545,11 +555,10 @@ def discover(question: dict, evidence: dict, call=call_json,
         + json.dumps(doc, indent=1),
         lambda d: v_spine(d, valid_ids, proof_names), disc, call, model,
         allow_memory)
-    step_names = tuple(s["name"] for s in disc.spine["steps"]) + proof_names
-
-    # STEP 3 -- producer assignment
-    disc.producers = _ask(
-        "producer_assignments",
+    # STEP 3 -- producer assignment. The prompt is a closure over the
+    # CURRENT spine, so a spine revision can re-project the assignments
+    # against the new steps (a fresh discovery, not a repair).
+    producers_system = (
         _COMMON_RULES + "\n\nSTEP 3 -- PRODUCER ASSIGNMENT.\n"
         "For every causal step, who or what can produce it? Use kinds: "
         "\"person\", \"organization\", \"population\", "
@@ -572,11 +581,20 @@ def discover(question: dict, evidence: dict, call=call_json,
         "reason. But the step the terminal measures needs the REAL "
         "mechanisms that change it -- the scheduled transfers, processes "
         "or actions already in the spine; never invent a wrapper process "
-        "around whoever holds or reports it.",
-        ctx + "\n\nTHE CAUSAL STEPS (from step 2):\n"
-        + json.dumps(disc.spine, indent=1),
-        lambda d: v_producers(d, valid_ids, step_names), disc, call, model,
-        allow_memory)
+        "around whoever holds or reports it.")
+
+    def rediscover_producers(rcall=None, rmodel=None):
+        names = tuple(s["name"] for s in disc.spine["steps"]) + proof_names
+        disc.producers = _ask(
+            "producer_assignments", producers_system,
+            ctx + "\n\nTHE CAUSAL STEPS (from step 2):\n"
+            + json.dumps(disc.spine, indent=1),
+            lambda d: v_producers(d, valid_ids, names),
+            disc, rcall or call, rmodel or model, allow_memory)
+        return disc.producers
+
+    disc.rediscover_producers = rediscover_producers
+    rediscover_producers()
 
     # STEP 4 -- starting state and information boundaries, per entity
     entities = entity_list(disc.resolution, disc.producers)

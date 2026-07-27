@@ -1,0 +1,14 @@
+{
+  "detail": {
+    "defects": [
+      "producers for 'monday_collection': nothing named 'monday_collection' exists in state/event/action/process/record/resource",
+      "producers for 'tuesday_collection': nothing named 'tuesday_collection' exists in state/event/action/process/record/resource",
+      "producers for 'wednesday_collection': nothing named 'wednesday_collection' exists in state/event/action/process/record/resource",
+      "producers for 'thursday_collection': nothing named 'thursday_collection' exists in state/event/action/process/record/resource"
+    ],
+    "document": "producer_assignments",
+    "repairable": true
+  },
+  "reason": "the producer_assignments document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

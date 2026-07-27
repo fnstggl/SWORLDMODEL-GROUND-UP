@@ -8,13 +8,15 @@
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "The world fails to account for the Tuesday shipment's effect on hospital inventory, which is necessary to determine the final count. The terminal depends only on the Thursday shipment, ignoring that the Tuesday shipment adds 150 units to the hospital's stock. Additionally, the collection process is declared decorative, yet it is essential to ensure the centre has enough units for the Thursday shipment. The world also includes unnecessary details like Elena Cruz's knowledge and availability, which do not affect the outcome. These defects materially change the simulation result.",
+    "reason": "the producer_assignments document has defects",
     "repairs": {
+      "causal_spine": 1,
+      "producer_assignments": 1,
       "resolution_ambiguity_adjudication": 1,
       "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
-    "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 22412
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 34331
   }
 ]

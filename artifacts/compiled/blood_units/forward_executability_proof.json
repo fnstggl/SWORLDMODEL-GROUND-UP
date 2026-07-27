@@ -1,0 +1,43 @@
+{
+  "channels": [
+    {
+      "channel": "process:courier_service",
+      "receivers": [],
+      "senders": [
+        "organization:cascade_regional_blood_centre"
+      ]
+    },
+    {
+      "channel": "process:shipment_receipt",
+      "receivers": [
+        "organization:st_vincent_regional_hospital"
+      ],
+      "senders": []
+    }
+  ],
+  "emergent_components": [
+    "resource:hospital_units_at_deadline"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:monday_collection",
+    "process:thursday_collection",
+    "process:tuesday_collection",
+    "process:wednesday_collection"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:thursday_shipment",
+    "event:thursday_shipment_dispatched",
+    "event:tuesday_shipment",
+    "event:tuesday_shipment_dispatched"
+  ],
+  "warnings": [
+    "process:courier_service: a route with no receivers is dead and can carry nothing",
+    "process:monday_collection: a process that changes nothing is decorative",
+    "process:shipment_receipt: a route with no senders is dead and can carry nothing",
+    "process:thursday_collection: a process that changes nothing is decorative",
+    "process:tuesday_collection: a process that changes nothing is decorative",
+    "process:wednesday_collection: a process that changes nothing is decorative"
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "assignments": [
+    {
+      "step": "hospital_holds_units_at_deadline",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "initial_hospital_stock",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "step": "tuesday_shipment_received",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The centre dispatches the Tuesday shipment as per schedule.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_shipment_dispatched"
+    },
+    {
+      "step": "centre_has_enough_stock_tuesday",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "initial_centre_stock",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The centre operates the mobile collection drive on Monday.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "monday_collection"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The centre operates the mobile collection drive on Tuesday.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_collection"
+    },
+    {
+      "step": "thursday_shipment_received",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The centre dispatches the Thursday shipment as per schedule.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment_dispatched"
+    },
+    {
+      "step": "centre_has_enough_stock_thursday",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "centre_stock_after_tuesday_shipment",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The centre operates the mobile collection drive on Wednesday.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "wednesday_collection"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "kind": "organization",
+          "meaning": "The centre operates the mobile collection drive on Thursday.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_collection"
+    }
+  ]
+}
