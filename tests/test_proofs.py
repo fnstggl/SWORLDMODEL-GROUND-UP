@@ -245,3 +245,41 @@ def test_dead_routes_are_reported():
     graph, _ = build(mutate)
     proof = forward_executability_proof(graph)
     assert any("dead" in w for w in proof["warnings"])
+
+
+def test_threshold_of_optional_contributions_roots_through_its_parts():
+    """'At least 3 of 5 vote yes' -- every part optional, none necessary.
+    The condition roots iff some contribution can actually happen; the
+    tally itself is the simulation's outcome."""
+    from compiler.graph import WorldGraph
+    from compiler.proofs import _Rootedness
+
+    g = WorldGraph()
+    voter = g.add_node("participant", "Ada", "a voter", "question_given")
+    vote = g.add_node("action", "ada votes yes", "casts a yes vote",
+                      "question_given")
+    g.add_edge(voter, "can_perform", vote)
+    cond = g.add_node("state", "enough yes votes",
+                      "at least three of five vote yes",
+                      "question_given",
+                      attrs={"conjunction": True})
+    g.add_edge(cond, "requires", vote, {"necessity": "optional"})
+    r = _Rootedness(g)
+    tree = r.rooted(cond)
+    assert tree is not None
+    assert tree.get("threshold_of") == [vote]
+
+    # with no performable contribution the threshold cannot come about,
+    # and the reasons surface the part, not the marker
+    g2 = WorldGraph()
+    v2 = g2.add_node("action", "ada votes yes", "casts a yes vote",
+                     "question_given")
+    c2 = g2.add_node("state", "enough yes votes",
+                     "at least three of five vote yes", "question_given",
+                     attrs={"conjunction": True,
+                            "unsupported": "conjunction of prerequisites"})
+    g2.add_edge(c2, "requires", v2, {"necessity": "optional"})
+    r2 = _Rootedness(g2)
+    assert r2.rooted(c2) is None
+    reasons = r2.why_not(c2)
+    assert any("nobody can_perform" in x for x in reasons)

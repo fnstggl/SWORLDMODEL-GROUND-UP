@@ -561,8 +561,7 @@ class Assembler:
             node.attrs.get("initial")
             or node.category in ("event", "process")
             or (node.category == "state"
-                and any(e.attrs.get("necessity", "necessary") != "optional"
-                        for e in self.graph.prerequisites_of(step_id))))
+                and bool(self.graph.prerequisites_of(step_id))))
         key = "no_producer_needed" if needs_none else "unsupported"
         node.attrs[key] = str(why)
         self._record("mark_unsupported",
@@ -1356,12 +1355,13 @@ def assemble(resolution: dict, spine: dict, producers: dict,
                 and not node.attrs.get("initial") \
                 and node.attrs.get("amount") is None \
                 and not a.graph.producers_of(sid):
-            if any(e.attrs.get("necessity", "necessary") != "optional"
-                   for e in a.graph.prerequisites_of(sid)):
-                # a condition WITH prerequisites is a conjunction: it
-                # needs no producer of its own. The flag is explicit so
-                # that an ablation which strips a real producer can never
-                # be mistaken for a conjunction.
+            if a.graph.prerequisites_of(sid):
+                # a condition WITH prerequisites is a conjunction of
+                # necessary parts -- or, when every part is optional, a
+                # threshold over contributions (at least K of N votes).
+                # Either way its parts' producers do the causal work.
+                # The flag is explicit so that an ablation which strips
+                # a real producer can never be mistaken for one.
                 node.attrs["conjunction"] = True
             else:
                 d.append(f"step {name!r}: no producer is attached and it "

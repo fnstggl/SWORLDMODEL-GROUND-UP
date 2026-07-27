@@ -66,14 +66,27 @@ class _Rootedness:
                 and (n.attrs.get("conjunction")
                      or n.attrs.get("no_producer_needed")) \
                 and not self.g.producers_of(node_id) \
-                and any(e.attrs.get("necessity", "necessary") != "optional"
-                        for e in self.g.prerequisites_of(node_id)):
+                and self.g.prerequisites_of(node_id):
             # an EXPLICIT conjunction holds exactly when its parts hold;
             # its parts' producers do the causal work. The flag matters: a
             # state whose producer an ablation removed is broken, not a
             # conjunction.
-            result = self._with_requires(
-                n, {"node": node_id, "derived_condition": True}, visiting)
+            prereqs = self.g.prerequisites_of(node_id)
+            if any(e.attrs.get("necessity", "necessary") != "optional"
+                   for e in prereqs):
+                result = self._with_requires(
+                    n, {"node": node_id, "derived_condition": True},
+                    visiting)
+            else:
+                # every part optional: a THRESHOLD over contributions
+                # (at least K of N votes). It can come about only if
+                # some contribution can actually happen; how many do is
+                # the simulation's outcome, never a compile-time claim.
+                parts = [t for e in prereqs
+                         if (t := self.rooted(e.dst, visiting))]
+                if parts:
+                    result = {"node": node_id, "derived_condition": True,
+                              "threshold_of": [t["node"] for t in parts]}
         elif n.attrs.get("unsupported") \
                 and not self.g.producers_of(node_id):
             result = None                     # explicitly unsupported: honest dead end
@@ -167,6 +180,17 @@ class _Rootedness:
         n = self.g.node(node_id)
         if self.rooted(node_id) is not None:
             return []
+        if n.attrs.get("unsupported") or n.attrs.get("no_producer_needed"):
+            if n.category == "state":
+                # a conjunction- or threshold-shaped condition fails
+                # only through its parts; the marker text would hide
+                # the true defect
+                part_reasons = []
+                for e in self.g.prerequisites_of(node_id):
+                    if self.rooted(e.dst) is None:
+                        part_reasons.extend(self.why_not(e.dst, visiting))
+                if part_reasons:
+                    return part_reasons
         if n.attrs.get("unsupported"):
             teach = ""
             if n.category in ("resource", "record"):
