@@ -74,8 +74,10 @@ def test_lowering_is_deterministic():
 # ---------------------------------------------------------------------------
 
 def test_quantity_case_compiles_and_accrues_real_production():
+    # the quantity world has no affordances; its own (empty) script is the
+    # honest pairing -- the message script here used to no-op silently
     c = compiled(QUANTITY_CASE)
-    out = Engine(c.world, scripted_minds(c, MESSAGE_CASE_SCRIPT),
+    out = Engine(c.world, scripted_minds(c, QUANTITY_CASE_SCRIPT),
                  c.terminal_spec.to_terminal()).run()
     assert out.status == "cutoff"
     # opening stock 120 + a 200-unit transfer that the line could actually cover

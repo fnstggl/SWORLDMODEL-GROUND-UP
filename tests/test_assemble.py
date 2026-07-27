@@ -74,6 +74,28 @@ def test_condition_step_binds_to_proof_component_instead_of_duplicating():
                 if n.name == "alice has read bobs confirmation"]) == 1
 
 
+def test_condition_binds_via_produces_proof_under_a_different_name():
+    """A condition step 'hospital holds N at deadline' declaring it
+    produces the proof quantity IS the proof quantity, reworded."""
+    res, spine, prod, state, unc = docs()
+    spine["steps"][-1] = {
+        "name": "the confirmation has been read by alice",
+        "kind": "condition",
+        "meaning": "the outcome, reworded",
+        "produces_proof": ["alice has read bobs confirmation"],
+        "prerequisites": [{"step": "bobs confirmation available to alice"}],
+        "basis": "question_given"}
+    prod["assignments"][-1] = {
+        "step": "the confirmation has been read by alice",
+        "producers": [{"name": "Alice Chen", "kind": "person",
+                       "meaning": "only she can read her own mail",
+                       "basis": "verified", "evidence_ids": ["e1"]}]}
+    g, _ = assemble(res, spine, prod, state, unc,
+                    valid_evidence_ids=EVIDENCE_IDS)
+    assert len([n for n in g.by_category("state")
+                if "alice has read" in n.name]) == 1
+
+
 def test_a_happening_cannot_bind_to_the_measured_component():
     res, spine, prod, state, unc = docs()
     spine["steps"].append(
@@ -178,6 +200,31 @@ def test_excluding_an_included_thing_is_refused():
     with pytest.raises(SemanticAmbiguity):
         assemble(res, spine, prod, state, unc,
                  valid_evidence_ids=EVIDENCE_IDS)
+
+
+def test_process_step_with_its_own_process_producer_merges():
+    res, spine, prod, state, unc = docs()
+    spine["steps"].insert(0, {
+        "name": "mail delivery running", "kind": "process",
+        "meaning": "the mail system operates continuously",
+        "basis": "inferred", "evidence_ids": ["e2"]})
+    prod["assignments"].append({
+        "step": "mail delivery running",
+        "producers": [{"name": "mail delivery running",
+                       "kind": "operating_process",
+                       "meaning": "the same mechanism",
+                       "basis": "inferred", "evidence_ids": ["e2"]}]})
+    g, _ = assemble(res, spine, prod, state, unc,
+                    valid_evidence_ids=EVIDENCE_IDS)
+    assert len([n for n in g.by_category("process")
+                if n.name == "mail delivery running"]) == 1
+    # ...but a DIFFERENT process name is double-counting one mechanism
+    prod["assignments"][-1]["producers"][0]["name"] = "the postal system"
+    with pytest.raises(SemanticAmbiguity) as ei:
+        assemble(res, spine, prod, state, unc,
+                 valid_evidence_ids=EVIDENCE_IDS)
+    assert any("one mechanism must have one name" in d
+               for d in ei.value.detail["defects"])
 
 
 def test_process_behavior_lands_on_the_process_node():

@@ -92,9 +92,21 @@ def scripted_minds(compiled, script: dict | None = None) -> dict:
     ``script`` maps participant NAME -> list of rules. A participant with no
     script simply never acts, which is the correct default: an actor with no
     authored behaviour must not be given one.
+
+    A script whose action labels do not exist in THIS world is refused
+    loudly here, at construction: a silently skipped rule once flipped an
+    evidence-'yes' to 'no' for four straight runs. Label drift is a harness
+    misconfiguration and must never masquerade as a simulation result.
     """
     script = script or {}
     verbs = {a.get("label"): verb for verb, a in compiled.affordances.items()}
+    unknown = sorted({r["action"] for rules in script.values()
+                      for r in rules if r.get("action") not in verbs})
+    if unknown:
+        raise ValueError(
+            f"script references action label(s) {unknown} that do not "
+            f"exist in this compiled world (labels: {sorted(verbs)}). "
+            f"Re-author the script against the frozen approved world.")
     minds = {}
     for aid in compiled.world.actors:
         name = compiled.symbols.display("participant", aid)

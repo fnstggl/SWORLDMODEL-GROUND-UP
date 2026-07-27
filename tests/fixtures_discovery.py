@@ -86,6 +86,9 @@ PRODUCERS = {"assignments": [
 
 STATE_INFO = {"entities": [
     {"name": "Alice Chen",
+     "timezone": "America/New_York",
+     "availability": {"workdays": [0, 1, 2, 3, 4],
+                      "open": "09:00", "close": "17:00"},
      "initial_state": [
          {"name": "alice needs bobs confirmation",
           "meaning": "Alice's request is outstanding as the world opens.",
@@ -104,6 +107,9 @@ STATE_INFO = {"entities": [
                         "calendar_meaning": "her business hours"},
           "basis": "verified", "evidence_ids": ["e2"]}]},
     {"name": "Bob Marsh",
+     "timezone": "America/New_York",
+     "availability": {"workdays": [0, 1, 2, 3, 4],
+                      "open": "09:00", "close": "17:00"},
      "channels": [
          {"name": "work email", "role": "both",
           "meaning": "Bob reads and answers on the same system.",

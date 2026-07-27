@@ -1,0 +1,4 @@
+{
+  "expected_answer": 315.0,
+  "why": "Hand arithmetic from the evidence alone: the hospital opens with 15 usable units (e6); the standing Tuesday and Thursday 16:00 shipments each move 150 units (e7, e9) and both arrive before Friday noon; the Friday collection cannot reach the hospital before the cutoff. 15 + 150 + 150 = 315."
+}

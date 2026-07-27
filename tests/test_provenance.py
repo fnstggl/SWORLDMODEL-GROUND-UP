@@ -117,9 +117,12 @@ def test_all_violations_are_reported_together():
     assert ei.value.detail["repairable"] is True
 
 
-def test_the_four_bases_are_exactly_as_specified():
+def test_the_bases_are_exactly_as_specified():
+    """Four original bases plus Mode B's model_memory_unverified: a claim
+    drafted from model memory keeps that label through every artifact and
+    is never presented as verified."""
     assert EPISTEMIC_STATUS == ("verified", "inferred", "scenario_given",
-                                "uncertain")
+                                "uncertain", "model_memory_unverified")
 
 
 def test_status_field_counts_as_a_stated_basis():

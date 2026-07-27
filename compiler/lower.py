@@ -26,7 +26,12 @@ from .symbols import SymbolTable, fact_key, slug
 #: epistemic status -> runtime provenance basis. "uncertain" is deliberately
 #: absent: an uncertain quantity may not become a concrete number.
 STATUS_BASIS = {"verified": "verified", "inferred": "inferred",
-                "scenario_given": "scenario_given"}
+                "scenario_given": "scenario_given",
+                # Mode B: a number drafted from model memory lowers as an
+                # inference so the runtime can carry it, but the scenario,
+                # graph and evidence artifacts keep the honest label and no
+                # such run may be presented as a verified forecast.
+                "model_memory_unverified": "inferred"}
 
 
 @dataclass

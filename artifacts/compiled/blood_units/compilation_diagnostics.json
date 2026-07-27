@@ -1,13 +1,15 @@
 {
   "detail": {
-    "remaining_defects": [
-      {
-        "detail": "Tuesday and Thursday collection events are scheduled at 5pm, after the 4pm shipment. This prevents the collected units from being available for that day's shipment, contradicting the evidence that the centre ships its available stock. The collection should be scheduled to complete before the shipment (e.g., at 4pm or earlier) to reflect that units collected that day are included in the shipment.",
-        "kind": "missing_causal_link",
-        "severity": "major"
-      }
-    ]
+    "defects": [
+      "authority of 'St. Vincent regional hospital': nothing named 'receive_shipment' exists in action/record/process",
+      "authority of 'Cascade regional blood centre': nothing named 'shipments_received' exists in action/record/process",
+      "authority of 'Cascade regional blood centre': nothing named 'centre_has_enough_units_tuesday' exists in action/record/process",
+      "authority of 'Cascade regional blood centre': nothing named 'centre_has_enough_units_thursday' exists in action/record/process",
+      "authority of 'Cascade regional blood centre': nothing named 'centre_units_after_tuesday_shipment' exists in action/record/process"
+    ],
+    "document": "starting_state_and_information",
+    "repairable": true
   },
-  "reason": "defects remain after one targeted revision; the scenario is not a truthful account and will not be run",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "reason": "the starting_state_and_information document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

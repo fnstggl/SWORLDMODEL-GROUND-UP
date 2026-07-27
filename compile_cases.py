@@ -1,9 +1,22 @@
-"""Compile and run every acceptance case.
+"""Compile and run every acceptance case through the DISCOVERY pipeline.
 
-    python3 compile_cases.py                 # all cases, mechanical minds
+    python3 compile_cases.py                 # all cases, scripted minds
     python3 compile_cases.py traffic_study   # one case
-    python3 compile_cases.py --stage llm     # Stage 2: same worlds, live minds
+    python3 compile_cases.py --stage llm     # same frozen worlds, live minds
     python3 compile_cases.py --reuse         # replay frozen approved worlds
+    python3 compile_cases.py --legacy        # the retired one-shot pipeline
+
+The default is compiler/worldcompiler.py: five small discovery calls,
+code-owned assembly, causal proofs, item-at-a-time binding, deterministic
+emission, and the unchanged lowering + runtime. The one-shot
+whole-scenario pipeline remains importable behind --legacy for comparison
+only; it is no longer the default.
+
+A case may carry cases/<name>/expectation.json:
+    {"expected_answer": ..., "why": "hand-derivation from the evidence"}
+A compiled case that contradicts its hand-derived answer is a FAILURE even
+though it compiled -- and a negative answer produced by a world whose
+affordances were never exercised is flagged, never blessed.
 
 Artifacts land in artifacts/compiled/<case>/.
 """
@@ -11,19 +24,19 @@ import json
 import os
 import sys
 
-from compiler.pipeline import compile_case
-
 HERE = os.path.dirname(os.path.abspath(__file__))
 CASES_DIR = os.path.join(HERE, "cases")
 OUT_ROOT = os.path.join(HERE, "artifacts", "compiled")
 
 EXPECTED_REFUSAL = {"insufficient_merger"}
 
-#: A case that must refuse has to refuse because the EVIDENCE cannot support a
-#: world -- not because the model tripped over the contract. Stopping at a
-#: formatting slip would be a false positive dressed as a success.
+#: A case that must refuse has to refuse because the EVIDENCE cannot support
+#: a world -- not because the model tripped over a contract, and not because
+#: of a formatting-convention gap (the audit's D16: LOWERING_GAP is a
+#: capability statement, not an evidence judgement).
 SUBSTANTIVE_REFUSALS = {"REALITY_REVIEW_REJECTED", "NO_CAUSAL_PRODUCER",
-                        "NOTHING_SCHEDULED", "LOWERING_GAP"}
+                        "NOTHING_SCHEDULED", "AMBIGUOUS_QUESTION",
+                        "UNSUPPORTED_CAPABILITY", "INSUFFICIENT_EVIDENCE"}
 
 
 def load(name):
@@ -33,6 +46,14 @@ def load(name):
     with open(os.path.join(d, "evidence_package.json"), encoding="utf-8") as f:
         e = json.load(f)
     return q, e
+
+
+def load_optional(name, filename):
+    path = os.path.join(CASES_DIR, name, filename)
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def load_script(name):
@@ -49,26 +70,55 @@ def load_script(name):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     stage = "llm" if "--stage" in sys.argv and "llm" in sys.argv else "scripted"
-    reuse = "--reuse" in sys.argv     # replay the frozen approved world
+    reuse = "--reuse" in sys.argv
+    legacy = "--legacy" in sys.argv
     names = args or sorted(
         d for d in os.listdir(CASES_DIR)
         if os.path.isdir(os.path.join(CASES_DIR, d)))
 
+    if legacy:
+        from compiler.pipeline import compile_case as run_one
+
+        def compile_one(q, e, outdir, scripts):
+            return run_one(q, e, outdir, stage=stage, scripts=scripts,
+                           reuse_scenario=reuse)
+    else:
+        from compiler.worldcompiler import compile_question
+
+        def compile_one(q, e, outdir, scripts):
+            return compile_question(q, e, outdir, stage=stage,
+                                    scripts=scripts, reuse=reuse)
+
     summary = []
     for name in names:
         q, e = load(name)
+        expectation = load_optional(name, "expectation.json") or {}
         outdir = os.path.join(OUT_ROOT, name)
         print(f"\n=== {name} ===\n  {q['question']}")
-        result = compile_case(q, e, outdir, stage=stage,
-                              scripts=load_script(name), reuse_scenario=reuse)
+        try:
+            result = compile_one(q, e, outdir, load_script(name))
+        except Exception:                       # an uncaught crash is its own
+            import traceback                    # failure class, never silent
+            traceback.print_exc()
+            summary.append({"case": name, "stage": "CRASH",
+                            "expected_refusal": name in EXPECTED_REFUSAL,
+                            "reason": traceback.format_exc().strip()
+                            .splitlines()[-1]})
+            continue
         m = result["metrics"]
         row = {"case": name, "stage": result["stage"],
                "expected_refusal": name in EXPECTED_REFUSAL,
-               "semantic_calls": m["semantic_calls"],
-               "reviewer_calls": m["reviewer_calls"],
-               "revision_calls": m["revision_calls"],
-               "tokens": m["prompt_tokens"] + m["completion_tokens"],
-               "lowering_ms": m["lowering_ms"], "runtime_ms": m["runtime_ms"]}
+               "pipeline": "legacy" if legacy else "discovery",
+               "discovery_calls": m.get("discovery_calls",
+                                        m.get("semantic_calls", 0)),
+               "binding_calls": m.get("binding_calls", 0),
+               "repairs": m.get("repairs_by_step",
+                                m.get("revision_calls", 0)),
+               "tokens": m.get("model_tokens",
+                               m.get("prompt_tokens", 0)
+                               + m.get("completion_tokens", 0)),
+               "lowering_ms": m.get("lowering_ms", 0.0),
+               "runtime_ms": m.get("runtime_ms", 0.0)}
         if result["stage"] == "COMPILED":
             out = result.get("outcome")
             c = result["compiled"]
@@ -76,22 +126,28 @@ def main():
             row["run_status"] = out.status if out else None
             row["actors"] = len(c.world.actors)
             row["affordances"] = len(c.world.action_defs)
-            row["events"] = out.metrics["events_processed"] if out else 0
+            row["artifact_risk"] = bool(result.get("artifact_risk"))
             print(f"  COMPILED: {row['actors']} participants, "
                   f"{row['affordances']} affordances, "
                   f"{len(c.world.processes)} processes")
-            print(f"  ANSWER: {row['answer']!r} ({row['run_status']}) "
-                  f"from {len((out.answer or {}).get('computed_from', []))} "
-                  f"producing records")
+            print(f"  ANSWER: {row['answer']!r} ({row['run_status']})")
+            if result.get("script_mismatch"):
+                row["script_mismatch"] = True
+                print(f"  SCRIPT MISMATCH: {result['script_mismatch'][:150]}")
         else:
             row["reason"] = result["reason"]
             row["model_declared_insufficient"] = (
-                result.get("detail", {}).get("declared_by") == "semantic compiler")
+                result.get("detail", {}).get("declared_by")
+                == "semantic compiler"
+                or result.get("detail", {}).get("mode") == "question_only")
             print(f"  {result['stage']}: {result['reason'][:160]}")
+        if expectation:
+            row["expected_answer"] = expectation.get("expected_answer")
         summary.append(row)
 
     os.makedirs(OUT_ROOT, exist_ok=True)
-    with open(os.path.join(OUT_ROOT, "summary.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT_ROOT, "summary.json"), "w",
+              encoding="utf-8") as f:
         json.dump(summary, f, indent=2, sort_keys=True)
         f.write("\n")
 
@@ -108,6 +164,17 @@ def main():
                 correct = False
                 note = ("  <- refused on a contract slip, NOT because the "
                         "evidence is insufficient")
+        if correct and not refused:
+            if "expected_answer" in r \
+                    and r.get("answer") != r["expected_answer"]:
+                correct = False
+                note = (f"  <- answer {r.get('answer')!r} contradicts the "
+                        f"hand-derived {r['expected_answer']!r}")
+            elif r.get("artifact_risk"):
+                correct = False
+                note = ("  <- negative answer from a world that was never "
+                        "exercised; a statement about the minds, not the "
+                        "situation")
         ok &= correct
         mark = "OK " if correct else "BAD"
         print(f"  [{mark}] {r['case']:<22} {r['stage']:<26} "

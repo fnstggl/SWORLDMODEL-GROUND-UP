@@ -57,6 +57,24 @@ class NothingScheduled(CompilationStop):
     stage = "NOTHING_SCHEDULED"
 
 
+class AmbiguousQuestion(CompilationStop):
+    """The question itself admits materially different readings; refusing
+    to pick one silently."""
+    stage = "AMBIGUOUS_QUESTION"
+
+
+class UnsupportedCapability(CompilationStop):
+    """A semantic item has no faithful mapping onto the universal runtime
+    capabilities. Refused rather than approximated."""
+    stage = "UNSUPPORTED_CAPABILITY"
+
+
+class LoweringMismatch(CompilationStop):
+    """The lowered runtime world does not mean what the approved world
+    means. A world whose meaning changed must not run."""
+    stage = "LOWERING_MISMATCH"
+
+
 COMPILED = "COMPILED"
 
 #: Not a compilation failure. A world can be perfectly well built and still
@@ -68,5 +86,6 @@ UNRESOLVED_UNCERTAINTY = "UNRESOLVED_UNCERTAINTY"
 ALL_STAGES = (
     "INSUFFICIENT_EVIDENCE", "SEMANTIC_AMBIGUITY", "REALITY_REVIEW_REJECTED",
     "LOWERING_GAP", "INVALID_REFERENCE", "NO_CAUSAL_PRODUCER",
-    "NOTHING_SCHEDULED", COMPILED, UNRESOLVED_UNCERTAINTY,
+    "NOTHING_SCHEDULED", "AMBIGUOUS_QUESTION", "UNSUPPORTED_CAPABILITY",
+    "LOWERING_MISMATCH", COMPILED, UNRESOLVED_UNCERTAINTY,
 )

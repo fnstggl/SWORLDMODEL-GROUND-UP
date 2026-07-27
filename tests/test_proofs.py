@@ -97,15 +97,9 @@ def test_a_verified_timetable_may():
                   "basis": "question_given"}]}]
         unc["uncertainties"] = []
         unc["exclusions"] = []
-    # the hospital must exist before the holder resolves
-    def mutate2(res, spine, prod, state, unc):
-        mutate(res, spine, prod, state, unc)
-        prod["assignments"] = [
-            {"step": "tuesday shipment",
-             "producers": [{"name": "the hospital", "kind": "organization",
-                            "meaning": "receiving organization",
-                            "basis": "verified", "evidence_ids": ["e1"]}]}]
-    graph, _ = build(mutate2)
+    graph, _ = build(mutate)
+    # the passive holder was materialized from the resolution contract
+    assert graph.maybe("organization", "the hospital")
     proof = backward_causal_proof(graph)
     assert proof["components"][0]["chain"]["via"]["root"] == \
         "scheduled_event"
@@ -164,11 +158,10 @@ def test_uncertain_roots_are_reported_for_the_unresolved_path():
     def mutate(res, spine, prod, state, unc):
         spine["steps"][2]["kind"] = "uncertain_exogenous"
         spine["steps"][2]["basis"] = "uncertain"
-        prod["assignments"][2] = {
-            "step": "bob sends a confirmation",
-            "producers": [{"name": "Bob Marsh", "kind": "person",
-                           "meaning": "he may or may not act",
-                           "basis": "uncertain", "evidence_ids": []}]}
+        # an uncertain exogenous event has no producer: it may simply occur
+        del prod["assignments"][2]
+        # Bob is then no producer at all; his boundary has nothing to say
+        del state["entities"][1]
     graph, _ = build(mutate)
     proof = backward_causal_proof(graph)
     assert proof["components_rooted_in_uncertainty"] == \

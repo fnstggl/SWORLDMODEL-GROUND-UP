@@ -19,6 +19,7 @@ from __future__ import annotations
 
 from .errors import InvalidReference, SemanticAmbiguity
 from .graph import ACTORS, GRAPH_BASES, WorldGraph
+from .symbols import slug
 
 # -- closed mappings --------------------------------------------------------
 
@@ -142,9 +143,14 @@ class Assembler:
                 attrs = {"record_type": p["record_type"],
                          "subject": p.get("subject"),
                          "rule": p.get("rule"),
+                         "value": p.get("value"),
                          "expected_count": p.get("expected_count")}
             elif p["kind"] == "quantity":
-                attrs = {"unit": p.get("unit"), "holder_name": p.get("holder")}
+                attrs = {"unit": p.get("unit"),
+                         "holder_name": p.get("holder"),
+                         "holder_kind": p.get("holder_kind",
+                                              "organization"),
+                         "amount_at_least": p.get("amount_at_least")}
             nid = self.graph.add_node(cat, p["name"], p["meaning"], basis, ids,
                                       attrs=attrs, where="resolution.proof")
             if p["kind"] == "quantity" and p.get("holder"):
@@ -176,8 +182,25 @@ class Assembler:
             raise SemanticAmbiguity("causal step has defects", {"defects": d})
 
         name = step["name"]
-        # A condition step naming a proof component IS that component --
-        # bind instead of duplicating.
+        # A condition step that IS the measured outcome binds to the proof
+        # component instead of duplicating it -- whether it matches by
+        # name, or says so via produces_proof (a condition does not
+        # "produce" the outcome; it is the outcome under another wording).
+        if name not in self._proof_components \
+                and kind in ("condition", "initial_fact"):
+            declared = list(step.get("produces_proof") or [])
+            if len(declared) == 1 and declared[0] in self._proof_components:
+                cid = self._proof_components[declared[0]]
+                self._step_ids[name] = cid
+                self.graph.absorb(cid, step["meaning"], basis, ids,
+                                  where=f"step {name!r}")
+                if kind == "initial_fact":
+                    self.graph.node(cid).attrs["initial"] = True
+                self._record("add_causal_step",
+                             {"name": name, "kind": kind,
+                              "bound_to": cid, "via": "produces_proof"},
+                             [], [])
+                return cid
         if name in self._proof_components:
             nid = self._proof_components[name]
             cat = self.graph.node(nid).category
@@ -269,6 +292,26 @@ class Assembler:
         step_id = self._resolve_step(step_name, f"producer for {step_name!r}")
         step = self.graph.node(step_id)
         cat = PRODUCER_KINDS[kind]
+        if step.category == "process" and cat == "process":
+            # a process step's process producer is the same mechanism: it
+            # either IS the step (same name -> merge) or the assignment is
+            # double-counting one mechanism under two names
+            if self.graph.maybe("process", producer["name"]) == step_id \
+                    or slug(producer["name"]) == step_id.split(":", 1)[1]:
+                self.graph.absorb(step_id, producer.get("meaning", ""),
+                                  basis, ids,
+                                  where=f"producer for {step_name!r}")
+                self._record("attach_producer",
+                             {"step": step_name,
+                              "producer": producer["name"],
+                              "kind": kind, "merged": True}, [], [])
+                return
+            raise SemanticAmbiguity(
+                f"step {step_name!r} is itself a process, but its producer "
+                f"is a different process {producer['name']!r}; one "
+                f"mechanism must have one name -- either name the step's "
+                f"own process, or restate the step as a condition the "
+                f"process produces")
         pid = self.graph.maybe(cat, producer["name"])
         created = []
         if pid is None:
@@ -300,6 +343,22 @@ class Assembler:
                     f"{kind}. A process cannot decide.")
             edges.append(self.graph.add_edge(pid, "can_perform", step_id,
                                              where=f"producer {step_name!r}"))
+        elif cat in ACTORS and step.category == "process":
+            # an actor "producing" a process operates it: authority, not a
+            # derived action -- a process is not brought about, it runs
+            edges.append(self.graph.add_edge(
+                pid, "has_authority", step_id,
+                {"meaning": producer.get("meaning", "operates it")},
+                where=f"producer {step_name!r}"))
+        elif cat in ACTORS and step.category == "event":
+            # an actor named as a scheduled event's producer OPERATES it:
+            # the schedule, not the actor, decides that it happens (the
+            # event still carries its evidenced time), so this is
+            # operatorship -- authority -- never a scheduled decision
+            edges.append(self.graph.add_edge(
+                pid, "has_authority", step_id,
+                {"meaning": producer.get("meaning", "operates it")},
+                where=f"producer {step_name!r}"))
         elif cat in ACTORS:
             # A person producing a condition acts through an action. Derive
             # the universal plumbing: actor -can_perform-> action -produces->
@@ -347,8 +406,10 @@ class Assembler:
                 f"step {step_name!r} claims to produce {proof_name!r}, "
                 f"which is not a terminal proof component "
                 f"({sorted(self._proof_components)})")
-        e = self.graph.add_edge(sid, "produces",
-                                self._proof_components[proof_name],
+        cid = self._proof_components[proof_name]
+        if sid == cid:
+            return                # the step IS the component; nothing to link
+        e = self.graph.add_edge(sid, "produces", cid,
                                 where=f"step {step_name!r}")
         self._record("produces_proof",
                      {"step": step_name, "proof": proof_name}, [], [e])
@@ -412,15 +473,23 @@ class Assembler:
                        "holder": owner},
                 where=f"resource of {entity_name!r}")
             created.append(nid)
+        elif self.graph.node(nid).attrs.get("holder") not in (None, owner):
+            # the same substance held by two parties is two stocks; code
+            # disambiguates the second by its holder instead of refusing
+            scoped = f"{item['name']} held by {entity_name}"
+            nid = self.graph.maybe("resource", scoped)
+            if nid is None:
+                nid = self.graph.add_node(
+                    "resource", scoped, item["meaning"], basis, ids,
+                    attrs={"amount": item["amount"],
+                           "unit": item.get("unit"), "holder": owner,
+                           "substance": item["name"]},
+                    where=f"resource of {entity_name!r}")
+                created.append(nid)
         else:
             self.graph.absorb(nid, item["meaning"], basis, ids,
                               where=f"resource of {entity_name!r}")
             node = self.graph.node(nid)
-            if node.attrs.get("holder") not in (None, owner):
-                raise SemanticAmbiguity(
-                    f"resource {item['name']!r} is held by "
-                    f"{node.attrs['holder']} and cannot also be held by "
-                    f"{owner}; two stocks are two resources")
             node.attrs.update({"amount": item["amount"],
                                "unit": item.get("unit") or node.attrs.get("unit"),
                                "holder": owner})
@@ -451,6 +520,11 @@ class Assembler:
         else:
             self.graph.absorb(nid, item["meaning"], basis, ids,
                               where=f"scheduled event {name!r}")
+        if item.get("involves"):
+            who = self.graph.resolve_any(ACTORS, item["involves"],
+                                         f"scheduled event {name!r}")
+            edges.append(self.graph.add_edge(who, "observes", nid,
+                                             where=f"scheduled event {name!r}"))
         if anchor:
             anchor_id = self._resolve_step(anchor.get("event", ""),
                                            f"anchor of {name!r}")
@@ -462,6 +536,60 @@ class Assembler:
         self._record("add_scheduled_event", {"name": name, "when": when},
                      created, edges)
         return nid
+
+    def add_sent_information(self, entity_name: str, item: dict) -> str:
+        """A message already in flight from this entity as the world opens:
+        real author, real recipients, real route, real send time."""
+        d: list = []
+        _need(item, ("name", "meaning", "channel", "sent_time"),
+              f"sent information of {entity_name!r}", d)
+        basis, ids = _prov(item, f"sent information of {entity_name!r}", d)
+        to = item.get("to")
+        if not isinstance(to, list) or not to:
+            d.append(f"sent information of {entity_name!r}: 'to' must be a "
+                     f"non-empty list of recipient names")
+        if d:
+            raise SemanticAmbiguity("sent information has defects",
+                                    {"defects": d})
+        w = f"sent information of {entity_name!r}"
+        author = self.graph.resolve_any(ACTORS, entity_name, w)
+        channel = self.graph.resolve_any(("process",), item["channel"], w)
+        recipients = [self.graph.resolve_any(ACTORS, n, w) for n in to]
+        iid = self.graph.maybe("information", item["name"])
+        created = []
+        if iid is None:
+            iid = self.graph.add_node(
+                "information", item["name"], item["meaning"], basis, ids,
+                attrs={"visibility": "private"}, where=w)
+            created.append(iid)
+        else:
+            self.graph.absorb(iid, item["meaning"], basis, ids, where=w)
+        node = self.graph.node(iid)
+        node.attrs["sent"] = {"author": author, "channel": channel,
+                              "to": recipients,
+                              "sent_time": item["sent_time"]}
+        edges = [self.graph.add_edge(author, "knows", iid, where=w),
+                 self.graph.add_edge(author, "sends_to", channel, where=w)]
+        self._record("add_sent_information",
+                     {"entity": entity_name, "information": item["name"]},
+                     created, edges)
+        return iid
+
+    def set_entity_pattern(self, entity_name: str, timezone: str | None,
+                           availability: dict | None) -> None:
+        """The entity's real timezone and working/waking pattern; needed to
+        anchor any checking cadence to real hours."""
+        owner = self.graph.resolve_any(
+            ACTORS, entity_name, f"pattern of {entity_name!r}")
+        node = self.graph.node(owner)
+        if timezone:
+            node.attrs["timezone"] = str(timezone)
+        if availability:
+            node.attrs["availability"] = {
+                "workdays": list(availability.get("workdays") or []),
+                "open": availability.get("open"),
+                "close": availability.get("close")}
+        self._record("set_entity_pattern", {"entity": entity_name}, [], [])
 
     def add_process(self, name: str, behavior: dict) -> str:
         """Rate and operating behaviour for a process already in the world.
@@ -559,6 +687,7 @@ class Assembler:
                         "meaning": att.get("meaning", ""),
                         "calendar_meaning": att.get("calendar_meaning"),
                         "blocked": list(att.get("blocked") or []),
+                        "basis": basis,
                     }}, where=w))
         for i, na in enumerate(boundary.get("not_available") or []):
             w = f"{entity_name!r}.not_available[{i}]"
@@ -622,6 +751,31 @@ class Assembler:
     # ------------------------------------------------------------------
     # finish
     # ------------------------------------------------------------------
+    def materialize_holders(self) -> None:
+        """A measured quantity's holder is a real entity even when it
+        produces nothing (a hospital that only receives). It was named by
+        the resolution contract, so creating it is connection, not
+        invention. Runs after producers so an existing producer wins."""
+        for rid, holder_name in self._deferred_holders:
+            node = self.graph.node(rid)
+            if node.attrs.get("holder"):
+                continue
+            existing = [nid for c in ACTORS
+                        if (nid := self.graph.maybe(c, holder_name))]
+            if existing:
+                node.attrs["holder"] = existing[0]
+                continue
+            term = self.graph.terminal()
+            hid = self.graph.add_node(
+                node.attrs.get("holder_kind", "organization"), holder_name,
+                f"holder of {node.name}, named by the resolution contract",
+                term.basis, term.evidence_ids,
+                where=f"holder of {node.name!r}")
+            node.attrs["holder"] = hid
+            self._record("materialize_holder",
+                         {"resource": node.name, "holder": holder_name},
+                         [hid], [])
+
     def finish(self) -> WorldGraph:
         defects = []
         for rid, holder_name in self._deferred_holders:
@@ -728,12 +882,14 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         if node.category == "action" and not a.graph.performers_of(sid):
             d.append(f"step {name!r}: an actor decision with nobody who "
                      f"can_perform it")
-        elif node.category in ("state", "record") \
+        elif node.category in ("state", "record", "resource") \
                 and not node.attrs.get("initial") \
+                and node.attrs.get("amount") is None \
                 and not a.graph.producers_of(sid):
             d.append(f"step {name!r}: no producer is attached and it is "
                      f"not marked unsupported")
     _raise_if(d, "producer_assignments")
+    a.materialize_holders()
 
     d = []
     for entity in state_info.get("entities") or []:
@@ -741,13 +897,20 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         if not name:
             d.append("starting-state entity missing 'name'")
             continue
+        if entity.get("timezone") or entity.get("availability"):
+            _collect(d, a.set_entity_pattern, name, entity.get("timezone"),
+                     entity.get("availability"))
         for item in entity.get("initial_state") or []:
             _collect(d, a.add_initial_state, name, item)
         for item in entity.get("resources") or []:
             _collect(d, a.add_resource, name, item)
         for item in entity.get("commitments") or []:
+            item = dict(item)
+            item.setdefault("involves", name)
             _collect(d, a.add_scheduled_event,
                      item.get("name") or item.get("meaning", ""), item)
+        for item in entity.get("sent_information") or []:
+            _collect(d, a.add_sent_information, name, item)
         for item in entity.get("authority") or []:
             _collect(d, a.add_authority, name, item)
         if entity.get("process_behavior"):

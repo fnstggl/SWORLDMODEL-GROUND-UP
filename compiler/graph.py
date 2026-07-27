@@ -62,9 +62,10 @@ PRODUCIBLE = ("state", "record", "information", "resource", "event")
 RELATION_DOMAINS = {
     "knows":                (ACTORS, ("information", "state")),
     "has_state":            (ACTORS + ("process", "resource"), ("state",)),
-    "has_authority":        (ACTORS, ("action", "record", "process")),
+    "has_authority":        (ACTORS, ("action", "record", "process",
+                                      "event")),
     "can_perform":          (ACTORS, ("action",)),
-    "requires":             (HAPPENINGS + ("state",),
+    "requires":             (HAPPENINGS + ("state", "record", "resource"),
                              ("state", "information", "record", "resource",
                               "event", "action", "process")),
     "produces":             (HAPPENINGS, PRODUCIBLE),

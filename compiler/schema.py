@@ -76,7 +76,12 @@ OBSERVATION_TYPES = {
                         "apply a rule (majority, count of a value, total count).",
 }
 
-EPISTEMIC_STATUS = ("verified", "inferred", "scenario_given", "uncertain")
+EPISTEMIC_STATUS = ("verified", "inferred", "scenario_given", "uncertain",
+                    # Mode B (question-only): a claim drafted from model
+                    # memory. Carried honestly through every artifact; the
+                    # lowerer maps it to a runtime inference and such runs
+                    # are never presented as verified forecasts.
+                    "model_memory_unverified")
 
 #: Sections whose every entry must carry a provenance block. Nothing factual
 #: enters a compiled world without saying where it came from.

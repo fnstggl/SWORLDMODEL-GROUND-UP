@@ -1,0 +1,57 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not affect collection rate or shipping schedule, so her actions cannot change the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital and Cascade regional blood centre. No other entities are involved in the supply chain described."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e4"
+      ],
+      "name": "Weekend collection or additional drives",
+      "why_safe": "The drive is only open Monday to Friday, and the week is Monday 20 July to Friday 24 July. No weekend or extra drives are mentioned."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "Any other shipments (e.g., emergency shipments)",
+      "why_safe": "The only shipments described are the regular Tuesday and Thursday shipments. No emergency or additional shipments are mentioned."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_has_enough_units_tuesday",
+      "meaning": "Whether the centre collects enough units by Tuesday 4:00 PM to ship 150 units. The centre starts with 40 units, collects Monday 9-5 (8 hours at 12/hr = 96 units) and Tuesday 9-4 (7 hours at 12/hr = 84 units), total 40+96+84=220 units, which is enough. So this is actually certain."
+    },
+    {
+      "about": "centre_has_enough_units_thursday",
+      "meaning": "Whether the centre collects enough units by Thursday 4:00 PM to ship 150 units. After Tuesday shipment, centre has 220-150=70 units. Wednesday collection 9-5 (8 hours at 12/hr = 96 units) gives 70+96=166 units. Thursday collection 9-4 (7 hours at 12/hr = 84 units) gives 166+84=250 units, enough. So certain."
+    },
+    {
+      "about": "tuesday_shipment_arrives",
+      "meaning": "Whether the Tuesday shipment arrives before Friday noon. Departs Tuesday 4:00 PM, takes 3 hours, arrives Tuesday 7:00 PM, well before Friday noon. Certain."
+    },
+    {
+      "about": "thursday_shipment_arrives",
+      "meaning": "Whether the Thursday shipment arrives before Friday noon. Departs Thursday 4:00 PM, takes 3 hours, arrives Thursday 7:00 PM, before Friday noon. Certain."
+    },
+    {
+      "about": "hospital_holds_units_at_deadline",
+      "meaning": "The exact number of units the hospital holds at Friday noon. This is determined by initial 15 units plus two shipments of 150 each = 315 units. No uncertainty."
+    }
+  ]
+}
