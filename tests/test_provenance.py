@@ -37,11 +37,23 @@ def doc():
 
 
 def test_scenario_given_and_uncertain_need_no_citation():
+    for basis in ("uncertain", "scenario_given"):
+        d = doc()
+        d["participants"][0]["provenance"] = {"basis": basis}
+        # the nested entry must follow suit: there is no evidence to inherit
+        d["participants"][0]["attention"][0]["status"] = basis
+        check_provenance(d, EV)
+
+
+def test_inferred_nested_object_cannot_lean_on_an_uncertain_parent():
+    """Inheritance passes evidence down; it never manufactures it. A nested
+    claim of 'inferred' under a parent that cites nothing must cite its own
+    evidence or admit it is uncertain too."""
     d = doc()
     d["participants"][0]["provenance"] = {"basis": "uncertain"}
-    check_provenance(d, EV)
-    d["participants"][0]["provenance"] = {"basis": "scenario_given"}
-    check_provenance(d, EV)
+    d["participants"][0]["attention"][0]["status"] = "inferred"
+    with pytest.raises(InsufficientEvidence, match="cites no evidence_ids"):
+        check_provenance(d, EV)
 
 
 def test_nested_object_inherits_the_parents_evidence():
@@ -98,7 +110,10 @@ def test_all_violations_are_reported_together():
     d["communication_routes"][0]["provenance"] = {"basis": "inferred"}
     with pytest.raises(InsufficientEvidence) as ei:
         check_provenance(d, EV)
-    assert len(ei.value.detail["defects"]) == 2
+    defects = ei.value.detail["defects"]
+    assert len(defects) >= 2
+    joined = " ".join(defects)
+    assert "participants['A']" in joined and "communication_routes['r']" in joined
     assert ei.value.detail["repairable"] is True
 
 
