@@ -4,19 +4,19 @@
     "computed_from": [
       "terminal.cutoff"
     ],
-    "detail": "Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.",
+    "detail": "Reyes has not noticed the finalized study before the meeting starts",
     "observations": [
       {
         "observation": {
           "describe": "observation 1",
-          "kind": "action_completed",
+          "kind": "info_noticed_by",
           "params": {
             "actor": "alma_reyes",
-            "verb": "read_the_finalized_study"
+            "tag": "finalized_study"
           }
         },
         "read": {
-          "detail": "no completed 'read_the_finalized_study' action by alma_reyes",
+          "detail": "alma_reyes has not noticed any information tagged 'finalized_study'",
           "producers": [],
           "satisfied": false,
           "value": null
@@ -33,19 +33,19 @@
           "computed_from": [
             "terminal.cutoff"
           ],
-          "detail": "Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.",
+          "detail": "Reyes has not noticed the finalized study before the meeting starts",
           "observations": [
             {
               "observation": {
                 "describe": "observation 1",
-                "kind": "action_completed",
+                "kind": "info_noticed_by",
                 "params": {
                   "actor": "alma_reyes",
-                  "verb": "read_the_finalized_study"
+                  "tag": "finalized_study"
                 }
               },
               "read": {
-                "detail": "no completed 'read_the_finalized_study' action by alma_reyes",
+                "detail": "alma_reyes has not noticed any information tagged 'finalized_study'",
                 "producers": [],
                 "satisfied": false,
                 "value": null
@@ -57,7 +57,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 27,
+      "seq": 25,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -65,12 +65,12 @@
         "data": {
           "question": "Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?"
         },
-        "event": 13,
+        "event": 11,
         "kind": "terminal.cutoff",
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.fired",
-      "seq": 26,
+      "seq": 24,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -83,13 +83,13 @@
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 13,
+      "seq": 11,
       "t": "2026-02-18T16:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 12,
+      "seq": 10,
       "t": "2026-02-18T16:00:00+00:00"
     }
   ],

@@ -1,17 +1,24 @@
 {
-  "detail": {
-    "already_satisfied": [
-      {
-        "describe": "Reyes has read and understood the finalized study",
-        "kind": "belief_topic_exists",
-        "params": {
-          "actor": "alma_reyes",
-          "topic": "content_of_finalized_riverside_corridor_traffic_study"
-        }
-      }
-    ],
-    "hint": "if the question is whether something HAPPENS, observe the action that produces it (action_was_completed) or the information actually noticed (participant_noticed_information); do not observe a belief topic the participant already holds at the start"
+  "action_defs": [
+    "finalize_and_send_study"
+  ],
+  "actors": [
+    "alma_reyes",
+    "external_reviewer",
+    "miguel_santos"
+  ],
+  "channels": [
+    "city_email"
+  ],
+  "processes": [],
+  "producer_index": {
+    "action:finalize_and_send_study": 1,
+    "fact:finalized_study_noticed": 1,
+    "fact:finalized_study_sent": 1,
+    "fact:peer_review_sign_off_received": 1,
+    "info:alma_reyes:finalized_study": 1,
+    "info:miguel_santos:peer_review_signoff": 1
   },
-  "reason": "the terminal is already satisfied by the starting state, so the simulation would not decide anything: alma_reyes holds belief on 'content_of_finalized_riverside_corridor_traffic_study'. A condition that is true before the world runs is an initialization value, not an outcome.",
-  "stage": "NO_CAUSAL_PRODUCER"
+  "scheduled_root_events": 1,
+  "stage": "COMPILED"
 }

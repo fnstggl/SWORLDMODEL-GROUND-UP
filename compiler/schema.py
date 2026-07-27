@@ -125,6 +125,12 @@ def validate(doc: dict) -> None:
             raise SemanticAmbiguity(
                 f"unknown observation_type {ot!r} "
                 f"(known: {sorted(OBSERVATION_TYPES)})")
+        if ot in ("tally_of_records", "record_was_made"):
+            if not o.get("record_type"):
+                raise SemanticAmbiguity(
+                    f"{ot!r} needs a 'record_type' naming the kind of record "
+                    f"being read, and it must be the SAME string used by the "
+                    f"create_record change that makes them")
         if ot == "tally_of_records":
             rule = _need(o, "rule", "tally_of_records")
             if rule not in TALLY_RULES:
@@ -196,6 +202,10 @@ def validate(doc: dict) -> None:
 
 def _check_change(e: dict, where: str) -> None:
     ct = _need(e, "change_type", f"{where}.consequences")
+    if ct == "create_record" and not e.get("record_type"):
+        raise SemanticAmbiguity(
+            f"{where}: create_record needs a 'record_type', and it must match "
+            f"the record_type your resolution observations read")
     if ct not in CHANGE_TYPES:
         raise SemanticAmbiguity(
             f"{where}: unknown change_type {ct!r} (known: {sorted(CHANGE_TYPES)})",
@@ -233,10 +243,26 @@ def check_provenance(doc: dict, evidence: dict) -> None:
     known = {c["id"] for c in evidence.get("claims", [])}
     errs, cited = [], set()
 
-    def check(obj, where, extra_nested=()):
+    def check(obj, where, extra_nested=(), inherited=None):
+        """Validate one object's epistemic basis.
+
+        A nested object (a process's rate, an affordance's duration, a route's
+        delivery_delay, a participant's attention entry) INHERITS its parent's
+        provenance unless it states its own. Inheritance is explicit
+        resolution, not silence: the object still has a stated basis and cited
+        evidence, and the resolved value is what the lowerer records. Making
+        the model restate the same citation on every nested object polices
+        form rather than honesty, and in practice it simply never converges.
+        """
         basis, ids = provenance_of(obj)
+        if inherited is not None:
+            pbasis, pids = inherited
+            if basis is None:
+                basis = pbasis          # no basis of its own: take the parent's
+            if not ids:
+                ids = pids              # own basis, parent's supporting evidence
         if basis is None:
-            errs.append(f"{where}: no provenance block. Add "
+            errs.append(f"{where}: no provenance. Add "
                         f'"provenance": {{"basis": "verified"|"inferred"|'
                         f'"scenario_given"|"uncertain", "evidence_ids": [...]}}')
         elif basis not in EPISTEMIC_STATUS:
@@ -247,14 +273,15 @@ def check_provenance(doc: dict, evidence: dict) -> None:
                         f"Cite the claims that support it, or use "
                         f'"scenario_given" / "uncertain" if nothing does.')
         cited.update(ids)
+        resolved = (basis, ids)
         for key in extra_nested:
             nested = obj.get(key)
             if isinstance(nested, dict):
-                check(nested, f"{where}.{key}")
+                check(nested, f"{where}.{key}", inherited=resolved)
             elif isinstance(nested, list):
                 for j, item in enumerate(nested):
                     if isinstance(item, dict):
-                        check(item, f"{where}.{key}[{j}]")
+                        check(item, f"{where}.{key}[{j}]", inherited=resolved)
 
     for i, p in enumerate(doc.get("participants") or []):
         check(p, f"participants[{p.get('name', i)!r}]", ("attention",))
@@ -559,10 +586,11 @@ route, scheduled event, process and action affordance MUST carry:
 
 Nested objects that carry a number of their own -- a route's delivery_delay, a
 process's rate, an affordance's duration, a participant's attention entry --
-are separate factual claims and each needs its OWN basis. For these you may
-either add a "provenance" block, or simply keep their "status" field and add
-"evidence_ids" next to it. Either way: state the basis, and cite evidence
-whenever you call something verified or inferred.
+INHERIT their parent's provenance automatically. You only need to give one its
+own "provenance" block (or its own "status" + "evidence_ids") when its basis
+genuinely DIFFERS from its parent's -- for example a participant whose role is
+verified but whose email-checking habit is only inferred. Otherwise say
+nothing and the parent's basis applies.
 
 You may not introduce an unlabelled factual assumption anywhere. NEVER invent
 a convenient number and label it verified. If noticing behaviour is uncertain,

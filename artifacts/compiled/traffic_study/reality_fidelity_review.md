@@ -2,18 +2,17 @@
 
 **Question.** Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?
 **Answer produced by the trajectory.** `no` (cutoff)
-Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.
+Reyes has not noticed the finalized study before the meeting starts
 
 **How it was produced.** 1 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- 2026-02-18T10:00:00-06:00: external reviewer sends peer-review sign-off to Santos via city email
-- 2026-02-18T10:01:00-06:00: Santos receives sign-off (email delivery ~1 min)
-- 2026-02-18T10:01:00-06:00 to 10:20:00-06:00: Santos sends finalized study to Reyes (20 min action)
-- 2026-02-18T10:21:00-06:00: Reyes receives study email
-- 2026-02-18T10:30:00-06:00 or 12:30:00-06:00: Reyes notices study at next email check (every 2 hours, first check after 8:30 AM is ~10:30 AM)
-- 2026-02-18T10:30:00-06:00 to 11:45:00-06:00 (or later): Reyes reads study (75 min)
-- 2026-02-19T19:00:00-06:00: Meeting starts; Reyes has read the study
+- External Reviewer sends sign-off at 10:00 AM Feb 18
+- Santos notices sign-off at his next email check (by 11:00 AM)
+- Santos finalizes and sends study within 30 minutes (by 11:30 AM)
+- Study arrives in Reyes's inbox within 1 minute
+- Reyes notices study at her next email check (12:30 PM)
+- Reyes reads study (60-90 minutes) before meeting at 7:00 PM
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -32,8 +31,8 @@ reviewer's expected causal path was:
   is deliberately not part of this run.
 
 ## Did the actors actually exercise this world?
-- Affordances declared: 2; ever completed: 0
-- Never performed by anyone: ['read_the_finalized_study', 'send_the_finalized_study']
+- Affordances declared: 1; ever completed: 0
+- Never performed by anyone: ['finalize_and_send_study']
 - Participants who completed no action at all: ['alma_reyes', 'external_reviewer', 'miguel_santos']
 - Intentions the world rejected: 0
   - none
@@ -46,7 +45,6 @@ reviewer's expected causal path was:
   - none
 - Unresolved uncertainties carried by the scenario: 0
   - none
-- Deliberately excluded from the world: 3
-  - Other council members: Only Reyes's reading matters for the answer.
-  - Committee clerk: Only mentioned as source of information; does not affect the outcome.
-  - Other corridor items: Only the Riverside corridor study is relevant.
+- Deliberately excluded from the world: 2
+  - other council members: only Reyes's reading matters
+  - meeting content: only pre-meeting reading matters

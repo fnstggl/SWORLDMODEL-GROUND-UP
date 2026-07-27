@@ -3,9 +3,9 @@
   "deferred_wakes": 0,
   "events_processed": 4,
   "intentions": 0,
-  "ledger_records": 27,
+  "ledger_records": 25,
   "llm_calls": 0,
   "pending_events_at_end": 0,
   "rejections": 0,
-  "wall_ms": 5.5
+  "wall_ms": 4.0
 }

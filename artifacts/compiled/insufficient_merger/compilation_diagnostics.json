@@ -1,28 +1,20 @@
 {
   "detail": {
-    "review": {
-      "causal_path": [],
-      "defects": [
-        {
-          "detail": "A board meeting is scheduled on 2026-12-31 without any evidence that such a meeting is planned or even possible.",
-          "kind": "unsupported_assumption",
-          "severity": "critical"
-        },
-        {
-          "detail": "No board members or decision-makers are identified; the board is treated as a monolithic entity without any evidence of its composition or authority.",
-          "kind": "missing_participant",
-          "severity": "major"
-        },
-        {
-          "detail": "No evidence links the reported 'talks' to a board meeting or approval process; the scenario assumes a causal chain that is not documented.",
-          "kind": "missing_causal_link",
-          "severity": "critical"
-        }
-      ],
-      "reasoning": "The evidence contains no information about the board's schedule, decision-making process, or any concrete steps toward a meeting or vote. The scenario invents a scheduled board meeting and an approval action based solely on a vague trade report of 'talks' and the existence of the company. The uncertainties are correctly noted, but the scenario still asserts a plausible trajectory that is not supported by the evidence. The evidence is insufficient to produce any answer other than 'unresolved'.",
-      "verdict": "REJECT_INSUFFICIENT_EVIDENCE"
-    }
+    "available_evidence_ids": [
+      "e1",
+      "e2",
+      "e3",
+      "e4"
+    ],
+    "defects": [
+      "communication_routes['board meeting room']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+      "communication_routes['board meeting room'].delivery_delay: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+      "scheduled_events[0] ('Board meeting to consider Meridian acqui'): basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+      "action_affordances['board votes to approve acquisition']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+      "action_affordances['board votes to approve acquisition'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does."
+    ],
+    "repairable": true
   },
-  "reason": "The evidence contains no information about the board's schedule, decision-making process, or any concrete steps toward a meeting or vote. The scenario invents a scheduled board meeting and an approval action based solely on a vague trade report of 'talks' and the existence of the company. The uncertainties are correctly noted, but the scenario still asserts a plausible trajectory that is not supported by the evidence. The evidence is insufficient to produce any answer other than 'unresolved'.",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "reason": "5 object(s) lack honest provenance -- the compiler may not introduce an unlabelled factual assumption:\n  - communication_routes['board meeting room']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - communication_routes['board meeting room'].delivery_delay: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - scheduled_events[0] ('Board meeting to consider Meridian acqui'): basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['board votes to approve acquisition']: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.\n  - action_affordances['board votes to approve acquisition'].duration: basis 'inferred' cites no evidence_ids. Cite the claims that support it, or use \"scenario_given\" / \"uncertain\" if nothing does.",
+  "stage": "INSUFFICIENT_EVIDENCE"
 }

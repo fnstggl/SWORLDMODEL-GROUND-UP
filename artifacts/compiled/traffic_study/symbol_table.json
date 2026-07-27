@@ -1,13 +1,12 @@
 {
   "namespaces": {
     "affordance": {
-      "read the finalized study": "read_the_finalized_study",
-      "send the finalized study": "send_the_finalized_study"
+      "finalize and send study": "finalize_and_send_study"
     },
     "participant": {
       "Alma Reyes": "alma_reyes",
-      "Miguel Santos": "miguel_santos",
-      "external reviewer": "external_reviewer"
+      "External Reviewer": "external_reviewer",
+      "Miguel Santos": "miguel_santos"
     },
     "route": {
       "city email": "city_email"

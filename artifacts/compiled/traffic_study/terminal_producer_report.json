@@ -4,19 +4,19 @@
     "computed_from": [
       "terminal.cutoff"
     ],
-    "detail": "Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.",
+    "detail": "Reyes has not noticed the finalized study before the meeting starts",
     "observations": [
       {
         "observation": {
           "describe": "observation 1",
-          "kind": "action_completed",
+          "kind": "info_noticed_by",
           "params": {
             "actor": "alma_reyes",
-            "verb": "read_the_finalized_study"
+            "tag": "finalized_study"
           }
         },
         "read": {
-          "detail": "no completed 'read_the_finalized_study' action by alma_reyes",
+          "detail": "alma_reyes has not noticed any information tagged 'finalized_study'",
           "producers": [],
           "satisfied": false,
           "value": null
@@ -35,19 +35,19 @@
           "computed_from": [
             "terminal.cutoff"
           ],
-          "detail": "Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.",
+          "detail": "Reyes has not noticed the finalized study before the meeting starts",
           "observations": [
             {
               "observation": {
                 "describe": "observation 1",
-                "kind": "action_completed",
+                "kind": "info_noticed_by",
                 "params": {
                   "actor": "alma_reyes",
-                  "verb": "read_the_finalized_study"
+                  "tag": "finalized_study"
                 }
               },
               "read": {
-                "detail": "no completed 'read_the_finalized_study' action by alma_reyes",
+                "detail": "alma_reyes has not noticed any information tagged 'finalized_study'",
                 "producers": [],
                 "satisfied": false,
                 "value": null
@@ -59,7 +59,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 27,
+      "seq": 25,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -67,12 +67,12 @@
         "data": {
           "question": "Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?"
         },
-        "event": 13,
+        "event": 11,
         "kind": "terminal.cutoff",
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.fired",
-      "seq": 26,
+      "seq": 24,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -85,13 +85,13 @@
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 13,
+      "seq": 11,
       "t": "2026-02-18T16:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 12,
+      "seq": 10,
       "t": "2026-02-18T16:00:00+00:00"
     }
   ],
@@ -99,14 +99,14 @@
     {
       "observation": {
         "describe": "observation 1",
-        "kind": "action_completed",
+        "kind": "info_noticed_by",
         "params": {
           "actor": "alma_reyes",
-          "verb": "read_the_finalized_study"
+          "tag": "finalized_study"
         }
       },
       "read": {
-        "detail": "no completed 'read_the_finalized_study' action by alma_reyes",
+        "detail": "alma_reyes has not noticed any information tagged 'finalized_study'",
         "producers": [],
         "satisfied": false,
         "value": null
@@ -115,42 +115,36 @@
   ],
   "replay_hash_match": true,
   "reviewer_causal_path": [
-    "2026-02-18T10:00:00-06:00: external reviewer sends peer-review sign-off to Santos via city email",
-    "2026-02-18T10:01:00-06:00: Santos receives sign-off (email delivery ~1 min)",
-    "2026-02-18T10:01:00-06:00 to 10:20:00-06:00: Santos sends finalized study to Reyes (20 min action)",
-    "2026-02-18T10:21:00-06:00: Reyes receives study email",
-    "2026-02-18T10:30:00-06:00 or 12:30:00-06:00: Reyes notices study at next email check (every 2 hours, first check after 8:30 AM is ~10:30 AM)",
-    "2026-02-18T10:30:00-06:00 to 11:45:00-06:00 (or later): Reyes reads study (75 min)",
-    "2026-02-19T19:00:00-06:00: Meeting starts; Reyes has read the study"
+    "External Reviewer sends sign-off at 10:00 AM Feb 18",
+    "Santos notices sign-off at his next email check (by 11:00 AM)",
+    "Santos finalizes and sends study within 30 minutes (by 11:30 AM)",
+    "Study arrives in Reyes's inbox within 1 minute",
+    "Reyes notices study at her next email check (12:30 PM)",
+    "Reyes reads study (60-90 minutes) before meeting at 7:00 PM"
   ],
   "terminal": {
     "conditions": [
       {
         "describe": "observation 1",
-        "kind": "action_completed",
+        "kind": "info_noticed_by",
         "params": {
           "actor": "alma_reyes",
-          "verb": "read_the_finalized_study"
+          "tag": "finalized_study"
         }
       }
     ],
     "cutoff": "2026-02-20T01:00:00+00:00",
     "measure": null,
-    "no_detail": "Councilmember Reyes has not noticed and read the finalized traffic study before the council meeting begins.",
+    "no_detail": "Reyes has not noticed the finalized study before the meeting starts",
     "question": "Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?",
     "question_type": "boolean",
     "uncertain_paths": [],
-    "yes_detail": "Councilmember Reyes has noticed and read the finalized traffic study before the council meeting begins."
+    "yes_detail": "Reyes has noticed the finalized study before the meeting starts"
   },
   "terminal_producers_claimed": [
     {
-      "description": "The action 'read the finalized study' must be completed by Reyes before the deadline.",
-      "producers": [
-        "Alma Reyes (action: read the finalized study)",
-        "Miguel Santos (action: send the finalized study)",
-        "external reviewer (scheduled event: send sign-off)",
-        "city email (route for delivery)"
-      ]
+      "observation": "participant_noticed_information: Alma Reyes, tag 'finalized study'",
+      "produced_by": "Reyes's attention on city email (check_interval 120 min) noticing the email sent by Santos's action 'finalize and send study'"
     }
   ]
 }

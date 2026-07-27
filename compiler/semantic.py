@@ -125,12 +125,18 @@ def _reject_runtime_syntax(doc, path="") -> None:
             _reject_runtime_syntax(v, f"{path}[{i}]")
     elif isinstance(doc, str):
         if _TEMPLATE_RE.search(doc):
+            token = _TEMPLATE_RE.search(doc).group(0)
+            field = path.rsplit(".", 1)[-1]
             raise SemanticAmbiguity(
-                f"the scenario uses template syntax at {path}: "
-                f"{_TEMPLATE_RE.search(doc).group(0)!r}. Values that come from "
-                f"an action's parameter must use the '<field>_from_parameter' "
-                f"form, not braces inside text.",
-                {"path": path, "text": doc[:200]})
+                f"the text at {path} contains {token!r}. Braces are NOT "
+                f"placeholders here -- that text is stored literally, so a "
+                f"reader would see {token!r} in the message. Fix it one of two "
+                f"ways: (a) if the value is known, write the actual words "
+                f"instead of {token!r}; or (b) if it really comes from the "
+                f"action's parameter, remove {token!r} from the text and add "
+                f'"{field}_from_parameter": "<the parameter name>" beside '
+                f'"{field}" instead.',
+                {"path": path, "text": doc[:200], "repairable": True})
         low = doc.lower()
         for marker in FORBIDDEN_VALUE_MARKERS:
             if marker in low:

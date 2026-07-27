@@ -1,4 +1,4 @@
-{"cause":14,"data":{"author":"external_reviewer","content":"The peer review is complete and the study is approved.","data":{"description":"Sign-off sent to Santos.","tag":"peer_review_signoff"},"id":"i15"},"op":"info.create","seq":15,"t":"2026-02-18T16:00:00+00:00"}
-{"cause":15,"data":{"channel":"city_email","id":"i15","to":"miguel_santos"},"op":"info.send","seq":16,"t":"2026-02-18T16:00:00+00:00"}
-{"cause":18,"data":{"channel":"city_email","id":"i15","to":"miguel_santos"},"op":"info.deliver","seq":19,"t":"2026-02-18T16:01:00+00:00"}
-{"cause":21,"data":{"actor":"miguel_santos","id":"i15"},"op":"info.notice","seq":22,"t":"2026-02-18T17:00:00+00:00"}
+{"cause":12,"data":{"author":"external_reviewer","content":"Sign-off approved","data":{"description":"","tag":"peer_review_signoff"},"id":"i13"},"op":"info.create","seq":13,"t":"2026-02-18T16:00:00+00:00"}
+{"cause":13,"data":{"channel":"city_email","id":"i13","to":"miguel_santos"},"op":"info.send","seq":14,"t":"2026-02-18T16:00:00+00:00"}
+{"cause":16,"data":{"channel":"city_email","id":"i13","to":"miguel_santos"},"op":"info.deliver","seq":17,"t":"2026-02-18T16:01:00+00:00"}
+{"cause":19,"data":{"actor":"miguel_santos","id":"i13"},"op":"info.notice","seq":20,"t":"2026-02-18T17:00:00+00:00"}
