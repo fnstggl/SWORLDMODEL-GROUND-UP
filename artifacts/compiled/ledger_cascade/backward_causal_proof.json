@@ -1,0 +1,80 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:order_board_record",
+        "via": {
+          "node": "event:board_closes",
+          "prerequisites": [
+            {
+              "node": "action:ferrar_commitment",
+              "prerequisites": [
+                {
+                  "node": "action:aldous_commitment",
+                  "prerequisites": [
+                    {
+                      "node": "action:renfrew_commitment",
+                      "prerequisites": [
+                        {
+                          "node": "action:quinto_commitment",
+                          "prerequisites": [
+                            {
+                              "node": "action:brenner_commitment",
+                              "prerequisites": [
+                                {
+                                  "node": "action:nakadai_commitment",
+                                  "prerequisites": [
+                                    {
+                                      "node": "action:ackley_commitment",
+                                      "prerequisites": [
+                                        {
+                                          "node": "action:vetch_commitment",
+                                          "prerequisites": [
+                                            {
+                                              "node": "event:board_opens",
+                                              "root": "scheduled_event"
+                                            }
+                                          ],
+                                          "root": "actor_choice"
+                                        }
+                                      ],
+                                      "root": "actor_choice"
+                                    }
+                                  ],
+                                  "root": "actor_choice"
+                                }
+                              ],
+                              "root": "actor_choice"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      ],
+                      "root": "actor_choice"
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "scheduled_event"
+        }
+      },
+      "component": "record:order_board_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "event"
+      ],
+      "producers": [
+        "event:board_closes"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

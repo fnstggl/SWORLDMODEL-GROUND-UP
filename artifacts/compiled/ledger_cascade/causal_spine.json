@@ -1,0 +1,192 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e3"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The order board closes at 5:00 PM on Thursday 16 April 2026, finalizing the total committed pallets.",
+      "name": "board_closes",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ferrar_commitment"
+        }
+      ],
+      "produces_proof": [
+        "order board record"
+      ],
+      "uncertainty": null,
+      "when": "2026-04-16T17:00:00-06:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e14",
+        "e3"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Simone Ferrar consults the board at 5:30 PM on Thursday 16 April and commits 9 pallets if the board shows at least 24 pallets already committed, otherwise commits nothing. However, the board closes at 5:00 PM, so Ferrar's slot is after closure; she cannot commit.",
+      "name": "ferrar_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "board_closes"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Ferrar's commitment depends on the board total at her slot, but her slot is after closure, so she cannot commit.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e13"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Greta Aldous consults the board at 3:00 PM on Wednesday 15 April and commits 2 pallets if the board shows at least 20 pallets already committed, otherwise commits nothing.",
+      "name": "aldous_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "renfrew_commitment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Aldous's commitment depends on the board total at her slot, which is determined by prior commitments.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e12"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Tobias Renfrew consults the board at 9:00 AM on Wednesday 15 April and commits 7 pallets if the board shows at least 25 pallets already committed, otherwise commits nothing.",
+      "name": "renfrew_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "quinto_commitment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Renfrew's commitment depends on the board total at his slot, which is determined by prior commitments.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Marisol Quinto consults the board at 4:00 PM on Tuesday 14 April and commits 5 pallets if the board shows at least 15 pallets already committed, otherwise commits nothing.",
+      "name": "quinto_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "brenner_commitment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Quinto's commitment depends on the board total at her slot, which is determined by prior commitments.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Ivo Brenner consults the board at 11:00 AM on Tuesday 14 April and commits 8 pallets if the board shows at least 9 pallets already committed, otherwise commits nothing.",
+      "name": "brenner_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "nakadai_commitment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Brenner's commitment depends on the board total at his slot, which is determined by prior commitments.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Peter Nakadai consults the board at 8:30 AM on Tuesday 14 April and commits 3 pallets if the board shows at least 12 pallets already committed, otherwise commits nothing.",
+      "name": "nakadai_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ackley_commitment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Nakadai's commitment depends on the board total at his slot, which is determined by prior commitments.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Doreen Ackley consults the board at 2:00 PM on Monday 13 April and commits 4 pallets if the board shows at least 5 pallets already committed, otherwise commits nothing.",
+      "name": "ackley_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vetch_commitment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Ackley's commitment depends on the board total at her slot, which is determined by Vetch's commitment.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Harlan Vetch consults the board at 10:00 AM on Monday 13 April and commits 6 pallets regardless of what the board shows.",
+      "name": "vetch_commitment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "board_opens"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The order board opens at 9:00 AM on Monday 13 April 2026 showing zero pallets committed.",
+      "name": "board_opens",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-04-13T09:00:00-06:00"
+    }
+  ]
+}

@@ -1,26 +1,8 @@
 [
   {
-    "binding_calls": 7,
-    "case": "freight_handoff",
-    "discovery_calls": 10,
-    "expected_answer": "yes",
-    "expected_refusal": false,
-    "lowering_ms": 0.0,
-    "model_declared_insufficient": false,
-    "pipeline": "discovery",
-    "reason": "the starting_state_and_information document has defects",
-    "repairs": {
-      "causal_spine": 1,
-      "starting_state[Ondrej Malik]": 1
-    },
-    "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 52761
-  },
-  {
-    "binding_calls": 9,
-    "case": "transcript_hold",
-    "discovery_calls": 14,
+    "binding_calls": 34,
+    "case": "permit_tolling",
+    "discovery_calls": 13,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
@@ -28,12 +10,56 @@
     "pipeline": "discovery",
     "reason": "processes with no quantity to feed are mis-shaped steps",
     "repairs": {
-      "action:bring about: registrar_release_within_4_hours": 1,
-      "causal_spine": 1,
-      "producer_assignments": 1
+      "action:bring about: application_accepted_complete": 1,
+      "action:bring about: count_resumes": 2,
+      "action:bring about: count_start": 2,
+      "action:bring about: deemed_approval_trigger": 1,
+      "action:bring about: request_outstanding_period": 2,
+      "action:bring about: request_resolved": 1,
+      "causal_spine": 2,
+      "starting_state[Larkspur County Building Department]": 1,
+      "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
     "stage": "LOWERING_GAP",
-    "tokens": 55648
+    "tokens": 90152
+  },
+  {
+    "binding_calls": 0,
+    "case": "brine_tank",
+    "discovery_calls": 10,
+    "expected_answer": 2232.0,
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "model_declared_insufficient": false,
+    "pipeline": "discovery",
+    "reason": "the starting_state_and_information document has defects",
+    "repairs": {
+      "producer_assignments": 1,
+      "starting_state[Treatment train A]": 1,
+      "starting_state[Treatment train B]": 1
+    },
+    "runtime_ms": 0.0,
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 39989
+  },
+  {
+    "binding_calls": 9,
+    "case": "ledger_cascade",
+    "discovery_calls": 18,
+    "expected_answer": 25.0,
+    "expected_refusal": false,
+    "lowering_ms": 0.0,
+    "model_declared_insufficient": false,
+    "pipeline": "discovery",
+    "reason": "terminal production fails the backward causal proof",
+    "repairs": {
+      "causal_spine": 1,
+      "producer_assignments": 2,
+      "starting_state[Doreen Ackley]": 1
+    },
+    "runtime_ms": 0.0,
+    "stage": "NO_CAUSAL_PRODUCER",
+    "tokens": 90153
   }
 ]

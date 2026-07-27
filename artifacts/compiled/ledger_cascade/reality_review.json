@@ -1,0 +1,33 @@
+{
+  "causal_path": [
+    "board opens at 9:00 AM Mon 13 Apr, showing 0 pallets",
+    "Harlan Vetch commits 6 pallets at 10:00 AM Mon (board becomes 6)",
+    "Doreen Ackley sees board \u22655 at 2:00 PM Mon, commits 4 pallets (board becomes 10)",
+    "Peter Nakadai sees board <12 at 8:30 AM Tue, commits nothing (board stays 10)",
+    "Ivo Brenner sees board \u22659 at 11:00 AM Tue, commits 8 pallets (board becomes 18)",
+    "Marisol Quinto sees board \u226515 at 4:00 PM Tue, commits 5 pallets (board becomes 23)",
+    "Tobias Renfrew sees board <25 at 9:00 AM Wed, commits nothing (board stays 23)",
+    "Greta Aldous sees board \u226520 at 3:00 PM Wed, commits 2 pallets (board becomes 25)",
+    "Board closes at 5:00 PM Thu 16 Apr; Simone Ferrar cannot commit",
+    "Terminal: 25 pallets committed at closure"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Actor action 'ferrar_commitment' lacks a necessary condition that the board is still open (time < 2026-04-16T17:00). The action is defined as consulting at 5:30 PM, but the board closes at 5 PM; without a closure check the runtime could erroneously record a commitment after closure.",
+      "why_material": "If the simulation fires 'ferrar_commitment' at 5:30 PM, it would add 9 pallets to the board, changing the final total from 25 to 34 and violating the rule that no commitments can be recorded after closure."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "The initial state entry 'rostered_slot = 2026-04-13T10:00:00-06:00' is assigned to Doreen Ackley, but her actual rostered slot is 2:00 PM Monday 13 April. This inconsistency could lead the simulation to trigger her consultation at the wrong time.",
+      "why_material": "If the runtime uses this initial state to schedule Ackley's action, she might consult the board at 10:00 AM instead of 2:00 PM. At 10:00 AM the board only shows Vetch's 6 pallets; she would still commit. However, the timing shift could affect the ordering of actions (e.g., if another grower were also at 10:00 AM), but here it only affects the exact moment of her commitment, which is not critical given the deterministic outcome. Still, it is a factual error in the starting state that could propagate to other scenarios."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "The scheduled external event 'rostered slot' on 2026-04-15T09:00 incorrectly states that Doreen Ackley is rostered at that time. In reality, Ackley's slot is 2:00 PM Monday 13 April, not 9:00 AM Wednesday. This misassignment could cause the simulation to trigger Ackley's action on the wrong day.",
+      "why_material": "If the simulation uses this scheduled event to trigger 'ackley_commitment', she would act on Wednesday instead of Monday, causing the board total to be different (likely 0 instead of 6) and causing her to commit nothing (since board <5). This would break the entire commitment chain, leading to a final total of 6 instead of 25."
+    }
+  ],
+  "reasoning": "The world's causal chain is largely correct, but two defects make it unreliable: (1) The action 'ferrar_commitment' lacks a necessary condition that the board is still open, which could allow a post-closure commitment that the evidence forbids. (2) The initial state and scheduled events misstate Doreen Ackley's rostered slot, risking a mistimed commitment that would alter the board total and subsequent decisions. These defects would change the simulation's output if left unrepaired.",
+  "verdict": "TARGETED_REVISION"
+}

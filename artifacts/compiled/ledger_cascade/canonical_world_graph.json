@@ -1,0 +1,2732 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:vetch_commitment",
+      "rel": "requires",
+      "src": "action:ackley_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:renfrew_commitment",
+      "rel": "requires",
+      "src": "action:aldous_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:nakadai_commitment",
+      "rel": "requires",
+      "src": "action:brenner_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:board_closes",
+      "rel": "requires",
+      "src": "action:ferrar_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:ackley_commitment",
+      "rel": "requires",
+      "src": "action:nakadai_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:brenner_commitment",
+      "rel": "requires",
+      "src": "action:quinto_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:quinto_commitment",
+      "rel": "requires",
+      "src": "action:renfrew_commitment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:board_opens",
+      "rel": "requires",
+      "src": "action:vetch_commitment"
+    },
+    {
+      "attrs": {},
+      "dst": "record:order_board_record",
+      "rel": "produces",
+      "src": "event:board_closes"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:ferrar_commitment",
+      "rel": "requires",
+      "src": "event:board_closes"
+    },
+    {
+      "attrs": {
+        "meaning": "The cooperative sets the closing time and operates the board."
+      },
+      "dst": "event:board_closes",
+      "rel": "has_authority",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {
+        "meaning": "The cooperative that sets the closing time for the order board."
+      },
+      "dst": "event:board_closes",
+      "rel": "has_authority",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {
+        "meaning": "The cooperative sets the opening time and operates the board."
+      },
+      "dst": "event:board_opens",
+      "rel": "has_authority",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {
+        "meaning": "The cooperative that opens the order board at the scheduled time."
+      },
+      "dst": "event:board_opens",
+      "rel": "has_authority",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:board_closes",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:board_opens",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:board_visibility",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:commitments_irreversible",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:grower_roster",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_late_commitments",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_off_board_communication",
+      "rel": "has_state",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:grower_rosters",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "organization:ridgeline_growers_cooperative"
+    },
+    {
+      "attrs": {},
+      "dst": "action:ackley_commitment",
+      "rel": "can_perform",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {
+        "meaning": "Doreen Ackley decides whether to commit pallets at her rostered slot."
+      },
+      "dst": "action:ackley_commitment",
+      "rel": "has_authority",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_other_information",
+      "rel": "has_state",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "state:order_intent",
+      "rel": "has_state",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "state:rostered_slot",
+      "rel": "has_state",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:her_own_intent",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "event:rostered_slot",
+      "rel": "observes",
+      "src": "participant:doreen_ackley"
+    },
+    {
+      "attrs": {},
+      "dst": "action:aldous_commitment",
+      "rel": "can_perform",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {
+        "meaning": "Greta Aldous is the person who decides whether to commit pallets at her rostered slot."
+      },
+      "dst": "action:aldous_commitment",
+      "rel": "has_authority",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "state:commitment_rule",
+      "rel": "has_state",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_other_information",
+      "rel": "has_state",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "state:rostered_slot",
+      "rel": "has_state",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_rule",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rostered_slot",
+      "rel": "knows",
+      "src": "participant:greta_aldous"
+    },
+    {
+      "attrs": {},
+      "dst": "action:vetch_commitment",
+      "rel": "can_perform",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {
+        "meaning": "Harlan Vetch is the producer of the vetch_commitment step, deciding whether to commit pallets."
+      },
+      "dst": "action:vetch_commitment",
+      "rel": "has_authority",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "state:commitment_intent",
+      "rel": "has_state",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_communication_with_other_growers",
+      "rel": "has_state",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "state:rostered_slot",
+      "rel": "has_state",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_intent_6_pallets",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rostered_slot_10am_mon",
+      "rel": "knows",
+      "src": "participant:harlan_vetch"
+    },
+    {
+      "attrs": {},
+      "dst": "action:brenner_commitment",
+      "rel": "can_perform",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_rule",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rostered_slot",
+      "rel": "knows",
+      "src": "participant:ivo_brenner"
+    },
+    {
+      "attrs": {},
+      "dst": "action:quinto_commitment",
+      "rel": "can_perform",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {
+        "meaning": "Marisol Quinto is the producer of the quinto_commitment step, deciding whether to commit pallets."
+      },
+      "dst": "action:quinto_commitment",
+      "rel": "has_authority",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "state:commitment_intent",
+      "rel": "has_state",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_prior_commitments",
+      "rel": "has_state",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "state:rostered_slot",
+      "rel": "has_state",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:her_commitment_intent",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:her_rostered_slot",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_knowledge_of_other_growers_intents",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:marisol_quinto"
+    },
+    {
+      "attrs": {},
+      "dst": "action:nakadai_commitment",
+      "rel": "can_perform",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {
+        "meaning": "Peter Nakadai is the producer of the nakadai_commitment step, deciding whether to commit pallets."
+      },
+      "dst": "action:nakadai_commitment",
+      "rel": "has_authority",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "state:commitment_rule",
+      "rel": "has_state",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_other_information",
+      "rel": "has_state",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "state:rostered_slot",
+      "rel": "has_state",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_rule",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rostered_slot",
+      "rel": "knows",
+      "src": "participant:peter_nakadai"
+    },
+    {
+      "attrs": {},
+      "dst": "action:renfrew_commitment",
+      "rel": "can_perform",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {
+        "meaning": "Tobias Renfrew decides whether to commit pallets at his rostered slot."
+      },
+      "dst": "action:renfrew_commitment",
+      "rel": "has_authority",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_availability",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closes_at_5pm_thu",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_closing_time",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opening_and_closing_times",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_opens_at_9am_mon",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_rules",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_schedule",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_shows_only_total",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:board_visibility",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_immediate_and_visible",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:commitment_visibility",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:eligible_growers",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:filed_order_intent",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_discussion",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_off_board_communication",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_withdrawal",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_board_rules",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rostered_slot",
+      "rel": "knows",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "event:rostered_slot",
+      "rel": "observes",
+      "src": "participant:tobias_renfrew"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:order_board_record"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "name": "Growers consulting the board more than once",
+      "why_safe": "Each grower consults the board exactly once at their rostered slot and does not consult again. Excluding multiple consultations is safe because the roster is binding and no departures have occurred."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Growers discussing the order",
+      "why_safe": "Rule 6 forbids soliciting commitments off the board, and the depot manager confirms no grower contacted another about this order. Excluding any discussion is safe because it is prohibited and unobserved."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12",
+        "e13",
+        "e14"
+      ],
+      "name": "Growers not following their filed order intents",
+      "why_safe": "The filed order intents are stated as what each grower will do. There is no evidence that any grower deviates from their intent. Excluding deviations is safe because the intents are filed and the depot manager confirms no departures."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e14"
+      ],
+      "name": "Late commitments after board closure",
+      "why_safe": "The board closes at 5:00 PM Thursday and no late commitments are accepted; Ferrar's slot is after closure, so she cannot commit. Excluding her is safe because the board is closed."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Withdrawal or reduction of commitments",
+      "why_safe": "Rule 4 states commitments cannot be withdrawn or reduced, and no grower has asked to withdraw. Excluding any change is safe because it is not allowed."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Ackley's commitment depends on the board total at her slot, which is determined by Vetch's commitment."
+      },
+      "category": "action",
+      "id": "action:ackley_commitment",
+      "meaning": "Doreen Ackley consults the board at 2:00 PM on Monday 13 April and commits 4 pallets if the board shows at least 5 pallets already committed, otherwise commits nothing.",
+      "name": "ackley_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Aldous's commitment depends on the board total at her slot, which is determined by prior commitments."
+      },
+      "category": "action",
+      "id": "action:aldous_commitment",
+      "meaning": "Greta Aldous consults the board at 3:00 PM on Wednesday 15 April and commits 2 pallets if the board shows at least 20 pallets already committed, otherwise commits nothing.",
+      "name": "aldous_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Brenner's commitment depends on the board total at his slot, which is determined by prior commitments."
+      },
+      "category": "action",
+      "id": "action:brenner_commitment",
+      "meaning": "Ivo Brenner consults the board at 11:00 AM on Tuesday 14 April and commits 8 pallets if the board shows at least 9 pallets already committed, otherwise commits nothing.",
+      "name": "brenner_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Ferrar's commitment depends on the board total at her slot, but her slot is after closure, so she cannot commit.",
+        "unsupported": "Ferrar's slot is after board closure; she cannot commit, so no producer can produce this step."
+      },
+      "category": "action",
+      "id": "action:ferrar_commitment",
+      "meaning": "Simone Ferrar consults the board at 5:30 PM on Thursday 16 April and commits 9 pallets if the board shows at least 24 pallets already committed, otherwise commits nothing. However, the board closes at 5:00 PM, so Ferrar's slot is after closure; she cannot commit.",
+      "name": "ferrar_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e14",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Nakadai's commitment depends on the board total at his slot, which is determined by prior commitments."
+      },
+      "category": "action",
+      "id": "action:nakadai_commitment",
+      "meaning": "Peter Nakadai consults the board at 8:30 AM on Tuesday 14 April and commits 3 pallets if the board shows at least 12 pallets already committed, otherwise commits nothing.",
+      "name": "nakadai_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Quinto's commitment depends on the board total at her slot, which is determined by prior commitments."
+      },
+      "category": "action",
+      "id": "action:quinto_commitment",
+      "meaning": "Marisol Quinto consults the board at 4:00 PM on Tuesday 14 April and commits 5 pallets if the board shows at least 15 pallets already committed, otherwise commits nothing.",
+      "name": "quinto_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Renfrew's commitment depends on the board total at his slot, which is determined by prior commitments."
+      },
+      "category": "action",
+      "id": "action:renfrew_commitment",
+      "meaning": "Tobias Renfrew consults the board at 9:00 AM on Wednesday 15 April and commits 7 pallets if the board shows at least 25 pallets already committed, otherwise commits nothing.",
+      "name": "renfrew_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:vetch_commitment",
+      "meaning": "Harlan Vetch consults the board at 10:00 AM on Monday 13 April and commits 6 pallets regardless of what the board shows.",
+      "name": "vetch_commitment",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-04-16T17:00:00-06:00"
+      },
+      "category": "event",
+      "id": "event:board_closes",
+      "meaning": "The order board closes at 5:00 PM on Thursday 16 April 2026, finalizing the total committed pallets.",
+      "name": "board_closes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-04-13T09:00:00-06:00"
+      },
+      "category": "event",
+      "id": "event:board_opens",
+      "meaning": "The order board opens at 9:00 AM on Monday 13 April 2026 showing zero pallets committed.",
+      "name": "board_opens",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-04-15T09:00:00-06:00"
+      },
+      "category": "event",
+      "id": "event:rostered_slot",
+      "meaning": "Doreen Ackley is scheduled to consult the board at 2:00 PM Monday 13 April 2026.\nTobias Renfrew's rostered slot to consult the order board is 9:00 AM Wednesday 15 April 2026.",
+      "name": "rostered slot",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_availability",
+      "meaning": "Greta Aldous knows the board is available at her rostered slot.\nPeter Nakadai knows the board opens at 9:00 AM Monday 13 April and closes at 5:00 PM Thursday 16 April 2026.",
+      "name": "board_availability",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e15"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_closes",
+      "meaning": "The board closes at 5:00 PM Thursday 16 April 2026.",
+      "name": "board_closes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_closes_at_5pm_thu",
+      "meaning": "The board closes at 5:00 PM Thursday 16 April 2026.\nThe board closes at 5:00 PM on Thursday 16 April 2026.",
+      "name": "board_closes_at_5pm_Thu",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_closing_time",
+      "meaning": "Greta Aldous knows the board closes at 5:00 PM Thursday 16 April 2026.",
+      "name": "board_closing_time",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_opening_and_closing_times",
+      "meaning": "The board opens at 9:00 AM Monday 13 April 2026 and closes at 5:00 PM Thursday 16 April 2026.",
+      "name": "board opening and closing times",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_opens",
+      "meaning": "The board opens at 9:00 AM Monday 13 April 2026 showing zero pallets committed.",
+      "name": "board_opens",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_opens_at_9am_mon",
+      "meaning": "The board opens at 9:00 AM Monday 13 April 2026 showing zero pallets committed.\nThe board opens at 9:00 AM on Monday 13 April 2026 showing zero pallets committed.",
+      "name": "board_opens_at_9am_Mon",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_rules",
+      "meaning": "Commitments are recorded immediately and visible; no withdrawals; no late commitments; growers do not discuss the order.\nCommitments are recorded immediately, visible to all, irreversible, and no late commitments accepted.",
+      "name": "board_rules",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_schedule",
+      "meaning": "The board opens at 9:00 AM Monday 13 April and closes at 5:00 PM Thursday 16 April 2026.",
+      "name": "board_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_shows_only_total",
+      "meaning": "The board displays the running total of committed pallets and nothing else.",
+      "name": "board_shows_only_total",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:board_visibility",
+      "meaning": "Peter Nakadai knows that commitments are immediately visible on the board and the board shows only the running total.",
+      "name": "board_visibility",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:commitment_immediate",
+      "meaning": "A commitment is recorded at the moment the grower makes it and is immediately visible.",
+      "name": "commitment_immediate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:commitment_immediate_and_visible",
+      "meaning": "A commitment is recorded at the moment the grower makes it and is immediately visible to anyone who consults the board afterwards.",
+      "name": "commitment_immediate_and_visible",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:commitment_rule",
+      "meaning": "Greta Aldous knows she will commit 2 pallets if the board shows at least 20 pallets already committed at the moment she looks, and otherwise commit nothing.\nHe will commit 8 pallets if the board shows at least 9 pallets already committed at the moment he looks, otherwise commit nothing.\nPeter Nakadai knows his own commitment rule: commit 3 pallets if board shows at least 12, else nothing.",
+      "name": "commitment_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e13",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:commitment_visibility",
+      "meaning": "A commitment is recorded on the board at the moment the grower makes it and is immediately visible to anyone who consults the board afterwards. The board displays the running total of committed pallets and nothing else.",
+      "name": "commitment_visibility",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:eligible_growers",
+      "meaning": "Eight growers are eligible for this order. Each consults the board exactly once during the order period, at the time fixed for them by the co-op's binding rotation roster; each decides then and there and does not consult the board again.",
+      "name": "eligible_growers",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:filed_order_intent",
+      "meaning": "Tobias Renfrew's filed order intent states he will commit 7 pallets if the board shows at least 25 pallets already committed at the moment he looks, and otherwise commit nothing.",
+      "name": "filed order intent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:grower_rosters",
+      "meaning": "The cooperative knows the rostered slots and filed order intents of all eight growers.",
+      "name": "grower_rosters",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e7",
+          "e8",
+          "e9",
+          "e10",
+          "e11",
+          "e12",
+          "e13",
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:her_commitment_intent",
+      "meaning": "Marisol Quinto knows she will commit 5 pallets if the board shows at least 15 pallets already committed at the moment she looks, otherwise commit nothing.",
+      "name": "her commitment intent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:her_own_intent",
+      "meaning": "She knows her own filed order intent: commit 4 pallets if board shows at least 5, else nothing.",
+      "name": "her_own_intent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:her_rostered_slot",
+      "meaning": "Marisol Quinto knows her rostered slot is 4:00 PM Tuesday 14 April 2026.",
+      "name": "her rostered slot",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_discussion",
+      "meaning": "Growers do not discuss the order with one another.\nGrowers do not discuss the order with one another. No grower has any information about the order beyond what the board showed at their own rostered slot.\nPeter Nakadai knows that growers do not discuss the order with one another.",
+      "name": "no_discussion",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_knowledge_of_other_growers_intents",
+      "meaning": "Marisol Quinto does not know the intents of other growers, as they do not discuss the order.",
+      "name": "no knowledge of other growers' intents",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_off_board_communication",
+      "meaning": "Growers do not discuss the order with one another.",
+      "name": "no_off_board_communication",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_withdrawal",
+      "meaning": "A commitment cannot be withdrawn or reduced.\nA commitment, once recorded, cannot be withdrawn or reduced.\nPeter Nakadai knows that commitments cannot be withdrawn or reduced.",
+      "name": "no_withdrawal",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:order_board_rules",
+      "meaning": "Marisol Quinto knows the board opens at 9:00 AM Monday 13 April and closes at 5:00 PM Thursday 16 April 2026, and that commitments are recorded immediately and cannot be withdrawn.",
+      "name": "order board rules",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:own_intent_6_pallets",
+      "meaning": "Harlan Vetch intends to commit 6 pallets regardless of what the board shows.",
+      "name": "own_intent_6_pallets",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:rostered_slot",
+      "meaning": "Greta Aldous knows her rostered slot is 3:00 PM Wednesday 15 April 2026.\nIvo Brenner's rostered slot is 11:00 AM Tuesday 14 April 2026.\nPeter Nakadai knows his rostered slot is 8:30 AM Tuesday 14 April 2026.\nTobias Renfrew knows his own rostered slot is 9:00 AM Wednesday 15 April 2026.",
+      "name": "rostered_slot",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e12",
+          "e13",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:rostered_slot_10am_mon",
+      "meaning": "Harlan Vetch's rostered slot is 10:00 AM Monday 13 April.",
+      "name": "rostered_slot_10am_Mon",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/Denver"
+      },
+      "category": "organization",
+      "id": "organization:ridgeline_growers_cooperative",
+      "meaning": "The cooperative that opens the order board at the scheduled time.\nThe cooperative that sets the closing time for the order board.",
+      "name": "Ridgeline Growers Cooperative",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:doreen_ackley",
+      "meaning": "The grower who decides whether to commit pallets based on board total.",
+      "name": "Doreen Ackley",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-04-13T09:00:00-06:00",
+            "meaning": "Greta Aldous does not have access to the board before her rostered slot or after the board closes.",
+            "to": "2026-04-15T15:00:00-06:00"
+          }
+        ],
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:greta_aldous",
+      "meaning": "The grower who decides whether to commit pallets based on board total.",
+      "name": "Greta Aldous",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:harlan_vetch",
+      "meaning": "The grower who commits 6 pallets regardless of board total.",
+      "name": "Harlan Vetch",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:ivo_brenner",
+      "meaning": "The grower who decides whether to commit pallets based on board total.",
+      "name": "Ivo Brenner",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:marisol_quinto",
+      "meaning": "The grower who decides whether to commit pallets based on board total.",
+      "name": "Marisol Quinto",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:peter_nakadai",
+      "meaning": "The grower who decides whether to commit pallets based on board total.",
+      "name": "Peter Nakadai",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Denver"
+      },
+      "category": "participant",
+      "id": "participant:tobias_renfrew",
+      "meaning": "The grower who decides whether to commit pallets based on board total.",
+      "name": "Tobias Renfrew",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": null,
+        "record_type": "running total",
+        "rule": "count_all",
+        "subject": "Ridgeline Growers Cooperative order board",
+        "value": null
+      },
+      "category": "record",
+      "id": "record:order_board_record",
+      "meaning": "The running total of committed pallets displayed on the order board at the moment it closes.",
+      "name": "order board record",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10",
+          "e11",
+          "e12",
+          "e13",
+          "e14",
+          "e15"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:board_closes",
+      "meaning": "The order board closes at 5:00 PM on Thursday 16 April 2026.",
+      "name": "board_closes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:board_opens",
+      "meaning": "The order board opens at 9:00 AM on Monday 13 April 2026 showing zero pallets committed.",
+      "name": "board_opens",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:board_visibility",
+      "meaning": "The board displays the running total of committed pallets and nothing else; it is immediately visible to anyone who consults it.",
+      "name": "board_visibility",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "6"
+      },
+      "category": "state",
+      "id": "state:commitment_intent",
+      "meaning": "Harlan Vetch intends to commit 6 pallets regardless of what the board shows.\nMarisol Quinto intends to commit 5 pallets if the board shows at least 15 pallets already committed at the moment she looks, otherwise commit nothing.",
+      "name": "commitment intent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:commitment_rule",
+      "meaning": "Greta Aldous will commit 2 pallets if the board shows at least 20 pallets already committed at the moment she looks, and otherwise commit nothing.\nPeter Nakadai will commit 3 pallets if the board shows at least 12 pallets already committed at the moment he looks, and otherwise commit nothing.",
+      "name": "commitment_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e13",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:commitments_irreversible",
+      "meaning": "A commitment, once recorded, cannot be withdrawn or reduced.",
+      "name": "commitments_irreversible",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:grower_roster",
+      "meaning": "Eight growers are eligible; each consults the board exactly once at their rostered time and does not consult again.",
+      "name": "grower_roster",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_communication_with_other_growers",
+      "meaning": "Harlan Vetch does not discuss the order with other growers and has no information beyond what the board shows at his slot.",
+      "name": "no_communication_with_other_growers",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_late_commitments",
+      "meaning": "Once the board closes, no further commitment can be recorded; the depot manager has no discretion to accept late commitments.",
+      "name": "no_late_commitments",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_off_board_communication",
+      "meaning": "Growers do not discuss the order with one another; no grower has any information beyond what the board showed at their own slot.",
+      "name": "no_off_board_communication",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_other_information",
+      "meaning": "Greta Aldous has no information about the order beyond what the board shows at her rostered slot.\nPeter Nakadai has no information about the order beyond what the board shows at his rostered slot.\nShe has no information about the order beyond what the board shows at her rostered slot.",
+      "name": "no_other_information",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_prior_commitments",
+      "meaning": "Marisol Quinto has not made any commitment on the order board before her rostered slot.",
+      "name": "no prior commitments",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:order_intent",
+      "meaning": "She will commit 4 pallets if the board shows at least 5 pallets already committed at the moment she looks, and otherwise commit nothing.",
+      "name": "order_intent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "2026-04-13T10:00:00-06:00"
+      },
+      "category": "state",
+      "id": "state:rostered_slot",
+      "meaning": "Doreen Ackley's rostered slot is 2:00 PM Monday 13 April 2026.\nGreta Aldous's rostered slot to consult the order board is 3:00 PM Wednesday 15 April 2026.\nHarlan Vetch's rostered slot is 10:00 AM Monday 13 April 2026.\nMarisol Quinto's rostered slot to consult the order board is 4:00 PM Tuesday 14 April 2026.\nPeter Nakadai's rostered slot to consult the order board is 8:30 AM Tuesday 14 April 2026.",
+      "name": "rostered_slot",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11",
+          "e13",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "quantity",
+        "cutoff": {
+          "meaning": "The order board closes at this time, after which no further commitments can be recorded.",
+          "timezone": "America/Denver",
+          "when": "2026-04-16T17:00:00-06:00"
+        },
+        "measured_act": null,
+        "negative_condition": null,
+        "positive_condition": "The number of pallets committed on the board at the cutoff.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The total number of pallets recorded as committed on the Ridgeline Growers Cooperative order board at the moment it closes at 5:00 PM on Thursday 16 April 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10",
+          "e11",
+          "e12",
+          "e13",
+          "e14",
+          "e15"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "ackley_commitment": "ackley_commitment",
+        "aldous_commitment": "aldous_commitment",
+        "brenner_commitment": "brenner_commitment",
+        "ferrar_commitment": "ferrar_commitment",
+        "nakadai_commitment": "nakadai_commitment",
+        "quinto_commitment": "quinto_commitment",
+        "renfrew_commitment": "renfrew_commitment",
+        "vetch_commitment": "vetch_commitment"
+      },
+      "event": {
+        "board_closes": "board_closes",
+        "board_opens": "board_opens",
+        "rostered slot": "rostered_slot"
+      },
+      "information": {
+        "board opening and closing times": "board_opening_and_closing_times",
+        "board_availability": "board_availability",
+        "board_closes": "board_closes",
+        "board_closes_at_5pm_Thu": "board_closes_at_5pm_thu",
+        "board_closing_time": "board_closing_time",
+        "board_opens": "board_opens",
+        "board_opens_at_9am_Mon": "board_opens_at_9am_mon",
+        "board_rules": "board_rules",
+        "board_schedule": "board_schedule",
+        "board_shows_only_total": "board_shows_only_total",
+        "board_visibility": "board_visibility",
+        "commitment_immediate": "commitment_immediate",
+        "commitment_immediate_and_visible": "commitment_immediate_and_visible",
+        "commitment_rule": "commitment_rule",
+        "commitment_visibility": "commitment_visibility",
+        "eligible_growers": "eligible_growers",
+        "filed order intent": "filed_order_intent",
+        "grower_rosters": "grower_rosters",
+        "her commitment intent": "her_commitment_intent",
+        "her rostered slot": "her_rostered_slot",
+        "her_own_intent": "her_own_intent",
+        "no knowledge of other growers' intents": "no_knowledge_of_other_growers_intents",
+        "no_discussion": "no_discussion",
+        "no_off_board_communication": "no_off_board_communication",
+        "no_withdrawal": "no_withdrawal",
+        "order board rules": "order_board_rules",
+        "own_intent_6_pallets": "own_intent_6_pallets",
+        "rostered_slot": "rostered_slot",
+        "rostered_slot_10am_Mon": "rostered_slot_10am_mon"
+      },
+      "organization": {
+        "Ridgeline Growers Cooperative": "ridgeline_growers_cooperative"
+      },
+      "participant": {
+        "Doreen Ackley": "doreen_ackley",
+        "Greta Aldous": "greta_aldous",
+        "Harlan Vetch": "harlan_vetch",
+        "Ivo Brenner": "ivo_brenner",
+        "Marisol Quinto": "marisol_quinto",
+        "Peter Nakadai": "peter_nakadai",
+        "Tobias Renfrew": "tobias_renfrew"
+      },
+      "record": {
+        "order board record": "order_board_record"
+      },
+      "state": {
+        "board_closes": "board_closes",
+        "board_opens": "board_opens",
+        "board_visibility": "board_visibility",
+        "commitment intent": "commitment_intent",
+        "commitment_rule": "commitment_rule",
+        "commitments_irreversible": "commitments_irreversible",
+        "grower_roster": "grower_roster",
+        "no prior commitments": "no_prior_commitments",
+        "no_communication_with_other_growers": "no_communication_with_other_growers",
+        "no_late_commitments": "no_late_commitments",
+        "no_off_board_communication": "no_off_board_communication",
+        "no_other_information": "no_other_information",
+        "order_intent": "order_intent",
+        "rostered_slot": "rostered_slot"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "The board closes at 5:00 PM Thursday 16 April 2026, but the exact moment of closure relative to Ferrar's slot (5:30 PM) is unknown; Ferrar's slot is after closure, so she cannot commit.",
+      "topic": "board_closes"
+    },
+    {
+      "about": "action:ackley_commitment",
+      "meaning": "Ackley commits 4 pallets if the board shows at least 5 pallets at her look time (2:00 PM Monday). The board total at that time depends on Vetch's commitment."
+    },
+    {
+      "about": "action:ackley_commitment",
+      "meaning": "Ackley's commitment depends on the board total at her slot, which is determined by Vetch's commitment."
+    },
+    {
+      "about": "action:aldous_commitment",
+      "meaning": "Aldous commits 2 pallets if the board shows at least 20 pallets at her look time (3:00 PM Wednesday). The board total at that time depends on prior commitments, which are uncertain due to conditional commitments of others."
+    },
+    {
+      "about": "action:aldous_commitment",
+      "meaning": "Aldous's commitment depends on the board total at her slot, which is determined by prior commitments."
+    },
+    {
+      "about": "action:brenner_commitment",
+      "meaning": "Brenner commits 8 pallets if the board shows at least 9 pallets at his look time (11:00 AM Tuesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "action:brenner_commitment",
+      "meaning": "Brenner's commitment depends on the board total at his slot, which is determined by prior commitments."
+    },
+    {
+      "about": "action:ferrar_commitment",
+      "meaning": "Ferrar's commitment depends on the board total at her slot, but her slot is after closure, so she cannot commit."
+    },
+    {
+      "about": "action:ferrar_commitment",
+      "meaning": "Ferrar's slot is at 5:30 PM Thursday, after the board closes at 5:00 PM, so she cannot commit. However, if the board were still open, she would commit 9 pallets if the board showed at least 24 pallets at her look time."
+    },
+    {
+      "about": "action:nakadai_commitment",
+      "meaning": "Nakadai commits 3 pallets if the board shows at least 12 pallets at his look time (8:30 AM Tuesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "action:nakadai_commitment",
+      "meaning": "Nakadai's commitment depends on the board total at his slot, which is determined by prior commitments."
+    },
+    {
+      "about": "action:quinto_commitment",
+      "meaning": "Quinto commits 5 pallets if the board shows at least 15 pallets at her look time (4:00 PM Tuesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "action:quinto_commitment",
+      "meaning": "Quinto's commitment depends on the board total at her slot, which is determined by prior commitments."
+    },
+    {
+      "about": "action:renfrew_commitment",
+      "meaning": "Renfrew commits 7 pallets if the board shows at least 25 pallets at his look time (9:00 AM Wednesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "action:renfrew_commitment",
+      "meaning": "Renfrew's commitment depends on the board total at his slot, which is determined by prior commitments."
+    },
+    {
+      "about": "action:vetch_commitment",
+      "meaning": "Vetch commits 6 pallets at 10:00 AM Monday regardless of board state. This is certain."
+    }
+  ]
+}

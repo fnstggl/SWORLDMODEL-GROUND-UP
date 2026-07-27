@@ -1,0 +1,135 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "The cooperative that sets the closing time for the order board.",
+          "name": "Ridgeline Growers Cooperative"
+        }
+      ],
+      "step": "board_closes"
+    },
+    {
+      "step": "ferrar_commitment",
+      "unsupported": "Ferrar's slot is after board closure; she cannot commit, so no producer can produce this step."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "kind": "person",
+          "meaning": "The grower who decides whether to commit pallets based on board total.",
+          "name": "Greta Aldous"
+        }
+      ],
+      "step": "aldous_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "kind": "person",
+          "meaning": "The grower who decides whether to commit pallets based on board total.",
+          "name": "Tobias Renfrew"
+        }
+      ],
+      "step": "renfrew_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "The grower who decides whether to commit pallets based on board total.",
+          "name": "Marisol Quinto"
+        }
+      ],
+      "step": "quinto_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "The grower who decides whether to commit pallets based on board total.",
+          "name": "Ivo Brenner"
+        }
+      ],
+      "step": "brenner_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "The grower who decides whether to commit pallets based on board total.",
+          "name": "Peter Nakadai"
+        }
+      ],
+      "step": "nakadai_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "The grower who decides whether to commit pallets based on board total.",
+          "name": "Doreen Ackley"
+        }
+      ],
+      "step": "ackley_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "The grower who commits 6 pallets regardless of board total.",
+          "name": "Harlan Vetch"
+        }
+      ],
+      "step": "vetch_commitment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The cooperative that opens the order board at the scheduled time.",
+          "name": "Ridgeline Growers Cooperative"
+        }
+      ],
+      "step": "board_opens"
+    }
+  ]
+}

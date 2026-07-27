@@ -1,0 +1,15 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "record:order_board_record"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:board_closes",
+    "event:board_opens",
+    "event:rostered_slot"
+  ],
+  "warnings": []
+}

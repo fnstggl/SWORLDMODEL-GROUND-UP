@@ -1,0 +1,34 @@
+{
+  "assembly_ms": 5.9,
+  "assembly_repairs": [
+    "review:causal_spine",
+    "review:producer_assignments",
+    "review:starting_state_and_information",
+    "producer_assignments"
+  ],
+  "binding_calls": 9,
+  "discovery_calls": 18,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 173151.33676199935,
+  "model_tokens": 90153,
+  "proofs_ms": 1.3,
+  "repairs_by_step": {
+    "causal_spine": 1,
+    "producer_assignments": 2,
+    "starting_state[Doreen Ackley]": 1
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 1,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

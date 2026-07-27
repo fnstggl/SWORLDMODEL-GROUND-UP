@@ -1,0 +1,90 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e14"
+      ],
+      "name": "Late commitments after board closure",
+      "why_safe": "The board closes at 5:00 PM Thursday and no late commitments are accepted; Ferrar's slot is after closure, so she cannot commit. Excluding her is safe because the board is closed."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Growers discussing the order",
+      "why_safe": "Rule 6 forbids soliciting commitments off the board, and the depot manager confirms no grower contacted another about this order. Excluding any discussion is safe because it is prohibited and unobserved."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Withdrawal or reduction of commitments",
+      "why_safe": "Rule 4 states commitments cannot be withdrawn or reduced, and no grower has asked to withdraw. Excluding any change is safe because it is not allowed."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "name": "Growers consulting the board more than once",
+      "why_safe": "Each grower consults the board exactly once at their rostered slot and does not consult again. Excluding multiple consultations is safe because the roster is binding and no departures have occurred."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12",
+        "e13",
+        "e14"
+      ],
+      "name": "Growers not following their filed order intents",
+      "why_safe": "The filed order intents are stated as what each grower will do. There is no evidence that any grower deviates from their intent. Excluding deviations is safe because the intents are filed and the depot manager confirms no departures."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "board_closes",
+      "meaning": "The board closes at 5:00 PM Thursday 16 April 2026, but the exact moment of closure relative to Ferrar's slot (5:30 PM) is unknown; Ferrar's slot is after closure, so she cannot commit."
+    },
+    {
+      "about": "ferrar_commitment",
+      "meaning": "Ferrar's slot is at 5:30 PM Thursday, after the board closes at 5:00 PM, so she cannot commit. However, if the board were still open, she would commit 9 pallets if the board showed at least 24 pallets at her look time."
+    },
+    {
+      "about": "aldous_commitment",
+      "meaning": "Aldous commits 2 pallets if the board shows at least 20 pallets at her look time (3:00 PM Wednesday). The board total at that time depends on prior commitments, which are uncertain due to conditional commitments of others."
+    },
+    {
+      "about": "renfrew_commitment",
+      "meaning": "Renfrew commits 7 pallets if the board shows at least 25 pallets at his look time (9:00 AM Wednesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "quinto_commitment",
+      "meaning": "Quinto commits 5 pallets if the board shows at least 15 pallets at her look time (4:00 PM Tuesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "brenner_commitment",
+      "meaning": "Brenner commits 8 pallets if the board shows at least 9 pallets at his look time (11:00 AM Tuesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "nakadai_commitment",
+      "meaning": "Nakadai commits 3 pallets if the board shows at least 12 pallets at his look time (8:30 AM Tuesday). The board total at that time depends on prior commitments, which are uncertain."
+    },
+    {
+      "about": "ackley_commitment",
+      "meaning": "Ackley commits 4 pallets if the board shows at least 5 pallets at her look time (2:00 PM Monday). The board total at that time depends on Vetch's commitment."
+    },
+    {
+      "about": "vetch_commitment",
+      "meaning": "Vetch commits 6 pallets at 10:00 AM Monday regardless of board state. This is certain."
+    }
+  ]
+}

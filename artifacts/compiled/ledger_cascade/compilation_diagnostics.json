@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "defects": [
+      "action:ferrar_commitment: explicitly marked unsupported (Ferrar's slot is after board closure; she cannot commit, so no producer can produce this step.)"
+    ],
+    "repairable": true
+  },
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

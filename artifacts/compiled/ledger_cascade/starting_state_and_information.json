@@ -1,0 +1,1005 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The cooperative sets the opening time and operates the board.",
+          "over": "board_opens"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e3"
+          ],
+          "meaning": "The cooperative sets the closing time and operates the board.",
+          "over": "board_closes"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The order board opens at 9:00 AM on Monday 13 April 2026 showing zero pallets committed.",
+          "name": "board_opens"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e3"
+          ],
+          "meaning": "The order board closes at 5:00 PM on Thursday 16 April 2026.",
+          "name": "board_closes"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Once the board closes, no further commitment can be recorded; the depot manager has no discretion to accept late commitments.",
+          "name": "no_late_commitments"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "A commitment, once recorded, cannot be withdrawn or reduced.",
+          "name": "commitments_irreversible"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The board displays the running total of committed pallets and nothing else; it is immediately visible to anyone who consults it.",
+          "name": "board_visibility"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Eight growers are eligible; each consults the board exactly once at their rostered time and does not consult again.",
+          "name": "grower_roster"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Growers do not discuss the order with one another; no grower has any information beyond what the board showed at their own slot.",
+          "name": "no_off_board_communication"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board opens at 9:00 AM Monday 13 April and closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "meaning": "Commitments are recorded immediately, visible to all, irreversible, and no late commitments accepted.",
+          "name": "board_rules",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e7",
+            "e8",
+            "e9",
+            "e10",
+            "e11",
+            "e12",
+            "e13",
+            "e14"
+          ],
+          "meaning": "The cooperative knows the rostered slots and filed order intents of all eight growers.",
+          "name": "grower_rosters",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Growers do not discuss the order with one another.",
+          "name": "no_off_board_communication",
+          "visibility": "public"
+        }
+      ],
+      "name": "Ridgeline Growers Cooperative",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Simone Ferrar is the sole producer of the ferrar_commitment step.",
+          "over": "ferrar_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Simone Ferrar's rostered slot to consult the board is 5:30 PM Thursday 16 April 2026.",
+          "name": "rostered_slot"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Simone Ferrar will commit 9 pallets if the board shows at least 24 pallets already committed at the moment she looks, otherwise commit nothing.",
+          "name": "order_intent"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Simone Ferrar has no information about the order beyond what the board shows at her rostered slot.",
+          "name": "no_prior_knowledge"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Simone Ferrar knows that the board opens at 9:00 AM Monday 13 April 2026 showing zero pallets committed.",
+          "name": "board_initial_state",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Simone Ferrar knows that the board closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board_closing_time",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e4"
+          ],
+          "meaning": "Simone Ferrar knows that commitments are recorded immediately, cannot be withdrawn, and are visible to anyone who consults the board afterwards.",
+          "name": "commitment_rules",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Simone Ferrar knows that no commitment can be recorded after the board closes.",
+          "name": "no_late_commitments",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Simone Ferrar knows that each grower consults the board exactly once at their rostered slot and does not consult again.",
+          "name": "rotation_roster",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Simone Ferrar knows that growers do not discuss the order with one another.",
+          "name": "no_discussion",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Simone Ferrar knows her own filed order intent: commit 9 pallets if board shows at least 24, else nothing.",
+          "name": "her_own_intent",
+          "visibility": "private"
+        }
+      ],
+      "name": "Simone Ferrar",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Greta Aldous is the person who decides whether to commit pallets at her rostered slot.",
+          "over": "aldous_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Greta Aldous's rostered slot to consult the order board is 3:00 PM Wednesday 15 April 2026.",
+          "name": "rostered_slot"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Greta Aldous will commit 2 pallets if the board shows at least 20 pallets already committed at the moment she looks, and otherwise commit nothing.",
+          "name": "commitment_rule"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Greta Aldous has no information about the order beyond what the board shows at her rostered slot.",
+          "name": "no_other_information"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Greta Aldous knows her rostered slot is 3:00 PM Wednesday 15 April 2026.",
+          "name": "rostered_slot",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Greta Aldous knows she will commit 2 pallets if the board shows at least 20 pallets already committed at the moment she looks, and otherwise commit nothing.",
+          "name": "commitment_rule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Greta Aldous knows the board is available at her rostered slot.",
+          "name": "board_availability",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Greta Aldous knows the board closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board_closing_time",
+          "visibility": "public"
+        }
+      ],
+      "name": "Greta Aldous",
+      "not_available": [
+        {
+          "from": "2026-04-13T09:00:00-06:00",
+          "meaning": "Greta Aldous does not have access to the board before her rostered slot or after the board closes.",
+          "to": "2026-04-15T15:00:00-06:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Tobias Renfrew decides whether to commit pallets at his rostered slot.",
+          "over": "renfrew_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Tobias Renfrew's rostered slot to consult the order board is 9:00 AM Wednesday 15 April 2026.",
+          "name": "rostered slot",
+          "when": "2026-04-15T09:00:00-06:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Tobias Renfrew's filed order intent states he will commit 7 pallets if the board shows at least 25 pallets already committed at the moment he looks, and otherwise commit nothing.",
+          "name": "filed order intent",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board opens at 9:00 AM Monday 13 April 2026 and closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board opening and closing times",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e3",
+            "e4",
+            "e6"
+          ],
+          "meaning": "Commitments are recorded immediately and visible; no withdrawals; no late commitments; growers do not discuss the order.",
+          "name": "board rules",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Tobias Renfrew knows his own rostered slot is 9:00 AM Wednesday 15 April 2026.",
+          "name": "rostered slot",
+          "visibility": "private"
+        }
+      ],
+      "name": "Tobias Renfrew",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marisol Quinto is the producer of the quinto_commitment step, deciding whether to commit pallets.",
+          "over": "quinto_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marisol Quinto's rostered slot to consult the order board is 4:00 PM Tuesday 14 April 2026.",
+          "name": "rostered slot"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marisol Quinto intends to commit 5 pallets if the board shows at least 15 pallets already committed at the moment she looks, otherwise commit nothing.",
+          "name": "commitment intent"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1",
+            "e5"
+          ],
+          "meaning": "Marisol Quinto has not made any commitment on the order board before her rostered slot.",
+          "name": "no prior commitments"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "meaning": "Marisol Quinto knows the board opens at 9:00 AM Monday 13 April and closes at 5:00 PM Thursday 16 April 2026, and that commitments are recorded immediately and cannot be withdrawn.",
+          "name": "order board rules",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marisol Quinto knows her rostered slot is 4:00 PM Tuesday 14 April 2026.",
+          "name": "her rostered slot",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marisol Quinto knows she will commit 5 pallets if the board shows at least 15 pallets already committed at the moment she looks, otherwise commit nothing.",
+          "name": "her commitment intent",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Marisol Quinto does not know the intents of other growers, as they do not discuss the order.",
+          "name": "no knowledge of other growers' intents",
+          "visibility": "private"
+        }
+      ],
+      "name": "Marisol Quinto",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Ivo Brenner's rostered slot is 11:00 AM Tuesday 14 April 2026.",
+          "name": "rostered_slot",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "He will commit 8 pallets if the board shows at least 9 pallets already committed at the moment he looks, otherwise commit nothing.",
+          "name": "commitment_rule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board opens at 9:00 AM Monday 13 April 2026 showing zero pallets committed.",
+          "name": "board_opens",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board_closes",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "A commitment is recorded on the board at the moment the grower makes it and is immediately visible to anyone who consults the board afterwards. The board displays the running total of committed pallets and nothing else.",
+          "name": "commitment_visibility",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "A commitment, once recorded, cannot be withdrawn or reduced.",
+          "name": "no_withdrawal",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Growers do not discuss the order with one another. No grower has any information about the order beyond what the board showed at their own rostered slot.",
+          "name": "no_discussion",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Eight growers are eligible for this order. Each consults the board exactly once during the order period, at the time fixed for them by the co-op's binding rotation roster; each decides then and there and does not consult the board again.",
+          "name": "eligible_growers",
+          "visibility": "public"
+        }
+      ],
+      "name": "Ivo Brenner",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Peter Nakadai is the producer of the nakadai_commitment step, deciding whether to commit pallets.",
+          "over": "nakadai_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Peter Nakadai's rostered slot to consult the order board is 8:30 AM Tuesday 14 April 2026.",
+          "name": "rostered_slot"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Peter Nakadai will commit 3 pallets if the board shows at least 12 pallets already committed at the moment he looks, and otherwise commit nothing.",
+          "name": "commitment_rule"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Peter Nakadai has no information about the order beyond what the board shows at his rostered slot.",
+          "name": "no_other_information"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Peter Nakadai knows his rostered slot is 8:30 AM Tuesday 14 April 2026.",
+          "name": "rostered_slot",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Peter Nakadai knows his own commitment rule: commit 3 pallets if board shows at least 12, else nothing.",
+          "name": "commitment_rule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Peter Nakadai knows the board opens at 9:00 AM Monday 13 April and closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board_availability",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Peter Nakadai knows that commitments are immediately visible on the board and the board shows only the running total.",
+          "name": "board_visibility",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Peter Nakadai knows that commitments cannot be withdrawn or reduced.",
+          "name": "no_withdrawal",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Peter Nakadai knows that growers do not discuss the order with one another.",
+          "name": "no_discussion",
+          "visibility": "public"
+        }
+      ],
+      "name": "Peter Nakadai",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Doreen Ackley decides whether to commit pallets at her rostered slot.",
+          "over": "ackley_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Doreen Ackley is scheduled to consult the board at 2:00 PM Monday 13 April 2026.",
+          "name": "rostered_slot",
+          "when": "2026-04-13T14:00:00-06:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Doreen Ackley's rostered slot is 2:00 PM Monday 13 April 2026.",
+          "name": "rostered_slot"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "She will commit 4 pallets if the board shows at least 5 pallets already committed at the moment she looks, and otherwise commit nothing.",
+          "name": "order_intent"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "She has no information about the order beyond what the board shows at her rostered slot.",
+          "name": "no_other_information"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board opens at 9:00 AM Monday 13 April 2026 showing zero pallets committed.",
+          "name": "board_opens_at_9am_Mon",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board closes at 5:00 PM Thursday 16 April 2026.",
+          "name": "board_closes_at_5pm_Thu",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "A commitment is recorded at the moment the grower makes it and is immediately visible.",
+          "name": "commitment_immediate",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "A commitment cannot be withdrawn or reduced.",
+          "name": "no_withdrawal",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Growers do not discuss the order with one another.",
+          "name": "no_discussion",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "She knows her own filed order intent: commit 4 pallets if board shows at least 5, else nothing.",
+          "name": "her_own_intent",
+          "visibility": "private"
+        }
+      ],
+      "name": "Doreen Ackley",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Harlan Vetch is the producer of the vetch_commitment step, deciding whether to commit pallets.",
+          "over": "vetch_commitment"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Harlan Vetch's rostered slot is 10:00 AM Monday 13 April 2026.",
+          "name": "rostered_slot",
+          "value": "2026-04-13T10:00:00-06:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Harlan Vetch intends to commit 6 pallets regardless of what the board shows.",
+          "name": "commitment_intent",
+          "value": "6"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Harlan Vetch does not discuss the order with other growers and has no information beyond what the board shows at his slot.",
+          "name": "no_communication_with_other_growers"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board opens at 9:00 AM on Monday 13 April 2026 showing zero pallets committed.",
+          "name": "board_opens_at_9am_Mon",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The board closes at 5:00 PM on Thursday 16 April 2026.",
+          "name": "board_closes_at_5pm_Thu",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "A commitment is recorded at the moment the grower makes it and is immediately visible to anyone who consults the board afterwards.",
+          "name": "commitment_immediate_and_visible",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The board displays the running total of committed pallets and nothing else.",
+          "name": "board_shows_only_total",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "A commitment, once recorded, cannot be withdrawn or reduced.",
+          "name": "no_withdrawal",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Harlan Vetch's rostered slot is 10:00 AM Monday 13 April.",
+          "name": "rostered_slot_10am_Mon",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Harlan Vetch intends to commit 6 pallets regardless of what the board shows.",
+          "name": "own_intent_6_pallets",
+          "visibility": "private"
+        }
+      ],
+      "name": "Harlan Vetch",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Denver"
+    }
+  ]
+}
