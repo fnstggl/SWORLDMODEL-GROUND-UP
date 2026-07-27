@@ -113,11 +113,18 @@ WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still \
 return the four fields but set resolution to the single word \
 "UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not \
 invent a fake scene:
-- the question identifies NO decision-maker: a person unnamed but uniquely \
-identified by the question or context ("Maya's landlord") is fine, but a \
-wholly unspecified party ("the company", "the neighbors", "the permit \
-office" with no referent anywhere) is not -- never invent generic \
-placeholder actors to stand in for nobody in particular;
+- the question refers to NO party who could decide or act.  Identification \
+is by REFERENCE, not by name: whenever the question or context refers to a \
+party -- by name, role, relation, office, or as a defined group or cohort \
+("Maya's landlord", "the legal team", "the two required directors", "the \
+nine committee members", a band deciding together, an organization acting \
+as a unit) -- that party is a legitimate actor, and numbered stand-ins for \
+referenced-but-unnamed individuals ("the three interested residents" as \
+Resident 1..3) are legitimate identification, not invention.  Refuse only \
+when NOTHING in the question or context picks anyone out ("will the \
+permit be approved" naming no permit, place, applicant, or office \
+anywhere) -- never invent actors for parties the question does not refer \
+to;
 - there is no observable resolving social event, and the question names an \
 internal state (regret, respect, morale, what someone thinks or feels) \
 with NO user-provided observable proxy -- never invent the proxy yourself;
@@ -174,10 +181,13 @@ uncertainty remains -- preserved uncertainty is correct.
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody \
 in particular must NOT be approved.  ABSTAIN (do not approve, do not \
 revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") \
-standing in for parties the question never identifies -- an unnamed but \
-uniquely identified person from the question/context is legitimate; an \
-invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO \
+("CEO" and "CFO" for a question that names no company or people at all).  \
+Identification is by reference, not by name: actors matching the \
+question's own referring expressions -- a role, relation, office, defined \
+group, cohort, organization-as-decider, or numbered members of a \
+referenced group -- are CORRECT, and you must not reject them or demand \
+personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a \
