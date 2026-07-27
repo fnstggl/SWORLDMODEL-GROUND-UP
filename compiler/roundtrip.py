@@ -30,6 +30,24 @@ def _j(x) -> str:
     return json.dumps(x, sort_keys=True, default=str)
 
 
+_DAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+         "Saturday", "Sunday")
+
+
+def _operating_text(op: dict) -> str:
+    """Render an operating window with day NAMES: a reviewer shown bare
+    integers guesses the wrong week convention and objects to phantom
+    Sundays."""
+    days = ", ".join(_DAYS[d] for d in sorted(op.get("workdays") or [])
+                     if isinstance(d, int) and 0 <= d <= 6) or "every day"
+    text = (f"{days} {op.get('start')}-{op.get('end')} "
+            f"{op.get('timezone')}")
+    if op.get("from_date") or op.get("until_date"):
+        text += (f" (only {op.get('from_date') or 'the start'}"
+                 f" through {op.get('until_date') or 'the deadline'})")
+    return text
+
+
 # ---------------------------------------------------------------------------
 # the approved side: the canonical graph, rendered
 # ---------------------------------------------------------------------------
@@ -195,6 +213,7 @@ def describe_graph(graph: WorldGraph, question: dict,
             out.append(f"  brings about: {graph.node(e.dst).name}")
 
     out.append("\n## Continuous processes")
+    fed: dict = {}
     for n in graph.by_category("process"):
         if n.attrs.get("role") != "channel":
             bd = bound("processes", n.id)
@@ -205,13 +224,22 @@ def describe_graph(graph: WorldGraph, question: dict,
             rate = (f"{bd['amount_per_hour']}/hour"
                     if bd.get("amount_per_hour") is not None
                     else n.attrs.get("rate_meaning"))
-            op = (_j(bd.get("operating")) if bd.get("operating")
+            op = (_operating_text(bd.get("operating"))
+                  if bd.get("operating")
                   else n.attrs.get("operating_meaning"))
             out.append(f"- {n.name}: {n.meaning} "
                        f"(rate: {rate}; operating: {op})")
             for e in graph.edges_from(n.id, "changes") \
                     + graph.edges_from(n.id, "produces"):
                 out.append(f"  accrues into: {graph.node(e.dst).name}")
+                fed.setdefault(e.dst, []).append(n.name)
+    for dst, names in sorted(fed.items()):
+        if len(names) > 1:
+            out.append(f"- NOTE: {len(names)} processes all accrue into "
+                       f"{graph.node(dst).name} ({', '.join(names)}); "
+                       f"their operating windows must not overlap unless "
+                       f"they are genuinely distinct mechanisms, or the "
+                       f"stock double-counts")
 
     out.append("\n## Preserved uncertainty")
     for u in sorted(graph.uncertainties,

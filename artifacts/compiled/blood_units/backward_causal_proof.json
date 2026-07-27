@@ -1,0 +1,120 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:hospital_units_at_deadline",
+        "prerequisites": [
+          {
+            "node": "event:hospital_receives_thursday_shipment",
+            "prerequisites": [
+              {
+                "node": "event:centre_dispatches_thursday_shipment",
+                "prerequisites": [
+                  {
+                    "derived_condition": true,
+                    "node": "state:centre_has_enough_stock_for_thursday_shipment",
+                    "prerequisites": [
+                      {
+                        "node": "event:centre_dispatches_tuesday_shipment",
+                        "prerequisites": [
+                          {
+                            "derived_condition": true,
+                            "node": "state:centre_has_enough_stock_for_tuesday_shipment",
+                            "prerequisites": [
+                              {
+                                "node": "process:collection_process_monday_to_tuesday",
+                                "root": "process"
+                              },
+                              {
+                                "node": "state:centre_initial_stock",
+                                "root": "initial_fact"
+                              }
+                            ]
+                          }
+                        ],
+                        "root": "scheduled_event"
+                      },
+                      {
+                        "node": "process:collection_process_monday_to_thursday",
+                        "root": "process"
+                      },
+                      {
+                        "node": "state:centre_initial_stock",
+                        "root": "initial_fact"
+                      }
+                    ]
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          },
+          {
+            "node": "state:hospital_initial_units",
+            "root": "initial_fact"
+          }
+        ],
+        "via": {
+          "node": "event:hospital_receives_thursday_shipment",
+          "prerequisites": [
+            {
+              "node": "event:centre_dispatches_thursday_shipment",
+              "prerequisites": [
+                {
+                  "derived_condition": true,
+                  "node": "state:centre_has_enough_stock_for_thursday_shipment",
+                  "prerequisites": [
+                    {
+                      "node": "event:centre_dispatches_tuesday_shipment",
+                      "prerequisites": [
+                        {
+                          "derived_condition": true,
+                          "node": "state:centre_has_enough_stock_for_tuesday_shipment",
+                          "prerequisites": [
+                            {
+                              "node": "process:collection_process_monday_to_tuesday",
+                              "root": "process"
+                            },
+                            {
+                              "node": "state:centre_initial_stock",
+                              "root": "initial_fact"
+                            }
+                          ]
+                        }
+                      ],
+                      "root": "scheduled_event"
+                    },
+                    {
+                      "node": "process:collection_process_monday_to_thursday",
+                      "root": "process"
+                    },
+                    {
+                      "node": "state:centre_initial_stock",
+                      "root": "initial_fact"
+                    }
+                  ]
+                }
+              ],
+              "root": "scheduled_event"
+            }
+          ],
+          "root": "scheduled_event"
+        }
+      },
+      "component": "resource:hospital_units_at_deadline",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "event"
+      ],
+      "producers": [
+        "event:hospital_receives_thursday_shipment"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

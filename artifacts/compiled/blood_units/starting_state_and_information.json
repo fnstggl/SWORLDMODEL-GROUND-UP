@@ -1,0 +1,286 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Operates the mobile collection drive that collects blood units.",
+          "over": "collection_process_monday_to_thursday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Operates the mobile collection drive that collects blood units.",
+          "over": "collection_process_monday_to_tuesday"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Shipments are dispatched at scheduled times.",
+            "meaning": "Continuous attention during business hours."
+          },
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "latency_meaning": "A shipment takes about 3 hours to reach the hospital and be received into its bank.",
+          "meaning": "Physical shipment of blood units via courier.",
+          "name": "courier_service",
+          "role": "sender"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "meaning": "Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM.",
+          "name": "tuesday_shipment",
+          "when": "2026-07-21T16:00:00-07:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e9"
+          ],
+          "meaning": "Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM.",
+          "name": "thursday_shipment",
+          "when": "2026-07-23T16:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+          "name": "holds_stock",
+          "value": null
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The drive collects at a measured average of 12 usable units per hour while it is open.",
+          "name": "collection_rate",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+          "name": "drive_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The collection week under consideration runs Monday 20 July to Friday 24 July 2026.",
+          "name": "collection_week",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The centre ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The Tuesday and Thursday shipments each move 150 units, the capacity of the centre's transport cooler.",
+          "name": "shipment_capacity",
+          "visibility": "public"
+        }
+      ],
+      "name": "Cascade regional blood centre",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 40,
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Usable blood units in stock at the centre.",
+          "name": "usable_blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital receives the Thursday shipment from the centre",
+          "over": "hospital_receives_thursday_shipment"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Hospital blood bank staff available to receive shipments during working hours",
+            "meaning": "Continuous attention during business hours"
+          },
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "latency_meaning": "About 3 hours from dispatch to receipt",
+          "meaning": "Physical delivery of blood units from centre to hospital",
+          "name": "courier_delivery",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Scheduled receipt of Tuesday shipment from centre",
+          "name": "receive_tuesday_shipment",
+          "when": "2026-07-21T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Scheduled receipt of Thursday shipment from centre",
+          "name": "receive_thursday_shipment",
+          "when": "2026-07-23T19:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held at start of week",
+          "name": "initial_units",
+          "value": 15
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital knows its own initial stock of 15 units",
+          "name": "initial_units",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at 7 PM",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Hospital knows each shipment is 150 units",
+          "name": "shipment_size",
+          "visibility": "public"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [
+        {
+          "channel": null,
+          "from": null,
+          "meaning": "Hospital does not control collection rate or shipping schedule",
+          "to": null
+        }
+      ],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units in hospital blood bank",
+          "name": "blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    }
+  ]
+}

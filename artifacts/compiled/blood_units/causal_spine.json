@@ -1,0 +1,215 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "St. Vincent regional hospital holds a certain number of usable blood units at the deadline (Friday noon).",
+      "name": "hospital_holds_units_at_deadline",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "hospital_receives_thursday_shipment"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "hospital_initial_units"
+        }
+      ],
+      "produces_proof": [
+        "hospital_units_at_deadline"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The Thursday shipment of 150 units arrives at the hospital and is received into its bank.",
+      "name": "hospital_receives_thursday_shipment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "centre_dispatches_thursday_shipment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-23T19:00:00-07:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e9"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The blood centre dispatches 150 units on Thursday at 4 PM.",
+      "name": "centre_dispatches_thursday_shipment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "centre_has_enough_stock_for_thursday_shipment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-23T16:00:00-07:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e2",
+        "e3",
+        "e4",
+        "e7",
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "The centre has at least 150 usable units in stock at the time of Thursday's dispatch.",
+      "name": "centre_has_enough_stock_for_thursday_shipment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "centre_initial_stock"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "collection_process_monday_to_thursday"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "centre_dispatches_tuesday_shipment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "initial_fact",
+      "meaning": "The centre held 40 usable units at 9 AM Monday.",
+      "name": "centre_initial_stock",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "The mobile collection drive operates from Monday to Thursday (9 AM to 5 PM each day), collecting at 12 units per hour.",
+      "name": "collection_process_monday_to_thursday",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e9"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The centre dispatches 150 units on Tuesday at 4 PM.",
+      "name": "centre_dispatches_tuesday_shipment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "centre_has_enough_stock_for_tuesday_shipment"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-21T16:00:00-07:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e2",
+        "e3",
+        "e4",
+        "e7",
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "The centre has at least 150 usable units in stock at the time of Tuesday's dispatch.",
+      "name": "centre_has_enough_stock_for_tuesday_shipment",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "centre_initial_stock"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "collection_process_monday_to_tuesday"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "The mobile collection drive operates on Monday and Tuesday (9 AM to 5 PM each day), collecting at 12 units per hour.",
+      "name": "collection_process_monday_to_tuesday",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "initial_fact",
+      "meaning": "St. Vincent hospital held 15 usable units at 9 AM Monday.",
+      "name": "hospital_initial_units",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}
