@@ -1011,6 +1011,31 @@ class Assembler:
                 self._record("derive_quantity_mechanism",
                              {"resource": rs.name, "mechanism": m}, [], [e])
 
+    def prune_dead_routes(self) -> None:
+        """A channel with no sender or no receiver, carrying no declared
+        in-flight message, can never move anything: it is debris from an
+        entity document (physical receipt modeled as a mailbox), not a
+        causal element. Pruned with a trace note before anyone reviews
+        it -- the world is cleaner and truer without it."""
+        for ch in list(self.graph.by_category("process")):
+            if ch.attrs.get("role") != "channel":
+                continue
+            senders = [e for e in self.graph.edges_to(ch.id, "sends_to")]
+            receivers = [e for e in
+                         self.graph.edges_to(ch.id, "receives_from")]
+            carries = any(
+                (info.attrs.get("sent") or {}).get("channel") == ch.id
+                for info in self.graph.by_category("information"))
+            delivers = bool(self.graph.edges_from(ch.id, "produces"))
+            if carries or delivers or (senders and receivers):
+                continue          # a real or misconfigured carrier stays
+                                  # visible; only pure debris is pruned
+            self.graph.remove_node(ch.id)
+            self._record("prune_dead_route",
+                         {"route": ch.name,
+                          "why": "no sender" if not senders
+                          else "no receiver"}, [], [])
+
     def wire_operated_processes(self) -> None:
         """A continuous process with no stock connection, operated by an
         actor who holds exactly one stock, feeds that stock: the drive its
@@ -1233,6 +1258,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         if any(boundary.values()):
             _collect(d, a.add_information_boundary, name, boundary)
     _raise_if(d, "starting_state_and_information")
+    a.prune_dead_routes()
     a.wire_operated_processes()
 
     d = []

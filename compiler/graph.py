@@ -290,6 +290,23 @@ class WorldGraph:
         self.uncertainties.append({"about": about_id,
                                    "meaning": str(meaning)})
 
+    def remove_node(self, node_id: str) -> None:
+        """Remove a node and every edge touching it. Uncertainties about
+        it fall back to world level (the honesty survives the debris)."""
+        self.node(node_id)
+        name = self.nodes[node_id].name
+        del self.nodes[node_id]
+        kept = []
+        for e in self.edges:
+            if node_id in (e.src, e.dst):
+                self._edge_keys.discard(e.key())
+            else:
+                kept.append(e)
+        self.edges = kept
+        for u in self.uncertainties:
+            if u.get("about") == node_id:
+                u["about"], u["topic"] = None, name
+
     def add_world_uncertainty(self, topic: str, meaning: str) -> None:
         """Honest uncertainty about something with no single node -- a
         rate, a timing, an unmodelled behaviour. Kept verbatim: an

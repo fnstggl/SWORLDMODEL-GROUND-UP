@@ -11,14 +11,11 @@
     "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
       "causal_spine": 1,
-      "producer_assignments": 1,
       "resolution_ambiguity_adjudication": 1,
-      "starting_state[Cascade regional blood centre mobile collection drive]": 1,
-      "starting_state[St. Vincent regional hospital]": 1,
       "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
     "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 50443
+    "tokens": 39647
   }
 ]

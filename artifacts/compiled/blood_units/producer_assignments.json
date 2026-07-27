@@ -1,0 +1,116 @@
+{
+  "assignments": [
+    {
+      "step": "hospital_inventory_at_deadline",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "initial_inventory",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The process of transporting and delivering the shipment from the centre to the hospital, taking about 3 hours.",
+          "name": "Courier service"
+        }
+      ],
+      "step": "tuesday_shipment_received"
+    },
+    {
+      "step": "tuesday_shipment_dispatched",
+      "unsupported": "Scheduled event; no producer needed."
+    },
+    {
+      "step": "centre_has_stock_tuesday",
+      "unsupported": "Condition; conjunction of prerequisites."
+    },
+    {
+      "step": "centre_initial_stock",
+      "unsupported": "Initial fact."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive that collects blood units.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "monday_collection"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive that collects blood units.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_collection_before_4pm"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The process of transporting and delivering the shipment from the centre to the hospital, taking about 3 hours.",
+          "name": "Courier service"
+        }
+      ],
+      "step": "thursday_shipment_received"
+    },
+    {
+      "step": "thursday_shipment_dispatched",
+      "unsupported": "Scheduled event."
+    },
+    {
+      "step": "centre_has_stock_thursday",
+      "unsupported": "Condition; conjunction of prerequisites."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive that collects blood units.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "wednesday_collection"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive that collects blood units.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_collection_before_4pm"
+    }
+  ]
+}

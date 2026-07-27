@@ -63,7 +63,8 @@ def _wl(path, rows):
 def compile_question(question: dict, evidence: dict | None, outdir: str,
                      stage: str = "scripted", model: str = "deepseek-chat",
                      run: bool = True, scripts: dict | None = None,
-                     call=call_json, reuse: bool = False) -> dict:
+                     call=call_json, reuse: bool = False,
+                     review_model: str = "deepseek-reasoner") -> dict:
     """Compile one question end to end. ``evidence=None`` selects Mode B
     (question-only: a model-memory draft, every claim marked
     model_memory_unverified). ``reuse=True`` re-lowers the frozen
@@ -189,7 +190,7 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             t0 = wallclock.monotonic()
             review, rlog = review_reality(question, evidence, graph,
                                           backward, forward, call=call,
-                                          model=model)
+                                          model=review_model)
             metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
             calls.extend(rlog)
             metrics["reviewer_calls"] = \
@@ -307,7 +308,8 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             f.write(runtime_md)
         t0 = wallclock.monotonic()
         equivalence, elog = review_equivalence(graph_md, runtime_md,
-                                               call=call, model=model)
+                                               call=call,
+                                               model=review_model)
         metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
         calls.extend(elog)
         _wj(os.path.join(outdir, "semantic_equivalence_review.json"),
