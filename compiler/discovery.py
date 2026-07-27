@@ -494,8 +494,13 @@ def discover(question: dict, evidence: dict, call=call_json,
             "A draft resolution declared the ambiguities listed below. For "
             "EACH one: if any clause of the question, its resolution note "
             "or the evidence settles it, it is settled -- drop it and "
-            "resolve the terminal accordingly. Keep it only if materially "
-            "different answers genuinely remain possible. Return the "
+            "resolve the terminal accordingly. The evidence package is "
+            "COMPLETE: anything it does not mention (an extra source, a "
+            "consumption process, another actor) does not exist in this "
+            "world, so a reading that hinges on something unmentioned is "
+            "settled by completeness and must be dropped. Keep an "
+            "ambiguity only if the question and evidence as given still "
+            "leave materially different answers possible. Return the "
             "complete corrected resolution object (same shape as before), "
             "with 'ambiguities' containing only the survivors.",
             ctx + "\n\nTHE DRAFT RESOLUTION:\n" + json.dumps(doc, indent=1)
