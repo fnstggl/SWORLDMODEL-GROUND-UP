@@ -9,14 +9,15 @@
       {
         "observation": {
           "describe": "observation 1",
-          "kind": "action_completed",
+          "kind": "record_exists",
           "params": {
-            "actor": "yolanda_bright",
-            "verb": "accept_offer"
+            "producer": "yolanda_bright",
+            "record_type": "agreement",
+            "subject": "wage increase"
           }
         },
         "read": {
-          "detail": "no completed 'accept_offer' action by yolanda_bright",
+          "detail": "no 'agreement' record exists",
           "producers": [],
           "satisfied": false,
           "value": null
@@ -25,14 +26,15 @@
       {
         "observation": {
           "describe": "observation 2",
-          "kind": "action_completed",
+          "kind": "record_exists",
           "params": {
-            "actor": "dennis_wozniak",
-            "verb": "accept_offer"
+            "producer": "dennis_wozniak",
+            "record_type": "agreement",
+            "subject": "wage increase"
           }
         },
         "read": {
-          "detail": "no completed 'accept_offer' action by dennis_wozniak",
+          "detail": "no 'agreement' record exists",
           "producers": [],
           "satisfied": false,
           "value": null
@@ -56,14 +58,15 @@
             {
               "observation": {
                 "describe": "observation 1",
-                "kind": "action_completed",
+                "kind": "record_exists",
                 "params": {
-                  "actor": "yolanda_bright",
-                  "verb": "accept_offer"
+                  "producer": "yolanda_bright",
+                  "record_type": "agreement",
+                  "subject": "wage increase"
                 }
               },
               "read": {
-                "detail": "no completed 'accept_offer' action by yolanda_bright",
+                "detail": "no 'agreement' record exists",
                 "producers": [],
                 "satisfied": false,
                 "value": null
@@ -72,14 +75,15 @@
             {
               "observation": {
                 "describe": "observation 2",
-                "kind": "action_completed",
+                "kind": "record_exists",
                 "params": {
-                  "actor": "dennis_wozniak",
-                  "verb": "accept_offer"
+                  "producer": "dennis_wozniak",
+                  "record_type": "agreement",
+                  "subject": "wage increase"
                 }
               },
               "read": {
-                "detail": "no completed 'accept_offer' action by dennis_wozniak",
+                "detail": "no 'agreement' record exists",
                 "producers": [],
                 "satisfied": false,
                 "value": null
@@ -91,7 +95,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 29,
+      "seq": 31,
       "t": "2026-11-01T04:59:00+00:00"
     },
     {
@@ -99,12 +103,12 @@
         "data": {
           "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?"
         },
-        "event": 19,
+        "event": 21,
         "kind": "terminal.cutoff",
         "t": "2026-11-01T04:59:00+00:00"
       },
       "op": "event.fired",
-      "seq": 28,
+      "seq": 30,
       "t": "2026-11-01T04:59:00+00:00"
     },
     {
@@ -117,13 +121,13 @@
         "t": "2026-11-01T04:59:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 19,
+      "seq": 21,
       "t": "2026-10-29T15:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 18,
+      "seq": 20,
       "t": "2026-10-29T15:00:00+00:00"
     }
   ],
@@ -131,14 +135,15 @@
     {
       "observation": {
         "describe": "observation 1",
-        "kind": "action_completed",
+        "kind": "record_exists",
         "params": {
-          "actor": "yolanda_bright",
-          "verb": "accept_offer"
+          "producer": "yolanda_bright",
+          "record_type": "agreement",
+          "subject": "wage increase"
         }
       },
       "read": {
-        "detail": "no completed 'accept_offer' action by yolanda_bright",
+        "detail": "no 'agreement' record exists",
         "producers": [],
         "satisfied": false,
         "value": null
@@ -147,14 +152,15 @@
     {
       "observation": {
         "describe": "observation 2",
-        "kind": "action_completed",
+        "kind": "record_exists",
         "params": {
-          "actor": "dennis_wozniak",
-          "verb": "accept_offer"
+          "producer": "dennis_wozniak",
+          "record_type": "agreement",
+          "subject": "wage increase"
         }
       },
       "read": {
-        "detail": "no completed 'accept_offer' action by dennis_wozniak",
+        "detail": "no 'agreement' record exists",
         "producers": [],
         "satisfied": false,
         "value": null
@@ -163,30 +169,30 @@
   ],
   "replay_hash_match": true,
   "reviewer_causal_path": [
-    "Mediated session starts on 29 Oct 2026 at 10:00 AM.",
-    "Bright tables 4.5% (as prepared per e10).",
-    "Wozniak hears the offer (e7).",
-    "Wozniak's condition (e9) is satisfied; he accepts the 4.5% offer.",
-    "Bright hears acceptance (e7).",
-    "Both acceptance actions are recorded (e11).",
-    "Agreement is reached before the strike deadline."
+    "Mediated session starts at 2026-10-29T10:00:00-05:00",
+    "Bright tables revised demand of 4.5% (45 min caucus)",
+    "Wozniak notices union demand, tables revised offer of 4.5% (45 min caucus)",
+    "Bright notices employer offer, accepts at table (1 min)",
+    "Both create agreement records before deadline"
   ],
   "terminal": {
     "conditions": [
       {
         "describe": "observation 1",
-        "kind": "action_completed",
+        "kind": "record_exists",
         "params": {
-          "actor": "yolanda_bright",
-          "verb": "accept_offer"
+          "producer": "yolanda_bright",
+          "record_type": "agreement",
+          "subject": "wage increase"
         }
       },
       {
         "describe": "observation 2",
-        "kind": "action_completed",
+        "kind": "record_exists",
         "params": {
-          "actor": "dennis_wozniak",
-          "verb": "accept_offer"
+          "producer": "dennis_wozniak",
+          "record_type": "agreement",
+          "subject": "wage increase"
         }
       }
     ],
@@ -196,21 +202,14 @@
     "question": "Will the union and the employer reach a signed wage agreement before the strike deadline?",
     "question_type": "boolean",
     "uncertain_paths": [],
-    "yes_detail": "Both Yolanda Bright and Dennis Wozniak have recorded acceptance of the same wage agreement before the deadline."
+    "yes_detail": "An agreement is recorded as accepted by both sides before the deadline."
   },
   "terminal_producers_claimed": [
     {
-      "description": "Yolanda Bright's acceptance action (action_was_completed) is produced by her performing 'accept offer' after noticing a wage offer from Wozniak.",
+      "description": "The answer is YES if both Yolanda Bright and Dennis Wozniak have created a record of type 'agreement' with subject 'wage increase' and value 'accepted' before the deadline.",
       "producers": [
-        "Yolanda Bright",
-        "action_affordances[1]"
-      ]
-    },
-    {
-      "description": "Dennis Wozniak's acceptance action (action_was_completed) is produced by him performing 'accept offer' after noticing a wage offer from Bright.",
-      "producers": [
-        "Dennis Wozniak",
-        "action_affordances[1]"
+        "action_affordances: union accepts offer -> create_record (Yolanda Bright)",
+        "action_affordances: employer accepts demand -> create_record (Dennis Wozniak)"
       ]
     }
   ]

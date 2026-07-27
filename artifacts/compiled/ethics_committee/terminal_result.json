@@ -1,0 +1,102 @@
+{
+  "answer": {
+    "answer": "no",
+    "computed_from": [
+      "terminal.cutoff"
+    ],
+    "detail": "The committee does not approve the compassionate-use request.",
+    "observations": [
+      {
+        "observation": {
+          "describe": "observation 1",
+          "kind": "tally_records",
+          "params": {
+            "expected_count": 3,
+            "record_type": "vote",
+            "rule": "majority",
+            "subject": "compassionate-use request"
+          }
+        },
+        "read": {
+          "detail": "no 'vote' on 'compassionate-use request' records were made",
+          "producers": [],
+          "satisfied": false,
+          "value": null
+        }
+      }
+    ]
+  },
+  "at": "2026-03-12T20:00:00+00:00",
+  "producer_lineage": [
+    {
+      "data": {
+        "answer": {
+          "answer": "no",
+          "computed_from": [
+            "terminal.cutoff"
+          ],
+          "detail": "The committee does not approve the compassionate-use request.",
+          "observations": [
+            {
+              "observation": {
+                "describe": "observation 1",
+                "kind": "tally_records",
+                "params": {
+                  "expected_count": 3,
+                  "record_type": "vote",
+                  "rule": "majority",
+                  "subject": "compassionate-use request"
+                }
+              },
+              "read": {
+                "detail": "no 'vote' on 'compassionate-use request' records were made",
+                "producers": [],
+                "satisfied": false,
+                "value": null
+              }
+            }
+          ]
+        },
+        "question": "Does the hospital ethics committee approve the compassionate-use request at its 12 March meeting?",
+        "status": "cutoff"
+      },
+      "op": "terminal",
+      "seq": 59,
+      "t": "2026-03-12T20:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "Does the hospital ethics committee approve the compassionate-use request at its 12 March meeting?"
+        },
+        "event": 33,
+        "kind": "terminal.cutoff",
+        "t": "2026-03-12T20:00:00+00:00"
+      },
+      "op": "event.fired",
+      "seq": 58,
+      "t": "2026-03-12T20:00:00+00:00"
+    },
+    {
+      "data": {
+        "data": {
+          "question": "Does the hospital ethics committee approve the compassionate-use request at its 12 March meeting?"
+        },
+        "depth": 0,
+        "kind": "terminal.cutoff",
+        "t": "2026-03-12T20:00:00+00:00"
+      },
+      "op": "event.scheduled",
+      "seq": 33,
+      "t": "2026-03-10T13:00:00+00:00"
+    },
+    {
+      "data": {},
+      "op": "genesis.sealed",
+      "seq": 32,
+      "t": "2026-03-10T13:00:00+00:00"
+    }
+  ],
+  "question": "Does the hospital ethics committee approve the compassionate-use request at its 12 March meeting?",
+  "status": "cutoff"
+}

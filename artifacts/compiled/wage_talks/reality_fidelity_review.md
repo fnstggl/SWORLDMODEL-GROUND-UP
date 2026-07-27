@@ -7,13 +7,11 @@ No such agreement is recorded by the deadline.
 **How it was produced.** 1 ledger record(s)
 were cited by the terminal, each an actual state transition in this run. The
 reviewer's expected causal path was:
-- Mediated session starts on 29 Oct 2026 at 10:00 AM.
-- Bright tables 4.5% (as prepared per e10).
-- Wozniak hears the offer (e7).
-- Wozniak's condition (e9) is satisfied; he accepts the 4.5% offer.
-- Bright hears acceptance (e7).
-- Both acceptance actions are recorded (e11).
-- Agreement is reached before the strike deadline.
+- Mediated session starts at 2026-10-29T10:00:00-05:00
+- Bright tables revised demand of 4.5% (45 min caucus)
+- Wozniak notices union demand, tables revised offer of 4.5% (45 min caucus)
+- Bright notices employer offer, accepts at table (1 min)
+- Both create agreement records before deadline
 
 ## What this run does establish
 - The world was built from the frozen evidence package alone, through one
@@ -32,8 +30,8 @@ reviewer's expected causal path was:
   is deliberately not part of this run.
 
 ## Did the actors actually exercise this world?
-- Affordances declared: 2; ever completed: 0
-- Never performed by anyone: ['accept_offer', 'table_offer']
+- Affordances declared: 4; ever completed: 0
+- Never performed by anyone: ['employer_accepts_demand', 'employer_tables_revised_offer', 'union_accepts_offer', 'union_tables_revised_demand']
 - Participants who completed no action at all: ['dennis_wozniak', 'yolanda_bright']
 - Intentions the world rejected: 0
   - none
@@ -44,11 +42,8 @@ reviewer's expected causal path was:
   - none
 - Attention patterns the scenario left uncertain, so no rule was created: 0
   - none
-- Unresolved uncertainties carried by the scenario: 3
-  - Whether Bright will actually table 4.5% as planned, or stick to 5%.
-  - Whether Wozniak will move to 4.5% if Bright tables 4.5% first, given his condition that union must come down first.
-  - Whether the session will produce an offer that both can accept within the time available.
-- Deliberately excluded from the world: 3
-  - Details of union ratification vote beyond Bright's authority: Bright already has authority to accept 4% or higher; no further vote needed.
-  - Details of Kessler Logistics board approval beyond Wozniak's authority: Wozniak has authority up to 4.5% without board; no board involvement needed.
-  - Other bargaining sessions or informal communications: Only the mediated session on 29 Oct is scheduled; no other opportunities before deadline.
+- Unresolved uncertainties carried by the scenario: 0
+  - none
+- Deliberately excluded from the world: 2
+  - Any other bargaining sessions or informal communications: Only the mediated session is scheduled; no other meetings are mentioned.
+  - Ratification by union membership or board approval for employer: Both negotiators have authority to accept at the table; acceptance at the table constitutes a signed agreement per mediation protocol.

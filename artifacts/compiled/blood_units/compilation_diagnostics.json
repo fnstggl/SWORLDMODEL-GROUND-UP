@@ -1,17 +1,13 @@
 {
-  "action_defs": [],
-  "actors": [
-    "cascade_regional_blood_centre",
-    "st_vincent_regional_hospital"
-  ],
-  "channels": [],
-  "processes": [
-    "collection_drive"
-  ],
-  "producer_index": {
-    "resource:cascade_regional_blood_centre:usable_blood_units": 4,
-    "resource:st_vincent_regional_hospital:usable_blood_units": 3
+  "detail": {
+    "remaining_defects": [
+      {
+        "detail": "Tuesday and Thursday collection events are scheduled at 5pm, after the 4pm shipment. This prevents the collected units from being available for that day's shipment, contradicting the evidence that the centre ships its available stock. The collection should be scheduled to complete before the shipment (e.g., at 4pm or earlier) to reflect that units collected that day are included in the shipment.",
+        "kind": "missing_causal_link",
+        "severity": "major"
+      }
+    ]
   },
-  "scheduled_root_events": 21,
-  "stage": "COMPILED"
+  "reason": "defects remain after one targeted revision; the scenario is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
 }

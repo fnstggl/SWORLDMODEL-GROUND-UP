@@ -1,16 +1,15 @@
 {"cutoff": "2026-02-20T01:00:00+00:00", "start": "2026-02-18T16:00:00+00:00", "step": "start"}
-{"step": "symbols", "table": {"namespaces": {"affordance": {"send finalized study": "send_finalized_study"}, "participant": {"Alma Reyes": "alma_reyes", "External Reviewer": "external_reviewer", "Miguel Santos": "miguel_santos"}, "quantity": {"finalized study received": "finalized_study_received", "peer review sign-off received": "peer_review_sign_off_received"}, "route": {"city email": "city_email"}}}}
+{"step": "symbols", "table": {"namespaces": {"affordance": {"send finalized study": "send_finalized_study"}, "participant": {"Alma Reyes": "alma_reyes", "Miguel Santos": "miguel_santos", "external reviewer": "external_reviewer"}, "route": {"city email": "city_email"}}}}
 {"participants": 3, "step": "preflight_ok"}
 {"basis": "verified", "id": "city_email", "name": "city email", "seconds": 60.0, "step": "route"}
 {"attention": ["city_email"], "id": "alma_reyes", "name": "Alma Reyes", "role": "councilmember", "step": "participant", "tz": "America/Chicago"}
 {"attention": ["city_email"], "id": "miguel_santos", "name": "Miguel Santos", "role": "city transportation engineer", "step": "participant", "tz": "America/Chicago"}
-{"attention": [], "id": "external_reviewer", "name": "External Reviewer", "role": "external peer reviewer", "step": "participant", "tz": "America/Chicago"}
-{"key": "noticed_finalized_study", "step": "starting_fact"}
-{"amount": 0.0, "holder": "miguel_santos", "name": "peer_review_sign_off_received", "step": "starting_quantity"}
-{"amount": 0.0, "holder": "alma_reyes", "name": "finalized_study_received", "step": "starting_quantity"}
+{"attention": [], "id": "external_reviewer", "name": "external reviewer", "role": "peer reviewer", "step": "participant", "tz": "America/Chicago"}
+{"actor": "alma_reyes", "step": "starting_belief", "topic": "study_status"}
+{"actor": "miguel_santos", "step": "starting_belief", "topic": "study_status"}
 {"actor": "external_reviewer", "step": "initial_knowledge", "topic": "peer_review_sign_off"}
-{"completion": "duration", "conditions": 2, "effects": 2, "label": "send finalized study", "step": "affordance", "verb": "send_finalized_study"}
-{"at": "2026-02-18T16:00:00+00:00", "description": "External Reviewer sends peer-review sign-off to Santos.", "ops": 1, "step": "scheduled_event", "wakes": 1}
-{"first": "2026-02-18T16:00:00+00:00", "root_events": 2, "step": "schedulable"}
+{"completion": "duration", "conditions": 2, "effects": 1, "label": "send finalized study", "step": "affordance", "verb": "send_finalized_study"}
+{"at": "2026-02-18T16:00:00+00:00", "description": "External reviewer sends peer-review sign-off to Santos.", "ops": 1, "step": "scheduled_event", "wakes": 0}
+{"first": "2026-02-18T16:00:00+00:00", "root_events": 1, "step": "schedulable"}
 {"observations": 1, "step": "producers_verified"}
 {"conditions": 1, "step": "terminal_not_preanswered"}

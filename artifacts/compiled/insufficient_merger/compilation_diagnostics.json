@@ -4,25 +4,15 @@
       "causal_path": [],
       "defects": [
         {
-          "detail": "Scheduled board meeting on 2026-12-15 is invented; no evidence supports any meeting date.",
-          "kind": "unsupported_assumption",
-          "severity": "critical"
-        },
-        {
-          "detail": "No evidence of board members, chair, or their availability; these are invented.",
-          "kind": "missing_participant",
-          "severity": "critical"
-        },
-        {
-          "detail": "No evidence that the acquisition proposal will be presented to the board before the deadline.",
+          "detail": "No evidence of any board meeting, agenda, or decision process that could lead to an approval. The scenario's action affordance is invented without evidentiary support.",
           "kind": "missing_causal_link",
           "severity": "critical"
         }
       ],
-      "reasoning": "The evidence package contains no information about the board's schedule, decision-making process, or the status of the acquisition proposal beyond vague rumors. The scenario invents a board meeting on December 15, 2026, and a standard board decision process without any evidentiary support. The uncertainties are correctly noted, but the scenario still asserts a specific scheduled event and action affordances that are not grounded in evidence. The question cannot be answered from the given evidence; any trajectory would be speculative.",
+      "reasoning": "The evidence contains no information about the board's schedule, decision process, or even whether a formal proposal exists. The scenario invents a board action affordance and a starting state (no approval recorded) that are not contradicted, but the core question\u2014whether the board will approve before the deadline\u2014cannot be answered because there is no evidence of any meeting, vote, or intention to decide. The scenario's uncertainties correctly note this, but the simulation cannot produce a determinate YES or NO; it would remain unresolved. The evidence is insufficient to decide the question.",
       "verdict": "REJECT_INSUFFICIENT_EVIDENCE"
     }
   },
-  "reason": "The evidence package contains no information about the board's schedule, decision-making process, or the status of the acquisition proposal beyond vague rumors. The scenario invents a board meeting on December 15, 2026, and a standard board decision process without any evidentiary support. The uncertainties are correctly noted, but the scenario still asserts a specific scheduled event and action affordances that are not grounded in evidence. The question cannot be answered from the given evidence; any trajectory would be speculative.",
+  "reason": "The evidence contains no information about the board's schedule, decision process, or even whether a formal proposal exists. The scenario invents a board action affordance and a starting state (no approval recorded) that are not contradicted, but the core question\u2014whether the board will approve before the deadline\u2014cannot be answered because there is no evidence of any meeting, vote, or intention to decide. The scenario's uncertainties correctly note this, but the simulation cannot produce a determinate YES or NO; it would remain unresolved. The evidence is insufficient to decide the question.",
   "stage": "REALITY_REVIEW_REJECTED"
 }

@@ -1,5 +1,39 @@
 {
-  "detail": {},
-  "reason": "'tally_of_records' needs a 'record_type' naming the kind of record being read, and it must be the SAME string used by the create_record change that makes them",
-  "stage": "SEMANTIC_AMBIGUITY"
+  "action_defs": [
+    "prepare_and_send_safety_review",
+    "put_motion_to_approve",
+    "vote"
+  ],
+  "actors": [
+    "dr_helen_osei",
+    "dr_raj_patel",
+    "manufacturer",
+    "sister_margaret_doyle",
+    "tomas_lindqvist"
+  ],
+  "channels": [
+    "hospital_email",
+    "manufacturer_bulletins",
+    "meeting_room"
+  ],
+  "processes": [],
+  "producer_index": {
+    "action:prepare_and_send_safety_review": 1,
+    "action:put_motion_to_approve": 1,
+    "action:vote": 1,
+    "belief:dr_helen_osei:compassionate_use_approval_criteria": 1,
+    "belief:dr_raj_patel:compassionate_use_approval_criteria": 1,
+    "belief:sister_margaret_doyle:compassionate_use_approval_criteria": 1,
+    "belief:tomas_lindqvist:updated_trial_safety_data": 1,
+    "fact:meeting_started": 1,
+    "fact:motion_put": 1,
+    "fact:safety_review_request": 1,
+    "info:dr_helen_osei:safety_review": 1,
+    "info:dr_raj_patel:safety_review": 1,
+    "info:sister_margaret_doyle:safety_review": 1,
+    "info:tomas_lindqvist:updated_safety_data": 1,
+    "record:vote": 1
+  },
+  "scheduled_root_events": 6,
+  "stage": "COMPILED"
 }

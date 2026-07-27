@@ -1,12 +1,11 @@
 {
-  "completion_tokens": 3609,
+  "completion_tokens": 1070,
   "lowering_ms": 0.0,
-  "mechanical_repairs": 1,
-  "prompt_tokens": 11024,
+  "prompt_tokens": 5681,
   "reviewer_calls": 0,
   "revision_calls": 0,
   "runtime_ms": 0.0,
-  "semantic_calls": 2,
+  "semantic_calls": 1,
   "simulation_stage": "scripted",
   "stage": "REALITY_REVIEW_REJECTED"
 }

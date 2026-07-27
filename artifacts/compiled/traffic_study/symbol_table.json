@@ -5,12 +5,8 @@
     },
     "participant": {
       "Alma Reyes": "alma_reyes",
-      "External Reviewer": "external_reviewer",
-      "Miguel Santos": "miguel_santos"
-    },
-    "quantity": {
-      "finalized study received": "finalized_study_received",
-      "peer review sign-off received": "peer_review_sign_off_received"
+      "Miguel Santos": "miguel_santos",
+      "external reviewer": "external_reviewer"
     },
     "route": {
       "city email": "city_email"

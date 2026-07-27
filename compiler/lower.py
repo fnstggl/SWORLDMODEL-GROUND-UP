@@ -329,6 +329,20 @@ class Lowerer:
                      basis=STATUS_BASIS[status])
 
     # ------------------------------------------------------------------
+    @staticmethod
+    def _clock_time(text: str, fallback: str):
+        """Parse a wall-clock boundary.
+
+        '24:00' is how people ordinarily write 'end of day' -- round-the-clock
+        operations (a port, a hospital, a pilot dispatcher) are extremely
+        common and must be expressible. It is normalized to the last instant
+        of the day rather than refused.
+        """
+        raw = (text or fallback).strip()
+        if raw in ("24:00", "24:00:00"):
+            return time(23, 59, 59, 999999)
+        return time.fromisoformat(raw)
+
     def _calendar(self, avail: dict, where: str) -> BusinessCalendar | None:
         if not avail:
             return None
@@ -339,13 +353,15 @@ class Lowerer:
             return BusinessCalendar(
                 tz=tz,
                 workdays=frozenset(avail.get("workdays", [0, 1, 2, 3, 4])),
-                open_time=time.fromisoformat(avail.get("open", "09:00")),
-                close_time=time.fromisoformat(avail.get("close", "17:00")),
+                open_time=self._clock_time(avail.get("open"), "09:00"),
+                close_time=self._clock_time(avail.get("close"), "17:00"),
                 holidays=frozenset(date.fromisoformat(d)
                                    for d in avail.get("holidays", []) or []))
         except Exception as e:
-            raise LoweringGap(f"{where}: availability is not usable as a "
-                              f"calendar ({e})")
+            raise LoweringGap(
+                f"{where}: availability is not usable as a calendar ({e}). "
+                f"For a round-the-clock operation use "
+                f'"workdays": [0,1,2,3,4,5,6], "open": "00:00", "close": "24:00".')
 
     def _lower_participants(self) -> None:
         for p in self.doc["participants"]:
@@ -528,8 +544,8 @@ class Lowerer:
         if not tz:
             raise LoweringGap(f"{where}: operating_periods needs a timezone")
         try:
-            start_t = time.fromisoformat(periods["start"])
-            end_t = time.fromisoformat(periods["end"])
+            start_t = self._clock_time(periods["start"], "00:00")
+            end_t = self._clock_time(periods["end"], "24:00")
         except Exception as e:
             raise LoweringGap(f"{where}: operating_periods start/end unusable ({e})")
         workdays = frozenset(periods.get("workdays", [0, 1, 2, 3, 4]))

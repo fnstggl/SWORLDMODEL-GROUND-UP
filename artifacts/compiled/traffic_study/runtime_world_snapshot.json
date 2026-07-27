@@ -13,10 +13,10 @@
           "require": "noticed_info"
         }
       ],
-      "description": "send finalized study -- Santos sends the finalized study to Reyes after receiving peer-review sign-off.",
+      "description": "send finalized study -- Santos sends the finalized study to council members after receiving peer-review sign-off.",
       "duration": {
         "basis": "inferred",
-        "note": "Time to attach and send the study.",
+        "note": "time to attach and send",
         "seconds": 1200.0
       },
       "effects": [
@@ -33,13 +33,6 @@
             "to": [
               "alma_reyes"
             ]
-          }
-        ],
-        [
-          "fact.set",
-          {
-            "key": "finalized_study_sent",
-            "value": true
           }
         ]
       ],
@@ -68,16 +61,22 @@
             ]
           },
           "check_every_seconds": 7200.0,
-          "note": "Reyes checks email in a block at start of workday and roughly every two hours thereafter."
+          "note": "checks email in a block at start of workday and roughly every two hours thereafter"
         }
       },
       "available_info": [],
-      "beliefs": {},
+      "beliefs": {
+        "study_status": {
+          "basis": "inferred: e4",
+          "statement": "Reyes knows the study is pending final sign-off.",
+          "updated_at": "2026-02-18T16:00:00+00:00"
+        }
+      },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Neutral",
+      "emotional_state": "neutral",
       "goals": [
-        "Vote responsibly on the Riverside corridor item."
+        "vote responsibly on the corridor item"
       ],
       "id": "alma_reyes",
       "last_decision_at": null,
@@ -85,17 +84,17 @@
       "name": "Alma Reyes",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy",
-      "plan": "Review study before meeting if possible.",
+      "physical_state": "normal",
+      "plan": "review study when it arrives",
       "reconsider": [],
       "relationships": {
-        "miguel_santos": "City transportation engineer who sends finalized studies."
+        "miguel_santos": "receives finalized studies from him via email"
       },
       "role": "councilmember",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Thorough review of studies before voting."
+        "thorough review"
       ]
     },
     "external_reviewer": {
@@ -103,34 +102,32 @@
       "available_info": [],
       "beliefs": {
         "peer_review_sign_off": {
-          "basis": "Committed to deliver by 10:00 AM on 18 February.",
-          "statement": "Sign-off for Riverside corridor traffic study.",
+          "basis": "committed to deliver by 10:00 AM on 18 Feb",
+          "statement": "The peer review is complete and the study is approved.",
           "updated_at": "2026-02-18T16:00:00+00:00"
         }
       },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Neutral",
+      "emotional_state": "neutral",
       "goals": [
-        "Deliver sign-off on time."
+        "complete review"
       ],
       "id": "external_reviewer",
       "last_decision_at": null,
       "memories": [],
-      "name": "External Reviewer",
+      "name": "external reviewer",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy",
-      "plan": "Send sign-off by 10:00 AM on 18 February.",
+      "physical_state": "normal",
+      "plan": "send sign-off by 10:00 AM on 18 Feb",
       "reconsider": [],
-      "relationships": {
-        "miguel_santos": "Provides peer-review sign-off to Santos."
-      },
-      "role": "external peer reviewer",
+      "relationships": {},
+      "role": "peer reviewer",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Professionalism."
+        "timeliness"
       ]
     },
     "miguel_santos": {
@@ -153,16 +150,22 @@
             ]
           },
           "check_every_seconds": 3600.0,
-          "note": "Santos checks email hourly during working day."
+          "note": "checks email hourly during working day"
         }
       },
       "available_info": [],
-      "beliefs": {},
+      "beliefs": {
+        "study_status": {
+          "basis": "verified: e4",
+          "statement": "Santos knows the study is complete except for sign-off.",
+          "updated_at": "2026-02-18T16:00:00+00:00"
+        }
+      },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Neutral",
+      "emotional_state": "neutral",
       "goals": [
-        "Complete and distribute the study on time."
+        "complete and distribute the study"
       ],
       "id": "miguel_santos",
       "last_decision_at": null,
@@ -170,17 +173,17 @@
       "name": "Miguel Santos",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy",
-      "plan": "Send study within an hour after receiving peer-review sign-off.",
+      "physical_state": "normal",
+      "plan": "send study within an hour of receiving sign-off",
       "reconsider": [],
       "relationships": {
-        "alma_reyes": "Sends finalized studies to council members."
+        "alma_reyes": "sends finalized studies to her via email"
       },
       "role": "city transportation engineer",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Timely delivery of accurate studies."
+        "timeliness"
       ]
     }
   },
@@ -188,28 +191,23 @@
     "city_email": {
       "latency": {
         "basis": "verified",
-        "note": "Delivers within about a minute.",
+        "note": "delivers within about a minute",
         "seconds": 60.0
       },
       "name": "city_email"
     }
   },
   "entities": {},
-  "facts": {
-    "noticed_finalized_study": false
-  },
+  "facts": {},
   "history": [],
   "infos": {},
   "now": "2026-02-18T16:00:00+00:00",
   "processes": {},
   "relationships": {},
-  "resources": {
-    "alma_reyes:finalized_study_received": 0.0,
-    "miguel_santos:peer_review_sign_off_received": 0.0
-  },
+  "resources": {},
   "start": "2026-02-18T16:00:00+00:00",
   "terminal": null,
   "typed_records": [],
-  "version": 15,
+  "version": 12,
   "watches": {}
 }

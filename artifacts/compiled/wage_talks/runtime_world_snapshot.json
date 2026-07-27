@@ -1,62 +1,63 @@
 {
   "action_defs": {
-    "accept_offer": {
+    "employer_accepts_demand": {
       "conditions": [
         {
           "actors": [
-            "yolanda_bright",
             "dennis_wozniak"
           ],
           "require": "actor_in"
         },
         {
-          "info": "{params.accepted_offer}",
-          "require": "noticed_info"
-        },
-        {
           "key": "session_started",
           "require": "fact_equals",
           "value": true
+        },
+        {
+          "info": "{params.accepted_demand}",
+          "require": "noticed_info"
         }
       ],
-      "description": "accept offer -- A negotiator accepts the other side's tabled offer at the table, recording an agreement.",
+      "description": "employer accepts demand -- Dennis Wozniak accepts the union's tabled demand of 4.5% at the table.",
       "duration": {
         "basis": "inferred",
-        "note": "Momentary; acceptance is stated at the table.",
+        "note": "Momentary acceptance.",
         "seconds": 60.0
       },
       "effects": [
         [
-          "fact.set",
+          "record.add",
           {
-            "key": "agreement_accepted",
-            "value": true
+            "authority": "employer lead negotiator under VP authority",
+            "producer": "{actor}",
+            "record_type": "agreement",
+            "subject": "wage increase",
+            "valid": true,
+            "value": "accepted"
           }
         ],
         [
           "info.send_new",
           {
             "author": "{actor}",
-            "channel": "spoken_at_mediation_table",
-            "content": "{params.accepted_offer}",
+            "channel": "bargaining_table",
+            "content": "Employer accepts the 4.5% demand.",
             "data": {
-              "description": "The negotiator announces acceptance.",
-              "tag": "acceptance"
+              "description": "",
+              "tag": "employer_acceptance"
             },
             "to": [
-              "yolanda_bright",
-              "dennis_wozniak"
+              "yolanda_bright"
             ]
           }
         ]
       ],
-      "verb": "accept_offer"
+      "verb": "employer_accepts_demand"
     },
-    "table_offer": {
+    "employer_tables_revised_offer": {
       "conditions": [
         {
           "actors": [
-            "yolanda_bright",
             "dennis_wozniak"
           ],
           "require": "actor_in"
@@ -65,12 +66,23 @@
           "key": "session_started",
           "require": "fact_equals",
           "value": true
+        },
+        {
+          "info": "{params.union_demand_notice}",
+          "require": "noticed_info"
+        },
+        {
+          "param": "offer_value",
+          "require": "param_in",
+          "values": [
+            "4.5"
+          ]
         }
       ],
-      "description": "table offer -- A negotiator states a wage offer at the mediation table. The offer is heard immediately by the other negotiator.",
+      "description": "employer tables revised offer -- Dennis Wozniak tables a revised wage offer of 4.5% at the bargaining table.",
       "duration": {
         "basis": "inferred",
-        "note": "Time to formulate and state the offer; approximately 45 minutes if caucus needed, but can be done immediately if prepared.",
+        "note": "Time to formulate and table offer.",
         "seconds": 2700.0
       },
       "effects": [
@@ -78,63 +90,174 @@
           "info.send_new",
           {
             "author": "{actor}",
-            "channel": "spoken_at_mediation_table",
-            "content": "{params.wage_offer}",
+            "channel": "bargaining_table",
+            "content": "Employer offers 4.5% wage increase.",
             "data": {
-              "description": "The negotiator tables a wage offer of X percent.",
-              "tag": "wage_offer"
+              "description": "",
+              "tag": "employer_revised_offer"
             },
             "to": [
-              "yolanda_bright",
+              "yolanda_bright"
+            ]
+          }
+        ],
+        [
+          "actor.belief",
+          {
+            "actor": "{actor}",
+            "basis": "own action",
+            "statement": "Employer has offered 4.5%.",
+            "topic": "employer_offer"
+          }
+        ]
+      ],
+      "verb": "employer_tables_revised_offer"
+    },
+    "union_accepts_offer": {
+      "conditions": [
+        {
+          "actors": [
+            "yolanda_bright"
+          ],
+          "require": "actor_in"
+        },
+        {
+          "key": "session_started",
+          "require": "fact_equals",
+          "value": true
+        },
+        {
+          "info": "{params.accepted_offer}",
+          "require": "noticed_info"
+        }
+      ],
+      "description": "union accepts offer -- Yolanda Bright accepts the employer's tabled offer of 4.5% at the table.",
+      "duration": {
+        "basis": "inferred",
+        "note": "Momentary acceptance.",
+        "seconds": 60.0
+      },
+      "effects": [
+        [
+          "record.add",
+          {
+            "authority": "union lead negotiator under ratification vote",
+            "producer": "{actor}",
+            "record_type": "agreement",
+            "subject": "wage increase",
+            "valid": true,
+            "value": "accepted"
+          }
+        ],
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "bargaining_table",
+            "content": "Union accepts the 4.5% offer.",
+            "data": {
+              "description": "",
+              "tag": "union_acceptance"
+            },
+            "to": [
+              "dennis_wozniak"
+            ]
+          }
+        ]
+      ],
+      "verb": "union_accepts_offer"
+    },
+    "union_tables_revised_demand": {
+      "conditions": [
+        {
+          "actors": [
+            "yolanda_bright"
+          ],
+          "require": "actor_in"
+        },
+        {
+          "key": "session_started",
+          "require": "fact_equals",
+          "value": true
+        },
+        {
+          "param": "demand_value",
+          "require": "param_in",
+          "values": [
+            "4.5"
+          ]
+        }
+      ],
+      "description": "union tables revised demand -- Yolanda Bright tables a revised wage demand of 4.5% at the bargaining table.",
+      "duration": {
+        "basis": "inferred",
+        "note": "Time to formulate and table offer.",
+        "seconds": 2700.0
+      },
+      "effects": [
+        [
+          "info.send_new",
+          {
+            "author": "{actor}",
+            "channel": "bargaining_table",
+            "content": "Union demands 4.5% wage increase.",
+            "data": {
+              "description": "",
+              "tag": "union_revised_demand"
+            },
+            "to": [
               "dennis_wozniak"
             ]
           }
         ],
         [
-          "fact.set",
+          "actor.belief",
           {
-            "key": "last_tabled_offer",
-            "value": "{params.wage_offer}"
+            "actor": "{actor}",
+            "basis": "own action",
+            "statement": "Union has tabled 4.5%.",
+            "topic": "union_demand"
           }
         ]
       ],
-      "verb": "table_offer"
+      "verb": "union_tables_revised_demand"
     }
   },
   "actions": {},
   "actors": {
     "dennis_wozniak": {
       "attention": {
-        "spoken_at_mediation_table": {
+        "bargaining_table": {
           "basis": "verified",
           "calendar": null,
           "check_every_seconds": null,
-          "note": "Hears offers immediately when spoken."
+          "note": "Hears offers made at the table immediately."
         }
       },
       "available_info": [],
       "beliefs": {
-        "authority_to_accept_wage_increase": {
-          "basis": "verified: e2",
-          "statement": "Wozniak believes he can accept up to 4.5% without board approval.",
-          "updated_at": "2026-10-29T15:00:00+00:00"
-        },
-        "current_offers": {
+        "wage_demand": {
           "basis": "verified: e5",
-          "statement": "Wozniak believes the union's demand is 5% and employer's offer is 3.5% as of 26 Oct.",
+          "statement": "Believes union demand is 5%.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         },
-        "wozniak_s_condition_for_4_5": {
+        "wage_offer": {
+          "basis": "verified: e5",
+          "statement": "Believes employer offer is 3.5%.",
+          "updated_at": "2026-10-29T15:00:00+00:00"
+        },
+        "willingness_to_move": {
           "basis": "verified: e9",
-          "statement": "Wozniak will move to 4.5% only if union first comes down from 5%.",
+          "statement": "Believes he will move to 4.5% only if union first comes down from 5%.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         }
       },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Cautious, willing to move to 4.5% if union comes down.",
+      "emotional_state": "Cautious",
       "goals": [
-        "Reach an agreement without exceeding 4.5% wage increase."
+        "Avoid strike",
+        "Minimize wage increase"
       ],
       "id": "dennis_wozniak",
       "last_decision_at": null,
@@ -142,51 +265,53 @@
       "name": "Dennis Wozniak",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy, present at mediation.",
-      "plan": "Offer 4.5% only if union reduces demand from 5%.",
+      "physical_state": "Healthy",
+      "plan": "Attend mediated session, move to 4.5% only if union moves first",
       "reconsider": [],
       "relationships": {
-        "yolanda_bright": "Counterpart in negotiations."
+        "yolanda_bright": "Counterpart at bargaining table"
       },
       "role": "employer lead negotiator",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Cost control"
+        "Cost control",
+        "Operational stability"
       ]
     },
     "yolanda_bright": {
       "attention": {
-        "spoken_at_mediation_table": {
+        "bargaining_table": {
           "basis": "verified",
           "calendar": null,
           "check_every_seconds": null,
-          "note": "Hears offers immediately when spoken."
+          "note": "Hears offers made at the table immediately."
         }
       },
       "available_info": [],
       "beliefs": {
-        "authority_to_accept_wage_increase": {
-          "basis": "verified: e3",
-          "statement": "Bright believes she can accept 4% or higher.",
-          "updated_at": "2026-10-29T15:00:00+00:00"
-        },
-        "bright_s_planned_offer": {
-          "basis": "verified: e10",
-          "statement": "Bright is prepared to come down to 4.5% at the mediated session.",
-          "updated_at": "2026-10-29T15:00:00+00:00"
-        },
-        "current_offers": {
+        "wage_demand": {
           "basis": "verified: e5",
-          "statement": "Bright believes the union's demand is 5% and employer's offer is 3.5% as of 26 Oct.",
+          "statement": "Believes union demand is 5%.",
+          "updated_at": "2026-10-29T15:00:00+00:00"
+        },
+        "wage_offer": {
+          "basis": "verified: e5",
+          "statement": "Believes employer offer is 3.5%.",
+          "updated_at": "2026-10-29T15:00:00+00:00"
+        },
+        "willingness_to_move": {
+          "basis": "verified: e10",
+          "statement": "Believes she is prepared to come down to 4.5%.",
           "updated_at": "2026-10-29T15:00:00+00:00"
         }
       },
       "commitments": {},
       "deferred_wakes": [],
-      "emotional_state": "Determined but willing to compromise to avoid strike.",
+      "emotional_state": "Determined but open to compromise",
       "goals": [
-        "Reach a wage agreement of at least 4% to avoid a strike."
+        "Avoid strike",
+        "Secure at least 4% wage increase"
       ],
       "id": "yolanda_bright",
       "last_decision_at": null,
@@ -194,28 +319,29 @@
       "name": "Yolanda Bright",
       "noticed_info": [],
       "ongoing_action": null,
-      "physical_state": "Healthy, present at mediation.",
-      "plan": "Propose 4.5% at the mediated session if needed.",
+      "physical_state": "Healthy",
+      "plan": "Attend mediated session, propose 4.5% if needed",
       "reconsider": [],
       "relationships": {
-        "dennis_wozniak": "Counterpart in negotiations."
+        "dennis_wozniak": "Counterpart at bargaining table"
       },
       "role": "union lead negotiator",
       "tz": "America/Chicago",
       "unprocessed_info": [],
       "values": [
-        "Fair wages for workers"
+        "Fair wages",
+        "Membership solidarity"
       ]
     }
   },
   "channels": {
-    "spoken_at_mediation_table": {
+    "bargaining_table": {
       "latency": {
         "basis": "verified",
-        "note": "Instantaneous",
+        "note": "Immediate",
         "seconds": 0.0
       },
-      "name": "spoken_at_mediation_table"
+      "name": "bargaining_table"
     }
   },
   "entities": {},
@@ -229,6 +355,6 @@
   "start": "2026-10-29T15:00:00+00:00",
   "terminal": null,
   "typed_records": [],
-  "version": 17,
+  "version": 19,
   "watches": {}
 }

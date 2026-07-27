@@ -1,15 +1,13 @@
 {
   "causal_path": [
-    "Mediated session starts on 29 Oct 2026 at 10:00 AM.",
-    "Bright tables 4.5% (as prepared per e10).",
-    "Wozniak hears the offer (e7).",
-    "Wozniak's condition (e9) is satisfied; he accepts the 4.5% offer.",
-    "Bright hears acceptance (e7).",
-    "Both acceptance actions are recorded (e11).",
-    "Agreement is reached before the strike deadline."
+    "Mediated session starts at 2026-10-29T10:00:00-05:00",
+    "Bright tables revised demand of 4.5% (45 min caucus)",
+    "Wozniak notices union demand, tables revised offer of 4.5% (45 min caucus)",
+    "Bright notices employer offer, accepts at table (1 min)",
+    "Both create agreement records before deadline"
   ],
   "defects": [],
-  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario faithfully represents the evidence. The mediated session on 29 Oct is the only scheduled event. Bright is prepared to offer 4.5% (e10), and Wozniak will move to 4.5% if the union comes down first (e9). If Bright tables 4.5%, Wozniak's condition is satisfied, and he can accept (authority up to 4.5%, e2). Bright can also accept 4.5% (authority \u22654%, e3). The acceptance action (e11) records the agreement. The 45-minute caucus time (e8) is sufficient. The deadline is 31 Oct, so the session on 29 Oct allows time. The scenario correctly leaves uncertainties open (e.g., whether Bright actually tables 4.5%). The terminal is producible via the actions defined.\",\n  \"causal_path\": [\n    \"Mediated session starts on 29 Oct 2026 at 10:00 AM.\",\n    \"Bright tables 4.5% (as prepared per e10).\",\n    \"Wozniak hears the offer (e7).\",\n    \"Wozniak's condition (e9) is satisfied; he accepts the 4.5% offer.\",\n    \"Bright hears acceptance (e7).\",\n    \"Both acceptance actions are recorded (e11).\",\n    \"Agreement is reached before the strike deadline.\"\n  ],\n  \"defects\": []\n}",
-  "reasoning": "The scenario faithfully represents the evidence. The mediated session on 29 Oct is the only scheduled event. Bright is prepared to offer 4.5% (e10), and Wozniak will move to 4.5% if the union comes down first (e9). If Bright tables 4.5%, Wozniak's condition is satisfied, and he can accept (authority up to 4.5%, e2). Bright can also accept 4.5% (authority \u22654%, e3). The acceptance action (e11) records the agreement. The 45-minute caucus time (e8) is sufficient. The deadline is 31 Oct, so the session on 29 Oct allows time. The scenario correctly leaves uncertainties open (e.g., whether Bright actually tables 4.5%). The terminal is producible via the actions defined.",
+  "raw_response": "{\n  \"verdict\": \"APPROVE\",\n  \"reasoning\": \"The scenario correctly models the mediated session on 29 October, where Bright tables 4.5% (per e10), Wozniak then tables 4.5% (per e9 condition), and Bright accepts (per e3 authority). Both create agreement records before the deadline, satisfying the YES condition. All evidence is faithfully represented; no contradictions or missing causal links.\",\n  \"causal_path\": [\n    \"Mediated session starts at 2026-10-29T10:00:00-05:00\",\n    \"Bright tables revised demand of 4.5% (45 min caucus)\",\n    \"Wozniak notices union demand, tables revised offer of 4.5% (45 min caucus)\",\n    \"Bright notices employer offer, accepts at table (1 min)\",\n    \"Both create agreement records before deadline\"\n  ],\n  \"defects\": []\n}",
+  "reasoning": "The scenario correctly models the mediated session on 29 October, where Bright tables 4.5% (per e10), Wozniak then tables 4.5% (per e9 condition), and Bright accepts (per e3 authority). Both create agreement records before the deadline, satisfying the YES condition. All evidence is faithfully represented; no contradictions or missing causal links.",
   "verdict": "APPROVE"
 }

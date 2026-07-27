@@ -13,14 +13,12 @@
   "processes": [],
   "producer_index": {
     "action:send_finalized_study": 1,
+    "belief:alma_reyes:study_status": 1,
     "belief:external_reviewer:peer_review_sign_off": 1,
-    "fact:finalized_study_sent": 1,
-    "fact:noticed_finalized_study": 1,
+    "belief:miguel_santos:study_status": 1,
     "info:alma_reyes:finalized_study": 1,
-    "info:miguel_santos:peer_review_sign_off": 1,
-    "resource:alma_reyes:finalized_study_received": 1,
-    "resource:miguel_santos:peer_review_sign_off_received": 1
+    "info:miguel_santos:peer_review_signoff": 1
   },
-  "scheduled_root_events": 2,
+  "scheduled_root_events": 1,
   "stage": "COMPILED"
 }

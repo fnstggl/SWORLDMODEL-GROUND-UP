@@ -1,0 +1,24 @@
+{"cutoff": "2026-03-12T20:00:00+00:00", "start": "2026-03-10T13:00:00+00:00", "step": "start"}
+{"step": "symbols", "table": {"namespaces": {"affordance": {"prepare and send safety review": "prepare_and_send_safety_review", "put motion to approve": "put_motion_to_approve", "vote": "vote"}, "participant": {"Dr. Helen Osei": "dr_helen_osei", "Dr. Raj Patel": "dr_raj_patel", "Manufacturer": "manufacturer", "Sister Margaret Doyle": "sister_margaret_doyle", "Tomas Lindqvist": "tomas_lindqvist"}, "route": {"hospital email": "hospital_email", "manufacturer bulletins": "manufacturer_bulletins", "meeting room": "meeting_room"}}}}
+{"participants": 5, "step": "preflight_ok"}
+{"basis": "verified", "id": "hospital_email", "name": "hospital email", "seconds": 60.0, "step": "route"}
+{"basis": "verified", "id": "manufacturer_bulletins", "name": "manufacturer bulletins", "seconds": 0.0, "step": "route"}
+{"basis": "verified", "id": "meeting_room", "name": "meeting room", "seconds": 0.0, "step": "route"}
+{"attention": ["hospital_email", "meeting_room"], "id": "dr_helen_osei", "name": "Dr. Helen Osei", "role": "chair", "step": "participant", "tz": "America/New_York"}
+{"attention": ["hospital_email", "meeting_room"], "id": "dr_raj_patel", "name": "Dr. Raj Patel", "role": "voting member", "step": "participant", "tz": "America/New_York"}
+{"attention": ["hospital_email", "meeting_room"], "id": "sister_margaret_doyle", "name": "Sister Margaret Doyle", "role": "voting member", "step": "participant", "tz": "America/New_York"}
+{"attention": ["manufacturer_bulletins"], "id": "tomas_lindqvist", "name": "Tomas Lindqvist", "role": "hospital pharmacist", "step": "participant", "tz": "America/New_York"}
+{"attention": [], "id": "manufacturer", "name": "Manufacturer", "role": "drug manufacturer", "step": "participant", "tz": "America/New_York"}
+{"actor": "dr_helen_osei", "step": "starting_belief", "topic": "compassionate_use_approval_criteria"}
+{"actor": "dr_raj_patel", "step": "starting_belief", "topic": "compassionate_use_approval_criteria"}
+{"actor": "sister_margaret_doyle", "step": "starting_belief", "topic": "compassionate_use_approval_criteria"}
+{"key": "safety_review_request", "step": "starting_fact"}
+{"actor": "tomas_lindqvist", "step": "initial_knowledge", "topic": "updated_trial_safety_data"}
+{"completion": "duration", "conditions": 2, "effects": 1, "label": "prepare and send safety review", "step": "affordance", "verb": "prepare_and_send_safety_review"}
+{"completion": "duration", "conditions": 2, "effects": 1, "label": "put motion to approve", "step": "affordance", "verb": "put_motion_to_approve"}
+{"completion": "duration", "conditions": 3, "effects": 1, "label": "vote", "step": "affordance", "verb": "vote"}
+{"at": "2026-03-10T13:00:00+00:00", "description": "Manufacturer releases updated trial safety data.", "ops": 1, "step": "scheduled_event", "wakes": 1}
+{"at": "2026-03-12T18:00:00+00:00", "description": "Committee meeting starts.", "ops": 1, "step": "scheduled_event", "wakes": 3}
+{"first": "2026-03-10T13:00:00+00:00", "root_events": 6, "step": "schedulable"}
+{"observations": 1, "step": "producers_verified"}
+{"conditions": 1, "step": "terminal_not_preanswered"}

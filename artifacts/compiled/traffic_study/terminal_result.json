@@ -4,7 +4,7 @@
     "computed_from": [
       "terminal.cutoff"
     ],
-    "detail": "Reyes has not noticed the finalized study before the meeting starts.",
+    "detail": "Reyes has not noticed and read the finalized study before the meeting starts.",
     "observations": [
       {
         "observation": {
@@ -33,7 +33,7 @@
           "computed_from": [
             "terminal.cutoff"
           ],
-          "detail": "Reyes has not noticed the finalized study before the meeting starts.",
+          "detail": "Reyes has not noticed and read the finalized study before the meeting starts.",
           "observations": [
             {
               "observation": {
@@ -57,7 +57,7 @@
         "status": "cutoff"
       },
       "op": "terminal",
-      "seq": 34,
+      "seq": 28,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -65,12 +65,12 @@
         "data": {
           "question": "Will Councilmember Reyes have read the finalized traffic study before the council meeting begins?"
         },
-        "event": 17,
+        "event": 14,
         "kind": "terminal.cutoff",
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.fired",
-      "seq": 33,
+      "seq": 27,
       "t": "2026-02-20T01:00:00+00:00"
     },
     {
@@ -83,13 +83,13 @@
         "t": "2026-02-20T01:00:00+00:00"
       },
       "op": "event.scheduled",
-      "seq": 17,
+      "seq": 14,
       "t": "2026-02-18T16:00:00+00:00"
     },
     {
       "data": {},
       "op": "genesis.sealed",
-      "seq": 16,
+      "seq": 13,
       "t": "2026-02-18T16:00:00+00:00"
     }
   ],

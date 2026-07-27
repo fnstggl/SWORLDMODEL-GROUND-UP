@@ -443,6 +443,8 @@ Observation shapes (pick the observation_type, then give its fields):
   "relationships": [{{"to": "<other participant name>", "description": "..."}}],
   "availability": {{"timezone": "America/Chicago", "workdays": [0,1,2,3,4],
                     "open": "09:00", "close": "17:00", "holidays": ["2026-02-16"]}},
+  // round the clock? use "workdays": [0,1,2,3,4,5,6], "open": "00:00",
+  // "close": "24:00" -- correct for ports, hospitals, dispatchers, crews
   "attention": [{{"route": "<communication route name>",
                   "status": "verified"|"inferred"|"uncertain",
                   "description": "how and when they actually look at this route",

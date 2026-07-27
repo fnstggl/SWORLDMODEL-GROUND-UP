@@ -1,5 +1,5 @@
 {
   "detail": {},
-  "reason": "'tally_of_records' needs a 'record_type' naming the kind of record being read, and it must be the SAME string used by the create_record change that makes them",
-  "stage": "SEMANTIC_AMBIGUITY"
+  "reason": "participants['MV Rhine Meridian']: availability is not usable as a calendar (hour must be in 0..23)",
+  "stage": "LOWERING_GAP"
 }
