@@ -1,0 +1,15 @@
+{
+  "detail": {
+    "findings": [
+      {
+        "material_because": "If the centre's stock is insufficient, the shipments might be reduced or cancelled, which would change the number of blood units the hospital receives by Friday noon.",
+        "what": "Both Tuesday and Thursday shipments are scheduled unconditionally in the runtime world, but the approved world states they are contingent on sufficient stock at the centre, with Tuesday shipment explicitly uncertain due to insufficient stock.",
+        "where": "Runtime world: Scheduled queue; Approved world: Preserved uncertainty section."
+      }
+    ],
+    "repairable": false,
+    "verdict": "MEANING_CHANGED"
+  },
+  "reason": "the lowered world does not mean what the approved world means (MEANING_CHANGED)",
+  "stage": "LOWERING_MISMATCH"
+}

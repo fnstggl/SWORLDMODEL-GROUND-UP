@@ -189,11 +189,15 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             # fully wired world (rates, amounts, stock connections), not
             # a pre-binding skeleton it would misjudge as decorative ----
             from .binding import connect_process_outputs
+            from .feasibility import check_transfer_feasibility
             t0 = wallclock.monotonic()
             bind_world(graph, evidence, call=call, model=model,
                        into=bindings)
             connect_process_outputs(graph, bindings)
             metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+            # the world's own numbers must cover its scheduled
+            # commitments -- deterministically, before any reviewer
+            check_transfer_feasibility(graph, bindings)
             _wj(os.path.join(outdir, "canonical_world_graph.json"),
                 graph.to_dict())
 

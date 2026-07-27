@@ -1,0 +1,29 @@
+{
+  "assembly_ms": 11.8,
+  "assembly_repairs": [],
+  "binding_calls": 8,
+  "discovery_calls": 7,
+  "emit_ms": 0.8,
+  "equivalence_rebinds": [
+    "event:shipment_dispatched_tuesday"
+  ],
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 1.9,
+  "mode": "frozen_evidence",
+  "model_ms": 121990.94100299408,
+  "model_tokens": 30998,
+  "proofs_ms": 1.6,
+  "repairs_by_step": {
+    "resolution_ambiguity_adjudication": 1
+  },
+  "reviewer_calls": 1,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "LOWERING_MISMATCH"
+}

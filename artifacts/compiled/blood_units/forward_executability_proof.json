@@ -1,0 +1,19 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "resource:hospital_units_at_deadline"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:collection_monday",
+    "process:collection_thursday",
+    "process:collection_tuesday",
+    "process:collection_wednesday"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:shipment_dispatched_thursday",
+    "event:shipment_dispatched_tuesday"
+  ],
+  "warnings": []
+}

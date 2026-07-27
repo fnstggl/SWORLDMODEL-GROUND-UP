@@ -1,23 +1,19 @@
 [
   {
-    "binding_calls": 15,
+    "binding_calls": 8,
     "case": "blood_units",
-    "discovery_calls": 11,
+    "discovery_calls": 7,
     "expected_answer": 315.0,
     "expected_refusal": false,
-    "lowering_ms": 2.2,
+    "lowering_ms": 1.9,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the lowered world does not mean what the approved world means (UNSUPPORTED_ADDITION)",
+    "reason": "the lowered world does not mean what the approved world means (MEANING_CHANGED)",
     "repairs": {
-      "causal_spine": 1,
-      "process:wednesday_collection": 1,
-      "resolution_ambiguity_adjudication": 1,
-      "starting_state[Cascade regional blood centre]": 1,
-      "starting_state[St. Vincent regional hospital]": 1
+      "resolution_ambiguity_adjudication": 1
     },
     "runtime_ms": 0.0,
     "stage": "LOWERING_MISMATCH",
-    "tokens": 62494
+    "tokens": 30998
   }
 ]

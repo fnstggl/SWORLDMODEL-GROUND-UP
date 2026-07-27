@@ -1,0 +1,116 @@
+{
+  "assignments": [
+    {
+      "step": "hospital_holds_units_at_deadline",
+      "unsupported": "This is a condition that is the conjunction of initial stock and received shipments; it has no producer of its own."
+    },
+    {
+      "step": "initial_stock_plus_received_shipments",
+      "unsupported": "This is a condition that is the conjunction of initial stock and received shipments; it has no producer of its own."
+    },
+    {
+      "step": "hospital_initial_stock",
+      "unsupported": "This is an initial fact; no producer needed."
+    },
+    {
+      "step": "shipment_arrives_before_deadline",
+      "unsupported": "This is a condition that is the disjunction of two scheduled events; it has no producer of its own."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre dispatches the Tuesday shipment as per the standing distribution agreement.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "shipment_dispatched_tuesday"
+    },
+    {
+      "step": "centre_has_enough_stock_tuesday",
+      "unsupported": "This is a condition that depends on initial stock and optional collections; it has no single producer."
+    },
+    {
+      "step": "centre_initial_stock",
+      "unsupported": "This is an initial fact; no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_monday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_tuesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre dispatches the Thursday shipment as per the standing distribution agreement.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "shipment_dispatched_thursday"
+    },
+    {
+      "step": "centre_has_enough_stock_thursday",
+      "unsupported": "This is a condition that depends on initial stock and optional collections; it has no single producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_wednesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre operates the mobile collection drive.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_thursday"
+    }
+  ]
+}

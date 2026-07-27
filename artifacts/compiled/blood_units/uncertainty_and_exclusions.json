@@ -1,0 +1,83 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Hospital usage or consumption of blood units",
+      "why_safe": "The question asks for units the hospital 'holds' at the deadline, not net after usage. Usage would only reduce the count, so excluding it gives an upper bound; but the resolution note says 'actually holds', implying inventory after any internal use. However, no evidence of usage is provided, so we assume no usage for simplicity. This exclusion is safe only if usage is zero; otherwise it could overestimate. But given no evidence, we must treat it as unknown."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Expiration of blood units",
+      "why_safe": "Blood units have a shelf life, but no evidence of expiration dates or that any units expire within the week. Excluding expiration is safe if all units remain usable; otherwise it could overestimate. Unknown."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6",
+        "e7"
+      ],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "Only St. Vincent regional hospital is mentioned as receiving shipments from the Cascade centre. No other recipients are indicated, so excluding them is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Weekend collections (Saturday/Sunday)",
+      "why_safe": "The drive is only open Monday to Friday, so no weekend collections occur. Excluding them is safe."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "collection_monday",
+      "meaning": "Whether the mobile drive operated as scheduled on Monday 20 July 2026, and whether the average rate of 12 units per hour held for the full 8 hours, yielding exactly 96 units."
+    },
+    {
+      "about": "collection_tuesday",
+      "meaning": "Whether the mobile drive operated as scheduled on Tuesday 21 July 2026, and whether the average rate held, yielding exactly 96 units."
+    },
+    {
+      "about": "collection_wednesday",
+      "meaning": "Whether the mobile drive operated as scheduled on Wednesday 22 July 2026, and whether the average rate held, yielding exactly 96 units."
+    },
+    {
+      "about": "collection_thursday",
+      "meaning": "Whether the mobile drive operated as scheduled on Thursday 23 July 2026, and whether the average rate held, yielding exactly 96 units."
+    },
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre's stock after Monday's collection (initial 40 + Monday's 96 = 136) is sufficient to dispatch 150 units on Tuesday at 4:00 PM. It is not, so the shipment may be reduced or cancelled."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre's stock after Tuesday's collection and any Tuesday shipment is sufficient to dispatch 150 units on Thursday at 4:00 PM. This depends on the Tuesday shipment outcome and Wednesday/Thursday collections."
+    },
+    {
+      "about": "shipment_dispatched_tuesday",
+      "meaning": "Whether a shipment actually leaves on Tuesday given the stock shortage. The agreement says shipments move 150 units, but if stock is insufficient, the shipment may be partial or not sent."
+    },
+    {
+      "about": "shipment_dispatched_thursday",
+      "meaning": "Whether a shipment actually leaves on Thursday given the stock situation. This depends on collections and any Tuesday shipment."
+    },
+    {
+      "about": "shipment_arrives_before_deadline",
+      "meaning": "Whether the Thursday shipment, if dispatched at 4:00 PM, arrives and is received by the hospital before Friday noon. The 3-hour travel time suggests arrival by 7:00 PM Thursday, well before the deadline, so this is likely certain, but the receipt process might cause delay."
+    },
+    {
+      "about": "hospital_initial_stock",
+      "meaning": "Whether the hospital's initial 15 units remain usable and are not consumed or expired before the deadline. The evidence does not mention hospital usage or expiration."
+    }
+  ]
+}

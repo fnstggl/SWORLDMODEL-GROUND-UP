@@ -1,0 +1,76 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:hospital_units_at_deadline",
+        "prerequisites": [
+          {
+            "derived_condition": true,
+            "node": "state:initial_stock_plus_received_shipments",
+            "prerequisites": [
+              {
+                "node": "state:hospital_initial_stock",
+                "root": "initial_fact"
+              },
+              {
+                "derived_condition": true,
+                "node": "state:shipment_arrives_before_deadline",
+                "prerequisites": [
+                  {
+                    "alt_group": "shipment_route",
+                    "satisfied_by": {
+                      "node": "event:shipment_dispatched_thursday",
+                      "prerequisites": [
+                        {
+                          "derived_condition": true,
+                          "node": "state:centre_has_enough_stock_thursday",
+                          "prerequisites": [
+                            {
+                              "node": "state:centre_initial_stock",
+                              "root": "initial_fact"
+                            }
+                          ]
+                        }
+                      ],
+                      "root": "scheduled_event"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "via": {
+          "node": "event:shipment_dispatched_thursday",
+          "prerequisites": [
+            {
+              "derived_condition": true,
+              "node": "state:centre_has_enough_stock_thursday",
+              "prerequisites": [
+                {
+                  "node": "state:centre_initial_stock",
+                  "root": "initial_fact"
+                }
+              ]
+            }
+          ],
+          "root": "scheduled_event"
+        }
+      },
+      "component": "resource:hospital_units_at_deadline",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "event"
+      ],
+      "producers": [
+        "event:shipment_dispatched_thursday",
+        "event:shipment_dispatched_tuesday"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

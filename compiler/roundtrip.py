@@ -252,9 +252,11 @@ def describe_runtime(compiled) -> str:
     out.append("\n## Scheduled queue at genesis")
     out.append("(feasibility of each scheduled transfer -- source stock "
                "sufficiency under the evidenced rates and timings -- was "
-               "verified at compile time by the causal proofs and the "
-               "approving reality review; the queue therefore carries the "
-               "commitments unconditionally)")
+               "verified at compile time by a deterministic stock walk: "
+               "opening stock plus process accrual minus earlier outflows "
+               "covers each commitment at its moment. The approving "
+               "reality review saw the same numbers; the queue therefore "
+               "carries the commitments unconditionally)")
     for ev in sorted(compiled.world.queue.pending(),
                      key=lambda e: (str(e.t), e.seq)):
         data = getattr(ev, "data", {}) or {}

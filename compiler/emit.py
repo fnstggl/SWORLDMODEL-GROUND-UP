@@ -189,84 +189,7 @@ class Emitter:
 
     # ------------------------------------------------------------------
     def _unify_substances(self) -> None:
-        """One substance, several holders, one runtime quantity name.
-
-        The graph keeps a stock per holder; the runtime keys quantities by
-        (holder, name) with a SHARED name, and a transfer moves that name
-        between holders. Transfer bindings and process outputs link stocks
-        of the same substance; the measured component's name is canonical.
-        A holder's stock joins a class only when it is unambiguous (their
-        single stock, or an explicit substance/name link)."""
-        parent: dict = {}
-
-        def find(x):
-            parent.setdefault(x, x)
-            while parent[x] != x:
-                parent[x] = parent[parent[x]]
-                x = parent[x]
-            return x
-
-        def union(a, b):
-            parent[find(a)] = find(b)
-
-        def actor_id(name):
-            if not name:
-                return None
-            for c in ACTORS:
-                nid = self.g.maybe(c, name)
-                if nid:
-                    return nid
-            return None
-
-        for bound in (list(self.b.events.values())
-                      + list(self.b.actions.values())):
-            for rname, spec in sorted((bound.get("amounts") or {}).items()):
-                rid = self.g.maybe("resource", rname)
-                if rid is None or spec.get("kind") != "transfer":
-                    continue
-                for side in ("from", "to"):
-                    hid = actor_id(spec.get(side))
-                    if hid is None:
-                        continue
-                    held = [rs for rs in self.g.by_category("resource")
-                            if rs.attrs.get("holder") == hid]
-                    if len(held) == 1:
-                        union(held[0].id, rid)
-                    else:
-                        base = slug(self.g.node(rid).attrs.get("substance")
-                                    or self.g.node(rid).name)
-                        matches = [rs for rs in held
-                                   if slug(rs.attrs.get("substance")
-                                           or rs.name) == base]
-                        if len(matches) == 1:
-                            union(matches[0].id, rid)
-        # same-holder identities the binding settled: two stock entries
-        # the model confirmed are one physical substance merge here
-        known = {rs.id for rs in self.g.by_category("resource")}
-        for ident in getattr(self.b, "substance_identities", None) or []:
-            if ident.get("same") and ident.get("a") in known \
-                    and ident.get("b") in known:
-                union(ident["a"], ident["b"])
-        # a process and the stocks it feeds share the substance already
-        # (changes edges); nothing to unify there beyond names below
-        groups: dict = {}
-        for rs in self.g.by_category("resource"):
-            groups.setdefault(find(rs.id), []).append(rs.id)
-        self._substance = {}
-        for members in groups.values():
-            # the substance deserves its most natural name: an explicit
-            # substance attr first, else the shortest member name -- never
-            # the deadline-flavored metric label
-            def rank(m):
-                n = self.g.node(m)
-                sub = n.attrs.get("substance")
-                label = sub or n.name
-                return (0 if sub else 1, len(label), label)
-            canon = min(members, key=rank)
-            cn = self.g.node(canon)
-            name = cn.attrs.get("substance") or cn.name
-            for m in members:
-                self._substance[m] = name
+        self._substance = substance_classes(self.g, self.b)
 
     def _qty_name(self, rid: str) -> str:
         return self._substance.get(rid, self.g.node(rid).name)
@@ -1036,6 +959,90 @@ class Emitter:
             out.append({"terminal_component": node.name,
                         "can_be_produced_by": ways})
         return out
+
+
+def substance_classes(graph: WorldGraph, bindings) -> dict:
+    """One substance, several holders, one runtime quantity name:
+    resource node id -> canonical name.
+
+    The graph keeps a stock per holder; the runtime keys quantities by
+    (holder, name) with a SHARED name, and a transfer moves that name
+    between holders. Transfer bindings and binder-settled same-holder
+    identities link stocks of the same substance; a holder's stock joins
+    a class only when it is unambiguous (their single stock, or an
+    explicit substance/name link). Module-level so the emitter and the
+    deterministic feasibility walk share one notion of identity."""
+    parent: dict = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        parent[find(a)] = find(b)
+
+    def actor_id(name):
+        if not name:
+            return None
+        for c in ACTORS:
+            nid = graph.maybe(c, name)
+            if nid:
+                return nid
+        return None
+
+    for bound in (list(bindings.events.values())
+                  + list(bindings.actions.values())):
+        for rname, spec in sorted((bound.get("amounts") or {}).items()):
+            rid = graph.maybe("resource", rname)
+            if rid is None or spec.get("kind") != "transfer":
+                continue
+            for side in ("from", "to"):
+                hid = actor_id(spec.get(side))
+                if hid is None:
+                    continue
+                held = [rs for rs in graph.by_category("resource")
+                        if rs.attrs.get("holder") == hid]
+                if len(held) == 1:
+                    union(held[0].id, rid)
+                else:
+                    base = slug(graph.node(rid).attrs.get("substance")
+                                or graph.node(rid).name)
+                    matches = [rs for rs in held
+                               if slug(rs.attrs.get("substance")
+                                       or rs.name) == base]
+                    if len(matches) == 1:
+                        union(matches[0].id, rid)
+    # same-holder identities the binding settled: two stock entries
+    # the model confirmed are one physical substance merge here
+    known = {rs.id for rs in graph.by_category("resource")}
+    for ident in getattr(bindings, "substance_identities", None) or []:
+        if ident.get("same") and ident.get("a") in known \
+                and ident.get("b") in known:
+            union(ident["a"], ident["b"])
+    # a process and the stocks it feeds share the substance already
+    # (changes edges); nothing to unify there beyond names below
+    groups: dict = {}
+    for rs in graph.by_category("resource"):
+        groups.setdefault(find(rs.id), []).append(rs.id)
+    substance: dict = {}
+    for members in groups.values():
+        # the substance deserves its most natural name: an explicit
+        # substance attr first, else the shortest member name -- never
+        # the deadline-flavored metric label
+        def rank(m):
+            n = graph.node(m)
+            sub = n.attrs.get("substance")
+            label = sub or n.name
+            return (0 if sub else 1, len(label), label)
+        canon = min(members, key=rank)
+        cn = graph.node(canon)
+        name = cn.attrs.get("substance") or cn.name
+        for m in members:
+            substance[m] = name
+    return substance
 
 
 def emit_scenario(graph: WorldGraph, bindings, question: dict) -> dict:

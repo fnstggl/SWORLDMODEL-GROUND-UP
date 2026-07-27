@@ -1,0 +1,278 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Operates the mobile collection drive on Monday",
+          "over": "collection_monday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Operates the mobile collection drive on Tuesday",
+          "over": "collection_tuesday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Operates the mobile collection drive on Wednesday",
+          "over": "collection_wednesday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Operates the mobile collection drive on Thursday",
+          "over": "collection_thursday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Dispatches the Tuesday shipment as per standing distribution agreement",
+          "over": "shipment_dispatched_tuesday"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Dispatches the Thursday shipment as per standing distribution agreement",
+          "over": "shipment_dispatched_thursday"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Shipments occur on schedule",
+            "meaning": "Continuous once dispatched"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "latency_meaning": "About 3 hours from dispatch to hospital receipt",
+          "meaning": "Physical transport of blood units via courier",
+          "name": "courier_service",
+          "role": "sender"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM",
+          "name": "tuesday_shipment",
+          "when": "2026-07-21T16:00:00-07:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM",
+          "name": "thursday_shipment",
+          "when": "2026-07-23T16:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Usable blood units held at start of Monday 20 July 2026 at 9:00 AM",
+          "name": "initial_stock",
+          "value": 40
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Own stock of 40 units at Monday 9:00 AM",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Average collection rate of 12 units per hour while drive is open",
+          "name": "collection_rate",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Drive open Monday to Friday 9:00 AM to 5:00 PM",
+          "name": "drive_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Shipments every Tuesday and Thursday at 4:00 PM",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Each shipment moves 150 units",
+          "name": "shipment_capacity",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Shipment takes about 3 hours to reach hospital",
+          "name": "transit_time",
+          "visibility": "public"
+        }
+      ],
+      "name": "Cascade regional blood centre",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 40,
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Usable blood units in stock",
+          "name": "blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "authority": [
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "meaning": "Hospital holds the units at the deadline; this is a condition, not an action.",
+          "over": "hospital_holds_units_at_deadline"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Shipments arrive after 7 PM on Tuesdays and Thursdays",
+            "meaning": "Continuous attention during business hours; receipt occurs upon arrival"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "latency_meaning": "Shipment takes about 3 hours from dispatch to receipt",
+          "meaning": "Physical delivery of blood units via courier",
+          "name": "courier_receipt",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held at start of week",
+          "name": "initial_stock",
+          "value": 15
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital knows its own initial stock of 15 units",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital knows shipments arrive every Tuesday and Thursday around 7 PM (3 hours after 4 PM dispatch)",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units in hospital blood bank",
+          "name": "blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    }
+  ]
+}
