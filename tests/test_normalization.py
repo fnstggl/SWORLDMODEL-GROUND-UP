@@ -1,7 +1,7 @@
 """Shape normalization: the exact synonymous JSON spellings live models
 produce must validate identically to the canonical forms -- and genuinely
 ambiguous input must still be rejected, never guessed."""
-from compiler.capabilities import validate_capability
+from compiler.legacy.capabilities import validate_capability
 
 
 def test_nested_terminal_check_normalizes():
@@ -54,8 +54,8 @@ def test_single_effect_dict_normalizes_to_list():
 
 
 def test_none_known_attention_upgrades_but_real_rules_do_not():
-    from compiler import graph_builder
-    from compiler.world_graph import WorldGraph
+    from compiler.legacy import graph_builder
+    from compiler.legacy.world_graph import WorldGraph
     g = WorldGraph()
     for inst in [
         {"capability": "add_participant",
@@ -104,7 +104,7 @@ def test_single_name_lists_and_one_clause_conjunctions_normalize():
 
 
 def test_set_terminal_outside_terminal_category_is_rejected():
-    from compiler.translation import _validate_for
+    from compiler.legacy.translation import _validate_for
     inst = {"capability": "set_terminal", "fields": {
         "question_restated": "q", "mode": "condition",
         "cutoff_local": "2026-08-10 09:00", "tz": "UTC",

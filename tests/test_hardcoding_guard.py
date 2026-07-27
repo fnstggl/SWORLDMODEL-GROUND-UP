@@ -8,7 +8,13 @@ import ast
 import os
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCAN_DIRS = ("compiler", "sworldmodel")
+SCAN_DIRS = ("compiler", "compiler/legacy", "sworldmodel")
+
+#: scene_prompts.py contains the UNIVERSAL prohibition doctrine, which must
+#: name the acts that may never be scheduled ("never schedule a reply, a
+#: vote, ...") -- the opposite of scenario routing.  Agent B audits it for
+#: routing instead of this word scan.
+ALLOWLIST = {"compiler/scene_prompts.py"}
 
 #: words from acceptance scenarios and classic domains; matched as whole-ish
 #: words, lowercase (so `default_factory` does not trip `factory`)
@@ -77,7 +83,8 @@ def test_no_scenario_vocabulary_in_core_logic():
     problems = []
     for d in SCAN_DIRS:
         for fname in sorted(os.listdir(os.path.join(HERE, d))):
-            if fname.endswith(".py"):
+            rel = f"{d}/{fname}"
+            if fname.endswith(".py") and rel not in ALLOWLIST:
                 problems.extend(scan_file(os.path.join(HERE, d, fname)))
     assert problems == [], (
         "scenario vocabulary found in core logic -- the compiler/runtime "

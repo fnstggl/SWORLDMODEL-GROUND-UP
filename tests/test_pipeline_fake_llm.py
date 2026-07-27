@@ -6,8 +6,8 @@ import json
 
 from sworldmodel import Engine, canonical_json
 
-from compiler import compile_question, instantiate
-from compiler.llm import Caller
+from compiler.legacy import compile_question, instantiate
+from compiler.legacy.llm import Caller
 
 from tests.test_compiler_core import neutral_items
 

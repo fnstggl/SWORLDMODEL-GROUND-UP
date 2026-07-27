@@ -1,10 +1,10 @@
 """Wrong worlds must stop: pre-resolved terminals, pre-written outcomes,
 missing producers, dead worlds, unnoticeable answers, dead authority."""
-from compiler import graph_builder
-from compiler.assembly import assemble
-from compiler.capabilities import validate_capability
-from compiler.validation import validate_world
-from compiler.world_graph import WorldGraph
+from compiler.legacy import graph_builder
+from compiler.legacy.assembly import assemble
+from compiler.legacy.capabilities import validate_capability
+from compiler.legacy.validation import validate_world
+from compiler.legacy.world_graph import WorldGraph
 
 from tests.test_compiler_core import cap, neutral_items, START
 
@@ -167,8 +167,8 @@ def test_past_external_event_folds_into_starting_state():
         provenance="question_given", note="occurred before the start"))
     from tests.test_compiler_failures import graph_from
     g = graph_from(items)
-    from compiler.assembly import assemble
-    from compiler.lowering import lower
+    from compiler.legacy.assembly import assemble
+    from compiler.legacy.lowering import lower
     plan, errors = assemble(g, START)
     assert errors == []
     assert any("folded into the starting state" in n for n in plan["notes"])

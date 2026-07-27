@@ -4,14 +4,14 @@ label is meaningless (person_a, channel_c, record_d...).  If the machinery
 works here, it is operating on structure, not on scenario words."""
 import pytest
 
-from compiler import graph_builder
-from compiler.assembly import assemble
-from compiler.capabilities import render_menu, validate_capability, \
+from compiler.legacy import graph_builder
+from compiler.legacy.assembly import assemble
+from compiler.legacy.capabilities import render_menu, validate_capability, \
     CAPABILITIES, EFFECT_MACROS
-from compiler.lowering import lower
-from compiler.roundtrip import summarize
-from compiler.validation import validate_world
-from compiler.world_graph import WorldGraph
+from compiler.legacy.lowering import lower
+from compiler.legacy.roundtrip import summarize
+from compiler.legacy.validation import validate_world
+from compiler.legacy.world_graph import WorldGraph
 
 START = "2026-07-27T08:00:00+00:00"
 
