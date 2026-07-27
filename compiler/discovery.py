@@ -537,6 +537,9 @@ def discover(question: dict, evidence: dict, call=call_json,
         "  uncertainty: prose if this step's occurrence is genuinely "
         "open\n"
         "  basis, evidence_ids\n"
+        "A step that directly produces a terminal proof QUANTITY must be "
+        "a real mechanism that moves it -- a scheduled dispatch, a "
+        "transfer, a process -- never the holder 'having' it.\n"
         "The resolution proof names are: " + json.dumps(list(proof_names)),
         ctx + "\n\nTHE TERMINAL (from step 1):\n"
         + json.dumps(doc, indent=1),

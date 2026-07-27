@@ -413,6 +413,20 @@ class Assembler:
                 pid, "has_authority", step_id,
                 {"meaning": producer.get("meaning", "operates it")},
                 where=f"producer {step_name!r}"))
+        elif cat in ACTORS and step.category == "resource":
+            raise SemanticAmbiguity(
+                f"step {step_name!r} is a measured quantity; "
+                f"{producer['name']!r} cannot simply bring it about. A "
+                f"quantity's value changes only through real mechanisms -- "
+                f"attach the scheduled transfers, dispatches or processes "
+                f"(already in the spine) as its producers")
+        elif cat in ACTORS and step.category == "record":
+            raise SemanticAmbiguity(
+                f"step {step_name!r} is a formal record; if "
+                f"{producer['name']!r} truly makes it, the making is an "
+                f"actor decision -- add it to the spine as kind "
+                f"actor_decision (the act IS the record) -- otherwise "
+                f"attach the institutional mechanism that produces it")
         elif cat in ACTORS:
             # A person producing a condition acts through an action. Derive
             # the universal plumbing: actor -can_perform-> action -produces->
@@ -430,6 +444,12 @@ class Assembler:
                 edges.append(self.graph.add_edge(
                     act_id, "produces", step_id,
                     where=f"producer {step_name!r}"))
+                # bringing X about requires what X requires
+                for e in self.graph.prerequisites_of(step_id):
+                    if e.dst != act_id:
+                        edges.append(self.graph.add_edge(
+                            act_id, "requires", e.dst, dict(e.attrs),
+                            where=f"producer {step_name!r}"))
             else:
                 self.graph.absorb(act_id, derived_meaning, basis, ids,
                                   where=f"producer for {step_name!r}")
