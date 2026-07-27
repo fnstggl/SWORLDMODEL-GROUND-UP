@@ -1,0 +1,111 @@
+{
+  "assignments": [
+    {
+      "step": "agreement_recorded",
+      "unsupported": "This is a condition with a single prerequisite (negotiator_accepts_offer) and no separate mechanism; it is a conjunction of that step and the deadline. No producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e3"
+          ],
+          "kind": "person",
+          "meaning": "Union lead negotiator who can accept an offer at or above 4% wage increase.",
+          "name": "Yolanda Bright"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "person",
+          "meaning": "Employer lead negotiator who can accept an offer up to 4.5% wage increase without board approval.",
+          "name": "Dennis Wozniak"
+        }
+      ],
+      "step": "negotiator_accepts_offer"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Union lead negotiator who can table a revised offer.",
+          "name": "Yolanda Bright"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Employer lead negotiator who can table a revised offer.",
+          "name": "Dennis Wozniak"
+        }
+      ],
+      "step": "offer_tabled"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Union lead negotiator who decides whether to table a revised offer.",
+          "name": "Yolanda Bright"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Employer lead negotiator who decides whether to table a revised offer.",
+          "name": "Dennis Wozniak"
+        }
+      ],
+      "step": "negotiator_decides_to_table_offer"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Union lead negotiator who attends the mediated session.",
+          "name": "Yolanda Bright"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Employer lead negotiator who attends the mediated session.",
+          "name": "Dennis Wozniak"
+        }
+      ],
+      "step": "negotiator_attends_session"
+    },
+    {
+      "step": "bargaining_session_occurs",
+      "unsupported": "This is a scheduled event; no producer needed."
+    }
+  ]
+}

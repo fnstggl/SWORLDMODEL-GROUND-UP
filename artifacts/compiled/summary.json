@@ -1,7 +1,7 @@
 [
   {
     "binding_calls": 10,
-    "case": "traffic_study",
+    "case": "wage_talks",
     "discovery_calls": 10,
     "expected_answer": "yes",
     "expected_refusal": false,
@@ -10,10 +10,13 @@
     "pipeline": "discovery",
     "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
-      "causal_spine": 1
+      "action:negotiator_attends_session": 1,
+      "causal_spine": 1,
+      "starting_state[Dennis Wozniak]": 1,
+      "starting_state[Yolanda Bright]": 1
     },
     "runtime_ms": 0.0,
     "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 38296
+    "tokens": 41746
   }
 ]

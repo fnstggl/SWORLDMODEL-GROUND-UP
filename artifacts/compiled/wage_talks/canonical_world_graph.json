@@ -1,0 +1,917 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:negotiator_attends_session",
+      "rel": "requires",
+      "src": "action:bright_tables_4_5"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:bargaining_session_occurs",
+      "rel": "requires",
+      "src": "action:bright_tables_4_5"
+    },
+    {
+      "attrs": {},
+      "dst": "record:agreement_record",
+      "rel": "produces",
+      "src": "action:negotiator_accepts_offer"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:negotiator_attends_session",
+      "rel": "requires",
+      "src": "action:negotiator_accepts_offer"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:offer_tabled",
+      "rel": "requires",
+      "src": "action:negotiator_accepts_offer"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:bargaining_session_occurs",
+      "rel": "requires",
+      "src": "action:negotiator_attends_session"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:negotiator_attends_session",
+      "rel": "requires",
+      "src": "action:negotiator_decides_to_table_offer"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:wozniak_condition_met",
+      "rel": "requires",
+      "src": "action:negotiator_decides_to_table_offer"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:negotiator_decides_to_table_offer",
+      "rel": "requires",
+      "src": "action:offer_tabled"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:bargaining_session_occurs",
+      "rel": "requires",
+      "src": "action:offer_tabled"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiator_accepts_offer",
+      "rel": "can_perform",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiator_attends_session",
+      "rel": "can_perform",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiator_decides_to_table_offer",
+      "rel": "can_perform",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "action:offer_tabled",
+      "rel": "can_perform",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {
+        "meaning": "Can accept an offer up to 4.5% wage increase without board approval."
+      },
+      "dst": "action:negotiator_accepts_offer",
+      "rel": "has_authority",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {
+        "meaning": "Attends the mediated session."
+      },
+      "dst": "action:negotiator_attends_session",
+      "rel": "has_authority",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {
+        "meaning": "Decides whether to table a revised offer."
+      },
+      "dst": "action:negotiator_decides_to_table_offer",
+      "rel": "has_authority",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {
+        "meaning": "Can table a revised offer."
+      },
+      "dst": "action:offer_tabled",
+      "rel": "has_authority",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "state:authority_to_accept",
+      "rel": "has_state",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "state:current_offer",
+      "rel": "has_state",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "state:willingness_to_move",
+      "rel": "has_state",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agreement_acceptance_protocol",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bright_authority",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bright_willingness",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:caucus_time_estimate",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:mediated_session_scheduled",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:strike_deadline",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "information:union_demand",
+      "rel": "knows",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "event:bargaining_session_occurs",
+      "rel": "observes",
+      "src": "participant:dennis_wozniak"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bright_tables_4_5",
+      "rel": "can_perform",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiator_accepts_offer",
+      "rel": "can_perform",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiator_attends_session",
+      "rel": "can_perform",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "action:negotiator_decides_to_table_offer",
+      "rel": "can_perform",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "action:offer_tabled",
+      "rel": "can_perform",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {
+        "meaning": "Can accept an offer at or above 4% wage increase."
+      },
+      "dst": "action:negotiator_accepts_offer",
+      "rel": "has_authority",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {
+        "meaning": "Attends the mediated session."
+      },
+      "dst": "action:negotiator_attends_session",
+      "rel": "has_authority",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {
+        "meaning": "Decides whether to table a revised offer."
+      },
+      "dst": "action:negotiator_decides_to_table_offer",
+      "rel": "has_authority",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {
+        "meaning": "Can table a revised offer."
+      },
+      "dst": "action:offer_tabled",
+      "rel": "has_authority",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agreement_acceptance_protocol",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bright_authority",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bright_s_preparedness_to_come_down_to_4_5",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:caucus_time_estimate",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:employer_standing_offer",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:mediated_session_scheduled",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:strike_deadline",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:union_demand",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:union_standing_demand",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:wozniak_s_authority_limit",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "information:wozniak_s_condition_to_move_to_4_5",
+      "rel": "knows",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "event:bargaining_session_occurs",
+      "rel": "observes",
+      "src": "participant:yolanda_bright"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:agreement_record"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:bright_tables_4_5",
+      "rel": "requires",
+      "src": "state:wozniak_condition_met"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4",
+        "e6"
+      ],
+      "name": "External events (e.g., strikes, lockouts, third-party interventions)",
+      "why_safe": "No evidence suggests any external events that would prevent the session or alter the negotiators' authority before the deadline."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "name": "Other union or employer representatives",
+      "why_safe": "Bright and Wozniak are the lead negotiators with authority; no other actors are mentioned as having decision-making power in the evidence."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Bright has indicated she is prepared to come down to 4.5% to avoid a strike, but it is not certain she will do so."
+      },
+      "category": "action",
+      "id": "action:bright_tables_4_5",
+      "meaning": "Bright tables a revised offer of 4.5% at the mediated session.",
+      "name": "bright_tables_4_5",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Whether a negotiator will accept the offer depends on the offer's terms and the negotiator's authority and willingness."
+      },
+      "category": "action",
+      "id": "action:negotiator_accepts_offer",
+      "meaning": "A negotiator accepts the other side's tabled offer at the table, recording the agreement.",
+      "name": "negotiator_accepts_offer",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "It is expected that both attend, but attendance is not guaranteed."
+      },
+      "category": "action",
+      "id": "action:negotiator_attends_session",
+      "meaning": "Both negotiators attend the mediated bargaining session in person.",
+      "name": "negotiator_attends_session",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Whether a negotiator will decide to table an offer depends on their strategy and the progress of negotiations."
+      },
+      "category": "action",
+      "id": "action:negotiator_decides_to_table_offer",
+      "meaning": "A negotiator decides to formulate and table a revised offer, which takes about 45 minutes of caucus time.",
+      "name": "negotiator_decides_to_table_offer",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Whether an offer is tabled depends on negotiator decisions during the session."
+      },
+      "category": "action",
+      "id": "action:offer_tabled",
+      "meaning": "A revised offer is formulated and tabled by one side during a bargaining session.",
+      "name": "offer_tabled",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-10-29T10:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:bargaining_session_occurs",
+      "meaning": "Scheduled mediated bargaining session on 29 October 2026 at 10:00 AM America/Chicago.\nThe scheduled session on 29 October 2026 at 10:00 AM America/Chicago.\nThe mediated bargaining session scheduled for 29 October 2026 at 10:00 AM America/Chicago takes place.",
+      "name": "bargaining_session_occurs",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:agreement_acceptance_protocol",
+      "meaning": "An agreement is recorded as accepted when a negotiator accepts the other side's tabled offer at the table.",
+      "name": "agreement acceptance protocol",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:bright_authority",
+      "meaning": "Bright has authority to accept any offer at or above 4 percent wage increase.",
+      "name": "bright_authority",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:bright_s_preparedness_to_come_down_to_4_5",
+      "meaning": "Bright is prepared to come down to 4.5% at the mediated session to avoid a strike.",
+      "name": "Bright's preparedness to come down to 4.5%",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:bright_willingness",
+      "meaning": "Bright is prepared to come down to 4.5 percent at the mediated session to avoid a strike.",
+      "name": "bright_willingness",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:caucus_time_estimate",
+      "meaning": "Formulating and tabling a revised offer takes roughly 45 minutes of caucus time.",
+      "name": "caucus time estimate",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:employer_standing_offer",
+      "meaning": "Employer's standing offer is 3.5% wage increase as of 26 October 2026.",
+      "name": "employer standing offer",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:mediated_session_scheduled",
+      "meaning": "Mediated bargaining session scheduled for 29 October 2026 at 10:00 AM America/Chicago.",
+      "name": "mediated session scheduled",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:strike_deadline",
+      "meaning": "Strike deadline is 11:59 PM America/Chicago on 31 October 2026.",
+      "name": "strike deadline",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:union_demand",
+      "meaning": "Union's standing demand is 5 percent wage increase as of 26 October.",
+      "name": "union_demand",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:union_standing_demand",
+      "meaning": "Union's standing demand is 5% wage increase as of 26 October 2026.",
+      "name": "union standing demand",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:wozniak_s_authority_limit",
+      "meaning": "Wozniak has authority to accept up to 4.5% without board approval.",
+      "name": "Wozniak's authority limit",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:wozniak_s_condition_to_move_to_4_5",
+      "meaning": "Wozniak will move to 4.5% only if union first comes down from 5%.",
+      "name": "Wozniak's condition to move to 4.5%",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Chicago"
+      },
+      "category": "participant",
+      "id": "participant:dennis_wozniak",
+      "meaning": "Employer lead negotiator who attends the mediated session.\nEmployer lead negotiator who can accept the union's tabled offer.\nEmployer lead negotiator who can table a revised offer.\nEmployer lead negotiator who decides to formulate and table a revised offer.",
+      "name": "Dennis Wozniak",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11",
+          "e2",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Chicago"
+      },
+      "category": "participant",
+      "id": "participant:yolanda_bright",
+      "meaning": "Union lead negotiator who attends the mediated session.\nUnion lead negotiator who can accept the employer's tabled offer.\nUnion lead negotiator who can table a 4.5% offer.\nUnion lead negotiator who can table a revised offer.\nUnion lead negotiator who decides to formulate and table a revised offer.",
+      "name": "Yolanda Bright",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e10",
+          "e11",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "acceptance record",
+        "rule": "count_all",
+        "subject": "both sides",
+        "unsupported": "This is a condition with a single prerequisite (negotiator_accepts_offer) and no separate mechanism; it is a conjunction of that step.",
+        "value": "accepted"
+      },
+      "category": "record",
+      "id": "record:agreement_record",
+      "meaning": "A record that a negotiator accepted the other side's tabled offer at the table, as per mediation protocol.\nAn agreement is recorded as accepted by both sides before the strike deadline.",
+      "name": "agreement_record",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e11",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "up to 4.5%"
+      },
+      "category": "state",
+      "id": "state:authority_to_accept",
+      "meaning": "Has authority to accept an agreement up to a 4.5 percent wage increase without board approval.",
+      "name": "authority_to_accept",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "3.5%"
+      },
+      "category": "state",
+      "id": "state:current_offer",
+      "meaning": "Employer's standing offer is 3.5 percent wage increase as of 26 October.",
+      "name": "current_offer",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "conditional"
+      },
+      "category": "state",
+      "id": "state:willingness_to_move",
+      "meaning": "Willing to move to 4.5 percent only if union first comes down from 5 percent.",
+      "name": "willingness_to_move",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with a single prerequisite (bright_tables_4_5) and no separate mechanism; it is a conjunction of that step.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:wozniak_condition_met",
+      "meaning": "Wozniak's condition that the union first comes down from 5% before he moves to 4.5% is satisfied.",
+      "name": "wozniak_condition_met",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The strike deadline set by the union.",
+          "timezone": "America/Chicago",
+          "when": "2026-10-31T23:59:00-05:00"
+        },
+        "measured_act": null,
+        "negative_condition": "No agreement is recorded as accepted by both sides before the deadline.",
+        "positive_condition": "An agreement is recorded as accepted by both sides before the deadline.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether a signed wage agreement has been recorded as accepted by both sides before the strike deadline of 2026-10-31T23:59:00-05:00.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": [
+          "e4",
+          "e11"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "bright_tables_4_5": "bright_tables_4_5",
+        "negotiator_accepts_offer": "negotiator_accepts_offer",
+        "negotiator_attends_session": "negotiator_attends_session",
+        "negotiator_decides_to_table_offer": "negotiator_decides_to_table_offer",
+        "offer_tabled": "offer_tabled"
+      },
+      "event": {
+        "bargaining_session_occurs": "bargaining_session_occurs"
+      },
+      "information": {
+        "Bright's preparedness to come down to 4.5%": "bright_s_preparedness_to_come_down_to_4_5",
+        "Wozniak's authority limit": "wozniak_s_authority_limit",
+        "Wozniak's condition to move to 4.5%": "wozniak_s_condition_to_move_to_4_5",
+        "agreement acceptance protocol": "agreement_acceptance_protocol",
+        "bright_authority": "bright_authority",
+        "bright_willingness": "bright_willingness",
+        "caucus time estimate": "caucus_time_estimate",
+        "employer standing offer": "employer_standing_offer",
+        "mediated session scheduled": "mediated_session_scheduled",
+        "strike deadline": "strike_deadline",
+        "union standing demand": "union_standing_demand",
+        "union_demand": "union_demand"
+      },
+      "participant": {
+        "Dennis Wozniak": "dennis_wozniak",
+        "Yolanda Bright": "yolanda_bright"
+      },
+      "record": {
+        "agreement_record": "agreement_record"
+      },
+      "state": {
+        "authority_to_accept": "authority_to_accept",
+        "current_offer": "current_offer",
+        "willingness_to_move": "willingness_to_move",
+        "wozniak_condition_met": "wozniak_condition_met"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "Whether the 45-minute caucus time for formulating offers, plus the time for the session itself, will allow an agreement to be reached and recorded before the 23:59 deadline on 31 October, given the session is on 29 October.",
+      "topic": "timing"
+    },
+    {
+      "about": "action:bright_tables_4_5",
+      "meaning": "Bright has indicated she is prepared to come down to 4.5% to avoid a strike, but it is not certain she will do so."
+    },
+    {
+      "about": "action:negotiator_accepts_offer",
+      "meaning": "Whether a negotiator will accept the offer depends on the offer's terms and the negotiator's authority and willingness."
+    },
+    {
+      "about": "action:negotiator_accepts_offer",
+      "meaning": "Whether either negotiator will accept the other's tabled offer at the session, given that both have authority to accept 4.5% but may not do so if the other does not move first or if other factors intervene."
+    },
+    {
+      "about": "action:negotiator_attends_session",
+      "meaning": "It is expected that both attend, but attendance is not guaranteed."
+    },
+    {
+      "about": "action:negotiator_decides_to_table_offer",
+      "meaning": "Whether Bright will actually table a 4.5% offer at the 29 October session, and whether Wozniak will then table a 4.5% offer in response, given their stated intentions but no guarantee of action."
+    },
+    {
+      "about": "action:negotiator_decides_to_table_offer",
+      "meaning": "Whether a negotiator will decide to table an offer depends on their strategy and the progress of negotiations."
+    },
+    {
+      "about": "action:offer_tabled",
+      "meaning": "Whether an offer is tabled depends on negotiator decisions during the session."
+    }
+  ]
+}

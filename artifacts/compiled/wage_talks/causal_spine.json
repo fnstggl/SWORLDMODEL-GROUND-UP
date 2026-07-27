@@ -1,0 +1,125 @@
+{
+  "steps": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [
+        "e4",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "An agreement is recorded as accepted by both sides before the strike deadline.",
+      "name": "agreement_recorded",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "negotiator_accepts_offer"
+        }
+      ],
+      "produces_proof": [
+        "agreement_record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A negotiator accepts the other side's tabled offer at the table, recording the agreement.",
+      "name": "negotiator_accepts_offer",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "offer_tabled"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "negotiator_attends_session"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Whether a negotiator will accept the offer depends on the offer's terms and the negotiator's authority and willingness.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A revised offer is formulated and tabled by one side during a bargaining session.",
+      "name": "offer_tabled",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "bargaining_session_occurs"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "negotiator_decides_to_table_offer"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Whether an offer is tabled depends on negotiator decisions during the session.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A negotiator decides to formulate and table a revised offer, which takes about 45 minutes of caucus time.",
+      "name": "negotiator_decides_to_table_offer",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "negotiator_attends_session"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Whether a negotiator will decide to table an offer depends on their strategy and the progress of negotiations.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Both negotiators attend the mediated bargaining session in person.",
+      "name": "negotiator_attends_session",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "bargaining_session_occurs"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "It is expected that both attend, but attendance is not guaranteed.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The mediated bargaining session scheduled for 29 October 2026 at 10:00 AM America/Chicago takes place.",
+      "name": "bargaining_session_occurs",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-10-29T10:00:00-05:00"
+    }
+  ]
+}
