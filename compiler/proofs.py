@@ -505,13 +505,18 @@ def forward_executability_proof(graph: WorldGraph) -> dict:
         if r.rooted(act.id) is None:
             failures.extend(r.why_not(act.id))
 
-    # 5. authority declared over an action must cover a performer
+    # 5. authority declared over an action must cover a performer. A
+    # POPULATION holding authority is a collective that names no
+    # individuals; the discovered performers are its evident members,
+    # so collective authority never blocks individual actors.
     for act in graph.by_category("action"):
         holders = sorted({e.src for e in
                           graph.edges_to(act.id, "has_authority")})
         if holders:
             performers = set(graph.performers_of(act.id))
-            if not performers & set(holders):
+            collective = any(graph.node(h).category == "population"
+                             for h in holders)
+            if not performers & set(holders) and not collective:
                 failures.append(
                     f"{act.id}: authority over it is held by {holders} but "
                     f"its performers are {sorted(performers)}; nobody "

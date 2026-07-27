@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "defects": [
+      "action:bring_about_vote_taken: authority over it is held by ['population:council_members'] but its performers are ['participant:adaeze_okonkwo']; nobody authorized can actually do it"
+    ],
+    "repairable": true
+  },
+  "reason": "the world cannot execute from genesis",
+  "stage": "INVALID_REFERENCE"
+}

@@ -1,0 +1,3153 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "event:council_session",
+      "rel": "requires",
+      "src": "action:bianchi_absent"
+    },
+    {
+      "attrs": {},
+      "dst": "state:at_least_three_yes_votes",
+      "rel": "produces",
+      "src": "action:bring_about_at_least_three_yes_votes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:bianchi_absent",
+      "rel": "requires",
+      "src": "action:bring_about_at_least_three_yes_votes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:okonkwo_votes_yes",
+      "rel": "requires",
+      "src": "action:bring_about_at_least_three_yes_votes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:tran_votes_yes",
+      "rel": "requires",
+      "src": "action:bring_about_at_least_three_yes_votes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:quorum_present",
+      "rel": "produces",
+      "src": "action:bring_about_quorum_present"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "event:council_session",
+      "rel": "requires",
+      "src": "action:bring_about_quorum_present"
+    },
+    {
+      "attrs": {},
+      "dst": "state:vote_taken",
+      "rel": "produces",
+      "src": "action:bring_about_vote_taken"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:quorum_present",
+      "rel": "requires",
+      "src": "action:bring_about_vote_taken"
+    },
+    {
+      "attrs": {},
+      "dst": "record:council_vote_record",
+      "rel": "produces",
+      "src": "action:delgado_votes_no"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:vote_taken",
+      "rel": "requires",
+      "src": "action:delgado_votes_no"
+    },
+    {
+      "attrs": {},
+      "dst": "record:council_vote_record",
+      "rel": "produces",
+      "src": "action:okonkwo_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:vote_taken",
+      "rel": "requires",
+      "src": "action:okonkwo_votes_yes"
+    },
+    {
+      "attrs": {},
+      "dst": "record:council_vote_record",
+      "rel": "produces",
+      "src": "action:pryce_votes_no"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:vote_taken",
+      "rel": "requires",
+      "src": "action:pryce_votes_no"
+    },
+    {
+      "attrs": {},
+      "dst": "record:council_vote_record",
+      "rel": "produces",
+      "src": "action:tran_votes_yes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:vote_taken",
+      "rel": "requires",
+      "src": "action:tran_votes_yes"
+    },
+    {
+      "attrs": {
+        "meaning": "The council schedules and holds its regular session."
+      },
+      "dst": "event:council_session",
+      "rel": "has_authority",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {
+        "meaning": "The council schedules and holds its regular sessions."
+      },
+      "dst": "event:council_session",
+      "rel": "has_authority",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:bianchi_absent_notice",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:bianchi_supports",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:delgado_opposes",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:okonkwo_supports",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:physical_presence_required",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:postponement_rule",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:pryce_opposes",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:quorum_rule",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:scheduled_session",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "state:tran_supports",
+      "rel": "has_state",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "organization:ellsworth_falls_village_council"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_vote_taken",
+      "rel": "can_perform",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "action:okonkwo_votes_yes",
+      "rel": "can_perform",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {
+        "meaning": "Can decide to vote yes on Ordinance 2026-14."
+      },
+      "dst": "action:okonkwo_votes_yes",
+      "rel": "has_authority",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "participant:adaeze_okonkwo"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bianchi_absent",
+      "rel": "can_perform",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {
+        "meaning": "Carla Bianchi decides whether to be absent from the council session."
+      },
+      "dst": "action:bianchi_absent",
+      "rel": "has_authority",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "state:absent_notice_filed",
+      "rel": "has_state",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "state:supports_ordinance",
+      "rel": "has_state",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_support",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "participant:carla_bianchi"
+    },
+    {
+      "attrs": {},
+      "dst": "action:pryce_votes_no",
+      "rel": "can_perform",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {
+        "meaning": "Gareth Pryce can decide to vote no on Ordinance 2026-14."
+      },
+      "dst": "action:pryce_votes_no",
+      "rel": "has_authority",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "state:opposes_ordinance",
+      "rel": "has_state",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "participant:gareth_pryce"
+    },
+    {
+      "attrs": {},
+      "dst": "action:tran_votes_yes",
+      "rel": "can_perform",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {
+        "meaning": "Minh Tran can decide to vote yes on the ordinance."
+      },
+      "dst": "action:tran_votes_yes",
+      "rel": "has_authority",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "state:supports_ordinance",
+      "rel": "has_state",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "participant:minh_tran"
+    },
+    {
+      "attrs": {},
+      "dst": "action:delgado_votes_no",
+      "rel": "can_perform",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {
+        "meaning": "Rosa Delgado can decide to vote no on Ordinance 2026-14."
+      },
+      "dst": "action:delgado_votes_no",
+      "rel": "has_authority",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "state:opposes_ordinance",
+      "rel": "has_state",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "participant:rosa_delgado"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_at_least_three_yes_votes",
+      "rel": "can_perform",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_quorum_present",
+      "rel": "can_perform",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "Council member who decides to be absent."
+      },
+      "dst": "action:bianchi_absent",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "The combination of Okonkwo and Tran voting yes, and Bianchi being absent, ensures at least three yes votes (since only four members are present)."
+      },
+      "dst": "action:bring_about_at_least_three_yes_votes",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "At least three council members must be physically present to constitute quorum."
+      },
+      "dst": "action:bring_about_quorum_present",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "As sponsor, Okonkwo can move to postpone the vote; otherwise the vote proceeds."
+      },
+      "dst": "action:bring_about_vote_taken",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "Council member who decides to vote no."
+      },
+      "dst": "action:delgado_votes_no",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "Council member who decides to vote yes."
+      },
+      "dst": "action:okonkwo_votes_yes",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "Council member who decides to vote no."
+      },
+      "dst": "action:pryce_votes_no",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "Council member who decides to vote yes."
+      },
+      "dst": "action:tran_votes_yes",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "The council schedules and holds its regular sessions."
+      },
+      "dst": "event:council_session",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {
+        "meaning": "The formal adoption occurs when the vote is counted and meets the charter requirement."
+      },
+      "dst": "record:council_vote_record",
+      "rel": "has_authority",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "state:adoption_requirement",
+      "rel": "has_state",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "state:physical_presence_required",
+      "rel": "has_state",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "state:quorum_requirement",
+      "rel": "has_state",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "state:sponsor_can_postpone",
+      "rel": "has_state",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:agenda",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absence_notice",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_absent",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_support",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:bianchi_supports",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:charter_requirements",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_membership",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_roster",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:council_schedule",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposes",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delgado_opposition",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_support",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:okonkwo_supports",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:own_absence_notice",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_required",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:physical_presence_rule",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:postponement_rule",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposes",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pryce_opposition",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_adoption_rules",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_and_vote_rule",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:quorum_rule",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_schedule",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:session_scheduled",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:supports_ordinance",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_support",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tran_supports",
+      "rel": "knows",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "event:council_session",
+      "rel": "observes",
+      "src": "population:council_members"
+    },
+    {
+      "attrs": {},
+      "dst": "state:adoption_requirement",
+      "rel": "has_state",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "state:agenda_item",
+      "rel": "has_state",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "state:bianchi_s_absence",
+      "rel": "has_state",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "state:known_voting_intentions",
+      "rel": "has_state",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "state:quorum_requirement",
+      "rel": "has_state",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "state:sponsor_postponement_option",
+      "rel": "has_state",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "record:council_vote_record",
+      "rel": "produces",
+      "src": "process:council_vote"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:council_vote_record"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:at_least_three_yes_votes",
+      "rel": "requires",
+      "src": "record:council_vote_record"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:bianchi_absent",
+      "rel": "requires",
+      "src": "state:at_least_three_yes_votes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:okonkwo_votes_yes",
+      "rel": "requires",
+      "src": "state:at_least_three_yes_votes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "action:tran_votes_yes",
+      "rel": "requires",
+      "src": "state:at_least_three_yes_votes"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "event:council_session",
+      "rel": "requires",
+      "src": "state:quorum_present"
+    },
+    {
+      "attrs": {
+        "alt_group": "",
+        "necessity": "necessary"
+      },
+      "dst": "state:quorum_present",
+      "rel": "requires",
+      "src": "state:vote_taken"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Legal challenges or veto",
+      "why_safe": "The question asks only about adoption at the session; post-adoption events are irrelevant."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Other village officials or staff",
+      "why_safe": "Only council members vote on ordinances; others have no role in adoption."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Public comment or lobbying",
+      "why_safe": "Council rules do not allow public input to change votes during the session; votes are cast by members only."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:bianchi_absent",
+      "meaning": "Council member Carla Bianchi is absent from the 8 September session due to attending her daughter's naval academy induction.",
+      "name": "bianchi_absent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "at_least_three_yes_votes"
+      },
+      "category": "action",
+      "id": "action:bring_about_at_least_three_yes_votes",
+      "meaning": "Council members can bring about: The total number of affirmative votes on Ordinance 2026-14 is at least three.",
+      "name": "bring about: at_least_three_yes_votes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e5",
+          "e6",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "quorum_present"
+      },
+      "category": "action",
+      "id": "action:bring_about_quorum_present",
+      "meaning": "Council members can bring about: At least three council members are physically present in the chamber at the time of the vote on Ordinance 2026-14.",
+      "name": "bring about: quorum_present",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e4",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "vote_taken"
+      },
+      "category": "action",
+      "id": "action:bring_about_vote_taken",
+      "meaning": "Adaeze Okonkwo can bring about: The council votes on Ordinance 2026-14 at the session; the vote is not postponed by the sponsor.",
+      "name": "bring about: vote_taken",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:delgado_votes_no",
+      "meaning": "Council member Rosa Delgado votes against Ordinance 2026-14.",
+      "name": "delgado_votes_no",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:okonkwo_votes_yes",
+      "meaning": "Council member Adaeze Okonkwo votes in favor of Ordinance 2026-14.",
+      "name": "okonkwo_votes_yes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:pryce_votes_no",
+      "meaning": "Council member Gareth Pryce votes against Ordinance 2026-14.",
+      "name": "pryce_votes_no",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:tran_votes_yes",
+      "meaning": "Council member Minh Tran votes in favor of Ordinance 2026-14.",
+      "name": "tran_votes_yes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-09-08T19:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:council_session",
+      "meaning": "Attend daughter's naval academy induction in Annapolis on 8 September 2026 evening.\nCouncil holds its regular session on 8 September 2026 at 7:00 PM at village hall.\nCouncil regular session scheduled for 8 September 2026 at 7:00 PM at village hall.\nRegular council session on 8 September 2026 at 7:00 PM at village hall, where final action on Ordinance 2026-14 is scheduled.\nRegular session of the Ellsworth Falls Village Council on 8 September 2026 at 7:00 PM at village hall.\nRegular session of the Ellsworth Falls Village Council on 8 September 2026 at 7:00 PM.\nThe Ellsworth Falls Village Council holds its regular session on 8 September 2026 at 7:00 PM at village hall, with Ordinance 2026-14 on the agenda for final action.",
+      "name": "council_session",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:agenda",
+      "meaning": "The published agenda lists final action on Ordinance 2026-14.",
+      "name": "agenda",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:bianchi_absence",
+      "meaning": "Bianchi filed notice that she will be absent from the 8 September session.",
+      "name": "bianchi_absence",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:bianchi_absence_notice",
+      "meaning": "Bianchi filed written notice that she will be absent from the 8 September session to attend her daughter's naval academy induction.\nKnows that Bianchi filed notice of absence for the 8 September session.",
+      "name": "bianchi_absence_notice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:bianchi_absent",
+      "meaning": "Bianchi filed notice she will be absent from the 8 September session.\nCarla Bianchi filed written notice that she is absent from the 8 September session to attend her daughter's naval academy induction in Annapolis that evening.",
+      "name": "bianchi_absent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:bianchi_support",
+      "meaning": "Bianchi co-sponsored and has publicly supported the ordinance.\nBianchi co-sponsored the ordinance and has publicly supported it since June.\nKnows that Bianchi co-sponsored and supports the ordinance.",
+      "name": "bianchi_support",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:bianchi_supports",
+      "meaning": "Bianchi co-sponsored and publicly supports the ordinance.\nCarla Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.",
+      "name": "bianchi_supports",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:charter_requirements",
+      "meaning": "Quorum is three members; adopting an ordinance requires at least three affirmative votes of the full five-member council.",
+      "name": "charter_requirements",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:council_membership",
+      "meaning": "The council has five members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, and Carla Bianchi.",
+      "name": "council_membership",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:council_roster",
+      "meaning": "Knows the five council members: Adaeze Okonkwo, Minh Tran, Rosa Delgado, Gareth Pryce, Carla Bianchi.",
+      "name": "council_roster",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:council_schedule",
+      "meaning": "Regular session on 8 September 2026 at 7:00 PM at village hall, agenda includes final action on Ordinance 2026-14.",
+      "name": "council_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:delgado_opposes",
+      "meaning": "Delgado opposes the ordinance and intends to vote against it.",
+      "name": "delgado_opposes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:delgado_opposition",
+      "meaning": "Delgado opposes the ordinance and intends to vote against it.\nKnows that Delgado opposes the ordinance.",
+      "name": "delgado_opposition",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:okonkwo_support",
+      "meaning": "Knows that Okonkwo supports the ordinance.\nOkonkwo supports the ordinance and wants final action on 8 September.",
+      "name": "okonkwo_support",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:okonkwo_supports",
+      "meaning": "Adaeze Okonkwo supports Ordinance 2026-14 and wants final action at the 8 September session.",
+      "name": "okonkwo_supports",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:own_absence_notice",
+      "meaning": "Bianchi filed notice of absence for 8 September session.",
+      "name": "own_absence_notice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:own_support",
+      "meaning": "Bianchi co-sponsored and supports the ordinance.",
+      "name": "own_support",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:physical_presence_required",
+      "meaning": "Council members must be physically present in the chamber to vote; no remote participation.",
+      "name": "physical_presence_required",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:physical_presence_rule",
+      "meaning": "Knows that members must be physically present to vote.\nMembers must be physically present to vote.\nMembers must be physically present to vote; no remote participation.",
+      "name": "physical_presence_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:postponement_rule",
+      "meaning": "An item listed for final action is voted on at that session unless its sponsor moves postponement.\nAn item listed for final action is voted on unless its sponsor moves postponement.\nItem listed for final action is voted on unless sponsor moves postponement.\nKnows that an item is voted on unless the sponsor moves postponement.",
+      "name": "postponement_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:pryce_opposes",
+      "meaning": "Gareth Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "name": "pryce_opposes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:pryce_opposition",
+      "meaning": "Knows that Pryce opposes the ordinance.\nPryce opposes the ordinance and intends to vote against it.\nPryce opposes the ordinance in current form and intends to vote against it.\nPryce opposes the ordinance in its current form and intends to vote against it.",
+      "name": "pryce_opposition",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:quorum_and_adoption_rules",
+      "meaning": "Quorum is three members; adoption requires three affirmative votes of the full council.",
+      "name": "quorum_and_adoption_rules",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:quorum_and_vote_rule",
+      "meaning": "Knows that quorum is three members and adoption requires at least three affirmative votes.\nQuorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "name": "quorum_and_vote_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:quorum_rule",
+      "meaning": "Quorum is three members; adoption requires affirmative vote of at least three members of full five-member council.\nQuorum is three members; adoption requires affirmative vote of at least three members.\nQuorum is three members; adoption requires at least three affirmative votes of the full five-member council.",
+      "name": "quorum_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:session_schedule",
+      "meaning": "Knows the regular session is on 8 September 2026 at 7:00 PM.\nRegular session on 8 September 2026 at 7:00 PM at village hall, with Ordinance 2026-14 on agenda.\nThe regular session is on 8 September 2026 at 7:00 PM at village hall, with final action on Ordinance 2026-14.",
+      "name": "session_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:session_scheduled",
+      "meaning": "The council's regular session is scheduled for Tuesday 8 September 2026 at 7:00 PM at the village hall, with final action on Ordinance 2026-14 on the agenda.",
+      "name": "session_scheduled",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:supports_ordinance",
+      "meaning": "Okonkwo supports Ordinance 2026-14 and wants final action at the 8 September session.",
+      "name": "supports_ordinance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:tran_support",
+      "meaning": "Tran is prepared to vote for the ordinance.",
+      "name": "tran_support",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:tran_supports",
+      "meaning": "Minh Tran is prepared to vote for Ordinance 2026-14 as drafted.\nTran stated he is prepared to vote for the ordinance.",
+      "name": "tran_supports",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:ellsworth_falls_village_council",
+      "meaning": "The council schedules and holds its regular sessions.",
+      "name": "Ellsworth Falls Village Council",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "22:00",
+          "open": "07:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:adaeze_okonkwo",
+      "meaning": "As sponsor, Okonkwo can move to postpone the vote; otherwise the vote proceeds.\nCouncil member who decides to vote yes.",
+      "name": "Adaeze Okonkwo",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:carla_bianchi",
+      "meaning": "Council member who decides to be absent.",
+      "name": "Carla Bianchi",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "22:00",
+          "open": "07:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:gareth_pryce",
+      "meaning": "Council member who decides to vote no.",
+      "name": "Gareth Pryce",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "22:00",
+          "open": "07:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:minh_tran",
+      "meaning": "Council member who decides to vote yes.",
+      "name": "Minh Tran",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "22:00",
+          "open": "07:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:rosa_delgado",
+      "meaning": "Council member who decides to vote no.",
+      "name": "Rosa Delgado",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "22:00",
+          "open": "07:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-09-08T19:00:00-04:00",
+            "meaning": "Carla Bianchi will be absent from the 8 September session.",
+            "to": "2026-09-08T22:00:00-04:00"
+          }
+        ],
+        "producer_kind": "population",
+        "timezone": "America/New_York"
+      },
+      "category": "population",
+      "id": "population:council_members",
+      "meaning": "At least three council members must be physically present to constitute quorum.\nThe combination of votes from council members present determines whether at least three yes votes are cast.",
+      "name": "Council members",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e3",
+          "e4",
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "operating_meaning": "The vote takes place at the regular session on 8 September 2026 at 7:00 PM at the village hall.",
+        "producer_kind": "operating_process",
+        "rate_meaning": "The vote occurs once at the 8 September 2026 regular session."
+      },
+      "category": "process",
+      "id": "process:council_vote",
+      "meaning": "The council vote is the formal process by which the Ellsworth Falls Village Council decides on an ordinance. It requires a quorum of three members physically present, and adoption requires at least three affirmative votes from the full five-member council. The vote occurs at the regular session on 8 September 2026 as per the agenda, unless the sponsor moves postponement.\nThe formal adoption occurs when the vote is counted and meets the charter requirement.",
+      "name": "Council vote",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11",
+          "e2",
+          "e3",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 3,
+        "record_type": "vote tally",
+        "rule": "count_value",
+        "subject": "Ordinance 2026-14",
+        "value": "affirmative"
+      },
+      "category": "record",
+      "id": "record:council_vote_record",
+      "meaning": "Ordinance 2026-14 is adopted by the council, receiving at least three affirmative votes.\nThe official minutes or vote tally from the 8 September session showing each member's vote on Ordinance 2026-14.",
+      "name": "Council vote record",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:absent_notice_filed",
+      "meaning": "Bianchi filed written notice with the village clerk on 2 September that she is absent from the 8 September session to attend her daughter's naval academy induction in Annapolis that evening.",
+      "name": "absent_notice_filed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:adoption_requirement",
+      "meaning": "Adopting an ordinance requires the affirmative vote of at least three members of the full five-member council.\nAdoption requires the affirmative vote of at least three members of the full five-member council.",
+      "name": "adoption_requirement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:agenda_item",
+      "meaning": "Final action on Ordinance 2026-14 is listed on the published agenda for the 8 September session.",
+      "name": "agenda item",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:at_least_three_yes_votes",
+      "meaning": "The total number of affirmative votes on Ordinance 2026-14 is at least three.",
+      "name": "at_least_three_yes_votes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e5",
+          "e6",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:bianchi_absent_notice",
+      "meaning": "Bianchi filed written notice that she will be absent from the 8 September session to attend her daughter's naval academy induction.",
+      "name": "bianchi_absent_notice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:bianchi_s_absence",
+      "meaning": "Bianchi will be absent from the 8 September session, so only four members will be present.",
+      "name": "Bianchi's absence",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:bianchi_supports",
+      "meaning": "Council member Bianchi co-sponsored the ordinance and has publicly supported it.",
+      "name": "bianchi_supports",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:delgado_opposes",
+      "meaning": "Council member Delgado opposes the ordinance and intends to vote against it.",
+      "name": "delgado_opposes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:known_voting_intentions",
+      "meaning": "Okonkwo and Tran intend to vote yes; Delgado and Pryce intend to vote no; Bianchi has filed notice of absence.",
+      "name": "known voting intentions",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:okonkwo_supports",
+      "meaning": "Council member Okonkwo supports the ordinance and wants final action on 8 September.",
+      "name": "okonkwo_supports",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:opposes_ordinance",
+      "meaning": "Gareth Pryce opposes Ordinance 2026-14 in its current form and intends to vote against it.\nRosa Delgado opposes Ordinance 2026-14 and intends to vote against it.",
+      "name": "opposes_ordinance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:physical_presence_required",
+      "meaning": "Members must be physically present in the chamber to vote; no remote participation.\nMembers must be physically present to vote; no remote participation.",
+      "name": "physical_presence_required",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:postponement_rule",
+      "meaning": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "name": "postponement_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:pryce_opposes",
+      "meaning": "Council member Pryce opposes the ordinance and intends to vote against it.",
+      "name": "pryce_opposes",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition",
+        "uncertainty": "Whether at least three members attend is uncertain due to Bianchi's absence and possible other absences."
+      },
+      "category": "state",
+      "id": "state:quorum_present",
+      "meaning": "At least three council members are physically present in the chamber at the time of the vote on Ordinance 2026-14.",
+      "name": "quorum_present",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e4",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:quorum_requirement",
+      "meaning": "At least three council members must be physically present to conduct a vote.\nAt least three members must be physically present to constitute quorum.",
+      "name": "quorum_requirement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:quorum_rule",
+      "meaning": "Quorum is three members; adoption requires affirmative vote of at least three members of the full five-member council.",
+      "name": "quorum_rule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:scheduled_session",
+      "meaning": "The council has a regular session scheduled for 8 September 2026 at 7:00 PM at village hall, with Ordinance 2026-14 on the agenda for final action.",
+      "name": "scheduled_session",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:sponsor_can_postpone",
+      "meaning": "An item listed for final action is voted on at that session unless its sponsor moves postponement.",
+      "name": "sponsor_can_postpone",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:sponsor_postponement_option",
+      "meaning": "The sponsor (Okonkwo) can move to postpone the vote; otherwise the vote proceeds.",
+      "name": "sponsor postponement option",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "yes"
+      },
+      "category": "state",
+      "id": "state:supports_ordinance",
+      "meaning": "Carla Bianchi co-sponsored Ordinance 2026-14 and has publicly supported it since June.\nMinh Tran stated he is prepared to vote for Ordinance 2026-14 as drafted.",
+      "name": "supports_ordinance",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:tran_supports",
+      "meaning": "Council member Tran is prepared to vote for the ordinance.",
+      "name": "tran_supports",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:vote_taken",
+      "meaning": "The council votes on Ordinance 2026-14 at the session; the vote is not postponed by the sponsor.",
+      "name": "vote_taken",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The end of the council's regular session on 8 September 2026, by which time the vote on Ordinance 2026-14 must have occurred.",
+          "timezone": "America/New_York",
+          "when": "2026-09-08T22:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The ordinance receives fewer than three affirmative votes (including a tie or failure) at the 8 September session, or is not voted on at that session.",
+        "positive_condition": "The ordinance receives at least three affirmative votes at the 8 September session.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The question resolves when the Ellsworth Falls Village Council votes on Ordinance 2026-14 at its 8 September 2026 regular session, and the outcome is determined by whether at least three members vote in favor.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "bianchi_absent": "bianchi_absent",
+        "bring about: at_least_three_yes_votes": "bring_about_at_least_three_yes_votes",
+        "bring about: quorum_present": "bring_about_quorum_present",
+        "bring about: vote_taken": "bring_about_vote_taken",
+        "delgado_votes_no": "delgado_votes_no",
+        "okonkwo_votes_yes": "okonkwo_votes_yes",
+        "pryce_votes_no": "pryce_votes_no",
+        "tran_votes_yes": "tran_votes_yes"
+      },
+      "event": {
+        "council_session": "council_session"
+      },
+      "information": {
+        "agenda": "agenda",
+        "bianchi_absence": "bianchi_absence",
+        "bianchi_absence_notice": "bianchi_absence_notice",
+        "bianchi_absent": "bianchi_absent",
+        "bianchi_support": "bianchi_support",
+        "bianchi_supports": "bianchi_supports",
+        "charter_requirements": "charter_requirements",
+        "council_membership": "council_membership",
+        "council_roster": "council_roster",
+        "council_schedule": "council_schedule",
+        "delgado_opposes": "delgado_opposes",
+        "delgado_opposition": "delgado_opposition",
+        "okonkwo_support": "okonkwo_support",
+        "okonkwo_supports": "okonkwo_supports",
+        "own_absence_notice": "own_absence_notice",
+        "own_support": "own_support",
+        "physical_presence_required": "physical_presence_required",
+        "physical_presence_rule": "physical_presence_rule",
+        "postponement_rule": "postponement_rule",
+        "pryce_opposes": "pryce_opposes",
+        "pryce_opposition": "pryce_opposition",
+        "quorum_and_adoption_rules": "quorum_and_adoption_rules",
+        "quorum_and_vote_rule": "quorum_and_vote_rule",
+        "quorum_rule": "quorum_rule",
+        "session_schedule": "session_schedule",
+        "session_scheduled": "session_scheduled",
+        "supports_ordinance": "supports_ordinance",
+        "tran_support": "tran_support",
+        "tran_supports": "tran_supports"
+      },
+      "organization": {
+        "Ellsworth Falls Village Council": "ellsworth_falls_village_council"
+      },
+      "participant": {
+        "Adaeze Okonkwo": "adaeze_okonkwo",
+        "Carla Bianchi": "carla_bianchi",
+        "Gareth Pryce": "gareth_pryce",
+        "Minh Tran": "minh_tran",
+        "Rosa Delgado": "rosa_delgado"
+      },
+      "population": {
+        "Council members": "council_members"
+      },
+      "process": {
+        "Council vote": "council_vote"
+      },
+      "record": {
+        "Council vote record": "council_vote_record"
+      },
+      "state": {
+        "Bianchi's absence": "bianchi_s_absence",
+        "absent_notice_filed": "absent_notice_filed",
+        "adoption_requirement": "adoption_requirement",
+        "agenda item": "agenda_item",
+        "at_least_three_yes_votes": "at_least_three_yes_votes",
+        "bianchi_absent_notice": "bianchi_absent_notice",
+        "bianchi_supports": "bianchi_supports",
+        "delgado_opposes": "delgado_opposes",
+        "known voting intentions": "known_voting_intentions",
+        "okonkwo_supports": "okonkwo_supports",
+        "opposes_ordinance": "opposes_ordinance",
+        "physical_presence_required": "physical_presence_required",
+        "postponement_rule": "postponement_rule",
+        "pryce_opposes": "pryce_opposes",
+        "quorum_present": "quorum_present",
+        "quorum_requirement": "quorum_requirement",
+        "quorum_rule": "quorum_rule",
+        "scheduled_session": "scheduled_session",
+        "sponsor postponement option": "sponsor_postponement_option",
+        "sponsor_can_postpone": "sponsor_can_postpone",
+        "supports_ordinance": "supports_ordinance",
+        "tran_supports": "tran_supports",
+        "vote_taken": "vote_taken"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "Whether the session actually convenes as scheduled on 8 September 2026 at 7:00 PM. No evidence confirms it will not be cancelled or postponed.",
+      "topic": "council_session_occurs"
+    },
+    {
+      "about": "action:delgado_votes_no",
+      "meaning": "Whether Delgado is present and votes no. She stated opposition but could change her mind or be absent."
+    },
+    {
+      "about": "action:okonkwo_votes_yes",
+      "meaning": "Whether Okonkwo is present and votes yes. She stated support but could change her mind or be absent."
+    },
+    {
+      "about": "action:pryce_votes_no",
+      "meaning": "Whether Pryce is present and votes no. He stated opposition but could change his mind or be absent."
+    },
+    {
+      "about": "action:tran_votes_yes",
+      "meaning": "Whether Tran is present and votes yes. He stated support but could change his mind or be absent."
+    },
+    {
+      "about": "state:at_least_three_yes_votes",
+      "meaning": "Whether the total yes votes reach three. With Bianchi absent, only two yes votes are certain (Okonkwo and Tran) if they attend and vote as stated. A third yes would require one of the opponents to switch or an unexpected attendee."
+    },
+    {
+      "about": "state:quorum_present",
+      "meaning": "Whether at least three members are physically present. Bianchi is absent, so quorum requires three of the remaining four to attend. No evidence confirms attendance of Okonkwo, Tran, Delgado, or Pryce."
+    },
+    {
+      "about": "state:quorum_present",
+      "meaning": "Whether at least three members attend is uncertain due to Bianchi's absence and possible other absences."
+    },
+    {
+      "about": "state:vote_taken",
+      "meaning": "Whether a vote on Ordinance 2026-14 actually occurs. Okonkwo could move postponement, or the session could adjourn without a vote."
+    }
+  ]
+}

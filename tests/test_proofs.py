@@ -302,3 +302,28 @@ def test_an_orphan_measured_record_teaches_produces_proof_and_routes():
     (defect,) = ei.value.detail["defects"]
     assert "produces_proof" in defect
     assert ei.value.detail["document"] == "causal_spine"
+
+
+def test_population_held_authority_covers_individual_performers():
+    from compiler.graph import WorldGraph
+    from compiler.proofs import forward_executability_proof
+
+    g = WorldGraph()
+    g.add_node("terminal", "terminal", "is it adopted", "question_given",
+               attrs={"answer_type": "boolean", "cutoff": {"when": "x"}})
+    body = g.add_node("population", "council members", "the collective",
+                      "question_given")
+    ada = g.add_node("participant", "Ada Lin", "a member",
+                     "question_given")
+    ev = g.add_node("event", "session opens", "the session",
+                    "question_given",
+                    attrs={"when": "2026-09-08T19:00:00-04:00"})
+    act = g.add_node("action", "bring about: vote taken",
+                     "moves the vote", "question_given")
+    st = g.add_node("state", "vote taken", "the vote happened",
+                    "question_given")
+    g.add_edge(st, "measured_by_terminal", "terminal:terminal")
+    g.add_edge(act, "produces", st)
+    g.add_edge(ada, "can_perform", act)
+    g.add_edge(body, "has_authority", act)
+    forward_executability_proof(g)      # collective authority: no block

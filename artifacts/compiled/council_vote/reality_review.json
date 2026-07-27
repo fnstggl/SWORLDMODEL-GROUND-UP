@@ -1,0 +1,37 @@
+{
+  "causal_path": [
+    "council session scheduled for 2026-09-08T19:00-04:00",
+    "Bianchi files absence notice (evidence only, not binding)",
+    "Okonkwo supports and intends to vote yes",
+    "Tran supports and intends to vote yes",
+    "Delgado opposes but may change vote",
+    "Pryce opposes but may change vote",
+    "Bianchi may attend despite notice",
+    "If at least three members (including possible yes votes from Delgado, Pryce, or Bianchi) vote yes, ordinance adopted",
+    "Otherwise not adopted"
+  ],
+  "defects": [
+    {
+      "document": "producer_assignments",
+      "what": "Actions for Rosa Delgado and Gareth Pryce only allow 'votes_no' but not 'votes_yes', yet evidence only states intentions, not commitments. Preserved uncertainty requires available actions for both possible votes.",
+      "why_material": "If Delgado or Pryce could vote yes, a third yes vote could be achieved, changing the outcome from negative to positive."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "Carla Bianchi is marked as NOT available during the session, but evidence only shows she filed a notice of absence; she could still attend. This is a silent resolution of uncertainty.",
+      "why_material": "If Bianchi attends, she could vote yes, providing a third affirmative vote and altering the result."
+    },
+    {
+      "document": "causal_spine",
+      "what": "The terminal's measured condition lists 'producible by: delgado_votes_no, okonkwo_votes_yes, pryce_votes_no, tran_votes_yes' but omits possible yes votes from Delgado, Pryce, or Bianchi, making the producible list incomplete.",
+      "why_material": "The terminal cannot be produced by the missing actions, so the simulation cannot reach a YES outcome even if those votes occur."
+    },
+    {
+      "document": "causal_spine",
+      "what": "The scheduled external event at 2026-09-08T19:00:00-04:00 is labeled 'council_session' but its description conflates the council session with Bianchi's absence; this is confusing and does not clearly separate Bianchi's possible attendance as an action.",
+      "why_material": "Ambiguity in event definition could lead to incorrect enforcement of Bianchi's unavailability; a clearer separation is needed to handle the uncertainty."
+    }
+  ],
+  "reasoning": "The world fixes Bianchi as unavailable and restricts Delgado and Pryce to voting no, but the evidence only states their intentions, not commitments. This silently resolves uncertainty: a notice of absence does not guarantee non-attendance, and stated opposition does not preclude a changed vote. These restrictions materially affect the possibility of three yes votes, so the world must allow actions for Bianchi to attend (and vote yes) and for Delgado and Pryce to vote yes. Additionally, the terminal's measured condition's producible list is incomplete, missing these possible yes votes.",
+  "verdict": "TARGETED_REVISION"
+}
