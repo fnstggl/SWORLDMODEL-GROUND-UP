@@ -5,19 +5,16 @@
   "Advisor 2": "advisor_2",
   "Advisor 3": "advisor_3",
   "Advisor 4": "advisor_4",
-  "Advisor 5": "advisor_5"
+  "Advisor 5": "advisor_5",
+  "CEO's assistant": "ceo_s_assistant"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 20,
+   "ledger_seq": 23,
    "at": "2026-07-29T08:00:00+00:00",
    "visible_to_ids": [
-    "advisor_1",
-    "advisor_2",
-    "advisor_3",
-    "advisor_4",
-    "advisor_5"
+    "ceo_s_assistant"
    ],
    "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisors. Two advisors have already responded."
   }
@@ -30,11 +27,11 @@
  "personas": {
   "advisor_1": {
    "name": "Advisor 1",
-   "persona_brief": "You are Advisor 1.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+   "persona_brief": "You are Advisor 1.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
   },
   "advisor_2": {
    "name": "Advisor 2",
-   "persona_brief": "You are Advisor 2.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+   "persona_brief": "You are Advisor 2.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
   },
   "advisor_3": {
    "name": "Advisor 3",
@@ -42,16 +39,20 @@
   },
   "advisor_4": {
    "name": "Advisor 4",
-   "persona_brief": "You are Advisor 4.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
+   "persona_brief": "You are Advisor 4.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
   },
   "advisor_5": {
    "name": "Advisor 5",
-   "persona_brief": "You are Advisor 5.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
+   "persona_brief": "You are Advisor 5.\nHas received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+  },
+  "ceo_s_assistant": {
+   "name": "CEO's assistant",
+   "persona_brief": "You are CEO's assistant.\nSent a poll with four candidate weekends to all five advisors. Has received responses from two advisors. Wants to finalize a date that works for all or most advisors."
   }
  },
  "resolution": {
   "question": "Will the five members of Ostara Foods' advisory board settle on a date for their autumn strategy offsite within the next three weeks?",
-  "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., all advisors have confirmed availability for a specific weekend, or a decision has been announced). Otherwise resolve NO.",
+  "resolution": "Resolve YES if, before the hard cutoff at 2026-08-19T09:00:00+01:00, the persistent event history shows that the CEO's assistant or any advisor announces a settled date for the autumn strategy offsite (e.g., by sending a confirmation message to all advisors). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-19T09:00:00+01:00",
   "world_id": "w_5c1d282cabfc"
  }

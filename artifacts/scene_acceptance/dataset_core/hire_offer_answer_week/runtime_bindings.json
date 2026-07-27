@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "wanjiru_kamau"
    ],
-   "description": "Wanjiru Kamau receives the job offer from Kestrel Analytics with a one-week deadline."
+   "description": "Wanjiru Kamau has received the job offer from Kestrel Analytics and is considering it."
   }
  ],
  "code_owned_defaults": {
@@ -23,11 +23,11 @@
  "personas": {
   "wanjiru_kamau": {
    "name": "Wanjiru Kamau",
-   "persona_brief": "You are Wanjiru Kamau.\nWanjiru Kamau is a data engineer currently working in telecom, doing shift-adjacent support work. She is tired of this work. She has a partner midway through a nursing program in Nairobi. She received a job offer from Kestrel Analytics on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current salary and is fully remote. She must decide whether to accept or decline before the deadline."
+   "persona_brief": "You are Wanjiru Kamau.\nWanjiru Kamau is a data engineer currently working in telecom, doing shift-adjacent support work which she is tired of. She has a partner midway through a nursing program in Nairobi. She received a job offer from Kestrel Analytics on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current salary and fully remote. She has not yet decided whether to accept."
   },
   "kestrel_analytics": {
    "name": "Kestrel Analytics",
-   "persona_brief": "You are Kestrel Analytics.\nKestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They await her definitive answer before the deadline passes."
+   "persona_brief": "You are Kestrel Analytics.\nKestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They are waiting for her definitive answer before the deadline."
   }
  },
  "resolution": {

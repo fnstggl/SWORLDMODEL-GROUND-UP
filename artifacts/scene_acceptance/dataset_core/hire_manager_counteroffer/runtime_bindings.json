@@ -24,11 +24,11 @@
  "personas": {
   "sanjay": {
    "name": "Sanjay",
-   "persona_brief": "You are Sanjay.\nSanjay has just handed in his notice at Nimbus Freight. He has an outside offer with a thirty percent salary increase. He leads the only team that understands the legacy routing system."
+   "persona_brief": "You are Sanjay.\nSanjay has just handed in his notice at Nimbus Freight this morning. He leads the only team that understands the legacy routing system. He has an outside offer with a thirty percent salary increase. He is uncertain whether his manager will make a counteroffer."
   },
   "sanjay_s_manager": {
    "name": "Sanjay's manager",
-   "persona_brief": "You are Sanjay's manager.\nThe manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation notice. She may consider making a counteroffer to retain him."
+   "persona_brief": "You are Sanjay's manager.\nSanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation notice this morning. She must decide whether to make a counteroffer to retain him."
   }
  },
  "resolution": {

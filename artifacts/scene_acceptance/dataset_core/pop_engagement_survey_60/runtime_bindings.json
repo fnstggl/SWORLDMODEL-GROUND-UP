@@ -1,8 +1,8 @@
 {
  "world_id": "w_52be22e52661",
  "actor_ids": {
-  "Calloway Regional Hospital employees": "calloway_regional_hospital_employees",
-  "HR department": "hr_department"
+  "HR Department": "hr_department",
+  "Employees (400)": "employees_400"
  },
  "event_records": [
   {
@@ -10,10 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-09-01T13:00:00+00:00",
    "visible_to_ids": [
-    "calloway_regional_hospital_employees",
-    "hr_department"
+    "hr_department",
+    "employees_400"
    ],
-   "description": "The survey opens. Employees can begin completing it."
+   "description": "The annual engagement survey opens. HR sends an email with the survey link to all 400 employees."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "calloway_regional_hospital_employees": {
-   "name": "Calloway Regional Hospital employees",
-   "persona_brief": "You are Calloway Regional Hospital employees.\nEach employee has their own workload, interest in the survey, and tendency to complete optional tasks. Some may be motivated by reminders or incentives, others may ignore them."
-  },
   "hr_department": {
-   "name": "HR department",
-   "persona_brief": "You are HR department.\nHR wants a high response rate and can send reminders, but cannot force participation. They have no prior knowledge of individual employees' intentions."
+   "name": "HR Department",
+   "persona_brief": "You are HR Department.\nHR wants a high completion rate for the engagement survey. They have sent reminders and will monitor progress."
+  },
+  "employees_400": {
+   "name": "Employees (400)",
+   "persona_brief": "You are Employees (400).\nEach employee has their own workload, interest in the survey, and tendency to complete or ignore optional surveys. They may or may not notice reminders."
   }
  },
  "resolution": {
   "question": "Will at least 60 of the 400 employees at Calloway Regional Hospital complete the annual engagement survey during its two-week window?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 60 distinct employees submitted a completed survey before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 60 employees submitted a completed survey before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-15T17:00:00-05:00",
   "world_id": "w_52be22e52661"
  }

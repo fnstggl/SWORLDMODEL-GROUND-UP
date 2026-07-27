@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the six university friends in the Ljubljana-trip group chat agree on dates and book the apartment before early-bird train fares end on the 15th?",
-  "resolution": "Resolve YES if the persistent event history shows that all six friends have agreed on specific dates and the apartment has been booked before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that before 2026-08-15T23:59:00+02:00, all six friends have agreed on specific dates (e.g., via messages in the chat) and the apartment has been booked (e.g., a booking confirmation is shared or Jaka confirms booking). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-15T23:59:00+02:00",
   "world_id": "w_37bf24aed0bc"
  },

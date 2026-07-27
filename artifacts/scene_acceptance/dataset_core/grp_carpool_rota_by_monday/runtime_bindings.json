@@ -1,9 +1,9 @@
 {
  "world_id": "w_940acfd23314",
  "actor_ids": {
-  "Family A": "family_a",
-  "Family B": "family_b",
-  "Family C": "family_c"
+  "Family 1": "family_1",
+  "Family 2": "family_2",
+  "Family 3": "family_3"
  },
  "event_records": [
   {
@@ -11,11 +11,11 @@
    "ledger_seq": 14,
    "at": "2026-09-01T21:00:00+00:00",
    "visible_to_ids": [
-    "family_a",
-    "family_b",
-    "family_c"
+    "family_1",
+    "family_2",
+    "family_3"
    ],
-   "description": "The three families are aware of each other and the need to arrange a carpool before term starts. No rota has been proposed yet."
+   "description": "The three families are aware of the need to arrange a weekly driving rota before term starts. No formal proposal has been made yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,22 +24,22 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "family_a": {
-   "name": "Family A",
-   "persona_brief": "You are Family A.\nFamily A has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
+  "family_1": {
+   "name": "Family 1",
+   "persona_brief": "You are Family 1.\nFamily 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed specific preferences with the other families."
   },
-  "family_b": {
-   "name": "Family B",
-   "persona_brief": "You are Family B.\nFamily B has one child. They are open to participating in a carpool but have constraints on certain mornings. They have not yet discussed preferences with the other families."
+  "family_2": {
+   "name": "Family 2",
+   "persona_brief": "You are Family 2.\nFamily 2 has one child who needs a ride. They can drive on certain days but have a busy schedule. They are open to a rota but have not committed to any arrangement."
   },
-  "family_c": {
-   "name": "Family C",
-   "persona_brief": "You are Family C.\nFamily C has three children. They are keen to set up a rota to reduce driving burden. They have not yet discussed preferences with the other families."
+  "family_3": {
+   "name": "Family 3",
+   "persona_brief": "You are Family 3.\nFamily 3 has three children. They are eager to set up a carpool to reduce driving duty. They have some flexibility but have not yet coordinated with the others."
   }
  },
  "resolution": {
   "question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
-  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of which family drives on which days). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff (2026-09-07T08:00:00+12:00), the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., via a shared message or document indicating each family's assigned days). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-07T08:00:00+12:00",
   "world_id": "w_940acfd23314"
  }

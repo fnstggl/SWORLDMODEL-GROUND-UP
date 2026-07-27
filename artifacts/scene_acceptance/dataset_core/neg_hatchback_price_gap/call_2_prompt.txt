@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Ravi",
-   "private_context": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He can decide to offer a different price or accept the seller's counteroffer. He has three days before the listing expires."
+   "private_context": "Ravi wants to buy a 2019 hatchback. He has a maximum budget of 40,000 rupees less than the seller's asking price. He is willing to negotiate and can make an offer."
   },
   {
    "name": "Seller",
-   "private_context": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. They can decide to accept, reject, or counteroffer. The listing expires in three days."
+   "private_context": "The seller is listing a 2019 hatchback with a posted price. They are willing to negotiate but have a minimum acceptable price that is 40,000 rupees above Ravi's budget. The listing expires in three days."
   }
  ],
- "shared_context": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The current price difference is 40,000 rupees. The seller's listing will expire on 2026-08-23T10:00:00+05:30.",
+ "shared_context": "A 2019 hatchback is listed for sale by a private seller. The seller's asking price and Ravi's maximum budget are 40,000 rupees apart. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller can communicate through the listing platform or other means to negotiate the price.",
  "starting_events": [
   {
    "time": "2026-08-20T10:00:00+05:30",
-   "description": "Ravi and the seller are aware of the 40,000 rupee gap. No agreement has been reached yet.",
+   "description": "Ravi sees the listing for the 2019 hatchback and notes the price difference. The seller's listing is active with three days remaining.",
    "visible_to": [
     "Ravi",
     "Seller"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price (e.g., a message accepting an offer, a signed agreement, or a payment). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price and a sale is finalized (e.g., a binding agreement or payment made). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

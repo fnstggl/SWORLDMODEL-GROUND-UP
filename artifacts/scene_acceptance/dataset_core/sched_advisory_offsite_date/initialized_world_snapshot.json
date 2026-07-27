@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded.",
+     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-29T08:00:00+00:00"
     },
     {
-     "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+     "content": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-29T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded.",
+     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-29T08:00:00+00:00"
     },
     {
-     "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+     "content": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-29T08:00:00+00:00"
@@ -113,7 +113,7 @@
      "t": "2026-07-29T08:00:00+00:00"
     },
     {
-     "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+     "content": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-29T08:00:00+00:00"
@@ -150,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability.",
+     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-29T08:00:00+00:00"
     },
     {
-     "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+     "content": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-29T08:00:00+00:00"
@@ -193,19 +193,62 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability.",
+     "content": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-29T08:00:00+00:00"
     },
     {
-     "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+     "content": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-29T08:00:00+00:00"
     }
    ],
    "name": "Advisor 5",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "ceo_s_assistant": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ceo_s_assistant",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Sent a poll with four candidate weekends to all five advisors. Has received responses from two advisors. Wants to finalize a date that works for all or most advisors.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-07-29T08:00:00+00:00"
+    },
+    {
+     "content": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-07-29T08:00:00+00:00"
+    }
+   ],
+   "name": "CEO's assistant",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -231,7 +274,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the five members of Ostara Foods' advisory board settle on a date for their autumn strategy offsite within the next three weeks?",
-  "scene:shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19)."
+  "scene:shared_context": "Ostara Foods has an advisory board of five part-time advisors spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The simulation runs from 2026-07-29T09:00:00+01:00 to 2026-08-19T09:00:00+01:00."
  },
  "history": [],
  "infos": {},
@@ -241,6 +284,6 @@
  "resources": {},
  "start": "2026-07-29T08:00:00+00:00",
  "terminal": null,
- "version": 20,
+ "version": 23,
  "watches": {}
 }

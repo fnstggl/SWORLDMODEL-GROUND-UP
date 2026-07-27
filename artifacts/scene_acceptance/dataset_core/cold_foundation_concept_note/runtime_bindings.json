@@ -2,7 +2,7 @@
  "world_id": "w_2f90cede6453",
  "actor_ids": {
   "Lucia Ferreyra": "lucia_ferreyra",
-  "Program Officer at the Alder Foundation": "program_officer_at_the_alder_foundation"
+  "Program Officer at Alder Foundation": "program_officer_at_alder_foundation"
  },
  "event_records": [
   {
@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "lucia_ferreyra"
    ],
-   "description": "Lucia Ferreyra sends her unsolicited concept note to the program officer at the Alder Foundation via email."
+   "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's program officer via the established submission channel."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "lucia_ferreyra": {
    "name": "Lucia Ferreyra",
-   "persona_brief": "You are Lucia Ferreyra.\nLucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note describing a project she hopes the Alder Foundation will fund. She intends to send it to the program officer at the Alder Foundation. She has no prior relationship with the program officer."
+   "persona_brief": "You are Lucia Ferreyra.\nLucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note about a potential project and intends to send it to the Alder Foundation's program officer. She hopes for a substantive response within a month."
   },
-  "program_officer_at_the_alder_foundation": {
-   "name": "Program Officer at the Alder Foundation",
-   "persona_brief": "You are Program Officer at the Alder Foundation.\nThe program officer at the Alder Foundation receives many unsolicited concept notes. They have discretion over which ones to respond to substantively. They have no prior knowledge of Lucia Ferreyra or her organization."
+  "program_officer_at_alder_foundation": {
+   "name": "Program Officer at Alder Foundation",
+   "persona_brief": "You are Program Officer at Alder Foundation.\nThe program officer at the Alder Foundation receives many unsolicited concept notes. They have discretion over which ones to respond to substantively, and typically respond only to those that align closely with the foundation's current priorities. They have no prior relationship with Lucia Ferreyra."
   }
  },
  "resolution": {
   "question": "Will the program officer at the Alder Foundation respond substantively to nonprofit director Lucia Ferreyra's unsolicited concept note within one month?",
-  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response to Lucia Ferreyra (e.g., a request for a full proposal, a meeting invitation, or detailed feedback) before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-01T09:00:00-05:00",
   "world_id": "w_2f90cede6453"
  }

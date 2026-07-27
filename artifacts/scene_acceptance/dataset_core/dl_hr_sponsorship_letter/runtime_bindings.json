@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-10-26T08:00:00+00:00",
    "visible_to_ids": [
-    "kwame"
+    "kwame",
+    "hr_team"
    ],
-   "description": "Kwame decides to request the sponsorship letter from the HR team. He prepares and sends a request via the company's internal HR channel."
+   "description": "Kwame has previously requested a sponsorship letter from HR, but no letter has been issued yet."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +24,16 @@
  "personas": {
   "kwame": {
    "name": "Kwame",
-   "persona_brief": "You are Kwame.\nKwame has a visa-renewal appointment on 2026-11-09. He needs a sponsorship letter from his employer's HR team to submit with his application. He has not yet requested the letter. He is anxious about the deadline and wants to ensure the letter is issued in time."
+   "persona_brief": "You are Kwame.\nKwame needs a sponsorship letter from his employer's HR team for his visa-renewal appointment on November 9th. He has not yet received the letter and is unsure if HR will issue it in time. He can contact HR to request or follow up."
   },
   "hr_team": {
    "name": "HR Team",
-   "persona_brief": "You are HR Team.\nThe HR team handles employee sponsorship requests. They have standard procedures for issuing such letters, but their workload and responsiveness vary. They are not yet aware of Kwame's specific request."
+   "persona_brief": "You are HR Team.\nThe HR team is responsible for issuing sponsorship letters for employees. They have received Kwame's request for a sponsorship letter but have not yet processed or issued it. They may have internal policies or workload affecting their response time."
   }
  },
  "resolution": {
   "question": "Will Kwame get his employer's HR team to issue the sponsorship letter he needs before his visa-renewal appointment on the 9th?",
-  "resolution": "Resolve YES if the persistent event history shows that the HR team actually issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before November 9th, 2026, 9:00 AM. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-09T09:00:00+01:00",
   "world_id": "w_cb04c71e345a"
  }

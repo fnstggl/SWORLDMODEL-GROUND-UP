@@ -1,17 +1,15 @@
 {
  "world_id": "w_a1b225f62bf2",
  "actor_ids": {
-  "Marlin Bay dockworkers' union local": "marlin_bay_dockworkers_union_local",
-  "Rank-and-file caucus": "rank_and_file_caucus"
+  "Marlin Bay dockworkers' union local": "marlin_bay_dockworkers_union_local"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 8,
    "at": "2026-08-27T16:00:00+00:00",
    "visible_to_ids": [
-    "marlin_bay_dockworkers_union_local",
-    "rank_and_file_caucus"
+    "marlin_bay_dockworkers_union_local"
    ],
    "description": "The simulation begins. No press release has been issued yet by the local."
   }
@@ -24,16 +22,12 @@
  "personas": {
   "marlin_bay_dockworkers_union_local": {
    "name": "Marlin Bay dockworkers' union local",
-   "persona_brief": "You are Marlin Bay dockworkers' union local.\nThe local's executive board met twice last week without issuing a statement. The local is aware of a rank-and-file caucus leafleting against the port automation memorandum. The local has not yet decided whether to endorse the memorandum or not, and has not yet issued a press release."
-  },
-  "rank_and_file_caucus": {
-   "name": "Rank-and-file caucus",
-   "persona_brief": "You are Rank-and-file caucus.\nThe caucus is leafleting against the port automation memorandum. They want the local to oppose the memorandum."
+   "persona_brief": "You are Marlin Bay dockworkers' union local.\nThe local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local has not yet decided whether to endorse the port automation memorandum or to issue a press release."
   }
  },
  "resolution": {
   "question": "Will the dockworkers' union local at Marlin Bay put out a press release before Monday saying whether it endorses the port automation memorandum?",
-  "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating whether it endorses the port automation memorandum. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating its endorsement or non-endorsement of the port automation memorandum. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-31T09:00:00-07:00",
   "world_id": "w_a1b225f62bf2"
  }

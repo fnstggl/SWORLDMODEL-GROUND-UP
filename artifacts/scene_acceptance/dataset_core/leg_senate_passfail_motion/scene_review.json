@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The scene uses a single generic actor 'Academic Senate' to represent the entire decision-making body, but the question involves a deliberative vote with multiple members holding varying opinions. The scene does not include individual senators or a chair with distinct perspectives, making it impossible to simulate a meaningful social deliberation. The actor is a placeholder for an unspecified group, which violates the rule against generic placeholder actors.",
-   "correction": "The scene must include at least a chair and a few named senators with distinct stances to allow a simulatable debate and vote."
+   "problem": "The scene treats the Academic Senate as a single actor, but a senate is a collective body whose decision emerges from the votes of its individual members. The question asks about a social decision-making process that requires simulating interactions among distinct members with potentially differing views. A single monolithic actor cannot simulate the internal debate, voting, or the possibility of sending back to committee, which involves procedural motions by individual members. The scene is not simulatable as a social scene with the given actor set.",
+   "correction": "The scene should include individual members or factions (e.g., faculty representatives, administrators, student representatives) with their own private contexts and preferences, and allow for discussion and voting procedures. Alternatively, if the runtime cannot simulate multiple actors, the question may not be suitable for this simulator."
   }
  ]
 }

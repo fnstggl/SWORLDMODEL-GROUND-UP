@@ -15,7 +15,7 @@
     "mattias",
     "mediator"
    ],
-   "description": "Ingrid and Mattias begin negotiations over the December holiday schedule, with the mediator available to facilitate."
+   "description": "The negotiation period begins. Ingrid and Mattias are aware of the mediator's final session in six weeks and the need to reach a written agreement before then."
   }
  ],
  "code_owned_defaults": {
@@ -34,12 +34,12 @@
   },
   "mediator": {
    "name": "Mediator",
-   "persona_brief": "You are Mediator.\nThe mediator has scheduled a final session in six weeks (by October 13, 2026). They have flagged travel dates as the only open issue between Ingrid and Mattias. They are neutral and aim to facilitate a written agreement."
+   "persona_brief": "You are Mediator.\nThe mediator has flagged travel dates as the only open issue between Ingrid and Mattias. They have a final scheduled session in six weeks from the simulation start time."
   }
  },
  "resolution": {
   "question": "Separated parents Ingrid and Mattias are negotiating who takes the children for the December holidays. Will they reach a written agreement before their mediator's final scheduled session in six weeks?",
-  "resolution": "Resolve YES if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-10-13T17:00:00+01:00",
   "world_id": "w_ae66dd5d940a"
  }

@@ -1,10 +1,4 @@
 {
-  "verdict": "ABSTAIN",
-  "defects": [
-    {
-      "path": "scene",
-      "problem": "The scene uses generic placeholder actors 'Advisor 1' through 'Advisor 5' without any identifying information from the question or context. The question refers to 'the five members of Ostara Foods' advisory board' but provides no names or distinguishing characteristics. The scene invents these actors as stand-ins for unspecified parties, which violates the rule against generic placeholder actors.",
-      "correction": "The question lacks sufficient information to identify the specific individuals on the advisory board. Without named actors or unique identifiers, the scene cannot be properly simulated. The reviewer must abstain."
-    }
-  ]
+ "verdict": "APPROVE",
+ "defects": []
 }

@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -100,29 +100,31 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Owner of Fenwick & Sloane",
-   "private_context": "Owner has run the store for 31 years. She has two deputies: one runs buying, the other runs operations. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about who will take over. She has not yet made a decision or announced a successor."
+   "name": "Owner",
+   "private_context": "Owner has run Fenwick & Sloane for 31 years and is retiring. She has two deputies: one for buying, one for operations. She has not yet decided who will succeed her as general manager. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about the decision."
   },
   {
    "name": "Deputy (Buying)",
-   "private_context": "Runs the buying department. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position."
+   "private_context": "Deputy in charge of buying at Fenwick & Sloane. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position."
   },
   {
    "name": "Deputy (Operations)",
-   "private_context": "Runs the operations department. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position."
+   "private_context": "Deputy in charge of operations at Fenwick & Sloane. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position."
   }
  ],
  "shared_context": "Fenwick & Sloane is a store. The owner is retiring. Holiday trading starts on November 1. The owner has two deputies: one runs buying, the other runs operations. Staff have been asking openly about who will take over. The accountant has advised settling the succession before seasonal hires arrive.",
  "starting_events": [
   {
    "time": "2026-09-15T09:00:00+00:00",
-   "description": "The owner is at the store, aware of the need to decide on a successor before holiday trading starts.",
+   "description": "The simulation begins. The owner has not yet announced a successor. The two deputies are aware of the situation.",
    "visible_to": [
-    "Owner of Fenwick & Sloane"
+    "Owner",
+    "Deputy (Buying)",
+    "Deputy (Operations)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the owner publicly named a successor (either deputy or another person) as general manager before 2026-11-01T09:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the hard cutoff at 2026-11-01T09:00:00+00:00, the persistent event history shows that the owner has publicly named one of the two deputies as the new general manager. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,24 +101,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Veldt Solar executive team",
-   "private_context": "The executive team consists of the CEO, CFO, and head of product. They will decide at the quarterly review whether to shelve or greenlight the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to the utility-scale line; the CEO has stayed publicly neutral."
+   "private_context": "The executive team consists of the CEO, CFO, and head of product. They will decide at the quarterly review whether to shelve or greenlight the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to the utility-scale line; the CEO has stayed publicly neutral. They are aware of the pilot's 400-unit sales against a 1,000-unit target, strong reviews, and thin margins."
   },
   {
    "name": "Pilot team",
-   "private_context": "The pilot team is awaiting the executive decision on the balcony-panel pilot. They are aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins."
+   "private_context": "The pilot team is awaiting the executive team's decision on the balcony-panel pilot. They are not part of the decision-making process."
   }
  ],
- "shared_context": "The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The quarterly review is scheduled for the week of 2026-10-05. The executive team will decide whether to shelve or greenlight the pilot and communicate the decision to the pilot team.",
+ "shared_context": "Veldt Solar's quarterly review is scheduled for the week of 2026-10-05. The executive team will meet to decide on the balcony-panel pilot. The pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The head of product champions it, the CFO wants those engineers on the utility-scale line, and the CEO has stayed publicly neutral. The decision (shelve or greenlight) will be communicated to the pilot team the same week as the review.",
  "starting_events": [
   {
    "time": "2026-10-05T09:00:00+02:00",
-   "description": "The quarterly review begins with the executive team discussing the balcony-panel pilot.",
+   "description": "The quarterly review begins. The executive team is scheduled to discuss and decide on the balcony-panel pilot.",
    "visible_to": [
     "Veldt Solar executive team"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the executive team formally communicated a decision (either shelve or greenlight) to the pilot team before 2026-10-16T18:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the executive team formally decided to greenlight the pilot and communicated that decision to the pilot team before 2026-10-16T18:00:00+02:00. Resolve NO if the executive team formally decided to shelve the pilot and communicated that decision to the pilot team before the cutoff, or if no decision is communicated by the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

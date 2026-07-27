@@ -1,25 +1,25 @@
 {
   "actors": [
     {
-      "name": "Family A",
-      "private_context": "Family A has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
+      "name": "Family 1",
+      "private_context": "Family 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed specific preferences with the other families."
     },
     {
-      "name": "Family B",
-      "private_context": "Family B has one child. They are open to participating in a carpool but have constraints on certain mornings. They have not yet discussed preferences with the other families."
+      "name": "Family 2",
+      "private_context": "Family 2 has one child who needs a ride. They can drive on certain days but have a busy schedule. They are open to a rota but have not committed to any arrangement."
     },
     {
-      "name": "Family C",
-      "private_context": "Family C has three children. They are keen to set up a rota to reduce driving burden. They have not yet discussed preferences with the other families."
+      "name": "Family 3",
+      "private_context": "Family 3 has three children. They are eager to set up a carpool to reduce driving duty. They have some flexibility but have not yet coordinated with the others."
     }
   ],
-  "shared_context": "The three families live on the same cul-de-sac and their children attend the same school. Term starts on Monday 2026-09-07. They have not yet agreed on a weekly driving rota. They can communicate via a group chat or in person. Each family has a car and can drive on some days.",
+  "shared_context": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool before term starts on Monday morning (2026-09-07). They have each other's contact information and can communicate. No rota has been agreed yet.",
   "starting_events": [
     {
       "time": "2026-09-02T09:00:00+12:00",
-      "description": "The three families are aware of each other and the need to arrange a carpool before term starts. No rota has been proposed yet.",
-      "visible_to": ["Family A", "Family B", "Family C"]
+      "description": "The three families are aware of the need to arrange a weekly driving rota before term starts. No formal proposal has been made yet.",
+      "visible_to": ["Family 1", "Family 2", "Family 3"]
     }
   ],
-  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of which family drives on which days). Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if, before the cutoff (2026-09-07T08:00:00+12:00), the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., via a shared message or document indicating each family's assigned days). Otherwise resolve NO at the cutoff."
 }

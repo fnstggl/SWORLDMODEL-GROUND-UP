@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "A recruiter from Torchlight Media is sending Petra Kovac, a senior colorist who is happily employed elsewhere, a first-contact message about an opening. Will Petra reply at all within five business days?",
-  "resolution": "Resolve YES if the persistent event history shows that Petra Kovac sent any reply to the recruiter's message before 2026-09-14T18:00:00+02:00. Otherwise resolve NO.",
+  "resolution": "Resolve YES if the persistent event history shows that Petra Kovac sent any reply to the recruiter's message before 2026-09-14T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-14T18:00:00+02:00",
   "world_id": "w_2c64246a9ded"
  },

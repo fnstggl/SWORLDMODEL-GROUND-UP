@@ -1,24 +1,23 @@
 {
  "actors": [
   {
-   "name": "Current Chair",
-   "private_context": "The current chair is stepping down and has announced this at the upcoming AGM. They are not seeking re-election and have no preference about who succeeds them."
+   "name": "Chair",
+   "private_context": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have not yet identified a successor and are not actively recruiting one."
   },
   {
-   "name": "Kettlewell Allotment Society Members",
-   "private_context": "The members are aware that the chair is stepping down and that nominations close at the AGM in five weeks. Some members may be considering standing, but no one has publicly declared an intention yet."
+   "name": "Society members",
+   "private_context": "The members are aware that the chair is stepping down, but no one has yet expressed interest in standing for the position. Some members may be considering it privately."
   }
  ],
- "shared_context": "The Kettlewell Allotment Society holds an annual general meeting on 2026-09-29 at 20:00. The current chair has announced they are stepping down. Nominations for the position of chair close at the start of the AGM. Any member may nominate themselves or another member, subject to the society's rules.",
+ "shared_context": "The Kettlewell allotment society holds an annual general meeting in five weeks, at which nominations for chair will close. The current chair is stepping down, and the position will be vacant unless someone volunteers.",
  "starting_events": [
   {
    "time": "2026-08-25T18:00:00+01:00",
-   "description": "The current chair's resignation is announced to the membership, and the call for nominations is opened.",
+   "description": "The chair announces their intention to step down at the upcoming annual general meeting.",
    "visible_to": [
-    "Current Chair",
-    "Kettlewell Allotment Society Members"
+    "Society members"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff at 2026-09-29T20:00:00+01:00, the persistent event history shows that at least one member has submitted a valid nomination for the position of chair. Otherwise resolve NO."
+ "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that at least one society member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff."
 }

@@ -23,7 +23,7 @@
  "personas": {
   "communications_lead": {
    "name": "Communications Lead",
-   "persona_brief": "You are Communications Lead.\nThe Communications Lead is at an offsite all morning and may not be immediately reachable. They are responsible for sending incident notices to enterprise customers per the runbook."
+   "persona_brief": "You are Communications Lead.\nThe communications lead is at an offsite all morning and may not be reachable. They are responsible for sending customer incident notices per the runbook."
   },
   "nimbus_freight_as_an_organization": {
    "name": "Nimbus Freight (as an organization)",

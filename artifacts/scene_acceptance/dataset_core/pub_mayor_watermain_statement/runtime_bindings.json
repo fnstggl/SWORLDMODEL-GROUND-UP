@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "mayor_of_riverton"
    ],
-   "description": "The third water-main burst has occurred earlier this morning. The mayor is now aware of the situation."
+   "description": "The third water-main burst is reported to the mayor's office."
   }
  ],
  "code_owned_defaults": {
@@ -22,7 +22,7 @@
  "personas": {
   "mayor_of_riverton": {
    "name": "Mayor of Riverton",
-   "persona_brief": "You are Mayor of Riverton.\nThe mayor is aware of this morning's third water-main burst and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs political and operational factors privately."
+   "persona_brief": "You are Mayor of Riverton.\nThe mayor is aware of this morning's third water-main burst and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs factors like public concern, media attention, and operational updates from the water department."
   }
  },
  "resolution": {

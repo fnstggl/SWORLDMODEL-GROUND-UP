@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "David Cameron",
-   "private_context": "Cameron is Prime Minister and has publicly stated he will campaign for the UK to remain in the EU. He has not yet decided whether to appear in any televised set-piece events about the referendum, but is aware of the approaching polling day and the possibility of such events."
+   "private_context": "Cameron is Prime Minister and has publicly stated he will campaign for the UK to remain in the EU. He has not yet decided whether to appear in any televised set-piece events about the referendum, but is aware of the approaching polling day and the importance of the campaign."
   }
  ],
- "shared_context": "The UK EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates or major interviews) about the referendum may be organized by broadcasters. The Prime Minister's participation in such events is not yet confirmed.",
+ "shared_context": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates or major interviews) are being organized by broadcasters. Cameron may be invited to participate in such events. The public and media are watching for his appearances.",
  "starting_events": [
   {
    "time": "2016-05-02T09:00:00+01:00",
-   "description": "The simulation begins. No televised set-piece event about the EU referendum involving David Cameron has occurred yet.",
+   "description": "The campaign period for the EU referendum is ongoing. No televised set-piece event featuring David Cameron has been scheduled yet.",
    "visible_to": [
     "David Cameron"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff on 2016-06-20T22:00:00+01:00, the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum. Otherwise resolve NO."
+ "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum (e.g., a debate, a major interview, or a televised speech). Otherwise resolve NO at the cutoff."
 }

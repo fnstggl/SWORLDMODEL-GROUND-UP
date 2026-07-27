@@ -2,10 +2,10 @@
  "actors": [
   {
    "name": "Riverton city council",
-   "private_context": "The council is aware that a short-term-rental ordinance requires a second reading before it can be adopted. The council has a scheduled August recess starting after August 14, 2026. The council has discretion over when to schedule the second reading."
+   "private_context": "The council is aware that a short-term-rental ordinance requires a second reading before adoption. The council has a scheduled August recess starting August 15, 2026. The council's agenda for the remaining meetings before recess is not yet finalized; members have varying opinions on the ordinance."
   }
  ],
- "shared_context": "The Riverton city council has a short-term-rental ordinance that has passed its first reading. A second reading is required for adoption. The council's August recess begins after August 14, 2026. The council can schedule meetings before the recess.",
+ "shared_context": "The Riverton city council has a short-term-rental ordinance that has passed a first reading. A second reading is required for adoption. The council's next regular meeting is on July 29, 2026, and there may be a special meeting before the August recess begins on August 15, 2026. The council can schedule the second reading at any regular or special meeting before the recess.",
  "starting_events": [
   {
    "time": "2026-07-28T09:00:00-06:00",
@@ -15,5 +15,5 @@
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the Riverton city council held the second reading of the short-term-rental ordinance before 2026-08-14T17:00:00-06:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the Riverton city council held a meeting where the second reading of the short-term-rental ordinance occurred before 2026-08-14T17:00:00-06:00. Otherwise resolve NO at the cutoff."
 }

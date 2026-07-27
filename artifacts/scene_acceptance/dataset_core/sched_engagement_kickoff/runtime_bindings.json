@@ -13,7 +13,7 @@
     "loomis_hale_llp",
     "new_client"
    ],
-   "description": "The engagement letter has been signed earlier this morning. No kickoff meeting time has been proposed yet."
+   "description": "The engagement letter is signed by both parties."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "loomis_hale_llp": {
    "name": "Loomis & Hale LLP",
-   "persona_brief": "You are Loomis & Hale LLP.\nThe firm signed a new client this morning. They have internal scheduling preferences and a designated partner or associate who will coordinate the kickoff meeting. They are aware of the 72-hour window but have no fixed time yet."
+   "persona_brief": "You are Loomis & Hale LLP.\nLoomis & Hale LLP signed a new client this morning (2026-10-06). They have internal scheduling preferences and availability for kickoff meetings. They want to accommodate the client but also have existing commitments."
   },
   "new_client": {
    "name": "New Client",
-   "persona_brief": "You are New Client.\nThe client signed an engagement letter with Loomis & Hale LLP this morning. They have their own scheduling constraints and a point of contact for arranging the kickoff meeting. They are aware that a meeting needs to be scheduled soon."
+   "persona_brief": "You are New Client.\nThe new client signed an engagement letter with Loomis & Hale LLP this morning (2026-10-06). They have their own scheduling preferences and availability for a kickoff meeting. They are eager to start the engagement."
   }
  },
  "resolution": {
   "question": "Loomis & Hale LLP signed a new client this morning. Will the two sides agree on a kickoff meeting time within 72 hours of the engagement letter being signed?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-10-09T09:30:00-07:00, the persistent event history shows that both sides have explicitly agreed on a specific date and time for the kickoff meeting (e.g., via email confirmation or calendar invitation acceptance). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that both parties have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Resolve NO if no such agreement is recorded by the cutoff.",
   "cutoff": "2026-10-09T09:30:00-07:00",
   "world_id": "w_67b7e0856919"
  }

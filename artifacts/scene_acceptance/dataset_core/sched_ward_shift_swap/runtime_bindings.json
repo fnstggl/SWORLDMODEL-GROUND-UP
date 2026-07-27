@@ -24,16 +24,16 @@
  "personas": {
   "nurse_karolina": {
    "name": "Nurse Karolina",
-   "persona_brief": "You are Nurse Karolina.\nKarolina wants someone to take her Sunday night shift. She posted a request in the ward's swap channel. She has no particular colleague in mind."
+   "persona_brief": "You are Nurse Karolina.\nKarolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She is aware of the Friday 15:00 rota lock deadline."
   },
   "colleagues_in_the_ward": {
    "name": "Colleagues in the ward",
-   "persona_brief": "You are Colleagues in the ward.\nEach colleague sees the swap channel and may consider taking the shift based on their own preferences and availability. They have no prior commitment to Karolina regarding this shift."
+   "persona_brief": "You are Colleagues in the ward.\nThe colleagues are nurses who can see the swap channel. They may be interested in picking up extra shifts or swapping, but have no prior commitment to Karolina's request."
   }
  },
  "resolution": {
   "question": "Nurse Karolina posted in her ward's swap channel asking someone to take her Sunday night shift. Will a colleague claim it before the rota locks Friday at 15:00?",
-  "resolution": "Resolve YES if the persistent event history shows that any colleague actually claimed the shift (e.g., by posting a reply or updating the rota) before the cutoff at 2026-08-14T15:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the shift (e.g., by posting a reply or updating the rota) before Friday 15:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-14T15:00:00+02:00",
   "world_id": "w_53084529bcac"
  }

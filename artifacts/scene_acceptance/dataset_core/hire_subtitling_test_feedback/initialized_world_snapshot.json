@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Noor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, by 2026-10-02. She has no prior relationship with the agency beyond this submission.",
+     "content": "Noor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, as quoted. She has no prior relationship with the agency beyond this submission.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-02T08:00:00+00:00"
     },
     {
-     "content": "Noor Haddad submitted a paid test piece to the subtitling agency on or before 2026-09-02. The agency quoted a one-month turnaround for feedback. The agency has a process for evaluating test pieces and communicating results to candidates.",
+     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-02T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The agency receives test pieces from freelance translators and evaluates them. They quoted a one-month turnaround for feedback. They have many submissions to process and may prioritize based on their own criteria.",
+     "content": "The agency receives many test submissions and evaluates them on an ad hoc basis. They quoted a one-month turnaround for feedback. They have no prior relationship with Noor.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-02T08:00:00+00:00"
     },
     {
-     "content": "Noor Haddad submitted a paid test piece to the subtitling agency on or before 2026-09-02. The agency quoted a one-month turnaround for feedback. The agency has a process for evaluating test pieces and communicating results to candidates.",
+     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-02T08:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
-  "scene:shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency on or before 2026-09-02. The agency quoted a one-month turnaround for feedback. The agency has a process for evaluating test pieces and communicating results to candidates."
+  "scene:shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond."
  },
  "history": [],
  "infos": {},

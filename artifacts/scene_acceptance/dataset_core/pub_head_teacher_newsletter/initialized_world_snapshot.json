@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The head teacher is aware of the upcoming inspection and decides what to include in the Friday parent newsletter. They have the authority to address it or not.",
+     "content": "The head teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-22T07:00:00+00:00"
     },
     {
-     "content": "Petersfield Primary School has an upcoming inspection. Three parents discussed it at drop-off this week. The head teacher sends a parent newsletter every Friday. This Friday's newsletter is scheduled to be sent out before the hard cutoff.",
+     "content": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a Friday parent newsletter each week. The three parents raised the inspection at drop-off this week (week of 2026-09-22).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-22T07:00:00+00:00"
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "parent_1": {
+  "three_parents": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,109 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "parent_1",
+   "id": "three_parents",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Parent 1 is one of three parents who raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter.",
+     "content": "The three parents are concerned about the upcoming inspection and have discussed it at drop-off. They hope the head teacher will address it in the newsletter but have not communicated this to the head teacher.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-22T07:00:00+00:00"
     },
     {
-     "content": "Petersfield Primary School has an upcoming inspection. Three parents discussed it at drop-off this week. The head teacher sends a parent newsletter every Friday. This Friday's newsletter is scheduled to be sent out before the hard cutoff.",
+     "content": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a Friday parent newsletter each week. The three parents raised the inspection at drop-off this week (week of 2026-09-22).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-22T07:00:00+00:00"
     }
    ],
-   "name": "Parent 1",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "parent_2": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "parent_2",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "Parent 2 is one of three parents who raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-09-22T07:00:00+00:00"
-    },
-    {
-     "content": "Petersfield Primary School has an upcoming inspection. Three parents discussed it at drop-off this week. The head teacher sends a parent newsletter every Friday. This Friday's newsletter is scheduled to be sent out before the hard cutoff.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-09-22T07:00:00+00:00"
-    }
-   ],
-   "name": "Parent 2",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "parent_3": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "parent_3",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "Parent 3 is one of three parents who raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-09-22T07:00:00+00:00"
-    },
-    {
-     "content": "Petersfield Primary School has an upcoming inspection. Three parents discussed it at drop-off this week. The head teacher sends a parent newsletter every Friday. This Friday's newsletter is scheduled to be sent out before the hard cutoff.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-09-22T07:00:00+00:00"
-    }
-   ],
-   "name": "Parent 3",
+   "name": "Three Parents",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -188,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Three parents raised the upcoming inspection at drop-off this week. Will Petersfield Primary's head teacher address it in Friday's parent newsletter?",
-  "scene:shared_context": "Petersfield Primary School has an upcoming inspection. Three parents discussed it at drop-off this week. The head teacher sends a parent newsletter every Friday. This Friday's newsletter is scheduled to be sent out before the hard cutoff."
+  "scene:shared_context": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a Friday parent newsletter each week. The three parents raised the inspection at drop-off this week (week of 2026-09-22)."
  },
  "history": [],
  "infos": {},
@@ -198,6 +112,6 @@
  "resources": {},
  "start": "2026-09-22T07:00:00+00:00",
  "terminal": null,
- "version": 17,
+ "version": 11,
  "watches": {}
 }

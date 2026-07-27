@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,32 +98,32 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Femi Adeyemi",
-   "private_context": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He wants to propose a date that works for his committee. He has not yet sent any date proposals."
+   "private_context": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He has three committee members and wants to find a date that works for all. He is aware of the ten-day deadline to converge on a date."
   },
   {
    "name": "Committee Member 1",
-   "private_context": "A faculty member on Femi's committee. Has typical academic scheduling constraints and preferences for defense dates. No prior communication about specific dates."
+   "private_context": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November."
   },
   {
    "name": "Committee Member 2",
-   "private_context": "A faculty member on Femi's committee. Has typical academic scheduling constraints and preferences for defense dates. No prior communication about specific dates."
+   "private_context": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November."
   },
   {
    "name": "Committee Member 3",
-   "private_context": "A faculty member on Femi's committee. Has typical academic scheduling constraints and preferences for defense dates. No prior communication about specific dates."
+   "private_context": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November."
   }
  ],
- "shared_context": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current date is 2026-09-14. There is a ten-day period until 2026-09-24 to converge on a date. Communication can occur via email or in-person meetings.",
+ "shared_context": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
  "starting_events": [
   {
    "time": "2026-09-14T09:00:00+01:00",
-   "description": "Femi begins the process of scheduling his defense by considering potential dates in November.",
+   "description": "Femi sends an initial email to his three committee members proposing several possible defense dates in November and asking for their availability.",
    "visible_to": [
     "Femi Adeyemi"
    ]
   }
  ],
- "resolution": "Resolve YES if, by 2026-09-24T17:00:00+01:00, the persistent event history shows that all three committee members have explicitly agreed to a specific defense date within the November window. Otherwise resolve NO."
+ "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all four actors (Femi and the three committee members) have explicitly agreed on a specific defense date within the November window. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The scene lacks any other actors or entities (e.g., broadcasters, event organizers, interviewers) that are necessary for the occurrence of a televised set-piece event. The question asks whether Cameron will appear in such an event, which requires at least one other party to host or conduct it. Without any such actors, the simulation cannot meaningfully model the decision or event. This is an insufficiency: the scene is about nobody in particular beyond Cameron, and the necessary social context is missing.",
-   "correction": "The scene must include relevant actors such as broadcasters or event organizers who could propose or schedule a televised event. Without them, the simulation cannot proceed."
+   "problem": "The scene lacks sufficient information to identify the decision-maker or the observed resolving event. The question asks about a specific historical outcome (whether David Cameron appeared in a televised set-piece event), but the scene does not include the broadcasters or organizers who would decide on and schedule such events, nor does it include any mechanism for Cameron to decide or be invited. The resolution depends on external events not modeled, making it a factual lookup disguised as a simulation.",
+   "correction": "The scene cannot be fixed without adding actors and events that are not specified in the question or context. The question is about a known historical fact, not a simulatable social interaction."
   }
  ]
 }

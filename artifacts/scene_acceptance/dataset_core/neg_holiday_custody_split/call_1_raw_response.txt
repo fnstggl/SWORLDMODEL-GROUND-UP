@@ -10,16 +10,16 @@
     },
     {
       "name": "Mediator",
-      "private_context": "The mediator has scheduled a final session in six weeks (by October 13, 2026). They have flagged travel dates as the only open issue between Ingrid and Mattias. They are neutral and aim to facilitate a written agreement."
+      "private_context": "The mediator has flagged travel dates as the only open issue between Ingrid and Mattias. They have a final scheduled session in six weeks from the simulation start time."
     }
   ],
-  "shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement is sought before the mediator's final scheduled session in six weeks (by October 13, 2026).",
+  "shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, Mattias has a deposit down on a ski trip for the first week of the break, and the mediator has flagged travel dates as the only open issue. The mediator's final scheduled session is in six weeks from now.",
   "starting_events": [
     {
       "time": "2026-09-01T09:00:00+01:00",
-      "description": "Ingrid and Mattias begin negotiations over the December holiday schedule, with the mediator available to facilitate.",
+      "description": "The negotiation period begins. Ingrid and Mattias are aware of the mediator's final session in six weeks and the need to reach a written agreement before then.",
       "visible_to": ["Ingrid", "Mattias", "Mediator"]
     }
   ],
-  "resolution": "Resolve YES if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at that cutoff."
 }

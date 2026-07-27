@@ -1,17 +1,17 @@
 {
   "actors": [
     {
-      "name": "Veldt Solar Legal Team",
-      "private_context": "The legal team has received a revised supplier contract for review. They have internal procedures for contract clearance, and their workload and priorities are known only to them. They may have concerns about the revised terms."
+      "name": "Veldt Solar's legal team",
+      "private_context": "The legal team has received the revised supplier contract today (2026-08-18) and must review it for legal risks, compliance, and terms before clearing it for signature. They have their own internal processes and priorities, and may have other pending work."
     }
   ],
-  "shared_context": "Veldt Solar's legal team received the revised supplier contract on 2026-08-18 at 11:00. The contract requires legal clearance before signature. The team has ten working days (until 2026-09-01 at 17:00) to clear it. The contract's content and any prior negotiations are not specified further.",
+  "shared_context": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance. The team is expected to complete the review within ten working days, by 2026-09-01 at 17:00. The contract is for a supplier agreement, and the legal team's clearance is required before signature.",
   "starting_events": [
     {
       "time": "2026-08-18T11:00:00+02:00",
       "description": "The revised supplier contract is received by Veldt Solar's legal team for review.",
-      "visible_to": ["Veldt Solar Legal Team"]
+      "visible_to": ["Veldt Solar's legal team"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that Veldt Solar's legal team has formally cleared the revised supplier contract for signature (e.g., by sending a clearance notice or updating a status) before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

@@ -27,7 +27,7 @@
      "t": "2008-09-01T14:00:00+00:00"
     },
     {
-     "content": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been formally invited. Public confirmation of participation is expected before the debate date. The debate is a major media event.",
+     "content": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been invited and are aware of the date and location. As of September 1, 2008, neither campaign has issued a public confirmation of their candidate's participation. The debate is expected to be a major media event.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2008-09-01T14:00:00+00:00"
@@ -70,7 +70,7 @@
      "t": "2008-09-01T14:00:00+00:00"
     },
     {
-     "content": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been formally invited. Public confirmation of participation is expected before the debate date. The debate is a major media event.",
+     "content": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been invited and are aware of the date and location. As of September 1, 2008, neither campaign has issued a public confirmation of their candidate's participation. The debate is expected to be a major media event.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2008-09-01T14:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the McCain and Obama campaigns both publicly confirm their candidates' participation in the first 2008 presidential debate at the University of Mississippi before the scheduled debate day?",
-  "scene:shared_context": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been formally invited. Public confirmation of participation is expected before the debate date. The debate is a major media event."
+  "scene:shared_context": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been invited and are aware of the date and location. As of September 1, 2008, neither campaign has issued a public confirmation of their candidate's participation. The debate is expected to be a major media event."
  },
  "history": [],
  "infos": {},

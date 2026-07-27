@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,32 +101,32 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Bao Tran",
-   "private_context": "Bao runs a well-reviewed banh mi truck and wants a regular weekend spot. He plans to approach three brewery managers in person this Saturday about parking on their lots. He knows two of the breweries already host rotating food trucks, and the third never has."
+   "private_context": "Bao runs a well-reviewed banh mi food truck. He wants to secure a regular weekend parking spot on a brewery lot. He plans to approach three brewery managers in person this Saturday. He knows that two of the breweries already host rotating food trucks, and the third never has."
   },
   {
    "name": "Brewery Manager 1",
-   "private_context": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks or satisfied with current arrangement."
+   "private_context": "Manager of a brewery that already hosts rotating food trucks. They are open to considering new trucks but have no prior relationship with Bao."
   },
   {
    "name": "Brewery Manager 2",
-   "private_context": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks or satisfied with current arrangement."
+   "private_context": "Manager of a brewery that already hosts rotating food trucks. They are open to considering new trucks but have no prior relationship with Bao."
   },
   {
    "name": "Brewery Manager 3",
-   "private_context": "Manager of a brewery that never hosts food trucks. May have reasons for not doing so, or may be open to the idea."
+   "private_context": "Manager of a brewery that has never hosted a food truck. They have no prior relationship with Bao and no established policy on food trucks."
   }
  ],
- "shared_context": "It is Saturday, 2026-08-08, 10:00 AM local time. Bao Tran plans to visit three breweries in person to ask their managers about parking his food truck on their lots. The breweries are open and managers are likely present during the day. The day ends at 8:00 PM.",
+ "shared_context": "Bao Tran plans to visit three breweries in person on Saturday, 2026-08-08, to ask about parking his food truck on their lots. The breweries are open during the day and managers are typically present. Bao has no prior arrangement with any of them.",
  "starting_events": [
   {
    "time": "2026-08-08T10:00:00-05:00",
-   "description": "Bao Tran begins his visits to the three breweries.",
+   "description": "Bao Tran begins his visits to the three breweries to speak with the managers about parking his food truck on their lots.",
    "visible_to": [
     "Bao Tran"
    ]
   }
  ],
- "resolution": "Resolve YES if, before 2026-08-08T20:00:00-05:00, the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot before 2026-08-08T20:00:00-05:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

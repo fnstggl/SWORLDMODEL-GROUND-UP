@@ -21,7 +21,7 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Runs the buying department. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position.",
+     "content": "Deputy in charge of buying at Fenwick & Sloane. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
@@ -64,7 +64,7 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Runs the operations department. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position.",
+     "content": "Deputy in charge of operations at Fenwick & Sloane. Aware that the owner is retiring and that a successor will be named. Interested in the general manager position.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
@@ -88,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "owner_of_fenwick_sloane": {
+  "owner": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -103,11 +103,11 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "owner_of_fenwick_sloane",
+   "id": "owner",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Owner has run the store for 31 years. She has two deputies: one runs buying, the other runs operations. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about who will take over. She has not yet made a decision or announced a successor.",
+     "content": "Owner has run Fenwick & Sloane for 31 years and is retiring. She has two deputies: one for buying, one for operations. She has not yet decided who will succeed her as general manager. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about the decision.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
@@ -119,7 +119,7 @@
      "t": "2026-09-15T09:00:00+00:00"
     }
    ],
-   "name": "Owner of Fenwick & Sloane",
+   "name": "Owner",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",

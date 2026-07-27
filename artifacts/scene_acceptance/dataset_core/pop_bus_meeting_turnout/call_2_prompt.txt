@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,21 +97,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Kettlewell parish clerk",
-   "private_context": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They hope for good turnout but have no control over who attends."
+   "name": "Kettlewell Parish Clerk",
+   "private_context": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They hope for a good turnout but have no control over who attends."
   },
   {
    "name": "Villagers of Kettlewell",
-   "private_context": "The villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but attendance is voluntary and depends on individual interest and availability. The previous meeting's attendance of 22 is known to some."
+   "private_context": "The villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but attendance is voluntary and depends on individual interest and availability."
   }
  ],
- "shared_context": "An open meeting about the bus-route cut is scheduled in Kettlewell. The parish clerk has posted notices in public places. The meeting will take place at a local venue. Attendance is open to all villagers. The last such meeting drew 22 attendees.",
+ "shared_context": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to occur before the hard cutoff. The last similar meeting about a different issue drew 22 attendees.",
  "starting_events": [
   {
    "time": "2026-09-10T09:00:00+01:00",
-   "description": "The parish clerk has posted notices about the open meeting regarding the bus-route cut.",
+   "description": "The parish clerk posts notices around the village announcing the open meeting about the bus-route cut.",
    "visible_to": [
-    "Kettlewell parish clerk",
+    "Kettlewell Parish Clerk",
     "Villagers of Kettlewell"
    ]
   }

@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Petersfield Secondary School Administration",
-   "private_context": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior RSVP data."
+   "private_context": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior knowledge of which parents will RSVP."
   },
   {
    "name": "Invited Parents (as a cohort)",
-   "private_context": "Each parent has received an invitation to the town hall. They may or may not RSVP depending on their interest, availability, and other factors. No parent has yet responded."
+   "private_context": "Each of the 120 parents received an invitation to the town hall. They may or may not RSVP by the deadline. Their individual decisions are unknown."
   }
  ],
- "shared_context": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05.",
+ "shared_context": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
  "starting_events": [
   {
    "time": "2026-10-05T09:00:00+01:00",
-   "description": "The school administration has sent invitations to 120 parents for the curriculum-change town hall. No RSVPs have been received yet.",
+   "description": "The simulation begins. Invitations have already been sent to 120 parents. No RSVPs have been received yet.",
    "visible_to": [
     "Petersfield Secondary School Administration"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that more than 60 distinct parents (i.e., > half of 120) have sent an RSVP (either yes or no) to the school by 2026-10-16T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that more than 60 parents (i.e., > half of 120) have sent an RSVP (either 'yes' or 'no') by 2026-10-16T17:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

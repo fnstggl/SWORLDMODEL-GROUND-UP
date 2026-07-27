@@ -13,6 +13,15 @@
     "petition_organizers"
    ],
    "description": "The petition organizers have 400 signatures and continue their signature collection efforts."
+  },
+  {
+   "event_id": "se2",
+   "ledger_seq": 12,
+   "at": "2026-08-03T15:00:00+00:00",
+   "visible_to_ids": [
+    "quarry_operator"
+   ],
+   "description": "The quarry operator's counter-flyer is in circulation, opposing the petition."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +32,16 @@
  "personas": {
   "petition_organizers": {
    "name": "Petition organizers",
-   "persona_brief": "You are Petition organizers.\nThey have collected 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator."
+   "persona_brief": "You are Petition organizers.\nThey have gathered 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator."
   },
   "quarry_operator": {
    "name": "Quarry operator",
-   "persona_brief": "You are Quarry operator.\nThe operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and have an interest in preventing the petition from reaching 1,500 signatures."
+   "persona_brief": "You are Quarry operator.\nThe operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and have an interest in preventing the petition from succeeding."
   }
  },
  "resolution": {
   "question": "Will the residents' petition against the Riverton quarry extension collect the 1,500 signatures needed to trigger a council debate before the submission deadline in six weeks?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before 2026-09-14T17:00:00-06:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before the deadline (2026-09-14T17:00:00-06:00). Otherwise resolve NO at the deadline.",
   "cutoff": "2026-09-14T17:00:00-06:00",
   "world_id": "w_a1f11604124a"
  }

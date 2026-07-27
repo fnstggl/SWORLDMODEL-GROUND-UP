@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "The Marlin Bay harbor advisory committee needs five of its nine members present to act. Will it reach quorum at its rescheduled Tuesday evening meeting?",
-  "resolution": "Resolve YES if at least five members (including the chair) are physically present at the meeting location at the scheduled start time or within a reasonable grace period (e.g., 15 minutes). Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES if at least five members are present at the meeting start time (2026-08-11T19:00:00-07:00) or whenever the meeting is called to order, as recorded in the meeting minutes or attendance log. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-08-11T21:00:00-07:00",
   "world_id": "w_d70b06ec32f6"
  },

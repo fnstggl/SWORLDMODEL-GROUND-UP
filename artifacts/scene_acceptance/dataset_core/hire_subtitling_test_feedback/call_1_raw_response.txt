@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Noor Haddad",
-      "private_context": "Noor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, by 2026-10-02. She has no prior relationship with the agency beyond this submission."
+      "private_context": "Noor is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month, as quoted. She has no prior relationship with the agency beyond this submission."
     },
     {
       "name": "Subtitling Agency",
-      "private_context": "The agency receives test pieces from freelance translators and evaluates them. They quoted a one-month turnaround for feedback. They have many submissions to process and may prioritize based on their own criteria."
+      "private_context": "The agency receives many test submissions and evaluates them on an ad hoc basis. They quoted a one-month turnaround for feedback. They have no prior relationship with Noor."
     }
   ],
-  "shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency on or before 2026-09-02. The agency quoted a one-month turnaround for feedback. The agency has a process for evaluating test pieces and communicating results to candidates.",
+  "shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission was made before the simulation start time. The agency has Noor's contact information to respond.",
   "starting_events": [
     {
       "time": "2026-09-02T10:00:00+02:00",
-      "description": "Noor Haddad's test piece is in the agency's queue for evaluation.",
-      "visible_to": ["Subtitling Agency"]
+      "description": "The simulation begins. Noor's test piece is already with the agency, awaiting evaluation.",
+      "visible_to": ["Noor Haddad", "Subtitling Agency"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the agency sent any communication to Noor Haddad regarding her test piece before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the agency sent a response to Noor (by any means) before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

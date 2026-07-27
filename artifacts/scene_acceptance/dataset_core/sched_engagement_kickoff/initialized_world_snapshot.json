@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The firm signed a new client this morning. They have internal scheduling preferences and a designated partner or associate who will coordinate the kickoff meeting. They are aware of the 72-hour window but have no fixed time yet.",
+     "content": "Loomis & Hale LLP signed a new client this morning (2026-10-06). They have internal scheduling preferences and availability for kickoff meetings. They want to accommodate the client but also have existing commitments.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-06T16:30:00+00:00"
     },
     {
-     "content": "The engagement letter was signed at some point before 2026-10-06T09:30:00-07:00. Both sides expect to hold a kickoff meeting within 72 hours of signing. Communication channels (email, phone) are available for scheduling. No specific time has been proposed yet.",
+     "content": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the ability to propose and agree on meeting times via email or phone. The standard practice is for the law firm to propose initial times and for the client to respond. The cutoff for agreement is 2026-10-09T09:30:00-07:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-06T16:30:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The client signed an engagement letter with Loomis & Hale LLP this morning. They have their own scheduling constraints and a point of contact for arranging the kickoff meeting. They are aware that a meeting needs to be scheduled soon.",
+     "content": "The new client signed an engagement letter with Loomis & Hale LLP this morning (2026-10-06). They have their own scheduling preferences and availability for a kickoff meeting. They are eager to start the engagement.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-06T16:30:00+00:00"
     },
     {
-     "content": "The engagement letter was signed at some point before 2026-10-06T09:30:00-07:00. Both sides expect to hold a kickoff meeting within 72 hours of signing. Communication channels (email, phone) are available for scheduling. No specific time has been proposed yet.",
+     "content": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the ability to propose and agree on meeting times via email or phone. The standard practice is for the law firm to propose initial times and for the client to respond. The cutoff for agreement is 2026-10-09T09:30:00-07:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-06T16:30:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Loomis & Hale LLP signed a new client this morning. Will the two sides agree on a kickoff meeting time within 72 hours of the engagement letter being signed?",
-  "scene:shared_context": "The engagement letter was signed at some point before 2026-10-06T09:30:00-07:00. Both sides expect to hold a kickoff meeting within 72 hours of signing. Communication channels (email, phone) are available for scheduling. No specific time has been proposed yet."
+  "scene:shared_context": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the ability to propose and agree on meeting times via email or phone. The standard practice is for the law firm to propose initial times and for the client to respond. The cutoff for agreement is 2026-10-09T09:30:00-07:00."
  },
  "history": [],
  "infos": {},

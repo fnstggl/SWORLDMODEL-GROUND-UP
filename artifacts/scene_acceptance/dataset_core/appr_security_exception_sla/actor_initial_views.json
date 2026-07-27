@@ -23,13 +23,13 @@
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the five-business-day service window and wants the request to be approved.",
+    "content": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team for approval. He is aware of the five-business-day service window and hopes for a timely decision.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "Harborview Credit Union has a published service window of five business days for responding to software-exception requests. The request submission process is through an internal ticketing system. The current date and time is 2026-08-10T10:00:00-08:00, which is a Monday. The five-business-day window ends on 2026-08-14T17:00:00-08:00 (Friday), but the hard cutoff for resolution is 2026-08-17T17:00:00-08:00 (the following Monday).",
+    "content": "Harborview Credit Union has a published policy that software-exception requests are reviewed by the security team and a decision is communicated within five business days. The current time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "The security team at Harborview Credit Union reviews software-exception requests. They have a published policy of responding within five business days. They have no prior knowledge of Dev Patel's specific request until it is submitted.",
+    "content": "The security team at Harborview Credit Union is responsible for reviewing and deciding on software-exception requests. They operate with a published five-business-day service window for such decisions. They have not yet received Dev Patel's request.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "Harborview Credit Union has a published service window of five business days for responding to software-exception requests. The request submission process is through an internal ticketing system. The current date and time is 2026-08-10T10:00:00-08:00, which is a Monday. The five-business-day window ends on 2026-08-14T17:00:00-08:00 (Friday), but the hard cutoff for resolution is 2026-08-17T17:00:00-08:00 (the following Monday).",
+    "content": "Harborview Credit Union has a published policy that software-exception requests are reviewed by the security team and a decision is communicated within five business days. The current time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

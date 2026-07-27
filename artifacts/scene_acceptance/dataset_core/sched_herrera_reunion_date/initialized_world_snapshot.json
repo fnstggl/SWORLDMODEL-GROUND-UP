@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "herrera_cousins_group_chat_participants": {
+  "cousin_pushing_oaxaca_1": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,195 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "herrera_cousins_group_chat_participants",
+   "id": "cousin_pushing_oaxaca_1",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each cousin has their own preferences and availability for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio. Tia Marisol privately prefers to go with the majority but is also concerned about catering. Other cousins may have unstated preferences.",
+     "content": "One of the three cousins advocating for Oaxaca. Wants the reunion in Oaxaca.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T16:00:00+00:00"
     },
     {
-     "content": "There is a fourteen-person group chat that has been active for a month. The cousins are trying to decide on a weekend and a town for next spring's family reunion. The chat includes all fourteen cousins. The deadline for a decision is the end of September 2026.",
+     "content": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T16:00:00+00:00"
     }
    ],
-   "name": "Herrera cousins (group chat participants)",
+   "name": "Cousin pushing Oaxaca 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "cousin_pushing_oaxaca_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "cousin_pushing_oaxaca_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Second cousin advocating for Oaxaca.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    },
+    {
+     "content": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    }
+   ],
+   "name": "Cousin pushing Oaxaca 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "cousin_pushing_oaxaca_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "cousin_pushing_oaxaca_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Third cousin advocating for Oaxaca.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    },
+    {
+     "content": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    }
+   ],
+   "name": "Cousin pushing Oaxaca 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "cousin_pushing_san_antonio_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "cousin_pushing_san_antonio_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the two cousins advocating for San Antonio.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    },
+    {
+     "content": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    }
+   ],
+   "name": "Cousin pushing San Antonio 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "cousin_pushing_san_antonio_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "cousin_pushing_san_antonio_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Second cousin advocating for San Antonio.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    },
+    {
+     "content": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    }
+   ],
+   "name": "Cousin pushing San Antonio 2",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,13 +236,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "She is the eldest and influential. She says she will go with the majority but keeps changing the subject to catering. She may have her own private constraints or preferences regarding the reunion.",
+     "content": "Marisol is the eldest cousin. She says she will go with the majority but keeps changing the subject to catering. She wants the reunion to happen but is indecisive about location.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T16:00:00+00:00"
     },
     {
-     "content": "There is a fourteen-person group chat that has been active for a month. The cousins are trying to decide on a weekend and a town for next spring's family reunion. The chat includes all fourteen cousins. The deadline for a decision is the end of September 2026.",
+     "content": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T16:00:00+00:00"
@@ -102,7 +274,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
-  "scene:shared_context": "There is a fourteen-person group chat that has been active for a month. The cousins are trying to decide on a weekend and a town for next spring's family reunion. The chat includes all fourteen cousins. The deadline for a decision is the end of September 2026."
+  "scene:shared_context": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing."
  },
  "history": [],
  "infos": {},
@@ -112,6 +284,6 @@
  "resources": {},
  "start": "2026-08-01T16:00:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 23,
  "watches": {}
 }

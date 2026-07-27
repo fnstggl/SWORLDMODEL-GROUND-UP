@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "They are responsible for the Apollo 11 program and must decide whether to publicly announce a go decision for the July launch window after the flight readiness review. They have access to technical assessments and schedules, but the outcome of the review is not yet determined.",
+     "content": "They are responsible for the Apollo 11 flight readiness review and must decide whether to publicly announce a go decision for the July launch window. They have access to technical reports and status updates from various teams. They are aware of the upcoming review process and the need to make a decision before the end of June.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "1969-06-01T13:00:00+00:00"
     },
     {
-     "content": "The flight readiness review process for Apollo 11 is ongoing. A public announcement of a go decision for the July launch window would be made by senior managers after the review concludes. The review is expected to be completed before the end of June 1969.",
+     "content": "The Apollo 11 mission is scheduled for a July 1969 launch window. The flight readiness review process is underway, and a final decision on whether to proceed with the launch will be made during this process. The public announcement of a go decision is expected after the review concludes. The review process involves multiple technical assessments and meetings, but the specific schedule and outcomes are not predetermined.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "1969-06-01T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will NASA's senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before the end of June 1969?",
-  "scene:shared_context": "The flight readiness review process for Apollo 11 is ongoing. A public announcement of a go decision for the July launch window would be made by senior managers after the review concludes. The review is expected to be completed before the end of June 1969."
+  "scene:shared_context": "The Apollo 11 mission is scheduled for a July 1969 launch window. The flight readiness review process is underway, and a final decision on whether to proceed with the launch will be made during this process. The public announcement of a go decision is expected after the review concludes. The review process involves multiple technical assessments and meetings, but the specific schedule and outcomes are not predetermined."
  },
  "history": [],
  "infos": {},

@@ -1,7 +1,7 @@
 {
  "world_id": "w_e4ada05f2d55",
  "actor_ids": {
-  "Calloway Regional Hospital HR Department": "calloway_regional_hospital_hr_department"
+  "HR Manager": "hr_manager"
  },
  "event_records": [
   {
@@ -9,7 +9,7 @@
    "ledger_seq": 8,
    "at": "2026-10-01T04:59:00+00:00",
    "visible_to_ids": [
-    "calloway_regional_hospital_hr_department"
+    "hr_manager"
    ],
    "description": "The job posting for the ward-clerk vacancy closes. Eleven applications have been received."
   }
@@ -20,14 +20,14 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "calloway_regional_hospital_hr_department": {
-   "name": "Calloway Regional Hospital HR Department",
-   "persona_brief": "You are Calloway Regional Hospital HR Department.\nThe HR department is responsible for reviewing applications for the ward-clerk vacancy. They have received eleven applications by the closing deadline. They have internal criteria for selecting candidates to invite for interviews, but no decisions have been made yet."
+  "hr_manager": {
+   "name": "HR Manager",
+   "persona_brief": "You are HR Manager.\nThe HR Manager at Calloway Regional Hospital is responsible for screening applicants for the ward-clerk vacancy. They have received 11 applications by the posting closing time. They plan to review applications and decide whom to invite for interviews. They are aware of the two-week timeframe for invitations."
   }
  },
  "resolution": {
   "question": "Will at least three of the eleven applicants for Calloway Regional Hospital's ward-clerk vacancy be invited to interview within two weeks of the posting closing tonight?",
-  "resolution": "Resolve YES if the persistent event history shows that at least three distinct applicants were sent an interview invitation by the HR department before 2026-10-14T23:59:00-05:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least three of the eleven applicants received an interview invitation from Calloway Regional Hospital before 2026-10-14T23:59:00-05:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-14T23:59:00-05:00",
   "world_id": "w_e4ada05f2d55"
  }

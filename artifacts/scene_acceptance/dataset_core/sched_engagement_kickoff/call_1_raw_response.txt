@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Loomis & Hale LLP",
-      "private_context": "Loomis & Hale LLP signed a new client this morning. They want to schedule a kickoff meeting soon to begin work. They have internal calendars and can propose times."
+      "private_context": "Loomis & Hale LLP signed a new client this morning (2026-10-06). They have internal scheduling preferences and availability for kickoff meetings. They want to accommodate the client but also have existing commitments."
     },
     {
       "name": "New Client",
-      "private_context": "The new client signed an engagement letter with Loomis & Hale LLP this morning. They are available to meet and have their own scheduling preferences."
+      "private_context": "The new client signed an engagement letter with Loomis & Hale LLP this morning (2026-10-06). They have their own scheduling preferences and availability for a kickoff meeting. They are eager to start the engagement."
     }
   ],
-  "shared_context": "An engagement letter was signed between Loomis & Hale LLP and the new client on 2026-10-06. Both parties have the contact information to communicate about scheduling a kickoff meeting. The meeting can be in person or virtual, and times are to be agreed upon.",
+  "shared_context": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the ability to propose and agree on meeting times via email or phone. The standard practice is for the law firm to propose initial times and for the client to respond. The cutoff for agreement is 2026-10-09T09:30:00-07:00.",
   "starting_events": [
     {
       "time": "2026-10-06T09:30:00-07:00",
-      "description": "The engagement letter is signed, formalizing the client relationship.",
+      "description": "The engagement letter is signed by both parties.",
       "visible_to": ["Loomis & Hale LLP", "New Client"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that both parties have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that both parties have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Resolve NO if no such agreement is recorded by the cutoff."
 }

@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +98,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Apple Inc.",
-   "private_context": "Apple has a keynote speaker slot for Macworld San Francisco 2007. Steve Jobs is the CEO and typically delivers keynotes, but no decision has been announced yet. Apple may be considering other options or finalizing details."
+   "private_context": "Apple has not yet confirmed Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007. The company is considering options and may or may not decide to have Jobs deliver the keynote. Apple typically keeps keynote speaker announcements under wraps until close to the event."
   },
   {
    "name": "Steve Jobs",
-   "private_context": "Steve Jobs is the CEO of Apple. He is aware of the upcoming Macworld San Francisco 2007 and has historically given keynotes, but has not yet confirmed his participation for this event."
+   "private_context": "Steve Jobs is the CEO of Apple and has historically been the keynote speaker at Macworld events. He is aware that the conference is approaching but has not yet been officially confirmed as the speaker. He may or may not be willing or able to deliver the keynote."
   }
  ],
- "shared_context": "Macworld San Francisco 2007 is scheduled to take place from January 8 to January 12, 2007. The opening keynote is a major event. Apple has not yet publicly announced the keynote speaker. The conference organizers and the public are awaiting confirmation.",
+ "shared_context": "Macworld San Francisco 2007 is scheduled to take place from January 8 to January 12, 2007. The opening keynote is typically held on the first day. Apple has not yet publicly announced who will deliver the keynote. The conference organizers and the public are awaiting confirmation.",
  "starting_events": [
   {
    "time": "2006-12-01T09:00:00-08:00",
-   "description": "Apple has not yet confirmed Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007.",
+   "description": "The simulation begins with Apple and Steve Jobs having not yet confirmed the keynote speaker for Macworld San Francisco 2007.",
    "visible_to": [
     "Apple Inc.",
     "Steve Jobs"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, Apple publicly announces (via press release, official website, or other official channel) that Steve Jobs will be the opening keynote speaker for Macworld San Francisco 2007. Otherwise resolve NO."
+ "resolution": "Resolve YES if, before the hard cutoff at 2007-01-08T18:00:00-08:00, Apple Inc. publicly confirms (via an official announcement or press release) that Steve Jobs will be the opening keynote speaker for Macworld San Francisco 2007. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

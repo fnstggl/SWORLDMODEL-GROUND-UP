@@ -1,11 +1,11 @@
 {
  "world_id": "w_138490e1d51a",
  "actor_ids": {
-  "Committee Member A": "committee_member_a",
-  "Committee Member B": "committee_member_b",
-  "Committee Member C": "committee_member_c",
-  "Committee Member D": "committee_member_d",
-  "Committee Member E": "committee_member_e"
+  "Committee Member 1": "committee_member_1",
+  "Committee Member 2": "committee_member_2",
+  "Committee Member 3": "committee_member_3",
+  "Committee Member 4": "committee_member_4",
+  "Committee Member 5": "committee_member_5"
  },
  "event_records": [
   {
@@ -13,13 +13,13 @@
    "ledger_seq": 20,
    "at": "2026-09-14T15:00:00+00:00",
    "visible_to_ids": [
-    "committee_member_a",
-    "committee_member_b",
-    "committee_member_c",
-    "committee_member_d",
-    "committee_member_e"
+    "committee_member_1",
+    "committee_member_2",
+    "committee_member_3",
+    "committee_member_4",
+    "committee_member_5"
    ],
-   "description": "The committee members are aware of the upcoming Thursday session and the skate-park relocation vote."
+   "description": "The committee members are aware of the upcoming Thursday session and the scheduled vote on the skate-park relocation."
   }
  ],
  "code_owned_defaults": {
@@ -28,30 +28,30 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "committee_member_a": {
-   "name": "Committee Member A",
-   "persona_brief": "You are Committee Member A.\nLives near the proposed skate-park relocation site. Has received many emails from constituents both for and against. Has not yet decided how to vote."
+  "committee_member_1": {
+   "name": "Committee Member 1",
+   "persona_brief": "You are Committee Member 1.\nLives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote."
   },
-  "committee_member_b": {
-   "name": "Committee Member B",
-   "persona_brief": "You are Committee Member B.\nLives near the proposed skate-park relocation site. Has received many emails from constituents both for and against. Has not yet decided how to vote."
+  "committee_member_2": {
+   "name": "Committee Member 2",
+   "persona_brief": "You are Committee Member 2.\nLives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote."
   },
-  "committee_member_c": {
-   "name": "Committee Member C",
-   "persona_brief": "You are Committee Member C.\nDoes not live near the site. Has followed the public comments and letters. Has not yet decided how to vote."
+  "committee_member_3": {
+   "name": "Committee Member 3",
+   "persona_brief": "You are Committee Member 3.\nNo personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote."
   },
-  "committee_member_d": {
-   "name": "Committee Member D",
-   "persona_brief": "You are Committee Member D.\nDoes not live near the site. Has followed the public comments and letters. Has not yet decided how to vote."
+  "committee_member_4": {
+   "name": "Committee Member 4",
+   "persona_brief": "You are Committee Member 4.\nNo personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote."
   },
-  "committee_member_e": {
-   "name": "Committee Member E",
-   "persona_brief": "You are Committee Member E.\nDoes not live near the site. Has followed the public comments and letters. Has not yet decided how to vote."
+  "committee_member_5": {
+   "name": "Committee Member 5",
+   "persona_brief": "You are Committee Member 5.\nNo personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote."
   }
  },
  "resolution": {
   "question": "Will at least one member of Riverton's parks committee vote against the skate-park relocation when it comes up at Thursday's session?",
-  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during Thursday's session. Resolve NO if the session concludes with no vote against (i.e., all votes are in favor or the vote does not occur). If the session does not occur by the cutoff, resolve NO.",
   "cutoff": "2026-09-17T22:00:00-06:00",
   "world_id": "w_138490e1d51a"
  }

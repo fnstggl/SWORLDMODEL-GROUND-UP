@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 1 has prepared a chapter and wants to present it. They are open to negotiation but prefer their first choice.",
+     "content": "Student 1 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "content": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 2 has prepared a chapter and wants to present it. They are willing to compromise if needed.",
+     "content": "Student 2 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "content": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 3 has prepared a chapter and wants to present it. They are flexible about which chapter they present.",
+     "content": "Student 3 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "content": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -150,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 4 has prepared a chapter and wants to present it. They are concerned about fairness and want everyone to agree.",
+     "content": "Student 4 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "content": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -193,13 +193,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 5 has prepared a chapter and wants to present it. They are shy but will speak up if their preference is ignored.",
+     "content": "Student 5 is a member of the actuarial study group. They have prepared some material for Saturday's session and have preferences about which chapter to present. They want to reach an agreement tonight.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "content": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -231,7 +231,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?",
-  "scene:shared_context": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment."
+  "scene:shared_context": "The five students are meeting tonight to decide who will present which chapter at Saturday's session. They have a list of chapters to cover and each student has some preparation. The meeting starts at 2026-08-19T19:00:00+08:00 and they aim to reach a consensus by 23:00."
  },
  "history": [],
  "infos": {},

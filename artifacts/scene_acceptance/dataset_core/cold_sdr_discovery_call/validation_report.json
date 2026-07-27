@@ -1,4 +1,36 @@
 {
  "errors": [],
- "warnings": []
+ "warnings": [
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 10' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 11' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 12' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 13' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 14' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 15' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 16' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 17' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 18' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 1' and 'Procurement Lead 19' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 20' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 21' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 22' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 23' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 24' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 25' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 26' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 27' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 28' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 2' and 'Procurement Lead 29' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 30' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 31' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 32' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 33' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 34' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 35' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 36' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 37' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 38' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 3' and 'Procurement Lead 39' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Procurement Lead 4' and 'Procurement Lead 40' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)"
+ ]
 }

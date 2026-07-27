@@ -27,7 +27,7 @@
     "member_7",
     "member_8"
    ],
-   "description": "The committee's rescheduled Tuesday evening meeting is announced. Two members are traveling, three have confirmed, and the chair has never missed a session. The remaining four members have not yet confirmed."
+   "description": "The rescheduled Tuesday evening meeting is upcoming. The chair and three confirmed members plan to attend. Two members are traveling and cannot attend. Three members have not yet responded."
   }
  ],
  "code_owned_defaults": {
@@ -38,44 +38,44 @@
  "personas": {
   "chair": {
    "name": "Chair",
-   "persona_brief": "You are Chair.\nThe chair has never missed a session and intends to attend this meeting as well. They are aware of the reschedule and the school-holiday week."
+   "persona_brief": "You are Chair.\nThe chair has never missed a session and intends to attend this rescheduled meeting. They are aware of the quorum requirement of five members."
   },
   "member_1": {
    "name": "Member 1",
-   "persona_brief": "You are Member 1.\nMember 1 is traveling during the school-holiday week and cannot attend the rescheduled meeting."
+   "persona_brief": "You are Member 1.\nHas confirmed attendance for the rescheduled Tuesday evening meeting."
   },
   "member_2": {
    "name": "Member 2",
-   "persona_brief": "You are Member 2.\nMember 2 is traveling during the school-holiday week and cannot attend the rescheduled meeting."
+   "persona_brief": "You are Member 2.\nHas confirmed attendance for the rescheduled Tuesday evening meeting."
   },
   "member_3": {
    "name": "Member 3",
-   "persona_brief": "You are Member 3.\nMember 3 has confirmed attendance at the rescheduled meeting."
+   "persona_brief": "You are Member 3.\nHas confirmed attendance for the rescheduled Tuesday evening meeting."
   },
   "member_4": {
    "name": "Member 4",
-   "persona_brief": "You are Member 4.\nMember 4 has confirmed attendance at the rescheduled meeting."
+   "persona_brief": "You are Member 4.\nIs traveling during the school-holiday week and cannot attend the rescheduled meeting."
   },
   "member_5": {
    "name": "Member 5",
-   "persona_brief": "You are Member 5.\nMember 5 has confirmed attendance at the rescheduled meeting."
+   "persona_brief": "You are Member 5.\nIs traveling during the school-holiday week and cannot attend the rescheduled meeting."
   },
   "member_6": {
    "name": "Member 6",
-   "persona_brief": "You are Member 6.\nMember 6 has not yet confirmed attendance; their plans are unknown."
+   "persona_brief": "You are Member 6.\nHas not yet responded about attendance for the rescheduled meeting. May or may not attend."
   },
   "member_7": {
    "name": "Member 7",
-   "persona_brief": "You are Member 7.\nMember 7 has not yet confirmed attendance; their plans are unknown."
+   "persona_brief": "You are Member 7.\nHas not yet responded about attendance for the rescheduled meeting. May or may not attend."
   },
   "member_8": {
    "name": "Member 8",
-   "persona_brief": "You are Member 8.\nMember 8 has not yet confirmed attendance; their plans are unknown."
+   "persona_brief": "You are Member 8.\nHas not yet responded about attendance for the rescheduled meeting. May or may not attend."
   }
  },
  "resolution": {
   "question": "The Marlin Bay harbor advisory committee needs five of its nine members present to act. Will it reach quorum at its rescheduled Tuesday evening meeting?",
-  "resolution": "Resolve YES if at least five members (including the chair) are physically present at the meeting location at the scheduled start time or within a reasonable grace period (e.g., 15 minutes). Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES if at least five members are present at the meeting start time (2026-08-11T19:00:00-07:00) or whenever the meeting is called to order, as recorded in the meeting minutes or attendance log. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-08-11T21:00:00-07:00",
   "world_id": "w_d70b06ec32f6"
  }

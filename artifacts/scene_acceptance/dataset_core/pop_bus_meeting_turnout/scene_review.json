@@ -1,10 +1,4 @@
 {
- "verdict": "ABSTAIN",
- "defects": [
-  {
-   "path": "scene",
-   "problem": "The actor 'Villagers of Kettlewell' is a generic placeholder for an unspecified group. The question does not identify any specific villagers, and the scene invents a collective actor that cannot be meaningfully simulated as an individual decision-maker. This violates the rule against generic placeholder actors standing in for parties the question never identifies.",
-   "correction": "The scene cannot be salvaged without identifying specific villagers or a mechanism for counting attendance. The question requires a simulation of individual attendance decisions, but no specific villagers are named or characterized. ABSTAIN is appropriate."
-  }
- ]
+ "verdict": "APPROVE",
+ "defects": []
 }

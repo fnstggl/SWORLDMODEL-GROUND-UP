@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -105,18 +105,18 @@ THE COMPILED SCENE (exact manifest under review):
    "private_context": "Each member has received notice of the special general meeting on the 12th and the proposed pet policy amendment. They have their own preferences and schedules, and may or may not attend the meeting."
   }
  ],
- "shared_context": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. A special general meeting has been called for 2026-09-12 to vote on such an amendment. The meeting will be held at the cooperative's common hall. Members can attend in person or by proxy. The cutoff for counting turnout is the end of the meeting, scheduled for 22:00.",
+ "shared_context": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. The special general meeting is scheduled for 2026-09-12. The meeting will be held in person at the cooperative's common hall. Members can attend in person or submit a proxy vote in advance. The board has sent out meeting notices and the proposed amendment text to all members.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+02:00",
-   "description": "The board has sent out official notices to all members about the special general meeting on the 12th and the proposed pet policy amendment.",
+   "description": "The board has sent out notices to all members about the special general meeting on the 12th and the proposed pet policy amendment.",
    "visible_to": [
     "Sunmark housing cooperative board",
     "Sunmark housing cooperative members"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that at least two-thirds of all members (or their valid proxies) were recorded as present at the special general meeting by the cutoff time of 2026-09-12T22:00:00+02:00. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that at least two-thirds of all members attended the meeting (in person or by proxy) and the amendment was voted on. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

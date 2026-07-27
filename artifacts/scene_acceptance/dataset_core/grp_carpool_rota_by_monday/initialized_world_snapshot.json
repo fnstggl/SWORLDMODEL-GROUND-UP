@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "family_a": {
+  "family_1": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "family_a",
+   "id": "family_1",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Family A has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families.",
+     "content": "Family 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed specific preferences with the other families.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T21:00:00+00:00"
     },
     {
-     "content": "The three families live on the same cul-de-sac and their children attend the same school. Term starts on Monday 2026-09-07. They have not yet agreed on a weekly driving rota. They can communicate via a group chat or in person. Each family has a car and can drive on some days.",
+     "content": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool before term starts on Monday morning (2026-09-07). They have each other's contact information and can communicate. No rota has been agreed yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T21:00:00+00:00"
     }
    ],
-   "name": "Family A",
+   "name": "Family 1",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "family_b": {
+  "family_2": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "family_b",
+   "id": "family_2",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Family B has one child. They are open to participating in a carpool but have constraints on certain mornings. They have not yet discussed preferences with the other families.",
+     "content": "Family 2 has one child who needs a ride. They can drive on certain days but have a busy schedule. They are open to a rota but have not committed to any arrangement.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T21:00:00+00:00"
     },
     {
-     "content": "The three families live on the same cul-de-sac and their children attend the same school. Term starts on Monday 2026-09-07. They have not yet agreed on a weekly driving rota. They can communicate via a group chat or in person. Each family has a car and can drive on some days.",
+     "content": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool before term starts on Monday morning (2026-09-07). They have each other's contact information and can communicate. No rota has been agreed yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T21:00:00+00:00"
     }
    ],
-   "name": "Family B",
+   "name": "Family 2",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -88,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "family_c": {
+  "family_3": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -103,23 +103,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "family_c",
+   "id": "family_3",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Family C has three children. They are keen to set up a rota to reduce driving burden. They have not yet discussed preferences with the other families.",
+     "content": "Family 3 has three children. They are eager to set up a carpool to reduce driving duty. They have some flexibility but have not yet coordinated with the others.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T21:00:00+00:00"
     },
     {
-     "content": "The three families live on the same cul-de-sac and their children attend the same school. Term starts on Monday 2026-09-07. They have not yet agreed on a weekly driving rota. They can communicate via a group chat or in person. Each family has a car and can drive on some days.",
+     "content": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool before term starts on Monday morning (2026-09-07). They have each other's contact information and can communicate. No rota has been agreed yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T21:00:00+00:00"
     }
    ],
-   "name": "Family C",
+   "name": "Family 3",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
-  "scene:shared_context": "The three families live on the same cul-de-sac and their children attend the same school. Term starts on Monday 2026-09-07. They have not yet agreed on a weekly driving rota. They can communicate via a group chat or in person. Each family has a car and can drive on some days."
+  "scene:shared_context": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool before term starts on Monday morning (2026-09-07). They have each other's contact information and can communicate. No rota has been agreed yet."
  },
  "history": [],
  "infos": {},

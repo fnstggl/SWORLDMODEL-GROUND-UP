@@ -1,10 +1,10 @@
 {
- "verdict": "ABSTAIN",
- "defects": [
-  {
-   "path": "scene",
-   "problem": "The scene uses a single collective actor 'Cheap Detour (band as a collective decision-making unit)' to represent four distinct members. This is a generic placeholder that obscures the individual decision-makers and their interactions. The question asks about the actions of four specific members, but the scene does not include them as separate actors with their own private contexts, preferences, and communication channels. Without individual actors, the simulation cannot meaningfully model the social negotiation required to settle a setlist.",
-   "correction": "Replace the collective actor with four individual actors (e.g., the named members of Cheap Detour, if known, or generic 'Member 1', etc.) each with their own private context reflecting their personal preferences and knowledge. The shared context should be limited to information all members would know. Starting events should reflect the initial state of discussion (e.g., no setlist agreed, perhaps some suggestions made)."
-  }
- ]
+  "verdict": "ABSTAIN",
+  "defects": [
+    {
+      "path": "scene",
+      "problem": "The scene models the band as a single actor, but the question asks about four individual members settling a setlist. The decision-making process requires interaction among distinct individuals; a single collective actor cannot simulate the social dynamics of agreement. The scene is not simulatable as a social scene with the given actor representation.",
+      "correction": "Replace the single actor with four individual actors representing each band member, each with their own private context and ability to communicate."
+    }
+  ]
 }

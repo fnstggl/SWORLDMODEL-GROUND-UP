@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Brightline Software's three co-founders decide whether the January price increase is going ahead, and tell the team, before the all-hands on the 18th?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-12-18T10:00:00-08:00, the persistent event history shows that the three co-founders have collectively decided whether the January price increase is going ahead (i.e., they have reached a decision) AND that decision has been communicated to the team (e.g., via an email, a message, or an announcement at the all-hands meeting). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the hard cutoff at 2026-12-18T10:00:00-08:00, the persistent event history shows that the three co-founders have collectively decided whether the January price increase is going ahead and that they have communicated that decision to the team (e.g., via an announcement, email, or meeting). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-12-18T10:00:00-08:00",
   "world_id": "w_619f857bd038"
  },

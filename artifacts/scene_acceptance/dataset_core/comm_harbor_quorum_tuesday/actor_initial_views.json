@@ -23,13 +23,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The chair has never missed a session and intends to attend this meeting as well. They are aware of the reschedule and the school-holiday week.",
+    "content": "The chair has never missed a session and intends to attend this rescheduled meeting. They are aware of the quorum requirement of five members.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 1 is traveling during the school-holiday week and cannot attend the rescheduled meeting.",
+    "content": "Has confirmed attendance for the rescheduled Tuesday evening meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 2 is traveling during the school-holiday week and cannot attend the rescheduled meeting.",
+    "content": "Has confirmed attendance for the rescheduled Tuesday evening meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 3 has confirmed attendance at the rescheduled meeting.",
+    "content": "Has confirmed attendance for the rescheduled Tuesday evening meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -195,13 +195,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 4 has confirmed attendance at the rescheduled meeting.",
+    "content": "Is traveling during the school-holiday week and cannot attend the rescheduled meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -238,13 +238,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 5 has confirmed attendance at the rescheduled meeting.",
+    "content": "Is traveling during the school-holiday week and cannot attend the rescheduled meeting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -281,13 +281,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 6 has not yet confirmed attendance; their plans are unknown.",
+    "content": "Has not yet responded about attendance for the rescheduled meeting. May or may not attend.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -324,13 +324,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 7 has not yet confirmed attendance; their plans are unknown.",
+    "content": "Has not yet responded about attendance for the rescheduled meeting. May or may not attend.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -367,13 +367,13 @@
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "Member 8 has not yet confirmed attendance; their plans are unknown.",
+    "content": "Has not yet responded about attendance for the rescheduled meeting. May or may not attend.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-09T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+    "content": "The Marlin Bay harbor advisory committee has nine members. To act, five members must be present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. The chair has never missed a session. Three members have confirmed attendance. Two members are traveling and cannot attend. The remaining three members have not yet responded.",
     "source": "scene_manifest:shared_context"
    }
   ],

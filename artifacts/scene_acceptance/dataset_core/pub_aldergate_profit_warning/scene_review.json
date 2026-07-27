@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The scene uses a generic placeholder actor 'Aldergate Rail' as a single entity, but the question involves a decision by a firm's leadership. The actor 'Aldergate Rail' is not a specific decision-maker; it is a corporate entity. The scene lacks any named individuals (e.g., CEO, board members) who would actually make the decision. This is an invented stand-in for an unspecified party, violating the rule against generic placeholder actors.",
-   "correction": "The scene must include specific named actors (e.g., CEO, CFO, board members) who are the actual decision-makers, or the question must be rejected as insufficiently specified."
+   "problem": "The scene lacks a decision-maker. The actor 'Aldergate Rail (the firm)' is an abstract entity, not a specific person or group capable of making a decision. The question asks whether the firm will warn the market, but the simulation needs a concrete actor (e.g., CEO, board, or communications officer) to decide and act. Without a decision-maker, the scene cannot be simulated.",
+   "correction": "Add a specific decision-making actor, such as 'CEO of Aldergate Rail' or 'Board of Aldergate Rail', with appropriate private context reflecting their knowledge and authority."
   }
  ]
 }

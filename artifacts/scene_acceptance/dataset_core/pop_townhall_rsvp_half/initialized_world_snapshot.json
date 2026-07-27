@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each parent has received an invitation to the town hall. They may or may not RSVP depending on their interest, availability, and other factors. No parent has yet responded.",
+     "content": "Each of the 120 parents received an invitation to the town hall. They may or may not RSVP by the deadline. Their individual decisions are unknown.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T08:00:00+00:00"
     },
     {
-     "content": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05.",
+     "content": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior RSVP data.",
+     "content": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior knowledge of which parents will RSVP.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T08:00:00+00:00"
     },
     {
-     "content": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05.",
+     "content": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T08:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will more than half of the 120 invited parents RSVP either way to Petersfield Secondary's curriculum-change town hall by the Friday before it?",
-  "scene:shared_context": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05."
+  "scene:shared_context": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date."
  },
  "history": [],
  "infos": {},

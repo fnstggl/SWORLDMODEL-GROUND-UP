@@ -1,21 +1,21 @@
 {
   "actors": [
     {
-      "name": "Tidepool founder",
-      "private_context": "The founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. Two journalists have emailed for comment. The founder is deciding whether to post a public response to the viral thread."
+      "name": "Founder of Tidepool",
+      "private_context": "The founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. They have received email inquiries from two journalists about the viral thread. The founder is considering whether and how to respond publicly."
     },
     {
-      "name": "Tidepool head of support",
-      "private_context": "The head of support has privately confirmed to the founder that some takedowns happened. They are aware of the viral thread and the journalists' inquiries."
+      "name": "Head of Support at Tidepool",
+      "private_context": "The head of support has privately confirmed to the founder that some takedowns of critical reviews happened. They are aware of the viral thread and the journalists' inquiries."
     }
   ],
-  "shared_context": "A viral thread on social media, with two million views and screenshots that look genuine, accuses Tidepool of deleting critical reviews. The thread is publicly visible. Two journalists have emailed Tidepool for comment.",
+  "shared_context": "A viral thread on social media, with two million views and screenshots that appear genuine, accuses Tidepool of deleting critical reviews. Two journalists have emailed Tidepool for comment. The thread is publicly visible and has generated significant attention.",
   "starting_events": [
     {
       "time": "2026-09-03T15:00:00-07:00",
-      "description": "The viral thread accusing Tidepool of deleting critical reviews is circulating publicly with two million views and screenshots.",
-      "visible_to": ["Tidepool founder", "Tidepool head of support"]
+      "description": "The viral thread accusing Tidepool of deleting critical reviews is circulating publicly with two million views. The founder has been informed by the head of support that some takedowns occurred. Two journalists have sent emails requesting comment.",
+      "visible_to": ["Founder of Tidepool", "Head of Support at Tidepool"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the Tidepool founder posted a public response (e.g., a post, statement, or comment) addressing the thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the founder of Tidepool posted a public response (e.g., a statement, tweet, or post) addressing the accusations before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
 }

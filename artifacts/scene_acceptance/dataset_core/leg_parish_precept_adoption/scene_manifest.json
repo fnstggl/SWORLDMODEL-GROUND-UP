@@ -2,14 +2,14 @@
  "actors": [
   {
    "name": "Kettlewell Parish Council",
-   "private_context": "The council is a body of elected members. Its standing orders require the precept for the next financial year to be formally adopted at the January meeting. The council has a chairperson and a clerk. The council members have varying views on the appropriate precept level, but no decision has been made yet."
+   "private_context": "The council is a body of elected members. Its standing orders require the precept for the next financial year to be formally adopted at the January meeting. The council has a draft precept figure prepared by the clerk, but no formal decision has been made yet."
   }
  ],
- "shared_context": "Kettlewell Parish Council's January meeting is scheduled to take place before the hard cutoff. The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require formal adoption at this meeting. The precept is the portion of council tax that goes to the parish council.",
+ "shared_context": "Kettlewell Parish Council's January meeting is scheduled to take place before the hard cutoff. The meeting agenda includes the item 'Adoption of Precept for 2027-28'. The council's standing orders require formal adoption at this meeting. The draft precept figure is available to all councillors.",
  "starting_events": [
   {
    "time": "2027-01-04T09:00:00+00:00",
-   "description": "The council's clerk has circulated the agenda for the January meeting, which includes the precept adoption item.",
+   "description": "The January meeting of Kettlewell Parish Council is scheduled to begin. The agenda includes the precept adoption item.",
    "visible_to": [
     "Kettlewell Parish Council"
    ]

@@ -2,43 +2,43 @@
  "actors": [
   {
    "name": "Jaka",
-   "private_context": "Jaka is the one who usually books the apartment. He is aware of the early-bird deadline on the 15th and wants to secure the apartment they liked last year. He is willing to coordinate but needs agreement from the others."
+   "private_context": "Jaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird train fares end on the 15th. He has no particular constraints on leave."
   },
   {
-   "name": "Friend1",
-   "private_context": "Friend1 has a new job with limited leave. They are interested in the trip but need to confirm dates that work with their schedule."
+   "name": "Friend 1",
+   "private_context": "One of the six friends. Has a new job with limited leave. Interested in the trip but availability is constrained."
   },
   {
-   "name": "Friend2",
-   "private_context": "Friend2 has a new job with limited leave. They are interested in the trip but need to confirm dates that work with their schedule."
+   "name": "Friend 2",
+   "private_context": "One of the six friends. Has a new job with limited leave. Interested in the trip but availability is constrained."
   },
   {
-   "name": "Friend3",
-   "private_context": "Friend3 is flexible and eager to go on the trip. They have no major constraints."
+   "name": "Friend 3",
+   "private_context": "One of the six friends. No special constraints mentioned."
   },
   {
-   "name": "Friend4",
-   "private_context": "Friend4 is flexible and eager to go on the trip. They have no major constraints."
+   "name": "Friend 4",
+   "private_context": "One of the six friends. No special constraints mentioned."
   },
   {
-   "name": "Friend5",
-   "private_context": "Friend5 is flexible and eager to go on the trip. They have no major constraints."
+   "name": "Friend 5",
+   "private_context": "One of the six friends. No special constraints mentioned."
   }
  ],
- "shared_context": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+ "shared_context": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
  "starting_events": [
   {
    "time": "2026-08-01T10:00:00+02:00",
    "description": "The group chat is active. No messages have been sent yet regarding this year's trip.",
    "visible_to": [
     "Jaka",
-    "Friend1",
-    "Friend2",
-    "Friend3",
-    "Friend4",
-    "Friend5"
+    "Friend 1",
+    "Friend 2",
+    "Friend 3",
+    "Friend 4",
+    "Friend 5"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that all six friends have agreed on specific dates and the apartment has been booked before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that before 2026-08-15T23:59:00+02:00, all six friends have agreed on specific dates (e.g., via messages in the chat) and the apartment has been booked (e.g., a booking confirmation is shared or Jaka confirms booking). Otherwise resolve NO at the cutoff."
 }

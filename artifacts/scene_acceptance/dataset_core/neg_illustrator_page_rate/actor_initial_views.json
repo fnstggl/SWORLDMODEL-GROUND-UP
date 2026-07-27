@@ -23,13 +23,13 @@
    {
     "t": "2026-08-06T06:00:00+00:00",
     "kind": "context",
-    "content": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. They have received an initial offer and are preparing a counteroffer on the page rate. Chen Wei wants to secure a rate they consider fair and is willing to negotiate.",
+    "content": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. They have received an initial page rate offer and are preparing a counteroffer today. They want to settle on a rate within a week.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-06T06:00:00+00:00",
     "kind": "context",
-    "content": "Chen Wei and Torchlight Media are in active negotiations for a twelve-page illustration commission. Chen Wei is preparing to send a counteroffer on the page rate today, 2026-08-06. Both parties have each other's contact information and can communicate via email or other agreed channels. The negotiation has a one-week window from today to reach an agreement.",
+    "content": "Chen Wei and Torchlight Media are in negotiation over the page rate for a twelve-page commission. Chen Wei is preparing to send a counteroffer today, August 6, 2026. Both parties have each other's contact information and can communicate via email or other means. The negotiation has a one-week window from today to reach an agreement.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-06T06:00:00+00:00",
     "kind": "context",
-    "content": "Torchlight Media is a publisher that wants to commission Chen Wei for a twelve-page project. They have made an initial offer on the page rate and are aware that Chen Wei may counter. They have a standard negotiation process and a maximum budget they are willing to spend.",
+    "content": "Torchlight Media is a publisher that wants to commission Chen Wei for a twelve-page project. They have made an initial page rate offer and are open to negotiation. They have a standard process for approving rate changes.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-06T06:00:00+00:00",
     "kind": "context",
-    "content": "Chen Wei and Torchlight Media are in active negotiations for a twelve-page illustration commission. Chen Wei is preparing to send a counteroffer on the page rate today, 2026-08-06. Both parties have each other's contact information and can communicate via email or other agreed channels. The negotiation has a one-week window from today to reach an agreement.",
+    "content": "Chen Wei and Torchlight Media are in negotiation over the page rate for a twelve-page commission. Chen Wei is preparing to send a counteroffer today, August 6, 2026. Both parties have each other's contact information and can communicate via email or other means. The negotiation has a one-week window from today to reach an agreement.",
     "source": "scene_manifest:shared_context"
    }
   ],

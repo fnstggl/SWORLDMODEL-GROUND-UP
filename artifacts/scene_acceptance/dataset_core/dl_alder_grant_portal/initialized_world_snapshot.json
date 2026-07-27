@@ -27,7 +27,7 @@
      "t": "2026-09-21T14:00:00+00:00"
     },
     {
-     "content": "The two-person nonprofit is applying to the Alder Foundation. The application portal closes at 17:00 on September 30, 2026. The budget spreadsheet is the only unfinished piece. The fiscal sponsor needs 48 hours to countersign before submission. The current time is 2026-09-21T09:00:00-05:00.",
+     "content": "The two-person nonprofit (Lucia Ferreyra and her co-director) is preparing an application for the Alder Foundation. The application is mostly drafted except for the budget spreadsheet. The fiscal sponsor needs 48 hours to countersign before submission. The portal closes at 17:00 on the 30th. The current time is 2026-09-21T09:00:00-05:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-21T14:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The fiscal sponsor is an organization that provides countersignature for grant applications. They require 48 hours to review and countersign once they receive the completed application.",
+     "content": "The fiscal sponsor is an organization that provides countersignatures for grant applications. They require 48 hours to review and countersign documents. They have no prior knowledge of the specific application timeline.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-21T14:00:00+00:00"
     },
     {
-     "content": "The two-person nonprofit is applying to the Alder Foundation. The application portal closes at 17:00 on September 30, 2026. The budget spreadsheet is the only unfinished piece. The fiscal sponsor needs 48 hours to countersign before submission. The current time is 2026-09-21T09:00:00-05:00.",
+     "content": "The two-person nonprofit (Lucia Ferreyra and her co-director) is preparing an application for the Alder Foundation. The application is mostly drafted except for the budget spreadsheet. The fiscal sponsor needs 48 hours to countersign before submission. The portal closes at 17:00 on the 30th. The current time is 2026-09-21T09:00:00-05:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-21T14:00:00+00:00"
@@ -113,7 +113,7 @@
      "t": "2026-09-21T14:00:00+00:00"
     },
     {
-     "content": "The two-person nonprofit is applying to the Alder Foundation. The application portal closes at 17:00 on September 30, 2026. The budget spreadsheet is the only unfinished piece. The fiscal sponsor needs 48 hours to countersign before submission. The current time is 2026-09-21T09:00:00-05:00.",
+     "content": "The two-person nonprofit (Lucia Ferreyra and her co-director) is preparing an application for the Alder Foundation. The application is mostly drafted except for the budget spreadsheet. The fiscal sponsor needs 48 hours to countersign before submission. The portal closes at 17:00 on the 30th. The current time is 2026-09-21T09:00:00-05:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-21T14:00:00+00:00"
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Lucia Ferreyra's two-person nonprofit submit its completed Alder Foundation application before the portal closes at 17:00 on the 30th?",
-  "scene:shared_context": "The two-person nonprofit is applying to the Alder Foundation. The application portal closes at 17:00 on September 30, 2026. The budget spreadsheet is the only unfinished piece. The fiscal sponsor needs 48 hours to countersign before submission. The current time is 2026-09-21T09:00:00-05:00."
+  "scene:shared_context": "The two-person nonprofit (Lucia Ferreyra and her co-director) is preparing an application for the Alder Foundation. The application is mostly drafted except for the budget spreadsheet. The fiscal sponsor needs 48 hours to countersign before submission. The portal closes at 17:00 on the 30th. The current time is 2026-09-21T09:00:00-05:00."
  },
  "history": [],
  "infos": {},

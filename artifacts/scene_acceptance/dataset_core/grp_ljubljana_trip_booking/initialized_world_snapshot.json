@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "friend1": {
+  "friend_1": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "friend1",
+   "id": "friend_1",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Friend1 has a new job with limited leave. They are interested in the trip but need to confirm dates that work with their schedule.",
+     "content": "One of the six friends. Has a new job with limited leave. Interested in the trip but availability is constrained.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
     }
    ],
-   "name": "Friend1",
+   "name": "Friend 1",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "friend2": {
+  "friend_2": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "friend2",
+   "id": "friend_2",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Friend2 has a new job with limited leave. They are interested in the trip but need to confirm dates that work with their schedule.",
+     "content": "One of the six friends. Has a new job with limited leave. Interested in the trip but availability is constrained.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
     }
    ],
-   "name": "Friend2",
+   "name": "Friend 2",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -88,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "friend3": {
+  "friend_3": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -103,23 +103,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "friend3",
+   "id": "friend_3",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Friend3 is flexible and eager to go on the trip. They have no major constraints.",
+     "content": "One of the six friends. No special constraints mentioned.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
     }
    ],
-   "name": "Friend3",
+   "name": "Friend 3",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -131,7 +131,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "friend4": {
+  "friend_4": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -146,23 +146,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "friend4",
+   "id": "friend_4",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Friend4 is flexible and eager to go on the trip. They have no major constraints.",
+     "content": "One of the six friends. No special constraints mentioned.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
     }
    ],
-   "name": "Friend4",
+   "name": "Friend 4",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -174,7 +174,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "friend5": {
+  "friend_5": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -189,23 +189,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "friend5",
+   "id": "friend_5",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Friend5 is flexible and eager to go on the trip. They have no major constraints.",
+     "content": "One of the six friends. No special constraints mentioned.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
     }
    ],
-   "name": "Friend5",
+   "name": "Friend 5",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -236,13 +236,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Jaka is the one who usually books the apartment. He is aware of the early-bird deadline on the 15th and wants to secure the apartment they liked last year. He is willing to coordinate but needs agreement from the others.",
+     "content": "Jaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird train fares end on the 15th. He has no particular constraints on leave.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T08:00:00+00:00"
     },
     {
-     "content": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+     "content": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T08:00:00+00:00"
@@ -274,7 +274,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the six university friends in the Ljubljana-trip group chat agree on dates and book the apartment before early-bird train fares end on the 15th?",
-  "scene:shared_context": "There is a group chat for the Ljubljana trip with six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline."
+  "scene:shared_context": "There is a group chat for the Ljubljana trip, consisting of the six university friends. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline. The chat is active and all members can see messages."
  },
  "history": [],
  "infos": {},

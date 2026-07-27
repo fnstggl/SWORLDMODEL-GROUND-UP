@@ -1,7 +1,7 @@
 {
- "veldt_solar_legal_team": {
-  "id": "veldt_solar_legal_team",
-  "name": "Veldt Solar Legal Team",
+ "veldt_solar_s_legal_team": {
+  "id": "veldt_solar_s_legal_team",
+  "name": "Veldt Solar's legal team",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-18T09:00:00+00:00",
     "kind": "context",
-    "content": "The legal team has received the revised supplier contract today (2026-08-18) for review. They have internal procedures for contract clearance, but the timeline depends on workload, complexity, and any issues found. They are aware of the ten-working-day expectation but have not committed to a specific deadline.",
+    "content": "The legal team has received the revised supplier contract today (2026-08-18) and must review it for legal risks, compliance, and terms before clearing it for signature. They have their own internal processes and priorities, and may have other pending work.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-18T09:00:00+00:00",
     "kind": "context",
-    "content": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance before signature. The review process typically involves checking for legal risks, compliance, and alignment with company policies. The team operates during standard business hours on working days.",
+    "content": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance. The team is expected to complete the review within ten working days, by 2026-09-01 at 17:00. The contract is for a supplier agreement, and the legal team's clearance is required before signature.",
     "source": "scene_manifest:shared_context"
    }
   ],

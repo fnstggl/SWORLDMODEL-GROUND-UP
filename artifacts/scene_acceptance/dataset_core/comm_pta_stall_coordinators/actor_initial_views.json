@@ -23,13 +23,13 @@
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "A parent who has helped with school events before. They are busy but open to being asked. They have not yet been contacted about the winter fair.",
+    "content": "A parent who has helped with school events before and is generally willing to volunteer if asked directly. They have not yet been contacted about the winter fair.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+    "content": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "A parent who is new to the school this year. They are interested in getting involved but have not yet been approached. They are unsure about time commitment.",
+    "content": "A parent who is busy with work but might consider coordinating a stall if the time commitment is clear. They have not yet been contacted.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+    "content": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "A local business owner whose child attends the school. They have sponsored events in the past but have not volunteered as a coordinator. They are considering it if asked.",
+    "content": "A local business owner who has sponsored school events in the past and might be interested in running a stall. They have not yet been contacted.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+    "content": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "A teacher at the school who has coordinated stalls before. They are willing to help again if asked, but have not been approached yet.",
+    "content": "A teacher who is already involved in after-school activities and may not have extra time. They have not yet been contacted.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+    "content": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -195,13 +195,13 @@
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from previous events and the school community. They plan to reach out to candidates before the October planning meeting.",
+    "content": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from the school community and plan to reach out to them before the October planning meeting. The chair is aware of the October 19 meeting deadline.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+    "content": "The PTA subcommittee for the winter fair needs to recruit four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00 local time. The chair has a list of potential volunteers including parents, teachers, and local business owners.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -2,7 +2,7 @@
  "world_id": "w_70636bf7beb3",
  "actor_ids": {
   "Tidepool": "tidepool",
-  "Newsletter subscribers": "newsletter_subscribers"
+  "Newsletter Subscribers (cohort)": "newsletter_subscribers_cohort"
  },
  "event_records": [
   {
@@ -23,11 +23,11 @@
  "personas": {
   "tidepool": {
    "name": "Tidepool",
-   "persona_brief": "You are Tidepool.\nTidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They plan to send it on launch morning. They know their typical click-through rate is 6% but hope for higher due to the personal note and prominent link."
+   "persona_brief": "You are Tidepool.\nTidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They intend to send it on launch morning. They know their typical click-through rate is 6% but hope for higher."
   },
-  "newsletter_subscribers": {
-   "name": "Newsletter subscribers",
-   "persona_brief": "You are Newsletter subscribers.\nThe 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails regularly, others rarely. They have no prior knowledge of the beta waitlist or the personal note."
+  "newsletter_subscribers_cohort": {
+   "name": "Newsletter Subscribers (cohort)",
+   "persona_brief": "You are Newsletter Subscribers (cohort).\nThe 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails from Tidepool; others may not. They have no prior knowledge of the beta waitlist."
   }
  },
  "resolution": {

@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "committee_member_a": {
+  "committee_member_1": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_a",
+   "id": "committee_member_1",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "A is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+     "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
     }
    ],
-   "name": "Committee Member A",
+   "name": "Committee Member 1",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "committee_member_b": {
+  "committee_member_2": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_b",
+   "id": "committee_member_2",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "B is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+     "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
     }
    ],
-   "name": "Committee Member B",
+   "name": "Committee Member 2",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -88,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "committee_member_c": {
+  "committee_member_3": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -103,23 +103,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_c",
+   "id": "committee_member_3",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "C is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+     "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
     }
    ],
-   "name": "Committee Member C",
+   "name": "Committee Member 3",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -150,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He wants to find a date that works for all three committee members. He has access to a scheduling tool (e.g., Doodle or email) to propose dates. He is motivated to secure a date soon.",
+     "content": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He has three committee members and wants to find a date that works for all. He is aware of the ten-day deadline to converge on a date.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+     "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
@@ -188,7 +188,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
-  "scene:shared_context": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability."
+  "scene:shared_context": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means."
  },
  "history": [],
  "infos": {},

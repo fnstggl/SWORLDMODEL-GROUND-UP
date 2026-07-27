@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "kettlewell_allotment_society_chair": {
+  "chair": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "kettlewell_allotment_society_chair",
+   "id": "chair",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The chair is stepping down and has not yet identified a successor. They want the society to continue smoothly and hope someone will volunteer.",
+     "content": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have not yet identified a successor and are not actively recruiting one.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-25T17:00:00+00:00"
     },
     {
-     "content": "The Kettlewell Allotment Society holds an annual general meeting in five weeks, at which nominations for chair close. The current chair has announced they are stepping down. Any member may volunteer to stand for chair before the meeting.",
+     "content": "The Kettlewell allotment society holds an annual general meeting in five weeks, at which nominations for chair will close. The current chair is stepping down, and the position will be vacant unless someone volunteers.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-25T17:00:00+00:00"
     }
    ],
-   "name": "Kettlewell Allotment Society Chair",
+   "name": "Chair",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "kettlewell_allotment_society_members_collective": {
+  "society_members": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "kettlewell_allotment_society_members_collective",
+   "id": "society_members",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The members are aware the chair is stepping down. Some may be interested in the role but are uncertain about the time commitment or whether others will step forward. No member has publicly declared an intention to stand.",
+     "content": "The members are aware that the chair is stepping down, but no one has yet expressed interest in standing for the position. Some members may be considering it privately.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-25T17:00:00+00:00"
     },
     {
-     "content": "The Kettlewell Allotment Society holds an annual general meeting in five weeks, at which nominations for chair close. The current chair has announced they are stepping down. Any member may volunteer to stand for chair before the meeting.",
+     "content": "The Kettlewell allotment society holds an annual general meeting in five weeks, at which nominations for chair will close. The current chair is stepping down, and the position will be vacant unless someone volunteers.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-25T17:00:00+00:00"
     }
    ],
-   "name": "Kettlewell Allotment Society Members (collective)",
+   "name": "Society members",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "The Kettlewell allotment society's chair is stepping down. Will anyone volunteer to stand for chair before nominations close at the annual general meeting in five weeks?",
-  "scene:shared_context": "The Kettlewell Allotment Society holds an annual general meeting in five weeks, at which nominations for chair close. The current chair has announced they are stepping down. Any member may volunteer to stand for chair before the meeting."
+  "scene:shared_context": "The Kettlewell allotment society holds an annual general meeting in five weeks, at which nominations for chair will close. The current chair is stepping down, and the position will be vacant unless someone volunteers."
  },
  "history": [],
  "infos": {},

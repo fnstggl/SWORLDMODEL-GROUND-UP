@@ -1,19 +1,119 @@
 {
  "actors": [
   {
-   "name": "Interchange Format Working Group (21 members)",
-   "private_context": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more diligent about returning ballots, others may be less so. No member has yet returned a ballot for draft revision 4."
+   "name": "Working Group Member 1",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 2",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 3",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 4",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 5",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 6",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 7",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 8",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 9",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 10",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 11",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 12",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 13",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 14",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 15",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 16",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 17",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 18",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 19",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 20",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
+  },
+  {
+   "name": "Working Group Member 21",
+   "private_context": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot."
   }
  ],
- "shared_context": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Ballots are due by that time. The group operates under standard procedures where members may choose to return ballots or not.",
+ "shared_context": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
  "starting_events": [
   {
    "time": "2026-08-15T00:00:00+00:00",
-   "description": "The comment period for draft revision 4 begins. Ballots are available for members to submit.",
+   "description": "Draft revision 4 is distributed to all 21 working group members with a request to return ballots by the close of the comment period.",
    "visible_to": [
-    "Interchange Format Working Group (21 members)"
+    "Working Group Member 1",
+    "Working Group Member 2",
+    "Working Group Member 3",
+    "Working Group Member 4",
+    "Working Group Member 5",
+    "Working Group Member 6",
+    "Working Group Member 7",
+    "Working Group Member 8",
+    "Working Group Member 9",
+    "Working Group Member 10",
+    "Working Group Member 11",
+    "Working Group Member 12",
+    "Working Group Member 13",
+    "Working Group Member 14",
+    "Working Group Member 15",
+    "Working Group Member 16",
+    "Working Group Member 17",
+    "Working Group Member 18",
+    "Working Group Member 19",
+    "Working Group Member 20",
+    "Working Group Member 21"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct members of the working group have returned ballots on draft revision 4 by 2026-09-15T23:59:00+00:00. Otherwise resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct working group members (two-thirds of 21) actually returned a ballot before 2026-09-15T23:59:00+00:00. Otherwise resolve NO at the cutoff."
 }

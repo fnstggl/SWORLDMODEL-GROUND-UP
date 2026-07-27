@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,24 +101,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CEO of Kestrel Analytics",
-   "private_context": "CEO is considering the Riverside Wharf lease. They know headcount plans were cut 20% last quarter and half the team is remote. The landlord has offered six months rent-free. The CFO privately prefers a shorter term. CEO must decide before the option expires next Friday."
+   "private_context": "The CEO is considering the five-year lease on Riverside Wharf. They know headcount plans were cut 20% last quarter and half the team is remote. The CFO privately prefers a shorter term. The CEO must decide before the landlord's option expires next Friday."
   },
   {
    "name": "Landlord of Riverside Wharf",
-   "private_context": "Landlord has offered a proposed five-year lease with six months rent-free. The option to sign expires next Friday. Landlord is waiting for the CEO's decision."
+   "private_context": "The landlord has offered six months rent-free as an incentive. They have set an option expiration date of next Friday (2026-08-21) for the CEO to sign or walk away."
   }
  ],
- "shared_context": "Kestrel Analytics is considering a five-year lease on Riverside Wharf office space. The landlord has offered six months rent-free. The option to sign expires on 2026-08-21T17:00:00+01:00. The CEO must decide whether to sign or walk away.",
+ "shared_context": "Kestrel Analytics is considering a five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday (2026-08-21). The CEO must decide by then.",
  "starting_events": [
   {
    "time": "2026-08-10T09:00:00+01:00",
-   "description": "The CEO of Kestrel Analytics has the proposed lease documents and is aware of the deadline. No decision has been made yet.",
+   "description": "The CEO of Kestrel Analytics is aware of the proposed five-year lease on Riverside Wharf and the landlord's offer of six months rent-free. The option expires next Friday.",
    "visible_to": [
     "CEO of Kestrel Analytics"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff (2026-08-21T17:00:00+01:00). Resolve NO if the CEO explicitly walks away or the deadline passes without signing."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

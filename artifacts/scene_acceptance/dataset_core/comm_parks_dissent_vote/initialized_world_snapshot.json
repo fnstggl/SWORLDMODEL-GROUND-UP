@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "committee_member_a": {
+  "committee_member_1": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_a",
+   "id": "committee_member_1",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Lives near the proposed skate-park relocation site. Has received many emails from constituents both for and against. Has not yet decided how to vote.",
+     "content": "Lives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T15:00:00+00:00"
     },
     {
-     "content": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members.",
+     "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T15:00:00+00:00"
     }
    ],
-   "name": "Committee Member A",
+   "name": "Committee Member 1",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "committee_member_b": {
+  "committee_member_2": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_b",
+   "id": "committee_member_2",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Lives near the proposed skate-park relocation site. Has received many emails from constituents both for and against. Has not yet decided how to vote.",
+     "content": "Lives near the proposed skate-park relocation site. Has heard strong opinions from neighbors both for and against. Has not yet decided how to vote.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T15:00:00+00:00"
     },
     {
-     "content": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members.",
+     "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T15:00:00+00:00"
     }
    ],
-   "name": "Committee Member B",
+   "name": "Committee Member 2",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -88,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "committee_member_c": {
+  "committee_member_3": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -103,23 +103,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_c",
+   "id": "committee_member_3",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Does not live near the site. Has followed the public comments and letters. Has not yet decided how to vote.",
+     "content": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T15:00:00+00:00"
     },
     {
-     "content": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members.",
+     "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T15:00:00+00:00"
     }
    ],
-   "name": "Committee Member C",
+   "name": "Committee Member 3",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -131,7 +131,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "committee_member_d": {
+  "committee_member_4": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -146,23 +146,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_d",
+   "id": "committee_member_4",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Does not live near the site. Has followed the public comments and letters. Has not yet decided how to vote.",
+     "content": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T15:00:00+00:00"
     },
     {
-     "content": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members.",
+     "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T15:00:00+00:00"
     }
    ],
-   "name": "Committee Member D",
+   "name": "Committee Member 4",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -174,7 +174,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "committee_member_e": {
+  "committee_member_5": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -189,23 +189,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "committee_member_e",
+   "id": "committee_member_5",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Does not live near the site. Has followed the public comments and letters. Has not yet decided how to vote.",
+     "content": "No personal stake in the location. Has read the public comments and newspaper letters. Has not yet decided how to vote.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T15:00:00+00:00"
     },
     {
-     "content": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members.",
+     "content": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T15:00:00+00:00"
     }
    ],
-   "name": "Committee Member E",
+   "name": "Committee Member 5",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -231,7 +231,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least one member of Riverton's parks committee vote against the skate-park relocation when it comes up at Thursday's session?",
-  "scene:shared_context": "Riverton's parks committee has a scheduled session on Thursday, 2026-09-17. The agenda includes a vote on relocating the skate park. The relocation has been through two noisy public-comment periods; the local paper ran letters both for and against last week. The committee has five members."
+  "scene:shared_context": "Riverton's parks committee has five members. The committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation is scheduled. The relocation has been through two noisy public-comment periods, and the local paper ran letters both for and against last week."
  },
  "history": [],
  "infos": {},

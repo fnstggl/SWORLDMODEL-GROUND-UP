@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will manager Rosa Maria's promotion case for her report Jonas clear calibration and receive VP sign-off before promotion letters go out on November 15?",
-  "resolution": "Resolve YES only if the persistent event history shows that the calibration committee approved Jonas's promotion case and the VP signed off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Jonas's promotion case cleared calibration and received VP sign-off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-11-15T09:00:00-08:00",
   "world_id": "w_e3126859ec6d"
  },

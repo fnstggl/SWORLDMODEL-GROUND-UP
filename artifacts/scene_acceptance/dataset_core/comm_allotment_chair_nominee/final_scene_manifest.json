@@ -1,24 +1,23 @@
 {
  "actors": [
   {
-   "name": "Kettlewell Allotment Society Chair",
-   "private_context": "The chair is stepping down and has not yet identified a successor. They want the society to continue smoothly and hope someone will volunteer."
+   "name": "Chair",
+   "private_context": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have not yet identified a successor and are not actively recruiting one."
   },
   {
-   "name": "Kettlewell Allotment Society Members (collective)",
-   "private_context": "The members are aware the chair is stepping down. Some may be interested in the role but are uncertain about the time commitment or whether others will step forward. No member has publicly declared an intention to stand."
+   "name": "Society members",
+   "private_context": "The members are aware that the chair is stepping down, but no one has yet expressed interest in standing for the position. Some members may be considering it privately."
   }
  ],
- "shared_context": "The Kettlewell Allotment Society holds an annual general meeting in five weeks, at which nominations for chair close. The current chair has announced they are stepping down. Any member may volunteer to stand for chair before the meeting.",
+ "shared_context": "The Kettlewell allotment society holds an annual general meeting in five weeks, at which nominations for chair will close. The current chair is stepping down, and the position will be vacant unless someone volunteers.",
  "starting_events": [
   {
    "time": "2026-08-25T18:00:00+01:00",
-   "description": "The chair's stepping down is announced to the membership.",
+   "description": "The chair announces their intention to step down at the upcoming annual general meeting.",
    "visible_to": [
-    "Kettlewell Allotment Society Chair",
-    "Kettlewell Allotment Society Members (collective)"
+    "Society members"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that at least one member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that at least one society member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff."
 }

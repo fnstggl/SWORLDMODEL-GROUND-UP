@@ -1,21 +1,21 @@
 {
   "actors": [
     {
-      "name": "Calloway Regional Hospital employees",
-      "private_context": "Each employee has their own workload, interest in the survey, and personal schedule during the two-week window. They may or may not remember to complete the survey."
+      "name": "HR Department",
+      "private_context": "HR wants a high completion rate for the engagement survey. They have sent reminders and will monitor progress."
     },
     {
-      "name": "HR department",
-      "private_context": "HR wants a high response rate and has prepared the survey. They can send reminders and track completion, but cannot force participation."
+      "name": "Employees (400)",
+      "private_context": "Each employee has their own workload, interest in the survey, and tendency to complete or ignore optional surveys. They may or may not notice reminders."
     }
   ],
-  "shared_context": "The annual engagement survey is open from 2026-09-01T08:00:00-05:00 to 2026-09-15T17:00:00-05:00. All 400 employees are eligible. The survey is accessible via a link sent by email. HR can send reminders during the period.",
+  "shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey is open from 2026-09-01T08:00:00-05:00 to 2026-09-15T17:00:00-05:00. Employees can complete it online via a link sent by HR. HR has sent an initial email with the survey link and will send reminders during the period.",
   "starting_events": [
     {
       "time": "2026-09-01T08:00:00-05:00",
-      "description": "HR sends the initial survey invitation email to all 400 employees.",
-      "visible_to": ["HR department", "Calloway Regional Hospital employees"]
+      "description": "The annual engagement survey opens. HR sends an email with the survey link to all 400 employees.",
+      "visible_to": ["HR Department", "Employees (400)"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that at least 60 employees submitted a completed survey response before the cutoff. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that at least 60 employees submitted a completed survey before the cutoff. Otherwise resolve NO at the cutoff."
 }

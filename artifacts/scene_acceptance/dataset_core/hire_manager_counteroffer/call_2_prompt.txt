@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,14 +101,14 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Sanjay",
-   "private_context": "Sanjay has just handed in his notice at Nimbus Freight. He has an outside offer with a thirty percent salary increase. He leads the only team that understands the legacy routing system."
+   "private_context": "Sanjay has just handed in his notice at Nimbus Freight this morning. He leads the only team that understands the legacy routing system. He has an outside offer with a thirty percent salary increase. He is uncertain whether his manager will make a counteroffer."
   },
   {
    "name": "Sanjay's manager",
-   "private_context": "The manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation notice. She may consider making a counteroffer to retain him."
+   "private_context": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation notice this morning. She must decide whether to make a counteroffer to retain him."
   }
  ],
- "shared_context": "Sanjay works at Nimbus Freight. He handed in his notice this morning, 2026-07-27. The manager has five working days (until 2026-08-03) to potentially respond with a counteroffer.",
+ "shared_context": "Sanjay handed in his notice at Nimbus Freight this morning, 2026-07-27. The company has a standard process for counteroffers, but the manager has discretion. The legacy routing system is critical and Sanjay's team is the only one that understands it.",
  "starting_events": [
   {
    "time": "2026-07-27T11:00:00+05:30",

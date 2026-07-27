@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Dr. Tanaka",
-   "private_context": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision and hope for approval without major amendments."
+   "private_context": "Dr. Tanaka has prepared a survey protocol for a research study. They intend to submit it to the Ashvale University research ethics board for approval. They are aware of the upcoming monthly meeting and hope for approval."
   },
   {
-   "name": "Ashvale University Research Ethics Board (REB)",
-   "private_context": "The REB is a committee that reviews research protocols involving human subjects. They have received Dr. Tanaka's survey protocol and will consider it at their next monthly meeting. The board operates under standard procedures and may approve, request amendments, or reject protocols."
+   "name": "Ashvale University Research Ethics Board",
+   "private_context": "The board is a committee that reviews research protocols. It meets monthly. It has received or will receive Dr. Tanaka's survey protocol. The board will consider the protocol at its next monthly meeting, which occurs before the hard cutoff."
   }
  ],
- "shared_context": "Ashvale University's research ethics board holds monthly meetings to review submitted protocols. The next meeting is scheduled before the hard cutoff of 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is on the agenda for that meeting. The board will make a decision at or before that meeting.",
+ "shared_context": "Ashvale University has a research ethics board that meets monthly to review protocols. The next monthly meeting is scheduled before 2026-10-06T18:00:00+09:00. Dr. Tanaka's survey protocol is under consideration. The board can approve, request amendments, or reject the protocol.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+09:00",
-   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University Research Ethics Board. The board has received the protocol and it is scheduled for discussion at the next monthly meeting.",
+   "description": "Dr. Tanaka submits the survey protocol to the Ashvale University research ethics board for review.",
    "visible_to": [
     "Dr. Tanaka",
-    "Ashvale University Research Ethics Board (REB)"
+    "Ashvale University Research Ethics Board"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the REB communicated a decision (approval, request for amendments, or rejection) regarding Dr. Tanaka's protocol at or before the next monthly meeting (i.e., before the hard cutoff). Resolve NO if no decision is communicated by the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the board has communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff."
 }

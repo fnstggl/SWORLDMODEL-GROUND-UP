@@ -23,13 +23,13 @@
    {
     "t": "2026-10-26T08:00:00+00:00",
     "kind": "context",
-    "content": "The HR team handles employee sponsorship requests. They have standard procedures for issuing such letters, but their workload and responsiveness vary. They are not yet aware of Kwame's specific request.",
+    "content": "The HR team is responsible for issuing sponsorship letters for employees. They have received Kwame's request for a sponsorship letter but have not yet processed or issued it. They may have internal policies or workload affecting their response time.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-26T08:00:00+00:00",
     "kind": "context",
-    "content": "Kwame is employed by a company that has an HR department capable of issuing sponsorship letters. The visa-renewal appointment is on 2026-11-09. The current time is 2026-10-26T09:00:00+01:00. Kwame can contact the HR team through established internal channels (e.g., email, ticketing system).",
+    "content": "Kwame is an employee of the company. The HR team has the ability to issue sponsorship letters. The visa-renewal appointment is on November 9th, 2026. The current time is October 26th, 2026, 9:00 AM.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-26T08:00:00+00:00",
     "kind": "context",
-    "content": "Kwame has a visa-renewal appointment on 2026-11-09. He needs a sponsorship letter from his employer's HR team to submit with his application. He has not yet requested the letter. He is anxious about the deadline and wants to ensure the letter is issued in time.",
+    "content": "Kwame needs a sponsorship letter from his employer's HR team for his visa-renewal appointment on November 9th. He has not yet received the letter and is unsure if HR will issue it in time. He can contact HR to request or follow up.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-26T08:00:00+00:00",
     "kind": "context",
-    "content": "Kwame is employed by a company that has an HR department capable of issuing sponsorship letters. The visa-renewal appointment is on 2026-11-09. The current time is 2026-10-26T09:00:00+01:00. Kwame can contact the HR team through established internal channels (e.g., email, ticketing system).",
+    "content": "Kwame is an employee of the company. The HR team has the ability to issue sponsorship letters. The visa-renewal appointment is on November 9th, 2026. The current time is October 26th, 2026, 9:00 AM.",
     "source": "scene_manifest:shared_context"
    }
   ],

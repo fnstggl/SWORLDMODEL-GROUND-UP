@@ -2,7 +2,7 @@
  "world_id": "w_7059d66b3ecd",
  "actor_ids": {
   "Kettlewell Parish Clerk": "kettlewell_parish_clerk",
-  "Kettlewell villagers (as a cohort)": "kettlewell_villagers_as_a_cohort"
+  "Villagers of Kettlewell": "villagers_of_kettlewell"
  },
  "event_records": [
   {
@@ -11,9 +11,9 @@
    "at": "2026-09-10T08:00:00+00:00",
    "visible_to_ids": [
     "kettlewell_parish_clerk",
-    "kettlewell_villagers_as_a_cohort"
+    "villagers_of_kettlewell"
    ],
-   "description": "The parish clerk has posted notices about the open meeting."
+   "description": "The parish clerk posts notices around the village announcing the open meeting about the bus-route cut."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "kettlewell_parish_clerk": {
    "name": "Kettlewell Parish Clerk",
-   "persona_brief": "You are Kettlewell Parish Clerk.\nThe clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees and hope for a good turnout."
+   "persona_brief": "You are Kettlewell Parish Clerk.\nThe clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They hope for a good turnout but have no control over who attends."
   },
-  "kettlewell_villagers_as_a_cohort": {
-   "name": "Kettlewell villagers (as a cohort)",
-   "persona_brief": "You are Kettlewell villagers (as a cohort).\nVillagers have seen the notices about the meeting. Some may be concerned about the bus-route cut, but attendance is voluntary and depends on individual interest and availability."
+  "villagers_of_kettlewell": {
+   "name": "Villagers of Kettlewell",
+   "persona_brief": "You are Villagers of Kettlewell.\nThe villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but attendance is voluntary and depends on individual interest and availability."
   }
  },
  "resolution": {
   "question": "Will at least thirty villagers attend Kettlewell's open meeting about the bus-route cut, given the parish clerk has posted notices and the last such meeting drew 22?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 30 distinct villagers attended the meeting before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least thirty distinct villagers attended the open meeting before the cutoff. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-24T21:00:00+01:00",
   "world_id": "w_7059d66b3ecd"
  }

@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,21 +97,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Aldergate Rail",
-   "private_context": "Aldergate Rail is a listed firm. It has a signaling-contract delay that it may need to disclose to the market. It has an interim results day scheduled for November 5. The firm's leadership is aware of the delay and is considering whether to issue a market warning before the results day."
+   "name": "Aldergate Rail (the firm)",
+   "private_context": "Aldergate Rail is aware of a delay in a signaling contract that could materially affect its financial position. It has a scheduled interim results day on November 5. The firm's leadership must decide whether to issue a market warning before that date, considering regulatory obligations and market expectations."
   }
  ],
- "shared_context": "The market expects Aldergate Rail to report its interim results on November 5. The firm has a signaling-contract delay that could materially affect its financial outlook. Market rules may require timely disclosure of material information.",
+ "shared_context": "Aldergate Rail is a listed firm. There is a signaling-contract delay that may be material. The firm has an interim results day scheduled for November 5. Market warning regulations require timely disclosure of material information.",
  "starting_events": [
   {
    "time": "2026-10-01T08:00:00+00:00",
-   "description": "Aldergate Rail's leadership is aware of the signaling-contract delay and is deciding whether to issue a market warning before the scheduled interim results day on November 5.",
+   "description": "The simulation begins. Aldergate Rail is aware of the signaling-contract delay and must decide whether to warn the market before the interim results day.",
    "visible_to": [
-    "Aldergate Rail"
+    "Aldergate Rail (the firm)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Aldergate Rail actually issued a market warning about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Aldergate Rail issued a market warning about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "ceo_of_kestrel_analytics"
    ],
-   "description": "The CEO of Kestrel Analytics has the proposed lease documents and is aware of the deadline. No decision has been made yet."
+   "description": "The CEO of Kestrel Analytics is aware of the proposed five-year lease on Riverside Wharf and the landlord's offer of six months rent-free. The option expires next Friday."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "ceo_of_kestrel_analytics": {
    "name": "CEO of Kestrel Analytics",
-   "persona_brief": "You are CEO of Kestrel Analytics.\nCEO is considering the Riverside Wharf lease. They know headcount plans were cut 20% last quarter and half the team is remote. The landlord has offered six months rent-free. The CFO privately prefers a shorter term. CEO must decide before the option expires next Friday."
+   "persona_brief": "You are CEO of Kestrel Analytics.\nThe CEO is considering the five-year lease on Riverside Wharf. They know headcount plans were cut 20% last quarter and half the team is remote. The CFO privately prefers a shorter term. The CEO must decide before the landlord's option expires next Friday."
   },
   "landlord_of_riverside_wharf": {
    "name": "Landlord of Riverside Wharf",
-   "persona_brief": "You are Landlord of Riverside Wharf.\nLandlord has offered a proposed five-year lease with six months rent-free. The option to sign expires next Friday. Landlord is waiting for the CEO's decision."
+   "persona_brief": "You are Landlord of Riverside Wharf.\nThe landlord has offered six months rent-free as an incentive. They have set an option expiration date of next Friday (2026-08-21) for the CEO to sign or walk away."
   }
  },
  "resolution": {
   "question": "Will Kestrel Analytics' CEO sign, or walk away from, the proposed five-year lease on the Riverside Wharf office before the landlord's option expires next Friday?",
-  "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the cutoff (2026-08-21T17:00:00+01:00). Resolve NO if the CEO explicitly walks away or the deadline passes without signing.",
   "cutoff": "2026-08-21T17:00:00+01:00",
   "world_id": "w_797c134735e5"
  }

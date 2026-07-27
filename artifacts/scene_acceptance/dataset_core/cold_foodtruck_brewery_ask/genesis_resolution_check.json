@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Food-truck owner Bao Tran plans to approach three brewery managers in person this Saturday about parking on their lots. Will he get a yes from at least one of them before the day ends?",
-  "resolution": "Resolve YES if, before 2026-08-08T20:00:00-05:00, the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot before 2026-08-08T20:00:00-05:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-08T20:00:00-05:00",
   "world_id": "w_9f389ecf7fd2"
  },

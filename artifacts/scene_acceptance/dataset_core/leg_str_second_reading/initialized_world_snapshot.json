@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The council has a short-term-rental ordinance that has passed first reading. The council's internal rules require a second reading before final passage. The council is aware of the approaching August recess starting August 15, 2026. Some members may have scheduling conflicts or differing priorities regarding the ordinance.",
+     "content": "The council is aware that a short-term-rental ordinance requires a second reading before adoption. The council has a scheduled August recess starting August 15, 2026. The council's agenda for the remaining meetings before recess is not yet finalized; members have varying opinions on the ordinance.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-28T15:00:00+00:00"
     },
     {
-     "content": "The Riverton city council meets regularly. The August recess begins on August 15, 2026. The council has a short-term-rental ordinance that needs a second reading to advance. The council can schedule a special meeting or use a regular meeting before the recess to hold the second reading.",
+     "content": "The Riverton city council has a short-term-rental ordinance that has passed a first reading. A second reading is required for adoption. The council's next regular meeting is on July 29, 2026, and there may be a special meeting before the August recess begins on August 15, 2026. The council can schedule the second reading at any regular or special meeting before the recess.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-28T15:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the Riverton city council hold the required second reading of its short-term-rental ordinance before the August recess begins?",
-  "scene:shared_context": "The Riverton city council meets regularly. The August recess begins on August 15, 2026. The council has a short-term-rental ordinance that needs a second reading to advance. The council can schedule a special meeting or use a regular meeting before the recess to hold the second reading."
+  "scene:shared_context": "The Riverton city council has a short-term-rental ordinance that has passed a first reading. A second reading is required for adoption. The council's next regular meeting is on July 29, 2026, and there may be a special meeting before the August recess begins on August 15, 2026. The council can schedule the second reading at any regular or special meeting before the recess."
  },
  "history": [],
  "infos": {},

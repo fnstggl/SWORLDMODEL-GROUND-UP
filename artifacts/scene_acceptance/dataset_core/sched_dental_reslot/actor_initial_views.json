@@ -23,13 +23,13 @@
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "The front desk manages appointment scheduling. They have availability for rescheduling but have not yet been contacted by Priya about this specific change.",
+    "content": "The front desk manages appointment scheduling. They have availability for dental cleanings on various days and times, but their schedule is not fully known to Priya. They are willing to accommodate rescheduling if possible.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon.",
+    "content": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday, 2026-08-13. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The deadline for agreement is Wednesday, 2026-08-12 at noon.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "Priya has a dental cleaning scheduled for Thursday, but she needs to move it because of a work trip. She intends to contact Maple Row Dental front desk to reschedule.",
+    "content": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, but she just learned she must go on a work trip that day. She wants to reschedule to a new slot before Wednesday noon. She has the front desk's phone number and can call or email them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon.",
+    "content": "Priya has an existing appointment for a dental cleaning at Maple Row Dental on Thursday, 2026-08-13. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The deadline for agreement is Wednesday, 2026-08-12 at noon.",
     "source": "scene_manifest:shared_context"
    }
   ],

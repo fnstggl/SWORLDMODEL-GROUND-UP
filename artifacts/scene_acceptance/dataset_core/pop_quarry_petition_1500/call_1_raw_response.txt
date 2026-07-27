@@ -2,20 +2,25 @@
   "actors": [
     {
       "name": "Petition organizers",
-      "private_context": "They have collected 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator."
+      "private_context": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator."
     },
     {
       "name": "Quarry operator",
-      "private_context": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and have an interest in preventing the petition from reaching 1,500 signatures."
+      "private_context": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and have an interest in preventing the petition from succeeding."
     }
   ],
-  "shared_context": "Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks from the simulation start. The organizers have already gathered 400 signatures. A counter-flyer from the quarry operator appeared last week.",
+  "shared_context": "The town has 19,000 residents. The quarry extension is a local issue. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks from the start time (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week.",
   "starting_events": [
     {
       "time": "2026-08-03T09:00:00-06:00",
       "description": "The petition organizers have 400 signatures and continue their signature collection efforts.",
       "visible_to": ["Petition organizers"]
+    },
+    {
+      "time": "2026-08-03T09:00:00-06:00",
+      "description": "The quarry operator's counter-flyer is in circulation, opposing the petition.",
+      "visible_to": ["Quarry operator"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before 2026-09-14T17:00:00-06:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before the deadline (2026-09-14T17:00:00-06:00). Otherwise resolve NO at the deadline."
 }

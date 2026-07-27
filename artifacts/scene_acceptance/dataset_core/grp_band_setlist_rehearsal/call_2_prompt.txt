@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,21 +97,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Cheap Detour (band as a collective decision-making unit)",
-   "private_context": "The band has a wedding gig on Saturday 2026-09-12 and needs to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday 2026-09-10 at 19:00. Members have individual preferences but no prior agreement on the setlist."
+   "name": "Cheap Detour (band as a unit)",
+   "private_context": "The four members of Cheap Detour need to agree on a twelve-song wedding setlist. They have a rehearsal scheduled for Thursday, 2026-09-10. They have not yet settled the setlist."
   }
  ],
- "shared_context": "Cheap Detour is a covers band with four members. They have been booked to play a wedding on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at 19:00. The setlist of twelve songs has not yet been settled. The band communicates via a group chat and in person at rehearsals.",
+ "shared_context": "Cheap Detour is a covers band. They have been booked to play a wedding and need to finalize a twelve-song setlist. The rehearsal is on Thursday, 2026-09-10 at an unspecified time before the hard cutoff at 22:00. The band members can communicate with each other before and during the rehearsal.",
  "starting_events": [
   {
    "time": "2026-09-07T18:00:00+01:00",
-   "description": "The band members are aware of the upcoming wedding gig and the need to finalize the setlist. No setlist has been agreed upon yet.",
+   "description": "The simulation starts. The four members of Cheap Detour have not yet settled the setlist for the wedding.",
    "visible_to": [
-    "Cheap Detour (band as a collective decision-making unit)"
+    "Cheap Detour (band as a unit)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the four members of Cheap Detour have collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (i.e., before 2026-09-10T22:00:00+01:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "catering_manager_at_willow_thyme": {
+  "catering_manager": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "catering_manager_at_willow_thyme",
+   "id": "catering_manager",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The catering manager is responsible for handling inquiries about menu options. They have received Deepa's email but have not yet responded. They are busy with other tasks and may prioritize responses based on urgency or other factors.",
+     "content": "The catering manager at Willow & Thyme is responsible for handling inquiries about menu options. They have not yet seen Deepa's email. They may have other commitments and priorities.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
     },
     {
-     "content": "Willow & Thyme is a catering company. Deepa has an upcoming tasting scheduled for Saturday morning (2026-09-19). She sent an email to the catering manager asking about nut-free menu options. The catering manager has access to the email and can reply via email. The current time is 2026-09-15T10:00:00+01:00.",
+     "content": "Willow & Thyme is a catering company. Deepa has an email address for the catering manager and can send an email. The catering manager can receive and read emails. Deepa's tasting is scheduled for Saturday morning (2026-09-19).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-15T09:00:00+00:00"
     }
    ],
-   "name": "Catering Manager at Willow & Thyme",
+   "name": "Catering Manager",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Deepa is a bride-to-be planning her wedding. She has a nut allergy and needs to know if Willow & Thyme can accommodate nut-free menu options. She sent an email to the catering manager with this question and is hoping for a reply before her tasting on Saturday morning.",
+     "content": "Deepa is a bride-to-be planning her wedding. She has an upcoming tasting at Willow & Thyme on Saturday morning. She wants to know about nut-free menu options and has prepared an email to the catering manager with that question.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
     },
     {
-     "content": "Willow & Thyme is a catering company. Deepa has an upcoming tasting scheduled for Saturday morning (2026-09-19). She sent an email to the catering manager asking about nut-free menu options. The catering manager has access to the email and can reply via email. The current time is 2026-09-15T10:00:00+01:00.",
+     "content": "Willow & Thyme is a catering company. Deepa has an email address for the catering manager and can send an email. The catering manager can receive and read emails. Deepa's tasting is scheduled for Saturday morning (2026-09-19).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-15T09:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the catering manager at Willow & Thyme answer bride-to-be Deepa's emailed question about nut-free menu options before her tasting on Saturday morning?",
-  "scene:shared_context": "Willow & Thyme is a catering company. Deepa has an upcoming tasting scheduled for Saturday morning (2026-09-19). She sent an email to the catering manager asking about nut-free menu options. The catering manager has access to the email and can reply via email. The current time is 2026-09-15T10:00:00+01:00."
+  "scene:shared_context": "Willow & Thyme is a catering company. Deepa has an email address for the catering manager and can send an email. The catering manager can receive and read emails. Deepa's tasting is scheduled for Saturday morning (2026-09-19)."
  },
  "history": [],
  "infos": {},

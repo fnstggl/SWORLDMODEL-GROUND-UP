@@ -1,4 +1,4 @@
 {
-  "verdict": "APPROVE",
-  "defects": []
+ "verdict": "APPROVE",
+ "defects": []
 }

@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "French Presidency of COP21",
-   "private_context": "The French Presidency is responsible for managing the COP21 negotiation process. They aim to produce a draft agreement text that can be accepted by all parties. They have the authority to circulate draft texts to national delegations."
+   "private_context": "The French Presidency is responsible for managing the COP21 negotiations and aims to produce a draft agreement text. They have the authority to circulate texts to national delegations."
   },
   {
    "name": "National Delegations",
-   "private_context": "Each national delegation has its own interests and red lines for the climate agreement. They expect to receive draft texts from the presidency for review and negotiation."
+   "private_context": "The national delegations are the official representatives of countries attending COP21. They expect to receive draft texts from the presidency and will negotiate based on them."
   }
  ],
- "shared_context": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate draft agreement texts during the conference. The final scheduled day of the summit is December 11, 2015.",
+ "shared_context": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate consolidated draft agreement texts during the negotiations.",
  "starting_events": [
   {
    "time": "2015-11-30T09:00:00+01:00",
-   "description": "COP21 officially opens in Paris. The French Presidency begins its role as the presiding body.",
+   "description": "COP21 officially opens in Paris. National delegations are present and negotiations begin.",
    "visible_to": [
     "French Presidency of COP21",
     "National Delegations"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the French Presidency circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the French Presidency circulated at least one consolidated draft agreement text to national delegations before 2015-12-10T09:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

@@ -27,7 +27,7 @@
      "t": "2026-09-01T07:00:00+00:00"
     },
     {
-     "content": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. A special general meeting has been called for 2026-09-12 to vote on such an amendment. The meeting will be held at the cooperative's common hall. Members can attend in person or by proxy. The cutoff for counting turnout is the end of the meeting, scheduled for 22:00.",
+     "content": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. The special general meeting is scheduled for 2026-09-12. The meeting will be held in person at the cooperative's common hall. Members can attend in person or submit a proxy vote in advance. The board has sent out meeting notices and the proposed amendment text to all members.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T07:00:00+00:00"
@@ -70,7 +70,7 @@
      "t": "2026-09-01T07:00:00+00:00"
     },
     {
-     "content": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. A special general meeting has been called for 2026-09-12 to vote on such an amendment. The meeting will be held at the cooperative's common hall. Members can attend in person or by proxy. The cutoff for counting turnout is the end of the meeting, scheduled for 22:00.",
+     "content": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. The special general meeting is scheduled for 2026-09-12. The meeting will be held in person at the cooperative's common hall. Members can attend in person or submit a proxy vote in advance. The board has sent out meeting notices and the proposed amendment text to all members.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the Sunmark housing cooperative reach the two-thirds member turnout its bylaws require to amend the pet policy at the special general meeting called for the 12th?",
-  "scene:shared_context": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. A special general meeting has been called for 2026-09-12 to vote on such an amendment. The meeting will be held at the cooperative's common hall. Members can attend in person or by proxy. The cutoff for counting turnout is the end of the meeting, scheduled for 22:00."
+  "scene:shared_context": "Sunmark housing cooperative is a residential cooperative. Its bylaws require a two-thirds turnout of all members for any amendment to the pet policy to be valid. The special general meeting is scheduled for 2026-09-12. The meeting will be held in person at the cooperative's common hall. Members can attend in person or submit a proxy vote in advance. The board has sent out meeting notices and the proposed amendment text to all members."
  },
  "history": [],
  "infos": {},

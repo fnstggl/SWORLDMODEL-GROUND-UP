@@ -2,23 +2,18 @@
  "actors": [
   {
    "name": "Marlin Bay dockworkers' union local",
-   "private_context": "The local's executive board met twice last week without issuing a statement. The local is aware of a rank-and-file caucus leafleting against the port automation memorandum. The local has not yet decided whether to endorse the memorandum or not, and has not yet issued a press release."
-  },
-  {
-   "name": "Rank-and-file caucus",
-   "private_context": "The caucus is leafleting against the port automation memorandum. They want the local to oppose the memorandum."
+   "private_context": "The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local has not yet decided whether to endorse the port automation memorandum or to issue a press release."
   }
  ],
- "shared_context": "The international union endorsed a similar deal at another port last month. The port automation memorandum is a current issue. The local can issue a press release at any time before Monday.",
+ "shared_context": "The international union endorsed a similar deal at another port last month. The local can issue a press release at any time before Monday. The port automation memorandum is a known topic of discussion.",
  "starting_events": [
   {
    "time": "2026-08-27T09:00:00-07:00",
    "description": "The simulation begins. No press release has been issued yet by the local.",
    "visible_to": [
-    "Marlin Bay dockworkers' union local",
-    "Rank-and-file caucus"
+    "Marlin Bay dockworkers' union local"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating whether it endorses the port automation memorandum. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating its endorsement or non-endorsement of the port automation memorandum. Otherwise resolve NO at the cutoff."
 }

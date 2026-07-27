@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Climber 1 is a member of the four-person climbing team. They have their own preferences about rope order but have not yet discussed them with others.",
+     "content": "Climber 1 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T01:15:00+00:00"
     },
     {
-     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting scheduled. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order.",
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T01:15:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Climber 2 is a member of the four-person climbing team. They have their own preferences about rope order but have not yet discussed them with others.",
+     "content": "Climber 2 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T01:15:00+00:00"
     },
     {
-     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting scheduled. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order.",
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T01:15:00+00:00"
@@ -107,19 +107,62 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Climber 3 is a member of the four-person climbing team. They have their own preferences about rope order but have not yet discussed them with others.",
+     "content": "Climber 3 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T01:15:00+00:00"
     },
     {
-     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting scheduled. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order.",
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T01:15:00+00:00"
     }
    ],
    "name": "Climber 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "climber_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "climber_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Climber 4 is a member of the four-person climbing team. They have their own preferences and concerns about the rope order but have not yet discussed them with the team.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    },
+    {
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    }
+   ],
+   "name": "Climber 4",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -150,19 +193,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The leader has asked the team to pick a summit-day rope order during tomorrow's rest-day meeting at base camp. They want the team to decide together.",
+     "content": "The leader has asked the four-person climbing team to decide on a summit-day rope order during tomorrow's rest-day meeting. The leader wants the team to agree on a plan.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T01:15:00+00:00"
     },
     {
-     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting scheduled. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order.",
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T01:15:00+00:00"
     }
    ],
-   "name": "Expedition leader",
+   "name": "Expedition Leader",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -188,7 +231,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the four-person climbing team pick a summit-day rope order during tomorrow's rest-day meeting at base camp, as their expedition leader has asked?",
-  "scene:shared_context": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting scheduled. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order."
+  "scene:shared_context": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a scheduled rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. The team has not yet decided on a rope order. The meeting is expected to occur sometime during the day."
  },
  "history": [],
  "infos": {},
@@ -198,6 +241,6 @@
  "resources": {},
  "start": "2026-09-01T01:15:00+00:00",
  "terminal": null,
- "version": 17,
+ "version": 20,
  "watches": {}
 }

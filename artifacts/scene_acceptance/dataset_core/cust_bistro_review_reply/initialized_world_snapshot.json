@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Marguerite is the owner of the Copper Kettle bistro. She replies to most reviews within days, usually defensively. She knows the bistro was short two servers on the night in question.",
+     "content": "Marguerite is the owner of the Copper Kettle bistro. She usually replies to reviews within days, often defensively. She knows the bistro was short two servers on the night in question.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-30T13:00:00+00:00"
     },
     {
-     "content": "A one-star review of the Copper Kettle bistro was posted on a major review site last night, complaining about a 45-minute wait. The review is publicly visible. Marguerite can post a public reply to the review through the site's interface.",
+     "content": "A one-star review of the Copper Kettle bistro complaining about a 45-minute wait on a night the bistro was short two servers was posted on a major review site last night. Marguerite can see the review and can post a public reply on the site.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-30T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
-  "scene:shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night, complaining about a 45-minute wait. The review is publicly visible. Marguerite can post a public reply to the review through the site's interface."
+  "scene:shared_context": "A one-star review of the Copper Kettle bistro complaining about a 45-minute wait on a night the bistro was short two servers was posted on a major review site last night. Marguerite can see the review and can post a public reply on the site."
  },
  "history": [],
  "infos": {},

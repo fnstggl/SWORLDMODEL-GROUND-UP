@@ -29,7 +29,7 @@
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement is sought before the mediator's final scheduled session in six weeks (by October 13, 2026).",
+    "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, Mattias has a deposit down on a ski trip for the first week of the break, and the mediator has flagged travel dates as the only open issue. The mediator's final scheduled session is in six weeks from now.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -72,7 +72,7 @@
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement is sought before the mediator's final scheduled session in six weeks (by October 13, 2026).",
+    "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, Mattias has a deposit down on a ski trip for the first week of the break, and the mediator has flagged travel dates as the only open issue. The mediator's final scheduled session is in six weeks from now.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "The mediator has scheduled a final session in six weeks (by October 13, 2026). They have flagged travel dates as the only open issue between Ingrid and Mattias. They are neutral and aim to facilitate a written agreement.",
+    "content": "The mediator has flagged travel dates as the only open issue between Ingrid and Mattias. They have a final scheduled session in six weeks from the simulation start time.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement is sought before the mediator's final scheduled session in six weeks (by October 13, 2026).",
+    "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, Mattias has a deposit down on a ski trip for the first week of the break, and the mediator has flagged travel dates as the only open issue. The mediator's final scheduled session is in six weeks from now.",
     "source": "scene_manifest:shared_context"
    }
   ],

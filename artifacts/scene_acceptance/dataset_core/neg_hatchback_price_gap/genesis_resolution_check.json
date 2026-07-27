@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Ravi and the private seller of a 2019 hatchback are 40,000 rupees apart. Will they agree on a price in the three days before the seller's posted listing expires?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price (e.g., a message accepting an offer, a signed agreement, or a payment). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Ravi and the seller have agreed on a price and a sale is finalized (e.g., a binding agreement or payment made). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-23T10:00:00+05:30",
   "world_id": "w_7928f36f065c"
  },

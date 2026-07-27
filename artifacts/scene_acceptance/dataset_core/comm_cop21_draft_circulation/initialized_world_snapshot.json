@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The French Presidency is responsible for managing the COP21 negotiation process. They aim to produce a draft agreement text that can be accepted by all parties. They have the authority to circulate draft texts to national delegations.",
+     "content": "The French Presidency is responsible for managing the COP21 negotiations and aims to produce a draft agreement text. They have the authority to circulate texts to national delegations.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2015-11-30T08:00:00+00:00"
     },
     {
-     "content": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate draft agreement texts during the conference. The final scheduled day of the summit is December 11, 2015.",
+     "content": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate consolidated draft agreement texts during the negotiations.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2015-11-30T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each national delegation has its own interests and red lines for the climate agreement. They expect to receive draft texts from the presidency for review and negotiation.",
+     "content": "The national delegations are the official representatives of countries attending COP21. They expect to receive draft texts from the presidency and will negotiate based on them.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2015-11-30T08:00:00+00:00"
     },
     {
-     "content": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate draft agreement texts during the conference. The final scheduled day of the summit is December 11, 2015.",
+     "content": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate consolidated draft agreement texts during the negotiations.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2015-11-30T08:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the French presidency of the COP21 climate conference circulate at least one consolidated draft agreement text to national delegations before the summit's final scheduled day?",
-  "scene:shared_context": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate draft agreement texts during the conference. The final scheduled day of the summit is December 11, 2015."
+  "scene:shared_context": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to conclude on December 11, 2015. The French Presidency is expected to produce and circulate consolidated draft agreement texts during the negotiations."
  },
  "history": [],
  "infos": {},

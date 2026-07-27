@@ -6,16 +6,16 @@
     },
     {
       "name": "Harborview Credit Union",
-      "private_context": "Harborview Credit Union has a policy for provisional credit on disputed charges, typically within ten business days. They received Marisol's dispute today and will process it according to their procedures."
+      "private_context": "Harborview Credit Union has a policy for provisional crediting of disputed charges. They received Marisol's dispute today. They must decide whether to provisionally credit the $320 within ten business days."
     }
   ],
-  "shared_context": "Marisol filed a dispute for a $320 card charge with Harborview Credit Union on 2026-10-14. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (assuming weekends and holidays). The cutoff for resolution is 2026-10-28T17:00:00-08:00.",
+  "shared_context": "Marisol filed a dispute with Harborview Credit Union regarding a $320 card charge on 2026-10-14. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (assuming business days Monday-Friday, excluding weekends and any holidays). The credit union has the ability to provisionally credit the amount or not.",
   "starting_events": [
     {
       "time": "2026-10-14T10:00:00-08:00",
-      "description": "Marisol files a dispute with Harborview Credit Union for a $320 card charge and is quoted a ten-business-day window for provisional credit.",
+      "description": "Marisol files a dispute with Harborview Credit Union for a $320 card charge and is informed of a ten-business-day window for provisional credit.",
       "visible_to": ["Marisol", "Harborview Credit Union"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that Harborview Credit Union provisionally credited Marisol's account for the disputed $320 charge on or before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that Harborview Credit Union actually provisionally credited Marisol's account for $320 before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at the cutoff."
 }

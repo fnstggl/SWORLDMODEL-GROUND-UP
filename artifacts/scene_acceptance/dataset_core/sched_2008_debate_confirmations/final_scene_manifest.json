@@ -9,16 +9,16 @@
    "private_context": "The Obama campaign has received an invitation to the first presidential debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They are considering the terms and logistics."
   }
  ],
- "shared_context": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been formally invited. Public confirmation of participation is expected before the debate date. The debate is a major media event.",
+ "shared_context": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been invited and are aware of the date and location. As of September 1, 2008, neither campaign has issued a public confirmation of their candidate's participation. The debate is expected to be a major media event.",
  "starting_events": [
   {
    "time": "2008-09-01T09:00:00-05:00",
-   "description": "The McCain and Obama campaigns have received invitations to the first presidential debate. Neither has publicly confirmed participation.",
+   "description": "The McCain campaign and Obama campaign each have the invitation for the first presidential debate at the University of Mississippi on September 26, 2008. Neither has publicly confirmed participation.",
    "visible_to": [
     "McCain campaign",
     "Obama campaign"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, both the McCain campaign and the Obama campaign have issued a public statement (e.g., press release, official announcement) confirming their candidate's participation in the debate. Resolve NO otherwise."
+ "resolution": "Resolve YES if, before the hard cutoff at 2008-09-26T12:00:00-05:00, the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public statement confirming their candidate's participation in the debate. Otherwise resolve NO at the cutoff."
 }

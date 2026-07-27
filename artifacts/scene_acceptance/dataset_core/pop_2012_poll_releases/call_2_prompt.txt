@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -97,31 +97,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Gallup",
-   "private_context": "Gallup is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls."
-  },
-  {
-   "name": "Pew Research Center",
-   "private_context": "Pew Research Center is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls."
-  },
-  {
-   "name": "ABC News/Washington Post",
-   "private_context": "ABC News/Washington Post is a major national polling organization. It regularly conducts and releases head-to-head surveys on presidential races. It has its own internal schedule and criteria for releasing polls."
+   "name": "Major national polling organizations",
+   "private_context": "Each organization has its own internal processes, resources, and schedules for conducting and releasing surveys. They are aware of the upcoming presidential election and may have ongoing tracking polls or planned surveys."
   }
  ],
- "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations sometimes publicly release new head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7, 2012.",
+ "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations (e.g., Gallup, Pew Research, ABC News/Washington Post, etc.) regularly conduct and release head-to-head surveys. The first week of October 2012 is a period when such surveys may be released, but no specific releases are guaranteed or scheduled in the shared context.",
  "starting_events": [
   {
    "time": "2012-10-01T09:00:00-04:00",
-   "description": "The simulation begins. No new polls have been released yet this week.",
+   "description": "The simulation begins. No polling organizations have publicly released any new head-to-head surveys on the Obama-Romney race during this week yet.",
    "visible_to": [
-    "Gallup",
-    "Pew Research Center",
-    "ABC News/Washington Post"
+    "Major national polling organizations"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least three distinct major national polling organizations publicly released new head-to-head Obama-Romney surveys between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that at least three distinct major national polling organizations publicly released new head-to-head surveys on the Obama-Romney race between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -13,7 +13,7 @@
     "bill",
     "osei_family"
    ],
-   "description": "Bill and the Osei family are aware of the fence damage and have had initial discussions but no agreement on cost sharing."
+   "description": "Bill and the Osei family are aware of the fence damage and have had initial discussions about cost sharing, but no agreement has been reached."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "bill": {
    "name": "Bill",
-   "persona_brief": "You are Bill.\nBill believes the fence is a shared responsibility and expects the Osei family to pay half. He is willing to negotiate but prefers to avoid court. He has limited savings and is concerned about costs."
+   "persona_brief": "You are Bill.\nBill believes the fence is shared property and the Osei family should pay half the repair cost. He is willing to negotiate but will consider small claims if no agreement is reached."
   },
   "osei_family": {
    "name": "Osei family",
-   "persona_brief": "You are Osei family.\nThe Osei family believes the fence is Bill's responsibility because it is on his property line. They are open to discussion but want to minimize their own expenses. They have some flexibility in their budget."
+   "persona_brief": "You are Osei family.\nThe Osei family believes the fence is Bill's responsibility or that they should pay less than half. They prefer to avoid court but are firm on their position."
   }
  },
  "resolution": {
   "question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Bill and the Osei family have both agreed to a specific cost split (e.g., 50/50 or other proportion) and have communicated that agreement to each other, and no small claims filing has occurred. Resolve NO if no such agreement is reached by the cutoff, or if either party files a small claims case before the cutoff.",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Bill and the Osei family have both agreed to a specific cost split (e.g., 50-50 or another proportion) and have communicated that agreement to each other. Resolve NO if no such agreement is recorded by the cutoff.",
   "cutoff": "2026-10-02T12:00:00-05:00",
   "world_id": "w_1f5dd10a9b4c"
  }

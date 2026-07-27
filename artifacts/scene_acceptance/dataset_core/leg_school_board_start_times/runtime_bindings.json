@@ -1,7 +1,7 @@
 {
  "world_id": "w_90d5fd4c6d2b",
  "actor_ids": {
-  "Marlin Bay Unified school board (as a body)": "marlin_bay_unified_school_board_as_a_body",
+  "Marvin Bay Unified school board (7 trustees)": "marvin_bay_unified_school_board_7_trustees",
   "Parent group": "parent_group"
  },
  "event_records": [
@@ -10,10 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-09-01T15:00:00+00:00",
    "visible_to_ids": [
-    "marlin_bay_unified_school_board_as_a_body",
+    "marvin_bay_unified_school_board_7_trustees",
     "parent_group"
    ],
-   "description": "The school board's September meeting schedule is set, with the later-start-times proposal on the agenda for both meetings."
+   "description": "The school board's first September meeting is scheduled. The later-start-times proposal is on the agenda."
   }
  ],
  "code_owned_defaults": {
@@ -22,13 +22,13 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "marlin_bay_unified_school_board_as_a_body": {
-   "name": "Marlin Bay Unified school board (as a body)",
-   "persona_brief": "You are Marlin Bay Unified school board (as a body).\nThe board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board is aware that the proposal has been tabled twice and that a parent group plans to pack public comment."
+  "marvin_bay_unified_school_board_7_trustees": {
+   "name": "Marvin Bay Unified school board (7 trustees)",
+   "persona_brief": "You are Marvin Bay Unified school board (7 trustees).\nThe board has the later-start-times proposal on its agenda for both September meetings. Two trustees are up for re-election in November and may be sensitive to public opinion. The proposal has been tabled twice since spring."
   },
   "parent_group": {
    "name": "Parent group",
-   "persona_brief": "You are Parent group.\nThe group has organized to pack the public-comment period at the September meetings to pressure the board to take a recorded vote on the later-start-times proposal."
+   "persona_brief": "You are Parent group.\nThe group has promised to pack the public-comment period at the September meetings to advocate for the later-start-times proposal."
   }
  },
  "resolution": {

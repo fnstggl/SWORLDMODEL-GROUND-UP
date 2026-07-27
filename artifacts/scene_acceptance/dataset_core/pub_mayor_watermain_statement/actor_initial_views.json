@@ -23,13 +23,13 @@
    {
     "t": "2026-08-12T13:00:00+00:00",
     "kind": "context",
-    "content": "The mayor is aware of this morning's third water-main burst and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs political and operational factors privately.",
+    "content": "The mayor is aware of this morning's third water-main burst and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs factors like public concern, media attention, and operational updates from the water department.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-12T13:00:00+00:00",
     "kind": "context",
-    "content": "Riverton has experienced three water-main bursts this morning, the most recent at approximately 2026-08-12T06:30:00-06:00. The bursts have caused localized disruptions but no reported injuries. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media, or press conference).",
+    "content": "Riverton has experienced three water-main bursts, the most recent occurring this morning (2026-08-12). The bursts have caused localized disruptions but no citywide emergency. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media).",
     "source": "scene_manifest:shared_context"
    }
   ],

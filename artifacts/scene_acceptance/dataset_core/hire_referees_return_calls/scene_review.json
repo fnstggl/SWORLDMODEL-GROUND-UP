@@ -1,10 +1,4 @@
 {
- "verdict": "ABSTAIN",
- "defects": [
-  {
-   "path": "scene",
-   "problem": "The scene uses generic placeholder actors 'Referee 1' and 'Referee 2' for parties the question never identifies. The question mentions 'both referees listed by shortlisted candidate Aoife Byrne' but does not provide their names or any identifying information. The scene invents unnamed stand-ins for unspecified parties, which violates the rule against generic placeholder actors.",
-   "correction": "The question lacks sufficient information to identify the referees. Without their identities, the scene cannot be meaningfully simulated. The scene should be abstained from."
-  }
- ]
+ "verdict": "APPROVE",
+ "defects": []
 }

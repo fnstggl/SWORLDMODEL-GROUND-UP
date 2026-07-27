@@ -1,4 +1,10 @@
 {
-  "verdict": "APPROVE",
-  "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene treats 'Major national polling organizations' as a single actor, but the question asks about multiple distinct organizations releasing surveys. The scene cannot simulate the independent decisions of multiple organizations as one actor. Additionally, the resolution requires counting distinct organizations, which is not simulatable with a single actor. The scene is not a social simulation but a factual lookup disguised as a simulation.",
+   "correction": "The scene should either model each major polling organization as a separate actor or be restructured to allow independent actions. However, given the question's nature, it may be better to abstain as the scene is not suitable for an actor-based social simulator."
+  }
+ ]
 }

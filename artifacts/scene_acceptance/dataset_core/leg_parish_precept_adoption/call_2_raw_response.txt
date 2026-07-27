@@ -1,10 +1,10 @@
 {
- "verdict": "ABSTAIN",
- "defects": [
-  {
-   "path": "scene",
-   "problem": "The scene uses a single generic actor 'Kettlewell Parish Council' to represent the entire council, but the question asks about a decision made by a collective body. The council's internal decision-making process cannot be simulated with a single actor that has no internal structure or individual members. The scene lacks identifiable individual actors (e.g., chairperson, clerk, specific members) who could deliberate and vote, making it impossible to simulate the social dynamics required for a formal adoption. This is an insufficiency: the scene is a placeholder for an unspecified collective decision-maker.",
-   "correction": "The scene must include individual actors representing the council members (e.g., chairperson, clerk, at least a few named members) with their own private contexts reflecting their views, and the shared context should include the meeting dynamics. Without such actors, the simulation cannot meaningfully model the social process of adoption."
-  }
- ]
+  "verdict": "ABSTAIN",
+  "defects": [
+    {
+      "path": "scene",
+      "problem": "The scene treats 'Kettlewell Parish Council' as a single actor, but a council is a collective body whose decision requires multiple members. The question asks whether the council will adopt the precept, which is a group decision. The scene does not include individual councillors or a chair, so it cannot simulate the social dynamics of a vote or formal adoption. The resolution depends on a 'persistent event history' that is not defined, and the starting event merely schedules a meeting without any decision-making process. This is not a simulatable social scene; it is a placeholder for a factual lookup.",
+      "correction": "The scene must include individual councillors or at least a chair and clerk to allow deliberation and a vote. Alternatively, if the question is about a known historical outcome, it should be treated as a lookup, not a simulation."
+    }
+  ]
 }

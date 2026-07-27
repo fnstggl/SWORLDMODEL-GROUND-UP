@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,28 +98,28 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Recruiter",
-   "private_context": "The recruiter has been trying to contact two referees listed by Aoife Byrne. They have left messages for both referees and hopes to hear back before the interview panel meets next Thursday."
+   "private_context": "The recruiter has been trying to contact the two referees listed by Aoife Byrne. They have the referees' contact information and need to speak with both before the interview panel meets next Thursday."
   },
   {
    "name": "Referee 1",
-   "private_context": "Referee 1 is a professional who may be busy and may or may not return calls promptly. They have no prior relationship with the recruiter beyond being listed as a referee."
+   "private_context": "Referee 1 is one of the referees listed by Aoife Byrne. They may or may not be aware of the recruiter's attempts to contact them. They have their own schedule and priorities."
   },
   {
    "name": "Referee 2",
-   "private_context": "Referee 2 is a professional who may be busy and may or may not return calls promptly. They have no prior relationship with the recruiter beyond being listed as a referee."
+   "private_context": "Referee 2 is one of the referees listed by Aoife Byrne. They may or may not be aware of the recruiter's attempts to contact them. They have their own schedule and priorities."
   }
  ],
- "shared_context": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter has attempted to contact these referees by phone and left messages. The interview panel is scheduled to meet next Thursday, 2026-08-20. The recruiter needs to hear back from both referees before that meeting.",
+ "shared_context": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. The recruiter needs to speak with both referees before the interview panel meets next Thursday (2026-08-20). The recruiter has been making calls to the referees. The referees have not yet returned the calls as of the simulation start time.",
  "starting_events": [
   {
    "time": "2026-08-14T09:00:00+01:00",
-   "description": "The recruiter has already left voicemail messages for both referees requesting a call back.",
+   "description": "The recruiter has already attempted to call both referees but has not yet received a return call from either.",
    "visible_to": [
     "Recruiter"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that both referees actually returned the recruiter's calls before 2026-08-20T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before the hard cutoff at 2026-08-20T09:00:00+01:00, the persistent event history shows that both Referee 1 and Referee 2 have returned the recruiter's calls (i.e., each has had a conversation with the recruiter initiated by the referee returning a call). Otherwise resolve NO."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Petra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability.",
+     "content": "Petra is a senior colorist currently employed and happily so. She is not actively looking for new opportunities. She receives professional messages occasionally and may or may not respond depending on her interest and availability.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-07T08:00:00+00:00"
     },
     {
-     "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter. The message will be sent at the start time.",
+     "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is available to the recruiter. The message will be sent at the start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-07T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The recruiter has identified Petra Kovac as a potential candidate for a colorist position at Torchlight Media. They have prepared a first-contact message to send to Petra.",
+     "content": "The recruiter has identified Petra Kovac as a potential candidate for a senior colorist opening at Torchlight Media. They have prepared a first-contact message to send to Petra.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-07T08:00:00+00:00"
     },
     {
-     "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter. The message will be sent at the start time.",
+     "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is available to the recruiter. The message will be sent at the start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-07T08:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "A recruiter from Torchlight Media is sending Petra Kovac, a senior colorist who is happily employed elsewhere, a first-contact message about an opening. Will Petra reply at all within five business days?",
-  "scene:shared_context": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter. The message will be sent at the start time."
+  "scene:shared_context": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is available to the recruiter. The message will be sent at the start time."
  },
  "history": [],
  "infos": {},

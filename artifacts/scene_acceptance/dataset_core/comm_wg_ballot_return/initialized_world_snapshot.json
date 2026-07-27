@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "interchange_format_working_group_21_members": {
+  "working_group_member_1": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,883 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "interchange_format_working_group_21_members",
+   "id": "working_group_member_1",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more diligent about returning ballots, others may be less so. No member has yet returned a ballot for draft revision 4.",
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-15T00:00:00+00:00"
     },
     {
-     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Ballots are due by that time. The group operates under standard procedures where members may choose to return ballots or not.",
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-15T00:00:00+00:00"
     }
    ],
-   "name": "Interchange Format Working Group (21 members)",
+   "name": "Working Group Member 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_10": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_10",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 10",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_11": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_11",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 11",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_12": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_12",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 12",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_13": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_13",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 13",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_14": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_14",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 14",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_15": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_15",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 15",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_16": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_16",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 16",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_17": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_17",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 17",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_18": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_18",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 18",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_19": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_19",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 19",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_20": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_20",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 20",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_21": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_21",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 21",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 4",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_5": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_5",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 5",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_6": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_6",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 6",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_7": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_7",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 7",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_8": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_8",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 8",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "working_group_member_9": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "working_group_member_9",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Member of the 21-person Interchange Format Working Group. Has received draft revision 4 and the comment period deadline. May or may not intend to return a ballot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Working Group Member 9",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -59,7 +919,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least two-thirds of the 21-member Interchange Format Working Group return ballots on draft revision 4 by the close of the comment period?",
-  "scene:shared_context": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Ballots are due by that time. The group operates under standard procedures where members may choose to return ballots or not."
+  "scene:shared_context": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment. The comment period closes at 2026-09-15T23:59:00+00:00. Each member may return a ballot (a formal vote or comment) before the deadline. The group's rules require at least two-thirds of members to return ballots for the draft to proceed."
  },
  "history": [],
  "infos": {},
@@ -69,6 +929,6 @@
  "resources": {},
  "start": "2026-08-15T00:00:00+00:00",
  "terminal": null,
- "version": 8,
+ "version": 68,
  "watches": {}
 }

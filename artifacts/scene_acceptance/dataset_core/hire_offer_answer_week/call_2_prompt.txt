@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,18 +101,18 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Wanjiru Kamau",
-   "private_context": "Wanjiru Kamau is a data engineer currently working in telecom, doing shift-adjacent support work. She is tired of this work. She has a partner midway through a nursing program in Nairobi. She received a job offer from Kestrel Analytics on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current salary and is fully remote. She must decide whether to accept or decline before the deadline."
+   "private_context": "Wanjiru Kamau is a data engineer currently working in telecom, doing shift-adjacent support work which she is tired of. She has a partner midway through a nursing program in Nairobi. She received a job offer from Kestrel Analytics on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current salary and fully remote. She has not yet decided whether to accept."
   },
   {
    "name": "Kestrel Analytics",
-   "private_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They await her definitive answer before the deadline passes."
+   "private_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They are waiting for her definitive answer before the deadline."
   }
  ],
- "shared_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current telecom salary and fully remote. The deadline is 2026-08-10T17:00:00+03:00.",
+ "shared_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday (2026-08-03) with a one-week deadline. The offer is a 15% raise over her current salary and fully remote. Wanjiru has not yet given a definitive answer.",
  "starting_events": [
   {
    "time": "2026-08-03T17:00:00+03:00",
-   "description": "Wanjiru Kamau receives the job offer from Kestrel Analytics with a one-week deadline.",
+   "description": "Wanjiru Kamau has received the job offer from Kestrel Analytics and is considering it.",
    "visible_to": [
     "Wanjiru Kamau"
    ]

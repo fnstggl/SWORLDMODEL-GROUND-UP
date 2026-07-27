@@ -23,56 +23,13 @@
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The local's executive board met twice last week without issuing a statement. The local is aware of a rank-and-file caucus leafleting against the port automation memorandum. The local has not yet decided whether to endorse the memorandum or not, and has not yet issued a press release.",
+    "content": "The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local has not yet decided whether to endorse the port automation memorandum or to issue a press release.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The international union endorsed a similar deal at another port last month. The port automation memorandum is a current issue. The local can issue a press release at any time before Monday.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "rank_and_file_caucus": {
-  "id": "rank_and_file_caucus",
-  "name": "Rank-and-file caucus",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-08-27T16:00:00+00:00",
-    "kind": "context",
-    "content": "The caucus is leafleting against the port automation memorandum. They want the local to oppose the memorandum.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-08-27T16:00:00+00:00",
-    "kind": "context",
-    "content": "The international union endorsed a similar deal at another port last month. The port automation memorandum is a current issue. The local can issue a press release at any time before Monday.",
+    "content": "The international union endorsed a similar deal at another port last month. The local can issue a press release at any time before Monday. The port automation memorandum is a known topic of discussion.",
     "source": "scene_manifest:shared_context"
    }
   ],

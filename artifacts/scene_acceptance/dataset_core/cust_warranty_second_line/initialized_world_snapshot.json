@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The second-line team handles escalated warranty claims. They have a queue of claims and must decide on each. They are aware of the ten-working-day commitment but may have varying workloads and priorities.",
+     "content": "The second-line team handles escalated warranty claims. They have a queue of claims and aim to respond within ten working days as per their quoted policy. They have received Rustam's claim and are aware of the ten-working-day timeline.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-05T04:00:00+00:00"
     },
     {
-     "content": "Rustam's escalated warranty claim for a failed washing machine was submitted to the manufacturer. Yesterday (2026-08-04), the manufacturer sent an email to Rustam quoting that the second-line team would make a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-18 (assuming weekdays only). The simulation starts on 2026-08-05 at 09:00 and has a hard cutoff at 2026-08-19T18:00:00+05:00.",
+     "content": "Rustam's escalated warranty claim for a failed washing machine was submitted to the manufacturer. Yesterday (2026-08-04), the manufacturer emailed Rustam stating that the second-line team will provide a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-18 (assuming weekdays only), but the hard cutoff is 2026-08-19T18:00:00+05:00. The second-line team has the claim details and can make a decision.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-05T04:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Rustam has an escalated warranty claim for a failed washing machine. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team would make a decision within ten working days. He wants a decision within that timeframe.",
+     "content": "Rustam has an escalated warranty claim for a failed washing machine. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team will provide a decision within ten working days. He expects a decision by the cutoff.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-05T04:00:00+00:00"
     },
     {
-     "content": "Rustam's escalated warranty claim for a failed washing machine was submitted to the manufacturer. Yesterday (2026-08-04), the manufacturer sent an email to Rustam quoting that the second-line team would make a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-18 (assuming weekdays only). The simulation starts on 2026-08-05 at 09:00 and has a hard cutoff at 2026-08-19T18:00:00+05:00.",
+     "content": "Rustam's escalated warranty claim for a failed washing machine was submitted to the manufacturer. Yesterday (2026-08-04), the manufacturer emailed Rustam stating that the second-line team will provide a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-18 (assuming weekdays only), but the hard cutoff is 2026-08-19T18:00:00+05:00. The second-line team has the claim details and can make a decision.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-05T04:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Rustam's escalated warranty claim for a failed washing machine get a decision from the manufacturer's second-line team within the ten working days quoted in yesterday's email?",
-  "scene:shared_context": "Rustam's escalated warranty claim for a failed washing machine was submitted to the manufacturer. Yesterday (2026-08-04), the manufacturer sent an email to Rustam quoting that the second-line team would make a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-18 (assuming weekdays only). The simulation starts on 2026-08-05 at 09:00 and has a hard cutoff at 2026-08-19T18:00:00+05:00."
+  "scene:shared_context": "Rustam's escalated warranty claim for a failed washing machine was submitted to the manufacturer. Yesterday (2026-08-04), the manufacturer emailed Rustam stating that the second-line team will provide a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-18 (assuming weekdays only), but the hard cutoff is 2026-08-19T18:00:00+05:00. The second-line team has the claim details and can make a decision."
  },
  "history": [],
  "infos": {},

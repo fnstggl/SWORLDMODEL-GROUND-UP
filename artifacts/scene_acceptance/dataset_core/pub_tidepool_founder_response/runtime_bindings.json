@@ -1,8 +1,8 @@
 {
  "world_id": "w_8ccdd9dd85b9",
  "actor_ids": {
-  "Tidepool founder": "tidepool_founder",
-  "Tidepool head of support": "tidepool_head_of_support"
+  "Founder of Tidepool": "founder_of_tidepool",
+  "Head of Support at Tidepool": "head_of_support_at_tidepool"
  },
  "event_records": [
   {
@@ -10,10 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-09-03T22:00:00+00:00",
    "visible_to_ids": [
-    "tidepool_founder",
-    "tidepool_head_of_support"
+    "founder_of_tidepool",
+    "head_of_support_at_tidepool"
    ],
-   "description": "The viral thread accusing Tidepool of deleting critical reviews is circulating publicly with two million views and screenshots."
+   "description": "The viral thread accusing Tidepool of deleting critical reviews is circulating publicly with two million views. The founder has been informed by the head of support that some takedowns occurred. Two journalists have sent emails requesting comment."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "tidepool_founder": {
-   "name": "Tidepool founder",
-   "persona_brief": "You are Tidepool founder.\nThe founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. Two journalists have emailed for comment. The founder is deciding whether to post a public response to the viral thread."
+  "founder_of_tidepool": {
+   "name": "Founder of Tidepool",
+   "persona_brief": "You are Founder of Tidepool.\nThe founder has been privately informed by Tidepool's head of support that some critical reviews were indeed deleted. They have received email inquiries from two journalists about the viral thread. The founder is considering whether and how to respond publicly."
   },
-  "tidepool_head_of_support": {
-   "name": "Tidepool head of support",
-   "persona_brief": "You are Tidepool head of support.\nThe head of support has privately confirmed to the founder that some takedowns happened. They are aware of the viral thread and the journalists' inquiries."
+  "head_of_support_at_tidepool": {
+   "name": "Head of Support at Tidepool",
+   "persona_brief": "You are Head of Support at Tidepool.\nThe head of support has privately confirmed to the founder that some takedowns of critical reviews happened. They are aware of the viral thread and the journalists' inquiries."
   }
  },
  "resolution": {
   "question": "Will the founder of the Tidepool app post a public response within one week to the viral thread accusing the company of deleting critical reviews?",
-  "resolution": "Resolve YES if the persistent event history shows that the Tidepool founder posted a public response (e.g., a post, statement, or comment) addressing the thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the founder of Tidepool posted a public response (e.g., a statement, tweet, or post) addressing the accusations before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-10T15:00:00-07:00",
   "world_id": "w_8ccdd9dd85b9"
  }

@@ -1,7 +1,7 @@
 {
- "committee_member_a": {
-  "id": "committee_member_a",
-  "name": "Committee Member A",
+ "committee_member_1": {
+  "id": "committee_member_1",
+  "name": "Committee Member 1",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "A is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+    "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "committee_member_b": {
-  "id": "committee_member_b",
-  "name": "Committee Member B",
+ "committee_member_2": {
+  "id": "committee_member_2",
+  "name": "Committee Member 2",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "B is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+    "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -85,9 +85,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "committee_member_c": {
-  "id": "committee_member_c",
-  "name": "Committee Member C",
+ "committee_member_3": {
+  "id": "committee_member_3",
+  "name": "Committee Member 3",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "C is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+    "content": "A faculty member on Femi's committee. Has typical academic commitments and may have preferences or constraints for defense dates in November.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He wants to find a date that works for all three committee members. He has access to a scheduling tool (e.g., Doodle or email) to propose dates. He is motivated to secure a date soon.",
+    "content": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He has three committee members and wants to find a date that works for all. He is aware of the ten-day deadline to converge on a date.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. The current time is 2026-09-14T09:00:00+01:00, and they have until 2026-09-24T17:00:00+01:00 to converge on a date. Communication can occur via email or other means.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,19 +1,27 @@
 {
  "world_id": "w_677e0c447bae",
  "actor_ids": {
-  "Herrera cousins (group chat participants)": "herrera_cousins_group_chat_participants",
-  "Tia Marisol": "tia_marisol"
+  "Tia Marisol": "tia_marisol",
+  "Cousin pushing Oaxaca 1": "cousin_pushing_oaxaca_1",
+  "Cousin pushing Oaxaca 2": "cousin_pushing_oaxaca_2",
+  "Cousin pushing Oaxaca 3": "cousin_pushing_oaxaca_3",
+  "Cousin pushing San Antonio 1": "cousin_pushing_san_antonio_1",
+  "Cousin pushing San Antonio 2": "cousin_pushing_san_antonio_2"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 23,
    "at": "2026-08-01T16:00:00+00:00",
    "visible_to_ids": [
-    "herrera_cousins_group_chat_participants",
-    "tia_marisol"
+    "tia_marisol",
+    "cousin_pushing_oaxaca_1",
+    "cousin_pushing_oaxaca_2",
+    "cousin_pushing_oaxaca_3",
+    "cousin_pushing_san_antonio_1",
+    "cousin_pushing_san_antonio_2"
    ],
-   "description": "The group chat is active with ongoing discussion about the reunion. Three cousins have expressed preference for Oaxaca, two for San Antonio. Tia Marisol has indicated she will go with the majority but has been changing the subject to catering."
+   "description": "The group chat is active with ongoing discussion about the reunion location and date."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +30,34 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "herrera_cousins_group_chat_participants": {
-   "name": "Herrera cousins (group chat participants)",
-   "persona_brief": "You are Herrera cousins (group chat participants).\nEach cousin has their own preferences and availability for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio. Tia Marisol privately prefers to go with the majority but is also concerned about catering. Other cousins may have unstated preferences."
-  },
   "tia_marisol": {
    "name": "Tia Marisol",
-   "persona_brief": "You are Tia Marisol.\nShe is the eldest and influential. She says she will go with the majority but keeps changing the subject to catering. She may have her own private constraints or preferences regarding the reunion."
+   "persona_brief": "You are Tia Marisol.\nMarisol is the eldest cousin. She says she will go with the majority but keeps changing the subject to catering. She wants the reunion to happen but is indecisive about location."
+  },
+  "cousin_pushing_oaxaca_1": {
+   "name": "Cousin pushing Oaxaca 1",
+   "persona_brief": "You are Cousin pushing Oaxaca 1.\nOne of the three cousins advocating for Oaxaca. Wants the reunion in Oaxaca."
+  },
+  "cousin_pushing_oaxaca_2": {
+   "name": "Cousin pushing Oaxaca 2",
+   "persona_brief": "You are Cousin pushing Oaxaca 2.\nSecond cousin advocating for Oaxaca."
+  },
+  "cousin_pushing_oaxaca_3": {
+   "name": "Cousin pushing Oaxaca 3",
+   "persona_brief": "You are Cousin pushing Oaxaca 3.\nThird cousin advocating for Oaxaca."
+  },
+  "cousin_pushing_san_antonio_1": {
+   "name": "Cousin pushing San Antonio 1",
+   "persona_brief": "You are Cousin pushing San Antonio 1.\nOne of the two cousins advocating for San Antonio."
+  },
+  "cousin_pushing_san_antonio_2": {
+   "name": "Cousin pushing San Antonio 2",
+   "persona_brief": "You are Cousin pushing San Antonio 2.\nSecond cousin advocating for San Antonio."
   }
  },
  "resolution": {
   "question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
-  "resolution": "Resolve YES if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message is sent in the group chat that explicitly states a specific weekend and a specific town for the reunion, and no subsequent message contradicts or retracts that decision before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message in the group chat explicitly states a specific weekend and a specific town for the reunion, and no subsequent message contradicts or reopens the decision. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T22:00:00-06:00",
   "world_id": "w_677e0c447bae"
  }

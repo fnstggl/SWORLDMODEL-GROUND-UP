@@ -13,7 +13,7 @@
     "gerald",
     "amara"
    ],
-   "description": "Gerald and Amara are aware of each other's initial positions (nine percent vs. four percent) and the upcoming lease expiration. No further events have occurred."
+   "description": "Gerald's proposal of a 9% increase is on the table; Amara has not yet responded formally."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "gerald": {
    "name": "Gerald",
-   "persona_brief": "You are Gerald.\nGerald is the landlord. He proposed a nine percent rent increase. He knows the building has two vacant units and that comparable one-bedrooms nearby list about five percent above Amara's current rent. He wants to maximize rental income but also avoid vacancy."
+   "persona_brief": "You are Gerald.\nGerald is the landlord. He has proposed a 9% rent increase. He knows the building has two vacant units and that comparable one-bedrooms nearby list about 5% above Amara's current rent. He wants to maximize rental income but may consider negotiation to avoid vacancy."
   },
   "amara": {
    "name": "Amara",
-   "persona_brief": "You are Amara.\nAmara is the tenant. She wants to hold the increase at four percent. She has paid on time for four years. She knows the building has two vacant units and that comparable one-bedrooms nearby list about five percent above her current rent. She wants a fair deal and may consider moving if necessary."
+   "persona_brief": "You are Amara.\nAmara is the tenant. She wants to hold the increase at 4%. She has paid on time for four years. She knows her lease lapses at the end of next month and that comparable units list about 5% above her current rent. She may consider moving if terms are unfavorable."
   }
  },
  "resolution": {
   "question": "Landlord Gerald has proposed a nine percent rent increase and tenant Amara wants to hold at four. Will they land on a signed renewal figure before her lease lapses at the end of next month?",
-  "resolution": "Resolve YES only if the persistent event history shows that Gerald and Amara both signed a renewal agreement with a rent increase figure before 2026-08-31T23:59:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Gerald and Amara both signed a renewal lease agreement with a specific rent figure before 2026-08-31T23:59:00-04:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-31T23:59:00-04:00",
   "world_id": "w_667755349025"
  }

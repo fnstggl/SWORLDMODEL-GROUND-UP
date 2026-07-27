@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Bill",
-   "private_context": "Bill believes the fence is a shared responsibility and expects the Osei family to pay half. He is willing to negotiate but prefers to avoid court. He has limited savings and is concerned about costs."
+   "private_context": "Bill believes the fence is shared property and the Osei family should pay half the repair cost. He is willing to negotiate but will consider small claims if no agreement is reached."
   },
   {
    "name": "Osei family",
-   "private_context": "The Osei family believes the fence is Bill's responsibility because it is on his property line. They are open to discussion but want to minimize their own expenses. They have some flexibility in their budget."
+   "private_context": "The Osei family believes the fence is Bill's responsibility or that they should pay less than half. They prefer to avoid court but are firm on their position."
   }
  ],
- "shared_context": "A storm has damaged the shared fence between Bill's property and the Osei family's property. The fence is old and its exact ownership is unclear from property records. Both parties have homeowner's insurance that may cover some damage, but deductibles apply. They have exchanged initial messages but no agreement yet. Small claims court is an option if they cannot agree.",
+ "shared_context": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. The fence needs repair. Both parties have discussed the issue but have not yet agreed on how to split the cost. They have two months to reach an agreement before the option of small claims court becomes more likely.",
  "starting_events": [
   {
    "time": "2026-08-02T12:00:00-05:00",
-   "description": "Bill and the Osei family are aware of the fence damage and have had initial discussions but no agreement on cost sharing.",
+   "description": "Bill and the Osei family are aware of the fence damage and have had initial discussions about cost sharing, but no agreement has been reached.",
    "visible_to": [
     "Bill",
     "Osei family"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Bill and the Osei family have both agreed to a specific cost split (e.g., 50/50 or other proportion) and have communicated that agreement to each other, and no small claims filing has occurred. Resolve NO if no such agreement is reached by the cutoff, or if either party files a small claims case before the cutoff."
+ "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that Bill and the Osei family have both agreed to a specific cost split (e.g., 50-50 or another proportion) and have communicated that agreement to each other. Resolve NO if no such agreement is recorded by the cutoff."
 }

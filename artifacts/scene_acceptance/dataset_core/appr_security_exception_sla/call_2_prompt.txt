@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,25 +98,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dev Patel",
-   "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the five-business-day service window and wants the request to be approved."
+   "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team for approval. He is aware of the five-business-day service window and hopes for a timely decision."
   },
   {
    "name": "Harborview Credit Union Security Team",
-   "private_context": "The security team at Harborview Credit Union reviews software-exception requests. They have a published policy of responding within five business days. They have no prior knowledge of Dev Patel's specific request until it is submitted."
+   "private_context": "The security team at Harborview Credit Union is responsible for reviewing and deciding on software-exception requests. They operate with a published five-business-day service window for such decisions. They have not yet received Dev Patel's request."
   }
  ],
- "shared_context": "Harborview Credit Union has a published service window of five business days for responding to software-exception requests. The request submission process is through an internal ticketing system. The current date and time is 2026-08-10T10:00:00-08:00, which is a Monday. The five-business-day window ends on 2026-08-14T17:00:00-08:00 (Friday), but the hard cutoff for resolution is 2026-08-17T17:00:00-08:00 (the following Monday).",
+ "shared_context": "Harborview Credit Union has a published policy that software-exception requests are reviewed by the security team and a decision is communicated within five business days. The current time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
  "starting_events": [
   {
    "time": "2026-08-10T10:00:00-08:00",
-   "description": "Dev Patel submits his software-exception request to the security team via the internal ticketing system.",
+   "description": "Dev Patel submits his software-exception request to the Harborview Credit Union security team.",
    "visible_to": [
-    "Dev Patel",
-    "Harborview Credit Union Security Team"
+    "Dev Patel"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the security team formally approved or rejected the request (i.e., a decision is recorded in the ticketing system) before 2026-08-17T17:00:00-08:00. Resolve NO if no decision is recorded by that cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection of Dev Patel's request before the hard cutoff of 2026-08-17T17:00:00-08:00. Resolve NO if no such communication is recorded by the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

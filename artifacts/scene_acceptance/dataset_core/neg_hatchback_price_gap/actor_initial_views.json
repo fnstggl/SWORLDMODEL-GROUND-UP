@@ -23,13 +23,13 @@
    {
     "t": "2026-08-20T04:30:00+00:00",
     "kind": "context",
-    "content": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He can decide to offer a different price or accept the seller's counteroffer. He has three days before the listing expires.",
+    "content": "Ravi wants to buy a 2019 hatchback. He has a maximum budget of 40,000 rupees less than the seller's asking price. He is willing to negotiate and can make an offer.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-20T04:30:00+00:00",
     "kind": "context",
-    "content": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The current price difference is 40,000 rupees. The seller's listing will expire on 2026-08-23T10:00:00+05:30.",
+    "content": "A 2019 hatchback is listed for sale by a private seller. The seller's asking price and Ravi's maximum budget are 40,000 rupees apart. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller can communicate through the listing platform or other means to negotiate the price.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-20T04:30:00+00:00",
     "kind": "context",
-    "content": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. They can decide to accept, reject, or counteroffer. The listing expires in three days.",
+    "content": "The seller is listing a 2019 hatchback with a posted price. They are willing to negotiate but have a minimum acceptable price that is 40,000 rupees above Ravi's budget. The listing expires in three days.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-20T04:30:00+00:00",
     "kind": "context",
-    "content": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The current price difference is 40,000 rupees. The seller's listing will expire on 2026-08-23T10:00:00+05:30.",
+    "content": "A 2019 hatchback is listed for sale by a private seller. The seller's asking price and Ravi's maximum budget are 40,000 rupees apart. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller can communicate through the listing platform or other means to negotiate the price.",
     "source": "scene_manifest:shared_context"
    }
   ],

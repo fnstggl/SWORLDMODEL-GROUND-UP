@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "NASA Senior Managers",
-      "private_context": "They are responsible for the Apollo 11 mission and must decide whether to give a go for the July launch window. They have access to technical reports and recommendations from engineers and flight directors. They are aware of the upcoming flight readiness review process."
+      "private_context": "They are responsible for the Apollo 11 flight readiness review and must decide whether to publicly announce a go decision for the July launch window. They have access to technical reports and status updates from various teams. They are aware of the upcoming review process and the need to make a decision before the end of June."
     }
   ],
-  "shared_context": "Apollo 11 is scheduled for a July 1969 launch window. A flight readiness review process is underway to assess the mission's readiness. The review will conclude with a decision on whether to proceed with the launch. The decision will be publicly announced.",
+  "shared_context": "The Apollo 11 mission is scheduled for a July 1969 launch window. The flight readiness review process is underway, and a final decision on whether to proceed with the launch will be made during this process. The public announcement of a go decision is expected after the review concludes. The review process involves multiple technical assessments and meetings, but the specific schedule and outcomes are not predetermined.",
   "starting_events": [
     {
       "time": "1969-06-01T09:00:00-04:00",
-      "description": "The flight readiness review process for Apollo 11 begins.",
+      "description": "The flight readiness review process for Apollo 11 begins, with NASA senior managers and technical teams assessing mission readiness.",
       "visible_to": ["NASA Senior Managers"]
     }
   ],
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that NASA's senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that NASA senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process. Otherwise resolve NO."
 }

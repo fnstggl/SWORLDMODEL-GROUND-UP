@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Academic Senate",
-      "private_context": "The Academic Senate is the faculty governance body of Ashvale University. It has a chair, a secretary, and voting members drawn from faculty across departments. The senate has received a motion to adopt pass-fail grading for the current semester. Members have varying opinions on the motion, but no formal vote has been taken yet. The chair sets the agenda and controls debate."
+      "private_context": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It consists of faculty representatives, administrators, and student representatives. The senate has a standing committee on educational policy that has reviewed the pass-fail grading motion and forwarded it to the full senate with a recommendation. Individual members have varying opinions on the motion, but no formal commitments have been made publicly."
     }
   ],
-  "shared_context": "Ashvale University's academic senate will hold its October plenary meeting on a date between October 1 and October 30, 2026. The meeting agenda includes a motion to adopt pass-fail grading for the current semester. The motion may be passed, rejected, or sent back to committee. The senate operates under standard parliamentary procedure. The outcome will be recorded in the official minutes.",
+  "shared_context": "Ashvale University's academic senate will hold its October plenary meeting on 2026-10-15 at 10:00 AM. The agenda includes a motion to adopt a pass-fail grading option for undergraduate courses. The motion was previously discussed in the educational policy committee, which has sent it to the full senate with a recommendation. The senate will vote on whether to pass, reject, or send the motion back to committee. The outcome is uncertain.",
   "starting_events": [
     {
       "time": "2026-10-01T09:00:00-05:00",
-      "description": "The academic senate's October plenary meeting is scheduled to occur before the cutoff. The pass-fail grading motion is on the agenda.",
+      "description": "The academic senate's agenda for the October plenary is published, listing the pass-fail grading motion as an item for discussion and vote.",
       "visible_to": ["Academic Senate"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the pass-fail grading motion at its October plenary before the cutoff. Resolve NO if the persistent event history shows that the senate rejected the motion or sent it back to committee before the cutoff. If no final action is recorded by the cutoff, resolve NO."
+  "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the motion at the October plenary. Resolve NO if the persistent event history shows that the senate rejected the motion. Resolve SEND_BACK if the persistent event history shows that the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve as NO_DECISION."
 }

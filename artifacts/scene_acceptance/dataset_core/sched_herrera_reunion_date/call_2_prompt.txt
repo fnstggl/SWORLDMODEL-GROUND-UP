@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -100,26 +100,46 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Herrera cousins (group chat participants)",
-   "private_context": "Each cousin has their own preferences and availability for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio. Tia Marisol privately prefers to go with the majority but is also concerned about catering. Other cousins may have unstated preferences."
+   "name": "Tia Marisol",
+   "private_context": "Marisol is the eldest cousin. She says she will go with the majority but keeps changing the subject to catering. She wants the reunion to happen but is indecisive about location."
   },
   {
-   "name": "Tia Marisol",
-   "private_context": "She is the eldest and influential. She says she will go with the majority but keeps changing the subject to catering. She may have her own private constraints or preferences regarding the reunion."
+   "name": "Cousin pushing Oaxaca 1",
+   "private_context": "One of the three cousins advocating for Oaxaca. Wants the reunion in Oaxaca."
+  },
+  {
+   "name": "Cousin pushing Oaxaca 2",
+   "private_context": "Second cousin advocating for Oaxaca."
+  },
+  {
+   "name": "Cousin pushing Oaxaca 3",
+   "private_context": "Third cousin advocating for Oaxaca."
+  },
+  {
+   "name": "Cousin pushing San Antonio 1",
+   "private_context": "One of the two cousins advocating for San Antonio."
+  },
+  {
+   "name": "Cousin pushing San Antonio 2",
+   "private_context": "Second cousin advocating for San Antonio."
   }
  ],
- "shared_context": "There is a fourteen-person group chat that has been active for a month. The cousins are trying to decide on a weekend and a town for next spring's family reunion. The chat includes all fourteen cousins. The deadline for a decision is the end of September 2026.",
+ "shared_context": "There is a fourteen-person group chat including the Herrera cousins and Tia Marisol. The chat has been active for a month. Three cousins push for Oaxaca, two for San Antonio, and Tia Marisol says she will go with the majority but keeps changing the subject to catering. The group needs to fix a weekend and a town for next spring's family reunion. The chat is ongoing.",
  "starting_events": [
   {
    "time": "2026-08-01T10:00:00-06:00",
-   "description": "The group chat is active with ongoing discussion about the reunion. Three cousins have expressed preference for Oaxaca, two for San Antonio. Tia Marisol has indicated she will go with the majority but has been changing the subject to catering.",
+   "description": "The group chat is active with ongoing discussion about the reunion location and date.",
    "visible_to": [
-    "Herrera cousins (group chat participants)",
-    "Tia Marisol"
+    "Tia Marisol",
+    "Cousin pushing Oaxaca 1",
+    "Cousin pushing Oaxaca 2",
+    "Cousin pushing Oaxaca 3",
+    "Cousin pushing San Antonio 1",
+    "Cousin pushing San Antonio 2"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message is sent in the group chat that explicitly states a specific weekend and a specific town for the reunion, and no subsequent message contradicts or retracts that decision before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message in the group chat explicitly states a specific weekend and a specific town for the reunion, and no subsequent message contradicts or reopens the decision. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,24 +98,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Hana Suzuki",
-   "private_context": "Hana Suzuki received a delivery from Ostara Foods that contained moldy items. She is frustrated and wants the issue resolved. She has the contact information for Ostara Foods' support desk and intends to file a complaint."
+   "private_context": "Hana Suzuki received a moldy delivery from Ostara Foods. She wants to file a complaint and expects a substantive reply within 24 hours as advertised. She has the contact information for Ostara Foods' support desk."
   },
   {
    "name": "Ostara Foods Support Desk",
-   "private_context": "The support desk is staffed by customer service representatives who handle complaints. They have an advertised policy of responding to complaints within 24 hours. They have not yet received Hana Suzuki's complaint."
+   "private_context": "The support desk handles customer complaints and aims to respond within 24 hours. They have standard procedures for handling complaints about moldy deliveries, which may include offering refunds or replacements. They are aware of the advertised 24-hour response window."
   }
  ],
- "shared_context": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a valid complaint about a moldy delivery. She can contact the support desk via email or phone. The support desk operates during business hours, but may have after-hours procedures.",
+ "shared_context": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a moldy delivery and intends to contact the support desk. The support desk can receive complaints via email, phone, or online form.",
  "starting_events": [
   {
    "time": "2026-08-19T13:00:00+09:00",
-   "description": "Hana Suzuki sends her complaint to Ostara Foods' support desk via email, describing the moldy delivery and requesting a resolution.",
+   "description": "Hana Suzuki sends a complaint to Ostara Foods' support desk about the moldy delivery, requesting a resolution or substantive reply.",
    "visible_to": [
     "Hana Suzuki"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. A substantive reply is one that addresses the complaint (e.g., offers a refund, replacement, or apology) and is not an automated acknowledgment. Resolve NO if no such reply is sent by the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply (not an automated acknowledgment) to Hana Suzuki before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

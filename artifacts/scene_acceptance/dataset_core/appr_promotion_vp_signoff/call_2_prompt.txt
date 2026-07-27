@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -98,33 +98,29 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Rosa Maria",
-   "private_context": "Rosa Maria is a manager who has prepared a promotion case for her report Jonas. She wants the case to clear calibration and receive VP sign-off before November 15. She knows the promotion process and the deadline."
+   "private_context": "Rosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and submitted it for calibration. She wants the case to be approved and signed off by the VP before promotion letters go out on November 15. She knows the calibration process and VP sign-off are required steps."
   },
   {
    "name": "Jonas",
-   "private_context": "Jonas is Rosa Maria's report, whose promotion case is being submitted. He is aware that his promotion case is being prepared and submitted by Rosa Maria."
-  },
-  {
-   "name": "Calibration Committee",
-   "private_context": "The calibration committee reviews promotion cases and decides whether they meet the bar. They operate according to company policy and schedule."
+   "private_context": "Jonas is a report of Rosa Maria. He is aware that Rosa Maria is working on his promotion case. He hopes the promotion goes through but has no direct control over the process."
   },
   {
    "name": "VP",
-   "private_context": "The VP has the authority to sign off on promotion cases after calibration. They may approve or reject based on their assessment."
+   "private_context": "The VP is the executive who must sign off on promotion cases. They have authority to approve or reject. They are aware of the promotion cycle and the November 15 deadline for letters."
   }
  ],
- "shared_context": "The company has a promotion process where managers submit cases for their reports. Cases must go through calibration review and then receive VP sign-off. Promotion letters are scheduled to go out on November 15, 2026. The current date is October 5, 2026. Rosa Maria has prepared a promotion case for Jonas and is ready to submit it.",
+ "shared_context": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
  "starting_events": [
   {
    "time": "2026-10-05T09:00:00-08:00",
-   "description": "Rosa Maria submits the promotion case for Jonas to the calibration committee.",
+   "description": "Rosa Maria's promotion case for Jonas has been submitted for calibration. The calibration process is pending or ongoing.",
    "visible_to": [
     "Rosa Maria",
-    "Calibration Committee"
+    "VP"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the calibration committee approved the case and the VP signed off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Jonas's promotion case cleared calibration and received VP sign-off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

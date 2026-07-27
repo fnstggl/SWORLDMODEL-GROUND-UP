@@ -23,13 +23,13 @@
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "Each colleague sees the swap channel and may consider taking the shift based on their own preferences and availability. They have no prior commitment to Karolina regarding this shift.",
+    "content": "The colleagues are nurses who can see the swap channel. They may be interested in picking up extra shifts or swapping, but have no prior commitment to Karolina's request.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+    "content": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "Karolina wants someone to take her Sunday night shift. She posted a request in the ward's swap channel. She has no particular colleague in mind.",
+    "content": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She is aware of the Friday 15:00 rota lock deadline.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+    "content": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
     "source": "scene_manifest:shared_context"
    }
   ],

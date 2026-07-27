@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
-  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all three committee members have explicitly agreed to a specific date in November for the defense (e.g., via email confirmation, calendar invitation acceptance, or verbal confirmation recorded in a message). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all four actors (Femi and the three committee members) have explicitly agreed on a specific defense date within the November window. Otherwise resolve NO.",
   "cutoff": "2026-09-24T17:00:00+01:00",
   "world_id": "w_6a17eeaea3c7"
  },

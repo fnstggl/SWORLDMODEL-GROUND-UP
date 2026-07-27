@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -105,18 +105,18 @@ THE COMPILED SCENE (exact manifest under review):
    "private_context": "The Obama campaign has received an invitation to the first presidential debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They are considering the terms and logistics."
   }
  ],
- "shared_context": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been formally invited. Public confirmation of participation is expected before the debate date. The debate is a major media event.",
+ "shared_context": "The Commission on Presidential Debates has scheduled the first presidential debate for September 26, 2008, at the University of Mississippi. Both campaigns have been invited and are aware of the date and location. As of September 1, 2008, neither campaign has issued a public confirmation of their candidate's participation. The debate is expected to be a major media event.",
  "starting_events": [
   {
    "time": "2008-09-01T09:00:00-05:00",
-   "description": "The McCain and Obama campaigns have received invitations to the first presidential debate. Neither has publicly confirmed participation.",
+   "description": "The McCain campaign and Obama campaign each have the invitation for the first presidential debate at the University of Mississippi on September 26, 2008. Neither has publicly confirmed participation.",
    "visible_to": [
     "McCain campaign",
     "Obama campaign"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, both the McCain campaign and the Obama campaign have issued a public statement (e.g., press release, official announcement) confirming their candidate's participation in the debate. Resolve NO otherwise."
+ "resolution": "Resolve YES if, before the hard cutoff at 2008-09-26T12:00:00-05:00, the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public statement confirming their candidate's participation in the debate. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

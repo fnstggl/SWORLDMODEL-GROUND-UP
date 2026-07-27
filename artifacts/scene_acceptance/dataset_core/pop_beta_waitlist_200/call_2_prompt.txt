@@ -21,7 +21,7 @@ Check, specifically:
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
 INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
-- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them;
 - a past counterfactual dressed up as a future simulation;
 - a self-contradictory or impossible premise treated as workable;
 - an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
@@ -101,14 +101,14 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tidepool",
-   "private_context": "Tidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They plan to send it on launch morning. They know their typical click-through rate is 6% but hope for higher due to the personal note and prominent link."
+   "private_context": "Tidepool has a newsletter subscriber list of 5,000 people. They have prepared a beta launch email with a personal note from the founder and a waitlist link above the fold. They intend to send it on launch morning. They know their typical click-through rate is 6% but hope for higher."
   },
   {
-   "name": "Newsletter subscribers",
-   "private_context": "The 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails regularly, others rarely. They have no prior knowledge of the beta waitlist or the personal note."
+   "name": "Newsletter Subscribers (cohort)",
+   "private_context": "The 5,000 subscribers have varying levels of interest in Tidepool's product. Some may open and click emails from Tidepool; others may not. They have no prior knowledge of the beta waitlist."
   }
  ],
- "shared_context": "Tidepool will send a beta launch email to its 5,000 newsletter subscribers on 2026-09-22 at 08:00:00-07:00. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may open the email and click the link within 72 hours.",
+ "shared_context": "Tidepool will send a beta launch email to its 5,000 newsletter subscribers on the morning of 2026-09-22. The email contains a personal note from the founder and a waitlist link above the fold. The typical click-through rate for Tidepool's newsletters is 6%.",
  "starting_events": [
   {
    "time": "2026-09-22T08:00:00-07:00",
