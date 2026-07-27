@@ -207,6 +207,51 @@ def test_excluding_an_included_thing_is_refused():
                  valid_evidence_ids=EVIDENCE_IDS)
 
 
+def test_quantity_mechanisms_derive_from_the_prerequisite_chain():
+    """A measured quantity whose chain reaches a dispatch event is moved
+    BY that event; an actor claiming to 'produce' the quantity operates
+    the mechanism instead."""
+    res, spine, prod, state, unc = docs()
+    res["answer_type"] = "quantity"
+    res["proof"] = [{"kind": "quantity", "name": "units at the depot",
+                     "holder": "the depot", "unit": "units",
+                     "meaning": "stock held at the cutoff"}]
+    spine["steps"] = [
+        {"name": "units at the depot", "kind": "condition",
+         "meaning": "the measured stock",
+         "prerequisites": [{"step": "shipment received"}],
+         "basis": "question_given"},
+        {"name": "shipment received", "kind": "condition",
+         "meaning": "the standing shipment has arrived",
+         "prerequisites": [{"step": "tuesday dispatch"}],
+         "basis": "inferred", "evidence_ids": ["e1"]},
+        {"name": "tuesday dispatch", "kind": "scheduled_event",
+         "meaning": "the standing 16:00 dispatch",
+         "when": "2026-03-03T16:00:00-05:00",
+         "basis": "verified", "evidence_ids": ["e1"]}]
+    prod["assignments"] = [
+        {"step": "units at the depot",
+         "producers": [{"name": "Meyer Logistics", "kind": "organization",
+                        "meaning": "runs the dispatches",
+                        "basis": "verified", "evidence_ids": ["e1"]}]},
+        {"step": "shipment received",
+         "unsupported": "conjunction of its prerequisites"}]
+    state["entities"] = []
+    unc["uncertainties"] = []
+    unc["exclusions"] = []
+    g, _ = assemble(res, spine, prod, state, unc,
+                    valid_evidence_ids=EVIDENCE_IDS)
+    comp = g.resolve("resource", "units at the depot", "test")
+    ev = g.resolve("event", "tuesday dispatch", "test")
+    assert ev in g.producers_of(comp)
+    meyer = g.resolve("organization", "Meyer Logistics", "test")
+    assert any(e.dst == ev for e in g.edges_from(meyer, "has_authority"))
+    from compiler.proofs import backward_causal_proof
+    proof = backward_causal_proof(g)
+    assert proof["components"][0]["chain"]["via"]["root"] == \
+        "scheduled_event"
+
+
 def test_process_step_with_its_own_process_producer_merges():
     res, spine, prod, state, unc = docs()
     spine["steps"].insert(0, {

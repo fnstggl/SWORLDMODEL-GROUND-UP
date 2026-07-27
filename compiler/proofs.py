@@ -74,7 +74,8 @@ class _Rootedness:
             # conjunction.
             result = self._with_requires(
                 n, {"node": node_id, "derived_condition": True}, visiting)
-        elif n.attrs.get("unsupported"):
+        elif n.attrs.get("unsupported") \
+                and not self.g.producers_of(node_id):
             result = None                     # explicitly unsupported: honest dead end
         elif n.category == "state":
             result = self._via_producers_and_requires(n, visiting)

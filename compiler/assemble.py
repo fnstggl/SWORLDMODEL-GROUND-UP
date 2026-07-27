@@ -414,12 +414,22 @@ class Assembler:
                 {"meaning": producer.get("meaning", "operates it")},
                 where=f"producer {step_name!r}"))
         elif cat in ACTORS and step.category == "resource":
-            raise SemanticAmbiguity(
-                f"step {step_name!r} is a measured quantity; "
-                f"{producer['name']!r} cannot simply bring it about. A "
-                f"quantity's value changes only through real mechanisms -- "
-                f"attach the scheduled transfers, dispatches or processes "
-                f"(already in the spine) as its producers")
+            mechanisms = self._nearest_mechanisms(step_id)
+            if not mechanisms:
+                raise SemanticAmbiguity(
+                    f"step {step_name!r} is a measured quantity; "
+                    f"{producer['name']!r} cannot simply bring it about. "
+                    f"A quantity's value changes only through real "
+                    f"mechanisms -- attach the scheduled transfers, "
+                    f"dispatches or processes (already in the spine) as "
+                    f"its producers")
+            # 'the centre produces the stock' means it OPERATES the
+            # dispatches in the stock's own causal chain
+            for m in mechanisms:
+                edges.append(self.graph.add_edge(
+                    pid, "has_authority", m,
+                    {"meaning": producer.get("meaning", "operates it")},
+                    where=f"producer {step_name!r}"))
         elif cat in ACTORS and step.category == "record":
             raise SemanticAmbiguity(
                 f"step {step_name!r} is a formal record; if "
@@ -875,6 +885,48 @@ class Assembler:
     # ------------------------------------------------------------------
     # finish
     # ------------------------------------------------------------------
+    def _nearest_mechanisms(self, node_id: str) -> list:
+        """The first event or process on each necessary-prerequisite path,
+        walking only through condition states. These are the mechanisms
+        that directly move a quantity: the dispatch credits the stock; the
+        collections behind the dispatch credit a different stock and are
+        not descended into."""
+        out, seen, frontier = [], set(), [node_id]
+        while frontier:
+            cur = frontier.pop()
+            if cur in seen:
+                continue
+            seen.add(cur)
+            for e in self.graph.prerequisites_of(cur):
+                if e.attrs.get("necessity", "necessary") == "optional":
+                    continue
+                n = self.graph.node(e.dst)
+                if n.category in ("event", "process") \
+                        and n.attrs.get("role") != "channel":
+                    if e.dst not in out:
+                        out.append(e.dst)
+                elif n.category == "state" and not n.attrs.get("initial"):
+                    frontier.append(e.dst)
+        return sorted(out)
+
+    def derive_quantity_mechanisms(self) -> None:
+        """Universal resource plumbing: a quantity with no direct producer
+        but whose own prerequisite chain reaches events or processes is
+        moved BY those mechanisms -- code connects them; the binding stage
+        supplies the amounts from evidence. Nothing is invented: the spine
+        itself asserted the dependency."""
+        for rs in self.graph.by_category("resource"):
+            if self.graph.producers_of(rs.id):
+                continue
+            for m in self._nearest_mechanisms(rs.id):
+                rel = "produces" if self.graph.node(m).category == "event" \
+                    else "changes"
+                e = self.graph.add_edge(m, rel, rs.id,
+                                        where=f"quantity mechanics of "
+                                              f"{rs.name!r}")
+                self._record("derive_quantity_mechanism",
+                             {"resource": rs.name, "mechanism": m}, [], [e])
+
     def materialize_holders(self) -> None:
         """A measured quantity's holder is a real entity even when it
         produces nothing (a hospital that only receives). It was named by
@@ -1020,6 +1072,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
                 d.append(f"step {name!r}: no producer is attached and it "
                          f"is not marked unsupported")
     _raise_if(d, "producer_assignments")
+    a.derive_quantity_mechanisms()
     a.materialize_holders()
 
     d = []

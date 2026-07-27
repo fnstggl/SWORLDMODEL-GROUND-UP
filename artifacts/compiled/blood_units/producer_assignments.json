@@ -3,99 +3,50 @@
     {
       "producers": [
         {
-          "basis": "inferred",
+          "basis": "verified",
           "evidence_ids": [
-            "e6",
-            "e8",
-            "e9"
+            "e1",
+            "e7"
           ],
           "kind": "organization",
-          "meaning": "The hospital that receives and holds the blood units.",
+          "meaning": "Operates the mobile collection drive and ships units to the hospital.",
+          "name": "Cascade regional blood centre"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6",
+            "e10"
+          ],
+          "kind": "organization",
+          "meaning": "Receives and holds the blood units.",
           "name": "St. Vincent regional hospital"
         }
       ],
       "step": "hospital_holds_units_at_deadline"
     },
     {
-      "step": "initial_stock_plus_received_shipments",
-      "unsupported": "This is a conjunction of initial stock and received shipments; no independent producer."
+      "step": "initial_stock_plus_shipments_received",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
     },
     {
-      "step": "initial_hospital_stock",
+      "step": "hospital_initial_stock",
       "unsupported": "Initial fact; no producer needed."
     },
     {
-      "step": "shipments_received_by_deadline",
-      "unsupported": "This is a conjunction of shipment departure and receipt steps; no independent producer."
+      "step": "tuesday_shipment_received",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
     },
     {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "kind": "organization",
-          "meaning": "The centre that ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM.",
-          "name": "Cascade regional blood centre"
-        }
-      ],
-      "step": "tuesday_shipment_departs"
-    },
-    {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "kind": "organization",
-          "meaning": "The centre that ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM.",
-          "name": "Cascade regional blood centre"
-        }
-      ],
-      "step": "thursday_shipment_departs"
-    },
-    {
-      "producers": [
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8",
-            "e10"
-          ],
-          "kind": "organization",
-          "meaning": "The hospital that receives the shipment into its bank.",
-          "name": "St. Vincent regional hospital"
-        }
-      ],
-      "step": "tuesday_shipment_received"
-    },
-    {
-      "producers": [
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8",
-            "e10"
-          ],
-          "kind": "organization",
-          "meaning": "The hospital that receives the shipment into its bank.",
-          "name": "St. Vincent regional hospital"
-        }
-      ],
-      "step": "thursday_shipment_received"
+      "step": "tuesday_shipment_dispatched",
+      "unsupported": "Scheduled event; no producer needed."
     },
     {
       "step": "centre_has_enough_stock_tuesday",
-      "unsupported": "This is a condition that depends on initial stock and collections; no independent producer."
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
     },
     {
-      "step": "centre_has_enough_stock_thursday",
-      "unsupported": "This is a condition that depends on stock after Tuesday shipment and collections; no independent producer."
-    },
-    {
-      "step": "initial_centre_stock",
+      "step": "centre_initial_stock",
       "unsupported": "Initial fact; no producer needed."
     },
     {
@@ -106,7 +57,7 @@
             "e1"
           ],
           "kind": "organization",
-          "meaning": "The centre operates the mobile collection drive at its Portland site.",
+          "meaning": "Operates the mobile collection drive that collects units.",
           "name": "Cascade regional blood centre"
         }
       ],
@@ -120,15 +71,27 @@
             "e1"
           ],
           "kind": "organization",
-          "meaning": "The centre operates the mobile collection drive at its Portland site.",
+          "meaning": "Operates the mobile collection drive that collects units.",
           "name": "Cascade regional blood centre"
         }
       ],
       "step": "tuesday_collection_before_4pm"
     },
     {
+      "step": "thursday_shipment_received",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "step": "thursday_shipment_dispatched",
+      "unsupported": "Scheduled event; no producer needed."
+    },
+    {
+      "step": "centre_has_enough_stock_thursday",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
       "step": "centre_stock_after_tuesday_shipment",
-      "unsupported": "This is a condition that aggregates stock and shipments; no independent producer."
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
     },
     {
       "producers": [
@@ -138,7 +101,7 @@
             "e1"
           ],
           "kind": "organization",
-          "meaning": "The centre operates the mobile collection drive at its Portland site.",
+          "meaning": "Operates the mobile collection drive that collects units.",
           "name": "Cascade regional blood centre"
         }
       ],
@@ -152,7 +115,7 @@
             "e1"
           ],
           "kind": "organization",
-          "meaning": "The centre operates the mobile collection drive at its Portland site.",
+          "meaning": "Operates the mobile collection drive that collects units.",
           "name": "Cascade regional blood centre"
         }
       ],

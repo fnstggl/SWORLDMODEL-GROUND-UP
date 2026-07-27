@@ -1,10 +1,11 @@
 {
-  "assembly_ms": 5.7,
+  "assembly_ms": 4.7,
   "assembly_repairs": [
+    "starting_state_and_information",
     "producer_assignments"
   ],
   "binding_calls": 0,
-  "discovery_calls": 8,
+  "discovery_calls": 9,
   "emit_ms": 0.0,
   "first_pass_by_step": {
     "causal_spine": true,
@@ -15,14 +16,15 @@
   },
   "lowering_ms": 0.0,
   "mode": "frozen_evidence",
-  "model_ms": 52558.873919999314,
-  "model_tokens": 27367,
+  "model_ms": 54140.055048999784,
+  "model_tokens": 28964,
   "proofs_ms": 0.0,
   "repairs_by_step": {
     "producer_assignments": 1,
-    "resolution_ambiguity_adjudication": 1
+    "resolution_ambiguity_adjudication": 1,
+    "starting_state[St. Vincent regional hospital]": 1
   },
   "runtime_ms": 0.0,
   "simulation_stage": "scripted",
-  "stage": "NO_CAUSAL_PRODUCER"
+  "stage": "SEMANTIC_AMBIGUITY"
 }

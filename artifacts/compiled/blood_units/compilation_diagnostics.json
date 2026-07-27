@@ -1,10 +1,11 @@
 {
   "detail": {
     "defects": [
-      "resource:hospital_units_at_deadline: action action:bring_about_hospital_holds_units_at_deadline writes this terminal component with no prerequisites; an actor cannot write the answer directly unless the resolution contract names that act as the measured terminal (measured_act=None)"
+      "step 'hospital_holds_units_at_deadline' is a measured quantity; 'Cascade regional blood centre' cannot simply bring it about. A quantity's value changes only through real mechanisms -- attach the scheduled transfers, dispatches or processes (already in the spine) as its producers"
     ],
+    "document": "producer_assignments",
     "repairable": true
   },
-  "reason": "terminal production fails the backward causal proof",
-  "stage": "NO_CAUSAL_PRODUCER"
+  "reason": "the producer_assignments document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
 }

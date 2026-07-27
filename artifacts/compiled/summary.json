@@ -2,19 +2,20 @@
   {
     "binding_calls": 0,
     "case": "blood_units",
-    "discovery_calls": 8,
+    "discovery_calls": 9,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "terminal production fails the backward causal proof",
+    "reason": "the producer_assignments document has defects",
     "repairs": {
       "producer_assignments": 1,
-      "resolution_ambiguity_adjudication": 1
+      "resolution_ambiguity_adjudication": 1,
+      "starting_state[St. Vincent regional hospital]": 1
     },
     "runtime_ms": 0.0,
-    "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 27367
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 28964
   }
 ]

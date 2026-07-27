@@ -1,83 +1,72 @@
 {
   "exclusions": [
     {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's stock."
+    },
+    {
       "basis": "verified",
       "evidence_ids": [
         "e10"
       ],
-      "name": "Elena Cruz",
-      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
-    },
-    {
-      "basis": "inferred",
-      "evidence_ids": [
-        "e7"
-      ],
-      "name": "Other hospitals or blood centres",
-      "why_safe": "No evidence suggests any other entities supply or receive blood from St. Vincent; the distribution agreement only mentions the Cascade centre and St. Vincent."
+      "name": "Elena Cruz (bank supervisor)",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not change the number of units received."
     },
     {
       "basis": "verified",
       "evidence_ids": [
         "e3"
       ],
-      "name": "Weekend collection (Saturday/Sunday)",
-      "why_safe": "The drive is only open Monday to Friday; weekend collection does not occur."
+      "name": "Weekend collections (Saturday/Sunday)",
+      "why_safe": "The drive is only open Monday to Friday; no collections occur on weekends."
     },
     {
-      "basis": "inferred",
-      "evidence_ids": [
-        "e3",
-        "e7"
-      ],
-      "name": "Friday collection",
-      "why_safe": "The deadline is Friday noon; collection on Friday after 9 AM could add units but they would not be shipped until the next scheduled shipment (Tuesday), so they do not affect hospital stock by Friday noon."
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Hospital usage or transfusions",
+      "why_safe": "The question asks for units received, not units remaining after use. Usage does not affect receipt count."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Spoilage or wastage",
+      "why_safe": "No evidence of spoilage; units are assumed usable as per collection rate. Spoilage would reduce stock but is not mentioned."
     }
   ],
   "uncertainties": [
     {
       "about": "centre_has_enough_stock_tuesday",
-      "meaning": "Whether the centre's stock after Monday and Tuesday morning collection is at least 150 units by Tuesday 4 PM is unknown because the collection rate is an average and actual hourly yield may vary."
+      "meaning": "Whether the centre's stock at 4pm Tuesday (after Monday and Tuesday collections) is at least 150 units to dispatch the Tuesday shipment."
     },
     {
       "about": "centre_has_enough_stock_thursday",
-      "meaning": "Whether the centre's stock after Wednesday and Thursday morning collection is at least 150 units by Thursday 4 PM is unknown because the collection rate is an average and actual hourly yield may vary."
-    },
-    {
-      "about": "tuesday_shipment_departs",
-      "meaning": "Whether the Tuesday shipment actually departs depends on the centre having at least 150 units; if not, the shipment may be reduced or cancelled."
-    },
-    {
-      "about": "thursday_shipment_departs",
-      "meaning": "Whether the Thursday shipment actually departs depends on the centre having at least 150 units; if not, the shipment may be reduced or cancelled."
-    },
-    {
-      "about": "tuesday_shipment_received",
-      "meaning": "Even if the shipment departs, it may be delayed beyond the 3-hour typical transit time, or the hospital may not receive it by Friday noon."
-    },
-    {
-      "about": "thursday_shipment_received",
-      "meaning": "Even if the shipment departs, it may be delayed beyond the 3-hour typical transit time, or the hospital may not receive it by Friday noon."
+      "meaning": "Whether the centre's stock at 4pm Thursday (after Wednesday and Thursday collections, minus Tuesday shipment) is at least 150 units to dispatch the Thursday shipment."
     },
     {
       "about": "monday_collection",
-      "meaning": "The exact number of units collected on Monday is unknown; only an average rate is given."
+      "meaning": "Actual units collected on Monday (9am-5pm) \u2013 average 12/hr gives 96 units, but actual may vary."
     },
     {
       "about": "tuesday_collection_before_4pm",
-      "meaning": "The exact number of units collected on Tuesday before 4 PM is unknown; only an average rate is given."
+      "meaning": "Actual units collected on Tuesday from 9am to 4pm (7 hours) \u2013 average 12/hr gives 84 units, but actual may vary."
     },
     {
       "about": "wednesday_collection",
-      "meaning": "The exact number of units collected on Wednesday is unknown; only an average rate is given."
+      "meaning": "Actual units collected on Wednesday (9am-5pm) \u2013 average 12/hr gives 96 units, but actual may vary."
     },
     {
       "about": "thursday_collection_before_4pm",
-      "meaning": "The exact number of units collected on Thursday before 4 PM is unknown; only an average rate is given."
+      "meaning": "Actual units collected on Thursday from 9am to 4pm (7 hours) \u2013 average 12/hr gives 84 units, but actual may vary."
     },
     {
-      "about": "centre_stock_after_tuesday_shipment",
-      "meaning": "The centre's stock after the Tuesday shipment is unknown because it depends on collection yields and whether the shipment actually used 150 units."
+      "about": "tuesday_shipment_received",
+      "meaning": "Whether the Tuesday shipment is received by the hospital before Friday noon. Dispatched at 4pm Tuesday, takes ~3 hours, so arrives Tuesday evening \u2013 received well before deadline."
+    },
+    {
+      "about": "thursday_shipment_received",
+      "meaning": "Whether the Thursday shipment is received by the hospital before Friday noon. Dispatched at 4pm Thursday, takes ~3 hours, arrives Thursday evening \u2013 received well before deadline."
     }
   ]
 }
