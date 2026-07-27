@@ -1,0 +1,254 @@
+{
+  "entities": [
+    {
+      "initial_information": {
+        "available": [
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e7"
+            ],
+            "meaning": "The courier knows that shipments depart every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
+            "name": "shipment schedule"
+          },
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e8"
+            ],
+            "meaning": "The courier knows that transit time is about 3 hours.",
+            "name": "transit time"
+          }
+        ],
+        "not_available": [
+          {
+            "basis": "inferred",
+            "evidence_ids": [
+              "e10"
+            ],
+            "meaning": "The courier does not have information about the blood centre's collection rate or current inventory levels.",
+            "name": "collection rate or inventory levels"
+          }
+        ],
+        "send_receive_mechanism": {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "The courier receives shipments from the blood centre at its location and delivers them to St. Vincent regional hospital. Communication is not specified; presumably the courier is dispatched by the centre."
+        }
+      },
+      "initial_state": [],
+      "name": "Courier service",
+      "process_behavior": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ],
+        "meaning": "The courier transports shipments from the blood centre to St. Vincent regional hospital. Each shipment takes about 3 hours from departure to receipt at the hospital.",
+        "operating_meaning": "The courier operates on Tuesdays and Thursdays, departing at 4:00 PM America/Los_Angeles, and arriving approximately 3 hours later.",
+        "rate_meaning": "Not applicable; the courier does not have a rate, it transports fixed-size shipments on a fixed schedule."
+      }
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Hospital receives and holds blood units; does not control collection or shipping schedule",
+          "over": "hospital_units_at_deadline"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Arrives at scheduled times",
+            "meaning": "Continuous during transit"
+          },
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "latency_meaning": "About 3 hours from departure to receipt",
+          "meaning": "Physical delivery of blood units by courier",
+          "name": "courier_delivery",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Scheduled arrival of Tuesday shipment",
+          "name": "tuesday_shipment_arrival",
+          "when": "2026-07-21T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Scheduled arrival of Thursday shipment",
+          "name": "thursday_shipment_arrival",
+          "when": "2026-07-23T19:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held at start of week",
+          "name": "initial_stock",
+          "value": 15
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Hospital knows its own initial stock",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "Hospital knows shipments arrive Tuesdays and Thursdays around 7 PM",
+          "name": "shipment_schedule",
+          "visibility": "public"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units in inventory",
+          "name": "blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The number of blood units in the Tuesday shipment.",
+          "name": "shipment_units",
+          "value": 150
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The time the Tuesday shipment departs from the centre.",
+          "name": "departure_time",
+          "value": "2026-07-21T16:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The time taken for the shipment to travel from centre to hospital.",
+          "name": "travel_duration",
+          "value": "3 hours"
+        }
+      ],
+      "name": "tuesday_shipment_arrival",
+      "process_behavior": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "meaning": "The courier transports the Tuesday shipment from the blood centre to St. Vincent regional hospital, taking about 3 hours. The shipment arrives at the hospital and is received into its bank.",
+        "operating_meaning": "Departs at 4:00 PM America/Los_Angeles on Tuesday, arrives approximately 3 hours later, i.e., around 7:00 PM America/Los_Angeles.",
+        "rate_meaning": "One shipment per Tuesday, carrying 150 units."
+      }
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The number of usable blood units in the Thursday shipment.",
+          "name": "shipment_quantity",
+          "value": 150
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The time the Thursday shipment departs the centre.",
+          "name": "departure_time",
+          "value": "2026-07-23T16:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The time taken for the shipment to reach the hospital and be received.",
+          "name": "travel_duration",
+          "value": "3 hours"
+        }
+      ],
+      "name": "thursday_shipment_arrival",
+      "process_behavior": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "meaning": "The courier transports the Thursday shipment from the blood centre to St. Vincent regional hospital, taking about 3 hours.",
+        "operating_meaning": "Departs Thursday at 4:00 PM America/Los_Angeles, arrives approximately 3 hours later, i.e., around 7:00 PM America/Los_Angeles.",
+        "rate_meaning": "One shipment of 150 units per Thursday."
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units; other entities do not affect this hospital's receipts."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Weekend operations",
+      "why_safe": "The deadline is Friday noon; weekend operations are irrelevant."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "collection drive operation",
+      "meaning": "Whether the mobile collection drive operates as scheduled on each day of the week, and whether the average rate of 12 units per hour holds exactly for each hour open. Also, whether any collected units are added to the centre's stock before shipments depart."
+    },
+    {
+      "about": "centre stock dynamics",
+      "meaning": "How the centre's stock changes between Monday 9:00 AM and the shipment departures on Tuesday and Thursday. Specifically, whether collected units are added to stock, and whether any other demands or losses occur."
+    },
+    {
+      "about": "shipment content",
+      "meaning": "Whether the Tuesday and Thursday shipments each contain exactly 150 units, and whether those units are drawn from the centre's stock (including newly collected units) or from a separate reserve."
+    },
+    {
+      "about": "hospital stock changes",
+      "meaning": "Whether the hospital uses any blood units between Monday 9:00 AM and Friday noon, and whether any other deliveries or returns occur."
+    },
+    {
+      "about": "timing precision",
+      "meaning": "Whether the shipment arrival times (3 hours after departure) are exact, and whether the hospital receives and logs the units before Friday noon."
+    }
+  ]
+}

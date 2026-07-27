@@ -697,8 +697,21 @@ class Assembler:
         if d:
             raise SemanticAmbiguity("process behaviour has defects",
                                     {"defects": d})
-        pid = self.graph.resolve_any(("process",), name,
-                                     f"process behaviour of {name!r}")
+        pid = self.graph.maybe("process", name)
+        if pid is None:
+            # the entity exists but not as a process: the behaviour claim
+            # is a category mismatch -- kept visibly on the actor for the
+            # reviewer, never a fatal defect
+            actor = self.graph.resolve_any(
+                ACTORS, name, f"process behaviour of {name!r}")
+            self.graph.node(actor).attrs.setdefault(
+                "declared_process_behavior", []).append(
+                {k: behavior.get(k) for k in
+                 ("meaning", "rate_meaning", "operating_meaning")})
+            self._record("add_process",
+                         {"name": name,
+                          "dropped": "entity is not a process"}, [], [])
+            return actor
         self.graph.absorb(pid, behavior.get("meaning", ""), basis, ids,
                           where=f"process behaviour of {name!r}")
         node = self.graph.node(pid)
@@ -1121,6 +1134,13 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         name = entity.get("name")
         if not name:
             d.append("starting-state entity missing 'name'")
+            continue
+        if not any(a.graph.maybe(c, name) for c in
+                   ACTORS + ("process", "resource")):
+            # a stale projection: this entity was discovered against an
+            # earlier producers document and the world no longer contains
+            # it. Skipping is honest; inventing a node for it is not.
+            a._record("skip_stale_entity", {"entity": name}, [], [])
             continue
         if entity.get("timezone") or entity.get("availability"):
             _collect(d, a.set_entity_pattern, name, entity.get("timezone"),
