@@ -1,9 +1,0 @@
-{
-  "deterministic_repeat_run": null,
-  "final_hash_match": true,
-  "initial_state_hash": "4a371fdec078998212f4aa7fe4e5da366ee7ae2695ae5206aa0d6271d00800c2",
-  "ledger_records": 34,
-  "original_final_hash": "7326c25876da1cb0d731117481247a216926f633b3e61d9eb3ad1a12bc2f8373",
-  "replayed_final_hash": "7326c25876da1cb0d731117481247a216926f633b3e61d9eb3ad1a12bc2f8373",
-  "terminal_match": true
-}
