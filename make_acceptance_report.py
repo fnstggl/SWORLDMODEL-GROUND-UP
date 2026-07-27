@@ -75,17 +75,25 @@ def main(results_paths):
       "SHAPE.\nIT DOES NOT VERIFY CURRENT REAL-WORLD FACTS.\n")
     for ds, s in summaries:
         w(f"\n## Summary — {ds}\n{F}\n{json.dumps(s, indent=1)}\n{F}\n")
+    core = [r for r in all_rows if "unseen" not in r.get("out_dir", "")]
+    unseen = [r for r in all_rows if "unseen" in r.get("out_dir", "")]
     ex = []
-    ex += [("clean first-pass", r) for r in pick(all_rows, "compiled", 3)]
-    ex += [("corrected", r) for r in pick(all_rows, "corrected", 3)]
-    ex += [("honest abstention", r) for r in pick(all_rows, "abstained", 2)]
+    ex += [("clean first-pass", r) for r in pick(core, "compiled", 3)]
+    corrected = pick(all_rows, "corrected", 3)
+    ex += [("corrected", r) for r in corrected]
+    # the final configuration produced zero live REVISE rounds; backfill the
+    # example budget with further first-pass compiles so ten complete
+    # end-to-end examples are always printed
+    ex += [("clean first-pass (backfill)", r)
+           for r in pick(core, "compiled", 3 + (3 - len(corrected)))[3:]]
+    ex += [("honest abstention", r) for r in pick(core, "abstained", 2)]
     hist = pick(all_rows, "compiled", 1, lambda r: r.get("historical")) \
         or pick(all_rows, "corrected", 1, lambda r: r.get("historical")) \
         or pick(all_rows, "abstained", 1, lambda r: r.get("historical"))
     ex += [("historical leakage challenge", r) for r in hist]
-    unseen = [r for r in all_rows if "unseen" in r.get("out_dir", "")]
-    if unseen:
-        ex += [("hostile unseen", unseen[0])]
+    ex += [("hostile unseen", r) for r in pick(unseen, "compiled", 1)]
+    ex += [("hostile unseen abstention", r)
+           for r in pick(unseen, "abstained", 1)]
     for title, row in ex:
         example_block(w, row, title)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

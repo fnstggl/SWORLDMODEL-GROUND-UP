@@ -1694,6 +1694,1623 @@ Review it now.  Reply with ONLY the verdict JSON object.
 ~~~~~~~~
 
 
+## clean first-pass (backfill): `appr_q4_budget_signoff` — status **compiled**
+
+### exact input
+~~~~~~~~
+{
+ "question": "Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?",
+ "start": "2026-09-08T09:00:00+01:00",
+ "cutoff": "2026-09-21T09:00:00+01:00",
+ "context": "The revision is eight percent below the original ask after the CFO's pushback; the CMO and CFO meet weekly and work together decently, and the offsite agenda already lists the campaign as a topic.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}
+~~~~~~~~
+
+### exact Call 1 prompt
+~~~~~~~~
+You are the scene compiler of an evidence-grounded social simulator.  Given a natural-language question, you construct the SMALLEST correct STARTING social scene -- and nothing that happens afterward.  The simulation itself (which runs later, with each actor played by its own model inside a persistent world with real time) determines who notices what, what they think, what they attempt, whether they communicate, and whether the resolution condition is eventually satisfied.
+
+THE GOVERNING RULE: compile only what must exist BEFORE the simulation starts.  Let the simulation create everything that happens afterward.  The world setup must not determine the future result.
+
+You return exactly four fields:
+- actors: who exists at the start, each with only their own private context;
+- shared_context: what context is shared;
+- starting_events: what initial events actually occur;
+- resolution: what observed event history counts as YES or NO.
+
+Rules:
+1. Include only actors who can materially affect the answer.
+2. Actors may be people, organizations that make decisions, or representative social groups / population cohorts when needed.
+3. Passive physical or operational processes are not actors; describe them naturally in shared_context or starting_events when they materially constrain the social simulation.
+4. Do not add assistants, advisers, organizations or intermediaries merely because they are plausible.
+5. An actor's private_context contains only information, incentives, beliefs, relationships, commitments or constraints local to that actor.
+6. shared_context contains only facts or conditions that may appropriately be available to the world or relevant actors.
+7. Never leak one actor's private information into another actor's context.
+8. starting_events contain only events that are already given, verified, or unavoidably scheduled at initialization.
+9. Do not place future actor choices in starting_events.
+10. NEVER schedule a reply, a vote, an agreement, an approval, a refusal, a purchase, a resignation, or any other terminal-producing actor choice -- unless the question explicitly states it has already occurred.
+11. Do not write a future trajectory.
+12. Do not narrate futures like "X notices the message, likes it, and responds".
+13. Preserve uncertainty through natural wording: may notice or miss; may respond or not; timing unresolved; interpretation unresolved.
+14. Do not output probabilities.
+15. Do not assign numerical chances to attention, reading, decisions or outcomes.
+16. Do not create branches or alternative futures during compilation.
+17. The resolution defines how the final trajectory will be MEASURED; it must not predict which result occurs.
+18. Prefer externally observable resolution conditions: a message actually sent; a record actually created; a decision actually announced; a measurable quantity in the persistent history; an action actually completed.
+19. Do not use vague psychological resolution conditions ("shows interest", "seems supportive", "is likely to agree") unless the user explicitly asks about that internal state and it can be observed.
+20. Keep the manifest minimal.
+
+Abstract shape example (structure only -- never copy its content):
+{"actors": [{"name": "Person A", "private_context": "A wants a response from Person B about A's proposal. They have no prior relationship."}, {"name": "Person B", "private_context": "B receives many approaches and sometimes personally responds to short, specific ones that interest B.  B does not know A before this."}],
+ "shared_context": "A has prepared a short message about the proposal.  A can send it to B through an established channel, and B can respond through the received message.",
+ "starting_events": [{"time": "<start time>", "description": "A sends the prepared message to B.", "visible_to": ["Person A"]}],
+ "resolution": "Resolve YES only if the persistent event history shows that B actually sent A a response before the cutoff.  Otherwise resolve NO at the cutoff."}
+
+WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still return the four fields but set resolution to the single word "UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not invent a fake scene:
+- the question refers to NO party who could decide or act.  Identification is by REFERENCE, not by name: whenever the question or context refers to a party -- by name, role, relation, office, or as a defined group or cohort ("Maya's landlord", "the legal team", "the two required directors", "the nine committee members", a band deciding together, an organization acting as a unit) -- that party is a legitimate actor, and numbered stand-ins for referenced-but-unnamed individuals ("the three interested residents" as Resident 1..3) are legitimate identification, not invention.  A bare definite description with no distinguishing detail ANYWHERE in the question or context ("the permit", "the promotion", "the neighbors" -- no name, place, organization, or relation to anchor it) is NOT a reference; refuse those rather than inventing a cast for them;
+- there is no observable resolving social event, and the question names an internal state (regret, respect, morale, what someone thinks or feels) with NO user-provided observable proxy -- never invent the proxy yourself;
+- it is a past counterfactual ("would X have happened if...") -- no future observation can resolve an alternate past;
+- the premise is self-contradictory or makes the asked-about event impossible (a deadline before the opening; a gathering of an organization that has ceased to exist) -- name the contradiction;
+- it is a pure factual lookup or pure physics/operations question with no social decision to simulate.
+
+Reply with ONLY a JSON object matching this exact schema (no extra fields):
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?
+
+Simulation start time: 2026-09-08T09:00:00+01:00
+Hard cutoff: 2026-09-21T09:00:00+01:00
+
+USER-PROVIDED CONTEXT:
+The revision is eight percent below the original ask after the CFO's pushback; the CMO and CFO meet weekly and work together decently, and the offsite agenda already lists the campaign as a topic.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+Construct the minimal starting scene now.  Reply with ONLY the four-field JSON object.
+~~~~~~~~
+
+### exact Call 1 output
+~~~~~~~~
+{
+  "actors": [
+    {
+      "name": "CFO",
+      "private_context": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
+    },
+    {
+      "name": "CMO",
+      "private_context": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
+    }
+  ],
+  "shared_context": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+  "starting_events": [
+    {
+      "time": "2026-09-08T09:00:00+01:00",
+      "description": "The marketing team's revised Q4 budget is submitted to the CFO for approval.",
+      "visible_to": ["CFO", "CMO"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+}
+~~~~~~~~
+
+### exact Call 2 prompt (frame + manifest under review)
+~~~~~~~~
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?
+
+Simulation start time: 2026-09-08T09:00:00+01:00
+Hard cutoff: 2026-09-21T09:00:00+01:00
+
+USER-PROVIDED CONTEXT:
+The revision is eight percent below the original ask after the CFO's pushback; the CMO and CFO meet weekly and work together decently, and the offsite agenda already lists the campaign as a topic.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "CFO",
+   "private_context": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
+  },
+  {
+   "name": "CMO",
+   "private_context": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
+  }
+ ],
+ "shared_context": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+ "starting_events": [
+  {
+   "time": "2026-09-08T09:00:00+01:00",
+   "description": "The marketing team's revised Q4 budget is submitted to the CFO for approval.",
+   "visible_to": [
+    "CFO",
+    "CMO"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.
+~~~~~~~~
+
+### exact Call 2 output
+~~~~~~~~
+{
+ "verdict": "APPROVE",
+ "defects": []
+}
+~~~~~~~~
+
+### final four-field manifest (normalized)
+~~~~~~~~
+{
+ "actors": [
+  {
+   "name": "CFO",
+   "private_context": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
+  },
+  {
+   "name": "CMO",
+   "private_context": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
+  }
+ ],
+ "shared_context": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+ "starting_events": [
+  {
+   "time": "2026-09-08T09:00:00+01:00",
+   "description": "The marketing team's revised Q4 budget is submitted to the CFO for approval.",
+   "visible_to": [
+    "CFO",
+    "CMO"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+}
+~~~~~~~~
+
+### normalized runtime IDs and bindings
+~~~~~~~~
+{
+ "world_id": "w_359e0da2b8ea",
+ "actor_ids": {
+  "CFO": "cfo",
+  "CMO": "cmo"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-08T08:00:00+00:00",
+   "visible_to_ids": [
+    "cfo",
+    "cmo"
+   ],
+   "description": "The marketing team's revised Q4 budget is submitted to the CFO for approval."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "cfo": {
+   "name": "CFO",
+   "persona_brief": "You are CFO.\nThe CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
+  },
+  "cmo": {
+   "name": "CMO",
+   "persona_brief": "You are CMO.\nThe CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
+  }
+ },
+ "resolution": {
+  "question": "Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?",
+  "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-21T09:00:00+01:00",
+  "world_id": "w_359e0da2b8ea"
+ }
+}
+~~~~~~~~
+
+### initialized actor states
+~~~~~~~~
+{
+ "cfo": {
+  "id": "cfo",
+  "name": "CFO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "cmo": {
+  "id": "cmo",
+  "name": "CMO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}
+~~~~~~~~
+
+### inserted starting events (genesis ledger)
+~~~~~~~~
+{"cause":null,"data":{"schema":1,"start":"2026-09-08T08:00:00+00:00"},"op":"world.genesis","seq":1,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"key":"scene:question","value":"Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?"},"op":"fact.set","seq":2,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"key":"scene:shared_context","value":"Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask."},"op":"fact.set","seq":3,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"latency":{"basis":"verified","note":"scene events are directly experienced by the actors they are visible to","seconds":0},"name":"scene"},"op":"channel.add","seq":4,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"attention":{"scene":{"basis":"verified","calendar":null,"check_every_seconds":null,"note":"events declared visible to this actor are directly experienced"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"cfo","last_decision_at":null,"memories":[],"name":"CFO","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"actor","tz":"UTC","unprocessed_info":[],"values":[]},"op":"actor.add","seq":5,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"actor":"cfo","content":"The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget.","kind":"context","source":"scene_manifest:private_context"},"op":"actor.memory","seq":6,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"actor":"cfo","content":"Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.","kind":"context","source":"scene_manifest:shared_context"},"op":"actor.memory","seq":7,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"attention":{"scene":{"basis":"verified","calendar":null,"check_every_seconds":null,"note":"events declared visible to this actor are directly experienced"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"cmo","last_decision_at":null,"memories":[],"name":"CMO","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"actor","tz":"UTC","unprocessed_info":[],"values":[]},"op":"actor.add","seq":8,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"actor":"cmo","content":"The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st.","kind":"context","source":"scene_manifest:private_context"},"op":"actor.memory","seq":9,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"actor":"cmo","content":"Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.","kind":"context","source":"scene_manifest:shared_context"},"op":"actor.memory","seq":10,"t":"2026-09-08T08:00:00+00:00"}
+{"cause":null,"data":{"data":{"note":"starting event se1","ops":[["fact.set",{"key":"scene:event:se1","value":"The marketing team's revised Q4 budget is submitted to the CFO for approval."}],["info.send_new",{"author":"scene","channel":"scene","content":"The marketing team's revised Q4 budget is submitted to the CFO for approval.","data":{"event_id":"se1","type":"scene_event"},"to":["cfo","cmo"]}]]},"depth":0,"kind":"world.ops","t":"2026-09-08T08:00:00+00:00"},"op":"event.scheduled","seq":11,"t":"2026-09-08T08:00:00+00:00"}
+~~~~~~~~
+
+### genesis resolution result
+~~~~~~~~
+{
+ "resolution": {
+  "question": "Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?",
+  "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-21T09:00:00+01:00",
+  "world_id": "w_359e0da2b8ea"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}
+~~~~~~~~
+
+### compiler metrics
+~~~~~~~~
+{
+ "semantic_calls": 2,
+ "semantic_slots": [
+  "call_1_scene",
+  "call_2_review"
+ ],
+ "provider_requests": 2,
+ "total_prompt_tokens": 3366,
+ "total_completion_tokens": 347,
+ "per_slot": {
+  "call_1_scene": {
+   "attempts": 1,
+   "duration_s": 2.973,
+   "prompt_tokens": 1811,
+   "completion_tokens": 331
+  },
+  "call_2_review": {
+   "attempts": 1,
+   "duration_s": 1.224,
+   "prompt_tokens": 1555,
+   "completion_tokens": 16
+  }
+ },
+ "wall_s": 4.2,
+ "compiler_version": "minimal_scene_v1",
+ "evidence_mode": "model_memory_unverified",
+ "repaired_compile": false,
+ "world_id": "w_359e0da2b8ea"
+}
+~~~~~~~~
+
+
+## clean first-pass (backfill): `appr_security_exception_sla` — status **compiled**
+
+### exact input
+~~~~~~~~
+{
+ "question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
+ "start": "2026-08-10T10:00:00-08:00",
+ "cutoff": "2026-08-17T17:00:00-08:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}
+~~~~~~~~
+
+### exact Call 1 prompt
+~~~~~~~~
+You are the scene compiler of an evidence-grounded social simulator.  Given a natural-language question, you construct the SMALLEST correct STARTING social scene -- and nothing that happens afterward.  The simulation itself (which runs later, with each actor played by its own model inside a persistent world with real time) determines who notices what, what they think, what they attempt, whether they communicate, and whether the resolution condition is eventually satisfied.
+
+THE GOVERNING RULE: compile only what must exist BEFORE the simulation starts.  Let the simulation create everything that happens afterward.  The world setup must not determine the future result.
+
+You return exactly four fields:
+- actors: who exists at the start, each with only their own private context;
+- shared_context: what context is shared;
+- starting_events: what initial events actually occur;
+- resolution: what observed event history counts as YES or NO.
+
+Rules:
+1. Include only actors who can materially affect the answer.
+2. Actors may be people, organizations that make decisions, or representative social groups / population cohorts when needed.
+3. Passive physical or operational processes are not actors; describe them naturally in shared_context or starting_events when they materially constrain the social simulation.
+4. Do not add assistants, advisers, organizations or intermediaries merely because they are plausible.
+5. An actor's private_context contains only information, incentives, beliefs, relationships, commitments or constraints local to that actor.
+6. shared_context contains only facts or conditions that may appropriately be available to the world or relevant actors.
+7. Never leak one actor's private information into another actor's context.
+8. starting_events contain only events that are already given, verified, or unavoidably scheduled at initialization.
+9. Do not place future actor choices in starting_events.
+10. NEVER schedule a reply, a vote, an agreement, an approval, a refusal, a purchase, a resignation, or any other terminal-producing actor choice -- unless the question explicitly states it has already occurred.
+11. Do not write a future trajectory.
+12. Do not narrate futures like "X notices the message, likes it, and responds".
+13. Preserve uncertainty through natural wording: may notice or miss; may respond or not; timing unresolved; interpretation unresolved.
+14. Do not output probabilities.
+15. Do not assign numerical chances to attention, reading, decisions or outcomes.
+16. Do not create branches or alternative futures during compilation.
+17. The resolution defines how the final trajectory will be MEASURED; it must not predict which result occurs.
+18. Prefer externally observable resolution conditions: a message actually sent; a record actually created; a decision actually announced; a measurable quantity in the persistent history; an action actually completed.
+19. Do not use vague psychological resolution conditions ("shows interest", "seems supportive", "is likely to agree") unless the user explicitly asks about that internal state and it can be observed.
+20. Keep the manifest minimal.
+
+Abstract shape example (structure only -- never copy its content):
+{"actors": [{"name": "Person A", "private_context": "A wants a response from Person B about A's proposal. They have no prior relationship."}, {"name": "Person B", "private_context": "B receives many approaches and sometimes personally responds to short, specific ones that interest B.  B does not know A before this."}],
+ "shared_context": "A has prepared a short message about the proposal.  A can send it to B through an established channel, and B can respond through the received message.",
+ "starting_events": [{"time": "<start time>", "description": "A sends the prepared message to B.", "visible_to": ["Person A"]}],
+ "resolution": "Resolve YES only if the persistent event history shows that B actually sent A a response before the cutoff.  Otherwise resolve NO at the cutoff."}
+
+WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still return the four fields but set resolution to the single word "UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not invent a fake scene:
+- the question refers to NO party who could decide or act.  Identification is by REFERENCE, not by name: whenever the question or context refers to a party -- by name, role, relation, office, or as a defined group or cohort ("Maya's landlord", "the legal team", "the two required directors", "the nine committee members", a band deciding together, an organization acting as a unit) -- that party is a legitimate actor, and numbered stand-ins for referenced-but-unnamed individuals ("the three interested residents" as Resident 1..3) are legitimate identification, not invention.  A bare definite description with no distinguishing detail ANYWHERE in the question or context ("the permit", "the promotion", "the neighbors" -- no name, place, organization, or relation to anchor it) is NOT a reference; refuse those rather than inventing a cast for them;
+- there is no observable resolving social event, and the question names an internal state (regret, respect, morale, what someone thinks or feels) with NO user-provided observable proxy -- never invent the proxy yourself;
+- it is a past counterfactual ("would X have happened if...") -- no future observation can resolve an alternate past;
+- the premise is self-contradictory or makes the asked-about event impossible (a deadline before the opening; a gathering of an organization that has ceased to exist) -- name the contradiction;
+- it is a pure factual lookup or pure physics/operations question with no social decision to simulate.
+
+Reply with ONLY a JSON object matching this exact schema (no extra fields):
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?
+
+Simulation start time: 2026-08-10T10:00:00-08:00
+Hard cutoff: 2026-08-17T17:00:00-08:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+Construct the minimal starting scene now.  Reply with ONLY the four-field JSON object.
+~~~~~~~~
+
+### exact Call 1 output
+~~~~~~~~
+{
+  "actors": [
+    {
+      "name": "Dev Patel",
+      "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision."
+    },
+    {
+      "name": "Harborview Credit Union Security Team",
+      "private_context": "The security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted."
+    }
+  ],
+  "shared_context": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+  "starting_events": [
+    {
+      "time": "2026-08-10T10:00:00-08:00",
+      "description": "Dev Patel submits his software-exception request to the Harborview Credit Union security team.",
+      "visible_to": ["Dev Patel"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no such communication occurs by that cutoff."
+}
+~~~~~~~~
+
+### exact Call 2 prompt (frame + manifest under review)
+~~~~~~~~
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?
+
+Simulation start time: 2026-08-10T10:00:00-08:00
+Hard cutoff: 2026-08-17T17:00:00-08:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Dev Patel",
+   "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision."
+  },
+  {
+   "name": "Harborview Credit Union Security Team",
+   "private_context": "The security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted."
+  }
+ ],
+ "shared_context": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+ "starting_events": [
+  {
+   "time": "2026-08-10T10:00:00-08:00",
+   "description": "Dev Patel submits his software-exception request to the Harborview Credit Union security team.",
+   "visible_to": [
+    "Dev Patel"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no such communication occurs by that cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.
+~~~~~~~~
+
+### exact Call 2 output
+~~~~~~~~
+{
+ "verdict": "APPROVE",
+ "defects": []
+}
+~~~~~~~~
+
+### final four-field manifest (normalized)
+~~~~~~~~
+{
+ "actors": [
+  {
+   "name": "Dev Patel",
+   "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision."
+  },
+  {
+   "name": "Harborview Credit Union Security Team",
+   "private_context": "The security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted."
+  }
+ ],
+ "shared_context": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+ "starting_events": [
+  {
+   "time": "2026-08-10T10:00:00-08:00",
+   "description": "Dev Patel submits his software-exception request to the Harborview Credit Union security team.",
+   "visible_to": [
+    "Dev Patel"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no such communication occurs by that cutoff."
+}
+~~~~~~~~
+
+### normalized runtime IDs and bindings
+~~~~~~~~
+{
+ "world_id": "w_7332ce33442b",
+ "actor_ids": {
+  "Dev Patel": "dev_patel",
+  "Harborview Credit Union Security Team": "harborview_credit_union_security_team"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-10T18:00:00+00:00",
+   "visible_to_ids": [
+    "dev_patel"
+   ],
+   "description": "Dev Patel submits his software-exception request to the Harborview Credit Union security team."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dev_patel": {
+   "name": "Dev Patel",
+   "persona_brief": "You are Dev Patel.\nDev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision."
+  },
+  "harborview_credit_union_security_team": {
+   "name": "Harborview Credit Union Security Team",
+   "persona_brief": "You are Harborview Credit Union Security Team.\nThe security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted."
+  }
+ },
+ "resolution": {
+  "question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
+  "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no such communication occurs by that cutoff.",
+  "cutoff": "2026-08-17T17:00:00-08:00",
+  "world_id": "w_7332ce33442b"
+ }
+}
+~~~~~~~~
+
+### initialized actor states
+~~~~~~~~
+{
+ "dev_patel": {
+  "id": "dev_patel",
+  "name": "Dev Patel",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-10T18:00:00+00:00",
+    "kind": "context",
+    "content": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-10T18:00:00+00:00",
+    "kind": "context",
+    "content": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "harborview_credit_union_security_team": {
+  "id": "harborview_credit_union_security_team",
+  "name": "Harborview Credit Union Security Team",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-10T18:00:00+00:00",
+    "kind": "context",
+    "content": "The security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-10T18:00:00+00:00",
+    "kind": "context",
+    "content": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}
+~~~~~~~~
+
+### inserted starting events (genesis ledger)
+~~~~~~~~
+{"cause":null,"data":{"schema":1,"start":"2026-08-10T18:00:00+00:00"},"op":"world.genesis","seq":1,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"key":"scene:question","value":"Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?"},"op":"fact.set","seq":2,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"key":"scene:shared_context","value":"Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00."},"op":"fact.set","seq":3,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"latency":{"basis":"verified","note":"scene events are directly experienced by the actors they are visible to","seconds":0},"name":"scene"},"op":"channel.add","seq":4,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"attention":{"scene":{"basis":"verified","calendar":null,"check_every_seconds":null,"note":"events declared visible to this actor are directly experienced"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"dev_patel","last_decision_at":null,"memories":[],"name":"Dev Patel","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"actor","tz":"UTC","unprocessed_info":[],"values":[]},"op":"actor.add","seq":5,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"actor":"dev_patel","content":"Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision.","kind":"context","source":"scene_manifest:private_context"},"op":"actor.memory","seq":6,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"actor":"dev_patel","content":"Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.","kind":"context","source":"scene_manifest:shared_context"},"op":"actor.memory","seq":7,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"attention":{"scene":{"basis":"verified","calendar":null,"check_every_seconds":null,"note":"events declared visible to this actor are directly experienced"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"harborview_credit_union_security_team","last_decision_at":null,"memories":[],"name":"Harborview Credit Union Security Team","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"actor","tz":"UTC","unprocessed_info":[],"values":[]},"op":"actor.add","seq":8,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"actor":"harborview_credit_union_security_team","content":"The security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted.","kind":"context","source":"scene_manifest:private_context"},"op":"actor.memory","seq":9,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"actor":"harborview_credit_union_security_team","content":"Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.","kind":"context","source":"scene_manifest:shared_context"},"op":"actor.memory","seq":10,"t":"2026-08-10T18:00:00+00:00"}
+{"cause":null,"data":{"data":{"note":"starting event se1","ops":[["fact.set",{"key":"scene:event:se1","value":"Dev Patel submits his software-exception request to the Harborview Credit Union security team."}],["info.send_new",{"author":"scene","channel":"scene","content":"Dev Patel submits his software-exception request to the Harborview Credit Union security team.","data":{"event_id":"se1","type":"scene_event"},"to":["dev_patel"]}]]},"depth":0,"kind":"world.ops","t":"2026-08-10T18:00:00+00:00"},"op":"event.scheduled","seq":11,"t":"2026-08-10T18:00:00+00:00"}
+~~~~~~~~
+
+### genesis resolution result
+~~~~~~~~
+{
+ "resolution": {
+  "question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
+  "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no such communication occurs by that cutoff.",
+  "cutoff": "2026-08-17T17:00:00-08:00",
+  "world_id": "w_7332ce33442b"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}
+~~~~~~~~
+
+### compiler metrics
+~~~~~~~~
+{
+ "semantic_calls": 2,
+ "semantic_slots": [
+  "call_1_scene",
+  "call_2_review"
+ ],
+ "provider_requests": 2,
+ "total_prompt_tokens": 3291,
+ "total_completion_tokens": 369,
+ "per_slot": {
+  "call_1_scene": {
+   "attempts": 1,
+   "duration_s": 3.162,
+   "prompt_tokens": 1763,
+   "completion_tokens": 353
+  },
+  "call_2_review": {
+   "attempts": 1,
+   "duration_s": 1.021,
+   "prompt_tokens": 1528,
+   "completion_tokens": 16
+  }
+ },
+ "wall_s": 4.19,
+ "compiler_version": "minimal_scene_v1",
+ "evidence_mode": "model_memory_unverified",
+ "repaired_compile": false,
+ "world_id": "w_7332ce33442b"
+}
+~~~~~~~~
+
+
+## clean first-pass (backfill): `cold_alumni_first_pledge` — status **compiled**
+
+### exact input
+~~~~~~~~
+{
+ "question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
+ "start": "2026-10-01T18:00:00-03:00",
+ "cutoff": "2026-10-31T21:00:00-03:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}
+~~~~~~~~
+
+### exact Call 1 prompt
+~~~~~~~~
+You are the scene compiler of an evidence-grounded social simulator.  Given a natural-language question, you construct the SMALLEST correct STARTING social scene -- and nothing that happens afterward.  The simulation itself (which runs later, with each actor played by its own model inside a persistent world with real time) determines who notices what, what they think, what they attempt, whether they communicate, and whether the resolution condition is eventually satisfied.
+
+THE GOVERNING RULE: compile only what must exist BEFORE the simulation starts.  Let the simulation create everything that happens afterward.  The world setup must not determine the future result.
+
+You return exactly four fields:
+- actors: who exists at the start, each with only their own private context;
+- shared_context: what context is shared;
+- starting_events: what initial events actually occur;
+- resolution: what observed event history counts as YES or NO.
+
+Rules:
+1. Include only actors who can materially affect the answer.
+2. Actors may be people, organizations that make decisions, or representative social groups / population cohorts when needed.
+3. Passive physical or operational processes are not actors; describe them naturally in shared_context or starting_events when they materially constrain the social simulation.
+4. Do not add assistants, advisers, organizations or intermediaries merely because they are plausible.
+5. An actor's private_context contains only information, incentives, beliefs, relationships, commitments or constraints local to that actor.
+6. shared_context contains only facts or conditions that may appropriately be available to the world or relevant actors.
+7. Never leak one actor's private information into another actor's context.
+8. starting_events contain only events that are already given, verified, or unavoidably scheduled at initialization.
+9. Do not place future actor choices in starting_events.
+10. NEVER schedule a reply, a vote, an agreement, an approval, a refusal, a purchase, a resignation, or any other terminal-producing actor choice -- unless the question explicitly states it has already occurred.
+11. Do not write a future trajectory.
+12. Do not narrate futures like "X notices the message, likes it, and responds".
+13. Preserve uncertainty through natural wording: may notice or miss; may respond or not; timing unresolved; interpretation unresolved.
+14. Do not output probabilities.
+15. Do not assign numerical chances to attention, reading, decisions or outcomes.
+16. Do not create branches or alternative futures during compilation.
+17. The resolution defines how the final trajectory will be MEASURED; it must not predict which result occurs.
+18. Prefer externally observable resolution conditions: a message actually sent; a record actually created; a decision actually announced; a measurable quantity in the persistent history; an action actually completed.
+19. Do not use vague psychological resolution conditions ("shows interest", "seems supportive", "is likely to agree") unless the user explicitly asks about that internal state and it can be observed.
+20. Keep the manifest minimal.
+
+Abstract shape example (structure only -- never copy its content):
+{"actors": [{"name": "Person A", "private_context": "A wants a response from Person B about A's proposal. They have no prior relationship."}, {"name": "Person B", "private_context": "B receives many approaches and sometimes personally responds to short, specific ones that interest B.  B does not know A before this."}],
+ "shared_context": "A has prepared a short message about the proposal.  A can send it to B through an established channel, and B can respond through the received message.",
+ "starting_events": [{"time": "<start time>", "description": "A sends the prepared message to B.", "visible_to": ["Person A"]}],
+ "resolution": "Resolve YES only if the persistent event history shows that B actually sent A a response before the cutoff.  Otherwise resolve NO at the cutoff."}
+
+WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still return the four fields but set resolution to the single word "UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not invent a fake scene:
+- the question refers to NO party who could decide or act.  Identification is by REFERENCE, not by name: whenever the question or context refers to a party -- by name, role, relation, office, or as a defined group or cohort ("Maya's landlord", "the legal team", "the two required directors", "the nine committee members", a band deciding together, an organization acting as a unit) -- that party is a legitimate actor, and numbered stand-ins for referenced-but-unnamed individuals ("the three interested residents" as Resident 1..3) are legitimate identification, not invention.  A bare definite description with no distinguishing detail ANYWHERE in the question or context ("the permit", "the promotion", "the neighbors" -- no name, place, organization, or relation to anchor it) is NOT a reference; refuse those rather than inventing a cast for them;
+- there is no observable resolving social event, and the question names an internal state (regret, respect, morale, what someone thinks or feels) with NO user-provided observable proxy -- never invent the proxy yourself;
+- it is a past counterfactual ("would X have happened if...") -- no future observation can resolve an alternate past;
+- the premise is self-contradictory or makes the asked-about event impossible (a deadline before the opening; a gathering of an organization that has ceased to exist) -- name the contradiction;
+- it is a pure factual lookup or pure physics/operations question with no social decision to simulate.
+
+Reply with ONLY a JSON object matching this exact schema (no extra fields):
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?
+
+Simulation start time: 2026-10-01T18:00:00-03:00
+Hard cutoff: 2026-10-31T21:00:00-03:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+Construct the minimal starting scene now.  Reply with ONLY the four-field JSON object.
+~~~~~~~~
+
+### exact Call 1 output
+~~~~~~~~
+{
+  "actors": [
+    {
+      "name": "Ashvale University Annual-Fund Caller",
+      "private_context": "The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift."
+    },
+    {
+      "name": "Dr. Renata Sousa",
+      "private_context": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller."
+    }
+  ],
+  "shared_context": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+  "starting_events": [
+    {
+      "time": "2026-10-01T18:00:00-03:00",
+      "description": "The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list.",
+      "visible_to": ["Ashvale University Annual-Fund Caller"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff."
+}
+~~~~~~~~
+
+### exact Call 2 prompt (frame + manifest under review)
+~~~~~~~~
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?
+
+Simulation start time: 2026-10-01T18:00:00-03:00
+Hard cutoff: 2026-10-31T21:00:00-03:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Ashvale University Annual-Fund Caller",
+   "private_context": "The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift."
+  },
+  {
+   "name": "Dr. Renata Sousa",
+   "private_context": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller."
+  }
+ ],
+ "shared_context": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+ "starting_events": [
+  {
+   "time": "2026-10-01T18:00:00-03:00",
+   "description": "The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list.",
+   "visible_to": [
+    "Ashvale University Annual-Fund Caller"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.
+~~~~~~~~
+
+### exact Call 2 output
+~~~~~~~~
+{
+ "verdict": "APPROVE",
+ "defects": []
+}
+~~~~~~~~
+
+### final four-field manifest (normalized)
+~~~~~~~~
+{
+ "actors": [
+  {
+   "name": "Ashvale University Annual-Fund Caller",
+   "private_context": "The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift."
+  },
+  {
+   "name": "Dr. Renata Sousa",
+   "private_context": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller."
+  }
+ ],
+ "shared_context": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+ "starting_events": [
+  {
+   "time": "2026-10-01T18:00:00-03:00",
+   "description": "The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list.",
+   "visible_to": [
+    "Ashvale University Annual-Fund Caller"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff."
+}
+~~~~~~~~
+
+### normalized runtime IDs and bindings
+~~~~~~~~
+{
+ "world_id": "w_ae9990a18905",
+ "actor_ids": {
+  "Ashvale University Annual-Fund Caller": "ashvale_university_annual_fund_caller",
+  "Dr. Renata Sousa": "dr_renata_sousa"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-01T21:00:00+00:00",
+   "visible_to_ids": [
+    "ashvale_university_annual_fund_caller"
+   ],
+   "description": "The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ashvale_university_annual_fund_caller": {
+   "name": "Ashvale University Annual-Fund Caller",
+   "persona_brief": "You are Ashvale University Annual-Fund Caller.\nThe caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift."
+  },
+  "dr_renata_sousa": {
+   "name": "Dr. Renata Sousa",
+   "persona_brief": "You are Dr. Renata Sousa.\nRenata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller."
+  }
+ },
+ "resolution": {
+  "question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
+  "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-31T21:00:00-03:00",
+  "world_id": "w_ae9990a18905"
+ }
+}
+~~~~~~~~
+
+### initialized actor states
+~~~~~~~~
+{
+ "ashvale_university_annual_fund_caller": {
+  "id": "ashvale_university_annual_fund_caller",
+  "name": "Ashvale University Annual-Fund Caller",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "dr_renata_sousa": {
+  "id": "dr_renata_sousa",
+  "name": "Dr. Renata Sousa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}
+~~~~~~~~
+
+### inserted starting events (genesis ledger)
+~~~~~~~~
+{"cause":null,"data":{"schema":1,"start":"2026-10-01T21:00:00+00:00"},"op":"world.genesis","seq":1,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"key":"scene:question","value":"Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?"},"op":"fact.set","seq":2,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"key":"scene:shared_context","value":"Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month."},"op":"fact.set","seq":3,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"latency":{"basis":"verified","note":"scene events are directly experienced by the actors they are visible to","seconds":0},"name":"scene"},"op":"channel.add","seq":4,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"attention":{"scene":{"basis":"verified","calendar":null,"check_every_seconds":null,"note":"events declared visible to this actor are directly experienced"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"ashvale_university_annual_fund_caller","last_decision_at":null,"memories":[],"name":"Ashvale University Annual-Fund Caller","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"actor","tz":"UTC","unprocessed_info":[],"values":[]},"op":"actor.add","seq":5,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"actor":"ashvale_university_annual_fund_caller","content":"The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift.","kind":"context","source":"scene_manifest:private_context"},"op":"actor.memory","seq":6,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"actor":"ashvale_university_annual_fund_caller","content":"Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.","kind":"context","source":"scene_manifest:shared_context"},"op":"actor.memory","seq":7,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"attention":{"scene":{"basis":"verified","calendar":null,"check_every_seconds":null,"note":"events declared visible to this actor are directly experienced"}},"available_info":[],"beliefs":{},"commitments":{},"deferred_wakes":[],"emotional_state":"","goals":[],"id":"dr_renata_sousa","last_decision_at":null,"memories":[],"name":"Dr. Renata Sousa","noticed_info":[],"ongoing_action":null,"physical_state":"","plan":"","reconsider":[],"relationships":{},"role":"actor","tz":"UTC","unprocessed_info":[],"values":[]},"op":"actor.add","seq":8,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"actor":"dr_renata_sousa","content":"Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller.","kind":"context","source":"scene_manifest:private_context"},"op":"actor.memory","seq":9,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"actor":"dr_renata_sousa","content":"Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.","kind":"context","source":"scene_manifest:shared_context"},"op":"actor.memory","seq":10,"t":"2026-10-01T21:00:00+00:00"}
+{"cause":null,"data":{"data":{"note":"starting event se1","ops":[["fact.set",{"key":"scene:event:se1","value":"The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list."}],["info.send_new",{"author":"scene","channel":"scene","content":"The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list.","data":{"event_id":"se1","type":"scene_event"},"to":["ashvale_university_annual_fund_caller"]}]]},"depth":0,"kind":"world.ops","t":"2026-10-01T21:00:00+00:00"},"op":"event.scheduled","seq":11,"t":"2026-10-01T21:00:00+00:00"}
+~~~~~~~~
+
+### genesis resolution result
+~~~~~~~~
+{
+ "resolution": {
+  "question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
+  "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-31T21:00:00-03:00",
+  "world_id": "w_ae9990a18905"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}
+~~~~~~~~
+
+### compiler metrics
+~~~~~~~~
+{
+ "semantic_calls": 2,
+ "semantic_slots": [
+  "call_1_scene",
+  "call_2_review"
+ ],
+ "provider_requests": 2,
+ "total_prompt_tokens": 3304,
+ "total_completion_tokens": 354,
+ "per_slot": {
+  "call_1_scene": {
+   "attempts": 1,
+   "duration_s": 3.383,
+   "prompt_tokens": 1777,
+   "completion_tokens": 338
+  },
+  "call_2_review": {
+   "attempts": 1,
+   "duration_s": 1.017,
+   "prompt_tokens": 1527,
+   "completion_tokens": 16
+  }
+ },
+ "wall_s": 4.4,
+ "compiler_version": "minimal_scene_v1",
+ "evidence_mode": "model_memory_unverified",
+ "repaired_compile": false,
+ "world_id": "w_ae9990a18905"
+}
+~~~~~~~~
+
+
 ## honest abstention: `appr_apollo11_go_decision` — status **abstained**
 
 ### exact input
@@ -3919,8 +5536,391 @@ Review it now.  Reply with ONLY the verdict JSON object.
 }
 ~~~~~~~~
 
+
+## hostile unseen abstention: `historical_treaty_ratification` — status **abstained**
+
+### exact input
+~~~~~~~~
+{
+ "question": "Will the United States Senate ratify the Treaty of Versailles before the end of 1919?",
+ "start": "1919-01-01T00:00:00-05:00",
+ "cutoff": "1919-12-31T23:59:00-05:00",
+ "context": "The Treaty of Versailles was signed in June 1919, ending World War I. President Woodrow Wilson pushed for ratification, but the Senate was divided, with isolationists opposing. The question does not state the outcome.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}
+~~~~~~~~
+
+### exact Call 1 prompt
+~~~~~~~~
+You are the scene compiler of an evidence-grounded social simulator.  Given a natural-language question, you construct the SMALLEST correct STARTING social scene -- and nothing that happens afterward.  The simulation itself (which runs later, with each actor played by its own model inside a persistent world with real time) determines who notices what, what they think, what they attempt, whether they communicate, and whether the resolution condition is eventually satisfied.
+
+THE GOVERNING RULE: compile only what must exist BEFORE the simulation starts.  Let the simulation create everything that happens afterward.  The world setup must not determine the future result.
+
+You return exactly four fields:
+- actors: who exists at the start, each with only their own private context;
+- shared_context: what context is shared;
+- starting_events: what initial events actually occur;
+- resolution: what observed event history counts as YES or NO.
+
+Rules:
+1. Include only actors who can materially affect the answer.
+2. Actors may be people, organizations that make decisions, or representative social groups / population cohorts when needed.
+3. Passive physical or operational processes are not actors; describe them naturally in shared_context or starting_events when they materially constrain the social simulation.
+4. Do not add assistants, advisers, organizations or intermediaries merely because they are plausible.
+5. An actor's private_context contains only information, incentives, beliefs, relationships, commitments or constraints local to that actor.
+6. shared_context contains only facts or conditions that may appropriately be available to the world or relevant actors.
+7. Never leak one actor's private information into another actor's context.
+8. starting_events contain only events that are already given, verified, or unavoidably scheduled at initialization.
+9. Do not place future actor choices in starting_events.
+10. NEVER schedule a reply, a vote, an agreement, an approval, a refusal, a purchase, a resignation, or any other terminal-producing actor choice -- unless the question explicitly states it has already occurred.
+11. Do not write a future trajectory.
+12. Do not narrate futures like "X notices the message, likes it, and responds".
+13. Preserve uncertainty through natural wording: may notice or miss; may respond or not; timing unresolved; interpretation unresolved.
+14. Do not output probabilities.
+15. Do not assign numerical chances to attention, reading, decisions or outcomes.
+16. Do not create branches or alternative futures during compilation.
+17. The resolution defines how the final trajectory will be MEASURED; it must not predict which result occurs.
+18. Prefer externally observable resolution conditions: a message actually sent; a record actually created; a decision actually announced; a measurable quantity in the persistent history; an action actually completed.
+19. Do not use vague psychological resolution conditions ("shows interest", "seems supportive", "is likely to agree") unless the user explicitly asks about that internal state and it can be observed.
+20. Keep the manifest minimal.
+
+Abstract shape example (structure only -- never copy its content):
+{"actors": [{"name": "Person A", "private_context": "A wants a response from Person B about A's proposal. They have no prior relationship."}, {"name": "Person B", "private_context": "B receives many approaches and sometimes personally responds to short, specific ones that interest B.  B does not know A before this."}],
+ "shared_context": "A has prepared a short message about the proposal.  A can send it to B through an established channel, and B can respond through the received message.",
+ "starting_events": [{"time": "<start time>", "description": "A sends the prepared message to B.", "visible_to": ["Person A"]}],
+ "resolution": "Resolve YES only if the persistent event history shows that B actually sent A a response before the cutoff.  Otherwise resolve NO at the cutoff."}
+
+WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still return the four fields but set resolution to the single word "UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not invent a fake scene:
+- the question refers to NO party who could decide or act.  Identification is by REFERENCE, not by name: whenever the question or context refers to a party -- by name, role, relation, office, or as a defined group or cohort ("Maya's landlord", "the legal team", "the two required directors", "the nine committee members", a band deciding together, an organization acting as a unit) -- that party is a legitimate actor, and numbered stand-ins for referenced-but-unnamed individuals ("the three interested residents" as Resident 1..3) are legitimate identification, not invention.  A bare definite description with no distinguishing detail ANYWHERE in the question or context ("the permit", "the promotion", "the neighbors" -- no name, place, organization, or relation to anchor it) is NOT a reference; refuse those rather than inventing a cast for them;
+- there is no observable resolving social event, and the question names an internal state (regret, respect, morale, what someone thinks or feels) with NO user-provided observable proxy -- never invent the proxy yourself;
+- it is a past counterfactual ("would X have happened if...") -- no future observation can resolve an alternate past;
+- the premise is self-contradictory or makes the asked-about event impossible (a deadline before the opening; a gathering of an organization that has ceased to exist) -- name the contradiction;
+- it is a pure factual lookup or pure physics/operations question with no social decision to simulate.
+
+Reply with ONLY a JSON object matching this exact schema (no extra fields):
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the United States Senate ratify the Treaty of Versailles before the end of 1919?
+
+Simulation start time: 1919-01-01T00:00:00-05:00
+Hard cutoff: 1919-12-31T23:59:00-05:00
+
+USER-PROVIDED CONTEXT:
+The Treaty of Versailles was signed in June 1919, ending World War I. President Woodrow Wilson pushed for ratification, but the Senate was divided, with isolationists opposing. The question does not state the outcome.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+Construct the minimal starting scene now.  Reply with ONLY the four-field JSON object.
+~~~~~~~~
+
+### exact Call 1 output
+~~~~~~~~
+{
+  "actors": [
+    {
+      "name": "President Woodrow Wilson",
+      "private_context": "Wilson is committed to ratification of the Treaty of Versailles, which he helped negotiate. He believes the treaty is essential for world peace and is prepared to campaign for it. He is aware of opposition from some senators."
+    },
+    {
+      "name": "United States Senate",
+      "private_context": "The Senate is divided. A faction of isolationists and reservationists oppose the treaty as written. The Senate must vote on ratification by a two-thirds majority. No decision has been made yet."
+    }
+  ],
+  "shared_context": "The Treaty of Versailles was signed in June 1919, ending World War I. It requires ratification by the U.S. Senate to take effect for the United States. The Senate is currently considering the treaty. President Wilson is advocating for its approval."
+,
+  "starting_events": [
+    {
+      "time": "1919-01-01T00:00:00-05:00",
+      "description": "The Treaty of Versailles has not yet been signed; negotiations are ongoing. The Senate has not yet voted on ratification.",
+      "visible_to": ["President Woodrow Wilson", "United States Senate"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the United States Senate voted to ratify the Treaty of Versailles before 1919-12-31T23:59:00-05:00. Otherwise resolve NO at the cutoff."
+}
+~~~~~~~~
+
+### exact Call 2 prompt (frame + manifest under review)
+~~~~~~~~
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- actors invented for parties the question and context NEVER REFER TO ("CEO" and "CFO" for a question that names no company or people at all; a cast conjured for a bare "the permit" / "the promotion" with no anchoring detail anywhere).  Identification is by reference, not by name: actors matching the question's own referring expressions -- a role, relation, office, defined group, cohort, organization-as-decider, or numbered members of a referenced group -- are CORRECT, and you must not reject them or demand personal names for them.  An organization, council, committee, firm, club, or team acting as a decision-making unit is a LEGITIMATE single actor: granularity is the scene-builder's choice, and you must not demand decomposition into individual members;
+- NOTE on real historical settings: a question set in the real past with a cutoff before the known outcome IS simulatable -- the scene must be built only from what was knowable at the start time.  Abstain for OUTCOME LEAKAGE (post-cutoff knowledge inside the scene), never for the setting being historical;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the United States Senate ratify the Treaty of Versailles before the end of 1919?
+
+Simulation start time: 1919-01-01T00:00:00-05:00
+Hard cutoff: 1919-12-31T23:59:00-05:00
+
+USER-PROVIDED CONTEXT:
+The Treaty of Versailles was signed in June 1919, ending World War I. President Woodrow Wilson pushed for ratification, but the Senate was divided, with isolationists opposing. The question does not state the outcome.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "President Woodrow Wilson",
+   "private_context": "Wilson is committed to ratification of the Treaty of Versailles, which he helped negotiate. He believes the treaty is essential for world peace and is prepared to campaign for it. He is aware of opposition from some senators."
+  },
+  {
+   "name": "United States Senate",
+   "private_context": "The Senate is divided. A faction of isolationists and reservationists oppose the treaty as written. The Senate must vote on ratification by a two-thirds majority. No decision has been made yet."
+  }
+ ],
+ "shared_context": "The Treaty of Versailles was signed in June 1919, ending World War I. It requires ratification by the U.S. Senate to take effect for the United States. The Senate is currently considering the treaty. President Wilson is advocating for its approval.",
+ "starting_events": [
+  {
+   "time": "1919-01-01T00:00:00-05:00",
+   "description": "The Treaty of Versailles has not yet been signed; negotiations are ongoing. The Senate has not yet voted on ratification.",
+   "visible_to": [
+    "President Woodrow Wilson",
+    "United States Senate"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the United States Senate voted to ratify the Treaty of Versailles before 1919-12-31T23:59:00-05:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.
+~~~~~~~~
+
+### exact Call 2 output
+~~~~~~~~
+{
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene treats the United States Senate as a single actor, but the question requires a vote by individual senators. The Senate as a monolithic actor cannot simulate the internal division and voting dynamics necessary for ratification. The scene is not simulatable as a social scene with the given actor granularity.",
+   "correction": "The scene must either model individual senators or provide a mechanism for internal deliberation and voting. Without that, the simulation cannot meaningfully answer the question."
+  }
+ ]
+}
+~~~~~~~~
+
+### final four-field manifest (normalized)
+~~~~~~~~
+(artifact final_scene_manifest.json absent)
+~~~~~~~~
+
+### normalized runtime IDs and bindings
+~~~~~~~~
+(artifact runtime_bindings.json absent)
+~~~~~~~~
+
+### initialized actor states
+~~~~~~~~
+(artifact actor_initial_views.json absent)
+~~~~~~~~
+
+### inserted starting events (genesis ledger)
+~~~~~~~~
+(artifact starting_event_ledger.jsonl absent)
+~~~~~~~~
+
+### genesis resolution result
+~~~~~~~~
+(artifact genesis_resolution_check.json absent)
+~~~~~~~~
+
+### compiler metrics
+~~~~~~~~
+{
+ "semantic_calls": 2,
+ "semantic_slots": [
+  "call_1_scene",
+  "call_2_review"
+ ],
+ "provider_requests": 2,
+ "total_prompt_tokens": 3341,
+ "total_completion_tokens": 442,
+ "per_slot": {
+  "call_1_scene": {
+   "attempts": 1,
+   "duration_s": 3.915,
+   "prompt_tokens": 1806,
+   "completion_tokens": 317
+  },
+  "call_2_review": {
+   "attempts": 1,
+   "duration_s": 2.522,
+   "prompt_tokens": 1535,
+   "completion_tokens": 125
+  }
+ },
+ "wall_s": 6.44,
+ "compiler_version": "minimal_scene_v1",
+ "evidence_mode": "model_memory_unverified"
+}
+~~~~~~~~
+
 > Note: the final calibrated configuration produced ZERO reviewer-REVISE
 > rounds across these two suites, so no live corrected examples exist to
-> quote; the Call-3 corrected path is exercised by scripted tests
-> (tests/test_scene_compiler.py) and occurred live in earlier calibration
-> runs (3% of run 1).
+> quote; those example slots are backfilled with further first-pass
+> compiles. The Call-3 corrected path is exercised by scripted tests
+> (tests/test_scene_compiler.py::test_scripted_corrected_compile) and
+> occurred live during earlier calibration runs (3% of run 1).
