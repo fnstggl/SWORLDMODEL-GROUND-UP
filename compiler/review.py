@@ -42,6 +42,13 @@ attention plus routes.
 DEFECT (it pre-writes the outcome): demand declared uncertainty instead, \
 never a probabilistic mechanism.  Whether things happen emerges from the \
 run; likelihoods emerge later across many runs.
+- An honestly-labeled attention estimate (inferred from comparable \
+habits, or clearly-marked memory) may be attacked ONLY by naming contrary \
+evidence or a specific more-faithful alternative.  "The real habit is \
+unknown" is NOT an objection -- the label already records that epistemic \
+status.  And NEVER demand none_known (no pattern) for someone the answer \
+requires to notice something: no pattern means they never notice, which \
+pre-writes NO -- that demand is itself the distortion.
 Approve when the world is as faithful as the available evidence permits, \
 with honest labels on the rest -- demand fixes only for material \
 distortions you can name.  Perfection beyond the evidence is not the bar."""
