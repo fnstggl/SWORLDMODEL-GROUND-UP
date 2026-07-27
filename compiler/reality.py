@@ -106,13 +106,14 @@ def review_reality(question: dict, evidence: dict, graph, backward: dict,
             + "\n\n" + describe_graph(graph, question, bindings)
             + "\n\nWHAT THE MECHANICAL PROOFS ESTABLISHED:\n"
             + json.dumps(proofs_note, indent=1)
-            + "\n\nNOTE: rates, latencies, durations and amounts are "
-              "filled in AFTER this review by the binding stage; judge "
-              "whether the RIGHT mechanisms exist and connect causally, "
-              "not whether their numbers are attached yet. A route listed "
-              "as dead (no sender) can carry nothing and is already "
-              "flagged mechanically: it only matters if something in the "
-              "causal chain depends on it.")
+            + "\n\nNOTE: the description above already includes the bound "
+              "dynamics -- transfer amounts (source deducted, destination "
+              "credited), accrual rates with operating windows, delivery "
+              "latencies. The runtime ledger enforces conservation and "
+              "calendar arithmetic itself. A route listed as dead (no "
+              "sender) can carry nothing and is already flagged "
+              "mechanically: it only matters if something in the causal "
+              "chain depends on it.")
     try:
         doc, raw, usage = call(_SYSTEM, user, model=model)
     except (TruncatedResponse, ValueError) as exc:
