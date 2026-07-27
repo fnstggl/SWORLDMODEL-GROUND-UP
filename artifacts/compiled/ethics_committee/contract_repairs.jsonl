@@ -1,2 +1,0 @@
-{"attempt": 1, "error": {"detail": {}, "reason": "'tally_of_records' needs a 'record_type' naming the kind of record being read, and it must be the SAME string used by the create_record change that makes them", "stage": "SEMANTIC_AMBIGUITY"}}
-{"attempt": 2, "error": {"detail": {}, "reason": "'tally_of_records' needs a 'record_type' naming the kind of record being read, and it must be the SAME string used by the create_record change that makes them", "stage": "SEMANTIC_AMBIGUITY"}}

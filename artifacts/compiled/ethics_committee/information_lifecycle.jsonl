@@ -1,4 +1,0 @@
-{"cause":34,"data":{"author":"manufacturer","content":"Updated safety data showing lower rate of severe adverse events.","data":{"description":"Manufacturer bulletin published.","tag":"updated_safety_data"},"id":"i35"},"op":"info.create","seq":35,"t":"2026-03-10T13:00:00+00:00"}
-{"cause":35,"data":{"channel":"manufacturer_bulletins","id":"i35","to":"tomas_lindqvist"},"op":"info.send","seq":36,"t":"2026-03-10T13:00:00+00:00"}
-{"cause":39,"data":{"channel":"manufacturer_bulletins","id":"i35","to":"tomas_lindqvist"},"op":"info.deliver","seq":40,"t":"2026-03-10T13:00:00+00:00"}
-{"cause":42,"data":{"actor":"tomas_lindqvist","id":"i35"},"op":"info.notice","seq":43,"t":"2026-03-10T13:00:00+00:00"}
