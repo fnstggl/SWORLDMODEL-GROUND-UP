@@ -280,6 +280,7 @@ class Discovery:
     uncertainty: dict = None
     calls: list = field(default_factory=list)     # verbatim prompt+response
     repairs: dict = field(default_factory=dict)   # step -> repair count
+    validators: dict = field(default_factory=dict)  # step -> validator
     tokens: int = 0
 
 
@@ -289,6 +290,7 @@ def _ask(step: str, system: str, user: str, validator, disc: Discovery,
     if not allow_memory:
         system += ("\nBasis \"model_memory_unverified\" is NOT allowed for "
                    "this case: the evidence package is the whole world.")
+    disc.validators[step] = validator
     doc, raw, defects = None, "", []
     for attempt in (0, 1):
         prompt_user = user if attempt == 0 else (
@@ -317,6 +319,70 @@ def _ask(step: str, system: str, user: str, validator, disc: Discovery,
     raise SemanticAmbiguity(
         f"{step} discovery is still defective after one targeted repair",
         {"document": step, "defects": defects, "repairable": False})
+
+
+def repair_document(disc: Discovery, doc_name: str, defects: list,
+                    call=call_json, model: str = "deepseek-chat") -> bool:
+    """One targeted repair of one discovery DOCUMENT, driven by defects
+    found while assembling the canonical world -- exact cross-reference
+    slips the per-step validation cannot see. The step's own recorded
+    prompt is replayed with its previous answer and the defect list; a
+    reroll never happens. Returns False when the document has no recorded
+    step to repair."""
+    if doc_name == "starting_state_and_information":
+        steps = [s for s in disc.validators
+                 if s.startswith("starting_state[")]
+        # only the entities a defect actually names, when identifiable
+        named = [s for s in steps
+                 if any(s[len("starting_state["):-1] in d for d in defects)]
+        steps = named or steps
+    else:
+        steps = [s for s in disc.validators if s == doc_name]
+    if not steps:
+        return False
+    for step in steps:
+        last = [c for c in disc.calls if c["step"] == step][-1]
+        user = (last["prompt"]["user"]
+                + "\n\nYOUR PREVIOUS ANSWER:\n" + last["raw_response"]
+                + "\n\nEXACT DEFECTS found while assembling the world from "
+                  "all the documents together. Fix ONLY the ones that "
+                  "concern this document (references must name things that "
+                  "exist; ignore defects about other entities), change "
+                  "nothing else, and return the complete corrected JSON "
+                  "object:\n" + "\n".join(f"- {d}" for d in defects))
+        try:
+            doc, raw, usage = call(last["prompt"]["system"], user,
+                                   model=model)
+            err = None
+        except (TruncatedResponse, ValueError) as exc:
+            doc, raw, usage, err = None, "", {}, str(exc)
+        disc.calls.append({"step": step, "attempt": "assembly_repair",
+                           "prompt": {"system": last["prompt"]["system"],
+                                      "user": user},
+                           "raw_response": raw, "usage": usage})
+        disc.tokens += (usage or {}).get("total_tokens", 0)
+        remaining = [err] if err else disc.validators[step](doc)
+        if remaining:
+            raise SemanticAmbiguity(
+                f"{step} is still defective after its assembly repair",
+                {"document": doc_name, "defects": remaining,
+                 "repairable": False})
+        disc.repairs[step] = disc.repairs.get(step, 0) + 1
+        if step == "causal_spine":
+            disc.spine = doc
+        elif step == "producer_assignments":
+            disc.producers = doc
+        elif step == "uncertainty_and_exclusions":
+            disc.uncertainty = doc
+        elif step in ("resolution_contract",
+                      "resolution_ambiguity_adjudication"):
+            disc.resolution = doc
+        elif step.startswith("starting_state["):
+            name = step[len("starting_state["):-1]
+            for i, ent in enumerate(disc.state_info["entities"]):
+                if ent.get("name") == name:
+                    disc.state_info["entities"][i] = doc
+    return True
 
 
 def discover(question: dict, evidence: dict, call=call_json,

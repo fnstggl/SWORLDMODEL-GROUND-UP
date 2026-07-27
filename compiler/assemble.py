@@ -617,16 +617,34 @@ class Assembler:
         basis, ids = _prov(item, f"authority of {entity_name!r}", d)
         if d:
             raise SemanticAmbiguity("authority has defects", {"defects": d})
-        holder = self.graph.resolve_any(ACTORS, entity_name,
-                                        f"authority of {entity_name!r}")
-        over = self.graph.resolve_any(("action", "record", "process"),
-                                      item["over"],
-                                      f"authority of {entity_name!r}")
-        e = self.graph.add_edge(holder, "has_authority", over,
-                                {"meaning": item["meaning"]},
-                                where=f"authority of {entity_name!r}")
+        w = f"authority of {entity_name!r}"
+        holder = self.graph.resolve_any(ACTORS, entity_name, w)
+        over = self._resolve_step(item["over"], w)
+        node = self.graph.node(over)
+        edges = []
+        if node.category in ("state", "resource"):
+            # authority over a condition is authority over whatever can
+            # produce it -- the condition itself is not an act
+            producers = self.graph.producers_of(over)
+            targets = [p for p in producers
+                       if self.graph.node(p).category in
+                       ("action", "process", "event")]
+            if not targets:
+                raise SemanticAmbiguity(
+                    f"{w}: {item['over']!r} is a condition with no "
+                    f"producer to hold authority over")
+        elif node.category in ("action", "record", "process", "event"):
+            targets = [over]
+        else:
+            raise SemanticAmbiguity(
+                f"{w}: authority over a {node.category} has no meaning")
+        for t in targets:
+            edges.append(self.graph.add_edge(
+                holder, "has_authority", t, {"meaning": item["meaning"]},
+                where=w))
         self._record("add_authority",
-                     {"entity": entity_name, "over": item["over"]}, [], [e])
+                     {"entity": entity_name, "over": item["over"]},
+                     [], edges)
 
     def add_information_boundary(self, entity_name: str, boundary: dict) -> None:
         """Initial knowledge, channel access with attention, and explicit

@@ -76,7 +76,14 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         shutil.rmtree(outdir)
     os.makedirs(outdir)
     t_wall = wallclock.monotonic()
-    calls: list = []
+    calls: list = []                 # non-discovery, non-binding logs
+    from .discovery import Discovery
+    from .binding import Bindings
+    disc = Discovery()
+    bindings = Bindings()
+
+    def all_calls():
+        return calls + disc.calls + bindings.calls
     metrics = {
         "mode": "question_only" if evidence is None else "frozen_evidence",
         "discovery_calls": 0, "binding_calls": 0, "model_tokens": 0,
@@ -94,7 +101,12 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         metrics["stage"] = exc.stage
         _wj(os.path.join(outdir, "compilation_diagnostics.json"),
             exc.to_dict())
-        _wl(os.path.join(outdir, "model_calls.jsonl"), calls)
+        metrics["discovery_calls"] = len(disc.calls)
+        metrics["binding_calls"] = len(bindings.calls)
+        metrics["repairs_by_step"].update(disc.repairs)
+        metrics["repairs_by_step"].update(bindings.repairs)
+        metrics["model_tokens"] = disc.tokens + bindings.tokens
+        _wl(os.path.join(outdir, "model_calls.jsonl"), all_calls())
         _wj(os.path.join(outdir, "metrics.json"), metrics)
         return {"stage": exc.stage, "reason": exc.reason,
                 "detail": exc.detail, "metrics": metrics}
@@ -113,8 +125,6 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
     _wj(os.path.join(outdir, "evidence_package.json"), evidence)
 
     # ---- discovery ---------------------------------------------------
-    from .discovery import Discovery
-    disc = Discovery()
     t0 = wallclock.monotonic()
     try:
         discover(question, evidence, call=call, model=model,
@@ -124,9 +134,7 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
     except CompilationStop as exc:
         stop = exc
     metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
-    calls.extend(disc.calls)
     metrics["discovery_calls"] = len(disc.calls)
-    metrics["model_tokens"] += disc.tokens
     metrics["repairs_by_step"].update(disc.repairs)
     for name, doc in (("resolution_contract", disc.resolution),
                       ("causal_spine", disc.spine),
@@ -147,31 +155,62 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         return finish_failure(stop)
 
     # ---- deterministic assembly + proofs -----------------------------
-    from .discovery import evidence_ids
-    try:
-        t0 = wallclock.monotonic()
-        graph, trace = assemble(disc.resolution, disc.spine, disc.producers,
-                                disc.state_info, disc.uncertainty,
-                                valid_evidence_ids=evidence_ids(evidence))
-        metrics["assembly_ms"] = round(
-            (wallclock.monotonic() - t0) * 1000, 1)
-        _wj(os.path.join(outdir, "canonical_world_graph.json"),
-            graph.to_dict())
-        _wl(os.path.join(outdir, "assembly_trace.jsonl"), trace)
+    # An assembly defect names the discovery document that owns it; that
+    # document gets at most ONE targeted repair before the case stops.
+    from .discovery import evidence_ids, repair_document
+    repaired_docs: set = set()
+    metrics["assembly_repairs"] = []
+    while True:
+        try:
+            t0 = wallclock.monotonic()
+            graph, trace = assemble(
+                disc.resolution, disc.spine, disc.producers,
+                disc.state_info, disc.uncertainty,
+                valid_evidence_ids=evidence_ids(evidence))
+            metrics["assembly_ms"] = round(
+                (wallclock.monotonic() - t0) * 1000, 1)
+            _wj(os.path.join(outdir, "canonical_world_graph.json"),
+                graph.to_dict())
+            _wl(os.path.join(outdir, "assembly_trace.jsonl"), trace)
 
-        t0 = wallclock.monotonic()
-        backward = backward_causal_proof(graph)
-        _wj(os.path.join(outdir, "backward_causal_proof.json"), backward)
-        forward = forward_executability_proof(graph)
-        _wj(os.path.join(outdir, "forward_executability_proof.json"),
-            forward)
-        metrics["proofs_ms"] = round((wallclock.monotonic() - t0) * 1000, 1)
-    except CompilationStop as exc:
-        return finish_failure(exc)
+            t0 = wallclock.monotonic()
+            backward = backward_causal_proof(graph)
+            _wj(os.path.join(outdir, "backward_causal_proof.json"),
+                backward)
+            forward = forward_executability_proof(graph)
+            _wj(os.path.join(outdir, "forward_executability_proof.json"),
+                forward)
+            metrics["proofs_ms"] = round(
+                (wallclock.monotonic() - t0) * 1000, 1)
+            break
+        except CompilationStop as exc:
+            doc_name = exc.detail.get("document") \
+                if isinstance(exc.detail, dict) else None
+            if not doc_name or doc_name in repaired_docs \
+                    or not exc.detail.get("repairable"):
+                return finish_failure(exc)
+            repaired_docs.add(doc_name)
+            t0 = wallclock.monotonic()
+            try:
+                if not repair_document(disc, doc_name,
+                                       exc.detail.get("defects", []),
+                                       call=call, model=model):
+                    return finish_failure(exc)
+            except CompilationStop as exc2:
+                metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+                return finish_failure(exc2)
+            metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+            metrics["assembly_repairs"].append(doc_name)
+            for name, doc in (
+                    ("resolution_contract", disc.resolution),
+                    ("causal_spine", disc.spine),
+                    ("producer_assignments", disc.producers),
+                    ("starting_state_and_information", disc.state_info),
+                    ("uncertainty_and_exclusions", disc.uncertainty)):
+                _wj(os.path.join(outdir, f"{name}.json"), doc)
 
     # ---- binding -----------------------------------------------------
-    from .binding import Bindings, connect_process_outputs
-    bindings = Bindings()
+    from .binding import connect_process_outputs
     t0 = wallclock.monotonic()
     try:
         bind_world(graph, call=call, model=model, into=bindings)
@@ -182,9 +221,7 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
     except CompilationStop as exc:
         stop = exc
     metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
-    calls.extend(bindings.calls)
     metrics["binding_calls"] = len(bindings.calls)
-    metrics["model_tokens"] += bindings.tokens
     metrics["repairs_by_step"].update(bindings.repairs)
     if stop is not None:
         return finish_failure(stop)
@@ -269,7 +306,8 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
                 replayed.state_hash() == compiled.world.state_hash()})
 
     metrics["wall_ms"] = round((wallclock.monotonic() - t_wall) * 1000, 1)
-    _wl(os.path.join(outdir, "model_calls.jsonl"), calls)
+    metrics["model_tokens"] = disc.tokens + bindings.tokens
+    _wl(os.path.join(outdir, "model_calls.jsonl"), all_calls())
     _wj(os.path.join(outdir, "metrics.json"), metrics)
     return record
 
