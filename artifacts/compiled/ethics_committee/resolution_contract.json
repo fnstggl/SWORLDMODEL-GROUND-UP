@@ -1,0 +1,32 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The meeting ends at 4:00 PM Eastern Time on 12 March 2026; any votes not cast by then do not count.",
+    "timezone": "America/New_York",
+    "when": "2026-03-12T16:00:00-04:00"
+  },
+  "evidence_ids": [
+    "e1",
+    "e2",
+    "e3"
+  ],
+  "measured_act": null,
+  "negative_condition": "Fewer than two members vote to approve, or the required votes are not cast before the meeting ends.",
+  "positive_condition": "A majority of the three voting members (i.e., at least two) vote to approve the request before the meeting ends.",
+  "proof": [
+    {
+      "expected_count": 2,
+      "kind": "record",
+      "meaning": "The official minutes of the 12 March meeting recording the motion and votes.",
+      "name": "meeting minutes",
+      "record_type": "minutes",
+      "rule": "majority",
+      "subject": "committee members",
+      "value": "approve"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "The committee's recorded votes under its own majority rule determine approval or denial of the compassionate-use request at the 12 March meeting."
+}

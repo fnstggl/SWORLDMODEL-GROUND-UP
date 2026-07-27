@@ -5,14 +5,20 @@ compilation is inspectable and re-checkable without re-running the model.
 """
 from __future__ import annotations
 
+import http.client
 import json
 import os
 import ssl
+import time
 import urllib.error
 import urllib.request
 
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 CA_BUNDLE = "/root/.ccr/ca-bundle.crt"
+
+#: Transport-only retries (a connection that dropped before any reply
+#: arrived). Never a retry of a reply that arrived and was rejected.
+TRANSPORT_ATTEMPTS = 3
 
 
 class ModelUnavailable(RuntimeError):
@@ -45,11 +51,26 @@ def call_json(system: str, user: str, model: str = "deepseek-chat",
                  "Authorization": f"Bearer {api_key}"})
     ctx = ssl.create_default_context(
         cafile=CA_BUNDLE if os.path.exists(CA_BUNDLE) else None)
-    try:
-        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
-            body = json.loads(resp.read().decode("utf-8"))
-    except (urllib.error.URLError, OSError, TimeoutError) as e:
-        raise ModelUnavailable(f"Deepseek API unreachable: {e}") from e
+    # A dropped connection means NO answer arrived -- retrying asks the
+    # same question again. That is categorically different from re-rolling
+    # a reply that did arrive and failed validation, which this compiler
+    # never does: a received answer is repaired once, never resampled.
+    body, last = None, None
+    for attempt in range(TRANSPORT_ATTEMPTS):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout,
+                                        context=ctx) as resp:
+                body = json.loads(resp.read().decode("utf-8"))
+            break
+        except (urllib.error.URLError, OSError, TimeoutError,
+                http.client.HTTPException) as e:
+            last = e
+            if attempt + 1 < TRANSPORT_ATTEMPTS:
+                time.sleep(2 ** attempt)
+    if body is None:
+        raise ModelUnavailable(
+            f"Deepseek API unreachable after {TRANSPORT_ATTEMPTS} attempts: "
+            f"{last}") from last
     usage = body.get("usage") or {}
     choice = body["choices"][0]
     raw = choice["message"]["content"]

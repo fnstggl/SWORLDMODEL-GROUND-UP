@@ -1,22 +1,8 @@
 [
   {
-    "binding_calls": 18,
     "case": "ethics_committee",
-    "discovery_calls": 12,
     "expected_refusal": false,
-    "lowering_ms": 0.0,
-    "model_declared_insufficient": false,
-    "pipeline": "discovery",
-    "reason": "process outputs cannot be connected to real stocks",
-    "repairs": {
-      "process:safety_review_circulated": 2,
-      "starting_state[Dr. Helen Osei]": 1,
-      "starting_state[Dr. Raj Patel]": 1,
-      "starting_state[Sister Margaret Doyle]": 1,
-      "starting_state[Tomas Lindqvist]": 1
-    },
-    "runtime_ms": 0.0,
-    "stage": "LOWERING_GAP",
-    "tokens": 67865
+    "reason": "http.client.IncompleteRead: IncompleteRead(0 bytes read)",
+    "stage": "CRASH"
   }
 ]

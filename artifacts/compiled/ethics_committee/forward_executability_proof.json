@@ -1,0 +1,34 @@
+{
+  "channels": [
+    {
+      "channel": "process:hospital_email_system",
+      "receivers": [
+        "participant:dr_helen_osei",
+        "participant:dr_raj_patel",
+        "participant:sister_margaret_doyle"
+      ],
+      "senders": [
+        "participant:dr_helen_osei",
+        "participant:dr_raj_patel",
+        "participant:tomas_lindqvist"
+      ]
+    }
+  ],
+  "emergent_components": [
+    "record:meeting_minutes"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:safety_review_circulated"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:committee_meeting",
+    "event:ethics_committee_meeting",
+    "event:meeting_ends",
+    "event:updated_data_available"
+  ],
+  "warnings": [
+    "process:safety_review_circulated: a process that changes nothing is decorative"
+  ]
+}
