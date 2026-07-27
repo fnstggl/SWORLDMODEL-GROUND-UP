@@ -186,11 +186,30 @@ def compile_question(question: str, asof: str | None = None,
         registry = EvidenceRegistry(evidence_docs, mode)
         corrections = ""
         attempt = None
-        for _ in range(max_repair_rounds + 1):
+        for round_no in range(max_repair_rounds + 1):
             attempt = _attempt(question, asof, registry, caller, trace,
                                corrections)
-            if attempt["outcome"] in ("ok", "refused"):
+            if attempt["outcome"] == "ok":
                 break
+            if attempt["outcome"] == "refused":
+                # a refusal must survive one challenge: decision-dependent,
+                # "likely to", and normative questions are modelable by
+                # doctrine, and only a repeated refusal is final
+                if round_no >= max_repair_rounds:
+                    break
+                repair_rounds.append(attempt["reasons"])
+                corrections = (
+                    "You refused this question as unmodelable, saying:\n"
+                    f"- {attempt['reasons'][0]}\n"
+                    "Re-examine that refusal. Outcomes that depend on "
+                    "people's future decisions ARE modelable (the "
+                    "simulation's actor models decide; you only build the "
+                    "stage and the observable finish line). 'Likely to' "
+                    "questions reframe to the concrete observable event by "
+                    "a deadline. Refuse again ONLY if truly nothing "
+                    "observable could resolve the question even in "
+                    "principle.")
+                continue
             repair_rounds.append(attempt["reasons"])
             corrections = "\n".join(f"- {r}" for r in attempt["reasons"])
         result = _finalize(question, asof, mode, evidence_docs, attempt,

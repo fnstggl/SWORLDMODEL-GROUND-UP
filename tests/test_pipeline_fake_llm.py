@@ -147,13 +147,26 @@ def test_second_rejection_fails_with_reasons():
     assert any("unrealistic" in r for r in result.report["reasons"])
 
 
-def test_unmodelable_question_is_refused():
-    script = Script([{"modelable": False,
-                      "refusal_reason": "no observable resolution exists"}])
+def test_unmodelable_question_is_refused_only_after_a_challenge():
+    """A refusal must survive one challenge round: decision-dependent and
+    'likely to' questions are modelable by doctrine, so only a repeated
+    refusal is final."""
+    refusal = {"modelable": False,
+               "refusal_reason": "no observable resolution exists"}
+    script = Script([refusal, refusal])
     result = compile_scripted(script)
     assert result.status == "refused"
     assert "no observable resolution" in result.report["reasons"][0]
-    assert script.n == 1
+    assert script.n == 2
+
+
+def test_refusal_withdrawn_after_challenge_compiles():
+    refusal = {"modelable": False,
+               "refusal_reason": "depends on someone's future decision"}
+    script = Script([refusal] + one_round(APPROVE, APPROVE))
+    result = compile_scripted(script)
+    assert result.status == "compiled", result.report
+    assert len(result.bundle["repair_rounds"]) == 1
 
 
 def test_unparseable_stage_fails_structurally_never_raises():

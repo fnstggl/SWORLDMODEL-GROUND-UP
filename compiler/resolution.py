@@ -110,6 +110,19 @@ Decide the exact observable resolution:
 the observable outcome a careful analyst would actually watch (set \
 "reframed": true and explain in "reframing_note").  If NOTHING observable \
 can resolve it, set "modelable": false with a "refusal_reason".
+   The following are ALWAYS modelable -- never refuse for these reasons:
+   - outcomes that depend on people's future decisions: the simulation's \
+actor models make those decisions when it runs; your job is only to define \
+the stage and the observable finish line, never to predict anyone's choice;
+   - "likely to" / "will X happen" questions: reframe to the concrete \
+observable event by a deadline (whether it HAPPENS in a simulated \
+trajectory); likelihood judgments happen later, across many simulations, \
+not inside your world;
+   - "should" questions: reframe to the observable outcomes that would \
+vindicate or condemn the choice.
+   Refuse only when no observable event or state could resolve the \
+question even in principle (pure taste, unfalsifiable claims, alternate \
+pasts).
 2. Choose the answer mode: "condition" (a yes/no event or state before a \
 deadline), "value" (a quantity read at the deadline), or "decision_count" \
 (a decision produced by counting recorded choices).
