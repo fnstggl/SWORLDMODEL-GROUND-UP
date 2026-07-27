@@ -89,7 +89,7 @@ _SYSTEM = (
 
 def review_reality(question: dict, evidence: dict, graph, backward: dict,
                    forward: dict, call=call_json,
-                   model: str = "deepseek-chat") -> tuple:
+                   model: str = "deepseek-chat", bindings=None) -> tuple:
     """Returns (result, log). The result's verdict is one of VERDICTS;
     defects (for TARGETED_REVISION) each name their discovery document."""
     proofs_note = {
@@ -103,7 +103,7 @@ def review_reality(question: dict, evidence: dict, graph, backward: dict,
                     "warnings": forward.get("warnings", [])},
     }
     user = (render_question(question) + "\n\n" + render_evidence(evidence)
-            + "\n\n" + describe_graph(graph, question)
+            + "\n\n" + describe_graph(graph, question, bindings)
             + "\n\nWHAT THE MECHANICAL PROOFS ESTABLISHED:\n"
             + json.dumps(proofs_note, indent=1)
             + "\n\nNOTE: rates, latencies, durations and amounts are "

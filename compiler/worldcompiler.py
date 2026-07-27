@@ -202,7 +202,8 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             t0 = wallclock.monotonic()
             review, rlog = review_reality(question, evidence, graph,
                                           backward, forward, call=call,
-                                          model=review_model)
+                                          model=review_model,
+                                          bindings=bindings)
             metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
             calls.extend(rlog)
             metrics["reviewer_calls"] = \
@@ -299,7 +300,7 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         # approved world means, or it does not run ----------------------
         from .roundtrip import (describe_graph, describe_runtime,
                                 review_equivalence)
-        graph_md = describe_graph(graph, question)
+        graph_md = describe_graph(graph, question, bindings)
         runtime_md = describe_runtime(compiled)
         with open(os.path.join(outdir, "runtime_round_trip.md"), "w",
                   encoding="utf-8") as f:

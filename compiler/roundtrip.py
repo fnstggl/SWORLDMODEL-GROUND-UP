@@ -34,9 +34,19 @@ def _j(x) -> str:
 # the approved side: the canonical graph, rendered
 # ---------------------------------------------------------------------------
 
-def describe_graph(graph: WorldGraph, question: dict) -> str:
+def describe_graph(graph: WorldGraph, question: dict,
+                   bindings=None) -> str:
+    def bound(kind, node_id):
+        if bindings is None:
+            return {}
+        return getattr(bindings, kind, {}).get(node_id) or {}
+
     out = ["# Approved causal world (canonical graph)",
-           f"\nQUESTION: {question.get('question', '')}"]
+           f"\nQUESTION: {question.get('question', '')}",
+           "\nStocks are mutable ledger quantities: processes accrue into "
+           "them and transfers move them, deducting the source and "
+           "crediting the destination atomically. The runtime enforces "
+           "this conservation itself."]
     term = graph.terminal()
     out.append(f"\n## Terminal\n- {term.meaning}")
     out.append(f"- answer_type: {term.attrs.get('answer_type')}; cutoff: "
@@ -93,8 +103,11 @@ def describe_graph(graph: WorldGraph, question: dict) -> str:
     out.append("\n## Channels")
     for n in graph.by_category("process"):
         if n.attrs.get("role") == "channel":
-            out.append(f"- {n.name}: {n.meaning} "
-                       f"(latency: {n.attrs.get('latency_meaning')})")
+            bd = bound("channels", n.id)
+            latency = (f"{bd['delivery_seconds']}s delivery"
+                       if bd.get("delivery_seconds") is not None
+                       else n.attrs.get("latency_meaning"))
+            out.append(f"- {n.name}: {n.meaning} (latency: {latency})")
 
     out.append("\n## Scheduled external events")
     for n in graph.by_category("event"):
@@ -105,9 +118,21 @@ def describe_graph(graph: WorldGraph, question: dict) -> str:
             continue
         when = n.attrs.get("when") or f"anchored: {_j(n.attrs.get('anchor'))}"
         out.append(f"- {when}: {n.name} -- {n.meaning} (basis {n.basis})")
+        bd = bound("events", n.id)
         for e in graph.edges_from(n.id, "produces") \
                 + graph.edges_from(n.id, "changes"):
-            out.append(f"  brings about: {graph.node(e.dst).name}")
+            tgt = graph.node(e.dst)
+            spec = (bd.get("amounts") or {}).get(tgt.name)
+            if spec and spec.get("kind") == "transfer":
+                out.append(f"  transfers {spec.get('amount')} of "
+                           f"{tgt.name} from {spec.get('from')} to "
+                           f"{spec.get('to')} (source deducted, "
+                           f"destination credited)")
+            elif spec:
+                out.append(f"  adjusts {tgt.name} by "
+                           f"{spec.get('amount')}")
+            else:
+                out.append(f"  brings about: {tgt.name}")
 
     out.append("\n## What actors CAN do (never scheduled)")
     for n in graph.by_category("action"):
@@ -124,12 +149,21 @@ def describe_graph(graph: WorldGraph, question: dict) -> str:
     out.append("\n## Continuous processes")
     for n in graph.by_category("process"):
         if n.attrs.get("role") != "channel":
+            bd = bound("processes", n.id)
+            if bd.get("decorative"):
+                out.append(f"- {n.name}: declared decorative -- "
+                           f"{bd.get('why', '')}")
+                continue
+            rate = (f"{bd['amount_per_hour']}/hour"
+                    if bd.get("amount_per_hour") is not None
+                    else n.attrs.get("rate_meaning"))
+            op = (_j(bd.get("operating")) if bd.get("operating")
+                  else n.attrs.get("operating_meaning"))
             out.append(f"- {n.name}: {n.meaning} "
-                       f"(rate: {n.attrs.get('rate_meaning')}; operating: "
-                       f"{n.attrs.get('operating_meaning')})")
+                       f"(rate: {rate}; operating: {op})")
             for e in graph.edges_from(n.id, "changes") \
                     + graph.edges_from(n.id, "produces"):
-                out.append(f"  feeds: {graph.node(e.dst).name}")
+                out.append(f"  accrues into: {graph.node(e.dst).name}")
 
     out.append("\n## Preserved uncertainty")
     for u in sorted(graph.uncertainties,

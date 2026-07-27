@@ -1,21 +1,24 @@
 [
   {
-    "binding_calls": 8,
+    "binding_calls": 14,
     "case": "blood_units",
-    "discovery_calls": 10,
+    "discovery_calls": 14,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "binding of event:shipment_dispatched_thursday is still defective after one targeted repair",
+    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
       "causal_spine": 1,
       "resolution_ambiguity_adjudication": 1,
-      "starting_state[St. Vincent regional hospital]": 1
+      "starting_state[Cascade regional blood centre]": 1,
+      "starting_state[Courier service]": 1,
+      "starting_state[St. Vincent regional hospital]": 1,
+      "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 46784
+    "stage": "REALITY_REVIEW_REJECTED",
+    "tokens": 70795
   }
 ]
