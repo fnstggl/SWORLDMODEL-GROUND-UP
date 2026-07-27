@@ -156,6 +156,28 @@ def test_chance_encoded_as_fact_is_blocking():
     assert any("pre-write the outcome" in b for b in report.blocking)
 
 
+def test_past_external_event_folds_into_starting_state():
+    items = neutral_items()
+    items.append(cap(
+        "schedule_external_event", name="already_happened",
+        at_local="2026-07-20 09:00", tz="UTC",
+        effects=[{"do": "create_record", "record_type": "prior_mark",
+                  "subject": "subject_p", "per_actor": False,
+                  "value": "done"}],
+        provenance="question_given", note="occurred before the start"))
+    from tests.test_compiler_failures import graph_from
+    g = graph_from(items)
+    from compiler.assembly import assemble
+    from compiler.lowering import lower
+    plan, errors = assemble(g, START)
+    assert errors == []
+    assert any("folded into the starting state" in n for n in plan["notes"])
+    world, _, _ = lower(plan)
+    assert world.facts.get("prior_mark:subject_p") == "done"
+    assert not any(s for s in plan["schedules"]
+                   if "already_happened" in str(s))
+
+
 def test_needs_review_findings_are_surfaced_not_silenced():
     # a participant nobody can wake -> needs_review, not silent acceptance
     items = neutral_items()

@@ -130,7 +130,7 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
         # findings AND for review-magnet findings (a participant who could
         # never act), so reviewers see the patched world.
         patch_records = translation.translate_patches(
-            question, res, graph, report.patchable[:4], caller, trace,
+            question, res, graph, report.patchable[:8], caller, trace,
             corrections)
         translations.extend(patch_records)
         if any(r["status"] == "lowered" for r in patch_records):

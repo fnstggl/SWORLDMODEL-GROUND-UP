@@ -2,22 +2,142 @@
  "question": "Is the Senate going to pass the education funding bill before the August recess?",
  "report": {
   "reasons": [
-   "discovery.participants: no valid response after 3 attempts: [\"items[1]: cites unknown document 'comparable habits of senators'\", \"items[7]: cites unknown document 'standard Senate practice'\", \"items[9]: cites unknown document 'standard Senate procedure'\", \"items[10]: cites unknown document 'standard Senate procedure'\"]"
+   "reality review: Senator D has no attention pattern: Senator D is an undecided minority appropriator whose vote is critical for cloture, but they have 'attends no channel' \u2014 they will never notice any communication, including the negotiated amendment. This pre-writes a NO outcome for that vote, distorting the simulation because in reality Senator D would be reachable and could decide based on the amendment. (fix: Give Senator D an attention pattern similar to Senators A, B, C (e.g., checks phone every 60 minutes, 08:00-20:00 ET, days 0-6) to allow them to receive and act on the amendment negotiation.)",
+   "reality review: Sen. Dana Whitfield has no attention pattern: Sen. Dana Whitfield has 'attends no channel', meaning she will never notice any information sent to her. As Majority Leader, she must notice scheduling updates, whip counts, and negotiation progress to decide whether to file cloture. Without attention, she cannot act on new information, making her decision pre-determined or impossible, which distorts the simulation. (fix: Add an attention pattern for Sen. Dana Whitfield, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 ET, days 0-6' or a staff-monitored pattern, to allow her to receive and act on information.)",
+   "reality review: Missing decisive force: Sen. Dana Whitfield's decision to file cloture is not modeled as a choice: The world declares that Sen. Dana Whitfield 'currently: Decide whether to file cloture...' but the action 'file_cloture_on_motion_to_proceed' is defined only for roles ['Senate Majority Leader'] and the world says she 'can file' on Monday August 3. However, the simulation has no mechanism for her to actually decide to do so based on information (e.g., negotiation outcomes). Without a decision process, the filing may never happen, pre-writing a NO outcome. (fix: Ensure Sen. Dana Whitfield's actor model can decide to file cloture based on her goals and information received. This may require adding a decision action or ensuring the existing action is triggered by her model's reasoning, not left as a capability without a trigger.)",
+   "meaning review: Sen. Dana Whitfield attends no channel: Sen. Dana Whitfield has 'attends no channel', meaning she never notices any information sent to her. This makes it impossible for her to receive communications about scheduling, negotiations, or any updates, which is required for her to make informed decisions about filing cloture and scheduling floor time. The approved description expects her to be able to receive and act on information. (fix: Add an attention pattern for Sen. Dana Whitfield, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 America/New_York, days [0,1,2,3,4,5,6]' or similar, based on inferred typical working hours.)",
+   "meaning review: Senator D attends no channel: Senator D has 'attends no channel', meaning they never notice any information sent to them. This prevents Sen. Maura Kelly from successfully negotiating the state flexibility amendment with Senator D, as Senator D cannot receive or respond to communications. The approved description requires that negotiation with Senator D is possible. (fix: Add an attention pattern for Senator D, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 America/New_York, days [0,1,2,3,4,5,6]' or similar, based on inferred typical habits.)",
+   "meaning review: Missing action for senators to vote on cloture and final passage: The runtime lacks actions for individual senators to vote on cloture and final passage. The approved description expects that each senator can decide to vote yes or no, and that votes are recorded. The only voting action is 'vote_on_final_passage' taken by the Senate Majority Leader, which pre-writes the outcome rather than allowing individual decisions. This is a material distortion. (fix: Add actions for each senator to vote on cloture and final passage, e.g., 'vote_on_cloture' and 'vote_on_passage', that record their individual decisions. The outcome should emerge from the aggregate of individual votes.)",
+   "meaning review: Scheduled events pre-determine outcomes: The runtime includes scheduled events that automatically record 'cloture_vote_held' and 'passage_vote:passed' regardless of actual decisions. This pre-writes the outcome and bypasses the actor model. The approved description requires that outcomes emerge from individual decisions at simulation time. (fix: Remove the scheduled events that record vote outcomes. Instead, allow the cloture vote and final passage to occur only when triggered by appropriate actions (e.g., filing cloture, scheduling votes) and based on the actual votes of senators.)",
+   "reality review requires a fix: participant 'senator_d' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation? -- Senator D has no attention pattern, making them unreachable and unable to decide based on the amendment. In reality, they would be reachable and their vote is critical. This pre-writes a NO outcome, distorting the simulation."
   ],
   "repair_rounds": [
    [
-    "reality review: Senate Majority Leader Dana Whitfield's attention pattern: The world declares continuous attention (00:00-23:59 ET, all days) for Sen. Whitfield, labeled 'inferred' with a note that senators typically check email multiple times per day. Continuous attention is not a realistic model for any human; it effectively makes her omniscient within email, which pre-writes her ability to notice and act on any message instantly. The evidence (bill_status, floor_calendar) does not support continuous attention; it only states she wants a floor vote. A more faithful pattern would be periodic checks (e.g., every 60 minutes during business hours) or a clearly labeled estimate from comparable habits. (fix: Change Sen. Whitfield's email attention to a periodic schedule (e.g., every 60 minutes, 08:00-20:00 ET, weekdays) with an honest uncertainty label, or provide a specific evidence-based justification for continuous attention.)",
-    "reality review: Missing decisive force: ability of any senator to object to a unanimous consent agreement: The evidence (floor_calendar) states 'Absent a time agreement, a single objecting senator can push final passage past the recess.' This is a critical procedural rule that can block the bill even if cloture succeeds. The world lacks any mechanism for a senator to object to a UC agreement. The translator attempted to add this but failed because no participant has the generic role 'Senator'. The world must include this capability for all senators (or at least for the undecided/holdout participants) to faithfully simulate the possibility of delay. (fix: Add an action 'object_to_uc_agreement' available to all senator participants (or add a generic 'Senator' role and assign it to all), or model the UC agreement negotiation with an explicit objection step.)",
-    "reality review: Missing decisive force: cloture vote on motion to proceed is not modeled as a separate step: The evidence (floor_calendar) describes a two-step process: first cloture on the motion to proceed (requires 60 votes), then final passage. The world only has a combined 'vote_on_cloture_and_passage' action for some participants, and a scheduled event that records 'cloture_filed' and 'final_passage_possible' but no actual cloture vote. The simulation cannot determine whether cloture on the motion to proceed succeeds, which is a prerequisite for final passage. This pre-writes the outcome by skipping a necessary procedural hurdle. (fix: Add a separate action 'vote_on_cloture_motion_to_proceed' that requires 60 votes, and make final passage conditional on its success. Alternatively, model the cloture vote as a scheduled event with a vote tally determined by participant decisions.)",
-    "meaning review: Senate Majority Leader Dana Whitfield's attention pattern: The runtime gives Dana Whitfield continuous attention to email during session week, but the approved description only infers 'typically check email multiple times per day'. Continuous attention is a material upgrade that makes her more responsive than described, potentially affecting the timing of cloture filing and negotiations. (fix: Change Dana Whitfield's email attention to a realistic periodic check, e.g., every 60 minutes during business hours, matching the inferred pattern.)",
-    "meaning review: Missing participant: Minority Leader (or designee) for UC negotiations: The approved description requires the Senate Majority Leader and Minority Leader (or designee) to negotiate time agreements. The runtime only includes Dana Whitfield as a negotiator, with no Minority Leader participant. Without that actor, the negotiate_uc_agreement action cannot be properly executed as described. (fix: Add a participant for the Minority Leader (or designee) with appropriate attention and routes, and ensure the negotiate_uc_agreement action requires both leaders.)",
-    "meaning review: Missing action: object to unanimous consent agreement: The approved description states that any single senator can object to a unanimous consent agreement, potentially delaying final passage. The runtime does not include an action for any senator to object to a UC agreement. Without this, the uncertainty about time agreements is not faithfully represented. (fix: Add a universal action 'object_to_uc_agreement' available to any senator, which can block a UC agreement from taking effect.)",
-    "meaning review: Missing action: vote on cloture for the 10 undecided senators: The approved description includes the 10 publicly undecided senators as participants who decide whether to vote for cloture and final passage. The runtime only provides a 'vote_on_cloture_and_passage' action for the 4 minority-party appropriators, not for the other 6 undecided senators. Those 6 have no way to vote, making cloture success impossible as described. (fix: Add a 'vote_on_cloture_and_passage' action for the_10_publicly_undecided_senators (or create separate participant for the other 6) so they can decide their votes.)",
-    "meaning review: Missing action: vote on cloture for Sen. Rual Ortiz: Sen. Rual Ortiz is a participant who decides whether to vote for cloture and final passage, but the runtime does not give him any voting action. He cannot express his vote, making his participation meaningless. (fix: Add a 'vote_on_cloture_and_passage' action for Sen. Rual Ortiz.)",
-    "meaning review: Missing action: file cloture on final passage: The approved description mentions that cloture on final passage may be required (60 votes) if not invoked earlier. The runtime only has a 'file_cloture' action for the motion to proceed, not for final passage. This omission could affect the vote threshold needed for final passage. (fix: Add a 'file_cloture_on_final_passage' action for the Senate Majority Leader, or clarify that the existing cloture action covers both.)",
-    "meaning review: Missing action: adopt or withdraw amendments: The approved description requires that the state-flexibility amendment and rural broadband set-aside be adopted or withdrawn to satisfy senators. The runtime has no action for adopting or withdrawing amendments; the negotiations process exists but cannot produce a concrete outcome that affects votes. (fix: Add actions for the Senate to vote on amendments, or for sponsors to withdraw them, linked to the negotiation process.)"
+    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+    "item participants[3] ('Each of the four undecided minority appropriators decides whether to vote yes on') was not expressed: The item describes four undecided minority appropriators, but only three participants are declared (Dana Whitfield, Maura Kelly, Rual Ortiz). The item does not ",
+    "item participants[4] ('Any senator may decide to object to a time agreement, which would delay final pa') was not expressed: The item describes a possible future decision by an unspecified senator, but does not name a specific real person who is not already declared. The declared part",
+    "item communication[1] ('Sen. Maura Kelly can communicate with Sen. Rual Ortiz and the four undecided min') was not expressed: The item mentions channels (phone, email, in-person meetings) that are not declared names, and the recipient 'the four undecided minority appropriators' is not ",
+    "item communication[2] ('Sen. Dana Whitfield can file cloture on the motion to proceed to S. 3418 on Mond') was not expressed: The item describes a specific action (filing cloture) that is not among the defined actions (only schedule_floor_time is defined). It cannot be expressed as a c",
+    "item communication[4] ('Any senator can object to a unanimous consent agreement that would limit debate ') was not expressed: The item describes a procedural action (objecting to unanimous consent) that is not a communication capability. It does not fit add_channel, add_channel_access,",
+    "item communication[6] (\"The four undecided minority appropriators' decisions to vote yes on cloture depe\") was not expressed: The item describes a dependency for future decisions by unnamed individuals ('four undecided minority appropriators'), but does not name them, provide a role th"
+   ],
+   [
+    "reality review: Missing participant: Senator A: The evidence documents describe four undecided minority appropriators, but the world only includes three (Senators B, C, D). Senator A is missing entirely. This distorts the vote count and negotiation dynamics, as the bill needs 60 votes and the missing senator's vote could be decisive. (fix: Add a participant 'Senator A' with role 'undecided minority appropriator', similar to Senators B, C, D, with appropriate attention pattern and routes.)",
+    "reality review: Missing action: file cloture on motion to proceed: The world lacks an action for the Majority Leader to file cloture on the motion to proceed, which is a prerequisite for the cloture vote. The only scheduling action is 'schedule_floor_time', which does not capture the specific procedural step of filing cloture. Without this, the simulation cannot model the critical decision point that determines whether the bill advances. (fix: Add an action 'file_cloture_on_motion_to_proceed' for Sen. Dana Whitfield, with a condition that it can only be taken on Monday August 3, 2026, and that it triggers the scheduled cloture vote on August 5.)",
+    "reality review: Missing action: object to unanimous consent agreement: The evidence states that a single objecting senator can delay final passage past the recess. The world has no action for any senator to object to a unanimous consent agreement. This omission pre-writes the outcome by removing a realistic procedural obstacle, making passage more likely than in reality. (fix: Add an action 'object_to_unanimous_consent' available to any senator, which if taken would prevent final passage before the recess.)",
+    "reality review: Missing decision dependency for Senators B, C, D: The evidence says the four undecided minority appropriators want a state flexibility amendment. The world does not encode that Senators B, C, D will vote yes only if that amendment is included. Without this dependency, their votes are unconstrained, distorting the negotiation and outcome. (fix: Add a condition to Senators B, C, D that they will vote yes on cloture and passage only if the state flexibility amendment is included (similar to the condition already given for Sen. Rual Ortiz).)"
+   ],
+   [
+    "reality review: Senator D has no attention pattern: Senator D is an undecided minority appropriator whose vote is critical for cloture, but they have 'attends no channel' \u2014 they will never notice any communication, including the negotiated amendment. This pre-writes a NO outcome for that vote, distorting the simulation because in reality Senator D would be reachable and could decide based on the amendment. (fix: Give Senator D an attention pattern similar to Senators A, B, C (e.g., checks phone every 60 minutes, 08:00-20:00 ET, days 0-6) to allow them to receive and act on the amendment negotiation.)",
+    "reality review: Sen. Dana Whitfield has no attention pattern: Sen. Dana Whitfield has 'attends no channel', meaning she will never notice any information sent to her. As Majority Leader, she must notice scheduling updates, whip counts, and negotiation progress to decide whether to file cloture. Without attention, she cannot act on new information, making her decision pre-determined or impossible, which distorts the simulation. (fix: Add an attention pattern for Sen. Dana Whitfield, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 ET, days 0-6' or a staff-monitored pattern, to allow her to receive and act on information.)",
+    "reality review: Missing decisive force: Sen. Dana Whitfield's decision to file cloture is not modeled as a choice: The world declares that Sen. Dana Whitfield 'currently: Decide whether to file cloture...' but the action 'file_cloture_on_motion_to_proceed' is defined only for roles ['Senate Majority Leader'] and the world says she 'can file' on Monday August 3. However, the simulation has no mechanism for her to actually decide to do so based on information (e.g., negotiation outcomes). Without a decision process, the filing may never happen, pre-writing a NO outcome. (fix: Ensure Sen. Dana Whitfield's actor model can decide to file cloture based on her goals and information received. This may require adding a decision action or ensuring the existing action is triggered by her model's reasoning, not left as a capability without a trigger.)",
+    "meaning review: Sen. Dana Whitfield attends no channel: Sen. Dana Whitfield has 'attends no channel', meaning she never notices any information sent to her. This makes it impossible for her to receive communications about scheduling, negotiations, or any updates, which is required for her to make informed decisions about filing cloture and scheduling floor time. The approved description expects her to be able to receive and act on information. (fix: Add an attention pattern for Sen. Dana Whitfield, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 America/New_York, days [0,1,2,3,4,5,6]' or similar, based on inferred typical working hours.)",
+    "meaning review: Senator D attends no channel: Senator D has 'attends no channel', meaning they never notice any information sent to them. This prevents Sen. Maura Kelly from successfully negotiating the state flexibility amendment with Senator D, as Senator D cannot receive or respond to communications. The approved description requires that negotiation with Senator D is possible. (fix: Add an attention pattern for Senator D, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 America/New_York, days [0,1,2,3,4,5,6]' or similar, based on inferred typical habits.)",
+    "meaning review: Missing action for senators to vote on cloture and final passage: The runtime lacks actions for individual senators to vote on cloture and final passage. The approved description expects that each senator can decide to vote yes or no, and that votes are recorded. The only voting action is 'vote_on_final_passage' taken by the Senate Majority Leader, which pre-writes the outcome rather than allowing individual decisions. This is a material distortion. (fix: Add actions for each senator to vote on cloture and final passage, e.g., 'vote_on_cloture' and 'vote_on_passage', that record their individual decisions. The outcome should emerge from the aggregate of individual votes.)",
+    "meaning review: Scheduled events pre-determine outcomes: The runtime includes scheduled events that automatically record 'cloture_vote_held' and 'passage_vote:passed' regardless of actual decisions. This pre-writes the outcome and bypasses the actor model. The approved description requires that outcomes emerge from individual decisions at simulation time. (fix: Remove the scheduled events that record vote outcomes. Instead, allow the cloture vote and final passage to occur only when triggered by appropriate actions (e.g., filing cloture, scheduling votes) and based on the actual votes of senators.)",
+    "reality review requires a fix: participant 'senator_d' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation? -- Senator D has no attention pattern, making them unreachable and unable to decide based on the amendment. In reality, they would be reachable and their vote is critical. This pre-writes a NO outcome, distorting the simulation."
    ]
-  ]
+  ],
+  "reviews": {
+   "meaning": {
+    "objections": [
+     {
+      "about": "Sen. Dana Whitfield attends no channel",
+      "fix_hint": "Add an attention pattern for Sen. Dana Whitfield, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 America/New_York, days [0,1,2,3,4,5,6]' or similar, based on inferred typical working hours.",
+      "objection": "Sen. Dana Whitfield has 'attends no channel', meaning she never notices any information sent to her. This makes it impossible for her to receive communications about scheduling, negotiations, or any updates, which is required for her to make informed decisions about filing cloture and scheduling floor time. The approved description expects her to be able to receive and act on information.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Senator D attends no channel",
+      "fix_hint": "Add an attention pattern for Senator D, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 America/New_York, days [0,1,2,3,4,5,6]' or similar, based on inferred typical habits.",
+      "objection": "Senator D has 'attends no channel', meaning they never notice any information sent to them. This prevents Sen. Maura Kelly from successfully negotiating the state flexibility amendment with Senator D, as Senator D cannot receive or respond to communications. The approved description requires that negotiation with Senator D is possible.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Missing action for senators to vote on cloture and final passage",
+      "fix_hint": "Add actions for each senator to vote on cloture and final passage, e.g., 'vote_on_cloture' and 'vote_on_passage', that record their individual decisions. The outcome should emerge from the aggregate of individual votes.",
+      "objection": "The runtime lacks actions for individual senators to vote on cloture and final passage. The approved description expects that each senator can decide to vote yes or no, and that votes are recorded. The only voting action is 'vote_on_final_passage' taken by the Senate Majority Leader, which pre-writes the outcome rather than allowing individual decisions. This is a material distortion.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Scheduled events pre-determine outcomes",
+      "fix_hint": "Remove the scheduled events that record vote outcomes. Instead, allow the cloture vote and final passage to occur only when triggered by appropriate actions (e.g., filing cloture, scheduling votes) and based on the actual votes of senators.",
+      "objection": "The runtime includes scheduled events that automatically record 'cloture_vote_held' and 'passage_vote:passed' regardless of actual decisions. This pre-writes the outcome and bypasses the actor model. The approved description requires that outcomes emerge from individual decisions at simulation time.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Sen. Dana Whitfield's actions are restricted to specific dates",
+      "fix_hint": "No fix needed if the timing is consistent with the description. Ensure that the action can only be taken on appropriate dates.",
+      "objection": "The action 'file_motion_to_proceed' is restricted to 'only on Monday August 3, 2026', which is correct per the approved description. However, the action 'file_cloture_on_motion_to_proceed' does not have a date restriction but its effect is scheduled 48h later. This is acceptable but could be clarified.",
+      "severity": "minor"
+     }
+    ],
+    "verdict": "revise"
+   },
+   "reality": {
+    "dispositions": [
+     {
+      "disposition": "must_fix",
+      "finding": 1,
+      "why": "Senator D has no attention pattern, making them unreachable and unable to decide based on the amendment. In reality, they would be reachable and their vote is critical. This pre-writes a NO outcome, distorting the simulation."
+     }
+    ],
+    "objections": [
+     {
+      "about": "Senator D has no attention pattern",
+      "fix_hint": "Give Senator D an attention pattern similar to Senators A, B, C (e.g., checks phone every 60 minutes, 08:00-20:00 ET, days 0-6) to allow them to receive and act on the amendment negotiation.",
+      "objection": "Senator D is an undecided minority appropriator whose vote is critical for cloture, but they have 'attends no channel' \u2014 they will never notice any communication, including the negotiated amendment. This pre-writes a NO outcome for that vote, distorting the simulation because in reality Senator D would be reachable and could decide based on the amendment.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Sen. Dana Whitfield has no attention pattern",
+      "fix_hint": "Add an attention pattern for Sen. Dana Whitfield, e.g., 'attends phone: checks every 60 minutes, 08:00-20:00 ET, days 0-6' or a staff-monitored pattern, to allow her to receive and act on information.",
+      "objection": "Sen. Dana Whitfield has 'attends no channel', meaning she will never notice any information sent to her. As Majority Leader, she must notice scheduling updates, whip counts, and negotiation progress to decide whether to file cloture. Without attention, she cannot act on new information, making her decision pre-determined or impossible, which distorts the simulation.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Missing decisive force: Sen. Dana Whitfield's decision to file cloture is not modeled as a choice",
+      "fix_hint": "Ensure Sen. Dana Whitfield's actor model can decide to file cloture based on her goals and information received. This may require adding a decision action or ensuring the existing action is triggered by her model's reasoning, not left as a capability without a trigger.",
+      "objection": "The world declares that Sen. Dana Whitfield 'currently: Decide whether to file cloture...' but the action 'file_cloture_on_motion_to_proceed' is defined only for roles ['Senate Majority Leader'] and the world says she 'can file' on Monday August 3. However, the simulation has no mechanism for her to actually decide to do so based on information (e.g., negotiation outcomes). Without a decision process, the filing may never happen, pre-writing a NO outcome.",
+      "severity": "blocking"
+     },
+     {
+      "about": "Senators B, C, D have identical attention patterns inferred without evidence",
+      "fix_hint": "No change needed for B and C; for D, add the same inferred pattern.",
+      "objection": "The attention patterns for Senators B, C, D are inferred as 'checks every 60 minutes, 08:00-20:00 ET, days 0-6' with no evidence. While this is a reasonable estimate, the label 'inferred' is acceptable. However, the pattern for Senator D is missing entirely (see blocking objection).",
+      "severity": "minor"
+     }
+    ],
+    "verdict": "revise"
+   }
+  },
+  "validation": {
+   "blocking": [],
+   "dry_run": {
+    "events_fired": 4,
+    "final_answer": {
+     "answer": "no",
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "The Senate does not pass S. 3418 before August 10, 2026."
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [
+    "participant 'senator_d' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
+   ],
+   "patchable": [
+    {
+     "actor": "senator_d",
+     "channels": [
+      "phone"
+     ],
+     "kind": "no_attention"
+    }
+   ],
+   "warnings": []
+  }
  },
  "status": "failed"
 }

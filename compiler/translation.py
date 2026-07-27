@@ -219,10 +219,13 @@ def translate_all(question: str, resolution: dict, description: dict,
     Unchanged items reuse the previous round's accepted translations
     without LLM calls.  Returns the translation records (the coverage
     ledger)."""
+    low = corrections.lower()
+    corrections_touch_terminal = "terminal" in low or "finish" in low
     prev_map = {(t["category"], t["text"]): t["result"]
                 for t in (previous_translations or [])
                 if t.get("status") == "lowered"
-                and t.get("category") != "terminal"}
+                and not (t.get("category") == "terminal"
+                         and corrections_touch_terminal)}
     records = []
     order = ["participants", "aggregates", "communication", "starting_state",
              "actions", "external", "uncertainty", "exclusions"]
@@ -264,11 +267,19 @@ def translate_all(question: str, resolution: dict, description: dict,
             if retry["status"] == "lowered":
                 retry["deferred"] = True
                 records[idx] = retry
-    records.append(translate_item(
-        question, resolution, graph, "terminal", 0,
-        terminal_item_text(resolution),
-        resolution.get("horizon_provenance", "question_given"),
-        [], caller, trace, corrections))
+    terminal_item = {"text": terminal_item_text(resolution),
+                     "provenance": resolution.get("horizon_provenance",
+                                                  "question_given"),
+                     "evidence": []}
+    reused = _reuse(question, resolution, graph, "terminal", 0,
+                    terminal_item, prev_map, trace)
+    if reused is not None:
+        records.append(reused)
+    else:
+        records.append(translate_item(
+            question, resolution, graph, "terminal", 0,
+            terminal_item["text"], terminal_item["provenance"],
+            [], caller, trace, corrections))
     return records
 
 

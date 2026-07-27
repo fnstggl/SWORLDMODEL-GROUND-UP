@@ -534,9 +534,14 @@ def assemble(g: WorldGraph, start_iso: str, evidence_of=lambda ref: None):
         when = to_instant(f["at_local"], f["tz"], notes,
                           f"external event {f['name']}")
         if when < start:
-            errors.append(f"external event {f['name']!r} is scheduled before "
-                          f"the start instant; things already past belong in "
-                          f"starting facts")
+            # it already happened: fold its effects into the starting state
+            # (already-true facts, already-moved quantities, already-sent
+            # information arriving at the start) -- recorded, never refused
+            notes.append(f"external event {f['name']!r} "
+                         f"({f['at_local']} {f['tz']}) precedes the start: "
+                         f"its effects are folded into the starting state")
+            ops.extend(expand_effects(f["effects"], ev(e),
+                                      external_author=True))
             continue
         if when > cutoff:
             notes.append(f"external event {f['name']!r} falls after the "
