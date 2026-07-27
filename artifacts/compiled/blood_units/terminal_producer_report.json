@@ -1,0 +1,59 @@
+{
+  "answer": {
+    "answer": 300.0,
+    "computed_from": [
+      "record:60",
+      "record:79"
+    ],
+    "detail": "st_vincent_regional_hospital:usable_blood_units measured at 300",
+    "observations": [
+      {
+        "observation": {
+          "describe": "St. Vincent regional hospital holds a certain number of usable blood units at Friday noon, July 24, 2026.\nThe number of usable blood units in St. Vincent hospital's inventory at the deadline.",
+          "kind": "resource_measure",
+          "params": {
+            "holder": "st_vincent_regional_hospital",
+            "name": "usable_blood_units"
+          }
+        },
+        "read": {
+          "detail": "st_vincent_regional_hospital:usable_blood_units measured at 300",
+          "producers": [
+            "record:60",
+            "record:79"
+          ],
+          "satisfied": true,
+          "value": 300.0
+        }
+      }
+    ]
+  },
+  "computed_from": [
+    "record:60",
+    "record:79"
+  ],
+  "graph_producer_lineage": {
+    "resource:hospital_units_at_deadline": [
+      "event:thursday_shipment_arrives",
+      "event:tuesday_shipment_arrives"
+    ]
+  },
+  "replay_hash_match": true,
+  "terminal": {
+    "conditions": [],
+    "cutoff": "2026-07-24T19:00:00+00:00",
+    "measure": {
+      "describe": "St. Vincent regional hospital holds a certain number of usable blood units at Friday noon, July 24, 2026.\nThe number of usable blood units in St. Vincent hospital's inventory at the deadline.",
+      "kind": "resource_measure",
+      "params": {
+        "holder": "st_vincent_regional_hospital",
+        "name": "usable_blood_units"
+      }
+    },
+    "no_detail": "",
+    "question": "How many usable blood units will the regional hospital have received by Friday noon?",
+    "question_type": "quantity",
+    "uncertain_paths": [],
+    "yes_detail": ""
+  }
+}

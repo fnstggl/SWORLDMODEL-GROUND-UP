@@ -64,14 +64,31 @@ def describe_graph(graph: WorldGraph, question: dict,
                        f"{', '.join(graph.node(p).name for p in producers)}")
         if n.category == "resource":
             holder = n.attrs.get("holder")
+            classes = None
+            if bindings is not None:
+                from .emit import substance_classes
+                classes = substance_classes(graph, bindings)
             for rs in graph.by_category("resource"):
                 if rs.id != cid and rs.attrs.get("holder") == holder \
                         and rs.attrs.get("amount") is not None:
-                    out.append(
-                        f"  opening stock counted: {rs.attrs['amount']} "
-                        f"{rs.attrs.get('unit') or ''} already held by "
-                        f"{graph.node(holder).name if holder else '?'} "
-                        f"(one substance; unified at lowering)")
+                    hname = graph.node(holder).name if holder else "?"
+                    if classes is not None \
+                            and classes.get(rs.id) != classes.get(cid):
+                        out.append(
+                            f"  NOT counted: {rs.attrs['amount']} "
+                            f"{rs.attrs.get('unit') or ''} already held "
+                            f"by {hname} was settled as a DIFFERENT "
+                            f"substance from the measured stock, so the "
+                            f"measurement will not include it; if they "
+                            f"are really the same goods this world "
+                            f"undercounts")
+                    else:
+                        out.append(
+                            f"  opening stock counted: "
+                            f"{rs.attrs['amount']} "
+                            f"{rs.attrs.get('unit') or ''} already held "
+                            f"by {hname} "
+                            f"(one substance; unified at lowering)")
             upstream, seen, frontier = [], set(), list(producers)
             while frontier:
                 cur = frontier.pop()

@@ -1,0 +1,159 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "resource:hospital_units_at_deadline",
+        "prerequisites": [
+          {
+            "node": "event:thursday_shipment_arrives",
+            "prerequisites": [
+              {
+                "node": "event:thursday_shipment",
+                "prerequisites": [
+                  {
+                    "derived_condition": true,
+                    "node": "state:centre_has_enough_stock_thursday",
+                    "prerequisites": [
+                      {
+                        "node": "process:thursday_collection_before_4pm",
+                        "root": "process"
+                      },
+                      {
+                        "node": "process:wednesday_collection",
+                        "root": "process"
+                      },
+                      {
+                        "derived_condition": true,
+                        "node": "state:centre_stock_after_tuesday_shipment",
+                        "prerequisites": [
+                          {
+                            "derived_condition": true,
+                            "node": "state:centre_has_enough_stock_tuesday",
+                            "prerequisites": [
+                              {
+                                "node": "process:monday_collection",
+                                "root": "process"
+                              },
+                              {
+                                "node": "process:tuesday_collection_before_4pm",
+                                "root": "process"
+                              },
+                              {
+                                "node": "state:initial_centre_stock",
+                                "root": "initial_fact"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          },
+          {
+            "node": "event:tuesday_shipment_arrives",
+            "prerequisites": [
+              {
+                "node": "event:tuesday_shipment",
+                "prerequisites": [
+                  {
+                    "derived_condition": true,
+                    "node": "state:centre_has_enough_stock_tuesday",
+                    "prerequisites": [
+                      {
+                        "node": "process:monday_collection",
+                        "root": "process"
+                      },
+                      {
+                        "node": "process:tuesday_collection_before_4pm",
+                        "root": "process"
+                      },
+                      {
+                        "node": "state:initial_centre_stock",
+                        "root": "initial_fact"
+                      }
+                    ]
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ],
+            "root": "scheduled_event"
+          },
+          {
+            "node": "state:initial_hospital_stock",
+            "root": "initial_fact"
+          }
+        ],
+        "via": {
+          "node": "event:thursday_shipment_arrives",
+          "prerequisites": [
+            {
+              "node": "event:thursday_shipment",
+              "prerequisites": [
+                {
+                  "derived_condition": true,
+                  "node": "state:centre_has_enough_stock_thursday",
+                  "prerequisites": [
+                    {
+                      "node": "process:thursday_collection_before_4pm",
+                      "root": "process"
+                    },
+                    {
+                      "node": "process:wednesday_collection",
+                      "root": "process"
+                    },
+                    {
+                      "derived_condition": true,
+                      "node": "state:centre_stock_after_tuesday_shipment",
+                      "prerequisites": [
+                        {
+                          "derived_condition": true,
+                          "node": "state:centre_has_enough_stock_tuesday",
+                          "prerequisites": [
+                            {
+                              "node": "process:monday_collection",
+                              "root": "process"
+                            },
+                            {
+                              "node": "process:tuesday_collection_before_4pm",
+                              "root": "process"
+                            },
+                            {
+                              "node": "state:initial_centre_stock",
+                              "root": "initial_fact"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "root": "scheduled_event"
+            }
+          ],
+          "root": "scheduled_event"
+        }
+      },
+      "component": "resource:hospital_units_at_deadline",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "event"
+      ],
+      "producers": [
+        "event:thursday_shipment_arrives",
+        "event:tuesday_shipment_arrives"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

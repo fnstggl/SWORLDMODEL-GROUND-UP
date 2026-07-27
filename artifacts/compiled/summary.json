@@ -1,22 +1,22 @@
 [
   {
-    "binding_calls": 13,
+    "actors": 2,
+    "affordances": 0,
+    "answer": 300.0,
+    "artifact_risk": false,
+    "binding_calls": 7,
     "case": "blood_units",
-    "discovery_calls": 10,
+    "discovery_calls": 7,
     "expected_answer": 315.0,
     "expected_refusal": false,
-    "lowering_ms": 0.0,
-    "model_declared_insufficient": false,
+    "lowering_ms": 11.2,
     "pipeline": "discovery",
-    "reason": "no node 'process:centre_collection_monday_to_thursday' in the graph",
     "repairs": {
-      "causal_spine": 1,
-      "process:centre_collection_monday": 2,
-      "resolution_ambiguity_adjudication": 1,
-      "uncertainty_and_exclusions": 1
+      "resolution_ambiguity_adjudication": 1
     },
-    "runtime_ms": 0.0,
-    "stage": "INVALID_REFERENCE",
-    "tokens": 55586
+    "run_status": "cutoff",
+    "runtime_ms": 5.6,
+    "stage": "COMPILED",
+    "tokens": 31342
   }
 ]

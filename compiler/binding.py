@@ -368,10 +368,14 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                             "stock_a": _stock(ra),
                             "stock_b": _stock(rb)}, indent=1)
                        + "\n\nAre these two names the SAME physical "
-                         "substance held by this holder (one stock "
-                         "described twice, e.g. an opening balance and "
-                         "the measured total of the same goods), or "
-                         "genuinely different substances? Decide only "
+                         "substance held by this holder -- one stock, "
+                         "one ledger -- or genuinely different KINDS of "
+                         "things (money vs goods)? Time of counting does "
+                         "not matter: an opening balance and a total "
+                         "measured at a later deadline are the SAME "
+                         "substance counted at different moments, and "
+                         "must answer true, or the opening balance will "
+                         "be invisible to the measurement. Decide only "
                          "from the meanings and evidence above.\n"
                          "Return JSON exactly:\n"
                          "  same_substance: true or false\n"
