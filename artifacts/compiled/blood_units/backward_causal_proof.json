@@ -25,7 +25,7 @@
             "root": "scheduled_event"
           },
           {
-            "node": "state:initial_stock",
+            "node": "state:initial_stock_hospital",
             "root": "initial_fact"
           }
         ],

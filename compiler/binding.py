@@ -47,7 +47,10 @@ _CATALOG = (
       "email delivers in seconds) -- that label is always allowed here "
       "and is the honest default for practice-based estimates. A "
       "genuinely unknowable number stays unknown: return null rather "
-      "than inventing precision."
+      "than inventing precision. But a number the evidence itself fixes "
+      "through its stated rates, windows and stocks is NOT unknowable -- "
+      "compute it, mark it \"inferred\", and show the arithmetic in the "
+      "note."
 )
 
 _RULES = (
@@ -581,7 +584,16 @@ def _v_event(doc, residue) -> list:
                 if spec.get("kind") not in ("transfer", "adjust"):
                     d.append(f"amounts[{t['what']!r}].kind must be "
                              f"transfer or adjust")
-                _num(spec, "amount", d)
+                missing_amt: list = []
+                _num(spec, "amount", missing_amt)
+                d.extend(
+                    x + ". The runtime moves concrete numbers only: if "
+                        "the evidence's stated rates, windows and stocks "
+                        "determine what this occurrence carries, compute "
+                        "that number (status inferred, arithmetic in the "
+                        "note); if truly nothing fixes it, the item is "
+                        "unsupported -- say so instead of null"
+                    for x in missing_amt)
         elif t["category"] == "information":
             spec = (doc.get("messages") or {}).get(t["what"])
             if not spec:

@@ -1,28 +1,102 @@
 {
   "assignments": [
     {
-      "producers": [],
-      "step": "initial_stock"
+      "step": "initial_stock_hospital",
+      "unsupported": "Initial fact, no producer needed."
     },
     {
-      "producers": [],
-      "step": "tuesday_shipment_dispatch"
+      "step": "initial_stock_centre",
+      "unsupported": "Initial fact, no producer needed."
     },
     {
-      "producers": [],
-      "step": "tuesday_shipment_arrival"
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive at its Portland site.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_process_monday"
     },
     {
-      "producers": [],
-      "step": "thursday_shipment_dispatch"
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive at its Portland site.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_process_tuesday"
     },
     {
-      "producers": [],
-      "step": "thursday_shipment_arrival"
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive at its Portland site.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_process_wednesday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive at its Portland site.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_process_thursday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Operates the mobile collection drive at its Portland site.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "collection_process_friday_morning"
+    },
+    {
+      "step": "tuesday_shipment_dispatch",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "step": "tuesday_shipment_arrival",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "step": "thursday_shipment_dispatch",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "step": "thursday_shipment_arrival",
+      "unsupported": "Scheduled event, no producer needed."
     },
     {
       "step": "hospital_units_at_deadline",
-      "unsupported": "This is a condition that is the sum of other steps; it has no independent producer."
+      "unsupported": "Condition with prerequisites; no mechanism of its own."
     }
   ]
 }

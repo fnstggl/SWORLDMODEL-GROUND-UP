@@ -4,7 +4,13 @@
     "resource:hospital_units_at_deadline"
   ],
   "information_paths": [],
-  "operating_processes": [],
+  "operating_processes": [
+    "process:collection_process_friday_morning",
+    "process:collection_process_monday",
+    "process:collection_process_thursday",
+    "process:collection_process_tuesday",
+    "process:collection_process_wednesday"
+  ],
   "parameter_binding": "deferred to the binding stage",
   "scheduled_roots": [
     "event:thursday_shipment_arrival",

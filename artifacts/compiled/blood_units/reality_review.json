@@ -1,23 +1,17 @@
 {
   "causal_path": [
-    "Collection drive generates usable blood units at Cascade regional blood centre at 12 units/hour, Mon-Fri 9-5",
-    "Centre accumulates stock from initial 40 units plus collected units",
-    "Tuesday dispatch of 150 units at 4PM, arriving 7PM",
-    "Thursday dispatch of 150 units at 4PM, arriving 7PM",
-    "Hospital holds initial 15 units plus Tuesday and Thursday arrivals = 315 units at Friday noon (assuming no usage)"
+    "Initial hospital stock: 15 units at Monday 9 AM",
+    "Tuesday dispatch at 4 PM, arrival at 7 PM: +150 units",
+    "Thursday dispatch at 4 PM, arrival at 7 PM: +150 units",
+    "Total hospital stock at Friday noon: 315 units"
   ],
   "defects": [
     {
-      "document": "causal_spine",
-      "what": "Missing the mobile collection drive process that generates the blood units shipped from the centre. The evidence states the drive collects 12 usable units per hour while open, which is necessary to provide the 150 units for each shipment.",
-      "why_material": "Without collection, the centre has insufficient stock (only 40 initial) to dispatch 150 units on Tuesday, making the scheduled events impossible. This changes the answer from 315 to an unknown or lower number."
-    },
-    {
-      "document": "starting_state_and_information",
-      "what": "Missing the centre's initial stock of 40 usable units at 9 AM Monday (from e5). The world only initializes the hospital's stock, but the centre's stock is required for conservation when shipments deduct from it.",
-      "why_material": "Without the centre's initial stock, the runtime cannot deduct 150 units for the Tuesday shipment, breaking the transfer. This also affects whether the centre has enough to ship."
+      "document": "uncertainty_and_exclusions",
+      "what": "Preserved uncertainties about collection and shipment events (collection processes, dispatch/arrival events) are listed as uncertain, but the evidence provides no such uncertainty; all schedules and rates are verified.",
+      "why_material": "Removing these uncertainties would make the output deterministic (315 units), whereas including them could allow different outcomes, changing the simulation result."
     }
   ],
-  "reasoning": "The world omits the mobile collection drive that produces the units shipped from the centre. Without that process, the centre cannot supply the 150-unit shipments, making the backward causal chain incomplete. Additionally, the centre's initial stock of 40 units is not modeled in the world's initial state, which is needed for conservation.",
+  "reasoning": "The world introduces preserved uncertainties about collection and shipment events (e.g., whether the drive operates as scheduled) that are not supported by the evidence. The evidence states these as verified schedules and averages, so the world must treat them deterministically. This uncertainty could change the terminal hospital stock, making it a material defect.",
   "verdict": "TARGETED_REVISION"
 }

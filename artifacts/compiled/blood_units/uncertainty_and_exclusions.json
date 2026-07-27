@@ -1,50 +1,76 @@
 {
   "exclusions": [
     {
-      "basis": "question_given",
-      "evidence_ids": [],
-      "name": "other hospitals or blood centres",
-      "why_safe": "The question asks only about St. Vincent regional hospital's received units; other entities do not affect this count."
-    },
-    {
       "basis": "verified",
       "evidence_ids": [
         "e10"
       ],
-      "name": "Elena Cruz's actions",
-      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not change the number of units received."
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
     },
     {
       "basis": "question_given",
       "evidence_ids": [],
-      "name": "weekend operations",
-      "why_safe": "The deadline is Friday noon; weekend operations after that are irrelevant."
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital; other entities are irrelevant."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Blood usage or transfusions at the hospital",
+      "why_safe": "The resolution note specifies 'the number of units the hospital actually holds' \u2013 usage is not considered."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e5",
+        "e6"
+      ],
+      "name": "Spoilage or wastage",
+      "why_safe": "No evidence mentions spoilage; assuming no wastage is safe given the evidence."
     }
   ],
   "uncertainties": [
     {
-      "about": "collection drive operation",
-      "meaning": "Whether the mobile collection drive operates as scheduled every day from 9 AM to 5 PM without any disruptions (e.g., holidays, closures, or reduced hours) during the week of July 20-24, 2026."
+      "about": "collection_process_monday",
+      "meaning": "Whether the collection drive operated as scheduled on Monday 20 July (e.g., no unexpected closures or slowdowns)."
     },
     {
-      "about": "collection rate constancy",
-      "meaning": "Whether the average collection rate of 12 usable units per hour holds exactly for each hour the drive is open, or if there is variability that could affect total collected units."
+      "about": "collection_process_tuesday",
+      "meaning": "Whether the collection drive operated as scheduled on Tuesday 21 July."
     },
     {
-      "about": "initial stock at centre",
-      "meaning": "Whether the centre's initial stock of 40 units at 9 AM Monday is accurate and whether any units are added or removed before the Tuesday shipment."
+      "about": "collection_process_wednesday",
+      "meaning": "Whether the collection drive operated as scheduled on Wednesday 22 July."
     },
     {
-      "about": "shipment timing",
-      "meaning": "Whether the Tuesday and Thursday shipments depart exactly at 4 PM and arrive exactly 3 hours later (7 PM), and whether the hospital receives them before Friday noon."
+      "about": "collection_process_thursday",
+      "meaning": "Whether the collection drive operated as scheduled on Thursday 23 July."
     },
     {
-      "about": "hospital usage",
-      "meaning": "Whether the hospital uses any blood units between Monday 9 AM and Friday noon, which would reduce the count of usable units on hand."
+      "about": "collection_process_friday_morning",
+      "meaning": "Whether the collection drive operated as scheduled on Friday 24 July from 9:00 AM to noon (the deadline)."
     },
     {
-      "about": "other shipments or transfers",
-      "meaning": "Whether there are any other shipments from the centre to the hospital besides the scheduled Tuesday and Thursday shipments, or any returns or transfers that affect inventory."
+      "about": "tuesday_shipment_dispatch",
+      "meaning": "Whether the Tuesday shipment was dispatched as scheduled at 4:00 PM on Tuesday 21 July."
+    },
+    {
+      "about": "tuesday_shipment_arrival",
+      "meaning": "Whether the Tuesday shipment arrived and was received by the hospital within the expected 3 hours (by 7:00 PM Tuesday)."
+    },
+    {
+      "about": "thursday_shipment_dispatch",
+      "meaning": "Whether the Thursday shipment was dispatched as scheduled at 4:00 PM on Thursday 23 July."
+    },
+    {
+      "about": "thursday_shipment_arrival",
+      "meaning": "Whether the Thursday shipment arrived and was received by the hospital within the expected 3 hours (by 7:00 PM Thursday)."
+    },
+    {
+      "about": "hospital_units_at_deadline",
+      "meaning": "The exact number of usable blood units the hospital holds at Friday noon, given uncertainties in collection and shipment processes."
     }
   ]
 }
