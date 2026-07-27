@@ -32,6 +32,8 @@ def main() -> int:
     ap.add_argument("--docs", default=None, help="evidence documents JSON")
     ap.add_argument("--out", default=None, help="artifact directory")
     ap.add_argument("--model", default="deepseek-chat")
+    ap.add_argument("--repairs", type=int, default=2,
+                    help="anchored repair rounds after the first attempt")
     args = ap.parse_args()
 
     docs = None
@@ -45,7 +47,7 @@ def main() -> int:
 
     result = compile_question(args.question, asof=args.asof,
                               evidence_docs=docs, caller=Caller(args.model),
-                              out_dir=out)
+                              out_dir=out, max_repair_rounds=args.repairs)
     print(result.summary())
     return 0 if result.status == "compiled" else 1
 

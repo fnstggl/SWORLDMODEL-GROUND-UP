@@ -47,6 +47,29 @@ rebuilds `(World, minds, Terminal)` with zero LLM calls, ready for
 `Engine(world, minds, terminal).run()` — running full simulations is the
 next step, not this one.
 
+### Live acceptance status (deepseek-chat, asof 2026-07-27)
+
+`artifacts/compiled/cold_outreach__evidence_docs/` holds a **fully
+compiled** bundle for "Is this cold email likely to get a response from
+Mark Cuban within two weeks?": mechanical validation clean, both
+adversarial reviews **approve**, and `instantiate()` rebuilds the world
+byte-identically (state-hash checked) with DeepseekMind actors wired.
+
+The other five acceptance runs (the UGC-campaign and Senate-bill questions
+in both modes, cold email in model-memory mode) currently end as
+**structured failures**, exactly as designed: every one terminates with a
+precise report naming what could not be made accurate — reviewer
+objections (e.g. "scheduled review outcomes pre-write the answer"),
+producer gaps, or unexpressed load-bearing items.  Nothing crashes and
+nothing inaccurate ships.  Two honest caveats: deepseek-chat is not
+bit-stable at temperature 0, so identical compiles can differ between
+runs; and the adversarial reviewers are deliberately strict, so three
+anchored repair rounds are sometimes not enough for them to approve.
+Raising `max_repair_rounds` (CLI-visible in `compile_question.py`) buys
+more convergence per question.  The nineteen-probe failure ledger that
+drove the hardening lives in the git history of
+`artifacts/compiled/`.
+
 ## Layout
 
 ```

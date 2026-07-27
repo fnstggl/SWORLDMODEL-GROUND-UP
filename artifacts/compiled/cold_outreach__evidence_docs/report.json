@@ -1,15 +1,75 @@
 {
  "question": "Is this cold email likely to get a response from Mark Cuban within two weeks?",
  "report": {
-  "reasons": [
-   "discovery.participants: no valid response after 3 attempts: [\"items[0]: cites unknown document 'doc_recipient_email_habits'\", \"items[0]: cites unknown document 'doc_email_draft'\", \"items[1]: cites unknown document 'doc_recipient_email_habits'\", \"items[2]: cites unknown document 'doc_email_draft'\", \"items[2]: cites unknown document 'doc_recipient_email_habits'\", \"items[3]: cites unknown document 'doc_recipient_email_habits'\", \"items[4]: cites unknown document 'doc_sender_context'\", \"items[5]: cites unknown document 'doc_sender_context'\"]"
-  ],
+  "coverage": {
+   "lowered": 56,
+   "unsupported": [
+    "participants[3]",
+    "participants[6]",
+    "participants[7]",
+    "participants[8]",
+    "aggregates[0]",
+    "aggregates[1]",
+    "aggregates[3]",
+    "aggregates[5]",
+    "aggregates[6]",
+    "aggregates[7]",
+    "communication[11]",
+    "communication[12]",
+    "starting_state[12]",
+    "actions[1]",
+    "actions[2]",
+    "actions[3]",
+    "external[2]",
+    "external[4]",
+    "external[5]",
+    "external[6]",
+    "external[8]",
+    "external[12]",
+    "uncertainty[3]",
+    "uncertainty[5]"
+   ]
+  },
+  "llm_calls": 198,
   "repair_rounds": [
    [
-    "reality review: Mark Cuban's attention pattern: The declared attention pattern 'checks every 60 minutes, 09:00-17:00 America/Chicago, days [0,1,2,3,4,5,6]' is inconsistent with evidence that Cuban reads email on his phone at all hours, including late at night. The evidence says he reads 'nearly all' of 700-1000 emails daily, which implies far more frequent checking and outside business hours. Restricting to 09-17 and once per hour severely undercounts his actual checking, making it far less likely he notices the email in time to reply within two weeks. This is a material distortion. (fix: Change attention to reflect 24/7 checking, e.g., 'checks every 30 minutes, 00:00-23:59, days [0,1,2,3,4,5,6]' or at minimum extend hours to include evenings and weekends.)",
-    "reality review: Missing decisive force: Cuban's decision process: The world declares uncertainty about whether Cuban will reply, but provides no mechanism for Cuban to evaluate the email's content against his interests. The simulation only models noticing, not the decision to reply. Without a modeled decision process (e.g., a rule or actor deliberation that considers content relevance), the outcome is pre-wired to 'no reply' because no action triggers a reply. The universal 'transmit_information' action exists, but nothing causes Cuban to decide to use it. The world must include a way for Cuban to decide to reply based on the email's content. (fix: Add a scheduled wake or decision rule for Cuban after noticing the email: e.g., 'if noticed cold_email and content matches interests (short, specific, relevant), then decide whether to reply within 1 hour'. Or model Cuban's deliberation as an actor action triggered by noticing.)"
+    "assembly: no terminal was set; a world without a finish line cannot answer anything",
+    "item participants[0] ('Jordan Reyes sends the cold email to mark@markcubancompanies.com on July 27, 202') was not expressed: The item describes an action (sending an email) that is already covered by the universal 'transmit_information' action, which does not need to be defined. No ne",
+    "item participants[1] ('Mark Cuban reads or skims the email within the two-week window.') was not expressed: The item describes a possible future action (reading or skimming an email) that depends on Mark Cuban's decision, but no participant 'Mark Cuban' has been decla",
+    "item participants[2] ('Mark Cuban decides the email is interesting enough to reply to.') was not expressed: The item describes a future decision ('decides the email is interesting enough to reply to'), which is an outcome to be simulated, not a capability, fact, or st",
+    "item participants[3] ('Mark Cuban composes and sends a reply email to Jordan Reyes before August 10, 20') was not expressed: The item describes a future action (sending a reply) that depends on Mark Cuban's decision, which cannot be pre-scheduled or defined as a capability. It is not ",
+    "item actions[0] ('Jordan Reyes sends the cold email to mark@markcubancompanies.com on July 27, 202') was not expressed: The item describes sending an email to Mark Cuban, but 'Mark Cuban' is not declared as a participant, and 'email' is not declared as a channel. The only declare",
+    "item actions[1] (\"The email arrives in Mark Cuban's inbox and is not filtered as spam.\") was not expressed: The item describes an outcome (arrival and non-spam filtering) that is not an action a participant can attempt, nor a scheduled event, nor a fact, nor any other"
    ]
-  ]
+  ],
+  "reviews": {
+   "meaning": {
+    "objections": [],
+    "verdict": "approve"
+   },
+   "reality": {
+    "dispositions": [],
+    "objections": [],
+    "verdict": "approve"
+   }
+  },
+  "validation": {
+   "blocking": [],
+   "dry_run": {
+    "events_fired": 7,
+    "final_answer": {
+     "answer": "no",
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "Mark Cuban does not send a reply email to Jordan Reyes within two weeks."
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [],
+   "patchable": [],
+   "warnings": []
+  }
  },
- "status": "failed"
+ "status": "compiled"
 }
