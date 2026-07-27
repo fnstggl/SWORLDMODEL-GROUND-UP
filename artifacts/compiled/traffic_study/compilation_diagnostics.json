@@ -1,0 +1,35 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "External reviewer delivers sign-off to Santos (scheduled event at 10:00 AM on 2026-02-18).",
+        "Santos emails finalized study to Reyes within one hour after sign-off.",
+        "City email system delivers the email to Reyes (latency ~1 minute).",
+        "Reyes checks her email (at a workday time after delivery, per her cadence).",
+        "Reyes reads the study in full (taking 60-90 minutes).",
+        "Reyes has read the study before the meeting at 7:00 PM on 2026-02-19."
+      ],
+      "defects": [
+        {
+          "document": "starting_state_and_information",
+          "what": "The peer-review sign-off delivery is scheduled as a guaranteed event at 2026-02-18T10:00:00-06:00, but the evidence (e4) only states a commitment by the reviewer, not a guaranteed delivery. This silently resolves uncertainty about whether the sign-off arrives on time, later, or not at all.",
+          "why_material": "If the sign-off is delayed, the study finalization and subsequent actions are delayed, potentially preventing Reyes from reading the study before the meeting. The scheduled event forces a fixed timeline that may not be realistic."
+        },
+        {
+          "document": "causal_spine",
+          "what": "The action 'reyes_reads_study' is modeled as instantaneous, but evidence (e8) indicates reading takes 60-90 minutes. There is no constraint that Reyes must have at least 60 minutes available before the meeting to complete reading.",
+          "why_material": "Without a duration, the simulation could allow reading even if the study arrives just minutes before the meeting, contradicting the evidence that reading requires substantial time. This could produce a false positive outcome."
+        },
+        {
+          "document": "causal_spine",
+          "what": "The action 'santos_emails_study' is not time-constrained; it can occur at any time after sign-off, but evidence (e4b) states Santos emails within an hour after receiving sign-off. The action should be scheduled or constrained to that time window.",
+          "why_material": "If the email is sent later than one hour, the study may arrive too late for Reyes to read. Without the constraint, the simulation may incorrectly allow a timely sending even if Santos delays, affecting the feasibility of Reyes reading."
+        }
+      ],
+      "reasoning": "The compiled world contains material defects. The peer-review sign-off is scheduled as a guaranteed event, but evidence only shows a commitment, not a guarantee\u2014this silently resolves uncertainty. The reading action lacks a duration constraint, ignoring the 60-90 minutes needed to read the study. The email action by Santos is not constrained to occur within one hour after sign-off as documented. These defects change what the simulation would produce, making revision necessary.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

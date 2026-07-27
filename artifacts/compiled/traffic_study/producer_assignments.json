@@ -1,0 +1,70 @@
+{
+  "assignments": [
+    {
+      "step": "study_finalized",
+      "unsupported": "This is a condition with prerequisite peer_review_signoff; no separate producer is needed beyond the prerequisite event."
+    },
+    {
+      "step": "peer_review_signoff",
+      "unsupported": "This is a scheduled event; no producer assignment needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e4b"
+          ],
+          "kind": "person",
+          "meaning": "City transportation engineer who emails the finalized study to council members.",
+          "name": "Miguel Santos"
+        }
+      ],
+      "step": "santos_emails_study"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "communication_system",
+          "meaning": "The city's email system that delivers the email to Reyes's inbox.",
+          "name": "City email system"
+        }
+      ],
+      "step": "email_delivered"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Councilmember who decides to check her email and notice the study.",
+          "name": "Councilmember Alma Reyes"
+        }
+      ],
+      "step": "reyes_checks_email"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Councilmember who decides to read the finalized study in full.",
+          "name": "Councilmember Alma Reyes"
+        }
+      ],
+      "step": "reyes_reads_study"
+    }
+  ]
+}

@@ -1,23 +1,19 @@
 [
   {
-    "binding_calls": 14,
-    "case": "council_vote",
-    "discovery_calls": 14,
-    "expected_answer": "no",
+    "binding_calls": 10,
+    "case": "traffic_study",
+    "discovery_calls": 10,
+    "expected_answer": "yes",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
     "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
-      "action:bianchi_absent": 2,
-      "action:okonkwo_does_not_postpone": 1,
-      "causal_spine": 1,
-      "producer_assignments": 1,
-      "uncertainty_and_exclusions": 1
+      "causal_spine": 1
     },
     "runtime_ms": 0.0,
     "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 61161
+    "tokens": 38296
   }
 ]

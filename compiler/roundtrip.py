@@ -200,11 +200,18 @@ def describe_graph(graph: WorldGraph, question: dict,
             else:
                 out.append(f"  brings about: {tgt.name}")
 
-    out.append("\n## What actors CAN do (never scheduled)")
+    out.append("\n## What actors CAN do (never scheduled: whether and "
+               "when an actor acts is the simulation's outcome, gated "
+               "by these prerequisites and their attention)")
     for n in graph.by_category("action"):
         performers = [graph.node(p).name for p in graph.performers_of(n.id)]
-        out.append(f"- {n.name} (by {', '.join(performers) or 'NOBODY'}): "
-                   f"{n.meaning}")
+        bd = bound("actions", n.id)
+        dur = ""
+        if bd.get("duration_minutes") is not None:
+            dur = (f" [takes ~{bd['duration_minutes']} min "
+                   f"({bd.get('duration_status')})]")
+        out.append(f"- {n.name} (by {', '.join(performers) or 'NOBODY'})"
+                   f"{dur}: {n.meaning}")
         for e in graph.prerequisites_of(n.id):
             out.append(f"  needs [{e.attrs.get('necessity')}]: "
                        f"{graph.node(e.dst).name}")

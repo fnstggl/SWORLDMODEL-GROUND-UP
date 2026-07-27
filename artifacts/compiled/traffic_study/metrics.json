@@ -1,0 +1,32 @@
+{
+  "assembly_ms": 2.7,
+  "assembly_repairs": [
+    "review:causal_spine"
+  ],
+  "binding_calls": 10,
+  "discovery_calls": 10,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 141883.2495009956,
+  "model_tokens": 38296,
+  "proofs_ms": 1.1,
+  "repairs_by_step": {
+    "causal_spine": 1
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 2,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "REALITY_REVIEW_REJECTED",
+  "stale_bindings_dropped": [
+    "process:email_delivered"
+  ]
+}

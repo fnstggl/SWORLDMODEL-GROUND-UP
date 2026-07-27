@@ -1,0 +1,42 @@
+{
+  "exclusions": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other council members",
+      "why_safe": "The question only concerns Councilmember Reyes's reading of the study; others' actions are irrelevant."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Technical failures (e.g., email system outage)",
+      "why_safe": "No evidence suggests any such failure; city email delivers within about a minute (e9). Excluding rare outages is safe because they are not indicated."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Reyes's staff reading the study on her behalf",
+      "why_safe": "The resolution note requires Reyes herself to have noticed and read the study; staff reading does not count."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "peer_review_signoff",
+      "meaning": "Whether the external reviewer delivers the sign-off by 10:00 AM on 18 February as committed, or later, or not at all."
+    },
+    {
+      "about": "santos_emails_study",
+      "meaning": "Whether Santos actually emails the study within an hour after receiving sign-off, given his documented practice but potential for delay or failure."
+    },
+    {
+      "about": "reyes_checks_email",
+      "meaning": "Whether Reyes checks her email at a time after the study is delivered and before the meeting starts, given her stated schedule but possible deviations."
+    },
+    {
+      "about": "reyes_reads_study",
+      "meaning": "Whether Reyes actually reads the study in full after receiving it, given her stated policy but potential for not having time or choosing not to read."
+    }
+  ]
+}
