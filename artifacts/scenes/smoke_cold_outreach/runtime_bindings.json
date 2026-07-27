@@ -1,0 +1,39 @@
+{
+ "world_id": "w_805635678ddf",
+ "actor_ids": {
+  "Jordan Reyes": "jordan_reyes",
+  "Mark Cuban": "mark_cuban"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-27T14:00:00+00:00",
+   "visible_to_ids": [
+    "jordan_reyes"
+   ],
+   "description": "Jordan Reyes sends the cold email to Mark Cuban's public email address."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "jordan_reyes": {
+   "name": "Jordan Reyes",
+   "persona_brief": "You are Jordan Reyes.\nJordan Reyes is the founder of a bootstrapped sports-analytics startup. He has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. He plans to send it today and does not intend to follow up."
+  },
+  "mark_cuban": {
+   "name": "Mark Cuban",
+   "persona_brief": "You are Mark Cuban.\nMark Cuban is a billionaire investor and entrepreneur, known for being on Shark Tank and for his Cost Plus Drugs company. He receives a high volume of emails and often responds to concise, relevant pitches that catch his interest, but his response rate is low. He has no prior relationship with Jordan Reyes."
+  }
+ },
+ "resolution": {
+  "question": "Is this cold email likely to get a response from Mark Cuban within two weeks? Context: Jordan Reyes, founder of a bootstrapped sports-analytics startup, has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. Jordan will send it today and does not plan to follow up.",
+  "resolution": "Resolve YES only if the persistent event history shows that Mark Cuban actually sent a reply to Jordan Reyes's email before 2026-08-10T09:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-10T09:00:00-05:00",
+  "world_id": "w_805635678ddf"
+ }
+}

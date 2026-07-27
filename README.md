@@ -9,66 +9,60 @@ No scenario is hardcoded anywhere. The kernel knows only universal
 mechanics; the compiler knows only universal lifecycles; scenario meaning
 ("vote", "reply", "ship an order") is **data** produced at compile time.
 
-## The world compiler
+## The world compiler — minimal_scene_v1 (production)
 
 ```
-python3 compile_question.py "your question" [--asof YYYY-MM-DD]
-        [--docs evidence/your_docs.json] [--out artifacts/compiled/name]
+python3 compile_question.py "your question" \
+    [--start 2026-07-27T09:00:00-05:00] [--cutoff 2026-08-10T09:00:00-05:00] \
+    [--context "extra user context"] [--evidence-file docs.txt] \
+    [--out artifacts/scenes/name]
 ```
 
-Three strictly separated stages (see COMPILER_DESIGN.md):
+SWORLDMODEL is an evidence-grounded **social** simulator; the compiler's
+job is to construct the smallest correct **starting social scene** and
+nothing that happens afterward.  The governing rule: *compile only what
+must exist before the simulation starts; let the simulation create
+everything that happens afterward.*
 
-1. **Describe** (LLM, small calls, natural language only): the exact
-   observable answer condition, then — backward from it — participants,
-   aggregates, communication and attention, starting state and knowledge
-   boundaries, possible actions, external processes and scheduled events,
-   uncertainty, exclusions.  What CAN happen, never what WILL happen.
-2. **Translate** (LLM, one small item at a time): each item onto a closed
-   capability menu (rendered from the same tables that validate the
-   output): select one capability, fill its small fields, or return
-   UNSUPPORTED.  No invented names, facts, or consequences.
-3. **Assemble + validate + lower** (deterministic code, zero LLM):
-   canonical ids, alias resolution, lifecycle expansion into kernel ops,
-   backward check (every terminal term has a producer), forward check
-   (no-mind dry run of the real engine), integrity checks (terminal false
-   at genesis, no pre-written outcomes), English round-trip read back from
-   the lowered world, and two adversarial reviews (reality vs. evidence;
-   meaning preservation).  Blocking findings get one repair round; a second
-   failure is a structured refusal, never a crash.
+The canonical path is two semantic LLM calls (three max, enforced in code
+before the call — a fourth attempt fails with
+`COMPILER_CALL_BUDGET_EXCEEDED`):
 
-Evidence modes: `model_memory` (claims labeled `model_memory_unverified` /
-`inferred`) or `evidence_docs` (`--docs`; `verified` requires a document
-citation — see `evidence/*.json` for the acceptance fixtures).
+1. **Call 1 — scene construction**: one four-field manifest —
+   `actors` (name + private context each), `shared_context`,
+   `starting_events` (time, description, `visible_to`), and one
+   natural-language `resolution` describing what observed event history
+   counts as YES/NO.  No trajectories, no probabilities, no scheduled
+   future decisions, no invented intermediaries.
+2. **Call 2 — independent adversarial review**: APPROVE / REVISE (with
+   exact per-path defects) / ABSTAIN (honestly unsimulatable).
+3. **Call 3 — targeted correction** (only on REVISE): applies exactly the
+   listed defects; recorded as a repaired compile.
 
-The result is a **WorldBundle** (`bundle.json`): genesis ledger, declarative
-terminal spec, per-actor identity briefs, coverage ledger, validation
-report, reviews, and the full LLM trace.  `compiler.instantiate(bundle)`
-rebuilds `(World, minds, Terminal)` with zero LLM calls, ready for
-`Engine(world, minds, terminal).run()` — running full simulations is the
-next step, not this one.
+Then deterministic code (zero LLM): strict schema, alias/duplicate
+normalization, visibility resolution, tz-aware times, genesis-false
+terminal check — and **direct instantiation** into the persistent runtime
+via a thin adapter (code owns all IDs; private context lives only in the
+owning actor; starting events are ledgered and visible only to declared
+actors; the cutoff runs through the existing clock).  The natural-language
+resolution binds through a generic wrapper: false at genesis, judged later
+against the actual event history (judgment is outside compilation and its
+call budget).
 
-### Live acceptance status (deepseek-chat, asof 2026-07-27)
+Without `--evidence-file` the compiler runs in `model_memory_unverified`
+mode: **it tests compiler robustness and semantic world shape, not current
+real-world facts** — nothing is labeled verified and no factual-accuracy
+claim is made from it.  The evidence-package input boundary exists so live
+retrieval can attach later without changing the four-field contract.
 
-`artifacts/compiled/cold_outreach__evidence_docs/` holds a **fully
-compiled** bundle for "Is this cold email likely to get a response from
-Mark Cuban within two weeks?": mechanical validation clean, both
-adversarial reviews **approve**, and `instantiate()` rebuilds the world
-byte-identically (state-hash checked) with DeepseekMind actors wired.
+Acceptance harness: `python3 run_scene_acceptance.py` over the frozen
+dataset in `acceptance/`; reports live in
+`artifacts/minimal_scene_compiler/`.
 
-The other five acceptance runs (the UGC-campaign and Senate-bill questions
-in both modes, cold email in model-memory mode) currently end as
-**structured failures**, exactly as designed: every one terminates with a
-precise report naming what could not be made accurate — reviewer
-objections (e.g. "scheduled review outcomes pre-write the answer"),
-producer gaps, or unexpressed load-bearing items.  Nothing crashes and
-nothing inaccurate ships.  Two honest caveats: deepseek-chat is not
-bit-stable at temperature 0, so identical compiles can differ between
-runs; and the adversarial reviewers are deliberately strict, so three
-anchored repair rounds are sometimes not enough for them to approve.
-Raising `max_repair_rounds` (CLI-visible in `compile_question.py`) buys
-more convergence per question.  The nineteen-probe failure ledger that
-drove the hardening lives in the git history of
-`artifacts/compiled/`.
+The superseded multi-stage compiler (~200 LLM calls per compile) lives in
+`compiler/legacy/`, reachable only via the explicit diagnostic flag
+`--compiler legacy`, never selected automatically
+(see `artifacts/minimal_scene_compiler/PRODUCTION_ROUTE_AUDIT.md`).
 
 ## Layout
 
