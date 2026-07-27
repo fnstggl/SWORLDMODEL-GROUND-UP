@@ -190,8 +190,13 @@ def test_translator_garbage_becomes_unsupported_not_crash():
                       "mode": "periodic", "tz": "UTC", "open_time": "08:00",
                       "close_time": "18:00", "check_every_minutes": 60,
                       "provenance": "inferred", "note": "x"}}
-    # both the first try and the corrective retry reference an unknown name
+    # both the first try and the corrective retry reference an unknown name;
+    # the unknown-name failure earns one deferred retry after the sweep,
+    # which here gives up explicitly
+    give_up = {"capability": "UNSUPPORTED", "reason": "still cannot resolve"}
     seq = seq[:idx] + [bad, bad] + seq[idx + 1:]
+    terminal_pos = len(seq) - 3         # ... terminal, reality, meaning
+    seq = seq[:terminal_pos] + [give_up] + seq[terminal_pos:]
     script = Script(seq)
     result = compile_scripted(script)
     assert result.status == "compiled", result.report
@@ -200,3 +205,60 @@ def test_translator_garbage_becomes_unsupported_not_crash():
     trans = [t for t in result.bundle["translations"]
              if t["item_ref"] == "communication[3]"][0]
     assert "could not be resolved" in trans["result"]["reason"]
+
+
+def test_validation_finding_gets_a_targeted_patch():
+    """A missing answer-critical attention pattern is repaired by ONE
+    surgical translation call, not a full re-description."""
+    caps = neutral_items()
+    # drop person_a's attention; point the terminal at their noticing
+    caps = [c for c in caps
+            if not (c["capability"] == "add_attention"
+                    and c["fields"]["participant"] == "Person A")
+            and c["capability"] != "set_terminal"]
+    terminal = {"capability": "set_terminal", "fields": {
+        "question_restated": "does person_a notice the outcome notice?",
+        "mode": "condition", "cutoff_local": "2026-07-30 12:00",
+        "tz": "America/New_York",
+        "condition": {"check": "information_noticed",
+                      "participant": "Person A",
+                      "info_type": "outcome_notice"},
+        "yes_means": "y", "no_means": "n"}}
+    patch = {"capability": "add_attention", "fields": {
+        "participant": "Person A", "channel": "channel_c",
+        "mode": "periodic", "tz": "America/New_York",
+        "open_time": "09:00", "close_time": "17:00",
+        "check_every_minutes": 30, "provenance": "inferred",
+        "note": "restored by patch"}}
+    by_cap = {}
+    for inst in caps:
+        by_cap.setdefault(inst["capability"], []).append(inst)
+    buckets = {
+        "participants": by_cap["add_participant"],
+        "aggregates": by_cap["add_aggregate"],
+        "communication": (by_cap["add_channel"] + by_cap["add_channel_access"]
+                          + by_cap["add_attention"]),
+        "starting_state": (by_cap["add_belief"] + by_cap["add_commitment"]
+                           + by_cap["add_resource"]),
+        "actions": by_cap["define_action"],
+        "external": (by_cap["add_process"] + by_cap["add_operating_window"]
+                     + by_cap["schedule_external_event"]),
+        "uncertainty": by_cap["declare_uncertainty"],
+        "exclusions": by_cap["declare_exclusion"],
+    }
+    seq = [RESOLUTION, SPINE]
+    order = ("participants", "aggregates", "communication", "starting_state",
+             "actions", "external", "uncertainty", "exclusions")
+    for cat in order:
+        seq.append(items(len(buckets[cat])))
+    for cat in order:
+        seq.extend(buckets[cat])
+    seq.extend([terminal, patch, APPROVE, APPROVE])
+    script = Script(seq)
+    result = compile_scripted(script)
+    assert result.status == "compiled", result.report
+    assert script.n == len(script.responses)
+    patched = [t for t in result.bundle["translations"]
+               if t["item_ref"] == "communication[100]"]
+    assert patched and patched[0]["status"] == "lowered"
+    assert result.bundle["validation"]["blocking"] == []

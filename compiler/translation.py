@@ -171,7 +171,10 @@ def translate_all(question: str, resolution: dict, description: dict,
                   graph: WorldGraph, caller: Caller, trace: Trace,
                   corrections: str = "") -> list:
     """Translate every discovered item in dependency order, then the
-    terminal.  Returns the translation records (the coverage ledger)."""
+    terminal.  Items that failed ONLY on unknown-name references get one
+    deferred retry after the whole sweep, when the registry is complete --
+    an item is never lost just because it arrived before its dependency.
+    Returns the translation records (the coverage ledger)."""
     records = []
     order = ["participants", "aggregates", "communication", "starting_state",
              "actions", "external", "uncertainty", "exclusions"]
@@ -181,9 +184,68 @@ def translate_all(question: str, resolution: dict, description: dict,
                 question, resolution, graph, category, i, item["text"],
                 item["provenance"], item.get("evidence", []), caller, trace,
                 corrections))
+    for idx, rec in enumerate(records):
+        if rec["status"] == "unsupported" \
+                and "unknown name" in rec["result"].get("reason", ""):
+            retry = translate_item(
+                question, resolution, graph, rec["category"],
+                int(rec["item_ref"].split("[")[1][:-1]), rec["text"],
+                rec["provenance"], rec.get("evidence", []), caller, trace,
+                corrections)
+            if retry["status"] == "lowered":
+                retry["deferred"] = True
+                records[idx] = retry
     records.append(translate_item(
         question, resolution, graph, "terminal", 0,
         terminal_item_text(resolution),
         resolution.get("horizon_provenance", "question_given"),
         [], caller, trace, corrections))
+    return records
+
+
+def synth_patch_items(findings: list, graph: WorldGraph) -> list:
+    """Turn machine-readable validation findings into targeted items for a
+    surgical translation pass.  Universal wording only: the specifics are
+    the finding's own names, carried as data."""
+    items = []
+    for f in findings:
+        if f["kind"] == "no_attention":
+            name = graph.ids_name(f["actor"])
+            chs = ", ".join(f["channels"]) or "the declared channels"
+            items.append({
+                "category": "communication",
+                "provenance": "inferred",
+                "text": (f"The answer depends on {name} noticing "
+                         f"information, but the world gives them no "
+                         f"attention pattern.  State when {name} actually "
+                         f"attends the relevant channel ({chs}), with an "
+                         f"honest provenance label -- an estimate inferred "
+                         f"from comparable habits or clearly-labeled memory "
+                         f"is acceptable.  Use mode none_known ONLY if "
+                         f"truly nothing is known about when they look.")})
+        elif f["kind"] == "dead_world":
+            items.append({
+                "category": "external",
+                "provenance": "question_given",
+                "text": ("Nothing is scheduled to happen in this world "
+                         "before the cutoff, so it can never start.  The "
+                         "question's own premise implies a first event that "
+                         "sets things in motion (something already planned "
+                         "or in flight at the start).  Express exactly that "
+                         "one given first event -- as a commitment with a "
+                         "wake, a scheduled wake, or a scheduled external "
+                         "event -- using only declared names.")})
+    return items
+
+
+def translate_patches(question: str, resolution: dict, graph: WorldGraph,
+                      findings: list, caller: Caller, trace: Trace,
+                      corrections: str = "") -> list:
+    """The surgical pass: one targeted translation per patchable finding."""
+    records = []
+    for i, item in enumerate(synth_patch_items(findings, graph)):
+        records.append(translate_item(
+            question, resolution, graph, item["category"], 100 + i,
+            item["text"], item["provenance"], [], caller, trace,
+            corrections))
     return records

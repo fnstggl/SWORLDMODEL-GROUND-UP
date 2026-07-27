@@ -121,7 +121,22 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
                 "description": description, "translations": translations,
                 "reasons": [f"assembly: {e}" for e in errors] + dropped}
     report = validation.validate_world(graph, plan)
+    if not report.ok() and report.patchable:
+        # surgical repair first: one targeted translation per finding beats
+        # re-rolling the whole world description
+        patch_records = translation.translate_patches(
+            question, res, graph, report.patchable[:4], caller, trace,
+            corrections)
+        translations.extend(patch_records)
+        if any(r["status"] == "lowered" for r in patch_records):
+            plan2, errors2 = assembly.assemble(graph, iso(start),
+                                               evidence_of=evidence_map.get)
+            if not errors2:
+                report2 = validation.validate_world(graph, plan2)
+                if len(report2.blocking) < len(report.blocking):
+                    plan, report = plan2, report2
     if not report.ok():
+        dropped = _load_bearing_drops(translations)
         return {"outcome": "repair", "resolution": res,
                 "description": description, "translations": translations,
                 "plan": plan, "validation": report.to_dict(),

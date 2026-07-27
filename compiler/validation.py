@@ -32,13 +32,17 @@ class Report:
         self.needs_review: list = []
         self.warnings: list = []
         self.dry_run: dict = {}
+        #: machine-readable findings a targeted patch translation can fix
+        #: without re-describing the whole world
+        self.patchable: list = []
 
     def ok(self) -> bool:
         return not self.blocking
 
     def to_dict(self) -> dict:
         return {"blocking": self.blocking, "needs_review": self.needs_review,
-                "warnings": self.warnings, "dry_run": self.dry_run}
+                "warnings": self.warnings, "dry_run": self.dry_run,
+                "patchable": self.patchable}
 
 
 # ---------------------------------------------------------------------------
@@ -252,6 +256,9 @@ def validate_world(graph: WorldGraph, plan: dict) -> Report:
                     f"can never notice the information the answer depends "
                     f"on; give a provenance-labeled attention pattern or "
                     f"model why they truly never look")
+                rep.patchable.append({"kind": "no_attention",
+                                      "actor": target,
+                                      "channels": sorted(world.channels)})
         elif c == "action_completed":
             defn = world.action_defs.get(t["verb"])
             if defn is None:
@@ -279,6 +286,7 @@ def validate_world(graph: WorldGraph, plan: dict) -> Report:
         rep.blocking.append(
             "dead world: nothing is scheduled to happen before the cutoff, "
             "so no actor can ever be woken and no process is ever observed")
+        rep.patchable.append({"kind": "dead_world"})
     for aid, st in sorted(world.actors.items()):
         wakeable = bool(st.attention) \
             or any(ev.kind == "wake.actor" and ev.data.get("actor") == aid
