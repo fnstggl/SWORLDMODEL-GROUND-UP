@@ -13,7 +13,7 @@ def test_nested_terminal_check_normalizes():
                                      "info_type": "t"}}]},
         "yes_means": "y", "no_means": "n"}}
     assert validate_capability(inst) == []
-    cond = inst["fields"]["condition"]["all_of"][0]
+    cond = inst["fields"]["condition"]        # one-clause all_of unwrapped
     assert cond["check"] == "information_noticed"
     assert inst["fields"]["cutoff_local"] == "2026-08-10 09:00"
 
@@ -86,6 +86,33 @@ def test_none_known_attention_upgrades_but_real_rules_do_not():
     assert validate_capability(dup) == []
     assert any("already declared" in e
                for e in graph_builder.add_item(g, dup, "z"))
+
+
+def test_single_name_lists_and_one_clause_conjunctions_normalize():
+    inst = {"capability": "set_terminal", "fields": {
+        "question_restated": "q", "mode": "condition",
+        "cutoff_local": "2026-08-10T23:59:00", "tz": "America/Chicago",
+        "condition": {"all_of": [
+            {"check": "information_sent", "sender": "P Q",
+             "to": ["R S"], "info_type": "t"}]},
+        "yes_means": "y", "no_means": "n"}}
+    assert validate_capability(inst) == []
+    cond = inst["fields"]["condition"]
+    assert cond["check"] == "information_sent"     # all_of[1 clause] unwrapped
+    assert cond["to"] == "R S"                     # single-name list -> name
+    assert inst["fields"]["cutoff_local"] == "2026-08-10 23:59"
+
+
+def test_set_terminal_outside_terminal_category_is_rejected():
+    from compiler.translation import _validate_for
+    inst = {"capability": "set_terminal", "fields": {
+        "question_restated": "q", "mode": "condition",
+        "cutoff_local": "2026-08-10 09:00", "tz": "UTC",
+        "condition": {"check": "fact_exists", "key": "k"},
+        "yes_means": "y", "no_means": "n"}}
+    assert any("dedicated terminal item" in e
+               for e in _validate_for("communication")(inst))
+    assert _validate_for("terminal")(inst) == []
 
 
 def test_ambiguous_shapes_still_rejected():

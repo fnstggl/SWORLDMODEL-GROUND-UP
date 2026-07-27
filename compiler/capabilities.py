@@ -666,15 +666,27 @@ def _norm_keyed(d, known, field):
     return d
 
 
+_EXPR_NAME_FIELDS = ("participant", "author", "sender", "to", "by", "holder")
+
+
 def normalize_expr(expr):
     if not isinstance(expr, dict):
         return expr
     if "all_of" in expr or "any_of" in expr:
         key = "all_of" if "all_of" in expr else "any_of"
         if isinstance(expr[key], list):
-            return {key: [normalize_expr(k) for k in expr[key]]}
+            kids = [normalize_expr(k) for k in expr[key]]
+            if len(kids) == 1:
+                return kids[0]          # a one-clause conjunction IS the clause
+            return {key: kids}
         return expr
-    return _norm_keyed(expr, TERMINAL_CHECKS, "check")
+    expr = _norm_keyed(expr, TERMINAL_CHECKS, "check")
+    if isinstance(expr, dict):
+        for f in _EXPR_NAME_FIELDS:
+            v = expr.get(f)
+            if isinstance(v, list) and len(v) == 1 and isinstance(v[0], str):
+                expr[f] = v[0]          # a single-name list means that name
+    return expr
 
 
 def normalize_effects(effects):

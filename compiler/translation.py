@@ -96,6 +96,12 @@ def _validate_for(category: str):
                 f"are {list(allowed)} (or UNSUPPORTED) -- if this item is "
                 f"not one of those, return UNSUPPORTED; its content belongs "
                 f"to another category's items")
+        if not errors and category != "terminal" \
+                and obj.get("capability") == "set_terminal":
+            errors.append(
+                "set_terminal is produced exactly once, from the dedicated "
+                "terminal item -- a finish-line description in this "
+                "category must be UNSUPPORTED here")
         return errors
     return check
 
