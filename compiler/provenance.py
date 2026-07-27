@@ -51,11 +51,16 @@ class EvidenceRegistry:
             raise ValueError("evidence_docs mode requires at least one document")
 
     def check_claim(self, label: str, evidence: list | None, where: str) -> list:
-        """Deterministic enforcement -> list of error strings."""
+        """Deterministic enforcement -> list of error strings.  Citations are
+        checked against real documents only in evidence_docs mode; in
+        model_memory mode there are no documents, so stray free-text
+        'evidence' is discarded by the caller rather than treated as a
+        citation."""
         errors = []
-        for ref in evidence or []:
-            if ref not in self.docs:
-                errors.append(f"{where}: cites unknown document {ref!r}")
+        if self.mode == "evidence_docs":
+            for ref in evidence or []:
+                if ref not in self.docs:
+                    errors.append(f"{where}: cites unknown document {ref!r}")
         if label == "verified" and self.mode == "evidence_docs" \
                 and not (evidence or []):
             errors.append(f"{where}: 'verified' requires a document citation "

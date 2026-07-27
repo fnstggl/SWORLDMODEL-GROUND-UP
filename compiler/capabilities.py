@@ -634,18 +634,96 @@ def validate_name_expr(expr, errors, where) -> None:
         return
     kind = expr.get("check")
     if kind not in TERMINAL_CHECKS:
-        errors.append(f"{where}: check must be one of {sorted(TERMINAL_CHECKS)}")
+        errors.append(f"{where}: check must be one of {sorted(TERMINAL_CHECKS)}"
+                      f" -- write checks FLAT, e.g. {{\"check\": "
+                      f"\"fact_equals\", \"key\": \"...\", \"value\": ...}}")
         return
     for f in TERMINAL_CHECKS[kind]:
         if f not in expr:
             errors.append(f"{where}: {kind} requires field {f!r}")
 
 
+# ---------------------------------------------------------------------------
+# normalization: unambiguous synonymous shapes are rewritten, never guessed
+# ---------------------------------------------------------------------------
+
+_DT_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})(?::\d{2})?$")
+
+
+def _norm_dt(v):
+    m = _DT_RE.match(v) if isinstance(v, str) else None
+    return f"{m.group(1)} {m.group(2)}" if m else v
+
+
+def _norm_keyed(d, known, field):
+    """{"<kind>": {..fields..}} -> {"<field>": "<kind>", ..fields..} when the
+    single key is a known kind -- the exact nested spelling models produce."""
+    if isinstance(d, dict) and field not in d and len(d) == 1:
+        (k, v), = d.items()
+        if k in known and isinstance(v, dict):
+            return {field: k, **v}
+    return d
+
+
+def normalize_expr(expr):
+    if not isinstance(expr, dict):
+        return expr
+    if "all_of" in expr or "any_of" in expr:
+        key = "all_of" if "all_of" in expr else "any_of"
+        if isinstance(expr[key], list):
+            return {key: [normalize_expr(k) for k in expr[key]]}
+        return expr
+    return _norm_keyed(expr, TERMINAL_CHECKS, "check")
+
+
+def normalize_effects(effects):
+    if not isinstance(effects, list):
+        return effects
+    out = []
+    for eff in effects:
+        eff = _norm_keyed(eff, EFFECT_MACROS, "do")
+        if isinstance(eff, dict) and isinstance(eff.get("effects"), list):
+            eff = dict(eff, effects=normalize_effects(eff["effects"]))
+        out.append(eff)
+    return out
+
+
+def normalize_capability(instance) -> None:
+    """In-place shape normalization applied before validation.  Only exact,
+    unambiguous synonymous shapes are rewritten (nested single-key kinds,
+    'T' datetime separators, dict-shaped param maps); nothing is invented."""
+    if not isinstance(instance, dict):
+        return
+    table = CAPABILITIES.get(instance.get("capability"))
+    fields = instance.get("fields")
+    if table is None or not isinstance(fields, dict):
+        return
+    for fname, spec in table["fields"].items():
+        if fname not in fields:
+            continue
+        v, t = fields[fname], spec["type"]
+        if t == "local_dt":
+            fields[fname] = _norm_dt(v)
+        elif t == "expr":
+            fields[fname] = normalize_expr(v)
+        elif t == "effects":
+            fields[fname] = normalize_effects(v)
+        elif t == "requires" and isinstance(v, list):
+            fields[fname] = [_norm_keyed(r, REQUIRE_KINDS, "kind") for r in v]
+        elif t == "params" and isinstance(v, dict):
+            fields[fname] = [
+                dict({"name": k}, **pv) if isinstance(pv, dict)
+                else {"name": k, "note": str(pv)}
+                for k, pv in v.items()]
+
+
 def validate_capability(instance: dict) -> list:
-    """Validate one translated item -> list of error strings (empty = ok)."""
+    """Validate one translated item -> list of error strings (empty = ok).
+    Unambiguous synonymous shapes are normalized in place first."""
     errors: list = []
     if not isinstance(instance, dict):
         return ["capability instance must be a JSON object"]
+    normalize_capability(instance)
     cap = instance.get("capability")
     if cap == "UNSUPPORTED":
         if not isinstance(instance.get("reason"), str) or not instance["reason"]:
@@ -750,8 +828,11 @@ def render_menu() -> str:
     lines.append("Terminal checks: "
                  + "; ".join(f"{k} needs {list(v)}"
                              for k, v in TERMINAL_CHECKS.items())
-                 + ".  Combine with {\"all_of\": [..]} / {\"any_of\": [..]}."
-                 + "  information_noticed also accepts author and info_type.")
+                 + ".  Write each check FLAT: {\"check\": \"<kind>\", "
+                 + "<fields>...}."
+                 + "  Combine with {\"all_of\": [..]} / {\"any_of\": [..]}."
+                 + "  information_noticed also accepts author and info_type;"
+                 + " record_exists also accepts by (participant) and choice.")
     lines.append("")
     lines.append("Templates: inside define_action effects/requires you may "
                  "use {actor} (the acting participant) and {params.x} for "

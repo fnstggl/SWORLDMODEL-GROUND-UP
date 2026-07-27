@@ -103,6 +103,8 @@ def _validate_items(bound: int, registry: EvidenceRegistry):
                 errors.append(f"items[{i}].evidence must be a list of "
                               f"document ids")
             else:
+                if registry.mode == "model_memory" and ev:
+                    it["evidence"] = ev = []   # no documents exist to cite
                 errors.extend(registry.check_claim(it.get("provenance"),
                                                    ev, f"items[{i}]"))
         return errors

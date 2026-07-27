@@ -94,9 +94,14 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
     plan, errors = assembly.assemble(graph, iso(start),
                                      evidence_of=evidence_map.get)
     if errors:
+        # the unexpressed items are usually WHY assembly failed: put their
+        # reasons in front of the repair round, not just the symptom
+        dropped = [f"item {t['item_ref']} ({t['text'][:90]!r}) could not be "
+                   f"translated: {t['result'].get('reason', '')[:240]}"
+                   for t in translations if t["status"] == "unsupported"]
         return {"outcome": "repair", "resolution": res,
                 "description": description, "translations": translations,
-                "reasons": [f"assembly: {e}" for e in errors]}
+                "reasons": [f"assembly: {e}" for e in errors] + dropped}
     report = validation.validate_world(graph, plan)
     if not report.ok():
         return {"outcome": "repair", "resolution": res,
