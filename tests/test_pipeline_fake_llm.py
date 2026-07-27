@@ -1,0 +1,189 @@
+"""End-to-end pipeline runs with a scripted transport: zero network, fully
+deterministic, meaningless labels throughout.  Proves the orchestration --
+resolution -> discovery -> per-item translation -> assembly -> validation ->
+round trip -> reviews -> bundle -> instantiate -> engine."""
+import json
+
+from sworldmodel import Engine, canonical_json
+
+from compiler import compile_question, instantiate
+from compiler.llm import Caller
+
+from tests.test_compiler_core import neutral_items
+
+ASOF = "2026-07-27"
+QUESTION = "Will the typed record for subject_s exist before the deadline?"
+
+
+class Script:
+    """Order-based scripted transport (the pipeline's call order is part of
+    its contract)."""
+
+    def __init__(self, responses):
+        self.responses = [r if isinstance(r, str) else json.dumps(r)
+                          for r in responses]
+        self.n = 0
+
+    def __call__(self, system, user):
+        if self.n >= len(self.responses):
+            raise AssertionError(f"script exhausted after {self.n} calls; "
+                                 f"unexpected extra call")
+        r = self.responses[self.n]
+        self.n += 1
+        return r
+
+
+RESOLUTION = {
+    "modelable": True, "refusal_reason": "",
+    "observable_outcome": "the typed record for subject_s exists before the "
+                          "deadline",
+    "reframed": False, "reframing_note": "",
+    "answer_mode": "condition",
+    "yes_means": "record produced in time",
+    "no_means": "no record by the deadline",
+    "start_local": "2026-07-27 08:00", "tz": "UTC",
+    "cutoff_local": "2026-07-30 12:00", "cutoff_tz": "America/New_York",
+    "horizon_provenance": "question_given",
+    "horizon_note": "deadline stated by the question",
+    "smallest_world": "person_a needs person_b, the only authorized "
+                      "producer, to act",
+}
+
+SPINE = {"steps": [
+    {"needed": "the typed record exists",
+     "producible_by": "person_b's possible authorized act"},
+    {"needed": "person_b learns it is wanted",
+     "producible_by": "person_a's possible outreach on the channel"},
+]}
+
+
+def items(n):
+    return {"items": [{"text": f"atomic claim {i}", "provenance": "inferred",
+                       "evidence": []} for i in range(n)]}
+
+
+def one_round(reality_review, meaning_review):
+    """The full scripted response sequence for one compile attempt."""
+    caps = neutral_items()
+    by_cap = {}
+    for inst in caps:
+        by_cap.setdefault(inst["capability"], []).append(inst)
+    buckets = {
+        "participants": by_cap["add_participant"],
+        "aggregates": by_cap["add_aggregate"],
+        "communication": (by_cap["add_channel"] + by_cap["add_channel_access"]
+                          + by_cap["add_attention"]),
+        "starting_state": (by_cap["add_belief"] + by_cap["add_commitment"]
+                           + by_cap["add_resource"]),
+        "actions": by_cap["define_action"],
+        "external": (by_cap["add_process"] + by_cap["add_operating_window"]
+                     + by_cap["schedule_external_event"]),
+        "uncertainty": by_cap["declare_uncertainty"],
+        "exclusions": by_cap["declare_exclusion"],
+    }
+    seq = [RESOLUTION, SPINE]
+    for cat in ("participants", "aggregates", "communication",
+                "starting_state", "actions", "external", "uncertainty",
+                "exclusions"):
+        seq.append(items(len(buckets[cat])))
+    for cat in ("participants", "aggregates", "communication",
+                "starting_state", "actions", "external", "uncertainty",
+                "exclusions"):
+        seq.extend(buckets[cat])
+    seq.append(by_cap["set_terminal"][0])
+    seq.append(reality_review)
+    seq.append(meaning_review)
+    return seq
+
+
+APPROVE = {"verdict": "approve", "objections": [], "dispositions": []}
+REVISE = {"verdict": "revise",
+          "objections": [{"severity": "blocking", "about": "attention",
+                          "objection": "the checking cadence is unrealistic",
+                          "fix_hint": "loosen it"}],
+          "dispositions": []}
+
+
+def compile_scripted(script, **kw):
+    caller = Caller(transport=script)
+    return compile_question(QUESTION, asof=ASOF, caller=caller, **kw)
+
+
+def test_full_compile_with_scripted_llm(tmp_path):
+    script = Script(one_round(APPROVE, APPROVE))
+    result = compile_scripted(script, out_dir=str(tmp_path / "out"))
+    assert result.status == "compiled", result.report
+    b = result.bundle
+    assert script.n == len(script.responses)      # every call accounted for
+    assert b["coverage"]["unsupported"] == []
+    assert b["repair_rounds"] == []
+    assert b["plan"]["terminal_spec"]["mode"] == "condition"
+    assert (tmp_path / "out" / "bundle.json").exists()
+    assert (tmp_path / "out" / "trace.jsonl").exists()
+    assert (tmp_path / "out" / "genesis_ledger.jsonl").exists()
+
+    # instantiate: zero LLM calls, byte-identical world, runnable engine
+    world, minds, terminal = instantiate(b)
+    assert world.state_hash() == b["state_hash"]
+    assert canonical_json(world.records) == canonical_json(b["world_records"])
+    assert set(minds) == {"person_a", "person_b"}
+    out = Engine(world, {}, terminal).run(stop_after_events=6)
+    assert out.metrics["events_processed"] > 0
+
+
+def test_review_objection_triggers_one_repair_round():
+    script = Script(one_round(REVISE, APPROVE) + one_round(APPROVE, APPROVE))
+    result = compile_scripted(script)
+    assert result.status == "compiled"
+    assert len(result.bundle["repair_rounds"]) == 1
+    assert "unrealistic" in result.bundle["repair_rounds"][0][0]
+    assert script.n == len(script.responses)
+
+
+def test_second_rejection_fails_with_reasons():
+    script = Script(one_round(REVISE, APPROVE) + one_round(REVISE, APPROVE))
+    result = compile_scripted(script)
+    assert result.status == "failed"
+    assert any("unrealistic" in r for r in result.report["reasons"])
+
+
+def test_unmodelable_question_is_refused():
+    script = Script([{"modelable": False,
+                      "refusal_reason": "no observable resolution exists"}])
+    result = compile_scripted(script)
+    assert result.status == "refused"
+    assert "no observable resolution" in result.report["reasons"][0]
+    assert script.n == 1
+
+
+def test_unparseable_stage_fails_structurally_never_raises():
+    script = Script(["this is not json"] * 3)     # repairs exhausted
+    result = compile_scripted(script)
+    assert result.status == "failed"
+    assert any("resolution" in r for r in result.report["reasons"])
+
+
+def test_translator_garbage_becomes_unsupported_not_crash():
+    """A translator that answers nonsense for one item: the item must end
+    as a recorded UNSUPPORTED (and here, dropping an attention item is
+    survivable -- reviews still approve)."""
+    seq = one_round(APPROVE, APPROVE)
+    # the first attention item (communication[3]) is survivable: its actor
+    # still has a commitment wake, so no new review finding appears.
+    # order: resolution, spine, 8 discovery, then translations
+    idx = 2 + 8 + 2 + 1 + 3       # participants(2)+aggregates(1)+comm[3]
+    bad = {"capability": "add_attention",
+           "fields": {"participant": "Person Nobody", "channel": "channel_c",
+                      "mode": "periodic", "tz": "UTC", "open_time": "08:00",
+                      "close_time": "18:00", "check_every_minutes": 60,
+                      "provenance": "inferred", "note": "x"}}
+    # both the first try and the corrective retry reference an unknown name
+    seq = seq[:idx] + [bad, bad] + seq[idx + 1:]
+    script = Script(seq)
+    result = compile_scripted(script)
+    assert result.status == "compiled", result.report
+    unsupported = result.bundle["coverage"]["unsupported"]
+    assert unsupported == ["communication[3]"]
+    trans = [t for t in result.bundle["translations"]
+             if t["item_ref"] == "communication[3]"][0]
+    assert "could not be resolved" in trans["result"]["reason"]

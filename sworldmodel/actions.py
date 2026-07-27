@@ -172,3 +172,11 @@ def validate_action_def(defn: dict) -> None:
                     f"{cond!r} (known: {sorted(KNOWN_CONDITIONS)})")
     if "duration" in defn and defn["duration"] is not None:
         Duration.from_dict(defn["duration"])  # raises if provenance is invalid
+    dcw = defn.get("default_completes_when")
+    if dcw is not None:
+        if not isinstance(dcw, dict) or "resource_at_least" not in dcw \
+                or not isinstance(dcw["resource_at_least"], (list, tuple)) \
+                or len(dcw["resource_at_least"]) != 3:
+            raise ValueError(
+                f"action.define {defn['verb']!r}: default_completes_when must "
+                f"be {{'resource_at_least': [holder, resource, level]}}")

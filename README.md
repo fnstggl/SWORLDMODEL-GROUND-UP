@@ -1,12 +1,51 @@
-# SWORLDMODEL — ground-up kernel
+# SWORLDMODEL — ground-up kernel + world compiler
 
-The first, smallest working piece of SWORLDMODEL: a **persistent shared
-world** plus a **realistic, event-driven, real-calendar time engine**, with
-three hand-authored test worlds proving the mechanics and one live LLM-backed
-actor (Phase B) proving the mind boundary.
+The smallest working core of SWORLDMODEL: a **persistent shared world**, a
+**realistic, event-driven, real-calendar time engine**, and a **universal
+world compiler** that turns ANY natural-language question into the smallest
+runnable model of the real situation needed to answer it.
 
-No scenario is hardcoded in the runtime. The kernel knows only universal
-mechanics; scenario meaning ("vote", "reply", "ship an order") is **data**.
+No scenario is hardcoded anywhere. The kernel knows only universal
+mechanics; the compiler knows only universal lifecycles; scenario meaning
+("vote", "reply", "ship an order") is **data** produced at compile time.
+
+## The world compiler
+
+```
+python3 compile_question.py "your question" [--asof YYYY-MM-DD]
+        [--docs evidence/your_docs.json] [--out artifacts/compiled/name]
+```
+
+Three strictly separated stages (see COMPILER_DESIGN.md):
+
+1. **Describe** (LLM, small calls, natural language only): the exact
+   observable answer condition, then — backward from it — participants,
+   aggregates, communication and attention, starting state and knowledge
+   boundaries, possible actions, external processes and scheduled events,
+   uncertainty, exclusions.  What CAN happen, never what WILL happen.
+2. **Translate** (LLM, one small item at a time): each item onto a closed
+   capability menu (rendered from the same tables that validate the
+   output): select one capability, fill its small fields, or return
+   UNSUPPORTED.  No invented names, facts, or consequences.
+3. **Assemble + validate + lower** (deterministic code, zero LLM):
+   canonical ids, alias resolution, lifecycle expansion into kernel ops,
+   backward check (every terminal term has a producer), forward check
+   (no-mind dry run of the real engine), integrity checks (terminal false
+   at genesis, no pre-written outcomes), English round-trip read back from
+   the lowered world, and two adversarial reviews (reality vs. evidence;
+   meaning preservation).  Blocking findings get one repair round; a second
+   failure is a structured refusal, never a crash.
+
+Evidence modes: `model_memory` (claims labeled `model_memory_unverified` /
+`inferred`) or `evidence_docs` (`--docs`; `verified` requires a document
+citation — see `evidence/*.json` for the acceptance fixtures).
+
+The result is a **WorldBundle** (`bundle.json`): genesis ledger, declarative
+terminal spec, per-actor identity briefs, coverage ledger, validation
+report, reviews, and the full LLM trace.  `compiler.instantiate(bundle)`
+rebuilds `(World, minds, Terminal)` with zero LLM calls, ready for
+`Engine(world, minds, terminal).run()` — running full simulations is the
+next step, not this one.
 
 ## Layout
 

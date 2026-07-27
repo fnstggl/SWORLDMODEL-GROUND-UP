@@ -17,6 +17,8 @@ from .simclock import (AmbiguousLocalTime, BusinessCalendar, Clock,
                        at_local, aware, classify_local, elapsed, fmt_local,
                        fmt_span, iso, local_instant, next_local_day, parse_iso,
                        recurring)
+from .terminals import (TerminalSpecError, build_terminal, eval_expr,
+                        validate_terminal_spec)
 from .world import (ALLOWED_EFFECT_OPS, World, WorldIntegrityError,
                     canonical_json, sha256_of)
 
