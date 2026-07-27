@@ -86,8 +86,23 @@ class Caller:
         last = None
         for _ in range(self.network_retries + 1):
             try:
-                with urllib.request.urlopen(req, timeout=180.0, context=ctx) as resp:
-                    out = json.loads(resp.read().decode("utf-8"))
+                # urllib's timeout is per socket OPERATION, so a response
+                # that trickles bytes can hang a plain read() forever.  Read
+                # in chunks under a hard total deadline: worst case is the
+                # deadline plus one socket timeout, never an infinite stall.
+                with urllib.request.urlopen(req, timeout=90.0,
+                                            context=ctx) as resp:
+                    deadline = time.monotonic() + 300.0
+                    chunks = []
+                    while True:
+                        if time.monotonic() > deadline:
+                            raise TimeoutError(
+                                "response exceeded the 300s total deadline")
+                        chunk = resp.read(65536)
+                        if not chunk:
+                            break
+                        chunks.append(chunk)
+                out = json.loads(b"".join(chunks).decode("utf-8"))
                 return out["choices"][0]["message"]["content"]
             except (urllib.error.URLError, OSError, TimeoutError) as e:
                 last = e
