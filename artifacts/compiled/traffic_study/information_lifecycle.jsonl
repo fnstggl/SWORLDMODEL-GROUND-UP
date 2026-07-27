@@ -1,4 +1,0 @@
-{"cause":15,"data":{"author":"external_reviewer","content":"The peer review is complete and the study is approved.","data":{"description":"","tag":"peer_review_signoff"},"id":"i16"},"op":"info.create","seq":16,"t":"2026-02-18T16:00:00+00:00"}
-{"cause":16,"data":{"channel":"city_email","id":"i16","to":"miguel_santos"},"op":"info.send","seq":17,"t":"2026-02-18T16:00:00+00:00"}
-{"cause":19,"data":{"channel":"city_email","id":"i16","to":"miguel_santos"},"op":"info.deliver","seq":20,"t":"2026-02-18T16:01:00+00:00"}
-{"cause":22,"data":{"actor":"miguel_santos","id":"i16"},"op":"info.notice","seq":23,"t":"2026-02-18T17:00:00+00:00"}
