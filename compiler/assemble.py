@@ -278,6 +278,60 @@ class Assembler:
     # ------------------------------------------------------------------
     # producers
     # ------------------------------------------------------------------
+    MECHANISM_KINDS = ("scheduled_event", "operating_process",
+                      "physical_process", "communication_system")
+
+    def attach_assignment(self, step_name: str, producers: list) -> None:
+        """One step's full producer list. When a mechanism (a schedule, a
+        process, a channel) is among the producers of a non-action step,
+        the actors listed beside it OPERATE that mechanism -- they get
+        authority over it, never a derived free choice. Only a step whose
+        sole producers are actors is genuinely an actor's doing."""
+        step_id = self._resolve_step(step_name,
+                                     f"producers for {step_name!r}")
+        step = self.graph.node(step_id)
+        mechs = [p for p in producers
+                 if p.get("kind") in self.MECHANISM_KINDS]
+        rest = [p for p in producers
+                if p.get("kind") not in self.MECHANISM_KINDS]
+        for p in mechs:
+            self.attach_producer(step_name, p)
+        if mechs and step.category != "action":
+            mech_ids = [self.graph.maybe(PRODUCER_KINDS[p["kind"]],
+                                         p["name"]) for p in mechs]
+            mech_ids = [m for m in mech_ids if m]
+            for p in rest:
+                d: list = []
+                _need(p, ("name", "kind"), f"producer for {step_name!r}", d)
+                basis, ids = _prov(p, f"producer for {step_name!r}", d)
+                cat = PRODUCER_KINDS.get(p.get("kind"))
+                if d or cat not in ACTORS:
+                    self.attach_producer(step_name, p)
+                    continue
+                pid = self.graph.maybe(cat, p["name"])
+                created = []
+                if pid is None:
+                    pid = self.graph.add_node(
+                        cat, p["name"], p.get("meaning", ""), basis, ids,
+                        attrs={"producer_kind": p["kind"]},
+                        where=f"producer for {step_name!r}")
+                    created.append(pid)
+                else:
+                    self.graph.absorb(pid, p.get("meaning", ""), basis,
+                                      ids,
+                                      where=f"producer for {step_name!r}")
+                edges = [self.graph.add_edge(
+                    pid, "has_authority", m,
+                    {"meaning": p.get("meaning", "operates it")},
+                    where=f"producer {step_name!r}") for m in mech_ids]
+                self._record("attach_producer",
+                             {"step": step_name, "producer": p["name"],
+                              "kind": p["kind"], "operates": mech_ids},
+                             created, edges)
+        else:
+            for p in rest:
+                self.attach_producer(step_name, p)
+
     def attach_producer(self, step_name: str, producer: dict) -> None:
         d: list = []
         _need(producer, ("name", "kind"), f"producer for {step_name!r}", d)
@@ -416,8 +470,21 @@ class Assembler:
 
     def mark_unsupported(self, step_name: str, why: str) -> None:
         step_id = self._resolve_step(step_name, "unsupported step")
-        self.graph.node(step_id).attrs["unsupported"] = str(why)
-        self._record("mark_unsupported", {"step": step_name, "why": why},
+        node = self.graph.node(step_id)
+        # models routinely write 'unsupported: no producer needed' for
+        # things that genuinely need none -- initial facts, scheduled
+        # events, and conjunction conditions. That is a benign note, not a
+        # causal dead end; only a produceable thing with no producer is.
+        needs_none = (
+            node.attrs.get("initial")
+            or node.category in ("event", "process")
+            or (node.category == "state"
+                and any(e.attrs.get("necessity", "necessary") != "optional"
+                        for e in self.graph.prerequisites_of(step_id))))
+        key = "no_producer_needed" if needs_none else "unsupported"
+        node.attrs[key] = str(why)
+        self._record("mark_unsupported",
+                     {"step": step_name, "why": why, "benign": needs_none},
                      [], [])
 
     # ------------------------------------------------------------------
@@ -890,8 +957,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
                      f"'unsupported' marking; every causal step needs one "
                      f"or the other")
             continue
-        for producer in plist:
-            _collect(d, a.attach_producer, name, producer)
+        _collect(d, a.attach_assignment, name, plist)
     # Every causal step must now be producible or honestly unsupported.
     for name, sid in sorted(a._step_ids.items()):
         node = a.graph.node(sid)

@@ -686,6 +686,8 @@ class Emitter:
                 self.gaps.append(f"{pr.id}: no rate binding for this "
                                  f"process")
                 continue
+            if bound.get("decorative"):
+                continue          # no continuous work; transfers account for it
             targets = [self.g.node(e.dst) for e in
                        self.g.edges_from(pr.id, "changes")
                        + self.g.edges_from(pr.id, "produces")]
@@ -740,6 +742,27 @@ class Emitter:
                 continue
             params, conditions, param_names = [], [], set()
 
+            def _expand(dst_id, seen=()):
+                """A producerless non-initial state is a conjunction of
+                its prerequisites; condition on the parts that actually
+                get written."""
+                node = self.g.node(dst_id)
+                if node.category == "state" \
+                        and not node.attrs.get("initial") \
+                        and not self.g.producers_of(dst_id) \
+                        and dst_id not in seen:
+                    subs = [e2.dst for e2 in
+                            self.g.prerequisites_of(dst_id)
+                            if e2.attrs.get("necessity", "necessary")
+                            == "necessary"]
+                    if subs:
+                        out = []
+                        for s in subs:
+                            out.extend(_expand(s, seen + (dst_id,)))
+                        return out
+                return [dst_id]
+
+            expanded = []
             for e in self.g.prerequisites_of(act.id):
                 nec = e.attrs.get("necessity", "necessary")
                 if nec == "optional":
@@ -750,7 +773,11 @@ class Emitter:
                         f"have no universal runtime form; restate the "
                         f"enabling condition as a single state")
                     continue
-                dst = self.g.node(e.dst)
+                for dst_id in _expand(e.dst):
+                    if dst_id not in expanded:
+                        expanded.append(dst_id)
+            for dst_id in expanded:
+                dst = self.g.node(dst_id)
                 if dst.id in self.info_states:
                     life = self.info_states[dst.id]
                     pname = slug(life["tag"], "message")[:40]

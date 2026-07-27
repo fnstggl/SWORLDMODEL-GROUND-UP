@@ -556,11 +556,12 @@ def discover(question: dict, evidence: dict, call=call_json,
         "  OR unsupported: prose reason nothing can produce it\n"
         "Initial facts and scheduled events need no producers. Actor "
         "decisions need the person/organization/population who could "
-        "choose them. The step the terminal measures ALWAYS needs "
-        "producers -- the mechanisms that actually change that state or "
-        "quantity (a scheduled transfer, a process, an action); 'it "
-        "results from other steps' is not a producer, because "
-        "prerequisites express ordering, not mechanism.",
+        "choose them. A condition with prerequisites and no mechanism of "
+        "its own is a conjunction -- mark it unsupported with that "
+        "reason. But the step the terminal measures needs the REAL "
+        "mechanisms that change it -- the scheduled transfers, processes "
+        "or actions already in the spine; never invent a wrapper process "
+        "around whoever holds or reports it.",
         ctx + "\n\nTHE CAUSAL STEPS (from step 2):\n"
         + json.dumps(disc.spine, indent=1),
         lambda d: v_producers(d, valid_ids, step_names), disc, call, model,

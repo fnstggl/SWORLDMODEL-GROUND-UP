@@ -59,13 +59,21 @@ class _Rootedness:
         n = self.g.node(node_id)
         result = None
 
-        if n.attrs.get("unsupported"):
+        if n.category == "state" and n.attrs.get("initial"):
+            # an initial fact is true at genesis regardless of any marker
+            result = {"node": node_id, "root": "initial_fact"}
+        elif n.category == "state" and not self.g.producers_of(node_id) \
+                and any(e.attrs.get("necessity", "necessary") != "optional"
+                        for e in self.g.prerequisites_of(node_id)):
+            # a condition with prerequisites and no producer of its own is
+            # a CONJUNCTION: it holds exactly when its parts hold, and its
+            # parts' producers do the causal work
+            result = self._with_requires(
+                n, {"node": node_id, "derived_condition": True}, visiting)
+        elif n.attrs.get("unsupported"):
             result = None                     # explicitly unsupported: honest dead end
         elif n.category == "state":
-            if n.attrs.get("initial"):
-                result = {"node": node_id, "root": "initial_fact"}
-            else:
-                result = self._via_producers_and_requires(n, visiting)
+            result = self._via_producers_and_requires(n, visiting)
         elif n.category == "event":
             if n.basis == "uncertain" or \
                     n.attrs.get("step_kind") == "uncertain_exogenous":
@@ -169,7 +177,10 @@ class _Rootedness:
                 and not n.attrs.get("initial") \
                 and n.attrs.get("amount") is None:
             producers = self.g.producers_of(node_id)
-            if not producers:
+            prereqs = [e for e in self.g.prerequisites_of(node_id)
+                       if e.attrs.get("necessity", "necessary")
+                       != "optional"]
+            if not producers and not prereqs:
                 reasons.append(f"{n.id}: nothing in the world produces it")
             else:
                 for p in producers:

@@ -1,16 +1,27 @@
 {
   "assignments": [
     {
-      "step": "hospital_units_at_deadline",
-      "unsupported": "No producer; it is a condition resulting from other steps."
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6",
+            "e10"
+          ],
+          "kind": "operating_process",
+          "meaning": "The hospital's blood bank physically holds and counts the units at the deadline.",
+          "name": "St. Vincent regional hospital blood bank"
+        }
+      ],
+      "step": "hospital_units_at_deadline"
     },
     {
-      "step": "initial_stock",
-      "unsupported": "No producer; it is an initial fact."
+      "step": "initial_hospital_units",
+      "unsupported": "Initial fact, no producer needed."
     },
     {
-      "step": "received_shipments",
-      "unsupported": "No producer; it is a condition resulting from shipments."
+      "step": "shipments_received",
+      "unsupported": "Condition, not a step that is produced."
     },
     {
       "producers": [
@@ -20,11 +31,30 @@
             "e7"
           ],
           "kind": "organization",
-          "meaning": "The blood centre that dispatches the Tuesday shipment.",
+          "meaning": "The centre dispatches the shipment at 4:00 PM Tuesday.",
           "name": "Cascade regional blood centre"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "external_institution",
+          "meaning": "Transports the shipment to the hospital.",
+          "name": "Courier service"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8",
+            "e10"
+          ],
+          "kind": "operating_process",
+          "meaning": "Receives and logs the shipment.",
+          "name": "St. Vincent regional hospital blood bank"
         }
       ],
-      "step": "tuesday_shipment"
+      "step": "tuesday_shipment_received"
     },
     {
       "producers": [
@@ -34,79 +64,110 @@
             "e7"
           ],
           "kind": "organization",
-          "meaning": "The blood centre that dispatches the Thursday shipment.",
+          "meaning": "The centre dispatches the shipment at 4:00 PM Thursday.",
           "name": "Cascade regional blood centre"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "external_institution",
+          "meaning": "Transports the shipment to the hospital.",
+          "name": "Courier service"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8",
+            "e10"
+          ],
+          "kind": "operating_process",
+          "meaning": "Receives and logs the shipment.",
+          "name": "St. Vincent regional hospital blood bank"
         }
       ],
-      "step": "thursday_shipment"
+      "step": "thursday_shipment_received"
     },
     {
-      "step": "centre_has_stock_tuesday",
-      "unsupported": "No producer; it is a condition resulting from stock and collection."
+      "step": "centre_has_enough_units_tuesday",
+      "unsupported": "Condition, not a step that is produced."
     },
     {
-      "step": "centre_has_stock_thursday",
-      "unsupported": "No producer; it is a condition resulting from stock and collection."
+      "step": "centre_has_enough_units_thursday",
+      "unsupported": "Condition, not a step that is produced."
     },
     {
-      "step": "centre_initial_stock",
-      "unsupported": "No producer; it is an initial fact."
+      "step": "centre_initial_units",
+      "unsupported": "Initial fact, no producer needed."
     },
     {
       "producers": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1"
+            "e1",
+            "e2",
+            "e3",
+            "e4"
           ],
-          "kind": "organization",
-          "meaning": "The blood centre operates the mobile collection drive.",
-          "name": "Cascade regional blood centre"
+          "kind": "operating_process",
+          "meaning": "The drive collects blood at the Portland site.",
+          "name": "Cascade regional blood centre mobile collection drive"
         }
       ],
-      "step": "collection_monday"
+      "step": "monday_collection"
     },
     {
       "producers": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1"
+            "e1",
+            "e2",
+            "e3",
+            "e4"
           ],
-          "kind": "organization",
-          "meaning": "The blood centre operates the mobile collection drive.",
-          "name": "Cascade regional blood centre"
+          "kind": "operating_process",
+          "meaning": "The drive collects blood at the Portland site.",
+          "name": "Cascade regional blood centre mobile collection drive"
         }
       ],
-      "step": "collection_tuesday"
+      "step": "tuesday_collection"
     },
     {
       "producers": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1"
+            "e1",
+            "e2",
+            "e3",
+            "e4"
           ],
-          "kind": "organization",
-          "meaning": "The blood centre operates the mobile collection drive.",
-          "name": "Cascade regional blood centre"
+          "kind": "operating_process",
+          "meaning": "The drive collects blood at the Portland site.",
+          "name": "Cascade regional blood centre mobile collection drive"
         }
       ],
-      "step": "collection_wednesday"
+      "step": "wednesday_collection"
     },
     {
       "producers": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1"
+            "e1",
+            "e2",
+            "e3",
+            "e4"
           ],
-          "kind": "organization",
-          "meaning": "The blood centre operates the mobile collection drive.",
-          "name": "Cascade regional blood centre"
+          "kind": "operating_process",
+          "meaning": "The drive collects blood at the Portland site.",
+          "name": "Cascade regional blood centre mobile collection drive"
         }
       ],
-      "step": "collection_thursday"
+      "step": "thursday_collection"
     }
   ]
 }

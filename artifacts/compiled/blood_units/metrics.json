@@ -1,22 +1,23 @@
 {
-  "assembly_ms": 2.4,
+  "assembly_ms": 9.1,
   "assembly_repairs": [
-    "starting_state_and_information"
+    "starting_state_and_information",
+    "producer_assignments"
   ],
   "binding_calls": 0,
-  "discovery_calls": 9,
+  "discovery_calls": 12,
   "emit_ms": 0.0,
   "first_pass_by_step": {
     "causal_spine": true,
-    "producer_assignments": false,
+    "producer_assignments": true,
     "resolution_contract": true,
     "starting_state_and_information": true,
     "uncertainty_and_exclusions": true
   },
   "lowering_ms": 0.0,
   "mode": "frozen_evidence",
-  "model_ms": 47738.15826700047,
-  "model_tokens": 25102,
+  "model_ms": 72253.02794799973,
+  "model_tokens": 36823,
   "proofs_ms": 0.0,
   "repairs_by_step": {
     "producer_assignments": 1,

@@ -246,7 +246,12 @@ def bind_world(graph: WorldGraph, call=call_json,
                    "  output_resource: {\"name\": the quantity it "
                    "accumulates, \"holder\": which listed participant's "
                    "stock it feeds} -- null only if 'outputs' above "
-                   "already names a quantity")
+                   "already names a quantity\n"
+                   "If this mechanism does no continuous quantitative "
+                   "work (a role, or a wrapper around receiving/holding "
+                   "that the transfers already account for), return "
+                   "{\"decorative\": true, \"why\": one sentence} "
+                   "instead.")
             doc = _ask(f"process:{node.name}", ask, _v_process, b, call,
                        model)
             if doc is not None:
@@ -352,6 +357,10 @@ def _v_process(doc) -> list:
     d = []
     if not isinstance(doc, dict):
         return ["reply must be a JSON object"]
+    if doc.get("decorative"):
+        if not str(doc.get("why") or "").strip():
+            d.append("a decorative marking needs 'why'")
+        return d
     _num(doc, "amount_per_hour", d, minimum=0)
     _status_ok(doc, "rate_status", d)
     op = doc.get("operating")
@@ -378,6 +387,8 @@ def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
     name match); anything unresolvable is a refusal, not a guess."""
     defects = []
     for pid, bound in sorted(b.processes.items()):
+        if bound.get("decorative"):
+            continue
         node = graph.node(pid)
         has_resource = any(
             graph.node(e.dst).category == "resource"

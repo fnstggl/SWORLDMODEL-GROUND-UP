@@ -1,74 +1,80 @@
 {
   "exclusions": [
     {
-      "basis": "verified",
-      "evidence_ids": [
-        "e10"
-      ],
-      "name": "Elena Cruz",
-      "why_safe": "Elena Cruz oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
-    },
-    {
-      "basis": "verified",
+      "basis": "inferred",
       "evidence_ids": [
         "e7"
       ],
       "name": "Other hospitals or blood centres",
-      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect this hospital's stock unless they receive shipments from the same centre, but the centre's shipments are dedicated to St. Vincent per the distribution agreement."
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's inventory unless they receive shipments meant for it, but the distribution agreement specifies shipments only to St. Vincent. No evidence suggests sharing or transfers."
     },
     {
-      "basis": "question_given",
-      "evidence_ids": [],
-      "name": "Hospital usage or wastage",
-      "why_safe": "The question asks for 'received' units, not net stock. Usage or wastage does not change the number of units received."
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Blood usage at the hospital",
+      "why_safe": "The question asks for units 'received' by Friday noon, not the net inventory after usage. Usage does not affect the count of received units."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e4"
+      ],
+      "name": "Weekend collections (Saturday/Sunday)",
+      "why_safe": "The drive is only open Monday to Friday, so no weekend collections occur during the week in question."
     },
     {
       "basis": "inferred",
       "evidence_ids": [
         "e3",
-        "e7",
+        "e7"
+      ],
+      "name": "Friday collection",
+      "why_safe": "The deadline is Friday noon. The drive opens at 9:00 AM Friday, but any units collected after the deadline are not received by the hospital by Friday noon. Also, shipments only occur Tuesday and Thursday, so Friday collection cannot be shipped before the deadline."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
         "e8"
       ],
-      "name": "Collection on Friday 24 July",
-      "why_safe": "The deadline is Friday noon. The collection drive opens at 9 AM, but any units collected Friday would not be shipped until the next scheduled shipment (Tuesday or Thursday), so they cannot be received by Friday noon."
+      "name": "Other courier services or delays",
+      "why_safe": "The evidence specifies a single courier service with a 3-hour transit time. No alternative services or delays are mentioned, so we assume the standard service."
     }
   ],
   "uncertainties": [
     {
-      "about": "collection_monday",
-      "meaning": "Whether the collection drive operated on Monday 20 July 2026 as scheduled, and if so, how many units were actually collected (the average rate of 12 units/hour may not hold exactly)."
+      "about": "centre_has_enough_units_tuesday",
+      "meaning": "Whether the centre has at least 150 usable units by Tuesday 4:00 PM to ship. This depends on Monday's collection (9 hours, 108 units) plus initial 40 = 148, which is less than 150. However, the centre might have additional units from other sources not mentioned, or the collection rate might vary. The evidence does not specify if the centre can ship partial loads or if it can supplement from other sources."
     },
     {
-      "about": "collection_tuesday",
-      "meaning": "Whether the collection drive operated on Tuesday 21 July 2026 as scheduled, and the actual units collected."
+      "about": "centre_has_enough_units_thursday",
+      "meaning": "Whether the centre has at least 150 usable units by Thursday 4:00 PM. This depends on collections from Monday through Thursday (4 days, 36 hours, 432 units) minus any Tuesday shipment (if it occurred, 150 units). If Tuesday shipment did not occur, the centre would have 40+432=472 units, enough. If it did occur, centre would have 40+432-150=322 units, enough. So this is certain if Tuesday shipment is resolved, but the uncertainty about Tuesday shipment propagates."
     },
     {
-      "about": "collection_wednesday",
-      "meaning": "Whether the collection drive operated on Wednesday 22 July 2026 as scheduled, and the actual units collected."
+      "about": "tuesday_shipment_received",
+      "meaning": "Whether the Tuesday shipment actually occurs and is received by the hospital. The centre may not have enough units to ship 150 on Tuesday (see above). Also, the shipment takes 3 hours, so if it departs at 4:00 PM, it arrives at 7:00 PM Tuesday, which is before Friday noon, so timing is fine. But the uncertainty is about whether the centre ships at all."
     },
     {
-      "about": "collection_thursday",
-      "meaning": "Whether the collection drive operated on Thursday 23 July 2026 as scheduled, and the actual units collected."
+      "about": "thursday_shipment_received",
+      "meaning": "Whether the Thursday shipment occurs and is received. The centre likely has enough units (see above), but there could be operational issues not mentioned. Also, the shipment departs at 4:00 PM Thursday and arrives at 7:00 PM Thursday, well before Friday noon."
     },
     {
-      "about": "centre_has_stock_tuesday",
-      "meaning": "Whether the centre had at least 150 usable units in stock at 4:00 PM on Tuesday 21 July 2026 to ship. This depends on initial stock (40) plus collections Monday and Tuesday up to 4 PM, minus any unknown usage or losses."
+      "about": "monday_collection",
+      "meaning": "The exact number of units collected on Monday. The average is 12 per hour, but actual may vary. The drive is open 9-5 (8 hours) but the evidence says 9:00 AM to 5:00 PM, which is 8 hours, not 9. So 8*12=96 units. However, the evidence says 'Monday to Friday from 9:00 AM to 5:00 PM' which is 8 hours each day. So Monday collection is 96 units, not 108. This is a correction: 8 hours * 12 units/hour = 96 units."
     },
     {
-      "about": "centre_has_stock_thursday",
-      "meaning": "Whether the centre had at least 150 usable units in stock at 4:00 PM on Thursday 23 July 2026 to ship. This depends on stock after Tuesday shipment plus collections Wednesday and Thursday up to 4 PM, minus any unknown usage or losses."
+      "about": "tuesday_collection",
+      "meaning": "Tuesday collection: 8 hours * 12 = 96 units."
     },
     {
-      "about": "tuesday_shipment",
-      "meaning": "Whether the Tuesday shipment actually departed and arrived as scheduled (e.g., no logistical delays)."
+      "about": "wednesday_collection",
+      "meaning": "Wednesday collection: 8 hours * 12 = 96 units."
     },
     {
-      "about": "thursday_shipment",
-      "meaning": "Whether the Thursday shipment actually departed and arrived as scheduled."
-    },
-    {
-      "about": "hospital_units_at_deadline",
-      "meaning": "The final number of usable blood units at St. Vincent regional hospital at Friday noon (deadline). This depends on initial stock (15), plus received shipments (if any), minus any hospital usage or wastage during the week."
+      "about": "thursday_collection",
+      "meaning": "Thursday collection: 8 hours * 12 = 96 units."
     }
   ]
 }

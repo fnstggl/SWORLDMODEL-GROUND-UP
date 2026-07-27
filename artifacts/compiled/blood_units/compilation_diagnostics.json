@@ -1,7 +1,8 @@
 {
   "detail": {
     "defects": [
-      "resource:hospital_units_at_deadline: explicitly marked unsupported (No producer; it is a condition resulting from other steps.)"
+      "state:initial_hospital_units: explicitly marked unsupported (Initial fact, no producer needed.)",
+      "state:shipments_received: explicitly marked unsupported (Condition, not a step that is produced.)"
     ],
     "repairable": true
   },
