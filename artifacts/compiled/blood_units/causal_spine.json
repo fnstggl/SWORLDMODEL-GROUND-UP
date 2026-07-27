@@ -3,30 +3,19 @@
     {
       "basis": "inferred",
       "evidence_ids": [
-        "e5",
         "e6",
         "e7",
         "e8",
         "e9"
       ],
       "kind": "condition",
-      "meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at Friday noon, July 24, 2026.",
-      "name": "hospital_units_at_deadline",
+      "meaning": "St. Vincent regional hospital holds a specific number of usable blood units at Friday noon, July 24, 2026.",
+      "name": "hospital_holds_units_at_deadline",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "initial_hospital_units"
-        },
-        {
-          "alt_group": null,
-          "necessity": "necessary",
-          "step": "shipment_received_tuesday"
-        },
-        {
-          "alt_group": null,
-          "necessity": "necessary",
-          "step": "shipment_received_thursday"
+          "step": "initial_stock_plus_shipments_minus_usage"
         }
       ],
       "produces_proof": [
@@ -36,13 +25,40 @@
       "when": null
     },
     {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e7",
+        "e8",
+        "e9"
+      ],
+      "kind": "condition",
+      "meaning": "The hospital's inventory at deadline equals initial stock plus received shipments minus any usage (assumed zero for this step).",
+      "name": "initial_stock_plus_shipments_minus_usage",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "initial_hospital_stock"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "shipments_received_by_deadline"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
       "basis": "verified",
       "evidence_ids": [
         "e6"
       ],
       "kind": "initial_fact",
-      "meaning": "St. Vincent regional hospital held 15 usable units at 9:00 AM on Monday July 20, 2026.",
-      "name": "initial_hospital_units",
+      "meaning": "St. Vincent hospital had 15 usable units at 9:00 AM Monday July 20, 2026.",
+      "name": "initial_hospital_stock",
       "prerequisites": [],
       "produces_proof": [],
       "uncertainty": null,
@@ -56,13 +72,28 @@
         "e9"
       ],
       "kind": "condition",
-      "meaning": "A shipment of 150 units from the centre is received at St. Vincent hospital on Tuesday July 21, 2026, after being shipped at 4:00 PM and taking 3 hours.",
-      "name": "shipment_received_tuesday",
+      "meaning": "All shipments that departed the centre by Thursday 4:00 PM and arrived before Friday noon are received.",
+      "name": "shipments_received_by_deadline",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "tuesday_shipment_dispatched"
+          "step": "tuesday_shipment_departure"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tuesday_shipment_arrival"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "thursday_shipment_departure"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "thursday_shipment_arrival"
         }
       ],
       "produces_proof": [],
@@ -76,13 +107,13 @@
         "e9"
       ],
       "kind": "scheduled_event",
-      "meaning": "The centre dispatches 150 units on Tuesday July 21, 2026 at 4:00 PM PDT.",
-      "name": "tuesday_shipment_dispatched",
+      "meaning": "The centre ships 150 units to St. Vincent on Tuesday July 21, 2026 at 4:00 PM Pacific.",
+      "name": "tuesday_shipment_departure",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "centre_has_enough_tuesday"
+          "step": "centre_has_enough_stock_tuesday"
         }
       ],
       "produces_proof": [],
@@ -92,30 +123,24 @@
     {
       "basis": "inferred",
       "evidence_ids": [
+        "e5",
         "e2",
         "e3",
-        "e4",
-        "e5",
-        "e9"
+        "e4"
       ],
       "kind": "condition",
-      "meaning": "The centre has at least 150 usable units in stock by Tuesday 4:00 PM to ship.",
-      "name": "centre_has_enough_tuesday",
+      "meaning": "The centre has at least 150 usable units to ship on Tuesday. This is likely given initial stock and collection.",
+      "name": "centre_has_enough_stock_tuesday",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "initial_centre_units"
+          "step": "centre_initial_stock"
         },
         {
           "alt_group": null,
           "necessity": "necessary",
           "step": "monday_collection"
-        },
-        {
-          "alt_group": null,
-          "necessity": "necessary",
-          "step": "tuesday_collection_before_4pm"
         }
       ],
       "produces_proof": [],
@@ -128,8 +153,8 @@
         "e5"
       ],
       "kind": "initial_fact",
-      "meaning": "The centre held 40 usable units at 9:00 AM on Monday July 20, 2026.",
-      "name": "initial_centre_units",
+      "meaning": "The centre held 40 usable units at 9:00 AM Monday July 20, 2026.",
+      "name": "centre_initial_stock",
       "prerequisites": [],
       "produces_proof": [],
       "uncertainty": null,
@@ -143,50 +168,32 @@
         "e3",
         "e4"
       ],
-      "kind": "scheduled_event",
-      "meaning": "The mobile collection drive operates on Monday July 20, 2026 from 9:00 AM to 5:00 PM PDT, collecting 12 units per hour for 8 hours = 96 units.",
+      "kind": "process",
+      "meaning": "The mobile drive collects units on Monday July 20 from 9:00 AM to 5:00 PM Pacific.",
       "name": "monday_collection",
       "prerequisites": [],
       "produces_proof": [],
       "uncertainty": null,
-      "when": "2026-07-20T09:00:00-07:00/2026-07-20T17:00:00-07:00"
+      "when": null
     },
     {
       "basis": "inferred",
       "evidence_ids": [
-        "e1",
-        "e2",
-        "e3",
-        "e4"
+        "e8"
       ],
       "kind": "scheduled_event",
-      "meaning": "The mobile collection drive operates on Tuesday July 21, 2026 from 9:00 AM to 4:00 PM PDT (since shipment at 4 PM, collection stops at 5 PM but after shipment), collecting 12 units per hour for 7 hours = 84 units.",
-      "name": "tuesday_collection_before_4pm",
-      "prerequisites": [],
-      "produces_proof": [],
-      "uncertainty": null,
-      "when": "2026-07-21T09:00:00-07:00/2026-07-21T16:00:00-07:00"
-    },
-    {
-      "basis": "inferred",
-      "evidence_ids": [
-        "e7",
-        "e8",
-        "e9"
-      ],
-      "kind": "condition",
-      "meaning": "A shipment of 150 units from the centre is received at St. Vincent hospital on Thursday July 23, 2026, after being shipped at 4:00 PM and taking 3 hours.",
-      "name": "shipment_received_thursday",
+      "meaning": "The Tuesday shipment arrives at St. Vincent hospital at about 7:00 PM Pacific on Tuesday July 21.",
+      "name": "tuesday_shipment_arrival",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "thursday_shipment_dispatched"
+          "step": "tuesday_shipment_departure"
         }
       ],
       "produces_proof": [],
       "uncertainty": null,
-      "when": null
+      "when": "2026-07-21T19:00:00-07:00"
     },
     {
       "basis": "verified",
@@ -195,13 +202,13 @@
         "e9"
       ],
       "kind": "scheduled_event",
-      "meaning": "The centre dispatches 150 units on Thursday July 23, 2026 at 4:00 PM PDT.",
-      "name": "thursday_shipment_dispatched",
+      "meaning": "The centre ships 150 units to St. Vincent on Thursday July 23, 2026 at 4:00 PM Pacific.",
+      "name": "thursday_shipment_departure",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "centre_has_enough_thursday"
+          "step": "centre_has_enough_stock_thursday"
         }
       ],
       "produces_proof": [],
@@ -213,12 +220,11 @@
       "evidence_ids": [
         "e2",
         "e3",
-        "e4",
-        "e9"
+        "e4"
       ],
       "kind": "condition",
-      "meaning": "The centre has at least 150 usable units in stock by Thursday 4:00 PM to ship.",
-      "name": "centre_has_enough_thursday",
+      "meaning": "The centre has at least 150 usable units to ship on Thursday. This is likely given collection and previous shipment.",
+      "name": "centre_has_enough_stock_thursday",
       "prerequisites": [
         {
           "alt_group": null,
@@ -228,12 +234,17 @@
         {
           "alt_group": null,
           "necessity": "necessary",
+          "step": "tuesday_collection"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
           "step": "wednesday_collection"
         },
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "thursday_collection_before_4pm"
+          "step": "thursday_collection"
         }
       ],
       "produces_proof": [],
@@ -243,20 +254,20 @@
     {
       "basis": "inferred",
       "evidence_ids": [
+        "e5",
         "e2",
         "e3",
         "e4",
-        "e5",
         "e9"
       ],
       "kind": "condition",
-      "meaning": "The centre's stock after Tuesday's shipment: initial 40 + Monday 96 + Tuesday before 4pm 84 - 150 shipped = 70 units.",
+      "meaning": "Centre stock after Tuesday shipment: initial + collected - 150 shipped.",
       "name": "centre_stock_after_tuesday_shipment",
       "prerequisites": [
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "initial_centre_units"
+          "step": "centre_initial_stock"
         },
         {
           "alt_group": null,
@@ -266,12 +277,12 @@
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "tuesday_collection_before_4pm"
+          "step": "tuesday_collection"
         },
         {
           "alt_group": null,
           "necessity": "necessary",
-          "step": "tuesday_shipment_dispatched"
+          "step": "tuesday_shipment_departure"
         }
       ],
       "produces_proof": [],
@@ -286,29 +297,64 @@
         "e3",
         "e4"
       ],
-      "kind": "scheduled_event",
-      "meaning": "The mobile collection drive operates on Wednesday July 22, 2026 from 9:00 AM to 5:00 PM PDT, collecting 12 units per hour for 8 hours = 96 units.",
-      "name": "wednesday_collection",
+      "kind": "process",
+      "meaning": "The mobile drive collects units on Tuesday July 21 from 9:00 AM to 5:00 PM Pacific.",
+      "name": "tuesday_collection",
       "prerequisites": [],
       "produces_proof": [],
       "uncertainty": null,
-      "when": "2026-07-22T09:00:00-07:00/2026-07-22T17:00:00-07:00"
+      "when": null
     },
     {
-      "basis": "inferred",
+      "basis": "verified",
       "evidence_ids": [
         "e1",
         "e2",
         "e3",
         "e4"
       ],
-      "kind": "scheduled_event",
-      "meaning": "The mobile collection drive operates on Thursday July 23, 2026 from 9:00 AM to 4:00 PM PDT, collecting 12 units per hour for 7 hours = 84 units.",
-      "name": "thursday_collection_before_4pm",
+      "kind": "process",
+      "meaning": "The mobile drive collects units on Wednesday July 22 from 9:00 AM to 5:00 PM Pacific.",
+      "name": "wednesday_collection",
       "prerequisites": [],
       "produces_proof": [],
       "uncertainty": null,
-      "when": "2026-07-23T09:00:00-07:00/2026-07-23T16:00:00-07:00"
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "The mobile drive collects units on Thursday July 23 from 9:00 AM to 5:00 PM Pacific.",
+      "name": "thursday_collection",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The Thursday shipment arrives at St. Vincent hospital at about 7:00 PM Pacific on Thursday July 23.",
+      "name": "thursday_shipment_arrival",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "thursday_shipment_departure"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-07-23T19:00:00-07:00"
     }
   ]
 }

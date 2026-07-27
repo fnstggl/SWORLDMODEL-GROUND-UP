@@ -831,11 +831,16 @@ class Assembler:
         _need(item, ("about", "meaning"), "uncertainty", d)
         if d:
             raise SemanticAmbiguity("uncertainty has defects", {"defects": d})
-        about = self.graph.resolve_any(
-            ("state", "event", "action", "process", "record", "resource",
-             "participant", "organization", "population"),
-            item["about"], "uncertainty")
-        self.graph.add_uncertainty(about, item["meaning"])
+        try:
+            about = self.graph.resolve_any(
+                ("state", "event", "action", "process", "record",
+                 "resource", "participant", "organization", "population"),
+                item["about"], "uncertainty")
+            self.graph.add_uncertainty(about, item["meaning"])
+        except (InvalidReference, SemanticAmbiguity):
+            # honest uncertainty about something with no single node (a
+            # rate, an arrival timing) is kept verbatim at world level
+            self.graph.add_world_uncertainty(item["about"], item["meaning"])
         self._record("add_uncertainty", {"about": item["about"]}, [], [])
 
     def exclude_as_irrelevant(self, item: dict) -> None:
@@ -983,14 +988,17 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         elif node.category in ("state", "record", "resource") \
                 and not node.attrs.get("initial") \
                 and node.attrs.get("amount") is None \
-                and not a.graph.producers_of(sid) \
-                and not any(e.attrs.get("necessity", "necessary")
-                            != "optional"
-                            for e in a.graph.prerequisites_of(sid)):
-            # a condition WITH prerequisites is a conjunction and needs no
-            # producer of its own; the proofs verify its parts
-            d.append(f"step {name!r}: no producer is attached and it is "
-                     f"not marked unsupported")
+                and not a.graph.producers_of(sid):
+            if any(e.attrs.get("necessity", "necessary") != "optional"
+                   for e in a.graph.prerequisites_of(sid)):
+                # a condition WITH prerequisites is a conjunction: it
+                # needs no producer of its own. The flag is explicit so
+                # that an ablation which strips a real producer can never
+                # be mistaken for a conjunction.
+                node.attrs["conjunction"] = True
+            else:
+                d.append(f"step {name!r}: no producer is attached and it "
+                         f"is not marked unsupported")
     _raise_if(d, "producer_assignments")
     a.materialize_holders()
 

@@ -128,7 +128,9 @@ def test_steps_without_producers_are_refused_together():
                  valid_evidence_ids=EVIDENCE_IDS)
     defects = ei.value.detail["defects"]
     assert ei.value.detail["document"] == "producer_assignments"
-    assert len(defects) >= 3          # seen-request, reply, availability...
+    # the intermediate conditions are conjunctions of their prerequisites;
+    # only the two performerless actor decisions are genuine defects
+    assert len(defects) == 2
     assert ei.value.detail["repairable"] is True
 
 
@@ -183,13 +185,16 @@ def test_defects_are_reported_per_document_all_at_once():
     assert ei.value.detail["document"] == "causal_spine"
 
 
-def test_unknown_uncertainty_subject_is_refused():
+def test_unknown_uncertainty_subject_is_kept_at_world_level():
+    """An uncertainty is an annotation, never a gate: 'the weather' names
+    no node, and losing the honesty over naming would be worse."""
     res, spine, prod, state, unc = docs()
     unc["uncertainties"].append({"about": "the weather",
                                  "meaning": "storms may intervene"})
-    with pytest.raises(SemanticAmbiguity, match="uncertainty_and_exclusions"):
-        assemble(res, spine, prod, state, unc,
-                 valid_evidence_ids=EVIDENCE_IDS)
+    g, _ = assemble(res, spine, prod, state, unc,
+                    valid_evidence_ids=EVIDENCE_IDS)
+    kept = [u for u in g.uncertainties if u.get("topic") == "the weather"]
+    assert kept and kept[0]["about"] is None
 
 
 def test_excluding_an_included_thing_is_refused():

@@ -1,11 +1,13 @@
 {
   "detail": {
     "defects": [
-      "authority of 'St. Vincent regional hospital': nothing named 'receive_shipment' exists in state/event/action/process/record/resource"
+      "uncertainty: nothing named 'hospital usage rate' exists in state/event/action/process/record/resource/participant/organization/population",
+      "uncertainty: nothing named 'centre collection actual hours' exists in state/event/action/process/record/resource/participant/organization/population",
+      "uncertainty: nothing named 'Thursday shipment arrival time' exists in state/event/action/process/record/resource/participant/organization/population"
     ],
-    "document": "starting_state_and_information",
+    "document": "uncertainty_and_exclusions",
     "repairable": true
   },
-  "reason": "the starting_state_and_information document has defects",
+  "reason": "the uncertainty_and_exclusions document has defects",
   "stage": "SEMANTIC_AMBIGUITY"
 }

@@ -2,20 +2,21 @@
   {
     "binding_calls": 0,
     "case": "blood_units",
-    "discovery_calls": 9,
+    "discovery_calls": 10,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the starting_state_and_information document has defects",
+    "reason": "the uncertainty_and_exclusions document has defects",
     "repairs": {
       "resolution_ambiguity_adjudication": 1,
       "starting_state[Cascade regional blood centre]": 1,
-      "starting_state[St. Vincent regional hospital]": 1
+      "starting_state[St. Vincent regional hospital]": 1,
+      "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
     "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 29156
+    "tokens": 32892
   }
 ]

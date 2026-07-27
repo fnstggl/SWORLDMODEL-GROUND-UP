@@ -1,53 +1,52 @@
 {
   "exclusions": [
     {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6",
+        "e7"
+      ],
+      "name": "other hospitals or blood recipients",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's received shipments."
+    },
+    {
       "basis": "verified",
       "evidence_ids": [
         "e10"
       ],
-      "name": "Elena Cruz",
-      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not affect the number of units received."
+      "name": "Elena Cruz's actions",
+      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not change the number of units received."
     },
     {
-      "basis": "question_given",
-      "evidence_ids": [],
-      "name": "Other hospitals or blood centres",
-      "why_safe": "The question only concerns St. Vincent regional hospital's receipts from Cascade regional blood centre; other entities are irrelevant."
-    },
-    {
-      "basis": "verified",
+      "basis": "inferred",
       "evidence_ids": [
-        "e3",
-        "e7"
+        "e7",
+        "e9"
       ],
-      "name": "Weekend collections or shipments",
-      "why_safe": "The drive is only open Monday to Friday, and shipments are only Tuesday and Thursday; weekend operations are not part of the scenario."
+      "name": "any usage or wastage at the centre",
+      "why_safe": "The centre's stock is only relevant to whether it can ship 150 units; usage or wastage could affect that, but the question is about hospital receipts, not centre operations."
     }
   ],
   "uncertainties": [
     {
-      "about": "centre_stock_after_tuesday_shipment",
-      "meaning": "The exact number of units remaining at the centre after the Tuesday shipment is dispatched is unknown because the collection rates and timings before 4 PM Tuesday are not fully specified."
+      "about": "hospital usage rate",
+      "meaning": "The rate at which the hospital uses blood units between Monday and Friday noon is unknown. This affects the net units held at the deadline."
     },
     {
-      "about": "wednesday_collection",
-      "meaning": "The number of units collected on Wednesday is unknown because the collection rate is given as an average, but actual hourly collection may vary."
+      "about": "centre collection actual hours",
+      "meaning": "Whether the collection drive operates exactly as scheduled (9-5 each day) or has any closures or reduced hours is unknown."
     },
     {
-      "about": "thursday_collection_before_4pm",
-      "meaning": "The number of units collected on Thursday before 4 PM is unknown for the same reason."
+      "about": "centre stock after Tuesday shipment",
+      "meaning": "The exact stock at the centre after the Tuesday shipment is unknown because it depends on collection amounts and any other usage or transfers not mentioned."
     },
     {
-      "about": "centre_has_enough_thursday",
-      "meaning": "Whether the centre has at least 150 units to ship on Thursday is uncertain because it depends on the unknown stock after Tuesday and the unknown collections on Wednesday and Thursday."
+      "about": "centre has enough stock Thursday",
+      "meaning": "Whether the centre has at least 150 units to ship on Thursday is unknown, as it depends on collections and any other demands."
     },
     {
-      "about": "thursday_shipment_dispatched",
-      "meaning": "It is uncertain whether the Thursday shipment actually occurs, as it depends on the centre having enough stock."
-    },
-    {
-      "about": "shipment_received_thursday",
-      "meaning": "If the Thursday shipment is dispatched, it is uncertain whether it arrives before the Friday noon deadline, given the 3-hour travel time and the dispatch at 4 PM Thursday."
+      "about": "Thursday shipment arrival time",
+      "meaning": "The exact arrival time of the Thursday shipment is unknown; it may arrive before or after the Friday noon deadline."
     }
   ]
 }

@@ -133,8 +133,11 @@ def describe_graph(graph: WorldGraph, question: dict) -> str:
 
     out.append("\n## Preserved uncertainty")
     for u in sorted(graph.uncertainties,
-                    key=lambda x: (x["about"], x["meaning"])):
-        out.append(f"- {graph.node(u['about']).name}: {u['meaning']}")
+                    key=lambda x: (x["about"] or "", x.get("topic") or "",
+                                   x["meaning"])):
+        about = (graph.node(u["about"]).name if u.get("about")
+                 else u.get("topic", "the world"))
+        out.append(f"- {about}: {u['meaning']}")
     out.append("\n## Deliberately excluded")
     for x in graph.exclusions:
         out.append(f"- {x['name']}: {x['why_safe']}")

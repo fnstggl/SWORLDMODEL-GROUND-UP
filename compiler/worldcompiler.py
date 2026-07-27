@@ -484,5 +484,5 @@ def _fidelity(question, graph, compiled, outcome, stage, never_used,
 {"**READ THIS ANSWER WITH CARE.** The result is negative AND part of the world was never exercised: it reflects the limits of the driving minds, not the situation." if risk else ""}
 
 ## Unresolved uncertainty carried honestly
-{chr(10).join('- ' + u['meaning'] + ' (about: ' + u['about'] + ')' for u in graph.uncertainties) or '- none declared'}
+{chr(10).join('- ' + u['meaning'] + ' (about: ' + (u.get('about') or u.get('topic') or 'the world') + ')' for u in graph.uncertainties) or '- none declared'}
 """

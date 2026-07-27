@@ -62,12 +62,16 @@ class _Rootedness:
         if n.category == "state" and n.attrs.get("initial"):
             # an initial fact is true at genesis regardless of any marker
             result = {"node": node_id, "root": "initial_fact"}
-        elif n.category == "state" and not self.g.producers_of(node_id) \
+        elif n.category == "state" \
+                and (n.attrs.get("conjunction")
+                     or n.attrs.get("no_producer_needed")) \
+                and not self.g.producers_of(node_id) \
                 and any(e.attrs.get("necessity", "necessary") != "optional"
                         for e in self.g.prerequisites_of(node_id)):
-            # a condition with prerequisites and no producer of its own is
-            # a CONJUNCTION: it holds exactly when its parts hold, and its
-            # parts' producers do the causal work
+            # an EXPLICIT conjunction holds exactly when its parts hold;
+            # its parts' producers do the causal work. The flag matters: a
+            # state whose producer an ablation removed is broken, not a
+            # conjunction.
             result = self._with_requires(
                 n, {"node": node_id, "derived_condition": True}, visiting)
         elif n.attrs.get("unsupported"):

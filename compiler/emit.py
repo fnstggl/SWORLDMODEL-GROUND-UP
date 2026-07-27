@@ -748,6 +748,8 @@ class Emitter:
                 get written."""
                 node = self.g.node(dst_id)
                 if node.category == "state" \
+                        and (node.attrs.get("conjunction")
+                             or node.attrs.get("no_producer_needed")) \
                         and not node.attrs.get("initial") \
                         and not self.g.producers_of(dst_id) \
                         and dst_id not in seen:
@@ -981,10 +983,12 @@ class Emitter:
     def _uncertainties(self) -> list:
         out = []
         for u in sorted(self.g.uncertainties,
-                        key=lambda x: (x["about"], x["meaning"])):
-            node = self.g.node(u["about"])
-            out.append({"description": f"{u['meaning']} "
-                                       f"(about: {node.name})",
+                        key=lambda x: (x["about"] or "",
+                                       x.get("topic") or "",
+                                       x["meaning"])):
+            about = (self.g.node(u["about"]).name if u.get("about")
+                     else u.get("topic", "the world"))
+            out.append({"description": f"{u['meaning']} (about: {about})",
                         "type": "causal",
                         "supported_possibilities": [],
                         "evidence_ids": []})

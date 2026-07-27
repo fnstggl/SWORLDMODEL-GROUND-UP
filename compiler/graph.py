@@ -287,7 +287,16 @@ class WorldGraph:
     def add_uncertainty(self, about_id: str, meaning: str,
                         where: str = "uncertainty") -> None:
         self.node(about_id)                     # must exist
-        self.uncertainties.append({"about": about_id, "meaning": str(meaning)})
+        self.uncertainties.append({"about": about_id,
+                                   "meaning": str(meaning)})
+
+    def add_world_uncertainty(self, topic: str, meaning: str) -> None:
+        """Honest uncertainty about something with no single node -- a
+        rate, a timing, an unmodelled behaviour. Kept verbatim: an
+        uncertainty is an annotation, never a gate, and refusing over its
+        naming would lose honesty."""
+        self.uncertainties.append({"about": None, "topic": str(topic),
+                                   "meaning": str(meaning)})
 
     def add_exclusion(self, name: str, why_safe: str, basis: str,
                       evidence_ids=(), where: str = "exclusion") -> None:
@@ -323,8 +332,10 @@ class WorldGraph:
                       sorted(self.nodes.values(), key=lambda n: n.id)],
             "edges": [e.to_dict() for e in
                       sorted(self.edges, key=lambda e: e.key())],
-            "uncertainties": sorted(self.uncertainties,
-                                    key=lambda u: (u["about"], u["meaning"])),
+            "uncertainties": sorted(
+                self.uncertainties,
+                key=lambda u: (u["about"] or "", u.get("topic") or "",
+                               u["meaning"])),
             "exclusions": sorted(self.exclusions, key=lambda x: x["name"]),
             "symbol_table": self.symbols.to_dict(),
         }
@@ -352,7 +363,10 @@ class WorldGraph:
             g.add_edge(e["src"], e["rel"], e["dst"], e.get("attrs"),
                        where="from_dict")
         for u in data.get("uncertainties", ()):
-            g.add_uncertainty(u["about"], u["meaning"])
+            if u.get("about") is None:
+                g.add_world_uncertainty(u.get("topic", ""), u["meaning"])
+            else:
+                g.add_uncertainty(u["about"], u["meaning"])
         for x in data.get("exclusions", ()):
             g.add_exclusion(x["name"], x["why_safe"], x["basis"],
                             x.get("evidence_ids", ()))

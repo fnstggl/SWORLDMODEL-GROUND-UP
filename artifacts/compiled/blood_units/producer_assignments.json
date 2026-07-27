@@ -1,38 +1,41 @@
 {
   "assignments": [
     {
-      "step": "hospital_units_at_deadline",
-      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+      "step": "hospital_holds_units_at_deadline",
+      "unsupported": "This is a condition that aggregates other steps; no single producer."
     },
     {
-      "step": "initial_hospital_units",
+      "step": "initial_stock_plus_shipments_minus_usage",
+      "unsupported": "This is a conjunction of prerequisites; no mechanism of its own."
+    },
+    {
+      "step": "initial_hospital_stock",
       "unsupported": "Initial fact; no producer needed."
     },
     {
-      "step": "shipment_received_tuesday",
-      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+      "step": "shipments_received_by_deadline",
+      "unsupported": "This is a conjunction of shipment events; no separate producer."
     },
     {
       "producers": [
         {
           "basis": "verified",
           "evidence_ids": [
-            "e7",
-            "e9"
+            "e7"
           ],
           "kind": "organization",
-          "meaning": "The centre dispatches the shipment as per the scheduled event.",
+          "meaning": "The centre that ships blood units to St. Vincent hospital.",
           "name": "Cascade regional blood centre"
         }
       ],
-      "step": "tuesday_shipment_dispatched"
+      "step": "tuesday_shipment_departure"
     },
     {
-      "step": "centre_has_enough_tuesday",
-      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+      "step": "centre_has_enough_stock_tuesday",
+      "unsupported": "This is a condition that depends on collection and initial stock; no single producer."
     },
     {
-      "step": "initial_centre_units",
+      "step": "centre_initial_stock",
       "unsupported": "Initial fact; no producer needed."
     },
     {
@@ -52,6 +55,43 @@
     {
       "producers": [
         {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "organization",
+          "meaning": "The centre's shipment arrives at the hospital.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_shipment_arrival"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The centre that ships blood units to St. Vincent hospital.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment_departure"
+    },
+    {
+      "step": "centre_has_enough_stock_thursday",
+      "unsupported": "This is a condition that depends on collection and previous stock; no single producer."
+    },
+    {
+      "step": "centre_stock_after_tuesday_shipment",
+      "unsupported": "This is a condition that aggregates other steps; no single producer."
+    },
+    {
+      "producers": [
+        {
           "basis": "verified",
           "evidence_ids": [
             "e1"
@@ -61,34 +101,7 @@
           "name": "Cascade regional blood centre"
         }
       ],
-      "step": "tuesday_collection_before_4pm"
-    },
-    {
-      "step": "shipment_received_thursday",
-      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
-    },
-    {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7",
-            "e9"
-          ],
-          "kind": "organization",
-          "meaning": "The centre dispatches the shipment as per the scheduled event.",
-          "name": "Cascade regional blood centre"
-        }
-      ],
-      "step": "thursday_shipment_dispatched"
-    },
-    {
-      "step": "centre_has_enough_thursday",
-      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
-    },
-    {
-      "step": "centre_stock_after_tuesday_shipment",
-      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+      "step": "tuesday_collection"
     },
     {
       "producers": [
@@ -116,7 +129,22 @@
           "name": "Cascade regional blood centre"
         }
       ],
-      "step": "thursday_collection_before_4pm"
+      "step": "thursday_collection"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "kind": "organization",
+          "meaning": "The centre's shipment arrives at the hospital.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment_arrival"
     }
   ]
 }
