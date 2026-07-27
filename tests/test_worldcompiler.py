@@ -246,3 +246,68 @@ def test_directory_is_cleared_between_runs(tmp_path):
     data = json.loads((tmp_path / "toy" /
                        "terminal_result.json").read_text())
     assert "stale" not in data
+
+
+def test_equivalence_defect_triggers_one_targeted_rebind(tmp_path):
+    """A non-EQUIVALENT verdict whose finding names a bound item replays
+    exactly that item's ask with the defect, re-lowers and re-reviews
+    once; the world runs only after the second verdict approves."""
+    seen = {"reviews": 0}
+
+    def call(system, user, model="stub", **kw):
+        if "equivalence reviewer" in system:
+            seen["reviews"] += 1
+            if seen["reviews"] == 1:
+                doc = {"verdict": "MEANING_CHANGED", "findings": [
+                    {"what": "the bound duration of 'alice sends the "
+                             "request' contradicts the item's meaning",
+                     "where": "action alice_sends_the_request",
+                     "material_because": "it changes when the reply can "
+                                         "arrive"}]}
+                return doc, json.dumps(doc), {"total_tokens": 0}
+        return fake_call(system, user, model=model, **kw)
+
+    record = compile_question(QUESTION, copy.deepcopy(EVIDENCE),
+                              str(tmp_path / "toy"), scripts=SCRIPT,
+                              call=call)
+    assert record["stage"] == COMPILED
+    assert seen["reviews"] == 2
+    m = record["metrics"]
+    assert m["equivalence_rebinds"] == ["action:alice sends the request"]
+    review = json.loads(
+        (tmp_path / "toy" / "semantic_equivalence_review.json")
+        .read_text())
+    assert review["verdict"] == "EQUIVALENT"
+    assert review["prior_rounds"][0]["verdict"] == "MEANING_CHANGED"
+    calls = [json.loads(l) for l in
+             (tmp_path / "toy" / "model_calls.jsonl").read_text()
+             .splitlines()]
+    items = {c.get("item") for c in calls if c.get("item")}
+    assert "action:alice sends the request:equivalence_repair" in items
+    # both review rounds are on the record
+    reviews = [c for c in calls
+               if c.get("step") == "semantic_equivalence_review"]
+    assert [r["attempt"] for r in reviews] == [0, 1]
+
+
+def test_unmatched_equivalence_defect_refuses_without_rebind(tmp_path):
+    """A finding that names nothing bindable stands as the final verdict:
+    no reroll, no silent acceptance."""
+    def call(system, user, model="stub", **kw):
+        if "equivalence reviewer" in system:
+            doc = {"verdict": "MATERIAL_OMISSION", "findings": [
+                {"what": "the runtime lacks the weekend entirely",
+                 "where": "scheduled queue",
+                 "material_because": "the deadline falls on it"}]}
+            return doc, json.dumps(doc), {"total_tokens": 0}
+        return fake_call(system, user, model=model, **kw)
+
+    record = compile_question(QUESTION, copy.deepcopy(EVIDENCE),
+                              str(tmp_path / "toy"), scripts=SCRIPT,
+                              call=call)
+    assert record["stage"] == "LOWERING_MISMATCH"
+    review = json.loads(
+        (tmp_path / "toy" / "semantic_equivalence_review.json")
+        .read_text())
+    assert review["verdict"] == "MATERIAL_OMISSION"
+    assert review["final"] is True

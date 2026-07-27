@@ -278,39 +278,79 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
 
     # ---- deterministic emission + existing validation + lowering -----
     try:
-        t0 = wallclock.monotonic()
-        scenario = emit_scenario(graph, bindings, question)
-        metrics["emit_ms"] = round((wallclock.monotonic() - t0) * 1000, 1)
-        _wj(os.path.join(outdir, "generated_semantic_scenario.json"),
-            scenario)
-        try:
-            schema.validate(scenario)
-            schema.check_provenance(scenario, evidence)
-        except CompilationStop as exc:
-            raise LoweringMismatch(
-                "the code-generated scenario failed its own contract; this "
-                "is a compiler defect, not a model error: " + exc.reason,
-                {"inner": exc.to_dict()})
-        t0 = wallclock.monotonic()
-        compiled = lower(scenario, question.get("question", ""))
-        metrics["lowering_ms"] = round(
-            (wallclock.monotonic() - t0) * 1000, 1)
-
-        # ---- semantic round-trip: the lowered world must mean what the
-        # approved world means, or it does not run ----------------------
         from .roundtrip import (describe_graph, describe_runtime,
                                 review_equivalence)
-        graph_md = describe_graph(graph, question, bindings)
-        runtime_md = describe_runtime(compiled)
-        with open(os.path.join(outdir, "runtime_round_trip.md"), "w",
-                  encoding="utf-8") as f:
-            f.write(runtime_md)
-        t0 = wallclock.monotonic()
-        equivalence, elog = review_equivalence(graph_md, runtime_md,
-                                               call=call,
-                                               model=review_model)
-        metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
-        calls.extend(elog)
+        from .binding import (connect_process_outputs, items_named_in,
+                              rebind_items)
+        equivalence, eq_history = None, []
+        for eq_round in (0, 1):
+            t0 = wallclock.monotonic()
+            scenario = emit_scenario(graph, bindings, question)
+            metrics["emit_ms"] = round(
+                (wallclock.monotonic() - t0) * 1000, 1)
+            _wj(os.path.join(outdir, "generated_semantic_scenario.json"),
+                scenario)
+            try:
+                schema.validate(scenario)
+                schema.check_provenance(scenario, evidence)
+            except CompilationStop as exc:
+                raise LoweringMismatch(
+                    "the code-generated scenario failed its own contract; "
+                    "this is a compiler defect, not a model error: "
+                    + exc.reason, {"inner": exc.to_dict()})
+            t0 = wallclock.monotonic()
+            compiled = lower(scenario, question.get("question", ""))
+            metrics["lowering_ms"] = round(
+                (wallclock.monotonic() - t0) * 1000, 1)
+
+            # ---- semantic round-trip: the lowered world must mean what
+            # the approved world means, or it does not run --------------
+            graph_md = describe_graph(graph, question, bindings)
+            runtime_md = describe_runtime(compiled)
+            with open(os.path.join(outdir, "runtime_round_trip.md"), "w",
+                      encoding="utf-8") as f:
+                f.write(runtime_md)
+            t0 = wallclock.monotonic()
+            try:
+                equivalence, _ = review_equivalence(
+                    graph_md, runtime_md, call=call, model=review_model,
+                    log=calls, attempt=eq_round)
+                metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+                break
+            except LoweringMismatch as exc:
+                metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+                detail = exc.detail or {}
+                verdict = {"verdict": detail.get("verdict"),
+                           "findings": detail.get("findings") or [],
+                           "round": eq_round}
+                eq_history.append(verdict)
+                _wj(os.path.join(outdir,
+                                 "semantic_equivalence_review.json"),
+                    {**verdict, "final": True,
+                     "prior_rounds": eq_history[:-1]})
+                findings = [f for f in verdict["findings"]
+                            if isinstance(f, dict)]
+                # one targeted rebind round: only when the reviewer's
+                # findings name specific bound items can their answers be
+                # replayed with the defect; anything else stands
+                keys = (items_named_in(json.dumps(findings), bindings)
+                        if eq_round == 0 and findings else set())
+                if not keys:
+                    raise
+                defect_text = "\n".join(
+                    f"- {f.get('what')} (where: {f.get('where')}; "
+                    f"material because: {f.get('material_because')})"
+                    for f in findings)
+                redone = rebind_items(bindings, keys, defect_text, call,
+                                      model)
+                if not redone:
+                    raise
+                connect_process_outputs(graph, bindings)
+                metrics["equivalence_rebinds"] = sorted(redone)
+        metrics["binding_calls"] = len(bindings.calls)
+        metrics["repairs_by_step"].update(bindings.repairs)
+        if eq_history:
+            equivalence = {**equivalence, "prior_rounds": eq_history}
         _wj(os.path.join(outdir, "semantic_equivalence_review.json"),
             equivalence)
 

@@ -320,18 +320,27 @@ _REVIEW_SYSTEM = (
 
 
 def review_equivalence(graph_md: str, runtime_md: str, call=call_json,
-                       model: str = "deepseek-chat") -> tuple:
+                       model: str = "deepseek-chat", log: list | None = None,
+                       attempt: int = 0) -> tuple:
     """Returns (review dict, call log). Raises LoweringMismatch when the
-    lowered meaning is materially different -- such a world must not run."""
+    lowered meaning is materially different -- such a world must not run.
+    Pass ``log`` to keep the verbatim call record even when the verdict
+    raises; ``attempt`` numbers a re-review after a targeted rebind."""
     user = (graph_md + "\n\n=====\n\n" + runtime_md)
+    if log is None:
+        log = []
     try:
         doc, raw, usage = call(_REVIEW_SYSTEM, user, model=model)
     except (TruncatedResponse, ValueError) as exc:
+        log.append({"step": "semantic_equivalence_review",
+                    "attempt": attempt,
+                    "prompt": {"system": _REVIEW_SYSTEM, "user": user},
+                    "raw_response": "", "usage": {}})
         raise LoweringMismatch(
             f"the equivalence review reply was unusable: {exc}")
-    log = [{"step": "semantic_equivalence_review", "attempt": 0,
-            "prompt": {"system": _REVIEW_SYSTEM, "user": user},
-            "raw_response": raw, "usage": usage}]
+    log.append({"step": "semantic_equivalence_review", "attempt": attempt,
+                "prompt": {"system": _REVIEW_SYSTEM, "user": user},
+                "raw_response": raw, "usage": usage})
     verdict = (doc or {}).get("verdict")
     if verdict not in VERDICTS:
         raise LoweringMismatch(

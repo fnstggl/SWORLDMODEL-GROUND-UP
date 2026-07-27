@@ -29,6 +29,7 @@ from .errors import (InvalidReference, LoweringGap, SemanticAmbiguity,
 from .graph import WorldGraph
 from .llm import TruncatedResponse, call_json
 from .schema import CHANGE_TYPES
+from .symbols import slug
 
 STATUSES = ("verified", "inferred", "question_given",
             "model_memory_unverified")
@@ -72,12 +73,17 @@ class Bindings:
     repairs: dict = field(default_factory=dict)
     tokens: int = 0
     unsupported: list = field(default_factory=list)
+    # runtime-only bookkeeping for targeted post-lowering rebinds: the
+    # validator and storage slot of every asked item, keyed by item id
+    validators: dict = field(default_factory=dict)
+    slots: dict = field(default_factory=dict)
 
 
 def _ask(item_id: str, user: str, validator, b: Bindings, call,
          model: str) -> dict | None:
     """One binding item: call, validate, at most one targeted repair.
     Returns None when the model declares the item unsupported."""
+    b.validators.setdefault(item_id, validator)
     doc, raw, defects = None, "", []
     for attempt in (0, 1):
         prompt = user if attempt == 0 else (
@@ -204,6 +210,7 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                if wants_info else ""))
         doc = _ask(f"action:{node.name}", ask, lambda d: _v_action(
             d, wants_records, wants_amounts, wants_info), b, call, model)
+        b.slots[f"action:{node.name}"] = ("actions", node.id)
         if doc is not None:
             b.actions[node.id] = doc
 
@@ -224,6 +231,7 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                    "  note: one line of grounding")
             doc = _ask(f"channel:{node.name}", ask, _v_channel, b, call,
                        model)
+            b.slots[f"channel:{node.name}"] = ("channels", node.id)
             if doc is not None:
                 b.channels[node.id] = doc
         else:
@@ -268,6 +276,7 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                    "instead.")
             doc = _ask(f"process:{node.name}", ask, _v_process, b, call,
                        model)
+            b.slots[f"process:{node.name}"] = ("processes", node.id)
             if doc is not None:
                 b.processes[node.id] = doc
 
@@ -312,6 +321,7 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                   else ""))
         doc = _ask(f"event:{node.name}", ask,
                    lambda d: _v_event(d, residue), b, call, model)
+        b.slots[f"event:{node.name}"] = ("events", node.id)
         if doc is not None:
             b.events[node.id] = doc
 
@@ -558,3 +568,60 @@ def _v_event(doc, residue) -> list:
                 if not str(spec.get("channel") or "").strip():
                     d.append(f"messages[{t['what']!r}] needs 'channel'")
     return d
+
+
+# ---------------------------------------------------------------------------
+# targeted post-lowering rebinds
+# ---------------------------------------------------------------------------
+
+def items_named_in(text: str, b: Bindings) -> set:
+    """Bound items whose node name -- or its runtime slug -- appears
+    verbatim in a review finding. Deterministic string containment; no
+    guessing about what the reviewer meant."""
+    keys = set()
+    for c in b.calls:
+        key = c.get("item") or ""
+        if c.get("attempt") != 0 or ":" not in key:
+            continue
+        prefix, name = key.split(":", 1)
+        if prefix not in ("action", "channel", "process", "event"):
+            continue
+        if name and (name in text or slug(name) in text):
+            keys.add(key)
+    return keys
+
+
+def rebind_items(b: Bindings, item_keys, defect_text: str, call,
+                 model: str) -> list:
+    """One targeted post-lowering repair round: replay the recorded ask
+    for each named item with the equivalence reviewer's defect appended,
+    and replace the stored answer. Everything downstream is re-derived
+    and re-verified by the caller; a second adverse verdict is final.
+    Returns the item keys actually re-asked."""
+    originals: dict = {}
+    for c in b.calls:
+        if c.get("attempt") == 0 and c.get("item") not in originals:
+            originals[c["item"]] = c["prompt"]["user"]
+    redone = []
+    for key in sorted(item_keys):
+        user0 = originals.get(key)
+        validator = b.validators.get(key)
+        slot = b.slots.get(key)
+        if not user0 or validator is None or slot is None:
+            continue
+        user = (user0
+                + "\n\nAFTER LOWERING, an independent equivalence review "
+                  "of the whole world traced this defect to your earlier "
+                  "answer for THE ITEM:\n" + defect_text
+                + "\n\nReturn the complete corrected object for THE ITEM "
+                  "-- fix only what the defect names and keep everything "
+                  "else exactly as the item's meaning requires.")
+        doc = _ask(f"{key}:equivalence_repair", user, validator, b, call,
+                   model)
+        if doc is None:
+            continue          # a late unsupported claim never erases a
+                              # working binding; the re-review will judge
+        store, nid = slot
+        getattr(b, store)[nid] = doc
+        redone.append(key)
+    return redone
