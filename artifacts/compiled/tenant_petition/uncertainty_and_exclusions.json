@@ -1,0 +1,46 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "name": "Other canvassers",
+      "why_safe": "Dana Okoye is the only remaining canvasser per e5; no other canvassers are available to collect signatures."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Alternative filing methods (e.g., mail, email)",
+      "why_safe": "Board rules require filing with the board clerk in person at the hearing-room desk on hearing day (e2); no other method is accepted."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Signatures from non-current tenants",
+      "why_safe": "All 35 collected signatures are verified current tenants (e10); any future signatures will be checked against the rent roll, so invalid signatures are excluded."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "okoye_canvasses_tuesday",
+      "meaning": "Whether Dana Okoye's Tuesday evening canvass in Building 3 actually occurs and how many signatures she collects (between 6 and 9 based on prior sessions)."
+    },
+    {
+      "about": "okoye_canvasses_wednesday",
+      "meaning": "Whether Dana Okoye's Wednesday evening canvass in Building 3 actually occurs and how many signatures she collects (between 6 and 9 based on prior sessions)."
+    },
+    {
+      "about": "at_least_40_signatures_collected",
+      "meaning": "Whether the total collected signatures reach at least 40 by the time of filing, given the uncertain outcomes of the two canvassing sessions."
+    },
+    {
+      "about": "secretary_files_petition",
+      "meaning": "Whether Lena Park successfully files the petition before the hearing opens at 10:00 AM on Thursday 20 August, given her stated plan but potential unforeseen delays."
+    }
+  ]
+}

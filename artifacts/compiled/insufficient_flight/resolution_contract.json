@@ -1,0 +1,23 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The scheduled departure time of AU 780 from Halden International on 12 August 2026.",
+    "timezone": "Europe/Paris",
+    "when": "2026-08-12T15:00:00+02:00"
+  },
+  "evidence_ids": [],
+  "measured_act": null,
+  "negative_condition": "Noor Haddad is not aboard AU 780 when it departs Halden International on 12 August 2026, including missing the flight, being rebooked, or not traveling that day.",
+  "positive_condition": "Noor Haddad is aboard AU 780 when it departs Halden International on 12 August 2026.",
+  "proof": [
+    {
+      "kind": "state",
+      "meaning": "Noor Haddad is physically present on the aircraft when it departs.",
+      "name": "Haddad aboard AU 780 at departure"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "Whether Noor Haddad is aboard flight AU 780 when it departs Halden International on 12 August 2026."
+}

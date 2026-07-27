@@ -1,13 +1,26 @@
 {
-  "channels": [],
+  "channels": [
+    {
+      "channel": "process:firsttrack",
+      "receivers": [],
+      "senders": []
+    }
+  ],
   "emergent_components": [
     "record:wire_initiation_record"
   ],
   "information_paths": [],
-  "operating_processes": [],
+  "operating_processes": [
+    "process:delivery_to_landmark",
+    "process:instruction_delivered_to_fontaine"
+  ],
   "parameter_binding": "deferred to the binding stage",
   "scheduled_roots": [
     "event:instruction_delivered_to_hollis"
   ],
-  "warnings": []
+  "warnings": [
+    "process:delivery_to_landmark: a process that changes nothing is decorative",
+    "process:firsttrack: a route with no senders is dead and can carry nothing",
+    "process:instruction_delivered_to_fontaine: a process that changes nothing is decorative"
+  ]
 }

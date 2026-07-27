@@ -1,0 +1,204 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e4"
+          ],
+          "meaning": "Auralis Air operates and is responsible for the departure of AU 780.",
+          "over": "AU 780 departs Halden International"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e4"
+          ],
+          "meaning": "Auralis Air operates and is responsible for the arrival of AU 412.",
+          "over": "AU 412 arrives at Halden International"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e4"
+          ],
+          "meaning": "Auralis Air operates and is responsible for the departure of AU 412.",
+          "over": "AU 412 departs Verlan City"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Noor Haddad holds a confirmed booking for AU 412 and AU 780 on 12 August 2026.",
+          "name": "Haddad booking K7Q4WD",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "AU 412 departs Verlan City at 11:20 and arrives Halden at 14:05 on 12 August.",
+          "name": "AU 412 schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "AU 780 departs Halden at 15:00 and arrives Port Askel at 17:10 on 12 August.",
+          "name": "AU 780 schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The booking is through-ticketed with baggage checked through.",
+          "name": "Through-ticketed itinerary",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Haddad selected seat 14C on AU 412 and 9A on AU 780.",
+          "name": "Haddad seat selections",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Auralis operates Verlan-Halden route with 118-seat regional jets.",
+          "name": "Aircraft type",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Haddad is an Auralis Silver frequent-flyer member.",
+          "name": "Haddad frequent-flyer status",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "AU 780 operates daily in August 2026.",
+          "name": "AU 780 daily operation",
+          "visibility": "public"
+        }
+      ],
+      "name": "Auralis Air",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ],
+          "meaning": "Scheduled departure from Verlan City at 11:20, arrival at Halden International at 14:05 on 12 August 2026.",
+          "name": "Flight AU 412",
+          "when": "2026-08-12T11:20:00+02:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e3"
+          ],
+          "meaning": "Scheduled departure from Halden International at 15:00, arrival at Port Askel at 17:10 on 12 August 2026.",
+          "name": "Flight AU 780",
+          "when": "2026-08-12T15:00:00+02:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Noor Haddad holds a confirmed single-ticket booking for AU 412 and AU 780 on 12 August 2026.",
+          "name": "Booking reference K7Q4WD",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Seat 14C on AU 412 and seat 9A on AU 780.",
+          "name": "Seat assignments",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Noor Haddad is an Auralis Silver frequent-flyer member.",
+          "name": "Auralis Silver status",
+          "visibility": "private"
+        }
+      ],
+      "name": "Noor Haddad",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "Europe/Berlin"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "actor_decision",
+      "meaning": "The Halvorsen Group board creates an official record (e.g., board minutes, resolution) showing approval of the Meridian acquisition before the deadline.",
+      "name": "board_approval_record_created",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "board_meeting_held"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "board_votes_approval"
+        }
+      ],
+      "produces_proof": [
+        "board_approval_record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "actor_decision",
+      "meaning": "The Halvorsen Group board votes to approve the Meridian acquisition.",
+      "name": "board_votes_approval",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "board_meeting_held"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "acquisition_proposal_presented"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A meeting of the Halvorsen Group board is held at which the Meridian acquisition is discussed.",
+      "name": "board_meeting_held",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "board_meeting_scheduled"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A board meeting is scheduled to consider the Meridian acquisition.",
+      "name": "board_meeting_scheduled",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "acquisition_proposal_developed"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "actor_decision",
+      "meaning": "A formal proposal for the Meridian acquisition is presented to the board.",
+      "name": "acquisition_proposal_presented",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "acquisition_proposal_developed"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Halvorsen Group management develops a proposal for the Meridian acquisition.",
+      "name": "acquisition_proposal_developed",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "negotiations_occur"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Halvorsen Group and Meridian Freight engage in negotiations regarding a potential acquisition.",
+      "name": "negotiations_occur",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "initial_contact"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Halvorsen Group and Meridian Freight make initial contact regarding a potential acquisition.",
+      "name": "initial_contact",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "It is uncertain whether initial contact has occurred or will occur; the evidence only mentions 'held talks' without specifics.",
+      "when": null
+    }
+  ]
+}

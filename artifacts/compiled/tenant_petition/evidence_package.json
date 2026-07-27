@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "The Gladwell Court Tenants' Association represents tenants of Buildings 1, 2, and 3 at Gladwell Court and has a petition item before the Marsh County Rent Guidelines Board at a hearing on Thursday 20 August 2026 at 10:00 AM.",
+      "id": "e1",
+      "source": "Board hearing calendar",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "Board rules provide that the petition is considered only if it bears at least 40 signatures of current tenants and is filed with the board clerk before the hearing is called to order; the clerk accepts filings weekdays 9:00 to 5:00 and at the hearing-room desk from 9:00 to 9:45 AM on hearing day.",
+      "id": "e2",
+      "source": "Board rules of procedure",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-17T18:00:00-04:00",
+      "claim": "As of 6:00 PM Monday 17 August the association has collected 18 signatures in Building 1, 11 in Building 2, and 6 in Building 3.",
+      "id": "e3",
+      "source": "Association signature tally sheet, 2026-08-17",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-17T18:00:00-04:00",
+      "claim": "Every unit in Buildings 1 and 2 has already been canvassed, while 21 occupied units in Building 3 have not yet been approached.",
+      "id": "e4",
+      "source": "Association canvass map, 2026-08-17",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-16T20:00:00-04:00",
+      "claim": "Dana Okoye is the association's only remaining canvasser; she works nursing shifts weekdays 7:00 AM to 5:00 PM, canvasses only from 6:30 to 8:30 PM on weekday evenings, and has committed to canvass Building 3 on the evenings of Tuesday 18 and Wednesday 19 August.",
+      "id": "e5",
+      "source": "Association meeting minutes, 2026-08-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-16T20:00:00-04:00",
+      "claim": "In each of her four prior two-hour evening sessions at Gladwell Court, Okoye collected between 6 and 9 signatures.",
+      "id": "e6",
+      "source": "Association sign-in sheets, May-July 2026",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-10T00:00:00-04:00",
+      "claim": "Building 3 house rules require 24-hour advance notice of door-to-door canvassing posted on the lobby bulletin board, and only the superintendent may post notices there.",
+      "id": "e7",
+      "source": "Building 3 house rules",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-17T17:30:00-04:00",
+      "claim": "Superintendent Vic Morales posted the association's canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August.",
+      "id": "e8",
+      "source": "Photograph of posted notice, association files",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-16T20:00:00-04:00",
+      "claim": "Association secretary Lena Park holds the signature sheets, canvassers return completed sheets to her the same evening after each session, she lives 20 minutes from the board office, and her stated practice is to file association documents in person at the hearing-room desk when it opens at 9:00 AM on hearing day, which she has told members she is prepared to do on 20 August.",
+      "id": "e9",
+      "source": "Association meeting minutes, 2026-08-16",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-08-17T18:00:00-04:00",
+      "claim": "The association checks each collected signature against the buildings' rent roll the same evening, and all 35 signatures collected so far are verified current tenants.",
+      "id": "e10",
+      "source": "Association tally sheet and rent roll check, 2026-08-17",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_tenant_petition_2026_08",
+  "prepared_at": "2026-08-17T20:00:00-04:00"
+}

@@ -1,0 +1,134 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The board of Halvorsen Group creates the official record of approval.",
+          "name": "Halvorsen Group board"
+        }
+      ],
+      "step": "board_approval_record_created"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The board votes to approve the acquisition.",
+          "name": "Halvorsen Group board"
+        }
+      ],
+      "step": "board_votes_approval"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The board holds a meeting to discuss the acquisition.",
+          "name": "Halvorsen Group board"
+        }
+      ],
+      "step": "board_meeting_held"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "The board schedules a meeting to consider the acquisition.",
+          "name": "Halvorsen Group board"
+        }
+      ],
+      "step": "board_meeting_scheduled"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Management presents the proposal to the board.",
+          "name": "Halvorsen Group management"
+        }
+      ],
+      "step": "acquisition_proposal_presented"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e1"
+          ],
+          "kind": "organization",
+          "meaning": "Management develops the acquisition proposal.",
+          "name": "Halvorsen Group management"
+        }
+      ],
+      "step": "acquisition_proposal_developed"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "Halvorsen Group engages in negotiations with Meridian Freight.",
+          "name": "Halvorsen Group"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "Meridian Freight engages in negotiations with Halvorsen Group.",
+          "name": "Meridian Freight"
+        }
+      ],
+      "step": "negotiations_occur"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "Halvorsen Group makes initial contact with Meridian Freight.",
+          "name": "Halvorsen Group"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "Meridian Freight makes initial contact with Halvorsen Group.",
+          "name": "Meridian Freight"
+        }
+      ],
+      "step": "initial_contact"
+    }
+  ]
+}

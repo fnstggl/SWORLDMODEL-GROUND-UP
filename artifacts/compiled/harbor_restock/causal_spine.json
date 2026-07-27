@@ -1,0 +1,276 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "The ordered vaccine doses are physically at the Torsey Island clinic before 9:00 AM on Thursday 13 August 2026.",
+      "name": "vaccine_at_clinic",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vaccine_arrives_at_island_dock"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "courier_delivers_to_clinic"
+        }
+      ],
+      "produces_proof": [
+        "vaccine_at_clinic"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "process",
+      "meaning": "The clinic's courier meets the cargo sailing at the island dock and carries the cold-chain delivery straight to the clinic.",
+      "name": "courier_delivers_to_clinic",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vaccine_arrives_at_island_dock"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "The vaccine doses arrive at the Torsey Island dock on a ferry sailing.",
+      "name": "vaccine_arrives_at_island_dock",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ferry_sailing_arrives"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "A ferry sailing with the vaccine on board arrives at Torsey Island.",
+      "name": "ferry_sailing_arrives",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vaccine_loaded_on_ferry"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T08:25:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "condition",
+      "meaning": "The vaccine doses are loaded onto a ferry sailing from the mainland to Torsey Island.",
+      "name": "vaccine_loaded_on_ferry",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vaccine_at_ferry_terminal_cold_room"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ferry_sailing_departs"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "A ferry sailing departs from the mainland terminal to Torsey Island.",
+      "name": "ferry_sailing_departs",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ferry_sailing_operates"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T07:30:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e8"
+      ],
+      "kind": "condition",
+      "meaning": "A ferry sailing actually operates on the given day (not cancelled).",
+      "name": "ferry_sailing_operates",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "ferry_sailing_not_cancelled"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "condition",
+      "meaning": "The ferry sailing is not cancelled due to weather or other reasons.",
+      "name": "ferry_sailing_not_cancelled",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "gale_warning_ends_before_sailing"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "condition",
+      "meaning": "The gale warning for the Torsey passage ends before the ferry sailing departs.",
+      "name": "gale_warning_ends_before_sailing",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "gale_warning_issued"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "A gale warning was issued for the Torsey passage from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.",
+      "name": "gale_warning_issued",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-11T13:05:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "The vaccine doses are checked in at the mainland ferry terminal cold room by 6:30 AM on the sailing day.",
+      "name": "vaccine_at_ferry_terminal_cold_room",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "penhallow_delivers_to_terminal"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Penhallow's driver delivers the cold-chain shipment to the ferry terminal cold room by 6:00 AM on a sailing day.",
+      "name": "penhallow_delivers_to_terminal",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vaccine_packed_and_ready"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-08-13T06:00:00-04:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "condition",
+      "meaning": "The vaccine order is picked, packed in validated coolers, and ready for carrier handoff by 8:00 AM the next business day after the order.",
+      "name": "vaccine_packed_and_ready",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "order_placed"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Quinlan placed the restock order for 100 pediatric vaccine doses with Penhallow Medical Supply at 9:00 AM on Monday 10 August.",
+      "name": "order_placed",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

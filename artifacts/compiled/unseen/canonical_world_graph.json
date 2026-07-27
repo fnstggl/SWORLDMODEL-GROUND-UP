@@ -1,0 +1,4890 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:stern_clear",
+      "rel": "requires",
+      "src": "action:berth_clear_declaration"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:cape_ferrol_departure_estimate",
+      "rel": "requires",
+      "src": "action:berth_clear_projection"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:berth_clear_projection",
+      "rel": "requires",
+      "src": "action:pilot_order_placed"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:berth_clear_projection",
+      "rel": "requires",
+      "src": "action:pilot_order_placed_cape_ferrol"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:labor_order_accepted",
+      "rel": "requires",
+      "src": "event:crane_operations_resume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:pilot_order_placed",
+      "rel": "requires",
+      "src": "event:pilot_order_accepted"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:pilot_order_placed_cape_ferrol",
+      "rel": "requires",
+      "src": "event:pilot_order_accepted"
+    },
+    {
+      "attrs": {
+        "meaning": "Perform container moves"
+      },
+      "dst": "process:crane_operations_complete",
+      "rel": "has_authority",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:assigned_to",
+      "rel": "has_state",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:labor_shift",
+      "rel": "has_state",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:maintenance_status",
+      "rel": "has_state",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:productivity_rate",
+      "rel": "has_state",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:remaining_moves_at_1630",
+      "rel": "has_state",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "organization:four_ship_to_shore_cranes"
+    },
+    {
+      "attrs": {},
+      "dst": "action:labor_order_accepted",
+      "rel": "can_perform",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {
+        "meaning": "Danielle Okafor, GPA vessel planner and berth coordinator, is the only person authorized to declare a berth clear to Savannah Pilots dispatch."
+      },
+      "dst": "action:berth_clear_declaration",
+      "rel": "has_authority",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berth_6_out_of_service",
+      "rel": "has_state",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berth_8_occupied",
+      "rel": "has_state",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berth_8_only_berth_for_rhine_meridian",
+      "rel": "has_state",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berth_clear_not_declared",
+      "rel": "has_state",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berths_1_to_5_draft_limit",
+      "rel": "has_state",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "state:labor_order_accepted",
+      "rel": "has_state",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cape_ferrol_remaining_moves",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "event:crane_operations_resume",
+      "rel": "observes",
+      "src": "organization:georgia_ports_authority"
+    },
+    {
+      "attrs": {},
+      "dst": "action:labor_order_accepted",
+      "rel": "can_perform",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {
+        "meaning": "ILA Local 1414 accepted the labor order from GPA for the 18:00-23:00 shift at Berth 8."
+      },
+      "dst": "action:labor_order_accepted",
+      "rel": "has_authority",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "state:labor_order_accepted",
+      "rel": "has_state",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "state:working_agreement",
+      "rel": "has_state",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_details",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {},
+      "dst": "event:crane_operations_resume",
+      "rel": "observes",
+      "src": "organization:ila_local_1414"
+    },
+    {
+      "attrs": {
+        "meaning": "Transports pilot to vessel"
+      },
+      "dst": "process:pilot_boarding",
+      "rel": "has_authority",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "state:communication",
+      "rel": "has_state",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "state:crew",
+      "rel": "has_state",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "state:location",
+      "rel": "has_state",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "organization:pilot_boat_savannah"
+    },
+    {
+      "attrs": {
+        "meaning": "As assigned outbound pilot, boards MV Cape Ferrol to conduct the outbound transit."
+      },
+      "dst": "process:pilot_boarding_cape_ferrol",
+      "rel": "has_authority",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {
+        "meaning": "Boards MV Cape Ferrol"
+      },
+      "dst": "process:pilot_boarding_cape_ferrol",
+      "rel": "has_authority",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "state:assigned_outbound_pilot",
+      "rel": "has_state",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "state:on_rotation_board",
+      "rel": "has_state",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "event:outbound_pilot_duty",
+      "rel": "observes",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Monitored during operations.",
+          "meaning": "Monitored continuously by terminal personnel and pilots as needed."
+        }
+      },
+      "dst": "process:vhf_channel_12",
+      "rel": "receives_from",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Monitored continuously during duty hours.",
+          "meaning": "Continuous monitoring by dispatch and pilots while on duty."
+        }
+      },
+      "dst": "process:vhf_channel_13",
+      "rel": "receives_from",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_12",
+      "rel": "sends_to",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_13",
+      "rel": "sends_to",
+      "src": "participant:capt_dale_wingard"
+    },
+    {
+      "attrs": {
+        "meaning": "Capt. Lorraine Beaudry is the inbound pilot who boards the vessel MV Rhine Meridian"
+      },
+      "dst": "process:pilot_boarding",
+      "rel": "has_authority",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "state:assigned_as_inbound_pilot",
+      "rel": "has_state",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "state:first_on_rotation_board",
+      "rel": "has_state",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "state:rest_period_completed",
+      "rel": "has_state",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_details",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "event:pilot_order_accepted",
+      "rel": "observes",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Always available",
+          "meaning": "Continuous monitoring"
+        }
+      },
+      "dst": "process:vhf_channel_13",
+      "rel": "receives_from",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Always available",
+          "meaning": "Continuous monitoring"
+        }
+      },
+      "dst": "process:vhf_channel_16",
+      "rel": "receives_from",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_13",
+      "rel": "sends_to",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_16",
+      "rel": "sends_to",
+      "src": "participant:capt_lorraine_beaudry"
+    },
+    {
+      "attrs": {},
+      "dst": "action:berth_clear_declaration",
+      "rel": "can_perform",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {
+        "meaning": "Danielle Okafor is authorized to declare Berth 8 clear to Savannah Pilots dispatch upon observing the departing vessel's stern clear the berth face."
+      },
+      "dst": "action:berth_clear_declaration",
+      "rel": "has_authority",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berth_clear_authority",
+      "rel": "has_state",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "state:berth_clear_not_declared",
+      "rel": "has_state",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "state:shift_start",
+      "rel": "has_state",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_only_option",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "During her shift 15:00-23:00 EDT.",
+          "meaning": "Continuous monitoring while on shift."
+        }
+      },
+      "dst": "process:vhf_channel_12_base_station",
+      "rel": "receives_from",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_12_base_station",
+      "rel": "sends_to",
+      "src": "participant:danielle_okafor"
+    },
+    {
+      "attrs": {},
+      "dst": "action:berth_clear_projection",
+      "rel": "can_perform",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {
+        "meaning": "Marcus Deveaux projected the berth clear time for MV Cape Ferrol."
+      },
+      "dst": "action:berth_clear_projection",
+      "rel": "has_authority",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "state:shift_working",
+      "rel": "has_state",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "During his shift 12:00-20:00 EDT.",
+          "meaning": "Continuous monitoring while on shift."
+        }
+      },
+      "dst": "process:vhf_channel_12",
+      "rel": "receives_from",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_12",
+      "rel": "sends_to",
+      "src": "participant:marcus_deveaux"
+    },
+    {
+      "attrs": {},
+      "dst": "action:pilot_order_placed",
+      "rel": "can_perform",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "action:pilot_order_placed_cape_ferrol",
+      "rel": "can_perform",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {
+        "meaning": "Priya Raghavan placed the inbound pilot order for MV Rhine Meridian and the outbound pilot order for MV Cape Ferrol."
+      },
+      "dst": "action:pilot_order_placed",
+      "rel": "has_authority",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {
+        "meaning": "Priya Raghavan placed the outbound pilot order for MV Cape Ferrol."
+      },
+      "dst": "action:pilot_order_placed_cape_ferrol",
+      "rel": "has_authority",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "state:works_as_vessel_operations_manager",
+      "rel": "has_state",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_only_option",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cape_ferrol_remaining_moves",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_inbound_rhine_meridian_placed",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_outbound_cape_ferrol_placed",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_accepted",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_anchored",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:standing_orders",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "participant:priya_raghavan"
+    },
+    {
+      "attrs": {
+        "meaning": "Accepts outbound pilot order"
+      },
+      "dst": "event:pilot_order_accepted",
+      "rel": "has_authority",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {
+        "meaning": "Accepts outbound pilot orders."
+      },
+      "dst": "event:pilot_order_accepted",
+      "rel": "has_authority",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {
+        "meaning": "Accepts pilot orders placed by agents."
+      },
+      "dst": "event:pilot_order_accepted",
+      "rel": "has_authority",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {
+        "meaning": "Accepts the pilot order"
+      },
+      "dst": "event:pilot_order_accepted",
+      "rel": "has_authority",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "state:accepted_pilot_orders",
+      "rel": "has_state",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "state:assigned_pilots",
+      "rel": "has_state",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "state:continuously_manned_24_hour_watch",
+      "rel": "has_state",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration_yet",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_assignments",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_accepted",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:standing_orders",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "24/7",
+          "meaning": "Continuous monitoring."
+        }
+      },
+      "dst": "process:dispatch_telephone_line",
+      "rel": "receives_from",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "24/7",
+          "meaning": "Continuous monitoring."
+        }
+      },
+      "dst": "process:vhf_channel_13",
+      "rel": "receives_from",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "process:dispatch_telephone_line",
+      "rel": "sends_to",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_13",
+      "rel": "sends_to",
+      "src": "participant:savannah_pilots_association_dispatcher"
+    },
+    {
+      "attrs": {
+        "meaning": "Container gangs resume work at 18:00 EDT after the break"
+      },
+      "dst": "event:crane_operations_resume",
+      "rel": "has_authority",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {
+        "meaning": "Resume work at 18:00 EDT"
+      },
+      "dst": "event:crane_operations_resume",
+      "rel": "has_authority",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {
+        "meaning": "Container gangs operate cranes and handle containers to complete the Cape Ferrol load"
+      },
+      "dst": "process:crane_operations_complete",
+      "rel": "has_authority",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "state:labor_order_accepted",
+      "rel": "has_state",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "state:work_shift",
+      "rel": "has_state",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "population:container_gangs"
+    },
+    {
+      "attrs": {
+        "meaning": "Heave anchor to short stay"
+      },
+      "dst": "process:anchor_heaved",
+      "rel": "has_authority",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {
+        "meaning": "The crew is responsible for heaving the anchor when ordered by the pilot."
+      },
+      "dst": "process:anchor_heaved",
+      "rel": "has_authority",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "state:anchored_at_tybee_roads_anchorage_a",
+      "rel": "has_state",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "state:arrival_draft_45_ft_03_in",
+      "rel": "has_state",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "state:manned_bridge_anchor_watch",
+      "rel": "has_state",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "state:on_immediate_notice_for_engines",
+      "rel": "has_state",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_placed",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Always.",
+          "meaning": "Continuously monitored on the bridge."
+        }
+      },
+      "dst": "process:vhf_channel_13",
+      "rel": "receives_from",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {
+        "attention": {
+          "basis": "verified",
+          "blocked": [],
+          "cadence_minutes": null,
+          "calendar_meaning": "Always.",
+          "meaning": "Continuously monitored on the bridge."
+        }
+      },
+      "dst": "process:vhf_channel_16",
+      "rel": "receives_from",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_13",
+      "rel": "sends_to",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {},
+      "dst": "process:vhf_channel_16",
+      "rel": "sends_to",
+      "src": "population:crew_of_mv_rhine_meridian"
+    },
+    {
+      "attrs": {
+        "meaning": "Perform lashing and securing"
+      },
+      "dst": "process:lashing_and_securing",
+      "rel": "has_authority",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {
+        "meaning": "Release lines"
+      },
+      "dst": "process:unmooring",
+      "rel": "has_authority",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_6_out_of_service",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupancy",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_8_occupied_by_cape_ferrol",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_clear_projection",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_occupancy",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berth_status",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:berths_1_to_5_draft_limit",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:deveaux_projection",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:labor_order_accepted",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_berth_clear_declaration",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_order_accepted",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:pilot_orders_placed",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:rhine_meridian_at_anchorage",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:transit_window_evening",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:tug_and_line_handlers",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:vessel_draft",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:weather_and_navigation",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:work_schedule",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "information:working_agreement_terms",
+      "rel": "knows",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {},
+      "dst": "event:rostered_at_berth_8",
+      "rel": "observes",
+      "src": "population:mooring_gang"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:pilot_boarding",
+      "rel": "requires",
+      "src": "process:anchor_heaved"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:crane_operations_resume",
+      "rel": "requires",
+      "src": "process:crane_operations_complete"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:last_container_landed",
+      "rel": "requires",
+      "src": "process:lashing_and_securing"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:pilot_order_accepted",
+      "rel": "requires",
+      "src": "process:pilot_boarding"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:pilot_available",
+      "rel": "requires",
+      "src": "process:pilot_boarding"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:pilot_order_accepted",
+      "rel": "requires",
+      "src": "process:pilot_boarding_cape_ferrol"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:lashing_and_securing",
+      "rel": "requires",
+      "src": "process:unmooring"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:pilot_boarding_cape_ferrol",
+      "rel": "requires",
+      "src": "process:unmooring"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:gpa_garden_city_berth_8_vessel_log"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:savannah_pilots_association_docking_report"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:berthing_complete",
+      "rel": "requires",
+      "src": "state:all_fast_event"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:all_fast_event",
+      "rel": "requires",
+      "src": "state:all_fast_recorded"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:inbound_transit_complete",
+      "rel": "requires",
+      "src": "state:berthing_complete"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:mooring_gang_available",
+      "rel": "requires",
+      "src": "state:berthing_complete"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:lashing_and_securing",
+      "rel": "requires",
+      "src": "state:cape_ferrol_departure_estimate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:pilot_boarding_cape_ferrol",
+      "rel": "requires",
+      "src": "state:cape_ferrol_departure_estimate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:unmooring",
+      "rel": "requires",
+      "src": "state:cape_ferrol_departure_estimate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:last_container_landed",
+      "rel": "requires",
+      "src": "state:cape_ferrol_departure_estimate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:stern_clear",
+      "rel": "requires",
+      "src": "state:cape_ferrol_departure_estimate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:inbound_transit_start",
+      "rel": "requires",
+      "src": "state:inbound_transit_complete"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:berth_clear_declaration",
+      "rel": "requires",
+      "src": "state:inbound_transit_start"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:pilot_aboard_and_anchor_up",
+      "rel": "requires",
+      "src": "state:inbound_transit_start"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:transit_window_open",
+      "rel": "requires",
+      "src": "state:inbound_transit_start"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:crane_operations_complete",
+      "rel": "requires",
+      "src": "state:last_container_landed"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:anchor_heaved",
+      "rel": "requires",
+      "src": "state:pilot_aboard_and_anchor_up"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:pilot_boarding",
+      "rel": "requires",
+      "src": "state:pilot_aboard_and_anchor_up"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:unmooring",
+      "rel": "requires",
+      "src": "state:stern_clear"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Alternative terminals in Savannah",
+      "why_safe": "The question specifies Georgia Ports Authority Garden City Terminal Berth 8; other terminals are not relevant."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Other berths at Garden City Terminal",
+      "why_safe": "Berth 8 is the only berth with sufficient depth (47 ft) for MV Rhine Meridian's draft; other berths are either shallower or out of service."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e14"
+      ],
+      "name": "Tug or line handler unavailability",
+      "why_safe": "Tugs and mooring gang are confirmed available for the relevant times."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Waiver of Standing Orders",
+      "why_safe": "No waiver request has been filed, and only the Captain of the Port can waive, requiring 72 hours' notice."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e15"
+      ],
+      "name": "Weather or visibility restrictions",
+      "why_safe": "Forecast conditions are well within pilot suspension thresholds, so no weather delay is expected."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:berth_clear_declaration",
+      "meaning": "Danielle Okafor declares Berth 8 clear to Savannah Pilots dispatch after MV Cape Ferrol's stern clears the berth face.",
+      "name": "berth_clear_declaration",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:berth_clear_projection",
+      "meaning": "Marcus Deveaux projects that Berth 8 will be clear by approximately 18:10 EDT.",
+      "name": "berth_clear_projection",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "organization_action"
+      },
+      "category": "action",
+      "id": "action:labor_order_accepted",
+      "meaning": "GPA places and ILA accepts a four-gang labor order for the 18:00-23:00 shift at Berth 8.",
+      "name": "labor_order_accepted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:pilot_order_placed",
+      "meaning": "Meridian Marine Agencies orders inbound pilot service for MV Rhine Meridian at 19:00 EDT.",
+      "name": "pilot_order_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:pilot_order_placed_cape_ferrol",
+      "meaning": "Meridian Marine Agencies orders outbound pilot service for MV Cape Ferrol at 19:00 EDT.",
+      "name": "pilot_order_placed_cape_ferrol",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T18:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:crane_operations_resume",
+      "meaning": "Crane operations resume at 18:00 EDT after the break.\nFour container gangs assigned to Berth 8 from 18:00 to 23:00 EDT on 2026-08-13.\nFour container gangs scheduled to work Berth 8 from 18:00 to 23:00 EDT on 2026-08-13.",
+      "name": "crane_operations_resume",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T19:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:outbound_pilot_duty",
+      "meaning": "Scheduled to pilot MV Cape Ferrol outbound from Berth 8, with pilot order placed for 19:00 EDT.",
+      "name": "outbound_pilot_duty",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T16:36:00-04:00"
+      },
+      "category": "event",
+      "id": "event:pilot_order_accepted",
+      "meaning": "Inbound pilot order for MV Rhine Meridian at Tybee Roads Anchorage A for 19:00 EDT accepted by dispatcher at 16:36 EDT\nSavannah Pilots Association dispatcher accepts the inbound pilot order for MV Rhine Meridian at 19:00 EDT.\nSavannah Pilots Association dispatcher accepts the outbound pilot order for MV Cape Ferrol at 19:00 EDT.",
+      "name": "pilot_order_accepted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T22:15:00-04:00"
+      },
+      "category": "event",
+      "id": "event:rostered_at_berth_8",
+      "meaning": "Mooring gang under foreman Terrell Bass is rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14",
+      "name": "Rostered at Berth 8",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berth_6_out_of_service",
+      "meaning": "GPA knows Berth 6 is out of service.",
+      "name": "berth_6_out_of_service",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berth_8_occupancy",
+      "meaning": "MV Cape Ferrol is currently at Berth 8 with remaining container moves.",
+      "name": "berth_8_occupancy",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berth_8_occupied_by_cape_ferrol",
+      "meaning": "GPA knows Berth 8 is occupied by MV Cape Ferrol.",
+      "name": "berth_8_occupied_by_cape_ferrol",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:berth_8_only_option",
+      "meaning": "Berth 8 is the only berth that can accommodate MV Rhine Meridian's draft.\nPriya Raghavan knows that Berth 8 is the only berth at Garden City Terminal that can accommodate MV Rhine Meridian's draft.",
+      "name": "berth_8_only_option",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berth_clear_projection",
+      "meaning": "Knows Marcus Deveaux projected last container at approximately 18:10 EDT, leading to berth clear estimate\nMarcus Deveaux projected that the last container would land on MV Cape Ferrol at approximately 18:10 EDT on 2026-08-13.\nMarcus Deveaux projected the last container would land on MV Cape Ferrol at approximately 18:10 EDT.\nMay be aware of Marcus Deveaux's projection that last container lands around 18:10 EDT.\nPriya Raghavan knows Marcus Deveaux's projection that the last container on Cape Ferrol would land at approximately 18:10 EDT.",
+      "name": "berth_clear_projection",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berth_occupancy",
+      "meaning": "Knows Berth 8 is occupied by MV Cape Ferrol, which is being worked to completion",
+      "name": "berth_occupancy",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berth_status",
+      "meaning": "Knows Berth 8 is occupied by MV Cape Ferrol and Berth 6 is out of service.\nMarcus Deveaux knows that Berth 8 is occupied by MV Cape Ferrol and that Berth 6 is out of service.\nThe crew knows that Berth 8 is occupied by MV Cape Ferrol and that Berth 6 is out of service.",
+      "name": "berth_status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:berths_1_to_5_draft_limit",
+      "meaning": "GPA knows Berths 1-5 have a 42 ft draft limit.",
+      "name": "berths_1_to_5_draft_limit",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:cape_ferrol_remaining_moves",
+      "meaning": "GPA knows MV Cape Ferrol had 58 container moves remaining at 16:30 EDT on 2026-08-13.\nPriya Raghavan knows that MV Cape Ferrol had 58 container moves remaining at 16:30 EDT on 2026-08-13.",
+      "name": "cape_ferrol_remaining_moves",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:deveaux_projection",
+      "meaning": "GPA knows Marcus Deveaux projected the last container on Cape Ferrol at approximately 18:10 EDT.",
+      "name": "deveaux_projection",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:labor_order_accepted",
+      "meaning": "GPA knows the labor order for the 18:00-23:00 shift at Berth 8 was accepted.",
+      "name": "labor_order_accepted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:labor_order_details",
+      "meaning": "ILA Local 1414 knows the labor order for four gangs at Berth 8 from 18:00 to 23:00 on 2026-08-13.",
+      "name": "labor_order_details",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:no_berth_clear_declaration",
+      "meaning": "GPA knows no berth-clear declaration has been made.",
+      "name": "no_berth_clear_declaration",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_berth_clear_declaration_yet",
+      "meaning": "Knows that no berth-clear declaration for Berth 8 has been made as of 16:40 EDT.",
+      "name": "no berth-clear declaration yet",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:pilot_assignments",
+      "meaning": "Knows assigned pilots: Wingard for outbound, Beaudry for inbound.",
+      "name": "pilot assignments",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:pilot_order_accepted",
+      "meaning": "Knows that the pilot order for MV Cape Ferrol at 19:00 EDT was accepted by dispatch.",
+      "name": "pilot_order_accepted",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:pilot_order_details",
+      "meaning": "Knows she is assigned as inbound pilot for MV Rhine Meridian, ordered for 19:00 EDT at Tybee Roads Anchorage A",
+      "name": "pilot_order_details",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:pilot_order_inbound_rhine_meridian_placed",
+      "meaning": "Priya Raghavan ordered inbound pilot service for MV Rhine Meridian for 19:00 EDT at Tybee Roads Anchorage A at 16:35 EDT.",
+      "name": "pilot_order_inbound_rhine_meridian_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:pilot_order_outbound_cape_ferrol_placed",
+      "meaning": "Priya Raghavan ordered outbound pilot service for MV Cape Ferrol for 19:00 EDT at 16:30 EDT.",
+      "name": "pilot_order_outbound_cape_ferrol_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:pilot_order_placed",
+      "meaning": "The crew knows that inbound pilot service has been ordered for 19:00 EDT.",
+      "name": "pilot order placed",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:pilot_orders",
+      "meaning": "Marcus Deveaux knows that pilot orders for both vessels have been placed for 19:00 EDT.\nPriya Raghavan ordered outbound pilot for MV Cape Ferrol at 19:00 EDT and inbound pilot for MV Rhine Meridian at 19:00 EDT.",
+      "name": "pilot_orders",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:pilot_orders_accepted",
+      "meaning": "Knows that inbound pilot order for MV Rhine Meridian and outbound pilot order for MV Cape Ferrol were accepted at 16:36 EDT.\nPriya Raghavan knows that both pilot orders (outbound for Cape Ferrol at 19:00 EDT, inbound for Rhine Meridian at 19:00 EDT) were accepted by the Savannah Pilots Association dispatcher at 16:36 EDT.",
+      "name": "pilot_orders_accepted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:pilot_orders_placed",
+      "meaning": "GPA knows outbound pilot for Cape Ferrol and inbound pilot for Rhine Meridian were ordered for 19:00 EDT.",
+      "name": "pilot_orders_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:rhine_meridian_anchored",
+      "meaning": "Priya Raghavan knows that MV Rhine Meridian is anchored at Tybee Roads Anchorage A awaiting Berth 8.",
+      "name": "rhine_meridian_anchored",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:rhine_meridian_at_anchorage",
+      "meaning": "GPA knows MV Rhine Meridian is anchored at Tybee Roads Anchorage A awaiting Berth 8.",
+      "name": "rhine_meridian_at_anchorage",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:standing_orders",
+      "meaning": "Knows Standing Orders 9 and 12 regarding draft restrictions and berth clearance.\nPriya Raghavan knows that Standing Orders 9 and 12 require a clear berth confirmation and a high-water window for transit.",
+      "name": "standing_orders",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:transit_window",
+      "meaning": "Knows the inbound transit window for 2026-08-13 is 17:58 to 20:28 EDT.\nKnows the inbound transit window for vessels over 44 ft draft on 2026-08-13 runs from 17:58 to 20:28 EDT\nPriya Raghavan knows the inbound transit window for deep-draft vessels on 2026-08-13 runs from 17:58 EDT to 20:28 EDT, based on high water at 19:58 EDT.\nThe crew knows the transit window for deep-draft vessels is 17:58 to 20:28 EDT on 2026-08-13.\nThe inbound transit window for MV Rhine Meridian on 2026-08-13 runs from 17:58 EDT to 20:28 EDT.",
+      "name": "transit_window",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:transit_window_evening",
+      "meaning": "GPA knows the inbound transit window for vessels over 44 ft draft on 2026-08-13 runs from 17:58 to 20:28 EDT.",
+      "name": "transit_window_evening",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:tug_and_line_handlers",
+      "meaning": "Knows tugs and mooring gang are rostered from 22:15 EDT",
+      "name": "tug_and_line_handlers",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:vessel_draft",
+      "meaning": "Knows MV Rhine Meridian has arrival draft of 45 ft 03 in, exceeding 44 ft, so Standing Order 12 applies",
+      "name": "vessel_draft",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:weather_and_navigation",
+      "meaning": "Knows weather and navigation conditions are favorable for transit",
+      "name": "weather_and_navigation",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e15"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:work_schedule",
+      "meaning": "Gangs know their scheduled shifts and the labor order for Berth 8",
+      "name": "work_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:working_agreement_terms",
+      "meaning": "ILA Local 1414 knows the terms of the working agreement with GPA.",
+      "name": "working_agreement_terms",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "Four ship-to-shore cranes are assigned to MV Cape Ferrol at Berth 8 for the whole of 2026-08-13, with no maintenance restrictions. They operate during container gang shifts: 08:00-17:00 EDT and 18:00-23:00 EDT, with a break from 17:00-18:00 EDT. They resume at 18:00 EDT on 2026-08-13 to finish the Cape Ferrol load.",
+            "operating_meaning": "The cranes operate during the ILA container gang shifts: 08:00-17:00 EDT and 18:00-23:00 EDT, with a one-hour break from 17:00-18:00 EDT. On 2026-08-13, they resume at 18:00 EDT to complete the remaining 58 moves on MV Cape Ferrol.",
+            "rate_meaning": "Sustained average of 23 moves per crane-hour on vessels of this class, which is 92 gross moves per hour with four cranes working."
+          }
+        ],
+        "producer_kind": "physical_process"
+      },
+      "category": "organization",
+      "id": "organization:four_ship_to_shore_cranes",
+      "meaning": "Perform container moves",
+      "name": "Four ship-to-shore cranes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:georgia_ports_authority",
+      "meaning": "Places labor order",
+      "name": "Georgia Ports Authority",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-08-13T17:00:00-04:00",
+            "meaning": "ILA Local 1414 does not work during the 17:00-18:00 break period on 2026-08-13.",
+            "to": "2026-08-13T18:00:00-04:00"
+          }
+        ],
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:ila_local_1414",
+      "meaning": "Accepts labor order",
+      "name": "ILA Local 1414",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "The pilot boat Savannah transports pilots from the Tybee pilot station to vessels at Tybee Roads Anchorage A and elsewhere. It runs continuously as needed, with a transit time of 25 minutes from the Tybee pilot station to Tybee Roads Anchorage A.",
+            "operating_meaning": "The pilot boat operates on a continuously manned 24-hour basis, responding to pilot orders as dispatched.",
+            "rate_meaning": "Transit time from Tybee pilot station to Tybee Roads Anchorage A is 25 minutes."
+          }
+        ],
+        "producer_kind": "physical_process"
+      },
+      "category": "organization",
+      "id": "organization:pilot_boat_savannah",
+      "meaning": "Transports pilot to vessel",
+      "name": "Pilot boat Savannah",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11",
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:capt_dale_wingard",
+      "meaning": "Boards MV Cape Ferrol",
+      "name": "Capt. Dale Wingard",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:capt_lorraine_beaudry",
+      "meaning": "Boards the vessel",
+      "name": "Capt. Lorraine Beaudry",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:00",
+          "open": "15:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:danielle_okafor",
+      "meaning": "Declares berth clear to dispatcher",
+      "name": "Danielle Okafor",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "20:00",
+          "open": "12:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-08-13T20:00:00-04:00",
+            "meaning": "Marcus Deveaux is not available outside his shift 12:00-20:00 EDT.",
+            "to": "2026-08-14T12:00:00-04:00"
+          }
+        ],
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:marcus_deveaux",
+      "meaning": "Projects berth clear time",
+      "name": "Marcus Deveaux",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:priya_raghavan",
+      "meaning": "Orders inbound pilot service\nOrders outbound pilot service",
+      "name": "Priya Raghavan",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:savannah_pilots_association_dispatcher",
+      "meaning": "Accepts outbound pilot order\nAccepts the pilot order",
+      "name": "Savannah Pilots Association dispatcher",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-08-13T17:00:00-04:00",
+            "meaning": "Container gangs do not work during the 17:00-18:00 break",
+            "to": "2026-08-13T18:00:00-04:00"
+          }
+        ],
+        "producer_kind": "population",
+        "timezone": "America/New_York"
+      },
+      "category": "population",
+      "id": "population:container_gangs",
+      "meaning": "Operate cranes and handle containers\nResume work at 18:00 EDT",
+      "name": "Container gangs",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "population",
+        "timezone": "America/New_York"
+      },
+      "category": "population",
+      "id": "population:crew_of_mv_rhine_meridian",
+      "meaning": "Heave anchor to short stay",
+      "name": "Crew of MV Rhine Meridian",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "population",
+        "timezone": "America/New_York"
+      },
+      "category": "population",
+      "id": "population:mooring_gang",
+      "meaning": "Perform lashing and securing\nRelease lines",
+      "name": "Mooring gang",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:anchor_heaved",
+      "meaning": "The anchor of MV Rhine Meridian is heaved to short stay, taking about 30 minutes.",
+      "name": "anchor_heaved",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:crane_operations_complete",
+      "meaning": "All container moves on MV Cape Ferrol are completed by the four cranes.",
+      "name": "crane_operations_complete",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Immediate, continuous monitoring.",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:dispatch_telephone_line",
+      "meaning": "Telephone line for pilot orders and berth-clear declarations.",
+      "name": "dispatch telephone line",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:lashing_and_securing",
+      "meaning": "Final lashing and securing of deck stow on MV Cape Ferrol takes 40 minutes after last container.",
+      "name": "lashing_and_securing",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:pilot_boarding",
+      "meaning": "Pilot boat Savannah transports Capt. Beaudry to Tybee Roads Anchorage A and she boards MV Rhine Meridian.",
+      "name": "pilot_boarding",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e11",
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:pilot_boarding_cape_ferrol",
+      "meaning": "Outbound pilot Capt. Dale Wingard boards MV Cape Ferrol.",
+      "name": "pilot_boarding_cape_ferrol",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:unmooring",
+      "meaning": "MV Cape Ferrol unmooring: interval from pilot aboard to all lines gone is 25 minutes.",
+      "name": "unmooring",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Instantaneous within radio range.",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:vhf_channel_12",
+      "meaning": "Hand-held radio on VHF Channel 12, monitored continuously by Marcus Deveaux.\nMarine VHF channel used for berth operations and communication with terminal.",
+      "name": "VHF Channel 12",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Immediate within the range of the radio.",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:vhf_channel_12_base_station",
+      "meaning": "Danielle Okafor monitors VHF Channel 12 continuously while on shift and can transmit to Savannah Pilots dispatch.",
+      "name": "VHF Channel 12 base station",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Instantaneous when both parties are monitoring",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:vhf_channel_13",
+      "meaning": "Bridge-to-bridge communication channel monitored continuously by MV Rhine Meridian and pilot boat\nBridge-to-bridge navigational channel.\nMarine VHF radio channel used for pilot dispatch and communication.\nPrimary radio channel for pilot dispatch communications.",
+      "name": "VHF Channel 13",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "latency_meaning": "Instantaneous when both parties are monitoring",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:vhf_channel_16",
+      "meaning": "International distress, safety and calling channel.\nInternational hailing and distress channel monitored continuously by MV Rhine Meridian",
+      "name": "VHF Channel 16",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "vessel log",
+        "rule": "secondary",
+        "subject": "MV Rhine Meridian",
+        "value": "all fast time"
+      },
+      "category": "record",
+      "id": "record:gpa_garden_city_berth_8_vessel_log",
+      "meaning": "The vessel log at Berth 8 recording the all-fast time for MV Rhine Meridian.",
+      "name": "GPA Garden City Berth 8 vessel log",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "docking report",
+        "rule": "governing",
+        "subject": "MV Rhine Meridian",
+        "value": "all fast time"
+      },
+      "category": "record",
+      "id": "record:savannah_pilots_association_docking_report",
+      "meaning": "The official docking report from the Savannah Pilots Association recording the all-fast time for MV Rhine Meridian at Berth 8.",
+      "name": "Savannah Pilots Association docking report",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:accepted_pilot_orders",
+      "meaning": "Accepted inbound pilot order for MV Rhine Meridian at 19:00 EDT and outbound pilot order for MV Cape Ferrol at 19:00 EDT, both logged at 16:36 EDT.",
+      "name": "accepted pilot orders",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on berthing_complete; it is the state of being all fast, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:all_fast_event",
+      "meaning": "MV Rhine Meridian is all fast (all mooring lines ashore and secured) at Berth 8.",
+      "name": "all_fast_event",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on the all_fast_event; the recording itself is a measured record of the event, not a separate producer. The pilot's docking report and vessel log are records, but the step is a condition, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:all_fast_recorded",
+      "meaning": "The all-fast time for MV Rhine Meridian at Berth 8 is recorded in the pilot's docking report and the vessel log at or before 23:59 EDT on 2026-08-13.",
+      "name": "all_fast_recorded",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:anchored_at_tybee_roads_anchorage_a",
+      "meaning": "The vessel is anchored at Tybee Roads Anchorage A, awaiting berth.",
+      "name": "anchored at Tybee Roads Anchorage A",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:arrival_draft_45_ft_03_in",
+      "meaning": "The vessel's draft upon arrival is 45 feet 3 inches.",
+      "name": "arrival draft 45 ft 03 in",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:assigned_as_inbound_pilot",
+      "meaning": "Assigned by dispatcher Roy Tillman as inbound pilot for MV Rhine Meridian",
+      "name": "assigned_as_inbound_pilot",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:assigned_outbound_pilot",
+      "meaning": "Assigned as outbound pilot for MV Cape Ferrol at Berth 8 on 2026-08-13.",
+      "name": "assigned_outbound_pilot",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:assigned_pilots",
+      "meaning": "Assigned Capt. Dale Wingard as outbound pilot for MV Cape Ferrol and Capt. Lorraine Beaudry as inbound pilot for MV Rhine Meridian.",
+      "name": "assigned pilots",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "MV Cape Ferrol"
+      },
+      "category": "state",
+      "id": "state:assigned_to",
+      "meaning": "The four cranes are assigned to MV Cape Ferrol at Berth 8 for the whole of 2026-08-13.",
+      "name": "assigned_to",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:berth_6_out_of_service",
+      "meaning": "Berth 6 is out of service for crane-rail replacement through 2026-08-20.",
+      "name": "berth_6_out_of_service",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:berth_8_occupied",
+      "meaning": "Berth 8 is occupied by MV Cape Ferrol as of world opening.",
+      "name": "berth_8_occupied",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:berth_8_only_berth_for_rhine_meridian",
+      "meaning": "Berth 8 is the only berth in the port at which MV Rhine Meridian can lie at her arrival draft of 45 ft 03 in.",
+      "name": "berth_8_only_berth_for_rhine_meridian",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:berth_clear_authority",
+      "meaning": "Danielle Okafor is the only person authorized to declare Berth 8 clear to Savannah Pilots dispatch.",
+      "name": "berth_clear_authority",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:berth_clear_not_declared",
+      "meaning": "No berth-clear declaration for Berth 8 has been made or scheduled in advance as of the start of her shift.\nNo berth-clear declaration for Berth 8 has been made or scheduled in advance.",
+      "name": "berth_clear_not_declared",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on inbound_transit_complete and mooring_gang_available; it is the state of being moored, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:berthing_complete",
+      "meaning": "The vessel is moored and all lines secured at Berth 8.",
+      "name": "berthing_complete",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:berths_1_to_5_draft_limit",
+      "meaning": "Berths 1 through 5 are limited to a maximum permitted draft of 42 ft.",
+      "name": "berths_1_to_5_draft_limit",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on multiple steps; it is an estimate, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:cape_ferrol_departure_estimate",
+      "meaning": "The estimated time for MV Cape Ferrol to depart Berth 8 is around 18:10 EDT based on remaining moves and crane productivity.",
+      "name": "cape_ferrol_departure_estimate",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:communication",
+      "meaning": "The pilot boat monitors VHF Channel 13 and the dispatch telephone line continuously.",
+      "name": "communication",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:continuously_manned_24_hour_watch",
+      "meaning": "The dispatcher desk is staffed continuously, monitoring VHF Channel 13 and dispatch telephone without interruption.",
+      "name": "continuously manned 24-hour watch",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:crew",
+      "meaning": "The pilot boat is crewed and ready to operate at any time.",
+      "name": "crew",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:first_on_rotation_board",
+      "meaning": "Stands first on the pilots' rotation board for 2026-08-13",
+      "name": "first_on_rotation_board",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on inbound_transit_start; it is the state of having completed transit, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:inbound_transit_complete",
+      "meaning": "MV Rhine Meridian completes its inbound transit from the sea buoy to Berth 8, including swinging at Kings Island Turning Basin.",
+      "name": "inbound_transit_complete",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on pilot_aboard_and_anchor_up, berth_clear_declaration, and transit_window_open; it is the state of starting transit, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:inbound_transit_start",
+      "meaning": "MV Rhine Meridian begins its inbound transit from the sea buoy.",
+      "name": "inbound_transit_start",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e13",
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:labor_order_accepted",
+      "meaning": "A four-gang labor order for Berth 8 covering the 18:00-23:00 shift has been placed and accepted\nGPA placed and ILA Local 1414 accepted a four-gang labor order for the 18:00 to 23:00 shift at Berth 8 on 2026-08-13.\nILA Local 1414 accepted a four-gang labor order for Berth 8 covering the 18:00-23:00 shift on 2026-08-13.",
+      "name": "labor_order_accepted",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "18:00-23:00 EDT shift with four gangs"
+      },
+      "category": "state",
+      "id": "state:labor_shift",
+      "meaning": "Container gangs work 08:00-17:00 EDT and 18:00-23:00 EDT, with a break from 17:00-18:00 EDT. A four-gang labor order covers the 18:00-23:00 shift at Berth 8.",
+      "name": "labor_shift",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on crane_operations_complete; it is a state, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:last_container_landed",
+      "meaning": "The last container is landed on MV Cape Ferrol.",
+      "name": "last_container_landed",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "Tybee pilot station"
+      },
+      "category": "state",
+      "id": "state:location",
+      "meaning": "The pilot boat Savannah is stationed at the Tybee pilot station, ready to respond to dispatch orders.",
+      "name": "location",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "no restrictions"
+      },
+      "category": "state",
+      "id": "state:maintenance_status",
+      "meaning": "No crane on Berth 8 is under maintenance restriction on 2026-08-13.",
+      "name": "maintenance_status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:manned_bridge_anchor_watch",
+      "meaning": "The bridge is continuously manned, monitoring VHF Channels 16 and 13.",
+      "name": "manned bridge anchor watch",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial fact, no producer needed.",
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:mooring_gang_available",
+      "meaning": "Southern Line Handling Services has a mooring gang rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14.",
+      "name": "mooring_gang_available",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e14"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:on_immediate_notice_for_engines",
+      "meaning": "The crew is ready to start engines at short notice.",
+      "name": "on immediate notice for engines",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:on_rotation_board",
+      "meaning": "Has been on the pilots' rotation board since 14:00 EDT on 2026-08-13.",
+      "name": "on_rotation_board",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on pilot_boarding and anchor_heaved; it is a state, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:pilot_aboard_and_anchor_up",
+      "meaning": "Inbound pilot Lorraine Beaudry boards MV Rhine Meridian at Tybee Roads Anchorage A and the anchor is heaved to short stay.",
+      "name": "pilot_aboard_and_anchor_up",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11",
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial fact, no producer needed.",
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:pilot_available",
+      "meaning": "Capt. Lorraine Beaudry is available and not restricted by rest periods.",
+      "name": "pilot_available",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "23 moves per crane-hour"
+      },
+      "category": "state",
+      "id": "state:productivity_rate",
+      "meaning": "Sustained average of 23 moves per crane-hour on vessels of this class.",
+      "name": "productivity_rate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "58 moves"
+      },
+      "category": "state",
+      "id": "state:remaining_moves_at_1630",
+      "meaning": "At 16:30 EDT on 2026-08-13, 58 container moves remain on MV Cape Ferrol.",
+      "name": "remaining_moves_at_1630",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:rest_period_completed",
+      "meaning": "Came off mandatory 10-hour rest period at 17:00 EDT on 2026-08-13",
+      "name": "rest_period_completed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:shift_start",
+      "meaning": "Danielle Okafor starts her shift at 15:00 EDT on 2026-08-13.",
+      "name": "shift_start",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:shift_working",
+      "meaning": "Marcus Deveaux is working the 12:00 to 20:00 EDT shift on the apron at Berth 8 on 2026-08-13.",
+      "name": "shift_working",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that depends on unmooring; it is a state, not an action. No producer needed.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:stern_clear",
+      "meaning": "MV Cape Ferrol's stern clears the berth face 10 minutes after all lines are gone.",
+      "name": "stern_clear",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition",
+        "unsupported": "This is a condition with no prerequisites; it is a scheduled time window, not produced by any actor."
+      },
+      "category": "state",
+      "id": "state:transit_window_open",
+      "meaning": "The inbound transit window for vessels over 44 ft draft is open from 17:58 EDT to 20:28 EDT on 2026-08-13.",
+      "name": "transit_window_open",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:work_shift",
+      "meaning": "Container gangs work 08:00-17:00 and 18:00-23:00 EDT, with a break 17:00-18:00",
+      "name": "work_shift",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:working_agreement",
+      "meaning": "ILA Local 1414 has a working agreement with GPA specifying container gang work hours: 08:00-17:00 and 18:00-23:00, with an unworked break 17:00-18:00.",
+      "name": "working_agreement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:works_as_vessel_operations_manager",
+      "meaning": "Priya Raghavan is the vessel operations manager at Meridian Marine Agencies, responsible for ordering pilot services for vessels.",
+      "name": "works_as_vessel_operations_manager",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The deadline for the all-fast event to occur.",
+          "timezone": "America/New_York",
+          "when": "2026-08-13T23:59:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The all-fast time is recorded after 2026-08-13T23:59:00-04:00, or the vessel is berthed elsewhere, or the records disagree with the pilot's report governing.",
+        "positive_condition": "The all-fast time is recorded at or before 2026-08-13T23:59:00-04:00.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The question resolves when the Savannah Pilots Association docking report and the GPA Garden City Berth 8 vessel log record an 'all fast' time for MV Rhine Meridian at Berth 8 at or before 2026-08-13T23:59:00-04:00.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "berth_clear_declaration": "berth_clear_declaration",
+        "berth_clear_projection": "berth_clear_projection",
+        "labor_order_accepted": "labor_order_accepted",
+        "pilot_order_placed": "pilot_order_placed",
+        "pilot_order_placed_cape_ferrol": "pilot_order_placed_cape_ferrol"
+      },
+      "event": {
+        "Rostered at Berth 8": "rostered_at_berth_8",
+        "crane_operations_resume": "crane_operations_resume",
+        "outbound_pilot_duty": "outbound_pilot_duty",
+        "pilot_order_accepted": "pilot_order_accepted"
+      },
+      "information": {
+        "berth_6_out_of_service": "berth_6_out_of_service",
+        "berth_8_occupancy": "berth_8_occupancy",
+        "berth_8_occupied_by_cape_ferrol": "berth_8_occupied_by_cape_ferrol",
+        "berth_8_only_option": "berth_8_only_option",
+        "berth_clear_projection": "berth_clear_projection",
+        "berth_occupancy": "berth_occupancy",
+        "berth_status": "berth_status",
+        "berths_1_to_5_draft_limit": "berths_1_to_5_draft_limit",
+        "cape_ferrol_remaining_moves": "cape_ferrol_remaining_moves",
+        "deveaux_projection": "deveaux_projection",
+        "labor_order_accepted": "labor_order_accepted",
+        "labor_order_details": "labor_order_details",
+        "no berth-clear declaration yet": "no_berth_clear_declaration_yet",
+        "no_berth_clear_declaration": "no_berth_clear_declaration",
+        "pilot assignments": "pilot_assignments",
+        "pilot order placed": "pilot_order_placed",
+        "pilot_order_accepted": "pilot_order_accepted",
+        "pilot_order_details": "pilot_order_details",
+        "pilot_order_inbound_rhine_meridian_placed": "pilot_order_inbound_rhine_meridian_placed",
+        "pilot_order_outbound_cape_ferrol_placed": "pilot_order_outbound_cape_ferrol_placed",
+        "pilot_orders": "pilot_orders",
+        "pilot_orders_accepted": "pilot_orders_accepted",
+        "pilot_orders_placed": "pilot_orders_placed",
+        "rhine_meridian_anchored": "rhine_meridian_anchored",
+        "rhine_meridian_at_anchorage": "rhine_meridian_at_anchorage",
+        "standing_orders": "standing_orders",
+        "transit_window": "transit_window",
+        "transit_window_evening": "transit_window_evening",
+        "tug_and_line_handlers": "tug_and_line_handlers",
+        "vessel_draft": "vessel_draft",
+        "weather_and_navigation": "weather_and_navigation",
+        "work_schedule": "work_schedule",
+        "working_agreement_terms": "working_agreement_terms"
+      },
+      "organization": {
+        "Four ship-to-shore cranes": "four_ship_to_shore_cranes",
+        "Georgia Ports Authority": "georgia_ports_authority",
+        "ILA Local 1414": "ila_local_1414",
+        "Pilot boat Savannah": "pilot_boat_savannah"
+      },
+      "participant": {
+        "Capt. Dale Wingard": "capt_dale_wingard",
+        "Capt. Lorraine Beaudry": "capt_lorraine_beaudry",
+        "Danielle Okafor": "danielle_okafor",
+        "Marcus Deveaux": "marcus_deveaux",
+        "Priya Raghavan": "priya_raghavan",
+        "Savannah Pilots Association dispatcher": "savannah_pilots_association_dispatcher"
+      },
+      "population": {
+        "Container gangs": "container_gangs",
+        "Crew of MV Rhine Meridian": "crew_of_mv_rhine_meridian",
+        "Mooring gang": "mooring_gang"
+      },
+      "process": {
+        "VHF Channel 12": "vhf_channel_12",
+        "VHF Channel 12 base station": "vhf_channel_12_base_station",
+        "VHF Channel 13": "vhf_channel_13",
+        "VHF Channel 16": "vhf_channel_16",
+        "anchor_heaved": "anchor_heaved",
+        "crane_operations_complete": "crane_operations_complete",
+        "dispatch telephone line": "dispatch_telephone_line",
+        "lashing_and_securing": "lashing_and_securing",
+        "pilot_boarding": "pilot_boarding",
+        "pilot_boarding_cape_ferrol": "pilot_boarding_cape_ferrol",
+        "unmooring": "unmooring"
+      },
+      "record": {
+        "GPA Garden City Berth 8 vessel log": "gpa_garden_city_berth_8_vessel_log",
+        "Savannah Pilots Association docking report": "savannah_pilots_association_docking_report"
+      },
+      "state": {
+        "accepted pilot orders": "accepted_pilot_orders",
+        "all_fast_event": "all_fast_event",
+        "all_fast_recorded": "all_fast_recorded",
+        "anchored at Tybee Roads Anchorage A": "anchored_at_tybee_roads_anchorage_a",
+        "arrival draft 45 ft 03 in": "arrival_draft_45_ft_03_in",
+        "assigned pilots": "assigned_pilots",
+        "assigned_as_inbound_pilot": "assigned_as_inbound_pilot",
+        "assigned_outbound_pilot": "assigned_outbound_pilot",
+        "assigned_to": "assigned_to",
+        "berth_6_out_of_service": "berth_6_out_of_service",
+        "berth_8_occupied": "berth_8_occupied",
+        "berth_8_only_berth_for_rhine_meridian": "berth_8_only_berth_for_rhine_meridian",
+        "berth_clear_authority": "berth_clear_authority",
+        "berth_clear_not_declared": "berth_clear_not_declared",
+        "berthing_complete": "berthing_complete",
+        "berths_1_to_5_draft_limit": "berths_1_to_5_draft_limit",
+        "cape_ferrol_departure_estimate": "cape_ferrol_departure_estimate",
+        "communication": "communication",
+        "continuously manned 24-hour watch": "continuously_manned_24_hour_watch",
+        "crew": "crew",
+        "first_on_rotation_board": "first_on_rotation_board",
+        "inbound_transit_complete": "inbound_transit_complete",
+        "inbound_transit_start": "inbound_transit_start",
+        "labor_order_accepted": "labor_order_accepted",
+        "labor_shift": "labor_shift",
+        "last_container_landed": "last_container_landed",
+        "location": "location",
+        "maintenance_status": "maintenance_status",
+        "manned bridge anchor watch": "manned_bridge_anchor_watch",
+        "mooring_gang_available": "mooring_gang_available",
+        "on immediate notice for engines": "on_immediate_notice_for_engines",
+        "on_rotation_board": "on_rotation_board",
+        "pilot_aboard_and_anchor_up": "pilot_aboard_and_anchor_up",
+        "pilot_available": "pilot_available",
+        "productivity_rate": "productivity_rate",
+        "remaining_moves_at_1630": "remaining_moves_at_1630",
+        "rest_period_completed": "rest_period_completed",
+        "shift_start": "shift_start",
+        "shift_working": "shift_working",
+        "stern_clear": "stern_clear",
+        "transit_window_open": "transit_window_open",
+        "work_shift": "work_shift",
+        "working_agreement": "working_agreement",
+        "works_as_vessel_operations_manager": "works_as_vessel_operations_manager"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:berth_clear_declaration",
+      "meaning": "The exact time Danielle Okafor will declare Berth 8 clear is unknown; it depends on the actual departure sequence of MV Cape Ferrol."
+    },
+    {
+      "about": "state:all_fast_event",
+      "meaning": "The exact time MV Rhine Meridian becomes all fast at Berth 8 is uncertain; it depends on the transit duration and mooring operations."
+    },
+    {
+      "about": "state:inbound_transit_start",
+      "meaning": "The exact time the inbound transit of MV Rhine Meridian begins is uncertain; it depends on when the berth-clear declaration is received and the pilot boards."
+    },
+    {
+      "about": "state:last_container_landed",
+      "meaning": "The exact time the last container lands on MV Cape Ferrol is uncertain; Marcus Deveaux's estimate of 18:10 EDT is a projection, not a measurement."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "causal_path": [
+    "Vic Morales posts canvass notice on Monday 17 Aug (notice_posted).",
+    "Dana Okoye canvasses Building 3 on Tuesday 18 Aug (6-9 signatures).",
+    "Dana Okoye canvasses Building 3 on Wednesday 19 Aug (6-9 signatures).",
+    "Total signatures = 35 initial + signatures from two sessions.",
+    "If total >= 40, Lena Park files petition at 9 AM on Thursday 20 Aug.",
+    "Petition filed before hearing opens at 10 AM."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Missing stock or process to accumulate signature count from initial 35 and new collections. Condition at_least_40_signatures_collected has no causal connection to the outputs of the canvassing actions.",
+      "why_material": "The simulation cannot determine whether the signature threshold is met, so the filing action may trigger incorrectly or not at all, directly affecting the terminal answer."
+    }
+  ],
+  "reasoning": "The causal world lacks a stock or accumulator to combine the initial 35 verified signatures with the additional signatures collected during the two canvassing sessions. The condition at_least_40_signatures_collected is not causally linked to the outcomes of the canvassing actions, so the simulation cannot determine whether the petition has enough signatures before filing. This is a material gap in the causal spine.",
+  "verdict": "TARGETED_REVISION"
+}

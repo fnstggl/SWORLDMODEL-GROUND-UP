@@ -1,11 +1,23 @@
 {
-  "completion_tokens": 1070,
+  "assembly_ms": 5.6,
+  "assembly_repairs": [],
+  "binding_calls": 0,
+  "discovery_calls": 8,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
   "lowering_ms": 0.0,
-  "prompt_tokens": 5681,
-  "reviewer_calls": 0,
-  "revision_calls": 0,
+  "mode": "frozen_evidence",
+  "model_ms": 38998.157797999964,
+  "model_tokens": 18334,
+  "proofs_ms": 0.0,
+  "repairs_by_step": {},
   "runtime_ms": 0.0,
-  "semantic_calls": 1,
   "simulation_stage": "scripted",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "stage": "NOTHING_SCHEDULED"
 }

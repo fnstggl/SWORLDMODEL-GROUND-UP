@@ -1,0 +1,60 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Other berths at Garden City Terminal",
+      "why_safe": "Berth 8 is the only berth with sufficient depth (47 ft) for MV Rhine Meridian's draft; other berths are either shallower or out of service."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Alternative terminals in Savannah",
+      "why_safe": "The question specifies Georgia Ports Authority Garden City Terminal Berth 8; other terminals are not relevant."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Waiver of Standing Orders",
+      "why_safe": "No waiver request has been filed, and only the Captain of the Port can waive, requiring 72 hours' notice."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e15"
+      ],
+      "name": "Weather or visibility restrictions",
+      "why_safe": "Forecast conditions are well within pilot suspension thresholds, so no weather delay is expected."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e14"
+      ],
+      "name": "Tug or line handler unavailability",
+      "why_safe": "Tugs and mooring gang are confirmed available for the relevant times."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "last_container_landed",
+      "meaning": "The exact time the last container lands on MV Cape Ferrol is uncertain; Marcus Deveaux's estimate of 18:10 EDT is a projection, not a measurement."
+    },
+    {
+      "about": "berth_clear_declaration",
+      "meaning": "The exact time Danielle Okafor will declare Berth 8 clear is unknown; it depends on the actual departure sequence of MV Cape Ferrol."
+    },
+    {
+      "about": "inbound_transit_start",
+      "meaning": "The exact time the inbound transit of MV Rhine Meridian begins is uncertain; it depends on when the berth-clear declaration is received and the pilot boards."
+    },
+    {
+      "about": "all_fast_event",
+      "meaning": "The exact time MV Rhine Meridian becomes all fast at Berth 8 is uncertain; it depends on the transit duration and mooring operations."
+    }
+  ]
+}

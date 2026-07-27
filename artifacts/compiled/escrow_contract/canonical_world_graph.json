@@ -5,9 +5,9 @@
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "action:hollis_signs_and_dispatches",
+      "dst": "process:instruction_delivered_to_fontaine",
       "rel": "requires",
-      "src": "action:fontaine_signs_and_dispatches"
+      "src": "action:fontaine_dispatches_signed"
     },
     {
       "attrs": {
@@ -16,7 +16,7 @@
       },
       "dst": "event:instruction_delivered_to_hollis",
       "rel": "requires",
-      "src": "action:hollis_signs_and_dispatches"
+      "src": "action:hollis_dispatches_signed"
     },
     {
       "attrs": {},
@@ -41,6 +41,20 @@
       "dst": "action:landmark_dispatches_instruction",
       "rel": "requires",
       "src": "event:instruction_delivered_to_hollis"
+    },
+    {
+      "attrs": {
+        "meaning": "Courier service that delivers the instruction to Fontaine."
+      },
+      "dst": "process:instruction_delivered_to_fontaine",
+      "rel": "has_authority",
+      "src": "organization:firsttrack"
+    },
+    {
+      "attrs": {},
+      "dst": "information:routing_memo",
+      "rel": "knows",
+      "src": "organization:firsttrack"
     },
     {
       "attrs": {},
@@ -126,16 +140,8 @@
     },
     {
       "attrs": {},
-      "dst": "action:fontaine_signs_and_dispatches",
+      "dst": "action:fontaine_dispatches_signed",
       "rel": "can_perform",
-      "src": "participant:ada_fontaine"
-    },
-    {
-      "attrs": {
-        "meaning": "Ada Fontaine is the person who must sign the release instruction and dispatch it."
-      },
-      "dst": "action:fontaine_signs_and_dispatches",
-      "rel": "has_authority",
       "src": "participant:ada_fontaine"
     },
     {
@@ -218,16 +224,8 @@
     },
     {
       "attrs": {},
-      "dst": "action:hollis_signs_and_dispatches",
+      "dst": "action:hollis_dispatches_signed",
       "rel": "can_perform",
-      "src": "participant:bram_hollis"
-    },
-    {
-      "attrs": {
-        "meaning": "Bram Hollis is the buyer's principal who must sign the release instruction and dispatch it."
-      },
-      "dst": "action:hollis_signs_and_dispatches",
-      "rel": "has_authority",
       "src": "participant:bram_hollis"
     },
     {
@@ -285,6 +283,38 @@
       "src": "participant:bram_hollis"
     },
     {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:fontaine_dispatches_signed",
+      "rel": "requires",
+      "src": "process:delivery_to_landmark"
+    },
+    {
+      "attrs": {
+        "necessity": "necessary"
+      },
+      "dst": "process:firsttrack",
+      "rel": "requires",
+      "src": "process:delivery_to_landmark"
+    },
+    {
+      "attrs": {},
+      "dst": "event:instruction_delivered_to_hollis",
+      "rel": "produces",
+      "src": "process:firsttrack"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:hollis_dispatches_signed",
+      "rel": "requires",
+      "src": "process:instruction_delivered_to_fontaine"
+    },
+    {
       "attrs": {},
       "dst": "terminal:terminal",
       "rel": "measured_by_terminal",
@@ -295,7 +325,7 @@
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "action:fontaine_signs_and_dispatches",
+      "dst": "action:fontaine_dispatches_signed",
       "rel": "requires",
       "src": "state:fully_signed_instruction_arrives"
     }
@@ -341,9 +371,9 @@
         "step_kind": "actor_decision"
       },
       "category": "action",
-      "id": "action:fontaine_signs_and_dispatches",
+      "id": "action:fontaine_dispatches_signed",
       "meaning": "Ada Fontaine signs the original release instruction and dispatches it via FirstTrack's 6:00 PM pickup on a business day before 30 September 2026.",
-      "name": "fontaine_signs_and_dispatches",
+      "name": "fontaine_dispatches_signed",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
@@ -357,9 +387,9 @@
         "step_kind": "actor_decision"
       },
       "category": "action",
-      "id": "action:hollis_signs_and_dispatches",
+      "id": "action:hollis_dispatches_signed",
       "meaning": "Bram Hollis signs the original release instruction and dispatches it via FirstTrack's 6:00 PM pickup on a business day before 30 September 2026.",
-      "name": "hollis_signs_and_dispatches",
+      "name": "hollis_dispatches_signed",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
@@ -402,7 +432,6 @@
     {
       "attrs": {
         "anchor": null,
-        "no_producer_needed": "This is a scheduled event with a verified time; no producer needed.",
         "step_kind": "scheduled_event",
         "when": "2026-09-24T09:40:00-04:00"
       },
@@ -629,6 +658,21 @@
     },
     {
       "attrs": {
+        "producer_kind": "communication_system"
+      },
+      "category": "organization",
+      "id": "organization:firsttrack",
+      "meaning": "Courier service that delivers the instruction to Fontaine.",
+      "name": "FirstTrack",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
         "availability": {
           "close": "17:00",
           "open": "09:00",
@@ -645,7 +689,7 @@
       },
       "category": "organization",
       "id": "organization:landmark_title_escrow",
-      "meaning": "The escrow company that holds the funds and is authorized to initiate the release wire.\nThe escrow company that sent the original release instruction to Hollis.",
+      "meaning": "The escrow company that holds the funds and is authorized to initiate the release wire.\nThe escrow company that sent the instruction to Hollis.",
       "name": "Landmark Title & Escrow",
       "provenance": {
         "basis": "verified",
@@ -669,12 +713,18 @@
             4
           ]
         },
+        "dropped_authority_claims": [
+          {
+            "meaning": "Ada Fontaine is the person who must sign the release instruction and dispatch it.",
+            "over": "fontaine_signs_and_dispatches"
+          }
+        ],
         "producer_kind": "person",
         "timezone": "America/New_York"
       },
       "category": "participant",
       "id": "participant:ada_fontaine",
-      "meaning": "The seller's principal who must sign the release instruction and dispatch it.",
+      "meaning": "The seller who must sign and dispatch the instruction.",
       "name": "Ada Fontaine",
       "provenance": {
         "basis": "verified",
@@ -696,17 +746,71 @@
             4
           ]
         },
+        "dropped_authority_claims": [
+          {
+            "meaning": "Bram Hollis is the buyer's principal who must sign the release instruction and dispatch it.",
+            "over": "hollis_signs_and_dispatches"
+          }
+        ],
         "producer_kind": "person",
         "timezone": "America/New_York"
       },
       "category": "participant",
       "id": "participant:bram_hollis",
-      "meaning": "The buyer's principal who must sign the release instruction and dispatch it.",
+      "meaning": "The buyer who must sign and dispatch the instruction.",
       "name": "Bram Hollis",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
           "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:delivery_to_landmark",
+      "meaning": "The signed original release instruction is delivered to Landmark's office by FirstTrack standard overnight, next business day by 10:30 AM.",
+      "name": "delivery_to_landmark",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "producer_kind": "communication_system",
+        "role": "channel"
+      },
+      "category": "process",
+      "id": "process:firsttrack",
+      "meaning": "Courier service that delivered the instruction to Hollis.",
+      "name": "FirstTrack",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:instruction_delivered_to_fontaine",
+      "meaning": "The original release instruction is delivered to Fontaine's Hartford office by FirstTrack standard overnight, next business day by 10:30 AM.",
+      "name": "instruction_delivered_to_fontaine",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
         ]
       }
     },
@@ -748,7 +852,7 @@
       "attrs": {
         "conjunction": true,
         "initial": false,
-        "no_producer_needed": "This is a condition that is the conjunction of the preceding steps; it has no independent producer.",
+        "no_producer_needed": "This is a condition that is the conjunction of the delivery step and the signing steps; it has no independent producer.",
         "step_kind": "condition"
       },
       "category": "state",
@@ -853,8 +957,8 @@
   "symbol_table": {
     "namespaces": {
       "action": {
-        "fontaine_signs_and_dispatches": "fontaine_signs_and_dispatches",
-        "hollis_signs_and_dispatches": "hollis_signs_and_dispatches",
+        "fontaine_dispatches_signed": "fontaine_dispatches_signed",
+        "hollis_dispatches_signed": "hollis_dispatches_signed",
         "landmark_dispatches_instruction": "landmark_dispatches_instruction",
         "wire_initiation": "wire_initiation"
       },
@@ -878,11 +982,17 @@
         "routing_memo": "routing_memo"
       },
       "organization": {
+        "FirstTrack": "firsttrack",
         "Landmark Title & Escrow": "landmark_title_escrow"
       },
       "participant": {
         "Ada Fontaine": "ada_fontaine",
         "Bram Hollis": "bram_hollis"
+      },
+      "process": {
+        "FirstTrack": "firsttrack",
+        "delivery_to_landmark": "delivery_to_landmark",
+        "instruction_delivered_to_fontaine": "instruction_delivered_to_fontaine"
       },
       "record": {
         "wire initiation record": "wire_initiation_record"
@@ -904,20 +1014,18 @@
   },
   "uncertainties": [
     {
-      "about": "action:fontaine_signs_and_dispatches",
-      "meaning": "Whether Ada Fontaine receives the instruction before noon on the day it arrives, signs it, and dispatches it via the same-day 6:00 PM pickup."
+      "about": null,
+      "meaning": "Whether Ada Fontaine receives the instruction before noon on the day it arrives, signs it, and dispatches it via the same-day 6:00 PM pickup.",
+      "topic": "fontaine_signs_and_dispatches"
     },
     {
-      "about": "action:hollis_signs_and_dispatches",
-      "meaning": "Whether Bram Hollis signs the instruction on 24 or 25 September, and whether the signed original is dispatched on the same day via FirstTrack's 6:00 PM pickup."
+      "about": null,
+      "meaning": "Whether Bram Hollis signs the instruction on 24 or 25 September, and whether the signed original is dispatched on the same day via FirstTrack's 6:00 PM pickup.",
+      "topic": "hollis_signs_and_dispatches"
     },
     {
       "about": "action:wire_initiation",
       "meaning": "Whether Landmark initiates the release wire before the deadline of 2026-09-30T17:00:00-04:00."
-    },
-    {
-      "about": "state:fully_signed_instruction_arrives",
-      "meaning": "Whether the fully signed instruction arrives at Landmark before its 2:00 PM cutoff on a business day before the deadline."
     }
   ]
 }

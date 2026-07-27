@@ -1,0 +1,32 @@
+{
+  "assembly_ms": 9.8,
+  "assembly_repairs": [
+    "review:causal_spine",
+    "review:uncertainty_and_exclusions"
+  ],
+  "binding_calls": 12,
+  "discovery_calls": 10,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": false
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 157116.31879700007,
+  "model_tokens": 44967,
+  "proofs_ms": 1.0,
+  "repairs_by_step": {
+    "action:Haddad arrives at Verlan City airport": 2,
+    "causal_spine": 1,
+    "uncertainty_and_exclusions": 2
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 2,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

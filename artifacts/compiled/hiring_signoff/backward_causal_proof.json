@@ -1,0 +1,56 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:email_sent_record",
+        "via": {
+          "node": "action:email_sent",
+          "prerequisites": [
+            {
+              "node": "action:offer_compiled_and_countersigned",
+              "prerequisites": [
+                {
+                  "node": "action:compensation_approval_recorded",
+                  "prerequisites": [
+                    {
+                      "node": "action:kolev_checks_email",
+                      "root": "actor_choice"
+                    },
+                    {
+                      "node": "event:approval_request_submitted",
+                      "root": "scheduled_event"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "node": "event:background_checks_complete",
+                  "root": "scheduled_event"
+                },
+                {
+                  "node": "event:panel_feedback_recorded",
+                  "root": "scheduled_event"
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:email_sent_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:email_sent"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

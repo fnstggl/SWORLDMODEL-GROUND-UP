@@ -1,0 +1,16 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "record:board_clerk_filing_log",
+    "record:filed_petition"
+  ],
+  "information_paths": [],
+  "operating_processes": [],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:canvass_tuesday",
+    "event:canvass_wednesday",
+    "event:file_petition_on_hearing_day"
+  ],
+  "warnings": []
+}

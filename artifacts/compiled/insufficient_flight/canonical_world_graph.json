@@ -1,0 +1,946 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:haddad_arrives_at_verlan_city_airport",
+      "rel": "requires",
+      "src": "action:haddad_boards_au_412_in_verlan_city"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:haddad_has_valid_boarding_pass_for_au_412",
+      "rel": "requires",
+      "src": "action:haddad_boards_au_412_in_verlan_city"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:haddad_arrives_at_halden_international",
+      "rel": "requires",
+      "src": "action:haddad_boards_au_780"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:haddad_has_valid_boarding_pass_for_au_780",
+      "rel": "requires",
+      "src": "action:haddad_boards_au_780"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:haddad_has_valid_booking_for_au_412",
+      "rel": "requires",
+      "src": "action:haddad_checks_in_for_au_412"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:haddad_has_valid_booking_for_au_780",
+      "rel": "requires",
+      "src": "action:haddad_checks_in_for_au_780"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:au_412_departs_verlan_city",
+      "rel": "requires",
+      "src": "event:au_412_arrives_at_halden_international"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:haddad_boards_au_412_in_verlan_city",
+      "rel": "requires",
+      "src": "event:au_412_departs_verlan_city"
+    },
+    {
+      "attrs": {
+        "meaning": "Auralis Air operates and is responsible for the arrival of AU 412."
+      },
+      "dst": "event:au_412_arrives_at_halden_international",
+      "rel": "has_authority",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {
+        "meaning": "The airline that operates the flight and is responsible for its arrival."
+      },
+      "dst": "event:au_412_arrives_at_halden_international",
+      "rel": "has_authority",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {
+        "meaning": "Auralis Air operates and is responsible for the departure of AU 412."
+      },
+      "dst": "event:au_412_departs_verlan_city",
+      "rel": "has_authority",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {
+        "meaning": "The airline that operates the flight and is responsible for its departure."
+      },
+      "dst": "event:au_412_departs_verlan_city",
+      "rel": "has_authority",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {
+        "meaning": "Auralis Air operates and is responsible for the departure of AU 780."
+      },
+      "dst": "event:au_780_departs_halden_international",
+      "rel": "has_authority",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {
+        "meaning": "The airline that operates the flight and is responsible for its departure."
+      },
+      "dst": "event:au_780_departs_halden_international",
+      "rel": "has_authority",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:aircraft_type",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:au_412_schedule",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:au_780_daily_operation",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:au_780_schedule",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:haddad_booking_k7q4wd",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:haddad_frequent_flyer_status",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:haddad_seat_selections",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "information:through_ticketed_itinerary",
+      "rel": "knows",
+      "src": "organization:auralis_air"
+    },
+    {
+      "attrs": {},
+      "dst": "action:haddad_arrives_at_verlan_city_airport",
+      "rel": "can_perform",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "action:haddad_boards_au_412_in_verlan_city",
+      "rel": "can_perform",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "action:haddad_boards_au_780",
+      "rel": "can_perform",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "action:haddad_checks_in_for_au_412",
+      "rel": "can_perform",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "action:haddad_checks_in_for_au_780",
+      "rel": "can_perform",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:aircraft_type",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:au_412_schedule",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:au_780_daily_operation",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:au_780_schedule",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:auralis_silver_status",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:booking_reference_k7q4wd",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "information:seat_assignments",
+      "rel": "knows",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "event:au_412_departs_verlan_city",
+      "rel": "observes",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "event:au_780_departs_halden_international",
+      "rel": "observes",
+      "src": "participant:noor_haddad"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "state:haddad_aboard_au_780_at_departure"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:haddad_boards_au_780",
+      "rel": "requires",
+      "src": "state:haddad_aboard_au_780_at_departure"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:au_780_departs_halden_international",
+      "rel": "requires",
+      "src": "state:haddad_aboard_au_780_at_departure"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:haddad_boards_au_412_in_verlan_city",
+      "rel": "requires",
+      "src": "state:haddad_arrives_at_halden_international"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:au_412_arrives_at_halden_international",
+      "rel": "requires",
+      "src": "state:haddad_arrives_at_halden_international"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:haddad_checks_in_for_au_412",
+      "rel": "requires",
+      "src": "state:haddad_has_valid_boarding_pass_for_au_412"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:haddad_checks_in_for_au_780",
+      "rel": "requires",
+      "src": "state:haddad_has_valid_boarding_pass_for_au_780"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Auralis Air's financial or labor issues",
+      "why_safe": "No evidence of strikes or bankruptcy; any operational disruption would be reflected in flight status uncertainties."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Haddad's personal emergencies or health",
+      "why_safe": "These are captured under uncertainties about her arriving at the airport and boarding; no specific evidence of such issues exists."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e4"
+      ],
+      "name": "Other airlines or flights",
+      "why_safe": "The question is specifically about connection to AU 780; other flights are irrelevant unless rebooking occurs, but rebooking would mean she misses the original flight, which counts as no."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Terrorism or security incidents",
+      "why_safe": "No evidence suggests such events; they would affect flights generally, already covered by uncertainties about departure/arrival."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3"
+      ],
+      "name": "Weather or natural disasters",
+      "why_safe": "No evidence mentions weather; excluding it is safe because any such event would be captured under flight delays/cancellations, which are already considered as uncertainties."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:haddad_arrives_at_verlan_city_airport",
+      "meaning": "Noor Haddad arrives at Verlan City airport in time for AU 412.",
+      "name": "Haddad arrives at Verlan City airport",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:haddad_boards_au_412_in_verlan_city",
+      "meaning": "Noor Haddad boards flight AU 412 in Verlan City.",
+      "name": "Haddad boards AU 412 in Verlan City",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:haddad_boards_au_780",
+      "meaning": "Noor Haddad passes through the boarding gate and enters the aircraft.",
+      "name": "Haddad boards AU 780",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:haddad_checks_in_for_au_412",
+      "meaning": "Noor Haddad completes check-in for AU 412.",
+      "name": "Haddad checks in for AU 412",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:haddad_checks_in_for_au_780",
+      "meaning": "Noor Haddad completes check-in for AU 780, either online or at the airport.",
+      "name": "Haddad checks in for AU 780",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "uncertainty": "Flight may be delayed or cancelled; scheduled time is not guaranteed.",
+        "when": "2026-08-12T14:05:00+02:00"
+      },
+      "category": "event",
+      "id": "event:au_412_arrives_at_halden_international",
+      "meaning": "Flight AU 412 arrives at Halden International at its scheduled time.",
+      "name": "AU 412 arrives at Halden International",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "uncertainty": "Flight may be delayed or cancelled; scheduled time is not guaranteed.",
+        "when": "2026-08-12T11:20:00+02:00"
+      },
+      "category": "event",
+      "id": "event:au_412_departs_verlan_city",
+      "meaning": "Flight AU 412 departs from Verlan City at its scheduled time.\nScheduled departure from Verlan City at 11:20, arrival at Halden International at 14:05 on 12 August 2026.",
+      "name": "AU 412 departs Verlan City",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "uncertainty": "Flight may be delayed or cancelled; scheduled time is not guaranteed.",
+        "when": "2026-08-12T15:00:00+02:00"
+      },
+      "category": "event",
+      "id": "event:au_780_departs_halden_international",
+      "meaning": "Flight AU 780 departs from Halden International at its scheduled time.\nScheduled departure from Halden International at 15:00, arrival at Port Askel at 17:10 on 12 August 2026.",
+      "name": "AU 780 departs Halden International",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:aircraft_type",
+      "meaning": "Auralis operates Verlan-Halden route with 118-seat regional jets.",
+      "name": "Aircraft type",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:au_412_schedule",
+      "meaning": "AU 412 departs Verlan City at 11:20 and arrives Halden at 14:05 on 12 August.",
+      "name": "AU 412 schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:au_780_daily_operation",
+      "meaning": "AU 780 operates daily in August 2026.",
+      "name": "AU 780 daily operation",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:au_780_schedule",
+      "meaning": "AU 780 departs Halden at 15:00 and arrives Port Askel at 17:10 on 12 August.",
+      "name": "AU 780 schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:auralis_silver_status",
+      "meaning": "Noor Haddad is an Auralis Silver frequent-flyer member.",
+      "name": "Auralis Silver status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:booking_reference_k7q4wd",
+      "meaning": "Noor Haddad holds a confirmed single-ticket booking for AU 412 and AU 780 on 12 August 2026.",
+      "name": "Booking reference K7Q4WD",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:haddad_booking_k7q4wd",
+      "meaning": "Noor Haddad holds a confirmed booking for AU 412 and AU 780 on 12 August 2026.",
+      "name": "Haddad booking K7Q4WD",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:haddad_frequent_flyer_status",
+      "meaning": "Haddad is an Auralis Silver frequent-flyer member.",
+      "name": "Haddad frequent-flyer status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:haddad_seat_selections",
+      "meaning": "Haddad selected seat 14C on AU 412 and 9A on AU 780.",
+      "name": "Haddad seat selections",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:seat_assignments",
+      "meaning": "Seat 14C on AU 412 and seat 9A on AU 780.",
+      "name": "Seat assignments",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:through_ticketed_itinerary",
+      "meaning": "The booking is through-ticketed with baggage checked through.",
+      "name": "Through-ticketed itinerary",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "Europe/Berlin"
+      },
+      "category": "organization",
+      "id": "organization:auralis_air",
+      "meaning": "The airline that operates the flight and is responsible for its arrival.\nThe airline that operates the flight and is responsible for its departure.",
+      "name": "Auralis Air",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "Europe/Berlin"
+      },
+      "category": "participant",
+      "id": "participant:noor_haddad",
+      "meaning": "The passenger who decides to board the flight.\nThe passenger who decides to check in.\nThe passenger who decides to travel to the airport.",
+      "name": "Noor Haddad",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "no_producer_needed": "This is a condition with prerequisites; it is a conjunction of 'Haddad boards AU 780' and 'AU 780 departs Halden International'. No separate producer."
+      },
+      "category": "state",
+      "id": "state:haddad_aboard_au_780_at_departure",
+      "meaning": "Noor Haddad is physically present on the aircraft when it departs.",
+      "name": "Haddad aboard AU 780 at departure",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; it is a conjunction of 'Haddad boards AU 412 in Verlan City' and 'AU 412 arrives at Halden International'. No separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:haddad_arrives_at_halden_international",
+      "meaning": "Noor Haddad arrives at Halden International airport, presumably via AU 412.",
+      "name": "Haddad arrives at Halden International",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; it is a conjunction of 'Haddad checks in for AU 412' and the issuance of a boarding pass. No separate producer beyond the check-in step.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:haddad_has_valid_boarding_pass_for_au_412",
+      "meaning": "Noor Haddad possesses a valid boarding pass for AU 412.",
+      "name": "Haddad has valid boarding pass for AU 412",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; it is a conjunction of 'Haddad checks in for AU 780' and the issuance of a boarding pass. No separate producer beyond the check-in step.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:haddad_has_valid_boarding_pass_for_au_780",
+      "meaning": "Noor Haddad possesses a valid boarding pass for AU 780, either issued at check-in or via mobile.",
+      "name": "Haddad has valid boarding pass for AU 780",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial fact; no producer needed.",
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:haddad_has_valid_booking_for_au_412",
+      "meaning": "Noor Haddad's booking for AU 412 remains valid and not cancelled.",
+      "name": "Haddad has valid booking for AU 412",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial fact; no producer needed.",
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:haddad_has_valid_booking_for_au_780",
+      "meaning": "Noor Haddad's booking for AU 780 remains valid and not cancelled.",
+      "name": "Haddad has valid booking for AU 780",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The scheduled departure time of AU 780 from Halden International on 12 August 2026.",
+          "timezone": "Europe/Paris",
+          "when": "2026-08-12T15:00:00+02:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Noor Haddad is not aboard AU 780 when it departs Halden International on 12 August 2026, including missing the flight, being rebooked, or not traveling that day.",
+        "positive_condition": "Noor Haddad is aboard AU 780 when it departs Halden International on 12 August 2026.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether Noor Haddad is aboard flight AU 780 when it departs Halden International on 12 August 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "Haddad arrives at Verlan City airport": "haddad_arrives_at_verlan_city_airport",
+        "Haddad boards AU 412 in Verlan City": "haddad_boards_au_412_in_verlan_city",
+        "Haddad boards AU 780": "haddad_boards_au_780",
+        "Haddad checks in for AU 412": "haddad_checks_in_for_au_412",
+        "Haddad checks in for AU 780": "haddad_checks_in_for_au_780"
+      },
+      "event": {
+        "AU 412 arrives at Halden International": "au_412_arrives_at_halden_international",
+        "AU 412 departs Verlan City": "au_412_departs_verlan_city",
+        "AU 780 departs Halden International": "au_780_departs_halden_international"
+      },
+      "information": {
+        "AU 412 schedule": "au_412_schedule",
+        "AU 780 daily operation": "au_780_daily_operation",
+        "AU 780 schedule": "au_780_schedule",
+        "Aircraft type": "aircraft_type",
+        "Auralis Silver status": "auralis_silver_status",
+        "Booking reference K7Q4WD": "booking_reference_k7q4wd",
+        "Haddad booking K7Q4WD": "haddad_booking_k7q4wd",
+        "Haddad frequent-flyer status": "haddad_frequent_flyer_status",
+        "Haddad seat selections": "haddad_seat_selections",
+        "Seat assignments": "seat_assignments",
+        "Through-ticketed itinerary": "through_ticketed_itinerary"
+      },
+      "organization": {
+        "Auralis Air": "auralis_air"
+      },
+      "participant": {
+        "Noor Haddad": "noor_haddad"
+      },
+      "state": {
+        "Haddad aboard AU 780 at departure": "haddad_aboard_au_780_at_departure",
+        "Haddad arrives at Halden International": "haddad_arrives_at_halden_international",
+        "Haddad has valid boarding pass for AU 412": "haddad_has_valid_boarding_pass_for_au_412",
+        "Haddad has valid boarding pass for AU 780": "haddad_has_valid_boarding_pass_for_au_780",
+        "Haddad has valid booking for AU 412": "haddad_has_valid_booking_for_au_412",
+        "Haddad has valid booking for AU 780": "haddad_has_valid_booking_for_au_780"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:haddad_arrives_at_verlan_city_airport",
+      "meaning": "Whether Haddad will actually go to Verlan City airport on 12 August 2026 is unknown. She might be delayed, fall ill, or choose not to travel."
+    },
+    {
+      "about": "action:haddad_boards_au_412_in_verlan_city",
+      "meaning": "Even if she checks in, she might not board due to security, gate changes, or personal reasons."
+    },
+    {
+      "about": "action:haddad_boards_au_780",
+      "meaning": "She might not board due to gate changes, delays, or personal decisions."
+    },
+    {
+      "about": "action:haddad_checks_in_for_au_412",
+      "meaning": "Whether Haddad will complete check-in for AU 412 (online or at airport) is unknown. She might miss the check-in deadline or have issues."
+    },
+    {
+      "about": "action:haddad_checks_in_for_au_780",
+      "meaning": "Whether she will check in for AU 780 (likely automatic if through-ticketed, but still uncertain if she misses the first flight)."
+    },
+    {
+      "about": "event:au_412_arrives_at_halden_international",
+      "meaning": "Even if it departs, arrival could be delayed, causing her to miss the connection."
+    },
+    {
+      "about": "event:au_412_arrives_at_halden_international",
+      "meaning": "Flight may be delayed or cancelled; scheduled time is not guaranteed."
+    },
+    {
+      "about": "event:au_412_departs_verlan_city",
+      "meaning": "Flight may be delayed or cancelled; scheduled time is not guaranteed."
+    },
+    {
+      "about": "event:au_412_departs_verlan_city",
+      "meaning": "Whether AU 412 will depart on time or at all is uncertain due to possible delays, cancellations, or operational issues."
+    },
+    {
+      "about": "event:au_780_departs_halden_international",
+      "meaning": "Flight may be delayed or cancelled; scheduled time is not guaranteed."
+    },
+    {
+      "about": "event:au_780_departs_halden_international",
+      "meaning": "The flight could be delayed or cancelled, though it is scheduled daily."
+    },
+    {
+      "about": "state:haddad_aboard_au_780_at_departure",
+      "meaning": "The final step: whether she is physically on the plane when it departs. All prior steps must succeed."
+    },
+    {
+      "about": "state:haddad_arrives_at_halden_international",
+      "meaning": "Whether she arrives at Halden International in time to make the connection is uncertain, depending on flight punctuality and airport procedures."
+    },
+    {
+      "about": "state:haddad_has_valid_boarding_pass_for_au_780",
+      "meaning": "Even if checked in, boarding pass issuance could fail due to system issues or security flags."
+    }
+  ]
+}

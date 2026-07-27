@@ -1,18 +1,8 @@
 {
   "detail": {
-    "review": {
-      "causal_path": [],
-      "defects": [
-        {
-          "detail": "No evidence of any board meeting, agenda, or decision process that could lead to an approval. The scenario's action affordance is invented without evidentiary support.",
-          "kind": "missing_causal_link",
-          "severity": "critical"
-        }
-      ],
-      "reasoning": "The evidence contains no information about the board's schedule, decision process, or even whether a formal proposal exists. The scenario invents a board action affordance and a starting state (no approval recorded) that are not contradicted, but the core question\u2014whether the board will approve before the deadline\u2014cannot be answered because there is no evidence of any meeting, vote, or intention to decide. The scenario's uncertainties correctly note this, but the simulation cannot produce a determinate YES or NO; it would remain unresolved. The evidence is insufficient to decide the question.",
-      "verdict": "REJECT_INSUFFICIENT_EVIDENCE"
-    }
+    "events": [],
+    "processes": []
   },
-  "reason": "The evidence contains no information about the board's schedule, decision process, or even whether a formal proposal exists. The scenario invents a board action affordance and a starting state (no approval recorded) that are not contradicted, but the core question\u2014whether the board will approve before the deadline\u2014cannot be answered because there is no evidence of any meeting, vote, or intention to decide. The scenario's uncertainties correctly note this, but the simulation cannot produce a determinate YES or NO; it would remain unresolved. The evidence is insufficient to decide the question.",
-  "stage": "REALITY_REVIEW_REJECTED"
+  "reason": "no scheduled event and no operating process: time would never advance and no actor would ever be woken",
+  "stage": "NOTHING_SCHEDULED"
 }

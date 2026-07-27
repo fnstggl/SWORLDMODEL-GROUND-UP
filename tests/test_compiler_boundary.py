@@ -172,3 +172,47 @@ def test_fact_keys_agree_between_writer_and_reader():
     assert fact_key(t, "the motion on the floor") == "the_motion_on_the_floor"
     assert fact_key(t, "the motion on the floor", "per_actor") \
         == "the_motion_on_the_floor:{actor}"
+
+
+def test_refusal_expectation_comes_from_the_case_not_a_stale_list():
+    """A separately maintained list of refusal cases rots the moment a
+    case is added: two correctly-refused cases were scored as failures
+    because their expectation files said 'refuse' and the list did not."""
+    from compile_cases import expects_refusal
+
+    # the expectation file is authoritative, both spellings
+    assert expects_refusal("anything", {"expected_answer": None})
+    assert expects_refusal("anything", {"expected_answer": "REFUSAL"})
+    assert expects_refusal("anything", {"expected_answer": "refusal"})
+    assert not expects_refusal("anything", {"expected_answer": 170.0})
+    assert not expects_refusal("anything", {"expected_answer": "no"})
+    # with no expectation file at all, the named fallback still applies
+    assert expects_refusal("insufficient_merger", {})
+    assert not expects_refusal("blood_units", {})
+
+
+def test_every_authored_case_declares_what_it_expects():
+    """Every case ships an expectation: an answer to match or an argued
+    refusal. A case with neither cannot fail, which is worse than useless."""
+    import glob
+    import json
+    import os
+
+    from compile_cases import CASES_DIR, EXPECTED_REFUSAL
+
+    for d in sorted(glob.glob(os.path.join(CASES_DIR, "*"))):
+        if not os.path.isdir(d):
+            continue
+        name = os.path.basename(d)
+        path = os.path.join(d, "expectation.json")
+        if not os.path.exists(path):
+            assert name in EXPECTED_REFUSAL, (
+                f"case {name!r} has no expectation.json and is not a "
+                f"declared refusal case: it can never fail")
+            continue
+        with open(path, encoding="utf-8") as f:
+            exp = json.load(f)
+        assert "expected_answer" in exp, f"{name}: no expected_answer"
+        assert str(exp.get("why") or "").strip(), (
+            f"{name}: an expectation without a hand-derivation is a "
+            f"claim without evidence")

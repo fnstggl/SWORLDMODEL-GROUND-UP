@@ -1,0 +1,141 @@
+{
+  "steps": [
+    {
+      "basis": "question_given",
+      "evidence_ids": [
+        "e1",
+        "e2"
+      ],
+      "kind": "condition",
+      "meaning": "The petition with at least 40 valid tenant signatures is filed with the board clerk before the hearing opens at 10:00 AM on Thursday 20 August 2026.",
+      "name": "petition_filed",
+      "prerequisites": [
+        {
+          "necessity": "necessary",
+          "step": "at_least_40_signatures_collected"
+        },
+        {
+          "necessity": "necessary",
+          "step": "secretary_files_petition"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "At least 40 valid tenant signatures have been collected and verified by the association.",
+      "name": "at_least_40_signatures_collected",
+      "prerequisites": [
+        {
+          "necessity": "necessary",
+          "step": "initial_35_signatures"
+        },
+        {
+          "necessity": "necessary",
+          "step": "okoye_canvasses_tuesday"
+        },
+        {
+          "necessity": "necessary",
+          "step": "okoye_canvasses_wednesday"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e10"
+      ],
+      "kind": "initial_fact",
+      "meaning": "As of Monday 17 August, the association has 35 verified signatures (18 in Building 1, 11 in Building 2, 6 in Building 3).",
+      "name": "initial_35_signatures",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dana Okoye canvasses Building 3 on Tuesday 18 August from 6:30 to 8:30 PM, collecting between 6 and 9 signatures.",
+      "name": "okoye_canvasses_tuesday",
+      "prerequisites": [
+        {
+          "necessity": "necessary",
+          "step": "notice_posted"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Okoye may collect fewer than 6 or more than 9 signatures, but historical range is 6-9.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dana Okoye canvasses Building 3 on Wednesday 19 August from 6:30 to 8:30 PM, collecting between 6 and 9 signatures.",
+      "name": "okoye_canvasses_wednesday",
+      "prerequisites": [
+        {
+          "necessity": "necessary",
+          "step": "notice_posted"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Okoye may collect fewer than 6 or more than 9 signatures, but historical range is 6-9.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e8"
+      ],
+      "kind": "organization_action",
+      "meaning": "Superintendent Vic Morales posted the canvass notice on Building 3's lobby board at 5:00 PM on Monday 17 August, satisfying the 24-hour advance notice requirement.",
+      "name": "notice_posted",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Association secretary Lena Park files the petition at the hearing-room desk when it opens at 9:00 AM on Thursday 20 August, before the hearing opens at 10:00 AM.",
+      "name": "secretary_files_petition",
+      "prerequisites": [
+        {
+          "necessity": "necessary",
+          "step": "at_least_40_signatures_collected"
+        }
+      ],
+      "produces_proof": [
+        "filed petition",
+        "board clerk filing log"
+      ],
+      "uncertainty": "Park may be delayed or unable to file, but she has stated her intention and practice.",
+      "when": null
+    }
+  ]
+}

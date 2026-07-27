@@ -1,0 +1,423 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The courier is the person who delivers the vaccine from the dock to the clinic.",
+          "over": "courier_delivers_to_clinic"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The courier meets cargo sailings at the island dock to carry cold-chain deliveries straight to the clinic.",
+          "name": "meets cargo sailings"
+        }
+      ],
+      "knows": [],
+      "name": "clinic courier",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Halifax"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The ferry company operates the sailing that departs from the mainland terminal.",
+          "over": "ferry_sailing_departs"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e10"
+          ],
+          "meaning": "The ferry company operates the sailing that arrives at Torsey Island.",
+          "over": "ferry_sailing_arrives"
+        }
+      ],
+      "availability": {
+        "close": "20:00",
+        "open": "06:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Refrigerated cargo sailings on Monday, Wednesday, Friday at 7:30 AM.",
+          "name": "cargo_sailings",
+          "when": "2026-08-12T07:30:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "All Wednesday 12 August sailings are cancelled due to gale warning.",
+          "name": "ferry_sailing_cancelled",
+          "value": true
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Gale warning in effect from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.",
+          "name": "gale_warning",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "All Wednesday 12 August sailings cancelled.",
+          "name": "cancellation_announcement",
+          "visibility": "public"
+        }
+      ],
+      "name": "Torsey Island Ferry Company",
+      "not_available": [
+        {
+          "from": "2026-08-12T00:00:00-04:00",
+          "meaning": "No sailings operate on Wednesday 12 August due to cancellation.",
+          "to": "2026-08-13T00:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Halifax"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The marine forecast office issued a gale warning for the Torsey passage on Tuesday 11 August 2026.",
+          "over": "gale_warning_issued"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The marine forecast office issued a gale warning at 1:05 PM on Tuesday 11 August for the Torsey passage, in effect from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.",
+          "name": "gale_warning_issued",
+          "visibility": "public"
+        }
+      ],
+      "name": "marine forecast office",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/Halifax"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Penhallow's driver delivers the cold-chain shipment to the ferry terminal cold room.",
+          "over": "penhallow_delivers_to_terminal"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Penhallow received the restock order from Maeve Quinlan at 9:00 AM on Monday 10 August 2026.",
+          "name": "order_received",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Penhallow's cold-chain policy permits handoff only to carriers with validated refrigerated storage.",
+          "name": "cold_chain_policy",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Penhallow's driver delivers cold-chain shipments to the ferry terminal cold room by 6:00 AM on sailing days.",
+          "name": "delivery_schedule",
+          "value": "true"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "For orders placed before noon, Penhallow has them picked, packed, and ready for carrier handoff by 8:00 AM the next business day.",
+          "name": "packing_practice",
+          "value": "true"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Penhallow knows the order details: 100 pediatric vaccine doses, placed at 9:00 AM on Monday 10 August 2026.",
+          "name": "order_details",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Penhallow knows the ferry accepts refrigerated cargo on Monday, Wednesday, and Friday 7:30 AM sailings, with check-in by 6:30 AM.",
+          "name": "ferry_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "meaning": "Penhallow may be aware of the gale warning issued at 1:05 PM on Tuesday 11 August, but evidence does not confirm they received it.",
+          "name": "gale_warning",
+          "visibility": "public"
+        },
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "meaning": "Penhallow may be aware of the ferry cancellation announced at 4:00 PM on Tuesday 11 August, but evidence does not confirm they received it.",
+          "name": "ferry_cancellation",
+          "visibility": "public"
+        }
+      ],
+      "name": "Penhallow Medical Supply",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 100,
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The 100 pediatric vaccine doses ordered by Quinlan, which Penhallow will prepare for shipment.",
+          "name": "pediatric_vaccine_doses",
+          "unit": "doses"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Maeve Quinlan placed the restock order.",
+          "over": "order_placed"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Run the monthly immunization clinic at Torsey Island clinic.",
+          "name": "run_immunization_clinic",
+          "when": "2026-08-13T09:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The Torsey Island clinic holds zero doses of pediatric vaccines after the July session.",
+          "name": "clinic_holds_zero_doses",
+          "value": true
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Quinlan placed the restock order for 100 pediatric vaccine doses with Penhallow Medical Supply at 9:00 AM on Monday 10 August 2026.",
+          "name": "order_placed",
+          "value": true
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The monthly immunization clinic is scheduled for Thursday 13 August 2026 starting at 9:00 AM.",
+          "name": "immunization_clinic_scheduled",
+          "value": true
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The clinic holds zero doses of pediatric vaccines.",
+          "name": "clinic_holds_zero_doses",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "She placed the restock order on Monday 10 August.",
+          "name": "order_placed",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The immunization clinic is scheduled for Thursday 13 August at 9:00 AM.",
+          "name": "immunization_clinic_scheduled",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "A gale warning was issued for the Torsey passage from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.",
+          "name": "gale_warning",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "All Wednesday 12 August sailings are cancelled due to the gale warning.",
+          "name": "ferry_cancellation",
+          "visibility": "public"
+        }
+      ],
+      "name": "Maeve Quinlan",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 0,
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Pediatric vaccine doses held by the clinic.",
+          "name": "pediatric_vaccine_doses",
+          "unit": "doses"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Halifax"
+    }
+  ]
+}

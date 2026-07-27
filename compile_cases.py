@@ -18,6 +18,12 @@ A compiled case that contradicts its hand-derived answer is a FAILURE even
 though it compiled -- and a negative answer produced by a world whose
 affordances were never exercised is flagged, never blessed.
 
+expected_answer of null or "REFUSAL" means the case MUST refuse: the
+'why' is then the hand-argument for why no honest answer exists. The
+expectation file is the single source of truth for that -- a separately
+maintained list of refusal cases silently rots the moment a case is
+added, scoring correct refusals as failures.
+
 Artifacts land in artifacts/compiled/<case>/.
 """
 import json
@@ -28,7 +34,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CASES_DIR = os.path.join(HERE, "cases")
 OUT_ROOT = os.path.join(HERE, "artifacts", "compiled")
 
+#: Cases with no expectation.json at all that must still refuse.
 EXPECTED_REFUSAL = {"insufficient_merger"}
+
+
+def expects_refusal(name: str, expectation: dict) -> bool:
+    """A case must refuse when its expectation says so -- expected_answer
+    null or "REFUSAL" -- or, lacking an expectation file, when it is named
+    in EXPECTED_REFUSAL."""
+    if expectation:
+        answer = expectation.get("expected_answer")
+        return answer is None or str(answer).upper() == "REFUSAL"
+    return name in EXPECTED_REFUSAL
 
 #: A case that must refuse has to refuse because the EVIDENCE cannot support
 #: a world -- not because the model tripped over a contract, and not because
@@ -101,13 +118,13 @@ def main():
             import traceback                    # failure class, never silent
             traceback.print_exc()
             summary.append({"case": name, "stage": "CRASH",
-                            "expected_refusal": name in EXPECTED_REFUSAL,
+                            "expected_refusal": expects_refusal(name, expectation),
                             "reason": traceback.format_exc().strip()
                             .splitlines()[-1]})
             continue
         m = result["metrics"]
         row = {"case": name, "stage": result["stage"],
-               "expected_refusal": name in EXPECTED_REFUSAL,
+               "expected_refusal": expects_refusal(name, expectation),
                "pipeline": "legacy" if legacy else "discovery",
                "discovery_calls": m.get("discovery_calls",
                                         m.get("semantic_calls", 0)),

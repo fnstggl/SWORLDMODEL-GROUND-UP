@@ -1,0 +1,1337 @@
+{
+  "edges": [
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:vaccine_loaded_on_ferry",
+      "rel": "requires",
+      "src": "event:ferry_sailing_arrives"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:ferry_sailing_operates",
+      "rel": "requires",
+      "src": "event:ferry_sailing_departs"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:vaccine_packed_and_ready",
+      "rel": "requires",
+      "src": "event:penhallow_delivers_to_terminal"
+    },
+    {
+      "attrs": {
+        "meaning": "The marine forecast office issued a gale warning for the Torsey passage on Tuesday 11 August 2026."
+      },
+      "dst": "event:gale_warning_issued",
+      "rel": "has_authority",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {
+        "meaning": "The marine forecast office issued the gale warning."
+      },
+      "dst": "event:gale_warning_issued",
+      "rel": "has_authority",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cancellation_announcement",
+      "rel": "knows",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_cancellation",
+      "rel": "knows",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_schedule",
+      "rel": "knows",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning",
+      "rel": "knows",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning_issued",
+      "rel": "knows",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {},
+      "dst": "information:immunization_clinic_scheduled",
+      "rel": "knows",
+      "src": "organization:marine_forecast_office"
+    },
+    {
+      "attrs": {
+        "meaning": "Penhallow's driver delivers the cold-chain shipment to the ferry terminal cold room."
+      },
+      "dst": "event:penhallow_delivers_to_terminal",
+      "rel": "has_authority",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "state:cold_chain_policy",
+      "rel": "has_state",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "state:delivery_schedule",
+      "rel": "has_state",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "state:order_received",
+      "rel": "has_state",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "state:packing_practice",
+      "rel": "has_state",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cancellation_announcement",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_cancellation",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_schedule",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning_issued",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:immunization_clinic_scheduled",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_details",
+      "rel": "knows",
+      "src": "organization:penhallow_medical_supply"
+    },
+    {
+      "attrs": {
+        "meaning": "The ferry company operates the sailing that arrives at Torsey Island."
+      },
+      "dst": "event:ferry_sailing_arrives",
+      "rel": "has_authority",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {
+        "meaning": "The ferry company operates the sailing that departs from the mainland terminal."
+      },
+      "dst": "event:ferry_sailing_departs",
+      "rel": "has_authority",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "state:ferry_sailing_cancelled",
+      "rel": "has_state",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cancellation_announcement",
+      "rel": "knows",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_cancellation",
+      "rel": "knows",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_schedule",
+      "rel": "knows",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning",
+      "rel": "knows",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning_issued",
+      "rel": "knows",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "information:immunization_clinic_scheduled",
+      "rel": "knows",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {},
+      "dst": "event:cargo_sailings",
+      "rel": "observes",
+      "src": "organization:torsey_island_ferry_company"
+    },
+    {
+      "attrs": {
+        "meaning": "The clinic's courier who meets cargo sailings and carries cold-chain deliveries to the clinic."
+      },
+      "dst": "process:courier_delivers_to_clinic",
+      "rel": "has_authority",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {
+        "meaning": "The courier is the person who delivers the vaccine from the dock to the clinic."
+      },
+      "dst": "process:courier_delivers_to_clinic",
+      "rel": "has_authority",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "state:meets_cargo_sailings",
+      "rel": "has_state",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cancellation_announcement",
+      "rel": "knows",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_cancellation",
+      "rel": "knows",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_schedule",
+      "rel": "knows",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning",
+      "rel": "knows",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning_issued",
+      "rel": "knows",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "information:immunization_clinic_scheduled",
+      "rel": "knows",
+      "src": "participant:clinic_courier"
+    },
+    {
+      "attrs": {},
+      "dst": "action:order_placed",
+      "rel": "can_perform",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {
+        "meaning": "Maeve Quinlan placed the restock order."
+      },
+      "dst": "action:order_placed",
+      "rel": "has_authority",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "state:clinic_holds_zero_doses",
+      "rel": "has_state",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "state:immunization_clinic_scheduled",
+      "rel": "has_state",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "state:order_placed",
+      "rel": "has_state",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:cancellation_announcement",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:clinic_holds_zero_doses",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_cancellation",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:ferry_schedule",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:gale_warning_issued",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:immunization_clinic_scheduled",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "information:order_placed",
+      "rel": "knows",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {},
+      "dst": "event:run_immunization_clinic",
+      "rel": "observes",
+      "src": "participant:maeve_quinlan"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:vaccine_arrives_at_island_dock",
+      "rel": "requires",
+      "src": "process:courier_delivers_to_clinic"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:gale_warning_ends_before_sailing",
+      "rel": "requires",
+      "src": "state:ferry_sailing_not_cancelled"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:ferry_sailing_not_cancelled",
+      "rel": "requires",
+      "src": "state:ferry_sailing_operates"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:gale_warning_issued",
+      "rel": "requires",
+      "src": "state:gale_warning_ends_before_sailing"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:ferry_sailing_arrives",
+      "rel": "requires",
+      "src": "state:vaccine_arrives_at_island_dock"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "state:vaccine_at_clinic"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:courier_delivers_to_clinic",
+      "rel": "requires",
+      "src": "state:vaccine_at_clinic"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:vaccine_arrives_at_island_dock",
+      "rel": "requires",
+      "src": "state:vaccine_at_clinic"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:penhallow_delivers_to_terminal",
+      "rel": "requires",
+      "src": "state:vaccine_at_ferry_terminal_cold_room"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:ferry_sailing_departs",
+      "rel": "requires",
+      "src": "state:vaccine_loaded_on_ferry"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:vaccine_at_ferry_terminal_cold_room",
+      "rel": "requires",
+      "src": "state:vaccine_loaded_on_ferry"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:order_placed",
+      "rel": "requires",
+      "src": "state:vaccine_packed_and_ready"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "alternative transport (e.g., private boat, helicopter)",
+      "why_safe": "Evidence e9 states the ferry is the only carrier with validated refrigerated storage and Penhallow's cold-chain policy permits handoff only to such carriers, so no alternative transport can be used."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "other vaccine suppliers or stockpiles",
+      "why_safe": "Evidence e2 confirms no other facility on the island stocks the pediatric vaccines, and the only order is with Penhallow."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:order_placed",
+      "meaning": "Quinlan placed the restock order for 100 pediatric vaccine doses with Penhallow Medical Supply at 9:00 AM on Monday 10 August.",
+      "name": "order_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-12T07:30:00-04:00"
+      },
+      "category": "event",
+      "id": "event:cargo_sailings",
+      "meaning": "Refrigerated cargo sailings on Monday, Wednesday, Friday at 7:30 AM.",
+      "name": "cargo_sailings",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T08:25:00-04:00"
+      },
+      "category": "event",
+      "id": "event:ferry_sailing_arrives",
+      "meaning": "A ferry sailing with the vaccine on board arrives at Torsey Island.",
+      "name": "ferry_sailing_arrives",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T07:30:00-04:00"
+      },
+      "category": "event",
+      "id": "event:ferry_sailing_departs",
+      "meaning": "A ferry sailing departs from the mainland terminal to Torsey Island.",
+      "name": "ferry_sailing_departs",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-11T13:05:00-04:00"
+      },
+      "category": "event",
+      "id": "event:gale_warning_issued",
+      "meaning": "A gale warning was issued for the Torsey passage from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.",
+      "name": "gale_warning_issued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T06:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:penhallow_delivers_to_terminal",
+      "meaning": "Penhallow's driver delivers the cold-chain shipment to the ferry terminal cold room by 6:00 AM on a sailing day.",
+      "name": "penhallow_delivers_to_terminal",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T09:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:run_immunization_clinic",
+      "meaning": "Run the monthly immunization clinic at Torsey Island clinic.",
+      "name": "run_immunization_clinic",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:cancellation_announcement",
+      "meaning": "All Wednesday 12 August sailings cancelled.",
+      "name": "cancellation_announcement",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:clinic_holds_zero_doses",
+      "meaning": "The clinic holds zero doses of pediatric vaccines.",
+      "name": "clinic_holds_zero_doses",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:ferry_cancellation",
+      "meaning": "All Wednesday 12 August sailings are cancelled due to the gale warning.\nPenhallow may be aware of the ferry cancellation announced at 4:00 PM on Tuesday 11 August, but evidence does not confirm they received it.",
+      "name": "ferry_cancellation",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:ferry_schedule",
+      "meaning": "Penhallow knows the ferry accepts refrigerated cargo on Monday, Wednesday, and Friday 7:30 AM sailings, with check-in by 6:30 AM.",
+      "name": "ferry_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:gale_warning",
+      "meaning": "A gale warning was issued for the Torsey passage from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.\nGale warning in effect from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.\nPenhallow may be aware of the gale warning issued at 1:05 PM on Tuesday 11 August, but evidence does not confirm they received it.",
+      "name": "gale_warning",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:gale_warning_issued",
+      "meaning": "The marine forecast office issued a gale warning at 1:05 PM on Tuesday 11 August for the Torsey passage, in effect from 6:00 AM Wednesday 12 August to 3:00 AM Thursday 13 August.",
+      "name": "gale_warning_issued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:immunization_clinic_scheduled",
+      "meaning": "The immunization clinic is scheduled for Thursday 13 August at 9:00 AM.",
+      "name": "immunization_clinic_scheduled",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:order_details",
+      "meaning": "Penhallow knows the order details: 100 pediatric vaccine doses, placed at 9:00 AM on Monday 10 August 2026.",
+      "name": "order_details",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:order_placed",
+      "meaning": "She placed the restock order on Monday 10 August.",
+      "name": "order_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "external_institution",
+        "timezone": "America/Halifax"
+      },
+      "category": "organization",
+      "id": "organization:marine_forecast_office",
+      "meaning": "The marine forecast office issued the gale warning.",
+      "name": "marine forecast office",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:penhallow_medical_supply",
+      "meaning": "Penhallow's driver delivers the cold-chain shipment to the ferry terminal cold room.",
+      "name": "Penhallow Medical Supply",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "20:00",
+          "open": "06:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-08-12T00:00:00-04:00",
+            "meaning": "No sailings operate on Wednesday 12 August due to cancellation.",
+            "to": "2026-08-13T00:00:00-04:00"
+          }
+        ],
+        "producer_kind": "organization",
+        "timezone": "America/Halifax"
+      },
+      "category": "organization",
+      "id": "organization:torsey_island_ferry_company",
+      "meaning": "The ferry company operates the sailing that arrives at Torsey Island.\nThe ferry company operates the sailing that departs from the mainland terminal.",
+      "name": "Torsey Island Ferry Company",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Halifax"
+      },
+      "category": "participant",
+      "id": "participant:clinic_courier",
+      "meaning": "The clinic's courier who meets cargo sailings and carries cold-chain deliveries to the clinic.",
+      "name": "clinic courier",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "producer_kind": "person",
+        "timezone": "America/Halifax"
+      },
+      "category": "participant",
+      "id": "participant:maeve_quinlan",
+      "meaning": "Nurse Maeve Quinlan placed the restock order.",
+      "name": "Maeve Quinlan",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:courier_delivers_to_clinic",
+      "meaning": "The clinic's courier meets the cargo sailing at the island dock and carries the cold-chain delivery straight to the clinic.",
+      "name": "courier_delivers_to_clinic",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 100,
+        "holder": "organization:penhallow_medical_supply",
+        "unit": "doses"
+      },
+      "category": "resource",
+      "id": "resource:pediatric_vaccine_doses",
+      "meaning": "The 100 pediatric vaccine doses ordered by Quinlan, which Penhallow will prepare for shipment.",
+      "name": "pediatric_vaccine_doses",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 0,
+        "holder": "participant:maeve_quinlan",
+        "substance": "pediatric_vaccine_doses",
+        "unit": "doses"
+      },
+      "category": "resource",
+      "id": "resource:pediatric_vaccine_doses_held_by_maeve_quinlan",
+      "meaning": "Pediatric vaccine doses held by the clinic.",
+      "name": "pediatric_vaccine_doses held by Maeve Quinlan",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": true
+      },
+      "category": "state",
+      "id": "state:clinic_holds_zero_doses",
+      "meaning": "The Torsey Island clinic holds zero doses of pediatric vaccines after the July session.",
+      "name": "clinic_holds_zero_doses",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "true"
+      },
+      "category": "state",
+      "id": "state:cold_chain_policy",
+      "meaning": "Penhallow's cold-chain policy permits handoff only to carriers with validated refrigerated storage.",
+      "name": "cold_chain_policy",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "true"
+      },
+      "category": "state",
+      "id": "state:delivery_schedule",
+      "meaning": "Penhallow's driver delivers cold-chain shipments to the ferry terminal cold room by 6:00 AM on sailing days.",
+      "name": "delivery_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": true
+      },
+      "category": "state",
+      "id": "state:ferry_sailing_cancelled",
+      "meaning": "All Wednesday 12 August sailings are cancelled due to gale warning.",
+      "name": "ferry_sailing_cancelled",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:ferry_sailing_not_cancelled",
+      "meaning": "The ferry sailing is not cancelled due to weather or other reasons.",
+      "name": "ferry_sailing_not_cancelled",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:ferry_sailing_operates",
+      "meaning": "A ferry sailing actually operates on the given day (not cancelled).",
+      "name": "ferry_sailing_operates",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:gale_warning_ends_before_sailing",
+      "meaning": "The gale warning for the Torsey passage ends before the ferry sailing departs.",
+      "name": "gale_warning_ends_before_sailing",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": true
+      },
+      "category": "state",
+      "id": "state:immunization_clinic_scheduled",
+      "meaning": "The monthly immunization clinic is scheduled for Thursday 13 August 2026 starting at 9:00 AM.",
+      "name": "immunization_clinic_scheduled",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:meets_cargo_sailings",
+      "meaning": "The courier meets cargo sailings at the island dock to carry cold-chain deliveries straight to the clinic.",
+      "name": "meets cargo sailings",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": true
+      },
+      "category": "state",
+      "id": "state:order_placed",
+      "meaning": "Quinlan placed the restock order for 100 pediatric vaccine doses with Penhallow Medical Supply at 9:00 AM on Monday 10 August 2026.",
+      "name": "order_placed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "true"
+      },
+      "category": "state",
+      "id": "state:order_received",
+      "meaning": "Penhallow received the restock order from Maeve Quinlan at 9:00 AM on Monday 10 August 2026.",
+      "name": "order_received",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "true"
+      },
+      "category": "state",
+      "id": "state:packing_practice",
+      "meaning": "For orders placed before noon, Penhallow has them picked, packed, and ready for carrier handoff by 8:00 AM the next business day.",
+      "name": "packing_practice",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:vaccine_arrives_at_island_dock",
+      "meaning": "The vaccine doses arrive at the Torsey Island dock on a ferry sailing.",
+      "name": "vaccine_arrives_at_island_dock",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer."
+      },
+      "category": "state",
+      "id": "state:vaccine_at_clinic",
+      "meaning": "The ordered vaccine doses are physically at the Torsey Island clinic before 9:00 AM on Thursday 13 August 2026.\nThe ordered vaccine doses are physically at the Torsey Island clinic.",
+      "name": "vaccine_at_clinic",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:vaccine_at_ferry_terminal_cold_room",
+      "meaning": "The vaccine doses are checked in at the mainland ferry terminal cold room by 6:30 AM on the sailing day.",
+      "name": "vaccine_at_ferry_terminal_cold_room",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:vaccine_loaded_on_ferry",
+      "meaning": "The vaccine doses are loaded onto a ferry sailing from the mainland to Torsey Island.",
+      "name": "vaccine_loaded_on_ferry",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition with prerequisites; its production is the conjunction of its prerequisites, not a separate producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:vaccine_packed_and_ready",
+      "meaning": "The vaccine order is picked, packed in validated coolers, and ready for carrier handoff by 8:00 AM the next business day after the order.",
+      "name": "vaccine_packed_and_ready",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The deadline is the clinic's opening time on Thursday 13 August 2026.",
+          "timezone": "America/Halifax",
+          "when": "2026-08-13T09:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "The vaccine doses are not physically present at the clinic before 9:00 AM on Thursday 13 August 2026.",
+        "positive_condition": "The vaccine doses are physically present at the clinic before 9:00 AM on Thursday 13 August 2026.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether the ordered vaccine doses are physically at the Torsey Island clinic before 9:00 AM on Thursday 13 August 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "order_placed": "order_placed"
+      },
+      "event": {
+        "cargo_sailings": "cargo_sailings",
+        "ferry_sailing_arrives": "ferry_sailing_arrives",
+        "ferry_sailing_departs": "ferry_sailing_departs",
+        "gale_warning_issued": "gale_warning_issued",
+        "penhallow_delivers_to_terminal": "penhallow_delivers_to_terminal",
+        "run_immunization_clinic": "run_immunization_clinic"
+      },
+      "information": {
+        "cancellation_announcement": "cancellation_announcement",
+        "clinic_holds_zero_doses": "clinic_holds_zero_doses",
+        "ferry_cancellation": "ferry_cancellation",
+        "ferry_schedule": "ferry_schedule",
+        "gale_warning": "gale_warning",
+        "gale_warning_issued": "gale_warning_issued",
+        "immunization_clinic_scheduled": "immunization_clinic_scheduled",
+        "order_details": "order_details",
+        "order_placed": "order_placed"
+      },
+      "organization": {
+        "Penhallow Medical Supply": "penhallow_medical_supply",
+        "Torsey Island Ferry Company": "torsey_island_ferry_company",
+        "marine forecast office": "marine_forecast_office"
+      },
+      "participant": {
+        "Maeve Quinlan": "maeve_quinlan",
+        "clinic courier": "clinic_courier"
+      },
+      "process": {
+        "courier_delivers_to_clinic": "courier_delivers_to_clinic"
+      },
+      "resource": {
+        "pediatric_vaccine_doses": "pediatric_vaccine_doses",
+        "pediatric_vaccine_doses held by Maeve Quinlan": "pediatric_vaccine_doses_held_by_maeve_quinlan"
+      },
+      "state": {
+        "clinic_holds_zero_doses": "clinic_holds_zero_doses",
+        "cold_chain_policy": "cold_chain_policy",
+        "delivery_schedule": "delivery_schedule",
+        "ferry_sailing_cancelled": "ferry_sailing_cancelled",
+        "ferry_sailing_not_cancelled": "ferry_sailing_not_cancelled",
+        "ferry_sailing_operates": "ferry_sailing_operates",
+        "gale_warning_ends_before_sailing": "gale_warning_ends_before_sailing",
+        "immunization_clinic_scheduled": "immunization_clinic_scheduled",
+        "meets cargo sailings": "meets_cargo_sailings",
+        "order_placed": "order_placed",
+        "order_received": "order_received",
+        "packing_practice": "packing_practice",
+        "vaccine_arrives_at_island_dock": "vaccine_arrives_at_island_dock",
+        "vaccine_at_clinic": "vaccine_at_clinic",
+        "vaccine_at_ferry_terminal_cold_room": "vaccine_at_ferry_terminal_cold_room",
+        "vaccine_loaded_on_ferry": "vaccine_loaded_on_ferry",
+        "vaccine_packed_and_ready": "vaccine_packed_and_ready"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "process:courier_delivers_to_clinic",
+      "meaning": "Even if the vaccine arrives at the island dock, the courier must meet the sailing and deliver to the clinic before 9:00 AM; the timing of the sailing arrival and courier availability are not specified."
+    },
+    {
+      "about": "state:ferry_sailing_operates",
+      "meaning": "Whether the ferry will operate on Friday 14 August (the next scheduled sailing day) is unknown because the gale warning ends at 3:00 AM Thursday, but the ferry's decision to resume service after a cancellation is not stated."
+    },
+    {
+      "about": "state:vaccine_arrives_at_island_dock",
+      "meaning": "If the ferry does not sail before the deadline, the vaccine cannot arrive at the island dock in time."
+    }
+  ]
+}

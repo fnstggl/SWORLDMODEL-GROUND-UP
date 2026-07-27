@@ -1,0 +1,2653 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "The Savannah Pilots Association dispatches the pilot boat and pilot to board the vessel.",
+          "over": "pilot_boarding"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "The Savannah Pilots Association dispatches the outbound pilot for MV Cape Ferrol.",
+          "over": "pilot_boarding_cape_ferrol"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "24/7",
+            "meaning": "Continuous monitoring by dispatch and vessels."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "latency_meaning": "Immediate, continuous monitoring.",
+          "meaning": "VHF radio channel used for communication between the Pilots Association dispatch and vessels/pilots.",
+          "name": "VHF Channel 13",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "24/7",
+            "meaning": "Continuous monitoring by dispatch."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "latency_meaning": "Immediate, continuous monitoring.",
+          "meaning": "Telephone line used for communication with the Pilots Association dispatch.",
+          "name": "dispatch_telephone_line",
+          "role": "both"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Outbound pilot service for MV Cape Ferrol ordered for 19:00 EDT on 2026-08-13.",
+          "name": "outbound_pilot_service_cape_ferrol",
+          "when": "2026-08-13T19:00:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Inbound pilot service for MV Rhine Meridian at Tybee Roads Anchorage A ordered for 19:00 EDT on 2026-08-13.",
+          "name": "inbound_pilot_service_rhine_meridian",
+          "when": "2026-08-13T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The dispatch desk is continuously manned 24 hours a day, monitoring VHF Channel 13 and the dispatch telephone line without interruption.",
+          "name": "dispatch_desk_staffed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The pilot boat Savannah is available and can reach Tybee Roads Anchorage A in 25 minutes.",
+          "name": "pilot_boat_available"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Standing Orders 9 and 12 are binding and cannot be waived by the dispatcher or individual pilot; only the Captain of the Port may waive them on 72 hours' written notice, and no such request has been filed for MV Rhine Meridian.",
+          "name": "standing_orders_in_effect"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Inbound pilot order for MV Rhine Meridian at 19:00 EDT and outbound pilot order for MV Cape Ferrol at 19:00 EDT have been accepted and logged at 16:36 EDT on 2026-08-13.",
+          "name": "pilot_orders_accepted"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Capt. Dale Wingard assigned as outbound pilot for MV Cape Ferrol; Capt. Lorraine Beaudry assigned as inbound pilot for MV Rhine Meridian. Beaudry came off rest at 17:00 EDT and is available; Wingard has been on the board since 14:00 EDT.",
+          "name": "pilots_assigned"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The dispatcher knows that both pilot orders have been accepted and logged.",
+          "name": "pilot_orders_accepted",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The dispatcher knows which pilots are assigned.",
+          "name": "pilots_assigned",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8",
+            "e10"
+          ],
+          "meaning": "The dispatcher may have received the berth clear projection from Marcus Deveaux, but it is not explicitly stated that the Pilots Association knows it. However, the pilot orders were placed based on that projection, so likely known.",
+          "name": "berth_clear_projection",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The Pilots Association knows its own Standing Orders.",
+          "name": "standing_orders",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The Pilots Association knows the tide predictions for Fort Pulaski.",
+          "name": "tide_predictions",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The Pilots Association knows that Berth 8 is occupied by MV Cape Ferrol and that Berth 6 is out of service.",
+          "name": "berth_occupancy",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The Pilots Association knows that MV Rhine Meridian has a draft of 45 ft 03 in, exceeding 44 ft.",
+          "name": "vessel_draft",
+          "visibility": "private"
+        }
+      ],
+      "name": "Savannah Pilots Association",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The pilot boat Savannah is stationed at the Tybee pilot station, ready to respond to dispatch orders.",
+          "name": "location",
+          "value": "Tybee pilot station"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The pilot boat is crewed and ready to operate at any time.",
+          "name": "crew"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The pilot boat monitors VHF Channel 13 and the dispatch telephone line continuously.",
+          "name": "communication"
+        }
+      ],
+      "name": "Pilot boat Savannah",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ],
+        "meaning": "The pilot boat Savannah transports pilots from the Tybee pilot station to vessels at Tybee Roads Anchorage A and elsewhere. It runs continuously as needed, with a transit time of 25 minutes from the Tybee pilot station to Tybee Roads Anchorage A.",
+        "operating_meaning": "The pilot boat operates on a continuously manned 24-hour basis, responding to pilot orders as dispatched.",
+        "rate_meaning": "Transit time from Tybee pilot station to Tybee Roads Anchorage A is 25 minutes."
+      }
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Capt. Lorraine Beaudry is the inbound pilot who boards the vessel MV Rhine Meridian",
+          "over": "pilot_boarding"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Always available",
+            "meaning": "Continuous monitoring"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e11"
+          ],
+          "latency_meaning": "Instantaneous when both parties are monitoring",
+          "meaning": "Bridge-to-bridge communication channel monitored continuously by MV Rhine Meridian and pilot boat",
+          "name": "VHF Channel 13",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Always available",
+            "meaning": "Continuous monitoring"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "latency_meaning": "Instantaneous when both parties are monitoring",
+          "meaning": "International hailing and distress channel monitored continuously by MV Rhine Meridian",
+          "name": "VHF Channel 16",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "As scheduled",
+            "meaning": "Continuous during transit"
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "latency_meaning": "25 minutes transit time from Tybee pilot station to Anchorage A",
+          "meaning": "Physical transport of pilot to vessel; communication via VHF during approach",
+          "name": "pilot boat Savannah",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "Inbound pilot order for MV Rhine Meridian at Tybee Roads Anchorage A for 19:00 EDT accepted by dispatcher at 16:36 EDT",
+          "name": "pilot_order_accepted",
+          "when": "2026-08-13T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Came off mandatory 10-hour rest period at 17:00 EDT on 2026-08-13",
+          "name": "rest_period_completed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Stands first on the pilots' rotation board for 2026-08-13",
+          "name": "first_on_rotation_board"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Assigned by dispatcher Roy Tillman as inbound pilot for MV Rhine Meridian",
+          "name": "assigned_as_inbound_pilot"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "Knows she is assigned as inbound pilot for MV Rhine Meridian, ordered for 19:00 EDT at Tybee Roads Anchorage A",
+          "name": "pilot_order_details",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ],
+          "meaning": "Knows MV Rhine Meridian has arrival draft of 45 ft 03 in, exceeding 44 ft, so Standing Order 12 applies",
+          "name": "vessel_draft",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Knows the inbound transit window for vessels over 44 ft draft on 2026-08-13 runs from 17:58 to 20:28 EDT",
+          "name": "transit_window",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "meaning": "Knows Berth 8 is occupied by MV Cape Ferrol, which is being worked to completion",
+          "name": "berth_occupancy",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Knows Marcus Deveaux projected last container at approximately 18:10 EDT, leading to berth clear estimate",
+          "name": "berth_clear_projection",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Knows tugs and mooring gang are rostered from 22:15 EDT",
+          "name": "tug_and_line_handlers",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Knows weather and navigation conditions are favorable for transit",
+          "name": "weather_and_navigation",
+          "visibility": "public"
+        }
+      ],
+      "name": "Capt. Lorraine Beaudry",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan placed the inbound pilot order for MV Rhine Meridian and the outbound pilot order for MV Cape Ferrol.",
+          "over": "pilot_order_placed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan placed the outbound pilot order for MV Cape Ferrol.",
+          "over": "pilot_order_placed_cape_ferrol"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan is the vessel operations manager at Meridian Marine Agencies, responsible for ordering pilot services for vessels.",
+          "name": "works_as_vessel_operations_manager"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan knows that both pilot orders (outbound for Cape Ferrol at 19:00 EDT, inbound for Rhine Meridian at 19:00 EDT) were accepted by the Savannah Pilots Association dispatcher at 16:36 EDT.",
+          "name": "pilot_orders_accepted",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8",
+            "e10"
+          ],
+          "meaning": "Priya Raghavan knows Marcus Deveaux's projection that the last container on Cape Ferrol would land at approximately 18:10 EDT.",
+          "name": "berth_clear_projection",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Priya Raghavan knows that MV Cape Ferrol had 58 container moves remaining at 16:30 EDT on 2026-08-13.",
+          "name": "cape_ferrol_remaining_moves",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Priya Raghavan knows that MV Rhine Meridian is anchored at Tybee Roads Anchorage A awaiting Berth 8.",
+          "name": "rhine_meridian_anchored",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Priya Raghavan knows that Berth 8 is the only berth at Garden City Terminal that can accommodate MV Rhine Meridian's draft.",
+          "name": "berth_8_only_option",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Priya Raghavan knows the inbound transit window for deep-draft vessels on 2026-08-13 runs from 17:58 EDT to 20:28 EDT, based on high water at 19:58 EDT.",
+          "name": "transit_window",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Priya Raghavan knows that Standing Orders 9 and 12 require a clear berth confirmation and a high-water window for transit.",
+          "name": "standing_orders",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan ordered outbound pilot service for MV Cape Ferrol for 19:00 EDT at 16:30 EDT.",
+          "name": "pilot_order_outbound_cape_ferrol_placed",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan ordered inbound pilot service for MV Rhine Meridian for 19:00 EDT at Tybee Roads Anchorage A at 16:35 EDT.",
+          "name": "pilot_order_inbound_rhine_meridian_placed",
+          "visibility": "private"
+        }
+      ],
+      "name": "Priya Raghavan",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan at Meridian Marine Agencies placed the pilot order.",
+          "over": "pilot_order_placed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan at Meridian Marine Agencies placed the outbound pilot order.",
+          "over": "pilot_order_placed_cape_ferrol"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Ordered outbound pilot service for MV Cape Ferrol for 19:00 EDT on 2026-08-13.",
+          "name": "pilot_order_placed_cape_ferrol",
+          "when": "2026-08-13T19:00:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Ordered inbound pilot service for MV Rhine Meridian for 19:00 EDT at Tybee Roads Anchorage A on 2026-08-13.",
+          "name": "pilot_order_placed",
+          "when": "2026-08-13T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Meridian Marine Agencies is the appointed agent for both MV Cape Ferrol and MV Rhine Meridian.",
+          "name": "appointed_agent"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Both pilot orders were accepted by Savannah Pilots Association dispatcher at 16:36 EDT on 2026-08-13.",
+          "name": "pilot_order_accepted",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected last container at approximately 18:10 EDT on 2026-08-13.",
+          "name": "berth_clear_projection",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "MV Cape Ferrol had 58 moves remaining at 16:30 EDT on 2026-08-13.",
+          "name": "cape_ferrol_remaining_moves",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is occupied by MV Cape Ferrol; Berth 6 out of service; other berths limited to 42 ft draft.",
+          "name": "berth_8_occupancy",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "High water at 19:58 EDT on 2026-08-13; transit window 17:58-20:28 EDT.",
+          "name": "tide_windows",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Standing Orders 9 and 12 apply; no waiver filed.",
+          "name": "standing_orders",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Capt. Dale Wingard outbound for Cape Ferrol; Capt. Lorraine Beaudry inbound for Rhine Meridian.",
+          "name": "pilot_assignments",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Three tugs for 22:15 EDT rendezvous; mooring gang rostered from 22:15 EDT to 01:00 EDT.",
+          "name": "tug_and_line_handlers",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Average 3h05m from sea buoy to all fast for vessels of this class.",
+          "name": "transit_time_estimate",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "40 min lashing, 25 min unmooring, 10 min stern clear after lines gone.",
+          "name": "departure_standards",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Winds 8-12 knots, visibility >6 NM through 02:00 EDT on 2026-08-14.",
+          "name": "weather_forecast",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Two-way passage allowed for combined beam \u2264320 ft; Rhine Meridian (158 ft) and Cape Ferrol (140 ft) total 298 ft.",
+          "name": "channel_restrictions",
+          "visibility": "public"
+        }
+      ],
+      "name": "Meridian Marine Agencies",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected the berth clear time for MV Cape Ferrol.",
+          "over": "berth_clear_projection"
+        }
+      ],
+      "availability": {
+        "close": "20:00",
+        "open": "12:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "During his shift 12:00-20:00 EDT.",
+            "meaning": "Continuous monitoring while on shift."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "latency_meaning": "Instantaneous within radio range.",
+          "meaning": "Hand-held radio on VHF Channel 12, monitored continuously by Marcus Deveaux.",
+          "name": "VHF Channel 12",
+          "role": "both"
+        }
+      ],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux is working the 12:00 to 20:00 EDT shift on the apron at Berth 8 on 2026-08-13.",
+          "name": "shift_working"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected that the last container would land on MV Cape Ferrol at approximately 18:10 EDT on 2026-08-13.",
+          "name": "berth_clear_projection",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "meaning": "Marcus Deveaux knows that Berth 8 is occupied by MV Cape Ferrol and that Berth 6 is out of service.",
+          "name": "berth_status",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Marcus Deveaux knows that pilot orders for both vessels have been placed for 19:00 EDT.",
+          "name": "pilot_orders",
+          "visibility": "public"
+        }
+      ],
+      "name": "Marcus Deveaux",
+      "not_available": [
+        {
+          "from": "2026-08-13T20:00:00-04:00",
+          "meaning": "Marcus Deveaux is not available outside his shift 12:00-20:00 EDT.",
+          "to": "2026-08-14T12:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6",
+            "e7"
+          ],
+          "meaning": "GPA Garden City Terminal operates the cranes and completes container moves.",
+          "over": "crane_operations_complete"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Danielle Okafor, as GPA vessel planner, is authorized to declare berth clear.",
+          "over": "berth_clear_declaration"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is occupied by MV Cape Ferrol as of the world opening.",
+          "name": "berth_8_occupied"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 6 is out of service for crane-rail replacement through 2026-08-20.",
+          "name": "berth_6_out_of_service"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berths 1 through 5 have a maximum permitted draft of 42 ft.",
+          "name": "berths_1_to_5_draft_limit"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is the only berth where MV Rhine Meridian can lie at her arrival draft of 45 ft 3 in.",
+          "name": "berth_8_only_suitable_berth"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6"
+          ],
+          "meaning": "Four cranes are working on MV Cape Ferrol at Berth 8.",
+          "name": "crane_operations_ongoing"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "A four-gang labor order for the 18:00-23:00 shift at Berth 8 has been accepted.",
+          "name": "labor_order_accepted"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "No berth-clear declaration for Berth 8 has been made or scheduled in advance.",
+          "name": "berth_clear_not_declared"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "meaning": "Berth 8 is occupied by MV Cape Ferrol with remaining container moves.",
+          "name": "berth_8_occupied_by_cape_ferrol",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected last container landing at approximately 18:10 EDT.",
+          "name": "cape_ferrol_departure_projection",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Outbound pilot for Cape Ferrol and inbound pilot for Rhine Meridian ordered for 19:00 EDT.",
+          "name": "pilot_orders_placed",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Inbound transit window on 2026-08-13 runs from 17:58 to 20:28 EDT.",
+          "name": "tide_window",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "No waiver of Standing Orders 9 or 12 has been filed for this vessel.",
+          "name": "no_waiver",
+          "visibility": "public"
+        }
+      ],
+      "name": "GPA Garden City Terminal",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "The four cranes are assigned to MV Cape Ferrol at Berth 8 for the whole of 2026-08-13.",
+          "name": "assigned_to",
+          "value": "MV Cape Ferrol"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "No crane on Berth 8 is under maintenance restriction on 2026-08-13.",
+          "name": "maintenance_status",
+          "value": "no restrictions"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Sustained average of 23 moves per crane-hour on vessels of this class.",
+          "name": "productivity_rate",
+          "value": "23 moves per crane-hour"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "At 16:30 EDT on 2026-08-13, 58 container moves remain on MV Cape Ferrol.",
+          "name": "remaining_moves_at_1630",
+          "value": "58 moves"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Container gangs work 08:00-17:00 EDT and 18:00-23:00 EDT, with a break from 17:00-18:00 EDT. A four-gang labor order covers the 18:00-23:00 shift at Berth 8.",
+          "name": "labor_shift",
+          "value": "18:00-23:00 EDT shift with four gangs"
+        }
+      ],
+      "name": "Four ship-to-shore cranes",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6",
+          "e7"
+        ],
+        "meaning": "Four ship-to-shore cranes are assigned to MV Cape Ferrol at Berth 8 for the whole of 2026-08-13, with no maintenance restrictions. They operate during container gang shifts: 08:00-17:00 EDT and 18:00-23:00 EDT, with a break from 17:00-18:00 EDT. They resume at 18:00 EDT on 2026-08-13 to finish the Cape Ferrol load.",
+        "operating_meaning": "The cranes operate during the ILA container gang shifts: 08:00-17:00 EDT and 18:00-23:00 EDT, with a one-hour break from 17:00-18:00 EDT. On 2026-08-13, they resume at 18:00 EDT to complete the remaining 58 moves on MV Cape Ferrol.",
+        "rate_meaning": "Sustained average of 23 moves per crane-hour on vessels of this class, which is 92 gross moves per hour with four cranes working."
+      }
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA container gangs operate the cranes that complete container moves.",
+          "over": "crane_operations_complete"
+        }
+      ],
+      "availability": {
+        "close": "23:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four container gangs are committed to work Berth 8 from 18:00 to 23:00 EDT on 2026-08-13.",
+          "name": "berth_8_shift",
+          "when": "2026-08-13T18:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA container gangs work 08:00-17:00 and 18:00-23:00 with an unworked break from 17:00-18:00.",
+          "name": "work_shift_break"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "A four-gang labor order for Berth 8 covering the 18:00-23:00 shift on 2026-08-13 has been placed and accepted.",
+          "name": "labor_order_accepted"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA container gangs know they are assigned to Berth 8 for the 18:00-23:00 shift on 2026-08-13.",
+          "name": "labor_order",
+          "visibility": "private"
+        }
+      ],
+      "name": "ILA container gangs",
+      "not_available": [
+        {
+          "from": "2026-08-13T17:00:00-04:00",
+          "meaning": "ILA container gangs do not work during the 17:00-18:00 break period.",
+          "to": "2026-08-13T18:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e6",
+            "e7"
+          ],
+          "meaning": "GPA Garden City Terminal operates the cranes and completes container moves.",
+          "over": "crane_operations_complete"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "GPA placed the labor order for the 18:00 to 23:00 shift.",
+          "over": "labor_order_accepted"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Danielle Okafor, GPA vessel planner, is authorized to declare berth clear.",
+          "over": "berth_clear_declaration"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Monitored during working hours.",
+            "meaning": "Continuous monitoring while on shift."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e8",
+            "e12"
+          ],
+          "latency_meaning": "Immediate, as both parties monitor continuously.",
+          "meaning": "GPA terminal operations channel, monitored continuously by Marcus Deveaux and Danielle Okafor.",
+          "name": "VHF Channel 12",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "24/7.",
+            "meaning": "Continuous availability."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "latency_meaning": "Immediate, as dispatch is continuously manned.",
+          "meaning": "Direct line to Savannah Pilots dispatch.",
+          "name": "telephone",
+          "role": "both"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four-gang labor order for Berth 8 from 18:00 to 23:00 EDT on 2026-08-13.",
+          "name": "labor_order_2026-08-13-N4",
+          "when": "2026-08-13T18:00:00-04:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8",
+            "e9"
+          ],
+          "meaning": "Berth 8 is occupied by MV Cape Ferrol until its departure, which is expected after last container at ~18:10 EDT plus lashing and unmooring.",
+          "name": "berth_8_occupied_until_departure",
+          "when": "2026-08-13T18:10:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is occupied by MV Cape Ferrol as of the world opening.",
+          "name": "berth_8_occupied"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 6 is out of service for crane-rail replacement through 2026-08-20.",
+          "name": "berth_6_out_of_service"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berths 1 through 5 have a maximum permitted draft of 42 ft.",
+          "name": "berths_1_to_5_draft_limit"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is the only berth where MV Rhine Meridian can lie at her arrival draft of 45 ft 3 in.",
+          "name": "berth_8_only_berth_for_rhine_meridian"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "MV Cape Ferrol has 58 container moves remaining at 16:30 EDT on 2026-08-13.",
+          "name": "cape_ferrol_remaining_moves"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Four ship-to-shore cranes are assigned to MV Cape Ferrol at Berth 8 for the whole of 2026-08-13.",
+          "name": "four_cranes_assigned_to_cape_ferrol"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Sustained average of 23 moves per crane-hour on vessels of this class, 92 gross moves per hour with four cranes.",
+          "name": "crane_productivity_rate"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four-gang labor order accepted for 18:00 to 23:00 shift at Berth 8.",
+          "name": "labor_order_accepted"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected last container on Cape Ferrol at approximately 18:10 EDT.",
+          "name": "deveaux_projection"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Outbound pilot for Cape Ferrol and inbound pilot for Rhine Meridian both ordered for 19:00 EDT and accepted.",
+          "name": "pilot_orders_placed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "No berth-clear declaration for Berth 8 has been made or scheduled in advance.",
+          "name": "no_berth_clear_declaration"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Three tugs for 22:15 EDT rendezvous and mooring gang rostered from 22:15 EDT to 01:00 EDT.",
+          "name": "tug_and_line_handlers_available"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "MV Rhine Meridian anchored at Tybee Roads Anchorage A at 11:20 EDT on 2026-08-13, awaiting Berth 8.",
+          "name": "vessel_schedule",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 occupied by MV Cape Ferrol; Berth 6 out of service; other berths draft-limited.",
+          "name": "berth_status",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "58 moves remaining at 16:30 EDT.",
+          "name": "cape_ferrol_remaining_moves",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "92 gross moves per hour with four cranes.",
+          "name": "crane_productivity",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four-gang labor order accepted for 18:00 to 23:00 shift.",
+          "name": "labor_order",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected last container at ~18:10 EDT.",
+          "name": "deveaux_projection",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Outbound pilot for Cape Ferrol and inbound pilot for Rhine Meridian both ordered for 19:00 EDT and accepted.",
+          "name": "pilot_orders",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Transit window 17:58 to 20:28 EDT on 2026-08-13; next window 06:31 EDT on 2026-08-14.",
+          "name": "tide_windows",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Lashing 40 min, unmooring 25 min, stern clear 10 min after lines gone.",
+          "name": "departure_standards",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Weather and channel width permit transit on evening of 2026-08-13.",
+          "name": "no_navigational_restrictions",
+          "visibility": "public"
+        }
+      ],
+      "name": "GPA",
+      "not_available": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "GPA does not have authority to waive Standing Orders 9 or 12; only Captain of the Port can."
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "GPA does not have access to the Savannah Pilots Association dispatch log or internal pilot assignments beyond what is communicated."
+        }
+      ],
+      "resources": [
+        {
+          "amount": 1,
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Garden City Terminal Berth 8, the only berth capable of accommodating MV Rhine Meridian.",
+          "name": "berth_8",
+          "unit": "berth"
+        },
+        {
+          "amount": 4,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Four ship-to-shore cranes assigned to Berth 8.",
+          "name": "cranes_at_berth_8",
+          "unit": "cranes"
+        },
+        {
+          "amount": 4,
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four container gangs for the 18:00 to 23:00 shift.",
+          "name": "labor_gangs",
+          "unit": "gangs"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA Local 1414 accepted the labor order from GPA for the 18:00-23:00 shift at Berth 8.",
+          "over": "labor_order_accepted"
+        }
+      ],
+      "availability": {
+        "close": "23:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four container gangs assigned to Berth 8 from 18:00 to 23:00 EDT on 2026-08-13.",
+          "name": "labor_order_berth8_shift",
+          "when": "2026-08-13T18:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA Local 1414 has a working agreement with GPA specifying container gang work hours: 08:00-17:00 and 18:00-23:00, with an unworked break 17:00-18:00.",
+          "name": "working_agreement"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA Local 1414 accepted a four-gang labor order for Berth 8 covering the 18:00-23:00 shift on 2026-08-13.",
+          "name": "labor_order_accepted"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA Local 1414 knows the labor order for four gangs at Berth 8 from 18:00 to 23:00 on 2026-08-13.",
+          "name": "labor_order_details",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "ILA Local 1414 knows the terms of the working agreement with GPA.",
+          "name": "working_agreement_terms",
+          "visibility": "public"
+        }
+      ],
+      "name": "ILA Local 1414",
+      "not_available": [
+        {
+          "from": "2026-08-13T17:00:00-04:00",
+          "meaning": "ILA Local 1414 does not work during the 17:00-18:00 break period on 2026-08-13.",
+          "to": "2026-08-13T18:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The crew performs lashing and securing of deck stow after last container is landed.",
+          "over": "lashing_and_securing"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The crew performs unmooring operations under pilot direction.",
+          "over": "unmooring"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The crew maintains continuous watch on deck and bridge while alongside, monitoring VHF Channels 12 and 16.",
+          "name": "continuously manned deck and bridge watches"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The vessel will be worked to completion rather than sailing short, as confirmed by the operator.",
+          "name": "working to completion"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "At 16:30 EDT, 58 container moves remain.",
+          "name": "remaining container moves",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Outbound pilot ordered for 19:00 EDT.",
+          "name": "pilot order placed",
+          "visibility": "public"
+        }
+      ],
+      "name": "MV Cape Ferrol crew",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "As assigned outbound pilot, boards MV Cape Ferrol to conduct the outbound transit.",
+          "over": "pilot_boarding_cape_ferrol"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Monitored continuously during duty hours.",
+            "meaning": "Continuous monitoring by dispatch and pilots while on duty."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "latency_meaning": "Immediate when monitored.",
+          "meaning": "Marine VHF radio channel used for pilot dispatch and communication.",
+          "name": "VHF Channel 13",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Monitored during operations.",
+            "meaning": "Monitored continuously by terminal personnel and pilots as needed."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e8",
+            "e12"
+          ],
+          "latency_meaning": "Immediate when monitored.",
+          "meaning": "Marine VHF channel used for berth operations and communication with terminal.",
+          "name": "VHF Channel 12",
+          "role": "both"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "Scheduled to pilot MV Cape Ferrol outbound from Berth 8, with pilot order placed for 19:00 EDT.",
+          "name": "outbound_pilot_duty",
+          "when": "2026-08-13T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Assigned as outbound pilot for MV Cape Ferrol at Berth 8 on 2026-08-13.",
+          "name": "assigned_outbound_pilot"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Has been on the pilots' rotation board since 14:00 EDT on 2026-08-13.",
+          "name": "on_rotation_board"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "Knows that the pilot order for MV Cape Ferrol at 19:00 EDT was accepted by dispatch.",
+          "name": "pilot_order_accepted",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "May be aware of Marcus Deveaux's projection that last container lands around 18:10 EDT.",
+          "name": "berth_clear_projection",
+          "visibility": "public"
+        }
+      ],
+      "name": "Capt. Dale Wingard",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Provides line handling services for unmooring of MV Cape Ferrol.",
+          "over": "unmooring"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Mooring gang rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14.",
+          "name": "mooring_gang_shift",
+          "when": "2026-08-13T22:15:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "A mooring gang under foreman Terrell Bass is rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14.",
+          "name": "mooring_gang_rostered"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "They know their mooring gang is rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14.",
+          "name": "mooring_gang_rostered",
+          "visibility": "private"
+        }
+      ],
+      "name": "Southern Line Handling Services",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Danielle Okafor is authorized to declare Berth 8 clear to Savannah Pilots dispatch upon observing the departing vessel's stern clear the berth face.",
+          "over": "berth_clear_declaration"
+        }
+      ],
+      "availability": {
+        "close": "23:00",
+        "open": "15:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "During her shift 15:00-23:00 EDT.",
+            "meaning": "Continuous monitoring while on shift."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "latency_meaning": "Immediate within the range of the radio.",
+          "meaning": "Danielle Okafor monitors VHF Channel 12 continuously while on shift and can transmit to Savannah Pilots dispatch.",
+          "name": "VHF Channel 12 base station",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "During her shift.",
+            "meaning": "Available on demand."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "latency_meaning": "Immediate when dialed.",
+          "meaning": "Danielle Okafor can also call Savannah Pilots dispatch by telephone.",
+          "name": "telephone",
+          "role": "sender"
+        }
+      ],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Danielle Okafor starts her shift at 15:00 EDT on 2026-08-13.",
+          "name": "shift_start"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Danielle Okafor is the only person authorized to declare Berth 8 clear to Savannah Pilots dispatch.",
+          "name": "berth_clear_authority"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "No berth-clear declaration for Berth 8 has been made or scheduled in advance as of the start of her shift.",
+          "name": "berth_clear_not_declared"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Marcus Deveaux projected the last container would land on MV Cape Ferrol at approximately 18:10 EDT.",
+          "name": "berth_clear_projection",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Priya Raghavan ordered outbound pilot for MV Cape Ferrol at 19:00 EDT and inbound pilot for MV Rhine Meridian at 19:00 EDT.",
+          "name": "pilot_orders",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "MV Cape Ferrol is currently at Berth 8 with remaining container moves.",
+          "name": "berth_8_occupancy",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is the only berth that can accommodate MV Rhine Meridian's draft.",
+          "name": "berth_8_only_option",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The inbound transit window for MV Rhine Meridian on 2026-08-13 runs from 17:58 EDT to 20:28 EDT.",
+          "name": "transit_window",
+          "visibility": "public"
+        }
+      ],
+      "name": "Danielle Okafor",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "The crew heaves the anchor under the pilot's order.",
+          "over": "anchor_heaved"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Always on.",
+            "meaning": "Continuous monitoring."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "latency_meaning": "Immediate when both parties are monitoring.",
+          "meaning": "International distress and calling channel, monitored continuously.",
+          "name": "VHF Channel 16",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Always on.",
+            "meaning": "Continuous monitoring."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "latency_meaning": "Immediate when both parties are monitoring.",
+          "meaning": "Bridge-to-bridge navigational channel, monitored continuously.",
+          "name": "VHF Channel 13",
+          "role": "both"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Inbound pilot service ordered for 19:00 EDT on 2026-08-13.",
+          "name": "inbound pilot ordered for 19:00 EDT",
+          "when": "2026-08-13T19:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The vessel is anchored at Tybee Roads Anchorage A, awaiting berth.",
+          "name": "anchored at Tybee Roads Anchorage A",
+          "value": null
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The crew is ready to start engines at short notice.",
+          "name": "on immediate notice for engines",
+          "value": null
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The bridge is continuously manned, monitoring VHF Channels 16 and 13.",
+          "name": "manned bridge anchor watch",
+          "value": null
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The vessel's draft is 45 feet 3 inches.",
+          "name": "arrival draft 45 ft 03 in",
+          "value": null
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The crew knows that inbound pilot service has been ordered for 19:00 EDT.",
+          "name": "pilot order placed",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The crew knows that Berth 8 is occupied by MV Cape Ferrol and that Berth 6 is out of service.",
+          "name": "berth status",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The crew knows the transit window from 17:58 to 20:28 EDT on 2026-08-13.",
+          "name": "tide window",
+          "visibility": "public"
+        }
+      ],
+      "name": "MV Rhine Meridian crew",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Accepts pilot orders placed by agents.",
+          "over": "pilot_order_accepted"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Accepts outbound pilot orders.",
+          "over": "pilot_order_accepted_cape_ferrol"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "24/7",
+            "meaning": "Continuous monitoring."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "latency_meaning": "Immediate, continuous monitoring.",
+          "meaning": "Primary radio channel for pilot dispatch communications.",
+          "name": "VHF Channel 13",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "24/7",
+            "meaning": "Continuous monitoring."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "latency_meaning": "Immediate, continuous monitoring.",
+          "meaning": "Telephone line for pilot orders and berth-clear declarations.",
+          "name": "dispatch telephone line",
+          "role": "both"
+        }
+      ],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "The dispatcher desk is staffed continuously, monitoring VHF Channel 13 and dispatch telephone without interruption.",
+          "name": "continuously manned 24-hour watch"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Accepted inbound pilot order for MV Rhine Meridian at 19:00 EDT and outbound pilot order for MV Cape Ferrol at 19:00 EDT, both logged at 16:36 EDT.",
+          "name": "accepted pilot orders"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Assigned Capt. Dale Wingard as outbound pilot for MV Cape Ferrol and Capt. Lorraine Beaudry as inbound pilot for MV Rhine Meridian.",
+          "name": "assigned pilots"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Knows that inbound pilot order for MV Rhine Meridian and outbound pilot order for MV Cape Ferrol were accepted at 16:36 EDT.",
+          "name": "pilot orders accepted",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Knows assigned pilots: Wingard for outbound, Beaudry for inbound.",
+          "name": "pilot assignments",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Knows Berth 8 is occupied by MV Cape Ferrol and Berth 6 is out of service.",
+          "name": "berth status",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Knows Standing Orders 9 and 12 regarding draft restrictions and berth clearance.",
+          "name": "standing orders",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Knows the inbound transit window for 2026-08-13 is 17:58 to 20:28 EDT.",
+          "name": "transit window",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Knows that no berth-clear declaration for Berth 8 has been made as of 16:40 EDT.",
+          "name": "no berth-clear declaration yet",
+          "visibility": "private"
+        }
+      ],
+      "name": "Savannah Pilots Association dispatcher",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Container gangs operate cranes and handle containers to complete the Cape Ferrol load",
+          "over": "crane_operations_complete"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Container gangs resume work at 18:00 EDT after the break",
+          "over": "crane_operations_resume"
+        }
+      ],
+      "availability": {
+        "close": "23:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Container gangs work 08:00-17:00 and 18:00-23:00 EDT, with a break 17:00-18:00",
+          "name": "work_shift"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "A four-gang labor order for Berth 8 covering the 18:00-23:00 shift has been placed and accepted",
+          "name": "labor_order_accepted"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Gangs know their scheduled shifts and the labor order for Berth 8",
+          "name": "work_schedule",
+          "visibility": "public"
+        }
+      ],
+      "name": "Container gangs",
+      "not_available": [
+        {
+          "from": "2026-08-13T17:00:00-04:00",
+          "meaning": "Container gangs do not work during the 17:00-18:00 break",
+          "to": "2026-08-13T18:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Danielle Okafor, GPA vessel planner and berth coordinator, is the only person authorized to declare a berth clear to Savannah Pilots dispatch.",
+          "over": "berth_clear_declaration"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Four container gangs scheduled to work Berth 8 from 18:00 to 23:00 EDT on 2026-08-13.",
+          "name": "labor_order_berth_8_shift",
+          "when": "2026-08-13T18:00:00-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is occupied by MV Cape Ferrol as of world opening.",
+          "name": "berth_8_occupied"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 6 is out of service for crane-rail replacement through 2026-08-20.",
+          "name": "berth_6_out_of_service"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berths 1 through 5 are limited to a maximum permitted draft of 42 ft.",
+          "name": "berths_1_to_5_draft_limit"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Berth 8 is the only berth in the port at which MV Rhine Meridian can lie at her arrival draft of 45 ft 03 in.",
+          "name": "berth_8_only_berth_for_rhine_meridian"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "GPA placed and ILA Local 1414 accepted a four-gang labor order for the 18:00 to 23:00 shift at Berth 8 on 2026-08-13.",
+          "name": "labor_order_accepted"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "No berth-clear declaration for Berth 8 has been made or scheduled in advance.",
+          "name": "berth_clear_not_declared"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "GPA knows Berth 8 is occupied by MV Cape Ferrol.",
+          "name": "berth_8_occupied_by_cape_ferrol",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "GPA knows MV Cape Ferrol had 58 container moves remaining at 16:30 EDT on 2026-08-13.",
+          "name": "cape_ferrol_remaining_moves",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "GPA knows Berth 6 is out of service.",
+          "name": "berth_6_out_of_service",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "GPA knows Berths 1-5 have a 42 ft draft limit.",
+          "name": "berths_1_to_5_draft_limit",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "GPA knows the labor order for the 18:00-23:00 shift at Berth 8 was accepted.",
+          "name": "labor_order_accepted",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "GPA knows Marcus Deveaux projected the last container on Cape Ferrol at approximately 18:10 EDT.",
+          "name": "deveaux_projection",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "GPA knows outbound pilot for Cape Ferrol and inbound pilot for Rhine Meridian were ordered for 19:00 EDT.",
+          "name": "pilot_orders_placed",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "GPA knows MV Rhine Meridian is anchored at Tybee Roads Anchorage A awaiting Berth 8.",
+          "name": "rhine_meridian_at_anchorage",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "GPA knows the inbound transit window for vessels over 44 ft draft on 2026-08-13 runs from 17:58 to 20:28 EDT.",
+          "name": "transit_window_evening",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "GPA knows no berth-clear declaration has been made.",
+          "name": "no_berth_clear_declaration",
+          "visibility": "public"
+        }
+      ],
+      "name": "Georgia Ports Authority",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Mooring gang under foreman Terrell Bass is rostered at Berth 8 from 22:15 EDT on 2026-08-13 to 01:00 EDT on 2026-08-14",
+          "name": "Rostered at Berth 8",
+          "when": "2026-08-13T22:15:00-04:00"
+        }
+      ],
+      "initial_state": [],
+      "knows": [],
+      "name": "Mooring gang",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "The crew is responsible for heaving the anchor when ordered by the pilot.",
+          "over": "anchor_heaved"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Always.",
+            "meaning": "Continuously monitored on the bridge."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "latency_meaning": "Instantaneous when monitored.",
+          "meaning": "International distress, safety and calling channel.",
+          "name": "VHF Channel 16",
+          "role": "both"
+        },
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Always.",
+            "meaning": "Continuously monitored on the bridge."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "latency_meaning": "Instantaneous when monitored.",
+          "meaning": "Bridge-to-bridge navigational channel.",
+          "name": "VHF Channel 13",
+          "role": "both"
+        }
+      ],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The vessel is anchored at Tybee Roads Anchorage A, awaiting berth.",
+          "name": "anchored at Tybee Roads Anchorage A",
+          "value": null
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The crew is ready to start engines at short notice.",
+          "name": "on immediate notice for engines",
+          "value": null
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The bridge is continuously manned, monitoring VHF Channels 16 and 13.",
+          "name": "manned bridge anchor watch",
+          "value": null
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The vessel's draft upon arrival is 45 feet 3 inches.",
+          "name": "arrival draft 45 ft 03 in",
+          "value": null
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The crew knows that inbound pilot service has been ordered for 19:00 EDT.",
+          "name": "pilot order placed",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The crew knows that Berth 8 is occupied by MV Cape Ferrol and that Berth 6 is out of service.",
+          "name": "berth status",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The crew knows the transit window for deep-draft vessels is 17:58 to 20:28 EDT on 2026-08-13.",
+          "name": "transit window",
+          "visibility": "public"
+        }
+      ],
+      "name": "Crew of MV Rhine Meridian",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

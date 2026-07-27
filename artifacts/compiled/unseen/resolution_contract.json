@@ -1,0 +1,38 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The deadline for the all-fast event to occur.",
+    "timezone": "America/New_York",
+    "when": "2026-08-13T23:59:00-04:00"
+  },
+  "evidence_ids": [],
+  "measured_act": null,
+  "negative_condition": "The all-fast time is recorded after 2026-08-13T23:59:00-04:00, or the vessel is berthed elsewhere, or the records disagree with the pilot's report governing.",
+  "positive_condition": "The all-fast time is recorded at or before 2026-08-13T23:59:00-04:00.",
+  "proof": [
+    {
+      "expected_count": 1,
+      "kind": "record",
+      "meaning": "The official docking report from the Savannah Pilots Association recording the all-fast time for MV Rhine Meridian at Berth 8.",
+      "name": "Savannah Pilots Association docking report",
+      "record_type": "docking report",
+      "rule": "governing",
+      "subject": "MV Rhine Meridian",
+      "value": "all fast time"
+    },
+    {
+      "expected_count": 1,
+      "kind": "record",
+      "meaning": "The vessel log at Berth 8 recording the all-fast time for MV Rhine Meridian.",
+      "name": "GPA Garden City Berth 8 vessel log",
+      "record_type": "vessel log",
+      "rule": "secondary",
+      "subject": "MV Rhine Meridian",
+      "value": "all fast time"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "The question resolves when the Savannah Pilots Association docking report and the GPA Garden City Berth 8 vessel log record an 'all fast' time for MV Rhine Meridian at Berth 8 at or before 2026-08-13T23:59:00-04:00."
+}

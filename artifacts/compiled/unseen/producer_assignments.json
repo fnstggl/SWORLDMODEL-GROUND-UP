@@ -1,0 +1,278 @@
+{
+  "assignments": [
+    {
+      "step": "all_fast_recorded",
+      "unsupported": "This is a condition that depends on the all_fast_event; the recording itself is a measured record of the event, not a separate producer. The pilot's docking report and vessel log are records, but the step is a condition, not an action. No producer needed."
+    },
+    {
+      "step": "all_fast_event",
+      "unsupported": "This is a condition that depends on berthing_complete; it is the state of being all fast, not an action. No producer needed."
+    },
+    {
+      "step": "berthing_complete",
+      "unsupported": "This is a condition that depends on inbound_transit_complete and mooring_gang_available; it is the state of being moored, not an action. No producer needed."
+    },
+    {
+      "step": "inbound_transit_complete",
+      "unsupported": "This is a condition that depends on inbound_transit_start; it is the state of having completed transit, not an action. No producer needed."
+    },
+    {
+      "step": "inbound_transit_start",
+      "unsupported": "This is a condition that depends on pilot_aboard_and_anchor_up, berth_clear_declaration, and transit_window_open; it is the state of starting transit, not an action. No producer needed."
+    },
+    {
+      "step": "pilot_aboard_and_anchor_up",
+      "unsupported": "This is a condition that depends on pilot_boarding and anchor_heaved; it is a state, not an action. No producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11",
+            "e13"
+          ],
+          "kind": "physical_process",
+          "meaning": "Transports pilot to vessel",
+          "name": "Pilot boat Savannah"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Boards the vessel",
+          "name": "Capt. Lorraine Beaudry"
+        }
+      ],
+      "step": "pilot_boarding"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Accepts the pilot order",
+          "name": "Savannah Pilots Association dispatcher"
+        }
+      ],
+      "step": "pilot_order_accepted"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Orders inbound pilot service",
+          "name": "Priya Raghavan"
+        }
+      ],
+      "step": "pilot_order_placed"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Projects berth clear time",
+          "name": "Marcus Deveaux"
+        }
+      ],
+      "step": "berth_clear_projection"
+    },
+    {
+      "step": "cape_ferrol_departure_estimate",
+      "unsupported": "This is a condition that depends on multiple steps; it is an estimate, not an action. No producer needed."
+    },
+    {
+      "step": "last_container_landed",
+      "unsupported": "This is a condition that depends on crane_operations_complete; it is a state, not an action. No producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e6",
+            "e7"
+          ],
+          "kind": "physical_process",
+          "meaning": "Perform container moves",
+          "name": "Four ship-to-shore cranes"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "population",
+          "meaning": "Operate cranes and handle containers",
+          "name": "Container gangs"
+        }
+      ],
+      "step": "crane_operations_complete"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "population",
+          "meaning": "Resume work at 18:00 EDT",
+          "name": "Container gangs"
+        }
+      ],
+      "step": "crane_operations_resume"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "Places labor order",
+          "name": "Georgia Ports Authority"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "Accepts labor order",
+          "name": "ILA Local 1414"
+        }
+      ],
+      "step": "labor_order_accepted"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "population",
+          "meaning": "Perform lashing and securing",
+          "name": "Mooring gang"
+        }
+      ],
+      "step": "lashing_and_securing"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Boards MV Cape Ferrol",
+          "name": "Capt. Dale Wingard"
+        }
+      ],
+      "step": "pilot_boarding_cape_ferrol"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Accepts outbound pilot order",
+          "name": "Savannah Pilots Association dispatcher"
+        }
+      ],
+      "step": "pilot_order_accepted_cape_ferrol"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Orders outbound pilot service",
+          "name": "Priya Raghavan"
+        }
+      ],
+      "step": "pilot_order_placed_cape_ferrol"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "population",
+          "meaning": "Release lines",
+          "name": "Mooring gang"
+        }
+      ],
+      "step": "unmooring"
+    },
+    {
+      "step": "stern_clear",
+      "unsupported": "This is a condition that depends on unmooring; it is a state, not an action. No producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "kind": "person",
+          "meaning": "Declares berth clear to dispatcher",
+          "name": "Danielle Okafor"
+        }
+      ],
+      "step": "berth_clear_declaration"
+    },
+    {
+      "step": "transit_window_open",
+      "unsupported": "This is a condition with no prerequisites; it is a scheduled time window, not produced by any actor."
+    },
+    {
+      "step": "pilot_available",
+      "unsupported": "Initial fact, no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e13"
+          ],
+          "kind": "population",
+          "meaning": "Heave anchor to short stay",
+          "name": "Crew of MV Rhine Meridian"
+        }
+      ],
+      "step": "anchor_heaved"
+    },
+    {
+      "step": "mooring_gang_available",
+      "unsupported": "Initial fact, no producer needed."
+    }
+  ]
+}
