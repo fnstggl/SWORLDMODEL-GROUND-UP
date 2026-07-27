@@ -229,6 +229,26 @@ def test_authorized_verbs_only_offered_to_authorized_roles():
     assert "review_information" in world.action_defs
 
 
+def test_record_exists_by_name_resolves_to_id():
+    items = [i for i in neutral_items() if i["capability"] != "set_terminal"]
+    items.append(cap(
+        "set_terminal",
+        question_restated="did person_b personally produce the record?",
+        mode="condition", cutoff_local="2026-07-30 12:00",
+        tz="America/New_York",
+        condition={"check": "record_exists", "record_type": "record_d",
+                   "subject": "subject_s", "by": "Person B"},
+        yes_means="y", no_means="n"))
+    g = build_graph(items)
+    plan, errors = assemble(g, START)
+    assert errors == []
+    cond = plan["terminal_spec"]["condition"]
+    assert cond == {"check": "fact_exists",
+                    "key": "record_d:subject_s:person_b"}
+    report = validate_world(g, plan)
+    assert report.ok(), report.blocking
+
+
 def test_at_least_daily_cadence_clamps_to_window():
     """'Checks at least once per day' (cadence > window) lowers to once per
     working window -- recorded, never a kernel refusal and never silent."""

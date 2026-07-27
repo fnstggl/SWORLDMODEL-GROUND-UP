@@ -122,6 +122,10 @@ def _resolve_expr(g: WorldGraph, expr: dict, errors: list, where: str) -> dict:
         if expr["verb"] not in g.actions and expr["verb"] not in BUILTIN_VERBS:
             errors.append(f"{where}: action_completed references undefined "
                           f"verb {expr['verb']!r}")
+    elif kind in ("record_exists", "count_records_at_least"):
+        if expr.get("by"):
+            expr["by"] = g.registry.resolve_or_error(
+                expr["by"], ("participant",), errors, where)
     return expr
 
 
