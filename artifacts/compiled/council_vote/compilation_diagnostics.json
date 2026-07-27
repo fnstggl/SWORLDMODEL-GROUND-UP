@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "defects": [
+      "record:vote_record: explicitly marked unsupported (This is a measured record that act steps already produce (each cast vote declares produces_proof). No entry needed.). A measured quantity or record is never a conjunction: its value only changes through real mechanisms -- attach the scheduled transfers, processes or actions that change it as its producers"
+    ],
+    "repairable": true
+  },
+  "reason": "terminal production fails the backward causal proof",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

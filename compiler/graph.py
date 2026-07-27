@@ -290,6 +290,13 @@ class WorldGraph:
         self.uncertainties.append({"about": about_id,
                                    "meaning": str(meaning)})
 
+    def remove_edge(self, edge) -> None:
+        """Remove one edge (by identity key). Used only by deterministic
+        assembly rewrites that replace a mis-shaped relation with the
+        universal one."""
+        self._edge_keys.discard(edge.key())
+        self.edges = [e for e in self.edges if e.key() != edge.key()]
+
     def remove_node(self, node_id: str) -> None:
         """Remove a node and every edge touching it. Uncertainties about
         it fall back to world level (the honesty survives the debris)."""

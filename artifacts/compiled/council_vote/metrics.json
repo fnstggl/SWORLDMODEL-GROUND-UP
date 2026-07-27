@@ -1,0 +1,40 @@
+{
+  "assembly_ms": 6.2,
+  "assembly_repairs": [
+    "producer_assignments",
+    "review:causal_spine",
+    "review:starting_state_and_information",
+    "starting_state_and_information"
+  ],
+  "binding_calls": 12,
+  "discovery_calls": 20,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 190795.4792620003,
+  "model_tokens": 98065,
+  "proofs_ms": 3.0,
+  "repairs_by_step": {
+    "causal_spine": 1,
+    "process:Council vote on Ordinance 2026-14": 1,
+    "producer_assignments": 1,
+    "starting_state[Adaeze Okonkwo]": 2,
+    "starting_state[Carla Bianchi]": 1,
+    "starting_state[Council vote on Ordinance 2026-14]": 1,
+    "starting_state[Gareth Pryce]": 1,
+    "starting_state[Minh Tran]": 1,
+    "starting_state[Rosa Delgado]": 1
+  },
+  "review_revision_round": 1,
+  "reviewer_calls": 1,
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "NO_CAUSAL_PRODUCER"
+}

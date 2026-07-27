@@ -1,0 +1,169 @@
+{
+  "assignments": [
+    {
+      "step": "vote_record_created",
+      "unsupported": "This is a measured record that act steps already produce (each cast vote declares produces_proof). No entry needed."
+    },
+    {
+      "step": "council_votes_taken",
+      "unsupported": "This is a condition with prerequisites and no mechanism of its own; it is a conjunction."
+    },
+    {
+      "step": "session_occurs",
+      "unsupported": "Initial facts and scheduled events need no producers."
+    },
+    {
+      "step": "item_not_postponed",
+      "unsupported": "This is a condition with prerequisites and no mechanism of its own; it is a conjunction."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5",
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide not to move postponement.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_does_not_move_postponement"
+    },
+    {
+      "step": "quorum_present",
+      "unsupported": "This is a condition with prerequisites and no mechanism of its own; it is a conjunction."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to be present.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to be present.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to be present.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to be present.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decided to be absent.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_absent"
+    },
+    {
+      "step": "affirmative_votes_sufficient",
+      "unsupported": "This is a condition with prerequisites and no mechanism of its own; it is a conjunction."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can vote yes.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can vote yes.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can vote no.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_votes_no"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can vote no.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_votes_no"
+    }
+  ]
+}

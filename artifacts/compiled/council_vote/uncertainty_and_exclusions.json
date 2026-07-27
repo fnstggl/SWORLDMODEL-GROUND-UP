@@ -1,0 +1,67 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e3"
+      ],
+      "name": "Other council members or alternates",
+      "why_safe": "The council has exactly five members as per e1; no alternates or replacements are mentioned. Excluding others is safe because the charter requires votes from the five members only."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Remote participation or proxy voting",
+      "why_safe": "Council rules require physical presence and no remote provision (e4). Excluding remote participation is safe because it is not allowed."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "name": "Postponement by non-sponsor",
+      "why_safe": "Only the sponsor can move postponement (e11). Excluding others is safe because they cannot initiate postponement."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "item_not_postponed",
+      "meaning": "Whether Okonkwo, as sponsor, moves to postpone the item before the vote. The evidence says an item listed for final action is voted on unless its sponsor moves postponement, but it is unknown if Okonkwo will do so."
+    },
+    {
+      "about": "okonkwo_present",
+      "meaning": "Whether Okonkwo will be physically present at the session. No evidence confirms her attendance."
+    },
+    {
+      "about": "tran_present",
+      "meaning": "Whether Tran will be physically present at the session. No evidence confirms his attendance."
+    },
+    {
+      "about": "delgado_present",
+      "meaning": "Whether Delgado will be physically present at the session. No evidence confirms her attendance."
+    },
+    {
+      "about": "pryce_present",
+      "meaning": "Whether Pryce will be physically present at the session. No evidence confirms his attendance."
+    },
+    {
+      "about": "okonkwo_votes_yes",
+      "meaning": "Whether Okonkwo, if present, will vote yes. She stated support, but her actual vote is not guaranteed."
+    },
+    {
+      "about": "tran_votes_yes",
+      "meaning": "Whether Tran, if present, will vote yes. He stated he is prepared to vote for it, but his actual vote is not guaranteed."
+    },
+    {
+      "about": "delgado_votes_no",
+      "meaning": "Whether Delgado, if present, will vote no. She stated intent, but actual vote is not guaranteed."
+    },
+    {
+      "about": "pryce_votes_no",
+      "meaning": "Whether Pryce, if present, will vote no. He stated intent, but actual vote is not guaranteed."
+    }
+  ]
+}

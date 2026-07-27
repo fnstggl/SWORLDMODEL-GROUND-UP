@@ -355,3 +355,46 @@ def test_actor_producing_a_record_gets_a_ministerial_action():
     rec = graph.resolve("record", "session minutes", "test")
     assert any(e.dst == act for e in graph.edges_from(clerk, "can_perform"))
     assert any(e.dst == rec for e in graph.edges_from(act, "produces"))
+
+
+def test_action_prerequisites_of_a_record_become_its_makers():
+    """A record 'requiring' cast-vote actions means those acts make it:
+    the requires edges lift into produces, so the record roots through
+    the acts and the tally stays the simulation's outcome."""
+    from tests.fixtures_discovery import EVIDENCE_IDS, docs
+    from compiler.proofs import backward_causal_proof
+    res, spine, prod, state, unc = docs()
+    res["proof"] = list(res["proof"]) + [
+        {"kind": "record", "name": "the vote record",
+         "record_type": "vote", "rule": "count_value", "value": "yes",
+         "expected_count": 1, "meaning": "each cast vote on record"}]
+    spine["steps"] = spine["steps"] + [
+        {"name": "ada casts a vote", "kind": "actor_decision",
+         "meaning": "Ada may vote yes or no",
+         "prerequisites": [{"step": "bobs confirmation available to "
+                                    "alice"}],
+         "uncertainty": "she may abstain",
+         "basis": "uncertain", "evidence_ids": []},
+        {"name": "the record is created", "kind": "condition",
+         "meaning": "votes are on record once cast",
+         "prerequisites": [{"step": "ada casts a vote",
+                            "necessity": "optional"}],
+         "produces_proof": ["the vote record"],
+         "basis": "inferred", "evidence_ids": ["e1"]}]
+    prod["assignments"] = (prod.get("assignments") or []) + [
+        {"step": "ada casts a vote",
+         "producers": [{"name": "Ada Lin", "kind": "person",
+                        "meaning": "the voting member",
+                        "basis": "verified", "evidence_ids": ["e1"]}]}]
+    state["entities"] = state["entities"] + [
+        {"name": "Ada Lin", "timezone": "America/New_York",
+         "availability": {"workdays": [0, 1, 2, 3, 4],
+                          "open": "09:00", "close": "17:00"}}]
+    graph, trace = assemble(res, spine, prod, state, unc,
+                            valid_evidence_ids=EVIDENCE_IDS)
+    rec = graph.resolve("record", "the vote record", "test")
+    act = graph.resolve("action", "ada casts a vote", "test")
+    assert any(e.src == act for e in graph.edges_to(rec, "produces"))
+    assert not any(graph.node(e.dst).category == "action"
+                   for e in graph.edges_from(rec, "requires"))
+    backward_causal_proof(graph)          # roots through the act

@@ -1343,6 +1343,19 @@ def assemble(resolution: dict, spine: dict, producers: dict,
     # real producers for the check below.
     a.derive_event_anchors()
     a.derive_quantity_mechanisms()
+    # A record that 'requires' actions can only mean those acts make it:
+    # a record is written by acts, never gated behind them. Lift each
+    # action prerequisite of a record into its producer, so five cast
+    # votes ARE the makers of the vote record they count into.
+    for rec in list(a.graph.by_category("record")):
+        for e in list(a.graph.edges_from(rec.id, "requires")):
+            if a.graph.node(e.dst).category == "action":
+                a.graph.remove_edge(e)
+                made = a.graph.add_edge(e.dst, "produces", rec.id,
+                                        where=f"maker of {rec.name!r}")
+                a._record("record_maker_lifted",
+                          {"record": rec.name,
+                           "act": a.graph.node(e.dst).name}, [], [made])
     # Every causal step must now be producible or honestly unsupported.
     for name, sid in sorted(a._step_ids.items()):
         node = a.graph.node(sid)
