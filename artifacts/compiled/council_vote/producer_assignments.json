@@ -1,0 +1,100 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "organization",
+          "meaning": "The council holds its regular session as scheduled.",
+          "name": "Ellsworth Falls Village Council"
+        }
+      ],
+      "step": "council_session_occurs"
+    },
+    {
+      "step": "quorum_present",
+      "unsupported": "This is a condition that depends on the physical presence of council members; no single entity can produce it. It is a conjunction of individual attendance decisions."
+    },
+    {
+      "step": "vote_taken",
+      "unsupported": "This is a condition that depends on the sponsor not moving postponement and the session proceeding; it is a conjunction of decisions and rules."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to vote yes.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to vote yes.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to vote no.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_vote_no"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who can decide to vote no.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_vote_no"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decided to be absent.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_absent"
+    },
+    {
+      "step": "at_least_three_yes_votes",
+      "unsupported": "This is a condition that is the conjunction of the individual votes and absences; no single producer."
+    }
+  ]
+}

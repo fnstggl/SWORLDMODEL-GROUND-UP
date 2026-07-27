@@ -1,0 +1,57 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:vote_record",
+        "via": {
+          "node": "action:delgado_vote_no",
+          "prerequisites": [
+            {
+              "derived_condition": true,
+              "node": "state:vote_taken",
+              "prerequisites": [
+                {
+                  "node": "action:okonkwo_does_not_postpone",
+                  "prerequisites": [
+                    {
+                      "node": "event:council_session",
+                      "root": "scheduled_event"
+                    }
+                  ],
+                  "root": "actor_choice"
+                },
+                {
+                  "derived_condition": true,
+                  "node": "state:quorum_present",
+                  "prerequisites": [
+                    {
+                      "node": "event:council_session",
+                      "root": "scheduled_event"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:vote_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:delgado_vote_no",
+        "action:okonkwo_vote_yes",
+        "action:pryce_vote_no",
+        "action:tran_vote_yes"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

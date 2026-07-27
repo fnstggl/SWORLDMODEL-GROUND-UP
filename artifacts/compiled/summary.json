@@ -1,19 +1,23 @@
 [
   {
-    "binding_calls": 0,
+    "binding_calls": 14,
     "case": "council_vote",
-    "discovery_calls": 13,
+    "discovery_calls": 14,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "starting_state[council_votes_on_ordinance] discovery is still defective after one targeted repair",
+    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
-      "producer_assignments": 1
+      "action:bianchi_absent": 2,
+      "action:okonkwo_does_not_postpone": 1,
+      "causal_spine": 1,
+      "producer_assignments": 1,
+      "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 46582
+    "stage": "REALITY_REVIEW_REJECTED",
+    "tokens": 61161
   }
 ]
