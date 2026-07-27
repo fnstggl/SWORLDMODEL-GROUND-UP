@@ -50,3 +50,15 @@ def test_substance_verdict_must_be_boolean_and_grounded():
                _v_substance({"same_substance": "yes", "why": "x"}))
     assert any("why" in x for x in
                _v_substance({"same_substance": False, "why": ""}))
+
+
+def test_missing_rate_teaches_the_decorative_escape():
+    doc = {"amount_per_hour": None, "rate_status": None,
+           "rate_note": "not applicable; fixed-size shipments",
+           "output_resource": None}
+    defects = _v_process(doc)
+    (d,) = defects
+    assert "decorative" in d
+    # and a well-formed decorative reply is accepted outright
+    assert _v_process({"decorative": True, "why": "transfers carry it"}) \
+        == []

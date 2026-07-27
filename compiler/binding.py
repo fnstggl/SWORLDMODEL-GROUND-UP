@@ -270,7 +270,9 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
                    "stock it feeds} -- null only if 'outputs' above "
                    "already names a quantity\n"
                    "If this mechanism does no continuous quantitative "
-                   "work (a role, or a wrapper around receiving/holding "
+                   "work (a role; a transport, courier or delivery step "
+                   "whose fixed-size shipments the scheduled transfers "
+                   "already carry; or a wrapper around receiving/holding "
                    "that the transfers already account for), return "
                    "{\"decorative\": true, \"why\": one sentence} "
                    "instead.")
@@ -432,8 +434,16 @@ def _v_process(doc) -> list:
         if not str(doc.get("why") or "").strip():
             d.append("a decorative marking needs 'why'")
         return d
-    _num(doc, "amount_per_hour", d, minimum=0)
-    _status_ok(doc, "rate_status", d)
+    missing_rate: list = []
+    _num(doc, "amount_per_hour", missing_rate, minimum=0)
+    d.extend(x + ". If that is because this mechanism does no continuous "
+                 "quantitative work -- it moves or hands over fixed-size "
+                 "shipments that the scheduled transfers already carry -- "
+                 "return {\"decorative\": true, \"why\": one sentence} "
+                 "instead of a rate"
+             for x in missing_rate)
+    if not missing_rate:
+        _status_ok(doc, "rate_status", d)
     op = doc.get("operating")
     if op:
         if not str(op.get("timezone") or "").strip():

@@ -5,79 +5,59 @@
       "evidence_ids": [
         "e10"
       ],
-      "name": "Elena Cruz",
-      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
-    },
-    {
-      "basis": "uncertain",
-      "evidence_ids": [],
-      "name": "Hospital usage or consumption of blood units",
-      "why_safe": "The question asks for units the hospital 'holds' at the deadline, not net after usage. Usage would only reduce the count, so excluding it gives an upper bound; but the resolution note says 'actually holds', implying inventory after any internal use. However, no evidence of usage is provided, so we assume no usage for simplicity. This exclusion is safe only if usage is zero; otherwise it could overestimate. But given no evidence, we must treat it as unknown."
-    },
-    {
-      "basis": "uncertain",
-      "evidence_ids": [],
-      "name": "Expiration of blood units",
-      "why_safe": "Blood units have a shelf life, but no evidence of expiration dates or that any units expire within the week. Excluding expiration is safe if all units remain usable; otherwise it could overestimate. Unknown."
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "Elena Cruz oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
     },
     {
       "basis": "verified",
       "evidence_ids": [
-        "e6",
         "e7"
       ],
       "name": "Other hospitals or blood centres",
-      "why_safe": "Only St. Vincent regional hospital is mentioned as receiving shipments from the Cascade centre. No other recipients are indicated, so excluding them is safe."
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's stock unless they receive shipments from the centre, but the centre only ships to St. Vincent according to the agreement."
     },
     {
       "basis": "verified",
       "evidence_ids": [
-        "e3"
+        "e3",
+        "e4"
       ],
-      "name": "Weekend collections (Saturday/Sunday)",
-      "why_safe": "The drive is only open Monday to Friday, so no weekend collections occur. Excluding them is safe."
+      "name": "Weekend collections",
+      "why_safe": "The drive is only open Monday to Friday, and the deadline is Friday noon, so weekend collections are irrelevant."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Usage or transfusions at the hospital",
+      "why_safe": "The question asks for units received, not units available after usage. The hospital's internal consumption does not affect the count of received units."
     }
   ],
   "uncertainties": [
     {
-      "about": "collection_monday",
-      "meaning": "Whether the mobile drive operated as scheduled on Monday 20 July 2026, and whether the average rate of 12 units per hour held for the full 8 hours, yielding exactly 96 units."
+      "about": "centre_has_enough_stock_for_tuesday",
+      "meaning": "Whether the centre's stock after Monday collection and before Tuesday 4 PM is at least 150 units to dispatch the Tuesday shipment. The centre starts with 40 units, collects 12 units/hour for 8 hours on Monday (96 units), total 136 units, which is less than 150. However, Tuesday collection before 4 PM could add more units, but the exact amount collected by 4 PM on Tuesday is unknown because the drive operates 9 AM to 5 PM, and the shipment is at 4 PM, so only 7 hours of collection on Tuesday (9 AM to 4 PM) would yield 84 units, making total 136+84=220, which is enough. But the timing of when the centre's stock is assessed for the shipment is uncertain: if it is assessed at the moment of dispatch, then Tuesday collection before 4 PM is included; if assessed earlier, it might not be. The evidence does not specify the exact cutoff for stock assessment."
     },
     {
-      "about": "collection_tuesday",
-      "meaning": "Whether the mobile drive operated as scheduled on Tuesday 21 July 2026, and whether the average rate held, yielding exactly 96 units."
+      "about": "centre_has_enough_stock_for_thursday",
+      "meaning": "Whether the centre's stock after all collections up to Thursday 4 PM is at least 150 units. The centre's stock after Tuesday shipment (if dispatched) would be 220-150=70 units. Then Wednesday collection (8 hours, 96 units) brings it to 166 units. Thursday collection before 4 PM (7 hours, 84 units) brings it to 250 units. So it is enough. However, if the Tuesday shipment was not dispatched due to insufficient stock, the stock would be higher, but then the hospital would not receive that shipment. The uncertainty is whether the Tuesday shipment actually occurs."
     },
     {
-      "about": "collection_wednesday",
-      "meaning": "Whether the mobile drive operated as scheduled on Wednesday 22 July 2026, and whether the average rate held, yielding exactly 96 units."
+      "about": "tuesday_shipment_dispatched",
+      "meaning": "Whether the Tuesday shipment is actually dispatched. This depends on whether the centre has at least 150 units at the time of dispatch. As calculated, if Tuesday collection before 4 PM is included, the centre has 220 units, so it is dispatched. But if the stock assessment is done before Tuesday collection starts, the centre would have only 136 units, and the shipment would not be dispatched. The evidence does not clarify the exact timing of stock assessment relative to collection."
     },
     {
-      "about": "collection_thursday",
-      "meaning": "Whether the mobile drive operated as scheduled on Thursday 23 July 2026, and whether the average rate held, yielding exactly 96 units."
+      "about": "tuesday_shipment_received",
+      "meaning": "Whether the Tuesday shipment, if dispatched, is received by the hospital before Friday noon. The shipment takes about 3 hours, so if dispatched at 4 PM Tuesday, it arrives around 7 PM Tuesday, well before Friday noon. So this is certain if dispatched."
     },
     {
-      "about": "centre_has_enough_stock_tuesday",
-      "meaning": "Whether the centre's stock after Monday's collection (initial 40 + Monday's 96 = 136) is sufficient to dispatch 150 units on Tuesday at 4:00 PM. It is not, so the shipment may be reduced or cancelled."
+      "about": "thursday_shipment_dispatched",
+      "meaning": "Whether the Thursday shipment is dispatched. Given the stock calculations, it is likely dispatched, but if the Tuesday shipment was not dispatched, the centre would have more stock, so still dispatched. However, if the Tuesday shipment was dispatched, the centre has enough stock. So this is certain."
     },
     {
-      "about": "centre_has_enough_stock_thursday",
-      "meaning": "Whether the centre's stock after Tuesday's collection and any Tuesday shipment is sufficient to dispatch 150 units on Thursday at 4:00 PM. This depends on the Tuesday shipment outcome and Wednesday/Thursday collections."
-    },
-    {
-      "about": "shipment_dispatched_tuesday",
-      "meaning": "Whether a shipment actually leaves on Tuesday given the stock shortage. The agreement says shipments move 150 units, but if stock is insufficient, the shipment may be partial or not sent."
-    },
-    {
-      "about": "shipment_dispatched_thursday",
-      "meaning": "Whether a shipment actually leaves on Thursday given the stock situation. This depends on collections and any Tuesday shipment."
-    },
-    {
-      "about": "shipment_arrives_before_deadline",
-      "meaning": "Whether the Thursday shipment, if dispatched at 4:00 PM, arrives and is received by the hospital before Friday noon. The 3-hour travel time suggests arrival by 7:00 PM Thursday, well before the deadline, so this is likely certain, but the receipt process might cause delay."
-    },
-    {
-      "about": "hospital_initial_stock",
-      "meaning": "Whether the hospital's initial 15 units remain usable and are not consumed or expired before the deadline. The evidence does not mention hospital usage or expiration."
+      "about": "thursday_shipment_received",
+      "meaning": "Whether the Thursday shipment, if dispatched, is received by the hospital before Friday noon. Dispatched at 4 PM Thursday, arrives around 7 PM Thursday, well before Friday noon. So certain."
     }
   ]
 }

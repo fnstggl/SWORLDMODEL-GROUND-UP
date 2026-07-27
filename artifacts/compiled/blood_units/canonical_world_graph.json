@@ -1,128 +1,100 @@
 {
   "edges": [
     {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:centre_has_enough_stock_for_thursday",
+      "rel": "requires",
+      "src": "event:thursday_shipment"
+    },
+    {
       "attrs": {},
       "dst": "resource:hospital_units_at_deadline",
       "rel": "produces",
-      "src": "event:shipment_dispatched_thursday"
+      "src": "event:thursday_shipment_received"
     },
     {
       "attrs": {
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "state:centre_has_enough_stock_thursday",
+      "dst": "event:thursday_shipment",
       "rel": "requires",
-      "src": "event:shipment_dispatched_thursday"
+      "src": "event:thursday_shipment_received"
     },
     {
-      "attrs": {},
-      "dst": "resource:hospital_units_at_deadline",
-      "rel": "produces",
-      "src": "event:shipment_dispatched_tuesday"
+      "attrs": {
+        "meaning": "thursday_shipment_received follows thursday_shipment_dispatched by 180 minutes (inferred)",
+        "offset_minutes": 180.0
+      },
+      "dst": "event:thursday_shipment",
+      "rel": "scheduled_at",
+      "src": "event:thursday_shipment_received"
     },
     {
       "attrs": {
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "state:centre_has_enough_stock_tuesday",
+      "dst": "state:centre_has_enough_stock_for_tuesday",
       "rel": "requires",
-      "src": "event:shipment_dispatched_tuesday"
+      "src": "event:tuesday_shipment"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:hospital_units_at_deadline",
+      "rel": "produces",
+      "src": "event:tuesday_shipment_received"
     },
     {
       "attrs": {
-        "meaning": "Dispatches the Thursday shipment as per standing distribution agreement"
+        "alt_group": null,
+        "necessity": "necessary"
       },
-      "dst": "event:shipment_dispatched_thursday",
+      "dst": "event:tuesday_shipment",
+      "rel": "requires",
+      "src": "event:tuesday_shipment_received"
+    },
+    {
+      "attrs": {
+        "meaning": "tuesday_shipment_received follows tuesday_shipment_dispatched by 180 minutes (inferred)",
+        "offset_minutes": 180.0
+      },
+      "dst": "event:tuesday_shipment",
+      "rel": "scheduled_at",
+      "src": "event:tuesday_shipment_received"
+    },
+    {
+      "attrs": {
+        "meaning": "The blood centre that dispatches the shipment on Thursday at 4:00 PM."
+      },
+      "dst": "event:thursday_shipment",
       "rel": "has_authority",
       "src": "organization:cascade_regional_blood_centre"
     },
     {
       "attrs": {
-        "meaning": "The blood centre dispatches the Thursday shipment as per the standing distribution agreement."
+        "meaning": "The centre dispatches the Thursday shipment at 4:00 PM"
       },
-      "dst": "event:shipment_dispatched_thursday",
+      "dst": "event:thursday_shipment",
       "rel": "has_authority",
       "src": "organization:cascade_regional_blood_centre"
     },
     {
       "attrs": {
-        "meaning": "Dispatches the Tuesday shipment as per standing distribution agreement"
+        "meaning": "The blood centre that dispatches the shipment on Tuesday at 4:00 PM."
       },
-      "dst": "event:shipment_dispatched_tuesday",
+      "dst": "event:tuesday_shipment",
       "rel": "has_authority",
       "src": "organization:cascade_regional_blood_centre"
     },
     {
       "attrs": {
-        "meaning": "The blood centre dispatches the Tuesday shipment as per the standing distribution agreement."
+        "meaning": "The centre dispatches the Tuesday shipment at 4:00 PM"
       },
-      "dst": "event:shipment_dispatched_tuesday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "Operates the mobile collection drive on Monday"
-      },
-      "dst": "process:collection_monday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "The blood centre operates the mobile collection drive."
-      },
-      "dst": "process:collection_monday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "Operates the mobile collection drive on Thursday"
-      },
-      "dst": "process:collection_thursday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "The blood centre operates the mobile collection drive."
-      },
-      "dst": "process:collection_thursday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "Operates the mobile collection drive on Tuesday"
-      },
-      "dst": "process:collection_tuesday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "The blood centre operates the mobile collection drive."
-      },
-      "dst": "process:collection_tuesday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "Operates the mobile collection drive on Wednesday"
-      },
-      "dst": "process:collection_wednesday",
-      "rel": "has_authority",
-      "src": "organization:cascade_regional_blood_centre"
-    },
-    {
-      "attrs": {
-        "meaning": "The blood centre operates the mobile collection drive."
-      },
-      "dst": "process:collection_wednesday",
+      "dst": "event:tuesday_shipment",
       "rel": "has_authority",
       "src": "organization:cascade_regional_blood_centre"
     },
@@ -164,35 +136,115 @@
     },
     {
       "attrs": {},
-      "dst": "information:transit_time",
+      "dst": "information:shipment_size",
       "rel": "knows",
       "src": "organization:cascade_regional_blood_centre"
     },
     {
       "attrs": {},
-      "dst": "event:shipment_dispatched_thursday",
+      "dst": "information:shipping_schedule",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre"
+    },
+    {
+      "attrs": {},
+      "dst": "event:thursday_shipment",
       "rel": "observes",
       "src": "organization:cascade_regional_blood_centre"
     },
     {
       "attrs": {},
-      "dst": "event:shipment_dispatched_tuesday",
+      "dst": "event:tuesday_shipment",
       "rel": "observes",
       "src": "organization:cascade_regional_blood_centre"
     },
     {
       "attrs": {
-        "meaning": "Hospital holds the units at the deadline; this is a condition, not an action."
+        "meaning": "The mobile collection drive that collects blood at the Portland site."
       },
-      "dst": "event:shipment_dispatched_thursday",
+      "dst": "process:monday_collection",
+      "rel": "has_authority",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {
+        "meaning": "The mobile collection drive that collects blood on Thursday before 4:00 PM."
+      },
+      "dst": "process:thursday_collection_before_4pm",
+      "rel": "has_authority",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {
+        "meaning": "The mobile collection drive that collects blood on Tuesday before 4:00 PM."
+      },
+      "dst": "process:tuesday_collection_before_4pm",
+      "rel": "has_authority",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {
+        "meaning": "The mobile collection drive that collects blood on Wednesday."
+      },
+      "dst": "process:wednesday_collection",
+      "rel": "has_authority",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "state:initial_stock_at_centre",
+      "rel": "has_state",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "information:collection_rate",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "information:drive_schedule",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_capacity",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_schedule",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipment_size",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {},
+      "dst": "information:shipping_schedule",
+      "rel": "knows",
+      "src": "organization:cascade_regional_blood_centre_mobile_collection_drive"
+    },
+    {
+      "attrs": {
+        "meaning": "Hospital receives Thursday shipment from courier"
+      },
+      "dst": "event:thursday_shipment_received",
       "rel": "has_authority",
       "src": "organization:st_vincent_regional_hospital"
     },
     {
       "attrs": {
-        "meaning": "Hospital holds the units at the deadline; this is a condition, not an action."
+        "meaning": "Hospital receives Tuesday shipment from courier"
       },
-      "dst": "event:shipment_dispatched_tuesday",
+      "dst": "event:tuesday_shipment_received",
       "rel": "has_authority",
       "src": "organization:st_vincent_regional_hospital"
     },
@@ -234,33 +286,33 @@
     },
     {
       "attrs": {},
-      "dst": "information:transit_time",
+      "dst": "information:shipment_size",
       "rel": "knows",
       "src": "organization:st_vincent_regional_hospital"
     },
     {
       "attrs": {},
-      "dst": "resource:blood_units",
-      "rel": "changes",
-      "src": "process:collection_monday"
+      "dst": "information:shipping_schedule",
+      "rel": "knows",
+      "src": "organization:st_vincent_regional_hospital"
     },
     {
       "attrs": {},
-      "dst": "resource:blood_units",
-      "rel": "changes",
-      "src": "process:collection_thursday"
+      "dst": "state:no_initial_stock",
+      "rel": "has_state",
+      "src": "process:courier_service"
     },
     {
       "attrs": {},
-      "dst": "resource:blood_units",
-      "rel": "changes",
-      "src": "process:collection_tuesday"
+      "dst": "event:thursday_shipment_received",
+      "rel": "produces",
+      "src": "process:courier_service"
     },
     {
       "attrs": {},
-      "dst": "resource:blood_units",
-      "rel": "changes",
-      "src": "process:collection_wednesday"
+      "dst": "event:tuesday_shipment_received",
+      "rel": "produces",
+      "src": "process:courier_service"
     },
     {
       "attrs": {},
@@ -280,38 +332,47 @@
     {
       "attrs": {
         "alt_group": null,
-        "necessity": "optional"
+        "necessity": "necessary"
       },
-      "dst": "process:collection_monday",
+      "dst": "process:thursday_collection_before_4pm",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_thursday"
+      "src": "state:centre_has_enough_stock_for_thursday"
     },
     {
       "attrs": {
         "alt_group": null,
-        "necessity": "optional"
+        "necessity": "necessary"
       },
-      "dst": "process:collection_thursday",
+      "dst": "process:wednesday_collection",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_thursday"
+      "src": "state:centre_has_enough_stock_for_thursday"
     },
     {
       "attrs": {
         "alt_group": null,
-        "necessity": "optional"
+        "necessity": "necessary"
       },
-      "dst": "process:collection_tuesday",
+      "dst": "state:centre_stock_after_tuesday_shipment",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_thursday"
+      "src": "state:centre_has_enough_stock_for_thursday"
     },
     {
       "attrs": {
         "alt_group": null,
-        "necessity": "optional"
+        "necessity": "necessary"
       },
-      "dst": "process:collection_wednesday",
+      "dst": "process:monday_collection",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_thursday"
+      "src": "state:centre_has_enough_stock_for_tuesday"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:tuesday_collection_before_4pm",
+      "rel": "requires",
+      "src": "state:centre_has_enough_stock_for_tuesday"
     },
     {
       "attrs": {
@@ -320,25 +381,34 @@
       },
       "dst": "state:centre_initial_stock",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_thursday"
+      "src": "state:centre_has_enough_stock_for_tuesday"
     },
     {
       "attrs": {
         "alt_group": null,
-        "necessity": "optional"
+        "necessity": "necessary"
       },
-      "dst": "process:collection_monday",
+      "dst": "event:tuesday_shipment",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_tuesday"
+      "src": "state:centre_stock_after_tuesday_shipment"
     },
     {
       "attrs": {
         "alt_group": null,
-        "necessity": "optional"
+        "necessity": "necessary"
       },
-      "dst": "process:collection_tuesday",
+      "dst": "process:monday_collection",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_tuesday"
+      "src": "state:centre_stock_after_tuesday_shipment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:tuesday_collection_before_4pm",
+      "rel": "requires",
+      "src": "state:centre_stock_after_tuesday_shipment"
     },
     {
       "attrs": {
@@ -347,14 +417,14 @@
       },
       "dst": "state:centre_initial_stock",
       "rel": "requires",
-      "src": "state:centre_has_enough_stock_tuesday"
+      "src": "state:centre_stock_after_tuesday_shipment"
     },
     {
       "attrs": {
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "state:hospital_initial_stock",
+      "dst": "event:thursday_shipment_received",
       "rel": "requires",
       "src": "state:initial_stock_plus_received_shipments"
     },
@@ -363,27 +433,18 @@
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "state:shipment_arrives_before_deadline",
+      "dst": "event:tuesday_shipment_received",
       "rel": "requires",
       "src": "state:initial_stock_plus_received_shipments"
     },
     {
       "attrs": {
-        "alt_group": "shipment_route",
-        "necessity": "alternative"
+        "alt_group": null,
+        "necessity": "necessary"
       },
-      "dst": "event:shipment_dispatched_thursday",
+      "dst": "state:initial_hospital_stock",
       "rel": "requires",
-      "src": "state:shipment_arrives_before_deadline"
-    },
-    {
-      "attrs": {
-        "alt_group": "shipment_route",
-        "necessity": "alternative"
-      },
-      "dst": "event:shipment_dispatched_tuesday",
-      "rel": "requires",
-      "src": "state:shipment_arrives_before_deadline"
+      "src": "state:initial_stock_plus_received_shipments"
     }
   ],
   "exclusions": [
@@ -392,37 +453,33 @@
       "evidence_ids": [
         "e10"
       ],
-      "name": "Elena Cruz",
-      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
-    },
-    {
-      "basis": "uncertain",
-      "evidence_ids": [],
-      "name": "Expiration of blood units",
-      "why_safe": "Blood units have a shelf life, but no evidence of expiration dates or that any units expire within the week. Excluding expiration is safe if all units remain usable; otherwise it could overestimate. Unknown."
-    },
-    {
-      "basis": "uncertain",
-      "evidence_ids": [],
-      "name": "Hospital usage or consumption of blood units",
-      "why_safe": "The question asks for units the hospital 'holds' at the deadline, not net after usage. Usage would only reduce the count, so excluding it gives an upper bound; but the resolution note says 'actually holds', implying inventory after any internal use. However, no evidence of usage is provided, so we assume no usage for simplicity. This exclusion is safe only if usage is zero; otherwise it could overestimate. But given no evidence, we must treat it as unknown."
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "Elena Cruz oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
     },
     {
       "basis": "verified",
       "evidence_ids": [
-        "e6",
         "e7"
       ],
       "name": "Other hospitals or blood centres",
-      "why_safe": "Only St. Vincent regional hospital is mentioned as receiving shipments from the Cascade centre. No other recipients are indicated, so excluding them is safe."
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units. Other entities do not affect the hospital's stock unless they receive shipments from the centre, but the centre only ships to St. Vincent according to the agreement."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Usage or transfusions at the hospital",
+      "why_safe": "The question asks for units received, not units available after usage. The hospital's internal consumption does not affect the count of received units."
     },
     {
       "basis": "verified",
       "evidence_ids": [
-        "e3"
+        "e3",
+        "e4"
       ],
-      "name": "Weekend collections (Saturday/Sunday)",
-      "why_safe": "The drive is only open Monday to Friday, so no weekend collections occur. Excluding them is safe."
+      "name": "Weekend collections",
+      "why_safe": "The drive is only open Monday to Friday, and the deadline is Friday noon, so weekend collections are irrelevant."
     }
   ],
   "nodes": [
@@ -433,13 +490,32 @@
         "when": "2026-07-23T16:00:00-07:00"
       },
       "category": "event",
-      "id": "event:shipment_dispatched_thursday",
-      "meaning": "Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM\nThe centre dispatches a shipment of 150 units on Thursday July 23 at 4:00 PM PDT, which arrives at the hospital around 7:00 PM PDT on Thursday, well before Friday noon.",
-      "name": "shipment_dispatched_thursday",
+      "id": "event:thursday_shipment",
+      "meaning": "Ship 150 units to St. Vincent regional hospital on Thursday 23 July 2026 at 4:00 PM\nThe centre dispatches 150 units on Thursday July 23, 2026 at 4:00 PM PDT.",
+      "name": "thursday_shipment",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
           "e7",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-07-23T19:00:00-07:00"
+      },
+      "category": "event",
+      "id": "event:thursday_shipment_received",
+      "meaning": "The Thursday shipment of 150 units is received at the hospital by 7:00 PM on Thursday July 23, 2026 (4:00 PM dispatch + 3 hours transit).",
+      "name": "thursday_shipment_received",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
           "e9"
         ]
       }
@@ -451,9 +527,9 @@
         "when": "2026-07-21T16:00:00-07:00"
       },
       "category": "event",
-      "id": "event:shipment_dispatched_tuesday",
-      "meaning": "Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM\nThe centre dispatches a shipment of 150 units on Tuesday July 21 at 4:00 PM PDT, which arrives at the hospital around 7:00 PM PDT on Tuesday, well before Friday noon.",
-      "name": "shipment_dispatched_tuesday",
+      "id": "event:tuesday_shipment",
+      "meaning": "Ship 150 units to St. Vincent regional hospital on Tuesday 21 July 2026 at 4:00 PM\nThe centre dispatches 150 units on Tuesday July 21, 2026 at 4:00 PM PDT.",
+      "name": "tuesday_shipment",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -464,11 +540,30 @@
     },
     {
       "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-07-21T19:00:00-07:00"
+      },
+      "category": "event",
+      "id": "event:tuesday_shipment_received",
+      "meaning": "The Tuesday shipment of 150 units is received at the hospital by 7:00 PM on Tuesday July 21, 2026 (4:00 PM dispatch + 3 hours transit).",
+      "name": "tuesday_shipment_received",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
         "visibility": "public"
       },
       "category": "information",
       "id": "information:collection_rate",
-      "meaning": "Average collection rate of 12 units per hour while drive is open",
+      "meaning": "The centre knows the collection drive averages 12 units per hour",
       "name": "collection_rate",
       "provenance": {
         "basis": "verified",
@@ -483,7 +578,7 @@
       },
       "category": "information",
       "id": "information:drive_schedule",
-      "meaning": "Drive open Monday to Friday 9:00 AM to 5:00 PM",
+      "meaning": "The centre knows the drive is open Mon-Fri 9-5",
       "name": "drive_schedule",
       "provenance": {
         "basis": "verified",
@@ -498,7 +593,7 @@
       },
       "category": "information",
       "id": "information:initial_stock",
-      "meaning": "Hospital knows its own initial stock of 15 units\nOwn stock of 40 units at Monday 9:00 AM",
+      "meaning": "Hospital knows its own initial stock of 15 units\nThe centre knows its own initial stock of 40 units",
       "name": "initial_stock",
       "provenance": {
         "basis": "verified",
@@ -514,7 +609,7 @@
       },
       "category": "information",
       "id": "information:shipment_capacity",
-      "meaning": "Each shipment moves 150 units",
+      "meaning": "The centre knows each shipment moves 150 units",
       "name": "shipment_capacity",
       "provenance": {
         "basis": "verified",
@@ -529,7 +624,7 @@
       },
       "category": "information",
       "id": "information:shipment_schedule",
-      "meaning": "Hospital knows shipments arrive every Tuesday and Thursday around 7 PM (3 hours after 4 PM dispatch)\nShipments every Tuesday and Thursday at 4:00 PM",
+      "meaning": "Hospital knows shipments arrive every Tuesday and Thursday at about 7:00 PM (3 hours after dispatch at 4:00 PM)",
       "name": "shipment_schedule",
       "provenance": {
         "basis": "verified",
@@ -544,13 +639,28 @@
         "visibility": "public"
       },
       "category": "information",
-      "id": "information:transit_time",
-      "meaning": "Shipment takes about 3 hours to reach hospital",
-      "name": "transit_time",
+      "id": "information:shipment_size",
+      "meaning": "Hospital knows each shipment is 150 units",
+      "name": "shipment_size",
       "provenance": {
-        "basis": "inferred",
+        "basis": "verified",
         "evidence_ids": [
-          "e8"
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:shipping_schedule",
+      "meaning": "The centre knows it ships every Tuesday and Thursday at 4:00 PM",
+      "name": "shipping_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
         ]
       }
     },
@@ -560,11 +670,11 @@
           "close": "17:00",
           "open": "09:00",
           "workdays": [
+            0,
             1,
             2,
             3,
-            4,
-            5
+            4
           ]
         },
         "producer_kind": "organization",
@@ -572,13 +682,38 @@
       },
       "category": "organization",
       "id": "organization:cascade_regional_blood_centre",
-      "meaning": "The blood centre dispatches the Thursday shipment as per the standing distribution agreement.\nThe blood centre dispatches the Tuesday shipment as per the standing distribution agreement.\nThe blood centre operates the mobile collection drive.",
+      "meaning": "The blood centre that dispatches the shipment on Thursday at 4:00 PM.\nThe blood centre that dispatches the shipment on Tuesday at 4:00 PM.",
       "name": "Cascade regional blood centre",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
+          "e7",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "The mobile collection drive collects blood at the Portland site. It operates Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles. The collection week is Monday 20 July to Friday 24 July 2026.",
+            "operating_meaning": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+            "rate_meaning": "The drive collects at a measured average of 12 usable units per hour while it is open."
+          }
+        ],
+        "producer_kind": "operating_process"
+      },
+      "category": "organization",
+      "id": "organization:cascade_regional_blood_centre_mobile_collection_drive",
+      "meaning": "The mobile collection drive that collects blood at the Portland site.\nThe mobile collection drive that collects blood on Thursday before 4:00 PM.\nThe mobile collection drive that collects blood on Tuesday before 4:00 PM.\nThe mobile collection drive that collects blood on Wednesday.",
+      "name": "Cascade regional blood centre mobile collection drive",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
           "e1",
-          "e7"
+          "e2",
+          "e3",
+          "e4"
         ]
       }
     },
@@ -604,8 +739,35 @@
       "meaning": "holder of hospital_units_at_deadline, named by the resolution contract",
       "name": "St. Vincent regional hospital",
       "provenance": {
-        "basis": "question_given",
-        "evidence_ids": []
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "operating_meaning": "The courier operates on Tuesday and Thursday after 4:00 PM dispatch, completing delivery by about 7:00 PM the same day.",
+        "producer_kind": "operating_process",
+        "rate_meaning": "Not applicable; the courier does not have a rate, it delivers fixed-size shipments."
+      },
+      "category": "process",
+      "id": "process:courier_service",
+      "meaning": "The courier that transports the shipment from the centre to the hospital and completes the receipt process.\nThe courier transports shipments from the blood centre to the hospital. A shipment takes about 3 hours to reach the hospital and be received into its bank.",
+      "name": "Courier service",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
       }
     },
     {
@@ -613,9 +775,9 @@
         "step_kind": "process"
       },
       "category": "process",
-      "id": "process:collection_monday",
-      "meaning": "The mobile collection drive operates on Monday July 20 from 9:00 AM to 5:00 PM PDT, collecting at 12 units per hour, yielding up to 96 units.",
-      "name": "collection_monday",
+      "id": "process:monday_collection",
+      "meaning": "The mobile collection drive operates on Monday July 20, 2026 from 9:00 AM to 5:00 PM, collecting 12 units per hour for 8 hours = 96 units.",
+      "name": "monday_collection",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -630,11 +792,11 @@
         "step_kind": "process"
       },
       "category": "process",
-      "id": "process:collection_thursday",
-      "meaning": "The mobile collection drive operates on Thursday July 23 from 9:00 AM to 5:00 PM PDT, collecting at 12 units per hour, yielding up to 96 units.",
-      "name": "collection_thursday",
+      "id": "process:thursday_collection_before_4pm",
+      "meaning": "The mobile collection drive operates on Thursday July 23, 2026 from 9:00 AM to 4:00 PM (7 hours before dispatch), collecting 12 units per hour for 7 hours = 84 units.",
+      "name": "thursday_collection_before_4pm",
       "provenance": {
-        "basis": "verified",
+        "basis": "inferred",
         "evidence_ids": [
           "e2",
           "e3",
@@ -647,11 +809,11 @@
         "step_kind": "process"
       },
       "category": "process",
-      "id": "process:collection_tuesday",
-      "meaning": "The mobile collection drive operates on Tuesday July 21 from 9:00 AM to 5:00 PM PDT, collecting at 12 units per hour, yielding up to 96 units.",
-      "name": "collection_tuesday",
+      "id": "process:tuesday_collection_before_4pm",
+      "meaning": "The mobile collection drive operates on Tuesday July 21, 2026 from 9:00 AM to 4:00 PM (7 hours before dispatch), collecting 12 units per hour for 7 hours = 84 units.",
+      "name": "tuesday_collection_before_4pm",
       "provenance": {
-        "basis": "verified",
+        "basis": "inferred",
         "evidence_ids": [
           "e2",
           "e3",
@@ -664,9 +826,9 @@
         "step_kind": "process"
       },
       "category": "process",
-      "id": "process:collection_wednesday",
-      "meaning": "The mobile collection drive operates on Wednesday July 22 from 9:00 AM to 5:00 PM PDT, collecting at 12 units per hour, yielding up to 96 units.",
-      "name": "collection_wednesday",
+      "id": "process:wednesday_collection",
+      "meaning": "The mobile collection drive operates on Wednesday July 22, 2026 from 9:00 AM to 5:00 PM, collecting 12 units per hour for 8 hours = 96 units.",
+      "name": "wednesday_collection",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -684,7 +846,7 @@
       },
       "category": "resource",
       "id": "resource:blood_units",
-      "meaning": "Usable blood units in stock",
+      "meaning": "Usable blood units on hand",
       "name": "blood_units",
       "provenance": {
         "basis": "verified",
@@ -718,17 +880,23 @@
         "holder_kind": "organization",
         "holder_name": "St. Vincent regional hospital",
         "unit": "units",
-        "unsupported": "This is a condition that is the conjunction of initial stock and received shipments; it has no producer of its own."
+        "unsupported": "This is a condition that is the conjunction of initial stock and received shipments; it has no independent producer."
       },
       "category": "resource",
       "id": "resource:hospital_units_at_deadline",
-      "meaning": "St. Vincent regional hospital holds a specific number of usable blood units at Friday noon, July 24, 2026.\nThe count of usable blood units in St. Vincent hospital's inventory at the deadline.",
+      "meaning": "St. Vincent regional hospital holds a specific number of usable blood units at Friday noon, July 24, 2026.\nThe number of usable blood units in St. Vincent hospital's inventory at the cutoff time.",
       "name": "hospital_units_at_deadline",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e10",
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
           "e6",
+          "e7",
+          "e8",
           "e9"
         ]
       }
@@ -737,20 +905,20 @@
       "attrs": {
         "conjunction": true,
         "initial": false,
-        "no_producer_needed": "This is a condition that depends on initial stock and optional collections; it has no single producer.",
+        "no_producer_needed": "This is a condition that is the conjunction of stock after Tuesday and collections; it has no independent producer.",
         "step_kind": "condition"
       },
       "category": "state",
-      "id": "state:centre_has_enough_stock_thursday",
-      "meaning": "The blood centre has at least 150 usable units in stock at the time of Thursday's dispatch.",
-      "name": "centre_has_enough_stock_thursday",
+      "id": "state:centre_has_enough_stock_for_thursday",
+      "meaning": "The centre has at least 150 usable units in stock by Thursday 4:00 PM to fulfill the shipment.",
+      "name": "centre_has_enough_stock_for_thursday",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e5",
           "e2",
           "e3",
-          "e4"
+          "e4",
+          "e9"
         ]
       }
     },
@@ -758,32 +926,33 @@
       "attrs": {
         "conjunction": true,
         "initial": false,
-        "no_producer_needed": "This is a condition that depends on initial stock and optional collections; it has no single producer.",
+        "no_producer_needed": "This is a condition that is the conjunction of initial stock and collections; it has no independent producer.",
         "step_kind": "condition"
       },
       "category": "state",
-      "id": "state:centre_has_enough_stock_tuesday",
-      "meaning": "The blood centre has at least 150 usable units in stock at the time of Tuesday's dispatch.",
-      "name": "centre_has_enough_stock_tuesday",
+      "id": "state:centre_has_enough_stock_for_tuesday",
+      "meaning": "The centre has at least 150 usable units in stock by Tuesday 4:00 PM to fulfill the shipment.",
+      "name": "centre_has_enough_stock_for_tuesday",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e5",
           "e2",
           "e3",
-          "e4"
+          "e4",
+          "e5",
+          "e9"
         ]
       }
     },
     {
       "attrs": {
         "initial": true,
-        "no_producer_needed": "This is an initial fact; no producer needed.",
+        "no_producer_needed": "Initial fact; no producer needed.",
         "step_kind": "initial_fact"
       },
       "category": "state",
       "id": "state:centre_initial_stock",
-      "meaning": "The blood centre held 40 usable units at 9:00 AM on Monday July 20, 2026.",
+      "meaning": "The centre held 40 usable units at 9:00 AM on Monday July 20, 2026.",
       "name": "centre_initial_stock",
       "provenance": {
         "basis": "verified",
@@ -794,14 +963,36 @@
     },
     {
       "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "This is a condition that is the conjunction of initial stock, collections, and dispatch; it has no independent producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:centre_stock_after_tuesday_shipment",
+      "meaning": "The centre's stock after Tuesday's dispatch is initial 40 + Monday 96 + Tuesday before 4pm 84 - 150 = 70 units.",
+      "name": "centre_stock_after_tuesday_shipment",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
         "initial": true,
-        "no_producer_needed": "This is an initial fact; no producer needed.",
+        "no_producer_needed": "Initial fact; no producer needed.",
         "step_kind": "initial_fact"
       },
       "category": "state",
-      "id": "state:hospital_initial_stock",
+      "id": "state:initial_hospital_stock",
       "meaning": "St. Vincent hospital held 15 usable units at 9:00 AM on Monday July 20, 2026.",
-      "name": "hospital_initial_stock",
+      "name": "initial_hospital_stock",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
@@ -816,7 +1007,7 @@
       },
       "category": "state",
       "id": "state:initial_stock",
-      "meaning": "Usable blood units held at start of Monday 20 July 2026 at 9:00 AM\nUsable blood units held at start of week",
+      "meaning": "Usable blood units held at start of week\nUsable blood units in stock at start of Monday 20 July 2026 at 9:00 AM",
       "name": "initial_stock",
       "provenance": {
         "basis": "verified",
@@ -828,9 +1019,25 @@
     },
     {
       "attrs": {
+        "initial": true,
+        "value": 40
+      },
+      "category": "state",
+      "id": "state:initial_stock_at_centre",
+      "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+      "name": "initial stock at centre",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
         "conjunction": true,
         "initial": false,
-        "no_producer_needed": "This is a condition that is the conjunction of initial stock and received shipments; it has no producer of its own.",
+        "no_producer_needed": "This is a condition that is the conjunction of initial stock and received shipments; it has no independent producer.",
         "step_kind": "condition"
       },
       "category": "state",
@@ -841,25 +1048,23 @@
         "basis": "inferred",
         "evidence_ids": [
           "e6",
+          "e8",
           "e9"
         ]
       }
     },
     {
       "attrs": {
-        "conjunction": true,
-        "initial": false,
-        "no_producer_needed": "This is a condition that is the disjunction of two scheduled events; it has no producer of its own.",
-        "step_kind": "condition"
+        "initial": true,
+        "value": null
       },
       "category": "state",
-      "id": "state:shipment_arrives_before_deadline",
-      "meaning": "A shipment from the blood centre arrives at the hospital and is received into its bank before Friday noon.",
-      "name": "shipment_arrives_before_deadline",
+      "id": "state:no_initial_stock",
+      "meaning": "The courier does not hold blood units; it only transports them.",
+      "name": "no initial stock",
       "provenance": {
         "basis": "inferred",
         "evidence_ids": [
-          "e7",
           "e8"
         ]
       }
@@ -882,16 +1087,28 @@
       "meaning": "The number of usable blood units physically held in St. Vincent regional hospital's blood bank at the deadline of Friday noon, July 24, 2026.",
       "name": "terminal",
       "provenance": {
-        "basis": "question_given",
-        "evidence_ids": []
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
       }
     }
   ],
   "symbol_table": {
     "namespaces": {
       "event": {
-        "shipment_dispatched_thursday": "shipment_dispatched_thursday",
-        "shipment_dispatched_tuesday": "shipment_dispatched_tuesday"
+        "thursday_shipment": "thursday_shipment",
+        "thursday_shipment_received": "thursday_shipment_received",
+        "tuesday_shipment": "tuesday_shipment",
+        "tuesday_shipment_received": "tuesday_shipment_received"
       },
       "information": {
         "collection_rate": "collection_rate",
@@ -899,17 +1116,20 @@
         "initial_stock": "initial_stock",
         "shipment_capacity": "shipment_capacity",
         "shipment_schedule": "shipment_schedule",
-        "transit_time": "transit_time"
+        "shipment_size": "shipment_size",
+        "shipping_schedule": "shipping_schedule"
       },
       "organization": {
         "Cascade regional blood centre": "cascade_regional_blood_centre",
+        "Cascade regional blood centre mobile collection drive": "cascade_regional_blood_centre_mobile_collection_drive",
         "St. Vincent regional hospital": "st_vincent_regional_hospital"
       },
       "process": {
-        "collection_monday": "collection_monday",
-        "collection_thursday": "collection_thursday",
-        "collection_tuesday": "collection_tuesday",
-        "collection_wednesday": "collection_wednesday"
+        "Courier service": "courier_service",
+        "monday_collection": "monday_collection",
+        "thursday_collection_before_4pm": "thursday_collection_before_4pm",
+        "tuesday_collection_before_4pm": "tuesday_collection_before_4pm",
+        "wednesday_collection": "wednesday_collection"
       },
       "resource": {
         "blood_units": "blood_units",
@@ -917,13 +1137,15 @@
         "hospital_units_at_deadline": "hospital_units_at_deadline"
       },
       "state": {
-        "centre_has_enough_stock_thursday": "centre_has_enough_stock_thursday",
-        "centre_has_enough_stock_tuesday": "centre_has_enough_stock_tuesday",
+        "centre_has_enough_stock_for_thursday": "centre_has_enough_stock_for_thursday",
+        "centre_has_enough_stock_for_tuesday": "centre_has_enough_stock_for_tuesday",
         "centre_initial_stock": "centre_initial_stock",
-        "hospital_initial_stock": "hospital_initial_stock",
+        "centre_stock_after_tuesday_shipment": "centre_stock_after_tuesday_shipment",
+        "initial stock at centre": "initial_stock_at_centre",
+        "initial_hospital_stock": "initial_hospital_stock",
         "initial_stock": "initial_stock",
         "initial_stock_plus_received_shipments": "initial_stock_plus_received_shipments",
-        "shipment_arrives_before_deadline": "shipment_arrives_before_deadline"
+        "no initial stock": "no_initial_stock"
       },
       "terminal": {
         "terminal": "terminal"
@@ -932,44 +1154,30 @@
   },
   "uncertainties": [
     {
-      "about": "event:shipment_dispatched_thursday",
-      "meaning": "Whether a shipment actually leaves on Thursday given the stock situation. This depends on collections and any Tuesday shipment."
+      "about": null,
+      "meaning": "Whether the Thursday shipment is dispatched. Given the stock calculations, it is likely dispatched, but if the Tuesday shipment was not dispatched, the centre would have more stock, so still dispatched. However, if the Tuesday shipment was dispatched, the centre has enough stock. So this is certain.",
+      "topic": "thursday_shipment_dispatched"
     },
     {
-      "about": "event:shipment_dispatched_tuesday",
-      "meaning": "Whether a shipment actually leaves on Tuesday given the stock shortage. The agreement says shipments move 150 units, but if stock is insufficient, the shipment may be partial or not sent."
+      "about": null,
+      "meaning": "Whether the Tuesday shipment is actually dispatched. This depends on whether the centre has at least 150 units at the time of dispatch. As calculated, if Tuesday collection before 4 PM is included, the centre has 220 units, so it is dispatched. But if the stock assessment is done before Tuesday collection starts, the centre would have only 136 units, and the shipment would not be dispatched. The evidence does not clarify the exact timing of stock assessment relative to collection.",
+      "topic": "tuesday_shipment_dispatched"
     },
     {
-      "about": "process:collection_monday",
-      "meaning": "Whether the mobile drive operated as scheduled on Monday 20 July 2026, and whether the average rate of 12 units per hour held for the full 8 hours, yielding exactly 96 units."
+      "about": "event:thursday_shipment_received",
+      "meaning": "Whether the Thursday shipment, if dispatched, is received by the hospital before Friday noon. Dispatched at 4 PM Thursday, arrives around 7 PM Thursday, well before Friday noon. So certain."
     },
     {
-      "about": "process:collection_thursday",
-      "meaning": "Whether the mobile drive operated as scheduled on Thursday 23 July 2026, and whether the average rate held, yielding exactly 96 units."
+      "about": "event:tuesday_shipment_received",
+      "meaning": "Whether the Tuesday shipment, if dispatched, is received by the hospital before Friday noon. The shipment takes about 3 hours, so if dispatched at 4 PM Tuesday, it arrives around 7 PM Tuesday, well before Friday noon. So this is certain if dispatched."
     },
     {
-      "about": "process:collection_tuesday",
-      "meaning": "Whether the mobile drive operated as scheduled on Tuesday 21 July 2026, and whether the average rate held, yielding exactly 96 units."
+      "about": "state:centre_has_enough_stock_for_thursday",
+      "meaning": "Whether the centre's stock after all collections up to Thursday 4 PM is at least 150 units. The centre's stock after Tuesday shipment (if dispatched) would be 220-150=70 units. Then Wednesday collection (8 hours, 96 units) brings it to 166 units. Thursday collection before 4 PM (7 hours, 84 units) brings it to 250 units. So it is enough. However, if the Tuesday shipment was not dispatched due to insufficient stock, the stock would be higher, but then the hospital would not receive that shipment. The uncertainty is whether the Tuesday shipment actually occurs."
     },
     {
-      "about": "process:collection_wednesday",
-      "meaning": "Whether the mobile drive operated as scheduled on Wednesday 22 July 2026, and whether the average rate held, yielding exactly 96 units."
-    },
-    {
-      "about": "state:centre_has_enough_stock_thursday",
-      "meaning": "Whether the centre's stock after Tuesday's collection and any Tuesday shipment is sufficient to dispatch 150 units on Thursday at 4:00 PM. This depends on the Tuesday shipment outcome and Wednesday/Thursday collections."
-    },
-    {
-      "about": "state:centre_has_enough_stock_tuesday",
-      "meaning": "Whether the centre's stock after Monday's collection (initial 40 + Monday's 96 = 136) is sufficient to dispatch 150 units on Tuesday at 4:00 PM. It is not, so the shipment may be reduced or cancelled."
-    },
-    {
-      "about": "state:hospital_initial_stock",
-      "meaning": "Whether the hospital's initial 15 units remain usable and are not consumed or expired before the deadline. The evidence does not mention hospital usage or expiration."
-    },
-    {
-      "about": "state:shipment_arrives_before_deadline",
-      "meaning": "Whether the Thursday shipment, if dispatched at 4:00 PM, arrives and is received by the hospital before Friday noon. The 3-hour travel time suggests arrival by 7:00 PM Thursday, well before the deadline, so this is likely certain, but the receipt process might cause delay."
+      "about": "state:centre_has_enough_stock_for_tuesday",
+      "meaning": "Whether the centre's stock after Monday collection and before Tuesday 4 PM is at least 150 units to dispatch the Tuesday shipment. The centre starts with 40 units, collects 12 units/hour for 8 hours on Monday (96 units), total 136 units, which is less than 150. However, Tuesday collection before 4 PM could add more units, but the exact amount collected by 4 PM on Tuesday is unknown because the drive operates 9 AM to 5 PM, and the shipment is at 4 PM, so only 7 hours of collection on Tuesday (9 AM to 4 PM) would yield 84 units, making total 136+84=220, which is enough. But the timing of when the centre's stock is assessed for the shipment is uncertain: if it is assessed at the moment of dispatch, then Tuesday collection before 4 PM is included; if assessed earlier, it might not be. The evidence does not specify the exact cutoff for stock assessment."
     }
   ]
 }
