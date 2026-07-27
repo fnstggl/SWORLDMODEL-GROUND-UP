@@ -1,0 +1,20 @@
+{
+  "channels": [],
+  "emergent_components": [
+    "state:day_tank_fuel_level_at_deadline",
+    "state:generator_running_status"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:generator_runs_consuming_fuel",
+    "process:generator_starts_and_picks_up_load"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:grid_power_outage_starts"
+  ],
+  "warnings": [
+    "process:generator_runs_consuming_fuel: a process that changes nothing is decorative",
+    "process:generator_starts_and_picks_up_load: a process that changes nothing is decorative"
+  ]
+}

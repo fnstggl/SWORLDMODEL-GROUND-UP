@@ -1,0 +1,57 @@
+{
+  "assignments": [
+    {
+      "step": "initial_fuel_level",
+      "unsupported": "Initial fact, no producer needed."
+    },
+    {
+      "step": "no_fuel_consumption_before_outage",
+      "unsupported": "Condition with prerequisites, no mechanism of its own."
+    },
+    {
+      "step": "fuel_level_at_outage_start",
+      "unsupported": "Condition with prerequisites, no mechanism of its own."
+    },
+    {
+      "step": "grid_power_outage_starts",
+      "unsupported": "Scheduled event, no producer needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The automatic transfer switch detects loss of grid power and starts the generator, then transfers the essential load to the generator.",
+          "name": "automatic transfer switch"
+        }
+      ],
+      "step": "generator_starts_and_picks_up_load"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3",
+            "e7"
+          ],
+          "kind": "operating_process",
+          "meaning": "The generator runs continuously, consuming diesel fuel to produce power for the essential load.",
+          "name": "Trelvane TD-500 generator"
+        }
+      ],
+      "step": "generator_runs_consuming_fuel"
+    },
+    {
+      "step": "fuel_level_at_deadline",
+      "unsupported": "Condition with prerequisites, no mechanism of its own."
+    },
+    {
+      "step": "generator_never_runs_dry",
+      "unsupported": "Condition with prerequisites, no mechanism of its own."
+    }
+  ]
+}

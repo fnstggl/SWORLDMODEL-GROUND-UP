@@ -1,0 +1,59 @@
+{
+  "entities": [
+    {
+      "initial_state": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The automatic transfer switch is in its normal standby state, ready to detect loss of grid power and initiate transfer.",
+          "name": "state",
+          "value": "standby"
+        }
+      ],
+      "name": "automatic transfer switch",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ],
+        "meaning": "The automatic transfer switch detects loss of grid power and starts the generator, then transfers the essential load to the generator.",
+        "operating_meaning": "It operates when grid power is lost, as demonstrated during the exercise on 4 September 2026.",
+        "rate_meaning": "Not applicable; the switch operates once per transfer event."
+      }
+    },
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The amount of diesel fuel in the day tank at the start of the outage (6:00 AM on 22 September 2026).",
+          "name": "fuel_level",
+          "value": "620 liters"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "The generator has not been started since the measurement on 18 September 2026, and no other equipment draws fuel from the day tank, so the fuel level remains 620 liters at the start of the outage.",
+          "name": "no_fuel_consumption_before_outage"
+        }
+      ],
+      "name": "Trelvane TD-500 generator",
+      "process_behavior": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e3",
+          "e7"
+        ],
+        "meaning": "The generator consumes diesel fuel at a rate determined by the load it supplies. The essential load during the outage is 310 kW. The generator's fuel consumption rate is not directly recorded, but can be inferred from typical diesel generator efficiency. A typical diesel generator consumes about 0.25 liters per kWh at full load, but at 310 kW (62% of 500 kW rating), specific fuel consumption is higher, approximately 0.28 L/kWh. Thus, consumption rate is about 86.8 L/h (310 kW * 0.28 L/kWh).",
+        "operating_meaning": "The generator runs continuously from 6:00 AM to 12:00 noon on 22 September 2026, a duration of 6 hours.",
+        "rate_meaning": "Approximately 86.8 liters per hour when supplying the 310 kW essential load."
+      }
+    }
+  ]
+}

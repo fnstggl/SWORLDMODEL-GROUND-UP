@@ -1,0 +1,54 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "bulk fuel tank or other fuel sources",
+      "why_safe": "Evidence e4 explicitly states there is no bulk fuel tank, drum store, or other fuel source on site. The generator draws fuel only from its integral day tank. Therefore, excluding other fuel sources is safe because they do not exist."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "fuel deliveries before the deadline",
+      "why_safe": "Evidence e9 states no fuel delivery is scheduled before 30 September 2026, and no unscheduled delivery can be arranged without five business days' notice, which has not been given. Since the deadline is 22 September, no delivery can occur before then. Excluding deliveries is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "manual load shedding by Roscoe Tilden",
+      "why_safe": "Evidence e10 states that Tilden can shed load manually, but the standing procedure directs him to carry the full essential load, and he has no authority to vary the supply contract. Since the procedure is to carry full load, and he is expected to follow it, excluding load shedding is safe for the base case. However, if load shedding were considered, it would reduce fuel consumption, making the answer more likely YES. Excluding it is conservative for a NO answer."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e8"
+      ],
+      "name": "generator failure to start or run",
+      "why_safe": "Evidence e8 shows the transfer switch and generator functioned correctly in a recent exercise. There is no evidence of any mechanical issue. Excluding failure is safe because the evidence supports reliable operation."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "generator fuel consumption rate",
+      "meaning": "The exact fuel consumption rate of the Trelvane TD-500 generator under the essential load of 310 kW is unknown. The evidence does not provide a specific consumption rate (e.g., litres per hour) for this generator at that load. Without this rate, the total fuel consumed over the 6-hour outage cannot be precisely calculated."
+    },
+    {
+      "about": "generator starting fuel consumption",
+      "meaning": "The amount of fuel consumed during generator startup and stabilization before picking up the load is unknown. This could affect the total fuel used."
+    },
+    {
+      "about": "fuel level at outage start",
+      "meaning": "Although the initial fuel level was 620 litres on 18 September, and no fuel was consumed or added before the outage, the exact fuel level at 6:00 AM on 22 September is not directly measured. It is assumed to be 620 litres, but minor variations (e.g., evaporation, temperature changes) are possible."
+    },
+    {
+      "about": "generator performance",
+      "meaning": "The generator's actual fuel consumption may vary from nominal rates due to factors like engine condition, load variations, or ambient conditions. The evidence does not provide a measured consumption rate from past runs."
+    }
+  ]
+}
