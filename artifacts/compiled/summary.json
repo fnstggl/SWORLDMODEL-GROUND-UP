@@ -2,7 +2,7 @@
   {
     "binding_calls": 0,
     "case": "blood_units",
-    "discovery_calls": 9,
+    "discovery_calls": 8,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
@@ -11,11 +11,10 @@
     "reason": "terminal production fails the backward causal proof",
     "repairs": {
       "producer_assignments": 1,
-      "resolution_ambiguity_adjudication": 1,
-      "starting_state[St. Vincent regional hospital]": 1
+      "resolution_ambiguity_adjudication": 1
     },
     "runtime_ms": 0.0,
     "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 30239
+    "tokens": 27367
   }
 ]

@@ -1,7 +1,7 @@
 {
   "detail": {
     "defects": [
-      "resource:hospital_units_at_deadline: explicitly marked unsupported (This is a condition that is the conjunction of its prerequisites; no separate producer.)"
+      "resource:hospital_units_at_deadline: action action:bring_about_hospital_holds_units_at_deadline writes this terminal component with no prerequisites; an actor cannot write the answer directly unless the resolution contract names that act as the measured terminal (measured_act=None)"
     ],
     "repairable": true
   },

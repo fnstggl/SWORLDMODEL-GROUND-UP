@@ -5,64 +5,50 @@
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1",
-            "e2",
-            "e3",
-            "e4"
+            "e1"
           ],
-          "meaning": "The centre operates the mobile collection drive on Monday.",
+          "meaning": "The centre operates the mobile collection drive at its Portland site.",
           "over": "monday_collection"
         },
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1",
-            "e2",
-            "e3",
-            "e4"
+            "e1"
           ],
-          "meaning": "The centre operates the mobile collection drive on Tuesday before 4pm.",
+          "meaning": "The centre operates the mobile collection drive at its Portland site.",
           "over": "tuesday_collection_before_4pm"
         },
         {
           "basis": "verified",
           "evidence_ids": [
-            "e7",
-            "e9"
+            "e1"
           ],
-          "meaning": "The centre dispatches the Tuesday shipment.",
-          "over": "tuesday_shipment_dispatched"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1",
-            "e2",
-            "e3",
-            "e4"
-          ],
-          "meaning": "The centre operates the mobile collection drive on Wednesday.",
+          "meaning": "The centre operates the mobile collection drive at its Portland site.",
           "over": "wednesday_collection"
         },
         {
           "basis": "verified",
           "evidence_ids": [
-            "e1",
-            "e2",
-            "e3",
-            "e4"
+            "e1"
           ],
-          "meaning": "The centre operates the mobile collection drive on Thursday before 4pm.",
+          "meaning": "The centre operates the mobile collection drive at its Portland site.",
           "over": "thursday_collection_before_4pm"
         },
         {
           "basis": "verified",
           "evidence_ids": [
-            "e7",
-            "e9"
+            "e7"
           ],
-          "meaning": "The centre dispatches the Thursday shipment.",
-          "over": "thursday_shipment_dispatched"
+          "meaning": "The centre that ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM.",
+          "over": "tuesday_shipment_departs"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The centre that ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM.",
+          "over": "thursday_shipment_departs"
         }
       ],
       "availability": {
@@ -80,16 +66,16 @@
         {
           "attention": {
             "cadence_minutes": null,
-            "calendar_meaning": "Scheduled dispatch at 4:00 PM on Tuesday and Thursday.",
+            "calendar_meaning": "Departs at scheduled times.",
             "meaning": "Continuous during transit."
           },
-          "basis": "verified",
+          "basis": "inferred",
           "evidence_ids": [
             "e8"
           ],
-          "latency_meaning": "Shipment takes about 3 hours to reach the hospital and be received into its bank.",
+          "latency_meaning": "Shipment takes about 3 hours to reach the hospital.",
           "meaning": "Physical transport of blood units via courier.",
-          "name": "shipment_courier",
+          "name": "shipment_transport",
           "role": "sender"
         }
       ],
@@ -100,7 +86,7 @@
             "e7",
             "e9"
           ],
-          "meaning": "Ship 150 units to St. Vincent regional hospital every Tuesday at 4:00 PM America/Los_Angeles.",
+          "meaning": "Ship 150 units to St. Vincent regional hospital on Tuesday 21 July at 4:00 PM.",
           "name": "tuesday_shipment",
           "when": "2026-07-21T16:00:00-07:00"
         },
@@ -110,7 +96,7 @@
             "e7",
             "e9"
           ],
-          "meaning": "Ship 150 units to St. Vincent regional hospital every Thursday at 4:00 PM America/Los_Angeles.",
+          "meaning": "Ship 150 units to St. Vincent regional hospital on Thursday 23 July at 4:00 PM.",
           "name": "thursday_shipment",
           "when": "2026-07-23T16:00:00-07:00"
         }
@@ -124,17 +110,15 @@
           "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
           "name": "initial_stock",
           "value": 40
-        }
-      ],
-      "knows": [
+        },
         {
           "basis": "verified",
           "evidence_ids": [
             "e2"
           ],
-          "meaning": "The drive collects at a measured average of 12 usable units per hour while open.",
+          "meaning": "The drive collects at a measured average of 12 usable units per hour while it is open.",
           "name": "collection_rate",
-          "visibility": "public"
+          "value": 12
         },
         {
           "basis": "verified",
@@ -142,8 +126,7 @@
             "e3"
           ],
           "meaning": "The drive is open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
-          "name": "drive_schedule",
-          "visibility": "public"
+          "name": "drive_schedule"
         },
         {
           "basis": "verified",
@@ -151,17 +134,7 @@
             "e4"
           ],
           "meaning": "The collection week under consideration runs Monday 20 July to Friday 24 July 2026.",
-          "name": "collection_week",
-          "visibility": "public"
-        },
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e5"
-          ],
-          "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
-          "name": "initial_stock",
-          "visibility": "private"
+          "name": "collection_week"
         },
         {
           "basis": "verified",
@@ -169,17 +142,63 @@
             "e7"
           ],
           "meaning": "The centre ships its available stock to St. Vincent every Tuesday and Thursday at 4:00 PM America/Los_Angeles.",
-          "name": "shipment_schedule",
-          "visibility": "public"
+          "name": "shipping_schedule"
         },
         {
           "basis": "verified",
           "evidence_ids": [
             "e9"
           ],
-          "meaning": "Each shipment moves 150 units, the capacity of the centre's transport cooler.",
+          "meaning": "The Tuesday and Thursday shipments each move 150 units, the capacity of the centre's transport cooler.",
           "name": "shipment_capacity",
-          "visibility": "public"
+          "value": 150
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The centre knows its own stock level at start.",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The centre knows its average collection rate.",
+          "name": "collection_rate",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The centre knows its drive schedule.",
+          "name": "drive_schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The centre knows its shipping schedule.",
+          "name": "shipping_schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The centre knows the cooler capacity.",
+          "name": "shipment_capacity",
+          "visibility": "private"
         }
       ],
       "name": "Cascade regional blood centre",
@@ -191,8 +210,8 @@
           "evidence_ids": [
             "e5"
           ],
-          "meaning": "Usable blood units held by the centre.",
-          "name": "stock",
+          "meaning": "Usable blood units in stock at start of Monday.",
+          "name": "initial_stock",
           "unit": "units"
         }
       ],
@@ -200,7 +219,26 @@
       "timezone": "America/Los_Angeles"
     },
     {
-      "authority": [],
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8",
+            "e10"
+          ],
+          "meaning": "The hospital receives the Tuesday shipment into its bank.",
+          "over": "tuesday_shipment_received"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8",
+            "e10"
+          ],
+          "meaning": "The hospital receives the Thursday shipment into its bank.",
+          "over": "thursday_shipment_received"
+        }
+      ],
       "availability": {
         "close": "23:59",
         "open": "00:00",
@@ -218,17 +256,17 @@
         {
           "attention": {
             "cadence_minutes": null,
-            "calendar_meaning": "Available to receive shipments at any time.",
-            "meaning": "Continuous attention during business hours; shipments are received upon arrival."
+            "calendar_meaning": "The hospital operates 24/7.",
+            "meaning": "The hospital is continuously available to receive shipments during operating hours."
           },
-          "basis": "verified",
+          "basis": "inferred",
           "evidence_ids": [
-            "e7",
-            "e8"
+            "e8",
+            "e10"
           ],
-          "latency_meaning": "Shipments arrive about 3 hours after dispatch.",
-          "meaning": "Physical receipt of blood shipments from the centre.",
-          "name": "shipment_receipt",
+          "latency_meaning": "Shipments arrive approximately 3 hours after departure.",
+          "meaning": "The hospital receives shipments physically at its blood bank.",
+          "name": "physical_receipt",
           "role": "receiver"
         }
       ],
@@ -237,10 +275,9 @@
           "basis": "inferred",
           "evidence_ids": [
             "e7",
-            "e8",
-            "e9"
+            "e8"
           ],
-          "meaning": "The hospital is scheduled to receive a shipment from the centre on Tuesday 21 July 2026, dispatched at 4:00 PM, arriving around 7:00 PM.",
+          "meaning": "The hospital receives a shipment from the centre every Tuesday at approximately 7:00 PM (4:00 PM departure + 3 hours transit).",
           "name": "receive_tuesday_shipment",
           "when": "2026-07-21T19:00:00-07:00"
         },
@@ -248,10 +285,9 @@
           "basis": "inferred",
           "evidence_ids": [
             "e7",
-            "e8",
-            "e9"
+            "e8"
           ],
-          "meaning": "The hospital is scheduled to receive a shipment from the centre on Thursday 23 July 2026, dispatched at 4:00 PM, arriving around 7:00 PM.",
+          "meaning": "The hospital receives a shipment from the centre every Thursday at approximately 7:00 PM (4:00 PM departure + 3 hours transit).",
           "name": "receive_thursday_shipment",
           "when": "2026-07-23T19:00:00-07:00"
         }
@@ -274,7 +310,7 @@
             "e6"
           ],
           "meaning": "The hospital knows its own initial stock of 15 units.",
-          "name": "initial_stock",
+          "name": "initial_hospital_stock",
           "visibility": "private"
         },
         {
@@ -283,7 +319,7 @@
             "e7",
             "e8"
           ],
-          "meaning": "The hospital knows that shipments arrive every Tuesday and Thursday around 7:00 PM.",
+          "meaning": "The hospital knows that shipments arrive every Tuesday and Thursday at approximately 7:00 PM.",
           "name": "shipment_schedule",
           "visibility": "public"
         },
@@ -292,8 +328,8 @@
           "evidence_ids": [
             "e9"
           ],
-          "meaning": "The hospital knows each shipment contains 150 units.",
-          "name": "shipment_quantity",
+          "meaning": "The hospital knows each shipment is 150 units.",
+          "name": "shipment_size",
           "visibility": "public"
         }
       ],
