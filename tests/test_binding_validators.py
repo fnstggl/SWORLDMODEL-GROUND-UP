@@ -62,3 +62,25 @@ def test_missing_rate_teaches_the_decorative_escape():
     # and a well-formed decorative reply is accepted outright
     assert _v_process({"decorative": True, "why": "transfers carry it"}) \
         == []
+
+
+def test_stale_bindings_are_pruned_after_a_graph_rebuild():
+    from compiler.binding import Bindings, prune_dead_bindings
+    from compiler.graph import WorldGraph
+
+    g = WorldGraph()
+    keep = g.add_node("process", "line assembly", "kept", "question_given")
+    b = Bindings()
+    b.processes[keep] = {"amount_per_hour": 5, "rate_status": "verified"}
+    b.processes["process:renamed_away"] = {"decorative": True, "why": "x"}
+    b.events["event:gone"] = {"amounts": {}}
+    b.slots["process:old"] = ("processes", "process:renamed_away")
+    b.slots["process:kept"] = ("processes", keep)
+    b.substance_identities = [
+        {"holder": "organization:x", "a": "resource:dead",
+         "b": "resource:dead2", "same": True}]
+    dropped = prune_dead_bindings(g, b)
+    assert set(dropped) == {"event:gone", "process:renamed_away"}
+    assert list(b.processes) == [keep]
+    assert list(b.slots) == ["process:kept"]
+    assert b.substance_identities == []

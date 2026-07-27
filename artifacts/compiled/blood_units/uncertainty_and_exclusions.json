@@ -1,0 +1,48 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units; other entities do not affect this hospital's receipts."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz's actions",
+      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not change the number of units received."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e3",
+        "e4",
+        "e7"
+      ],
+      "name": "Friday collection",
+      "why_safe": "The drive is open Friday 9-5, but any units collected Friday would not be shipped before Friday noon (next shipment is Tuesday/Thursday), so they cannot be received by the deadline."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_collection_monday_to_thursday",
+      "meaning": "The exact number of units collected each day is unknown; only the average rate of 12 units per hour is given, but actual collection may vary."
+    },
+    {
+      "about": "centre_has_enough_stock_for_tuesday_shipment",
+      "meaning": "Whether the centre's stock after Monday's collection is sufficient to dispatch 150 units on Tuesday is unknown because Monday's collection total is uncertain."
+    },
+    {
+      "about": "centre_has_enough_stock_for_thursday_shipment",
+      "meaning": "Whether the centre's stock after collections Monday through Thursday is sufficient to dispatch 150 units on Thursday is unknown because collection totals are uncertain."
+    },
+    {
+      "about": "hospital_receives_thursday_shipment",
+      "meaning": "Whether the Thursday shipment arrives before Friday noon is unknown because the dispatch time is 4:00 PM Thursday and transit takes 3 hours, arriving at 7:00 PM Thursday, which is before Friday noon, so this is actually certain. But the uncertainty about stock sufficiency may affect whether the shipment occurs."
+    }
+  ]
+}

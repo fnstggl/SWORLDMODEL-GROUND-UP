@@ -188,10 +188,15 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             # ---- binding BEFORE the review: the reviewer must see the
             # fully wired world (rates, amounts, stock connections), not
             # a pre-binding skeleton it would misjudge as decorative ----
-            from .binding import connect_process_outputs, rebind_items
+            from .binding import (connect_process_outputs,
+                                  prune_dead_bindings, rebind_items)
             from .feasibility import (check_decorative_coverage,
                                       check_transfer_feasibility)
             t0 = wallclock.monotonic()
+            stale = prune_dead_bindings(graph, bindings)
+            if stale:
+                metrics.setdefault("stale_bindings_dropped",
+                                   []).extend(stale)
             bind_world(graph, evidence, call=call, model=model,
                        into=bindings)
             connect_process_outputs(graph, bindings)

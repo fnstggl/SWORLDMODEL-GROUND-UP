@@ -1,20 +1,22 @@
 [
   {
-    "binding_calls": 14,
+    "binding_calls": 13,
     "case": "blood_units",
-    "discovery_calls": 8,
+    "discovery_calls": 10,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "process outputs cannot be connected to real stocks",
+    "reason": "no node 'process:centre_collection_monday_to_thursday' in the graph",
     "repairs": {
+      "causal_spine": 1,
+      "process:centre_collection_monday": 2,
       "resolution_ambiguity_adjudication": 1,
-      "starting_state[Cascade regional blood centre mobile collection drive]": 1
+      "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
-    "stage": "LOWERING_GAP",
-    "tokens": 41955
+    "stage": "INVALID_REFERENCE",
+    "tokens": 55586
   }
 ]

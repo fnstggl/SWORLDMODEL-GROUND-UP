@@ -648,3 +648,20 @@ def rebind_items(b: Bindings, item_keys, defect_text: str, call,
         getattr(b, store)[nid] = doc
         redone.append(key)
     return redone
+
+
+def prune_dead_bindings(graph: WorldGraph, b: Bindings) -> list:
+    """After a document repair rebuilds the graph, bindings for nodes
+    that no longer exist are dead: drop them (and their rebind slots and
+    settled identities) so no later pass resolves a stale id. The call
+    log keeps the history; re-binding asks fresh for the new nodes."""
+    dropped = []
+    for store in (b.actions, b.channels, b.processes, b.events):
+        for nid in sorted(k for k in store if k not in graph.nodes):
+            del store[nid]
+            dropped.append(nid)
+    b.slots = {k: v for k, v in b.slots.items() if v[1] in graph.nodes}
+    b.substance_identities = [
+        i for i in b.substance_identities
+        if i.get("a") in graph.nodes and i.get("b") in graph.nodes]
+    return dropped

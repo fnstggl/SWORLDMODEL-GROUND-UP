@@ -1,0 +1,32 @@
+{
+  "causal_path": [
+    "Centre starts with 40 units at Monday 9 AM.",
+    "Collection Monday 9-5 at 12/hr adds 96 units (but double-counted adds 192).",
+    "Tuesday shipment dispatched at 4 PM (if stock >= 150, else conditional).",
+    "Tuesday shipment arrives at 7 PM, adding 150 to hospital stock.",
+    "Collection Tuesday and Wednesday add more to centre stock.",
+    "Thursday collection until 4 PM adds 84 units.",
+    "Thursday shipment dispatched at 4 PM (if stock >= 150).",
+    "Thursday shipment arrives at 7 PM, adding 150 to hospital stock.",
+    "At Friday noon, hospital holds initial 15 plus both shipments."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Monday collection is double-counted: separate process for Monday only and combined process for Monday-Thursday both accrue to usable_blood_units on Monday, inflating centre stock.",
+      "why_material": "Overestimates centre stock, potentially enabling shipments that would otherwise fail due to insufficient stock."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Terminal's 'producible by' and 'fed upstream' do not include the Tuesday shipment as a producer of hospital units, omitting a necessary causal step.",
+      "why_material": "The hospital's stock at deadline includes units from the Tuesday shipment; without it, the terminal would be undercounted."
+    },
+    {
+      "document": "uncertainty_and_exclusions",
+      "what": "Scheduled shipment dispatches transfer 150 units unconditionally, ignoring the declared uncertainty about whether the centre has sufficient stock.",
+      "why_material": "If centre stock is insufficient, the shipment would not occur or would be reduced, affecting the hospital's received units."
+    }
+  ],
+  "reasoning": "The compiled world contains several defects that materially affect what the simulation would produce. The double-counting of Monday collection inflates centre stock, potentially enabling shipments that might not occur. The terminal's causal chain omits the Tuesday shipment as a producer of the hospital's stock. The scheduled shipment dispatches are unconditional despite evidence indicating the centre ships its available stock, failing to preserve the genuine uncertainty about whether sufficient stock exists. These issues require targeted revision.",
+  "verdict": "TARGETED_REVISION"
+}

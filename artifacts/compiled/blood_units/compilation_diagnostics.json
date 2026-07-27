@@ -1,0 +1,5 @@
+{
+  "detail": {},
+  "reason": "no node 'process:centre_collection_monday_to_thursday' in the graph",
+  "stage": "INVALID_REFERENCE"
+}
