@@ -1,0 +1,36 @@
+{
+  "causal_path": [
+    "Centre starts with 40 units (initial stock).",
+    "Mobile drive collects 12 units/hour during open hours (Mon-Fri 9-5).",
+    "Centre stock increases by collections.",
+    "On Tuesday 4 PM, centre dispatches 150 units if stock >= 150.",
+    "Shipment arrives at hospital 3 hours later (7 PM Tuesday).",
+    "On Thursday 4 PM, centre dispatches 150 units if stock >= 150.",
+    "Shipment arrives at hospital 3 hours later (7 PM Thursday).",
+    "Hospital holds initial 15 units plus received shipments at Friday noon."
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "Collection processes (monday_collection, etc.) are declared as continuous processes but have no effect on any resource; they are decorative and do not feed into centre stock.",
+      "why_material": "Without collections, the centre's stock never increases beyond 40 units, so it cannot dispatch 150 units on Tuesday or Thursday, making the shipments impossible and the terminal unreachable."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "The centre's initial stock is set to 40 units, but the collection rate (12 units/hour) is stored as a resource on the centre without any mechanism to convert it into stock.",
+      "why_material": "The centre's stock is the basis for shipments; without a causal process to add collected units, the stock remains static and insufficient for the scheduled shipments."
+    },
+    {
+      "document": "causal_spine",
+      "what": "The terminal 'hospital_units_at_deadline' is declared as producible by shipment events, but no causal process actually produces it; it is a condition without a producer.",
+      "why_material": "The terminal must be the result of causal processes; without a producer, the world cannot generate the answer."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "The hospital's initial stock of 15 units is listed but not connected to the terminal; the terminal only depends on shipments, ignoring initial stock.",
+      "why_material": "The resolution note says the answer is the number of units the hospital actually holds at the deadline, which includes initial stock plus received shipments. Omitting initial stock changes the answer."
+    }
+  ],
+  "reasoning": "The world fails to connect the mobile collection drive to the centre's stock, leaving the collection processes as decorative and the centre's stock uninitialized. The centre's initial stock is set to 40 units, but the collection processes have no effect, so the centre cannot replenish stock to meet the 150-unit shipment capacity. The shipments are scheduled unconditionally, but without a causal link from collections to stock, the world does not represent the evidence that the centre collects units and uses them for shipments. Additionally, the hospital's initial stock of 15 units is included but not used in the terminal calculation, and the terminal is not produced by any causal process\u2014it is merely a condition. The world is not a truthful causal account.",
+  "verdict": "REJECT_WRONG_WORLD"
+}

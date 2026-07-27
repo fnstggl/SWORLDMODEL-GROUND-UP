@@ -272,13 +272,14 @@ def test_process_step_with_its_own_process_producer_merges():
                     valid_evidence_ids=EVIDENCE_IDS)
     assert len([n for n in g.by_category("process")
                 if n.name == "mail delivery running"]) == 1
-    # ...but a DIFFERENT process name is double-counting one mechanism
+    # ...and a DIFFERENT name is the service that operates the instance
     prod["assignments"][-1]["producers"][0]["name"] = "the postal system"
-    with pytest.raises(SemanticAmbiguity) as ei:
-        assemble(res, spine, prod, state, unc,
-                 valid_evidence_ids=EVIDENCE_IDS)
-    assert any("one mechanism must have one name" in d
-               for d in ei.value.detail["defects"])
+    g2, _ = assemble(res, spine, prod, state, unc,
+                     valid_evidence_ids=EVIDENCE_IDS)
+    svc = g2.resolve("organization", "the postal system", "test")
+    step = g2.resolve("process", "mail delivery running", "test")
+    assert any(e.dst == step
+               for e in g2.edges_from(svc, "has_authority"))
 
 
 def test_process_behavior_lands_on_the_process_node():

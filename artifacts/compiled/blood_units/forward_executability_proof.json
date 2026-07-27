@@ -1,0 +1,47 @@
+{
+  "channels": [
+    {
+      "channel": "process:courier_delivery",
+      "receivers": [
+        "organization:st_vincent_regional_hospital"
+      ],
+      "senders": []
+    },
+    {
+      "channel": "process:courier_service",
+      "receivers": [],
+      "senders": [
+        "organization:cascade_regional_blood_centre"
+      ]
+    }
+  ],
+  "emergent_components": [
+    "resource:hospital_units_at_deadline"
+  ],
+  "information_paths": [],
+  "operating_processes": [
+    "process:monday_collection",
+    "process:thursday_collection_before_dispatch",
+    "process:thursday_shipment_transit",
+    "process:tuesday_collection_before_dispatch",
+    "process:tuesday_shipment_transit",
+    "process:wednesday_collection"
+  ],
+  "parameter_binding": "deferred to the binding stage",
+  "scheduled_roots": [
+    "event:thursday_shipment",
+    "event:thursday_shipment_dispatched",
+    "event:thursday_shipment_receipt",
+    "event:tuesday_shipment",
+    "event:tuesday_shipment_dispatched",
+    "event:tuesday_shipment_receipt"
+  ],
+  "warnings": [
+    "process:courier_delivery: a route with no senders is dead and can carry nothing",
+    "process:courier_service: a route with no receivers is dead and can carry nothing",
+    "process:monday_collection: a process that changes nothing is decorative",
+    "process:thursday_collection_before_dispatch: a process that changes nothing is decorative",
+    "process:tuesday_collection_before_dispatch: a process that changes nothing is decorative",
+    "process:wednesday_collection: a process that changes nothing is decorative"
+  ]
+}

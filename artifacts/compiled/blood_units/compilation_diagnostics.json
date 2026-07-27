@@ -1,0 +1,12 @@
+{
+  "detail": {
+    "defects": [
+      "step 'tuesday_shipment_transit' is itself a process, but its producer is a different process 'Courier service'; one mechanism must have one name -- either name the step's own process, or restate the step as a condition the process produces",
+      "step 'thursday_shipment_transit' is itself a process, but its producer is a different process 'Courier service'; one mechanism must have one name -- either name the step's own process, or restate the step as a condition the process produces"
+    ],
+    "document": "producer_assignments",
+    "repairable": true
+  },
+  "reason": "the producer_assignments document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

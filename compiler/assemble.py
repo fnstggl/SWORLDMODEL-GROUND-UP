@@ -347,10 +347,13 @@ class Assembler:
         step = self.graph.node(step_id)
         cat = PRODUCER_KINDS[kind]
         if step.category == "process" and cat == "process":
-            # a process step's process producer is the same mechanism: it
-            # either IS the step (same name -> merge) or the assignment is
-            # double-counting one mechanism under two names
-            if self.graph.maybe("process", producer["name"]) == step_id \
+            # a process step's process producer is either the same
+            # mechanism (same name -> merge), an existing service the
+            # instance depends on, or a service organization that
+            # operates the instance ('the transit is carried out by the
+            # Courier service'). All three are connections, not defects.
+            existing = self.graph.maybe("process", producer["name"])
+            if existing == step_id \
                     or slug(producer["name"]) == step_id.split(":", 1)[1]:
                 self.graph.absorb(step_id, producer.get("meaning", ""),
                                   basis, ids,
@@ -360,12 +363,39 @@ class Assembler:
                               "producer": producer["name"],
                               "kind": kind, "merged": True}, [], [])
                 return
-            raise SemanticAmbiguity(
-                f"step {step_name!r} is itself a process, but its producer "
-                f"is a different process {producer['name']!r}; one "
-                f"mechanism must have one name -- either name the step's "
-                f"own process, or restate the step as a condition the "
-                f"process produces")
+            if existing is not None:
+                e = self.graph.add_edge(
+                    step_id, "requires", existing,
+                    where=f"producer {step_name!r}")
+                self._record("attach_producer",
+                             {"step": step_name,
+                              "producer": producer["name"],
+                              "kind": kind, "depends_on_service": True},
+                             [], [e])
+                return
+            org = next((self.graph.maybe(c, producer["name"])
+                        for c in ACTORS
+                        if self.graph.maybe(c, producer["name"])), None)
+            created = []
+            if org is None:
+                org = self.graph.add_node(
+                    "organization", producer["name"],
+                    producer.get("meaning", ""), basis, ids,
+                    attrs={"producer_kind": kind},
+                    where=f"producer for {step_name!r}")
+                created.append(org)
+            else:
+                self.graph.absorb(org, producer.get("meaning", ""), basis,
+                                  ids, where=f"producer for {step_name!r}")
+            e = self.graph.add_edge(
+                org, "has_authority", step_id,
+                {"meaning": producer.get("meaning", "operates it")},
+                where=f"producer {step_name!r}")
+            self._record("attach_producer",
+                         {"step": step_name, "producer": producer["name"],
+                          "kind": kind, "operates_as_service": True},
+                         created, [e])
+            return
         pid = self.graph.maybe(cat, producer["name"])
         created = []
         if pid is None:
