@@ -21,7 +21,7 @@ MAX_ITEMS = 16
 #: category -> (bound, instruction).  Wording is universal; scenario meaning
 #: only ever arrives in the model's answers (data).
 CATEGORIES = [
-    ("participants", LIMITS["participants"], """List the people (or \
+    ("participants", MAX_ITEMS, """List the people (or \
 person-like deciding units, e.g. a named officeholder) whose DECISIONS the \
 outcome actually depends on -- the smallest sufficient cast.  EVERY item \
 must be one person, and must OPEN with a usable name; when reality leaves \
@@ -91,8 +91,10 @@ def _validate_items(bound: int, registry: EvidenceRegistry):
         if not isinstance(obj, dict) or not isinstance(obj.get("items"), list):
             return ["reply must be {\"items\": [...]}"]
         if len(obj["items"]) > bound:
-            errors.append(f"at most {bound} items are allowed; keep the "
-                          f"smallest faithful set")
+            # keep the head rather than fail the whole aspect: items are
+            # ordered most-important-first and the real caps (actor count,
+            # world size) are enforced mechanically at assembly
+            del obj["items"][bound:]
         for i, it in enumerate(obj["items"]):
             if not isinstance(it, dict):
                 errors.append(f"items[{i}] must be an object")
