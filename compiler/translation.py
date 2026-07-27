@@ -29,6 +29,10 @@ Hard rules:
 or consequences that the item does not state.  If the item says less than \
 the capability needs, keep fields minimal; if it cannot be expressed, \
 return UNSUPPORTED with the reason.
+- A real person or thing the item leaves UNNAMED is still real: use the \
+item's own descriptive label as its name ("the founder", "the assistant") \
+and keep that label stable.  Labeling is not inventing -- refusing to model \
+a real sender or decider because they lack a name loses the world.
 - Every name you reference must appear in DECLARED NAMES (use the exact \
 declared spelling).  Referencing an undeclared name is an error.
 - Copy the item's provenance label into provenance fields (do not upgrade \

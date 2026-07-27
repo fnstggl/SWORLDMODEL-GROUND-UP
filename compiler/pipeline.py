@@ -69,6 +69,23 @@ class CompileResult:
         return "\n".join(lines)
 
 
+#: categories whose unexpressed items get surfaced in repair corrections --
+#: a lost participant, route, action, or terminal breaks worlds; a dropped
+#: duplicate or stray claim is normal coverage hygiene and stays out of the
+#: repair diet.
+_LOAD_BEARING = ("participants", "communication", "actions", "terminal")
+
+
+def _load_bearing_drops(translations: list, cap: int = 6) -> list:
+    out = []
+    for t in translations:
+        if t["status"] != "unsupported" or t["category"] not in _LOAD_BEARING:
+            continue
+        out.append(f"item {t['item_ref']} ({t['text'][:80]!r}) was not "
+                   f"expressed: {t['result'].get('reason', '')[:160]}")
+    return out[:cap]
+
+
 # ---------------------------------------------------------------------------
 # one full attempt (description -> reviews); repairs re-run it with
 # corrections appended to every stage prompt
@@ -94,12 +111,12 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
                     for t in translations}
     plan, errors = assembly.assemble(graph, iso(start),
                                      evidence_of=evidence_map.get)
+    dropped = _load_bearing_drops(translations)
     if errors:
-        # the unexpressed items are usually WHY assembly failed: put their
-        # reasons in front of the repair round, not just the symptom
-        dropped = [f"item {t['item_ref']} ({t['text'][:90]!r}) could not be "
-                   f"translated: {t['result'].get('reason', '')[:240]}"
-                   for t in translations if t["status"] == "unsupported"]
+        # the unexpressed load-bearing items are usually WHY assembly
+        # failed: put their reasons in front of the repair round, not just
+        # the symptom -- but keep the diet strict, or corrections drown the
+        # instructions they ride on
         return {"outcome": "repair", "resolution": res,
                 "description": description, "translations": translations,
                 "reasons": [f"assembly: {e}" for e in errors] + dropped}
@@ -108,7 +125,8 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
         return {"outcome": "repair", "resolution": res,
                 "description": description, "translations": translations,
                 "plan": plan, "validation": report.to_dict(),
-                "reasons": [f"validation: {b}" for b in report.blocking]}
+                "reasons": [f"validation: {b}"
+                            for b in report.blocking] + dropped}
     world, terminal, minds = lower(plan)
     world2, _, _ = lower(plan)
     if world.state_hash() != world2.state_hash():   # pragma: no cover

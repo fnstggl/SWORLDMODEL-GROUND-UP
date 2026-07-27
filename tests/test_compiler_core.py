@@ -229,6 +229,27 @@ def test_authorized_verbs_only_offered_to_authorized_roles():
     assert "review_information" in world.action_defs
 
 
+def test_at_least_daily_cadence_clamps_to_window():
+    """'Checks at least once per day' (cadence > window) lowers to once per
+    working window -- recorded, never a kernel refusal and never silent."""
+    items = [i for i in neutral_items()
+             if not (i["capability"] == "add_attention"
+                     and i["fields"]["participant"] == "Person B")]
+    items.append(cap("add_attention", participant="Person B",
+                     channel="channel_c", mode="periodic", tz="Europe/Berlin",
+                     open_time="08:00", close_time="18:00",
+                     check_every_minutes=1440, provenance="inferred",
+                     note="checks at least daily"))
+    g = build_graph(items)
+    plan, errors = assemble(g, START)
+    assert errors == []
+    assert any("clamped to once per working window" in n
+               for n in plan["notes"])
+    world, _, _ = lower(plan)
+    rule = world.actors["person_b"].attention["channel_c"]
+    assert rule.check_every.total_seconds() == 10 * 3600
+
+
 # ------------------------------------------------------------ renaming test
 def test_universality_under_renaming():
     """Rename every label; the machinery must behave identically."""

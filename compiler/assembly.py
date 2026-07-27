@@ -419,9 +419,28 @@ def assemble(g: WorldGraph, start_iso: str, evidence_of=lambda ref: None):
                    "workdays": a.get("workdays") or [0, 1, 2, 3, 4],
                    "open": a.get("open_time") or "09:00",
                    "close": a.get("close_time") or "17:00"}
+        check_every = (float(a["check_every_minutes"]) * 60.0
+                       if a["mode"] == "periodic" else None)
+        if cal is not None:
+            o = dtime.fromisoformat(cal["open"])
+            c = dtime.fromisoformat(cal["close"])
+            window = (c.hour * 60 + c.minute) - (o.hour * 60 + o.minute)
+            if window <= 0:
+                errors.append(f"attention of {a['participant']} on "
+                              f"{a['channel']}: the window "
+                              f"{cal['open']}-{cal['close']} is empty")
+                continue
+            if check_every is not None and check_every > window * 60.0:
+                # "at least once per <window day>": within the kernel's
+                # calendar semantics that is a cadence of one full window --
+                # a faithful clamp, recorded, never silent
+                notes.append(f"attention of {a['participant']} on "
+                             f"{a['channel']}: cadence "
+                             f"{check_every / 60:.0f}m exceeds the daily "
+                             f"window; clamped to once per working window")
+                check_every = float(window * 60)
         rule = {"calendar": cal,
-                "check_every_seconds": (float(a["check_every_minutes"]) * 60.0
-                                        if a["mode"] == "periodic" else None),
+                "check_every_seconds": check_every,
                 "basis": kernel_basis(a["provenance"]),
                 "note": prov_note(a["provenance"], a["note"], ev(a))}
         try:
