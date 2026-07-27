@@ -8,12 +8,12 @@
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the producer_assignments document has defects",
+    "reason": "terminal production fails the backward causal proof",
     "repairs": {
       "producer_assignments": 1
     },
     "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 39951
+    "stage": "NO_CAUSAL_PRODUCER",
+    "tokens": 42259
   }
 ]

@@ -1,0 +1,79 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e3"
+      ],
+      "name": "Other council members or alternates",
+      "why_safe": "The council has exactly five members per e1; no alternates or substitutes are mentioned in the evidence. Excluding others is safe because the charter and rules define the voting body as these five."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Remote or proxy voting",
+      "why_safe": "Council rules require physical presence to vote (e4), and no remote participation is allowed. Excluding remote voting is safe because it is not permitted."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "name": "Postponement by someone other than sponsor",
+      "why_safe": "Council rules state only the sponsor can move postponement (e11). Excluding others is safe because they lack authority to postpone."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Mayoral veto or other procedural hurdles",
+      "why_safe": "The village charter (e3) only requires three affirmative votes for adoption; no veto or additional approval is mentioned. Excluding such hurdles is safe because the evidence does not indicate any."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "okonkwo_present",
+      "meaning": "Whether Adaeze Okonkwo will be physically present at the 8 September session is unknown; no evidence confirms or denies her attendance."
+    },
+    {
+      "about": "tran_present",
+      "meaning": "Whether Minh Tran will be physically present at the 8 September session is unknown; no evidence confirms or denies his attendance."
+    },
+    {
+      "about": "delgado_present",
+      "meaning": "Whether Rosa Delgado will be physically present at the 8 September session is unknown; no evidence confirms or denies her attendance."
+    },
+    {
+      "about": "pryce_present",
+      "meaning": "Whether Gareth Pryce will be physically present at the 8 September session is unknown; no evidence confirms or denies his attendance."
+    },
+    {
+      "about": "okonkwo_does_not_postpone",
+      "meaning": "Whether Okonkwo will move to postpone the item is unknown; she has stated she wants final action, but could change her mind."
+    },
+    {
+      "about": "okonkwo_votes_yes",
+      "meaning": "Okonkwo stated support, but her actual vote on 8 September is not guaranteed; she could change her position."
+    },
+    {
+      "about": "tran_votes_yes",
+      "meaning": "Tran stated he is prepared to vote yes, but his actual vote on 8 September is not guaranteed; he could change his position."
+    },
+    {
+      "about": "delgado_votes_yes",
+      "meaning": "Delgado stated she intends to vote no, but her actual vote on 8 September is not guaranteed; she could change her position."
+    },
+    {
+      "about": "pryce_votes_yes",
+      "meaning": "Pryce stated he intends to vote no, but his actual vote on 8 September is not guaranteed; he could change his position."
+    },
+    {
+      "about": "bianchi_votes_yes",
+      "meaning": "Bianchi is absent per e10, so she cannot vote; but if she were present, her vote is unknown."
+    }
+  ]
+}

@@ -620,7 +620,10 @@ def discover(question: dict, evidence: dict, call=call_json,
         "decisions need the person/organization/population who could "
         "choose them. A condition with prerequisites and no mechanism of "
         "its own is a conjunction -- mark it unsupported with that "
-        "reason. But the step the terminal measures needs the REAL "
+        "reason. A condition WITHOUT prerequisites can never be a "
+        "conjunction: either its spine step lists the parts it is "
+        "composed of, or something here must produce it. But the step "
+        "the terminal measures needs the REAL "
         "mechanisms that change it -- the scheduled transfers, processes "
         "or actions already in the spine; never invent a wrapper process "
         "around whoever holds or reports it.")

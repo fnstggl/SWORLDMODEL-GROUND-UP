@@ -175,6 +175,15 @@ class _Rootedness:
                          "real mechanisms -- attach the scheduled "
                          "transfers, processes or actions that change it "
                          "as its producers")
+            elif n.category == "state" \
+                    and not self.g.prerequisites_of(node_id) \
+                    and not self.g.producers_of(node_id):
+                teach = (". A condition claimed as a conjunction must "
+                         "LIST its parts: add the steps it is composed "
+                         "of (each attendance, each cast vote, each "
+                         "delivery) as its prerequisites in the causal "
+                         "spine, or assign the real mechanism that "
+                         "produces it")
             return [f"{n.id}: explicitly marked unsupported "
                     f"({n.attrs['unsupported']}){teach}"]
         reasons = []
@@ -279,9 +288,14 @@ def backward_causal_proof(graph: WorldGraph) -> dict:
             "immutable_after_genesis": initially_true and not producers})
 
     if failures:
+        defects = sorted(set(failures))
+        detail = {"defects": defects, "repairable": True}
+        if all("must LIST its parts" in d for d in defects):
+            # a partless conjunction's parts are spine content: route
+            # the one repair to the document that can actually add them
+            detail["document"] = "causal_spine"
         raise NoCausalProducer(
-            "terminal production fails the backward causal proof",
-            {"defects": sorted(set(failures)), "repairable": True})
+            "terminal production fails the backward causal proof", detail)
 
     if term.attrs.get("answer_type") == "boolean":
         initially_true = [c["component"] for c in proof_components
