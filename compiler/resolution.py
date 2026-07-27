@@ -73,10 +73,20 @@ def _validate(asof: str):
 
 def _check_frame(obj, asof: str) -> list:
     errors = []
-    for f in ("observable_outcome", "smallest_world", "yes_means", "no_means",
-              "horizon_note"):
+    for f in ("observable_outcome", "smallest_world", "horizon_note"):
         if not isinstance(obj.get(f), str) or not obj.get(f):
             errors.append(f"{f} must be a non-empty string")
+    if obj.get("answer_mode") == "condition":
+        for f in ("yes_means", "no_means"):
+            if not isinstance(obj.get(f), str) or not obj.get(f):
+                errors.append(f"{f} must be a non-empty string in condition "
+                              f"mode")
+    else:
+        obj.setdefault("yes_means", "")
+        obj.setdefault("no_means", "")
+        for f in ("yes_means", "no_means"):
+            if not isinstance(obj.get(f), str):
+                obj[f] = ""
     if obj.get("answer_mode") not in ("condition", "value", "decision_count"):
         errors.append("answer_mode must be condition | value | decision_count")
     for f in ("start_local", "cutoff_local"):
@@ -85,8 +95,9 @@ def _check_frame(obj, asof: str) -> list:
     if isinstance(obj.get("start_local"), str) \
             and _LOCAL_DT_RE.match(obj.get("start_local", "")) \
             and obj["start_local"][:10] != asof:
-        errors.append(f"start_local must fall on the compile day {asof}: the "
-                      f"world starts from the facts available that day")
+        # the world starts from the facts available on the compile day --
+        # a drifted start date is snapped, not litigated
+        obj["start_local"] = f"{asof} {obj['start_local'][11:]}"
     for f in ("tz", "cutoff_tz"):
         v = obj.get(f)
         if not isinstance(v, str) or ("/" not in v and v != "UTC"):

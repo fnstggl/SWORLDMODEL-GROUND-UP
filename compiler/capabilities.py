@@ -29,7 +29,9 @@ CONCRETE_LABELS = ("verified", "question_given", "inferred",
                    "model_memory_unverified")
 
 #: Hard bounds: the smallest faithful world, never a sprawling one.
-LIMITS = {"participants": 8, "aggregates": 12, "channels": 8, "actions": 14,
+#: (12 participants fits a floor-fight-sized cast -- leadership, a bill
+#: manager, pivotal members -- while everything larger must aggregate.)
+LIMITS = {"participants": 12, "aggregates": 12, "channels": 8, "actions": 14,
           "horizon_days": 120, "genesis_events": 400}
 
 _TEMPLATE_RE = re.compile(r"\{([a-zA-Z_.][a-zA-Z0-9_.]*)\}")

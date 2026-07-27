@@ -56,7 +56,8 @@ class EvidenceRegistry:
         document id (unambiguous)."""
         ref = ref.strip()
         if ref not in self.docs:
-            for prefix in ("doc ", "docs ", "document "):
+            for prefix in ("doc ", "docs ", "document ", "doc_", "docs_",
+                           "document_"):
                 if ref.lower().startswith(prefix) \
                         and ref[len(prefix):].strip() in self.docs:
                     return ref[len(prefix):].strip()

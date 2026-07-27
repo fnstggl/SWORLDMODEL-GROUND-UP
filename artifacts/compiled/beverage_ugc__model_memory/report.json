@@ -2,43 +2,9 @@
  "question": "Should Coca-Cola launch a six-week TikTok user-generated-content contest campaign (branded hashtag, weekly creator prizes, roughly a two-million-dollar budget) in September 2026?",
  "report": {
   "reasons": [
-   "assembly: horizon exceeds 120 days; model a nearer observable resolution",
-   "item participants[6] (\"U.S. TikTok users who create content using the campaign's branded hashtag are pa\") was not expressed: The item describes 'U.S. TikTok users' as a population whose engagement determines campaign reach, but they are not declared as participants or aggregates with ",
-   "item participants[7] (\"Coca-Cola's U.S. consumers who purchase products in Q3 2026 determine the revenu\") was not expressed: The item describes a large, diffuse population ('Coca-Cola's U.S. consumers who purchase products in Q3 2026') whose collective behavior determines revenue. Thi",
-   "item communication[0] (\"Coca-Cola's VP of Marketing (U.S.) can propose the TikTok campaign to the CMO vi\") was not expressed: The item requires an 'internal_email' channel, but no such channel is declared. The only declared names are participants and aggregates; no channels are defined",
-   "item communication[3] (\"The head of Coca-Cola's social media team can receive campaign approval via emai\") was not expressed: The item describes receiving campaign approval via email from the CMO and CFO, but 'email' is not a declared channel. No channel named 'email' exists in the dec",
-   "item communication[4] (\"The head of Coca-Cola's social media team can launch the TikTok campaign using T\") was not expressed: The item describes launching a campaign via TikTok's business portal, which is an action (executing the campaign) already captured by the defined action 'approv",
-   "item communication[5] (\"TikTok's U.S. operations team can provide campaign management tools and support \") was not expressed: The item describes a capability of 'TikTok's U.S. operations team', which is an aggregate, not a participant. The add_channel_access capability requires a parti"
+   "resolution: no valid response after 3 attempts: ['yes_means must be a non-empty string', 'no_means must be a non-empty string', 'start_local must fall on the compile day 2026-07-27: the world starts from the facts available that day']"
   ],
-  "repair_rounds": [
-   [
-    "assembly: horizon exceeds 120 days; model a nearer observable resolution",
-    "item communication[6] (\"The social media team communicates campaign details to TikTok's U.S. operations \") was not expressed: The recipient 'TikTok's U.S. operations team' is not a declared participant or aggregate; the only declared aggregate is 'TikTok U.S. users creating branded has",
-    "item communication[8] ('U.S. consumers see the campaign on TikTok and may create content using the hasht') was not expressed: The item describes uncertain participation by consumers, which is a future decision by individuals, not a fixed channel access. The intended recipient is an agg",
-    "item communication[12] (\"TikTok's U.S. operations team has access to email and phone; they respond to bus\") was not expressed: The item refers to 'TikTok's U.S. operations team', which is not a declared participant or aggregate. No capability can be created without a valid name.",
-    "item actions[2] (\"The head of Coca-Cola's social media team may execute the campaign (if approved)\") was not expressed: The verb 'launch_tiktok_campaign' is already defined in the world frame, and the item describes the same action (executing the campaign) without adding new capa",
-    "item actions[3] (\"TikTok's U.S. operations may provide platform support for the campaign (e.g., ha\") was not expressed: The fact 'tiktok_campaign_support_available' is already declared. The item describes a possibility ('may provide') which is not a concrete fact; it is already c",
-    "item actions[4] (\"U.S. TikTok users may create and share content using the campaign's branded hash\") was not expressed: The item describes a potential action by a population (TikTok users) that is not a participant with decision-making capability; it is an aggregate. The describe"
-   ],
-   [
-    "assembly: horizon exceeds 120 days; model a nearer observable resolution",
-    "item communication[12] (\"TikTok's U.S. operations team has access to email and phone; they respond to bus\") was not expressed: The item refers to 'TikTok's U.S. operations team', which is not a declared participant or aggregate. No capability can be created without a valid name.",
-    "item actions[2] (\"The head of Coca-Cola's social media team may execute the campaign (if approved)\") was not expressed: The item describes executing the campaign, which is already captured by the defined action 'launch_tiktok_campaign'. No new capability is needed.",
-    "item actions[3] (\"TikTok's U.S. operations may provide platform support for the campaign (e.g., ha\") was not expressed: The item describes a possibility ('may provide') that is already captured by the declared fact 'tiktok_campaign_support_available'. No new capability, participa",
-    "item actions[4] (\"U.S. TikTok users may create and share content using the campaign's branded hash\") was not expressed: The item describes a potential action by an aggregate ('TikTok U.S. users creating branded hashtag content'), which is not a participant with decision-making ca"
-   ],
-   [
-    "assembly: horizon exceeds 120 days; model a nearer observable resolution",
-    "item participants[6] (\"U.S. TikTok users who create content using the campaign's branded hashtag are pa\") was not expressed: The item describes 'U.S. TikTok users' as a population whose engagement determines campaign reach, but they are not declared as participants or aggregates with ",
-    "item participants[7] (\"Coca-Cola's U.S. consumers who purchase products in Q3 2026 determine the revenu\") was not expressed: The item describes a large, diffuse population ('Coca-Cola's U.S. consumers who purchase products in Q3 2026') whose collective behavior determines revenue. Thi",
-    "item communication[0] (\"Coca-Cola's VP of Marketing (U.S.) can propose the TikTok campaign to the CMO vi\") was not expressed: The item requires an 'internal_email' channel, but no such channel is declared. The only declared names are participants and aggregates; no channels are defined",
-    "item communication[3] (\"The head of Coca-Cola's social media team can receive campaign approval via emai\") was not expressed: The item describes receiving campaign approval via email from the CMO and CFO, but 'email' is not a declared channel. No channel named 'email' exists in the dec",
-    "item communication[4] (\"The head of Coca-Cola's social media team can launch the TikTok campaign using T\") was not expressed: The item describes launching a campaign via TikTok's business portal, which is an action (executing the campaign) already captured by the defined action 'approv",
-    "item communication[5] (\"TikTok's U.S. operations team can provide campaign management tools and support \") was not expressed: The item describes a capability of 'TikTok's U.S. operations team', which is an aggregate, not a participant. The add_channel_access capability requires a parti"
-   ]
-  ],
-  "reviews": null,
-  "validation": null
+  "repair_rounds": []
  },
  "status": "failed"
 }

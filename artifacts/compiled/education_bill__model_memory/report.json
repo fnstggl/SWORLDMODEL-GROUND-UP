@@ -2,134 +2,45 @@
  "question": "Is the U.S. Senate going to pass a major K-12 education funding bill before the August 2026 recess?",
  "report": {
   "reasons": [
-   "validation: terminal term counting 'cloture_filed:k12_education_funding:': nothing can create records under this prefix",
-   "validation: terminal term counting 'floor_scheduled:k12_education_funding:': nothing can create records under this prefix",
-   "validation: terminal term counting 'motion_to_proceed:bill:': nothing can create records under this prefix",
-   "validation: terminal term counting 'organize_support_opposition:k12_education_funding:': nothing can create records under this prefix",
-   "validation: terminal term counting 'refusal_to_schedule:k12_education_funding:': nothing can create records under this prefix",
-   "item communication[14] ('Senator Mitch McConnell can reach any senator via telephone, email, or written n') was not expressed: The item describes Mitch McConnell reaching 'any senator', but the simulation cannot model a single channel_access to an unspecified group. Each channel_access ",
-   "item actions[3] ('Senator Bernie Sanders, as Chair of the Senate HELP Committee, can mark up and r') was not expressed: The verb 'mark_up_bill' is already defined, and the item does not describe a new capability beyond what is already modeled.",
-   "item actions[4] ('The Senate Parliamentarian can provide procedural rulings on whether a bill qual') was not expressed: no valid translation: translate.actions[4]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
-   "item actions[5] ('The Vice President can cast a tie-breaking vote in the Senate on procedural moti') was not expressed: no valid translation: translate.actions[5]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
-   "item actions[7] ('A conference committee can be appointed to reconcile differences between House a') was not expressed: no valid translation: translate.actions[7]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
-   "item actions[10] (\"President Joe Biden can publicly support or oppose a bill, influencing senators'\") was not expressed: The item describes President Joe Biden, but 'Joe Biden' is not in the declared names list. The item cannot be modeled without adding a participant, which would "
+   "assembly: 12 participants exceeds the limit of 8; aggregate the rest",
+   "item communication[14] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[14]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+   "item actions[3] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+   "item actions[4] ('Any senator can introduce a major K-12 education funding bill as a new piece of ') was not expressed: references could not be resolved: actions[4].effects[1]: 'Senate Staff' is a aggregate, expected one of ['participant']",
+   "item actions[7] ('Senator John Thune (R-SD), as Majority Whip, can attempt to secure Republican vo') was not expressed: The action requires contacting individual Republican senators, but the declared participants list only includes specific named senators (e.g., Susan Collins, Li",
+   "item actions[12] ('Senator Tim Scott (R-SC) and Senator Mike Braun (R-IN) can support or oppose the') was not expressed: The item names Senator Tim Scott and Senator Mike Braun, who are not in the DECLARED NAMES list. Adding them would exceed the participant limit of 8 (already 10",
+   "item actions[13] ('Senator Elizabeth Warren (D-MA) can advocate for progressive education funding p') was not expressed: references could not be resolved: actions[13]: allowed_roles includes 'Senator (D-MA)' but no participant has that role (roles: ['Chair of the Senate HELP Commi"
   ],
   "repair_rounds": [
    [
-    "validation: terminal term counting 'bill_markup:k12_education_funding:': nothing can create records under this prefix",
-    "validation: terminal term counting 'procedural_ruling:k12_education_funding:': nothing can create records under this prefix",
-    "validation: terminal term counting 'tie_breaking_vote:k12_education_funding:': nothing can create records under this prefix",
-    "item participants[6] ('The President of the United States (Joe Biden, as of July 27, 2026) could influe') was not expressed: The item mentions Joe Biden as President, but 'Joe Biden' is not in the declared names list. The item does not describe a capability that can be modeled without",
-    "item participants[8] ('The Speaker of the House (unknown as of July 27, 2026, but likely a Republican i') was not expressed: The item refers to a person (the Speaker of the House) who is not a declared participant and whose identity is unknown. It also describes a hypothetical future ",
-    "item participants[9] ('The House Majority Leader (unknown) would manage floor schedule in the House.') was not expressed: The item refers to an unnamed person (House Majority Leader) whose identity is unknown, and the item does not provide enough information to model them as a part",
-    "item participants[10] (\"The bill's primary sponsor in the Senate (unknown) would need to introduce the b\") was not expressed: The item refers to a 'primary sponsor' who is unknown and unnamed. The simulation cannot model an unnamed participant, and the item does not provide enough info",
-    "item participants[11] (\"The bill's primary sponsor in the House (unknown) would need to introduce the bi\") was not expressed: The item refers to an unnamed House sponsor who is not a declared participant and whose identity is unknown. Adding a participant requires a name and role; 'unk",
-    "item participants[13] ('The Senate Clerk (unknown) would handle official procedural steps.') was not expressed: The item refers to a 'Senate Clerk' who is unnamed and whose role is not among the declared participants. The item does not provide enough information to model "
+    "assembly: 16 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[4] ('Senators have staff who can relay messages, with typical delay of minutes to hou') was not expressed: The item describes a general capability of staff relaying messages, but does not specify which staff member or which senator. The declared names list only speci",
+    "item communication[5] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[5]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscor",
+    "item actions[0] ('Senator Bill Cassidy (R-LA), as HELP Committee chair, can schedule a committee m') was not expressed: no valid translation: translate.actions[0]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[1] ('The HELP Committee can vote to report a bill to the full Senate; requires a majo') was not expressed: no valid translation: translate.actions[1]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[2] ('Senator Mitch McConnell (R-KY), as Majority Leader, can schedule floor debate an') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[4]: no valid response after 3 attempts: [\"define_action.requires[0]: kind must be one of ['fact_absent', 'fact_equals', "
    ],
    [
     "assembly: 10 participants exceeds the limit of 8; aggregate the rest",
-    "item participants[6] ('President Joe Biden (D) is the President of the United States as of July 27, 202') was not expressed: The item mentions Joe Biden as President, but 'Joe Biden' is not in the declared names list. The item does not describe a capability that can be modeled without",
-    "item participants[11] ('The House Majority Leader is an unnamed person as of July 27, 2026, whose identi') was not expressed: The item describes an unnamed person (House Majority Leader) whose identity is uncertain. The simulation cannot model a participant without a name, and the item",
-    "item participants[13] ('The primary House sponsor of a major K-12 education funding bill is an unnamed r') was not expressed: The item describes an unnamed person (the primary House sponsor) whose identity is uncertain. Adding a participant requires a name; 'the primary House sponsor' ",
-    "item participants[14] ('The Senate Clerk is an unnamed person as of July 27, 2026, whose identity is unc') was not expressed: The item describes an unnamed person (the Senate Clerk) whose identity is uncertain. The simulation cannot model a participant without a name, and the item does",
-    "item communication[6] ('President Joe Biden (D) is the President of the United States as of July 27, 202') was not expressed: The item mentions Joe Biden as President, but 'Joe Biden' is not in the declared names list. The item does not describe a capability that can be modeled without",
-    "item communication[10] ('The Speaker of the House is an unnamed person as of July 27, 2026, whose identit') was not expressed: The item describes the Speaker of the House as an unnamed person with uncertain identity. Adding a participant requires a name; 'the Speaker of the House' is al"
+    "item communication[14] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[14]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+    "item communication[15] ('Committee chairs can schedule markups by announcing in committee or via public n') was not expressed: no valid translation: translate.communication[15]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+    "item actions[2] ('Senator Mitch McConnell (R-KY), as Majority Leader, can schedule floor debate an') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[3] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('Any senator can introduce a major K-12 education funding bill as a new piece of ') was not expressed: references could not be resolved: actions[4].effects[1]: 'Senate Staff' is a aggregate, expected one of ['participant']",
+    "item actions[7] ('Senator John Thune (R-SD), as Majority Whip, can attempt to secure Republican vo') was not expressed: references could not be resolved: actions[7]: allowed_roles includes 'Senator (R-SD)' but no participant has that role (roles: ['Chair of the Senate HELP Commit"
    ],
    [
-    "validation: terminal term counting 'cloture_filed:k12_education_funding:': nothing can create records under this prefix",
-    "validation: terminal term counting 'floor_scheduled:k12_education_funding:': nothing can create records under this prefix",
-    "validation: terminal term counting 'motion_to_proceed:bill:': nothing can create records under this prefix",
-    "validation: terminal term counting 'organize_support_opposition:k12_education_funding:': nothing can create records under this prefix",
-    "validation: terminal term counting 'refusal_to_schedule:k12_education_funding:': nothing can create records under this prefix",
-    "item communication[14] ('Senator Mitch McConnell can reach any senator via telephone, email, or written n') was not expressed: The item describes Mitch McConnell reaching 'any senator', but the simulation cannot model a single channel_access to an unspecified group. Each channel_access ",
-    "item actions[3] ('Senator Bernie Sanders, as Chair of the Senate HELP Committee, can mark up and r') was not expressed: The verb 'mark_up_bill' is already defined, and the item does not describe a new capability beyond what is already modeled.",
-    "item actions[4] ('The Senate Parliamentarian can provide procedural rulings on whether a bill qual') was not expressed: no valid translation: translate.actions[4]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
-    "item actions[5] ('The Vice President can cast a tie-breaking vote in the Senate on procedural moti') was not expressed: no valid translation: translate.actions[5]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
-    "item actions[7] ('A conference committee can be appointed to reconcile differences between House a') was not expressed: no valid translation: translate.actions[7]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
-    "item actions[10] (\"President Joe Biden can publicly support or oppose a bill, influencing senators'\") was not expressed: The item describes President Joe Biden, but 'Joe Biden' is not in the declared names list. The item cannot be modeled without adding a participant, which would "
+    "assembly: 12 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[14] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[14]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+    "item actions[3] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('Any senator can introduce a major K-12 education funding bill as a new piece of ') was not expressed: references could not be resolved: actions[4].effects[1]: 'Senate Staff' is a aggregate, expected one of ['participant']",
+    "item actions[7] ('Senator John Thune (R-SD), as Majority Whip, can attempt to secure Republican vo') was not expressed: The action requires contacting individual Republican senators, but the declared participants list only includes specific named senators (e.g., Susan Collins, Li",
+    "item actions[12] ('Senator Tim Scott (R-SC) and Senator Mike Braun (R-IN) can support or oppose the') was not expressed: The item names Senator Tim Scott and Senator Mike Braun, who are not in the DECLARED NAMES list. Adding them would exceed the participant limit of 8 (already 10",
+    "item actions[13] ('Senator Elizabeth Warren (D-MA) can advocate for progressive education funding p') was not expressed: references could not be resolved: actions[13]: allowed_roles includes 'Senator (D-MA)' but no participant has that role (roles: ['Chair of the Senate HELP Commi"
    ]
   ],
   "reviews": null,
-  "validation": {
-   "blocking": [
-    "terminal term counting 'cloture_filed:k12_education_funding:': nothing can create records under this prefix",
-    "terminal term counting 'floor_scheduled:k12_education_funding:': nothing can create records under this prefix",
-    "terminal term counting 'motion_to_proceed:bill:': nothing can create records under this prefix",
-    "terminal term counting 'organize_support_opposition:k12_education_funding:': nothing can create records under this prefix",
-    "terminal term counting 'refusal_to_schedule:k12_education_funding:': nothing can create records under this prefix"
-   ],
-   "dry_run": {
-    "events_fired": 10,
-    "final_answer": {
-     "answer": "no",
-     "computed_from": [
-      "terminal.cutoff"
-     ],
-     "detail": "The Senate does not pass such a bill before the recess."
-    },
-    "status": "cutoff"
-   },
-   "needs_review": [
-    "participant 'elizabeth_macdonough' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
-    "participant 'kamala_harris' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
-    "participant 'mitch_mcconnell' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
-    "participant 'patty_murray' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
-    "participant 'susan_collins' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
-   ],
-   "patchable": [
-    {
-     "actor": "elizabeth_macdonough",
-     "channels": [
-      "email",
-      "senate_floor",
-      "telephone",
-      "written_notes"
-     ],
-     "kind": "no_attention"
-    },
-    {
-     "actor": "kamala_harris",
-     "channels": [
-      "email",
-      "senate_floor",
-      "telephone",
-      "written_notes"
-     ],
-     "kind": "no_attention"
-    },
-    {
-     "actor": "mitch_mcconnell",
-     "channels": [
-      "email",
-      "senate_floor",
-      "telephone",
-      "written_notes"
-     ],
-     "kind": "no_attention"
-    },
-    {
-     "actor": "patty_murray",
-     "channels": [
-      "email",
-      "senate_floor",
-      "telephone",
-      "written_notes"
-     ],
-     "kind": "no_attention"
-    },
-    {
-     "actor": "susan_collins",
-     "channels": [
-      "email",
-      "senate_floor",
-      "telephone",
-      "written_notes"
-     ],
-     "kind": "no_attention"
-    }
-   ],
-   "warnings": []
-  }
+  "validation": null
  },
  "status": "failed"
 }
