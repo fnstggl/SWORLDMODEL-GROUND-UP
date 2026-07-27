@@ -252,7 +252,17 @@ def v_entity(doc: dict, valid_ids: frozenset, name: str) -> list:
             elif key == "authority":
                 d += _need_str(item, ("over", "meaning"), w)
             elif key == "sent_information":
-                d += _need_str(item, ("name", "meaning", "channel"), w)
+                missing = _need_str(item, ("name", "meaning"), w)
+                if not str(item.get("channel") or "").strip():
+                    missing.append(
+                        f"{w}: missing 'channel'. A message is in flight "
+                        f"only on a communication channel from the "
+                        f"world's causal steps; if none exists, the "
+                        f"message cannot be in flight -- a confirmation "
+                        f"already delivered belongs in 'knows' of "
+                        f"everyone who has it, so drop this entry and "
+                        f"move its content there")
+                d += missing
                 if not isinstance(item.get("to"), list) or not item["to"]:
                     d.append(f"{w}: 'to' must be a non-empty list of "
                              f"recipient names")

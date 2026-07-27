@@ -1,0 +1,170 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The ethics committee meets on 12 March 2026 at 2:00 PM America/New_York to consider the compassionate-use request.",
+      "name": "meeting_occurs",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-03-12T14:00:00-05:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e13",
+        "e14"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dr. Osei puts the motion to approve the compassionate-use request to a vote, which takes about five minutes.",
+      "name": "chair_puts_motion",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "meeting_occurs"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8"
+      ],
+      "kind": "process",
+      "meaning": "Pharmacist Lindqvist prepares and circulates a safety review incorporating the updated trial data to committee members via hospital email.",
+      "name": "safety_review_circulated",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "manufacturer_releases_data"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "The manufacturer releases updated trial safety data on 10 March 2026 at 8:00 AM America/New_York.",
+      "name": "manufacturer_releases_data",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-03-10T08:00:00-05:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dr. Osei votes to approve the request, which she will only do if a current safety review is available and favorable.",
+      "name": "osei_votes_approve",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "chair_puts_motion"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [
+        "meeting minutes"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Dr. Patel votes to approve the request, which he consistently does when a safety review is available and favorable.",
+      "name": "patel_votes_approve",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "chair_puts_motion"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [
+        "meeting minutes"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e11"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Sister Doyle votes to approve the request, which she does when a documented safety assessment has been provided to her.",
+      "name": "doyle_votes_approve",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "chair_puts_motion"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [
+        "meeting minutes"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e12"
+      ],
+      "kind": "condition",
+      "meaning": "Sister Doyle receives the safety review before the meeting; she is off-site on retreat from 10 to 12 March and cannot receive email, but she attends the meeting in person and may receive a printed copy or be briefed at the meeting.",
+      "name": "doyle_receives_review",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "safety_review_circulated"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "It is uncertain how Doyle receives the review given her retreat; she may receive it at the meeting.",
+      "when": null
+    }
+  ]
+}
