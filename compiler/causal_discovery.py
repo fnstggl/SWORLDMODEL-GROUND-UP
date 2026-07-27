@@ -23,11 +23,15 @@ MAX_ITEMS = 16
 CATEGORIES = [
     ("participants", LIMITS["participants"], """List the people (or \
 person-like deciding units, e.g. a named officeholder) whose DECISIONS the \
-outcome actually depends on -- the smallest sufficient cast.  One item per \
-person: their name, real position/role, time zone or location if known, why \
-the outcome depends on them, their goals, dispositions, and current focus, \
-in plain sentences.  Exclude anyone whose absence would not change the \
-answer."""),
+outcome actually depends on -- the smallest sufficient cast.  EVERY item \
+must be one person, and must OPEN with a usable name; when reality leaves \
+someone unnamed (an unnamed sender, an unnamed official), coin a short \
+stable placeholder name for them (e.g. "the founder") and use it \
+consistently everywhere.  After the name: their real position/role, time \
+zone or location if known, why the outcome depends on them, their goals, \
+dispositions, and current focus, in plain sentences.  Claims about habits \
+or systems are NOT participants -- put those in the later categories.  \
+Exclude anyone whose absence would not change the answer."""),
     ("aggregates", LIMITS["aggregates"], """List the organizations, \
 populations, audiences, systems, or places that matter but do NOT \
 deliberate turn by turn -- their influence is quantities, rates, schedules, \

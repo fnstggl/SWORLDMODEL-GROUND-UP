@@ -688,22 +688,35 @@ def normalize_effects(effects):
     return out
 
 
+_HHMM_LOOSE = re.compile(r"^(\d{1,2}):?(\d{2})(?::\d{2})?$")
+
+
+def _norm_hhmm(v):
+    m = _HHMM_LOOSE.match(v) if isinstance(v, str) else None
+    return f"{int(m.group(1)):02d}:{m.group(2)}" if m else v
+
+
 def normalize_capability(instance) -> None:
     """In-place shape normalization applied before validation.  Only exact,
     unambiguous synonymous shapes are rewritten (nested single-key kinds,
-    'T' datetime separators, dict-shaped param maps); nothing is invented."""
+    'T' datetime separators, '0900'-style times, dict-shaped param maps,
+    JSON nulls meaning absent); nothing is invented."""
     if not isinstance(instance, dict):
         return
     table = CAPABILITIES.get(instance.get("capability"))
     fields = instance.get("fields")
     if table is None or not isinstance(fields, dict):
         return
+    for fname in [k for k, v in fields.items() if v is None]:
+        del fields[fname]                      # null means absent
     for fname, spec in table["fields"].items():
         if fname not in fields:
             continue
         v, t = fields[fname], spec["type"]
         if t == "local_dt":
             fields[fname] = _norm_dt(v)
+        elif t == "hhmm":
+            fields[fname] = _norm_hhmm(v)
         elif t == "expr":
             fields[fname] = normalize_expr(v)
         elif t == "effects":
@@ -765,7 +778,12 @@ def validate_capability(instance: dict) -> list:
         if fields["mode"] == "periodic":
             for f in ("tz", "open_time", "close_time", "check_every_minutes"):
                 if f not in fields:
-                    errors.append(f"add_attention: periodic mode requires {f!r}")
+                    errors.append(
+                        f"add_attention: periodic mode requires {f!r} -- if "
+                        f"the exact cadence is unknown, either give a "
+                        f"labeled estimate (inferred from comparable "
+                        f"habits) or use mode 'continuous' with the same "
+                        f"open/close window")
     if cap == "set_terminal" and not errors:
         mode = fields["mode"]
         need = {"condition": "condition", "value": "value",

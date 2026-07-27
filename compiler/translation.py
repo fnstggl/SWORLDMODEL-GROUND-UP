@@ -58,11 +58,38 @@ HINTS = {
     "terminal": "set_terminal (exactly this one)",
 }
 
+#: Categories whose items MUST land on specific capabilities (or
+#: UNSUPPORTED).  A cast list that quietly turns into loose facts leaves a
+#: world with nobody in it -- these slots may only yield their kind.
+RESTRICTED = {
+    "participants": ("add_participant", "add_aggregate"),
+    "aggregates": ("add_aggregate", "add_participant"),
+    "terminal": ("set_terminal",),
+}
+
+
+def _validate_for(category: str):
+    allowed = RESTRICTED.get(category)
+
+    def check(obj) -> list:
+        errors = validate_capability(obj)
+        if not errors and allowed \
+                and obj.get("capability") not in allowed + ("UNSUPPORTED",):
+            errors.append(
+                f"in category {category!r} the only allowed capabilities "
+                f"are {list(allowed)} (or UNSUPPORTED) -- if this item is "
+                f"not one of those, return UNSUPPORTED; its content belongs "
+                f"to another category's items")
+        return errors
+    return check
+
 
 def _item_user(question: str, resolution: dict, graph: WorldGraph,
                category: str, text: str, provenance: str,
-               evidence: list) -> str:
+               evidence: list, corrections: str) -> str:
     ev = f" (documents: {', '.join(evidence)})" if evidence else ""
+    fix = (f"\n\nCORRECTIONS FROM A PREVIOUS COMPILE ATTEMPT (translate so "
+           f"these cannot recur):\n{corrections}" if corrections else "")
     return f"""QUESTION (context only): {question}
 World frame: starts {resolution['start_local']} {resolution['tz']}; cutoff \
 {resolution['cutoff_local']} {resolution['cutoff_tz']}.
@@ -74,22 +101,23 @@ CATEGORY: {category} -- typical capabilities: {HINTS.get(category, 'any')}
 
 THE ITEM TO TRANSLATE (one capability or UNSUPPORTED):
 "{text}"
-(provenance: {provenance}{ev})"""
+(provenance: {provenance}{ev}){fix}"""
 
 
 def translate_item(question: str, resolution: dict, graph: WorldGraph,
                    category: str, index: int, text: str, provenance: str,
-                   evidence: list, caller: Caller, trace: Trace) -> dict:
+                   evidence: list, caller: Caller, trace: Trace,
+                   corrections: str = "") -> dict:
     """Translate + fold one item into the graph -> translation record."""
     item_ref = f"{category}[{index}]"
     record = {"item_ref": item_ref, "category": category, "text": text,
               "provenance": provenance, "evidence": evidence}
     user = _item_user(question, resolution, graph, category, text,
-                      provenance, evidence)
+                      provenance, evidence, corrections)
     try:
         instance = caller.ask_json(f"translate.{item_ref}",
                                    TRANSLATOR_PREAMBLE, user, trace,
-                                   validate=validate_capability)
+                                   validate=_validate_for(category))
     except StageFailed as e:
         record.update(status="unsupported",
                       result={"capability": "UNSUPPORTED",
@@ -108,7 +136,7 @@ def translate_item(question: str, resolution: dict, graph: WorldGraph,
         try:
             instance = caller.ask_json(f"translate.{item_ref}.retry",
                                        TRANSLATOR_PREAMBLE, retry_user, trace,
-                                       validate=validate_capability)
+                                       validate=_validate_for(category))
             if instance["capability"] == "UNSUPPORTED":
                 record.update(status="unsupported", result=instance)
                 return record
@@ -136,7 +164,8 @@ def terminal_item_text(resolution: dict) -> str:
 
 
 def translate_all(question: str, resolution: dict, description: dict,
-                  graph: WorldGraph, caller: Caller, trace: Trace) -> list:
+                  graph: WorldGraph, caller: Caller, trace: Trace,
+                  corrections: str = "") -> list:
     """Translate every discovered item in dependency order, then the
     terminal.  Returns the translation records (the coverage ledger)."""
     records = []
@@ -146,10 +175,11 @@ def translate_all(question: str, resolution: dict, description: dict,
         for i, item in enumerate(description.get(category, [])):
             records.append(translate_item(
                 question, resolution, graph, category, i, item["text"],
-                item["provenance"], item.get("evidence", []), caller, trace))
+                item["provenance"], item.get("evidence", []), caller, trace,
+                corrections))
     records.append(translate_item(
         question, resolution, graph, "terminal", 0,
         terminal_item_text(resolution),
         resolution.get("horizon_provenance", "question_given"),
-        [], caller, trace))
+        [], caller, trace, corrections))
     return records

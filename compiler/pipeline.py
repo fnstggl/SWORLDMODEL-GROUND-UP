@@ -88,7 +88,8 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
                                             caller, trace, corrections)
     graph = WorldGraph()
     translations = translation.translate_all(question, res, description,
-                                             graph, caller, trace)
+                                             graph, caller, trace,
+                                             corrections)
     evidence_map = {t["item_ref"]: t.get("evidence") or None
                     for t in translations}
     plan, errors = assembly.assemble(graph, iso(start),
