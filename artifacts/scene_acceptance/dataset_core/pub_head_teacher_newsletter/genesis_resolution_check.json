@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Three parents raised the upcoming inspection at drop-off this week. Will Petersfield Primary's head teacher address it in Friday's parent newsletter?",
+  "resolution": "Resolve YES if the persistent event history shows that the head teacher included a mention of the upcoming inspection in the Friday parent newsletter sent before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-25T18:00:00+01:00",
+  "world_id": "w_315fd279701b"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

@@ -1,0 +1,46 @@
+{
+ "world_id": "w_f06ab7aa58f2",
+ "actor_ids": {
+  "Founder A": "founder_a",
+  "Founder B": "founder_b",
+  "Employees (as a group)": "employees_as_a_group"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-08-01T17:00:00+00:00",
+   "visible_to_ids": [
+    "founder_a",
+    "founder_b",
+    "employees_as_a_group"
+   ],
+   "description": "The simulation begins with the founders still at odds and no buyout announcement having been made yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "founder_a": {
+   "name": "Founder A",
+   "persona_brief": "You are Founder A.\nFounder A believes the app should pivot to a subscription model and has been pushing for this change since spring. A is frustrated with the strategic deadlock and is considering buying out Founder B to gain full control."
+  },
+  "founder_b": {
+   "name": "Founder B",
+   "persona_brief": "You are Founder B.\nFounder B believes the app should remain free with ads and has been resisting A's pivot proposals since spring. B is frustrated with the deadlock and is considering buying out Founder A to implement B's vision."
+  },
+  "employees_as_a_group": {
+   "name": "Employees (as a group)",
+   "persona_brief": "You are Employees (as a group).\nThe twelve employees are aware of the founders' disagreements but have not been officially informed of any buyout plans. They are uncertain about the company's future and are watching for any announcements."
+  }
+ },
+ "resolution": {
+  "question": "The two founders of the Tidepool app have been at odds over strategy since spring. Will they announce a buyout of one side to their twelve employees within the next three months?",
+  "resolution": "Resolve YES if, before the hard cutoff, there is a persistent record (e.g., meeting minutes, official email, or public announcement) that a buyout of one founder by the other has been announced to the employees. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-11-01T10:00:00-07:00",
+  "world_id": "w_f06ab7aa58f2"
+ }
+}

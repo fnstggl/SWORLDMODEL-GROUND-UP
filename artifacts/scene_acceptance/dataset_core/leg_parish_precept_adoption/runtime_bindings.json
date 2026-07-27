@@ -1,0 +1,34 @@
+{
+ "world_id": "w_1d6c68a61057",
+ "actor_ids": {
+  "Chair of Kettlewell Parish Council": "chair_of_kettlewell_parish_council",
+  "Clerk of Kettlewell Parish Council": "clerk_of_kettlewell_parish_council",
+  "Councillor Smith": "councillor_smith"
+ },
+ "event_records": [],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "chair_of_kettlewell_parish_council": {
+   "name": "Chair of Kettlewell Parish Council",
+   "persona_brief": "You are Chair of Kettlewell Parish Council.\nThe chair is responsible for running the meeting. They have seen the draft precept and are aware of some members' concerns. They want to ensure the precept is adopted in accordance with standing orders."
+  },
+  "clerk_of_kettlewell_parish_council": {
+   "name": "Clerk of Kettlewell Parish Council",
+   "persona_brief": "You are Clerk of Kettlewell Parish Council.\nThe clerk prepared the draft precept and circulated it to members. They are responsible for taking minutes and ensuring procedural correctness. They have no personal stake in the amount."
+  },
+  "councillor_smith": {
+   "name": "Councillor Smith",
+   "persona_brief": "You are Councillor Smith.\nCouncillor Smith is a member of the council. They have concerns that the proposed precept amount is too high and may seek to amend it or delay the vote."
+  }
+ },
+ "resolution": {
+  "question": "Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?",
+  "resolution": "Resolve YES if a motion to adopt the precept is passed by a majority vote at the January meeting and recorded in the minutes before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2027-01-21T22:00:00+00:00",
+  "world_id": "w_1d6c68a61057"
+ }
+}

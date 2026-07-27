@@ -1,13 +1,12 @@
 {
  "world_id": "w_6c74014c41aa",
  "actor_ids": {
-  "Gustavo": "gustavo",
-  "Procurement leads (40 individuals)": "procurement_leads_40_individuals"
+  "Gustavo": "gustavo"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 8,
    "at": "2026-08-03T15:00:00+00:00",
    "visible_to_ids": [
     "gustavo"
@@ -23,16 +22,12 @@
  "personas": {
   "gustavo": {
    "name": "Gustavo",
-   "persona_brief": "You are Gustavo.\nGustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails. He wants to secure discovery calls."
-  },
-  "procurement_leads_40_individuals": {
-   "name": "Procurement leads (40 individuals)",
-   "persona_brief": "You are Procurement leads (40 individuals).\nEach lead is a procurement professional at a mid-market manufacturer in the Pacific Northwest. They receive many cold emails daily and may or may not respond to unsolicited outreach. They have no prior relationship with Gustavo."
+   "persona_brief": "You are Gustavo.\nGustavo is a mid-tier sales rep at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one discovery call per sixty cold emails."
   }
  },
  "resolution": {
   "question": "Will at least one of the forty procurement leads that Brightline Software's rep Gustavo cold-emails this week agree to a discovery call before the end of the month?",
-  "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads actually sent a reply agreeing to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least one of the forty leads actually sent a reply agreeing to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-31T17:00:00-07:00",
   "world_id": "w_6c74014c41aa"
  }

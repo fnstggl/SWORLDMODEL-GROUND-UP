@@ -1,0 +1,88 @@
+{
+ "partner": {
+  "id": "partner",
+  "name": "Partner",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-31T23:00:00+00:00",
+    "kind": "context",
+    "content": "Partner is the user's romantic partner. Partner has their own private feelings and expectations about moving in together, but has not yet expressed any doubts or confirmations beyond what has been discussed.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-31T23:00:00+00:00",
+    "kind": "context",
+    "content": "User and Partner have been in a relationship and are discussing moving in together. They have a shared understanding of the plan to cohabitate, but no lease has been signed or move-in date set. The decision is still pending.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "user": {
+  "id": "user",
+  "name": "User",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-31T23:00:00+00:00",
+    "kind": "context",
+    "content": "User is considering moving in with their partner. User has private hopes, fears, and expectations about the cohabitation, but has not yet made a final decision. User may be looking for signs of compatibility or regret.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-31T23:00:00+00:00",
+    "kind": "context",
+    "content": "User and Partner have been in a relationship and are discussing moving in together. They have a shared understanding of the plan to cohabitate, but no lease has been signed or move-in date set. The decision is still pending.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

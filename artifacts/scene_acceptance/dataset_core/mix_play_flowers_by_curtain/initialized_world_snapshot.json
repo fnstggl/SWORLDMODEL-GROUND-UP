@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "cast_member_student": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "cast_member_student",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A student in the play who expects flowers from the parents' group. They know the performance starts at 19:00 on Friday and that the parents' group usually organizes flowers.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-11-16T09:00:00+00:00"
+    },
+    {
+     "content": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group typically collects money from parents to buy flowers for the cast and hands them over backstage before the curtain rises. The handover must occur before 19:00 on Friday.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-11-16T09:00:00+00:00"
+    }
+   ],
+   "name": "Cast member (student)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "parents_group_coordinator": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "parents_group_coordinator",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The coordinator is responsible for organizing the collection for cast flowers. They have a list of parents who have pledged contributions and need to collect the money, purchase flowers, and arrange handover backstage before curtain. They are aware of the Friday 19:00 deadline.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-11-16T09:00:00+00:00"
+    },
+    {
+     "content": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group typically collects money from parents to buy flowers for the cast and hands them over backstage before the curtain rises. The handover must occur before 19:00 on Friday.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-11-16T09:00:00+00:00"
+    }
+   ],
+   "name": "Parents' group coordinator",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Opening night of Petersfield Secondary's play is Friday at 19:00. Will the parents' group have collected for the cast flowers and handed them over backstage before curtain?",
+  "scene:shared_context": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group typically collects money from parents to buy flowers for the cast and hands them over backstage before the curtain rises. The handover must occur before 19:00 on Friday."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-11-16T09:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-11-16T09:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

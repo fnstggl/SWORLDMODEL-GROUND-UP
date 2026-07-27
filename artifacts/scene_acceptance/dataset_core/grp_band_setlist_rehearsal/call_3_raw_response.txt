@@ -1,0 +1,34 @@
+{
+ "actors": [
+  {
+   "name": "Alice",
+   "private_context": "Lead vocalist and rhythm guitarist. Prefers classic rock and upbeat songs. Wants to include 'Sweet Child O' Mine' and 'Livin' on a Prayer'. Tends to be assertive in discussions."
+  },
+  {
+   "name": "Bob",
+   "private_context": "Lead guitarist. Prefers blues and funk. Wants to include 'Superstition' and 'Pride and Joy'. Often compromises but has strong opinions on guitar-heavy songs."
+  },
+  {
+   "name": "Carol",
+   "private_context": "Bassist and backing vocalist. Prefers pop and dance songs. Wants to include 'Uptown Funk' and 'Get Lucky'. Tries to keep the peace but pushes for crowd-pleasers."
+  },
+  {
+   "name": "Dave",
+   "private_context": "Drummer. Prefers classic rock and ballads. Wants to include 'Bohemian Rhapsody' and 'Don't Stop Believin''. Usually goes along with the group but has a few must-haves."
+  }
+ ],
+ "shared_context": "Cheap Detour is a covers band with four members: Alice, Bob, Carol, and Dave. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band communicates via a group chat that includes all four members and in-person meetings. They have a shared document with potential songs.",
+ "starting_events": [
+  {
+   "time": "2026-09-07T18:00:00+01:00",
+   "description": "The band members are aware that they need to finalize the setlist before or during Thursday's rehearsal. They have a partial list of five songs tentatively agreed upon: 'Sweet Child O' Mine', 'Superstition', 'Uptown Funk', 'Bohemian Rhapsody', and 'Don't Stop Believin''. The remaining seven slots are open for discussion, with each member having differing preferences for the remaining songs.",
+   "visible_to": [
+    "Alice",
+    "Bob",
+    "Carol",
+    "Dave"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before 2026-09-10T22:00:00+01:00. Otherwise resolve NO."
+}

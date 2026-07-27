@@ -1,0 +1,119 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the promotion go through before the end of the quarter?
+
+Simulation start time: 2026-08-03T09:00:00+01:00
+Hard cutoff: 2026-09-30T17:00:00+01:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Employee",
+   "private_context": "Employee is being considered for a promotion. They have completed the required performance review and submitted all necessary paperwork. They are hopeful but uncertain about the outcome."
+  },
+  {
+   "name": "Manager",
+   "private_context": "Manager is the direct supervisor of Employee. They have recommended Employee for promotion and submitted the recommendation to HR. They believe Employee deserves the promotion but are unsure about the timeline due to other priorities."
+  },
+  {
+   "name": "HR Director",
+   "private_context": "HR Director is responsible for processing promotions. They have received the recommendation for Employee but have not yet reviewed it. They have a backlog of other promotions and administrative tasks. They are aware of the end-of-quarter deadline but have not prioritized this specific case."
+  }
+ ],
+ "shared_context": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion for Employee has been recommended by Manager and is pending HR review and approval.",
+ "starting_events": [
+  {
+   "time": "2026-08-03T09:00:00+01:00",
+   "description": "Manager's recommendation for Employee's promotion is in HR Director's inbox, awaiting review.",
+   "visible_to": [
+    "Manager",
+    "HR Director"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the promotion is formally approved and communicated to Employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Mr. Abernathy",
-   "private_context": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and typically responds during school hours or in the evening. He may prioritize urgent matters. He has no prior relationship with Chioma Eze."
+   "private_context": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and prioritizes those that are urgent or directly about classroom issues. He has not yet seen Chioma Eze's email."
   },
   {
    "name": "Chioma Eze",
-   "private_context": "Chioma Eze is a parent of a child in Mr. Abernathy's class. She wants her son's seating changed and has written an email to Mr. Abernathy about it. She expects a response before the weekend."
+   "private_context": "Chioma Eze is a parent of a child in Mr. Abernathy's year-five class. She wants her son's seating changed and has written an email to Mr. Abernathy about it. She has not yet sent the email."
   }
  ],
- "shared_context": "Chioma Eze has sent an email to Mr. Abernathy regarding her son's seating change. The email is in Mr. Abernathy's inbox. The weekend starts after Friday, 2026-09-18. The cutoff is Saturday morning, 2026-09-19T08:00:00+01:00.",
+ "shared_context": "Petersfield Primary School uses email as a standard communication channel between teachers and parents. The weekend starts after Friday, 2026-09-18. Mr. Abernathy typically checks his email during school hours and may also check in the evenings.",
  "starting_events": [
   {
    "time": "2026-09-16T08:00:00+01:00",
-   "description": "Chioma Eze's email about her son's seating change is in Mr. Abernathy's inbox.",
+   "description": "Chioma Eze sends an email to Mr. Abernathy requesting a seating change for her son.",
    "visible_to": [
-    "Mr. Abernathy"
+    "Chioma Eze"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Mr. Abernathy actually sent a reply to Chioma Eze's email before 2026-09-19T08:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that Mr. Abernathy sent a reply to Chioma Eze's email before 2026-09-19T08:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

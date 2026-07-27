@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "bookkeeper": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "bookkeeper",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and forms to file. She intends to file before the deadline as usual, but may be affected by unforeseen personal or work issues.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    },
+    {
+     "content": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    }
+   ],
+   "name": "Bookkeeper",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "herrera_bakery_owner": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "herrera_bakery_owner",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The owner trusts the bookkeeper to file on time as she has done previously. The owner does not plan to intervene unless notified of a problem.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    },
+    {
+     "content": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    }
+   ],
+   "name": "Herrera Bakery Owner",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
+  "scene:shared_context": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-19T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-19T15:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -21,62 +21,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails. He wants to secure discovery calls.",
+     "content": "Gustavo is a mid-tier sales rep at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one discovery call per sixty cold emails.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "Gustavo has email addresses for the forty procurement leads. He can send cold emails to them through standard email channels. The leads can reply to schedule a discovery call. The cutoff for resolution is 2026-08-31T17:00:00-07:00.",
+     "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to these leads through standard email channels. The leads may or may not respond to such emails.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
    "name": "Gustavo",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "procurement_leads_40_individuals": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "procurement_leads_40_individuals",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "Each lead is a procurement professional at a mid-market manufacturer in the Pacific Northwest. They receive many cold emails daily and may or may not respond to unsolicited outreach. They have no prior relationship with Gustavo.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-08-03T15:00:00+00:00"
-    },
-    {
-     "content": "Gustavo has email addresses for the forty procurement leads. He can send cold emails to them through standard email channels. The leads can reply to schedule a discovery call. The cutoff for resolution is 2026-08-31T17:00:00-07:00.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-08-03T15:00:00+00:00"
-    }
-   ],
-   "name": "Procurement leads (40 individuals)",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least one of the forty procurement leads that Brightline Software's rep Gustavo cold-emails this week agree to a discovery call before the end of the month?",
-  "scene:shared_context": "Gustavo has email addresses for the forty procurement leads. He can send cold emails to them through standard email channels. The leads can reply to schedule a discovery call. The cutoff for resolution is 2026-08-31T17:00:00-07:00."
+  "scene:shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to these leads through standard email channels. The leads may or may not respond to such emails."
  },
  "history": [],
  "infos": {},
@@ -112,6 +69,6 @@
  "resources": {},
  "start": "2026-08-03T15:00:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 8,
  "watches": {}
 }

@@ -1,0 +1,88 @@
+{
+ "kofi": {
+  "id": "kofi",
+  "name": "Kofi",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-13T21:00:00+00:00",
+    "kind": "context",
+    "content": "Kofi has asked a second referee to upload a letter of recommendation for a fellowship. The referee has not yet uploaded it. Kofi knows the hard deadline is 2026-09-15T09:00:00+00:00, about 36 hours from now. Kofi has no other information about the referee's current status.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-13T21:00:00+00:00",
+    "kind": "context",
+    "content": "The fellowship portal accepts referee letters until the hard deadline of 2026-09-15T09:00:00+00:00. The second referee has not yet uploaded the letter as of 2026-09-13T21:00:00+00:00. The referee can upload the letter at any time before the deadline via the portal.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "second_referee": {
+  "id": "second_referee",
+  "name": "Second Referee",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-13T21:00:00+00:00",
+    "kind": "context",
+    "content": "The second referee has been asked by Kofi to upload a letter of recommendation for a fellowship. The referee has not yet uploaded it. The referee may have other commitments and may or may not prioritize this task. The referee knows the deadline is 2026-09-15T09:00:00+00:00.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-13T21:00:00+00:00",
+    "kind": "context",
+    "content": "The fellowship portal accepts referee letters until the hard deadline of 2026-09-15T09:00:00+00:00. The second referee has not yet uploaded the letter as of 2026-09-13T21:00:00+00:00. The referee can upload the letter at any time before the deadline via the portal.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "actors": [],
+  "shared_context": "Ostara Foods has both an old logo and a new logo. The question of which is prettier is a matter of subjective aesthetic judgment, not a social decision or observable event.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question asks for a subjective aesthetic comparison, which cannot be resolved through observable social actions or decisions."
+}

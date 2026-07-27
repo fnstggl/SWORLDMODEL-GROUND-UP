@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "invited_parents_as_a_cohort": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "invited_parents_as_a_cohort",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Each parent has received an invitation to the town hall. They may or may not RSVP depending on their interest, availability, and other factors. No parent has yet responded.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T08:00:00+00:00"
+    },
+    {
+     "content": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T08:00:00+00:00"
+    }
+   ],
+   "name": "Invited Parents (as a cohort)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "petersfield_secondary_school_administration": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "petersfield_secondary_school_administration",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior RSVP data.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T08:00:00+00:00"
+    },
+    {
+     "content": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T08:00:00+00:00"
+    }
+   ],
+   "name": "Petersfield Secondary School Administration",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will more than half of the 120 invited parents RSVP either way to Petersfield Secondary's curriculum-change town hall by the Friday before it?",
+  "scene:shared_context": "Petersfield Secondary School has scheduled a curriculum-change town hall. Invitations were sent to 120 parents. The school has a standard RSVP mechanism (e.g., email, online form, or phone). The Friday before the event is 2026-10-16. The simulation starts on 2026-10-05."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-05T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-05T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

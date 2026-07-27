@@ -1,0 +1,20 @@
+{
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "actors",
+   "problem": "The only actor is 'Kettlewell Parish Council', which is a collective entity. The runtime requires individual actors to make decisions and communicate. The council cannot act as a single actor; it needs individual members or at least a chair and clerk to simulate the meeting.",
+   "correction": "Replace the single actor with individual actors: e.g., 'Chair of Kettlewell Parish Council', 'Clerk of Kettlewell Parish Council', and at least one other council member (e.g., 'Councillor Smith'). Adjust private_context and visibility accordingly."
+  },
+  {
+   "path": "starting_events",
+   "problem": "The starting event describes the meeting beginning at the simulation start time, but the meeting's actual date is not specified in the shared_context. The simulation start time is 2027-01-04T09:00, but the meeting might be on a different day. This prewrites the meeting time without evidence.",
+   "correction": "Remove the starting event that schedules the meeting at the start time. Instead, add a shared_context note that the meeting is scheduled for a date in January (e.g., 'the second Tuesday of January') but not yet started. The simulation should begin before the meeting, allowing actors to prepare."
+  },
+  {
+   "path": "resolution",
+   "problem": "The resolution condition 'Resolve YES if the persistent event history shows that the council formally adopted the precept at the January meeting before the cutoff' is vague. It does not specify what constitutes 'formally adopted' (e.g., a vote, a motion passed). The runtime needs a clear observable event.",
+   "correction": "Specify a concrete observable event: e.g., 'Resolve YES if a motion to adopt the precept is passed by a majority vote at the January meeting and recorded in the minutes before the cutoff. Otherwise resolve NO at the cutoff.'"
+  }
+ ]
+}

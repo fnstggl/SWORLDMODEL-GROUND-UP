@@ -1,0 +1,59 @@
+{
+ "world_id": "w_7998b7b6396a",
+ "actor_ids": {
+  "Gallup": "gallup",
+  "Pew Research Center": "pew_research_center",
+  "ABC News/Washington Post": "abc_news_washington_post",
+  "NBC News/Wall Street Journal": "nbc_news_wall_street_journal",
+  "CBS News/New York Times": "cbs_news_new_york_times",
+  "CNN/ORC International": "cnn_orc_international",
+  "Fox News": "fox_news",
+  "Reuters/Ipsos": "reuters_ipsos"
+ },
+ "event_records": [],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "gallup": {
+   "name": "Gallup",
+   "persona_brief": "You are Gallup.\nGallup is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "pew_research_center": {
+   "name": "Pew Research Center",
+   "persona_brief": "You are Pew Research Center.\nPew Research Center is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "abc_news_washington_post": {
+   "name": "ABC News/Washington Post",
+   "persona_brief": "You are ABC News/Washington Post.\nABC News/Washington Post is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "nbc_news_wall_street_journal": {
+   "name": "NBC News/Wall Street Journal",
+   "persona_brief": "You are NBC News/Wall Street Journal.\nNBC News/Wall Street Journal is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "cbs_news_new_york_times": {
+   "name": "CBS News/New York Times",
+   "persona_brief": "You are CBS News/New York Times.\nCBS News/New York Times is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "cnn_orc_international": {
+   "name": "CNN/ORC International",
+   "persona_brief": "You are CNN/ORC International.\nCNN/ORC International is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "fox_news": {
+   "name": "Fox News",
+   "persona_brief": "You are Fox News.\nFox News is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  "reuters_ipsos": {
+   "name": "Reuters/Ipsos",
+   "persona_brief": "You are Reuters/Ipsos.\nReuters/Ipsos is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  }
+ },
+ "resolution": {
+  "question": "During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?",
+  "resolution": "Resolve YES if, by 2012-10-08T21:00:00-04:00, the persistent event history shows that at least three distinct major national polling organizations publicly released a new head-to-head survey of the Obama-Romney race during the period from 2012-10-01T09:00:00-04:00 to 2012-10-08T21:00:00-04:00. Otherwise resolve NO.",
+  "cutoff": "2012-10-08T21:00:00-04:00",
+  "world_id": "w_7998b7b6396a"
+ }
+}

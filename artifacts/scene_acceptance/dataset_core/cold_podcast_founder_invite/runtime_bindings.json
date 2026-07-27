@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "anouk_visser"
    ],
-   "description": "Anouk Visser sends a cold email to the founder of Veldt Solar, inviting them onto her new energy podcast for a 30-minute interview, offering to share questions in advance and set a publication date."
+   "description": "Anouk sends the cold email to the founder of Veldt Solar."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "anouk_visser": {
    "name": "Anouk Visser",
-   "persona_brief": "You are Anouk Visser.\nAnouk is a freelance journalist preparing to launch a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast for a 30-minute interview, offering to share questions in advance and set a publication date. She has drafted a cold email to send to the founder."
+   "persona_brief": "You are Anouk Visser.\nAnouk is a freelance journalist launching a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast. She has prepared a cold email offering a 30-minute interview, questions in advance, and a publication date. She intends to send the email to the founder."
   },
   "founder_of_veldt_solar": {
    "name": "Founder of Veldt Solar",
-   "persona_brief": "You are Founder of Veldt Solar.\nThe founder of Veldt Solar receives many unsolicited emails. They are busy running the company and selectively respond to opportunities that align with their interests or benefit the company. They have no prior relationship with Anouk Visser."
+   "persona_brief": "You are Founder of Veldt Solar.\nThe founder of Veldt Solar receives many unsolicited emails. They may respond to interview requests if the opportunity seems worthwhile and fits their schedule. They have no prior relationship with Anouk."
   }
  },
  "resolution": {
   "question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
-  "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent any reply to Anouk Visser's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent a reply to Anouk's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-19T09:00:00+02:00",
   "world_id": "w_a22b00174353"
  }

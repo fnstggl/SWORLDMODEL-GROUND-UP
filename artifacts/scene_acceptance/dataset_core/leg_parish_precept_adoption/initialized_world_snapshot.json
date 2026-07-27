@@ -1,0 +1,160 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "chair_of_kettlewell_parish_council": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "chair_of_kettlewell_parish_council",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The chair is responsible for running the meeting. They have seen the draft precept and are aware of some members' concerns. They want to ensure the precept is adopted in accordance with standing orders.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    },
+    {
+     "content": "Kettlewell Parish Council's January meeting is scheduled for the second Tuesday of January 2027 (which is 2027-01-12). The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting. The simulation starts before the meeting, on 2027-01-04.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    }
+   ],
+   "name": "Chair of Kettlewell Parish Council",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "clerk_of_kettlewell_parish_council": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "clerk_of_kettlewell_parish_council",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The clerk prepared the draft precept and circulated it to members. They are responsible for taking minutes and ensuring procedural correctness. They have no personal stake in the amount.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    },
+    {
+     "content": "Kettlewell Parish Council's January meeting is scheduled for the second Tuesday of January 2027 (which is 2027-01-12). The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting. The simulation starts before the meeting, on 2027-01-04.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    }
+   ],
+   "name": "Clerk of Kettlewell Parish Council",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "councillor_smith": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "councillor_smith",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Councillor Smith is a member of the council. They have concerns that the proposed precept amount is too high and may seek to amend it or delay the vote.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    },
+    {
+     "content": "Kettlewell Parish Council's January meeting is scheduled for the second Tuesday of January 2027 (which is 2027-01-12). The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting. The simulation starts before the meeting, on 2027-01-04.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    }
+   ],
+   "name": "Councillor Smith",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?",
+  "scene:shared_context": "Kettlewell Parish Council's January meeting is scheduled for the second Tuesday of January 2027 (which is 2027-01-12). The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting. The simulation starts before the meeting, on 2027-01-04."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2027-01-04T09:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2027-01-04T09:00:00+00:00",
+ "terminal": null,
+ "version": 13,
+ "watches": {}
+}

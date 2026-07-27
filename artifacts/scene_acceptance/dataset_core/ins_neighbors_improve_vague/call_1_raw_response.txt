@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Neighbor A",
+      "private_context": "Neighbor A has had some disagreements with Neighbor B recently, such as noise complaints and property boundary issues. A is frustrated but open to reconciliation if B shows willingness."
+    },
+    {
+      "name": "Neighbor B",
+      "private_context": "Neighbor B feels that Neighbor A has been unreasonable about minor issues. B is defensive but not opposed to improving relations if A makes the first move."
+    }
+  ],
+  "shared_context": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently.",
+  "starting_events": [
+    {
+      "time": "2026-08-01T12:00:00+02:00",
+      "description": "The current situation is that the neighbors are not on speaking terms, with no recent communication.",
+      "visible_to": ["Neighbor A", "Neighbor B"]
+    }
+  ],
+  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., a friendly conversation, a joint activity, or a written agreement) that the relationship has improved compared to the start. Otherwise resolve NO."
+}

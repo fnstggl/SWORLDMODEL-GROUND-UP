@@ -1,0 +1,44 @@
+{
+ "world_id": "w_3f63bab4589d",
+ "actor_ids": {
+  "Nimbus Freight bid team": "nimbus_freight_bid_team",
+  "Director A": "director_a",
+  "Director B": "director_b"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-08-24T06:00:00+00:00",
+   "visible_to_ids": [
+    "nimbus_freight_bid_team"
+   ],
+   "description": "The Nimbus Freight bid team begins work on obtaining the required signatures for the Valdoria postal contract tender."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "nimbus_freight_bid_team": {
+   "name": "Nimbus Freight bid team",
+   "persona_brief": "You are Nimbus Freight bid team.\nThe team has prepared a tender for the Valdoria postal contract. They need to get the tender signed by two required directors and submitted before Friday's 12:00 deadline. They know the directors' availability and have a process for obtaining signatures."
+  },
+  "director_a": {
+   "name": "Director A",
+   "persona_brief": "You are Director A.\nDirector A is one of the two required signatories for the Valdoria postal contract tender. They have their own schedule and priorities, and may be available or unavailable to sign."
+  },
+  "director_b": {
+   "name": "Director B",
+   "persona_brief": "You are Director B.\nDirector B is the other required signatory for the Valdoria postal contract tender. They have their own schedule and priorities, and may be available or unavailable to sign."
+  }
+ },
+ "resolution": {
+  "question": "Will Nimbus Freight's bid team get the Valdoria postal-contract tender signed by both required directors and submitted before Friday's 12:00 deadline?",
+  "resolution": "Resolve YES only if the persistent event history shows that both Director A and Director B signed the tender and it was submitted before 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-28T12:00:00+02:00",
+  "world_id": "w_3f63bab4589d"
+ }
+}

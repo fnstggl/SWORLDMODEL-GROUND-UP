@@ -1,0 +1,45 @@
+{
+ "founder_of_tidepool": {
+  "id": "founder_of_tidepool",
+  "name": "Founder of Tidepool",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-03T22:00:00+00:00",
+    "kind": "context",
+    "content": "The founder knows that the viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that look genuine. The head of support has privately confirmed that some takedowns happened. Two journalists have emailed for comment. The founder must decide whether to post a public response.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-03T22:00:00+00:00",
+    "kind": "context",
+    "content": "A viral thread on social media accuses Tidepool of deleting critical reviews. The thread has two million views and includes screenshots that appear genuine. Two journalists have emailed Tidepool for comment.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

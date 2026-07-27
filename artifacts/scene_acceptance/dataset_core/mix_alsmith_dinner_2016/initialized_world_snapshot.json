@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "donald_trump": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "donald_trump",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Trump is the Republican presidential nominee. He has been invited to the Al Smith Dinner on October 20, 2016. He is considering whether to attend, weighing the tradition of the event against his campaign schedule and potential political benefits or drawbacks.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2016-10-01T13:00:00+00:00"
+    },
+    {
+     "content": "The Al Smith Memorial Foundation Dinner is a charitable event held annually in New York City, traditionally attended by major-party presidential candidates. The 2016 dinner is scheduled for October 20, 2016. Both nominees have been invited. The event is known for its lighthearted, bipartisan atmosphere, but attendance is not mandatory. The decision to attend is made by each candidate individually, and their campaigns may consider scheduling conflicts, political strategy, and the potential for media coverage.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2016-10-01T13:00:00+00:00"
+    }
+   ],
+   "name": "Donald Trump",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "hillary_clinton": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "hillary_clinton",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Clinton is the Democratic presidential nominee. She has been invited to the Al Smith Dinner on October 20, 2016. She is considering whether to attend, aware of the tradition and the potential for the event to be a positive or negative campaign moment.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2016-10-01T13:00:00+00:00"
+    },
+    {
+     "content": "The Al Smith Memorial Foundation Dinner is a charitable event held annually in New York City, traditionally attended by major-party presidential candidates. The 2016 dinner is scheduled for October 20, 2016. Both nominees have been invited. The event is known for its lighthearted, bipartisan atmosphere, but attendance is not mandatory. The decision to attend is made by each candidate individually, and their campaigns may consider scheduling conflicts, political strategy, and the potential for media coverage.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2016-10-01T13:00:00+00:00"
+    }
+   ],
+   "name": "Hillary Clinton",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "The Al Smith Memorial Foundation Dinner is set for October 20, 2016 in New York. Will both major-party presidential nominees attend in person?",
+  "scene:shared_context": "The Al Smith Memorial Foundation Dinner is a charitable event held annually in New York City, traditionally attended by major-party presidential candidates. The 2016 dinner is scheduled for October 20, 2016. Both nominees have been invited. The event is known for its lighthearted, bipartisan atmosphere, but attendance is not mandatory. The decision to attend is made by each candidate individually, and their campaigns may consider scheduling conflicts, political strategy, and the potential for media coverage."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2016-10-01T13:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2016-10-01T13:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -1,0 +1,39 @@
+{
+ "world_id": "w_0cee8e06baa6",
+ "actor_ids": {
+  "Rustam": "rustam",
+  "Manufacturer's second-line team": "manufacturer_s_second_line_team"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-05T04:00:00+00:00",
+   "visible_to_ids": [
+    "manufacturer_s_second_line_team"
+   ],
+   "description": "Rustam's escalated warranty claim is in the queue of the manufacturer's second-line team, awaiting a decision."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "rustam": {
+   "name": "Rustam",
+   "persona_brief": "You are Rustam.\nRustam has a failed washing machine and has escalated his warranty claim. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team would make a decision within ten working days. He wants a decision by the cutoff."
+  },
+  "manufacturer_s_second_line_team": {
+   "name": "Manufacturer's second-line team",
+   "persona_brief": "You are Manufacturer's second-line team.\nThe second-line team handles escalated warranty claims. They have a queue of claims and aim to respond within ten working days as per their quoted policy. They have received Rustam's escalated claim and have the necessary information to make a decision."
+  }
+ },
+ "resolution": {
+  "question": "Will Rustam's escalated warranty claim for a failed washing machine get a decision from the manufacturer's second-line team within the ten working days quoted in yesterday's email?",
+  "resolution": "Resolve YES if the persistent event history shows that the manufacturer's second-line team actually communicated a decision (approval or denial) to Rustam before the hard cutoff (2026-08-19T18:00:00+05:00). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-19T18:00:00+05:00",
+  "world_id": "w_0cee8e06baa6"
+ }
+}

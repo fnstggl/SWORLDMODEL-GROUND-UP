@@ -1,0 +1,40 @@
+{
+ "world_id": "w_b8ccf1140398",
+ "actor_ids": {
+  "Neighbor A": "neighbor_a",
+  "Neighbor B": "neighbor_b"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-01T10:00:00+00:00",
+   "visible_to_ids": [
+    "neighbor_a",
+    "neighbor_b"
+   ],
+   "description": "The current situation is that the neighbors are not on speaking terms, with no recent communication."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "neighbor_a": {
+   "name": "Neighbor A",
+   "persona_brief": "You are Neighbor A.\nNeighbor A has had some disagreements with Neighbor B recently, such as noise complaints and property boundary issues. A is frustrated but open to reconciliation if B shows willingness."
+  },
+  "neighbor_b": {
+   "name": "Neighbor B",
+   "persona_brief": "You are Neighbor B.\nNeighbor B feels that Neighbor A has been unreasonable about minor issues. B is defensive but not opposed to improving relations if A makes the first move."
+  }
+ },
+ "resolution": {
+  "question": "Will the situation with the neighbors improve over the next few months?",
+  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., a friendly conversation, a joint activity, or a written agreement) that the relationship has improved compared to the start. Otherwise resolve NO.",
+  "cutoff": "2026-11-01T12:00:00+02:00",
+  "world_id": "w_b8ccf1140398"
+ }
+}

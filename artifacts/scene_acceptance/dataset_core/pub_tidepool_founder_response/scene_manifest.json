@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Founder of Tidepool",
+   "private_context": "The founder knows that the viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that look genuine. The head of support has privately confirmed that some takedowns happened. Two journalists have emailed for comment. The founder must decide whether to post a public response."
+  }
+ ],
+ "shared_context": "A viral thread on social media accuses Tidepool of deleting critical reviews. The thread has two million views and includes screenshots that appear genuine. Two journalists have emailed Tidepool for comment.",
+ "starting_events": [
+  {
+   "time": "2026-09-03T15:00:00-07:00",
+   "description": "The viral thread is publicly visible and continues to accumulate views and engagement.",
+   "visible_to": [
+    "Founder of Tidepool"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the founder posted a public response (e.g., a statement on social media, blog, or press release) before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
+}

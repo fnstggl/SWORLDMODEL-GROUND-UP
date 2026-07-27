@@ -1,0 +1,88 @@
+{
+ "head_teacher": {
+  "id": "head_teacher",
+  "name": "Head Teacher",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-22T07:00:00+00:00",
+    "kind": "context",
+    "content": "The head teacher is aware of the upcoming inspection and decides what to include in the Friday parent newsletter. They have discretion over the newsletter's content.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-22T07:00:00+00:00",
+    "kind": "context",
+    "content": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. The head teacher is responsible for the newsletter's content. The three parents raised the inspection topic at drop-off this week.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "three_parents": {
+  "id": "three_parents",
+  "name": "Three Parents",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-22T07:00:00+00:00",
+    "kind": "context",
+    "content": "Each of the three parents is aware of the upcoming inspection and has discussed it among themselves. They hope the head teacher will address it in the newsletter but have no direct control over the decision.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-22T07:00:00+00:00",
+    "kind": "context",
+    "content": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. The head teacher is responsible for the newsletter's content. The three parents raised the inspection topic at drop-off this week.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

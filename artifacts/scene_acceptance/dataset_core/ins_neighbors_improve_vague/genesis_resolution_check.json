@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the situation with the neighbors improve over the next few months?",
+  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., a friendly conversation, a joint activity, or a written agreement) that the relationship has improved compared to the start. Otherwise resolve NO.",
+  "cutoff": "2026-11-01T12:00:00+02:00",
+  "world_id": "w_b8ccf1140398"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

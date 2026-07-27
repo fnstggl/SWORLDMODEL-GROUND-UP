@@ -1,0 +1,8 @@
+{
+ "question": "Is Ostara Foods' new logo prettier than the old one?",
+ "start": "2026-08-10T09:00:00+01:00",
+ "cutoff": "2026-08-24T09:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

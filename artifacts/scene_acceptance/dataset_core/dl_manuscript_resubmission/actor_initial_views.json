@@ -1,0 +1,131 @@
+{
+ "co_author_a": {
+  "id": "co_author_a",
+  "name": "Co-author A",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-24T00:00:00+00:00",
+    "kind": "context",
+    "content": "Co-author A is at a field station with patchy email until Sep 1. They have their part of the revisions to complete and send to Tanaka.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-24T00:00:00+00:00",
+    "kind": "context",
+    "content": "The journal requires the revised manuscript to be uploaded by Sep 7 23:59 (14 days from initial decision). The revisions are mostly writing, not new experiments. Tanaka will integrate all parts and submit.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "co_author_b": {
+  "id": "co_author_b",
+  "name": "Co-author B",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-24T00:00:00+00:00",
+    "kind": "context",
+    "content": "Co-author B has normal email access and is responsible for their portion of the revisions. They are aware of the deadline.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-24T00:00:00+00:00",
+    "kind": "context",
+    "content": "The journal requires the revised manuscript to be uploaded by Sep 7 23:59 (14 days from initial decision). The revisions are mostly writing, not new experiments. Tanaka will integrate all parts and submit.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "dr_tanaka": {
+  "id": "dr_tanaka",
+  "name": "Dr. Tanaka",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-24T00:00:00+00:00",
+    "kind": "context",
+    "content": "Tanaka is the lead author and has blocked out the final weekend (Sep 5-6) to integrate all revisions. She is aware of the 14-day deadline (Sep 7 23:59). She knows one co-author has patchy email until Sep 1.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-24T00:00:00+00:00",
+    "kind": "context",
+    "content": "The journal requires the revised manuscript to be uploaded by Sep 7 23:59 (14 days from initial decision). The revisions are mostly writing, not new experiments. Tanaka will integrate all parts and submit.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

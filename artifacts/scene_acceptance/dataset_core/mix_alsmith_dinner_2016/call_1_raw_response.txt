@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Donald Trump",
+      "private_context": "Trump is the Republican presidential nominee. He has been invited to the Al Smith Dinner on October 20, 2016. He is considering whether to attend, weighing the tradition of the event against his campaign schedule and potential political benefits or drawbacks."
+    },
+    {
+      "name": "Hillary Clinton",
+      "private_context": "Clinton is the Democratic presidential nominee. She has been invited to the Al Smith Dinner on October 20, 2016. She is considering whether to attend, aware of the tradition and the potential for the event to be a positive or negative campaign moment."
+    }
+  ],
+  "shared_context": "The Al Smith Memorial Foundation Dinner is a charitable event held annually in New York City, traditionally attended by major-party presidential candidates. The 2016 dinner is scheduled for October 20, 2016. Both nominees have been invited. The event is known for its lighthearted, bipartisan atmosphere, but attendance is not mandatory. The decision to attend is made by each candidate individually, and their campaigns may consider scheduling conflicts, political strategy, and the potential for media coverage.",
+  "starting_events": [
+    {
+      "time": "2016-10-01T09:00:00-04:00",
+      "description": "Both Donald Trump and Hillary Clinton have received invitations to the Al Smith Dinner on October 20, 2016. No public confirmation of attendance has been made by either campaign as of this time.",
+      "visible_to": ["Donald Trump", "Hillary Clinton"]
+    }
+  ],
+  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that both Donald Trump and Hillary Clinton physically attended the Al Smith Dinner on October 20, 2016. Otherwise resolve NO."
+}

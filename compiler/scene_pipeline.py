@@ -108,6 +108,14 @@ def compile_scene(question: str, start: str, cutoff: str,
                                   u1)
         art["call_1_raw_response.txt"] = r1["raw"]
         manifest = r1["parsed"]
+        if isinstance(manifest, dict) and manifest.get("actors") == []:
+            # an empty cast is an honest refusal to invent a scene, however
+            # the model labeled it -- a structured abstention, not a schema
+            # failure and never a false default
+            return finish("abstained",
+                          "compiler produced an empty cast: not simulatable "
+                          "as a social scene ("
+                          + str(manifest.get("resolution", ""))[:300] + ")")
         shape_errors = validate_manifest_shape(manifest)
         if shape_errors:
             return finish("failed", "SCHEMA_INVALID: " + "; ".join(

@@ -1,0 +1,8 @@
+{
+ "question": "Will Kestrel Analytics' CEO sign, or walk away from, the proposed five-year lease on the Riverside Wharf office before the landlord's option expires next Friday?",
+ "start": "2026-08-10T09:00:00+01:00",
+ "cutoff": "2026-08-21T17:00:00+01:00",
+ "context": "Headcount plans were cut twenty percent last quarter and half the team is remote; the landlord has offered six months rent-free, and the CFO has privately told the CEO she prefers a shorter term.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

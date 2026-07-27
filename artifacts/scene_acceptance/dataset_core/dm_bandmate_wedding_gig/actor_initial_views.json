@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T09:00:00+00:00",
     "kind": "context",
-    "content": "Dario wants Selin to play bass at his October wedding. He has messaged her with the request. He hopes for a response within ten days.",
+    "content": "Dario wants Selin to play bass at his October wedding. He has messaged her asking. He hopes for a response within ten days.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T09:00:00+00:00",
     "kind": "context",
-    "content": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can reply. The simulation runs from 2026-08-01T12:00:00+03:00 to 2026-08-11T12:00:00+03:00.",
+    "content": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent before the simulation start time.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-01T09:00:00+00:00",
     "kind": "context",
-    "content": "Selin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario two years ago. She has just received Dario's message asking her to play at his October wedding. She may respond or not, depending on her availability and interest.",
+    "content": "Selin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario two years ago when their band dissolved. She has received Dario's message but has not yet responded.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T09:00:00+00:00",
     "kind": "context",
-    "content": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can reply. The simulation runs from 2026-08-01T12:00:00+03:00 to 2026-08-11T12:00:00+03:00.",
+    "content": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent before the simulation start time.",
     "source": "scene_manifest:shared_context"
    }
   ],

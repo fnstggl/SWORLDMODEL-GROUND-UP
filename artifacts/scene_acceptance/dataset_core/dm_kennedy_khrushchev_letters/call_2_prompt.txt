@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -91,18 +98,18 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Premier Khrushchev",
-   "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options, including direct communication with President Kennedy. He has not yet decided whether to send a letter."
+   "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now aware of President Kennedy's October 22 address announcing a quarantine. He is considering his options, including direct communication with Kennedy. He has not yet decided whether to send a letter."
   },
   {
    "name": "President Kennedy",
-   "private_context": "Kennedy has just announced the quarantine of Cuba. He is awaiting Soviet reactions and is open to receiving direct communications from Khrushchev. He has not yet received any letter from Khrushchev."
+   "private_context": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba in response to Soviet missile installations. He is prepared to receive communications from Khrushchev and is considering possible responses."
   }
  ],
- "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet missile shipments. The world is on alert. Direct communication channels between the US and Soviet leaders exist, including through diplomatic cables and public statements. The crisis is ongoing.",
+ "shared_context": "On October 22, 1962, President Kennedy delivered a televised address announcing a naval quarantine of Cuba to prevent further Soviet missile shipments. The world is now aware of the escalating crisis. Diplomatic channels between the US and Soviet Union exist, including the ability to send direct letters via embassy or other means.",
  "starting_events": [
   {
    "time": "1962-10-22T20:00:00-05:00",
-   "description": "President Kennedy delivers his televised address announcing the quarantine of Cuba.",
+   "description": "President Kennedy finishes his televised address announcing the quarantine of Cuba.",
    "visible_to": [
     "President Kennedy",
     "Premier Khrushchev"

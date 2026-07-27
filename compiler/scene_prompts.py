@@ -109,11 +109,25 @@ prepared message to B.", "visible_to": ["Person A"]}],
 that B actually sent A a response before the cutoff.  Otherwise resolve NO \
 at the cutoff."}
 
-If the question cannot be modeled as a social scene at all (no \
-decision-maker, no observable resolving event, pure factual lookup, pure \
-physics with no social decision), still return the four fields but set \
-resolution to the single word "UNRESOLVABLE" followed by a colon and a \
-one-sentence reason -- do not invent a fake scene.
+WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still \
+return the four fields but set resolution to the single word \
+"UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not \
+invent a fake scene:
+- the question identifies NO decision-maker: a person unnamed but uniquely \
+identified by the question or context ("Maya's landlord") is fine, but a \
+wholly unspecified party ("the company", "the neighbors", "the permit \
+office" with no referent anywhere) is not -- never invent generic \
+placeholder actors to stand in for nobody in particular;
+- there is no observable resolving social event, and the question names an \
+internal state (regret, respect, morale, what someone thinks or feels) \
+with NO user-provided observable proxy -- never invent the proxy yourself;
+- it is a past counterfactual ("would X have happened if...") -- no future \
+observation can resolve an alternate past;
+- the premise is self-contradictory or makes the asked-about event \
+impossible (a deadline before the opening; a gathering of an organization \
+that has ceased to exist) -- name the contradiction;
+- it is a pure factual lookup or pure physics/operations question with no \
+social decision to simulate.
 
 Reply with ONLY a JSON object matching this exact schema (no extra \
 fields):
@@ -157,13 +171,28 @@ demand unnecessary detail; request a causal graph; request action \
 definitions; demand every possible participant; or reject merely because \
 uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody \
+in particular must NOT be approved.  ABSTAIN (do not approve, do not \
+revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") \
+standing in for parties the question never identifies -- an unnamed but \
+uniquely identified person from the question/context is legitimate; an \
+invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a \
+proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to \
+nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the \
 problem, and the minimal correction.
 - ABSTAIN: the question lacks enough information to identify the \
-decision-maker or the observed resolving event, or is not simulatable as a \
-social scene; explain in one defect entry with path "scene".
+decision-maker or the observed resolving event, is not simulatable as a \
+social scene, or trips the insufficiency rules above; explain in one \
+defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 """ + json.dumps(REVIEW_SCHEMA, indent=1)

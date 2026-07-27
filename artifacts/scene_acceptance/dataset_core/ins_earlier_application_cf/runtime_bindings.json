@@ -1,0 +1,39 @@
+{
+ "world_id": "w_70a12cec99a4",
+ "actor_ids": {
+  "Rosa": "rosa",
+  "Hiring Committee": "hiring_committee"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-01T15:00:00+00:00",
+   "visible_to_ids": [
+    "rosa"
+   ],
+   "description": "Rosa reflects on her application timing from last spring and wonders if submitting a week earlier would have led to an interview."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "rosa": {
+   "name": "Rosa",
+   "persona_brief": "You are Rosa.\nRosa is an applicant who submitted her application a week later than she could have. She believes her qualifications are strong and wonders if timing affected the outcome."
+  },
+  "hiring_committee": {
+   "name": "Hiring Committee",
+   "persona_brief": "You are Hiring Committee.\nThe Hiring Committee reviews applications and decides whom to interview. They have a standard process: applications received by a certain date are considered in the first round; later applications may be reviewed if time permits. They do not know Rosa personally."
+  }
+ },
+ "resolution": {
+  "question": "If Rosa had sent her application a week earlier last spring, would she have gotten the interview?",
+  "resolution": "Resolve YES if, during the simulation, the Hiring Committee decides to offer Rosa an interview after reviewing her application (submitted a week earlier than in reality). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-15T09:00:00-06:00",
+  "world_id": "w_70a12cec99a4"
+ }
+}

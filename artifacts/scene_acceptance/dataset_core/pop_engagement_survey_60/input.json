@@ -1,0 +1,8 @@
+{
+ "question": "Will at least 60 of the 400 employees at Calloway Regional Hospital complete the annual engagement survey during its two-week window?",
+ "start": "2026-09-01T08:00:00-05:00",
+ "cutoff": "2026-09-15T17:00:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

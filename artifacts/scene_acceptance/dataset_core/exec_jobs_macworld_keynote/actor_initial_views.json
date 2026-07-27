@@ -1,0 +1,88 @@
+{
+ "apple_inc": {
+  "id": "apple_inc",
+  "name": "Apple Inc.",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2006-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Apple has not yet publicly confirmed the keynote speaker for Macworld San Francisco 2007. Internally, they are considering options and may have a decision but have not announced it.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2006-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Macworld San Francisco 2007 is scheduled for January 8-12, 2007. The opening keynote is traditionally a major event. As of December 1, 2006, Apple has not publicly confirmed who will deliver the keynote. The conference begins on January 8, 2007 at 9:00 AM PST.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "steve_jobs": {
+  "id": "steve_jobs",
+  "name": "Steve Jobs",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2006-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Steve Jobs is the CEO of Apple and has been the keynote speaker at previous Macworld events. He is aware that the conference is approaching and that a decision about the keynote speaker needs to be made.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2006-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Macworld San Francisco 2007 is scheduled for January 8-12, 2007. The opening keynote is traditionally a major event. As of December 1, 2006, Apple has not publicly confirmed who will deliver the keynote. The conference begins on January 8, 2007 at 9:00 AM PST.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

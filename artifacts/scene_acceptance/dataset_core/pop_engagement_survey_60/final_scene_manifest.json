@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Calloway Regional Hospital employees",
+   "private_context": "Each employee has their own workload, interest in the survey, and tendency to complete optional tasks. Some may be motivated by reminders or incentives, others may ignore them."
+  },
+  {
+   "name": "HR department",
+   "private_context": "HR wants a high response rate and can send reminders, but cannot force participation. They have no prior knowledge of individual employees' intentions."
+  }
+ ],
+ "shared_context": "The annual engagement survey is open from 2026-09-01T08:00:00-05:00 to 2026-09-15T17:00:00-05:00. All 400 employees have access to the survey via the company intranet. HR can send reminders during the window.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T08:00:00-05:00",
+   "description": "The survey opens. Employees can begin completing it.",
+   "visible_to": [
+    "Calloway Regional Hospital employees",
+    "HR department"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least 60 distinct employees submitted a completed survey before the cutoff. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "fran": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "fran",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Fran started the meal train for the Okafor family on the neighborhood app. She knows that eight slots were claimed the first evening, leaving six slots unfilled. She wants the remaining slots to be filled within four days.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T13:00:00+00:00"
+    },
+    {
+     "content": "A meal train sign-up for the Okafor family was posted on the neighborhood app by Fran. The sign-up has fourteen slots total. Eight slots were claimed the first evening (before the simulation start). The remaining six slots are open. The app allows neighbors to view the sign-up and claim slots. The cutoff for filling all slots is four days from the start time.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T13:00:00+00:00"
+    }
+   ],
+   "name": "Fran",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "neighbors_on_alder_court": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "neighbors_on_alder_court",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The neighbors are part of a sixty-household neighborhood app. They are aware of the meal train sign-up for the Okafor family, who just came home with newborn twins. Some may have already signed up, others may not have. They have varying degrees of willingness and availability to sign up for a slot.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T13:00:00+00:00"
+    },
+    {
+     "content": "A meal train sign-up for the Okafor family was posted on the neighborhood app by Fran. The sign-up has fourteen slots total. Eight slots were claimed the first evening (before the simulation start). The remaining six slots are open. The app allows neighbors to view the sign-up and claim slots. The cutoff for filling all slots is four days from the start time.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T13:00:00+00:00"
+    }
+   ],
+   "name": "Neighbors on Alder Court",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the neighbors on Alder Court fill all fourteen slots of the meal train they started for the Okafor family within four days?",
+  "scene:shared_context": "A meal train sign-up for the Okafor family was posted on the neighborhood app by Fran. The sign-up has fourteen slots total. Eight slots were claimed the first evening (before the simulation start). The remaining six slots are open. The app allows neighbors to view the sign-up and claim slots. The cutoff for filling all slots is four days from the start time."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-05T13:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-05T13:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

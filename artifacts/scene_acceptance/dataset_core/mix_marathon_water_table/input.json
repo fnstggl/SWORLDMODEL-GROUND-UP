@@ -1,0 +1,8 @@
+{
+ "question": "The Riverton marathon starts Sunday at 07:00. Will the Alder Court neighbors, who have discussed it all month on the app, actually set up their planned water table before the first runners pass around 08:30?",
+ "start": "2026-10-08T09:00:00-06:00",
+ "cutoff": "2026-10-11T08:30:00-06:00",
+ "context": "Nine households said they are in; Priya has already bought cups, the city's runner guide lists their corner as mile four, and the weather forecast is fine.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

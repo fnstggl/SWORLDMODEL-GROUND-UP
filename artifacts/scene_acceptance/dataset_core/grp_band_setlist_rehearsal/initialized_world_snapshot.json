@@ -1,0 +1,203 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "alice": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "alice",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Lead vocalist and rhythm guitarist. Prefers classic rock and upbeat songs. Wants to include 'Sweet Child O' Mine' and 'Livin' on a Prayer'. Tends to be assertive in discussions.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    },
+    {
+     "content": "Cheap Detour is a covers band with four members: Alice, Bob, Carol, and Dave. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band communicates via a group chat that includes all four members and in-person meetings. They have a shared document with potential songs.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    }
+   ],
+   "name": "Alice",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "bob": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "bob",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Lead guitarist. Prefers blues and funk. Wants to include 'Superstition' and 'Pride and Joy'. Often compromises but has strong opinions on guitar-heavy songs.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    },
+    {
+     "content": "Cheap Detour is a covers band with four members: Alice, Bob, Carol, and Dave. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band communicates via a group chat that includes all four members and in-person meetings. They have a shared document with potential songs.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    }
+   ],
+   "name": "Bob",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "carol": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "carol",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Bassist and backing vocalist. Prefers pop and dance songs. Wants to include 'Uptown Funk' and 'Get Lucky'. Tries to keep the peace but pushes for crowd-pleasers.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    },
+    {
+     "content": "Cheap Detour is a covers band with four members: Alice, Bob, Carol, and Dave. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band communicates via a group chat that includes all four members and in-person meetings. They have a shared document with potential songs.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    }
+   ],
+   "name": "Carol",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "dave": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dave",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Drummer. Prefers classic rock and ballads. Wants to include 'Bohemian Rhapsody' and 'Don't Stop Believin''. Usually goes along with the group but has a few must-haves.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    },
+    {
+     "content": "Cheap Detour is a covers band with four members: Alice, Bob, Carol, and Dave. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band communicates via a group chat that includes all four members and in-person meetings. They have a shared document with potential songs.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T17:00:00+00:00"
+    }
+   ],
+   "name": "Dave",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the four members of the covers band Cheap Detour settle their twelve-song wedding setlist at or before Thursday's rehearsal?",
+  "scene:shared_context": "Cheap Detour is a covers band with four members: Alice, Bob, Carol, and Dave. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band communicates via a group chat that includes all four members and in-person meetings. They have a shared document with potential songs."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-07T17:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-07T17:00:00+00:00",
+ "terminal": null,
+ "version": 17,
+ "watches": {}
+}

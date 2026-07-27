@@ -1,0 +1,88 @@
+{
+ "hiring_committee": {
+  "id": "hiring_committee",
+  "name": "Hiring Committee",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Hiring Committee reviews applications and decides whom to interview. They have a standard process: applications received by a certain date are considered in the first round; later applications may be reviewed if time permits. They do not know Rosa personally.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "Last spring, there was a job opening that required applications. Rosa submitted her application one week after the earliest possible date. The Hiring Committee received many applications and conducted interviews. The exact cutoff date for guaranteed consideration is not publicly known.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "rosa": {
+  "id": "rosa",
+  "name": "Rosa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "Rosa is an applicant who submitted her application a week later than she could have. She believes her qualifications are strong and wonders if timing affected the outcome.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "Last spring, there was a job opening that required applications. Rosa submitted her application one week after the earliest possible date. The Hiring Committee received many applications and conducted interviews. The exact cutoff date for guaranteed consideration is not publicly known.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

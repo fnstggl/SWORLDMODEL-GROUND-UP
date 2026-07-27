@@ -1,0 +1,88 @@
+{
+ "hr_team": {
+  "id": "hr_team",
+  "name": "HR Team",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-26T08:00:00+00:00",
+    "kind": "context",
+    "content": "The HR team handles employment-related documentation, including sponsorship letters. They have a process for issuing such letters, but may have other priorities and workloads. They are aware of Kwame's request but have not yet issued the letter.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-26T08:00:00+00:00",
+    "kind": "context",
+    "content": "Kwame works for a company that has an HR department. He has requested a sponsorship letter for his visa renewal. The letter is not yet issued. The visa-renewal appointment is on 2026-11-09. The current time is 2026-10-26T09:00:00+01:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "kwame": {
+  "id": "kwame",
+  "name": "Kwame",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-26T08:00:00+00:00",
+    "kind": "context",
+    "content": "Kwame needs a sponsorship letter from his employer's HR team for his visa renewal. He has a visa-renewal appointment on 2026-11-09. He is anxious about getting the letter in time and may follow up with HR.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-26T08:00:00+00:00",
+    "kind": "context",
+    "content": "Kwame works for a company that has an HR department. He has requested a sponsorship letter for his visa renewal. The letter is not yet issued. The visa-renewal appointment is on 2026-11-09. The current time is 2026-10-26T09:00:00+01:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

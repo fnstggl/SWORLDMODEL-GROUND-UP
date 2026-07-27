@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "mayor_of_riverton": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "mayor_of_riverton",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The mayor is aware of the three water-main bursts this morning and is considering whether to issue a public statement. The mayor has no fixed policy on such statements and weighs factors like public concern, media attention, and operational updates from the water department.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-12T13:00:00+00:00"
+    },
+    {
+     "content": "Riverton experienced a third water-main burst this morning (2026-08-12). The bursts have caused localized disruptions but no widespread emergency. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media).",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-12T13:00:00+00:00"
+    }
+   ],
+   "name": "Mayor of Riverton",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the mayor of Riverton issue any public statement about the water-main failures within 48 hours of this morning's third burst?",
+  "scene:shared_context": "Riverton experienced a third water-main burst this morning (2026-08-12). The bursts have caused localized disruptions but no widespread emergency. The mayor's office has a standard channel for issuing public statements (e.g., press release, social media)."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-12T13:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-12T13:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

@@ -1,0 +1,115 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?
+
+Simulation start time: 2026-08-01T09:00:00+03:00
+Hard cutoff: 2026-09-30T18:00:00+03:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Transport Committee Chair",
+   "private_context": "The Chair is responsible for scheduling committee hearings. They are aware of the sixty-day window for the rail franchise bill and have discretion over the agenda. They have not yet decided whether to schedule a hearing."
+  },
+  {
+   "name": "Transport Committee Members",
+   "private_context": "The committee members have varying opinions on the rail franchise bill. Some may push for a hearing, others may oppose it. They can influence the Chair's decision through formal or informal means."
+  }
+ ],
+ "shared_context": "The Republic of Valdoria's parliamentary transport committee is considering the rail franchise bill. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The bill was referred to the committee on 2026-07-15, so the window ends on 2026-09-13. The committee has not yet scheduled a hearing as of the simulation start time. The Chair has the authority to set the agenda, but members can request hearings.",
+ "starting_events": [
+  {
+   "time": "2026-08-01T09:00:00+03:00",
+   "description": "The transport committee is in session, and the Chair notes that the rail franchise bill has been pending for two weeks without a scheduled hearing.",
+   "visible_to": [
+    "Transport Committee Chair",
+    "Transport Committee Members"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the transport committee scheduled a public hearing on the rail franchise bill on or before 2026-09-13T18:00:00+03:00. Otherwise resolve NO at the hard cutoff of 2026-09-30T18:00:00+03:00."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

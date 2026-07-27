@@ -1,0 +1,20 @@
+{
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "actors",
+   "problem": "The band is modeled as a single collective actor, but the question asks about four members settling a setlist, which requires individual preferences and interactions. A single actor cannot simulate the social dynamics of multiple members negotiating.",
+   "correction": "Replace the single collective actor with four individual actors representing each band member, each with their own private context (e.g., preferences, communication style)."
+  },
+  {
+   "path": "shared_context",
+   "problem": "The shared context mentions a group chat and in-person meetings but does not specify which members are in the chat or how decisions are made. This is vague but acceptable; however, the lack of individual actors makes it impossible to simulate.",
+   "correction": "After adding individual actors, update shared_context to reflect that all four members are in the group chat and have access to shared information about the gig and rehearsal."
+  },
+  {
+   "path": "starting_events",
+   "problem": "The starting event is too generic and does not set up any initial proposals or discussions about the setlist. The scene should include some initial state of the setlist discussion (e.g., a few songs already suggested) to make the simulation meaningful.",
+   "correction": "Add a starting event where the band has a partial list of songs (e.g., 5 songs tentatively agreed) and the remaining slots are open for discussion, with members having differing opinions."
+  }
+ ]
+}

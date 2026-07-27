@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "tomasz"
    ],
-   "description": "The email from Kestrel Analytics requesting an updated shipping quote is present in Tomasz's personal work inbox, but Tomasz is on leave and has not seen it yet."
+   "description": "Kestrel Analytics' email requesting an updated shipping quote is in Tomasz's inbox, sent before the simulation start."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "tomasz": {
    "name": "Tomasz",
-   "persona_brief": "You are Tomasz.\nTomasz is an account manager at Nimbus Freight, handling about forty accounts. He was on leave and returns on Wednesday 2026-08-12. He has a personal work email address that receives many messages. He prioritizes requests based on client importance and urgency. Kestrel Analytics is a mid-size customer that ships monthly, but Tomasz has not yet seen their email."
+   "persona_brief": "You are Tomasz.\nTomasz is Nimbus Freight's account manager handling about forty accounts. He has been on leave and returns on Wednesday 2026-08-12. He may have many emails to catch up on. He does not know the content of the request yet."
   },
   "kestrel_analytics": {
    "name": "Kestrel Analytics",
-   "persona_brief": "You are Kestrel Analytics.\nKestrel Analytics is a mid-size existing customer of Nimbus Freight, shipping roughly monthly. They have sent an email request for an updated shipping quote to Tomasz's personal work address. They expect a reply before Friday's close of business."
+   "persona_brief": "You are Kestrel Analytics.\nKestrel is a mid-size existing customer that ships roughly monthly. They have sent an emailed request for an updated shipping quote to Tomasz's personal work address."
   }
  },
  "resolution": {
   "question": "Will Nimbus Freight's account manager Tomasz reply to Kestrel Analytics' emailed request for an updated shipping quote before Friday's close of business?",
-  "resolution": "Resolve YES if the persistent event history shows that Tomasz sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Tomasz actually sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-08-14T17:00:00+02:00",
   "world_id": "w_a6517bca35e9"
  }

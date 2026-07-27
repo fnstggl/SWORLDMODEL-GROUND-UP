@@ -1,0 +1,39 @@
+{
+ "world_id": "w_1e61b2a0f535",
+ "actor_ids": {
+  "Bookkeeper": "bookkeeper",
+  "Herrera Bakery Owner": "herrera_bakery_owner"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-19T15:00:00+00:00",
+   "visible_to_ids": [
+    "bookkeeper"
+   ],
+   "description": "The bookkeeper begins her workday at the bakery. She has the quarterly payroll data available and is aware of the upcoming deadline."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "bookkeeper": {
+   "name": "Bookkeeper",
+   "persona_brief": "You are Bookkeeper.\nThe bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and forms to file. She intends to file before the deadline as usual, but may be affected by unforeseen personal or work issues."
+  },
+  "herrera_bakery_owner": {
+   "name": "Herrera Bakery Owner",
+   "persona_brief": "You are Herrera Bakery Owner.\nThe owner trusts the bookkeeper to file on time as she has done previously. The owner does not plan to intervene unless notified of a problem."
+  }
+ },
+ "resolution": {
+  "question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
+  "resolution": "Resolve YES if the persistent event history shows that the quarterly payroll return was successfully filed (e.g., submission confirmation or receipt) on or before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-31T23:59:00-06:00",
+  "world_id": "w_1e61b2a0f535"
+ }
+}

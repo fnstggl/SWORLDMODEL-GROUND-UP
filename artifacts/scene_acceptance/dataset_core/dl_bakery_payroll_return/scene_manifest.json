@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Bookkeeper",
+   "private_context": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and forms to file. She intends to file before the deadline as usual, but may be affected by unforeseen personal or work issues."
+  },
+  {
+   "name": "Herrera Bakery Owner",
+   "private_context": "The owner trusts the bookkeeper to file on time as she has done previously. The owner does not plan to intervene unless notified of a problem."
+  }
+ ],
+ "shared_context": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+ "starting_events": [
+  {
+   "time": "2026-10-19T09:00:00-06:00",
+   "description": "The bookkeeper begins her workday at the bakery. She has the quarterly payroll data available and is aware of the upcoming deadline.",
+   "visible_to": [
+    "Bookkeeper"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the quarterly payroll return was successfully filed (e.g., submission confirmation or receipt) on or before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "CEO of Kestrel Analytics",
+   "private_context": "CEO is considering the proposed five-year lease on Riverside Wharf office. CFO has privately told CEO she prefers a shorter term. Headcount plans were cut 20% last quarter and half the team is remote. CEO has not yet decided whether to sign or walk away."
+  },
+  {
+   "name": "Landlord of Riverside Wharf",
+   "private_context": "Landlord has offered six months rent-free as an incentive. Landlord has set an option expiration next Friday (2026-08-21T17:00:00+01:00) for the CEO to sign or walk away."
+  }
+ ],
+ "shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday at 5pm. Headcount plans were cut 20% last quarter and half the team is remote. The CFO has privately told the CEO she prefers a shorter term.",
+ "starting_events": [
+  {
+   "time": "2026-08-10T09:00:00+01:00",
+   "description": "The CEO of Kestrel Analytics has the proposed five-year lease on the Riverside Wharf office under consideration. The landlord's option expiration is set for next Friday at 5pm.",
+   "visible_to": [
+    "CEO of Kestrel Analytics",
+    "Landlord of Riverside Wharf"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the CEO signed the lease before the option expiration (2026-08-21T17:00:00+01:00). Resolve NO if the CEO did not sign by that time (walked away or let option expire)."
+}

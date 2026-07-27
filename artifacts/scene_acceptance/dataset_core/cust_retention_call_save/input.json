@@ -1,0 +1,8 @@
+{
+ "question": "Will Brightline Software's account manager persuade the retailer Fenwick & Sloane to pause rather than cancel their subscription during this week's scheduled retention call?",
+ "start": "2026-09-08T09:00:00-07:00",
+ "cutoff": "2026-09-11T17:00:00-07:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

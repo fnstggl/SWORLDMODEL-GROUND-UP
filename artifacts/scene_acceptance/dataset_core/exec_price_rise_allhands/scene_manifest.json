@@ -1,0 +1,29 @@
+{
+ "actors": [
+  {
+   "name": "Co-founder 1",
+   "private_context": "Co-founder 1 is aware of the proposed January price increase and has some opinion on it. They have not yet discussed it with the other co-founders. They want to reach a decision before the all-hands meeting on the 18th."
+  },
+  {
+   "name": "Co-founder 2",
+   "private_context": "Co-founder 2 is aware of the proposed January price increase and has some opinion on it. They have not yet discussed it with the other co-founders. They want to reach a decision before the all-hands meeting on the 18th."
+  },
+  {
+   "name": "Co-founder 3",
+   "private_context": "Co-founder 3 is aware of the proposed January price increase and has some opinion on it. They have not yet discussed it with the other co-founders. They want to reach a decision before the all-hands meeting on the 18th."
+  }
+ ],
+ "shared_context": "Brightline Software has three co-founders. There is a proposed price increase for January. The all-hands meeting is scheduled for January 18th at 10:00 AM. The co-founders can communicate with each other and with the team. The team is not aware of the proposed price increase yet.",
+ "starting_events": [
+  {
+   "time": "2026-12-01T09:00:00-08:00",
+   "description": "The simulation starts. The three co-founders are aware of the proposed January price increase but have not yet discussed it among themselves.",
+   "visible_to": [
+    "Co-founder 1",
+    "Co-founder 2",
+    "Co-founder 3"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that all three co-founders have agreed on whether the January price increase is going ahead, and that a message has been sent to the team (e.g., via email or announcement) informing them of the decision. Otherwise resolve NO at the cutoff."
+}

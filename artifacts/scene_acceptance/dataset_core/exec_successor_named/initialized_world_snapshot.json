@@ -1,0 +1,160 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "deputy_buying": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "deputy_buying",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Deputy in charge of buying. Aware that staff are asking about succession. Interested in the general manager position.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-15T09:00:00+00:00"
+    },
+    {
+     "content": "Fenwick & Sloane is a retail store. Holiday trading starts on November 1. Staff have started asking openly about who will be the next general manager. The owner has not yet named a successor.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-15T09:00:00+00:00"
+    }
+   ],
+   "name": "Deputy (Buying)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "deputy_operations": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "deputy_operations",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Deputy in charge of operations. Aware that staff are asking about succession. Interested in the general manager position.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-15T09:00:00+00:00"
+    },
+    {
+     "content": "Fenwick & Sloane is a retail store. Holiday trading starts on November 1. Staff have started asking openly about who will be the next general manager. The owner has not yet named a successor.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-15T09:00:00+00:00"
+    }
+   ],
+   "name": "Deputy (Operations)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "owner": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "owner",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Owner has run Fenwick & Sloane for 31 years. She must decide which deputy (buying or operations) will succeed her as general manager. Her accountant has advised settling the decision before seasonal hires arrive. She has not yet made a public announcement.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-15T09:00:00+00:00"
+    },
+    {
+     "content": "Fenwick & Sloane is a retail store. Holiday trading starts on November 1. Staff have started asking openly about who will be the next general manager. The owner has not yet named a successor.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-15T09:00:00+00:00"
+    }
+   ],
+   "name": "Owner",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the retiring owner of Fenwick & Sloane name which of her two deputies will take over as general manager before holiday trading starts on November 1?",
+  "scene:shared_context": "Fenwick & Sloane is a retail store. Holiday trading starts on November 1. Staff have started asking openly about who will be the next general manager. The owner has not yet named a successor."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-15T09:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-15T09:00:00+00:00",
+ "terminal": null,
+ "version": 14,
+ "watches": {}
+}

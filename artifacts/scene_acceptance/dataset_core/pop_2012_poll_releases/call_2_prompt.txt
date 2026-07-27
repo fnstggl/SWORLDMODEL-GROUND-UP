@@ -1,0 +1,130 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?
+
+Simulation start time: 2012-10-01T09:00:00-04:00
+Hard cutoff: 2012-10-08T21:00:00-04:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Gallup",
+   "private_context": "Gallup is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "Pew Research Center",
+   "private_context": "Pew Research Center is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "ABC News/Washington Post",
+   "private_context": "ABC News/Washington Post is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "NBC News/Wall Street Journal",
+   "private_context": "NBC News/Wall Street Journal is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "CBS News/New York Times",
+   "private_context": "CBS News/New York Times is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "CNN/ORC International",
+   "private_context": "CNN/ORC International is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "Fox News",
+   "private_context": "Fox News is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  },
+  {
+   "name": "Reuters/Ipsos",
+   "private_context": "Reuters/Ipsos is a major national polling organization. It conducts and releases surveys on the presidential race. It has its own internal schedule and criteria for releasing polls."
+  }
+ ],
+ "shared_context": "It is the first week of October 2012, during the presidential campaign between Barack Obama and Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The organizations listed are among those considered major national pollsters. Each organization decides independently whether and when to release a survey. The public release of a survey is an observable event.",
+ "starting_events": [],
+ "resolution": "Resolve YES if, by 2012-10-08T21:00:00-04:00, the persistent event history shows that at least three distinct major national polling organizations publicly released a new head-to-head survey of the Obama-Romney race during the period from 2012-10-01T09:00:00-04:00 to 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

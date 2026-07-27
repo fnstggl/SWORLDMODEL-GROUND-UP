@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "harborview_credit_union": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "harborview_credit_union",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Harborview Credit Union has a dispute processing system. It received Marisol's dispute today. It must decide whether to provisionally credit the $320 within ten business days (by 2026-10-28). The credit union has internal policies and procedures for handling such disputes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-14T18:00:00+00:00"
+    },
+    {
+     "content": "Marisol filed a dispute today (2026-10-14) for a $320 charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. The deadline for provisional credit is 2026-10-28T17:00:00-08:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-14T18:00:00+00:00"
+    }
+   ],
+   "name": "Harborview Credit Union",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "marisol": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marisol",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Marisol filed a dispute today (2026-10-14) for a $320 charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. She expects the credit to be applied by the deadline.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-14T18:00:00+00:00"
+    },
+    {
+     "content": "Marisol filed a dispute today (2026-10-14) for a $320 charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. The deadline for provisional credit is 2026-10-28T17:00:00-08:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-14T18:00:00+00:00"
+    }
+   ],
+   "name": "Marisol",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Harborview Credit Union provisionally credit Marisol's disputed 320-dollar card charge within the ten-business-day window she was quoted when she filed today?",
+  "scene:shared_context": "Marisol filed a dispute today (2026-10-14) for a $320 charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. The deadline for provisional credit is 2026-10-28T17:00:00-08:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-14T18:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-14T18:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

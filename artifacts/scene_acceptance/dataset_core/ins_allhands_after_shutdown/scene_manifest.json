@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "CEO",
+   "private_context": "The CEO knows Torchlight Media is shutting down permanently on the 14th. They have scheduled an all-hands meeting for the 15th. They have not decided whether to take questions at that meeting."
+  },
+  {
+   "name": "Employees",
+   "private_context": "Employees know the company is shutting down on the 14th and that an all-hands is scheduled for the 15th. They are uncertain whether the CEO will take questions."
+  }
+ ],
+ "shared_context": "Torchlight Media is shutting down permanently on the 14th. An all-hands meeting is scheduled for the 15th. The CEO may or may not take questions at that meeting.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00+02:00",
+   "description": "The shutdown announcement and all-hands scheduling are known to all.",
+   "visible_to": [
+    "CEO",
+    "Employees"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the CEO actually took questions at the all-hands meeting on the 15th. Otherwise resolve NO at the cutoff."
+}

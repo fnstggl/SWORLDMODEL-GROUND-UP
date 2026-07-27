@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Rustam",
+   "private_context": "Rustam has a failed washing machine and has escalated his warranty claim. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team would make a decision within ten working days. He wants a decision by the cutoff."
+  },
+  {
+   "name": "Manufacturer's second-line team",
+   "private_context": "The second-line team handles escalated warranty claims. They have a queue of claims and aim to respond within ten working days as per their quoted policy. They have received Rustam's escalated claim and have the necessary information to make a decision."
+  }
+ ],
+ "shared_context": "Rustam's washing machine failed and he filed a warranty claim. The claim was escalated to the manufacturer's second-line team. Yesterday (2026-08-04), the manufacturer sent an email to Rustam stating that the second-line team would make a decision within ten working days. The ten working days count from 2026-08-05 to 2026-08-18 (excluding weekends). The hard cutoff for resolution is 2026-08-19T18:00:00+05:00.",
+ "starting_events": [
+  {
+   "time": "2026-08-05T09:00:00+05:00",
+   "description": "Rustam's escalated warranty claim is in the queue of the manufacturer's second-line team, awaiting a decision.",
+   "visible_to": [
+    "Manufacturer's second-line team"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the manufacturer's second-line team actually communicated a decision (approval or denial) to Rustam before the hard cutoff (2026-08-19T18:00:00+05:00). Otherwise resolve NO at the cutoff."
+}

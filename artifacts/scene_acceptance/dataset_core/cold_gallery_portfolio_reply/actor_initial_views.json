@@ -23,13 +23,13 @@
    {
     "t": "2026-08-10T11:00:00+00:00",
     "kind": "context",
-    "content": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly align with the gallery's current focus. She has an automated acknowledgment system for incoming submissions.",
+    "content": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios. She typically sends an automated acknowledgment upon receipt, and may personally reply if the work interests her. She has no prior knowledge of Yusuf.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T11:00:00+00:00",
     "kind": "context",
-    "content": "Marlin Bay gallery has a publicly listed email address for submissions. Yusuf can send his portfolio to that address. The gallery's automated system sends an immediate acknowledgment upon receipt. Ines may or may not review the portfolio and may or may not send a personal reply.",
+    "content": "Marlin Bay gallery has a standard process for receiving unsolicited portfolios: they are logged and an automated acknowledgment is sent to the sender. The gallery's email system can send such acknowledgments automatically. Yusuf has the gallery's contact information and can send his portfolio via email or postal mail.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-10T11:00:00+00:00",
     "kind": "context",
-    "content": "Yusuf is a painter seeking gallery representation. He has prepared a portfolio and contact information for Marlin Bay gallery. He hopes for a personal response from the curator.",
+    "content": "Yusuf is a painter seeking gallery representation. He has prepared an unsolicited portfolio to send to Marlin Bay gallery. He hopes for a personal response from the curator.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T11:00:00+00:00",
     "kind": "context",
-    "content": "Marlin Bay gallery has a publicly listed email address for submissions. Yusuf can send his portfolio to that address. The gallery's automated system sends an immediate acknowledgment upon receipt. Ines may or may not review the portfolio and may or may not send a personal reply.",
+    "content": "Marlin Bay gallery has a standard process for receiving unsolicited portfolios: they are logged and an automated acknowledgment is sent to the sender. The gallery's email system can send such acknowledgments automatically. Yusuf has the gallery's contact information and can send his portfolio via email or postal mail.",
     "source": "scene_manifest:shared_context"
    }
   ],

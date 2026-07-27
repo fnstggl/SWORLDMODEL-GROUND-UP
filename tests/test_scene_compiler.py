@@ -260,6 +260,16 @@ def test_scripted_abstention_is_structured():
     assert "decision-maker" in result.reason
 
 
+def test_empty_cast_is_a_structured_abstention_not_schema_failure():
+    m = {"actors": [], "shared_context": "nothing to build",
+         "starting_events": [],
+         "resolution": "UNRESOLVABLE: no identifiable decision-maker."}
+    result, caller = compile_scripted([m])
+    assert result.status == "abstained"
+    assert "empty cast" in result.reason
+    assert caller.metrics()["semantic_calls"] == 1
+
+
 def test_compiler_declared_unresolvable_abstains():
     m = json.loads(json.dumps(MANIFEST))
     m["resolution"] = "UNRESOLVABLE: pure factual lookup with no social " \

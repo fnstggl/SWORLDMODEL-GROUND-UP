@@ -1,0 +1,130 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?
+
+Simulation start time: 2026-08-19T19:00:00+08:00
+Hard cutoff: 2026-08-19T23:00:00+08:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Student 1",
+   "private_context": "Student 1 has prepared a chapter and wants to present it. They are open to negotiation but prefer their first choice."
+  },
+  {
+   "name": "Student 2",
+   "private_context": "Student 2 has prepared a chapter and wants to present it. They are willing to compromise if needed."
+  },
+  {
+   "name": "Student 3",
+   "private_context": "Student 3 has prepared a chapter and wants to present it. They are flexible about which chapter they present."
+  },
+  {
+   "name": "Student 4",
+   "private_context": "Student 4 has prepared a chapter and wants to present it. They are concerned about fairness and want everyone to agree."
+  },
+  {
+   "name": "Student 5",
+   "private_context": "Student 5 has prepared a chapter and wants to present it. They are shy but will speak up if their preference is ignored."
+  }
+ ],
+ "shared_context": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+ "starting_events": [
+  {
+   "time": "2026-08-19T19:00:00+08:00",
+   "description": "The five students gather for their study group meeting to discuss chapter assignments.",
+   "visible_to": [
+    "Student 1",
+    "Student 2",
+    "Student 3",
+    "Student 4",
+    "Student 5"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if, by the cutoff time, the persistent event history shows that all five students have explicitly agreed on a specific assignment of chapters to presenters (e.g., through a verbal agreement recorded in the meeting minutes or a group message). Otherwise resolve NO."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

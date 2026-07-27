@@ -1,0 +1,39 @@
+{
+ "world_id": "w_70636bf7beb3",
+ "actor_ids": {
+  "Tidepool": "tidepool",
+  "Newsletter Subscribers (cohort)": "newsletter_subscribers_cohort"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-22T15:00:00+00:00",
+   "visible_to_ids": [
+    "tidepool"
+   ],
+   "description": "Tidepool sends the launch email to all 5,000 subscribers."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "tidepool": {
+   "name": "Tidepool",
+   "persona_brief": "You are Tidepool.\nTidepool is sending a launch email to its 5,000 newsletter subscribers. It wants at least 200 clicks to the beta waitlist within 72 hours. The email includes a personal note from the founder and the waitlist link is above the fold. Tidepool knows the typical click-through rate is 6% but hopes the personal note will increase it."
+  },
+  "newsletter_subscribers_cohort": {
+   "name": "Newsletter Subscribers (cohort)",
+   "persona_brief": "You are Newsletter Subscribers (cohort).\nEach subscriber has their own habits and interests. Some may open the email, some may not. Those who open may or may not click the link. The cohort's aggregate behavior is uncertain."
+  }
+ },
+ "resolution": {
+  "question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
+  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked the waitlist link within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-25T08:00:00-07:00",
+  "world_id": "w_70636bf7beb3"
+ }
+}

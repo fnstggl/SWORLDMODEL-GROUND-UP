@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Hana Suzuki",
+   "private_context": "Hana Suzuki is a customer who received a moldy delivery from Ostara Foods. She has already submitted a complaint through the support desk and is waiting for a reply. She expects a response within 24 hours as advertised."
+  },
+  {
+   "name": "Ostara Foods Support Desk",
+   "private_context": "The support desk is a team that handles customer complaints. They have a policy to respond to complaints within 24 hours. They have received Hana Suzuki's complaint about a moldy delivery and are processing it."
+  }
+ ],
+ "shared_context": "Ostara Foods advertises a 24-hour response window for support inquiries. Hana Suzuki's complaint was submitted before the simulation start time. The support desk has access to the complaint details and can reply via the same channel.",
+ "starting_events": [
+  {
+   "time": "2026-08-19T13:00:00+09:00",
+   "description": "Hana Suzuki's complaint about a moldy delivery is already in the Ostara Foods support queue, awaiting a response.",
+   "visible_to": [
+    "Ostara Foods Support Desk"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Ostara Foods Support Desk sent a substantive reply to Hana Suzuki before 2026-08-20T13:00:00+09:00. A substantive reply is one that addresses the complaint (e.g., offers a refund, replacement, or explanation) and is not an automated acknowledgment. Otherwise resolve NO at the cutoff."
+}

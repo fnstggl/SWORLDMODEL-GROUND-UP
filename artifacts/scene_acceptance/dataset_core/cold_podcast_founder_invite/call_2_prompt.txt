@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,24 +101,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Anouk Visser",
-   "private_context": "Anouk is a freelance journalist preparing to launch a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast for a 30-minute interview, offering to share questions in advance and set a publication date. She has drafted a cold email to send to the founder."
+   "private_context": "Anouk is a freelance journalist launching a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast. She has prepared a cold email offering a 30-minute interview, questions in advance, and a publication date. She intends to send the email to the founder."
   },
   {
    "name": "Founder of Veldt Solar",
-   "private_context": "The founder of Veldt Solar receives many unsolicited emails. They are busy running the company and selectively respond to opportunities that align with their interests or benefit the company. They have no prior relationship with Anouk Visser."
+   "private_context": "The founder of Veldt Solar receives many unsolicited emails. They may respond to interview requests if the opportunity seems worthwhile and fits their schedule. They have no prior relationship with Anouk."
   }
  ],
- "shared_context": "Anouk Visser has the email address of the founder of Veldt Solar and can send a cold email. The founder can reply via email if they choose to.",
+ "shared_context": "Anouk has the email address of the founder of Veldt Solar and can send an email. The founder can read and reply to emails. The simulation runs from 2026-08-05T09:00:00+02:00 to 2026-08-19T09:00:00+02:00.",
  "starting_events": [
   {
    "time": "2026-08-05T09:00:00+02:00",
-   "description": "Anouk Visser sends a cold email to the founder of Veldt Solar, inviting them onto her new energy podcast for a 30-minute interview, offering to share questions in advance and set a publication date.",
+   "description": "Anouk sends the cold email to the founder of Veldt Solar.",
    "visible_to": [
     "Anouk Visser"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent any reply to Anouk Visser's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent a reply to Anouk's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

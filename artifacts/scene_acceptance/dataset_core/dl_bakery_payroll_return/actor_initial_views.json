@@ -1,0 +1,88 @@
+{
+ "bookkeeper": {
+  "id": "bookkeeper",
+  "name": "Bookkeeper",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-19T15:00:00+00:00",
+    "kind": "context",
+    "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and forms to file. She intends to file before the deadline as usual, but may be affected by unforeseen personal or work issues.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-19T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "herrera_bakery_owner": {
+  "id": "herrera_bakery_owner",
+  "name": "Herrera Bakery Owner",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-19T15:00:00+00:00",
+    "kind": "context",
+    "content": "The owner trusts the bookkeeper to file on time as she has done previously. The owner does not plan to intervene unless notified of a problem.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-19T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Herrera bakery operates in a jurisdiction where quarterly payroll returns must be filed by the end of the month. The current quarter's return is due by 2026-10-31. The bookkeeper has access to the bakery's payroll records and the filing system. The owner and bookkeeper have a standard working relationship; the owner does not typically check on the filing unless reminded.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

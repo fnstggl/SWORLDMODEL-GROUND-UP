@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will at least thirty villagers attend Kettlewell's open meeting about the bus-route cut, given the parish clerk has posted notices and the last such meeting drew 22?",
+  "resolution": "Resolve YES if the persistent event history shows that at least 30 distinct villagers attended the meeting before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-24T21:00:00+01:00",
+  "world_id": "w_7059d66b3ecd"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

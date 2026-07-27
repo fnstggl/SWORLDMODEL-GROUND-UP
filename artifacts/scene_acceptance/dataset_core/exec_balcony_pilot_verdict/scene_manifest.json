@@ -1,0 +1,33 @@
+{
+ "actors": [
+  {
+   "name": "CEO",
+   "private_context": "CEO has stayed publicly neutral on the balcony-panel pilot. They are aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins. They must decide whether to greenlight or shelve the pilot at the quarterly review, balancing the head of product's enthusiasm and the CFO's concerns."
+  },
+  {
+   "name": "CFO",
+   "private_context": "CFO wants the engineers reassigned to the utility-scale line. They view the balcony-panel pilot as a resource drain with thin margins, despite strong reviews. They will advocate for shelving the pilot at the quarterly review."
+  },
+  {
+   "name": "Head of Product",
+   "private_context": "Head of Product champions the balcony-panel pilot. They see the strong reviews as evidence of potential and want to continue the pilot despite the sales shortfall. They will advocate for greenlighting the pilot at the quarterly review."
+  },
+  {
+   "name": "Pilot Team",
+   "private_context": "The pilot team is awaiting the executive decision on whether the pilot will be shelved or greenlit. They have no direct influence on the decision but will be informed of the outcome."
+  }
+ ],
+ "shared_context": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The executive team (CEO, CFO, Head of Product) will meet to decide whether to shelve or greenlight the pilot. The decision will be communicated to the pilot team within the same week.",
+ "starting_events": [
+  {
+   "time": "2026-10-05T09:00:00+02:00",
+   "description": "The quarterly review meeting begins with the CEO, CFO, and Head of Product present to discuss the balcony-panel pilot.",
+   "visible_to": [
+    "CEO",
+    "CFO",
+    "Head of Product"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if, before the cutoff (2026-10-16T18:00:00+02:00), the persistent event history shows that the executive team formally decided to greenlight or shelve the pilot and that decision was communicated to the pilot team. Otherwise resolve NO at the cutoff."
+}

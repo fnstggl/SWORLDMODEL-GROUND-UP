@@ -1,0 +1,25 @@
+{
+  "actors": [
+    {
+      "name": "Family A",
+      "private_context": "Family A has two children who need to be driven to school. They are eager to set up a carpool to share the driving burden. They have not yet discussed specific preferences or constraints with the other families."
+    },
+    {
+      "name": "Family B",
+      "private_context": "Family B has one child. They are interested in a carpool but have a tight morning schedule and can only drive on certain days. They have not yet shared this constraint."
+    },
+    {
+      "name": "Family C",
+      "private_context": "Family C has three children. They are open to a carpool but are concerned about fitting everyone in one car. They have not yet raised this concern."
+    }
+  ],
+  "shared_context": "Three families live on the same cul-de-sac. They are trying to agree on a weekly driving rota for a school-run carpool before term starts on Monday morning (2026-09-07). They can communicate with each other via phone, text, or in person. No rota has been proposed yet.",
+  "starting_events": [
+    {
+      "time": "2026-09-02T09:00:00+12:00",
+      "description": "The three families are aware of the need to arrange a carpool and have expressed mutual interest in principle, but no specific rota has been discussed.",
+      "visible_to": ["Family A", "Family B", "Family C"]
+    }
+  ],
+  "resolution": "Resolve YES if, before the cutoff (2026-09-07T08:00:00+12:00), the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., via a shared message or verbal agreement recorded in the simulation). Otherwise resolve NO at the cutoff."
+}

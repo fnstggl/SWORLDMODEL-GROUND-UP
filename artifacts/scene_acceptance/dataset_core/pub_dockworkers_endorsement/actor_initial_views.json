@@ -1,0 +1,88 @@
+{
+ "marlin_bay_dockworkers_union_local_executive_board": {
+  "id": "marlin_bay_dockworkers_union_local_executive_board",
+  "name": "Marlin Bay Dockworkers' Union Local Executive Board",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-27T16:00:00+00:00",
+    "kind": "context",
+    "content": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse the memorandum.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-27T16:00:00+00:00",
+    "kind": "context",
+    "content": "The port automation memorandum is a proposal that the union local may endorse or oppose. The local's executive board can issue a press release stating its position. The international union endorsed a similar deal at another port last month. The hard cutoff for the resolution is 2026-08-31T09:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "rank_and_file_caucus": {
+  "id": "rank_and_file_caucus",
+  "name": "Rank-and-File Caucus",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-27T16:00:00+00:00",
+    "kind": "context",
+    "content": "The caucus has been leafleting against the memorandum. They oppose the automation deal and want the local to reject it.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-27T16:00:00+00:00",
+    "kind": "context",
+    "content": "The port automation memorandum is a proposal that the union local may endorse or oppose. The local's executive board can issue a press release stating its position. The international union endorsed a similar deal at another port last month. The hard cutoff for the resolution is 2026-08-31T09:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

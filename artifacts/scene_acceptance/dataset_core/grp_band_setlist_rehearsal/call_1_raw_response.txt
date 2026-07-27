@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Cheap Detour (band as a collective decision-making unit)",
+      "private_context": "The four members have a shared goal of agreeing on a twelve-song wedding setlist. They have individual preferences and may have discussed ideas informally, but no setlist has been finalized. They are aware of the Thursday rehearsal deadline."
+    }
+  ],
+  "shared_context": "Cheap Detour is a covers band with four members. They have a wedding gig coming up and need to settle a twelve-song setlist. The next rehearsal is scheduled for Thursday, 2026-09-10. The band typically communicates via a group chat and in-person meetings.",
+  "starting_events": [
+    {
+      "time": "2026-09-07T18:00:00+01:00",
+      "description": "The band members are aware that they need to finalize the setlist before or during Thursday's rehearsal.",
+      "visible_to": ["Cheap Detour (band as a collective decision-making unit)"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before 2026-09-10T22:00:00+01:00. Otherwise resolve NO."
+}

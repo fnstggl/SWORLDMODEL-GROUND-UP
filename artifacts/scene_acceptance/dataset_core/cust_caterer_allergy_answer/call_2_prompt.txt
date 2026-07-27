@@ -1,0 +1,114 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the catering manager at Willow & Thyme answer bride-to-be Deepa's emailed question about nut-free menu options before her tasting on Saturday morning?
+
+Simulation start time: 2026-09-15T10:00:00+01:00
+Hard cutoff: 2026-09-19T11:00:00+01:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Deepa",
+   "private_context": "Deepa is a bride-to-be who has emailed Willow & Thyme asking about nut-free menu options. She has a tasting scheduled for Saturday morning (2026-09-19) and wants to know about nut-free options before then. She does not know the catering manager personally."
+  },
+  {
+   "name": "Catering Manager",
+   "private_context": "The catering manager at Willow & Thyme is responsible for handling client inquiries and menu planning. They have received Deepa's email about nut-free menu options. They have a busy schedule and may prioritize responses based on urgency and workload. They are aware of the upcoming tasting on Saturday."
+  }
+ ],
+ "shared_context": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The email was sent before the simulation start time. The catering manager has access to the email and can reply via email. The tasting is scheduled for Saturday morning (2026-09-19).",
+ "starting_events": [
+  {
+   "time": "2026-09-15T10:00:00+01:00",
+   "description": "Deepa's email about nut-free menu options is in the catering manager's inbox, sent earlier.",
+   "visible_to": [
+    "Catering Manager"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the catering manager actually sent a reply to Deepa's email before 2026-09-19T11:00:00+01:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Marisol",
+      "private_context": "Marisol filed a dispute today (2026-10-14) for a $320 charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. She expects the credit to be applied by the deadline."
+    },
+    {
+      "name": "Harborview Credit Union",
+      "private_context": "Harborview Credit Union has a dispute processing system. It received Marisol's dispute today. It must decide whether to provisionally credit the $320 within ten business days (by 2026-10-28). The credit union has internal policies and procedures for handling such disputes."
+    }
+  ],
+  "shared_context": "Marisol filed a dispute today (2026-10-14) for a $320 charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. The deadline for provisional credit is 2026-10-28T17:00:00-08:00.",
+  "starting_events": [
+    {
+      "time": "2026-10-14T10:00:00-08:00",
+      "description": "Marisol files a dispute with Harborview Credit Union regarding a $320 charge on her card.",
+      "visible_to": ["Marisol", "Harborview Credit Union"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that Harborview Credit Union actually provisionally credited Marisol's account for the $320 disputed charge before the cutoff (2026-10-28T17:00:00-08:00). Otherwise resolve NO at the cutoff."
+}

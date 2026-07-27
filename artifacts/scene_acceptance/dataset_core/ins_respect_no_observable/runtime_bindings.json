@@ -1,0 +1,40 @@
+{
+ "world_id": "w_4cf54d8ad18a",
+ "actor_ids": {
+  "Amara": "amara",
+  "Coworkers (collective)": "coworkers_collective"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-01T13:00:00+00:00",
+   "visible_to_ids": [
+    "amara",
+    "coworkers_collective"
+   ],
+   "description": "The quarter begins. Amara and her coworkers are at work."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "amara": {
+   "name": "Amara",
+   "persona_brief": "You are Amara.\nAmara wants to be respected by her coworkers. She is aware of her own performance and interactions but uncertain how others perceive her."
+  },
+  "coworkers_collective": {
+   "name": "Coworkers (collective)",
+   "persona_brief": "You are Coworkers (collective).\nEach coworker has their own impressions of Amara based on past interactions. They may change their respect level based on future events."
+  }
+ },
+ "resolution": {
+  "question": "Will Amara's coworkers respect her more by the end of the quarter?",
+  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., coworkers explicitly state increased respect, seek her advice more frequently, or defer to her decisions) that indicates a net increase in respect from the start. Otherwise resolve NO.",
+  "cutoff": "2026-12-31T17:00:00-04:00",
+  "world_id": "w_4cf54d8ad18a"
+ }
+}

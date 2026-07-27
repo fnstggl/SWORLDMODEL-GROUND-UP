@@ -10,9 +10,9 @@
    "ledger_seq": 11,
    "at": "2026-09-16T07:00:00+00:00",
    "visible_to_ids": [
-    "mr_abernathy"
+    "chioma_eze"
    ],
-   "description": "Chioma Eze's email about her son's seating change is in Mr. Abernathy's inbox."
+   "description": "Chioma Eze sends an email to Mr. Abernathy requesting a seating change for her son."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "mr_abernathy": {
    "name": "Mr. Abernathy",
-   "persona_brief": "You are Mr. Abernathy.\nMr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and typically responds during school hours or in the evening. He may prioritize urgent matters. He has no prior relationship with Chioma Eze."
+   "persona_brief": "You are Mr. Abernathy.\nMr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and prioritizes those that are urgent or directly about classroom issues. He has not yet seen Chioma Eze's email."
   },
   "chioma_eze": {
    "name": "Chioma Eze",
-   "persona_brief": "You are Chioma Eze.\nChioma Eze is a parent of a child in Mr. Abernathy's class. She wants her son's seating changed and has written an email to Mr. Abernathy about it. She expects a response before the weekend."
+   "persona_brief": "You are Chioma Eze.\nChioma Eze is a parent of a child in Mr. Abernathy's year-five class. She wants her son's seating changed and has written an email to Mr. Abernathy about it. She has not yet sent the email."
   }
  },
  "resolution": {
   "question": "Will Mr. Abernathy, a year-five teacher at Petersfield Primary, respond to parent Chioma Eze's email about her son's seating change before the weekend?",
-  "resolution": "Resolve YES only if the persistent event history shows that Mr. Abernathy actually sent a reply to Chioma Eze's email before 2026-09-19T08:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Mr. Abernathy sent a reply to Chioma Eze's email before 2026-09-19T08:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-19T08:00:00+01:00",
   "world_id": "w_1f12922dc96b"
  }

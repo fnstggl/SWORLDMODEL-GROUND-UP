@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Rustam's escalated warranty claim for a failed washing machine get a decision from the manufacturer's second-line team within the ten working days quoted in yesterday's email?",
+  "resolution": "Resolve YES if the persistent event history shows that the manufacturer's second-line team actually communicated a decision (approval or denial) to Rustam before the hard cutoff (2026-08-19T18:00:00+05:00). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-19T18:00:00+05:00",
+  "world_id": "w_0cee8e06baa6"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

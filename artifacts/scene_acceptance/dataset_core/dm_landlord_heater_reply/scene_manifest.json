@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Maya Okonkwo",
-   "private_context": "Maya is a tenant who texted her landlord Stavros this morning about a broken water heater. She hopes for a prompt reply."
+   "private_context": "Maya texted her landlord Stavros this morning about a broken water heater. She hopes for a reply soon."
   },
   {
    "name": "Stavros",
-   "private_context": "Stavros is a landlord who receives tenant maintenance requests. He may prioritize based on urgency and his schedule. He has not yet replied to Maya's message."
+   "private_context": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply depending on his schedule and priorities."
   }
  ],
- "shared_context": "Maya Okonkwo texted Stavros about a broken water heater on the morning of 2026-07-28. Stavros has a phone capable of receiving and replying to texts. The cutoff for resolution is 2026-07-29T20:00:00-04:00.",
+ "shared_context": "Maya Okonkwo is a tenant. Stavros is her landlord. The water heater is broken. Maya sent a text message to Stavros this morning (2026-07-28) about the issue. Stavros has the message and can reply via text.",
  "starting_events": [
   {
    "time": "2026-07-28T08:30:00-04:00",
-   "description": "Maya sends a text message to Stavros about the broken water heater.",
+   "description": "Maya Okonkwo sends a text message to Stavros about the broken water heater.",
    "visible_to": [
     "Maya Okonkwo"
    ]

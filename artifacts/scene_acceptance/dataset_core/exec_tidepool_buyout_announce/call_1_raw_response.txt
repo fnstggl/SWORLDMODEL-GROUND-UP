@@ -1,0 +1,26 @@
+{
+  "actors": [
+    {
+      "name": "Founder A",
+      "private_context": "Founder A believes the app should pivot to a subscription model and has been pushing for this change since spring. A is frustrated with the strategic deadlock and is considering buying out Founder B to gain full control."
+    },
+    {
+      "name": "Founder B",
+      "private_context": "Founder B believes the app should remain free with ads and has been resisting A's pivot proposals since spring. B is frustrated with the deadlock and is considering buying out Founder A to implement B's vision."
+    },
+    {
+      "name": "Employees (as a group)",
+      "private_context": "The twelve employees are aware of the founders' disagreements but have not been officially informed of any buyout plans. They are uncertain about the company's future and are watching for any announcements."
+    }
+  ],
+  "shared_context": "Tidepool is a small app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout of one founder by the other would require an announcement to the employees. The company operates in a jurisdiction where such announcements are typically made in a formal meeting or via official communication."
+  ,
+  "starting_events": [
+    {
+      "time": "2026-08-01T10:00:00-07:00",
+      "description": "The simulation begins with the founders still at odds and no buyout announcement having been made yet.",
+      "visible_to": ["Founder A", "Founder B", "Employees (as a group)"]
+    }
+  ],
+  "resolution": "Resolve YES if, before the hard cutoff, there is a persistent record (e.g., meeting minutes, official email, or public announcement) that a buyout of one founder by the other has been announced to the employees. Otherwise resolve NO at the cutoff."
+}

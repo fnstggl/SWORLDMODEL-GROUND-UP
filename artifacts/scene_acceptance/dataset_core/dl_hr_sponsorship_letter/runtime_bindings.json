@@ -1,0 +1,40 @@
+{
+ "world_id": "w_cb04c71e345a",
+ "actor_ids": {
+  "Kwame": "kwame",
+  "HR Team": "hr_team"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-26T08:00:00+00:00",
+   "visible_to_ids": [
+    "kwame",
+    "hr_team"
+   ],
+   "description": "Kwame's request for a sponsorship letter is pending with the HR team. No letter has been issued yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "kwame": {
+   "name": "Kwame",
+   "persona_brief": "You are Kwame.\nKwame needs a sponsorship letter from his employer's HR team for his visa renewal. He has a visa-renewal appointment on 2026-11-09. He is anxious about getting the letter in time and may follow up with HR."
+  },
+  "hr_team": {
+   "name": "HR Team",
+   "persona_brief": "You are HR Team.\nThe HR team handles employment-related documentation, including sponsorship letters. They have a process for issuing such letters, but may have other priorities and workloads. They are aware of Kwame's request but have not yet issued the letter."
+  }
+ },
+ "resolution": {
+  "question": "Will Kwame get his employer's HR team to issue the sponsorship letter he needs before his visa-renewal appointment on the 9th?",
+  "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-11-09T09:00:00+01:00",
+  "world_id": "w_cb04c71e345a"
+ }
+}

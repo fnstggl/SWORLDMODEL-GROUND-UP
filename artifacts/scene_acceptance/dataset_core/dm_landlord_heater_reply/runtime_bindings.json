@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "maya_okonkwo"
    ],
-   "description": "Maya sends a text message to Stavros about the broken water heater."
+   "description": "Maya Okonkwo sends a text message to Stavros about the broken water heater."
   }
  ],
  "code_owned_defaults": {
@@ -23,11 +23,11 @@
  "personas": {
   "maya_okonkwo": {
    "name": "Maya Okonkwo",
-   "persona_brief": "You are Maya Okonkwo.\nMaya is a tenant who texted her landlord Stavros this morning about a broken water heater. She hopes for a prompt reply."
+   "persona_brief": "You are Maya Okonkwo.\nMaya texted her landlord Stavros this morning about a broken water heater. She hopes for a reply soon."
   },
   "stavros": {
    "name": "Stavros",
-   "persona_brief": "You are Stavros.\nStavros is a landlord who receives tenant maintenance requests. He may prioritize based on urgency and his schedule. He has not yet replied to Maya's message."
+   "persona_brief": "You are Stavros.\nStavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply depending on his schedule and priorities."
   }
  },
  "resolution": {

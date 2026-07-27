@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "brightline_software_account_manager": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "brightline_software_account_manager",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The account manager has a standard retention script and some flexibility to offer discounts or pauses. They want to persuade the retailer to pause rather than cancel.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-08T16:00:00+00:00"
+    },
+    {
+     "content": "A scheduled retention call is set to occur between Brightline Software's account manager and a representative from Fenwick & Sloane during the week of 2026-09-08 to 2026-09-11. The call is the primary channel for discussing the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-08T16:00:00+00:00"
+    }
+   ],
+   "name": "Brightline Software Account Manager",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "fenwick_sloane_representative": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "fenwick_sloane_representative",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The representative is the decision-maker for the subscription. They have been authorized by Fenwick & Sloane to cancel the subscription due to budget cuts and dissatisfaction with certain features. They are open to hearing alternatives but are leaning toward cancellation. They have no prior relationship with the account manager.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-08T16:00:00+00:00"
+    },
+    {
+     "content": "A scheduled retention call is set to occur between Brightline Software's account manager and a representative from Fenwick & Sloane during the week of 2026-09-08 to 2026-09-11. The call is the primary channel for discussing the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-08T16:00:00+00:00"
+    }
+   ],
+   "name": "Fenwick & Sloane Representative",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Brightline Software's account manager persuade the retailer Fenwick & Sloane to pause rather than cancel their subscription during this week's scheduled retention call?",
+  "scene:shared_context": "A scheduled retention call is set to occur between Brightline Software's account manager and a representative from Fenwick & Sloane during the week of 2026-09-08 to 2026-09-11. The call is the primary channel for discussing the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-08T16:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-08T16:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

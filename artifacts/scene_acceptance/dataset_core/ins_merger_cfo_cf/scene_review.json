@@ -1,0 +1,20 @@
+{
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "actors",
+   "problem": "The actors are corporate entities, not individual decision-makers. The scene lacks specific human actors (e.g., CEO, board members) who would make the decision to close the merger.",
+   "correction": "Replace corporate actors with specific human roles, e.g., 'Aldergate Rail CEO' and 'Valdoria Metro CEO', or include board members as actors."
+  },
+  {
+   "path": "starting_events",
+   "problem": "The starting event describes the CFO's resignation as having occurred in autumn 2019, but the simulation start time is 2026-09-01. This event is historical and should not be a starting event; it should be part of the shared context or private contexts.",
+   "correction": "Remove the starting event about the CFO's resignation. Instead, include the resignation in the shared_context or private_contexts as a known fact."
+  },
+  {
+   "path": "resolution",
+   "problem": "The resolution condition 'persistent event history shows that the merger closed before the cutoff' is vague and does not specify what observable event constitutes 'closed'. The resolution should be tied to a specific observable action (e.g., a public announcement or signing).",
+   "correction": "Specify a concrete observable event, e.g., 'Resolve YES if both companies publicly announce the merger closure before the cutoff. Otherwise resolve NO at the cutoff.'"
+  }
+ ]
+}

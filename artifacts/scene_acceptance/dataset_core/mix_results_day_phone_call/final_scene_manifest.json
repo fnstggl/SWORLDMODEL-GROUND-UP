@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Femi",
+   "private_context": "Femi expects to pass. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on all Thursday morning."
+  },
+  {
+   "name": "Femi's mother",
+   "private_context": "She has told Femi she will keep her phone on all Thursday morning. She is available to receive calls."
+  }
+ ],
+ "shared_context": "Ashvale University releases exam results at 09:00 on Thursday. Femi can access his result at that time. He can call his mother using his phone. The cutoff for resolution is noon that day.",
+ "starting_events": [
+  {
+   "time": "2026-08-13T09:00:00+01:00",
+   "description": "Ashvale University releases exam results. Femi can now access his result.",
+   "visible_to": [
+    "Femi"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother with his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,88 @@
+{
+ "neighbor_a": {
+  "id": "neighbor_a",
+  "name": "Neighbor A",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T10:00:00+00:00",
+    "kind": "context",
+    "content": "Neighbor A has had some disagreements with Neighbor B recently, such as noise complaints and property boundary issues. A is frustrated but open to reconciliation if B shows willingness.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T10:00:00+00:00",
+    "kind": "context",
+    "content": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "neighbor_b": {
+  "id": "neighbor_b",
+  "name": "Neighbor B",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T10:00:00+00:00",
+    "kind": "context",
+    "content": "Neighbor B feels that Neighbor A has been unreasonable about minor issues. B is defensive but not opposed to improving relations if A makes the first move.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T10:00:00+00:00",
+    "kind": "context",
+    "content": "The two neighbors live next to each other in a suburban area. They have had a series of minor conflicts over the past few months, including noise and property lines. Both are aware of the tension but have not had a direct conversation about it recently.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

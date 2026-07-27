@@ -1,0 +1,34 @@
+{
+ "world_id": "w_8ccdd9dd85b9",
+ "actor_ids": {
+  "Founder of Tidepool": "founder_of_tidepool"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-09-03T22:00:00+00:00",
+   "visible_to_ids": [
+    "founder_of_tidepool"
+   ],
+   "description": "The viral thread is publicly visible and continues to accumulate views and engagement."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "founder_of_tidepool": {
+   "name": "Founder of Tidepool",
+   "persona_brief": "You are Founder of Tidepool.\nThe founder knows that the viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that look genuine. The head of support has privately confirmed that some takedowns happened. Two journalists have emailed for comment. The founder must decide whether to post a public response."
+  }
+ },
+ "resolution": {
+  "question": "Will the founder of the Tidepool app post a public response within one week to the viral thread accusing the company of deleting critical reviews?",
+  "resolution": "Resolve YES if the persistent event history shows that the founder posted a public response (e.g., a statement on social media, blog, or press release) before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-10T15:00:00-07:00",
+  "world_id": "w_8ccdd9dd85b9"
+ }
+}

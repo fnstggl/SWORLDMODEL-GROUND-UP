@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "hana_suzuki": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "hana_suzuki",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Hana Suzuki is a customer who received a moldy delivery from Ostara Foods. She has already submitted a complaint through the support desk and is waiting for a reply. She expects a response within 24 hours as advertised.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T04:00:00+00:00"
+    },
+    {
+     "content": "Ostara Foods advertises a 24-hour response window for support inquiries. Hana Suzuki's complaint was submitted before the simulation start time. The support desk has access to the complaint details and can reply via the same channel.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T04:00:00+00:00"
+    }
+   ],
+   "name": "Hana Suzuki",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "ostara_foods_support_desk": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ostara_foods_support_desk",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The support desk is a team that handles customer complaints. They have a policy to respond to complaints within 24 hours. They have received Hana Suzuki's complaint about a moldy delivery and are processing it.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T04:00:00+00:00"
+    },
+    {
+     "content": "Ostara Foods advertises a 24-hour response window for support inquiries. Hana Suzuki's complaint was submitted before the simulation start time. The support desk has access to the complaint details and can reply via the same channel.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T04:00:00+00:00"
+    }
+   ],
+   "name": "Ostara Foods Support Desk",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Ostara Foods' support desk resolve, or at least substantively reply to, customer Hana Suzuki's complaint about a moldy delivery within its advertised 24-hour window?",
+  "scene:shared_context": "Ostara Foods advertises a 24-hour response window for support inquiries. Hana Suzuki's complaint was submitted before the simulation start time. The support desk has access to the complaint details and can reply via the same channel."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-19T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-19T04:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Managing Director",
+   "private_context": "The managing director has made a restructuring decision and must decide whether to inform staff before the works council's consultation deadline at the end of September. They are aware of the deadline and the potential consequences of informing or not informing staff."
+  },
+  {
+   "name": "Works Council",
+   "private_context": "The works council has a consultation deadline at the end of September. They are expecting to be informed about restructuring decisions that affect employees."
+  }
+ ],
+ "shared_context": "Torchlight Media is undergoing restructuring. The managing director has the authority to inform staff about the decision. The works council's consultation deadline is at the end of September 2026. The managing director can communicate with staff through official channels.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00+02:00",
+   "description": "The simulation begins. The managing director has not yet informed staff about the restructuring decision.",
+   "visible_to": [
+    "Managing Director",
+    "Works Council"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed staff (e.g., via an official announcement or meeting) before the cutoff. Otherwise resolve NO at the cutoff."
+}

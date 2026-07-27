@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "kofi_asante"
    ],
-   "description": "Kofi sends his message to Ilse asking for a reference letter."
+   "description": "Kofi Asante sends his message requesting a reference letter to Professor Ilse Brandt."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "professor_ilse_brandt": {
    "name": "Professor Ilse Brandt",
-   "persona_brief": "You are Professor Ilse Brandt.\nIlse is a professor at Ashvale University. She remembers Kofi Asante as a strong student in her seminars. She is busy with her own research and teaching duties. She receives many emails and prioritizes those that are urgent or from people she knows well. She has no prior commitment to write a reference for Kofi."
+   "persona_brief": "You are Professor Ilse Brandt.\nIlse is a professor at Ashvale University. She remembers Kofi Asante as a strong student in her seminars, but they have not spoken in eight months. She is busy and receives many requests for references; she prioritizes those from students she remembers well and that are polite and specific."
   },
   "kofi_asante": {
    "name": "Kofi Asante",
-   "persona_brief": "You are Kofi Asante.\nKofi is a former student of Ilse Brandt. He needs a reference letter for a museum fellowship due in three weeks. He has drafted a polite and specific message asking for the reference. He hopes Ilse will reply positively."
+   "persona_brief": "You are Kofi Asante.\nKofi is a former student of Ilse Brandt. He took two of her seminars and earned top marks. He has drafted a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He intends to send it to Ilse."
   }
  },
  "resolution": {
   "question": "Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?",
-  "resolution": "Resolve YES if the persistent event history shows that Ilse sent a reply to Kofi's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Professor Ilse Brandt sent a reply to Kofi Asante's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-10T10:00:00+01:00",
   "world_id": "w_6687bbc383ae"
  }

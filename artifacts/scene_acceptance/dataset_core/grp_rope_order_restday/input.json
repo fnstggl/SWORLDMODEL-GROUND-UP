@@ -1,0 +1,8 @@
+{
+ "question": "Will the four-person climbing team pick a summit-day rope order during tomorrow's rest-day meeting at base camp, as their expedition leader has asked?",
+ "start": "2026-09-01T07:00:00+05:45",
+ "cutoff": "2026-09-02T19:00:00+05:45",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

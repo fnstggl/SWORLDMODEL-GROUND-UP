@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "marlin_bay_dockworkers_union_local_executive_board": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marlin_bay_dockworkers_union_local_executive_board",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse the memorandum.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-27T16:00:00+00:00"
+    },
+    {
+     "content": "The port automation memorandum is a proposal that the union local may endorse or oppose. The local's executive board can issue a press release stating its position. The international union endorsed a similar deal at another port last month. The hard cutoff for the resolution is 2026-08-31T09:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-27T16:00:00+00:00"
+    }
+   ],
+   "name": "Marlin Bay Dockworkers' Union Local Executive Board",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "rank_and_file_caucus": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "rank_and_file_caucus",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The caucus has been leafleting against the memorandum. They oppose the automation deal and want the local to reject it.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-27T16:00:00+00:00"
+    },
+    {
+     "content": "The port automation memorandum is a proposal that the union local may endorse or oppose. The local's executive board can issue a press release stating its position. The international union endorsed a similar deal at another port last month. The hard cutoff for the resolution is 2026-08-31T09:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-27T16:00:00+00:00"
+    }
+   ],
+   "name": "Rank-and-File Caucus",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the dockworkers' union local at Marlin Bay put out a press release before Monday saying whether it endorses the port automation memorandum?",
+  "scene:shared_context": "The port automation memorandum is a proposal that the union local may endorse or oppose. The local's executive board can issue a press release stating its position. The international union endorsed a similar deal at another port last month. The hard cutoff for the resolution is 2026-08-31T09:00:00-07:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-27T16:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-27T16:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

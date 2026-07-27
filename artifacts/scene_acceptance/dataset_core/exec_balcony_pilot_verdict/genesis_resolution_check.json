@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Veldt Solar's executive team formally shelve or greenlight the balcony-panel pilot at its quarterly review, and communicate the call to the pilot team the same week?",
+  "resolution": "Resolve YES if, before the cutoff (2026-10-16T18:00:00+02:00), the persistent event history shows that the executive team formally decided to greenlight or shelve the pilot and that decision was communicated to the pilot team. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-16T18:00:00+02:00",
+  "world_id": "w_5f236f965abf"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

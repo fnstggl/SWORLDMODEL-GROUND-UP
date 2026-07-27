@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "marguerite": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marguerite",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Marguerite is the owner of the Copper Kettle bistro. She replies to most reviews within days, usually defensively. She knows the bistro was short two servers on the night in question.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-30T13:00:00+00:00"
+    },
+    {
+     "content": "A one-star review of the Copper Kettle bistro was posted on a major review site last night (2026-08-29). The review complains about a 45-minute wait. The review site allows owners to post public replies to reviews.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-30T13:00:00+00:00"
+    }
+   ],
+   "name": "Marguerite",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
+  "scene:shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night (2026-08-29). The review complains about a 45-minute wait. The review site allows owners to post public replies to reviews."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-30T13:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-30T13:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

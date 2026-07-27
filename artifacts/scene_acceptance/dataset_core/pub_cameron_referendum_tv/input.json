@@ -1,0 +1,8 @@
+{
+ "question": "Will Prime Minister David Cameron appear in at least one televised set-piece event about the EU referendum before polling day?",
+ "start": "2016-05-02T09:00:00+01:00",
+ "cutoff": "2016-06-20T22:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

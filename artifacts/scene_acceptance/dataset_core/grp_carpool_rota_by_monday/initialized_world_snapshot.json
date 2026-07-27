@@ -1,0 +1,160 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "family_a": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "family_a",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Family A has two children who need to be driven to school. They are eager to set up a carpool to share the driving burden. They have not yet discussed specific preferences or constraints with the other families.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T21:00:00+00:00"
+    },
+    {
+     "content": "Three families live on the same cul-de-sac. They are trying to agree on a weekly driving rota for a school-run carpool before term starts on Monday morning (2026-09-07). They can communicate with each other via phone, text, or in person. No rota has been proposed yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T21:00:00+00:00"
+    }
+   ],
+   "name": "Family A",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "family_b": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "family_b",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Family B has one child. They are interested in a carpool but have a tight morning schedule and can only drive on certain days. They have not yet shared this constraint.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T21:00:00+00:00"
+    },
+    {
+     "content": "Three families live on the same cul-de-sac. They are trying to agree on a weekly driving rota for a school-run carpool before term starts on Monday morning (2026-09-07). They can communicate with each other via phone, text, or in person. No rota has been proposed yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T21:00:00+00:00"
+    }
+   ],
+   "name": "Family B",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "family_c": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "family_c",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Family C has three children. They are open to a carpool but are concerned about fitting everyone in one car. They have not yet raised this concern.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T21:00:00+00:00"
+    },
+    {
+     "content": "Three families live on the same cul-de-sac. They are trying to agree on a weekly driving rota for a school-run carpool before term starts on Monday morning (2026-09-07). They can communicate with each other via phone, text, or in person. No rota has been proposed yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T21:00:00+00:00"
+    }
+   ],
+   "name": "Family C",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
+  "scene:shared_context": "Three families live on the same cul-de-sac. They are trying to agree on a weekly driving rota for a school-run carpool before term starts on Monday morning (2026-09-07). They can communicate with each other via phone, text, or in person. No rota has been proposed yet."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T21:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T21:00:00+00:00",
+ "terminal": null,
+ "version": 14,
+ "watches": {}
+}

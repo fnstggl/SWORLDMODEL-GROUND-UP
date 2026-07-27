@@ -1,0 +1,26 @@
+{
+  "actors": [
+    {
+      "name": "Owner",
+      "private_context": "Owner has run Fenwick & Sloane for 31 years. She must decide which deputy (buying or operations) will succeed her as general manager. Her accountant has advised settling the decision before seasonal hires arrive. She has not yet made a public announcement."
+    },
+    {
+      "name": "Deputy (Buying)",
+      "private_context": "Deputy in charge of buying. Aware that staff are asking about succession. Interested in the general manager position."
+    },
+    {
+      "name": "Deputy (Operations)",
+      "private_context": "Deputy in charge of operations. Aware that staff are asking about succession. Interested in the general manager position."
+    }
+  ],
+  "shared_context": "Fenwick & Sloane is a retail store. Holiday trading starts on November 1. Staff have started asking openly about who will be the next general manager. The owner has not yet named a successor."
+,
+  "starting_events": [
+    {
+      "time": "2026-09-15T09:00:00+00:00",
+      "description": "The owner is at the store, aware of the need to decide on a successor before holiday trading starts.",
+      "visible_to": ["Owner"]
+    }
+  ],
+  "resolution": "Resolve YES if, before 2026-11-01T09:00:00+00:00, the owner publicly announces which deputy will take over as general manager (e.g., via a store-wide announcement, email, or official notice). Otherwise resolve NO at the cutoff."
+}

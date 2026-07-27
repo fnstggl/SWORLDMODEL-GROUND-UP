@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Kofi's second referee upload her letter before the fellowship portal's hard deadline 36 hours from now?",
+  "resolution": "Resolve YES if the persistent event history shows that the second referee's letter was successfully uploaded to the fellowship portal before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-15T09:00:00+00:00",
+  "world_id": "w_bbc75d0a11d7"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

@@ -1,0 +1,45 @@
+{
+ "aldergate_rail": {
+  "id": "aldergate_rail",
+  "name": "Aldergate Rail",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "Aldergate Rail is aware of a delay in its signaling contract. It has not yet decided whether to issue a market warning before its scheduled interim results day on November 5. The firm considers its obligations under market disclosure rules and the potential impact on its reputation and share price.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "Aldergate Rail is a listed company. It has a scheduled interim results day on November 5. Market regulations may require timely disclosure of material delays. The firm has a signaling contract that is experiencing a delay.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,33 @@
+{
+  "actors": [
+    {
+      "name": "Student 1",
+      "private_context": "Student 1 has prepared a chapter and wants to present it. They are open to negotiation but prefer their first choice."
+    },
+    {
+      "name": "Student 2",
+      "private_context": "Student 2 has prepared a chapter and wants to present it. They are willing to compromise if needed."
+    },
+    {
+      "name": "Student 3",
+      "private_context": "Student 3 has prepared a chapter and wants to present it. They are flexible about which chapter they present."
+    },
+    {
+      "name": "Student 4",
+      "private_context": "Student 4 has prepared a chapter and wants to present it. They are concerned about fairness and want everyone to agree."
+    },
+    {
+      "name": "Student 5",
+      "private_context": "Student 5 has prepared a chapter and wants to present it. They are shy but will speak up if their preference is ignored."
+    }
+  ],
+  "shared_context": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+  "starting_events": [
+    {
+      "time": "2026-08-19T19:00:00+08:00",
+      "description": "The five students gather for their study group meeting to discuss chapter assignments.",
+      "visible_to": ["Student 1", "Student 2", "Student 3", "Student 4", "Student 5"]
+    }
+  ],
+  "resolution": "Resolve YES if, by the cutoff time, the persistent event history shows that all five students have explicitly agreed on a specific assignment of chapters to presenters (e.g., through a verbal agreement recorded in the meeting minutes or a group message). Otherwise resolve NO."
+}

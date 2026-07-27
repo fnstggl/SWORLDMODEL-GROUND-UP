@@ -1,0 +1,88 @@
+{
+ "marlin_bay_unified_school_board_as_a_body": {
+  "id": "marlin_bay_unified_school_board_as_a_body",
+  "name": "Marlin Bay Unified school board (as a body)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "The board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board is aware that the proposal has been tabled twice and that a parent group plans to pack public comment.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can take a recorded vote at either meeting. The parent group has publicly stated they will pack the public-comment period.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "parent_group": {
+  "id": "parent_group",
+  "name": "Parent group",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "The group has organized to pack the public-comment period at the September meetings to pressure the board to take a recorded vote on the later-start-times proposal.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can take a recorded vote at either meeting. The parent group has publicly stated they will pack the public-comment period.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

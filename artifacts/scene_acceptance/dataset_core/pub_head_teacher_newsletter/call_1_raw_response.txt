@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Head Teacher",
+      "private_context": "The head teacher is aware of the upcoming inspection and decides what to include in the Friday parent newsletter. They have discretion over the newsletter's content."
+    },
+    {
+      "name": "Three Parents",
+      "private_context": "Each of the three parents is aware of the upcoming inspection and has discussed it among themselves. They hope the head teacher will address it in the newsletter but have no direct control over the decision."
+    }
+  ],
+  "shared_context": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. The head teacher is responsible for the newsletter's content. The three parents raised the inspection topic at drop-off this week.",
+  "starting_events": [
+    {
+      "time": "2026-09-22T08:00:00+01:00",
+      "description": "The three parents discussed the upcoming inspection at drop-off.",
+      "visible_to": ["Three Parents"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the head teacher included a mention of the upcoming inspection in the Friday parent newsletter sent before the cutoff. Otherwise resolve NO at the cutoff."
+}

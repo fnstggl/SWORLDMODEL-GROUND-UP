@@ -1,0 +1,40 @@
+{
+ "world_id": "w_90d5fd4c6d2b",
+ "actor_ids": {
+  "Marlin Bay Unified school board (as a body)": "marlin_bay_unified_school_board_as_a_body",
+  "Parent group": "parent_group"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T15:00:00+00:00",
+   "visible_to_ids": [
+    "marlin_bay_unified_school_board_as_a_body",
+    "parent_group"
+   ],
+   "description": "The school board's September meeting schedule is set, with the later-start-times proposal on the agenda for both meetings."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "marlin_bay_unified_school_board_as_a_body": {
+   "name": "Marlin Bay Unified school board (as a body)",
+   "persona_brief": "You are Marlin Bay Unified school board (as a body).\nThe board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board is aware that the proposal has been tabled twice and that a parent group plans to pack public comment."
+  },
+  "parent_group": {
+   "name": "Parent group",
+   "persona_brief": "You are Parent group.\nThe group has organized to pack the public-comment period at the September meetings to pressure the board to take a recorded vote on the later-start-times proposal."
+  }
+ },
+ "resolution": {
+  "question": "Will the Marlin Bay Unified school board take a recorded vote on the later-start-times proposal at either of its two September meetings?",
+  "resolution": "Resolve YES if the persistent event history shows that the school board took a recorded vote on the later-start-times proposal at either of its two September meetings before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-30T22:00:00-07:00",
+  "world_id": "w_90d5fd4c6d2b"
+ }
+}

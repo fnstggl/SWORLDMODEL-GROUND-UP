@@ -1,0 +1,40 @@
+{
+ "world_id": "w_61d700810bf9",
+ "actor_ids": {
+  "CEO": "ceo",
+  "Employees": "employees"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T07:00:00+00:00",
+   "visible_to_ids": [
+    "ceo",
+    "employees"
+   ],
+   "description": "The shutdown announcement and all-hands scheduling are known to all."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ceo": {
+   "name": "CEO",
+   "persona_brief": "You are CEO.\nThe CEO knows Torchlight Media is shutting down permanently on the 14th. They have scheduled an all-hands meeting for the 15th. They have not decided whether to take questions at that meeting."
+  },
+  "employees": {
+   "name": "Employees",
+   "persona_brief": "You are Employees.\nEmployees know the company is shutting down on the 14th and that an all-hands is scheduled for the 15th. They are uncertain whether the CEO will take questions."
+  }
+ },
+ "resolution": {
+  "question": "Torchlight Media shuts down permanently on the 14th, and its all-hands is scheduled for the 15th. Will the CEO take questions at that all-hands?",
+  "resolution": "Resolve YES if the persistent event history shows that the CEO actually took questions at the all-hands meeting on the 15th. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-16T09:00:00+02:00",
+  "world_id": "w_61d700810bf9"
+ }
+}

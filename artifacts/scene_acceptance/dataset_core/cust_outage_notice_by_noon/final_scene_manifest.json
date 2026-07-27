@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Communications Lead",
+   "private_context": "The Communications Lead is at an offsite all morning and may not be immediately reachable. They are responsible for sending incident notices to enterprise customers per the runbook."
+  },
+  {
+   "name": "Nimbus Freight (as an organization)",
+   "private_context": "Nimbus Freight has an incident runbook that requires emailing affected enterprise customers within four hours of an outage. The tracking portal has been down since 06:00. The status page already acknowledges the outage."
+  }
+ ],
+ "shared_context": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The communications lead is at an offsite all morning.",
+ "starting_events": [
+  {
+   "time": "2026-08-21T06:00:00+02:00",
+   "description": "Nimbus Freight's tracking portal goes down.",
+   "visible_to": [
+    "Nimbus Freight (as an organization)"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Nimbus Freight actually sent an incident notice email to affected enterprise customers before 2026-08-21T12:00:00+02:00. Otherwise resolve NO at the cutoff."
+}

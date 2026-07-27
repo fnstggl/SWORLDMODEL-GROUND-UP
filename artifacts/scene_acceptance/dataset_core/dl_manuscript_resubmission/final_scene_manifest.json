@@ -1,0 +1,29 @@
+{
+ "actors": [
+  {
+   "name": "Dr. Tanaka",
+   "private_context": "Tanaka is the lead author and has blocked out the final weekend (Sep 5-6) to integrate all revisions. She is aware of the 14-day deadline (Sep 7 23:59). She knows one co-author has patchy email until Sep 1."
+  },
+  {
+   "name": "Co-author A",
+   "private_context": "Co-author A is at a field station with patchy email until Sep 1. They have their part of the revisions to complete and send to Tanaka."
+  },
+  {
+   "name": "Co-author B",
+   "private_context": "Co-author B has normal email access and is responsible for their portion of the revisions. They are aware of the deadline."
+  }
+ ],
+ "shared_context": "The journal requires the revised manuscript to be uploaded by Sep 7 23:59 (14 days from initial decision). The revisions are mostly writing, not new experiments. Tanaka will integrate all parts and submit.",
+ "starting_events": [
+  {
+   "time": "2026-08-24T09:00:00+09:00",
+   "description": "The 14-day resubmission deadline clock starts. All authors are aware of the deadline.",
+   "visible_to": [
+    "Dr. Tanaka",
+    "Co-author A",
+    "Co-author B"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the revised manuscript was successfully uploaded to the journal system before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff."
+}

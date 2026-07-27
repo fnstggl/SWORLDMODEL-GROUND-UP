@@ -1,0 +1,12 @@
+{
+  "actors": [],
+  "shared_context": "A 12-volt battery has been sitting in an unheated garage at minus 20 Celsius for six weeks. The truck is present and has not been started during that period.",
+  "starting_events": [
+    {
+      "time": "2026-12-01T08:00:00-06:00",
+      "description": "The battery begins its six-week period of sitting in the unheated garage at minus 20 Celsius.",
+      "visible_to": []
+    }
+  ],
+  "resolution": "UNRESOLVABLE: The question is about a physical battery's performance, which depends on electrochemical processes and does not involve social actors or decisions. No social scene can be constructed."
+}

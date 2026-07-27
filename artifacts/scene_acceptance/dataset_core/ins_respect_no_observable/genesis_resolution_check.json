@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Amara's coworkers respect her more by the end of the quarter?",
+  "resolution": "Resolve YES if, by the cutoff, there is observable evidence (e.g., coworkers explicitly state increased respect, seek her advice more frequently, or defer to her decisions) that indicates a net increase in respect from the start. Otherwise resolve NO.",
+  "cutoff": "2026-12-31T17:00:00-04:00",
+  "world_id": "w_4cf54d8ad18a"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

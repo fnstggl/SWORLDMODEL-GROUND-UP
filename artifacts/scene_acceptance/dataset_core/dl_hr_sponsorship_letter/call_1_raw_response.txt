@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Kwame",
+      "private_context": "Kwame needs a sponsorship letter from his employer's HR team for his visa renewal. He has a visa-renewal appointment on 2026-11-09. He is anxious about getting the letter in time and may follow up with HR."
+    },
+    {
+      "name": "HR Team",
+      "private_context": "The HR team handles employment-related documentation, including sponsorship letters. They have a process for issuing such letters, but may have other priorities and workloads. They are aware of Kwame's request but have not yet issued the letter."
+    }
+  ],
+  "shared_context": "Kwame works for a company that has an HR department. He has requested a sponsorship letter for his visa renewal. The letter is not yet issued. The visa-renewal appointment is on 2026-11-09. The current time is 2026-10-26T09:00:00+01:00.",
+  "starting_events": [
+    {
+      "time": "2026-10-26T09:00:00+01:00",
+      "description": "Kwame's request for a sponsorship letter is pending with the HR team. No letter has been issued yet.",
+      "visible_to": ["Kwame", "HR Team"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

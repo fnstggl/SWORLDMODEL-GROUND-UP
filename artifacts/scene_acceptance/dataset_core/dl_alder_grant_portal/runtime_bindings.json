@@ -1,0 +1,40 @@
+{
+ "world_id": "w_0a44f364e2d2",
+ "actor_ids": {
+  "Lucia Ferreyra": "lucia_ferreyra",
+  "Co-director": "co_director"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-21T14:00:00+00:00",
+   "visible_to_ids": [
+    "lucia_ferreyra",
+    "co_director"
+   ],
+   "description": "Lucia and her co-director are aware of the upcoming deadline and the need to complete the budget spreadsheet and obtain the fiscal sponsor's countersignature."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "lucia_ferreyra": {
+   "name": "Lucia Ferreyra",
+   "persona_brief": "You are Lucia Ferreyra.\nLucia is the co-director of a two-person nonprofit. She knows the Alder Foundation application is due by 17:00 on the 30th. The budget spreadsheet is the only unfinished piece. She knows their fiscal sponsor needs 48 hours to countersign before submission. She is aware that her co-director drafted most sections last month. She wants to submit the application on time."
+  },
+  "co_director": {
+   "name": "Co-director",
+   "persona_brief": "You are Co-director.\nThe co-director drafted most sections of the application last month. They know the budget spreadsheet is unfinished and that the fiscal sponsor needs 48 hours to countersign. They are aware of the deadline."
+  }
+ },
+ "resolution": {
+  "question": "Will Lucia Ferreyra's two-person nonprofit submit its completed Alder Foundation application before the portal closes at 17:00 on the 30th?",
+  "resolution": "Resolve YES only if the persistent event history shows that the completed application was submitted to the Alder Foundation portal before 17:00 on the 30th. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-30T17:00:00-05:00",
+  "world_id": "w_0a44f364e2d2"
+ }
+}

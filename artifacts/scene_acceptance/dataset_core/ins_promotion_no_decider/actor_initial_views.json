@@ -1,0 +1,131 @@
+{
+ "employee": {
+  "id": "employee",
+  "name": "Employee",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "Employee is being considered for a promotion. They have completed the required performance review and submitted all necessary paperwork. They are hopeful but uncertain about the outcome.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion for Employee has been recommended by Manager and is pending HR review and approval.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "hr_director": {
+  "id": "hr_director",
+  "name": "HR Director",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "HR Director is responsible for processing promotions. They have received the recommendation for Employee but have not yet reviewed it. They have a backlog of other promotions and administrative tasks. They are aware of the end-of-quarter deadline but have not prioritized this specific case.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion for Employee has been recommended by Manager and is pending HR review and approval.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "manager": {
+  "id": "manager",
+  "name": "Manager",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "Manager is the direct supervisor of Employee. They have recommended Employee for promotion and submitted the recommendation to HR. They believe Employee deserves the promotion but are unsure about the timeline due to other priorities.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion for Employee has been recommended by Manager and is pending HR review and approval.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

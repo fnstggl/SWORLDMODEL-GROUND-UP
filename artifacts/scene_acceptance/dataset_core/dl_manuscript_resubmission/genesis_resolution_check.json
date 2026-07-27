@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Dr. Tanaka and her two co-authors upload their revised manuscript before the journal's fourteen-day resubmission deadline expires?",
+  "resolution": "Resolve YES if the persistent event history shows that the revised manuscript was successfully uploaded to the journal system before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-07T23:59:00+09:00",
+  "world_id": "w_c31314534ade"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

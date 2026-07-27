@@ -1,0 +1,246 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "student_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "student_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Student 1 has prepared a chapter and wants to present it. They are open to negotiation but prefer their first choice.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    },
+    {
+     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    }
+   ],
+   "name": "Student 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "student_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "student_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Student 2 has prepared a chapter and wants to present it. They are willing to compromise if needed.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    },
+    {
+     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    }
+   ],
+   "name": "Student 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "student_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "student_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Student 3 has prepared a chapter and wants to present it. They are flexible about which chapter they present.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    },
+    {
+     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    }
+   ],
+   "name": "Student 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "student_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "student_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Student 4 has prepared a chapter and wants to present it. They are concerned about fairness and want everyone to agree.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    },
+    {
+     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    }
+   ],
+   "name": "Student 4",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "student_5": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "student_5",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Student 5 has prepared a chapter and wants to present it. They are shy but will speak up if their preference is ignored.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    },
+    {
+     "content": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-19T11:00:00+00:00"
+    }
+   ],
+   "name": "Student 5",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?",
+  "scene:shared_context": "The five students are meeting tonight to decide who presents which chapter at Saturday's session. They have a list of chapters to cover, and each student has a preferred chapter. They need to reach a unanimous agreement on the assignment."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-19T11:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-19T11:00:00+00:00",
+ "terminal": null,
+ "version": 20,
+ "watches": {}
+}

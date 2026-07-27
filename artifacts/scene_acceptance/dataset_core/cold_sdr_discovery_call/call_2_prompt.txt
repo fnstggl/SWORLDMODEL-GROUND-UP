@@ -20,10 +20,17 @@ Check, specifically:
 
 You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
 
+INSUFFICIENCY BEATS PLAUSIBILITY.  A plausible-looking scene about nobody in particular must NOT be approved.  ABSTAIN (do not approve, do not revise) when the scene rests on any of these:
+- generic placeholder actors ("CEO", "Applicant", "Neighbor A", "User") standing in for parties the question never identifies -- an unnamed but uniquely identified person from the question/context is legitimate; an invented stand-in for an unspecified party is not;
+- a past counterfactual dressed up as a future simulation;
+- a self-contradictory or impossible premise treated as workable;
+- an internal state (regret, respect, morale, opinions) resolved through a proxy the user never provided;
+- referents ("the company", "the permit", "this message") that resolve to nothing in the question or context.
+
 Verdicts:
 - APPROVE: the scene may run as-is (defects must be empty).
 - REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
-- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, is not simulatable as a social scene, or trips the insufficiency rules above; explain in one defect entry with path "scene".
 
 Reply with ONLY a JSON object matching this exact schema:
 {
@@ -94,14 +101,10 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Gustavo",
-   "private_context": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails. He wants to secure discovery calls."
-  },
-  {
-   "name": "Procurement leads (40 individuals)",
-   "private_context": "Each lead is a procurement professional at a mid-market manufacturer in the Pacific Northwest. They receive many cold emails daily and may or may not respond to unsolicited outreach. They have no prior relationship with Gustavo."
+   "private_context": "Gustavo is a mid-tier sales rep at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one discovery call per sixty cold emails."
   }
  ],
- "shared_context": "Gustavo has email addresses for the forty procurement leads. He can send cold emails to them through standard email channels. The leads can reply to schedule a discovery call. The cutoff for resolution is 2026-08-31T17:00:00-07:00.",
+ "shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to these leads through standard email channels. The leads may or may not respond to such emails.",
  "starting_events": [
   {
    "time": "2026-08-03T08:00:00-07:00",
@@ -111,7 +114,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads actually sent a reply agreeing to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least one of the forty leads actually sent a reply agreeing to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

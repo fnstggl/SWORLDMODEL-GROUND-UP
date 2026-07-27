@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?",
+  "resolution": "Resolve YES if, by 2012-10-08T21:00:00-04:00, the persistent event history shows that at least three distinct major national polling organizations publicly released a new head-to-head survey of the Obama-Romney race during the period from 2012-10-01T09:00:00-04:00 to 2012-10-08T21:00:00-04:00. Otherwise resolve NO.",
+  "cutoff": "2012-10-08T21:00:00-04:00",
+  "world_id": "w_7998b7b6396a"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

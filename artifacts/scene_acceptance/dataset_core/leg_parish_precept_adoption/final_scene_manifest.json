@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Chair of Kettlewell Parish Council",
+   "private_context": "The chair is responsible for running the meeting. They have seen the draft precept and are aware of some members' concerns. They want to ensure the precept is adopted in accordance with standing orders."
+  },
+  {
+   "name": "Clerk of Kettlewell Parish Council",
+   "private_context": "The clerk prepared the draft precept and circulated it to members. They are responsible for taking minutes and ensuring procedural correctness. They have no personal stake in the amount."
+  },
+  {
+   "name": "Councillor Smith",
+   "private_context": "Councillor Smith is a member of the council. They have concerns that the proposed precept amount is too high and may seek to amend it or delay the vote."
+  }
+ ],
+ "shared_context": "Kettlewell Parish Council's January meeting is scheduled for the second Tuesday of January 2027 (which is 2027-01-12). The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting. The simulation starts before the meeting, on 2027-01-04.",
+ "starting_events": [],
+ "resolution": "Resolve YES if a motion to adopt the precept is passed by a majority vote at the January meeting and recorded in the minutes before the cutoff. Otherwise resolve NO at the cutoff."
+}

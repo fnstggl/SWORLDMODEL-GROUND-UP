@@ -1,0 +1,8 @@
+{
+ "question": "During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?",
+ "start": "2012-10-01T09:00:00-04:00",
+ "cutoff": "2012-10-08T21:00:00-04:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

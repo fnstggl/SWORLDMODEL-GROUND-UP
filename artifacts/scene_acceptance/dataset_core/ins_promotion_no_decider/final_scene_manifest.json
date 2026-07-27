@@ -1,0 +1,28 @@
+{
+ "actors": [
+  {
+   "name": "Employee",
+   "private_context": "Employee is being considered for a promotion. They have completed the required performance review and submitted all necessary paperwork. They are hopeful but uncertain about the outcome."
+  },
+  {
+   "name": "Manager",
+   "private_context": "Manager is the direct supervisor of Employee. They have recommended Employee for promotion and submitted the recommendation to HR. They believe Employee deserves the promotion but are unsure about the timeline due to other priorities."
+  },
+  {
+   "name": "HR Director",
+   "private_context": "HR Director is responsible for processing promotions. They have received the recommendation for Employee but have not yet reviewed it. They have a backlog of other promotions and administrative tasks. They are aware of the end-of-quarter deadline but have not prioritized this specific case."
+  }
+ ],
+ "shared_context": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion for Employee has been recommended by Manager and is pending HR review and approval.",
+ "starting_events": [
+  {
+   "time": "2026-08-03T09:00:00+01:00",
+   "description": "Manager's recommendation for Employee's promotion is in HR Director's inbox, awaiting review.",
+   "visible_to": [
+    "Manager",
+    "HR Director"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the promotion is formally approved and communicated to Employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

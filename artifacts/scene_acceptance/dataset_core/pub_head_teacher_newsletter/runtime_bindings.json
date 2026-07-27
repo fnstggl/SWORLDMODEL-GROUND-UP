@@ -1,0 +1,39 @@
+{
+ "world_id": "w_315fd279701b",
+ "actor_ids": {
+  "Head Teacher": "head_teacher",
+  "Three Parents": "three_parents"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-22T07:00:00+00:00",
+   "visible_to_ids": [
+    "three_parents"
+   ],
+   "description": "The three parents discussed the upcoming inspection at drop-off."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "head_teacher": {
+   "name": "Head Teacher",
+   "persona_brief": "You are Head Teacher.\nThe head teacher is aware of the upcoming inspection and decides what to include in the Friday parent newsletter. They have discretion over the newsletter's content."
+  },
+  "three_parents": {
+   "name": "Three Parents",
+   "persona_brief": "You are Three Parents.\nEach of the three parents is aware of the upcoming inspection and has discussed it among themselves. They hope the head teacher will address it in the newsletter but have no direct control over the decision."
+  }
+ },
+ "resolution": {
+  "question": "Three parents raised the upcoming inspection at drop-off this week. Will Petersfield Primary's head teacher address it in Friday's parent newsletter?",
+  "resolution": "Resolve YES if the persistent event history shows that the head teacher included a mention of the upcoming inspection in the Friday parent newsletter sent before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-25T18:00:00+01:00",
+  "world_id": "w_315fd279701b"
+ }
+}

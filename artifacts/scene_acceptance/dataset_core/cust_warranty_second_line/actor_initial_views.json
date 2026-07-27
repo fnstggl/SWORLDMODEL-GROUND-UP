@@ -1,0 +1,88 @@
+{
+ "manufacturer_s_second_line_team": {
+  "id": "manufacturer_s_second_line_team",
+  "name": "Manufacturer's second-line team",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-05T04:00:00+00:00",
+    "kind": "context",
+    "content": "The second-line team handles escalated warranty claims. They have a queue of claims and aim to respond within ten working days as per their quoted policy. They have received Rustam's escalated claim and have the necessary information to make a decision.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-05T04:00:00+00:00",
+    "kind": "context",
+    "content": "Rustam's washing machine failed and he filed a warranty claim. The claim was escalated to the manufacturer's second-line team. Yesterday (2026-08-04), the manufacturer sent an email to Rustam stating that the second-line team would make a decision within ten working days. The ten working days count from 2026-08-05 to 2026-08-18 (excluding weekends). The hard cutoff for resolution is 2026-08-19T18:00:00+05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "rustam": {
+  "id": "rustam",
+  "name": "Rustam",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-05T04:00:00+00:00",
+    "kind": "context",
+    "content": "Rustam has a failed washing machine and has escalated his warranty claim. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team would make a decision within ten working days. He wants a decision by the cutoff.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-05T04:00:00+00:00",
+    "kind": "context",
+    "content": "Rustam's washing machine failed and he filed a warranty claim. The claim was escalated to the manufacturer's second-line team. Yesterday (2026-08-04), the manufacturer sent an email to Rustam stating that the second-line team would make a decision within ten working days. The ten working days count from 2026-08-05 to 2026-08-18 (excluding weekends). The hard cutoff for resolution is 2026-08-19T18:00:00+05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

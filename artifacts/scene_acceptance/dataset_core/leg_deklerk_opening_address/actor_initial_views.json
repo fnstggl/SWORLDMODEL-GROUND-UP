@@ -1,0 +1,45 @@
+{
+ "f_w_de_klerk": {
+  "id": "f_w_de_klerk",
+  "name": "F. W. de Klerk",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "1990-01-20T07:00:00+00:00",
+    "kind": "context",
+    "content": "De Klerk is the State President of South Africa. He is considering whether to deliver the customary opening address to Parliament in February 1990. He has not yet made a final decision, but is aware of the tradition and the political implications.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "1990-01-20T07:00:00+00:00",
+    "kind": "context",
+    "content": "The South African Parliament is scheduled to open in the first week of February 1990. Customarily, the State President delivers an opening address. The date and time of the opening are set, but it is not yet known whether de Klerk will personally attend and speak.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

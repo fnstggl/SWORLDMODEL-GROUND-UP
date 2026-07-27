@@ -23,13 +23,13 @@
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Maya is a tenant who texted her landlord Stavros this morning about a broken water heater. She hopes for a prompt reply.",
+    "content": "Maya texted her landlord Stavros this morning about a broken water heater. She hopes for a reply soon.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Maya Okonkwo texted Stavros about a broken water heater on the morning of 2026-07-28. Stavros has a phone capable of receiving and replying to texts. The cutoff for resolution is 2026-07-29T20:00:00-04:00.",
+    "content": "Maya Okonkwo is a tenant. Stavros is her landlord. The water heater is broken. Maya sent a text message to Stavros this morning (2026-07-28) about the issue. Stavros has the message and can reply via text.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Stavros is a landlord who receives tenant maintenance requests. He may prioritize based on urgency and his schedule. He has not yet replied to Maya's message.",
+    "content": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply depending on his schedule and priorities.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-28T12:30:00+00:00",
     "kind": "context",
-    "content": "Maya Okonkwo texted Stavros about a broken water heater on the morning of 2026-07-28. Stavros has a phone capable of receiving and replying to texts. The cutoff for resolution is 2026-07-29T20:00:00-04:00.",
+    "content": "Maya Okonkwo is a tenant. Stavros is her landlord. The water heater is broken. Maya sent a text message to Stavros this morning (2026-07-28) about the issue. Stavros has the message and can reply via text.",
     "source": "scene_manifest:shared_context"
    }
   ],

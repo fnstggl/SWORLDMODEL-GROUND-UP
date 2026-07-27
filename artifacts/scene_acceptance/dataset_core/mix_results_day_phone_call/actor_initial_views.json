@@ -1,0 +1,88 @@
+{
+ "femi": {
+  "id": "femi",
+  "name": "Femi",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-13T08:00:00+00:00",
+    "kind": "context",
+    "content": "Femi expects to pass. He has phoned his mother within an hour of every results release since his first year. He knows his mother will keep her phone on all Thursday morning.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-13T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University releases exam results at 09:00 on Thursday. Femi can access his result at that time. He can call his mother using his phone. The cutoff for resolution is noon that day.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "femi_s_mother": {
+  "id": "femi_s_mother",
+  "name": "Femi's mother",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-13T08:00:00+00:00",
+    "kind": "context",
+    "content": "She has told Femi she will keep her phone on all Thursday morning. She is available to receive calls.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-13T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University releases exam results at 09:00 on Thursday. Femi can access his result at that time. He can call his mother using his phone. The cutoff for resolution is noon that day.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

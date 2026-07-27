@@ -1,0 +1,88 @@
+{
+ "petition_organizers": {
+  "id": "petition_organizers",
+  "name": "Petition Organizers",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "They have gathered 400 signatures so far, mostly at the farmers market. They need 1,500 total to trigger a council debate. They are aware of the six-week deadline and the counter-flyer from the quarry operator.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Riverton has 19,000 residents. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks (2026-09-14T17:00:00-06:00). The organizers have collected 400 signatures in the first fortnight. The quarry operator distributed a counter-flyer last week.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "quarry_operator": {
+  "id": "quarry_operator",
+  "name": "Quarry Operator",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "They distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to avoid the council debate.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Riverton has 19,000 residents. The petition needs 1,500 signatures to trigger a council debate. The submission deadline is in six weeks (2026-09-14T17:00:00-06:00). The organizers have collected 400 signatures in the first fortnight. The quarry operator distributed a counter-flyer last week.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

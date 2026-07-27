@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Aldergate Rail",
+      "private_context": "Aldergate Rail is aware of a delay in its signaling contract. It has not yet decided whether to issue a market warning before its scheduled interim results day on November 5. The firm considers its obligations under market disclosure rules and the potential impact on its reputation and share price."
+    }
+  ],
+  "shared_context": "Aldergate Rail is a listed company. It has a scheduled interim results day on November 5. Market regulations may require timely disclosure of material delays. The firm has a signaling contract that is experiencing a delay.",
+  "starting_events": [
+    {
+      "time": "2026-10-01T08:00:00+00:00",
+      "description": "Aldergate Rail is aware of the signaling-contract delay and is considering whether to warn the market before the interim results day.",
+      "visible_to": ["Aldergate Rail"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Aldergate Rail issued a market warning about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff."
+}
