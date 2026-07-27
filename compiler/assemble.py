@@ -1051,21 +1051,35 @@ class Assembler:
                 continue
             operators = sorted({
                 e.src for e in self.graph.edges_to(pr.id, "has_authority")})
-            if not operators:
-                # fallback: the conditions this process produces co-require
-                # states owned by whoever's stock it feeds -- the spine's
-                # own neighborhood names the owner
-                owners = set()
-                for e in self.graph.edges_from(pr.id, "produces"):
-                    if self.graph.node(e.dst).category != "state":
-                        continue
-                    for sib in self.graph.prerequisites_of(e.dst):
-                        for hs in self.graph.edges_to(sib.dst, "has_state"):
-                            owners.add(hs.src)
-                operators = sorted(owners)
             held = sorted({rs.id for rs in self.graph.by_category("resource")
                            for op in operators
                            if rs.attrs.get("holder") == op})
+            if not held:
+                # fallback: the spine's own neighborhood names the stock.
+                # Conditions this process produces, or that co-require it,
+                # sit beside the state or resource of whoever it feeds --
+                # 'centre has enough' requires the collections AND the
+                # centre's stock.
+                near = set()
+                for e in self.graph.edges_from(pr.id, "produces"):
+                    if self.graph.node(e.dst).category == "state":
+                        near.add(e.dst)
+                for e in self.graph.edges_to(pr.id, "requires"):
+                    if self.graph.node(e.src).category == "state":
+                        near.add(e.src)
+                owners, direct = set(), set()
+                for cond in near:
+                    for sib in self.graph.prerequisites_of(cond):
+                        n = self.graph.node(sib.dst)
+                        if n.category == "resource":
+                            direct.add(sib.dst)
+                        elif n.category == "state":
+                            for hs in self.graph.edges_to(sib.dst,
+                                                          "has_state"):
+                                owners.add(hs.src)
+                held = sorted(direct) or sorted(
+                    {rs.id for rs in self.graph.by_category("resource")
+                     for op in owners if rs.attrs.get("holder") == op})
             if len(held) == 1:
                 edge = self.graph.add_edge(
                     pr.id, "changes", held[0],

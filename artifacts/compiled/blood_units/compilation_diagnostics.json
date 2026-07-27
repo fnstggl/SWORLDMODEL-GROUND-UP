@@ -1,0 +1,24 @@
+{
+  "detail": {
+    "review": {
+      "causal_path": [
+        "Monday 9 AM: Hospital holds 15 units, centre holds 40 units.",
+        "Collection process runs but adds no units (decorative).",
+        "Tuesday 4 PM: Centre attempts to dispatch 150 units but has insufficient stock; no shipment.",
+        "Thursday 4 PM: Similarly, insufficient stock; no shipment.",
+        "Friday noon: Hospital still holds 15 units."
+      ],
+      "defects": [
+        {
+          "document": "causal_spine",
+          "what": "Collection process not linked to centre stock; processes 'collection_process_monday_to_thursday' and 'collection_process_monday_to_tuesday' are decorative and do not update centre's inventory.",
+          "why_material": "Without collections, centre never reaches 150 units to dispatch shipments; answer becomes 15 instead of potentially 315 units (15 initial + 150 Tuesday + 150 Thursday)."
+        }
+      ],
+      "reasoning": "The world fails to connect the mobile collection drive's collection process to the blood centre's stock. The mechanical proof flags the collection processes as 'decorative', meaning they do not actually add units. This severs the causal chain: the centre cannot accumulate enough stock to dispatch the Tuesday and Thursday shipments, so the simulation will produce an answer (15 units) that contradicts the evidence that collections occur and could enable shipments. This is a material defect that changes the outcome.",
+      "verdict": "TARGETED_REVISION"
+    }
+  },
+  "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+  "stage": "REALITY_REVIEW_REJECTED"
+}

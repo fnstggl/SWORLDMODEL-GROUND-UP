@@ -1,0 +1,114 @@
+{
+  "assignments": [
+    {
+      "step": "hospital_holds_units_at_deadline",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The courier that transports the shipment from the centre to the hospital and delivers it.",
+          "name": "Courier service"
+        }
+      ],
+      "step": "thursday_shipment_received"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre that dispatches the shipment.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "thursday_shipment_dispatched"
+    },
+    {
+      "step": "centre_has_enough_stock_for_thursday_shipment",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The courier that transports the shipment from the centre to the hospital and delivers it.",
+          "name": "Courier service"
+        }
+      ],
+      "step": "tuesday_shipment_received"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "organization",
+          "meaning": "The blood centre that dispatches the shipment.",
+          "name": "Cascade regional blood centre"
+        }
+      ],
+      "step": "tuesday_shipment_dispatched"
+    },
+    {
+      "step": "centre_has_enough_stock_for_tuesday_shipment",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ],
+          "kind": "operating_process",
+          "meaning": "The drive collects units at 12 per hour while open.",
+          "name": "Mobile collection drive"
+        }
+      ],
+      "step": "collection_process_monday_to_thursday"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1",
+            "e2"
+          ],
+          "kind": "operating_process",
+          "meaning": "The drive collects units at 12 per hour while open.",
+          "name": "Mobile collection drive"
+        }
+      ],
+      "step": "collection_process_monday_to_tuesday"
+    },
+    {
+      "producers": [],
+      "step": "drive_open_monday_to_friday"
+    },
+    {
+      "producers": [],
+      "step": "initial_centre_stock"
+    },
+    {
+      "producers": [],
+      "step": "initial_hospital_stock"
+    }
+  ]
+}

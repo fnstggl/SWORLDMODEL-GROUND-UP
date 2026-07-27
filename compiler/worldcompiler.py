@@ -185,6 +185,17 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             metrics["proofs_ms"] = round(
                 (wallclock.monotonic() - t0) * 1000, 1)
 
+            # ---- binding BEFORE the review: the reviewer must see the
+            # fully wired world (rates, amounts, stock connections), not
+            # a pre-binding skeleton it would misjudge as decorative ----
+            from .binding import connect_process_outputs
+            t0 = wallclock.monotonic()
+            bind_world(graph, call=call, model=model, into=bindings)
+            connect_process_outputs(graph, bindings)
+            metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
+            _wj(os.path.join(outdir, "canonical_world_graph.json"),
+                graph.to_dict())
+
             # ---- independent causal-reality review -------------------
             from .reality import raise_for, review_reality
             t0 = wallclock.monotonic()
@@ -260,22 +271,8 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
                     ("uncertainty_and_exclusions", disc.uncertainty)):
                 _wj(os.path.join(outdir, f"{name}.json"), doc)
 
-    # ---- binding -----------------------------------------------------
-    from .binding import connect_process_outputs
-    t0 = wallclock.monotonic()
-    try:
-        bind_world(graph, call=call, model=model, into=bindings)
-        connect_process_outputs(graph, bindings)
-        _wj(os.path.join(outdir, "canonical_world_graph.json"),
-            graph.to_dict())          # rewrite: connections were added
-        stop = None
-    except CompilationStop as exc:
-        stop = exc
-    metrics["model_ms"] += (wallclock.monotonic() - t0) * 1000
     metrics["binding_calls"] = len(bindings.calls)
     metrics["repairs_by_step"].update(bindings.repairs)
-    if stop is not None:
-        return finish_failure(stop)
 
     # ---- deterministic emission + existing validation + lowering -----
     try:
