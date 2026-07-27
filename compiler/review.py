@@ -26,10 +26,25 @@ absence is correct, not a gap.
 - Every participant automatically has two universal actions: transmitting \
 information to anyone they have a route to, and reading information they \
 have noticed.
+- Information moves mechanically: created -> sent -> delivered (channel \
+latency) -> noticed ONLY through the recipient's declared, provenance-\
+labeled attention pattern (their real checking habits).  Without a \
+declared pattern, delivered information stays unnoticed FOREVER; checking \
+frequency cannot "emerge from the actor model", so demanding a pattern's \
+removal produces an impossible world.  A labeled estimate (reported \
+habits, or inference from comparable people) is the correct realism; \
+attack its VALUE only if evidence contradicts it.
+- Noticing automatically wakes the recipient's actor model to decide what \
+to do next (including replying via the universal transmit action).  No \
+extra "decide" action, scheduled wake, or watch is needed beyond \
+attention plus routes.
 - Chance is NOT a runtime primitive.  A numeric "probability" fact is a \
 DEFECT (it pre-writes the outcome): demand declared uncertainty instead, \
 never a probabilistic mechanism.  Whether things happen emerges from the \
-run; likelihoods emerge later across many runs."""
+run; likelihoods emerge later across many runs.
+Approve when the world is as faithful as the available evidence permits, \
+with honest labels on the rest -- demand fixes only for material \
+distortions you can name.  Perfection beyond the evidence is not the bar."""
 
 _REALITY_PREAMBLE = """You are an adversarial reality reviewer for a \
 simulation compiler.  A described world will be simulated to answer a real \
