@@ -151,10 +151,14 @@ def describe_graph(graph: WorldGraph, question: dict,
             tgt = graph.node(e.dst)
             spec = (bd.get("amounts") or {}).get(tgt.name)
             if spec and spec.get("kind") == "transfer":
-                out.append(f"  transfers {spec.get('amount')} of "
-                           f"{tgt.name} from {spec.get('from')} to "
+                label = tgt.attrs.get("substance") or tgt.name
+                measured_note = (" -- this credits the measured stock"
+                                 if tgt.id in graph.measured_components()
+                                 else "")
+                out.append(f"  transfers {spec.get('amount')} units of "
+                           f"{label} from {spec.get('from')} to "
                            f"{spec.get('to')} (source deducted, "
-                           f"destination credited)")
+                           f"destination credited{measured_note})")
             elif spec:
                 out.append(f"  adjusts {tgt.name} by "
                            f"{spec.get('amount')}")

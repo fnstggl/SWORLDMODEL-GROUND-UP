@@ -1,0 +1,33 @@
+{
+  "causal_path": [
+    "Hospital starts with 15 units.",
+    "Cascade centre collects 96 units Monday.",
+    "Cascade centre collects 84 units Tuesday before 4 PM.",
+    "Cascade centre dispatches 150 units Tuesday at 4 PM, arriving by Tuesday evening.",
+    "Hospital receives 150 units Tuesday (total 165).",
+    "Cascade centre collects 96 units Wednesday.",
+    "Cascade centre collects 84 units Thursday before 4 PM.",
+    "Cascade centre dispatches 150 units Thursday at 4 PM, arriving by Thursday evening.",
+    "Hospital receives 150 units Thursday (total 315).",
+    "At Friday noon, hospital holds 315 usable blood units."
+  ],
+  "defects": [
+    {
+      "document": "starting_state_and_information",
+      "what": "Inconsistent initial stock: 'initial_stock' is set to 15 with description 'centre held 40', and 'centre_initial_stock' is also true. This creates ambiguity over the centre's starting stock.",
+      "why_material": "If the centre starts with 15 instead of 40, it may not have enough stock to dispatch 150-unit shipments, altering the terminal count."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Scheduled events 'tuesday_shipment' and 'thursday_shipment' transfer 150 of 'hospital_units_at_deadline' from centre to hospital. 'hospital_units_at_deadline' is the terminal metric, not a stock variable; no stock is deducted or added correctly.",
+      "why_material": "The transfer cannot execute, so the hospital never receives the shipments, resulting in a terminal count of only the initial 15 units."
+    },
+    {
+      "document": "causal_spine",
+      "what": "Continuous processes accrue into 'initial_stock', but 'initial_stock' is ambiguous: it could refer to the centre's stock or the hospital's initial 15 units. Collections should accrue into the centre's stock.",
+      "why_material": "If collections accrue into the hospital's stock instead of the centre's, the centre cannot accumulate stock for shipments, and hospital stock would inflate incorrectly, potentially reaching the terminal count without shipments."
+    }
+  ],
+  "reasoning": "The world has critical defects: ambiguous initial stock values (initial_stock conflicting with centre_initial_stock), incorrect transfer source/destination (using terminal metric as a stock variable), and unclear accrual target for collections. These errors would prevent correct simulation of the causal chain, leading to an incorrect terminal count.",
+  "verdict": "TARGETED_REVISION"
+}

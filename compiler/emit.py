@@ -242,16 +242,24 @@ class Emitter:
                             union(matches[0].id, rid)
         # a process and the stocks it feeds share the substance already
         # (changes edges); nothing to unify there beyond names below
-        measured = set(self.g.measured_components())
         groups: dict = {}
         for rs in self.g.by_category("resource"):
             groups.setdefault(find(rs.id), []).append(rs.id)
         self._substance = {}
         for members in groups.values():
-            canon = next((m for m in sorted(members) if m in measured),
-                         sorted(members)[0])
+            # the substance deserves its most natural name: an explicit
+            # substance attr first, else the shortest member name -- never
+            # the deadline-flavored metric label
+            def rank(m):
+                n = self.g.node(m)
+                sub = n.attrs.get("substance")
+                label = sub or n.name
+                return (0 if sub else 1, len(label), label)
+            canon = min(members, key=rank)
+            cn = self.g.node(canon)
+            name = cn.attrs.get("substance") or cn.name
             for m in members:
-                self._substance[m] = self.g.node(canon).name
+                self._substance[m] = name
 
     def _qty_name(self, rid: str) -> str:
         return self._substance.get(rid, self.g.node(rid).name)
