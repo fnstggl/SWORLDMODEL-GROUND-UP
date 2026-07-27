@@ -1,0 +1,27 @@
+{
+ "actors": [
+  {
+   "name": "Rosa Maria",
+   "private_context": "Rosa Maria is Jonas's manager. She has prepared a promotion case for Jonas and intends to submit it for calibration and VP sign-off. She believes Jonas deserves the promotion and is motivated to see it through."
+  },
+  {
+   "name": "Calibration Committee",
+   "private_context": "The calibration committee reviews promotion cases and decides whether to approve them. They have no prior knowledge of Jonas's case."
+  },
+  {
+   "name": "VP",
+   "private_context": "The VP has the authority to sign off on promotions after calibration approval. They have no prior knowledge of Jonas's case."
+  }
+ ],
+ "shared_context": "Promotion letters are scheduled to go out on November 15. The promotion process requires calibration committee approval followed by VP sign-off. Rosa Maria can submit Jonas's promotion case to the calibration committee. The committee may approve or reject the case; if approved, it goes to the VP for sign-off.",
+ "starting_events": [
+  {
+   "time": "2026-10-05T09:00:00-08:00",
+   "description": "Rosa Maria begins preparing Jonas's promotion case for submission.",
+   "visible_to": [
+    "Rosa Maria"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the calibration committee approved Jonas's promotion case and the VP signed off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff."
+}

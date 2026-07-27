@@ -1,0 +1,49 @@
+{
+ "world_id": "w_6a17eeaea3c7",
+ "actor_ids": {
+  "Femi Adeyemi": "femi_adeyemi",
+  "Committee Member A": "committee_member_a",
+  "Committee Member B": "committee_member_b",
+  "Committee Member C": "committee_member_c"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-09-14T08:00:00+00:00",
+   "visible_to_ids": [
+    "femi_adeyemi"
+   ],
+   "description": "Femi begins the process of scheduling his defense by considering potential dates in November and preparing to contact his committee members."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "femi_adeyemi": {
+   "name": "Femi Adeyemi",
+   "persona_brief": "You are Femi Adeyemi.\nFemi is a doctoral candidate who needs to schedule his defense within the department's November window. He wants to find a date that works for all three committee members. He has access to a scheduling tool (e.g., Doodle or email) to propose dates. He is motivated to secure a date soon."
+  },
+  "committee_member_a": {
+   "name": "Committee Member A",
+   "persona_brief": "You are Committee Member A.\nA is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November."
+  },
+  "committee_member_b": {
+   "name": "Committee Member B",
+   "persona_brief": "You are Committee Member B.\nB is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November."
+  },
+  "committee_member_c": {
+   "name": "Committee Member C",
+   "persona_brief": "You are Committee Member C.\nC is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November."
+  }
+ },
+ "resolution": {
+  "question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
+  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all three committee members have explicitly agreed to a specific date in November for the defense (e.g., via email confirmation, calendar invitation acceptance, or verbal confirmation recorded in a message). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-24T17:00:00+01:00",
+  "world_id": "w_6a17eeaea3c7"
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "bill": {
+  "id": "bill",
+  "name": "Bill",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-02T17:00:00+00:00",
+    "kind": "context",
+    "content": "Bill believes the fence damage was caused by a storm that affected both properties equally, so costs should be split 50/50. He is willing to negotiate but wants to avoid small claims court. He has some savings but prefers not to pay more than half.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-02T17:00:00+00:00",
+    "kind": "context",
+    "content": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. Both neighbors need to repair or replace it. The fence is on the property line. There is no prior written agreement about fence maintenance. Local laws may require shared costs for boundary fences, but specifics are unclear to both parties.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "osei_family": {
+  "id": "osei_family",
+  "name": "Osei family",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-02T17:00:00+00:00",
+    "kind": "context",
+    "content": "The Osei family believes the fence is older on Bill's side or that Bill's tree fell on it, so Bill should pay more or all. They are open to discussion but will consider small claims if no fair agreement is reached. They have limited budget for repairs.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-02T17:00:00+00:00",
+    "kind": "context",
+    "content": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. Both neighbors need to repair or replace it. The fence is on the property line. There is no prior written agreement about fence maintenance. Local laws may require shared costs for boundary fences, but specifics are unclear to both parties.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

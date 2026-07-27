@@ -1,0 +1,88 @@
+{
+ "amara": {
+  "id": "amara",
+  "name": "Amara",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-30T22:00:00+00:00",
+    "kind": "context",
+    "content": "Amara is the tenant. She wants to hold the increase to 4%. She has paid on time for four years and knows comparable one-bedrooms nearby list about 5% above her current rent. She is considering her options, including moving if the increase is too high.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-30T22:00:00+00:00",
+    "kind": "context",
+    "content": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026). Gerald has proposed a 9% increase; Amara wants 4%. They have not yet reached an agreement. They can communicate to negotiate a renewal figure before the lease ends.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "gerald": {
+  "id": "gerald",
+  "name": "Gerald",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-30T22:00:00+00:00",
+    "kind": "context",
+    "content": "Gerald is the landlord. He proposed a 9% rent increase. He wants to maximize rental income but is aware that the building has two vacant units and that Amara has been a reliable tenant for four years. He is willing to negotiate but has a bottom line he hasn't disclosed.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-30T22:00:00+00:00",
+    "kind": "context",
+    "content": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026). Gerald has proposed a 9% increase; Amara wants 4%. They have not yet reached an agreement. They can communicate to negotiate a renewal figure before the lease ends.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

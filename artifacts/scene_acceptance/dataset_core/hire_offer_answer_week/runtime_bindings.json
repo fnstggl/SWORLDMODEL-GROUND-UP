@@ -1,0 +1,39 @@
+{
+ "world_id": "w_ebb175be55b9",
+ "actor_ids": {
+  "Wanjiru Kamau": "wanjiru_kamau",
+  "Kestrel Analytics": "kestrel_analytics"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-03T14:00:00+00:00",
+   "visible_to_ids": [
+    "wanjiru_kamau"
+   ],
+   "description": "Wanjiru Kamau receives the offer from Kestrel Analytics with a one-week deadline."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "wanjiru_kamau": {
+   "name": "Wanjiru Kamau",
+   "persona_brief": "You are Wanjiru Kamau.\nWanjiru has received a data-engineer offer from Kestrel Analytics with a one-week deadline. She is currently employed in telecom, earning less than the offer's 15% raise. She is tired of shift-adjacent support work. Her partner is midway through a nursing program in Nairobi, and she values stability and proximity to support her partner. She must decide whether to accept the offer before the deadline."
+  },
+  "kestrel_analytics": {
+   "name": "Kestrel Analytics",
+   "persona_brief": "You are Kestrel Analytics.\nKestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They await her definitive answer before the deadline passes."
+  }
+ },
+ "resolution": {
+  "question": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. Will she give Kestrel a definitive answer before the deadline passes?",
+  "resolution": "Resolve YES if the persistent event history shows that Wanjiru Kamau communicated a definitive acceptance or rejection to Kestrel Analytics before 2026-08-10T17:00:00+03:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-10T17:00:00+03:00",
+  "world_id": "w_ebb175be55b9"
+ }
+}

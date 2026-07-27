@@ -1,0 +1,40 @@
+{
+ "world_id": "w_53084529bcac",
+ "actor_ids": {
+  "Nurse Karolina": "nurse_karolina",
+  "Colleagues in the ward": "colleagues_in_the_ward"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-12T05:30:00+00:00",
+   "visible_to_ids": [
+    "nurse_karolina",
+    "colleagues_in_the_ward"
+   ],
+   "description": "Nurse Karolina posts a request in the ward's swap channel asking someone to take her Sunday night shift."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "nurse_karolina": {
+   "name": "Nurse Karolina",
+   "persona_brief": "You are Nurse Karolina.\nKarolina wants someone to take her Sunday night shift. She posted a request in the ward's swap channel. She has no particular colleague in mind."
+  },
+  "colleagues_in_the_ward": {
+   "name": "Colleagues in the ward",
+   "persona_brief": "You are Colleagues in the ward.\nEach colleague sees the swap channel and may consider taking the shift based on their own preferences and availability. They have no prior commitment to Karolina regarding this shift."
+  }
+ },
+ "resolution": {
+  "question": "Nurse Karolina posted in her ward's swap channel asking someone to take her Sunday night shift. Will a colleague claim it before the rota locks Friday at 15:00?",
+  "resolution": "Resolve YES if the persistent event history shows that any colleague actually claimed the shift (e.g., by posting a reply or updating the rota) before the cutoff at 2026-08-14T15:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-14T15:00:00+02:00",
+  "world_id": "w_53084529bcac"
+ }
+}

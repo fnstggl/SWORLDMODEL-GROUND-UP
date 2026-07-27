@@ -1,0 +1,44 @@
+{
+ "world_id": "w_e3126859ec6d",
+ "actor_ids": {
+  "Rosa Maria": "rosa_maria",
+  "Calibration Committee": "calibration_committee",
+  "VP": "vp"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-10-05T17:00:00+00:00",
+   "visible_to_ids": [
+    "rosa_maria"
+   ],
+   "description": "Rosa Maria begins preparing Jonas's promotion case for submission."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "rosa_maria": {
+   "name": "Rosa Maria",
+   "persona_brief": "You are Rosa Maria.\nRosa Maria is Jonas's manager. She has prepared a promotion case for Jonas and intends to submit it for calibration and VP sign-off. She believes Jonas deserves the promotion and is motivated to see it through."
+  },
+  "calibration_committee": {
+   "name": "Calibration Committee",
+   "persona_brief": "You are Calibration Committee.\nThe calibration committee reviews promotion cases and decides whether to approve them. They have no prior knowledge of Jonas's case."
+  },
+  "vp": {
+   "name": "VP",
+   "persona_brief": "You are VP.\nThe VP has the authority to sign off on promotions after calibration approval. They have no prior knowledge of Jonas's case."
+  }
+ },
+ "resolution": {
+  "question": "Will manager Rosa Maria's promotion case for her report Jonas clear calibration and receive VP sign-off before promotion letters go out on November 15?",
+  "resolution": "Resolve YES only if the persistent event history shows that the calibration committee approved Jonas's promotion case and the VP signed off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff.",
+  "cutoff": "2026-11-15T09:00:00-08:00",
+  "world_id": "w_e3126859ec6d"
+ }
+}

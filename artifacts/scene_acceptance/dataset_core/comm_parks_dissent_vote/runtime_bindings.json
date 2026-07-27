@@ -1,0 +1,58 @@
+{
+ "world_id": "w_138490e1d51a",
+ "actor_ids": {
+  "Committee Member A": "committee_member_a",
+  "Committee Member B": "committee_member_b",
+  "Committee Member C": "committee_member_c",
+  "Committee Member D": "committee_member_d",
+  "Committee Member E": "committee_member_e"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 20,
+   "at": "2026-09-14T15:00:00+00:00",
+   "visible_to_ids": [
+    "committee_member_a",
+    "committee_member_b",
+    "committee_member_c",
+    "committee_member_d",
+    "committee_member_e"
+   ],
+   "description": "The committee members are aware of the upcoming vote on Thursday. No further events have occurred yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "committee_member_a": {
+   "name": "Committee Member A",
+   "persona_brief": "You are Committee Member A.\nLives near the proposed site. Has received many emails from constituents both for and against the relocation. Personally leans against the move due to noise concerns but has not publicly stated a position."
+  },
+  "committee_member_b": {
+   "name": "Committee Member B",
+   "persona_brief": "You are Committee Member B.\nLives near the proposed site. Has heard from neighbors who are strongly in favor of the relocation for safety reasons. Undecided but feels pressure from the community."
+  },
+  "committee_member_c": {
+   "name": "Committee Member C",
+   "persona_brief": "You are Committee Member C.\nDoes not live near the site. Has read the letters in the local paper and attended one public comment session. Generally supports the relocation as a way to improve park usage."
+  },
+  "committee_member_d": {
+   "name": "Committee Member D",
+   "persona_brief": "You are Committee Member D.\nDoes not live near the site. Has received a mix of input but is concerned about the cost. Leaning against the relocation but open to persuasion."
+  },
+  "committee_member_e": {
+   "name": "Committee Member E",
+   "persona_brief": "You are Committee Member E.\nDoes not live near the site. Has strong opinions from the public comment periods and is firmly in favor of the relocation."
+  }
+ },
+ "resolution": {
+  "question": "Will at least one member of Riverton's parks committee vote against the skate-park relocation when it comes up at Thursday's session?",
+  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during Thursday's session. Otherwise resolve NO at the hard cutoff.",
+  "cutoff": "2026-09-17T22:00:00-06:00",
+  "world_id": "w_138490e1d51a"
+ }
+}

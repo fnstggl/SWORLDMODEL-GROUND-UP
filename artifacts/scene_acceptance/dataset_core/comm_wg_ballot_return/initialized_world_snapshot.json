@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "interchange_format_working_group_21_members": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "interchange_format_working_group_21_members",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more diligent about returning ballots, others may be less so. No member has yet returned a ballot for draft revision 4.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    },
+    {
+     "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Ballots are due by that time. The group operates under standard procedures where members may choose to return ballots or not.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T00:00:00+00:00"
+    }
+   ],
+   "name": "Interchange Format Working Group (21 members)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will at least two-thirds of the 21-member Interchange Format Working Group return ballots on draft revision 4 by the close of the comment period?",
+  "scene:shared_context": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Ballots are due by that time. The group operates under standard procedures where members may choose to return ballots or not."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-15T00:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-15T00:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

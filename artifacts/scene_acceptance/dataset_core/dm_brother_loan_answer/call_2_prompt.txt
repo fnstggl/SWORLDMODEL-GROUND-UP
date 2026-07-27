@@ -1,0 +1,115 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Rosa asked her brother Emilio by text for a 2,000-peso loan until payday. Will Emilio give her a yes-or-no answer within 48 hours?
+
+Simulation start time: 2026-09-04T19:00:00-06:00
+Hard cutoff: 2026-09-06T19:00:00-06:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Rosa",
+   "private_context": "Rosa needs 2,000 pesos until payday and has sent a text to her brother Emilio asking for a loan. She hopes for a yes-or-no answer within 48 hours."
+  },
+  {
+   "name": "Emilio",
+   "private_context": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has his own financial situation and relationship with Rosa that will influence his decision. He may or may not respond within 48 hours."
+  }
+ ],
+ "shared_context": "Rosa and Emilio are siblings. Rosa has sent a text message to Emilio requesting a 2,000-peso loan until payday. The text was sent before the simulation start time. Emilio has the message and can reply via text.",
+ "starting_events": [
+  {
+   "time": "2026-09-04T19:00:00-06:00",
+   "description": "Rosa's text requesting a 2,000-peso loan until payday is already in Emilio's inbox, sent earlier.",
+   "visible_to": [
+    "Rosa",
+    "Emilio"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa containing a clear yes or no answer to the loan request before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

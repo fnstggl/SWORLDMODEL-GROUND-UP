@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "lucia_ferreyra": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "lucia_ferreyra",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note for the Alder Foundation and intends to send it to the program officer. She hopes for a substantive response within a month.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    },
+    {
+     "content": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    }
+   ],
+   "name": "Lucia Ferreyra",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "program_officer_at_alder_foundation": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "program_officer_at_alder_foundation",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The program officer at the Alder Foundation receives many unsolicited proposals. They have no prior relationship with Lucia Ferreyra. They may respond substantively if the concept note aligns with the foundation's priorities and is well-prepared, but they are not obligated to respond.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    },
+    {
+     "content": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    }
+   ],
+   "name": "Program Officer at Alder Foundation",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the program officer at the Alder Foundation respond substantively to nonprofit director Lucia Ferreyra's unsolicited concept note within one month?",
+  "scene:shared_context": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T14:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T14:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

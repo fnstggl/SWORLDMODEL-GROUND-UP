@@ -1,0 +1,88 @@
+{
+ "maya_okonkwo": {
+  "id": "maya_okonkwo",
+  "name": "Maya Okonkwo",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-28T12:30:00+00:00",
+    "kind": "context",
+    "content": "Maya is a tenant who texted her landlord Stavros this morning about a broken water heater. She hopes for a prompt reply.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-28T12:30:00+00:00",
+    "kind": "context",
+    "content": "Maya Okonkwo texted Stavros about a broken water heater on the morning of 2026-07-28. Stavros has a phone capable of receiving and replying to texts. The cutoff for resolution is 2026-07-29T20:00:00-04:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "stavros": {
+  "id": "stavros",
+  "name": "Stavros",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-28T12:30:00+00:00",
+    "kind": "context",
+    "content": "Stavros is a landlord who receives tenant maintenance requests. He may prioritize based on urgency and his schedule. He has not yet replied to Maya's message.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-28T12:30:00+00:00",
+    "kind": "context",
+    "content": "Maya Okonkwo texted Stavros about a broken water heater on the morning of 2026-07-28. Stavros has a phone capable of receiving and replying to texts. The cutoff for resolution is 2026-07-29T20:00:00-04:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Yusuf Ndiaye",
+   "private_context": "Yusuf is a painter seeking gallery representation. He has prepared a portfolio and contact information for Marlin Bay gallery. He hopes for a personal response from the curator."
+  },
+  {
+   "name": "Ines Duarte",
+   "private_context": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly align with the gallery's current focus. She has an automated acknowledgment system for incoming submissions."
+  }
+ ],
+ "shared_context": "Marlin Bay gallery has a publicly listed email address for submissions. Yusuf can send his portfolio to that address. The gallery's automated system sends an immediate acknowledgment upon receipt. Ines may or may not review the portfolio and may or may not send a personal reply.",
+ "starting_events": [
+  {
+   "time": "2026-08-10T11:00:00+00:00",
+   "description": "Yusuf sends his portfolio to Marlin Bay gallery's submissions email.",
+   "visible_to": [
+    "Yusuf Ndiaye"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Ines Duarte sent a personal (non-automated) reply to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at the cutoff."
+}

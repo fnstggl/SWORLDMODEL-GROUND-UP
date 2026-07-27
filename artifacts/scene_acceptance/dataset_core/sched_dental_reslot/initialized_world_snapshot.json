@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "maple_row_dental_front_desk": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "maple_row_dental_front_desk",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The front desk manages appointment scheduling. They have availability for dental cleanings on various days and times. They are willing to reschedule patients when possible, but may have limited slots. They do not know Priya's specific request yet.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-10T12:00:00+00:00"
+    },
+    {
+     "content": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, at Maple Row Dental. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon, 2026-08-12T12:00:00-04:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-10T12:00:00+00:00"
+    }
+   ],
+   "name": "Maple Row Dental front desk",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "priya": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "priya",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, at Maple Row Dental. She just learned she must go on a work trip that conflicts with that appointment. She wants to reschedule to a new slot before Wednesday noon. She has the front desk's phone number and can call or email them.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-10T12:00:00+00:00"
+    },
+    {
+     "content": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, at Maple Row Dental. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon, 2026-08-12T12:00:00-04:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-10T12:00:00+00:00"
+    }
+   ],
+   "name": "Priya",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Priya needs to move her Thursday dental cleaning because of a work trip. Will she and the Maple Row Dental front desk agree on a new slot by Wednesday noon?",
+  "scene:shared_context": "Priya has a dental cleaning scheduled for Thursday, 2026-08-13, at Maple Row Dental. She needs to move it due to a work trip. The front desk can be reached by phone or email during business hours. The cutoff for agreement is Wednesday noon, 2026-08-12T12:00:00-04:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-10T12:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-10T12:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

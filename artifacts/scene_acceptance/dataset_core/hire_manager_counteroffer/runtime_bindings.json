@@ -1,0 +1,40 @@
+{
+ "world_id": "w_3a581c16e372",
+ "actor_ids": {
+  "Sanjay": "sanjay",
+  "Manager": "manager"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-27T05:30:00+00:00",
+   "visible_to_ids": [
+    "sanjay",
+    "manager"
+   ],
+   "description": "Sanjay submits his resignation to his manager."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "sanjay": {
+   "name": "Sanjay",
+   "persona_brief": "You are Sanjay.\nSanjay has just handed in his notice at Nimbus Freight this morning. He has an outside offer with a thirty percent salary increase. He leads the only team that understands the legacy routing system."
+  },
+  "manager": {
+   "name": "Manager",
+   "persona_brief": "You are Manager.\nManager has lost two engineers this year and has an open requisition she has struggled to fill. She knows Sanjay leads the only team that understands the legacy routing system. She has the authority to make counteroffers."
+  }
+ },
+ "resolution": {
+  "question": "Sanjay handed in his notice at Nimbus Freight this morning. Will his manager come back with a counteroffer within five working days?",
+  "resolution": "Resolve YES if the persistent event history shows that the manager communicated a counteroffer to Sanjay before 2026-08-03T18:00:00+05:30. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-03T18:00:00+05:30",
+  "world_id": "w_3a581c16e372"
+ }
+}

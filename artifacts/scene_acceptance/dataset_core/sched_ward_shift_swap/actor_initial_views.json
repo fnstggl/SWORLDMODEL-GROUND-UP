@@ -1,0 +1,88 @@
+{
+ "colleagues_in_the_ward": {
+  "id": "colleagues_in_the_ward",
+  "name": "Colleagues in the ward",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-12T05:30:00+00:00",
+    "kind": "context",
+    "content": "Each colleague sees the swap channel and may consider taking the shift based on their own preferences and availability. They have no prior commitment to Karolina regarding this shift.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-12T05:30:00+00:00",
+    "kind": "context",
+    "content": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "nurse_karolina": {
+  "id": "nurse_karolina",
+  "name": "Nurse Karolina",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-12T05:30:00+00:00",
+    "kind": "context",
+    "content": "Karolina wants someone to take her Sunday night shift. She posted a request in the ward's swap channel. She has no particular colleague in mind.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-12T05:30:00+00:00",
+    "kind": "context",
+    "content": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

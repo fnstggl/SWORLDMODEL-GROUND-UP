@@ -1,0 +1,88 @@
+{
+ "premier_khrushchev": {
+  "id": "premier_khrushchev",
+  "name": "Premier Khrushchev",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "1962-10-23T01:00:00+00:00",
+    "kind": "context",
+    "content": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options, including direct communication with President Kennedy. He has not yet decided whether to send a letter.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "1962-10-23T01:00:00+00:00",
+    "kind": "context",
+    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet missile shipments. The world is on alert. Direct communication channels between the US and Soviet leaders exist, including through diplomatic cables and public statements. The crisis is ongoing.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "president_kennedy": {
+  "id": "president_kennedy",
+  "name": "President Kennedy",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "1962-10-23T01:00:00+00:00",
+    "kind": "context",
+    "content": "Kennedy has just announced the quarantine of Cuba. He is awaiting Soviet reactions and is open to receiving direct communications from Khrushchev. He has not yet received any letter from Khrushchev.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "1962-10-23T01:00:00+00:00",
+    "kind": "context",
+    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet missile shipments. The world is on alert. Direct communication channels between the US and Soviet leaders exist, including through diplomatic cables and public statements. The crisis is ongoing.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

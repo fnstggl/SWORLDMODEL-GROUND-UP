@@ -1,0 +1,117 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Nimbus Freight's account manager Tomasz reply to Kestrel Analytics' emailed request for an updated shipping quote before Friday's close of business?
+
+Simulation start time: 2026-08-11T09:00:00+02:00
+Hard cutoff: 2026-08-14T17:00:00+02:00
+
+USER-PROVIDED CONTEXT:
+Kestrel is a mid-size existing customer that ships roughly monthly; Tomasz handles about forty accounts and is back from leave on Wednesday. The request was sent to his personal work address, not the shared sales inbox.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Tomasz",
+   "private_context": "Tomasz is an account manager at Nimbus Freight, handling about forty accounts. He was on leave and returns on Wednesday 2026-08-12. He has a personal work email address that receives many messages. He prioritizes requests based on client importance and urgency. Kestrel Analytics is a mid-size customer that ships monthly, but Tomasz has not yet seen their email."
+  },
+  {
+   "name": "Kestrel Analytics",
+   "private_context": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight, shipping roughly monthly. They have sent an email request for an updated shipping quote to Tomasz's personal work address. They expect a reply before Friday's close of business."
+  }
+ ],
+ "shared_context": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Tomasz returns from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
+ "starting_events": [
+  {
+   "time": "2026-08-11T09:00:00+02:00",
+   "description": "The email from Kestrel Analytics requesting an updated shipping quote is present in Tomasz's personal work inbox, but Tomasz is on leave and has not seen it yet.",
+   "visible_to": [
+    "Tomasz"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Tomasz sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

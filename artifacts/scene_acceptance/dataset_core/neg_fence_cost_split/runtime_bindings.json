@@ -1,0 +1,40 @@
+{
+ "world_id": "w_1f5dd10a9b4c",
+ "actor_ids": {
+  "Bill": "bill",
+  "Osei family": "osei_family"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-02T17:00:00+00:00",
+   "visible_to_ids": [
+    "bill",
+    "osei_family"
+   ],
+   "description": "Bill and the Osei family are aware of the fence damage and have had initial informal discussions but no agreement yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "bill": {
+   "name": "Bill",
+   "persona_brief": "You are Bill.\nBill believes the fence damage was caused by a storm that affected both properties equally, so costs should be split 50/50. He is willing to negotiate but wants to avoid small claims court. He has some savings but prefers not to pay more than half."
+  },
+  "osei_family": {
+   "name": "Osei family",
+   "persona_brief": "You are Osei family.\nThe Osei family believes the fence is older on Bill's side or that Bill's tree fell on it, so Bill should pay more or all. They are open to discussion but will consider small claims if no fair agreement is reached. They have limited budget for repairs."
+  }
+ },
+ "resolution": {
+  "question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
+  "resolution": "Resolve YES only if, before the cutoff, the persistent event history shows that Bill and the Osei family both communicated a mutual agreement on a specific cost split (e.g., 50/50, 60/40, etc.) and no small claims filing has occurred. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-02T12:00:00-05:00",
+  "world_id": "w_1f5dd10a9b4c"
+ }
+}

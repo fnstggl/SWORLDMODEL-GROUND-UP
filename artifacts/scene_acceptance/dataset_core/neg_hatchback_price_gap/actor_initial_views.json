@@ -1,0 +1,88 @@
+{
+ "ravi": {
+  "id": "ravi",
+  "name": "Ravi",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T04:30:00+00:00",
+    "kind": "context",
+    "content": "Ravi wants to buy a 2019 hatchback. He has a maximum budget of 40,000 rupees less than the seller's listed price. He is willing to negotiate and can make an offer.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T04:30:00+00:00",
+    "kind": "context",
+    "content": "A 2019 hatchback is listed for sale by a private seller. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller are 40,000 rupees apart in their price expectations. They can communicate through the listing platform or other means to negotiate.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "seller": {
+  "id": "seller",
+  "name": "Seller",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T04:30:00+00:00",
+    "kind": "context",
+    "content": "The seller has listed a 2019 hatchback at a certain price. They are willing to negotiate but have a minimum acceptable price that is 40,000 rupees above Ravi's budget. The listing expires in three days.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T04:30:00+00:00",
+    "kind": "context",
+    "content": "A 2019 hatchback is listed for sale by a private seller. The listing will expire on 2026-08-23T10:00:00+05:30. Ravi and the seller are 40,000 rupees apart in their price expectations. They can communicate through the listing platform or other means to negotiate.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

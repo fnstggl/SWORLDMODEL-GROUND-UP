@@ -1,0 +1,88 @@
+{
+ "geography_department_head": {
+  "id": "geography_department_head",
+  "name": "Geography Department Head",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T07:30:00+00:00",
+    "kind": "context",
+    "content": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head (who is on leave until late September). They want the principal to sign off before the half-term deadline for sending parental consent letters.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T07:30:00+00:00",
+    "kind": "context",
+    "content": "The coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching. The geography department head can submit the proposal to the principal for approval.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "principal": {
+  "id": "principal",
+  "name": "Principal",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T07:30:00+00:00",
+    "kind": "context",
+    "content": "The principal is responsible for approving school trips and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the geography department's coastal field trip, which has run without incident for four years. They know the deputy head is on leave until late September.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T07:30:00+00:00",
+    "kind": "context",
+    "content": "The coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching. The geography department head can submit the proposal to the principal for approval.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

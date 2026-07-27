@@ -1,0 +1,35 @@
+{
+ "actors": [
+  {
+   "name": "PTA subcommittee chair",
+   "private_context": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from previous events and the school community. They plan to reach out to candidates before the October planning meeting."
+  },
+  {
+   "name": "Potential volunteer 1",
+   "private_context": "A parent who has helped with school events before. They are busy but open to being asked. They have not yet been contacted about the winter fair."
+  },
+  {
+   "name": "Potential volunteer 2",
+   "private_context": "A parent who is new to the school this year. They are interested in getting involved but have not yet been approached. They are unsure about time commitment."
+  },
+  {
+   "name": "Potential volunteer 3",
+   "private_context": "A local business owner whose child attends the school. They have sponsored events in the past but have not volunteered as a coordinator. They are considering it if asked."
+  },
+  {
+   "name": "Potential volunteer 4",
+   "private_context": "A teacher at the school who has coordinated stalls before. They are willing to help again if asked, but have not been approached yet."
+  }
+ ],
+ "shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+ "starting_events": [
+  {
+   "time": "2026-09-21T19:00:00-05:00",
+   "description": "The PTA subcommittee chair begins the recruitment process for four stall coordinators.",
+   "visible_to": [
+    "PTA subcommittee chair"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if, by 2026-10-19T21:00:00-05:00, the persistent event history shows that at least four individuals have explicitly agreed to serve as stall coordinators for the winter fair. Otherwise resolve NO."
+}

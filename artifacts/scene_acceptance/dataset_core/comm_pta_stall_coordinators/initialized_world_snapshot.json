@@ -1,0 +1,246 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "potential_volunteer_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "potential_volunteer_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A parent who has helped with school events before. They are busy but open to being asked. They have not yet been contacted about the winter fair.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    },
+    {
+     "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    }
+   ],
+   "name": "Potential volunteer 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "potential_volunteer_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "potential_volunteer_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A parent who is new to the school this year. They are interested in getting involved but have not yet been approached. They are unsure about time commitment.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    },
+    {
+     "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    }
+   ],
+   "name": "Potential volunteer 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "potential_volunteer_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "potential_volunteer_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A local business owner whose child attends the school. They have sponsored events in the past but have not volunteered as a coordinator. They are considering it if asked.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    },
+    {
+     "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    }
+   ],
+   "name": "Potential volunteer 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "potential_volunteer_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "potential_volunteer_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A teacher at the school who has coordinated stalls before. They are willing to help again if asked, but have not been approached yet.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    },
+    {
+     "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    }
+   ],
+   "name": "Potential volunteer 4",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "pta_subcommittee_chair": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "pta_subcommittee_chair",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from previous events and the school community. They plan to reach out to candidates before the October planning meeting.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    },
+    {
+     "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-22T00:00:00+00:00"
+    }
+   ],
+   "name": "PTA subcommittee chair",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the PTA subcommittee for the winter fair recruit the four stall coordinators it needs at or before its October planning meeting?",
+  "scene:shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee chair can contact potential volunteers via email or phone. The October planning meeting is scheduled for 2026-10-19 at 19:00. The chair has a list of potential volunteers from past events and the school community."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-22T00:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-22T00:00:00+00:00",
+ "terminal": null,
+ "version": 20,
+ "watches": {}
+}

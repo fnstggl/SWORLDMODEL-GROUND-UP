@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Maya Okonkwo",
+   "private_context": "Maya is a tenant who texted her landlord Stavros this morning about a broken water heater. She hopes for a prompt reply."
+  },
+  {
+   "name": "Stavros",
+   "private_context": "Stavros is a landlord who receives tenant maintenance requests. He may prioritize based on urgency and his schedule. He has not yet replied to Maya's message."
+  }
+ ],
+ "shared_context": "Maya Okonkwo texted Stavros about a broken water heater on the morning of 2026-07-28. Stavros has a phone capable of receiving and replying to texts. The cutoff for resolution is 2026-07-29T20:00:00-04:00.",
+ "starting_events": [
+  {
+   "time": "2026-07-28T08:30:00-04:00",
+   "description": "Maya sends a text message to Stavros about the broken water heater.",
+   "visible_to": [
+    "Maya Okonkwo"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Stavros sent a reply to Maya's text before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at the cutoff."
+}

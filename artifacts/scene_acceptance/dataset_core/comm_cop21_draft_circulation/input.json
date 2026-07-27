@@ -1,0 +1,8 @@
+{
+ "question": "Will the French presidency of the COP21 climate conference circulate at least one consolidated draft agreement text to national delegations before the summit's final scheduled day?",
+ "start": "2015-11-30T09:00:00+01:00",
+ "cutoff": "2015-12-10T09:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

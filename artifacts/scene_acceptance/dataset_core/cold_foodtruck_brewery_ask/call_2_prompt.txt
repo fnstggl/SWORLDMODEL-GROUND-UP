@@ -1,0 +1,125 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Food-truck owner Bao Tran plans to approach three brewery managers in person this Saturday about parking on their lots. Will he get a yes from at least one of them before the day ends?
+
+Simulation start time: 2026-08-08T10:00:00-05:00
+Hard cutoff: 2026-08-08T20:00:00-05:00
+
+USER-PROVIDED CONTEXT:
+Bao runs a well-reviewed banh mi truck and wants a regular weekend spot; two of the three breweries on his list already host rotating food trucks, and the third never has.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Bao Tran",
+   "private_context": "Bao runs a well-reviewed banh mi food truck and wants a regular weekend parking spot at a brewery. He plans to approach three brewery managers in person this Saturday. He has no prior agreements with any of them."
+  },
+  {
+   "name": "Brewery Manager 1",
+   "private_context": "Manager of a brewery that already hosts rotating food trucks. They are open to new trucks but have limited slots and prefer trucks that attract customers. They have not heard of Bao before."
+  },
+  {
+   "name": "Brewery Manager 2",
+   "private_context": "Manager of a brewery that already hosts rotating food trucks. They are satisfied with current lineup and rarely add new trucks. They have not heard of Bao before."
+  },
+  {
+   "name": "Brewery Manager 3",
+   "private_context": "Manager of a brewery that never has food trucks. They have a policy against outside food vendors, but may consider exceptions if approached. They have not heard of Bao before."
+  }
+ ],
+ "shared_context": "Bao plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time. Each brewery has a manager on site during those hours. Bao can speak with each manager if they are available and willing.",
+ "starting_events": [
+  {
+   "time": "2026-08-08T10:00:00-05:00",
+   "description": "Bao begins his visits to the three breweries.",
+   "visible_to": [
+    "Bao Tran"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot before 2026-08-08T20:00:00-05:00. Otherwise resolve NO."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

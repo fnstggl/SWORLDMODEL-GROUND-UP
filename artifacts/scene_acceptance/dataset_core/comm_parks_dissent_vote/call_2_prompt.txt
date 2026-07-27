@@ -1,0 +1,133 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will at least one member of Riverton's parks committee vote against the skate-park relocation when it comes up at Thursday's session?
+
+Simulation start time: 2026-09-14T09:00:00-06:00
+Hard cutoff: 2026-09-17T22:00:00-06:00
+
+USER-PROVIDED CONTEXT:
+The relocation has been through two noisy public-comment periods; two committee members live near the proposed site, and the local paper ran letters both for and against last week.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Committee Member A",
+   "private_context": "Lives near the proposed site. Has received many emails from constituents both for and against the relocation. Personally leans against the move due to noise concerns but has not publicly stated a position."
+  },
+  {
+   "name": "Committee Member B",
+   "private_context": "Lives near the proposed site. Has heard from neighbors who are strongly in favor of the relocation for safety reasons. Undecided but feels pressure from the community."
+  },
+  {
+   "name": "Committee Member C",
+   "private_context": "Does not live near the site. Has read the letters in the local paper and attended one public comment session. Generally supports the relocation as a way to improve park usage."
+  },
+  {
+   "name": "Committee Member D",
+   "private_context": "Does not live near the site. Has received a mix of input but is concerned about the cost. Leaning against the relocation but open to persuasion."
+  },
+  {
+   "name": "Committee Member E",
+   "private_context": "Does not live near the site. Has strong opinions from the public comment periods and is firmly in favor of the relocation."
+  }
+ ],
+ "shared_context": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+ "starting_events": [
+  {
+   "time": "2026-09-14T09:00:00-06:00",
+   "description": "The committee members are aware of the upcoming vote on Thursday. No further events have occurred yet.",
+   "visible_to": [
+    "Committee Member A",
+    "Committee Member B",
+    "Committee Member C",
+    "Committee Member D",
+    "Committee Member E"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during Thursday's session. Otherwise resolve NO at the hard cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

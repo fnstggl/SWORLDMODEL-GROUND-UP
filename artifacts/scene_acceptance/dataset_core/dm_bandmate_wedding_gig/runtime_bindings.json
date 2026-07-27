@@ -1,0 +1,39 @@
+{
+ "world_id": "w_7de79e8ed107",
+ "actor_ids": {
+  "Dario": "dario",
+  "Selin": "selin"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-01T09:00:00+00:00",
+   "visible_to_ids": [
+    "dario"
+   ],
+   "description": "Dario sends a message to Selin asking if she will play bass at his October wedding."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dario": {
+   "name": "Dario",
+   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her with the request. He hopes for a response within ten days."
+  },
+  "selin": {
+   "name": "Selin",
+   "persona_brief": "You are Selin.\nSelin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario two years ago. She has just received Dario's message asking her to play at his October wedding. She may respond or not, depending on her availability and interest."
+  }
+ },
+ "resolution": {
+  "question": "Dario messaged his old bandmate Selin asking whether she would play bass at his October wedding. Will she respond either way within ten days?",
+  "resolution": "Resolve YES if the persistent event history shows that Selin sent a response (either accepting or declining) to Dario before 2026-08-11T12:00:00+03:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-11T12:00:00+03:00",
+  "world_id": "w_7de79e8ed107"
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "dana": {
+  "id": "dana",
+  "name": "Dana",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-04T19:00:00+00:00",
+    "kind": "context",
+    "content": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-04T19:00:00+00:00",
+    "kind": "context",
+    "content": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. The current date is 2026-08-04T19:00:00+00:00, and the deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00). No cleaning rota has been proposed yet in the chat.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "yusuf": {
+  "id": "yusuf",
+  "name": "Yusuf",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-04T19:00:00+00:00",
+    "kind": "context",
+    "content": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and may be open to agreeing if the terms are acceptable.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-04T19:00:00+00:00",
+    "kind": "context",
+    "content": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. The current date is 2026-08-04T19:00:00+00:00, and the deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00). No cleaning rota has been proposed yet in the chat.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

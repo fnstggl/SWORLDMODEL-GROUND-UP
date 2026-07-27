@@ -1,0 +1,217 @@
+{
+ "committee_member_a": {
+  "id": "committee_member_a",
+  "name": "Committee Member A",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "Lives near the proposed site. Has received many emails from constituents both for and against the relocation. Personally leans against the move due to noise concerns but has not publicly stated a position.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "committee_member_b": {
+  "id": "committee_member_b",
+  "name": "Committee Member B",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "Lives near the proposed site. Has heard from neighbors who are strongly in favor of the relocation for safety reasons. Undecided but feels pressure from the community.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "committee_member_c": {
+  "id": "committee_member_c",
+  "name": "Committee Member C",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "Does not live near the site. Has read the letters in the local paper and attended one public comment session. Generally supports the relocation as a way to improve park usage.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "committee_member_d": {
+  "id": "committee_member_d",
+  "name": "Committee Member D",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "Does not live near the site. Has received a mix of input but is concerned about the cost. Leaning against the relocation but open to persuasion.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "committee_member_e": {
+  "id": "committee_member_e",
+  "name": "Committee Member E",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "Does not live near the site. Has strong opinions from the public comment periods and is firmly in favor of the relocation.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T15:00:00+00:00",
+    "kind": "context",
+    "content": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

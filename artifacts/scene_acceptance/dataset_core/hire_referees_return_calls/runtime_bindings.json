@@ -1,0 +1,49 @@
+{
+ "world_id": "w_3497f93290b7",
+ "actor_ids": {
+  "Aoife Byrne": "aoife_byrne",
+  "Referee 1": "referee_1",
+  "Referee 2": "referee_2",
+  "Recruiter": "recruiter"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-08-14T08:00:00+00:00",
+   "visible_to_ids": [
+    "recruiter"
+   ],
+   "description": "The recruiter has already called both referees listed by Aoife Byrne. Neither referee has returned the call yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "aoife_byrne": {
+   "name": "Aoife Byrne",
+   "persona_brief": "You are Aoife Byrne.\nAoife Byrne is a shortlisted candidate for a position. She has provided the names of two referees to the recruiter. She wants the referees to respond to the recruiter's calls before the interview panel meets next Thursday."
+  },
+  "referee_1": {
+   "name": "Referee 1",
+   "persona_brief": "You are Referee 1.\nReferee 1 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be aware of the urgency."
+  },
+  "referee_2": {
+   "name": "Referee 2",
+   "persona_brief": "You are Referee 2.\nReferee 2 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be aware of the urgency."
+  },
+  "recruiter": {
+   "name": "Recruiter",
+   "persona_brief": "You are Recruiter.\nThe recruiter is responsible for contacting the referees of shortlisted candidates. They have called both referees listed by Aoife Byrne but have not yet received a return call. They need the referees' responses before the interview panel meets next Thursday."
+  }
+ },
+ "resolution": {
+  "question": "Will both referees listed by shortlisted candidate Aoife Byrne return the recruiter's calls before the interview panel meets next Thursday?",
+  "resolution": "Resolve YES only if the persistent event history shows that both referees actually returned the recruiter's calls before 2026-08-20T09:00:00+01:00. Otherwise resolve NO at that cutoff.",
+  "cutoff": "2026-08-20T09:00:00+01:00",
+  "world_id": "w_3497f93290b7"
+ }
+}

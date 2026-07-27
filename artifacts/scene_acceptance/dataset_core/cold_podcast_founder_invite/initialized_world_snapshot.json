@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "anouk_visser": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "anouk_visser",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Anouk is a freelance journalist preparing to launch a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast for a 30-minute interview, offering to share questions in advance and set a publication date. She has drafted a cold email to send to the founder.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-05T07:00:00+00:00"
+    },
+    {
+     "content": "Anouk Visser has the email address of the founder of Veldt Solar and can send a cold email. The founder can reply via email if they choose to.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-05T07:00:00+00:00"
+    }
+   ],
+   "name": "Anouk Visser",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "founder_of_veldt_solar": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "founder_of_veldt_solar",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The founder of Veldt Solar receives many unsolicited emails. They are busy running the company and selectively respond to opportunities that align with their interests or benefit the company. They have no prior relationship with Anouk Visser.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-05T07:00:00+00:00"
+    },
+    {
+     "content": "Anouk Visser has the email address of the founder of Veldt Solar and can send a cold email. The founder can reply via email if they choose to.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-05T07:00:00+00:00"
+    }
+   ],
+   "name": "Founder of Veldt Solar",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
+  "scene:shared_context": "Anouk Visser has the email address of the founder of Veldt Solar and can send a cold email. The founder can reply via email if they choose to."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-05T07:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-05T07:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

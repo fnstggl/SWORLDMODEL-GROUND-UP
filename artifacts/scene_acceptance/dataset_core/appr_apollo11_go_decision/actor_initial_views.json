@@ -1,0 +1,45 @@
+{
+ "nasa_senior_managers": {
+  "id": "nasa_senior_managers",
+  "name": "NASA Senior Managers",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "1969-06-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "They are responsible for the Apollo 11 program and must decide whether to publicly announce a go decision for the July launch window after the flight readiness review. They have access to technical assessments and schedules, but the outcome of the review is not yet determined.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "1969-06-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "The flight readiness review process for Apollo 11 is ongoing. A public announcement of a go decision for the July launch window would be made by senior managers after the review concludes. The review is expected to be completed before the end of June 1969.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "actors": [
+  {
+   "name": "Committee Member A",
+   "private_context": "Lives near the proposed site. Has received many emails from constituents both for and against the relocation. Personally leans against the move due to noise concerns but has not publicly stated a position."
+  },
+  {
+   "name": "Committee Member B",
+   "private_context": "Lives near the proposed site. Has heard from neighbors who are strongly in favor of the relocation for safety reasons. Undecided but feels pressure from the community."
+  },
+  {
+   "name": "Committee Member C",
+   "private_context": "Does not live near the site. Has read the letters in the local paper and attended one public comment session. Generally supports the relocation as a way to improve park usage."
+  },
+  {
+   "name": "Committee Member D",
+   "private_context": "Does not live near the site. Has received a mix of input but is concerned about the cost. Leaning against the relocation but open to persuasion."
+  },
+  {
+   "name": "Committee Member E",
+   "private_context": "Does not live near the site. Has strong opinions from the public comment periods and is firmly in favor of the relocation."
+  }
+ ],
+ "shared_context": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, to vote on the skate-park relocation. The proposal has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
+ "starting_events": [
+  {
+   "time": "2026-09-14T09:00:00-06:00",
+   "description": "The committee members are aware of the upcoming vote on Thursday. No further events have occurred yet.",
+   "visible_to": [
+    "Committee Member A",
+    "Committee Member B",
+    "Committee Member C",
+    "Committee Member D",
+    "Committee Member E"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during Thursday's session. Otherwise resolve NO at the hard cutoff."
+}

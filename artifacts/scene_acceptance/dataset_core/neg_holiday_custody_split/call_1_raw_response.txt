@@ -1,0 +1,25 @@
+{
+  "actors": [
+    {
+      "name": "Ingrid",
+      "private_context": "Ingrid wants the children for the December holidays, especially for her family's large Lucia gathering. She is on speaking terms with Mattias and has a lawyer. She knows the mediator flagged travel dates as the only open issue."
+    },
+    {
+      "name": "Mattias",
+      "private_context": "Mattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is on speaking terms with Ingrid and has a lawyer. He knows the mediator flagged travel dates as the only open issue."
+    },
+    {
+      "name": "Mediator",
+      "private_context": "The mediator has a final scheduled session in six weeks (by 2026-10-13). They have flagged travel dates as the only open issue. They facilitate communication between Ingrid and Mattias."
+    }
+  ],
+  "shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. The mediator has flagged travel dates as the only open issue. A written agreement would resolve the matter. The final scheduled session is in six weeks (by 2026-10-13).",
+  "starting_events": [
+    {
+      "time": "2026-09-01T09:00:00+01:00",
+      "description": "The negotiation period begins. Ingrid and Mattias are aware of the mediator's final session deadline in six weeks.",
+      "visible_to": ["Ingrid", "Mattias", "Mediator"]
+    }
+  ],
+  "resolution": "Resolve YES if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

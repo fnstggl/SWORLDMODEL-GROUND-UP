@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Dana",
+      "private_context": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
+    },
+    {
+      "name": "Yusuf",
+      "private_context": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and may be open to agreeing if the terms are acceptable."
+    }
+  ],
+  "shared_context": "Dana and Yusuf are flatmates sharing a flat. They have a group chat where they can communicate. The current date is 2026-08-04T19:00:00+00:00, and the deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00). No cleaning rota has been proposed yet in the chat.",
+  "starting_events": [
+    {
+      "time": "2026-08-04T19:00:00+00:00",
+      "description": "Dana drafts a proposed cleaning rota and sends it to the flat group chat, tagging Yusuf for his review and sign-off.",
+      "visible_to": ["Dana"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the group chat indicating their agreement (e.g., 'I agree', 'Signed off', or similar) before the cutoff time. Otherwise resolve NO at the cutoff."
+}

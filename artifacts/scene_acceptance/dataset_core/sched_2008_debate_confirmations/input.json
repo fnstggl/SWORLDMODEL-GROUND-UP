@@ -1,0 +1,8 @@
+{
+ "question": "Will the McCain and Obama campaigns both publicly confirm their candidates' participation in the first 2008 presidential debate at the University of Mississippi before the scheduled debate day?",
+ "start": "2008-09-01T09:00:00-05:00",
+ "cutoff": "2008-09-26T12:00:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

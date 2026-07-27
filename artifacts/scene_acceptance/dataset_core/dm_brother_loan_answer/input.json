@@ -1,0 +1,8 @@
+{
+ "question": "Rosa asked her brother Emilio by text for a 2,000-peso loan until payday. Will Emilio give her a yes-or-no answer within 48 hours?",
+ "start": "2026-09-04T19:00:00-06:00",
+ "cutoff": "2026-09-06T19:00:00-06:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

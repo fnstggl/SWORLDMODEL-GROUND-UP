@@ -1,0 +1,8 @@
+{
+ "question": "Painter Yusuf Ndiaye is sending an unsolicited portfolio to Marlin Bay gallery curator Ines Duarte. Will Ines reply with anything beyond an automated acknowledgment within six weeks?",
+ "start": "2026-08-10T11:00:00+00:00",
+ "cutoff": "2026-09-21T11:00:00+00:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

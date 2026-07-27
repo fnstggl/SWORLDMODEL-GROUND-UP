@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "bill": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "bill",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Bill believes the fence damage was caused by a storm that affected both properties equally, so costs should be split 50/50. He is willing to negotiate but wants to avoid small claims court. He has some savings but prefers not to pay more than half.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-02T17:00:00+00:00"
+    },
+    {
+     "content": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. Both neighbors need to repair or replace it. The fence is on the property line. There is no prior written agreement about fence maintenance. Local laws may require shared costs for boundary fences, but specifics are unclear to both parties.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-02T17:00:00+00:00"
+    }
+   ],
+   "name": "Bill",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "osei_family": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "osei_family",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The Osei family believes the fence is older on Bill's side or that Bill's tree fell on it, so Bill should pay more or all. They are open to discussion but will consider small claims if no fair agreement is reached. They have limited budget for repairs.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-02T17:00:00+00:00"
+    },
+    {
+     "content": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. Both neighbors need to repair or replace it. The fence is on the property line. There is no prior written agreement about fence maintenance. Local laws may require shared costs for boundary fences, but specifics are unclear to both parties.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-02T17:00:00+00:00"
+    }
+   ],
+   "name": "Osei family",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
+  "scene:shared_context": "A shared fence between Bill's property and the Osei family's property was damaged by a storm. Both neighbors need to repair or replace it. The fence is on the property line. There is no prior written agreement about fence maintenance. Local laws may require shared costs for boundary fences, but specifics are unclear to both parties."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-02T17:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-02T17:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

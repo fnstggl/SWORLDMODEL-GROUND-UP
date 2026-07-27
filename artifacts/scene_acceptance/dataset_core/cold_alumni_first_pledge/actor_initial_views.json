@@ -1,0 +1,88 @@
+{
+ "ashvale_university_annual_fund_caller": {
+  "id": "ashvale_university_annual_fund_caller",
+  "name": "Ashvale University Annual-Fund Caller",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "The caller has a script for first-time asks and a list of alumni to contact. They are scheduled to call Dr. Renata Sousa during this shift. They have no prior relationship with Renata.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "dr_renata_sousa": {
+  "id": "dr_renata_sousa",
+  "name": "Dr. Renata Sousa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Renata is an alumna of Ashvale University who has never donated. She has her own financial priorities and may or may not be receptive to a phone solicitation. She does not know the caller.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

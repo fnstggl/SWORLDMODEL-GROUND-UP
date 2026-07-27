@@ -1,0 +1,88 @@
+{
+ "mccain_campaign": {
+  "id": "mccain_campaign",
+  "name": "McCain campaign",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2008-09-01T14:00:00+00:00",
+    "kind": "context",
+    "content": "The McCain campaign has been negotiating debate terms and is aware of the scheduled debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They may have internal considerations about the debate format, timing, or other conditions.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2008-09-01T14:00:00+00:00",
+    "kind": "context",
+    "content": "The first presidential debate of the 2008 election is scheduled for September 26, 2008, at the University of Mississippi, organized by the Commission on Presidential Debates. As of September 1, 2008, neither campaign has publicly confirmed their candidate's participation. Both campaigns have been in discussions about debate terms, but no final public confirmation has been issued. The debate is expected to proceed unless a campaign withdraws or fails to confirm.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "obama_campaign": {
+  "id": "obama_campaign",
+  "name": "Obama campaign",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2008-09-01T14:00:00+00:00",
+    "kind": "context",
+    "content": "The Obama campaign has been negotiating debate terms and is aware of the scheduled debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed participation. They may have internal considerations about the debate format, timing, or other conditions.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2008-09-01T14:00:00+00:00",
+    "kind": "context",
+    "content": "The first presidential debate of the 2008 election is scheduled for September 26, 2008, at the University of Mississippi, organized by the Commission on Presidential Debates. As of September 1, 2008, neither campaign has publicly confirmed their candidate's participation. Both campaigns have been in discussions about debate terms, but no final public confirmation has been issued. The debate is expected to proceed unless a campaign withdraws or fails to confirm.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ines_duarte": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ines_duarte",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly align with the gallery's current focus. She has an automated acknowledgment system for incoming submissions.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-10T11:00:00+00:00"
+    },
+    {
+     "content": "Marlin Bay gallery has a publicly listed email address for submissions. Yusuf can send his portfolio to that address. The gallery's automated system sends an immediate acknowledgment upon receipt. Ines may or may not review the portfolio and may or may not send a personal reply.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-10T11:00:00+00:00"
+    }
+   ],
+   "name": "Ines Duarte",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "yusuf_ndiaye": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "yusuf_ndiaye",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Yusuf is a painter seeking gallery representation. He has prepared a portfolio and contact information for Marlin Bay gallery. He hopes for a personal response from the curator.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-10T11:00:00+00:00"
+    },
+    {
+     "content": "Marlin Bay gallery has a publicly listed email address for submissions. Yusuf can send his portfolio to that address. The gallery's automated system sends an immediate acknowledgment upon receipt. Ines may or may not review the portfolio and may or may not send a personal reply.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-10T11:00:00+00:00"
+    }
+   ],
+   "name": "Yusuf Ndiaye",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Painter Yusuf Ndiaye is sending an unsolicited portfolio to Marlin Bay gallery curator Ines Duarte. Will Ines reply with anything beyond an automated acknowledgment within six weeks?",
+  "scene:shared_context": "Marlin Bay gallery has a publicly listed email address for submissions. Yusuf can send his portfolio to that address. The gallery's automated system sends an immediate acknowledgment upon receipt. Ines may or may not review the portfolio and may or may not send a personal reply."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-10T11:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-10T11:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

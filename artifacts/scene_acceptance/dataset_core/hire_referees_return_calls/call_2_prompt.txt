@@ -1,0 +1,122 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will both referees listed by shortlisted candidate Aoife Byrne return the recruiter's calls before the interview panel meets next Thursday?
+
+Simulation start time: 2026-08-14T09:00:00+01:00
+Hard cutoff: 2026-08-20T09:00:00+01:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Aoife Byrne",
+   "private_context": "Aoife Byrne is a shortlisted candidate for a position. She has provided the names of two referees to the recruiter. She wants the referees to respond to the recruiter's calls before the interview panel meets next Thursday."
+  },
+  {
+   "name": "Referee 1",
+   "private_context": "Referee 1 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be aware of the urgency."
+  },
+  {
+   "name": "Referee 2",
+   "private_context": "Referee 2 is listed by Aoife Byrne as a referee. They have received a call from the recruiter but have not yet returned it. They may or may not be aware of the urgency."
+  },
+  {
+   "name": "Recruiter",
+   "private_context": "The recruiter is responsible for contacting the referees of shortlisted candidates. They have called both referees listed by Aoife Byrne but have not yet received a return call. They need the referees' responses before the interview panel meets next Thursday."
+  }
+ ],
+ "shared_context": "The interview panel is scheduled to meet on Thursday, 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received return calls. The referees have the recruiter's contact information and can return the calls at any time before the meeting.",
+ "starting_events": [
+  {
+   "time": "2026-08-14T09:00:00+01:00",
+   "description": "The recruiter has already called both referees listed by Aoife Byrne. Neither referee has returned the call yet.",
+   "visible_to": [
+    "Recruiter"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that both referees actually returned the recruiter's calls before 2026-08-20T09:00:00+01:00. Otherwise resolve NO at that cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

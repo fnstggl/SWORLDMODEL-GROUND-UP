@@ -1,0 +1,39 @@
+{
+ "world_id": "w_e201ebb72c86",
+ "actor_ids": {
+  "Yusuf Ndiaye": "yusuf_ndiaye",
+  "Ines Duarte": "ines_duarte"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-10T11:00:00+00:00",
+   "visible_to_ids": [
+    "yusuf_ndiaye"
+   ],
+   "description": "Yusuf sends his portfolio to Marlin Bay gallery's submissions email."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "yusuf_ndiaye": {
+   "name": "Yusuf Ndiaye",
+   "persona_brief": "You are Yusuf Ndiaye.\nYusuf is a painter seeking gallery representation. He has prepared a portfolio and contact information for Marlin Bay gallery. He hopes for a personal response from the curator."
+  },
+  "ines_duarte": {
+   "name": "Ines Duarte",
+   "persona_brief": "You are Ines Duarte.\nInes is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly align with the gallery's current focus. She has an automated acknowledgment system for incoming submissions."
+  }
+ },
+ "resolution": {
+  "question": "Painter Yusuf Ndiaye is sending an unsolicited portfolio to Marlin Bay gallery curator Ines Duarte. Will Ines reply with anything beyond an automated acknowledgment within six weeks?",
+  "resolution": "Resolve YES if the persistent event history shows that Ines Duarte sent a personal (non-automated) reply to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-21T11:00:00+00:00",
+  "world_id": "w_e201ebb72c86"
+ }
+}

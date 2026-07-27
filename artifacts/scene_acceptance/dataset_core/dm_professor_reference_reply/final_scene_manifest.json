@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Professor Ilse Brandt",
+   "private_context": "Ilse is a professor at Ashvale University. She remembers Kofi Asante as a strong student in her seminars. She is busy with her own research and teaching duties. She receives many emails and prioritizes those that are urgent or from people she knows well. She has no prior commitment to write a reference for Kofi."
+  },
+  {
+   "name": "Kofi Asante",
+   "private_context": "Kofi is a former student of Ilse Brandt. He needs a reference letter for a museum fellowship due in three weeks. He has drafted a polite and specific message asking for the reference. He hopes Ilse will reply positively."
+  }
+ ],
+ "shared_context": "Kofi has Ilse's email address and can send her a message. Ilse can reply via email. The message will be sent at the simulation start time.",
+ "starting_events": [
+  {
+   "time": "2026-08-03T10:00:00+01:00",
+   "description": "Kofi sends his message to Ilse asking for a reference letter.",
+   "visible_to": [
+    "Kofi Asante"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Ilse sent a reply to Kofi's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

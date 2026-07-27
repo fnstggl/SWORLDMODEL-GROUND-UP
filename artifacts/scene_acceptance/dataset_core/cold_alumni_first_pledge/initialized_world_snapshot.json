@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ashvale_university_annual_fund_caller": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ashvale_university_annual_fund_caller",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The caller has a script for first-time asks and a list of alumni to contact. They are scheduled to call Dr. Renata Sousa during this shift. They have no prior relationship with Renata.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T21:00:00+00:00"
+    },
+    {
+     "content": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T21:00:00+00:00"
+    }
+   ],
+   "name": "Ashvale University Annual-Fund Caller",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "dr_renata_sousa": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dr_renata_sousa",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Renata is an alumna of Ashvale University who has never donated. She has her own financial priorities and may or may not be receptive to a phone solicitation. She does not know the caller.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T21:00:00+00:00"
+    },
+    {
+     "content": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T21:00:00+00:00"
+    }
+   ],
+   "name": "Dr. Renata Sousa",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
+  "scene:shared_context": "Ashvale University's annual fund is conducting a phone campaign. The caller will place a call to Dr. Renata Sousa at her known phone number. The call may be answered, go to voicemail, or be ignored. If answered, the caller will make a first-time ask for a pledge. Renata may pledge any amount, decline, or ask to be contacted later. The campaign runs until the end of October 2026."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-01T21:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-01T21:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

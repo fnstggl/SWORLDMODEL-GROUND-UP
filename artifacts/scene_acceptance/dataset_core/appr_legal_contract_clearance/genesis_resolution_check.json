@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Veldt Solar's legal team clear the revised supplier contract for signature within ten working days of receiving it today?",
+  "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature (e.g., by sending a clearance notification or signing off) before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-01T17:00:00+02:00",
+  "world_id": "w_2286f18769ec"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

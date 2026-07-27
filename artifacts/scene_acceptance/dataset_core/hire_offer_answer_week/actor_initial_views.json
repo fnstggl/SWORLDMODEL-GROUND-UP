@@ -1,0 +1,88 @@
+{
+ "kestrel_analytics": {
+  "id": "kestrel_analytics",
+  "name": "Kestrel Analytics",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T14:00:00+00:00",
+    "kind": "context",
+    "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They await her definitive answer before the deadline passes.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T14:00:00+00:00",
+    "kind": "context",
+    "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday, 2026-08-03, with a one-week deadline expiring on 2026-08-10T17:00:00+03:00. The offer includes a 15% raise over her current telecom salary and is fully remote. Wanjiru's partner is midway through a nursing program in Nairobi.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "wanjiru_kamau": {
+  "id": "wanjiru_kamau",
+  "name": "Wanjiru Kamau",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T14:00:00+00:00",
+    "kind": "context",
+    "content": "Wanjiru has received a data-engineer offer from Kestrel Analytics with a one-week deadline. She is currently employed in telecom, earning less than the offer's 15% raise. She is tired of shift-adjacent support work. Her partner is midway through a nursing program in Nairobi, and she values stability and proximity to support her partner. She must decide whether to accept the offer before the deadline.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T14:00:00+00:00",
+    "kind": "context",
+    "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday, 2026-08-03, with a one-week deadline expiring on 2026-08-10T17:00:00+03:00. The offer includes a 15% raise over her current telecom salary and is fully remote. Wanjiru's partner is midway through a nursing program in Nairobi.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

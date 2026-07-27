@@ -1,0 +1,54 @@
+{
+ "world_id": "w_abd83571e95b",
+ "actor_ids": {
+  "PTA subcommittee chair": "pta_subcommittee_chair",
+  "Potential volunteer 1": "potential_volunteer_1",
+  "Potential volunteer 2": "potential_volunteer_2",
+  "Potential volunteer 3": "potential_volunteer_3",
+  "Potential volunteer 4": "potential_volunteer_4"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 20,
+   "at": "2026-09-22T00:00:00+00:00",
+   "visible_to_ids": [
+    "pta_subcommittee_chair"
+   ],
+   "description": "The PTA subcommittee chair begins the recruitment process for four stall coordinators."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "pta_subcommittee_chair": {
+   "name": "PTA subcommittee chair",
+   "persona_brief": "You are PTA subcommittee chair.\nThe chair is responsible for organizing the winter fair and needs to recruit four stall coordinators. They have a list of potential volunteers from previous events and the school community. They plan to reach out to candidates before the October planning meeting."
+  },
+  "potential_volunteer_1": {
+   "name": "Potential volunteer 1",
+   "persona_brief": "You are Potential volunteer 1.\nA parent who has helped with school events before. They are busy but open to being asked. They have not yet been contacted about the winter fair."
+  },
+  "potential_volunteer_2": {
+   "name": "Potential volunteer 2",
+   "persona_brief": "You are Potential volunteer 2.\nA parent who is new to the school this year. They are interested in getting involved but have not yet been approached. They are unsure about time commitment."
+  },
+  "potential_volunteer_3": {
+   "name": "Potential volunteer 3",
+   "persona_brief": "You are Potential volunteer 3.\nA local business owner whose child attends the school. They have sponsored events in the past but have not volunteered as a coordinator. They are considering it if asked."
+  },
+  "potential_volunteer_4": {
+   "name": "Potential volunteer 4",
+   "persona_brief": "You are Potential volunteer 4.\nA teacher at the school who has coordinated stalls before. They are willing to help again if asked, but have not been approached yet."
+  }
+ },
+ "resolution": {
+  "question": "Will the PTA subcommittee for the winter fair recruit the four stall coordinators it needs at or before its October planning meeting?",
+  "resolution": "Resolve YES if, by 2026-10-19T21:00:00-05:00, the persistent event history shows that at least four individuals have explicitly agreed to serve as stall coordinators for the winter fair. Otherwise resolve NO.",
+  "cutoff": "2026-10-19T21:00:00-05:00",
+  "world_id": "w_abd83571e95b"
+ }
+}

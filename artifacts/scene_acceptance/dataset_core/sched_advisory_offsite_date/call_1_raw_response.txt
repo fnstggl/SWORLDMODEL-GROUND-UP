@@ -1,0 +1,33 @@
+{
+  "actors": [
+    {
+      "name": "Advisor 1",
+      "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+    },
+    {
+      "name": "Advisor 2",
+      "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+    },
+    {
+      "name": "Advisor 3",
+      "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has not yet responded."
+    },
+    {
+      "name": "Advisor 4",
+      "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
+    },
+    {
+      "name": "Advisor 5",
+      "private_context": "Has received the poll with four candidate weekends for the autumn strategy offsite. Has already responded with their availability."
+    }
+  ],
+  "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The goal is to settle on a date within the next three weeks (by 2026-08-19).",
+  "starting_events": [
+    {
+      "time": "2026-07-29T09:00:00+01:00",
+      "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisors. Two advisors have already responded.",
+      "visible_to": ["Advisor 1", "Advisor 2", "Advisor 3", "Advisor 4", "Advisor 5"]
+    }
+  ],
+  "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., all advisors have confirmed availability for a specific weekend, or a decision has been announced). Otherwise resolve NO."
+}

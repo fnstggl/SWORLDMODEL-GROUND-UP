@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
+  "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no decision is communicated by that time.",
+  "cutoff": "2026-08-17T17:00:00-08:00",
+  "world_id": "w_7332ce33442b"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

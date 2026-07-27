@@ -1,0 +1,29 @@
+{
+ "semantic_calls": 2,
+ "semantic_slots": [
+  "call_1_scene",
+  "call_2_review"
+ ],
+ "provider_requests": 2,
+ "total_prompt_tokens": 2697,
+ "total_completion_tokens": 432,
+ "per_slot": {
+  "call_1_scene": {
+   "attempts": 1,
+   "duration_s": 4.102,
+   "prompt_tokens": 1464,
+   "completion_tokens": 416
+  },
+  "call_2_review": {
+   "attempts": 1,
+   "duration_s": 0.99,
+   "prompt_tokens": 1233,
+   "completion_tokens": 16
+  }
+ },
+ "wall_s": 5.1,
+ "compiler_version": "minimal_scene_v1",
+ "evidence_mode": "model_memory_unverified",
+ "repaired_compile": false,
+ "world_id": "w_e42e9e0ff6dd"
+}

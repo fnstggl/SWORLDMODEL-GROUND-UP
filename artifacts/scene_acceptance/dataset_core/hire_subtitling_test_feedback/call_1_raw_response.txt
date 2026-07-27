@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Noor Haddad",
+      "private_context": "Noor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects a response within one month, as quoted by the agency. She has no other information about the agency's internal processes."
+    },
+    {
+      "name": "Subtitling Agency",
+      "private_context": "The agency receives test pieces from freelance translators and has a stated policy of one-month turnaround for responses. The agency's internal review process and decision-making are not known to Noor."
+    }
+  ],
+  "shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The simulation starts at 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00.",
+  "starting_events": [
+    {
+      "time": "2026-09-02T10:00:00+02:00",
+      "description": "Noor Haddad's test piece has been submitted and is with the agency. The one-month period begins now.",
+      "visible_to": ["Noor Haddad", "Subtitling Agency"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the agency sent a response to Noor Haddad before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff."
+}

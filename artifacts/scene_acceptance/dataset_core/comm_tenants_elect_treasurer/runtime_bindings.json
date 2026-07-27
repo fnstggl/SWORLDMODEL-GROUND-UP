@@ -1,0 +1,52 @@
+{
+ "world_id": "w_e42e9e0ff6dd",
+ "actor_ids": {
+  "Tenants' Association of the Aurora Block": "tenants_association_of_the_aurora_block",
+  "Resident 1": "resident_1",
+  "Resident 2": "resident_2",
+  "Resident 3": "resident_3"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-09-02T16:30:00+00:00",
+   "visible_to_ids": [
+    "tenants_association_of_the_aurora_block",
+    "resident_1",
+    "resident_2",
+    "resident_3"
+   ],
+   "description": "The first meeting of the season of the Aurora Block tenants' association begins."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "tenants_association_of_the_aurora_block": {
+   "name": "Tenants' Association of the Aurora Block",
+   "persona_brief": "You are Tenants' Association of the Aurora Block.\nThe association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have shown interest in the role. The association has no prior knowledge of which candidate will be chosen or if an election will succeed."
+  },
+  "resident_1": {
+   "name": "Resident 1",
+   "persona_brief": "You are Resident 1.\nHas shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+  },
+  "resident_2": {
+   "name": "Resident 2",
+   "persona_brief": "You are Resident 2.\nHas shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+  },
+  "resident_3": {
+   "name": "Resident 3",
+   "persona_brief": "You are Resident 3.\nHas shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+  }
+ },
+ "resolution": {
+  "question": "Will the tenants' association of the Aurora Block elect a treasurer at tonight's first meeting of the season, given that three residents have shown interest?",
+  "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected (i.e., a person accepted the role and was confirmed by the association) before the cutoff at 2026-09-02T21:30:00+02:00. Otherwise resolve NO.",
+  "cutoff": "2026-09-02T21:30:00+02:00",
+  "world_id": "w_e42e9e0ff6dd"
+ }
+}

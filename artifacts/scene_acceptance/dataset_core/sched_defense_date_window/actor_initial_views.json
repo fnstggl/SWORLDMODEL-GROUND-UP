@@ -1,0 +1,174 @@
+{
+ "committee_member_a": {
+  "id": "committee_member_a",
+  "name": "Committee Member A",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "A is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "committee_member_b": {
+  "id": "committee_member_b",
+  "name": "Committee Member B",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "B is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "committee_member_c": {
+  "id": "committee_member_c",
+  "name": "Committee Member C",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "C is a faculty member on Femi's committee. They have a busy schedule but are willing to accommodate a defense in November if possible. They have not yet communicated their availability for November.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "femi_adeyemi": {
+  "id": "femi_adeyemi",
+  "name": "Femi Adeyemi",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "Femi is a doctoral candidate who needs to schedule his defense within the department's November window. He wants to find a date that works for all three committee members. He has access to a scheduling tool (e.g., Doodle or email) to propose dates. He is motivated to secure a date soon.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-14T08:00:00+00:00",
+    "kind": "context",
+    "content": "The department has a November window for defenses. Femi and his three committee members need to agree on a specific date within that window. As of the simulation start, no date has been proposed or discussed. Femi can initiate communication with the committee members to coordinate availability.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

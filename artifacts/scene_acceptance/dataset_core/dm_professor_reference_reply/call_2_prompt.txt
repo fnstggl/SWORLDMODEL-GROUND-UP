@@ -1,0 +1,117 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?
+
+Simulation start time: 2026-08-03T10:00:00+01:00
+Hard cutoff: 2026-08-10T10:00:00+01:00
+
+USER-PROVIDED CONTEXT:
+Kofi took two of Ilse's seminars at Ashvale University and earned top marks in both; they last spoke eight months ago. His message is polite and specific, asking for a reference letter for a museum fellowship due in three weeks.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Professor Ilse Brandt",
+   "private_context": "Ilse is a professor at Ashvale University. She remembers Kofi Asante as a strong student in her seminars. She is busy with her own research and teaching duties. She receives many emails and prioritizes those that are urgent or from people she knows well. She has no prior commitment to write a reference for Kofi."
+  },
+  {
+   "name": "Kofi Asante",
+   "private_context": "Kofi is a former student of Ilse Brandt. He needs a reference letter for a museum fellowship due in three weeks. He has drafted a polite and specific message asking for the reference. He hopes Ilse will reply positively."
+  }
+ ],
+ "shared_context": "Kofi has Ilse's email address and can send her a message. Ilse can reply via email. The message will be sent at the simulation start time.",
+ "starting_events": [
+  {
+   "time": "2026-08-03T10:00:00+01:00",
+   "description": "Kofi sends his message to Ilse asking for a reference letter.",
+   "visible_to": [
+    "Kofi Asante"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Ilse sent a reply to Kofi's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

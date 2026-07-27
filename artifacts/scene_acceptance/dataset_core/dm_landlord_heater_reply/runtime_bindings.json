@@ -1,0 +1,39 @@
+{
+ "world_id": "w_8e910576b236",
+ "actor_ids": {
+  "Maya Okonkwo": "maya_okonkwo",
+  "Stavros": "stavros"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-28T12:30:00+00:00",
+   "visible_to_ids": [
+    "maya_okonkwo"
+   ],
+   "description": "Maya sends a text message to Stavros about the broken water heater."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "maya_okonkwo": {
+   "name": "Maya Okonkwo",
+   "persona_brief": "You are Maya Okonkwo.\nMaya is a tenant who texted her landlord Stavros this morning about a broken water heater. She hopes for a prompt reply."
+  },
+  "stavros": {
+   "name": "Stavros",
+   "persona_brief": "You are Stavros.\nStavros is a landlord who receives tenant maintenance requests. He may prioritize based on urgency and his schedule. He has not yet replied to Maya's message."
+  }
+ },
+ "resolution": {
+  "question": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. Will he reply to her before tomorrow evening?",
+  "resolution": "Resolve YES if the persistent event history shows that Stavros sent a reply to Maya's text before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-07-29T20:00:00-04:00",
+  "world_id": "w_8e910576b236"
+ }
+}

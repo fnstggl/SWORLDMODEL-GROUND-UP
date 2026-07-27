@@ -1,0 +1,88 @@
+{
+ "ashvale_university_research_ethics_board_reb": {
+  "id": "ashvale_university_research_ethics_board_reb",
+  "name": "Ashvale University Research Ethics Board (REB)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T00:00:00+00:00",
+    "kind": "context",
+    "content": "The REB is a committee that reviews research protocols. They have received Dr. Tanaka's survey protocol and will consider it at their next monthly meeting. The board operates by consensus or majority vote. Members have varying expertise and may have concerns about the protocol.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T00:00:00+00:00",
+    "kind": "context",
+    "content": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "dr_tanaka": {
+  "id": "dr_tanaka",
+  "name": "Dr. Tanaka",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T00:00:00+00:00",
+    "kind": "context",
+    "content": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision and have no prior relationship with board members. They have not received any communication from the board since submission.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T00:00:00+00:00",
+    "kind": "context",
+    "content": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

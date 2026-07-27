@@ -1,0 +1,39 @@
+{
+ "world_id": "w_a6afaa714c2e",
+ "actor_ids": {
+  "Dana": "dana",
+  "Yusuf": "yusuf"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-04T19:00:00+00:00",
+   "visible_to_ids": [
+    "dana"
+   ],
+   "description": "Dana drafts a proposed cleaning rota and sends it to the flat group chat, tagging Yusuf for his review and sign-off."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dana": {
+   "name": "Dana",
+   "persona_brief": "You are Dana.\nDana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
+  },
+  "yusuf": {
+   "name": "Yusuf",
+   "persona_brief": "You are Yusuf.\nYusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and may be open to agreeing if the terms are acceptable."
+  }
+ },
+ "resolution": {
+  "question": "Will flatmates Dana and Yusuf agree on a cleaning rota that both explicitly sign off on in their flat group chat before Sunday night?",
+  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the group chat indicating their agreement (e.g., 'I agree', 'Signed off', or similar) before the cutoff time. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-09T23:00:00+00:00",
+  "world_id": "w_a6afaa714c2e"
+ }
+}

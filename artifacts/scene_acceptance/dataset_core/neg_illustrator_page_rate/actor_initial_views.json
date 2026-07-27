@@ -1,0 +1,88 @@
+{
+ "chen_wei": {
+  "id": "chen_wei",
+  "name": "Chen Wei",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-06T06:00:00+00:00",
+    "kind": "context",
+    "content": "Chen Wei is an illustrator who has received a commission offer from Torchlight Media for a twelve-page project. She is preparing to make a counteroffer on the page rate today. She has her own minimum acceptable rate and hopes to negotiate a favorable deal.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-06T06:00:00+00:00",
+    "kind": "context",
+    "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "torchlight_media": {
+  "id": "torchlight_media",
+  "name": "Torchlight Media",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-06T06:00:00+00:00",
+    "kind": "context",
+    "content": "Torchlight Media is a publisher that wants to commission a twelve-page illustration project from Chen Wei. They have made an initial offer and are awaiting her counteroffer. They have a budget and a maximum acceptable page rate for this project.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-06T06:00:00+00:00",
+    "kind": "context",
+    "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

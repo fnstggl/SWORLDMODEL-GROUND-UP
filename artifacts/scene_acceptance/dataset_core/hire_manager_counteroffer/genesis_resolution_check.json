@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Sanjay handed in his notice at Nimbus Freight this morning. Will his manager come back with a counteroffer within five working days?",
+  "resolution": "Resolve YES if the persistent event history shows that the manager communicated a counteroffer to Sanjay before 2026-08-03T18:00:00+05:30. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-03T18:00:00+05:30",
+  "world_id": "w_3a581c16e372"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

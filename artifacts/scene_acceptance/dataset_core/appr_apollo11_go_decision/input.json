@@ -1,0 +1,8 @@
+{
+ "question": "Will NASA's senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before the end of June 1969?",
+ "start": "1969-06-01T09:00:00-04:00",
+ "cutoff": "1969-06-30T18:00:00-04:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

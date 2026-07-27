@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "petra_kovac": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "petra_kovac",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Petra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    },
+    {
+     "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter. The message will be sent at the start time.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    }
+   ],
+   "name": "Petra Kovac",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "recruiter_from_torchlight_media": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "recruiter_from_torchlight_media",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The recruiter has identified Petra Kovac as a potential candidate for a colorist position at Torchlight Media. They have prepared a first-contact message to send to Petra.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    },
+    {
+     "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter. The message will be sent at the start time.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    }
+   ],
+   "name": "Recruiter from Torchlight Media",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "A recruiter from Torchlight Media is sending Petra Kovac, a senior colorist who is happily employed elsewhere, a first-contact message about an opening. Will Petra reply at all within five business days?",
+  "scene:shared_context": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter. The message will be sent at the start time."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-07T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-07T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

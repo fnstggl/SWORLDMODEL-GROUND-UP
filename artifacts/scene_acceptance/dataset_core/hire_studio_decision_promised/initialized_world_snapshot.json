@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "bramblewick_studios": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "bramblewick_studios",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision within two weeks after her final interview. The hiring manager mentioned that budget sign-off is still pending with the finance lead.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-09T15:00:00+00:00"
+    },
+    {
+     "content": "Elin Bjork had a final interview with Bramblewick Studios on an unspecified date before the simulation start. The art director promised a decision within two weeks from that interview. The studio is currently mid-crunch on a delayed title, and budget sign-off is pending with the finance lead.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Bramblewick Studios",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "elin_bjork": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "elin_bjork",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Elin Bjork completed her final interview with Bramblewick Studios. The art director promised a decision within two weeks. She is waiting to hear back.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-09T15:00:00+00:00"
+    },
+    {
+     "content": "Elin Bjork had a final interview with Bramblewick Studios on an unspecified date before the simulation start. The art director promised a decision within two weeks from that interview. The studio is currently mid-crunch on a delayed title, and budget sign-off is pending with the finance lead.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Elin Bjork",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Bramblewick Studios send Elin Bjork any decision, offer or rejection, within the two weeks their art director promised at the end of her final interview?",
+  "scene:shared_context": "Elin Bjork had a final interview with Bramblewick Studios on an unspecified date before the simulation start. The art director promised a decision within two weeks from that interview. The studio is currently mid-crunch on a delayed title, and budget sign-off is pending with the finance lead."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-09T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-09T15:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

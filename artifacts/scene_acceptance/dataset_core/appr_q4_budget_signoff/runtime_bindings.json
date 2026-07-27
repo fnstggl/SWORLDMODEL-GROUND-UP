@@ -1,0 +1,40 @@
+{
+ "world_id": "w_359e0da2b8ea",
+ "actor_ids": {
+  "CFO": "cfo",
+  "CMO": "cmo"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-08T08:00:00+00:00",
+   "visible_to_ids": [
+    "cfo",
+    "cmo"
+   ],
+   "description": "The simulation begins. The CFO and CMO are aware of the revised Q4 budget proposal and the upcoming offsite. No decision has been made yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "cfo": {
+   "name": "CFO",
+   "persona_brief": "You are CFO.\nThe CFO previously pushed back on the marketing team's original Q4 budget, leading to a revised proposal eight percent lower. The CFO has a decent working relationship with the CMO and meets weekly. The CFO has not yet decided whether to approve the revised budget."
+  },
+  "cmo": {
+   "name": "CMO",
+   "persona_brief": "You are CMO.\nThe CMO leads the marketing team and has revised the Q4 budget to be eight percent below the original ask after the CFO's pushback. The CMO has a decent working relationship with the CFO and meets weekly. The CMO wants the revised budget approved before the leadership offsite."
+  }
+ },
+ "resolution": {
+  "question": "Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?",
+  "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the marketing team (or the CMO) before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-21T09:00:00+01:00",
+  "world_id": "w_359e0da2b8ea"
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "chen_wei": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "chen_wei",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Chen Wei is an illustrator who has received a commission offer from Torchlight Media for a twelve-page project. She is preparing to make a counteroffer on the page rate today. She has her own minimum acceptable rate and hopes to negotiate a favorable deal.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    },
+    {
+     "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    }
+   ],
+   "name": "Chen Wei",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "torchlight_media": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "torchlight_media",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Torchlight Media is a publisher that wants to commission a twelve-page illustration project from Chen Wei. They have made an initial offer and are awaiting her counteroffer. They have a budget and a maximum acceptable page rate for this project.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    },
+    {
+     "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    }
+   ],
+   "name": "Torchlight Media",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will illustrator Chen Wei and Torchlight Media settle on a page rate for a twelve-page commission within one week of her opening counteroffer today?",
+  "scene:shared_context": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is about to send her counteroffer on the page rate. They communicate via email or a similar channel. The negotiation may involve back-and-forth exchanges. The deadline for settlement is one week from today, 2026-08-13T14:00:00+08:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-06T06:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-06T06:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

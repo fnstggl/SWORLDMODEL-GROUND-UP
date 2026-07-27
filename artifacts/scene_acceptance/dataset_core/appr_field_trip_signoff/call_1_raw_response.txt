@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Principal",
+      "private_context": "The principal is responsible for approving school trips and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the geography department's coastal field trip, which has run without incident for four years. They know the deputy head is on leave until late September."
+    },
+    {
+      "name": "Geography Department Head",
+      "private_context": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head (who is on leave until late September). They want the principal to sign off before the half-term deadline for sending parental consent letters."
+    }
+  ],
+  "shared_context": "The coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an additional signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching. The geography department head can submit the proposal to the principal for approval.",
+  "starting_events": [
+    {
+      "time": "2026-09-07T08:30:00+01:00",
+      "description": "The geography department head submits the proposed coastal field trip paperwork to the principal for sign-off.",
+      "visible_to": ["Geography Department Head", "Principal"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the trip before the hard cutoff of 2026-10-16T15:30:00+01:00. Otherwise resolve NO at the cutoff."
+}

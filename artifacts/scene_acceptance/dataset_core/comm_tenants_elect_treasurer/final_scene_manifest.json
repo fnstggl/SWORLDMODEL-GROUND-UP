@@ -1,0 +1,34 @@
+{
+ "actors": [
+  {
+   "name": "Tenants' Association of the Aurora Block",
+   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have shown interest in the role. The association has no prior knowledge of which candidate will be chosen or if an election will succeed."
+  },
+  {
+   "name": "Resident 1",
+   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+  },
+  {
+   "name": "Resident 2",
+   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+  },
+  {
+   "name": "Resident 3",
+   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination."
+  }
+ ],
+ "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight, starting at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The meeting will proceed with attendees present; the election outcome depends on nominations, votes, and whether a candidate accepts.",
+ "starting_events": [
+  {
+   "time": "2026-09-02T18:30:00+02:00",
+   "description": "The first meeting of the season of the Aurora Block tenants' association begins.",
+   "visible_to": [
+    "Tenants' Association of the Aurora Block",
+    "Resident 1",
+    "Resident 2",
+    "Resident 3"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected (i.e., a person accepted the role and was confirmed by the association) before the cutoff at 2026-09-02T21:30:00+02:00. Otherwise resolve NO."
+}

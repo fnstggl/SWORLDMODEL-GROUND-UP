@@ -1,0 +1,40 @@
+{
+ "world_id": "w_70376843594d",
+ "actor_ids": {
+  "French Presidency of COP21": "french_presidency_of_cop21",
+  "National Delegations": "national_delegations"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2015-11-30T08:00:00+00:00",
+   "visible_to_ids": [
+    "french_presidency_of_cop21",
+    "national_delegations"
+   ],
+   "description": "The COP21 climate conference officially opens."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "french_presidency_of_cop21": {
+   "name": "French Presidency of COP21",
+   "persona_brief": "You are French Presidency of COP21.\nThe French Presidency is responsible for managing the COP21 climate conference. It aims to produce a consolidated draft agreement text that can be circulated to national delegations. It has the authority to prepare and circulate such texts."
+  },
+  "national_delegations": {
+   "name": "National Delegations",
+   "persona_brief": "You are National Delegations.\nNational delegations are participating in the COP21 conference. They expect to receive draft agreement texts from the presidency for negotiation. They have no prior knowledge of the specific content of any consolidated draft."
+  }
+ },
+ "resolution": {
+  "question": "Will the French presidency of the COP21 climate conference circulate at least one consolidated draft agreement text to national delegations before the summit's final scheduled day?",
+  "resolution": "Resolve YES if the persistent event history shows that the French Presidency circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00. Otherwise resolve NO at the hard cutoff.",
+  "cutoff": "2015-12-10T09:00:00+01:00",
+  "world_id": "w_70376843594d"
+ }
+}

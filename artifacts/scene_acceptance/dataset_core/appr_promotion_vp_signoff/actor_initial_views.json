@@ -1,0 +1,131 @@
+{
+ "calibration_committee": {
+  "id": "calibration_committee",
+  "name": "Calibration Committee",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T17:00:00+00:00",
+    "kind": "context",
+    "content": "The calibration committee reviews promotion cases and decides whether to approve them. They have no prior knowledge of Jonas's case.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T17:00:00+00:00",
+    "kind": "context",
+    "content": "Promotion letters are scheduled to go out on November 15. The promotion process requires calibration committee approval followed by VP sign-off. Rosa Maria can submit Jonas's promotion case to the calibration committee. The committee may approve or reject the case; if approved, it goes to the VP for sign-off.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "rosa_maria": {
+  "id": "rosa_maria",
+  "name": "Rosa Maria",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T17:00:00+00:00",
+    "kind": "context",
+    "content": "Rosa Maria is Jonas's manager. She has prepared a promotion case for Jonas and intends to submit it for calibration and VP sign-off. She believes Jonas deserves the promotion and is motivated to see it through.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T17:00:00+00:00",
+    "kind": "context",
+    "content": "Promotion letters are scheduled to go out on November 15. The promotion process requires calibration committee approval followed by VP sign-off. Rosa Maria can submit Jonas's promotion case to the calibration committee. The committee may approve or reject the case; if approved, it goes to the VP for sign-off.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "vp": {
+  "id": "vp",
+  "name": "VP",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T17:00:00+00:00",
+    "kind": "context",
+    "content": "The VP has the authority to sign off on promotions after calibration approval. They have no prior knowledge of Jonas's case.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T17:00:00+00:00",
+    "kind": "context",
+    "content": "Promotion letters are scheduled to go out on November 15. The promotion process requires calibration committee approval followed by VP sign-off. Rosa Maria can submit Jonas's promotion case to the calibration committee. The committee may approve or reject the case; if approved, it goes to the VP for sign-off.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

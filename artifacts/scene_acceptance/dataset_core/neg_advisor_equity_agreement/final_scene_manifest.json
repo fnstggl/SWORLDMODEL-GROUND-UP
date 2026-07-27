@@ -1,0 +1,28 @@
+{
+ "actors": [
+  {
+   "name": "Leila",
+   "private_context": "Leila is the founder. She is offering 0.3% equity to a prospective advisor who has asked for 1%. She knows her co-founder thinks anything above 0.5% is too rich. The company's standard advisor template vests over two years. She wants to reach an agreement but is constrained by co-founder's view and standard terms."
+  },
+  {
+   "name": "Advisor",
+   "private_context": "The advisor is a retired logistics executive who has already made two useful introductions. He has asked for 1% equity. He may have expectations about his value and may be willing to negotiate or walk away."
+  },
+  {
+   "name": "Co-founder",
+   "private_context": "The co-founder thinks anything above 0.5% equity for an advisor is too rich. They have influence over Leila's decisions and may need to approve any final offer."
+  }
+ ],
+ "shared_context": "Leila is negotiating equity with a prospective advisor. The advisor has asked for 1% and Leila has offered 0.3%. The company's standard advisor agreement vests over two years. The co-founder has a strong opinion that anything above 0.5% is too rich. The negotiation is ongoing as of the start time.",
+ "starting_events": [
+  {
+   "time": "2026-09-10T10:00:00-07:00",
+   "description": "Leila and the advisor are in the middle of equity negotiations. Leila has offered 0.3% and the advisor has countered at 1%. No agreement has been reached yet.",
+   "visible_to": [
+    "Leila",
+    "Advisor"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that an advisor agreement was executed (signed by both parties) on or before 2026-10-10T10:00:00-07:00. Otherwise resolve NO at the cutoff."
+}

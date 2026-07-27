@@ -1,0 +1,8 @@
+{
+ "question": "Separated parents Ingrid and Mattias are negotiating who takes the children for the December holidays. Will they reach a written agreement before their mediator's final scheduled session in six weeks?",
+ "start": "2026-09-01T09:00:00+01:00",
+ "cutoff": "2026-10-13T17:00:00+01:00",
+ "context": "Both have lawyers but remain on speaking terms; Ingrid's family hosts a large Lucia gathering, Mattias has a deposit down on a ski trip for the first week of the break, and the mediator has flagged travel dates as the only open issue.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

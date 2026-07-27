@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "herrera_cousins_group_chat": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "herrera_cousins_group_chat",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The fourteen cousins have been discussing a spring reunion. Three cousins (names unknown) strongly prefer Oaxaca; two prefer San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. No consensus has been reached yet. Each cousin has their own schedule constraints and preferences, but these are not fully known to others.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    },
+    {
+     "content": "There is a fourteen-person group chat that has been active for a month. The group is trying to decide on a weekend and a town for next spring's family reunion. The chat is the primary communication channel. The current date is 2026-08-01T10:00:00-06:00. The group has until 2026-09-30T22:00:00-06:00 to reach a decision.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    }
+   ],
+   "name": "Herrera cousins (group chat)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
+  "scene:shared_context": "There is a fourteen-person group chat that has been active for a month. The group is trying to decide on a weekend and a town for next spring's family reunion. The chat is the primary communication channel. The current date is 2026-08-01T10:00:00-06:00. The group has until 2026-09-30T22:00:00-06:00 to reach a decision."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-01T16:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-01T16:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

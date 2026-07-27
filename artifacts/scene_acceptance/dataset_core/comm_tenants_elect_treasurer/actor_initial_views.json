@@ -1,0 +1,174 @@
+{
+ "resident_1": {
+  "id": "resident_1",
+  "name": "Resident 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "The Aurora Block tenants' association is holding its first meeting of the season tonight, starting at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The meeting will proceed with attendees present; the election outcome depends on nominations, votes, and whether a candidate accepts.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "resident_2": {
+  "id": "resident_2",
+  "name": "Resident 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "The Aurora Block tenants' association is holding its first meeting of the season tonight, starting at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The meeting will proceed with attendees present; the election outcome depends on nominations, votes, and whether a candidate accepts.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "resident_3": {
+  "id": "resident_3",
+  "name": "Resident 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept nomination.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "The Aurora Block tenants' association is holding its first meeting of the season tonight, starting at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The meeting will proceed with attendees present; the election outcome depends on nominations, votes, and whether a candidate accepts.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "tenants_association_of_the_aurora_block": {
+  "id": "tenants_association_of_the_aurora_block",
+  "name": "Tenants' Association of the Aurora Block",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have shown interest in the role. The association has no prior knowledge of which candidate will be chosen or if an election will succeed.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-02T16:30:00+00:00",
+    "kind": "context",
+    "content": "The Aurora Block tenants' association is holding its first meeting of the season tonight, starting at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The meeting will proceed with attendees present; the election outcome depends on nominations, votes, and whether a candidate accepts.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

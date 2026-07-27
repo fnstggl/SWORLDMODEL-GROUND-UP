@@ -1,0 +1,122 @@
+You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
+
+Check, specifically:
+- Are all materially relevant actors present?
+- Is anyone included who cannot affect the answer?
+- Was an assistant, board, authority chain or institution invented?
+- Does each actor receive only information they could possess?
+- Does shared_context leak private information?
+- Does the scene invent unsupported precise schedules or habits?
+- Does any starting event prewrite a future decision?
+- Is the YES condition already true at initialization?
+- Is a terminal-producing future action already scheduled?
+- Is the resolution externally observable?
+- Does the resolution match the user's actual question?
+- Is this the smallest causally sufficient scene?
+- Is the question meaningfully social and simulatable by an actor-based runtime?
+- Is the scene disguising a factual lookup as a simulation?
+- Is the scene disguising a purely operational or physical model as a conversation?
+- Does any historical outcome known from model memory leak into the starting context?
+
+You must NOT: rewrite the whole scene; introduce new speculative facts; demand unnecessary detail; request a causal graph; request action definitions; demand every possible participant; or reject merely because uncertainty remains -- preserved uncertainty is correct.
+
+Verdicts:
+- APPROVE: the scene may run as-is (defects must be empty).
+- REVISE: fixable defects exist; list each with its exact path, the problem, and the minimal correction.
+- ABSTAIN: the question lacks enough information to identify the decision-maker or the observed resolving event, or is not simulatable as a social scene; explain in one defect entry with path "scene".
+
+Reply with ONLY a JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "verdict",
+  "defects"
+ ],
+ "properties": {
+  "verdict": {
+   "enum": [
+    "APPROVE",
+    "REVISE",
+    "ABSTAIN"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "path",
+     "problem",
+     "correction"
+    ],
+    "properties": {
+     "path": {
+      "type": "string",
+      "minLength": 1
+     },
+     "problem": {
+      "type": "string",
+      "minLength": 1
+     },
+     "correction": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Founder Leila is offering her prospective advisor 0.3 percent equity and he has asked for 1 percent. Will they execute an advisor agreement within a month?
+
+Simulation start time: 2026-09-10T10:00:00-07:00
+Hard cutoff: 2026-10-10T10:00:00-07:00
+
+USER-PROVIDED CONTEXT:
+The advisor is a retired logistics executive who has already made two useful introductions; Leila's co-founder thinks anything above half a percent is too rich, and the company's standard advisor template vests over two years.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE COMPILED SCENE (exact manifest under review):
+{
+ "actors": [
+  {
+   "name": "Leila",
+   "private_context": "Leila is the founder. She is offering 0.3% equity to a prospective advisor who has asked for 1%. She knows her co-founder thinks anything above 0.5% is too rich. The company's standard advisor template vests over two years. She wants to reach an agreement but is constrained by co-founder's view and standard terms."
+  },
+  {
+   "name": "Advisor",
+   "private_context": "The advisor is a retired logistics executive who has already made two useful introductions. He has asked for 1% equity. He may have expectations about his value and may be willing to negotiate or walk away."
+  },
+  {
+   "name": "Co-founder",
+   "private_context": "The co-founder thinks anything above 0.5% equity for an advisor is too rich. They have influence over Leila's decisions and may need to approve any final offer."
+  }
+ ],
+ "shared_context": "Leila is negotiating equity with a prospective advisor. The advisor has asked for 1% and Leila has offered 0.3%. The company's standard advisor agreement vests over two years. The co-founder has a strong opinion that anything above 0.5% is too rich. The negotiation is ongoing as of the start time.",
+ "starting_events": [
+  {
+   "time": "2026-09-10T10:00:00-07:00",
+   "description": "Leila and the advisor are in the middle of equity negotiations. Leila has offered 0.3% and the advisor has countered at 1%. No agreement has been reached yet.",
+   "visible_to": [
+    "Leila",
+    "Advisor"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that an advisor agreement was executed (signed by both parties) on or before 2026-10-10T10:00:00-07:00. Otherwise resolve NO at the cutoff."
+}
+
+Review it now.  Reply with ONLY the verdict JSON object.

@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Calloway Regional Hospital HR Department",
+   "private_context": "The HR department is responsible for reviewing applications for the ward-clerk vacancy. They have received eleven applications by the closing deadline. They have internal criteria for selecting candidates to invite for interviews, but no decisions have been made yet."
+  }
+ ],
+ "shared_context": "The posting for the ward-clerk vacancy at Calloway Regional Hospital closed at 23:59 on 2026-09-30. Eleven applications were received. The HR department will review applications and may invite some applicants for interviews within two weeks of the closing date.",
+ "starting_events": [
+  {
+   "time": "2026-09-30T23:59:00-05:00",
+   "description": "The job posting for the ward-clerk vacancy closes. Eleven applications have been received.",
+   "visible_to": [
+    "Calloway Regional Hospital HR Department"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least three distinct applicants were sent an interview invitation by the HR department before 2026-10-14T23:59:00-05:00. Otherwise resolve NO at the cutoff."
+}

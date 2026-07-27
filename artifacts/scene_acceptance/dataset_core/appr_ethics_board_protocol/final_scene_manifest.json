@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Dr. Tanaka",
+   "private_context": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision and have no prior relationship with board members. They have not received any communication from the board since submission."
+  },
+  {
+   "name": "Ashvale University Research Ethics Board (REB)",
+   "private_context": "The REB is a committee that reviews research protocols. They have received Dr. Tanaka's survey protocol and will consider it at their next monthly meeting. The board operates by consensus or majority vote. Members have varying expertise and may have concerns about the protocol."
+  }
+ ],
+ "shared_context": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00+09:00",
+   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University Research Ethics Board. The board has the protocol on its agenda for the next monthly meeting.",
+   "visible_to": [
+    "Dr. Tanaka",
+    "Ashvale University Research Ethics Board (REB)"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the REB communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Resolve NO if no decision is communicated by the cutoff."
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will NASA's senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before the end of June 1969?",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that NASA senior managers publicly announced a go decision for Apollo 11's July launch window. Otherwise resolve NO at the cutoff.",
+  "cutoff": "1969-06-30T18:00:00-04:00",
+  "world_id": "w_0eadc52ebe13"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

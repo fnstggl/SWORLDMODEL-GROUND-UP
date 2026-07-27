@@ -1,0 +1,45 @@
+{
+ "dmytro": {
+  "id": "dmytro",
+  "name": "Dmytro",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-17T07:00:00+00:00",
+    "kind": "context",
+    "content": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has some relevant experience but is unsure about his chances and whether he wants the added responsibility. He has not yet decided to apply.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-17T07:00:00+00:00",
+    "kind": "context",
+    "content": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's internal system.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

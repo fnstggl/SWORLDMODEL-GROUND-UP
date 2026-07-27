@@ -1,0 +1,131 @@
+{
+ "advisor": {
+  "id": "advisor",
+  "name": "Advisor",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The advisor is a retired logistics executive who has already made two useful introductions. He has asked for 1% equity. He may have expectations about his value and may be willing to negotiate or walk away.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "Leila is negotiating equity with a prospective advisor. The advisor has asked for 1% and Leila has offered 0.3%. The company's standard advisor agreement vests over two years. The co-founder has a strong opinion that anything above 0.5% is too rich. The negotiation is ongoing as of the start time.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "co_founder": {
+  "id": "co_founder",
+  "name": "Co-founder",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The co-founder thinks anything above 0.5% equity for an advisor is too rich. They have influence over Leila's decisions and may need to approve any final offer.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "Leila is negotiating equity with a prospective advisor. The advisor has asked for 1% and Leila has offered 0.3%. The company's standard advisor agreement vests over two years. The co-founder has a strong opinion that anything above 0.5% is too rich. The negotiation is ongoing as of the start time.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "leila": {
+  "id": "leila",
+  "name": "Leila",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "Leila is the founder. She is offering 0.3% equity to a prospective advisor who has asked for 1%. She knows her co-founder thinks anything above 0.5% is too rich. The company's standard advisor template vests over two years. She wants to reach an agreement but is constrained by co-founder's view and standard terms.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "Leila is negotiating equity with a prospective advisor. The advisor has asked for 1% and Leila has offered 0.3%. The company's standard advisor agreement vests over two years. The co-founder has a strong opinion that anything above 0.5% is too rich. The negotiation is ongoing as of the start time.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

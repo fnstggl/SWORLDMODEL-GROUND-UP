@@ -1,0 +1,88 @@
+{
+ "chioma_eze": {
+  "id": "chioma_eze",
+  "name": "Chioma Eze",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-16T07:00:00+00:00",
+    "kind": "context",
+    "content": "Chioma Eze is a parent of a child in Mr. Abernathy's class. She wants her son's seating changed and has written an email to Mr. Abernathy about it. She expects a response before the weekend.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-16T07:00:00+00:00",
+    "kind": "context",
+    "content": "Chioma Eze has sent an email to Mr. Abernathy regarding her son's seating change. The email is in Mr. Abernathy's inbox. The weekend starts after Friday, 2026-09-18. The cutoff is Saturday morning, 2026-09-19T08:00:00+01:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "mr_abernathy": {
+  "id": "mr_abernathy",
+  "name": "Mr. Abernathy",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-16T07:00:00+00:00",
+    "kind": "context",
+    "content": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and typically responds during school hours or in the evening. He may prioritize urgent matters. He has no prior relationship with Chioma Eze.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-16T07:00:00+00:00",
+    "kind": "context",
+    "content": "Chioma Eze has sent an email to Mr. Abernathy regarding her son's seating change. The email is in Mr. Abernathy's inbox. The weekend starts after Friday, 2026-09-18. The cutoff is Saturday morning, 2026-09-19T08:00:00+01:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

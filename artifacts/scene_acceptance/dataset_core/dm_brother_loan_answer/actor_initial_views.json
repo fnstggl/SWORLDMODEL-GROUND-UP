@@ -1,0 +1,88 @@
+{
+ "emilio": {
+  "id": "emilio",
+  "name": "Emilio",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-05T01:00:00+00:00",
+    "kind": "context",
+    "content": "Emilio has received a text from his sister Rosa asking for a 2,000-peso loan until payday. He has his own financial situation and relationship with Rosa that will influence his decision. He may or may not respond within 48 hours.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-05T01:00:00+00:00",
+    "kind": "context",
+    "content": "Rosa and Emilio are siblings. Rosa has sent a text message to Emilio requesting a 2,000-peso loan until payday. The text was sent before the simulation start time. Emilio has the message and can reply via text.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "rosa": {
+  "id": "rosa",
+  "name": "Rosa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-05T01:00:00+00:00",
+    "kind": "context",
+    "content": "Rosa needs 2,000 pesos until payday and has sent a text to her brother Emilio asking for a loan. She hopes for a yes-or-no answer within 48 hours.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-05T01:00:00+00:00",
+    "kind": "context",
+    "content": "Rosa and Emilio are siblings. Rosa has sent a text message to Emilio requesting a 2,000-peso loan until payday. The text was sent before the simulation start time. Emilio has the message and can reply via text.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

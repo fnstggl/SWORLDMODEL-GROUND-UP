@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Bramblewick Studios",
+      "private_context": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision within two weeks after her final interview. The hiring manager mentioned that budget sign-off is still pending with the finance lead."
+    },
+    {
+      "name": "Elin Bjork",
+      "private_context": "Elin Bjork completed her final interview with Bramblewick Studios. The art director promised a decision within two weeks. She is waiting to hear back."
+    }
+  ],
+  "shared_context": "Elin Bjork had a final interview with Bramblewick Studios on an unspecified date before the simulation start. The art director promised a decision within two weeks from that interview. The studio is currently mid-crunch on a delayed title, and budget sign-off is pending with the finance lead.",
+  "starting_events": [
+    {
+      "time": "2026-10-09T16:00:00+01:00",
+      "description": "The two-week period since Elin Bjork's final interview begins. Bramblewick Studios has not yet sent any decision, offer, or rejection to Elin.",
+      "visible_to": ["Bramblewick Studios", "Elin Bjork"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Bramblewick Studios sent Elin Bjork a decision, offer, or rejection (via any communication channel) before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ashvale_university_research_ethics_board_reb": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ashvale_university_research_ethics_board_reb",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The REB is a committee that reviews research protocols. They have received Dr. Tanaka's survey protocol and will consider it at their next monthly meeting. The board operates by consensus or majority vote. Members have varying expertise and may have concerns about the protocol.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T00:00:00+00:00"
+    },
+    {
+     "content": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T00:00:00+00:00"
+    }
+   ],
+   "name": "Ashvale University Research Ethics Board (REB)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "dr_tanaka": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dr_tanaka",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision and have no prior relationship with board members. They have not received any communication from the board since submission.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T00:00:00+00:00"
+    },
+    {
+     "content": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T00:00:00+00:00"
+    }
+   ],
+   "name": "Dr. Tanaka",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Ashvale University's research ethics board approve, request amendments to, or reject Dr. Tanaka's survey protocol at or before its next monthly meeting?",
+  "scene:shared_context": "Dr. Tanaka submitted a survey protocol to Ashvale University's research ethics board for review. The board's next monthly meeting is scheduled before the hard cutoff date of 2026-10-06T18:00:00+09:00. The board will decide to approve, request amendments, or reject the protocol at that meeting. The board may communicate its decision after the meeting."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T00:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T00:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

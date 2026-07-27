@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Lucia Ferreyra",
+   "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note for the Alder Foundation and intends to send it to the program officer. She hopes for a substantive response within a month."
+  },
+  {
+   "name": "Program Officer at Alder Foundation",
+   "private_context": "The program officer at the Alder Foundation receives many unsolicited proposals. They have no prior relationship with Lucia Ferreyra. They may respond substantively if the concept note aligns with the foundation's priorities and is well-prepared, but they are not obligated to respond."
+  }
+ ],
+ "shared_context": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation's general submission channel or directly to the program officer if the address is known. The program officer typically reviews submissions and may or may not respond substantively.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00-05:00",
+   "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's program officer via the foundation's submission channel.",
+   "visible_to": [
+    "Lucia Ferreyra"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response (e.g., a detailed email, request for more information, or meeting invitation) to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
+}
