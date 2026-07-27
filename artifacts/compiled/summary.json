@@ -2,21 +2,19 @@
   {
     "binding_calls": 0,
     "case": "blood_units",
-    "discovery_calls": 11,
+    "discovery_calls": 10,
     "expected_answer": 315.0,
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the producer_assignments document has defects",
+    "reason": "The world fails to account for the Tuesday shipment's effect on hospital inventory, which is necessary to determine the final count. The terminal depends only on the Thursday shipment, ignoring that the Tuesday shipment adds 150 units to the hospital's stock. Additionally, the collection process is declared decorative, yet it is essential to ensure the centre has enough units for the Thursday shipment. The world also includes unnecessary details like Elena Cruz's knowledge and availability, which do not affect the outcome. These defects materially change the simulation result.",
     "repairs": {
-      "producer_assignments": 1,
       "resolution_ambiguity_adjudication": 1,
-      "starting_state[St. Vincent regional hospital]": 1,
       "uncertainty_and_exclusions": 1
     },
     "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 33231
+    "stage": "REALITY_REVIEW_REJECTED",
+    "tokens": 22412
   }
 ]

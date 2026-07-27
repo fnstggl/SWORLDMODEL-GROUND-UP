@@ -1,0 +1,35 @@
+{
+  "causal_path": [
+    "Initial state: hospital holds 15 units, centre holds 40 units",
+    "Tuesday shipment dispatched at 4:00 PM on July 21",
+    "Tuesday shipment received at 7:00 PM on July 21, adding 150 units to hospital (total 165)",
+    "Collection process adds units to centre inventory (needed for Thursday shipment)",
+    "Thursday shipment dispatched at 4:00 PM on July 23",
+    "Thursday shipment received at 7:00 PM on July 23, adding 150 units to hospital (total 315)",
+    "Hospital holds 315 units at Friday noon"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "The terminal is produced only by thursday_shipment_received, ignoring the tuesday_shipment_received which adds 150 units to hospital inventory.",
+      "why_material": "Without the Tuesday shipment, the hospital would have only 15 + 150 = 165 units at deadline, but with it, the total is 15 + 150 + 150 = 315 units. This changes the answer."
+    },
+    {
+      "document": "causal_spine",
+      "what": "The collection process is marked as decorative (changes nothing), but it is necessary to replenish centre stock for the Thursday shipment, as the centre starts with only 40 units and needs 150 for Thursday.",
+      "why_material": "If collection does not occur, the centre may not have 150 units to ship on Thursday, potentially reducing the Thursday shipment or causing it to be cancelled, which would lower the final hospital count."
+    },
+    {
+      "document": "producer_assignments",
+      "what": "Elena Cruz is assigned as a producer for hospital_receiving_process, but she does not control the collection rate or shipping schedule, and her presence does not affect the receipt of shipments (the process is automatic).",
+      "why_material": "Including her as a producer implies she could block or delay receipts, but evidence does not support that; this introduces unnecessary uncertainty that could affect the simulation."
+    },
+    {
+      "document": "starting_state_and_information",
+      "what": "The initial state lists 'initial_centre_units = true' instead of a numeric value; the correct value is 40 units.",
+      "why_material": "Without a numeric value, the simulation cannot compute whether the centre has enough units for shipments, affecting the Thursday shipment's feasibility."
+    }
+  ],
+  "reasoning": "The world fails to account for the Tuesday shipment's effect on hospital inventory, which is necessary to determine the final count. The terminal depends only on the Thursday shipment, ignoring that the Tuesday shipment adds 150 units to the hospital's stock. Additionally, the collection process is declared decorative, yet it is essential to ensure the centre has enough units for the Thursday shipment. The world also includes unnecessary details like Elena Cruz's knowledge and availability, which do not affect the outcome. These defects materially change the simulation result.",
+  "verdict": "REJECT_WRONG_WORLD"
+}

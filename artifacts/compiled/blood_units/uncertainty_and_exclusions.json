@@ -1,56 +1,25 @@
 {
-  "exclusions": [
-    {
-      "basis": "verified",
-      "evidence_ids": [
-        "e10"
-      ],
-      "name": "Bank supervisor Elena Cruz",
-      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
-    },
-    {
-      "basis": "question_given",
-      "evidence_ids": [],
-      "name": "Other hospitals or blood recipients",
-      "why_safe": "The question only concerns St. Vincent regional hospital's received units; other entities do not affect this count."
-    }
-  ],
+  "exclusions": [],
   "uncertainties": [
     {
-      "about": "collection_monday",
-      "meaning": "Whether the collection drive operated as scheduled on Monday 20 July 2026, and whether the average rate of 12 units per hour held for the full 8 hours, yielding 96 units."
+      "about": "collection_process_monday_to_thursday",
+      "meaning": "The exact number of usable units collected each day is unknown because the collection rate of 12 units/hour is an average; actual hourly yield may vary. Also, whether the drive operates exactly as scheduled (e.g., no closures or delays) is uncertain."
     },
     {
-      "about": "collection_tuesday",
-      "meaning": "Whether the collection drive operated as scheduled on Tuesday 21 July 2026, and whether the average rate held, yielding 96 units."
+      "about": "centre_has_150_units_at_dispatch_time",
+      "meaning": "Whether the centre actually has 150 units available for the Thursday shipment is uncertain because it depends on the cumulative collection and any intervening usage or losses (not specified)."
     },
     {
-      "about": "collection_wednesday",
-      "meaning": "Whether the collection drive operated as scheduled on Wednesday 22 July 2026, and whether the average rate held, yielding 96 units."
+      "about": "thursday_shipment_dispatched",
+      "meaning": "Whether the Thursday shipment is dispatched as scheduled (4:00 PM) is uncertain; delays could occur."
     },
     {
-      "about": "collection_thursday",
-      "meaning": "Whether the collection drive operated as scheduled on Thursday 23 July 2026, and whether the average rate held, yielding 96 units."
+      "about": "thursday_shipment_received",
+      "meaning": "Whether the shipment arrives and is received by Friday noon is uncertain; the 3-hour transit time is an estimate and could vary."
     },
     {
-      "about": "centre_has_enough_stock_tuesday",
-      "meaning": "Whether the centre's stock after Monday's collection (and any other changes) is at least 150 units to fulfill the Tuesday shipment."
-    },
-    {
-      "about": "centre_has_enough_stock_thursday",
-      "meaning": "Whether the centre's stock after collections Monday through Wednesday (and Tuesday shipment) is at least 150 units to fulfill the Thursday shipment."
-    },
-    {
-      "about": "shipment_tuesday_arrives",
-      "meaning": "Whether the Tuesday shipment actually departs at 4 PM and arrives by 7 PM, and whether the hospital receives and logs it before Friday noon."
-    },
-    {
-      "about": "shipment_thursday_arrives",
-      "meaning": "Whether the Thursday shipment actually departs at 4 PM and arrives by 7 PM, and whether the hospital receives and logs it before Friday noon."
-    },
-    {
-      "about": "hospital_initial_stock",
-      "meaning": "Whether the hospital's stock of 15 units at Monday 9 AM remains unchanged except for shipments (no internal usage or other transfers)."
+      "about": "hospital_holds_units_at_deadline",
+      "meaning": "The final number of usable units at the hospital is uncertain because it depends on the above uncertainties and any consumption or wastage at the hospital (not specified)."
     }
   ]
 }

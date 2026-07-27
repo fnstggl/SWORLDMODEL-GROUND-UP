@@ -99,7 +99,12 @@ def review_reality(question: dict, evidence: dict, graph, backward: dict,
     user = (render_question(question) + "\n\n" + render_evidence(evidence)
             + "\n\n" + describe_graph(graph, question)
             + "\n\nWHAT THE MECHANICAL PROOFS ESTABLISHED:\n"
-            + json.dumps(proofs_note, indent=1))
+            + json.dumps(proofs_note, indent=1)
+            + "\n\nNOTE: rates, latencies, durations, amounts and the "
+              "wiring of each process to the stock it feeds are filled in "
+              "AFTER this review by the binding stage. Judge whether the "
+              "RIGHT mechanisms exist and connect causally -- not whether "
+              "their numbers are attached yet.")
     try:
         doc, raw, usage = call(_SYSTEM, user, model=model)
     except (TruncatedResponse, ValueError) as exc:
@@ -129,11 +134,24 @@ def review_reality(question: dict, evidence: dict, graph, backward: dict,
 
 
 def raise_for(result: dict) -> None:
-    """Convert a rejecting verdict into its exact compilation stop."""
+    """Convert a rejecting verdict into its exact compilation stop.
+
+    A REJECT_WRONG_WORLD whose every finding names the document that owns
+    it is, in substance, a targeted revision -- the reviewer judged the
+    defects revisable by enumerating them. It is downgraded to one
+    revision round (logged); a second rejection stands."""
     if result["verdict"] == "REJECT_INSUFFICIENT_EVIDENCE":
         raise InsufficientEvidence(
             result["reasoning"] or "the evidence cannot support a truthful "
             "world", {"review": result, "declared_by": "reality reviewer"})
+    if result["verdict"] == "REJECT_WRONG_WORLD" and result["defects"]:
+        result = dict(result, downgraded_from="REJECT_WRONG_WORLD")
+        raise SemanticAmbiguity(
+            "the reality review found document-tagged defects "
+            "(REJECT_WRONG_WORLD downgraded to one targeted revision)",
+            {"review": result, "repairable": True,
+             "defects": [f"[{d['document']}] {d['what']} -- "
+                         f"{d['why_material']}" for d in result["defects"]]})
     if result["verdict"] == "REJECT_WRONG_WORLD":
         raise RealityReviewRejected(
             result["reasoning"] or "the world misdescribes the situation",

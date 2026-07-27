@@ -1,6 +1,33 @@
 {
   "assignments": [
     {
+      "step": "hospital_holds_units_at_deadline",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "operating_process",
+          "meaning": "The process of transporting and delivering the shipment from the centre to the hospital.",
+          "name": "Courier service"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Bank supervisor who oversees receipts at the hospital.",
+          "name": "Elena Cruz"
+        }
+      ],
+      "step": "thursday_shipment_received"
+    },
+    {
       "producers": [
         {
           "basis": "verified",
@@ -8,85 +35,22 @@
             "e7"
           ],
           "kind": "organization",
-          "meaning": "Dispatches shipments that add units to hospital stock.",
+          "meaning": "The centre that dispatches the shipment according to the distribution agreement.",
           "name": "Cascade regional blood centre"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "kind": "external_institution",
-          "meaning": "Transports shipments to the hospital.",
-          "name": "Courier service"
         }
       ],
-      "step": "hospital_holds_units_at_deadline"
+      "step": "thursday_shipment_dispatched"
     },
     {
-      "step": "initial_stock_plus_received_shipments",
-      "unsupported": "This is a condition that aggregates from prerequisites; no producer needed."
+      "step": "centre_has_150_units_at_dispatch_time",
+      "unsupported": "This is a condition that is the conjunction of its prerequisites; no separate producer."
     },
     {
-      "step": "hospital_initial_stock",
+      "step": "initial_centre_units",
       "unsupported": "Initial fact; no producer needed."
     },
     {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "kind": "organization",
-          "meaning": "The centre dispatches the Tuesday shipment at 4:00 PM PDT.",
-          "name": "Cascade regional blood centre"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "kind": "external_institution",
-          "meaning": "Transports the shipment to the hospital.",
-          "name": "Courier service"
-        }
-      ],
-      "step": "shipment_tuesday_arrives"
-    },
-    {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e7"
-          ],
-          "kind": "organization",
-          "meaning": "The centre dispatches the Thursday shipment at 4:00 PM PDT.",
-          "name": "Cascade regional blood centre"
-        },
-        {
-          "basis": "inferred",
-          "evidence_ids": [
-            "e8"
-          ],
-          "kind": "external_institution",
-          "meaning": "Transports the shipment to the hospital.",
-          "name": "Courier service"
-        }
-      ],
-      "step": "shipment_thursday_arrives"
-    },
-    {
-      "step": "centre_has_enough_stock_tuesday",
-      "unsupported": "This is a condition that aggregates from prerequisites; no producer needed."
-    },
-    {
-      "step": "centre_has_enough_stock_thursday",
-      "unsupported": "This is a condition that aggregates from prerequisites; no producer needed."
-    },
-    {
-      "step": "centre_initial_stock",
+      "step": "initial_hospital_units",
       "unsupported": "Initial fact; no producer needed."
     },
     {
@@ -97,53 +61,11 @@
             "e1"
           ],
           "kind": "organization",
-          "meaning": "Operates the mobile collection drive at its Portland site.",
+          "meaning": "The centre operates the mobile collection drive.",
           "name": "Cascade regional blood centre"
         }
       ],
-      "step": "collection_monday"
-    },
-    {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1"
-          ],
-          "kind": "organization",
-          "meaning": "Operates the mobile collection drive at its Portland site.",
-          "name": "Cascade regional blood centre"
-        }
-      ],
-      "step": "collection_tuesday"
-    },
-    {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1"
-          ],
-          "kind": "organization",
-          "meaning": "Operates the mobile collection drive at its Portland site.",
-          "name": "Cascade regional blood centre"
-        }
-      ],
-      "step": "collection_wednesday"
-    },
-    {
-      "producers": [
-        {
-          "basis": "verified",
-          "evidence_ids": [
-            "e1"
-          ],
-          "kind": "organization",
-          "meaning": "Operates the mobile collection drive at its Portland site.",
-          "name": "Cascade regional blood centre"
-        }
-      ],
-      "step": "collection_thursday"
+      "step": "collection_process_monday_to_thursday"
     }
   ]
 }

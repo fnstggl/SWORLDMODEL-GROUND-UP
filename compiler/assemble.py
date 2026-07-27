@@ -1087,6 +1087,10 @@ def assemble(resolution: dict, spine: dict, producers: dict,
         if not plist:
             continue      # explicit none-needed; the post-check enforces
         _collect(d, a.attach_assignment, name, plist)
+    # Derived plumbing first: anchors and quantity mechanisms count as
+    # real producers for the check below.
+    a.derive_event_anchors()
+    a.derive_quantity_mechanisms()
     # Every causal step must now be producible or honestly unsupported.
     for name, sid in sorted(a._step_ids.items()):
         node = a.graph.node(sid)
@@ -1110,8 +1114,6 @@ def assemble(resolution: dict, spine: dict, producers: dict,
                 d.append(f"step {name!r}: no producer is attached and it "
                          f"is not marked unsupported")
     _raise_if(d, "producer_assignments")
-    a.derive_event_anchors()
-    a.derive_quantity_mechanisms()
     a.materialize_holders()
 
     d = []
