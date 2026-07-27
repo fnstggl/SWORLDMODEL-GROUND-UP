@@ -203,19 +203,20 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
                 return finish_failure(exc)
             review = detail.get("review")
             if review:
-                # the reality review's targeted revision: one round per
-                # document, then the world stands or falls as reviewed
-                docs = sorted({d["document"] for d in review["defects"]})
-                docs = [d for d in docs if d not in repaired_docs]
-                if not docs:
+                # ONE targeted revision round total: every tagged document
+                # is revised at once, and the SECOND review's verdict is
+                # final. Per-round fresh reviews inventing new objections
+                # is exactly the oscillation the audit condemned.
+                if metrics.get("review_revision_round"):
                     return finish_failure(RealityReviewRejected(
                         "defects remain after one targeted revision; the "
                         "world is not a truthful account and will not be "
                         "run", {"review": review}))
+                metrics["review_revision_round"] = 1
+                docs = sorted({d["document"] for d in review["defects"]})
                 t0 = wallclock.monotonic()
                 try:
                     for doc_name in docs:
-                        repaired_docs.add(doc_name)
                         repair_document(
                             disc, doc_name,
                             [f"{d['what']} -- {d['why_material']}"

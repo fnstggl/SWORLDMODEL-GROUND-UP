@@ -1,0 +1,142 @@
+{
+  "entities": [
+    {
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The centre held 40 usable units in stock at 9:00 AM on Monday 20 July 2026.",
+          "name": "initial stock at centre",
+          "value": 40
+        }
+      ],
+      "name": "Cascade regional blood centre mobile collection drive",
+      "process_behavior": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "meaning": "The mobile collection drive collects blood units at a measured average rate of 12 usable units per hour while it is open.",
+        "operating_meaning": "Open Monday to Friday from 9:00 AM to 5:00 PM America/Los_Angeles.",
+        "rate_meaning": "12 usable units per hour"
+      }
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The hospital holds the units; it does not control collection or shipping.",
+          "over": "hospital_holds_units_at_deadline"
+        }
+      ],
+      "availability": {
+        "close": "23:59",
+        "open": "00:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "channels": [
+        {
+          "attention": {
+            "cadence_minutes": null,
+            "calendar_meaning": "Shipments arrive after 4 PM on Tuesdays and Thursdays.",
+            "meaning": "Continuous attention during business hours; receipt occurs upon arrival."
+          },
+          "basis": "verified",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "latency_meaning": "3 hours from departure to receipt.",
+          "meaning": "Physical delivery of blood units from the centre to the hospital.",
+          "name": "shipment_receipt",
+          "role": "receiver"
+        }
+      ],
+      "commitments": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "The hospital receives a shipment from the centre every Tuesday at approximately 7:00 PM America/Los_Angeles (departs 4:00 PM, 3-hour transit).",
+          "name": "receive_tuesday_shipment",
+          "when": "2026-07-21T19:00:00-07:00"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "The hospital receives a shipment from the centre every Thursday at approximately 7:00 PM America/Los_Angeles (departs 4:00 PM, 3-hour transit).",
+          "name": "receive_thursday_shipment",
+          "when": "2026-07-23T19:00:00-07:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "The hospital held 15 usable units at 9:00 AM on Monday 20 July 2026.",
+          "name": "initial_stock",
+          "value": 15
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "The hospital knows its own initial stock of 15 units.",
+          "name": "initial_stock",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7",
+            "e8"
+          ],
+          "meaning": "The hospital knows that shipments arrive every Tuesday and Thursday at about 7:00 PM.",
+          "name": "shipment_schedule",
+          "visibility": "private"
+        }
+      ],
+      "name": "St. Vincent regional hospital",
+      "not_available": [],
+      "resources": [
+        {
+          "amount": 15,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Usable blood units held by the hospital.",
+          "name": "usable_blood_units",
+          "unit": "units"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/Los_Angeles"
+    }
+  ]
+}

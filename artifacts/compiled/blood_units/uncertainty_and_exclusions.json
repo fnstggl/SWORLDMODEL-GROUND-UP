@@ -1,0 +1,90 @@
+{
+  "exclusions": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Hospital internal usage or transfusions",
+      "why_safe": "The question asks for units received, not held. Usage does not affect the number of units received."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "Only St. Vincent regional hospital is considered; no other recipients are mentioned."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz's actions",
+      "why_safe": "She oversees receipts but does not control collection or shipping; her actions do not affect the quantity received."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Weekend collections (Saturday/Sunday)",
+      "why_safe": "The drive is only open Monday to Friday; no weekend collections occur in the relevant period."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_has_enough_stock_tuesday",
+      "meaning": "Whether the centre's stock after Monday collection (40 + 96 = 136) is sufficient to ship 150 units on Tuesday. It is not, so the shipment may be reduced or cancelled, but the evidence does not specify what happens when stock is insufficient."
+    },
+    {
+      "about": "centre_has_enough_stock_thursday",
+      "meaning": "Whether the centre's stock after Tuesday shipment, Wednesday collection, and Thursday collection before 4pm is sufficient to ship 150 units on Thursday. The stock depends on the unknown Tuesday shipment outcome."
+    },
+    {
+      "about": "tuesday_shipment_arrives",
+      "meaning": "If the Tuesday shipment is reduced or cancelled, the arrival time and quantity are unknown."
+    },
+    {
+      "about": "thursday_shipment_arrives",
+      "meaning": "If the Thursday shipment is reduced or cancelled, the arrival time and quantity are unknown."
+    },
+    {
+      "about": "drive_open_monday",
+      "meaning": "Whether the drive was open on Monday 20 July (a Monday) from 9am to 5pm. The schedule says Monday to Friday, so it should be open, but no explicit confirmation for that specific date."
+    },
+    {
+      "about": "drive_open_tuesday",
+      "meaning": "Whether the drive was open on Tuesday 21 July as scheduled."
+    },
+    {
+      "about": "drive_open_wednesday",
+      "meaning": "Whether the drive was open on Wednesday 22 July as scheduled."
+    },
+    {
+      "about": "drive_open_thursday",
+      "meaning": "Whether the drive was open on Thursday 23 July as scheduled."
+    },
+    {
+      "about": "monday_collection",
+      "meaning": "The actual number of units collected on Monday, given the average rate of 12 units/hour over 8 hours = 96 units, but actual collection may vary."
+    },
+    {
+      "about": "tuesday_collection_before_4pm",
+      "meaning": "The actual number of units collected on Tuesday before 4pm (shipment departure time). The drive is open 9am-5pm, so 7 hours of collection before 4pm yields 84 units at average rate, but actual may vary."
+    },
+    {
+      "about": "wednesday_collection",
+      "meaning": "Actual collection on Wednesday (full day 8 hours = 96 units average)."
+    },
+    {
+      "about": "thursday_collection_before_4pm",
+      "meaning": "Actual collection on Thursday before 4pm (7 hours = 84 units average)."
+    },
+    {
+      "about": "initial_hospital_stock",
+      "meaning": "The hospital held 15 units at 9am Monday, but usage or additional receipts before the deadline are not accounted for. The question asks for units received, not held, so initial stock may be irrelevant if only shipments count."
+    }
+  ]
+}
