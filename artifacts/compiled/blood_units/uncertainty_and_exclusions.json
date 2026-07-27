@@ -1,0 +1,57 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Bank supervisor Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule, so her actions do not affect the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital's received units; other entities do not affect this hospital's receipts."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e7"
+      ],
+      "name": "Weekend collections or shipments",
+      "why_safe": "The drive is only open Monday to Friday, and shipments are only Tuesday and Thursday, so weekend operations are irrelevant."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "centre_has_sufficient_stock_tuesday",
+      "meaning": "Whether the centre's stock after Monday collection and before Tuesday collection is at least 150 units to dispatch the Tuesday shipment. The centre starts with 40 units, collects 12 units/hour for 8 hours on Monday (96 units), total 136 units, which is less than 150. However, Tuesday collection before 4 PM could add more units, but the exact amount collected on Tuesday before 4 PM is unknown because the collection rate is average and the drive is open 9-5, so from 9 AM to 4 PM is 7 hours, yielding 84 units, making total 136+84=220, sufficient. But if Tuesday collection is not counted before dispatch, then insufficient. The evidence does not specify whether Tuesday's collection before 4 PM is included in the stock available for Tuesday's shipment."
+    },
+    {
+      "about": "tuesday_collection_before_4pm",
+      "meaning": "The exact number of units collected on Tuesday between 9 AM and 4 PM is uncertain because the average rate of 12 units/hour may vary, and the drive may not operate exactly as scheduled."
+    },
+    {
+      "about": "thursday_collection_before_4pm",
+      "meaning": "Similar uncertainty for Thursday collection before 4 PM."
+    },
+    {
+      "about": "centre_stock_after_tuesday_shipment",
+      "meaning": "If the Tuesday shipment is dispatched, the centre's remaining stock is uncertain because it depends on whether Tuesday's collection before 4 PM is included and the exact amounts."
+    },
+    {
+      "about": "wednesday_collection",
+      "meaning": "The exact number of units collected on Wednesday is uncertain due to average rate and possible variations."
+    },
+    {
+      "about": "tuesday_shipment_transit",
+      "meaning": "The transit time is given as about 3 hours, but exact arrival time is uncertain; if dispatched at 4 PM, arrival around 7 PM, which is before Friday noon, so received."
+    },
+    {
+      "about": "thursday_shipment_transit",
+      "meaning": "Similar uncertainty but arrival before Friday noon is certain if dispatched at 4 PM Thursday, arriving around 7 PM Thursday."
+    }
+  ]
+}

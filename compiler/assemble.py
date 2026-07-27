@@ -1060,6 +1060,51 @@ class Assembler:
                              {"kept": home, "merged": dup.name,
                               "when": when}, [], [])
 
+    def stage_transfers_at_arrival(self) -> None:
+        """A dispatch and its arrival are one movement: when connected
+        events (through requires or anchors, possibly via condition
+        states) both produce the same stock, only the LAST of the chain
+        transfers -- goods arrive once, at arrival. The departure stays as
+        the anchoring happening; its produces edge is removed with a
+        trace note. This is the transit-collapse fix made structural: the
+        credit lands three hours after the dispatch because the arrival
+        carries it."""
+        for rs in self.graph.by_category("resource"):
+            producers = [p for p in self.graph.producers_of(rs.id)
+                         if self.graph.node(p).category == "event"]
+            if len(producers) < 2:
+                continue
+            def upstream_of(ev):
+                seen, out, frontier = set(), set(), [ev]
+                while frontier:
+                    cur = frontier.pop()
+                    if cur in seen:
+                        continue
+                    seen.add(cur)
+                    for e in (self.graph.edges_from(cur, "requires")
+                              + self.graph.edges_from(cur,
+                                                      "scheduled_at")):
+                        n = self.graph.node(e.dst)
+                        if n.category == "event":
+                            out.add(e.dst)
+                            frontier.append(e.dst)
+                        elif n.category == "state":
+                            frontier.append(e.dst)
+                return out
+            for ev in list(producers):
+                ups = upstream_of(ev) & set(producers)
+                for dep in sorted(ups):
+                    self.graph.edges = [
+                        e for e in self.graph.edges
+                        if not (e.src == dep and e.rel == "produces"
+                                and e.dst == rs.id)]
+                    self.graph._edge_keys = {
+                        e.key() for e in self.graph.edges}
+                    self._record(
+                        "stage_transfer_at_arrival",
+                        {"resource": rs.name,
+                         "arrival": ev, "departure_demoted": dep}, [], [])
+
     def prune_dead_routes(self) -> None:
         """A channel with no sender or no receiver, carrying no declared
         in-flight message, can never move anything: it is debris from an
@@ -1322,6 +1367,7 @@ def assemble(resolution: dict, spine: dict, producers: dict,
             _collect(d, a.add_information_boundary, name, boundary)
     _raise_if(d, "starting_state_and_information")
     a.dedupe_events()
+    a.stage_transfers_at_arrival()
     a.prune_dead_routes()
     a.wire_operated_processes()
 

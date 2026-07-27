@@ -72,6 +72,23 @@ def describe_graph(graph: WorldGraph, question: dict,
                         f"{rs.attrs.get('unit') or ''} already held by "
                         f"{graph.node(holder).name if holder else '?'} "
                         f"(one substance; unified at lowering)")
+            upstream, seen, frontier = [], set(), list(producers)
+            while frontier:
+                cur = frontier.pop()
+                if cur in seen:
+                    continue
+                seen.add(cur)
+                node2 = graph.node(cur)
+                if node2.category == "process" and cur not in producers:
+                    upstream.append(node2.name)
+                for e in graph.edges_from(cur, "requires") \
+                        + graph.edges_from(cur, "scheduled_at"):
+                    frontier.append(e.dst)
+                for p2 in graph.producers_of(cur):
+                    frontier.append(p2)
+            if upstream:
+                out.append(f"  fed upstream through its chain by: "
+                           f"{', '.join(sorted(set(upstream)))}")
 
     out.append("\n## Who and what exists")
     for cat in ACTORS:

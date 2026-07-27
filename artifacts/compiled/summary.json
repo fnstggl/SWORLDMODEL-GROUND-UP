@@ -1,19 +1,20 @@
 [
   {
-    "binding_calls": 6,
+    "binding_calls": 16,
     "case": "blood_units",
-    "discovery_calls": 7,
+    "discovery_calls": 10,
     "expected_answer": 315.0,
     "expected_refusal": false,
-    "lowering_ms": 6.8,
+    "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the lowered world does not mean what the approved world means (MATERIAL_OMISSION)",
+    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
     "repairs": {
+      "causal_spine": 1,
       "resolution_ambiguity_adjudication": 1
     },
     "runtime_ms": 0.0,
-    "stage": "LOWERING_MISMATCH",
-    "tokens": 28268
+    "stage": "REALITY_REVIEW_REJECTED",
+    "tokens": 58551
   }
 ]
