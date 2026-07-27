@@ -1,0 +1,9 @@
+{
+  "detail": {
+    "ambiguities": [
+      "The term 'the return' in clause 4 is ambiguous: it could mean the date the customer parts with the goods (3 March 2026) or the date the goods are received by the company (12 March 2026). The resolution note does not settle this ambiguity."
+    ]
+  },
+  "reason": "the question admits materially different readings that survived adjudication",
+  "stage": "AMBIGUOUS_QUESTION"
+}

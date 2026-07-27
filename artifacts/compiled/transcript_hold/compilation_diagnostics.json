@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "defects": [
+      "process:bursar_s_automated_reconciliation_batch: a continuous process must feed a quantity, but neither the graph nor its binding names one. If this is a person's work toward one outcome (preparing a review, writing a report), it is not a process at all: model it in the causal spine as an actor decision with its duration, producing that outcome"
+    ],
+    "document": "causal_spine",
+    "repairable": true
+  },
+  "reason": "processes with no quantity to feed are mis-shaped steps",
+  "stage": "LOWERING_GAP"
+}

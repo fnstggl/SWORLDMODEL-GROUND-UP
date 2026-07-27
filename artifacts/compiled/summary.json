@@ -1,54 +1,39 @@
 [
   {
-    "binding_calls": 6,
-    "case": "price_match",
-    "discovery_calls": 9,
-    "expected_answer": "no",
-    "expected_refusal": false,
-    "lowering_ms": 0.0,
-    "model_declared_insufficient": false,
-    "pipeline": "discovery",
-    "reason": "causal_spine is still defective after its assembly repair",
-    "repairs": {
-      "causal_spine": 1
-    },
-    "runtime_ms": 0.0,
-    "stage": "SEMANTIC_AMBIGUITY",
-    "tokens": 43163
-  },
-  {
-    "binding_calls": 8,
-    "case": "tenant_petition",
-    "discovery_calls": 12,
+    "binding_calls": 7,
+    "case": "freight_handoff",
+    "discovery_calls": 10,
     "expected_answer": "yes",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "defects remain after one targeted revision; the world is not a truthful account and will not be run",
+    "reason": "the starting_state_and_information document has defects",
     "repairs": {
-      "causal_spine": 2,
-      "uncertainty_and_exclusions": 1
+      "causal_spine": 1,
+      "starting_state[Ondrej Malik]": 1
     },
     "runtime_ms": 0.0,
-    "stage": "REALITY_REVIEW_REJECTED",
-    "tokens": 46380
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 52761
   },
   {
-    "binding_calls": 0,
-    "case": "unseen",
-    "discovery_calls": 28,
+    "binding_calls": 9,
+    "case": "transcript_hold",
+    "discovery_calls": 14,
+    "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "terminal production fails the backward causal proof",
+    "reason": "processes with no quantity to feed are mis-shaped steps",
     "repairs": {
+      "action:bring about: registrar_release_within_4_hours": 1,
       "causal_spine": 1,
-      "starting_state[Priya Raghavan]": 1
+      "producer_assignments": 1
     },
     "runtime_ms": 0.0,
-    "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 208851
+    "stage": "LOWERING_GAP",
+    "tokens": 55648
   }
 ]

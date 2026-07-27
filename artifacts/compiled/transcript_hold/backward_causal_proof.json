@@ -1,0 +1,184 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:transcript_release_record",
+        "prerequisites": [
+          {
+            "derived_condition": true,
+            "node": "state:financial_hold_lifted",
+            "prerequisites": [
+              {
+                "node": "event:bursar_batch_posts_payment",
+                "prerequisites": [
+                  {
+                    "node": "event:payment_cleared_by_processor",
+                    "prerequisites": [
+                      {
+                        "node": "action:payment_submitted",
+                        "root": "actor_choice"
+                      }
+                    ],
+                    "root": "scheduled_event"
+                  }
+                ],
+                "root": "scheduled_event"
+              }
+            ]
+          },
+          {
+            "node": "state:registrar_release_within_4_hours",
+            "prerequisites": [
+              {
+                "derived_condition": true,
+                "node": "state:financial_hold_lifted",
+                "prerequisites": [
+                  {
+                    "node": "event:bursar_batch_posts_payment",
+                    "prerequisites": [
+                      {
+                        "node": "event:payment_cleared_by_processor",
+                        "prerequisites": [
+                          {
+                            "node": "action:payment_submitted",
+                            "root": "actor_choice"
+                          }
+                        ],
+                        "root": "scheduled_event"
+                      }
+                    ],
+                    "root": "scheduled_event"
+                  }
+                ]
+              }
+            ],
+            "via": {
+              "node": "action:bring_about_registrar_release_within_4_hours",
+              "prerequisites": [
+                {
+                  "derived_condition": true,
+                  "node": "state:financial_hold_lifted",
+                  "prerequisites": [
+                    {
+                      "node": "event:bursar_batch_posts_payment",
+                      "prerequisites": [
+                        {
+                          "node": "event:payment_cleared_by_processor",
+                          "prerequisites": [
+                            {
+                              "node": "action:payment_submitted",
+                              "root": "actor_choice"
+                            }
+                          ],
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "root": "scheduled_event"
+                    }
+                  ]
+                }
+              ],
+              "root": "actor_choice"
+            }
+          }
+        ],
+        "via": {
+          "node": "action:record_transcript_released",
+          "prerequisites": [
+            {
+              "derived_condition": true,
+              "node": "state:financial_hold_lifted",
+              "prerequisites": [
+                {
+                  "node": "event:bursar_batch_posts_payment",
+                  "prerequisites": [
+                    {
+                      "node": "event:payment_cleared_by_processor",
+                      "prerequisites": [
+                        {
+                          "node": "action:payment_submitted",
+                          "root": "actor_choice"
+                        }
+                      ],
+                      "root": "scheduled_event"
+                    }
+                  ],
+                  "root": "scheduled_event"
+                }
+              ]
+            },
+            {
+              "node": "state:registrar_release_within_4_hours",
+              "prerequisites": [
+                {
+                  "derived_condition": true,
+                  "node": "state:financial_hold_lifted",
+                  "prerequisites": [
+                    {
+                      "node": "event:bursar_batch_posts_payment",
+                      "prerequisites": [
+                        {
+                          "node": "event:payment_cleared_by_processor",
+                          "prerequisites": [
+                            {
+                              "node": "action:payment_submitted",
+                              "root": "actor_choice"
+                            }
+                          ],
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "root": "scheduled_event"
+                    }
+                  ]
+                }
+              ],
+              "via": {
+                "node": "action:bring_about_registrar_release_within_4_hours",
+                "prerequisites": [
+                  {
+                    "derived_condition": true,
+                    "node": "state:financial_hold_lifted",
+                    "prerequisites": [
+                      {
+                        "node": "event:bursar_batch_posts_payment",
+                        "prerequisites": [
+                          {
+                            "node": "event:payment_cleared_by_processor",
+                            "prerequisites": [
+                              {
+                                "node": "action:payment_submitted",
+                                "root": "actor_choice"
+                              }
+                            ],
+                            "root": "scheduled_event"
+                          }
+                        ],
+                        "root": "scheduled_event"
+                      }
+                    ]
+                  }
+                ],
+                "root": "actor_choice"
+              }
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:transcript_release_record",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:record_transcript_released"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

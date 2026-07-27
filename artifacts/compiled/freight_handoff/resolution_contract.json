@@ -1,0 +1,28 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The deadline for filing the customs entry is 9:00 AM Eastern time on Wednesday 18 November 2026.",
+    "timezone": "America/New_York",
+    "when": "2026-11-18T09:00:00-05:00"
+  },
+  "evidence_ids": [],
+  "measured_act": null,
+  "negative_condition": "No complete customs entry for HLXU 4471820 has been submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.",
+  "positive_condition": "A complete customs entry for HLXU 4471820 has been submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.",
+  "proof": [
+    {
+      "expected_count": 1,
+      "kind": "record",
+      "meaning": "The electronic entry system's acknowledgment of a complete customs entry for HLXU 4471820 submitted before the deadline.",
+      "name": "port authority acknowledgment",
+      "record_type": "acknowledgment",
+      "rule": "count_all",
+      "subject": "Kestrel Bay port authority",
+      "value": "acknowledged"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "Whether a complete customs entry for container HLXU 4471820 has been submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before 9:00 AM Eastern on Wednesday 18 November 2026."
+}

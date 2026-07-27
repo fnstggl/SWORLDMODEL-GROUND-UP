@@ -1,0 +1,277 @@
+{
+  "steps": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "kind": "initial_fact",
+      "meaning": "At 6:00 AM on Monday 5 October 2026, the day tank contains 3,100 litres of sodium hypochlorite.",
+      "name": "initial_volume_oct5",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Train A consumes 18 litres per hour continuously from 6:00 AM Oct 5 to 8:00 AM Oct 6 (26 hours), total 468 litres.",
+      "name": "train_a_consumption_oct5_6am_to_oct6_8am",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "process",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Monday Oct 5 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct5_6am_to_6pm",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9",
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Rennard Chemical delivers 1,800 litres of sodium hypochlorite, arriving and completing transfer into the day tank at 8:00 AM on Tuesday 6 October 2026. The tank is filled to its usable capacity of 4,000 litres; any excess is retained on the truck.",
+      "name": "delivery_tuesday_oct6",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-10-06T08:00:00-05:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Train A consumes 18 litres per hour continuously from 8:00 AM Oct 6 to 8:00 AM Oct 9 (72 hours), total 1,296 litres.",
+      "name": "train_a_consumption_oct6_8am_to_oct9_8am",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "process",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Tuesday Oct 6 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct6_6am_to_6pm",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "process",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Wednesday Oct 7 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct7_6am_to_6pm",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "process",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Thursday Oct 8 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct8_6am_to_6pm",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "process",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 8:00 AM on Friday Oct 9 (2 hours), total 44 litres.",
+      "name": "train_b_consumption_oct9_6am_to_8am",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7",
+        "e8",
+        "e9",
+        "e10"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Rennard Chemical delivers 1,800 litres of sodium hypochlorite, arriving and completing transfer into the day tank at 8:00 AM on Friday 9 October 2026. The tank is filled to its usable capacity of 4,000 litres; any excess is retained on the truck.",
+      "name": "delivery_friday_oct9",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-10-09T08:00:00-05:00"
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "kind": "process",
+      "meaning": "Train A consumes 18 litres per hour continuously from 8:00 AM Oct 9 to 6:00 AM Oct 12 (70 hours), total 1,260 litres.",
+      "name": "train_a_consumption_oct9_8am_to_oct12_6am",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5",
+        "e6"
+      ],
+      "kind": "process",
+      "meaning": "Train B consumes 22 litres per hour from 8:00 AM to 6:00 PM on Friday Oct 9 (10 hours), total 220 litres.",
+      "name": "train_b_consumption_oct9_8am_to_6pm",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "condition",
+      "meaning": "Train B is shut down all day Saturday Oct 10 and Sunday Oct 11, consuming nothing.",
+      "name": "train_b_off_weekend",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12"
+      ],
+      "kind": "condition",
+      "meaning": "The volume of sodium hypochlorite in the day tank at 6:00 AM on Monday 12 October 2026.",
+      "name": "final_volume",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "initial_volume_oct5"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_a_consumption_oct5_6am_to_oct6_8am"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_consumption_oct5_6am_to_6pm"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "delivery_tuesday_oct6"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_a_consumption_oct6_8am_to_oct9_8am"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_consumption_oct6_6am_to_6pm"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_consumption_oct7_6am_to_6pm"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_consumption_oct8_6am_to_6pm"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_consumption_oct9_6am_to_8am"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "delivery_friday_oct9"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_a_consumption_oct9_8am_to_oct12_6am"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_consumption_oct9_8am_to_6pm"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "train_b_off_weekend"
+        }
+      ],
+      "produces_proof": [
+        "day_tank_volume"
+      ],
+      "uncertainty": null,
+      "when": null
+    }
+  ]
+}

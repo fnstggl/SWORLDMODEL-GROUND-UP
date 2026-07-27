@@ -1,0 +1,28 @@
+{
+  "assembly_ms": 0.0,
+  "assembly_repairs": [
+    "uncertainty_and_exclusions"
+  ],
+  "binding_calls": 0,
+  "discovery_calls": 10,
+  "emit_ms": 0.0,
+  "first_pass_by_step": {
+    "causal_spine": true,
+    "producer_assignments": true,
+    "resolution_contract": true,
+    "starting_state_and_information": true,
+    "uncertainty_and_exclusions": true
+  },
+  "lowering_ms": 0.0,
+  "mode": "frozen_evidence",
+  "model_ms": 58324.668986000004,
+  "model_tokens": 36087,
+  "proofs_ms": 0.0,
+  "repairs_by_step": {
+    "resolution_ambiguity_adjudication": 1,
+    "uncertainty_and_exclusions": 1
+  },
+  "runtime_ms": 0.0,
+  "simulation_stage": "scripted",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

@@ -2,21 +2,7 @@
   "edges": [
     {
       "attrs": {
-        "meaning": "The automatic transfer switch detects loss of grid power and starts the generator, then transfers the essential load to the generator."
-      },
-      "dst": "process:generator_starts_and_picks_up_load",
-      "rel": "has_authority",
-      "src": "organization:automatic_transfer_switch"
-    },
-    {
-      "attrs": {},
-      "dst": "state:state",
-      "rel": "has_state",
-      "src": "organization:automatic_transfer_switch"
-    },
-    {
-      "attrs": {
-        "meaning": "The generator runs continuously, consuming diesel fuel to produce power for the essential load."
+        "meaning": "The generator runs and consumes fuel as a physical process."
       },
       "dst": "process:generator_runs_consuming_fuel",
       "rel": "has_authority",
@@ -39,27 +25,9 @@
         "alt_group": null,
         "necessity": "necessary"
       },
-      "dst": "process:generator_starts_and_picks_up_load",
+      "dst": "state:generator_starts_and_picks_up_load",
       "rel": "requires",
       "src": "process:generator_runs_consuming_fuel"
-    },
-    {
-      "attrs": {
-        "alt_group": null,
-        "necessity": "necessary"
-      },
-      "dst": "event:grid_power_outage_starts",
-      "rel": "requires",
-      "src": "process:generator_starts_and_picks_up_load"
-    },
-    {
-      "attrs": {
-        "alt_group": null,
-        "necessity": "necessary"
-      },
-      "dst": "state:fuel_level_at_outage_start",
-      "rel": "requires",
-      "src": "process:generator_starts_and_picks_up_load"
     },
     {
       "attrs": {},
@@ -99,6 +67,24 @@
       "dst": "state:day_tank_fuel_level_at_deadline",
       "rel": "requires",
       "src": "state:generator_running_status"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:grid_power_outage_starts",
+      "rel": "requires",
+      "src": "state:generator_starts_and_picks_up_load"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:fuel_level_at_outage_start",
+      "rel": "requires",
+      "src": "state:generator_starts_and_picks_up_load"
     },
     {
       "attrs": {
@@ -167,28 +153,6 @@
       "attrs": {
         "declared_process_behavior": [
           {
-            "meaning": "The automatic transfer switch detects loss of grid power and starts the generator, then transfers the essential load to the generator.",
-            "operating_meaning": "It operates when grid power is lost, as demonstrated during the exercise on 4 September 2026.",
-            "rate_meaning": "Not applicable; the switch operates once per transfer event."
-          }
-        ],
-        "producer_kind": "operating_process"
-      },
-      "category": "organization",
-      "id": "organization:automatic_transfer_switch",
-      "meaning": "The automatic transfer switch detects loss of grid power and starts the generator, then transfers the essential load to the generator.",
-      "name": "automatic transfer switch",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e8"
-        ]
-      }
-    },
-    {
-      "attrs": {
-        "declared_process_behavior": [
-          {
             "meaning": "The generator consumes diesel fuel at a rate determined by the load it supplies. The essential load during the outage is 310 kW. The generator's fuel consumption rate is not directly recorded, but can be inferred from typical diesel generator efficiency. A typical diesel generator consumes about 0.25 liters per kWh at full load, but at 310 kW (62% of 500 kW rating), specific fuel consumption is higher, approximately 0.28 L/kWh. Thus, consumption rate is about 86.8 L/h (310 kW * 0.28 L/kWh).",
             "operating_meaning": "The generator runs continuously from 6:00 AM to 12:00 noon on 22 September 2026, a duration of 6 hours.",
             "rate_meaning": "Approximately 86.8 liters per hour when supplying the 310 kW essential load."
@@ -198,13 +162,14 @@
       },
       "category": "organization",
       "id": "organization:trelvane_td_500_generator",
-      "meaning": "The generator runs continuously, consuming diesel fuel to produce power for the essential load.",
+      "meaning": "The generator runs and consumes fuel as a physical process.",
       "name": "Trelvane TD-500 generator",
       "provenance": {
         "basis": "verified",
         "evidence_ids": [
           "e3",
-          "e7"
+          "e7",
+          "e8"
         ]
       }
     },
@@ -227,24 +192,8 @@
     },
     {
       "attrs": {
-        "step_kind": "process"
-      },
-      "category": "process",
-      "id": "process:generator_starts_and_picks_up_load",
-      "meaning": "Upon loss of grid power, the automatic transfer switch starts the generator and it picks up the essential load of 310 kW.",
-      "name": "generator_starts_and_picks_up_load",
-      "provenance": {
-        "basis": "verified",
-        "evidence_ids": [
-          "e8",
-          "e7"
-        ]
-      }
-    },
-    {
-      "attrs": {
         "conjunction": true,
-        "no_producer_needed": "Condition with prerequisites, no mechanism of its own."
+        "no_producer_needed": "Condition with prerequisites only, no producer."
       },
       "category": "state",
       "id": "state:day_tank_fuel_level_at_deadline",
@@ -279,7 +228,7 @@
       "attrs": {
         "conjunction": true,
         "initial": false,
-        "no_producer_needed": "Condition with prerequisites, no mechanism of its own.",
+        "no_producer_needed": "Condition with prerequisites only, no producer.",
         "step_kind": "condition"
       },
       "category": "state",
@@ -297,7 +246,7 @@
     {
       "attrs": {
         "conjunction": true,
-        "no_producer_needed": "Condition with prerequisites, no mechanism of its own."
+        "no_producer_needed": "Condition with prerequisites only, no producer."
       },
       "category": "state",
       "id": "state:generator_running_status",
@@ -308,6 +257,25 @@
         "evidence_ids": [
           "e11",
           "e5",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "conjunction": true,
+        "initial": false,
+        "no_producer_needed": "Condition with prerequisites only, no producer.",
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:generator_starts_and_picks_up_load",
+      "meaning": "Upon loss of grid power, the automatic transfer switch starts the generator and it picks up the essential load of 310 kW.",
+      "name": "generator_starts_and_picks_up_load",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8",
           "e7"
         ]
       }
@@ -333,7 +301,7 @@
       "attrs": {
         "conjunction": true,
         "initial": true,
-        "no_producer_needed": "Condition with prerequisites, no mechanism of its own.",
+        "no_producer_needed": "Condition with prerequisites only, no producer.",
         "step_kind": "condition"
       },
       "category": "state",
@@ -344,22 +312,6 @@
         "basis": "verified",
         "evidence_ids": [
           "e6"
-        ]
-      }
-    },
-    {
-      "attrs": {
-        "initial": true,
-        "value": "standby"
-      },
-      "category": "state",
-      "id": "state:state",
-      "meaning": "The automatic transfer switch is in its normal standby state, ready to detect loss of grid power and initiate transfer.",
-      "name": "state",
-      "provenance": {
-        "basis": "inferred",
-        "evidence_ids": [
-          "e8"
         ]
       }
     },
@@ -392,21 +344,19 @@
         "grid_power_outage_starts": "grid_power_outage_starts"
       },
       "organization": {
-        "Trelvane TD-500 generator": "trelvane_td_500_generator",
-        "automatic transfer switch": "automatic_transfer_switch"
+        "Trelvane TD-500 generator": "trelvane_td_500_generator"
       },
       "process": {
-        "generator_runs_consuming_fuel": "generator_runs_consuming_fuel",
-        "generator_starts_and_picks_up_load": "generator_starts_and_picks_up_load"
+        "generator_runs_consuming_fuel": "generator_runs_consuming_fuel"
       },
       "state": {
         "day_tank_fuel_level_at_deadline": "day_tank_fuel_level_at_deadline",
         "fuel_level": "fuel_level",
         "fuel_level_at_outage_start": "fuel_level_at_outage_start",
         "generator_running_status": "generator_running_status",
+        "generator_starts_and_picks_up_load": "generator_starts_and_picks_up_load",
         "initial_fuel_level": "initial_fuel_level",
-        "no_fuel_consumption_before_outage": "no_fuel_consumption_before_outage",
-        "state": "state"
+        "no_fuel_consumption_before_outage": "no_fuel_consumption_before_outage"
       },
       "terminal": {
         "terminal": "terminal"

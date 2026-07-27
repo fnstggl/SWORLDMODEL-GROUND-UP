@@ -97,3 +97,60 @@ def test_missing_duration_teaches_the_near_instant_rule():
           "duration_status": "model_memory_unverified",
           "duration_note": "walking into the chamber", "parameters": []}
     assert _v_action(ok, [], [], []) == []
+
+
+def test_binding_prompts_carry_the_declared_uncertainties():
+    """A binder told 'never resolve declared uncertainty' but shown none
+    fills the gap the world just admitted to. generator_fuel: discovery
+    declared the fuel burn rate unknown, and the binding then invented
+    78 L/h from textbook generator efficiency and labelled it
+    'inferred'."""
+    from compiler.binding import Bindings, bind_world
+    from compiler.graph import WorldGraph
+
+    g = WorldGraph()
+    g.add_node("terminal", "terminal", "how much fuel is left",
+               "question_given", attrs={"answer_type": "quantity",
+                                        "cutoff": {"when": "x"}})
+    org = g.add_node("organization", "Plant", "the plant",
+                     "question_given")
+    rs = g.add_node("resource", "diesel", "fuel in the day tank",
+                    "question_given", attrs={"holder": org, "amount": 620})
+    g.add_edge(rs, "measured_by_terminal", "terminal:terminal")
+    pr = g.add_node("process", "generator burns fuel", "it consumes fuel",
+                    "question_given")
+    g.add_edge(pr, "changes", rs)
+    g.add_world_uncertainty(
+        "fuel burn rate",
+        "The generator's fuel consumption rate is unknown; the evidence "
+        "states no litres-per-hour figure.")
+
+    seen = []
+
+    def call(system, user, model="stub", **kw):
+        seen.append(user)
+        doc = {"unsupported": "no consumption rate is stated anywhere"}
+        return doc, json_dumps(doc), {"total_tokens": 0}
+
+    import json as _json
+    json_dumps = _json.dumps
+    b = Bindings()
+    try:
+        bind_world(g, None, call=call, model="stub", into=b)
+    except Exception:
+        pass                      # the unsupported item refuses; fine
+    assert seen, "no binding prompt was issued"
+    joined = "\n".join(seen)
+    assert "ALREADY DECLARED THESE THINGS UNKNOWN" in joined
+    assert "consumption rate is unknown" in joined
+
+
+def test_inferred_may_not_mean_general_world_knowledge():
+    """The catalog must not license 'inferred' for textbook constants --
+    that wording is what let a fabricated burn rate through."""
+    from compiler.binding import _CATALOG
+
+    assert "ARITHMETIC FROM NUMBERS THE EVIDENCE ITSELF STATES" in _CATALOG
+    assert "NEVER means derived from general world knowledge" in \
+        _CATALOG.replace("\n", " ").replace("  ", " ")
+    assert "model_memory_unverified" in _CATALOG

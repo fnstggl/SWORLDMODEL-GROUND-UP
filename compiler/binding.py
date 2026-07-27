@@ -45,12 +45,24 @@ _CATALOG = (
       "\"model_memory_unverified\" when it is your own real-world "
       "estimate (an ordinary email takes minutes to write; corporate "
       "email delivers in seconds) -- that label is always allowed here "
-      "and is the honest default for practice-based estimates. A "
-      "genuinely unknowable number stays unknown: return null rather "
-      "than inventing precision. But a number the evidence itself fixes "
-      "through its stated rates, windows and stocks is NOT unknowable -- "
-      "compute it, mark it \"inferred\", and show the arithmetic in the "
-      "note."
+      "and is the honest default for practice-based estimates.\n"
+      "\"inferred\" means it follows by ARITHMETIC FROM NUMBERS THE "
+      "EVIDENCE ITSELF STATES -- adding its stated stocks, multiplying "
+      "its stated rate by its stated window. It NEVER means derived "
+      "from general world knowledge: a typical efficiency, a standard "
+      "consumption figure, a usual speed, a rule of thumb for equipment "
+      "of this class. Such a number did not come from the evidence, and "
+      "labelling it \"inferred\" misrepresents where it came from. If a "
+      "number takes outside knowledge to produce, its only honest label "
+      "is \"model_memory_unverified\".\n"
+      "AND WHERE THE ANSWER TURNS ON IT, DO NOT PRODUCE IT AT ALL. If "
+      "the evidence never states a quantity the world needs -- the rate "
+      "something consumes, how fast a thing works -- return null and "
+      "declare the item {\"unsupported\": \"<what is missing>\"}. A "
+      "confident number standing in for a missing measurement is the "
+      "one thing this compiler must never emit: it converts 'we cannot "
+      "tell' into a precise answer that looks earned. Returning "
+      "unsupported is always available and is never a failure."
 )
 
 _RULES = (
@@ -177,6 +189,20 @@ def bind_world(graph: WorldGraph, evidence: dict | None = None,
     if evidence:
         from .discovery import render_evidence
         ev_text = render_evidence(evidence) + "\n\n"
+    # The rules forbid resolving declared uncertainty, but a binder that
+    # is never SHOWN the declarations cannot obey: it fills the gap the
+    # world just admitted to. Every prompt carries them.
+    if graph.uncertainties:
+        ev_text += (
+            "THIS WORLD HAS ALREADY DECLARED THESE THINGS UNKNOWN. You "
+            "may not supply a number or fact that settles any of them: "
+            "return null and {\"unsupported\": \"<what is missing>\"} "
+            "instead.\n"
+            + "\n".join(
+                f"- {u.get('meaning', '')}"
+                for u in sorted(graph.uncertainties,
+                                key=lambda u: str(u.get("meaning", ""))))
+            + "\n\n")
 
     for node in graph.by_category("action"):
         ctx = _describe_action(graph, node)

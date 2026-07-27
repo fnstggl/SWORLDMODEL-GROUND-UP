@@ -1,0 +1,31 @@
+{
+  "ambiguities": [],
+  "answer_type": "boolean",
+  "basis": "question_given",
+  "cutoff": {
+    "meaning": "The deadline for the wire instruction to be accepted by Pelham Savings Bank.",
+    "timezone": "America/New_York",
+    "when": "2026-10-30T15:00:00-04:00"
+  },
+  "evidence_ids": [
+    "e6",
+    "e16"
+  ],
+  "measured_act": null,
+  "negative_condition": "Pelham Savings Bank did not accept such a wire instruction before the cutoff.",
+  "positive_condition": "Pelham Savings Bank accepted a wire instruction for the full $46,000 to Delacroix Farms' verified account before 3:00 PM Eastern on 30 October 2026.",
+  "proof": [
+    {
+      "expected_count": 1,
+      "kind": "record",
+      "meaning": "A record from Pelham Savings Bank showing acceptance of a wire instruction for $46,000 to Delacroix Farms' account before the cutoff.",
+      "name": "wire acceptance record",
+      "record_type": "bank record",
+      "rule": "count_all",
+      "subject": "Pelham Savings Bank",
+      "value": "accepted"
+    }
+  ],
+  "resolves_from_report": false,
+  "terminal_meaning": "Whether Pelham Savings Bank has accepted a wire instruction for the full $46,000 to Delacroix Farms' verified account before 3:00 PM Eastern on 30 October 2026."
+}

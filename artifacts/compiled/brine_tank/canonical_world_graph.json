@@ -1,0 +1,1129 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "produces",
+      "src": "event:delivery_friday_oct9"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "produces",
+      "src": "event:delivery_tuesday_oct6"
+    },
+    {
+      "attrs": {},
+      "dst": "state:initial_volume_oct5",
+      "rel": "has_state",
+      "src": "organization:ostrander_road_treatment_plant_day_tank"
+    },
+    {
+      "attrs": {},
+      "dst": "information:capacity",
+      "rel": "knows",
+      "src": "organization:ostrander_road_treatment_plant_day_tank"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "organization:ostrander_road_treatment_plant_day_tank"
+    },
+    {
+      "attrs": {},
+      "dst": "information:initial_volume_oct5",
+      "rel": "knows",
+      "src": "organization:ostrander_road_treatment_plant_day_tank"
+    },
+    {
+      "attrs": {},
+      "dst": "information:train_a_rate",
+      "rel": "knows",
+      "src": "organization:ostrander_road_treatment_plant_day_tank"
+    },
+    {
+      "attrs": {},
+      "dst": "information:train_b_rate_and_schedule",
+      "rel": "knows",
+      "src": "organization:ostrander_road_treatment_plant_day_tank"
+    },
+    {
+      "attrs": {
+        "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour."
+      },
+      "dst": "process:train_a_consumption_oct5_6am_to_oct6_8am",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {
+        "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour."
+      },
+      "dst": "process:train_a_consumption_oct6_8am_to_oct9_8am",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {
+        "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour."
+      },
+      "dst": "process:train_a_consumption_oct9_8am_to_oct12_6am",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "state:authority_to_change",
+      "rel": "has_state",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "state:communication_channels",
+      "rel": "has_state",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "state:dosing_rate",
+      "rel": "has_state",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "state:information_available",
+      "rel": "has_state",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "state:information_not_available",
+      "rel": "has_state",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "state:operating_status",
+      "rel": "has_state",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "information:train_a_rate",
+      "rel": "knows",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {},
+      "dst": "information:train_b_rate_and_schedule",
+      "rel": "knows",
+      "src": "organization:treatment_train_a"
+    },
+    {
+      "attrs": {
+        "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours."
+      },
+      "dst": "process:train_b_consumption_oct5_6am_to_6pm",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {
+        "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours."
+      },
+      "dst": "process:train_b_consumption_oct6_6am_to_6pm",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {
+        "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours."
+      },
+      "dst": "process:train_b_consumption_oct7_6am_to_6pm",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {
+        "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours."
+      },
+      "dst": "process:train_b_consumption_oct8_6am_to_6pm",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {
+        "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours."
+      },
+      "dst": "process:train_b_consumption_oct9_6am_to_8am",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {
+        "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours."
+      },
+      "dst": "process:train_b_consumption_oct9_8am_to_6pm",
+      "rel": "has_authority",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {},
+      "dst": "state:draw_rate",
+      "rel": "has_state",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {},
+      "dst": "state:operating_status",
+      "rel": "has_state",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {},
+      "dst": "information:delivery_schedule",
+      "rel": "knows",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {},
+      "dst": "information:train_a_rate",
+      "rel": "knows",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {},
+      "dst": "information:train_b_rate_and_schedule",
+      "rel": "knows",
+      "src": "organization:treatment_train_b"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_a_consumption_oct5_6am_to_oct6_8am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_a_consumption_oct6_8am_to_oct9_8am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_a_consumption_oct9_8am_to_oct12_6am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_b_consumption_oct5_6am_to_6pm"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_b_consumption_oct6_6am_to_6pm"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_b_consumption_oct7_6am_to_6pm"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_b_consumption_oct8_6am_to_6pm"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_b_consumption_oct9_6am_to_8am"
+    },
+    {
+      "attrs": {},
+      "dst": "resource:day_tank_volume",
+      "rel": "changes",
+      "src": "process:train_b_consumption_oct9_8am_to_6pm"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:delivery_friday_oct9",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:delivery_tuesday_oct6",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_a_consumption_oct5_6am_to_oct6_8am",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_a_consumption_oct6_8am_to_oct9_8am",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_a_consumption_oct9_8am_to_oct12_6am",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_b_consumption_oct5_6am_to_6pm",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_b_consumption_oct6_6am_to_6pm",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_b_consumption_oct7_6am_to_6pm",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_b_consumption_oct8_6am_to_6pm",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_b_consumption_oct9_6am_to_8am",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:train_b_consumption_oct9_8am_to_6pm",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:initial_volume_oct5",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:train_b_off_weekend",
+      "rel": "requires",
+      "src": "resource:day_tank_volume"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "Delivery on other days",
+      "why_safe": "Evidence e7 states deliveries occur only on Tuesdays and Fridays. Therefore, excluding deliveries on other days is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Holidays or disruptions",
+      "why_safe": "Evidence e10 states no district, county, or supplier holiday falls between 5 and 12 October 2026, and deliveries are confirmed. Therefore, excluding holidays or disruptions is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "name": "Operator intervention to change rates or schedule",
+      "why_safe": "Evidence e11 states operator Delphine Osgood has no authority to change delivery schedule, quantity, or dosing rates. The district engineer has issued no change orders. Therefore, excluding operator intervention is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e2"
+      ],
+      "name": "Other sodium hypochlorite sources",
+      "why_safe": "Evidence e2 states the day tank is the only vessel holding sodium hypochlorite at the plant; no bulk tank, drum store, or other source exists. Therefore, excluding other sources is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Partial delivery retention at plant",
+      "why_safe": "Evidence e9 states any part of the load that does not fit is retained on the truck and returned; it is not decanted, stored, or left at the plant. Therefore, excluding any product left at the plant beyond the tank capacity is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Train A outage",
+      "why_safe": "Evidence e4 states Train A has run without interruption since March 2026 and no outage is scheduled for October 2026. Therefore, excluding an outage is safe."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Train B running on weekend",
+      "why_safe": "Evidence e6 states Train B runs only Monday through Friday and is shut down on weekends. The weekend of 10-11 October 2026 is included. Therefore, excluding weekend operation is safe."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "anchor": null,
+        "no_producer_needed": "Scheduled events need no producer.",
+        "step_kind": "scheduled_event",
+        "when": "2026-10-09T08:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:delivery_friday_oct9",
+      "meaning": "Rennard Chemical delivers 1,800 litres of sodium hypochlorite, arriving and completing transfer into the day tank at 8:00 AM on Friday 9 October 2026. The tank is filled to its usable capacity of 4,000 litres; any excess is retained on the truck.",
+      "name": "delivery_friday_oct9",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "no_producer_needed": "Scheduled events need no producer.",
+        "step_kind": "scheduled_event",
+        "when": "2026-10-06T08:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:delivery_tuesday_oct6",
+      "meaning": "Rennard Chemical delivers 1,800 litres of sodium hypochlorite, arriving and completing transfer into the day tank at 8:00 AM on Tuesday 6 October 2026. The tank is filled to its usable capacity of 4,000 litres; any excess is retained on the truck.",
+      "name": "delivery_tuesday_oct6",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8",
+          "e9",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:capacity",
+      "meaning": "The day tank knows its usable capacity is 4,000 litres.",
+      "name": "capacity",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:delivery_schedule",
+      "meaning": "The day tank knows that deliveries occur every Tuesday and Friday at 8:00 AM, each 1,800 litres.",
+      "name": "delivery_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:initial_volume_oct5",
+      "meaning": "The day tank knows its own volume at 6:00 AM on 5 October 2026.",
+      "name": "initial_volume_oct5",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:train_a_rate",
+      "meaning": "The day tank knows that Train A draws 18 litres per hour continuously.",
+      "name": "train_a_rate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:train_b_rate_and_schedule",
+      "meaning": "The day tank knows that Train B draws 22 litres per hour from 6:00 AM to 6:00 PM on weekdays only.",
+      "name": "train_b_rate_and_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "23:59",
+          "open": "00:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "timezone": "America/Chicago"
+      },
+      "category": "organization",
+      "id": "organization:ostrander_road_treatment_plant_day_tank",
+      "meaning": "holder of day_tank_volume, named by the resolution contract",
+      "name": "Ostrander Road treatment plant day tank",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10",
+          "e11",
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour, 24 hours a day, 7 days a week, without interruption.",
+            "operating_meaning": "Runs continuously from at least March 2026 through October 2026, no scheduled outages.",
+            "rate_meaning": "18 litres per hour"
+          }
+        ],
+        "producer_kind": "operating_process"
+      },
+      "category": "organization",
+      "id": "organization:treatment_train_a",
+      "meaning": "Continuous chemical feed process that draws sodium hypochlorite from the day tank at 18 litres per hour.",
+      "name": "Treatment train A",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "declared_process_behavior": [
+          {
+            "meaning": "Draws sodium hypochlorite from the day tank at 22 litres per hour while running, from 6:00 AM to 6:00 PM on Mondays through Fridays only.",
+            "operating_meaning": "Runs from 6:00 AM to 6:00 PM on weekdays (Monday to Friday), shut down on weekends.",
+            "rate_meaning": "22 litres per hour"
+          }
+        ],
+        "producer_kind": "operating_process"
+      },
+      "category": "organization",
+      "id": "organization:treatment_train_b",
+      "meaning": "Chemical feed process that draws sodium hypochlorite from the day tank at 22 litres per hour during its operating hours.",
+      "name": "Treatment train B",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_a_consumption_oct5_6am_to_oct6_8am",
+      "meaning": "Train A consumes 18 litres per hour continuously from 6:00 AM Oct 5 to 8:00 AM Oct 6 (26 hours), total 468 litres.",
+      "name": "train_a_consumption_oct5_6am_to_oct6_8am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_a_consumption_oct6_8am_to_oct9_8am",
+      "meaning": "Train A consumes 18 litres per hour continuously from 8:00 AM Oct 6 to 8:00 AM Oct 9 (72 hours), total 1,296 litres.",
+      "name": "train_a_consumption_oct6_8am_to_oct9_8am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_a_consumption_oct9_8am_to_oct12_6am",
+      "meaning": "Train A consumes 18 litres per hour continuously from 8:00 AM Oct 9 to 6:00 AM Oct 12 (70 hours), total 1,260 litres.",
+      "name": "train_a_consumption_oct9_8am_to_oct12_6am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_b_consumption_oct5_6am_to_6pm",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Monday Oct 5 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct5_6am_to_6pm",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_b_consumption_oct6_6am_to_6pm",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Tuesday Oct 6 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct6_6am_to_6pm",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_b_consumption_oct7_6am_to_6pm",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Wednesday Oct 7 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct7_6am_to_6pm",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_b_consumption_oct8_6am_to_6pm",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 6:00 PM on Thursday Oct 8 (12 hours), total 264 litres.",
+      "name": "train_b_consumption_oct8_6am_to_6pm",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_b_consumption_oct9_6am_to_8am",
+      "meaning": "Train B consumes 22 litres per hour from 6:00 AM to 8:00 AM on Friday Oct 9 (2 hours), total 44 litres.",
+      "name": "train_b_consumption_oct9_6am_to_8am",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:train_b_consumption_oct9_8am_to_6pm",
+      "meaning": "Train B consumes 22 litres per hour from 8:00 AM to 6:00 PM on Friday Oct 9 (10 hours), total 220 litres.",
+      "name": "train_b_consumption_oct9_8am_to_6pm",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount_at_least": null,
+        "holder": "organization:ostrander_road_treatment_plant_day_tank",
+        "holder_kind": "organization",
+        "holder_name": "Ostrander Road treatment plant day tank",
+        "unit": "litres",
+        "unsupported": "Condition with prerequisites; it is a conjunction of the preceding steps and has no independent producer."
+      },
+      "category": "resource",
+      "id": "resource:day_tank_volume",
+      "meaning": "The volume of sodium hypochlorite in the day tank at 6:00 AM on Monday 12 October 2026.\nThe volume of sodium hypochlorite in the day tank at the cutoff.",
+      "name": "day_tank_volume",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e10",
+          "e11",
+          "e12",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 3100,
+        "holder": "organization:ostrander_road_treatment_plant_day_tank",
+        "unit": "litres"
+      },
+      "category": "resource",
+      "id": "resource:sodium_hypochlorite",
+      "meaning": "Sodium hypochlorite stored in the day tank.",
+      "name": "sodium_hypochlorite",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:authority_to_change",
+      "meaning": "No authority to change delivery schedule, delivery quantity, or dosing rate; those are set by district engineer with no change order for October 2026.",
+      "name": "authority to change",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:communication_channels",
+      "meaning": "None; treatment train A does not send or receive communications.",
+      "name": "communication channels",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:dosing_rate",
+      "meaning": "18 litres per hour.",
+      "name": "dosing rate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "22 L/h"
+      },
+      "category": "state",
+      "id": "state:draw_rate",
+      "meaning": "Draws 22 litres per hour from the day tank while operating.",
+      "name": "draw rate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:information_available",
+      "meaning": "Treatment train A has no independent information gathering; it is a process that draws chemical at a fixed rate. It does not receive communications.",
+      "name": "information available",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:information_not_available",
+      "meaning": "Treatment train A does not have access to the day tank level, delivery schedule, or train B's operation; it simply draws at its fixed rate.",
+      "name": "information not available",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "no_producer_needed": "Initial facts need no producer.",
+        "step_kind": "initial_fact",
+        "value": 3100
+      },
+      "category": "state",
+      "id": "state:initial_volume_oct5",
+      "meaning": "At 6:00 AM on Monday 5 October 2026, the day tank contained 3,100 litres of sodium hypochlorite.\nAt 6:00 AM on Monday 5 October 2026, the day tank contains 3,100 litres of sodium hypochlorite.",
+      "name": "initial_volume_oct5",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e3"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "runs weekdays 6:00-18:00"
+      },
+      "category": "state",
+      "id": "state:operating_status",
+      "meaning": "Running continuously since March 2026, no scheduled outage in October 2026.\nTreatment train B is scheduled to run on weekdays only, and is shut down on weekends.",
+      "name": "operating status",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4",
+          "e5",
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition",
+        "unsupported": "Condition with no prerequisites and no mechanism; it is a conjunction of the operating schedule (train B does not run on weekends)."
+      },
+      "category": "state",
+      "id": "state:train_b_off_weekend",
+      "meaning": "Train B is shut down all day Saturday Oct 10 and Sunday Oct 11, consuming nothing.",
+      "name": "train_b_off_weekend",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "quantity",
+        "cutoff": {
+          "meaning": "The exact time at which the volume is measured.",
+          "timezone": "America/Chicago",
+          "when": "2026-10-12T06:00:00-05:00"
+        },
+        "measured_act": null,
+        "negative_condition": null,
+        "positive_condition": "The volume in litres at the cutoff.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "The volume of sodium hypochlorite physically in the day tank at the Ostrander Road treatment plant at 6:00 AM on Monday 12 October 2026, in litres.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9",
+          "e10",
+          "e11",
+          "e12"
+        ]
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "event": {
+        "delivery_friday_oct9": "delivery_friday_oct9",
+        "delivery_tuesday_oct6": "delivery_tuesday_oct6"
+      },
+      "information": {
+        "capacity": "capacity",
+        "delivery_schedule": "delivery_schedule",
+        "initial_volume_oct5": "initial_volume_oct5",
+        "train_a_rate": "train_a_rate",
+        "train_b_rate_and_schedule": "train_b_rate_and_schedule"
+      },
+      "organization": {
+        "Ostrander Road treatment plant day tank": "ostrander_road_treatment_plant_day_tank",
+        "Treatment train A": "treatment_train_a",
+        "Treatment train B": "treatment_train_b"
+      },
+      "process": {
+        "train_a_consumption_oct5_6am_to_oct6_8am": "train_a_consumption_oct5_6am_to_oct6_8am",
+        "train_a_consumption_oct6_8am_to_oct9_8am": "train_a_consumption_oct6_8am_to_oct9_8am",
+        "train_a_consumption_oct9_8am_to_oct12_6am": "train_a_consumption_oct9_8am_to_oct12_6am",
+        "train_b_consumption_oct5_6am_to_6pm": "train_b_consumption_oct5_6am_to_6pm",
+        "train_b_consumption_oct6_6am_to_6pm": "train_b_consumption_oct6_6am_to_6pm",
+        "train_b_consumption_oct7_6am_to_6pm": "train_b_consumption_oct7_6am_to_6pm",
+        "train_b_consumption_oct8_6am_to_6pm": "train_b_consumption_oct8_6am_to_6pm",
+        "train_b_consumption_oct9_6am_to_8am": "train_b_consumption_oct9_6am_to_8am",
+        "train_b_consumption_oct9_8am_to_6pm": "train_b_consumption_oct9_8am_to_6pm"
+      },
+      "resource": {
+        "day_tank_volume": "day_tank_volume",
+        "sodium_hypochlorite": "sodium_hypochlorite"
+      },
+      "state": {
+        "authority to change": "authority_to_change",
+        "communication channels": "communication_channels",
+        "dosing rate": "dosing_rate",
+        "draw rate": "draw_rate",
+        "information available": "information_available",
+        "information not available": "information_not_available",
+        "initial_volume_oct5": "initial_volume_oct5",
+        "operating status": "operating_status",
+        "train_b_off_weekend": "train_b_off_weekend"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": null,
+      "meaning": "The final volume at 6:00 AM on Monday Oct 12 is computed from the sequence. The only uncertainties are whether the deliveries on Oct 6 and Oct 9 are fully added or partially returned due to tank capacity. The tank capacity is 4,000 litres, and the computed levels before each delivery determine if any overflow occurs.",
+      "topic": "final_volume"
+    },
+    {
+      "about": "event:delivery_friday_oct9",
+      "meaning": "Delivery of 1,800 litres at 8:00 AM on Friday Oct 9. Again, the tank may not have enough capacity to accept the full delivery; any excess is returned. The exact volume added depends on tank level at 8:00 AM."
+    },
+    {
+      "about": "event:delivery_tuesday_oct6",
+      "meaning": "Delivery of 1,800 litres at 8:00 AM on Tuesday Oct 6. The tank may not have enough capacity to accept the full delivery; any excess is returned. The exact volume added depends on tank level at 8:00 AM."
+    },
+    {
+      "about": "process:train_a_consumption_oct5_6am_to_oct6_8am",
+      "meaning": "Train A draws 18 L/h continuously. The duration from 6:00 AM Oct 5 to 8:00 AM Oct 6 is 26 hours, so consumption is 468 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_a_consumption_oct6_8am_to_oct9_8am",
+      "meaning": "Train A consumes 18 L/h continuously from 8:00 AM Oct 6 to 8:00 AM Oct 9, which is 72 hours, so 1,296 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_a_consumption_oct9_8am_to_oct12_6am",
+      "meaning": "Train A consumes 18 L/h continuously from 8:00 AM Oct 9 to 6:00 AM Oct 12, which is 70 hours, so 1,260 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_b_consumption_oct5_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Monday Oct 5 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_b_consumption_oct6_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Tuesday Oct 6 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_b_consumption_oct7_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Wednesday Oct 7 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_b_consumption_oct8_6am_to_6pm",
+      "meaning": "Train B runs 12 hours on Thursday Oct 8 at 22 L/h, consuming 264 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_b_consumption_oct9_6am_to_8am",
+      "meaning": "Train B runs 2 hours on Friday Oct 9 from 6:00 AM to 8:00 AM at 22 L/h, consuming 44 litres. No uncertainty."
+    },
+    {
+      "about": "process:train_b_consumption_oct9_8am_to_6pm",
+      "meaning": "Train B runs 10 hours on Friday Oct 9 from 8:00 AM to 6:00 PM at 22 L/h, consuming 220 litres. No uncertainty."
+    },
+    {
+      "about": "state:initial_volume_oct5",
+      "meaning": "The exact volume at 6:00 AM on Monday 5 October 2026 is given as 3,100 litres, but there is no evidence about measurement error or calibration tolerance. The volume is assumed exact."
+    },
+    {
+      "about": "state:train_b_off_weekend",
+      "meaning": "Train B is off on Saturday Oct 10 and Sunday Oct 11, consuming nothing. No uncertainty."
+    }
+  ]
+}

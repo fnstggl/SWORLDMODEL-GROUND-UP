@@ -9,7 +9,8 @@
             "node": "process:generator_runs_consuming_fuel",
             "prerequisites": [
               {
-                "node": "process:generator_starts_and_picks_up_load",
+                "derived_condition": true,
+                "node": "state:generator_starts_and_picks_up_load",
                 "prerequisites": [
                   {
                     "node": "event:grid_power_outage_starts",
@@ -25,8 +26,7 @@
                       }
                     ]
                   }
-                ],
-                "root": "process"
+                ]
               }
             ],
             "root": "process"
@@ -52,7 +52,8 @@
                 "node": "process:generator_runs_consuming_fuel",
                 "prerequisites": [
                   {
-                    "node": "process:generator_starts_and_picks_up_load",
+                    "derived_condition": true,
+                    "node": "state:generator_starts_and_picks_up_load",
                     "prerequisites": [
                       {
                         "node": "event:grid_power_outage_starts",
@@ -68,8 +69,7 @@
                           }
                         ]
                       }
-                    ],
-                    "root": "process"
+                    ]
                   }
                 ],
                 "root": "process"

@@ -1,0 +1,26 @@
+{
+  "causal_path": [
+    "Application accepted complete on 2026-08-10 at 09:15",
+    "Count of business days begins on 2026-08-11",
+    "Request for additional information issued on 2026-08-13 at 15:00 pauses the count",
+    "Response delivered on 2026-08-26 at 10:00 resumes the count",
+    "Count proceeds on subsequent business days, excluding closures on 2026-09-07 and 2026-09-11",
+    "Fifteenth counted business day lands on 2026-09-14 (after the deadline), triggering deemed approval at 17:00 that day",
+    "No written approval is issued because no reviewer is assigned before 2026-09-21",
+    "Terminal: approval does not occur before 2026-09-11T17:00"
+  ],
+  "defects": [
+    {
+      "document": "causal_spine",
+      "what": "No continuous process or action that counts business days and triggers deemed approval when 15 are reached.",
+      "why_material": "Without such a process, the simulation cannot determine when the fifteenth business day occurs, and thus cannot conclude whether deemed approval happens before or after the deadline."
+    },
+    {
+      "document": "uncertainty_and_exclusions",
+      "what": "The counted_business_days_elapsed uncertainty states that the exact number is uncertain, but the evidence (e1\u2013e11) fully determines the count: 14 business days before the deadline, with the 15th after.",
+      "why_material": "Treating a deterministic outcome as uncertain could cause the simulation to explore impossible branches or misinterpret the timeline."
+    }
+  ],
+  "reasoning": "The world lacks a process to count business days as required by the deemed-approval rule, making it impossible to compute when or whether the fifteenth counted business day occurs. Additionally, the uncertainty section incorrectly characterizes the number of counted business days as uncertain, when in fact the evidence makes the count fully deterministic. These defects materially affect whether the simulation can correctly produce the terminal outcome.",
+  "verdict": "TARGETED_REVISION"
+}

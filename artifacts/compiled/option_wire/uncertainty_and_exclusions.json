@@ -1,0 +1,51 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "Callum Whitfield",
+      "why_safe": "He resigned effective 12 October 2026 and has had no access to accounts or premises since then, so he cannot authorize or submit the wire."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Treasurer (vacant)",
+      "why_safe": "The treasurer seat has been vacant since 3 August 2026, so no treasurer is available to sign."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e15"
+      ],
+      "name": "Ivo Sarraute",
+      "why_safe": "He is a contract bookkeeper with only data entry portal access, not an authorized signer, so he cannot authorize the wire."
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8",
+        "e13"
+      ],
+      "name": "Board chair Devrim Aksoy",
+      "why_safe": "She is not named on the signature card, and there is no evidence she is an authorized signer. Even if she were, she is available but not needed if Okonjo is authorized."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "authorized_signer_available",
+      "meaning": "Whether Marguerite Okonjo is an authorized signer on the trust's bank account. The signature card names 'the Executive Director and the Treasurer', but Okonjo is interim executive director and it is unknown if the bank treats her as the Executive Director. Also, the board chair Devrim Aksoy is available but not on the signature card."
+    },
+    {
+      "about": "wire_submission",
+      "meaning": "Whether an authorized signer will actually submit the wire instruction before the 3:00 PM cutoff on 30 October 2026. Okonjo is willing and available, but if she is not authorized, no one else is known to be authorized."
+    },
+    {
+      "about": "wire_acceptance",
+      "meaning": "Whether Pelham Savings Bank will accept the wire instruction before the cutoff. Even if submitted, bank processing delays or rejection could occur."
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Hollis Vantour LLC is the entity that filed the application.",
+          "over": "application_filed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Hollis Vantour LLC delivered the response to the request for additional information.",
+          "over": "response_delivered"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Hollis Vantour LLC filed building permit application BP-2214 for a two-storey addition at 41 Coldbrook Lane with the Larkspur County Building Department.",
+          "name": "application_filed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Hollis Vantour LLC delivered a response to the department's request for additional information, logged as complete at 10:00 AM on Wednesday 26 August 2026.",
+          "name": "response_delivered"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Hollis Vantour LLC knows it filed the application.",
+          "name": "application_filed",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Hollis Vantour LLC knows it delivered the response.",
+          "name": "response_delivered",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Hollis Vantour LLC knows the department issued a request for additional information on 13 August 2026.",
+          "name": "request_for_info_issued",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Hollis Vantour LLC knows that director Baradaj confirmed on 8 September 2026 that no reviewer will be assigned before 21 September 2026 and no approval or denial will be issued before review.",
+          "name": "director_letter",
+          "visibility": "private"
+        }
+      ],
+      "name": "Hollis Vantour LLC",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The department has authority to issue requests for additional information.",
+          "over": "request_for_info_issued"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e9"
+          ],
+          "meaning": "The department has authority to issue written approvals.",
+          "over": "written_approval_issued"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The department has authority to assign plan reviewers.",
+          "over": "reviewer_assigned"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The department's plan reviewer completes the review.",
+          "over": "plan_review_completed"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The department accepted BP-2214 as complete at 9:15 AM on 10 August 2026.",
+          "name": "application_accepted_complete",
+          "value": "2026-08-10T09:15:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The department issued a written request for additional information on BP-2214 at 3:00 PM on 13 August 2026.",
+          "name": "request_for_info_issued",
+          "value": "2026-08-13T15:00:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Hollis Vantour LLC delivered a response that the department logged as complete at 10:00 AM on 26 August 2026.",
+          "name": "response_delivered",
+          "value": "2026-08-26T10:00:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "As of 8 September 2026, BP-2214 has not been assigned to a plan reviewer, and none will be assigned before 21 September 2026.",
+          "name": "no_reviewer_assigned",
+          "value": "2026-09-08T08:00:00-04:00"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The department issues neither approval nor denial on any application before a plan reviewer completes review.",
+          "name": "no_approval_or_denial_before_review"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "No expedited-review procedure exists for residential additions, and none has been requested.",
+          "name": "no_expedited_review"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The department knows that BP-2214 was filed by Hollis Vantour LLC.",
+          "name": "application_filed",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "The department knows it accepted BP-2214 as complete at 9:15 AM on 10 August 2026.",
+          "name": "application_accepted_complete",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The department knows it issued a request for additional information at 3:00 PM on 13 August 2026.",
+          "name": "request_for_info_issued",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The department knows it received a complete response at 10:00 AM on 26 August 2026.",
+          "name": "response_delivered",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The department knows that no reviewer has been assigned to BP-2214 as of 8 September 2026.",
+          "name": "no_reviewer_assigned",
+          "visibility": "private"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e2",
+            "e3",
+            "e4",
+            "e5",
+            "e6",
+            "e7",
+            "e8"
+          ],
+          "meaning": "The department knows the count of business days elapsed under the deemed-approval rule.",
+          "name": "counted_business_days",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The department knows that the county is closed on 7 September and 11 September 2026.",
+          "name": "county_closures",
+          "visibility": "public"
+        }
+      ],
+      "name": "Larkspur County Building Department",
+      "not_available": [
+        {
+          "from": "2026-09-07T00:00:00-04:00",
+          "meaning": "The department is closed on Monday 7 September 2026 (Founders' Day) and Friday 11 September 2026 (furlough day).",
+          "to": "2026-09-07T23:59:59-04:00"
+        },
+        {
+          "from": "2026-09-11T00:00:00-04:00",
+          "meaning": "The department is closed on Friday 11 September 2026.",
+          "to": "2026-09-11T23:59:59-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "The plan reviewer completes the review of BP-2214, which is a prerequisite for the department to issue a written approval or denial.",
+          "over": "plan_review_completed"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "No plan reviewer has been assigned to BP-2214 as of the world opening.",
+          "name": "not assigned"
+        }
+      ],
+      "knows": [],
+      "name": "plan reviewer",
+      "not_available": [
+        {
+          "from": "2026-08-10T09:15:00-04:00",
+          "meaning": "No plan reviewer will be assigned to BP-2214 before 21 September 2026, so no reviewer is available to act on this application before the deadline.",
+          "to": "2026-09-21T00:00:00-04:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

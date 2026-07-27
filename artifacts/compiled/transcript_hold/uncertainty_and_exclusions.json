@@ -1,0 +1,66 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "manual override by registrar staff",
+      "why_safe": "Evidence e3 explicitly states that registrar staff have no ability to clear or override the financial hold flag, and the registrar's system contains no manual override. Therefore, excluding any possibility of manual intervention is safe because it is impossible."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "other payment methods (card, cash, certified check)",
+      "why_safe": "Evidence e6 states that the payment portal accepts only electronic checks, card payments have not been accepted since March 2026, and the cashier's window closed permanently in 2025. No other channel exists for paying a student balance. Therefore, excluding other payment methods is safe because they are not available."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e9"
+      ],
+      "name": "other payments or charges",
+      "why_safe": "Evidence e9 states that Osei's only payment is the electronic check submitted on 2 June, and no earlier payment is pending, and no new charge has been added since 1 June. Therefore, excluding other payments or charges is safe because they do not exist."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e11"
+      ],
+      "name": "university closures or holidays",
+      "why_safe": "Evidence e11 states that the university, bursar's office, and registrar's office are open and operating normally on every weekday from 1 June through 12 June 2026, with no closures, furloughs, or holidays. The bursar's automated batch is unaffected by office staffing. Therefore, excluding closures or holidays is safe because they do not occur."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "name": "processor holidays or delays",
+      "why_safe": "Evidence e7 states that the processor observes no holidays in June 2026, and the rule for clearing electronic checks is based on processor business days (Monday through Friday). Therefore, excluding processor holidays or delays is safe because none are scheduled."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "payment_cleared_by_processor",
+      "meaning": "The exact time when the processor marks the electronic check as cleared is uncertain. The rule says 6:00 PM on the third processor business day after submission. Submission was Tuesday 2 June 2026 at 2:10 PM. The third processor business day is Friday 5 June 2026. So the processor would mark it cleared at 6:00 PM on Friday 5 June. However, if the processor considers the submission after 5:00 PM cutoff, it might be treated as next day. The evidence says submitted before 5:00 PM, so it should be cleared on Friday 5 June at 6:00 PM. But there is a slight uncertainty about the exact interpretation of 'processor business day' and whether the submission time counts as before 5:00 PM. The evidence says submitted at 2:10 PM, which is before 5:00 PM, so it should be cleared on the third business day. So this uncertainty is low."
+    },
+    {
+      "about": "bursar_batch_posts_payment",
+      "meaning": "The bursar's batch runs at 2:00 AM on Tuesdays, Wednesdays, Thursdays, and Fridays. The payment is cleared at 6:00 PM on Friday 5 June. The next batch after that clearance would be on Tuesday 9 June at 2:00 AM (since Saturday, Sunday, Monday are skipped). So the batch would post the payment at 2:00 AM on Tuesday 9 June. This is certain given the schedule."
+    },
+    {
+      "about": "financial_hold_lifted",
+      "meaning": "The financial hold is lifted when the batch posts the payment and brings the balance to zero. That would happen at 2:00 AM on Tuesday 9 June. This is certain."
+    },
+    {
+      "about": "registrar_release_within_4_hours",
+      "meaning": "Once the hold is lifted, the registrar releases the transcript within 4 working hours. The hold is lifted at 2:00 AM on Tuesday 9 June. The registrar's working hours are 8:00 AM to 4:00 PM. So the 4-hour window starts at 8:00 AM on Tuesday 9 June. The transcript would be released by 12:00 PM (noon) on Tuesday 9 June. The deadline is Monday 8 June at 12:00 PM. So the release would occur after the deadline. This is certain."
+    },
+    {
+      "about": "transcript_released",
+      "meaning": "The transcript will be released after the deadline, so the answer is NO. This is certain based on the timeline."
+    }
+  ]
+}

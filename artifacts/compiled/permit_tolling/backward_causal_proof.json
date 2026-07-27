@@ -1,0 +1,208 @@
+{
+  "components": [
+    {
+      "chain": {
+        "node": "record:written_approval",
+        "via": {
+          "node": "action:written_approval_issued",
+          "prerequisites": [
+            {
+              "node": "action:plan_review_completed",
+              "prerequisites": [
+                {
+                  "node": "action:reviewer_assigned",
+                  "root": "actor_choice"
+                }
+              ],
+              "root": "actor_choice"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "record:written_approval",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:written_approval_issued"
+      ]
+    },
+    {
+      "chain": {
+        "node": "state:deemed_approval",
+        "prerequisites": [
+          {
+            "node": "process:count_business_days",
+            "prerequisites": [
+              {
+                "node": "state:count_resumes",
+                "prerequisites": [
+                  {
+                    "node": "state:request_resolved",
+                    "prerequisites": [
+                      {
+                        "node": "event:response_delivered",
+                        "root": "scheduled_event"
+                      }
+                    ],
+                    "via": {
+                      "node": "action:bring_about_request_resolved",
+                      "prerequisites": [
+                        {
+                          "node": "event:response_delivered",
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "root": "actor_choice"
+                    }
+                  }
+                ],
+                "via": {
+                  "node": "action:bring_about_count_resumes",
+                  "prerequisites": [
+                    {
+                      "node": "state:request_resolved",
+                      "prerequisites": [
+                        {
+                          "node": "event:response_delivered",
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "via": {
+                        "node": "action:bring_about_request_resolved",
+                        "prerequisites": [
+                          {
+                            "node": "event:response_delivered",
+                            "root": "scheduled_event"
+                          }
+                        ],
+                        "root": "actor_choice"
+                      }
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              },
+              {
+                "node": "state:count_start",
+                "prerequisites": [
+                  {
+                    "node": "state:application_accepted_complete",
+                    "root": "initial_fact"
+                  }
+                ],
+                "via": {
+                  "node": "action:bring_about_count_start",
+                  "prerequisites": [
+                    {
+                      "node": "state:application_accepted_complete",
+                      "root": "initial_fact"
+                    }
+                  ],
+                  "root": "actor_choice"
+                }
+              }
+            ],
+            "root": "process"
+          }
+        ],
+        "via": {
+          "node": "action:bring_about_fifteenth_business_day_arrives",
+          "prerequisites": [
+            {
+              "node": "process:count_business_days",
+              "prerequisites": [
+                {
+                  "node": "state:count_resumes",
+                  "prerequisites": [
+                    {
+                      "node": "state:request_resolved",
+                      "prerequisites": [
+                        {
+                          "node": "event:response_delivered",
+                          "root": "scheduled_event"
+                        }
+                      ],
+                      "via": {
+                        "node": "action:bring_about_request_resolved",
+                        "prerequisites": [
+                          {
+                            "node": "event:response_delivered",
+                            "root": "scheduled_event"
+                          }
+                        ],
+                        "root": "actor_choice"
+                      }
+                    }
+                  ],
+                  "via": {
+                    "node": "action:bring_about_count_resumes",
+                    "prerequisites": [
+                      {
+                        "node": "state:request_resolved",
+                        "prerequisites": [
+                          {
+                            "node": "event:response_delivered",
+                            "root": "scheduled_event"
+                          }
+                        ],
+                        "via": {
+                          "node": "action:bring_about_request_resolved",
+                          "prerequisites": [
+                            {
+                              "node": "event:response_delivered",
+                              "root": "scheduled_event"
+                            }
+                          ],
+                          "root": "actor_choice"
+                        }
+                      }
+                    ],
+                    "root": "actor_choice"
+                  }
+                },
+                {
+                  "node": "state:count_start",
+                  "prerequisites": [
+                    {
+                      "node": "state:application_accepted_complete",
+                      "root": "initial_fact"
+                    }
+                  ],
+                  "via": {
+                    "node": "action:bring_about_count_start",
+                    "prerequisites": [
+                      {
+                        "node": "state:application_accepted_complete",
+                        "root": "initial_fact"
+                      }
+                    ],
+                    "root": "actor_choice"
+                  }
+                }
+              ],
+              "root": "process"
+            }
+          ],
+          "root": "actor_choice"
+        }
+      },
+      "component": "state:deemed_approval",
+      "immutable_after_genesis": false,
+      "initially_true": false,
+      "producer_categories": [
+        "action"
+      ],
+      "producers": [
+        "action:bring_about_fifteenth_business_day_arrives"
+      ]
+    }
+  ],
+  "components_rooted_in_uncertainty": [],
+  "genesis_only_components": [],
+  "terminal": "terminal:terminal",
+  "warnings": []
+}

@@ -1,0 +1,18 @@
+{
+  "detail": {
+    "defects": [
+      "initial state of 'Treatment train A': 'Treatment train A' matches more than one thing (organization:treatment_train_a, process:treatment_train_a); references must be unique",
+      "initial state of 'Treatment train A': 'Treatment train A' matches more than one thing (organization:treatment_train_a, process:treatment_train_a); references must be unique",
+      "initial state of 'Treatment train A': 'Treatment train A' matches more than one thing (organization:treatment_train_a, process:treatment_train_a); references must be unique",
+      "initial state of 'Treatment train A': 'Treatment train A' matches more than one thing (organization:treatment_train_a, process:treatment_train_a); references must be unique",
+      "initial state of 'Treatment train A': 'Treatment train A' matches more than one thing (organization:treatment_train_a, process:treatment_train_a); references must be unique",
+      "initial state of 'Treatment train A': 'Treatment train A' matches more than one thing (organization:treatment_train_a, process:treatment_train_a); references must be unique",
+      "initial state of 'Treatment train B': 'Treatment train B' matches more than one thing (organization:treatment_train_b, process:treatment_train_b); references must be unique",
+      "initial state of 'Treatment train B': 'Treatment train B' matches more than one thing (organization:treatment_train_b, process:treatment_train_b); references must be unique"
+    ],
+    "document": "starting_state_and_information",
+    "repairable": true
+  },
+  "reason": "the starting_state_and_information document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

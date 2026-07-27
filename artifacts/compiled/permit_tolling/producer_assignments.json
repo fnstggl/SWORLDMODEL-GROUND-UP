@@ -1,0 +1,83 @@
+{
+  "assignments": [
+    {
+      "step": "application_filed",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "step": "application_accepted_complete",
+      "unsupported": "Initial fact; no producer needed."
+    },
+    {
+      "step": "count_start",
+      "unsupported": "Condition with prerequisites; no mechanism of its own."
+    },
+    {
+      "step": "request_for_info_issued",
+      "unsupported": "Scheduled event; no producer needed."
+    },
+    {
+      "step": "request_outstanding_period",
+      "unsupported": "Condition with prerequisites; no mechanism of its own."
+    },
+    {
+      "step": "response_delivered",
+      "unsupported": "Scheduled event; no producer needed."
+    },
+    {
+      "step": "request_resolved",
+      "unsupported": "Condition with prerequisites; no mechanism of its own."
+    },
+    {
+      "step": "count_resumes",
+      "unsupported": "Condition with prerequisites; no mechanism of its own."
+    },
+    {
+      "step": "fifteenth_business_day_arrives",
+      "unsupported": "Condition with prerequisites; no mechanism of its own."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2",
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The department that can issue a written approval of BP-2214.",
+          "name": "Larkspur County Building Department"
+        }
+      ],
+      "step": "written_approval_issued"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "A plan reviewer assigned to BP-2214 who completes the review.",
+          "name": "plan reviewer"
+        }
+      ],
+      "step": "plan_review_completed"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "organization",
+          "meaning": "The department that assigns a plan reviewer to BP-2214.",
+          "name": "Larkspur County Building Department"
+        }
+      ],
+      "step": "reviewer_assigned"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "mode": "frozen_evidence",
+  "model": "deepseek-chat",
+  "pipeline": "worldcompiler"
+}

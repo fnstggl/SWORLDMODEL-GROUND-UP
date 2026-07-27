@@ -1,0 +1,612 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11",
+            "e12"
+          ],
+          "meaning": "Okonjo is a potential producer of wire_submission, but her authorization is uncertain.",
+          "over": "wire_submission"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marguerite Okonjo was named interim executive director by board vote on 15 October 2026.",
+          "name": "interim_executive_director"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Okonjo has stated she is willing to send the wire.",
+          "name": "willing_to_send_wire"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Okonjo is at the trust's office and available every working day from 26 October through 30 October 2026.",
+          "name": "available_week"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Okonjo knows that the wire template is loaded and complete in Pelham's portal.",
+          "name": "wire_template_ready",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Okonjo knows the trust has sufficient funds.",
+          "name": "sufficient_funds",
+          "visibility": "public"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Okonjo knows the bank's same-day wire cutoff is 3:00 PM Eastern.",
+          "name": "wire_cutoff",
+          "visibility": "public"
+        },
+        {
+          "basis": "uncertain",
+          "evidence_ids": [],
+          "meaning": "Okonjo may not know whether she is an authorized signer; the evidence does not state what she knows about her own authorization.",
+          "name": "authorization_uncertainty",
+          "visibility": "private"
+        }
+      ],
+      "name": "Marguerite Okonjo",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Devrim Aksoy is the board chair of Harrow Ridge Land Trust.",
+          "name": "board_chair"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Devrim Aksoy is available throughout the week of 26-30 October 2026.",
+          "name": "available_week"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "The trust must pay $46,000 to Delacroix Farms LLC by 30 October 2026.",
+          "name": "option_payment_due",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The board voted on 6 October 2026 to exercise the option and make the payment.",
+          "name": "board_vote_exercise",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The trust's account at Pelham Savings Bank held $312,400 on 26 October 2026.",
+          "name": "sufficient_funds",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Delacroix Farms will only accept payment by wire to their specified account.",
+          "name": "wire_only",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Ivo Sarraute loaded a complete wire template for $46,000 in Pelham's portal.",
+          "name": "wire_template_ready",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Pelham's same-day wire cutoff is 3:00 PM Eastern on weekdays.",
+          "name": "cutoff_time",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The signature card authorizes the Executive Director and Treasurer; Devrim Aksoy is not listed.",
+          "name": "signature_card",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Callum Whitfield resigned as Executive Director effective 12 October 2026.",
+          "name": "whitfield_resigned",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The treasurer seat has been vacant since 3 August 2026.",
+          "name": "treasurer_vacant",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marguerite Okonjo was named interim executive director on 15 October 2026.",
+          "name": "okonjo_interim",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Okonjo is available and willing to send the wire.",
+          "name": "okonjo_available",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "The bylaws excerpt does not include Article VII on disbursements and signing authority.",
+          "name": "bylaws_incomplete",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Ivo Sarraute is a contract bookkeeper with no authorization on the account.",
+          "name": "sarraute_not_authorized",
+          "visibility": "public"
+        }
+      ],
+      "name": "Devrim Aksoy",
+      "not_available": [
+        {
+          "channel": null,
+          "from": null,
+          "meaning": "Devrim Aksoy is not known to be an authorized signer on the trust's account.",
+          "to": null
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Ivo Sarraute loaded the wire template into the portal, making it ready.",
+          "over": "wire_template_ready"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Ivo Sarraute is a contract bookkeeper for Harrow Ridge Land Trust, not an officer or employee.",
+          "name": "contract_bookkeeper"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "His portal access is described only as data entry; he is not an authorized signer on the account.",
+          "name": "portal_access_data_entry"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "He verified Delacroix Farms' wire instructions by telephone callback on 21 October 2026 and loaded them as a saved wire template in Pelham's business banking portal.",
+          "name": "verified_wire_instructions"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "He knows the correct wire instructions for Delacroix Farms LLC.",
+          "name": "wire_instructions_verified",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "He knows the wire template is complete and saved in the portal.",
+          "name": "template_loaded",
+          "visibility": "private"
+        }
+      ],
+      "name": "Ivo Sarraute",
+      "not_available": [],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    },
+    {
+      "authority": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "The trust can submit a wire through its bank account, but only if an authorized signer initiates it.",
+          "over": "wire_submission"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Option payment of $46,000 due to Delacroix Farms LLC by 30 October 2026.",
+          "name": "option_payment_due",
+          "when": "2026-10-30T23:59:59-04:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Holds a purchase option on the 214-acre Delacroix Farms parcel, with an option payment of $46,000 due by 30 October 2026.",
+          "name": "holds_purchase_option"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "The board voted on 6 October 2026 to exercise the option and make the $46,000 payment.",
+          "name": "board_voted_to_exercise_option"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "The trust's sole bank account is an operating account at Pelham Savings Bank.",
+          "name": "sole_bank_account_at_pelham"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "The trust holds no cheque stock.",
+          "name": "no_cheque_stock"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Executive Director Callum Whitfield resigned effective 12 October 2026 and has had no access to accounts since.",
+          "name": "executive_director_resigned"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "The treasurer seat has been vacant since 3 August 2026.",
+          "name": "treasurer_vacant"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Marguerite Okonjo was named interim executive director on 15 October 2026.",
+          "name": "interim_executive_director_appointed"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Okonjo is available and willing to send the wire.",
+          "name": "okonjo_available_and_willing"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Board chair Devrim Aksoy is available throughout the week.",
+          "name": "board_chair_available"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "The signature card on file authorizes the Executive Director and the Treasurer.",
+          "name": "signature_card_authorizes_executive_director_and_treasurer"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "The bylaws excerpt does not include Article VII on disbursements and signing authority.",
+          "name": "bylaws_article_vii_not_provided"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Ivo Sarraute is a contract bookkeeper, not an officer or employee, and his portal access is data entry only.",
+          "name": "bookkeeper_not_authorized_signer"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e1"
+          ],
+          "meaning": "Knows the option payment amount and deadline.",
+          "name": "option_agreement_terms",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "meaning": "Knows the board voted to exercise the option and make the payment.",
+          "name": "board_vote_result",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Knows the account balance as of 26 October 2026.",
+          "name": "account_balance",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Knows Delacroix Farms' wire instructions, verified and loaded as a template.",
+          "name": "delacroix_wire_instructions",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Knows Pelham's same-day wire cutoff is 3:00 PM Eastern, Monday to Friday.",
+          "name": "pelham_wire_cutoff",
+          "visibility": "public"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "meaning": "Knows the signature card authorizes the Executive Director and the Treasurer.",
+          "name": "signature_card_terms",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "meaning": "Knows Callum Whitfield resigned and has no access.",
+          "name": "whitfield_resignation",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "meaning": "Knows the treasurer seat is vacant.",
+          "name": "treasurer_vacancy",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Knows Marguerite Okonjo was appointed interim executive director.",
+          "name": "okonjo_appointment",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Knows Okonjo is available and willing to send the wire.",
+          "name": "okonjo_availability",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Knows Devrim Aksoy is available.",
+          "name": "aksoy_availability",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e14"
+          ],
+          "meaning": "Knows the bylaws excerpt does not include Article VII.",
+          "name": "bylaws_excerpt_limited",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e15"
+          ],
+          "meaning": "Knows Ivo Sarraute is a contract bookkeeper with data entry access only.",
+          "name": "sarraute_role",
+          "visibility": "private"
+        }
+      ],
+      "name": "Harrow Ridge Land Trust",
+      "not_available": [
+        {
+          "from": "2026-10-01T00:00:00-04:00",
+          "meaning": "The trust does not have access to any communication channel for sending or receiving messages; no channels exist in this world.",
+          "to": "2026-10-31T23:59:59-04:00"
+        }
+      ],
+      "resources": [
+        {
+          "amount": 312400,
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "meaning": "Balance in the Pelham Savings Bank operating account.",
+          "name": "operating_account_balance",
+          "unit": "USD"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

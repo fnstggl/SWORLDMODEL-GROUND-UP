@@ -1,0 +1,152 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6",
+        "e9"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Yuki Tamesada issues a corrected certificate of origin with the correct tariff subheading and emails it to Malik.",
+      "name": "corrected_certificate_issued",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "malik_requests_correction"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Tamesada may not receive the request in time or may not act before the deadline.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Malik emails Tamesada requesting a corrected certificate of origin at 3:40 PM Eastern on Monday 16 November 2026.",
+      "name": "malik_requests_correction",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e7",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "Tamesada receives Malik's email requesting a corrected certificate of origin.",
+      "name": "tamesada_receives_request",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "malik_requests_correction"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Tamesada is on a flight without internet from 10:10 PM Japan time on 16 Nov to 4:30 AM Singapore time on 17 Nov, so she cannot receive the email during that period.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "scheduled_event",
+      "meaning": "Tamesada lands in Singapore at 4:30 AM Singapore time (UTC+8) on 17 November 2026.",
+      "name": "tamesada_lands_singapore",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": "2026-11-17T04:30:00+08:00"
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Tamesada clears her compliance inbox between 45 and 60 minutes after landing, before leaving the airport, and deals with pending certificates.",
+      "name": "tamesada_clears_inbox",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tamesada_lands_singapore"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "She may not follow her usual pattern, or may not receive the request in time.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e10",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "Malik receives the corrected certificate of origin via email from Tamesada.",
+      "name": "malik_receives_certificate",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "corrected_certificate_issued"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Malik only checks email at specific times; if the email arrives outside those times, he will not see it until his next check.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e11",
+        "e12",
+        "e13"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Malik prepares and submits the customs entry for HLXU 4471820, which takes 45 minutes of working time.",
+      "name": "malik_prepares_entry",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "malik_receives_certificate"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Malik is out of the office on Tuesday 17 November and does not work that day. He must do this on Monday 16 November after receiving the certificate, or on Wednesday 18 November before 9:00 AM.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e13"
+      ],
+      "kind": "condition",
+      "meaning": "A complete customs entry for HLXU 4471820 is submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.",
+      "name": "entry_submitted_and_acknowledged",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "malik_prepares_entry"
+        }
+      ],
+      "produces_proof": [
+        "port authority acknowledgment"
+      ],
+      "uncertainty": "This step occurs only if Malik submits the entry before 9:00 AM Eastern on 18 November 2026.",
+      "when": null
+    }
+  ]
+}

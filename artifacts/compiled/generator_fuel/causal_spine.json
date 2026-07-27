@@ -71,7 +71,7 @@
         "e8",
         "e7"
       ],
-      "kind": "process",
+      "kind": "condition",
       "meaning": "Upon loss of grid power, the automatic transfer switch starts the generator and it picks up the essential load of 310 kW.",
       "name": "generator_starts_and_picks_up_load",
       "prerequisites": [

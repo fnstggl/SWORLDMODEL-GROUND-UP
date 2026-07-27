@@ -1,0 +1,975 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "state:malik_receives_certificate",
+      "rel": "produces",
+      "src": "action:bring_about_malik_receives_certificate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:corrected_certificate_issued",
+      "rel": "requires",
+      "src": "action:bring_about_malik_receives_certificate"
+    },
+    {
+      "attrs": {},
+      "dst": "state:tamesada_receives_request",
+      "rel": "produces",
+      "src": "action:bring_about_tamesada_receives_request"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:malik_requests_correction",
+      "rel": "requires",
+      "src": "action:bring_about_tamesada_receives_request"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:malik_requests_correction",
+      "rel": "requires",
+      "src": "action:corrected_certificate_issued"
+    },
+    {
+      "attrs": {},
+      "dst": "record:port_authority_acknowledgment",
+      "rel": "produces",
+      "src": "action:malik_prepares_entry"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:malik_receives_certificate",
+      "rel": "requires",
+      "src": "action:malik_prepares_entry"
+    },
+    {
+      "attrs": {},
+      "dst": "record:port_authority_acknowledgment",
+      "rel": "produces",
+      "src": "action:record_entry_submitted_and_acknowledged"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:malik_prepares_entry",
+      "rel": "requires",
+      "src": "action:record_entry_submitted_and_acknowledged"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:meridian_pacific_flight_mp_118",
+      "rel": "requires",
+      "src": "action:tamesada_clears_inbox"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_malik_receives_certificate",
+      "rel": "can_perform",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "action:malik_prepares_entry",
+      "rel": "can_perform",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "action:malik_requests_correction",
+      "rel": "can_perform",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "action:record_entry_submitted_and_acknowledged",
+      "rel": "can_perform",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {
+        "meaning": "Malik receives the corrected certificate via email during his scheduled checks."
+      },
+      "dst": "action:bring_about_malik_receives_certificate",
+      "rel": "has_authority",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {
+        "meaning": "Malik prepares and submits the entry, which takes 45 minutes."
+      },
+      "dst": "action:malik_prepares_entry",
+      "rel": "has_authority",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {
+        "meaning": "Malik emailed Tamesada requesting a corrected certificate."
+      },
+      "dst": "action:malik_requests_correction",
+      "rel": "has_authority",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {
+        "meaning": "Malik submits the entry to the port authority system."
+      },
+      "dst": "record:port_authority_acknowledgment",
+      "rel": "has_authority",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "state:draft_entry_rejected",
+      "rel": "has_state",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "state:out_of_office_tuesday",
+      "rel": "has_state",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "state:received_entry_packet",
+      "rel": "has_state",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "state:requested_correction",
+      "rel": "has_state",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:draft_rejected",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:email_check_schedule",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:entry_packet_received",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:filing_time",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:out_of_office_tuesday",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:request_sent",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "information:system_availability",
+      "rel": "knows",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "event:out_of_office_tuesday",
+      "rel": "observes",
+      "src": "participant:ondrej_malik"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_tamesada_receives_request",
+      "rel": "can_perform",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "action:corrected_certificate_issued",
+      "rel": "can_perform",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "action:tamesada_clears_inbox",
+      "rel": "can_perform",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {
+        "meaning": "Yuki Tamesada is the sole person authorized to issue a corrected certificate of origin for Sanko Kikai."
+      },
+      "dst": "action:corrected_certificate_issued",
+      "rel": "has_authority",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "state:received_request_for_correction",
+      "rel": "has_state",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "state:sole_authority_to_issue_certificate",
+      "rel": "has_state",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "state:traveling_on_mp118",
+      "rel": "has_state",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "information:certificate_of_origin_needs_correction",
+      "rel": "knows",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "information:system_availability",
+      "rel": "knows",
+      "src": "participant:yuki_tamesada"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:port_authority_acknowledgment"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:corrected_certificate_issued",
+      "rel": "requires",
+      "src": "state:malik_receives_certificate"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:malik_requests_correction",
+      "rel": "requires",
+      "src": "state:tamesada_receives_request"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e12"
+      ],
+      "name": "Any other customs broker or employee at Marchwood",
+      "why_safe": "Malik is the only licensed broker at Marchwood, and no one else may prepare or submit an entry (e1, e12). Excluding others is safe because they cannot perform the required steps."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4",
+        "e14"
+      ],
+      "name": "Any other document or requirement",
+      "why_safe": "The only missing item is the corrected certificate of origin (e4, e14). All other documents are complete and in Malik's possession. Excluding other potential issues is safe because they are not needed."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e6"
+      ],
+      "name": "Any other person at Sanko Kikai besides Tamesada",
+      "why_safe": "Tamesada is the only person authorized to issue or correct a certificate of origin (e6). Excluding others is safe because they cannot provide the missing document."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3",
+        "e13"
+      ],
+      "name": "Public holidays or system outages",
+      "why_safe": "No public holidays occur on the relevant dates (e3), and the port authority system operates normally (e13). Excluding these is safe because they would not affect the timeline."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "derived_from_step": "malik_receives_certificate"
+      },
+      "category": "action",
+      "id": "action:bring_about_malik_receives_certificate",
+      "meaning": "Ondrej Malik can bring about: Malik receives the corrected certificate of origin via email from Tamesada.",
+      "name": "bring about: malik_receives_certificate",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "tamesada_receives_request"
+      },
+      "category": "action",
+      "id": "action:bring_about_tamesada_receives_request",
+      "meaning": "Yuki Tamesada can bring about: Tamesada receives Malik's email requesting a corrected certificate of origin.",
+      "name": "bring about: tamesada_receives_request",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Tamesada may not receive the request in time or may not act before the deadline."
+      },
+      "category": "action",
+      "id": "action:corrected_certificate_issued",
+      "meaning": "Yuki Tamesada issues a corrected certificate of origin with the correct tariff subheading and emails it to Malik.",
+      "name": "corrected_certificate_issued",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e6",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "Malik is out of the office on Tuesday 17 November and does not work that day. He must do this on Monday 16 November after receiving the certificate, or on Wednesday 18 November before 9:00 AM."
+      },
+      "category": "action",
+      "id": "action:malik_prepares_entry",
+      "meaning": "Malik prepares and submits the customs entry for HLXU 4471820, which takes 45 minutes of working time.",
+      "name": "malik_prepares_entry",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e11",
+          "e12",
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision"
+      },
+      "category": "action",
+      "id": "action:malik_requests_correction",
+      "meaning": "Malik emails Tamesada requesting a corrected certificate of origin at 3:40 PM Eastern on Monday 16 November 2026.",
+      "name": "malik_requests_correction",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "entry_submitted_and_acknowledged"
+      },
+      "category": "action",
+      "id": "action:record_entry_submitted_and_acknowledged",
+      "meaning": "Ondrej Malik makes the record: A complete customs entry for HLXU 4471820 is submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.\nThe electronic entry system's acknowledgment of a complete customs entry for HLXU 4471820 submitted before the deadline.",
+      "name": "record: entry_submitted_and_acknowledged",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "She may not follow her usual pattern, or may not receive the request in time."
+      },
+      "category": "action",
+      "id": "action:tamesada_clears_inbox",
+      "meaning": "Tamesada clears her compliance inbox between 45 and 60 minutes after landing, before leaving the airport, and deals with pending certificates.",
+      "name": "tamesada_clears_inbox",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "producer_kind": "scheduled_event",
+        "when": "2026-11-17T04:30:00+08:00"
+      },
+      "category": "event",
+      "id": "event:meridian_pacific_flight_mp_118",
+      "meaning": "Flight that lands in Singapore at 4:30 AM Singapore time on 17 November 2026.\nTamesada lands in Singapore at 4:30 AM Singapore time (UTC+8) on 17 November 2026.",
+      "name": "Meridian Pacific flight MP 118",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-11-17T00:00:00-05:00"
+      },
+      "category": "event",
+      "id": "event:out_of_office_tuesday",
+      "meaning": "Mandatory continuing-education session all day Tuesday 17 November 2026.",
+      "name": "out_of_office_tuesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:certificate_of_origin_needs_correction",
+      "meaning": "Yuki Tamesada does not yet know that the certificate of origin needs correction, as she has not received Malik's email.",
+      "name": "certificate_of_origin_needs_correction",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:draft_rejected",
+      "meaning": "Malik knows his draft was rejected at 3:40 PM Eastern on Monday.",
+      "name": "draft_rejected",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:email_check_schedule",
+      "meaning": "Malik knows he checks email at top and half past each hour from 8:00 AM to 4:30 PM Eastern, Monday to Friday.",
+      "name": "email_check_schedule",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:entry_packet_received",
+      "meaning": "Malik knows he has the entry packet except certificate of origin.",
+      "name": "entry_packet_received",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:filing_time",
+      "meaning": "Malik knows that preparing and submitting an entry takes 45 minutes.",
+      "name": "filing_time",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:out_of_office_tuesday",
+      "meaning": "Malik knows he will be out of office on Tuesday 17 November.",
+      "name": "out_of_office_tuesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:request_sent",
+      "meaning": "Malik knows he emailed Tamesada at 3:40 PM Eastern on Monday.",
+      "name": "request_sent",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:system_availability",
+      "meaning": "Malik knows the port authority system accepts filings 24/7.",
+      "name": "system_availability",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "08:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-11-16T16:30:00-05:00",
+            "meaning": "Malik cannot receive or send work email outside his scheduled checks (top and half past each hour, 8:00 AM-4:30 PM Eastern, Mon-Fri), outside working hours, or on non-working days.",
+            "to": "2026-11-17T08:00:00-05:00"
+          },
+          {
+            "from": "2026-11-17T00:00:00-05:00",
+            "meaning": "Malik is out of the office all day Tuesday 17 November 2026 and cannot access email or filing system.",
+            "to": "2026-11-17T23:59:00-05:00"
+          }
+        ],
+        "producer_kind": "person",
+        "timezone": "America/New_York"
+      },
+      "category": "participant",
+      "id": "participant:ondrej_malik",
+      "meaning": "He prepares and submits the entry, which takes 45 minutes; he is out of office on Tuesday 17 November.\nHe receives the email only during his scheduled email checks (top and half past each hour, 8:00 AM-4:30 PM Eastern, Mon-Fri).\nHe submits the entry to the port authority system; the system acknowledges it.\nMarchwood's only licensed broker, who emailed Tamesada at 3:40 PM Eastern on Monday 16 November 2026.",
+      "name": "Ondrej Malik",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e11",
+          "e12",
+          "e13",
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "18:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-11-16T22:10:00+09:00",
+            "meaning": "Yuki Tamesada cannot receive or send email while aboard Meridian Pacific flight MP 118 from 10:10 PM Japan time on 16 November to 4:30 AM Singapore time on 17 November.",
+            "to": "2026-11-17T04:30:00+08:00"
+          }
+        ],
+        "producer_kind": "person",
+        "timezone": "Asia/Tokyo"
+      },
+      "category": "participant",
+      "id": "participant:yuki_tamesada",
+      "meaning": "Recipient of Malik's email; she cannot receive it while on a flight without internet.\nSanko Kikai's compliance officer, sole authorized issuer of corrected certificates of origin.\nShe clears her compliance inbox 45-60 minutes after landing, based on her usual pattern.",
+      "name": "Yuki Tamesada",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "acknowledgment",
+        "rule": "count_all",
+        "subject": "Kestrel Bay port authority",
+        "value": "acknowledged"
+      },
+      "category": "record",
+      "id": "record:port_authority_acknowledgment",
+      "meaning": "A complete customs entry for HLXU 4471820 is submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.\nThe electronic entry system's acknowledgment of a complete customs entry for HLXU 4471820 submitted before the deadline.",
+      "name": "port authority acknowledgment",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e13"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "amount": 1,
+        "holder": "participant:yuki_tamesada",
+        "unit": "seal"
+      },
+      "category": "resource",
+      "id": "resource:registered_export_seal",
+      "meaning": "The registered export seal credential on her laptop, required to issue a corrected certificate of origin.",
+      "name": "registered_export_seal",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:draft_entry_rejected",
+      "meaning": "At 3:40 PM Eastern on Monday 16 November 2026, Malik's draft entry was rejected due to wrong tariff subheading on certificate of origin.",
+      "name": "draft_entry_rejected",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition",
+        "uncertainty": "Malik only checks email at specific times; if the email arrives outside those times, he will not see it until his next check."
+      },
+      "category": "state",
+      "id": "state:malik_receives_certificate",
+      "meaning": "Malik receives the corrected certificate of origin via email from Tamesada.",
+      "name": "malik_receives_certificate",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e10",
+          "e11"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:out_of_office_tuesday",
+      "meaning": "Malik was out of the office for the whole of Tuesday 17 November 2026 at a mandatory continuing-education session, and accessed neither his email nor the entry filing system that day.",
+      "name": "out_of_office_tuesday",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e12"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:received_entry_packet",
+      "meaning": "Malik received the full entry packet for HLXU 4471820 on Friday 13 November 2026, except the certificate of origin.",
+      "name": "received_entry_packet",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:received_request_for_correction",
+      "meaning": "Yuki Tamesada has not yet received Malik's email requesting a corrected certificate of origin, as she was on a flight without internet from 10:10 PM Japan time on 16 November until landing at 4:30 AM Singapore time on 17 November.",
+      "name": "received_request_for_correction",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:requested_correction",
+      "meaning": "At 3:40 PM Eastern on Monday 16 November 2026, Malik emailed Yuki Tamesada requesting a corrected certificate.",
+      "name": "requested_correction",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:sole_authority_to_issue_certificate",
+      "meaning": "Yuki Tamesada is the only person at Sanko Kikai authorized to issue or correct a certificate of origin, holding the registered export seal on her laptop.",
+      "name": "sole_authority_to_issue_certificate",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition",
+        "uncertainty": "Tamesada is on a flight without internet from 10:10 PM Japan time on 16 Nov to 4:30 AM Singapore time on 17 Nov, so she cannot receive the email during that period."
+      },
+      "category": "state",
+      "id": "state:tamesada_receives_request",
+      "meaning": "Tamesada receives Malik's email requesting a corrected certificate of origin.",
+      "name": "tamesada_receives_request",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e7",
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:traveling_on_mp118",
+      "meaning": "Yuki Tamesada was aboard Meridian Pacific flight MP 118 from Osaka to Singapore on 16-17 November 2026, with no internet access during the flight.",
+      "name": "traveling_on_MP118",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The deadline for filing the customs entry is 9:00 AM Eastern time on Wednesday 18 November 2026.",
+          "timezone": "America/New_York",
+          "when": "2026-11-18T09:00:00-05:00"
+        },
+        "measured_act": null,
+        "negative_condition": "No complete customs entry for HLXU 4471820 has been submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.",
+        "positive_condition": "A complete customs entry for HLXU 4471820 has been submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before the deadline.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether a complete customs entry for container HLXU 4471820 has been submitted to and acknowledged by the Kestrel Bay port authority's electronic entry system before 9:00 AM Eastern on Wednesday 18 November 2026.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "bring about: malik_receives_certificate": "bring_about_malik_receives_certificate",
+        "bring about: tamesada_receives_request": "bring_about_tamesada_receives_request",
+        "corrected_certificate_issued": "corrected_certificate_issued",
+        "malik_prepares_entry": "malik_prepares_entry",
+        "malik_requests_correction": "malik_requests_correction",
+        "record: entry_submitted_and_acknowledged": "record_entry_submitted_and_acknowledged",
+        "tamesada_clears_inbox": "tamesada_clears_inbox"
+      },
+      "event": {
+        "Meridian Pacific flight MP 118": "meridian_pacific_flight_mp_118",
+        "out_of_office_tuesday": "out_of_office_tuesday"
+      },
+      "information": {
+        "certificate_of_origin_needs_correction": "certificate_of_origin_needs_correction",
+        "draft_rejected": "draft_rejected",
+        "email_check_schedule": "email_check_schedule",
+        "entry_packet_received": "entry_packet_received",
+        "filing_time": "filing_time",
+        "out_of_office_tuesday": "out_of_office_tuesday",
+        "request_sent": "request_sent",
+        "system_availability": "system_availability"
+      },
+      "participant": {
+        "Ondrej Malik": "ondrej_malik",
+        "Yuki Tamesada": "yuki_tamesada"
+      },
+      "record": {
+        "port authority acknowledgment": "port_authority_acknowledgment"
+      },
+      "resource": {
+        "registered_export_seal": "registered_export_seal"
+      },
+      "state": {
+        "draft_entry_rejected": "draft_entry_rejected",
+        "malik_receives_certificate": "malik_receives_certificate",
+        "out_of_office_tuesday": "out_of_office_tuesday",
+        "received_entry_packet": "received_entry_packet",
+        "received_request_for_correction": "received_request_for_correction",
+        "requested_correction": "requested_correction",
+        "sole_authority_to_issue_certificate": "sole_authority_to_issue_certificate",
+        "tamesada_receives_request": "tamesada_receives_request",
+        "traveling_on_MP118": "traveling_on_mp118"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:corrected_certificate_issued",
+      "meaning": "Tamesada may not receive the request in time or may not act before the deadline."
+    },
+    {
+      "about": "action:corrected_certificate_issued",
+      "meaning": "Whether Tamesada issues the corrected certificate on 17 November after receiving the request. She is the only authorized person, and issuing takes 20 minutes. She has a pattern of dealing with pending certificates before anything else. But it is uncertain if she will do so on this occasion, given that she is traveling and may have other priorities. The evidence does not guarantee she will issue it immediately."
+    },
+    {
+      "about": "action:malik_prepares_entry",
+      "meaning": "Malik is out of the office on Tuesday 17 November and does not work that day. He must do this on Monday 16 November after receiving the certificate, or on Wednesday 18 November before 9:00 AM."
+    },
+    {
+      "about": "action:malik_prepares_entry",
+      "meaning": "Whether Malik can prepare and submit the entry within the available time. He needs 45 minutes of working time. If he receives the certificate at 8:00 AM, he can start immediately and finish by 8:45 AM, then submit. The system operates 24/7. So that would be in time. But if he receives it at 8:30 AM, he would finish at 9:15 AM, after the deadline. So the timing is critical and uncertain."
+    },
+    {
+      "about": "action:tamesada_clears_inbox",
+      "meaning": "She may not follow her usual pattern, or may not receive the request in time."
+    },
+    {
+      "about": "state:malik_receives_certificate",
+      "meaning": "Malik only checks email at specific times; if the email arrives outside those times, he will not see it until his next check."
+    },
+    {
+      "about": "state:malik_receives_certificate",
+      "meaning": "Whether Malik receives the corrected certificate before the deadline. Even if Tamesada issues it on 17 November, Malik is out of the office on Tuesday 17 November and does not check email. He returns to work on Wednesday 18 November at 8:00 AM Eastern. The deadline is 9:00 AM Eastern. So he would have only one hour to prepare and submit the entry. But it is uncertain if the certificate arrives before 8:00 AM on Wednesday, or if it arrives during his email checks at 8:00, 8:30, 9:00 etc. The email delivery is within 2 minutes, so if Tamesada sends it anytime before 8:00 AM Eastern on Wednesday, Malik will see it at 8:00 AM. But if she sends it after 8:00 AM, he might see it at 8:30 or later, leaving insufficient time to prepare and submit before 9:00 AM."
+    },
+    {
+      "about": "state:tamesada_receives_request",
+      "meaning": "Tamesada is on a flight without internet from 10:10 PM Japan time on 16 Nov to 4:30 AM Singapore time on 17 Nov, so she cannot receive the email during that period."
+    },
+    {
+      "about": "state:tamesada_receives_request",
+      "meaning": "Whether Tamesada received Malik's email before boarding her flight. The email was sent at 3:40 PM Eastern on Monday 16 November, which is 5:40 AM Japan time on 17 November. Her flight departed Osaka at 10:10 PM Japan time on 16 November, which is 8:10 AM Eastern on 16 November. So the email was sent after her departure. She had no means of receiving email while in flight. She landed at 4:30 AM Singapore time on 17 November, which is 3:30 PM Eastern on 16 November. So she could receive the email after landing. But it is uncertain whether she checked her email before clearing the arrivals hall, or whether she cleared her inbox within 45-60 minutes as per her pattern. The evidence says she clears her compliance inbox between 45 and 60 minutes after landing, before leaving the airport. So she likely receives the email around 4:15-4:30 AM Singapore time (3:45-4:00 PM Eastern) on 17 November. However, the exact time is uncertain."
+    }
+  ]
+}

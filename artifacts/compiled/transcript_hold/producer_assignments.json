@@ -1,0 +1,79 @@
+{
+  "assignments": [
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "organization",
+          "meaning": "The registrar's office releases the transcript after financial hold is lifted and within 4 working hours.",
+          "name": "Registrar's office"
+        }
+      ],
+      "step": "transcript_released"
+    },
+    {
+      "step": "financial_hold_lifted",
+      "unsupported": "This is a condition that is produced by the bursar batch posting payment; it is not a separate action."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "organization",
+          "meaning": "The registrar's office releases the transcript within 4 working hours after the financial hold is lifted.",
+          "name": "Registrar's office"
+        }
+      ],
+      "step": "registrar_release_within_4_hours"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "kind": "operating_process",
+          "meaning": "The automated batch runs at scheduled times and posts payments, lifting financial holds.",
+          "name": "Bursar's automated reconciliation batch"
+        }
+      ],
+      "step": "bursar_batch_posts_payment"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "external_institution",
+          "meaning": "The payment processor marks the electronic check as cleared after 3 business days.",
+          "name": "Payment processor"
+        }
+      ],
+      "step": "payment_cleared_by_processor"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Osei submitted the electronic check payment through the portal.",
+          "name": "Amara Osei"
+        }
+      ],
+      "step": "payment_submitted"
+    }
+  ]
+}

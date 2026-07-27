@@ -1,0 +1,103 @@
+{
+  "claims": [
+    {
+      "as_of": "2026-09-01T00:00:00-05:00",
+      "claim": "The Marrow Creek Water District operates the Ostrander Road treatment plant, which doses sodium hypochlorite to two treatment trains from a single day tank.",
+      "id": "e1",
+      "source": "District facility register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-09-01T00:00:00-05:00",
+      "claim": "The day tank's usable capacity is 4,000 litres. It is the only vessel at the plant that holds sodium hypochlorite: there is no bulk tank, no drum store, and no other source of product on site.",
+      "id": "e2",
+      "source": "Plant process drawing P-114 and tank nameplate",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-05T06:00:00-05:00",
+      "claim": "A calibrated level reading taken at 6:00 AM on Monday 5 October 2026 recorded 3,100 litres of sodium hypochlorite in the day tank.",
+      "id": "e3",
+      "source": "Plant operations log",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-05:00",
+      "claim": "Treatment train A draws sodium hypochlorite from the day tank continuously, twenty-four hours a day and seven days a week, at a metered 18 litres per hour. Train A has run without interruption since March 2026 and no outage is scheduled for October 2026.",
+      "id": "e4",
+      "source": "Chemical feed meter records; district engineer's October run plan",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-05:00",
+      "claim": "Treatment train B draws an additional 22 litres per hour from the same day tank while it is running. It runs from 6:00 AM to 6:00 PM and draws nothing at all outside those hours.",
+      "id": "e5",
+      "source": "Chemical feed meter records; plant standard operating procedure SOP-7",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-05:00",
+      "claim": "Treatment train B runs only on Mondays through Fridays. It is shut down for the whole of every Saturday and every Sunday and draws nothing on those days. This has been the district's standing operating pattern since 2024 and it holds for the weekend of 10-11 October 2026.",
+      "id": "e6",
+      "source": "Plant standard operating procedure SOP-7; district engineer's October run plan",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-05T00:00:00-06:00",
+      "claim": "Under a standing contract, Rennard Chemical delivers sodium hypochlorite to the plant every Tuesday and every Friday, arriving and completing its transfer into the day tank at 8:00 AM. No delivery is made on any other day of the week.",
+      "id": "e7",
+      "source": "Rennard Chemical supply contract, sched. 2",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-05T00:00:00-06:00",
+      "claim": "Each scheduled delivery is 1,800 litres.",
+      "id": "e8",
+      "source": "Rennard Chemical supply contract, sched. 2",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-01-05T00:00:00-06:00",
+      "claim": "Under the delivery contract the driver fills the day tank only to its usable capacity. Any part of the load that does not fit is retained on the truck and returned to Rennard's depot; it is not decanted, stored, or left at the plant in any form.",
+      "id": "e9",
+      "source": "Rennard Chemical supply contract, cl. 9",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-02T00:00:00-05:00",
+      "claim": "No district, county or supplier holiday falls between 5 October and 12 October 2026. Rennard's depot confirmed on 2 October that both the Tuesday 6 October and the Friday 9 October deliveries are scheduled, loaded and unaffected.",
+      "id": "e10",
+      "source": "Rennard dispatch confirmation, 2026-10-02",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-05:00",
+      "claim": "Plant operator Delphine Osgood monitors the day tank but has no authority to change the delivery schedule, change the delivery quantity, or alter either train's dosing rate. Those are set by the district engineer, who has issued no change order affecting October 2026.",
+      "id": "e11",
+      "source": "District delegation of authority; engineer's change-order register",
+      "status": "verified",
+      "visibility": "public"
+    },
+    {
+      "as_of": "2026-10-01T00:00:00-05:00",
+      "claim": "Every date and time in this package is America/Chicago, which is UTC-05:00 throughout 5-12 October 2026.",
+      "id": "e12",
+      "source": "Package convention",
+      "status": "verified",
+      "visibility": "public"
+    }
+  ],
+  "note": "Hand-frozen package. No live retrieval.",
+  "package_id": "ev_brine_tank_2026_10",
+  "prepared_at": "2026-10-05T05:00:00-05:00"
+}

@@ -1,0 +1,268 @@
+{
+  "entities": [
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6",
+            "e9"
+          ],
+          "meaning": "Yuki Tamesada is the sole person authorized to issue a corrected certificate of origin for Sanko Kikai.",
+          "over": "corrected_certificate_issued"
+        }
+      ],
+      "availability": {
+        "close": "18:00",
+        "open": "09:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [],
+      "initial_state": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e7"
+          ],
+          "meaning": "Yuki Tamesada has not yet received Malik's email requesting a corrected certificate of origin, as she was on a flight without internet from 10:10 PM Japan time on 16 November until landing at 4:30 AM Singapore time on 17 November.",
+          "name": "received_request_for_correction"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "Yuki Tamesada is the only person at Sanko Kikai authorized to issue or correct a certificate of origin, holding the registered export seal on her laptop.",
+          "name": "sole_authority_to_issue_certificate"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "meaning": "Yuki Tamesada was aboard Meridian Pacific flight MP 118 from Osaka to Singapore on 16-17 November 2026, with no internet access during the flight.",
+          "name": "traveling_on_MP118"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e7"
+          ],
+          "meaning": "Yuki Tamesada does not yet know that the certificate of origin needs correction, as she has not received Malik's email.",
+          "name": "certificate_of_origin_needs_correction",
+          "visibility": "private"
+        }
+      ],
+      "name": "Yuki Tamesada",
+      "not_available": [
+        {
+          "from": "2026-11-16T22:10:00+09:00",
+          "meaning": "Yuki Tamesada cannot receive or send email while aboard Meridian Pacific flight MP 118 from 10:10 PM Japan time on 16 November to 4:30 AM Singapore time on 17 November.",
+          "to": "2026-11-17T04:30:00+08:00"
+        }
+      ],
+      "resources": [
+        {
+          "amount": 1,
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "meaning": "The registered export seal credential on her laptop, required to issue a corrected certificate of origin.",
+          "name": "registered_export_seal",
+          "unit": "seal"
+        }
+      ],
+      "sent_information": [],
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "authority": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Malik emailed Tamesada requesting a corrected certificate.",
+          "over": "malik_requests_correction"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e10",
+            "e11"
+          ],
+          "meaning": "Malik receives the corrected certificate via email during his scheduled checks.",
+          "over": "malik_receives_certificate"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11",
+            "e12",
+            "e13"
+          ],
+          "meaning": "Malik prepares and submits the entry, which takes 45 minutes.",
+          "over": "malik_prepares_entry"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Malik submits the entry to the port authority system.",
+          "over": "entry_submitted_and_acknowledged"
+        }
+      ],
+      "availability": {
+        "close": "17:00",
+        "open": "08:00",
+        "workdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "channels": [],
+      "commitments": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Mandatory continuing-education session all day Tuesday 17 November 2026.",
+          "name": "out_of_office_tuesday",
+          "when": "2026-11-17T00:00:00-05:00"
+        }
+      ],
+      "initial_state": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Malik received the full entry packet for HLXU 4471820 on Friday 13 November 2026, except the certificate of origin.",
+          "name": "received_entry_packet"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "At 3:40 PM Eastern on Monday 16 November 2026, Malik's draft entry was rejected due to wrong tariff subheading on certificate of origin.",
+          "name": "draft_entry_rejected"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "At 3:40 PM Eastern on Monday 16 November 2026, Malik emailed Yuki Tamesada requesting a corrected certificate.",
+          "name": "requested_correction"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Malik was out of the office for the whole of Tuesday 17 November 2026 at a mandatory continuing-education session, and accessed neither his email nor the entry filing system that day.",
+          "name": "out_of_office_tuesday"
+        }
+      ],
+      "knows": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e4"
+          ],
+          "meaning": "Malik knows he has the entry packet except certificate of origin.",
+          "name": "entry_packet_received",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Malik knows his draft was rejected at 3:40 PM Eastern on Monday.",
+          "name": "draft_rejected",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "meaning": "Malik knows he emailed Tamesada at 3:40 PM Eastern on Monday.",
+          "name": "request_sent",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e12"
+          ],
+          "meaning": "Malik knows he will be out of office on Tuesday 17 November.",
+          "name": "out_of_office_tuesday",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e11"
+          ],
+          "meaning": "Malik knows he checks email at top and half past each hour from 8:00 AM to 4:30 PM Eastern, Monday to Friday.",
+          "name": "email_check_schedule",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Malik knows that preparing and submitting an entry takes 45 minutes.",
+          "name": "filing_time",
+          "visibility": "private"
+        },
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e13"
+          ],
+          "meaning": "Malik knows the port authority system accepts filings 24/7.",
+          "name": "system_availability",
+          "visibility": "public"
+        }
+      ],
+      "name": "Ondrej Malik",
+      "not_available": [
+        {
+          "from": "2026-11-16T16:30:00-05:00",
+          "meaning": "Malik cannot receive or send work email outside his scheduled checks (top and half past each hour, 8:00 AM-4:30 PM Eastern, Mon-Fri), outside working hours, or on non-working days.",
+          "to": "2026-11-17T08:00:00-05:00"
+        },
+        {
+          "from": "2026-11-17T00:00:00-05:00",
+          "meaning": "Malik is out of the office all day Tuesday 17 November 2026 and cannot access email or filing system.",
+          "to": "2026-11-17T23:59:00-05:00"
+        }
+      ],
+      "resources": [],
+      "sent_information": [],
+      "timezone": "America/New_York"
+    }
+  ]
+}

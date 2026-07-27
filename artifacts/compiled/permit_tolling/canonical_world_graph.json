@@ -1,0 +1,1207 @@
+{
+  "edges": [
+    {
+      "attrs": {},
+      "dst": "state:application_accepted_complete",
+      "rel": "produces",
+      "src": "action:bring_about_application_accepted_complete"
+    },
+    {
+      "attrs": {},
+      "dst": "state:application_filed",
+      "rel": "produces",
+      "src": "action:bring_about_application_filed"
+    },
+    {
+      "attrs": {},
+      "dst": "state:count_resumes",
+      "rel": "produces",
+      "src": "action:bring_about_count_resumes"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:request_resolved",
+      "rel": "requires",
+      "src": "action:bring_about_count_resumes"
+    },
+    {
+      "attrs": {},
+      "dst": "state:count_start",
+      "rel": "produces",
+      "src": "action:bring_about_count_start"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:application_accepted_complete",
+      "rel": "requires",
+      "src": "action:bring_about_count_start"
+    },
+    {
+      "attrs": {},
+      "dst": "state:deemed_approval",
+      "rel": "produces",
+      "src": "action:bring_about_fifteenth_business_day_arrives"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:count_business_days",
+      "rel": "requires",
+      "src": "action:bring_about_fifteenth_business_day_arrives"
+    },
+    {
+      "attrs": {},
+      "dst": "state:request_outstanding_period",
+      "rel": "produces",
+      "src": "action:bring_about_request_outstanding_period"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:request_for_info_issued",
+      "rel": "requires",
+      "src": "action:bring_about_request_outstanding_period"
+    },
+    {
+      "attrs": {},
+      "dst": "state:request_resolved",
+      "rel": "produces",
+      "src": "action:bring_about_request_resolved"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:response_delivered",
+      "rel": "requires",
+      "src": "action:bring_about_request_resolved"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:reviewer_assigned",
+      "rel": "requires",
+      "src": "action:plan_review_completed"
+    },
+    {
+      "attrs": {},
+      "dst": "record:written_approval",
+      "rel": "produces",
+      "src": "action:written_approval_issued"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "action:plan_review_completed",
+      "rel": "requires",
+      "src": "action:written_approval_issued"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_application_filed",
+      "rel": "can_perform",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {
+        "meaning": "Hollis Vantour LLC is the entity that filed the application."
+      },
+      "dst": "action:bring_about_application_filed",
+      "rel": "has_authority",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {
+        "meaning": "Hollis Vantour LLC delivered the response to the request for additional information."
+      },
+      "dst": "event:response_delivered",
+      "rel": "has_authority",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {
+        "meaning": "The applicant that delivered the response."
+      },
+      "dst": "event:response_delivered",
+      "rel": "has_authority",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "state:application_filed",
+      "rel": "has_state",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "state:response_delivered",
+      "rel": "has_state",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "information:application_filed",
+      "rel": "knows",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "information:county_closures",
+      "rel": "knows",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "information:director_letter",
+      "rel": "knows",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "information:request_for_info_issued",
+      "rel": "knows",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "information:response_delivered",
+      "rel": "knows",
+      "src": "organization:hollis_vantour_llc"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_application_accepted_complete",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_count_resumes",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_count_start",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_fifteenth_business_day_arrives",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_request_outstanding_period",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:bring_about_request_resolved",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:plan_review_completed",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:reviewer_assigned",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "action:written_approval_issued",
+      "rel": "can_perform",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "meaning": "The department's plan reviewer completes the review."
+      },
+      "dst": "action:plan_review_completed",
+      "rel": "has_authority",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "meaning": "The department has authority to assign plan reviewers."
+      },
+      "dst": "action:reviewer_assigned",
+      "rel": "has_authority",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "meaning": "The department has authority to issue written approvals."
+      },
+      "dst": "action:written_approval_issued",
+      "rel": "has_authority",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "meaning": "The department has authority to issue requests for additional information."
+      },
+      "dst": "event:request_for_info_issued",
+      "rel": "has_authority",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "meaning": "The department that issued the request for additional information."
+      },
+      "dst": "event:request_for_info_issued",
+      "rel": "has_authority",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "meaning": "The department that counts business days according to the code."
+      },
+      "dst": "process:count_business_days",
+      "rel": "has_authority",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "state:application_accepted_complete",
+      "rel": "has_state",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_approval_or_denial_before_review",
+      "rel": "has_state",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_expedited_review",
+      "rel": "has_state",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "state:no_reviewer_assigned",
+      "rel": "has_state",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "state:request_for_info_issued",
+      "rel": "has_state",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "state:response_delivered",
+      "rel": "has_state",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:application_accepted_complete",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:application_filed",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:counted_business_days",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:county_closures",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:no_reviewer_assigned",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:request_for_info_issued",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {},
+      "dst": "information:response_delivered",
+      "rel": "knows",
+      "src": "organization:larkspur_county_building_department"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:count_resumes",
+      "rel": "requires",
+      "src": "process:count_business_days"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:count_start",
+      "rel": "requires",
+      "src": "process:count_business_days"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "record:written_approval"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:request_resolved",
+      "rel": "requires",
+      "src": "state:count_resumes"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "state:application_accepted_complete",
+      "rel": "requires",
+      "src": "state:count_start"
+    },
+    {
+      "attrs": {},
+      "dst": "terminal:terminal",
+      "rel": "measured_by_terminal",
+      "src": "state:deemed_approval"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "process:count_business_days",
+      "rel": "requires",
+      "src": "state:deemed_approval"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:request_for_info_issued",
+      "rel": "requires",
+      "src": "state:request_outstanding_period"
+    },
+    {
+      "attrs": {
+        "alt_group": null,
+        "necessity": "necessary"
+      },
+      "dst": "event:response_delivered",
+      "rel": "requires",
+      "src": "state:request_resolved"
+    }
+  ],
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e10"
+      ],
+      "name": "Any other applicant or third party",
+      "why_safe": "Only Hollis Vantour LLC filed the application, and no other party can influence the process. The department's procedures are fixed and no external party can issue or withdraw requests for additional information."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Expedited review or special procedures",
+      "why_safe": "The department operates no expedited-review procedure for residential additions, and none has been requested. Therefore, no special process can accelerate the timeline."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Other county closures beyond those listed",
+      "why_safe": "The county closure calendar for the relevant period is provided and no other closures fall between 10 August and 30 September 2026. Thus, no additional non-business days affect the count."
+    }
+  ],
+  "nodes": [
+    {
+      "attrs": {
+        "derived_from_step": "application_accepted_complete"
+      },
+      "category": "action",
+      "id": "action:bring_about_application_accepted_complete",
+      "meaning": "Larkspur County Building Department can bring about: The department accepts BP-2214 as complete at 9:15 AM on Monday 10 August 2026.",
+      "name": "bring about: application_accepted_complete",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "application_filed"
+      },
+      "category": "action",
+      "id": "action:bring_about_application_filed",
+      "meaning": "Hollis Vantour LLC can bring about: Hollis Vantour LLC files building permit application BP-2214 with the Larkspur County Building Department.",
+      "name": "bring about: application_filed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "count_resumes"
+      },
+      "category": "action",
+      "id": "action:bring_about_count_resumes",
+      "meaning": "Larkspur County Building Department can bring about: The business day count resumes on the next business day after the request is resolved, which is Thursday 27 August 2026.",
+      "name": "bring about: count_resumes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "count_start"
+      },
+      "category": "action",
+      "id": "action:bring_about_count_start",
+      "meaning": "Larkspur County Building Department can bring about: The fifteen-business-day count begins on the first business day after acceptance, which is Tuesday 11 August 2026.",
+      "name": "bring about: count_start",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "fifteenth_business_day_arrives"
+      },
+      "category": "action",
+      "id": "action:bring_about_fifteenth_business_day_arrives",
+      "meaning": "Larkspur County Building Department can bring about: The application is deemed approved by operation of law at 5:00 PM on the fifteenth counted business day after acceptance, if no written decision is issued before then.\nThe fifteenth counted business day arrives at 5:00 PM, triggering deemed approval if no written decision has been issued.",
+      "name": "bring about: fifteenth_business_day_arrives",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "request_outstanding_period"
+      },
+      "category": "action",
+      "id": "action:bring_about_request_outstanding_period",
+      "meaning": "Larkspur County Building Department can bring about: From the moment the request is issued until the department receives a complete response, the request is outstanding, affecting business day counting.",
+      "name": "bring about: request_outstanding_period",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "derived_from_step": "request_resolved"
+      },
+      "category": "action",
+      "id": "action:bring_about_request_resolved",
+      "meaning": "Larkspur County Building Department can bring about: The request for additional information is no longer outstanding after the complete response is received.",
+      "name": "bring about: request_resolved",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "actor_decision",
+        "uncertainty": "No reviewer will be assigned before 21 September 2026, so this cannot occur before the deadline."
+      },
+      "category": "action",
+      "id": "action:plan_review_completed",
+      "meaning": "A plan reviewer completes review of BP-2214, a prerequisite for written approval or denial.",
+      "name": "plan_review_completed",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "organization_action",
+        "uncertainty": "Director confirmed no reviewer will be assigned before 21 September 2026."
+      },
+      "category": "action",
+      "id": "action:reviewer_assigned",
+      "meaning": "A plan reviewer is assigned to BP-2214.",
+      "name": "reviewer_assigned",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "organization_action",
+        "uncertainty": "The department has stated no reviewer will be assigned before 21 September 2026, making written approval before the deadline impossible."
+      },
+      "category": "action",
+      "id": "action:written_approval_issued",
+      "meaning": "The Building Department issues a written approval of BP-2214 before the deadline.",
+      "name": "written_approval_issued",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-13T15:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:request_for_info_issued",
+      "meaning": "The department issues a written request for additional information on BP-2214 at 3:00 PM on Thursday 13 August 2026.",
+      "name": "request_for_info_issued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "anchor": null,
+        "step_kind": "scheduled_event",
+        "when": "2026-08-26T10:00:00-04:00"
+      },
+      "category": "event",
+      "id": "event:response_delivered",
+      "meaning": "Hollis Vantour LLC delivers a complete response to the request, logged at 10:00 AM on Wednesday 26 August 2026.",
+      "name": "response_delivered",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:application_accepted_complete",
+      "meaning": "The department knows it accepted BP-2214 as complete at 9:15 AM on 10 August 2026.",
+      "name": "application_accepted_complete",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:application_filed",
+      "meaning": "Hollis Vantour LLC knows it filed the application.\nThe department knows that BP-2214 was filed by Hollis Vantour LLC.",
+      "name": "application_filed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:counted_business_days",
+      "meaning": "The department knows the count of business days elapsed under the deemed-approval rule.",
+      "name": "counted_business_days",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "public"
+      },
+      "category": "information",
+      "id": "information:county_closures",
+      "meaning": "The department knows that the county is closed on 7 September and 11 September 2026.",
+      "name": "county_closures",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e4"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:director_letter",
+      "meaning": "Hollis Vantour LLC knows that director Baradaj confirmed on 8 September 2026 that no reviewer will be assigned before 21 September 2026 and no approval or denial will be issued before review.",
+      "name": "director_letter",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:no_reviewer_assigned",
+      "meaning": "The department knows that no reviewer has been assigned to BP-2214 as of 8 September 2026.",
+      "name": "no_reviewer_assigned",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:request_for_info_issued",
+      "meaning": "Hollis Vantour LLC knows the department issued a request for additional information on 13 August 2026.\nThe department knows it issued a request for additional information at 3:00 PM on 13 August 2026.",
+      "name": "request_for_info_issued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "visibility": "private"
+      },
+      "category": "information",
+      "id": "information:response_delivered",
+      "meaning": "Hollis Vantour LLC knows it delivered the response.\nThe department knows it received a complete response at 10:00 AM on 26 August 2026.",
+      "name": "response_delivered",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:hollis_vantour_llc",
+      "meaning": "The applicant that delivered the response.\nThe entity that filed the building permit application.",
+      "name": "Hollis Vantour LLC",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "availability": {
+          "close": "17:00",
+          "open": "09:00",
+          "workdays": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "not_available": [
+          {
+            "from": "2026-09-07T00:00:00-04:00",
+            "meaning": "The department is closed on Monday 7 September 2026 (Founders' Day) and Friday 11 September 2026 (furlough day).",
+            "to": "2026-09-07T23:59:59-04:00"
+          },
+          {
+            "from": "2026-09-11T00:00:00-04:00",
+            "meaning": "The department is closed on Friday 11 September 2026.",
+            "to": "2026-09-11T23:59:59-04:00"
+          }
+        ],
+        "producer_kind": "organization",
+        "timezone": "America/New_York"
+      },
+      "category": "organization",
+      "id": "organization:larkspur_county_building_department",
+      "meaning": "The department assigns a plan reviewer.\nThe department that accepted the application as complete.\nThe department that counts business days according to the code.\nThe department that issued the request for additional information.\nThe department that receives and logs the response, resolving the request.\nThe department that resumes the business day count after the request is resolved.\nThe department that starts the business day count.\nThe department that would issue a written approval.\nThe department's counting process determines when the fifteenth business day arrives.\nThe department's issuance of the request creates the outstanding period.\nThe department's plan reviewer completes the review.",
+      "name": "Larkspur County Building Department",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "step_kind": "process"
+      },
+      "category": "process",
+      "id": "process:count_business_days",
+      "meaning": "The department counts business days from the start, excluding days when a request is outstanding and county closures, until fifteen are reached.",
+      "name": "count_business_days",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "expected_count": 1,
+        "record_type": "approval letter",
+        "rule": "count_all",
+        "subject": "BP-2214",
+        "value": null
+      },
+      "category": "record",
+      "id": "record:written_approval",
+      "meaning": "A written document from the Building Department approving BP-2214, issued before the deadline.",
+      "name": "written approval",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "step_kind": "initial_fact",
+        "value": "2026-08-10T09:15:00-04:00"
+      },
+      "category": "state",
+      "id": "state:application_accepted_complete",
+      "meaning": "The department accepted BP-2214 as complete at 9:15 AM on 10 August 2026.\nThe department accepts BP-2214 as complete at 9:15 AM on Monday 10 August 2026.",
+      "name": "application_accepted_complete",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "step_kind": "initial_fact"
+      },
+      "category": "state",
+      "id": "state:application_filed",
+      "meaning": "Hollis Vantour LLC filed building permit application BP-2214 for a two-storey addition at 41 Coldbrook Lane with the Larkspur County Building Department.\nHollis Vantour LLC files building permit application BP-2214 with the Larkspur County Building Department.",
+      "name": "application_filed",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:count_resumes",
+      "meaning": "The business day count resumes on the next business day after the request is resolved, which is Thursday 27 August 2026.",
+      "name": "count_resumes",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:count_start",
+      "meaning": "The fifteen-business-day count begins on the first business day after acceptance, which is Tuesday 11 August 2026.",
+      "name": "count_start",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e5"
+        ]
+      }
+    },
+    {
+      "attrs": {},
+      "category": "state",
+      "id": "state:deemed_approval",
+      "meaning": "The application is deemed approved by operation of law at 5:00 PM on the fifteenth counted business day after acceptance, if no written decision is issued before then.\nThe fifteenth counted business day arrives at 5:00 PM, triggering deemed approval if no written decision has been issued.",
+      "name": "deemed approval",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_approval_or_denial_before_review",
+      "meaning": "The department issues neither approval nor denial on any application before a plan reviewer completes review.",
+      "name": "no_approval_or_denial_before_review",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": null
+      },
+      "category": "state",
+      "id": "state:no_expedited_review",
+      "meaning": "No expedited-review procedure exists for residential additions, and none has been requested.",
+      "name": "no_expedited_review",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e10"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "2026-09-08T08:00:00-04:00"
+      },
+      "category": "state",
+      "id": "state:no_reviewer_assigned",
+      "meaning": "As of 8 September 2026, BP-2214 has not been assigned to a plan reviewer, and none will be assigned before 21 September 2026.",
+      "name": "no_reviewer_assigned",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e9"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "2026-08-13T15:00:00-04:00"
+      },
+      "category": "state",
+      "id": "state:request_for_info_issued",
+      "meaning": "The department issued a written request for additional information on BP-2214 at 3:00 PM on 13 August 2026.",
+      "name": "request_for_info_issued",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:request_outstanding_period",
+      "meaning": "From the moment the request is issued until the department receives a complete response, the request is outstanding, affecting business day counting.",
+      "name": "request_outstanding_period",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6",
+          "e7"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": false,
+        "step_kind": "condition"
+      },
+      "category": "state",
+      "id": "state:request_resolved",
+      "meaning": "The request for additional information is no longer outstanding after the complete response is received.",
+      "name": "request_resolved",
+      "provenance": {
+        "basis": "inferred",
+        "evidence_ids": [
+          "e6",
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "initial": true,
+        "value": "2026-08-26T10:00:00-04:00"
+      },
+      "category": "state",
+      "id": "state:response_delivered",
+      "meaning": "Hollis Vantour LLC delivered a response that the department logged as complete at 10:00 AM on 26 August 2026.\nHollis Vantour LLC delivered a response to the department's request for additional information, logged as complete at 10:00 AM on Wednesday 26 August 2026.",
+      "name": "response_delivered",
+      "provenance": {
+        "basis": "verified",
+        "evidence_ids": [
+          "e8"
+        ]
+      }
+    },
+    {
+      "attrs": {
+        "answer_type": "boolean",
+        "cutoff": {
+          "meaning": "The deadline for the outcome to occur.",
+          "timezone": "America/New_York",
+          "when": "2026-09-11T17:00:00-04:00"
+        },
+        "measured_act": null,
+        "negative_condition": "Before the deadline, the department has not issued a written approval and the application has not become deemed approved (i.e., it is denied, still pending, or deemed approval occurs after the deadline).",
+        "positive_condition": "Before the deadline, the department has issued a written approval of BP-2214 or the application has become deemed approved under the fifteen-business-day rule.",
+        "resolves_from_report": false
+      },
+      "category": "terminal",
+      "id": "terminal:terminal",
+      "meaning": "Whether, before 5:00 PM on Friday 11 September 2026, the Larkspur County Building Department has issued a written approval of BP-2214 or the application has become deemed approved under the fifteen-business-day rule.",
+      "name": "terminal",
+      "provenance": {
+        "basis": "question_given",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "symbol_table": {
+    "namespaces": {
+      "action": {
+        "bring about: application_accepted_complete": "bring_about_application_accepted_complete",
+        "bring about: application_filed": "bring_about_application_filed",
+        "bring about: count_resumes": "bring_about_count_resumes",
+        "bring about: count_start": "bring_about_count_start",
+        "bring about: fifteenth_business_day_arrives": "bring_about_fifteenth_business_day_arrives",
+        "bring about: request_outstanding_period": "bring_about_request_outstanding_period",
+        "bring about: request_resolved": "bring_about_request_resolved",
+        "plan_review_completed": "plan_review_completed",
+        "reviewer_assigned": "reviewer_assigned",
+        "written_approval_issued": "written_approval_issued"
+      },
+      "event": {
+        "request_for_info_issued": "request_for_info_issued",
+        "response_delivered": "response_delivered"
+      },
+      "information": {
+        "application_accepted_complete": "application_accepted_complete",
+        "application_filed": "application_filed",
+        "counted_business_days": "counted_business_days",
+        "county_closures": "county_closures",
+        "director_letter": "director_letter",
+        "no_reviewer_assigned": "no_reviewer_assigned",
+        "request_for_info_issued": "request_for_info_issued",
+        "response_delivered": "response_delivered"
+      },
+      "organization": {
+        "Hollis Vantour LLC": "hollis_vantour_llc",
+        "Larkspur County Building Department": "larkspur_county_building_department"
+      },
+      "process": {
+        "count_business_days": "count_business_days"
+      },
+      "record": {
+        "written approval": "written_approval"
+      },
+      "state": {
+        "application_accepted_complete": "application_accepted_complete",
+        "application_filed": "application_filed",
+        "count_resumes": "count_resumes",
+        "count_start": "count_start",
+        "deemed approval": "deemed_approval",
+        "no_approval_or_denial_before_review": "no_approval_or_denial_before_review",
+        "no_expedited_review": "no_expedited_review",
+        "no_reviewer_assigned": "no_reviewer_assigned",
+        "request_for_info_issued": "request_for_info_issued",
+        "request_outstanding_period": "request_outstanding_period",
+        "request_resolved": "request_resolved",
+        "response_delivered": "response_delivered"
+      },
+      "terminal": {
+        "terminal": "terminal"
+      }
+    }
+  },
+  "uncertainties": [
+    {
+      "about": "action:plan_review_completed",
+      "meaning": "It is uncertain when the plan review will be completed, as no reviewer has been assigned and none will be assigned before 21 September 2026. This affects the possibility of a written approval before the deadline."
+    },
+    {
+      "about": "action:plan_review_completed",
+      "meaning": "No reviewer will be assigned before 21 September 2026, so this cannot occur before the deadline."
+    },
+    {
+      "about": "action:reviewer_assigned",
+      "meaning": "Director confirmed no reviewer will be assigned before 21 September 2026."
+    },
+    {
+      "about": "action:reviewer_assigned",
+      "meaning": "It is uncertain whether a reviewer will be assigned before the deadline, but the director's letter states no reviewer will be assigned before 21 September 2026, which is after the deadline."
+    },
+    {
+      "about": "action:written_approval_issued",
+      "meaning": "It is uncertain whether the department will issue a written approval before the deadline, given that no plan reviewer has been assigned and the director stated no approval will be issued before a reviewer completes review. However, the deemed-approval rule could still apply if the department fails to act within the counted business days."
+    },
+    {
+      "about": "action:written_approval_issued",
+      "meaning": "The department has stated no reviewer will be assigned before 21 September 2026, making written approval before the deadline impossible."
+    }
+  ]
+}

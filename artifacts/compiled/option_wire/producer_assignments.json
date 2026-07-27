@@ -1,0 +1,72 @@
+{
+  "assignments": [
+    {
+      "step": "wire_acceptance",
+      "unsupported": "This is a condition with prerequisites; its production is the conjunction of wire_submission and the bank's processing. No separate producer is needed."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e11",
+            "e12"
+          ],
+          "kind": "person",
+          "meaning": "Interim executive director, willing and available, but authorization uncertain.",
+          "name": "Marguerite Okonjo"
+        },
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e13"
+          ],
+          "kind": "person",
+          "meaning": "Board chair, available but not known to be an authorized signer.",
+          "name": "Devrim Aksoy"
+        }
+      ],
+      "step": "wire_submission"
+    },
+    {
+      "step": "authorized_signer_available",
+      "unsupported": "This is a condition with prerequisites (okonjo_authorized or other_authorized_signer); no separate producer."
+    },
+    {
+      "step": "okonjo_authorized",
+      "unsupported": "Condition without prerequisites; but evidence does not identify who can make her authorized. The bank or board could, but no evidence of action."
+    },
+    {
+      "step": "other_authorized_signer",
+      "unsupported": "Condition without prerequisites; no evidence of any other person being authorized."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Bookkeeper who loaded the wire template into the portal.",
+          "name": "Ivo Sarraute"
+        }
+      ],
+      "step": "wire_template_ready"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e3"
+          ],
+          "kind": "organization",
+          "meaning": "The trust's account held sufficient funds as of 26 October 2026; no further action needed.",
+          "name": "Harrow Ridge Land Trust"
+        }
+      ],
+      "step": "sufficient_funds"
+    }
+  ]
+}

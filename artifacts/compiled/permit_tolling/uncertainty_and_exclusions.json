@@ -1,0 +1,47 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e1",
+        "e10"
+      ],
+      "name": "Any other applicant or third party",
+      "why_safe": "Only Hollis Vantour LLC filed the application, and no other party can influence the process. The department's procedures are fixed and no external party can issue or withdraw requests for additional information."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Expedited review or special procedures",
+      "why_safe": "The department operates no expedited-review procedure for residential additions, and none has been requested. Therefore, no special process can accelerate the timeline."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e4"
+      ],
+      "name": "Other county closures beyond those listed",
+      "why_safe": "The county closure calendar for the relevant period is provided and no other closures fall between 10 August and 30 September 2026. Thus, no additional non-business days affect the count."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "counted_business_days_elapsed",
+      "meaning": "The exact number of counted business days that will have elapsed between the resumption of the count (after the request for additional information was resolved) and the deadline of 5:00 PM on Friday 11 September 2026 is uncertain because the count depends on whether any business days are excluded due to outstanding requests or closures. The department has stated no reviewer will be assigned before 21 September 2026, but the count may still reach 15 before the deadline if no further requests are issued."
+    },
+    {
+      "about": "written_approval_issued",
+      "meaning": "It is uncertain whether the department will issue a written approval before the deadline, given that no plan reviewer has been assigned and the director stated no approval will be issued before a reviewer completes review. However, the deemed-approval rule could still apply if the department fails to act within the counted business days."
+    },
+    {
+      "about": "plan_review_completed",
+      "meaning": "It is uncertain when the plan review will be completed, as no reviewer has been assigned and none will be assigned before 21 September 2026. This affects the possibility of a written approval before the deadline."
+    },
+    {
+      "about": "reviewer_assigned",
+      "meaning": "It is uncertain whether a reviewer will be assigned before the deadline, but the director's letter states no reviewer will be assigned before 21 September 2026, which is after the deadline."
+    }
+  ]
+}

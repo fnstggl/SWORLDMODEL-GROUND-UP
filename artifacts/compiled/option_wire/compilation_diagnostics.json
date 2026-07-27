@@ -1,0 +1,12 @@
+{
+  "detail": {
+    "defects": [
+      "exclusion: 'Treasurer (vacant)' is both in the world (state:treasurer_vacant) and excluded from it; it must be one or the other",
+      "exclusion: 'Ivo Sarraute' is both in the world (participant:ivo_sarraute) and excluded from it; it must be one or the other"
+    ],
+    "document": "uncertainty_and_exclusions",
+    "repairable": true
+  },
+  "reason": "the uncertainty_and_exclusions document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}
