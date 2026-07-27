@@ -311,6 +311,16 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
         calls.extend(elog)
         _wj(os.path.join(outdir, "semantic_equivalence_review.json"),
             equivalence)
+
+        # ---- automatic causal red team ---------------------------------
+        from .challenge import challenge_world
+        challenges = challenge_world(graph)
+        _wj(os.path.join(outdir, "causal_challenge_report.json"),
+            challenges)
+        if challenges["failed"]:
+            raise LoweringMismatch(
+                "causal challenge tests failed; the compiled world must "
+                "not run", {"failed": challenges["failed"]})
     except CompilationStop as exc:
         return finish_failure(exc)
 
@@ -361,6 +371,7 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
                                   stage, never_used, metrics),
                         wall_ms=metrics["runtime_ms"])
         replayed = World.from_records(compiled.world.records)
+        replay_ok = replayed.state_hash() == compiled.world.state_hash()
         _wj(os.path.join(outdir, "terminal_producer_report.json"), {
             "terminal": compiled.terminal_spec.to_dict(),
             "answer": ans,
@@ -368,8 +379,13 @@ def compile_question(question: dict, evidence: dict | None, outdir: str,
             "graph_producer_lineage": {
                 c["component"]: c["producers"]
                 for c in backward["components"]},
-            "replay_hash_match":
-                replayed.state_hash() == compiled.world.state_hash()})
+            "replay_hash_match": replay_ok})
+        challenges["exact_replay"] = bool(replay_ok)
+        _wj(os.path.join(outdir, "causal_challenge_report.json"),
+            challenges)
+        if not replay_ok:
+            record["replay_mismatch"] = True
+            record["artifact_risk"] = True
 
     metrics["wall_ms"] = round((wallclock.monotonic() - t_wall) * 1000, 1)
     metrics["model_tokens"] = disc.tokens + bindings.tokens

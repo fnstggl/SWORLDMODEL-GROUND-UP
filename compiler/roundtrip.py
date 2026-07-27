@@ -73,6 +73,10 @@ def describe_graph(graph: WorldGraph, question: dict) -> str:
             if n.attrs.get("not_available"):
                 out.append(f"  NOT available: "
                            f"{_j(n.attrs['not_available'])}")
+            if n.attrs.get("dropped_authority_claims"):
+                out.append(f"  claimed authority over things no document "
+                           f"declared (claims dropped): "
+                           f"{_j(n.attrs['dropped_authority_claims'])}")
 
     out.append("\n## Initial state")
     for n in graph.by_category("state"):

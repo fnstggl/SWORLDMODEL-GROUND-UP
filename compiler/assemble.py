@@ -686,7 +686,21 @@ class Assembler:
             raise SemanticAmbiguity("authority has defects", {"defects": d})
         w = f"authority of {entity_name!r}"
         holder = self.graph.resolve_any(ACTORS, entity_name, w)
-        over = self._resolve_step(item["over"], w)
+        try:
+            over = self._resolve_step(item["over"], w)
+        except InvalidReference:
+            # an authority claim over something no document declared is
+            # dropped VISIBLY: it lands on the holder for the reality
+            # reviewer to judge, because authority only ever restricts --
+            # dropping a claim can never enable a forbidden act
+            self.graph.node(holder).attrs.setdefault(
+                "dropped_authority_claims", []).append(
+                {"over": item["over"], "meaning": item["meaning"]})
+            self._record("add_authority",
+                         {"entity": entity_name, "over": item["over"],
+                          "dropped": "names nothing any document "
+                                     "declared"}, [], [])
+            return
         node = self.graph.node(over)
         edges = []
         if node.category in ("state", "resource"):

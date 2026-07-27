@@ -1,13 +1,13 @@
 {
   "assembly_ms": 0.0,
   "assembly_repairs": [
-    "producer_assignments"
+    "starting_state_and_information"
   ],
   "binding_calls": 0,
-  "discovery_calls": 15,
+  "discovery_calls": 9,
   "emit_ms": 0.0,
   "first_pass_by_step": {
-    "causal_spine": false,
+    "causal_spine": true,
     "producer_assignments": true,
     "resolution_contract": true,
     "starting_state_and_information": true,
@@ -15,13 +15,13 @@
   },
   "lowering_ms": 0.0,
   "mode": "frozen_evidence",
-  "model_ms": 87566.19691800006,
-  "model_tokens": 52231,
+  "model_ms": 55102.799442000105,
+  "model_tokens": 29156,
   "proofs_ms": 0.0,
   "repairs_by_step": {
-    "causal_spine": 1,
-    "producer_assignments": 1,
-    "resolution_ambiguity_adjudication": 1
+    "resolution_ambiguity_adjudication": 1,
+    "starting_state[Cascade regional blood centre]": 1,
+    "starting_state[St. Vincent regional hospital]": 1
   },
   "runtime_ms": 0.0,
   "simulation_stage": "scripted",
