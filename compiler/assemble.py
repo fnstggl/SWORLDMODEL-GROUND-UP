@@ -591,6 +591,23 @@ class Assembler:
             raise SemanticAmbiguity("resource has defects", {"defects": d})
         owner = self.graph.resolve_any(ACTORS, entity_name,
                                        f"resource of {entity_name!r}")
+        unit = str(item.get("unit") or "")
+        if "/" in unit or " per " in f" {unit} ":
+            # a rate is not a stock: it cannot be moved or consumed. It
+            # lands as a fact of its holder, and the process that runs at
+            # it carries the number through its binding.
+            sid = self.graph.add_node(
+                "state", item["name"], item["meaning"], basis, ids,
+                attrs={"initial": True, "value": item["amount"],
+                       "unit": unit},
+                where=f"resource of {entity_name!r}")
+            e = self.graph.add_edge(owner, "has_state", sid,
+                                    where=f"resource of {entity_name!r}")
+            self._record("add_resource",
+                         {"entity": entity_name, "resource": item["name"],
+                          "relocated": "rate-shaped unit becomes a fact"},
+                         [sid], [e])
+            return sid
         nid = self.graph.maybe("resource", item["name"])
         created = []
         if nid is None:

@@ -426,14 +426,17 @@ def connect_process_outputs(graph: WorldGraph, b: Bindings) -> None:
         if target is None:
             defects.append(
                 f"{pid}: cannot identify {orr['name']!r} held by "
-                f"{orr['holder']!r} among {[r.id for r in held]}")
+                f"{orr['holder']!r} among {[r.id for r in held]}; if the "
+                f"holder's opening stock of it was never declared, add it "
+                f"to their starting-state resources")
             continue
         graph.add_edge(pid, "changes", target.id,
                        where=f"output of {pid}")
     if defects:
         raise LoweringGap(
             "process outputs cannot be connected to real stocks",
-            {"defects": defects, "repairable": True})
+            {"defects": defects, "repairable": True,
+             "document": "starting_state_and_information"})
 
 
 def _v_event(doc, residue) -> list:

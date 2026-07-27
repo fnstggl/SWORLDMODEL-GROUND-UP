@@ -1,0 +1,66 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "name": "Elena Cruz",
+      "why_safe": "She oversees receipts but does not control collection rate or shipping schedule; her actions do not affect the number of units received."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Other hospitals or blood centres",
+      "why_safe": "The question only concerns St. Vincent regional hospital; other entities are irrelevant."
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [],
+      "name": "Blood wastage or transfusion during the week",
+      "why_safe": "No evidence mentions any usage or wastage at the hospital; assuming no change in hospital stock except from shipments."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "collection_process_monday",
+      "meaning": "Whether the collection drive operated as scheduled on Monday 20 July (e.g., no unexpected closures)."
+    },
+    {
+      "about": "collection_process_tuesday",
+      "meaning": "Whether the collection drive operated as scheduled on Tuesday 21 July."
+    },
+    {
+      "about": "collection_process_wednesday",
+      "meaning": "Whether the collection drive operated as scheduled on Wednesday 22 July."
+    },
+    {
+      "about": "collection_process_thursday",
+      "meaning": "Whether the collection drive operated as scheduled on Thursday 23 July."
+    },
+    {
+      "about": "collection_process_friday",
+      "meaning": "Whether the collection drive operated as scheduled on Friday 24 July (until noon)."
+    },
+    {
+      "about": "tuesday_shipment_departure",
+      "meaning": "Whether the Tuesday shipment actually departed at 4:00 PM as scheduled."
+    },
+    {
+      "about": "tuesday_shipment_arrival",
+      "meaning": "Whether the Tuesday shipment arrived and was received by the hospital within 3 hours (by 7:00 PM)."
+    },
+    {
+      "about": "thursday_shipment_departure",
+      "meaning": "Whether the Thursday shipment actually departed at 4:00 PM as scheduled."
+    },
+    {
+      "about": "thursday_shipment_arrival",
+      "meaning": "Whether the Thursday shipment arrived and was received by the hospital within 3 hours (by 7:00 PM)."
+    },
+    {
+      "about": "hospital_units_at_deadline",
+      "meaning": "The exact number of usable blood units the hospital holds at Friday noon, given uncertainties in collection and shipment timings."
+    }
+  ]
+}
