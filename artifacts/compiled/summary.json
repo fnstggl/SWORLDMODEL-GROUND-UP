@@ -2,18 +2,19 @@
   {
     "binding_calls": 0,
     "case": "council_vote",
-    "discovery_calls": 2,
+    "discovery_calls": 11,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
     "model_declared_insufficient": false,
     "pipeline": "discovery",
-    "reason": "the question admits materially different readings that survived adjudication",
+    "reason": "the starting_state_and_information document has defects",
     "repairs": {
-      "resolution_ambiguity_adjudication": 1
+      "starting_state[Carla Bianchi]": 1,
+      "starting_state[Gareth Pryce]": 1
     },
     "runtime_ms": 0.0,
-    "stage": "AMBIGUOUS_QUESTION",
-    "tokens": 4212
+    "stage": "SEMANTIC_AMBIGUITY",
+    "tokens": 40395
   }
 ]

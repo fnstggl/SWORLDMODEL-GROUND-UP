@@ -1,0 +1,12 @@
+{
+  "detail": {
+    "defects": [
+      "sent information of 'Carla Bianchi': nothing named 'written_notice' exists in process",
+      "'Carla Bianchi'.not_available[0]: nothing named 'council_chamber' exists in process"
+    ],
+    "document": "starting_state_and_information",
+    "repairable": true
+  },
+  "reason": "the starting_state_and_information document has defects",
+  "stage": "SEMANTIC_AMBIGUITY"
+}

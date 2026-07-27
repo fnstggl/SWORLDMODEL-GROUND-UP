@@ -1,0 +1,270 @@
+{
+  "steps": [
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3"
+      ],
+      "kind": "condition",
+      "meaning": "The official vote record shows at least three affirmative votes for Ordinance 2026-14 at the 8 September session.",
+      "name": "vote_record_produced",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "vote_taken"
+        }
+      ],
+      "produces_proof": [
+        "vote_record"
+      ],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e2",
+        "e3",
+        "e11"
+      ],
+      "kind": "condition",
+      "meaning": "The council votes on Ordinance 2026-14 at the 8 September session.",
+      "name": "vote_taken",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "quorum_present"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "item_not_postponed"
+        },
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "affirmative_votes_at_least_three"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": null,
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e1",
+        "e3",
+        "e4",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "At least three council members are physically present in the chamber at the 8 September session.",
+      "name": "quorum_present",
+      "prerequisites": [
+        {
+          "alt_group": "quorum",
+          "necessity": "optional",
+          "step": "okonkwo_present"
+        },
+        {
+          "alt_group": "quorum",
+          "necessity": "optional",
+          "step": "tran_present"
+        },
+        {
+          "alt_group": "quorum",
+          "necessity": "optional",
+          "step": "delgado_present"
+        },
+        {
+          "alt_group": "quorum",
+          "necessity": "optional",
+          "step": "pryce_present"
+        },
+        {
+          "alt_group": "quorum",
+          "necessity": "optional",
+          "step": "bianchi_present"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "At least three of the five members must be present. Bianchi is absent per e10, so at least three of the other four must be present.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Adaeze Okonkwo is physically present in the chamber at the 8 September session.",
+      "name": "okonkwo_present",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Okonkwo's attendance is not explicitly stated; she sponsored the ordinance and wants final action, so likely present but not certain.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Minh Tran is physically present in the chamber at the 8 September session.",
+      "name": "tran_present",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Tran's attendance is not explicitly stated; he supports the ordinance, so likely present but not certain.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e7"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Rosa Delgado is physically present in the chamber at the 8 September session.",
+      "name": "delgado_present",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Delgado's attendance is not explicitly stated; she opposes the ordinance, so may or may not attend.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e8"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Gareth Pryce is physically present in the chamber at the 8 September session.",
+      "name": "pryce_present",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Pryce's attendance is not explicitly stated; he opposes the ordinance, so may or may not attend.",
+      "when": null
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Carla Bianchi is physically present in the chamber at the 8 September session.",
+      "name": "bianchi_present",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Bianchi filed written notice of absence (e10), so she is not present.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e5",
+        "e11"
+      ],
+      "kind": "actor_decision",
+      "meaning": "The sponsor (Okonkwo) does not move to postpone the item at the session.",
+      "name": "item_not_postponed",
+      "prerequisites": [],
+      "produces_proof": [],
+      "uncertainty": "Okonkwo wants final action (e5), so she is unlikely to postpone, but it is her decision.",
+      "when": null
+    },
+    {
+      "basis": "inferred",
+      "evidence_ids": [
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9",
+        "e10"
+      ],
+      "kind": "condition",
+      "meaning": "At least three council members vote affirmatively on Ordinance 2026-14.",
+      "name": "affirmative_votes_at_least_three",
+      "prerequisites": [
+        {
+          "alt_group": "affirmative",
+          "necessity": "optional",
+          "step": "okonkwo_vote_yes"
+        },
+        {
+          "alt_group": "affirmative",
+          "necessity": "optional",
+          "step": "tran_vote_yes"
+        },
+        {
+          "alt_group": "affirmative",
+          "necessity": "optional",
+          "step": "bianchi_vote_yes"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "At least three affirmative votes are needed. Okonkwo and Tran have stated support (e5, e6), Bianchi supports (e9) but is absent (e10). Delgado and Pryce oppose (e7, e8). So only two definite yes votes if Bianchi absent; need a third from someone else or Bianchi attending despite notice.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e5"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Adaeze Okonkwo votes in favor of Ordinance 2026-14.",
+      "name": "okonkwo_vote_yes",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "okonkwo_present"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Okonkwo stated support (e5), so likely yes, but could change.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e6"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Minh Tran votes in favor of Ordinance 2026-14.",
+      "name": "tran_vote_yes",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "tran_present"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Tran stated support (e6), so likely yes, but could change.",
+      "when": null
+    },
+    {
+      "basis": "uncertain",
+      "evidence_ids": [
+        "e9",
+        "e10"
+      ],
+      "kind": "actor_decision",
+      "meaning": "Carla Bianchi votes in favor of Ordinance 2026-14.",
+      "name": "bianchi_vote_yes",
+      "prerequisites": [
+        {
+          "alt_group": null,
+          "necessity": "necessary",
+          "step": "bianchi_present"
+        }
+      ],
+      "produces_proof": [],
+      "uncertainty": "Bianchi supports (e9) but is absent (e10), so cannot vote unless she attends despite notice.",
+      "when": null
+    }
+  ]
+}

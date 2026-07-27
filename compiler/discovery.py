@@ -682,8 +682,12 @@ def discover(question: dict, evidence: dict, call=call_json,
                "information they hold as the world opens\n"
                "  sent_information: list of {\"name\", \"meaning\", "
                "\"to\": [names], \"channel\": name, \"sent_time\": time "
-               "with offset, \"basis\", \"evidence_ids\"} -- messages "
-               "already in flight from them\n"
+               "with offset, \"basis\", \"evidence_ids\"} -- ONLY "
+               "messages still in flight when the world opens: sent but "
+               "not yet received, on a channel that exists in this "
+               "world's causal steps. A notice already delivered before "
+               "the world opens is not in flight -- it belongs in "
+               "'knows' of everyone who has it (sender and recipients)\n"
                "  channels: list of {\"name\": communication route, "
                "\"meaning\", \"role\": \"sender\"|\"receiver\"|\"both\", "
                "\"latency_meaning\": prose, \"attention\": "
@@ -692,7 +696,12 @@ def discover(question: dict, evidence: dict, call=call_json,
                "\"basis\", \"evidence_ids\"}\n"
                "  not_available: list of {\"meaning\", \"channel\" "
                "optional, \"from\", \"to\" times} -- access they do NOT "
-               "have, including windows (travel, retreat, no account)\n")
+               "have, including windows (travel, retreat, no account). "
+               "'channel' names a communication route from the causal "
+               "steps, never a place: physical absence from a location "
+               "is stated in initial_state prose, and it is the "
+               "simulation that keeps an absent actor from acting "
+               "there\n")
             + "Include ONLY what the evidence and question support; empty "
               "lists are honest answers. Do not restate other entities.")
         return _ask(
@@ -705,7 +714,17 @@ def discover(question: dict, evidence: dict, call=call_json,
             "initially available to them, information NOT available to "
             "them, and how they send/receive.\n" + shape,
             ctx + "\n\nCAUSAL STEPS AND PRODUCERS SO FAR:\n"
-            + json.dumps(disc.producers, indent=1),
+            + json.dumps(disc.producers, indent=1)
+            + "\n\nCOMMUNICATION CHANNELS IN THIS WORLD (the only names "
+              "'channel' fields may use): "
+            + json.dumps(sorted(
+                {p.get("name") for a in
+                 (disc.producers.get("assignments") or [])
+                 for p in (a.get("producers") or [])
+                 if p.get("kind") == "communication_system"
+                 and p.get("name")}
+                or ["none -- no channels exist; leave channel fields "
+                    "empty"])),
             lambda d, n=ent["name"]: v_entity(d, valid_ids, n),
             disc, ecall or call, emodel or model, allow_memory)
 

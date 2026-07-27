@@ -1,0 +1,148 @@
+{
+  "assignments": [
+    {
+      "step": "vote_record_produced",
+      "unsupported": "This is a condition that depends on the vote being taken and the result; it is not produced by any actor or process but is a record of the outcome."
+    },
+    {
+      "step": "vote_taken",
+      "unsupported": "This is a condition that is the conjunction of quorum, item not postponed, and affirmative votes; it is not a separate action."
+    },
+    {
+      "step": "quorum_present",
+      "unsupported": "This is a condition that is the conjunction of individual members' presence; it is not produced by any single actor or process."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides whether to attend the session.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides whether to attend the session.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides whether to attend the session.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides whether to attend the session.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decided to be absent; filed notice.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5",
+            "e11"
+          ],
+          "kind": "person",
+          "meaning": "Sponsor who has the sole authority to move postponement under council rules.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "item_not_postponed"
+    },
+    {
+      "step": "affirmative_votes_at_least_three",
+      "unsupported": "This is a condition that is the conjunction of individual votes; it is not produced by any single actor or process."
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_vote_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e9",
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote, but is absent.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_vote_yes"
+    }
+  ]
+}

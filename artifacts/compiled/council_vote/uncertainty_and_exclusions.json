@@ -1,0 +1,60 @@
+{
+  "exclusions": [
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Other village officials or staff",
+      "why_safe": "Only council members vote on ordinances; other officials have no role in the adoption decision."
+    },
+    {
+      "basis": "verified",
+      "evidence_ids": [
+        "e3"
+      ],
+      "name": "Public comment or lobbying",
+      "why_safe": "Public comment does not affect the vote count; only council members' votes matter."
+    },
+    {
+      "basis": "question_given",
+      "evidence_ids": [],
+      "name": "Legal challenges or veto",
+      "why_safe": "The question is only about adoption at the session; post-adoption events are irrelevant."
+    }
+  ],
+  "uncertainties": [
+    {
+      "about": "okonkwo_present",
+      "meaning": "Whether Adaeze Okonkwo will be physically present at the 8 September session is not explicitly stated; she has not filed an absence notice or indicated otherwise."
+    },
+    {
+      "about": "tran_present",
+      "meaning": "Whether Minh Tran will be physically present at the 8 September session is not explicitly stated; he has not filed an absence notice or indicated otherwise."
+    },
+    {
+      "about": "delgado_present",
+      "meaning": "Whether Rosa Delgado will be physically present at the 8 September session is not explicitly stated; she has not filed an absence notice or indicated otherwise."
+    },
+    {
+      "about": "pryce_present",
+      "meaning": "Whether Gareth Pryce will be physically present at the 8 September session is not explicitly stated; he has not filed an absence notice or indicated otherwise."
+    },
+    {
+      "about": "item_not_postponed",
+      "meaning": "Whether the sponsor (Okonkwo) will move postponement or whether any other procedural action could remove the item from the agenda is unknown; no evidence indicates a postponement motion."
+    },
+    {
+      "about": "okonkwo_vote_yes",
+      "meaning": "Although Okonkwo supports the ordinance, her actual vote on 8 September is not guaranteed; she could change her mind or be absent."
+    },
+    {
+      "about": "tran_vote_yes",
+      "meaning": "Although Tran stated he is prepared to vote for the ordinance, his actual vote on 8 September is not guaranteed; he could change his mind or be absent."
+    },
+    {
+      "about": "bianchi_vote_yes",
+      "meaning": "Bianchi has publicly supported the ordinance, but she has filed an absence notice; if she is absent, she cannot vote. Her vote is uncertain if she somehow attends."
+    }
+  ]
+}
