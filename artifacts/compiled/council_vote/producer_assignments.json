@@ -1,0 +1,170 @@
+{
+  "assignments": [
+    {
+      "step": "vote_record_produced",
+      "unsupported": "This is a condition with prerequisites; the vote record is produced by the council's operating process, but no evidence names a specific producer."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e2"
+          ],
+          "kind": "organization",
+          "meaning": "The council schedules and holds regular sessions.",
+          "name": "Ellsworth Falls Village Council"
+        }
+      ],
+      "step": "session_occurs"
+    },
+    {
+      "step": "three_affirmative_votes_cast",
+      "unsupported": "This is a condition with prerequisites; it is a conjunction of individual votes, not produced by a single entity."
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e9"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides how to vote.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_votes_yes"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e5"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides to attend.",
+          "name": "Adaeze Okonkwo"
+        }
+      ],
+      "step": "okonkwo_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e6"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides to attend.",
+          "name": "Minh Tran"
+        }
+      ],
+      "step": "tran_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "verified",
+          "evidence_ids": [
+            "e10"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides to attend.",
+          "name": "Carla Bianchi"
+        }
+      ],
+      "step": "bianchi_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e7"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides to attend.",
+          "name": "Rosa Delgado"
+        }
+      ],
+      "step": "delgado_present"
+    },
+    {
+      "producers": [
+        {
+          "basis": "inferred",
+          "evidence_ids": [
+            "e4",
+            "e8"
+          ],
+          "kind": "person",
+          "meaning": "Council member who decides to attend.",
+          "name": "Gareth Pryce"
+        }
+      ],
+      "step": "pryce_present"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   {
     "binding_calls": 0,
     "case": "council_vote",
-    "discovery_calls": 13,
+    "discovery_calls": 14,
     "expected_answer": "no",
     "expected_refusal": false,
     "lowering_ms": 0.0,
@@ -10,11 +10,11 @@
     "pipeline": "discovery",
     "reason": "terminal production fails the backward causal proof",
     "repairs": {
-      "producer_assignments": 1,
-      "starting_state[Minh Tran]": 1
+      "causal_spine": 1,
+      "producer_assignments": 1
     },
     "runtime_ms": 0.0,
     "stage": "NO_CAUSAL_PRODUCER",
-    "tokens": 50770
+    "tokens": 49711
   }
 ]
