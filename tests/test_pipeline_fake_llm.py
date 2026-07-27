@@ -207,6 +207,59 @@ def test_translator_garbage_becomes_unsupported_not_crash():
     assert "could not be resolved" in trans["result"]["reason"]
 
 
+def test_missing_channel_is_auto_patched_then_items_land():
+    """When no channel was declared, every route/attention item strands on
+    an unknown-name error; the sweep declares the channel via one targeted
+    patch and the deferred pass then lands the stranded items."""
+    caps = neutral_items()
+    channel = [c for c in caps if c["capability"] == "add_channel"][0]
+    by_cap = {}
+    for inst in caps:
+        by_cap.setdefault(inst["capability"], []).append(inst)
+    comm = by_cap["add_channel_access"] + by_cap["add_attention"]  # no channel!
+    buckets = {
+        "participants": by_cap["add_participant"],
+        "aggregates": by_cap["add_aggregate"],
+        "communication": comm,
+        "starting_state": (by_cap["add_belief"] + by_cap["add_commitment"]
+                           + by_cap["add_resource"]),
+        "actions": by_cap["define_action"],
+        "external": (by_cap["add_process"] + by_cap["add_operating_window"]
+                     + by_cap["schedule_external_event"]),
+        "uncertainty": by_cap["declare_uncertainty"],
+        "exclusions": by_cap["declare_exclusion"],
+    }
+    order = ("participants", "aggregates", "communication", "starting_state",
+             "actions", "external", "uncertainty", "exclusions")
+
+    def references_channel(inst):
+        return "channel_c" in json.dumps(inst)
+
+    seq = [RESOLUTION, SPINE]
+    for cat in order:
+        seq.append(items(len(buckets[cat])))
+    stranded = []
+    for cat in order:
+        for inst in buckets[cat]:
+            if references_channel(inst):
+                seq.extend([inst, inst])   # fails + corrective retry fails
+                stranded.append(inst)
+            else:
+                seq.append(inst)
+    seq.append(channel)                    # the missing-channel patch call
+    seq.extend(stranded)                   # deferred pass: all land now
+    seq.append(by_cap["set_terminal"][0])
+    seq.extend([APPROVE, APPROVE])
+    script = Script(seq)
+    result = compile_scripted(script)
+    assert result.status == "compiled", result.report
+    assert script.n == len(script.responses)
+    refs = {t["item_ref"]: t["status"] for t in result.bundle["translations"]}
+    assert refs["communication[200]"] == "lowered"       # the patched channel
+    assert all(refs[f"communication[{i}]"] == "lowered" for i in range(4))
+    assert refs["actions[0]"] == "lowered"
+
+
 def test_validation_finding_gets_a_targeted_patch():
     """A missing answer-critical attention pattern is repaired by ONE
     surgical translation call, not a full re-description."""

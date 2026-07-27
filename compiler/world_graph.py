@@ -51,8 +51,10 @@ class NameRegistry:
                           f"{sorted(hits)}")
             return None
         if not hits:
-            errors.append(f"{where}: unknown name {name!r} -- every reference "
-                          f"must be a declared name (declared: "
+            expected = sorted(expect_kinds) if expect_kinds else ["any"]
+            errors.append(f"{where}: unknown name {name!r} (expected "
+                          f"{expected}) -- every reference must be a "
+                          f"declared name (declared: "
                           f"{sorted(i for i in self.ids)})")
             return None
         nid = next(iter(hits))

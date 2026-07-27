@@ -13,11 +13,15 @@ item, never a silent drop and never a crash."""
 from __future__ import annotations
 
 import json
+import re
 
 from . import graph_builder
 from .capabilities import render_menu, validate_capability
 from .llm import Caller, StageFailed, Trace
 from .world_graph import WorldGraph
+
+_MISSING_CHANNEL_RE = re.compile(
+    r"unknown name '([^']+)' \(expected \['channel'\]\)")
 
 TRANSLATOR_PREAMBLE = """You are the translation stage of a simulation \
 compiler.  You convert ONE described item into ONE capability from the \
@@ -192,6 +196,22 @@ def translate_all(question: str, resolution: dict, description: dict,
                 question, resolution, graph, category, i, item["text"],
                 item["provenance"], item.get("evidence", []), caller, trace,
                 corrections))
+    # an undeclared channel strands every item that referenced it: declare
+    # it via a targeted patch BEFORE the deferred pass, so those items land
+    missing = set()
+    for rec in records:
+        if rec["status"] == "unsupported":
+            missing.update(_MISSING_CHANNEL_RE.findall(
+                rec["result"].get("reason", "")))
+    for i, name in enumerate(sorted(missing)):
+        records.append(translate_item(
+            question, resolution, graph, "communication", 200 + i,
+            f"Several items reference a communication channel called "
+            f"{name!r}, but no such channel was declared.  Declare that "
+            f"channel: its real typical delivery latency with an honest "
+            f"provenance label, and whether every participant can reach "
+            f"every other on it (open_to_all) or only declared routes "
+            f"exist.", "inferred", [], caller, trace, corrections))
     for idx, rec in enumerate(records):
         if rec["status"] == "unsupported" \
                 and "unknown name" in rec["result"].get("reason", ""):

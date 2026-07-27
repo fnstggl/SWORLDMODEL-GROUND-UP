@@ -2,142 +2,67 @@
  "question": "Is a concise cold email from an unknown sports-analytics startup founder -- asking Mark Cuban for a 15-minute call and referencing his Cost Plus Drugs playbook -- likely to get a response from him within two weeks?",
  "report": {
   "reasons": [
-   "reality review: spam_filter_delivery_probability = 0.5: The spam filter probability is set to 0.5 with no basis in evidence. This silently converts uncertainty into a convenient fact, pre-writing the outcome. In reality, the probability is unknown and depends on email content, sender reputation, etc. This distorts the simulation's accuracy. (fix: Remove the fixed probability; instead, model the spam filter as an uncertain process that the simulation must resolve based on available evidence or leave as an unknown.)",
-   "reality review: cuban_reply_probability = 0.15: The reply probability is set to 0.15 without evidence. This is an invented fact that pre-determines the likelihood of response. In reality, Mark Cuban's response rate to cold emails from unknown founders is unknown and depends on many factors. (fix: Remove the fixed probability; model Cuban's decision as an emergent outcome of his disposition and the email content, not a pre-set chance.)",
-   "reality review: spam_filtering process at 0.0/h: The spam_filtering process is defined with rate 0.0/h, meaning it never runs, yet the spam filter probability is set to 0.5. This inconsistency means the spam filter never actually applies, contradicting the declared uncertainty that the email might be filtered. (fix: Either remove the spam_filtering process entirely and rely on the fixed probability, or implement a proper probabilistic process that triggers on email send.)",
-   "meaning review: Founder's attention pattern: The approved description states the founder notices any reply within 24 hours of it being sent, with continuous attention during waking hours (approx 16 hours). The runtime reconstruction restricts attention to 09:00-17:00 on weekdays only (days 0-4), which is only 8 hours per day and excludes weekends. This materially changes the condition for noticing the reply. (fix: Change the founder's 'attends' to cover all waking hours (e.g., 09:00-01:00 or similar) and include all days of the week (days 0-6).)",
-   "meaning review: Spam filter process: The approved description specifies a probabilistic spam filter that delivers the email to Mark Cuban's inbox with probability 0.5. The runtime reconstruction has a placeholder process 'spam_filtering' with rate 0.0/h, which never triggers. The scheduled action 'send_cold_email' does not include any probabilistic check; it only changes 'spam_filter_delivery_probability' after 0.5h but does not use that probability to determine delivery. The email is effectively always delivered, contradicting the 0.5 probability. (fix: Implement the probabilistic spam filter: when the email is sent, with probability 0.5 it is delivered to Mark Cuban's inbox; otherwise it is lost or marked as spam. The 'spam_filter_delivery_probability' fact should be used in a decision rule.)",
-   "meaning review: Mark Cuban's reply decision: The approved description models Mark Cuban's reply as a probabilistic decision with probability 0.15, based on interest and availability. The runtime reconstruction only has a fact 'cuban_reply_probability = 0.15' but no mechanism for Mark Cuban to actually decide to reply. There is no action or rule for Mark Cuban to send a reply email. Without that, the condition for YES cannot be met. (fix: Add a decision rule or action for Mark Cuban to reply to the cold email with probability 0.15 within 14 days, and ensure that reply is sent via email_smtp.)",
-   "meaning review: Mark Cuban's attention to email: The approved description says Mark Cuban checks email frequently, possibly multiple times per day. The runtime reconstruction has him checking every 1439 minutes (almost 24 hours), which means he checks only once per day. This reduces the chance he reads the email within 14 days and could affect the timing of his reply. (fix: Increase Mark Cuban's email checking frequency to at least once per day, but preferably more often (e.g., every 240 minutes) to reflect 'frequently'.)",
-   "reality review requires a fix: spam_filter_delivery_probability = 0.5 -- No evidence supports this specific probability; it is an invented fact that pre-writes the outcome.",
-   "reality review requires a fix: cuban_reply_probability = 0.15 -- No evidence supports this specific probability; it is an invented fact that pre-writes the outcome.",
-   "reality review requires a fix: spam_filtering process at 0.0/h -- Inconsistent with the declared spam filter probability; the process never runs, so the filter never applies.",
-   "reality review requires a fix: Founder's email checking pattern -- The pattern is too restrictive and may cause the founder to miss replies that would be noticed in reality."
+   "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+   "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
+   "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
+   "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+   "item participants[3] ('Mark Cuban receives a high volume of emails daily, and his response rate to cold') was not expressed: The item describes a general fact about Mark Cuban's email volume and response rate, not a participant or aggregate to add. It belongs to a different category (",
+   "item participants[4] (\"The email references Mark Cuban's Cost Plus Drugs playbook, which may increase h\") was not expressed: The item describes a belief or potential effect on Mark Cuban's interest, which is not a participant, aggregate, or any other capability in the allowed list for",
+   "item participants[5] ('The email must pass spam filters and be seen by Mark Cuban or his delegate withi') was not expressed: The item describes a condition (email passing spam filters and being seen) rather than a participant or aggregate. It belongs to a different category (e.g., cha",
+   "item communication[0] (\"The founder sends the email to Mark Cuban's known business email address, which \") was not expressed: references could not be resolved: communication[0]: unknown name 'email' -- every reference must be a declared name (declared: ['mark_cuban', 'the_founder'])",
+   "item communication[3] (\"Mark Cuban's typical email checking pattern is unknown; he may check multiple ti\") was not expressed: The item describes a pattern of attention (email checking) but does not name a channel that has been declared. The only declared names are participants 'the_fou",
+   "item actions[0] (\"The founder can send a concise cold email to Mark Cuban's known business email a\") was not expressed: The channel 'email' is not declared. The item states the founder can send an email, but no channel named 'email' exists in the declared names. To model this, a "
   ],
   "repair_rounds": [
    [
-    "reality review: participant 'the_founder' has no attention pattern: The founder is never able to read a reply because they have no attention pattern. This pre-writes the outcome: even if Cuban replies, the founder cannot notice it, so the simulation cannot correctly determine if a response was received. The real founder would check email. (fix: Give the_founder an attention pattern on email_smtp (e.g., continuously attentive during waking hours) so they can receive and notice replies.)",
-    "reality review: spam_filtering_applied is declared as a fact but its effect is unspecified: The fact 'spam_filtering_applied = True' is declared, but no process or rule determines whether the email actually passes the filter. Without a mechanism, the simulation cannot know if the email reaches Cuban's inbox, making the outcome arbitrary. (fix: Add a probabilistic process or a rule (e.g., 'if spam_filtering_applied then email is delivered with probability 0.5') to model spam filtering.)",
-    "reality review: Mark Cuban's response decision lacks a realistic model: The action 'reply_to_email' says the decision depends on interest in sports analytics and Cost Plus Drugs, but no decision rule or probability is specified. The simulation cannot determine if Cuban would reply, making the outcome arbitrary. (fix: Add a decision rule or probabilistic outcome for Cuban's reply, based on known facts about his behavior (e.g., 'if interested then reply with probability 0.3').)",
-    "reality review requires a fix: participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation? -- The founder cannot receive or notice a reply, which pre-writes the outcome. In reality, the founder would check email and see a response."
+    "reality review: participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: The founder is defined as a participant but has no attention pattern, no scheduled wake, and no watch. This means the founder will never act after sending the initial email, which is unrealistic. In reality, the founder would check for a reply and potentially follow up. However, since the question only asks about Mark Cuban's response within two weeks, the founder's inaction after sending does not affect the outcome. The founder's lack of attention does not distort the simulation because the founder's only required action is sending the email, which is already scheduled. The founder does not need to act further to determine if Mark Cuban responds. Therefore, this is acceptable. (fix: No fix needed; the founder's role is complete after sending.)"
    ],
    [
-    "reality review: spam_filter_delivery_probability = 0.5: The spam filter probability is set to 0.5 with no basis in evidence. This silently converts uncertainty into a convenient fact, pre-writing the outcome. In reality, the probability is unknown and depends on email content, sender reputation, etc. This distorts the simulation's accuracy. (fix: Remove the fixed probability; instead, model the spam filter as an uncertain process that the simulation must resolve based on available evidence or leave as an unknown.)",
-    "reality review: cuban_reply_probability = 0.15: The reply probability is set to 0.15 without evidence. This is an invented fact that pre-determines the likelihood of response. In reality, Mark Cuban's response rate to cold emails from unknown founders is unknown and depends on many factors. (fix: Remove the fixed probability; model Cuban's decision as an emergent outcome of his disposition and the email content, not a pre-set chance.)",
-    "reality review: spam_filtering process at 0.0/h: The spam_filtering process is defined with rate 0.0/h, meaning it never runs, yet the spam filter probability is set to 0.5. This inconsistency means the spam filter never actually applies, contradicting the declared uncertainty that the email might be filtered. (fix: Either remove the spam_filtering process entirely and rely on the fixed probability, or implement a proper probabilistic process that triggers on email send.)",
-    "meaning review: Founder's attention pattern: The approved description states the founder notices any reply within 24 hours of it being sent, with continuous attention during waking hours (approx 16 hours). The runtime reconstruction restricts attention to 09:00-17:00 on weekdays only (days 0-4), which is only 8 hours per day and excludes weekends. This materially changes the condition for noticing the reply. (fix: Change the founder's 'attends' to cover all waking hours (e.g., 09:00-01:00 or similar) and include all days of the week (days 0-6).)",
-    "meaning review: Spam filter process: The approved description specifies a probabilistic spam filter that delivers the email to Mark Cuban's inbox with probability 0.5. The runtime reconstruction has a placeholder process 'spam_filtering' with rate 0.0/h, which never triggers. The scheduled action 'send_cold_email' does not include any probabilistic check; it only changes 'spam_filter_delivery_probability' after 0.5h but does not use that probability to determine delivery. The email is effectively always delivered, contradicting the 0.5 probability. (fix: Implement the probabilistic spam filter: when the email is sent, with probability 0.5 it is delivered to Mark Cuban's inbox; otherwise it is lost or marked as spam. The 'spam_filter_delivery_probability' fact should be used in a decision rule.)",
-    "meaning review: Mark Cuban's reply decision: The approved description models Mark Cuban's reply as a probabilistic decision with probability 0.15, based on interest and availability. The runtime reconstruction only has a fact 'cuban_reply_probability = 0.15' but no mechanism for Mark Cuban to actually decide to reply. There is no action or rule for Mark Cuban to send a reply email. Without that, the condition for YES cannot be met. (fix: Add a decision rule or action for Mark Cuban to reply to the cold email with probability 0.15 within 14 days, and ensure that reply is sent via email_smtp.)",
-    "meaning review: Mark Cuban's attention to email: The approved description says Mark Cuban checks email frequently, possibly multiple times per day. The runtime reconstruction has him checking every 1439 minutes (almost 24 hours), which means he checks only once per day. This reduces the chance he reads the email within 14 days and could affect the timing of his reply. (fix: Increase Mark Cuban's email checking frequency to at least once per day, but preferably more often (e.g., every 240 minutes) to reflect 'frequently'.)",
-    "reality review requires a fix: spam_filter_delivery_probability = 0.5 -- No evidence supports this specific probability; it is an invented fact that pre-writes the outcome.",
-    "reality review requires a fix: cuban_reply_probability = 0.15 -- No evidence supports this specific probability; it is an invented fact that pre-writes the outcome.",
-    "reality review requires a fix: spam_filtering process at 0.0/h -- Inconsistent with the declared spam filter probability; the process never runs, so the filter never applies.",
-    "reality review requires a fix: Founder's email checking pattern -- The pattern is too restrictive and may cause the founder to miss replies that would be noticed in reality."
+    "validation: terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
+    "validation: terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
+    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+    "item participants[3] ('Mark Cuban receives a high volume of emails daily, and his response rate to cold') was not expressed: The item describes a general fact about Mark Cuban's email volume and response rate, not a participant or aggregate to add. It belongs to a different category (",
+    "item participants[4] (\"The email references Mark Cuban's Cost Plus Drugs playbook, which may increase h\") was not expressed: The item describes a belief or potential effect on Mark Cuban's interest, which is not a participant, aggregate, or any other capability in the allowed list for",
+    "item participants[5] ('The email must pass spam filters and be seen by Mark Cuban or his delegate withi') was not expressed: The item describes a condition (email passing spam filters and being seen) rather than a participant or aggregate. It belongs to a different category (e.g., cha",
+    "item communication[0] (\"The founder sends the email to Mark Cuban's known business email address, which \") was not expressed: references could not be resolved: communication[0]: unknown name 'email' -- every reference must be a declared name (declared: ['mark_cuban', 'the_founder'])",
+    "item communication[3] (\"Mark Cuban's typical email checking pattern is unknown; he may check multiple ti\") was not expressed: The item describes a pattern of attention (email checking) but does not name a channel that has been declared. The only declared names are participants 'the_fou",
+    "item actions[0] (\"The founder can send a concise cold email to Mark Cuban's known business email a\") was not expressed: The channel 'email' is not declared. The item states the founder can send an email, but no channel named 'email' exists in the declared names. To model this, a "
    ]
   ],
-  "reviews": {
-   "meaning": {
-    "objections": [
-     {
-      "about": "Founder's attention pattern",
-      "fix_hint": "Change the founder's 'attends' to cover all waking hours (e.g., 09:00-01:00 or similar) and include all days of the week (days 0-6).",
-      "objection": "The approved description states the founder notices any reply within 24 hours of it being sent, with continuous attention during waking hours (approx 16 hours). The runtime reconstruction restricts attention to 09:00-17:00 on weekdays only (days 0-4), which is only 8 hours per day and excludes weekends. This materially changes the condition for noticing the reply.",
-      "severity": "blocking"
-     },
-     {
-      "about": "Spam filter process",
-      "fix_hint": "Implement the probabilistic spam filter: when the email is sent, with probability 0.5 it is delivered to Mark Cuban's inbox; otherwise it is lost or marked as spam. The 'spam_filter_delivery_probability' fact should be used in a decision rule.",
-      "objection": "The approved description specifies a probabilistic spam filter that delivers the email to Mark Cuban's inbox with probability 0.5. The runtime reconstruction has a placeholder process 'spam_filtering' with rate 0.0/h, which never triggers. The scheduled action 'send_cold_email' does not include any probabilistic check; it only changes 'spam_filter_delivery_probability' after 0.5h but does not use that probability to determine delivery. The email is effectively always delivered, contradicting the 0.5 probability.",
-      "severity": "blocking"
-     },
-     {
-      "about": "Mark Cuban's reply decision",
-      "fix_hint": "Add a decision rule or action for Mark Cuban to reply to the cold email with probability 0.15 within 14 days, and ensure that reply is sent via email_smtp.",
-      "objection": "The approved description models Mark Cuban's reply as a probabilistic decision with probability 0.15, based on interest and availability. The runtime reconstruction only has a fact 'cuban_reply_probability = 0.15' but no mechanism for Mark Cuban to actually decide to reply. There is no action or rule for Mark Cuban to send a reply email. Without that, the condition for YES cannot be met.",
-      "severity": "blocking"
-     },
-     {
-      "about": "Mark Cuban's attention to email",
-      "fix_hint": "Increase Mark Cuban's email checking frequency to at least once per day, but preferably more often (e.g., every 240 minutes) to reflect 'frequently'.",
-      "objection": "The approved description says Mark Cuban checks email frequently, possibly multiple times per day. The runtime reconstruction has him checking every 1439 minutes (almost 24 hours), which means he checks only once per day. This reduces the chance he reads the email within 14 days and could affect the timing of his reply.",
-      "severity": "blocking"
-     },
-     {
-      "about": "Founder's goal phrasing",
-      "fix_hint": "Consider removing the duplicate goal or merging with 'secure a 15-minute call'.",
-      "objection": "The approved description does not mention the founder having a goal to 'schedule a 15-minute call' as a separate goal; the request is for a call. This is a minor wording difference but does not affect the condition.",
-      "severity": "minor"
-     }
-    ],
-    "verdict": "revise"
-   },
-   "reality": {
-    "dispositions": [
-     {
-      "disposition": "must_fix",
-      "finding": "spam_filter_delivery_probability = 0.5",
-      "why": "No evidence supports this specific probability; it is an invented fact that pre-writes the outcome."
-     },
-     {
-      "disposition": "must_fix",
-      "finding": "cuban_reply_probability = 0.15",
-      "why": "No evidence supports this specific probability; it is an invented fact that pre-writes the outcome."
-     },
-     {
-      "disposition": "must_fix",
-      "finding": "spam_filtering process at 0.0/h",
-      "why": "Inconsistent with the declared spam filter probability; the process never runs, so the filter never applies."
-     },
-     {
-      "disposition": "must_fix",
-      "finding": "Founder's email checking pattern",
-      "why": "The pattern is too restrictive and may cause the founder to miss replies that would be noticed in reality."
-     }
-    ],
-    "objections": [
-     {
-      "about": "spam_filter_delivery_probability = 0.5",
-      "fix_hint": "Remove the fixed probability; instead, model the spam filter as an uncertain process that the simulation must resolve based on available evidence or leave as an unknown.",
-      "objection": "The spam filter probability is set to 0.5 with no basis in evidence. This silently converts uncertainty into a convenient fact, pre-writing the outcome. In reality, the probability is unknown and depends on email content, sender reputation, etc. This distorts the simulation's accuracy.",
-      "severity": "blocking"
-     },
-     {
-      "about": "cuban_reply_probability = 0.15",
-      "fix_hint": "Remove the fixed probability; model Cuban's decision as an emergent outcome of his disposition and the email content, not a pre-set chance.",
-      "objection": "The reply probability is set to 0.15 without evidence. This is an invented fact that pre-determines the likelihood of response. In reality, Mark Cuban's response rate to cold emails from unknown founders is unknown and depends on many factors.",
-      "severity": "blocking"
-     },
-     {
-      "about": "spam_filtering process at 0.0/h",
-      "fix_hint": "Either remove the spam_filtering process entirely and rely on the fixed probability, or implement a proper probabilistic process that triggers on email send.",
-      "objection": "The spam_filtering process is defined with rate 0.0/h, meaning it never runs, yet the spam filter probability is set to 0.5. This inconsistency means the spam filter never actually applies, contradicting the declared uncertainty that the email might be filtered.",
-      "severity": "blocking"
-     },
-     {
-      "about": "Founder's email checking pattern",
-      "fix_hint": "Expand the founder's attention to cover all waking hours (e.g., 07:00-23:00) and increase check frequency to every 15-30 minutes.",
-      "objection": "The founder is set to check email continuously during business hours (09:00-17:00 weekdays), but the dropped item states the founder checks continuously during waking hours (e.g., every 15-30 minutes). The simulation's pattern may miss replies sent outside business hours or on weekends, potentially causing the founder to fail to notice a reply within 24 hours even if they would in reality.",
-      "severity": "minor"
-     }
-    ],
-    "verdict": "revise"
-   }
-  },
+  "reviews": null,
   "validation": {
-   "blocking": [],
+   "blocking": [
+    "terminal term: 'mark_cuban' attends no channel, so they can never notice the information the answer depends on; give a provenance-labeled attention pattern or model why they truly never look",
+    "terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
+    "terminal term counting 'email_response:cold_email_from_founder:': nothing can create records under this prefix",
+    "dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed"
+   ],
    "dry_run": {
-    "events_fired": 5,
+    "events_fired": 1,
     "final_answer": {
      "answer": "no",
      "computed_from": [
       "terminal.cutoff"
      ],
-     "detail": "Mark Cuban does not reply within 14 days, or the founder fails to notice the reply within 24 hours of it being sent."
+     "detail": "Mark Cuban does not respond within two weeks"
     },
     "status": "cutoff"
    },
-   "needs_review": [],
-   "patchable": [],
+   "needs_review": [
+    "participant 'mark_cuban' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?",
+    "participant 'the_founder' has no attention pattern, no scheduled wake, and no watch: they will never act unless something else is added -- is that the real situation?"
+   ],
+   "patchable": [
+    {
+     "actor": "mark_cuban",
+     "channels": [],
+     "kind": "no_attention"
+    },
+    {
+     "kind": "dead_world"
+    }
+   ],
    "warnings": []
   }
  },
