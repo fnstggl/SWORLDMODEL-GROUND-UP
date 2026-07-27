@@ -733,6 +733,15 @@ def normalize_capability(instance) -> None:
         if fname not in fields:
             continue
         v, t = fields[fname], spec["type"]
+        if t == "value_read" and isinstance(v, dict) and "read" not in v:
+            # the discriminator is inferable from which fields are present
+            if "holder" in v and ("resource" in v or "name" in v):
+                v = dict(v, read="resource")
+                v.setdefault("resource", v.pop("name", None))
+                fields[fname] = {k: x for k, x in v.items() if x is not None}
+            elif "record_type" in v and "subject" in v:
+                fields[fname] = dict(v, read="count_records")
+        v = fields[fname]
         if t == "local_dt":
             fields[fname] = _norm_dt(v)
         elif t == "hhmm":

@@ -20,10 +20,11 @@ API_URL = "https://api.deepseek.com/chat/completions"
 CA_BUNDLE = "/root/.ccr/ca-bundle.crt"
 DEFAULT_MODEL = "deepseek-chat"
 
-#: Backstop against runaway compiles.  Three full anchored repair rounds
-#: with patches legitimately reach ~280 calls; this bounds true runaways
-#: without starving the terminal translation at the end of round three.
-MAX_CALLS_PER_COMPILE = 400
+#: Backstop against runaway compiles.  Large worlds legitimately reach
+#: ~130 calls per full round; with the cross-round translation reuse cache
+#: repair rounds are far cheaper, but the bound must never starve the
+#: terminal translation at the end of the final round.
+MAX_CALLS_PER_COMPILE = 700
 
 
 class LLMUnavailable(RuntimeError):

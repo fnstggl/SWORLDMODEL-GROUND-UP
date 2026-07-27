@@ -185,19 +185,54 @@ def terminal_item_text(resolution: dict) -> str:
             f"{resolution['cutoff_tz']}.")
 
 
+def _reuse(question, resolution, graph, category, index, item, prev_map,
+           trace) -> dict | None:
+    """Cross-round reuse: an item whose text is unchanged from the previous
+    round re-applies its previously accepted translation deterministically
+    (zero LLM calls).  Any mismatch falls back to live translation."""
+    inst = prev_map.get((category, item["text"]))
+    if inst is None:
+        return None
+    inst = json.loads(json.dumps(inst))          # defensive copy
+    if validate_capability(inst):
+        return None
+    item_ref = f"{category}[{index}]"
+    if graph_builder.add_item(graph, inst, item_ref):
+        return None
+    trace.log(stage=f"reuse.{item_ref}", attempt=0, system="", user="",
+              response="(reused previous round's translation)", ok=True,
+              errors=[])
+    return {"item_ref": item_ref, "category": category, "text": item["text"],
+            "provenance": item["provenance"],
+            "evidence": item.get("evidence", []), "status": "lowered",
+            "result": inst, "reused": True}
+
+
 def translate_all(question: str, resolution: dict, description: dict,
                   graph: WorldGraph, caller: Caller, trace: Trace,
-                  corrections: str = "") -> list:
+                  corrections: str = "",
+                  previous_translations: list | None = None) -> list:
     """Translate every discovered item in dependency order, then the
     terminal.  Items that failed ONLY on unknown-name references get one
     deferred retry after the whole sweep, when the registry is complete --
     an item is never lost just because it arrived before its dependency.
-    Returns the translation records (the coverage ledger)."""
+    Unchanged items reuse the previous round's accepted translations
+    without LLM calls.  Returns the translation records (the coverage
+    ledger)."""
+    prev_map = {(t["category"], t["text"]): t["result"]
+                for t in (previous_translations or [])
+                if t.get("status") == "lowered"
+                and t.get("category") != "terminal"}
     records = []
     order = ["participants", "aggregates", "communication", "starting_state",
              "actions", "external", "uncertainty", "exclusions"]
     for category in order:
         for i, item in enumerate(description.get(category, [])):
+            reused = _reuse(question, resolution, graph, category, i, item,
+                            prev_map, trace)
+            if reused is not None:
+                records.append(reused)
+                continue
             records.append(translate_item(
                 question, resolution, graph, category, i, item["text"],
                 item["provenance"], item.get("evidence", []), caller, trace,

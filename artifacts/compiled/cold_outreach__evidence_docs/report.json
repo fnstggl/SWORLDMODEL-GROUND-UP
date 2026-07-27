@@ -2,44 +2,41 @@
  "question": "Is this cold email likely to get a response from Mark Cuban within two weeks?",
  "report": {
   "coverage": {
-   "lowered": 56,
+   "lowered": 47,
    "unsupported": [
-    "participants[3]",
+    "participants[4]",
     "participants[6]",
     "participants[7]",
-    "participants[8]",
     "aggregates[0]",
     "aggregates[1]",
     "aggregates[3]",
+    "aggregates[4]",
     "aggregates[5]",
-    "aggregates[6]",
-    "aggregates[7]",
-    "communication[11]",
-    "communication[12]",
-    "starting_state[12]",
+    "communication[6]",
+    "starting_state[9]",
     "actions[1]",
     "actions[2]",
-    "actions[3]",
+    "actions[4]",
+    "actions[5]",
+    "actions[6]",
+    "external[1]",
     "external[2]",
-    "external[4]",
-    "external[5]",
-    "external[6]",
-    "external[8]",
-    "external[12]",
-    "uncertainty[3]",
-    "uncertainty[5]"
+    "uncertainty[0]",
+    "uncertainty[1]",
+    "uncertainty[6]",
+    "uncertainty[8]"
    ]
   },
-  "llm_calls": 198,
+  "llm_calls": 187,
   "repair_rounds": [
    [
-    "assembly: no terminal was set; a world without a finish line cannot answer anything",
-    "item participants[0] ('Jordan Reyes sends the cold email to mark@markcubancompanies.com on July 27, 202') was not expressed: The item describes an action (sending an email) that is already covered by the universal 'transmit_information' action, which does not need to be defined. No ne",
-    "item participants[1] ('Mark Cuban reads or skims the email within the two-week window.') was not expressed: The item describes a possible future action (reading or skimming an email) that depends on Mark Cuban's decision, but no participant 'Mark Cuban' has been decla",
-    "item participants[2] ('Mark Cuban decides the email is interesting enough to reply to.') was not expressed: The item describes a future decision ('decides the email is interesting enough to reply to'), which is an outcome to be simulated, not a capability, fact, or st",
-    "item participants[3] ('Mark Cuban composes and sends a reply email to Jordan Reyes before August 10, 20') was not expressed: The item describes a future action (sending a reply) that depends on Mark Cuban's decision, which cannot be pre-scheduled or defined as a capability. It is not ",
-    "item actions[0] ('Jordan Reyes sends the cold email to mark@markcubancompanies.com on July 27, 202') was not expressed: The item describes sending an email to Mark Cuban, but 'Mark Cuban' is not declared as a participant, and 'email' is not declared as a channel. The only declare",
-    "item actions[1] (\"The email arrives in Mark Cuban's inbox and is not filtered as spam.\") was not expressed: The item describes an outcome (arrival and non-spam filtering) that is not an action a participant can attempt, nor a scheduled event, nor a fact, nor any other"
+    "reality review: Scheduled email arrival duplicates send and pre-writes outcome: The world schedules both the sending and the arrival of the cold email as separate events at the same timestamp, effectively guaranteeing delivery without allowing the email infrastructure or spam filtering to be modeled as a process. The evidence says the email is sent and 'arrives in Mark Cuban's inbox and is not filtered as spam' \u2013 but that outcome should emerge from the simulation, not be pre-scheduled. This pre-writes the result. (fix: Remove the second scheduled event (the arrival). Instead, model email delivery as a deterministic process: after Jordan sends the email, it is delivered after the channel latency (120s) and is not filtered as spam (a fact about the infrastructure). The arrival should be a consequence of the send action, not a separate scheduled event.)",
+    "reality review: Missing Mark Cuban's interest facts as beliefs or knowledge: The evidence clearly states Mark Cuban has interests in pricing transparency (Cost Plus Drugs) and sports tech (Dallas Mavericks, angel investing). These are decisive forces for whether he finds the email interesting. The world only has a fact 'mark_cuban_interests = pricing transparency and sports tech' but this fact is not attached to Mark Cuban as a belief or knowledge that his actor model can use. Without it, the actor model cannot judge whether the email is interesting, making the simulation blind to a key driver. (fix: Add a belief to Mark Cuban: 'knows [interests]: pricing transparency and sports tech' (verified from sender_context and recipient_email_habits). Alternatively, add a fact that the actor model can reference.)",
+    "meaning review: Mark Cuban's attention pattern: The runtime sets Mark Cuban's attention to 'email' as continuously attentive 00:00-23:59 every day. The approved description says he reads or skims nearly all messages himself on his phone, but does not specify continuous attention. The runtime's continuous attention is a plausible inference, but it is not explicitly stated in the approved description. However, the approved description does not provide a more specific pattern, so this is not a material drift. Actually, the approved description says 'Mark Cuban reads or skims nearly all messages himself on his phone' and 'Mark Cuban's attention pattern on email is continuous throughout the day; he reads messages on his phone as they arrive.' So the runtime matches. No objection here. (fix: )",
+    "meaning review: Scheduled events: The runtime has two scheduled events at the same timestamp: one for Jordan Reyes sending the email, and one for the email arriving in Mark Cuban's inbox. The approved description says the email is sent on July 27, 2026, and arrives shortly after. The runtime's scheduling of both at the same time is acceptable as the latency is 0s. However, the runtime also has a fact 'email_latency_seconds = 120' which contradicts the 0s latency on the channel. This is a minor inconsistency but not material drift. The approved description says 'Typical SMTP delivery latency is seconds to minutes under normal conditions.' So 120 seconds is fine. The channel latency of 0s is a simplification but not material. (fix: Set channel latency to 120 seconds to match the fact.)",
+    "meaning review: Missing uncertainty about spam filtering: The approved description includes uncertainty about whether the email will be filtered as spam. The runtime has a fact 'email_delivery_standard = True' and a scheduled event that the email arrives and is not filtered as spam. This pre-writes the outcome, removing the uncertainty. The approved description says 'The email arrives in Mark Cuban's inbox and is not filtered as spam' as an inferred step, but also lists uncertainty: 'The email will not be filtered as spam or lost before Mark Cuban reads it.' The runtime should reflect that uncertainty, e.g., by not scheduling the arrival as guaranteed, or by adding a probabilistic mechanism. However, the runtime does not have chance, so the uncertainty must be represented by not pre-writing the arrival. The scheduled event pre-writes it, which is material drift. (fix: )",
+    "meaning review: Missing uncertainty about Mark Cuban's decision: The approved description lists uncertainty about Mark Cuban's decision to reply. The runtime does not represent this uncertainty; it simply has Mark Cuban as a participant who can decide at simulation time. That is correct: the runtime does not pre-write the decision. The uncertainty is preserved because the decision is made at simulation time. No drift. (fix: )",
+    "meaning review: Missing exclusion: Jordan Reyes sends a follow-up email: The approved description lists an exclusion: 'Jordan Reyes sends a follow-up email within the two-week window.' The runtime does not include this exclusion. The exclusion means that Jordan Reyes does NOT send a follow-up email. The runtime should ensure that Jordan Reyes does not send a follow-up email. However, the runtime has a fact 'follow_up_plan' that says Jordan Reyes does not plan to follow up. But the runtime also has the action 'send_cold_email' and 'transmit_information' available to Jordan Reyes. The exclusion should be enforced by not having Jordan Reyes send a follow-up. The runtime does not prevent it; it only records his plan. Since the runtime is deterministic and Jordan Reyes's actor model may decide to send a follow-up, the exclusion is not enforced. This is material drift because the approved description explicitly excludes a follow-up. The runtime should either remove the ability for Jordan Reyes to send a follow-up or add a constraint that he will not. The simplest fix is to add a fact that Jordan Reyes will not send a follow-up, but that is a pre-write. Alternatively, remove the 'send_cold_email' action or restrict it to only once. The approved description says 'Jordan Reyes does not plan to follow up', so his actor model should not decide to send a follow-up. The runtime should ensure that his actor model does not generate a follow-up. Since the runtime is deterministic, the actor model's decisions are based on its knowledge. The fact 'follow_up_plan' indicates he does not plan to, but the actor model might still decide to. To enforce the exclusion, the runtime should either remove the ability to send a follow-up or add a rule that he will not. I suggest adding a constraint that Jordan Reyes cannot send a follow-up email within the two-week window. This is a blocking issue. (fix: Add a constraint that Jordan Reyes cannot send a follow-up email within the two-week window, or remove the 'send_cold_email' action after the initial send, or add a fact that he will not send a follow-up and ensure his actor model respects it.)"
    ]
   ],
   "reviews": {
@@ -56,13 +53,13 @@
   "validation": {
    "blocking": [],
    "dry_run": {
-    "events_fired": 7,
+    "events_fired": 4,
     "final_answer": {
      "answer": "no",
      "computed_from": [
       "terminal.cutoff"
      ],
-     "detail": "Mark Cuban does not send a reply email to Jordan Reyes within two weeks."
+     "detail": "Mark Cuban does not send a reply email to Jordan Reyes's cold email within two weeks."
     },
     "status": "cutoff"
    },

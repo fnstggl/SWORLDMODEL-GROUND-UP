@@ -73,6 +73,11 @@ class EvidenceRegistry:
             if isinstance(evidence, list):
                 evidence[:] = [self.normalize_ref(r) for r in evidence
                                if isinstance(r, str)]
+                if label != "verified":
+                    # non-verified claims often carry free-text rationale in
+                    # the evidence slot; it is rationale, not a citation --
+                    # keep real ids, drop the rest
+                    evidence[:] = [r for r in evidence if r in self.docs]
             for ref in evidence or []:
                 if ref not in self.docs:
                     errors.append(f"{where}: cites unknown document {ref!r}")

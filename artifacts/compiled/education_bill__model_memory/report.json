@@ -1,0 +1,46 @@
+{
+ "question": "Is the U.S. Senate going to pass a major K-12 education funding bill before the August 2026 recess?",
+ "report": {
+  "reasons": [
+   "assembly: no terminal was set; a world without a finish line cannot answer anything",
+   "item communication[11] ('Senators typically check their official email multiple times per business day, b') was not expressed: The item describes a general pattern for 'Senators' as a group, but the only aggregate representing the group is 'other senators' (an aggregate, not a participa",
+   "item communication[12] ('Telephone calls via the Capitol switchboard are a channel; calls are typically r') was not expressed: The name 'Capitol Switchboard' is already declared as an aggregate (system), so it cannot be reused as a channel. The item describes a communication channel but",
+   "item communication[13] (\"Senators can call any other senator's office via the Capitol switchboard; the nu\") was not expressed: references could not be resolved: communication[13]: 'capitol_switchboard' already declared as a aggregate",
+   "item actions[0] ('Senator Chuck Schumer (D-NY), as Majority Leader, can schedule a bill for floor ') was not expressed: no valid translation: translate.actions[0]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+   "item actions[1] ('Senator Bernie Sanders (I-VT), as Chair of the Health, Education, Labor, and Pen') was not expressed: no valid translation: translate.actions[1]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+   "item actions[4] ('Senator Joe Manchin (I-WV) can vote yea or nay on the bill, and his decision is ') was not expressed: The item describes a future uncertain decision by Senator Joe Manchin, which is not a capability to define. The action 'vote_on_bill' is already defined (or sho"
+  ],
+  "repair_rounds": [
+   [
+    "assembly: 10 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[2] ('Senators communicate via in-person meetings in the Capitol or Senate office buil') was not expressed: The item describes a general communication method (in-person meetings) but does not specify a named channel with defined latency, nor does it identify a specifi",
+    "item communication[10] ('Senators attend floor votes and committee meetings in person; these are schedule') was not expressed: The item describes a general pattern of attendance at scheduled events, but does not specify a concrete channel, participant, schedule, or action that can be mo",
+    "item communication[12] ('Senators may be reached via their personal mobile phones, but such numbers are n') was not expressed: The item describes a channel (personal mobile phones) that is not publicly available and is shared selectively, but it does not specify any actual sender-recipi",
+    "item communication[13] (\"Senators' attention to communications is higher during the work week (Monday-Fri\") was not expressed: The item describes a general pattern of attention for multiple senators without specifying which senators or channels, and adding attention for each senator-cha",
+    "item actions[0] ('Senator Chuck Schumer (D-NY), as Majority Leader, can schedule a bill for floor ') was not expressed: no valid translation: translate.actions[0]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[1] ('Senator Bernie Sanders (I-VT), as Chair of the Health, Education, Labor, and Pen') was not expressed: no valid translation: translate.actions[1]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go"
+   ],
+   [
+    "assembly: 9 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[8] ('Senator Dick Durbin (D-IL) is the Majority Whip.') was not expressed: The item introduces a new participant (Senator Dick Durbin) but the participant limit of 8 is already reached with the 8 declared participants. Aggregating is n",
+    "item communication[9] ('Senator John Thune (R-SD) is the Minority Whip.') was not expressed: The item introduces a new participant (Senator John Thune) but the participant limit of 8 is already reached with the 8 declared participants. Aggregating is no",
+    "item communication[15] (\"Senators' phone calls are screened by staff; messages are relayed to the senator\") was not expressed: The item describes a general pattern of phone call screening and message relay for all senators, but does not specify a concrete sender or recipient from the de",
+    "item actions[5] ('Senator Susan Collins (R-ME) can vote yea or nay on the bill, and her decision i') was not expressed: The item describes a future decision by Senator Susan Collins that is uncertain. This is not a capability to define; it is a statement about a participant's pos",
+    "item actions[6] ('Senator Lisa Murkowski (R-AK) can vote yea or nay on the bill, and her decision ') was not expressed: no valid translation: translate.actions[6]: no valid response after 3 attempts: [\"define_action.provenance: a concrete number cannot be labeled 'uncertain' -- e",
+    "item actions[7] ('Senator Kyrsten Sinema (I-AZ) can vote yea or nay on the bill, and her decision ') was not expressed: The verb 'vote_on_bill' is already defined. The item describes an uncertain decision, which is already captured by the existing action; no new capability is nee"
+   ],
+   [
+    "assembly: no terminal was set; a world without a finish line cannot answer anything",
+    "item communication[11] ('Senators typically check their official email multiple times per business day, b') was not expressed: The item describes a general pattern for 'Senators' as a group, but the only aggregate representing the group is 'other senators' (an aggregate, not a participa",
+    "item communication[12] ('Telephone calls via the Capitol switchboard are a channel; calls are typically r') was not expressed: The name 'Capitol Switchboard' is already declared as an aggregate (system), so it cannot be reused as a channel. The item describes a communication channel but",
+    "item communication[13] (\"Senators can call any other senator's office via the Capitol switchboard; the nu\") was not expressed: references could not be resolved: communication[13]: 'capitol_switchboard' already declared as a aggregate",
+    "item actions[0] ('Senator Chuck Schumer (D-NY), as Majority Leader, can schedule a bill for floor ') was not expressed: no valid translation: translate.actions[0]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[1] ('Senator Bernie Sanders (I-VT), as Chair of the Health, Education, Labor, and Pen') was not expressed: no valid translation: translate.actions[1]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('Senator Joe Manchin (I-WV) can vote yea or nay on the bill, and his decision is ') was not expressed: The item describes a future uncertain decision by Senator Joe Manchin, which is not a capability to define. The action 'vote_on_bill' is already defined (or sho"
+   ]
+  ],
+  "reviews": null,
+  "validation": null
+ },
+ "status": "failed"
+}

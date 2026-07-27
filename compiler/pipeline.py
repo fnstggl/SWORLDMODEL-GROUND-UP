@@ -107,9 +107,9 @@ def _attempt(question: str, asof: str, registry: EvidenceRegistry,
                                             caller, trace, corrections,
                                             previous.get("description"))
     graph = WorldGraph()
-    translations = translation.translate_all(question, res, description,
-                                             graph, caller, trace,
-                                             corrections)
+    translations = translation.translate_all(
+        question, res, description, graph, caller, trace, corrections,
+        previous.get("translations"))
     evidence_map = {t["item_ref"]: t.get("evidence") or None
                     for t in translations}
     plan, errors = assembly.assemble(graph, iso(start),
@@ -215,7 +215,8 @@ def compile_question(question: str, asof: str | None = None,
                                corrections, previous)
             if attempt["outcome"] != "refused":
                 previous = {"resolution": attempt.get("resolution"),
-                            "description": attempt.get("description")}
+                            "description": attempt.get("description"),
+                            "translations": attempt.get("translations")}
             if attempt["outcome"] == "ok":
                 break
             if attempt["outcome"] == "refused":

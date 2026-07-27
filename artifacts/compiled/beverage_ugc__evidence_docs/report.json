@@ -1,0 +1,47 @@
+{
+ "question": "Should Coca-Cola launch the 'Share Your Real Thing' user-generated-content campaign described in the brief?",
+ "report": {
+  "reasons": [
+   "assembly: no terminal was set; a world without a finish line cannot answer anything",
+   "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 over weak moderatio') was not expressed: The item describes a past decision and a budget detail, not a participant or aggregate to add. It belongs to a different category (e.g., add_fact or declare_unc",
+   "item participants[2] (\"Elena Vargas has publicly pushed the team toward 'participatory' formats this fi\") was not expressed: The item describes a past action and general tendency, not a participant or aggregate to add. It belongs to a different category (e.g., add_fact or add_belief).",
+   "item participants[3] ('The brand-safety review outcome is uncertain as of July 27, 2026; it could pass,') was not expressed: The item describes an uncertain future outcome (brand-safety review result), not a participant or aggregate. It belongs to a different category (e.g., declare_u",
+   "item participants[4] ('The legal review outcome is uncertain as of July 27, 2026; it could clear, rejec') was not expressed: The item describes an uncertain future outcome (legal review result), not a participant or aggregate. It belongs to a different category (e.g., declare_uncertai",
+   "item participants[5] (\"Elena Vargas's decision to sign or not sign by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain future decision, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+   "item communication[10] ('The brand-safety review is conducted by the Coca-Cola NA risk team following the') was not expressed: The item describes a process that is already declared as an aggregate named 'brand_safety_review'. Adding it again would duplicate the name, and the item does n"
+  ],
+  "repair_rounds": [
+   [
+    "validation: terminal term fact_equals 'campaign_decision:share_your_real_thing:elena_vargas': nothing in the world can produce this fact (no action effect, no scheduled event)",
+    "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 over weak moderatio') was not expressed: The item describes a past decision and a budget detail, not a participant or aggregate to add.",
+    "item participants[3] ('The brand-safety review outcome is uncertain as of July 27, 2026; it could pass,') was not expressed: The item describes an uncertain future outcome, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+    "item participants[4] ('The legal review outcome is uncertain as of July 27, 2026; it could clear, rejec') was not expressed: The item describes an uncertain future outcome, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+    "item participants[5] (\"Elena Vargas's decision to sign or not sign by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain future decision, which is not a participant or aggregate to add; it belongs to a different category (e.g., declare_uncertainty o",
+    "item communication[12] ('Elena Vargas receives the outcomes of the brand-safety and legal reviews through') was not expressed: The item describes a receiving action (Elena Vargas receives outcomes) but does not specify a sender or channel that can be modeled with declared names. The onl",
+    "item communication[13] ('Elena Vargas typically reviews campaign decisions during business hours on weekd') was not expressed: The item describes a typical review pattern for Elena Vargas, but no channel is declared that corresponds to 'campaign decisions'. The only declared aggregate i"
+   ],
+   [
+    "validation: terminal term fact_equals 'campaign_decision:share_your_real_thing:elena_vargas': nothing in the world can produce this fact (no action effect, no scheduled event)",
+    "validation: dead world: nothing is scheduled to happen before the cutoff, so no actor can ever be woken and no process is ever observed",
+    "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 over weak moderatio') was not expressed: The item describes a past decision and a budget detail, not a participant or aggregate to add. It belongs to a different category (e.g., add_fact or declare_unc",
+    "item participants[2] (\"Elena Vargas has publicly pushed the team toward 'participatory' formats this fi\") was not expressed: The item describes a past action (publicly pushed) and a general tendency, not a participant or aggregate to add. It belongs to a different category (e.g., add_",
+    "item participants[3] ('The brand-safety review outcome is uncertain as of July 27, 2026; it could pass,') was not expressed: The item describes an uncertain future outcome, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+    "item participants[4] ('The legal review outcome is uncertain as of July 27, 2026; it could clear, rejec') was not expressed: no valid translation: translate.participants[4]: no valid response after 3 attempts: [\"in category 'participants' the only allowed capabilities are ['add_partic",
+    "item participants[5] (\"Elena Vargas's decision to sign or not sign by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain future decision, which is not a participant or aggregate to add. It belongs to a different category (e.g., declare_uncertainty).",
+    "item communication[10] ('The brand-safety review is conducted by the Coca-Cola NA risk team following the') was not expressed: references could not be resolved: communication[10]: name 'brand_safety_review' already declared"
+   ],
+   [
+    "assembly: no terminal was set; a world without a finish line cannot answer anything",
+    "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 over weak moderatio') was not expressed: The item describes a past decision and a budget detail, not a participant or aggregate to add. It belongs to a different category (e.g., add_fact or declare_unc",
+    "item participants[2] (\"Elena Vargas has publicly pushed the team toward 'participatory' formats this fi\") was not expressed: The item describes a past action and general tendency, not a participant or aggregate to add. It belongs to a different category (e.g., add_fact or add_belief).",
+    "item participants[3] ('The brand-safety review outcome is uncertain as of July 27, 2026; it could pass,') was not expressed: The item describes an uncertain future outcome (brand-safety review result), not a participant or aggregate. It belongs to a different category (e.g., declare_u",
+    "item participants[4] ('The legal review outcome is uncertain as of July 27, 2026; it could clear, rejec') was not expressed: The item describes an uncertain future outcome (legal review result), not a participant or aggregate. It belongs to a different category (e.g., declare_uncertai",
+    "item participants[5] (\"Elena Vargas's decision to sign or not sign by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain future decision, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+    "item communication[10] ('The brand-safety review is conducted by the Coca-Cola NA risk team following the') was not expressed: The item describes a process that is already declared as an aggregate named 'brand_safety_review'. Adding it again would duplicate the name, and the item does n"
+   ]
+  ],
+  "reviews": null,
+  "validation": null
+ },
+ "status": "failed"
+}

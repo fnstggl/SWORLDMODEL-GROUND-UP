@@ -96,6 +96,28 @@ def one_round(reality_review, meaning_review):
     return seq
 
 
+def repair_round(reality_review, meaning_review):
+    """A repair round's scripted responses: anchored discovery re-emits the
+    same item texts, so every non-terminal translation is REUSED (zero LLM
+    calls) -- only resolution, spine, discovery, the terminal, and the
+    reviews are consulted."""
+    caps = neutral_items()
+    by_cap = {}
+    for inst in caps:
+        by_cap.setdefault(inst["capability"], []).append(inst)
+    counts = {"participants": 2, "aggregates": 1, "communication": 5,
+              "starting_state": 3, "actions": 1, "external": 3,
+              "uncertainty": 1, "exclusions": 1}
+    seq = [RESOLUTION, SPINE]
+    for cat in ("participants", "aggregates", "communication",
+                "starting_state", "actions", "external", "uncertainty",
+                "exclusions"):
+        seq.append(items(counts[cat]))
+    seq.append(by_cap["set_terminal"][0])
+    seq.extend([reality_review, meaning_review])
+    return seq
+
+
 APPROVE = {"verdict": "approve", "objections": [], "dispositions": []}
 REVISE = {"verdict": "revise",
           "objections": [{"severity": "blocking", "about": "attention",
@@ -132,16 +154,18 @@ def test_full_compile_with_scripted_llm(tmp_path):
 
 
 def test_review_objection_triggers_one_repair_round():
-    script = Script(one_round(REVISE, APPROVE) + one_round(APPROVE, APPROVE))
+    script = Script(one_round(REVISE, APPROVE) + repair_round(APPROVE, APPROVE))
     result = compile_scripted(script)
     assert result.status == "compiled"
     assert len(result.bundle["repair_rounds"]) == 1
     assert "unrealistic" in result.bundle["repair_rounds"][0][0]
     assert script.n == len(script.responses)
+    reused = [t for t in result.bundle["translations"] if t.get("reused")]
+    assert len(reused) >= 10          # the unchanged world came from cache
 
 
 def test_second_rejection_fails_with_reasons():
-    script = Script(one_round(REVISE, APPROVE) + one_round(REVISE, APPROVE))
+    script = Script(one_round(REVISE, APPROVE) + repair_round(REVISE, APPROVE))
     result = compile_scripted(script, max_repair_rounds=1)
     assert result.status == "failed"
     assert any("unrealistic" in r for r in result.report["reasons"])
