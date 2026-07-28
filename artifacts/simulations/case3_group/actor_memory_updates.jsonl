@@ -1,25 +1,21 @@
-{"actor":"ines","content":"I now plan to participate in the group chat discussion about the birthday dinner host.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"I'm unavailable to host, so I'll let the others decide.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I plan to avoid hosting if possible.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"ines","content":"I am curious about what Kwame said and will form an opinion after reading.","source":"actor_call:c18","t":"2026-10-06T08:10:00+00:00"}
-{"actor":"tomas","content":"I note that Kwame replied but I haven't read his message yet, and I'm hoping someone else will offer to host.","source":"actor_call:c35","t":"2026-10-06T10:45:00+00:00"}
-{"actor":"bea","content":"I need to check my night shift schedule for that weekend before committing to host.","source":"actor_call:c51","t":"2026-10-06T15:50:50+00:00"}
-{"actor":"bea","content":"I'm not sure yet if I can host because of my night shifts.","source":"actor_call:c53","t":"2026-10-06T16:10:50+00:00"}
-{"actor":"bea","content":"I need to know my schedule before I can commit.","source":"actor_call:c53","t":"2026-10-06T16:10:50+00:00"}
-{"actor":"ines","content":"I am now actively engaging in the birthday dinner planning","source":"actor_call:c55","t":"2026-10-06T16:10:50+00:00"}
-{"actor":"tomas","content":"I'm still avoiding hosting, and I'll delay responding to give others a chance to volunteer.","source":"actor_call:c58","t":"2026-10-06T16:10:50+00:00"}
-{"actor":"ines","content":"I'm holding off on additional input to give others a chance to reply.","source":"actor_call:c84","t":"2026-10-06T17:26:50+00:00"}
-{"actor":"tomas","content":"I note that Ines has messaged but I haven't read it yet.","source":"actor_call:c101","t":"2026-10-06T20:55:50+00:00"}
-{"actor":"tomas","content":"I now know Ines has shared her thoughts on hosting, but I haven't fully processed her suggestion yet.","source":"actor_call:c107","t":"2026-10-06T21:25:50+00:00"}
-{"actor":"tomas","content":"I'm still determined to avoid hosting and will delay my response.","source":"actor_call:c107","t":"2026-10-06T21:25:50+00:00"}
-{"actor":"kwame","content":"I'm curious to see what Ines suggested, but I still can't host.","source":"actor_call:c110","t":"2026-10-06T22:35:50+00:00"}
-{"actor":"ines","content":"I am feeling a bit impatient because I wanted to settle this before the weekend, and it's already Thursday morning.","source":"actor_call:c150","t":"2026-10-07T10:10:15+00:00"}
-{"actor":"ines","content":"I'm starting to feel a bit anxious about getting this settled before the weekend.","source":"actor_call:c166","t":"2026-10-07T15:30:15+00:00"}
-{"actor":"tomas","content":"I'm deliberately ignoring the new message to avoid committing to hosting.","source":"actor_call:c182","t":"2026-10-07T21:56:15+00:00"}
-{"actor":"ines","content":"I'm feeling a bit frustrated that no one else has responded since Kwame's reply.","source":"actor_call:c184","t":"2026-10-08T04:10:20+00:00"}
-{"actor":"ines","content":"I'm willing to host if it means we can get this settled.","source":"actor_call:c184","t":"2026-10-08T04:10:20+00:00"}
-{"actor":"kwame","content":"I notice Ines sent a reminder. I still can't host, so I'll wait for others to decide.","source":"actor_call:c196","t":"2026-10-08T07:10:50+00:00"}
-{"actor":"ines","content":"I am now checking the chat, hoping for a response.","source":"actor_call:c203","t":"2026-10-08T08:15:20+00:00"}
-{"actor":"bea","content":"I'm annoyed that I keep forgetting to check, but now I'm finally doing it.","source":"actor_call:c214","t":"2026-10-08T10:35:09+00:00"}
-{"actor":"tomas","content":"I need to see what everyone has said before deciding how to respond.","source":"actor_call:c229","t":"2026-10-09T08:30:20+00:00"}
-{"actor":"tomas","content":"I need to catch up on the conversation before I can decide my next move.","source":"actor_call:c236","t":"2026-10-10T05:50:25+00:00"}
+{"actor":"ines","content":"I am now aware that Ines is pushing to settle the host for the shared birthday dinner before the weekend.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I've clarified my unavailability and lack of strong preference regarding hosting.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I remember I have the biggest kitchen but also work nights, so hosting might be tiring.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I realize that even though I have the biggest kitchen, my night shifts make it impractical to host a dinner on that weekend.","source":"actor_call:c16","t":"2026-10-06T08:05:00+00:00"}
+{"actor":"bea","content":"I now know Kwame is also unavailable to host, so it's up to Ines or Finn.","source":"actor_call:c22","t":"2026-10-06T08:05:30+00:00"}
+{"actor":"ines","content":"I'm open to hosting but would rather not, so I'll leave it open for others.","source":"actor_call:c25","t":"2026-10-06T08:10:00+00:00"}
+{"actor":"ines","content":"Kwame and Bea are out, so it's down to me or someone else. I'll wait a bit longer before deciding.","source":"actor_call:c30","t":"2026-10-06T08:12:00+00:00"}
+{"actor":"ines","content":"I've committed to hosting the birthday dinner on Saturday.","source":"actor_call:c54","t":"2026-10-06T09:40:00+00:00"}
+{"actor":"tomas","content":"Ines is hosting the dinner on Saturday evening.","source":"actor_call:c61","t":"2026-10-06T10:55:00+00:00"}
+{"actor":"ines","content":"I need to plan the menu and maybe ask others for dietary preferences.","source":"actor_call:c63","t":"2026-10-06T11:00:00+00:00"}
+{"actor":"ines","content":"I need to coordinate with the others to make sure the menu works for everyone.","source":"actor_call:c70","t":"2026-10-06T13:40:00+00:00"}
+{"actor":"bea","content":"I now know Ines is hosting the dinner on Saturday evening.","source":"actor_call:c111","t":"2026-10-06T23:50:00+00:00"}
+{"actor":"ines","content":"I now know that Tomas and Bea have no dietary restrictions, so I can plan a simple menu.","source":"actor_call:c138","t":"2026-10-07T08:45:00+00:00"}
+{"actor":"ines","content":"I need to wait for Kwame's dietary preferences before I can finalize the menu.","source":"actor_call:c162","t":"2026-10-08T06:00:00+00:00"}
+{"actor":"ines","content":"I'm getting a bit impatient waiting for Kwame, but I understand he's away until Friday.","source":"actor_call:c163","t":"2026-10-08T06:10:00+00:00"}
+{"actor":"ines","content":"I'm now taking the initiative to prompt Kwame directly rather than just waiting.","source":"actor_call:c165","t":"2026-10-08T06:30:00+00:00"}
+{"actor":"ines","content":"I'm considering that if Kwame doesn't reply by Friday evening, I'll plan a menu assuming no restrictions, similar to Tomas and Bea.","source":"actor_call:c168","t":"2026-10-08T07:10:00+00:00"}
+{"actor":"ines","content":"I'm mentally preparing to host and want to be efficient with shopping, so I'll start the list now to avoid last-minute stress.","source":"actor_call:c172","t":"2026-10-08T08:30:00+00:00"}
+{"actor":"ines","content":"I'm feeling a bit anxious about getting the menu settled, but I'll stick to my plan of waiting until Friday evening to finalize if Kwame hasn't replied.","source":"actor_call:c181","t":"2026-10-08T11:10:00+00:00"}
+{"actor":"kwame","content":"I now know that Ines is hosting on Saturday evening, and I should respond to her dietary question.","source":"actor_call:c195","t":"2026-10-08T14:45:00+00:00"}

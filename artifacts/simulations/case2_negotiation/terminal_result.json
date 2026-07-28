@@ -5,22 +5,26 @@
   "answer": {
    "status": "YES",
    "supporting_event_ids": [
-    "e125"
+    "e56",
+    "e65",
+    "e110"
    ],
-   "explanation": "Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it."
+   "explanation": "Dmitri observed Priya's offer of 1150 (e56) and agreed by sending '1150 works' (e65), which Priya observed (e110), forming an agreement on price 1150."
   },
   "reason": "",
-  "steps": 20,
-  "world_calls": 20,
-  "actor_calls": 7,
-  "judge_calls": 17
+  "steps": 19,
+  "world_calls": 18,
+  "actor_calls": 10,
+  "judge_calls": 14
  },
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e125"
+   "e56",
+   "e65",
+   "e110"
   ],
-  "explanation": "Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it."
+  "explanation": "Dmitri observed Priya's offer of 1150 (e56) and agreed by sending '1150 works' (e65), which Priya observed (e110), forming an agreement on price 1150."
  },
  "reason": ""
 }

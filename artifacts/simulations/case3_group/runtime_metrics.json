@@ -1,42 +1,49 @@
 {
- "provider_calls": 240,
+ "provider_calls": 200,
  "by_role": {
   "judge": {
-   "calls": 73,
-   "retries": 1,
-   "wall_s": 116.62,
-   "input_tokens": 157399,
-   "output_tokens": 3872
+   "calls": 33,
+   "retries": 0,
+   "wall_s": 53.28,
+   "input_tokens": 48903,
+   "output_tokens": 1949
   },
   "world": {
-   "calls": 130,
+   "calls": 74,
    "retries": 0,
-   "wall_s": 276.38,
-   "input_tokens": 452726,
-   "output_tokens": 13893
+   "wall_s": 153.35,
+   "input_tokens": 242140,
+   "output_tokens": 8137
   },
   "actor": {
-   "calls": 37,
+   "calls": 93,
    "retries": 0,
-   "wall_s": 70.94,
-   "input_tokens": 41446,
-   "output_tokens": 2735
+   "wall_s": 144.85,
+   "input_tokens": 172014,
+   "output_tokens": 5135
   }
  },
- "total_input_tokens": 651571,
- "total_output_tokens": 20500,
- "total_wall_s": 464.01,
- "status": "cutoff",
+ "total_input_tokens": 463057,
+ "total_output_tokens": 15221,
+ "total_wall_s": 351.51,
+ "status": "resolved",
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and the committed events do not show that the four housemates collectively agreed on a host."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e159",
+   "e172",
+   "e294",
+   "e352",
+   "e514",
+   "e531"
+  ],
+  "explanation": "Ines offered to host on Saturday evening (e159), and all housemates (Tomas, Bea, Kwame) saw and acknowledged this, with Bea and Kwame explicitly thanking Ines for hosting, indicating collective agreement on Ines as host before the deadline."
  },
  "reason": "",
- "steps": 165,
- "world_calls": 130,
- "actor_calls": 37,
- "judge_calls": 72,
- "committed_events": 71,
- "ledger_records": 720
+ "steps": 111,
+ "world_calls": 74,
+ "actor_calls": 93,
+ "judge_calls": 33,
+ "committed_events": 33,
+ "ledger_records": 539
 }

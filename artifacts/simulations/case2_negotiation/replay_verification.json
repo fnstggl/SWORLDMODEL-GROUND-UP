@@ -1,39 +1,38 @@
 {
  "llm_calls": 0,
- "records_replayed": 128,
+ "records_replayed": 121,
  "event_ids": [
   "e11",
   "e25",
   "e30",
   "e33",
   "e38",
-  "e47",
-  "e57",
-  "e66",
-  "e71",
-  "e75",
-  "e80",
-  "e90",
-  "e94",
-  "e101",
+  "e52",
+  "e56",
+  "e65",
+  "e70",
+  "e87",
+  "e92",
+  "e95",
   "e106",
-  "e117",
-  "e125"
+  "e110"
  ],
- "event_order_hash": "[\"e11\",\"e25\",\"e30\",\"e33\",\"e38\",\"e47\",\"e57\",\"e66\",\"e71\",\"e75\",\"e80\",\"e90\",\"e94\",\"e101\",\"e106\",\"e117\",\"e125\"]",
- "state_hash": "38fd04bde7c8cde4fcb536c4585fb26739ca13cac989fce2367b7670727833bd",
+ "event_order_hash": "[\"e11\",\"e25\",\"e30\",\"e33\",\"e38\",\"e52\",\"e56\",\"e65\",\"e70\",\"e87\",\"e92\",\"e95\",\"e106\",\"e110\"]",
+ "state_hash": "d1284485a7993be4c09e3c0c2e20a81aa503da3c6afc3d277baca069558a767a",
  "terminal_status": "YES",
  "terminal_support": [
-  "e125"
+  "e56",
+  "e65",
+  "e110"
  ],
  "ledger_integrity": [],
  "checked": {
-  "records": 128,
-  "events": 17,
-  "observations": 7,
-  "terminal_checks": 17,
+  "records": 121,
+  "events": 14,
+  "observations": 9,
+  "terminal_checks": 14,
   "actors": 2,
-  "memories": 7
+  "memories": 5
  },
  "vacuous": false,
  "records_match": true,

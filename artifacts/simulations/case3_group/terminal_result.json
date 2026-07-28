@@ -1,22 +1,36 @@
 {
  "question": "Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.",
  "trajectory": {
-  "status": "cutoff",
+  "status": "resolved",
   "answer": {
-   "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [],
-   "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and the committed events do not show that the four housemates collectively agreed on a host."
+   "status": "YES",
+   "supporting_event_ids": [
+    "e159",
+    "e172",
+    "e294",
+    "e352",
+    "e514",
+    "e531"
+   ],
+   "explanation": "Ines offered to host on Saturday evening (e159), and all housemates (Tomas, Bea, Kwame) saw and acknowledged this, with Bea and Kwame explicitly thanking Ines for hosting, indicating collective agreement on Ines as host before the deadline."
   },
   "reason": "",
-  "steps": 165,
-  "world_calls": 130,
-  "actor_calls": 37,
-  "judge_calls": 72
+  "steps": 111,
+  "world_calls": 74,
+  "actor_calls": 93,
+  "judge_calls": 33
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and the committed events do not show that the four housemates collectively agreed on a host."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e159",
+   "e172",
+   "e294",
+   "e352",
+   "e514",
+   "e531"
+  ],
+  "explanation": "Ines offered to host on Saturday evening (e159), and all housemates (Tomas, Bea, Kwame) saw and acknowledged this, with Bea and Kwame explicitly thanking Ines for hosting, indicating collective agreement on Ines as host before the deadline."
  },
  "reason": ""
 }

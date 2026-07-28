@@ -1,7 +1,5 @@
-{"actor":"priya_raghavan","content":"I believe 1150 is a fair compromise and hope Dmitri will accept to avoid further delay.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now closer to an agreement; if he rejects 1050, I'll accept his 1100.","source":"actor_call:c15","t":"2026-09-08T10:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I note that Priya is eager to close, which might give me some leverage, but I'm still willing to settle around 1050-1100.","source":"actor_call:c18","t":"2026-09-08T10:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"Priya has moved to 1150, which is close to my acceptable range. I can try to get 1100, but I'm okay settling at 1050 if needed.","source":"actor_call:c26","t":"2026-09-08T10:00:02+00:00"}
-{"actor":"dmitri_sokolov","content":"I have decided to accept 1050, as it meets my bottom line and avoids further delay.","source":"actor_call:c36","t":"2026-09-08T10:05:05+00:00"}
-{"actor":"dmitri_sokolov","content":"I've decided to accept 1050, so the negotiation is effectively over.","source":"actor_call:c40","t":"2026-09-08T10:05:30+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go up to 1150 as a reasonable compromise, but I won't go higher than that.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm willing to negotiate down from 1400 but not below 1000.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I have accepted Priya's offer of 1150.","source":"actor_call:c20","t":"2026-09-08T10:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I've decided to accept 1200 even though it's slightly above my target, because finding another kiln before the 20th is too risky.","source":"actor_call:c29","t":"2026-09-08T10:30:00+00:00"}
+{"actor":"priya_raghavan","content":"I no longer need to accept 1200 since Dmitri agreed to 1150.","source":"actor_call:c40","t":"2026-09-08T10:37:00+00:00"}

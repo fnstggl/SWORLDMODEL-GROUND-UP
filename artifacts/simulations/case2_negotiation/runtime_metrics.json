@@ -1,44 +1,46 @@
 {
- "provider_calls": 44,
+ "provider_calls": 42,
  "by_role": {
   "judge": {
-   "calls": 17,
+   "calls": 14,
    "retries": 0,
-   "wall_s": 29.57,
-   "input_tokens": 15978,
-   "output_tokens": 1049
+   "wall_s": 23.56,
+   "input_tokens": 13476,
+   "output_tokens": 887
   },
   "world": {
-   "calls": 20,
+   "calls": 18,
    "retries": 0,
-   "wall_s": 45.58,
-   "input_tokens": 45028,
-   "output_tokens": 2539
+   "wall_s": 41.17,
+   "input_tokens": 45005,
+   "output_tokens": 2581
   },
   "actor": {
-   "calls": 7,
+   "calls": 10,
    "retries": 0,
-   "wall_s": 15.5,
-   "input_tokens": 6597,
-   "output_tokens": 764
+   "wall_s": 18.32,
+   "input_tokens": 10774,
+   "output_tokens": 779
   }
  },
- "total_input_tokens": 67603,
- "total_output_tokens": 4352,
- "total_wall_s": 90.61,
+ "total_input_tokens": 69255,
+ "total_output_tokens": 4247,
+ "total_wall_s": 83.05,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e125"
+   "e56",
+   "e65",
+   "e110"
   ],
-  "explanation": "Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it."
+  "explanation": "Dmitri observed Priya's offer of 1150 (e56) and agreed by sending '1150 works' (e65), which Priya observed (e110), forming an agreement on price 1150."
  },
  "reason": "",
- "steps": 20,
- "world_calls": 20,
- "actor_calls": 7,
- "judge_calls": 17,
- "committed_events": 17,
- "ledger_records": 128
+ "steps": 19,
+ "world_calls": 18,
+ "actor_calls": 10,
+ "judge_calls": 14,
+ "committed_events": 14,
+ "ledger_records": 121
 }

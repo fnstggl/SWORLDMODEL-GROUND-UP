@@ -2,16 +2,16 @@
 **Question:** Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.
 **Result:** resolved — YES
 
-*terminal check at 2026-09-08T09:00:00+00:00: UNRESOLVED — No committed event shows an agreement on price before the deadline; the current time is before the cutoff.*
+*terminal check at 2026-09-08T09:00:00+00:00: UNRESOLVED — The committed events show only that Priya and Dmitri are aware of each other's initial positions, but no agreement on a price has been reached yet, and the deadline has not passed.*
 
 **World judgment** (starting_event) at 2026-09-08T09:00:00+00:00
 
 > trigger: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
 >
-> Both parties are aware of the initial offers and the gap is 500. No further action has been taken yet; they are likely considering their next move.
+> Both parties know the initial offers. No new information or action has been introduced. The situation is static.
 - proposes: (no concrete event yet)
-- wake priya_raghavan after 1 hour: Priya may decide whether to make a new offer or wait for Dmitri's response.
-- wake dmitri_sokolov after 1 hour: Dmitri may decide whether to counter or hold firm.
+- wake priya_raghavan after 1 hour: Priya may decide whether to make a new offer or wait.
+- wake dmitri_sokolov after 1 hour: Dmitri may decide whether to counter or wait.
 
 <details><summary>what priya_raghavan could see at 2026-09-08T09:00:00+00:00 (their entire prompt)</summary>
 
@@ -29,6 +29,9 @@ Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priy
 WHAT YOU HAVE OBSERVED
 - 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
 
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- (you have not done anything yet)
+
 YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
 - (none yet)
 
@@ -40,17 +43,16 @@ WHY YOU ARE CONSIDERING THINGS NOW
 
 **priya_raghavan decides** at 2026-09-08T09:00:00+00:00
 
-> I'll send a message to Dmitri to try to move the negotiation forward, offering to split the difference at 1150.
-- attempts: Send Dmitri a message proposing to meet halfway at 1150, emphasizing the deadline and my need to close soon.
-- privately: I believe 1150 is a fair compromise and hope Dmitri will accept to avoid further delay.
+> I need to move towards a compromise. I'll propose meeting in the middle at 1150 to show flexibility and avoid losing the deal.
+- attempts: Send Dmitri a message: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- privately: I'm willing to go up to 1150 as a reasonable compromise, but I won't go higher than that.
 
 **World judgment** (actor_intention) at 2026-09-08T09:00:00+00:00
 
-> trigger: priya_raghavan attempts: Send Dmitri a message proposing to meet halfway at 1150, emphasizing the deadline and my need to close soon.
+> trigger: priya_raghavan attempts: Send Dmitri a message: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
 >
-> Priya has typed and sent a message to Dmitri via their usual communication channel. The message is now in transit.
-- proposes: Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon. (for ['dmitri_sokolov'], observed=False, after 2 seconds)
-- wake dmitri_sokolov after 30 minutes: Dmitri may check his messages after some time; revisit to see if he has noticed the message.
+> Priya sends a text message to Dmitri's phone with her counteroffer of 1150 and her deadline reason.
+- proposes: Priya sends a text message to Dmitri: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.' (for ['dmitri_sokolov'], observed=False, after now)
 
 <details><summary>what dmitri_sokolov could see at 2026-09-08T09:00:00+00:00 (their entire prompt)</summary>
 
@@ -68,6 +70,9 @@ Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priy
 WHAT YOU HAVE OBSERVED
 - 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
 
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- (you have not done anything yet)
+
 YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
 - (none yet)
 
@@ -79,107 +84,89 @@ WHY YOU ARE CONSIDERING THINGS NOW
 
 **dmitri_sokolov decides** at 2026-09-08T09:00:00+00:00
 
-> I need to respond to Priya's offer of 900. I'm asking 1400 but I'd rather close than keep looking, so I'll counter with a lower price to move things along.
-- attempts: I will message Priya and counter-offer at 1100, hoping to meet somewhere in the middle.
-- privately: I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.
+> I want to sell the kiln and avoid more hassle, so I'll counteroffer at 1200 to move toward a deal.
+- attempts: I send a message to Priya offering the kiln for 1200.
+- privately: I'm willing to negotiate down from 1400 but not below 1000.
 
 **World judgment** (actor_intention) at 2026-09-08T09:00:00+00:00
 
-> trigger: dmitri_sokolov attempts: I will message Priya and counter-offer at 1100, hoping to meet somewhere in the middle.
+> trigger: dmitri_sokolov attempts: I send a message to Priya offering the kiln for 1200.
 >
-> Dmitri is composing a message to Priya with a counter-offer of 1100. The message is ready to be sent.
-- proposes: Dmitri sends a message to Priya offering the kiln for 1100. (for ['priya_raghavan'], observed=False, after now)
+> Dmitri sends a message to Priya with a counteroffer of 1200. The message is transmitted electronically and will arrive at Priya's device.
+- proposes: Dmitri sends a message to Priya: 'I can lower the price to 1200.' (for ['priya_raghavan'], observed=False, after 2 seconds)
+- wake priya_raghavan after 2 seconds: to check if the message has been noticed
 
 ---
 
 ## 2026-09-08T09:00:00+00:00 — committed event `e25`
 
-Dmitri sends a message to Priya offering the kiln for 1100.
-
-- available to: priya_raghavan
-- AVAILABLE but NOT observed
-- source: world_call:c6
-
-**World judgment** (event_consequence) at 2026-09-08T09:00:00+00:00
-
-> trigger: Dmitri sends a message to Priya offering the kiln for 1100.
->
-> The message has been sent and is now in transit. Priya has not yet seen it.
-- proposes: Dmitri's message offering the kiln for 1100 arrives in Priya's inbox. (for ['priya_raghavan'], observed=False, after now)
-
-*terminal check at 2026-09-08T09:00:00+00:00: UNRESOLVED — No agreement has been reached yet; the deadline (2026-09-20) has not passed.*
-
----
-
-## 2026-09-08T09:00:00+00:00 — committed event `e30`
-
-Dmitri's message offering the kiln for 1100 arrives in Priya's inbox.
-
-- available to: priya_raghavan
-- AVAILABLE but NOT observed
-- source: world_call:c7
-
-*terminal check at 2026-09-08T09:00:00+00:00: UNRESOLVED — No agreement has been reached yet; the deadline is 2026-09-20T00:00:00+01:00, which has not passed.*
-
----
-
-## 2026-09-08T09:00:02+00:00 — committed event `e33`
-
-Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon.
+Priya sends a text message to Dmitri: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
 
 - available to: dmitri_sokolov
 - AVAILABLE but NOT observed
 - source: world_call:c4
 
+**World judgment** (event_consequence) at 2026-09-08T09:00:00+00:00
+
+> trigger: Priya sends a text message to Dmitri: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+>
+> The text message has been sent and is now available on Dmitri's phone, but he has not yet seen it. He may be busy or not checking his phone at this moment.
+- proposes: Priya's text message arrives on Dmitri's phone, waiting to be noticed. (for ['dmitri_sokolov'], observed=False, after now)
+- wake dmitri_sokolov after 30 minutes: Check if Dmitri has noticed the text message.
+
+*terminal check at 2026-09-08T09:00:00+00:00: UNRESOLVED — No agreement has been reached yet; the deadline is 2026-09-20T00:00:00+01:00 and the current time is before that.*
+
+---
+
+## 2026-09-08T09:00:00+00:00 — committed event `e30`
+
+Priya's text message arrives on Dmitri's phone, waiting to be noticed.
+
+- available to: dmitri_sokolov
+- AVAILABLE but NOT observed
+- source: world_call:c7
+
+*terminal check at 2026-09-08T09:00:00+00:00: UNRESOLVED — No agreement has been reached; Priya's text message has not been observed by Dmitri, and the deadline has not passed.*
+
+---
+
+## 2026-09-08T09:00:02+00:00 — committed event `e33`
+
+Dmitri sends a message to Priya: 'I can lower the price to 1200.'
+
+- available to: priya_raghavan
+- AVAILABLE but NOT observed
+- source: world_call:c6
+
 **World judgment** (event_consequence) at 2026-09-08T09:00:02+00:00
 
-> trigger: Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon.
+> trigger: Dmitri sends a message to Priya: 'I can lower the price to 1200.'
 >
-> Dmitri's phone is in his pocket, but he is currently in the middle of unloading a delivery truck and won't check it for a few minutes.
-- proposes: Priya's email arrives in Dmitri's inbox on his phone. (for ['dmitri_sokolov'], observed=False, after now)
-- wake dmitri_sokolov after 5 minutes: Dmitri might finish unloading and check his phone.
+> The message from Dmitri has been sent and is now en route to Priya's phone. It will arrive shortly, but Priya has not yet seen it.
+- proposes: Dmitri's message 'I can lower the price to 1200.' arrives on Priya's phone, waiting to be noticed. (for ['priya_raghavan'], observed=False, after now)
+- wake priya_raghavan after 5 minutes: Priya may soon check her phone and notice the message.
 
-*terminal check at 2026-09-08T09:00:02+00:00: UNRESOLVED — No event shows that Priya and Dmitri have agreed on a price; the messages have been sent but not observed, and no acceptance has occurred.*
+*terminal check at 2026-09-08T09:00:02+00:00: UNRESOLVED — No agreement has been reached yet; the deadline of 2026-09-20T00:00:00+01:00 has not passed.*
 
 ---
 
 ## 2026-09-08T09:00:02+00:00 — committed event `e38`
 
-Priya's email arrives in Dmitri's inbox on his phone.
+Dmitri's message 'I can lower the price to 1200.' arrives on Priya's phone, waiting to be noticed.
 
-- available to: dmitri_sokolov
+- available to: priya_raghavan
 - AVAILABLE but NOT observed
 - source: world_call:c10
 
-*terminal check at 2026-09-08T09:00:02+00:00: UNRESOLVED — No event shows that Priya and Dmitri have agreed on a price for the kiln; all offers have been sent but not observed, and the deadline has not passed.*
+*terminal check at 2026-09-08T09:00:02+00:00: UNRESOLVED — No agreement has been reached yet; the messages have been sent but neither party has observed the other's response.*
 
 **World judgment** (pending_progression) at 2026-09-08T10:00:00+00:00
 
-> trigger: The items listed above are available to priya_raghavan but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Priya may decide whether to make a new offer or wait for Dmitri's response.)
+> trigger: The items listed above are available to priya_raghavan but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Priya may decide whether to make a new offer or wait.)
 >
-> Priya is at her workshop, likely checking her phone periodically. It's been an hour since the message arrived; she may soon glance at her inbox.
-- proposes: Priya notices Dmitri's message offering the kiln for 1100 in her inbox. (for ['priya_raghavan'], observed=True, after now)
-
-**World judgment** (pending_progression) at 2026-09-08T10:00:00+00:00
-
-> trigger: The items listed above are available to dmitri_sokolov but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Dmitri may decide whether to counter or hold firm.)
->
-> Dmitri is likely checking his phone periodically. It is now 10:00, an hour after the email arrived. He may have other commitments but the email is unread.
-- proposes: Dmitri notices the email from Priya in his inbox. (for ['dmitri_sokolov'], observed=True, after now)
-
----
-
-## 2026-09-08T10:00:00+00:00 — committed event `e47`
-
-Priya notices Dmitri's message offering the kiln for 1100 in her inbox.
-
-- available to: priya_raghavan
-- OBSERVED by them
-- source: world_call:c13
-
-*`e25` is now observed by priya_raghavan (attention arrived via `e47`)*
-
-*`e30` is now observed by priya_raghavan (attention arrived via `e47`)*
+> Priya is currently not looking at her phone; she is occupied with other tasks. The message from Dmitri remains unread on her phone.
+- proposes: (no concrete event yet)
+- wake priya_raghavan after 30 minutes: Priya may check her phone after finishing her current activity.
 
 <details><summary>what priya_raghavan could see at 2026-09-08T10:00:00+00:00 (their entire prompt)</summary>
 
@@ -196,48 +183,39 @@ Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priy
 
 WHAT YOU HAVE OBSERVED
 - 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
-- 2026-09-08T09:00:00+00:00: Dmitri sends a message to Priya offering the kiln for 1100.
-- 2026-09-08T09:00:00+00:00: Dmitri's message offering the kiln for 1100 arrives in Priya's inbox.
-- 2026-09-08T10:00:00+00:00: Priya notices Dmitri's message offering the kiln for 1100 in her inbox.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I need to move towards a compromise. I'll propose meeting in the middle at 1150 to show flexibility and avoid losing the deal. -> you attempted: Send Dmitri a message: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
 
 YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
-- I believe 1150 is a fair compromise and hope Dmitri will accept to avoid further delay.
+- I'm willing to go up to 1150 as a reasonable compromise, but I won't go higher than that.
 
 WHY YOU ARE CONSIDERING THINGS NOW
-- you observed: Priya notices Dmitri's message offering the kiln for 1100 in her inbox.
+- time has passed and you are looking at your situation again
 ```
 
 </details>
 
 **priya_raghavan decides** at 2026-09-08T10:00:00+00:00
 
-> Dmitri came down to 1100, which is close to my target of 1150. I'll counter with 1050 to try to save a bit more, but I'm prepared to accept 1100.
-- attempts: Reply to Dmitri: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
-- privately: I'm now closer to an agreement; if he rejects 1050, I'll accept his 1100.
+> I proposed 1150 and am waiting for Dmitri's response. I will stick to my max of 1150.
+- attempts: Wait for Dmitri's reply to my 1150 offer.
 
 **World judgment** (actor_intention) at 2026-09-08T10:00:00+00:00
 
-> trigger: priya_raghavan attempts: Reply to Dmitri: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
+> trigger: priya_raghavan attempts: Wait for Dmitri's reply to my 1150 offer.
 >
-> Priya is at her computer and can send the reply immediately.
-- proposes: Priya sends an email to Dmitri: 'Thanks for coming down. I can do 1050, let's meet in the middle.' (for ['dmitri_sokolov'], observed=False, after now)
-- wake dmitri_sokolov after 5 minutes: Dmitri may check his phone or email soon, but not necessarily immediately.
+> Priya has a message from Dmitri on her phone that she hasn't seen yet. She is waiting for a reply, but the reply is already there. She will eventually check her phone.
+- proposes: Priya notices Dmitri's message on her phone: 'I can lower the price to 1200.' (for ['priya_raghavan'], observed=True, after now)
 
-*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — No committed event shows both Priya and Dmitri agreeing on a price; e33 reaches Dmitri but is not observed, so no agreement has occurred.*
+**World judgment** (pending_progression) at 2026-09-08T10:00:00+00:00
 
----
-
-## 2026-09-08T10:00:00+00:00 — committed event `e57`
-
-Dmitri notices the email from Priya in his inbox.
-
-- available to: dmitri_sokolov
-- OBSERVED by them
-- source: world_call:c14
-
-*`e33` is now observed by dmitri_sokolov (attention arrived via `e57`)*
-
-*`e38` is now observed by dmitri_sokolov (attention arrived via `e57`)*
+> trigger: The items listed above are available to dmitri_sokolov but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Dmitri may decide whether to counter or wait.)
+>
+> Dmitri is free and likely to check his phone soon, as he is waiting for Priya's response. The message has been sitting for about an hour.
+- proposes: Dmitri picks up his phone and notices Priya's text message offering 1150. (for ['dmitri_sokolov'], observed=True, after now)
+- wake priya_raghavan after 1 hour: Dmitri may respond to Priya's message, and Priya's phone might receive a notification.
+- wake dmitri_sokolov after 10 minutes: Dmitri will likely decide whether to respond or counter.
 
 <details><summary>what dmitri_sokolov could see at 2026-09-08T10:00:00+00:00 (their entire prompt)</summary>
 
@@ -254,102 +232,61 @@ Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priy
 
 WHAT YOU HAVE OBSERVED
 - 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
-- 2026-09-08T09:00:02+00:00: Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon.
-- 2026-09-08T09:00:02+00:00: Priya's email arrives in Dmitri's inbox on his phone.
-- 2026-09-08T10:00:00+00:00: Dmitri notices the email from Priya in his inbox.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I want to sell the kiln and avoid more hassle, so I'll counteroffer at 1200 to move toward a deal. -> you attempted: I send a message to Priya offering the kiln for 1200.
 
 YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
-- I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.
+- I'm willing to negotiate down from 1400 but not below 1000.
 
 WHY YOU ARE CONSIDERING THINGS NOW
-- you observed: Dmitri notices the email from Priya in his inbox.
+- time has passed and you are looking at your situation again
 ```
 
 </details>
 
 **dmitri_sokolov decides** at 2026-09-08T10:00:00+00:00
 
-> I consider Priya's proposal to meet at 1150, but I think I can get a better deal by countering with 1100, which is my planned first concession.
-- attempts: I reply to Priya's email, saying I can come down to 1100 but not to 1150, and ask if she can accept that.
-- privately: I note that Priya is eager to close, which might give me some leverage, but I'm still willing to settle around 1050-1100.
-
-**World judgment** (actor_intention) at 2026-09-08T10:00:00+00:00
-
-> trigger: dmitri_sokolov attempts: I reply to Priya's email, saying I can come down to 1100 but not to 1150, and ask if she can accept that.
->
-> Dmitri has just noticed Priya's email and is now composing a reply. He will send his counteroffer of 1100.
-- proposes: Dmitri sends an email to Priya stating he can come down to 1100 but not to 1150, asking if she can accept that. (for ['priya_raghavan'], observed=False, after now)
-
-*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln; they have only exchanged offers and counteroffers.*
+> I'll wait for Priya's response to my counteroffer of 1200 before making any new move.
 
 ---
 
-## 2026-09-08T10:00:00+00:00 — committed event `e66`
+## 2026-09-08T10:00:00+00:00 — committed event `e52`
 
-Priya sends an email to Dmitri: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
+Priya notices Dmitri's message on her phone: 'I can lower the price to 1200.'
 
-- available to: dmitri_sokolov
-- AVAILABLE but NOT observed
-- source: world_call:c16
+- available to: priya_raghavan
+- OBSERVED by them
+- source: world_call:c15
 
 **World judgment** (event_consequence) at 2026-09-08T10:00:00+00:00
 
-> trigger: Priya sends an email to Dmitri: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
+> trigger: Priya notices Dmitri's message on her phone: 'I can lower the price to 1200.'
 >
-> The email has been sent but has not yet reached Dmitri's inbox. It will arrive shortly.
-- proposes: Priya's email arrives in Dmitri's inbox. (for ['dmitri_sokolov'], observed=False, after 2 seconds)
-- wake dmitri_sokolov after 5 minutes: Dmitri may check his email soon; revisit to see if he notices the new message.
+> Priya has just read Dmitri's counteroffer of 1200. She is now aware of his willingness to come down from 1400, but this is still above her initial offer of 900. She needs to decide how to respond.
+- proposes: (no concrete event yet)
 
-*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — No committed event shows a mutual agreement on a price; only offers and counteroffers have occurred, and the deadline has not passed.*
-
----
-
-## 2026-09-08T10:00:00+00:00 — committed event `e71`
-
-Dmitri sends an email to Priya stating he can come down to 1100 but not to 1150, asking if she can accept that.
-
-- available to: priya_raghavan
-- AVAILABLE but NOT observed
-- source: world_call:c19
-
-*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — No committed event shows an agreement on a price between Priya and Dmitri; only offers and counteroffers have been exchanged.*
+*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — No agreement has been reached yet; Priya has only seen Dmitri's counteroffer of 1200, and Dmitri has not seen Priya's counteroffer of 1150, so both have not agreed on a price.*
 
 ---
 
-## 2026-09-08T10:00:02+00:00 — committed event `e75`
+## 2026-09-08T10:00:00+00:00 — committed event `e56`
 
-Priya's email arrives in Dmitri's inbox.
-
-- available to: dmitri_sokolov
-- AVAILABLE but NOT observed
-- source: world_call:c21
-
-**World judgment** (event_consequence) at 2026-09-08T10:00:02+00:00
-
-> trigger: Priya's email arrives in Dmitri's inbox.
->
-> Dmitri's phone buzzes with a new email notification. He is currently holding his phone after having just checked his inbox a moment ago, so the notification appears on the screen. He is still in the same context, looking at his phone.
-- proposes: Dmitri sees the notification of a new email from Priya on his phone screen. (for ['dmitri_sokolov'], observed=True, after now)
-
-*terminal check at 2026-09-08T10:00:02+00:00: UNRESOLVED — No committed event shows that Priya and Dmitri have agreed on a price; the latest offers (e66 and e71) were not observed by the other party, and no acceptance has occurred.*
-
----
-
-## 2026-09-08T10:00:02+00:00 — committed event `e80`
-
-Dmitri sees the notification of a new email from Priya on his phone screen.
+Dmitri picks up his phone and notices Priya's text message offering 1150.
 
 - available to: dmitri_sokolov
 - OBSERVED by them
-- source: world_call:c24
+- source: world_call:c16
 
-*`e75` is now observed by dmitri_sokolov (attention arrived via `e80`)*
+*`e25` is now observed by dmitri_sokolov (attention arrived via `e56`)*
 
-<details><summary>what dmitri_sokolov could see at 2026-09-08T10:00:02+00:00 (their entire prompt)</summary>
+*`e30` is now observed by dmitri_sokolov (attention arrived via `e56`)*
+
+<details><summary>what dmitri_sokolov could see at 2026-09-08T10:00:00+00:00 (their entire prompt)</summary>
 
 ```
 CURRENT TIME
-2026-09-08T10:00:02+00:00
+2026-09-08T10:00:00+00:00
 
 WHO YOU ARE
 Dmitri Sokolov (your identity in this situation: dmitri_sokolov)
@@ -360,256 +297,390 @@ Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priy
 
 WHAT YOU HAVE OBSERVED
 - 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
-- 2026-09-08T09:00:02+00:00: Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon.
-- 2026-09-08T09:00:02+00:00: Priya's email arrives in Dmitri's inbox on his phone.
-- 2026-09-08T10:00:00+00:00: Dmitri notices the email from Priya in his inbox.
-- 2026-09-08T10:00:02+00:00: Priya's email arrives in Dmitri's inbox.
-- 2026-09-08T10:00:02+00:00: Dmitri sees the notification of a new email from Priya on his phone screen.
+- 2026-09-08T09:00:00+00:00: Priya sends a text message to Dmitri: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- 2026-09-08T09:00:00+00:00: Priya's text message arrives on Dmitri's phone, waiting to be noticed.
+- 2026-09-08T10:00:00+00:00: Dmitri picks up his phone and notices Priya's text message offering 1150.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I want to sell the kiln and avoid more hassle, so I'll counteroffer at 1200 to move toward a deal. -> you attempted: I send a message to Priya offering the kiln for 1200.
+- 2026-09-08T10:00:00+00:00: I'll wait for Priya's response to my counteroffer of 1200 before making any new move. -> you attempted: nothing
 
 YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
-- I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.
-- I note that Priya is eager to close, which might give me some leverage, but I'm still willing to settle around 1050-1100.
+- I'm willing to negotiate down from 1400 but not below 1000.
 
 WHY YOU ARE CONSIDERING THINGS NOW
-- you observed: Dmitri sees the notification of a new email from Priya on his phone screen.
+- you observed: Dmitri picks up his phone and notices Priya's text message offering 1150.
 ```
 
 </details>
 
-**dmitri_sokolov decides** at 2026-09-08T10:00:02+00:00
+**dmitri_sokolov decides** at 2026-09-08T10:00:00+00:00
 
-> I'll read Priya's email proposing 1150, but I want to counter with 1100 to see if she'll accept a bit lower.
-- attempts: Open the email from Priya and read it fully.
-- attempts: Reply to Priya, proposing a price of 1100 as a counteroffer, noting the deadline but not revealing my bottom line.
-- privately: Priya has moved to 1150, which is close to my acceptable range. I can try to get 1100, but I'm okay settling at 1050 if needed.
+> Priya already responded to my 1200 counteroffer with 1150, so we are close. I'll accept 1150 to close the deal.
+- attempts: I reply to Priya: '1150 works. Let's arrange pickup before the 20th.'
+- privately: I have accepted Priya's offer of 1150.
 
-**World judgment** (actor_intention) at 2026-09-08T10:00:02+00:00
+**World judgment** (actor_intention) at 2026-09-08T10:00:00+00:00
 
-> trigger: dmitri_sokolov attempts: Open the email from Priya and read it fully.
+> trigger: dmitri_sokolov attempts: I reply to Priya: '1150 works. Let's arrange pickup before the 20th.'
 >
-> Dmitri has just seen a notification of a new email from Priya on his phone screen. He taps on the notification to open the email.
-- proposes: Dmitri opens the email from Priya and reads its content: 'Thanks for coming down. I can do 1050, let's meet in the middle.' (for ['dmitri_sokolov'], observed=True, after now)
+> Dmitri has just read Priya's offer of 1150 and decides to reply. He types and sends a message.
+- proposes: Dmitri sends a message to Priya: '1150 works. Let's arrange pickup before the 20th.' (for ['priya_raghavan'], observed=False, after now)
 
-**World judgment** (actor_intention) at 2026-09-08T10:00:02+00:00
-
-> trigger: dmitri_sokolov attempts: Reply to Priya, proposing a price of 1100 as a counteroffer, noting the deadline but not revealing my bottom line.
->
-> Dmitri has just seen the notification of a new email from Priya and is now composing a reply. He is typing his response on his phone.
-- proposes: Dmitri sends an email to Priya: 'I can do 1100, that's my final offer. Let me know soon given your deadline.' (for ['priya_raghavan'], observed=False, after now)
-- wake priya_raghavan after 5 seconds: The email has been sent and should arrive in Priya's inbox shortly.
-
-*terminal check at 2026-09-08T10:00:02+00:00: UNRESOLVED — No committed event shows Priya and Dmitri have agreed on a price for the used kiln; the latest offers (e66: Priya offers 1050, e71: Dmitri offers 1100) have not been observed or accepted by the other party, and the deadline has not passed.*
+*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — Priya offered 1150 and Dmitri offered 1200, but they have not agreed on a single price; no event shows both accepting the same price.*
 
 ---
 
-## 2026-09-08T10:00:02+00:00 — committed event `e90`
+## 2026-09-08T10:00:00+00:00 — committed event `e65`
 
-Dmitri opens the email from Priya and reads its content: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
+Dmitri sends a message to Priya: '1150 works. Let's arrange pickup before the 20th.'
 
-- available to: dmitri_sokolov
-- OBSERVED by them
-- source: world_call:c27
+- available to: priya_raghavan
+- AVAILABLE but NOT observed
+- source: world_call:c21
 
-**World judgment** (event_consequence) at 2026-09-08T10:00:02+00:00
+**World judgment** (event_consequence) at 2026-09-08T10:00:00+00:00
 
-> trigger: Dmitri opens the email from Priya and reads its content: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
+> trigger: Dmitri sends a message to Priya: '1150 works. Let's arrange pickup before the 20th.'
 >
-> Dmitri has just read Priya's email offering 1050. He is currently looking at his phone, aware of the offer. No further action has been taken yet.
-- proposes: (no concrete event yet)
+> Priya has just noticed Dmitri's earlier message offering 1200. Dmitri's new message accepting 1150 is now on its way to her phone but has not yet arrived.
+- proposes: Dmitri's message '1150 works. Let's arrange pickup before the 20th.' arrives on Priya's phone, waiting to be noticed. (for ['priya_raghavan'], observed=False, after 2 seconds)
+- wake priya_raghavan after 5 minutes: Priya may notice the new message after some time, given she just saw the previous one.
 
-*terminal check at 2026-09-08T10:00:02+00:00: UNRESOLVED — No committed event shows that Priya and Dmitri have agreed on a price for the kiln; the deadline is 2026-09-20, so it is not yet due.*
+*terminal check at 2026-09-08T10:00:00+00:00: UNRESOLVED — The deadline (2026-09-20T00:00:00+01:00) has not passed, and no committed event shows both Priya and Dmitri observing a mutual agreement on a price.*
 
 ---
 
-## 2026-09-08T10:00:02+00:00 — committed event `e94`
+## 2026-09-08T10:00:02+00:00 — committed event `e70`
 
-Dmitri sends an email to Priya: 'I can do 1100, that's my final offer. Let me know soon given your deadline.'
+Dmitri's message '1150 works. Let's arrange pickup before the 20th.' arrives on Priya's phone, waiting to be noticed.
+
+- available to: priya_raghavan
+- AVAILABLE but NOT observed
+- source: world_call:c23
+
+*terminal check at 2026-09-08T10:00:02+00:00: UNRESOLVED — Dmitri's acceptance at 1150 has been sent but not yet observed by Priya, so no mutual agreement has been committed.*
+
+<details><summary>what dmitri_sokolov could see at 2026-09-08T10:10:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-09-08T10:10:00+00:00
+
+WHO YOU ARE
+Dmitri Sokolov (your identity in this situation: dmitri_sokolov)
+Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900.
+
+SHARED CONTEXT
+Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
+
+WHAT YOU HAVE OBSERVED
+- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
+- 2026-09-08T09:00:00+00:00: Priya sends a text message to Dmitri: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- 2026-09-08T09:00:00+00:00: Priya's text message arrives on Dmitri's phone, waiting to be noticed.
+- 2026-09-08T10:00:00+00:00: Dmitri picks up his phone and notices Priya's text message offering 1150.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I want to sell the kiln and avoid more hassle, so I'll counteroffer at 1200 to move toward a deal. -> you attempted: I send a message to Priya offering the kiln for 1200.
+- 2026-09-08T10:00:00+00:00: I'll wait for Priya's response to my counteroffer of 1200 before making any new move. -> you attempted: nothing
+- 2026-09-08T10:00:00+00:00: Priya already responded to my 1200 counteroffer with 1150, so we are close. I'll accept 1150 to close the deal. -> you attempted: I reply to Priya: '1150 works. Let's arrange pickup before the 20th.'
+
+YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
+- I'm willing to negotiate down from 1400 but not below 1000.
+- I have accepted Priya's offer of 1150.
+
+WHY YOU ARE CONSIDERING THINGS NOW
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**dmitri_sokolov decides** at 2026-09-08T10:10:00+00:00
+
+> I already accepted Priya's offer of 1150, so I will wait for her to arrange pickup.
+
+<details><summary>what dmitri_sokolov could see at 2026-09-08T10:20:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-09-08T10:20:00+00:00
+
+WHO YOU ARE
+Dmitri Sokolov (your identity in this situation: dmitri_sokolov)
+Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900.
+
+SHARED CONTEXT
+Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
+
+WHAT YOU HAVE OBSERVED
+- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
+- 2026-09-08T09:00:00+00:00: Priya sends a text message to Dmitri: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- 2026-09-08T09:00:00+00:00: Priya's text message arrives on Dmitri's phone, waiting to be noticed.
+- 2026-09-08T10:00:00+00:00: Dmitri picks up his phone and notices Priya's text message offering 1150.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I want to sell the kiln and avoid more hassle, so I'll counteroffer at 1200 to move toward a deal. -> you attempted: I send a message to Priya offering the kiln for 1200.
+- 2026-09-08T10:00:00+00:00: I'll wait for Priya's response to my counteroffer of 1200 before making any new move. -> you attempted: nothing
+- 2026-09-08T10:00:00+00:00: Priya already responded to my 1200 counteroffer with 1150, so we are close. I'll accept 1150 to close the deal. -> you attempted: I reply to Priya: '1150 works. Let's arrange pickup before the 20th.'
+- 2026-09-08T10:10:00+00:00: I already accepted Priya's offer of 1150, so I will wait for her to arrange pickup. -> you attempted: nothing
+
+YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
+- I'm willing to negotiate down from 1400 but not below 1000.
+- I have accepted Priya's offer of 1150.
+
+WHY YOU ARE CONSIDERING THINGS NOW
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**dmitri_sokolov decides** at 2026-09-08T10:20:00+00:00
+
+> I already accepted 1150, so I'll wait for Priya to arrange pickup. Nothing new to do.
+
+**World judgment** (pending_progression) at 2026-09-08T10:30:00+00:00
+
+> trigger: The items listed above are available to priya_raghavan but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Priya may check her phone after finishing her current activity.)
+>
+> Priya has just noticed Dmitri's earlier message and might check her phone again soon, but she is likely still processing that message or engaged in other activity. The new message from Dmitri agreeing to 1150 has arrived on her phone but she hasn't looked at it yet.
+- proposes: Priya's phone receives Dmitri's message '1150 works. Let's arrange pickup before the 20th.' It is now on her lock screen, waiting to be noticed. (for ['priya_raghavan'], observed=False, after 0 seconds)
+- wake priya_raghavan after 5 minutes: Priya may check her phone after a brief pause following her last notification.
+
+<details><summary>what priya_raghavan could see at 2026-09-08T10:30:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-09-08T10:30:00+00:00
+
+WHO YOU ARE
+Priya Raghavan (your identity in this situation: priya_raghavan)
+Priya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then.
+
+SHARED CONTEXT
+Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
+
+WHAT YOU HAVE OBSERVED
+- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
+- 2026-09-08T10:00:00+00:00: Priya notices Dmitri's message on her phone: 'I can lower the price to 1200.'
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I need to move towards a compromise. I'll propose meeting in the middle at 1150 to show flexibility and avoid losing the deal. -> you attempted: Send Dmitri a message: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- 2026-09-08T10:00:00+00:00: I proposed 1150 and am waiting for Dmitri's response. I will stick to my max of 1150. -> you attempted: Wait for Dmitri's reply to my 1150 offer.
+
+YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
+- I'm willing to go up to 1150 as a reasonable compromise, but I won't go higher than that.
+
+WHY YOU ARE CONSIDERING THINGS NOW
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**priya_raghavan decides** at 2026-09-08T10:30:00+00:00
+
+> I proposed 1150 and Dmitri responded with 1200, so I need to decide whether to accept 1200 or walk away. I'll accept 1200 because the deadline is tight and I need the kiln.
+- attempts: Send Dmitri a message: 'Okay, I can do 1200. Let's finalize the deal.'
+- privately: I've decided to accept 1200 even though it's slightly above my target, because finding another kiln before the 20th is too risky.
+
+**World judgment** (actor_intention) at 2026-09-08T10:30:00+00:00
+
+> trigger: priya_raghavan attempts: Send Dmitri a message: 'Okay, I can do 1200. Let's finalize the deal.'
+>
+> Priya is at her phone, having just read Dmitri's earlier message offering 1200. She decides to reply. Her text message is composed and sent.
+- proposes: Priya sends a text message to Dmitri: 'Okay, I can do 1200. Let's finalize the deal.' (for ['dmitri_sokolov'], observed=False, after now)
+- wake dmitri_sokolov after 1 minute: Time for the message to arrive and be noticed, depending on Dmitri's current activity.
+
+---
+
+## 2026-09-08T10:30:00+00:00 — committed event `e87`
+
+Priya's phone receives Dmitri's message '1150 works. Let's arrange pickup before the 20th.' It is now on her lock screen, waiting to be noticed.
 
 - available to: priya_raghavan
 - AVAILABLE but NOT observed
 - source: world_call:c28
 
-*terminal check at 2026-09-08T10:00:02+00:00: UNRESOLVED — No committed event shows that Priya and Dmitri have agreed on a price; the latest offers (e90: Priya offers 1050, e94: Dmitri offers 1100) are still not accepted.*
+**World judgment** (event_consequence) at 2026-09-08T10:30:00+00:00
 
-**World judgment** (pending_progression) at 2026-09-08T10:05:00+00:00
-
-> trigger: The items listed above are available to dmitri_sokolov but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Dmitri may check his phone or email soon, but not necessarily immediately.)
+> trigger: Priya's phone receives Dmitri's message '1150 works. Let's arrange pickup before the 20th.' It is now on her lock screen, waiting to be noticed.
 >
-> Dmitri just read Priya's earlier email and sent a reply. He may glance at his phone again soon, but it has only been a few seconds since his last action. The new email from Priya (offering 1050) arrived at the same time as his reply was sent, but he hasn't seen it yet.
-- proposes: Dmitri's phone screen shows a notification of a new email from Priya, but he is still holding his phone after sending his own email and hasn't tapped to see it yet. (for ['dmitri_sokolov'], observed=False, after now)
-- wake dmitri_sokolov after 30 seconds: Dmitri may check the new notification shortly.
+> Priya's phone has just received the message and it's on her lock screen, but she may not be looking at her phone right now. It is 10:30 AM on a weekday; she could be busy with other tasks.
+- proposes: The message remains on Priya's lock screen, unread, as she is not currently attending to her phone. (for ['priya_raghavan'], observed=False, after now)
+- wake priya_raghavan after 30 minutes: Check if Priya has picked up her phone and noticed the message.
+
+*terminal check at 2026-09-08T10:30:00+00:00: UNRESOLVED — Priya has not yet observed Dmitri's acceptance at 1150, so they have not agreed on a price.*
 
 ---
 
-## 2026-09-08T10:05:00+00:00 — committed event `e101`
+## 2026-09-08T10:30:00+00:00 — committed event `e92`
 
-Dmitri's phone screen shows a notification of a new email from Priya, but he is still holding his phone after sending his own email and hasn't tapped to see it yet.
+Priya sends a text message to Dmitri: 'Okay, I can do 1200. Let's finalize the deal.'
 
 - available to: dmitri_sokolov
 - AVAILABLE but NOT observed
-- source: world_call:c33
+- source: world_call:c30
 
-**World judgment** (event_consequence) at 2026-09-08T10:05:00+00:00
-
-> trigger: Dmitri's phone screen shows a notification of a new email from Priya, but he is still holding his phone after sending his own email and hasn't tapped to see it yet.
->
-> Dmitri is holding his phone after sending his email, so he is likely to notice the notification immediately.
-- proposes: Dmitri taps the notification and sees the email from Priya offering 1050. (for ['dmitri_sokolov'], observed=True, after 5 seconds)
-
-*terminal check at 2026-09-08T10:05:00+00:00: UNRESOLVED — No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln; the deadline is before 2026-09-20T00:00:00+01:00, which has not passed.*
+*terminal check at 2026-09-08T10:30:00+00:00: UNRESOLVED — Priya noticed Dmitri's offer of 1200 (e52) and Dmitri noticed Priya's offer of 1150 (e56), but Dmitri's acceptance of 1150 (e65) has not been observed by Priya, and Priya's counter-offer of 1200 (e92) has not been observed by Dmitri, so no mutual agreement on a price has been reached yet.*
 
 ---
 
-## 2026-09-08T10:05:05+00:00 — committed event `e106`
+## 2026-09-08T10:30:00+00:00 — committed event `e95`
 
-Dmitri taps the notification and sees the email from Priya offering 1050.
-
-- available to: dmitri_sokolov
-- OBSERVED by them
-- source: world_call:c34
-
-*`e101` is now observed by dmitri_sokolov (attention arrived via `e106`)*
-
-<details><summary>what dmitri_sokolov could see at 2026-09-08T10:05:05+00:00 (their entire prompt)</summary>
-
-```
-CURRENT TIME
-2026-09-08T10:05:05+00:00
-
-WHO YOU ARE
-Dmitri Sokolov (your identity in this situation: dmitri_sokolov)
-Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900.
-
-SHARED CONTEXT
-Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
-
-WHAT YOU HAVE OBSERVED
-- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
-- 2026-09-08T09:00:02+00:00: Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon.
-- 2026-09-08T09:00:02+00:00: Priya's email arrives in Dmitri's inbox on his phone.
-- 2026-09-08T10:00:00+00:00: Dmitri notices the email from Priya in his inbox.
-- 2026-09-08T10:00:02+00:00: Priya's email arrives in Dmitri's inbox.
-- 2026-09-08T10:00:02+00:00: Dmitri sees the notification of a new email from Priya on his phone screen.
-- 2026-09-08T10:00:02+00:00: Dmitri opens the email from Priya and reads its content: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
-- 2026-09-08T10:05:00+00:00: Dmitri's phone screen shows a notification of a new email from Priya, but he is still holding his phone after sending his own email and hasn't tapped to see it yet.
-- 2026-09-08T10:05:05+00:00: Dmitri taps the notification and sees the email from Priya offering 1050.
-
-YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
-- I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.
-- I note that Priya is eager to close, which might give me some leverage, but I'm still willing to settle around 1050-1100.
-- Priya has moved to 1150, which is close to my acceptable range. I can try to get 1100, but I'm okay settling at 1050 if needed.
-
-WHY YOU ARE CONSIDERING THINGS NOW
-- you observed: Dmitri taps the notification and sees the email from Priya offering 1050.
-```
-
-</details>
-
-**dmitri_sokolov decides** at 2026-09-08T10:05:05+00:00
-
-> I see Priya has come down to 1050, which is within my acceptable range. I'll accept her offer to close the deal quickly.
-- attempts: I reply to Priya's email accepting the offer of 1050 and arrange for pickup details.
-- privately: I have decided to accept 1050, as it meets my bottom line and avoids further delay.
-
-**World judgment** (actor_intention) at 2026-09-08T10:05:05+00:00
-
-> trigger: dmitri_sokolov attempts: I reply to Priya's email accepting the offer of 1050 and arrange for pickup details.
->
-> Dmitri has just read Priya's email offering 1050. He intends to reply accepting and arrange pickup details. The immediate next step is him composing and sending that reply.
-- proposes: Dmitri types and sends an email to Priya: '1050 works for me. Let's arrange pickup. I'm available this weekend or next week. Let me know what works for you.' (for ['priya_raghavan'], observed=False, after 30 seconds)
-- wake priya_raghavan after 30 seconds: Dmitri's reply email will arrive in Priya's inbox.
-
-*terminal check at 2026-09-08T10:05:05+00:00: UNRESOLVED — No committed event shows that Priya Raghavan and Dmitri Sokolov have both agreed on a price; the latest offers are 1050 and 1100, and the deadline has not passed.*
-
-**World judgment** (pending_progression) at 2026-09-08T10:05:30+00:00
-
-> trigger: The items listed above are available to dmitri_sokolov but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Dmitri may check the new notification shortly.)
->
-> Dmitri has just finished reading Priya's 1050 offer and is likely to respond, but he may first check the new email notification that appeared on his phone screen.
-- proposes: Dmitri notices the notification of a new email from Priya (the 1050 offer) on his phone screen. (for ['dmitri_sokolov'], observed=True, after now)
-
----
-
-## 2026-09-08T10:05:30+00:00 — committed event `e117`
-
-Dmitri notices the notification of a new email from Priya (the 1050 offer) on his phone screen.
-
-- available to: dmitri_sokolov
-- OBSERVED by them
-- source: world_call:c39
-
-*`e66` is now observed by dmitri_sokolov (attention arrived via `e117`)*
-
-<details><summary>what dmitri_sokolov could see at 2026-09-08T10:05:30+00:00 (their entire prompt)</summary>
-
-```
-CURRENT TIME
-2026-09-08T10:05:30+00:00
-
-WHO YOU ARE
-Dmitri Sokolov (your identity in this situation: dmitri_sokolov)
-Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900.
-
-SHARED CONTEXT
-Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
-
-WHAT YOU HAVE OBSERVED
-- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
-- 2026-09-08T09:00:02+00:00: Priya sends a message to Dmitri proposing to meet halfway at 1150, emphasizing the deadline and her need to close soon.
-- 2026-09-08T09:00:02+00:00: Priya's email arrives in Dmitri's inbox on his phone.
-- 2026-09-08T10:00:00+00:00: Dmitri notices the email from Priya in his inbox.
-- 2026-09-08T10:00:00+00:00: Priya sends an email to Dmitri: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
-- 2026-09-08T10:00:02+00:00: Priya's email arrives in Dmitri's inbox.
-- 2026-09-08T10:00:02+00:00: Dmitri sees the notification of a new email from Priya on his phone screen.
-- 2026-09-08T10:00:02+00:00: Dmitri opens the email from Priya and reads its content: 'Thanks for coming down. I can do 1050, let's meet in the middle.'
-- 2026-09-08T10:05:00+00:00: Dmitri's phone screen shows a notification of a new email from Priya, but he is still holding his phone after sending his own email and hasn't tapped to see it yet.
-- 2026-09-08T10:05:05+00:00: Dmitri taps the notification and sees the email from Priya offering 1050.
-- 2026-09-08T10:05:30+00:00: Dmitri notices the notification of a new email from Priya (the 1050 offer) on his phone screen.
-
-YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
-- I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.
-- I note that Priya is eager to close, which might give me some leverage, but I'm still willing to settle around 1050-1100.
-- Priya has moved to 1150, which is close to my acceptable range. I can try to get 1100, but I'm okay settling at 1050 if needed.
-- I have decided to accept 1050, as it meets my bottom line and avoids further delay.
-
-WHY YOU ARE CONSIDERING THINGS NOW
-- you observed: Dmitri notices the notification of a new email from Priya (the 1050 offer) on his phone screen.
-```
-
-</details>
-
-**dmitri_sokolov decides** at 2026-09-08T10:05:30+00:00
-
-> Priya has moved to 1050, which meets my bottom line. I'll accept to avoid further delay.
-- attempts: I will reply to Priya's email accepting her offer of 1050.
-- privately: I've decided to accept 1050, so the negotiation is effectively over.
-
-**World judgment** (actor_intention) at 2026-09-08T10:05:30+00:00
-
-> trigger: dmitri_sokolov attempts: I will reply to Priya's email accepting her offer of 1050.
->
-> Dmitri has just read Priya's email offering 1050 and intends to reply accepting. He is holding his phone and can type and send a reply immediately.
-- proposes: Dmitri types a reply to Priya's email accepting her offer of 1050 and sends it. (for ['priya_raghavan'], observed=False, after 30 seconds)
-- wake priya_raghavan after 30 seconds: Dmitri's reply email will arrive in Priya's inbox.
-
-*terminal check at 2026-09-08T10:05:30+00:00: UNRESOLVED — No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln; the latest events show ongoing negotiation with no final acceptance, and the deadline 2026-09-20T00:00:00+01:00 has not passed.*
-
----
-
-## 2026-09-08T10:05:35+00:00 — committed event `e125`
-
-Dmitri types and sends an email to Priya: '1050 works for me. Let's arrange pickup. I'm available this weekend or next week. Let me know what works for you.'
+The message remains on Priya's lock screen, unread, as she is not currently attending to her phone.
 
 - available to: priya_raghavan
 - AVAILABLE but NOT observed
-- source: world_call:c37
+- source: world_call:c31
 
-**World judgment** (event_consequence) at 2026-09-08T10:05:35+00:00
+**World judgment** (event_consequence) at 2026-09-08T10:30:00+00:00
 
-> trigger: Dmitri types and sends an email to Priya: '1050 works for me. Let's arrange pickup. I'm available this weekend or next week. Let me know what works for you.'
+> trigger: The message remains on Priya's lock screen, unread, as she is not currently attending to her phone.
 >
-> Dmitri's email has been sent and is now in transit to Priya's inbox. Priya is not currently checking her email, so the email will arrive but she will not notice it yet.
-- proposes: Dmitri's email arrives in Priya's inbox. (for ['priya_raghavan'], observed=False, after 2 seconds)
-- wake priya_raghavan after 15 minutes: Priya might check her email after some time; revisit to see if she notices the new messages.
+> Priya just sent a text to Dmitri agreeing to 1200, and has not yet looked at her phone again. Her phone has two unread messages from Dmitri: the earlier one offering to lower to 1200, and the later one accepting 1150. The most recent message (accepting 1150) is visible on her lock screen, but she is not currently holding or looking at her phone.
+- proposes: (no concrete event yet)
+- wake priya_raghavan after 10 minutes: Priya may check her phone after a short interval; if she does not, revisit to see if she notices the messages later.
 
-*terminal check at 2026-09-08T10:05:35+00:00: YES — Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it.*
+*terminal check at 2026-09-08T10:30:00+00:00: UNRESOLVED — No committed event shows that both Priya and Dmitri have observed each other's acceptance of a common price; the latest messages have not been seen by both parties.*
+
+**World judgment** (pending_progression) at 2026-09-08T10:35:00+00:00
+
+> trigger: The items listed above are available to priya_raghavan but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Priya may check her phone after a brief pause following her last notification.)
+>
+> Priya has just sent a message herself and may glance at her phone. The most recent message from Dmitri (1150 works) is on her lock screen, and the earlier message (1200) is also there. She is likely to notice the newer one first if she picks up her phone.
+- proposes: Priya picks up her phone and sees Dmitri's message '1150 works. Let's arrange pickup before the 20th.' on the lock screen. (for ['priya_raghavan'], observed=True, after 2 minutes)
+
+<details><summary>what priya_raghavan could see at 2026-09-08T10:35:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-09-08T10:35:00+00:00
+
+WHO YOU ARE
+Priya Raghavan (your identity in this situation: priya_raghavan)
+Priya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then.
+
+SHARED CONTEXT
+Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
+
+WHAT YOU HAVE OBSERVED
+- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
+- 2026-09-08T10:00:00+00:00: Priya notices Dmitri's message on her phone: 'I can lower the price to 1200.'
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I need to move towards a compromise. I'll propose meeting in the middle at 1150 to show flexibility and avoid losing the deal. -> you attempted: Send Dmitri a message: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- 2026-09-08T10:00:00+00:00: I proposed 1150 and am waiting for Dmitri's response. I will stick to my max of 1150. -> you attempted: Wait for Dmitri's reply to my 1150 offer.
+- 2026-09-08T10:30:00+00:00: I proposed 1150 and Dmitri responded with 1200, so I need to decide whether to accept 1200 or walk away. I'll accept 1200 because the deadline is tight and I need the kiln. -> you attempted: Send Dmitri a message: 'Okay, I can do 1200. Let's finalize the deal.'
+
+YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
+- I'm willing to go up to 1150 as a reasonable compromise, but I won't go higher than that.
+- I've decided to accept 1200 even though it's slightly above my target, because finding another kiln before the 20th is too risky.
+
+WHY YOU ARE CONSIDERING THINGS NOW
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**priya_raghavan decides** at 2026-09-08T10:35:00+00:00
+
+> I've already accepted 1200, so I'll wait for Dmitri's confirmation to finalize the deal.
+- attempts: Wait for Dmitri's reply to my acceptance of 1200.
+
+**World judgment** (actor_intention) at 2026-09-08T10:35:00+00:00
+
+> trigger: priya_raghavan attempts: Wait for Dmitri's reply to my acceptance of 1200.
+>
+> Priya has just sent a message accepting 1200, but Dmitri's earlier message accepting 1150 is already on her lock screen, unread. She is not currently looking at her phone, so she does not see it immediately.
+- proposes: Priya's phone screen shows the notification from Dmitri's '1150 works' message on the lock screen, but she does not pick up the phone right now. (for ['priya_raghavan'], observed=False, after now)
+- wake priya_raghavan after 10 minutes: check if she notices the message on her lock screen
+
+---
+
+## 2026-09-08T10:35:00+00:00 — committed event `e106`
+
+Priya's phone screen shows the notification from Dmitri's '1150 works' message on the lock screen, but she does not pick up the phone right now.
+
+- available to: priya_raghavan
+- AVAILABLE but NOT observed
+- source: world_call:c38
+
+*terminal check at 2026-09-08T10:35:00+00:00: UNRESOLVED — No committed event shows both Priya and Dmitri observing an agreed price; Dmitri's '1150 works' message has not been observed by Priya, and Priya's latest offer of 1200 has not been observed by Dmitri.*
+
+---
+
+## 2026-09-08T10:37:00+00:00 — committed event `e110`
+
+Priya picks up her phone and sees Dmitri's message '1150 works. Let's arrange pickup before the 20th.' on the lock screen.
+
+- available to: priya_raghavan
+- OBSERVED by them
+- source: world_call:c36
+
+*`e33` is now observed by priya_raghavan (attention arrived via `e110`)*
+
+*`e38` is now observed by priya_raghavan (attention arrived via `e110`)*
+
+*`e65` is now observed by priya_raghavan (attention arrived via `e110`)*
+
+*`e70` is now observed by priya_raghavan (attention arrived via `e110`)*
+
+*`e87` is now observed by priya_raghavan (attention arrived via `e110`)*
+
+*`e95` is now observed by priya_raghavan (attention arrived via `e110`)*
+
+<details><summary>what priya_raghavan could see at 2026-09-08T10:37:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-09-08T10:37:00+00:00
+
+WHO YOU ARE
+Priya Raghavan (your identity in this situation: priya_raghavan)
+Priya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then.
+
+SHARED CONTEXT
+Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.
+
+WHAT YOU HAVE OBSERVED
+- 2026-09-08T09:00:00+00:00: Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.
+- 2026-09-08T09:00:02+00:00: Dmitri sends a message to Priya: 'I can lower the price to 1200.'
+- 2026-09-08T09:00:02+00:00: Dmitri's message 'I can lower the price to 1200.' arrives on Priya's phone, waiting to be noticed.
+- 2026-09-08T10:00:00+00:00: Priya notices Dmitri's message on her phone: 'I can lower the price to 1200.'
+- 2026-09-08T10:00:00+00:00: Dmitri sends a message to Priya: '1150 works. Let's arrange pickup before the 20th.'
+- 2026-09-08T10:00:02+00:00: Dmitri's message '1150 works. Let's arrange pickup before the 20th.' arrives on Priya's phone, waiting to be noticed.
+- 2026-09-08T10:30:00+00:00: Priya's phone receives Dmitri's message '1150 works. Let's arrange pickup before the 20th.' It is now on her lock screen, waiting to be noticed.
+- 2026-09-08T10:30:00+00:00: The message remains on Priya's lock screen, unread, as she is not currently attending to her phone.
+- 2026-09-08T10:35:00+00:00: Priya's phone screen shows the notification from Dmitri's '1150 works' message on the lock screen, but she does not pick up the phone right now.
+- 2026-09-08T10:37:00+00:00: Priya picks up her phone and sees Dmitri's message '1150 works. Let's arrange pickup before the 20th.' on the lock screen.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-09-08T09:00:00+00:00: I need to move towards a compromise. I'll propose meeting in the middle at 1150 to show flexibility and avoid losing the deal. -> you attempted: Send Dmitri a message: 'How about we meet halfway at 1150? I need the kiln before my lease renewal on the 20th, and I'd like to wrap this up.'
+- 2026-09-08T10:00:00+00:00: I proposed 1150 and am waiting for Dmitri's response. I will stick to my max of 1150. -> you attempted: Wait for Dmitri's reply to my 1150 offer.
+- 2026-09-08T10:30:00+00:00: I proposed 1150 and Dmitri responded with 1200, so I need to decide whether to accept 1200 or walk away. I'll accept 1200 because the deadline is tight and I need the kiln. -> you attempted: Send Dmitri a message: 'Okay, I can do 1200. Let's finalize the deal.'
+- 2026-09-08T10:35:00+00:00: I've already accepted 1200, so I'll wait for Dmitri's confirmation to finalize the deal. -> you attempted: Wait for Dmitri's reply to my acceptance of 1200.
+
+YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
+- I'm willing to go up to 1150 as a reasonable compromise, but I won't go higher than that.
+- I've decided to accept 1200 even though it's slightly above my target, because finding another kiln before the 20th is too risky.
+
+WHY YOU ARE CONSIDERING THINGS NOW
+- you observed: Priya picks up her phone and sees Dmitri's message '1150 works. Let's arrange pickup before the 20th.' on the lock screen.
+```
+
+</details>
+
+**priya_raghavan decides** at 2026-09-08T10:37:00+00:00
+
+> Dmitri agreed to my 1150 offer before I sent my acceptance of 1200, so I'll proceed with the 1150 deal.
+- attempts: Send Dmitri a message: 'Great, 1150 works. Let's arrange pickup before the 20th. I'm available Thursday afternoon or Friday morning.'
+- privately: I no longer need to accept 1200 since Dmitri agreed to 1150.
+
+**World judgment** (actor_intention) at 2026-09-08T10:37:00+00:00
+
+> trigger: priya_raghavan attempts: Send Dmitri a message: 'Great, 1150 works. Let's arrange pickup before the 20th. I'm available Thursday afternoon or Friday morning.'
+>
+> Priya taps out the message and hits send. The message leaves her phone.
+- proposes: Priya's message 'Great, 1150 works. Let's arrange pickup before the 20th. I'm available Thursday afternoon or Friday morning.' is sent from her phone. (for ['dmitri_sokolov'], observed=False, after 2 seconds)
+- wake dmitri_sokolov after 5 minutes: Dmitri may notice the new message on his phone.
+
+*terminal check at 2026-09-08T10:37:00+00:00: YES — Dmitri observed Priya's offer of 1150 (e56) and agreed by sending '1150 works' (e65), which Priya observed (e110), forming an agreement on price 1150.*

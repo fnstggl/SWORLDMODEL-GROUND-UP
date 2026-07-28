@@ -5,18 +5,18 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "Aline read Ravi's thesis chapter but never sent comments to Ravi; the last event shows her composing a reply, but no event shows the email was sent, and the deadline has passed."
+   "explanation": "No committed event shows that Dr Aline Mercier actually sent comments to Ravi Patel before the deadline; she only read parts of the chapter and replied promising to send comments."
   },
   "reason": "",
-  "steps": 48,
-  "world_calls": 27,
-  "actor_calls": 27,
-  "judge_calls": 24
+  "steps": 108,
+  "world_calls": 76,
+  "actor_calls": 56,
+  "judge_calls": 58
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "Aline read Ravi's thesis chapter but never sent comments to Ravi; the last event shows her composing a reply, but no event shows the email was sent, and the deadline has passed."
+  "explanation": "No committed event shows that Dr Aline Mercier actually sent comments to Ravi Patel before the deadline; she only read parts of the chapter and replied promising to send comments."
  },
  "reason": ""
 }
