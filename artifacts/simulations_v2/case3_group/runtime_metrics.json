@@ -1,0 +1,65 @@
+{
+ "provider_calls": 15,
+ "by_role": {
+  "judge": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.86,
+   "input_tokens": 1832,
+   "output_tokens": 183
+  },
+  "world": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.68,
+   "input_tokens": 4027,
+   "output_tokens": 193
+  },
+  "actor": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 7.44,
+   "input_tokens": 4836,
+   "output_tokens": 348
+  },
+  "continuity": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 6.38,
+   "input_tokens": 2572,
+   "output_tokens": 189
+  },
+  "event_review": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.38,
+   "input_tokens": 882,
+   "output_tokens": 46
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.58,
+   "input_tokens": 554,
+   "output_tokens": 58
+  }
+ },
+ "total_input_tokens": 14703,
+ "total_output_tokens": 1017,
+ "total_wall_s": 25.33,
+ "status": "cutoff",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
+  "disagreement": true
+ },
+ "reason": "",
+ "steps": 1,
+ "world_calls": 2,
+ "actor_calls": 4,
+ "judge_calls": 3,
+ "review_calls": 6,
+ "committed_events": 2,
+ "ledger_records": 38
+}

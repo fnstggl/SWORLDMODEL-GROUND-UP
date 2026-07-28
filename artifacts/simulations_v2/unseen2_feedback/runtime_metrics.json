@@ -1,0 +1,53 @@
+{
+ "provider_calls": 35,
+ "by_role": {
+  "judge": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 6.17,
+   "input_tokens": 2504,
+   "output_tokens": 225
+  },
+  "world": {
+   "calls": 10,
+   "retries": 0,
+   "wall_s": 22.62,
+   "input_tokens": 22673,
+   "output_tokens": 1446
+  },
+  "event_review": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 9.84,
+   "input_tokens": 5996,
+   "output_tokens": 275
+  },
+  "actor": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 14.71,
+   "input_tokens": 9649,
+   "output_tokens": 762
+  },
+  "continuity": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 10.76,
+   "input_tokens": 5729,
+   "output_tokens": 299
+  }
+ },
+ "total_input_tokens": 46551,
+ "total_output_tokens": 3007,
+ "total_wall_s": 64.1,
+ "status": "failed",
+ "answer": null,
+ "reason": "ActorGroundingError: dr_aline_mercier: the reply still does not follow from what they have, after one correction: The reply says 'I've tried to skim Ravi's chapter three times today' but the evidence shows only three attempts to check whether they already did it, not three attempts to actually skim it.",
+ "steps": 7,
+ "world_calls": 10,
+ "actor_calls": 7,
+ "judge_calls": 4,
+ "review_calls": 14,
+ "committed_events": 4,
+ "ledger_records": 64
+}

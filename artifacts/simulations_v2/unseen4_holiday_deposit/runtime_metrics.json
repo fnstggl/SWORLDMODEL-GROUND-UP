@@ -1,0 +1,53 @@
+{
+ "provider_calls": 36,
+ "by_role": {
+  "judge": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 5.79,
+   "input_tokens": 3461,
+   "output_tokens": 214
+  },
+  "world": {
+   "calls": 9,
+   "retries": 0,
+   "wall_s": 17.91,
+   "input_tokens": 22580,
+   "output_tokens": 951
+  },
+  "actor": {
+   "calls": 10,
+   "retries": 0,
+   "wall_s": 19.84,
+   "input_tokens": 14018,
+   "output_tokens": 992
+  },
+  "continuity": {
+   "calls": 10,
+   "retries": 0,
+   "wall_s": 15.95,
+   "input_tokens": 8373,
+   "output_tokens": 462
+  },
+  "event_review": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.53,
+   "input_tokens": 3413,
+   "output_tokens": 136
+  }
+ },
+ "total_input_tokens": 51845,
+ "total_output_tokens": 2755,
+ "total_wall_s": 64.03,
+ "status": "failed",
+ "answer": null,
+ "reason": "ActorGroundingError: dev_sandhu: the reply still does not follow from what they have, after one correction: The reply restates the exact same position as the previous two turns without any new observation or change in circumstances, merely repeating 'still stuck waiting' despite time passing.",
+ "steps": 7,
+ "world_calls": 9,
+ "actor_calls": 10,
+ "judge_calls": 4,
+ "review_calls": 13,
+ "committed_events": 7,
+ "ledger_records": 79
+}

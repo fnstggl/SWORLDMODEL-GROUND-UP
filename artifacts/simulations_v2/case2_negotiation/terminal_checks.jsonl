@@ -1,0 +1,1 @@
+{"call_id":"c1","explanation":"The only committed event shows awareness of initial positions but no agreement on a price for the used kiln has been reached.","final":false,"kind":"terminal_check","status":"UNRESOLVED","supporting_event_ids":["e11"],"t":"2026-09-08T09:00:00+00:00"}
