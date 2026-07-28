@@ -61,9 +61,10 @@ class Script:
         self.seen = []
 
     def __call__(self, system, user):
-        role = ("judge" if "read-only outcome judge" in system
-                else "world" if "You are the world" in system else "actor")
+        role = role_of(system)
         self.seen.append(role)
+        if role in ("continuity", "event_review") and role not in self.by_role:
+            return json.dumps(PASSES), {}      # reviews default to PASS
         queue = self.by_role.get(role) or []
         if not queue:
             raise AssertionError(f"script exhausted for role {role!r}")
@@ -72,6 +73,35 @@ class Script:
             item = NO_AT_CUTOFF      # code forbids UNRESOLVED at the cutoff
         return (item if isinstance(item, str) else json.dumps(item)), {}
 
+
+def role_of(system: str) -> str:
+    """Which of the five roles is being asked.  The two review roles are
+    read-only checks, and a test that is not about them lets them PASS."""
+    if "read-only outcome judge" in system:
+        return "judge"
+    if "whether what this person just said follows" in system:
+        return "continuity"
+    if "whether the proposed event" in system:
+        return "event_review"
+    if "You are the world" in system:
+        return "world"
+    return "actor"
+
+
+#: what a review says when it has no objection
+PASSES = {"verdict": "PASS", "reason": "consistent with what they have"}
+
+
+def reviewed(transport):
+    """Wrap a hand-written transport so the two read-only reviews PASS.
+
+    A test that is not about the reviews should not have to script them,
+    and one that is scripts them itself and does not use this."""
+    def t(system, user):
+        if role_of(system) in ("continuity", "event_review"):
+            return json.dumps(PASSES), {}
+        return transport(system, user)
+    return t
 
 UNRESOLVED = {"status": "UNRESOLVED", "supporting_event_ids": [],
               "explanation": "nothing committed satisfies it yet"}
@@ -103,8 +133,10 @@ def test_private_context_never_leaks_between_actors():
     assert "wants a response from Bo" in ada
     assert "wants a response from Bo" not in bo
     assert "rarely" in bo and "rarely" not in ada
-    # shared context reaches both
-    assert "prepared a short message" in ada and "prepared a short message" in bo
+    # and the compiled shared context reaches NEITHER: it is the world's
+    # background, not a briefing anyone was given
+    assert "prepared a short message" not in ada
+    assert "prepared a short message" not in bo
 
 
 def test_unobserved_events_never_enter_a_view():
@@ -146,7 +178,7 @@ def test_event_envelope_rejects_unknown_actors_and_extra_fields():
     known = {"ada_vance", "bo_ferrer"}
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["nobody"],
-                        "observed": True, "after": "now"}, known)
+                        "observed": True, "after": "now", "follow_up": True}, known)
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["ada_vance"],
                         "observed": True, "after": "now",
@@ -157,7 +189,7 @@ def test_event_envelope_rejects_unknown_actors_and_extra_fields():
                         "probability": 0.4}, known)
     ok = validate_event({"description": " x ", "for": ["ada_vance",
                                                        "ada_vance"],
-                         "observed": False, "after": "5 minutes"}, known)
+                         "observed": False, "after": "5 minutes", "follow_up": True}, known)
     assert ok["for"] == ["ada_vance"] and ok["delta"].total_seconds() == 300
 
 
@@ -195,6 +227,8 @@ class LifecycleModel:
         self.seen = []
 
     def __call__(self, system, user):
+        if role_of(system) in ("continuity", "event_review"):
+            return json.dumps(PASSES), {}
         if "read-only outcome judge" in system:
             self.seen.append("judge")
             if "sends a short reply" in user:
@@ -220,7 +254,9 @@ class LifecycleModel:
                     "event": {"description": "Ada's message arrives in "
                                              "Bo's inbox.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "43 seconds"}, "wakes": []}), {}
+                              "after": "43 seconds", "follow_up": False},
+                    "wakes": [{"actor": "bo_ferrer", "after": "30 minutes",
+                               "reason": "he will get to his messages"}]}), {}
             if "pending_progression" in user:
                 self.attention_checks += 1
                 if self.attention_checks == 1:
@@ -236,20 +272,23 @@ class LifecycleModel:
                     "event": {"description": "Bo notices the subject line "
                                              "of Ada's message.",
                               "for": ["bo_ferrer"], "observed": True,
-                              "after": "now"}, "wakes": []}), {}
+                              "after": "now", "follow_up": False},
+                    "wakes": []}), {}
             if "Open" in user or "read" in user.lower():
                 return json.dumps({
                     "judgment": "He opens it and reads it through.",
                     "event": {"description": "Bo reads Ada's message in "
                                              "full.",
                               "for": ["bo_ferrer"], "observed": True,
-                              "after": "2 minutes"}, "wakes": []}), {}
+                              "after": "2 minutes", "follow_up": False},
+                    "wakes": []}), {}
             if "repl" in user.lower():
                 return json.dumps({
                     "judgment": "He types two lines back.",
                     "event": {"description": "Bo sends a short reply to Ada.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "5 minutes"}, "wakes": []}), {}
+                              "after": "5 minutes", "follow_up": False},
+                    "wakes": []}), {}
             return json.dumps({"judgment": "Nothing concrete follows.",
                                "event": None, "wakes": []}), {}
         self.seen.append("actor")
@@ -273,7 +312,7 @@ def lifecycle_script():
 
 def test_full_lifecycle_keeps_delivery_notice_and_read_distinct():
     world, journal, bindings = build()
-    caller = RuntimeCaller(transport=lifecycle_script())
+    caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
     trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=20, trace=trace)
@@ -332,7 +371,7 @@ def test_observation_hands_the_turn_to_the_actor_not_the_world():
 
 def test_intentions_are_not_committed_events():
     world, journal, bindings = build()
-    caller = RuntimeCaller(transport=lifecycle_script())
+    caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=20, trace=Trace())
     committed = " ".join(e["description"] for e in journal.events())
@@ -347,7 +386,7 @@ def test_intentions_are_not_committed_events():
 
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
-    caller = RuntimeCaller(transport=lifecycle_script())
+    caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
     run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
                    max_steps=20, trace=Trace())
     before = len(caller.calls)
@@ -360,7 +399,7 @@ def test_replay_is_exact_and_calls_no_model():
 
 def test_terminal_yes_cites_committed_events_only():
     world, journal, bindings = build()
-    caller = RuntimeCaller(transport=lifecycle_script())
+    caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=20, trace=Trace())
     if traj.answer and traj.answer["status"] == "YES":
@@ -375,7 +414,7 @@ def test_invalid_world_output_commits_nothing_after_one_retry():
     before_records = len(world.records)
     bad = {"judgment": "x", "event": {"description": "y",
                                       "for": ["ghost_actor"],
-                                      "observed": True, "after": "now"},
+                                      "observed": True, "after": "now", "follow_up": True},
            "wakes": []}
     caller = RuntimeCaller(transport=Script({
         "judge": [UNRESOLVED] * 4,
@@ -411,7 +450,7 @@ def test_time_never_moves_backward_and_cutoff_is_respected():
         "judge": [UNRESOLVED] * 300,
         "world": [{"judgment": "far future", "event": {
             "description": "something much later",
-            "for": ["ada_vance"], "observed": True, "after": "3 days"},
+            "for": ["ada_vance"], "observed": True, "after": "3 days", "follow_up": True},
             "wakes": []}] * 300,
         "actor": [{"decision": "d", "intentions": [], "private_updates": []}]
                  * 300}))
@@ -530,7 +569,7 @@ def test_the_call_ceiling_sits_above_the_ordinary_path():
         "judge": [UNRESOLVED] * 900,
         "world": [{"judgment": "it moves along", "event": {
             "description": "something concrete happens",
-            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes", "follow_up": True},
             "wakes": []}] * 900,
         "actor": [busy] * 900}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
@@ -651,7 +690,7 @@ def test_a_retry_is_told_exactly_what_was_wrong():
 
     from sworldmodel.semantic_runtime.world_mind import (WORLD_SYSTEM,
                                                          make_world_validator)
-    caller = RuntimeCaller(transport=transport)
+    caller = RuntimeCaller(transport=reviewed(transport))
     out = caller.ask("world", WORLD_SYSTEM, "TRIGGER\nx",
                      make_world_validator({"ada_vance"}))
     assert out["parsed"]["event_checked"]["after"] == "10 minutes"
@@ -672,7 +711,7 @@ def test_a_truncated_run_is_incomplete_and_can_never_answer_no():
         "judge": [UNRESOLVED] * 40,
         "world": [{"judgment": "it moves along", "event": {
             "description": "another concrete step happens",
-            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes", "follow_up": True},
             "wakes": []}] * 40,
         "actor": [{"decision": "d", "intentions": ["keep going"],
                    "private_updates": []}] * 40}))
@@ -714,7 +753,7 @@ def test_silence_does_not_end_a_situation_before_its_horizon():
 # ------------------------------------ the replay check must be able to fail
 def completed_run():
     world, journal, bindings = build()
-    caller = RuntimeCaller(transport=lifecycle_script())
+    caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=20, trace=Trace())
     return world, journal, traj
@@ -932,7 +971,7 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
                 "wakes": []}), {}
         return json.dumps(busy), {}
 
-    caller = RuntimeCaller(transport=transport)
+    caller = RuntimeCaller(transport=reviewed(transport))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=12, trace=Trace())
     times = [parse_iso(e["t"]) for e in journal.events()]
@@ -975,7 +1014,7 @@ def test_what_a_person_does_still_travels_after_they_do_it():
                            "private_updates": []}), {}
 
     run_trajectory(world, journal, bindings, SCENE["resolution"],
-                   RuntimeCaller(transport=transport), max_steps=6,
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=6,
                    trace=Trace())
     descs = [e["description"] for e in journal.events()]
     assert any("arrives for Bo" in d for d in descs), descs
@@ -999,14 +1038,14 @@ def test_the_world_cannot_run_for_long_without_asking_anyone():
                 "judgment": "he carries on",
                 "event": {"description": "Bo continues typing his reply",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes"}, "wakes": []}), {}
+                          "after": "1 minutes", "follow_up": True}, "wakes": []}), {}
         seen["runs"].append(seen["world"])
         seen["world"] = 0
         seen["actor"] += 1
         return json.dumps(NOTHING), {}
 
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
-                          RuntimeCaller(transport=transport), max_steps=40,
+                          RuntimeCaller(transport=reviewed(transport)), max_steps=40,
                           trace=Trace())
     assert traj.status in ("cutoff", "incomplete"), traj.reason
     assert seen["actor"] > 1, "nobody was ever asked anything"
@@ -1035,7 +1074,7 @@ def test_one_instant_cannot_be_subdivided_forever():
         return json.dumps(NOTHING), {}
 
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
-                          RuntimeCaller(transport=transport), max_steps=14,
+                          RuntimeCaller(transport=reviewed(transport)), max_steps=14,
                           trace=Trace())
     assert traj.status != "failed", traj.reason      # never dies over this
     times = [parse_iso(e["t"]) for e in journal.events()]
@@ -1071,7 +1110,7 @@ def test_being_deep_in_your_own_task_does_not_earn_a_fresh_turn():
                            "private_updates": []}), {}
 
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
-                          RuntimeCaller(transport=transport), max_steps=40,
+                          RuntimeCaller(transport=reviewed(transport)), max_steps=40,
                           trace=Trace())
     assert traj.status in ("cutoff", "incomplete"), traj.reason
     # she is revisited on a WIDENING schedule rather than every few
@@ -1101,7 +1140,7 @@ def test_one_pending_revisit_per_person_however_it_was_asked_for():
         return json.dumps(NOTHING), {}
 
     run_trajectory(world, journal, bindings, SCENE["resolution"],
-                   RuntimeCaller(transport=transport), max_steps=8,
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=8,
                    trace=Trace())
     queued = [r for r in world.records if r["op"] == "event.scheduled"
               and r["data"]["kind"] == "semantic.wake"
@@ -1147,12 +1186,12 @@ def test_one_person_noticing_is_not_everyone_noticing():
                 "event": {"description": "the message goes to the group and "
                                          "they all see it at once",
                           "for": ["ada_vance", "bo_ferrer"],
-                          "observed": True, "after": "1 minutes"},
+                          "observed": True, "after": "1 minutes", "follow_up": True},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
     run_trajectory(world, journal, bindings, SCENE["resolution"],
-                   RuntimeCaller(transport=transport), max_steps=4,
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=4,
                    trace=Trace())
     group = [e for e in journal.events() if len(e["for"]) > 1]
     assert group, "the case did not arise"
@@ -1184,7 +1223,7 @@ def test_a_person_remembers_what_they_themselves_did():
                            "private_updates": []}), {}
 
     run_trajectory(world, journal, bindings, SCENE["resolution"],
-                   RuntimeCaller(transport=transport), max_steps=8,
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=8,
                    trace=Trace())
     assert len(seen) > 1
     assert "WHAT YOU HAVE ALREADY DECIDED AND TRIED" in seen[0]
@@ -1223,7 +1262,7 @@ def test_nobody_is_quietly_dropped_before_the_horizon():
         return json.dumps(NOTHING), {}
 
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
-                          RuntimeCaller(transport=transport), max_steps=120,
+                          RuntimeCaller(transport=reviewed(transport)), max_steps=120,
                           trace=Trace())
     assert traj.status == "cutoff"
     # both of them are still in the situation at the end, not just one
@@ -1238,7 +1277,7 @@ def test_the_same_event_cannot_happen_twice_word_for_word():
     from sworldmodel.semantic_runtime.world_mind import make_world_validator
     body = {"judgment": "again", "event": {
         "description": "She reads the next portion of the results section",
-        "for": ["ada_vance"], "observed": True, "after": "5 minutes"},
+        "for": ["ada_vance"], "observed": True, "after": "5 minutes", "follow_up": True},
         "wakes": []}
     seen = frozenset({"she reads the next portion of the results section"})
     fresh = make_world_validator({"ada_vance"})

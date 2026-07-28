@@ -28,11 +28,23 @@ from sworldmodel.simclock import iso, parse_iso
 from . import actor_mind, resolution as resolution_mod, world_mind
 from .envelope import (EnvelopeError, contained, parse_duration,
                        validate_event)
-from .journal import (Journal, OP_ACTOR_CALL, OP_HORIZON, OP_TERMINAL,
-                      OP_WORLD_CALL)
+from .journal import (Journal, OP_ACTOR_CALL, OP_CONTINUITY,
+                      OP_EVENT_REVIEW, OP_HORIZON, OP_TERMINAL,
+                      OP_VERIFY, OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
+
+class ActorGroundingError(ValueError):
+    """An actor's reply does not follow from what that person has, and one
+    targeted correction did not fix it.  Nothing is committed, and code
+    does not invent a replacement decision."""
+
+
+class EventGroundingError(ValueError):
+    """A proposed event is not a real thing that happened, and one targeted
+    correction did not fix it."""
+
 
 #: How many events may share one exact instant before code stops
 #: accepting "no time at all" for the next one.  A hundred events on a
@@ -86,13 +98,15 @@ class SemanticTrajectory:
     world_calls: int = 0
     actor_calls: int = 0
     judge_calls: int = 0
+    review_calls: int = 0
 
     def to_dict(self) -> dict:
         return {"status": self.status, "answer": self.answer,
                 "reason": self.reason, "steps": self.steps,
                 "world_calls": self.world_calls,
                 "actor_calls": self.actor_calls,
-                "judge_calls": self.judge_calls}
+                "judge_calls": self.judge_calls,
+                "review_calls": self.review_calls}
 
 
 def _iso_now(world) -> str:
@@ -120,47 +134,59 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     news_at_turn: dict = {}
     last_turn_t: dict = {}
 
-    #: per-actor revisit interval, widened each time a revisit finds that
-    #: nothing has changed (pure time bookkeeping; the world still decides
-    #: what, if anything, happens)
-    backoff: dict = {}
+    #: A wake exists only for a reason that something in the world gives
+    #: it.  There is no polling: the previous version widened an interval
+    #: from five minutes to a day and back, which produced 3:50 a.m.
+    #: reconsiderations, five wakes in five hours, day-long holes in the
+    #: middle of a task, and people who quietly stopped being asked
+    #: anything at all.  Time passing is not a reason to think about
+    #: something again.  These five are:
+    WAKE_PROVENANCE = ("actor_plan",        # they said they would
+                       "observed_event",    # something reached them
+                       "world_process",     # the world said it would happen
+                       "known_deadline",    # a deadline they know is close
+                       "action_completion")  # what they started is done
 
-    #: one pending revisit per person.  Without this they stack: several
-    #: are scheduled before the first fires, so the interval never widens
-    #: and someone is revisited every couple of simulated minutes forever.
-    recheck_pending: set = set()
+    #: one pending wake per (actor, what it is about, what it is for).  A
+    #: newer wake for the same purpose replaces the older one rather than
+    #: stacking behind it.
+    pending_wakes: dict = {}
 
-    FIRST_RECHECK_MINUTES = 5
-
-    def _schedule_recheck(actor_id: str, cause: int) -> None:
-        """Ten minutes, then twenty, then forty, up to a day.
-
-        It starts short because some situations move in minutes, widens
-        because most do not, and RESETS the moment something happens to
-        that person -- an interval that only ever grows is not patience,
-        it is a slow exit.  A revisit that would fall past the horizon is
-        pulled back to it rather than dropped: an independent review found
-        that this silent drop, with two others like it, could only ever
-        suppress events, and only suppressed events produce NO.
-        """
-        if actor_id in recheck_pending:
-            return
-        minutes = backoff.get(actor_id, FIRST_RECHECK_MINUTES) * 2
-        backoff[actor_id] = min(minutes, 24 * 60)
-        due = min(world.clock.now + timedelta(minutes=backoff[actor_id]),
-                  cutoff)
-        if due > world.clock.now:
-            recheck_pending.add(actor_id)
-            world.schedule(K_WAKE,
-                           {"actor": actor_id,
-                            "reason": "time has passed and something is "
-                                      "still sitting unattended"},
-                           due, cause)
+    def _schedule_wake(actor_id: str, *, after, reason: str, provenance: str,
+                       about: str, cause: int) -> bool:
+        """Code owns the instant, the cause and the identity.  The reason
+        is natural language from whoever asked for it, and is recorded for
+        tracing only -- it never reaches the person, because a wake is
+        scheduling, not information."""
+        if provenance not in WAKE_PROVENANCE:
+            raise EnvelopeError(
+                f"a wake needs grounded provenance, one of "
+                f"{list(WAKE_PROVENANCE)}; got {provenance!r}")
+        delta = after if isinstance(after, timedelta) else parse_duration(after)
+        due = world.clock.now + delta
+        if due > cutoff or due <= world.clock.now:
+            return False
+        key = (actor_id, about, provenance)
+        old = pending_wakes.get(key)
+        if old is not None and old["due"] <= due:
+            return False              # already coming, and sooner
+        if old is not None:
+            world.cancel_event(old["seq"],
+                               "replaced by a nearer wake for the same "
+                               "purpose", cause)
+        seq = world.schedule(K_WAKE,
+                             {"actor": actor_id, "reason": reason,
+                              "provenance": provenance, "about": about},
+                             due, cause)
+        pending_wakes[key] = {"due": due, "seq": seq}
+        note("wake_scheduled", actor=actor_id, t=_iso_now(world),
+             due=iso(due), provenance=provenance, about=about, reason=reason)
+        return True
 
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
                    actor_id: str | None = None, concerns=(),
-                   self_act_of=None) -> dict | None:
+                   self_act_of=None, intention: str | None = None) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
@@ -183,17 +209,54 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # is reached until everything is known good
         crowded = sum(1 for e in journal.events()
                       if e["t"] == _iso_now(world)) >= MAX_EVENTS_PER_INSTANT
-        out = caller.ask("world", world_mind.WORLD_SYSTEM, user,
-                         world_mind.make_world_validator(
-                             set(actor_ids),
-                             already_committed=frozenset(
-                                 contained(e["description"]).casefold()
-                                 for e in journal.events())),
-                         sim_time=_iso_now(world), trigger=trigger_kind)
-        traj.world_calls += 1
-        since_actor["n"] += 1
-        parsed = out["parsed"]
-        envelope = parsed["event_checked"]
+        validator = world_mind.make_world_validator(
+            set(actor_ids),
+            already_committed=frozenset(contained(e["description"]).casefold()
+                                        for e in journal.events()))
+        ask = user
+        for attempt in range(2):
+            out = caller.ask("world", world_mind.WORLD_SYSTEM, ask, validator,
+                             sim_time=_iso_now(world), trigger=trigger_kind)
+            traj.world_calls += 1
+            since_actor["n"] += 1
+            parsed = out["parsed"]
+            envelope = parsed["event_checked"]
+            if envelope is None:
+                break                       # nothing to review
+            verdict = _event_review(envelope, trigger_kind=trigger_kind,
+                                    trigger_text=trigger_text,
+                                    intention=intention, cause=cause)
+            if verdict["verdict"] == "PASS":
+                break
+            note("event_rejected", t=_iso_now(world), call_id=out["call_id"],
+                 attempt=attempt, verdict=verdict["verdict"],
+                 reason=verdict["reason"], rejected=envelope["description"])
+            if verdict["verdict"] == "ACTOR_TURN_REQUIRED":
+                # the world has written somebody's choice.  It is theirs to
+                # make, and they make it only if they can: if they have the
+                # observation that would let them choose, the turn is
+                # handed over; otherwise the world is asked again for what
+                # the environment did, and nothing of this is committed.
+                who = [a for a in envelope["for"]
+                       if journal.observed_by(a)] or list(envelope["for"])
+                if who and attempt == 0:
+                    world.apply(OP_WORLD_CALL,
+                                {"call_id": out["call_id"],
+                                 "trigger": trigger_kind,
+                                 "judgment": parsed["judgment"],
+                                 "handed_to": who[0],
+                                 "trajectory_id": tid}, cause)
+                    actor_step(who[0], cause=cause)
+                    return None
+            if attempt:
+                raise EventGroundingError(
+                    f"the proposed event is still not a real thing that "
+                    f"happened after one correction: {verdict['reason']}")
+            ask = (user + f"\n\nYOUR PROPOSED EVENT WAS REJECTED\n"
+                          f"{contained(verdict['reason'])}\n"
+                          f"Answer again for the same trigger, fixing "
+                          f"exactly that.  \"event\": null is a correct "
+                          f"answer when nothing meaningful has changed.")
         wakes = parsed["wakes_checked"]
         if parsed.get("duplicate_dropped"):
             note("duplicate_event_dropped", call_id=out["call_id"],
@@ -231,23 +294,49 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 note("event_beyond_cutoff", call_id=out["call_id"],
                      due=iso(due), description=envelope["description"])
         for w in wakes:
-            due = world.clock.now + parse_duration(w["after"])
-            # one pending revisit per person, whoever asked for it.  The
-            # world asked to be called back about the same person eighty-six
-            # times in one run, and every one of those was a step: the
-            # situation was revisited constantly and never moved.
-            if due <= cutoff and w["actor"] not in recheck_pending:
-                recheck_pending.add(w["actor"])
-                # the reason is recorded for tracing and shown to no one:
-                # a wake is timing, never information (see validate_wakes)
-                world.schedule(K_WAKE, {"actor": w["actor"],
-                                        "reason": w["reason"]}, due, wseq)
+            # the world asking to be called back is a real process it has
+            # said will happen.  The reason is recorded and shown to no
+            # one: a wake is scheduling, never information.
+            _schedule_wake(w["actor"], after=w["after"], reason=w["reason"],
+                           provenance="world_process",
+                           about=trigger_kind, cause=wseq)
         return parsed
 
-    # ---------------------------------------------------------------
+    def _event_review(envelope: dict, *, trigger_kind: str,
+                      trigger_text: str, intention, cause: int) -> dict:
+        """Read-only: is this a real thing that happened?
+
+        It proposes nothing and never sees the resolution.  It exists
+        because instruction did not work: the world was told not to
+        narrate interface mechanics, given the exact counter-example, and
+        half of every committed event in six live runs was still somebody
+        operating a phone.
+        """
+        out = caller.ask("event_review", world_mind.EVENT_REVIEW_SYSTEM,
+                         world_mind.event_review_user_prompt(
+                             now=_iso_now(world),
+                             journal_text=journal.render_for_world(limit=12),
+                             trigger_kind=trigger_kind,
+                             trigger_text=trigger_text,
+                             intention=intention, event=envelope),
+                         world_mind.validate_event_review,
+                         sim_time=_iso_now(world),
+                         trigger=f"event_review:{trigger_kind}")
+        traj.review_calls += 1
+        world.apply(OP_EVENT_REVIEW,
+                    {"call_id": out["call_id"], "trigger": trigger_kind,
+                     "verdict": out["parsed"]["verdict"],
+                     "reason": out["parsed"]["reason"],
+                     "description": envelope["description"],
+                     "trajectory_id": tid}, cause)
+        note("event_review", t=_iso_now(world), call_id=out["call_id"],
+             description=envelope["description"], **out["parsed"])
+        return out["parsed"]
+
     def actor_step(actor_id: str, *, cause: int, trigger_event_ids=()) -> None:
-        """Consult one actor, store their private updates, and send each
-        intention to the world as its own separate trigger.
+        """Consult one actor, check that the reply follows from what they
+        have, store their private updates, ground any plan they made, and
+        send each intention to the world as its own separate trigger.
 
         Only event IDS are passed in: the view code looks them up in this
         actor's own observed records, so nothing can reach a person through
@@ -264,14 +353,37 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         view = build_view(world, journal, actor_id,
                           trigger_event_ids=trigger_event_ids)
         rendered = render_view(view)
-        out = caller.ask("actor", actor_mind.ACTOR_SYSTEM,
-                         actor_mind.actor_user_prompt(rendered),
-                         actor_mind.validate_actor_response,
-                         sim_time=_iso_now(world), trigger=f"actor:{actor_id}")
-        traj.actor_calls += 1
+        held = [m["content"] for m in view["private_memories"]]
+        base = actor_mind.actor_user_prompt(rendered)
+        user, parsed, out = base, None, None
+        for attempt in range(2):
+            out = caller.ask("actor", actor_mind.ACTOR_SYSTEM, user,
+                             lambda o: actor_mind.validate_actor_response(
+                                 o, held_memories=held),
+                             sim_time=_iso_now(world),
+                             trigger=f"actor:{actor_id}")
+            traj.actor_calls += 1
+            parsed = out["parsed"]
+            verdict = _continuity_review(actor_id, rendered, parsed,
+                                         cause=cause)
+            if verdict["verdict"] == "PASS":
+                break
+            note("actor_response_rejected", actor=actor_id,
+                 t=_iso_now(world), call_id=out["call_id"], attempt=attempt,
+                 reason=verdict["reason"], rejected=parsed)
+            if attempt:
+                # A second failure is a structured failure.  Code does not
+                # invent a replacement decision, and it does not ask the
+                # world to invent one either.
+                raise ActorGroundingError(
+                    f"{actor_id}: the reply still does not follow from what "
+                    f"they have, after one correction: {verdict['reason']}")
+            user = (base + f"\n\nYOUR PREVIOUS REPLY DID NOT FOLLOW FROM WHAT "
+                           f"YOU HAVE\n{contained(verdict['reason'])}\n"
+                           f"Reply again, as this person, fixing exactly "
+                           f"that.  Change nothing else.")
         since_actor["n"] = 0
         news_at_turn[actor_id] = news.get(actor_id, 0)
-        parsed = out["parsed"]
         aseq = world.apply(OP_ACTOR_CALL,
                            {"call_id": out["call_id"], "actor": actor_id,
                             "decision": parsed["decision"],
@@ -282,17 +394,50 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         note("actor_decision", actor=actor_id, t=_iso_now(world),
              call_id=out["call_id"], decision=parsed["decision"],
              intentions=parsed["intentions"],
-             private_updates=parsed["private_updates"])
+             private_updates=parsed["private_updates"],
+             next_wake=parsed["next_wake"])
         for upd in parsed["private_updates"]:
             world.apply("actor.memory",
                         {"actor": actor_id, "kind": "private",
                          "content": upd,
                          "source": f"actor_call:{out['call_id']}"}, aseq)
+        if parsed["next_wake"]:
+            # They said they would come back to something.  That, and the
+            # world saying a process will happen, are the only kinds of
+            # "later" this runtime has.
+            _schedule_wake(actor_id, after=parsed["next_wake"]["after"],
+                           reason=parsed["next_wake"]["reason"],
+                           provenance="actor_plan",
+                           about=f"plan:{out['call_id']}", cause=aseq)
         # each intention is judged separately: no batching of futures
         for intent in parsed["intentions"]:
             world_step(trigger_kind="actor_intention",
                        trigger_text=f"{actor_id} attempts: {intent}",
-                       cause=aseq, actor_id=actor_id)
+                       cause=aseq, actor_id=actor_id, intention=intent)
+
+    def _continuity_review(actor_id: str, rendered: str, parsed: dict,
+                           *, cause: int) -> dict:
+        """Read-only: does this reply follow from what this person has?
+
+        It is not a second actor.  It proposes nothing and chooses
+        nothing, and it sees only what this person was given and what this
+        person replied -- never the resolution, never anyone else's
+        private state, never a future event.
+        """
+        out = caller.ask("continuity", actor_mind.CONTINUITY_SYSTEM,
+                         actor_mind.continuity_user_prompt(rendered, parsed),
+                         actor_mind.validate_continuity,
+                         sim_time=_iso_now(world),
+                         trigger=f"continuity:{actor_id}")
+        traj.review_calls += 1
+        world.apply(OP_CONTINUITY,
+                    {"call_id": out["call_id"], "actor": actor_id,
+                     "verdict": out["parsed"]["verdict"],
+                     "reason": out["parsed"]["reason"],
+                     "trajectory_id": tid}, cause)
+        note("continuity_review", actor=actor_id, t=_iso_now(world),
+             call_id=out["call_id"], **out["parsed"])
+        return out["parsed"]
 
     #: How many times in a row the runtime asks "and then?" about
     #: something nobody has noticed.  Once: a thing that was sent arrives,
@@ -332,8 +477,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         for aid in actors:
             if _has_learned_something(aid):
                 actor_step(aid, cause=rec["seq"])
-            else:
-                _schedule_recheck(aid, rec["seq"])
+            # someone who has learned nothing gets nothing: they are in
+            # the middle of their own business, and coming back to it is
+            # for them to plan, not for the clock to force
 
     def _after_commit(rec: dict, envelope: dict, self_act_of=None) -> None:
         """The single post-commit rule, identical for starting events and
@@ -354,9 +500,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             env_chain["depth"] = 0
             for aid in others:
                 news[aid] = news.get(aid, 0) + 1
-                # something happened to them, so their patience resets:
-                # it widens while nothing does
-                backoff[aid] = FIRST_RECHECK_MINUTES
                 actor_step(aid, cause=rec["seq"],
                            trigger_event_ids=[rec["event_id"]])
             return
@@ -373,23 +516,20 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             # has been writing, the people in it get to speak
             _hand_back_the_turn(waiting, rec)
             return
+        if not envelope.get("follow_up"):
+            # the world says this event is finished in itself.  Nothing
+            # further is asked: what happens next is somebody's decision,
+            # or a later thing already scheduled, or nothing at all.
+            env_chain["depth"] = 0
+            return
         if env_chain["depth"] >= MAX_ENV_CHAIN:
             env_chain["depth"] = 0
-            for aid in waiting:
-                _schedule_recheck(aid, rec["seq"])
             return
         env_chain["depth"] += 1
-        before = len(journal.events())
-        parsed = world_step(
-            trigger_kind="event_consequence",
-            trigger_text=envelope["description"], cause=rec["seq"],
-            actor_id=envelope["for"][0] if envelope["for"] else None,
-            concerns=[rec["event_id"]], self_act_of=self_act_of)
-        progressed = (len(journal.events()) > before
-                      or world.queue.peek() is not None)
-        if parsed is not None and not (parsed["wakes"] or progressed):
-            for aid in waiting:
-                _schedule_recheck(aid, rec["seq"])
+        world_step(trigger_kind="event_consequence",
+                   trigger_text=envelope["description"], cause=rec["seq"],
+                   actor_id=envelope["for"][0] if envelope["for"] else None,
+                   concerns=[rec["event_id"]], self_act_of=self_act_of)
 
     # ---------------------------------------------------------------
     def judge(*, final: bool, cause: int, reserved: bool = False) -> dict:
@@ -488,26 +628,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     actor_step(aid, cause=e["seq"], trigger_event_ids=[eid])
 
         while traj.steps < max_steps and not caller.budget_exhausted():
-            # nobody is left out of their own situation.  A person whose
-            # revisit has fired and produced nothing was simply dropped:
-            # one live run left a supervisor mid-sentence with two hours
-            # to a deadline and never asked her anything again, and
-            # another woke a child four times and never once let him act.
-            if world.clock.now < cutoff:
-                for aid in actor_ids:
-                    _schedule_recheck(aid, world.records[-1]["seq"])
             ev = world.queue.peek()
-            if ev is None and world.clock.now < cutoff:
-                # nothing is scheduled, but the question is still open and
-                # the people in it still have days in front of them.
-                # Silence is not the end of a situation: time keeps
-                # passing, on a widening interval, and each of them gets
-                # to look at where things stand again.  Code decides only
-                # WHEN they look; whether anything comes of it is theirs.
-                for aid in actor_ids:
-                    _schedule_recheck(aid, world.records[-1]["seq"])
-                ev = world.queue.peek()
             if ev is None or ev.t > cutoff:
+                # Nothing grounded is waiting to happen.  Code does not
+                # invent activity to fill the gap -- that is what the
+                # widening poll did, and it produced 3:50 a.m.
+                # reconsiderations of nothing.  If the people in this
+                # situation meant to come back to it they said so, and
+                # their own plan is on the queue.  Otherwise the time
+                # between here and the horizon is time in which nothing
+                # happens, which is a real thing that happens.
                 break
             ev = world.queue.pop()
             if ev.t > world.clock.now:
@@ -558,40 +688,28 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                               self_act_of=ev.data.get("self_act_of"))
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
-                recheck_pending.discard(aid)
+                # this wake has arrived, so it is no longer pending and a
+                # later one for the same purpose may be scheduled
+                pending_wakes.pop((aid, ev.data.get("about"),
+                                   ev.data.get("provenance")), None)
                 pending = journal.available_unobserved(aid)
                 if pending and since_actor["n"] >= MAX_WORLD_RUN:
                     _hand_back_the_turn([aid], {"seq": fired})
                 elif pending:
-                    before = len(journal.events())
-                    parsed = world_step(
+                    world_step(
                         trigger_kind="pending_progression",
                         trigger_text=(f"The items listed above are available "
                                       f"to {aid} but not yet observed by "
                                       f"them.  What concretely becomes of "
-                                      f"them next?  (Context for revisiting "
-                                      f"now: {ev.data['reason']})"),
+                                      f"them next?"),
                         cause=fired, actor_id=aid,
                         concerns=[e["event_id"] for e in pending])
-                    # a situation with something still pending is never
-                    # abandoned: if the world neither moved it on nor
-                    # scheduled its own revisit, code revisits it later on a
-                    # widening interval.  This is time bookkeeping, not
-                    # meaning -- the world still decides what happens.
-                    moved = (len(journal.events()) > before
-                             or world.queue.peek() is not None)
-                    if parsed is not None and not (parsed["wakes"] or moved):
-                        _schedule_recheck(aid, fired)
                     # ... and the person themselves gets their look.  A
                     # wake spent entirely on what is sitting in someone's
                     # inbox leaves the person out of their own life: they
                     # may have something else entirely to do about this.
                     actor_step(aid, cause=fired)
                 else:
-                    # nothing is pending for them; they are simply being
-                    # consulted again because time has passed.  The world's
-                    # stated reason stays in the ledger and never reaches
-                    # them -- a person learns things only by observing them.
                     actor_step(aid, cause=fired)
             else:
                 continue
@@ -630,7 +748,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             traj.status = "failed"
             traj.reason = f"{type(e2).__name__} after budget horizon: {e2}"
             return traj
-    except (EnvelopeError, RuntimeTechnicalFailure, ValueError) as e:
+    except (EnvelopeError, ActorGroundingError, EventGroundingError,
+            RuntimeTechnicalFailure, ValueError) as e:
         traj.status = "failed"
         traj.reason = f"{type(e).__name__}: {e}"
         return traj

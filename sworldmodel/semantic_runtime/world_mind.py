@@ -136,7 +136,8 @@ Reply with ONLY a JSON object:
     "description": "the single immediate concrete event, in plain language",
     "for": ["actor_id"],
     "observed": false,
-    "after": "43 seconds"
+    "after": "43 seconds",
+    "follow_up": true
   },
   "wakes": [
     {"actor": "actor_id", "after": "2 hours",
@@ -159,6 +160,13 @@ sit there untouched while that person deals with other things.  Any of \
 those is a legitimate answer; say which one actually happens.
 "after" is how much simulated time passes before this event occurs: "now", \
 "43 seconds", "5 minutes", "2 hours", or "3 days".
+"follow_up" is true when this event leaves ONE unresolved thing for the \
+world to work out next -- something is in transit, something is underway, \
+something will arrive.  It is false when the event is finished in itself: \
+somebody has put a thing down, an arrival has arrived, a person now has \
+the situation in front of them.  When it is false, nothing further is \
+asked and the next thing to happen is somebody's decision or a later \
+scheduled event.
 Use exactly the actor ids given to you.  Do not add any other fields."""
 
 
@@ -254,3 +262,103 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
         return parsed
 
     return validate
+
+
+# --------------------------------------------------- the event review
+#: A read-only check on whether a proposed event MEANS anything.  It is
+#: not a second world: it proposes nothing, and it never sees the
+#: resolution, the question or the cutoff.  It exists because instruction
+#: did not work -- the world was told not to narrate interface mechanics,
+#: given the exact counter-example, and half of every committed event in
+#: six live runs was still somebody operating a phone -- and because the
+#: structural version of the same check is impossible: "she sends the
+#: message" and "he puts his phone down" are the same shape, and only one
+#: of them has anywhere to go.
+EVENT_REVIEW_SYSTEM = """You check one thing: whether the proposed event \
+is a real thing that happened.
+
+You are given what triggered it, what has already happened, the attempt \
+that caused it if there was one, the event itself, and the time.  You do \
+not decide what should happen.  You do not know what anyone wants the \
+outcome to be.
+
+Answer PASS when the event changes at least one of these: what concretely \
+happened; what information now exists; who can get at it; who has \
+actually observed it; what somebody finished; what commitment now exists; \
+what changed between people; what future thing is now really scheduled; \
+or whether an attempt succeeded, failed or was interrupted.  It must be \
+ONE stage, caused by what came before, and realistically timed.
+
+Answer REVISE when the event is:
+- somebody operating a device or an interface -- opening an application, \
+a window appearing, scrolling, clicking, typing into a field, pressing \
+save, closing something, looking at a screen that shows what they just \
+asked it to show, continuing to type, continuing to read.  These are not \
+events.  What they add up to is: "she puts it in her diary for Thursday", \
+"he sends the reply he decided to write";
+- a restatement that nothing has changed -- still unread, still waiting, \
+still busy;
+- something already in the record, in the same or different words;
+- several stages at once;
+- timed in a way nothing supports;
+- a person, organisation or fact that exists nowhere in what you were \
+given;
+- a contradiction of what is already recorded;
+- more success than the attempt behind it actually supports;
+- convenient progress invented to keep things moving.
+
+Answer ACTOR_TURN_REQUIRED when the event contains a voluntary human \
+choice that person has not made.  Opening a message, reading it, \
+replying, agreeing, refusing, asking, signing, going, buying, carrying \
+on, stopping, deciding to wait, deciding NOT to do something -- those \
+belong to whoever would make them, and they are still choices when they \
+are negative.  A thing ARRIVING where someone could see it is not a \
+choice.  A thing reaching their attention, given the circumstances, is \
+not a choice.  The immediate consequence of an attempt they explicitly \
+made is not a new choice.
+
+Reply with ONLY a JSON object:
+{"verdict": "PASS" | "REVISE" | "ACTOR_TURN_REQUIRED", "reason": "one \
+sentence: the exact defect, or what makes it real"}"""
+
+
+def event_review_user_prompt(*, now: str, journal_text: str,
+                             trigger_kind: str, trigger_text: str,
+                             intention: str | None, event: dict) -> str:
+    parts = [f"CURRENT TIME\n{now}", "",
+             f"WHAT HAS ALREADY HAPPENED\n{journal_text}", "",
+             f"WHAT TRIGGERED THIS ({trigger_kind})\n{contained(trigger_text)}"]
+    if intention:
+        parts += ["", f"THE ATTEMPT BEHIND IT\n{contained(intention)}"]
+    parts += ["", "THE PROPOSED EVENT",
+              f"description: {contained(event['description'])}",
+              f"available to: {', '.join(event['for']) or 'no one'}",
+              f"already observed by them: {event['observed']}",
+              f"happens after: {contained(event['after'])}",
+              f"leaves something unresolved: {event.get('follow_up', False)}",
+              "", "Is this a real thing that happened?  Reply with ONLY the "
+              "JSON object."]
+    return "\n".join(parts)
+
+
+class EventReviewError(ValueError):
+    pass
+
+
+def validate_event_review(obj) -> dict:
+    if not isinstance(obj, dict):
+        raise EventReviewError("event review must be an object")
+    unknown = set(obj) - {"verdict", "reason"}
+    if unknown:
+        raise EventReviewError(f"unexpected fields {sorted(unknown)}")
+    if obj.get("verdict") not in ("PASS", "REVISE", "ACTOR_TURN_REQUIRED"):
+        raise EventReviewError(
+            'verdict must be "PASS", "REVISE" or "ACTOR_TURN_REQUIRED"')
+    reason = str(obj.get("reason", "")).strip()
+    if not reason:
+        raise EventReviewError("reason must be a non-empty string")
+    try:
+        reason = clean_text(reason, field="reason")
+    except EnvelopeError as e:
+        raise EventReviewError(str(e)) from None
+    return {"verdict": obj["verdict"], "reason": reason}

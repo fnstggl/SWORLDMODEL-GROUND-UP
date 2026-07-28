@@ -26,6 +26,9 @@ OP_ACTOR_CALL = "semantic.actor_call"
 OP_WORLD_CALL = "semantic.world_call"
 OP_TERMINAL = "semantic.terminal_check"
 OP_HORIZON = "semantic.horizon_reached"
+OP_CONTINUITY = "semantic.continuity_review"
+OP_EVENT_REVIEW = "semantic.event_review"
+OP_VERIFY = "semantic.terminal_verification"
 
 
 class Journal:

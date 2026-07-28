@@ -63,6 +63,9 @@ def compile_via_production_route():
 
 
 def runtime_model(system, user):
+    if ("whether what this person just said follows" in system
+            or "whether the proposed event" in system):
+        return json.dumps({"verdict": "PASS", "reason": "fine"}), {}
     if "read-only outcome judge" in system:
         # UNRESOLVED is not available at the cutoff, and code enforces it
         status = ("NO_AT_CUTOFF" if "THIS IS THE FINAL JUDGMENT" in user
@@ -75,7 +78,8 @@ def runtime_model(system, user):
                 "judgment": "It lands where Bo could see it.",
                 "event": {"description": "Ada's message arrives for Bo.",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes"}, "wakes": []}), {}
+                          "after": "1 minutes",
+                          "follow_up": True}, "wakes": []}), {}
         return json.dumps({"judgment": "Nothing concrete follows.",
                            "event": None, "wakes": []}), {}
     return json.dumps({"decision": "Nothing to do.", "intentions": [],

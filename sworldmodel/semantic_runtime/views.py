@@ -8,9 +8,18 @@ mechanical:
 
     actor_id in event["for"]  AND  event["observed"] is True
 
-Everything else about the actor (identity, compiler-provided private
-context, immutable shared context, their own private memories, the current
-simulated time) is added by identity, never by interpretation.
+Everything else about the actor (identity, their own evidence, their own
+memories, their own prior actions, the current simulated time) is added by
+identity, never by interpretation.
+
+The compiled ``shared_context`` is NOT here.  It is the world's
+background, written by the compiler as an outside description of the
+situation, and in six live runs every one of them leaked something
+through it: a man with "you have not observed anything yet" in his prompt
+named the sender of an email nobody had delivered, because the sender's
+own plan was in that block.  An actor learns a public fact the way people
+do -- from their own evidence, from a starting event they could see, or
+from something they observed.
 
 There is no free-text channel into a view.  Even the line explaining why
 the actor is being consulted now is composed by code out of that actor's
@@ -59,7 +68,6 @@ def build_view(world, journal: Journal, actor_id: str, *,
         "name": st.name,
         "now": world.clock.now.isoformat(),
         "private_context": journal.profiles().get(actor_id, ""),
-        "shared_context": journal.shared_context(),
         "observed_events": [{"event_id": e["event_id"], "t": e["t"],
                              "description": e["description"]}
                             for e in observed],
@@ -81,12 +89,10 @@ def render_view(view: dict) -> str:
         "WHO YOU ARE",
         f"{contained(view['name'])} (your identity in this situation: "
         f"{view['actor_id']})",
+        "", "AUTHORITATIVE ACTOR EVIDENCE",
         contained(view["private_context"]) if view["private_context"]
-        else "(no further private context)", "",
-        "SHARED CONTEXT",
-        contained(view["shared_context"]) if view["shared_context"]
-        else "(none)", "",
-        "WHAT YOU HAVE OBSERVED",
+        else "(nothing further about you)", "",
+        "WHAT YOU HAVE ACTUALLY OBSERVED",
     ]
     if view["observed_events"]:
         for e in view["observed_events"]:
@@ -102,14 +108,14 @@ def render_view(view: dict) -> str:
                          f"-> you attempted: {attempts}")
     else:
         parts.append("- (you have not done anything yet)")
-    parts += ["", "YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS"]
+    parts += ["", "YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS"]
     if view["private_memories"]:
         for m in view["private_memories"]:
             parts.append(f"- {contained(m['content'])}")
     else:
         parts.append("- (none yet)")
     if view["reasons"]:
-        parts += ["", "WHY YOU ARE CONSIDERING THINGS NOW"]
+        parts += ["", "WHAT HAS CHANGED SINCE YOUR LAST TURN"]
         for r in view["reasons"]:
             parts.append(f"- {contained(r)}")
     return "\n".join(parts)
