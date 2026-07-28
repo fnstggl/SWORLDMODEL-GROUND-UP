@@ -4,25 +4,21 @@
   "status": "cutoff",
   "answer": {
    "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [
-    "e21"
-   ],
-   "explanation": "Dr Aline Mercier never observed the email or the thesis chapter, and no comments were sent by the deadline."
+   "supporting_event_ids": [],
+   "explanation": "The deadline has passed and the committed events only show that Ravi sent the chapter and it arrived in Aline's inbox, but there is no event showing Aline actually read the chapter or sent comments."
   },
   "reason": "",
-  "steps": 3,
-  "world_calls": 3,
-  "actor_calls": 2,
-  "judge_calls": 4,
-  "review_calls": 6,
+  "steps": 1,
+  "world_calls": 1,
+  "actor_calls": 1,
+  "judge_calls": 3,
+  "review_calls": 3,
   "abandoned_turns": 0
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e21"
-  ],
-  "explanation": "Dr Aline Mercier never observed the email or the thesis chapter, and no comments were sent by the deadline."
+  "supporting_event_ids": [],
+  "explanation": "The deadline has passed and the committed events only show that Ravi sent the chapter and it arrived in Aline's inbox, but there is no event showing Aline actually read the chapter or sent comments."
  },
  "reason": ""
 }

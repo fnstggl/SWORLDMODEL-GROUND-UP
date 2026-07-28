@@ -1,25 +1,47 @@
-{"actor":"priya_raghavan","content":"I've decided to raise my offer to 1000 as a compromise, hoping to get a response before my lease deadline.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I've decided to counter at 1200, hoping to settle around 1000-1100.","source":"actor_call:c7","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm anxious to close the deal but don't want to seem desperate by chasing too soon.","source":"actor_call:c36","t":"2026-09-09T09:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm getting more anxious about the deadline, but I still don't want to appear desperate.","source":"actor_call:c41","t":"2026-09-10T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm getting a bit impatient and willing to negotiate further if needed.","source":"actor_call:c48","t":"2026-09-10T09:30:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm losing hope that Dmitri will respond, so I need to actively pursue alternatives.","source":"actor_call:c59","t":"2026-09-10T11:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'll consider increasing my budget slightly if needed, but only for a kiln that arrives before the deadline.","source":"actor_call:c59","t":"2026-09-10T11:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm setting a hard deadline of the 15th for Dmitri to respond, after which I'll focus entirely on alternatives.","source":"actor_call:c66","t":"2026-09-10T13:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm willing to go up to 1100 if necessary for a suitable kiln that arrives in time.","source":"actor_call:c66","t":"2026-09-10T13:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I have set a hard deadline of September 15th for Dmitri to respond; after that I will move on completely.","source":"actor_call:c81","t":"2026-09-10T13:15:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm increasingly convinced Dmitri is not going to respond, so I need to find a backup kiln as soon as possible.","source":"actor_call:c88","t":"2026-09-10T14:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to go down to 1000 to get a deal done.","source":"actor_call:c99","t":"2026-09-10T17:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm starting to accept that I might not get a kiln in time, but I'll hold out hope until the 15th deadline.","source":"actor_call:c109","t":"2026-09-10T17:05:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm losing hope of finding a suitable alternative, but I'll stick to my deadline for Dmitri.","source":"actor_call:c119","t":"2026-09-10T17:30:00+00:00"}
-{"actor":"priya_raghavan","content":"I've exhausted my search for today and found nothing suitable. I'll check listings again tomorrow morning.","source":"actor_call:c124","t":"2026-09-10T18:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm sticking to my plan of waiting until the 15th for Dmitri, but I need to keep searching for alternatives daily.","source":"actor_call:c280","t":"2026-09-11T03:50:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm starting the day with the same plan: check for Dmitri's reply and search for alternatives.","source":"actor_call:c286","t":"2026-09-11T03:55:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm increasingly worried I won't find a kiln in time; I may need to consider options that arrive after the 20th or raise my budget above 1100.","source":"actor_call:c307","t":"2026-09-11T04:06:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm becoming more anxious about the deadline, and I'm considering that I may need to raise my budget above 1100 or accept a kiln that arrives after the 20th.","source":"actor_call:c310","t":"2026-09-11T04:11:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now actively considering raising my budget above 1100 or accepting a kiln that arrives after the 20th, as I'm running out of options.","source":"actor_call:c314","t":"2026-09-11T04:26:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm getting frustrated with the lack of response, but I'll give it another few hours before reaching out again.","source":"actor_call:c462","t":"2026-09-11T15:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm growing impatient but still committed to selling the kiln. I'll give Priya until tomorrow morning to respond before I follow up again.","source":"actor_call:c764","t":"2026-09-12T15:30:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm still waiting for Priya's response to my offer of 1000. I'll follow up tomorrow morning if I haven't heard back.","source":"actor_call:c768","t":"2026-09-12T16:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now seriously considering raising my budget above 1100 or accepting a kiln that arrives after the 20th, as I'm running out of options.","source":"actor_call:c914","t":"2026-09-13T05:40:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm getting frustrated with the lack of response, but I'll give it a bit more time.","source":"actor_call:c920","t":"2026-09-13T07:30:00+00:00"}
+{"actor":"priya_raghavan","content":"I am willing to increase my offer to 1100, but I want to avoid going higher if possible.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am willing to negotiate down to around 1000-1100 if needed.","source":"actor_call:c7","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now slightly more anxious to close, but I still prefer to hold at 1200 for now.","source":"actor_call:c29","t":"2026-09-08T10:30:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am getting a bit more anxious but still want to hold at 1200 for now.","source":"actor_call:c36","t":"2026-09-08T11:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more anxious to close but still prefer to hold at 1200 for now.","source":"actor_call:c42","t":"2026-09-08T11:00:30+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm now willing to go down to 1000 if needed, but I'll try 1100 first.","source":"actor_call:c49","t":"2026-09-08T11:15:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm getting a bit anxious about the timeline, but I'll hold off until at least tomorrow morning before following up.","source":"actor_call:c99","t":"2026-09-08T13:05:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm getting anxious but still think pushing too soon might hurt my position. I'll wait until this evening to send a nudge.","source":"actor_call:c102","t":"2026-09-08T13:15:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm getting more anxious but still want to hold at 1100 for now.","source":"actor_call:c118","t":"2026-09-08T14:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I reaffirm my plan to wait until tomorrow morning before contacting Dmitri again.","source":"actor_call:c130","t":"2026-09-08T14:45:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm now willing to go down to 1000, but I won't go lower than that.","source":"actor_call:c133","t":"2026-09-08T15:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now willing to accept 1000 as it's close to my original offer and saves time.","source":"actor_call:c152","t":"2026-09-08T16:00:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm starting to think Priya might not be interested, but I'll give it a bit more time.","source":"actor_call:c174","t":"2026-09-08T17:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm starting to think Priya may have lost interest or is ignoring me. I'll give it one more nudge and then I'll stop pursuing this deal.","source":"actor_call:c182","t":"2026-09-08T17:05:05+00:00"}
+{"actor":"priya_raghavan","content":"I have accepted Dmitri's final offer of 1000 and am waiting for confirmation.","source":"actor_call:c185","t":"2026-09-08T17:15:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm giving up on Priya; she's clearly not interested or ignoring me. I'll move on.","source":"actor_call:c189","t":"2026-09-08T17:30:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm definitely done with Priya. No more messages from me.","source":"actor_call:c195","t":"2026-09-08T18:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm starting to worry that Dmitri might not have seen my acceptance or that the deal might fall through.","source":"actor_call:c274","t":"2026-09-09T17:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm worried Dmitri might have sold the kiln to someone else or changed his mind.","source":"actor_call:c288","t":"2026-09-10T17:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'll give it until the end of today, and if no response, I'll start looking for other kilns.","source":"actor_call:c288","t":"2026-09-10T17:15:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I now know Priya accepted my offer of 1000 and wants to arrange pickup before the 20th.","source":"actor_call:c297","t":"2026-09-10T18:15:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I am relieved that the deal is back on and I can sell the kiln.","source":"actor_call:c297","t":"2026-09-10T18:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm now actively looking for alternatives because Dmitri's silence is concerning and I can't risk not having a kiln by the 20th.","source":"actor_call:c306","t":"2026-09-10T19:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm now actively pursuing other kilns as a backup plan, since Dmitri's silence makes the deal uncertain.","source":"actor_call:c321","t":"2026-09-10T21:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm committed to my deadline for Dmitri and will not contact him again until tomorrow evening unless he replies first.","source":"actor_call:c331","t":"2026-09-10T23:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm getting more anxious about the deadline but I'll stick to my plan and wait for Dmitri's response until tomorrow evening.","source":"actor_call:c350","t":"2026-09-11T07:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm now seriously considering the $950 kiln as a viable backup, even though it's farther away and requires renting a truck.","source":"actor_call:c359","t":"2026-09-11T09:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I am assuming the deal with Dmitri is off since he did not respond by my deadline.","source":"actor_call:c464","t":"2026-09-12T00:00:05+00:00"}
+{"actor":"priya_raghavan","content":"I will now focus on securing the $950 kiln as my primary option.","source":"actor_call:c464","t":"2026-09-12T00:00:05+00:00"}
+{"actor":"priya_raghavan","content":"I've concluded that Dmitri is not going to respond, so I'm moving on to the $950 kiln as my primary option.","source":"actor_call:c480","t":"2026-09-12T00:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I have moved on from Dmitri and am now focused on securing the $950 kiln.","source":"actor_call:c493","t":"2026-09-12T00:30:05+00:00"}
+{"actor":"priya_raghavan","content":"I'm getting concerned that the $950 seller hasn't replied yet, so I'm following up to avoid losing this option.","source":"actor_call:c546","t":"2026-09-12T12:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I now know Dmitri accepted my offer of 1000 on Sep 10, so the deal is back on. I no longer need to pursue the $950 kiln.","source":"actor_call:c551","t":"2026-09-12T12:15:05+00:00"}
+{"actor":"priya_raghavan","content":"I have a confirmed deal with Dmitri at 1000, so I no longer need the $950 kiln.","source":"actor_call:c575","t":"2026-09-12T14:15:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm concerned that Priya hasn't responded to my acceptance, so I'm following up to keep the deal alive.","source":"actor_call:c635","t":"2026-09-14T10:45:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm waiting for Dmitri to confirm a pickup time. If I don't hear back by tomorrow, I'll send a follow-up.","source":"actor_call:c641","t":"2026-09-14T10:50:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm getting anxious about the deadline and need to secure a pickup time soon.","source":"actor_call:c676","t":"2026-09-14T15:20:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm getting a bit concerned that Priya hasn't responded to my follow-up, but it's only been a few hours, so I'll be patient.","source":"actor_call:c687","t":"2026-09-14T16:45:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm worried Dmitri might be ghosting me, but I still need to try to secure this deal before the deadline.","source":"actor_call:c699","t":"2026-09-14T19:20:10+00:00"}
+{"actor":"priya_raghavan","content":"I need to be patient and not message Dmitri again tonight; I'll follow up tomorrow if I haven't heard back.","source":"actor_call:c718","t":"2026-09-14T21:20:10+00:00"}
+{"actor":"dmitri_sokolov","content":"If Priya doesn't reply to this final message, I will definitively move on and stop contacting her.","source":"actor_call:c746","t":"2026-09-15T08:45:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I am giving up on Priya; she has not responded to multiple messages over several days, so I will not contact her again and will look for other buyers or keep the kiln.","source":"actor_call:c772","t":"2026-09-15T10:45:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm getting anxious about the 20th deadline, but messaging again within the same day might annoy Dmitri.","source":"actor_call:c777","t":"2026-09-15T10:50:10+00:00"}
+{"actor":"priya_raghavan","content":"I need to read Dmitri's messages before making any decisions.","source":"actor_call:c796","t":"2026-09-15T13:05:10+00:00"}
+{"actor":"priya_raghavan","content":"I see Dmitri has been consistently offering 1000 and following up, so the deal is still on. I need to act quickly to secure the kiln before the deadline.","source":"actor_call:c808","t":"2026-09-15T13:20:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm now confident the deal is still on and need to act quickly to secure pickup.","source":"actor_call:c819","t":"2026-09-15T13:50:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm feeling anxious but I'll stick to my plan to wait until tomorrow before following up with Dmitri again.","source":"actor_call:c851","t":"2026-09-15T18:50:10+00:00"}

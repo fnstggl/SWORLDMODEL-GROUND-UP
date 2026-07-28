@@ -1,3 +1,2 @@
 {"cause":10,"description":"Ravi Patel sends an email to Dr Aline Mercier with his thesis chapter attached.","event_id":"e11","for":["ravi_patel"],"observed":true,"observed_by":["ravi_patel"],"seq":11,"source":"starting_event[0]","t":"2026-07-27T08:00:00+00:00"}
-{"cause":20,"description":"The email from Ravi Patel arrives in Dr Aline Mercier's inbox, with the thesis chapter attached.","event_id":"e21","for":["dr_aline_mercier"],"observed":false,"observed_by":[],"seq":21,"source":"world_call:c2","t":"2026-07-27T08:00:00+00:00"}
-{"cause":31,"description":"Ravi finds no reply from Dr. Mercier in his inbox.","event_id":"e32","for":["ravi_patel"],"observed":true,"observed_by":["ravi_patel"],"seq":32,"source":"world_call:c12","t":"2026-07-29T08:00:00+00:00"}
+{"cause":19,"description":"The email arrives in Aline Mercier's inbox.","event_id":"e20","for":["dr_aline_mercier"],"observed":false,"observed_by":[],"seq":20,"source":"world_call:c2","t":"2026-07-27T08:00:05+00:00"}

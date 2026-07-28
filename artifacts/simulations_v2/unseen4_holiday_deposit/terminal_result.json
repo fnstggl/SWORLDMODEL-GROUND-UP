@@ -5,20 +5,20 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline."
+   "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline, and the deadline has passed."
   },
   "reason": "",
-  "steps": 78,
-  "world_calls": 85,
-  "actor_calls": 71,
-  "judge_calls": 15,
-  "review_calls": 106,
-  "abandoned_turns": 0
+  "steps": 80,
+  "world_calls": 90,
+  "actor_calls": 63,
+  "judge_calls": 26,
+  "review_calls": 105,
+  "abandoned_turns": 1
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline."
+  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline, and the deadline has passed."
  },
  "reason": ""
 }

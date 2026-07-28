@@ -1,58 +1,58 @@
 {
- "provider_calls": 935,
+ "provider_calls": 862,
  "by_role": {
   "judge": {
-   "calls": 16,
-   "retries": 0,
-   "wall_s": 23.89,
-   "input_tokens": 17224,
-   "output_tokens": 799
+   "calls": 53,
+   "retries": 2,
+   "wall_s": 83.9,
+   "input_tokens": 112688,
+   "output_tokens": 3282
   },
   "world": {
-   "calls": 334,
+   "calls": 326,
    "retries": 1,
-   "wall_s": 728.83,
-   "input_tokens": 1084108,
-   "output_tokens": 41223
+   "wall_s": 691.64,
+   "input_tokens": 1353727,
+   "output_tokens": 40439
   },
   "actor": {
-   "calls": 232,
+   "calls": 186,
    "retries": 0,
-   "wall_s": 471.94,
-   "input_tokens": 1602894,
-   "output_tokens": 23066
+   "wall_s": 344.14,
+   "input_tokens": 882692,
+   "output_tokens": 17499
   },
   "continuity": {
-   "calls": 232,
+   "calls": 186,
    "retries": 0,
-   "wall_s": 395.61,
-   "input_tokens": 1518126,
-   "output_tokens": 10561
+   "wall_s": 301.09,
+   "input_tokens": 813449,
+   "output_tokens": 9178
   },
   "event_review": {
-   "calls": 121,
+   "calls": 111,
    "retries": 0,
-   "wall_s": 180.57,
-   "input_tokens": 180435,
-   "output_tokens": 5016
+   "wall_s": 159.74,
+   "input_tokens": 180912,
+   "output_tokens": 4614
   }
  },
- "total_input_tokens": 4402787,
- "total_output_tokens": 80665,
- "total_wall_s": 1800.85,
+ "total_input_tokens": 3343468,
+ "total_output_tokens": 75012,
+ "total_wall_s": 1580.62,
  "status": "incomplete",
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement on a price; all offers are unread messages, so no agreement has been reached."
+  "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement; the latest messages are unread by one party."
  },
- "reason": "step ceiling 250 reached at 2026-09-13T08:00:00+00:00, before the cutoff",
+ "reason": "step ceiling 250 reached at 2026-09-15T20:45:10+00:00, before the cutoff",
  "steps": 250,
- "world_calls": 333,
- "actor_calls": 232,
- "judge_calls": 16,
- "review_calls": 353,
- "abandoned_turns": 0,
- "committed_events": 15,
- "ledger_records": 1496
+ "world_calls": 325,
+ "actor_calls": 186,
+ "judge_calls": 51,
+ "review_calls": 297,
+ "abandoned_turns": 4,
+ "committed_events": 50,
+ "ledger_records": 1454
 }

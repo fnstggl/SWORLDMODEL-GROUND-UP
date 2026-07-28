@@ -5,20 +5,20 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "The committed events show only messages from Ines and Bea, but no evidence that all four housemates collectively agreed on a host before the deadline."
+   "explanation": "The deadline of 2026-10-10T00:00:00+00:00 has passed and no committed event shows that all four housemates collectively agreed on a host."
   },
   "reason": "",
-  "steps": 8,
-  "world_calls": 14,
-  "actor_calls": 11,
-  "judge_calls": 4,
-  "review_calls": 19,
-  "abandoned_turns": 1
+  "steps": 15,
+  "world_calls": 18,
+  "actor_calls": 15,
+  "judge_calls": 8,
+  "review_calls": 23,
+  "abandoned_turns": 0
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "The committed events show only messages from Ines and Bea, but no evidence that all four housemates collectively agreed on a host before the deadline."
+  "explanation": "The deadline of 2026-10-10T00:00:00+00:00 has passed and no committed event shows that all four housemates collectively agreed on a host."
  },
  "reason": ""
 }

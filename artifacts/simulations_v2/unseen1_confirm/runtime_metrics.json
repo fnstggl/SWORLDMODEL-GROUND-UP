@@ -4,64 +4,64 @@
   "judge": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.15,
-   "input_tokens": 1101,
-   "output_tokens": 88
+   "wall_s": 2.74,
+   "input_tokens": 1102,
+   "output_tokens": 91
   },
   "world": {
    "calls": 4,
-   "retries": 1,
-   "wall_s": 6.47,
-   "input_tokens": 8131,
-   "output_tokens": 338
+   "retries": 0,
+   "wall_s": 6.73,
+   "input_tokens": 8193,
+   "output_tokens": 373
   },
   "actor": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.51,
+   "wall_s": 1.66,
    "input_tokens": 1239,
-   "output_tokens": 83
+   "output_tokens": 70
   },
   "continuity": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.42,
-   "input_tokens": 867,
-   "output_tokens": 43
+   "wall_s": 1.5,
+   "input_tokens": 851,
+   "output_tokens": 44
   },
   "event_review": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.4,
-   "input_tokens": 1559,
+   "wall_s": 3.1,
+   "input_tokens": 1847,
    "output_tokens": 94
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.43,
-   "input_tokens": 513,
-   "output_tokens": 47
+   "wall_s": 1.38,
+   "input_tokens": 514,
+   "output_tokens": 81
   }
  },
- "total_input_tokens": 13410,
- "total_output_tokens": 693,
- "total_wall_s": 17.37,
+ "total_input_tokens": 13746,
+ "total_output_tokens": 753,
+ "total_wall_s": 17.12,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e19"
+   "e18"
   ],
-  "explanation": "Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e19."
+  "explanation": "Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e18."
  },
  "reason": "",
  "steps": 1,
- "world_calls": 3,
+ "world_calls": 4,
  "actor_calls": 1,
  "judge_calls": 2,
  "review_calls": 4,
  "abandoned_turns": 0,
  "committed_events": 2,
- "ledger_records": 24
+ "ledger_records": 22
 }

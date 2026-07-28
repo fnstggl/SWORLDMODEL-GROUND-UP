@@ -1,34 +1,26 @@
 {
  "question": "Is this cold email likely to get a response from Mark Cuban within two weeks? Jordan Reyes, founder of a bootstrapped sports-analytics startup, has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. Jordan will send it today and does not plan to follow up.",
  "trajectory": {
-  "status": "cutoff",
+  "status": "disagreement",
   "answer": {
-   "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [
-    "e11",
-    "e24",
-    "e27",
-    "e54"
-   ],
-   "explanation": "The resolution requires Mark Cuban to have actually sent a response to Jordan Reyes's email before the deadline, but the committed events show only that the email arrived and was unread; no response was sent."
+   "status": "UNRESOLVED",
+   "supporting_event_ids": [],
+   "explanation": "two independent readings of the record disagree (YES against NO_AT_CUTOFF), so no answer is claimed",
+   "disagreement": true
   },
   "reason": "",
-  "steps": 42,
-  "world_calls": 48,
-  "actor_calls": 43,
+  "steps": 6,
+  "world_calls": 8,
+  "actor_calls": 4,
   "judge_calls": 5,
-  "review_calls": 51,
+  "review_calls": 10,
   "abandoned_turns": 0
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e11",
-   "e24",
-   "e27",
-   "e54"
-  ],
-  "explanation": "The resolution requires Mark Cuban to have actually sent a response to Jordan Reyes's email before the deadline, but the committed events show only that the email arrived and was unread; no response was sent."
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "two independent readings of the record disagree (YES against NO_AT_CUTOFF), so no answer is claimed",
+  "disagreement": true
  },
  "reason": ""
 }

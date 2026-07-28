@@ -282,6 +282,15 @@ that caused it if there was one, the event itself, and the time.  You do \
 not decide what should happen.  You do not know what anyone wants the \
 outcome to be.
 
+PASS IS THE NORMAL ANSWER.  Most of what happens in a real situation is \
+ordinary and small, and it still happened.  You are looking for three \
+specific kinds of thing that are not events at all -- somebody working a \
+device, a restatement that nothing has changed, and a decision put in \
+somebody's mouth -- and everything else passes.  Rejecting an ordinary \
+event costs the situation the thing that would have happened next: a run \
+where most proposals are refused is a run where nothing occurs and \
+nobody learns anything.
+
 Answer PASS when the event changes at least one of these: what concretely \
 happened; what information now exists; who can get at it; who has \
 actually observed it; what somebody finished; what commitment now exists; \

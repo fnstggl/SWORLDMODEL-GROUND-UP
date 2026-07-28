@@ -1,11 +1,24 @@
-{"actor":"ruth_kelleher","content":"I'm not willing to front the full deposit myself because I'm still annoyed about the group meal money last year.","source":"actor_call:c3","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm aware the deadline is tight and I need to get a response from Dev and Nina soon.","source":"actor_call:c3","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I really want to go but the \u00a3200 deposit is impossible for me until payday on the 28th, and I promised my wife I'd stop using the credit card.","source":"actor_call:c8","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"nina_achebe","content":"I'm aware I need to reply eventually, but with mum just out of hospital I can't plan October yet. I'll check back when I know more.","source":"actor_call:c11","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I'm not going to pay the deposit now; I'll wait until payday on the 28th and risk the trip being full.","source":"actor_call:c23","t":"2026-09-13T19:51:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm starting to get a bit anxious about the deadline, but I'm not going to chase them tonight. I'll follow up tomorrow morning if I still haven't heard anything.","source":"actor_call:c34","t":"2026-09-13T23:40:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm getting frustrated that they haven't replied yet; I might need to call them if I don't hear back today.","source":"actor_call:c87","t":"2026-09-15T07:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I've now replied to Ruth explaining my situation, so she knows I'm not bailing, just delayed.","source":"actor_call:c108","t":"2026-09-15T08:15:00+00:00"}
-{"actor":"dev_sandhu","content":"I've messaged Ruth, so now it's up to her to respond.","source":"actor_call:c116","t":"2026-09-15T08:40:05+00:00"}
-{"actor":"ruth_kelleher","content":"I'm getting worried that silence means they might not be interested anymore, but I'm not giving up yet.","source":"actor_call:c133","t":"2026-09-15T11:40:00+00:00"}
-{"actor":"marian_prowse","content":"The deadline has passed without deposit, so the hold is cancelled.","source":"actor_call:c253","t":"2026-09-16T19:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I need to get commitments from Dev and Nina before I transfer anything, to avoid being left out of pocket again.","source":"actor_call:c4","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I want to go but cannot afford the deposit until payday on the 28th. I'm hoping the group will be flexible or I'll need to drop out.","source":"actor_call:c9","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"nina_achebe","content":"I know I need to reply eventually, but right now I'm too overwhelmed to deal with it. I'll check back when I know more about October.","source":"actor_call:c12","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"marian_prowse","content":"I'm holding the week until end of Wednesday 16th September. If no deposit by then, I'll release it to the Leeds couple.","source":"actor_call:c15","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I've accepted I can't go on the trip.","source":"actor_call:c20","t":"2026-09-13T19:41:00+00:00"}
+{"actor":"ruth_kelleher","content":"I haven't received replies from Dev or Nina yet; I'll give them until tomorrow morning before following up.","source":"actor_call:c68","t":"2026-09-14T19:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm starting to worry that Dev or Nina might not be able to commit, and I need to think about whether I'm willing to cover their share or risk losing the cottage.","source":"actor_call:c77","t":"2026-09-14T20:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"Dev is out, so the original plan of three households is broken. I'm not keen to cover the whole deposit myself, but I might if Nina is committed.","source":"actor_call:c85","t":"2026-09-14T20:45:00+00:00"}
+{"actor":"ruth_kelleher","content":"I need to decide by Wednesday whether to pay the deposit myself or let the cottage go.","source":"actor_call:c85","t":"2026-09-14T20:45:00+00:00"}
+{"actor":"dev_sandhu","content":"Ruth's follow-up confirms she may not have seen my drop-out message yet, but I've already sent it.","source":"actor_call:c109","t":"2026-09-14T23:00:00+00:00"}
+{"actor":"ruth_kelleher","content":"Dev is definitely out; the group is now just Nina and me if she's in.","source":"actor_call:c125","t":"2026-09-15T07:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm not willing to pay the full deposit myself unless Nina confirms she's in and pays her share.","source":"actor_call:c125","t":"2026-09-15T07:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'll wait for Nina's reply before making any further decisions.","source":"actor_call:c125","t":"2026-09-15T07:40:00+00:00"}
+{"actor":"nina_achebe","content":"I finally replied, which feels like a relief even though it's disappointing.","source":"actor_call:c148","t":"2026-09-15T18:40:00+00:00"}
+{"actor":"nina_achebe","content":"I now acknowledge that I'm definitely not going on this trip.","source":"actor_call:c148","t":"2026-09-15T18:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm now seriously considering that Nina may not reply or may also drop out, and I'm leaning towards not covering the full deposit myself.","source":"actor_call:c162","t":"2026-09-15T20:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm now assuming Nina isn't going to reply in time, so the cottage is probably lost.","source":"actor_call:c174","t":"2026-09-15T23:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm not willing to cover the full deposit myself, so I'll let the deadline pass without paying.","source":"actor_call:c174","t":"2026-09-15T23:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm now certain the trip is off; I won't chase Nina again or pay the deposit.","source":"actor_call:c179","t":"2026-09-16T06:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I accept that the trip is off and I won't be contacting Marian or anyone else about it.","source":"actor_call:c182","t":"2026-09-16T07:10:00+00:00"}
+{"actor":"ruth_kelleher","content":"I now have Nina's reply to read, which could change my decision about the deposit.","source":"actor_call:c189","t":"2026-09-16T08:45:00+00:00"}
+{"actor":"ruth_kelleher","content":"Confirmed that the trip is off; I won't pay the deposit or cover Dev's share.","source":"actor_call:c197","t":"2026-09-16T08:45:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'll message Nina to let her know I can't cover Dev's share so the cottage is lost.","source":"actor_call:c197","t":"2026-09-16T08:45:00+00:00"}
+{"actor":"marian_prowse","content":"The hold for Ruth's group is definitively off; the week is now free to offer to the Leeds couple.","source":"actor_call:c276","t":"2026-09-16T21:30:00+00:00"}

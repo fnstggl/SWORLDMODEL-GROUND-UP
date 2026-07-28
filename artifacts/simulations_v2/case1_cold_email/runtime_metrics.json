@@ -1,70 +1,66 @@
 {
- "provider_calls": 147,
+ "provider_calls": 27,
  "by_role": {
   "judge": {
    "calls": 5,
    "retries": 0,
-   "wall_s": 7.55,
-   "input_tokens": 3148,
-   "output_tokens": 283
+   "wall_s": 7.93,
+   "input_tokens": 3194,
+   "output_tokens": 274
   },
   "world": {
-   "calls": 48,
+   "calls": 8,
    "retries": 0,
-   "wall_s": 89.34,
-   "input_tokens": 109403,
-   "output_tokens": 5110
+   "wall_s": 16.31,
+   "input_tokens": 17565,
+   "output_tokens": 904
   },
   "event_review": {
-   "calls": 7,
+   "calls": 5,
    "retries": 0,
-   "wall_s": 9.91,
-   "input_tokens": 5912,
-   "output_tokens": 275
+   "wall_s": 7.64,
+   "input_tokens": 4813,
+   "output_tokens": 222
   },
   "actor": {
-   "calls": 43,
+   "calls": 4,
    "retries": 0,
-   "wall_s": 61.73,
-   "input_tokens": 93427,
-   "output_tokens": 2486
+   "wall_s": 7.83,
+   "input_tokens": 5135,
+   "output_tokens": 369
   },
   "continuity": {
-   "calls": 43,
+   "calls": 4,
    "retries": 0,
-   "wall_s": 63.08,
-   "input_tokens": 75910,
-   "output_tokens": 1762
+   "wall_s": 6.15,
+   "input_tokens": 3671,
+   "output_tokens": 174
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.58,
-   "input_tokens": 651,
-   "output_tokens": 39
+   "wall_s": 1.37,
+   "input_tokens": 671,
+   "output_tokens": 43
   }
  },
- "total_input_tokens": 288451,
- "total_output_tokens": 9955,
- "total_wall_s": 233.23,
- "status": "cutoff",
+ "total_input_tokens": 35049,
+ "total_output_tokens": 1986,
+ "total_wall_s": 47.22,
+ "status": "disagreement",
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e11",
-   "e24",
-   "e27",
-   "e54"
-  ],
-  "explanation": "The resolution requires Mark Cuban to have actually sent a response to Jordan Reyes's email before the deadline, but the committed events show only that the email arrived and was unread; no response was sent."
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "two independent readings of the record disagree (YES against NO_AT_CUTOFF), so no answer is claimed",
+  "disagreement": true
  },
  "reason": "",
- "steps": 42,
- "world_calls": 48,
- "actor_calls": 43,
+ "steps": 6,
+ "world_calls": 8,
+ "actor_calls": 4,
  "judge_calls": 5,
- "review_calls": 51,
+ "review_calls": 10,
  "abandoned_turns": 0,
  "committed_events": 4,
- "ledger_records": 245
+ "ledger_records": 56
 }
