@@ -407,19 +407,19 @@ def test_malformed_json_retries_once_then_fails_without_mutation():
 def test_time_never_moves_backward_and_cutoff_is_respected():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=Script({
-        "judge": [UNRESOLVED] * 30,
+        "judge": [UNRESOLVED] * 300,
         "world": [{"judgment": "far future", "event": {
             "description": "something much later",
             "for": ["ada_vance"], "observed": True, "after": "3 days"},
-            "wakes": []}] * 30,
+            "wakes": []}] * 300,
         "actor": [{"decision": "d", "intentions": [], "private_updates": []}]
-                 * 30}))
+                 * 300}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=10, trace=Trace())
     times = [parse_iso(e["t"]) for e in journal.events()]
     assert times == sorted(times)
     assert all(t <= parse_iso(CUTOFF) for t in times)
-    assert traj.status in ("cutoff", "resolved", "failed")
+    assert traj.status in ("cutoff", "resolved", "incomplete", "failed")
 
 
 def test_no_probability_or_weight_fields_are_accepted():
@@ -451,7 +451,7 @@ def test_a_wake_reason_never_reaches_the_person_it_wakes():
     trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=3, trace=trace)
-    assert traj.status in ("cutoff", "resolved"), traj.reason
+    assert traj.status in ("cutoff", "resolved", "incomplete"), traj.reason
     bo_views = [v for v in trace.of("actor_view") if v["actor"] == "bo_ferrer"]
     assert bo_views                              # Bo was in fact woken
     for v in bo_views:
@@ -679,15 +679,26 @@ def test_a_truncated_run_is_incomplete_and_can_never_answer_no():
     assert traj.reason.count(":") >= 1                # it says exactly where
 
 
-def test_a_run_that_reaches_the_horizon_answers_yes_or_no():
+def test_silence_does_not_end_a_situation_before_its_horizon():
+    """When nothing is scheduled but the question is still open, the
+    people in it still have days in front of them: time keeps passing and
+    each of them gets to look again."""
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=Script({
-        "judge": [UNRESOLVED] * 10,
-        "world": [{"judgment": "nothing further", "event": None,
-                   "wakes": []}] * 10,
-        "actor": [NOTHING] * 10}))
+        "judge": [UNRESOLVED] * 200,
+        # the world never makes anything happen and never asks to be
+        # called back -- the situation would otherwise die on day one
+        "world": [{"judgment": "nothing happens", "event": None,
+                   "wakes": []}] * 200,
+        "actor": [NOTHING] * 200}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=40, trace=Trace())
     assert traj.status == "cutoff"
     assert traj.answer["status"] == "NO_AT_CUTOFF"
-    assert world.clock.now == parse_iso(CUTOFF)
+    # both people were revisited repeatedly across the two-week window
+    consulted = [c for c in caller.calls if c["role"] == "actor"]
+    assert len(consulted) > 4
+    days = {c["sim_time"][:10] for c in consulted}
+    assert len(days) > 1                     # spread across real days
+    assert all(parse_iso(c["sim_time"]) <= parse_iso(CUTOFF)
+               for c in consulted)

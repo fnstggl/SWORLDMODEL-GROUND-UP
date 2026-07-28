@@ -1,6 +1,4 @@
-{"actor":"jordan_reyes","content":"The email has been sent; I do not plan to follow up.","source":"actor_call:c3","t":"2026-07-27T14:00:00+00:00"}
-{"actor":"mark_cuban","content":"I see an email from someone named Jordan Reyes referencing my Cost Plus Drugs pricing playbook and asking for a 15-minute call. I note it's a cold pitch.","source":"actor_call:c32","t":"2026-07-28T08:00:05+00:00"}
-{"actor":"mark_cuban","content":"I recall that many cold emails waste my time, but the reference to Cost Plus Drugs makes me slightly more inclined to read it.","source":"actor_call:c35","t":"2026-07-28T08:00:05+00:00"}
-{"actor":"mark_cuban","content":"I am slightly intrigued but still skeptical; I want to filter out time-wasters by requesting a concise pitch.","source":"actor_call:c41","t":"2026-07-28T08:00:05+00:00"}
-{"actor":"mark_cuban","content":"I've decided to engage minimally; if the summary is compelling, I might consider a call.","source":"actor_call:c44","t":"2026-07-28T08:00:35+00:00"}
-{"actor":"mark_cuban","content":"I've decided to give Jordan a chance to convince me briefly, but I'm not committing to anything yet.","source":"actor_call:c47","t":"2026-07-28T08:00:35+00:00"}
+{"actor":"jordan_reyes","content":"I have sent the cold email to Mark Cuban and do not plan to follow up.","source":"actor_call:c3","t":"2026-07-27T14:00:00+00:00"}
+{"actor":"mark_cuban","content":"I am now aware of the email's subject line and preview text.","source":"actor_call:c39","t":"2026-07-28T06:01:02+00:00"}
+{"actor":"mark_cuban","content":"I've read the email from Jordan Reyes. It's a cold email asking for a 15-minute call about my Cost Plus Drugs pricing playbook. I'm not sure if I'll respond.","source":"actor_call:c42","t":"2026-07-28T06:01:02+00:00"}
+{"actor":"mark_cuban","content":"I noted the email from Jordan Reyes but am not prioritizing it right now.","source":"actor_call:c44","t":"2026-07-28T08:02:37+00:00"}

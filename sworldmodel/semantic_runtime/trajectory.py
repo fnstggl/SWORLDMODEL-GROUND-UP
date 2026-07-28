@@ -324,6 +324,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
 
         while traj.steps < max_steps and not caller.budget_exhausted():
             ev = world.queue.peek()
+            if ev is None and world.clock.now < cutoff:
+                # nothing is scheduled, but the question is still open and
+                # the people in it still have days in front of them.
+                # Silence is not the end of a situation: time keeps
+                # passing, on a widening interval, and each of them gets
+                # to look at where things stand again.  Code decides only
+                # WHEN they look; whether anything comes of it is theirs.
+                for aid in actor_ids:
+                    _schedule_recheck(aid, world.records[-1]["seq"])
+                ev = world.queue.peek()
             if ev is None or ev.t > cutoff:
                 break
             ev = world.queue.pop()

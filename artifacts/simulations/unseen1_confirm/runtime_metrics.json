@@ -1,44 +1,44 @@
 {
- "provider_calls": 8,
+ "provider_calls": 7,
  "by_role": {
   "judge": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.26,
-   "input_tokens": 990,
-   "output_tokens": 93
+   "wall_s": 3.23,
+   "input_tokens": 984,
+   "output_tokens": 85
   },
   "world": {
-   "calls": 4,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 8.24,
-   "input_tokens": 5275,
-   "output_tokens": 398
+   "wall_s": 5.08,
+   "input_tokens": 4453,
+   "output_tokens": 179
   },
   "actor": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 4.22,
-   "input_tokens": 1391,
-   "output_tokens": 191
+   "wall_s": 3.7,
+   "input_tokens": 1372,
+   "output_tokens": 139
   }
  },
- "total_input_tokens": 7656,
- "total_output_tokens": 682,
- "total_wall_s": 15.72,
+ "total_input_tokens": 6809,
+ "total_output_tokens": 403,
+ "total_wall_s": 12.02,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e18"
+   "e17"
   ],
-  "explanation": "Sam Okonjo sent a reply confirming the appointment via text message before the deadline."
+  "explanation": "Event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
  },
  "reason": "",
  "steps": 1,
- "world_calls": 4,
+ "world_calls": 3,
  "actor_calls": 2,
  "judge_calls": 2,
  "committed_events": 2,
- "ledger_records": 25
+ "ledger_records": 21
 }

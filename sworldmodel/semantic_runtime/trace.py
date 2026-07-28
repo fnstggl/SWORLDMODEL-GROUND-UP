@@ -112,6 +112,14 @@ def render_trajectory(question, journal, trace: Trace, trajectory) -> str:
             for w in e.get("wakes") or []:
                 out.append(f"- wake {w['actor']} after {w['after']}: "
                            f"{w['reason']}\n")
+        elif k == "item_observed":
+            out.append(f"\n*`{e['event_id']}` is now observed by "
+                       f"{e['actor']} (attention arrived via "
+                       f"`{e['via']}`)*\n")
+        elif k == "actor_view":
+            out.append(f"\n<details><summary>what {e['actor']} could see at "
+                       f"{e['t']} (their entire prompt)</summary>\n\n"
+                       f"```\n{e['rendered']}\n```\n\n</details>\n")
         elif k == "actor_decision":
             out.append(f"\n**{e['actor']} decides** at {e['t']}\n\n"
                        f"> {e['decision']}\n")

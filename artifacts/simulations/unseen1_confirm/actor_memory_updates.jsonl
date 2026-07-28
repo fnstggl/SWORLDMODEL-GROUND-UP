@@ -1,2 +1,2 @@
-{"actor":"sam_okonjo","content":"I have received a confirmation request from Bristol Plumbing and need to reply by 6pm.","source":"actor_call:c3","t":"2026-07-28T08:00:00+00:00"}
-{"actor":"sam_okonjo","content":"I have confirmed the appointment, so I expect the repair to happen on Thursday","source":"actor_call:c5","t":"2026-07-28T08:00:00+00:00"}
+{"actor":"sam_okonjo","content":"I have replied to Bristol Plumbing to secure the appointment.","source":"actor_call:c3","t":"2026-07-28T08:00:00+00:00"}
+{"actor":"sam_okonjo","content":"I believe the appointment is confirmed now that I have sent the reply.","source":"actor_call:c5","t":"2026-07-28T08:00:10+00:00"}

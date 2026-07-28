@@ -1,44 +1,42 @@
 {
- "provider_calls": 58,
+ "provider_calls": 48,
  "by_role": {
   "judge": {
-   "calls": 25,
+   "calls": 23,
    "retries": 0,
-   "wall_s": 41.14,
-   "input_tokens": 15844,
-   "output_tokens": 1330
+   "wall_s": 44.78,
+   "input_tokens": 12999,
+   "output_tokens": 1205
   },
   "world": {
-   "calls": 24,
+   "calls": 20,
    "retries": 0,
-   "wall_s": 50.84,
-   "input_tokens": 37675,
-   "output_tokens": 2455
+   "wall_s": 47.39,
+   "input_tokens": 33323,
+   "output_tokens": 2113
   },
   "actor": {
-   "calls": 9,
+   "calls": 5,
    "retries": 0,
-   "wall_s": 17.7,
-   "input_tokens": 7847,
-   "output_tokens": 701
+   "wall_s": 11.83,
+   "input_tokens": 3772,
+   "output_tokens": 378
   }
  },
- "total_input_tokens": 61366,
- "total_output_tokens": 4486,
- "total_wall_s": 109.68,
- "status": "resolved",
+ "total_input_tokens": 50094,
+ "total_output_tokens": 3696,
+ "total_wall_s": 104.01,
+ "status": "cutoff",
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e128"
-  ],
-  "explanation": "Event e128 shows that Mark Cuban actually sent a response to Jordan Reyes's email before the cutoff."
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline was 2026-08-10T09:00:00-05:00 (14:00 UTC) and no event shows Mark Cuban sending a response; the latest event is e100 where he reads the email, not sends a reply."
  },
  "reason": "",
- "steps": 24,
- "world_calls": 24,
- "actor_calls": 9,
- "judge_calls": 25,
- "committed_events": 10,
- "ledger_records": 137
+ "steps": 21,
+ "world_calls": 20,
+ "actor_calls": 5,
+ "judge_calls": 23,
+ "committed_events": 5,
+ "ledger_records": 111
 }
