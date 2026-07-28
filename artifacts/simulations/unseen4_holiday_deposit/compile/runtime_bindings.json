@@ -1,0 +1,49 @@
+{
+ "world_id": "w_9fbd73e8c786",
+ "actor_ids": {
+  "Ruth Kelleher": "ruth_kelleher",
+  "Marian Prowse": "marian_prowse",
+  "Dev Sandhu": "dev_sandhu",
+  "Nina Achebe": "nina_achebe"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-09-13T19:40:00+00:00",
+   "visible_to_ids": [
+    "ruth_kelleher"
+   ],
+   "description": "Ruth Kelleher has received a call from Marian Prowse about the deposit deadline. Ruth knows the deposit must be in Marian's account by the end of Wednesday 16th September."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ruth_kelleher": {
+   "name": "Ruth Kelleher",
+   "persona_brief": "You are Ruth Kelleher.\nRuth has been trying to arrange a group holiday with three families since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). She has already booked the week off and told her kids. She fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on covering others again. She received a call from Marian Prowse on Friday saying a couple from Leeds has asked about the same week, and Marian will hold it until the end of Wednesday (16th) but not a day longer; she needs the \u00a3600 deposit in her bank account by then. Ruth knows the deposit is \u00a3200 per household. She is aware that Dev Sandhu is keen but may have financial constraints, and Nina Achebe hasn't replied."
+  },
+  "marian_prowse": {
+   "name": "Marian Prowse",
+   "persona_brief": "You are Marian Prowse.\nMarian owns Cove Cottage and runs it out of a paper diary. She rang Ruth on Friday to inform her about the couple from Leeds and said she will hold the cottage until the end of Wednesday (16th) but not a day longer. She wants the \u00a3600 deposit in her bank account by then. She has no other relevant private information."
+  },
+  "dev_sandhu": {
+   "name": "Dev Sandhu",
+   "persona_brief": "You are Dev Sandhu.\nDev is completely up for the holiday and has said so twice in the thread. However, a new clutch cost him \u00a3620 a fortnight ago and he isn't paid until the 28th. He has a credit card he promised his wife he'd stop using. He knows the deposit is \u00a3200 per household."
+  },
+  "nina_achebe": {
+   "name": "Nina Achebe",
+   "persona_brief": "You are Nina Achebe.\nNina hasn't replied to the holiday thread. This is not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet. Saying that out loud would make it a thing she has to deal with. She knows the deposit is \u00a3200 per household."
+  }
+ },
+ "resolution": {
+  "question": "Ruth Kelleher has been trying to get the same three families away together since March and has finally found somewhere that works \u2014 Cove Cottage in Beadnell, \u00a31,800 for the October half-term week, the 24th to the 31st. Marian Prowse, who owns it and runs it out of a paper diary, rang Ruth on Friday to say a couple from Leeds have asked about that same week, and that she'll hold it until the end of Wednesday but not a day longer; she wants the \u00a3600 deposit in her bank account by then. That's \u00a3200 a household. Ruth has already booked the week off and told her kids, but she also fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on being the one who covers people again. Dev Sandhu is completely up for it and has said so twice in the thread, but a new clutch took \u00a3620 off him a fortnight ago and he isn't paid until the 28th, and he has a credit card he promised his wife he'd stop using. Nina Achebe hasn't replied at all \u2014 not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet, and saying that out loud would make it a thing she has to deal with. Will the full \u00a3600 have reached Marian's account by the end of Wednesday the 16th \u2014 however it gets there, split three ways or covered by one of them or any other route?",
+  "resolution": "Resolve YES only if the persistent event history shows that a total of \u00a3600 (or more) has been deposited into Marian Prowse's bank account by 2026-09-16T23:59:59+01:00, regardless of who pays. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-16T23:59:59+01:00",
+  "world_id": "w_9fbd73e8c786"
+ }
+}

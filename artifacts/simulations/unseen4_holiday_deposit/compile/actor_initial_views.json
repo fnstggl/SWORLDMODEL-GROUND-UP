@@ -1,0 +1,174 @@
+{
+ "dev_sandhu": {
+  "id": "dev_sandhu",
+  "name": "Dev Sandhu",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Dev is completely up for the holiday and has said so twice in the thread. However, a new clutch cost him \u00a3620 a fortnight ago and he isn't paid until the 28th. He has a credit card he promised his wife he'd stop using. He knows the deposit is \u00a3200 per household.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Ruth Kelleher has been trying to arrange a group holiday with three families (her own, Dev Sandhu's, and Nina Achebe's) since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). The owner, Marian Prowse, called Ruth on Friday to say a couple from Leeds has asked about that same week, and she will hold it until the end of Wednesday 16th September but not a day longer; she needs the \u00a3600 deposit in her bank account by then. That is \u00a3200 per household. The deposit must be paid by the end of Wednesday 16th September 2026. The group has a communication thread where they have been discussing the holiday.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "marian_prowse": {
+  "id": "marian_prowse",
+  "name": "Marian Prowse",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Marian owns Cove Cottage and runs it out of a paper diary. She rang Ruth on Friday to inform her about the couple from Leeds and said she will hold the cottage until the end of Wednesday (16th) but not a day longer. She wants the \u00a3600 deposit in her bank account by then. She has no other relevant private information.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Ruth Kelleher has been trying to arrange a group holiday with three families (her own, Dev Sandhu's, and Nina Achebe's) since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). The owner, Marian Prowse, called Ruth on Friday to say a couple from Leeds has asked about that same week, and she will hold it until the end of Wednesday 16th September but not a day longer; she needs the \u00a3600 deposit in her bank account by then. That is \u00a3200 per household. The deposit must be paid by the end of Wednesday 16th September 2026. The group has a communication thread where they have been discussing the holiday.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "nina_achebe": {
+  "id": "nina_achebe",
+  "name": "Nina Achebe",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Nina hasn't replied to the holiday thread. This is not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet. Saying that out loud would make it a thing she has to deal with. She knows the deposit is \u00a3200 per household.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Ruth Kelleher has been trying to arrange a group holiday with three families (her own, Dev Sandhu's, and Nina Achebe's) since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). The owner, Marian Prowse, called Ruth on Friday to say a couple from Leeds has asked about that same week, and she will hold it until the end of Wednesday 16th September but not a day longer; she needs the \u00a3600 deposit in her bank account by then. That is \u00a3200 per household. The deposit must be paid by the end of Wednesday 16th September 2026. The group has a communication thread where they have been discussing the holiday.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "ruth_kelleher": {
+  "id": "ruth_kelleher",
+  "name": "Ruth Kelleher",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Ruth has been trying to arrange a group holiday with three families since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). She has already booked the week off and told her kids. She fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on covering others again. She received a call from Marian Prowse on Friday saying a couple from Leeds has asked about the same week, and Marian will hold it until the end of Wednesday (16th) but not a day longer; she needs the \u00a3600 deposit in her bank account by then. Ruth knows the deposit is \u00a3200 per household. She is aware that Dev Sandhu is keen but may have financial constraints, and Nina Achebe hasn't replied.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-13T19:40:00+00:00",
+    "kind": "context",
+    "content": "Ruth Kelleher has been trying to arrange a group holiday with three families (her own, Dev Sandhu's, and Nina Achebe's) since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). The owner, Marian Prowse, called Ruth on Friday to say a couple from Leeds has asked about that same week, and she will hold it until the end of Wednesday 16th September but not a day longer; she needs the \u00a3600 deposit in her bank account by then. That is \u00a3200 per household. The deposit must be paid by the end of Wednesday 16th September 2026. The group has a communication thread where they have been discussing the holiday.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}
