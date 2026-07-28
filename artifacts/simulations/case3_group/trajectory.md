@@ -2,436 +2,321 @@
 **Question:** Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.
 **Result:** cutoff — NO_AT_CUTOFF
 
-*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — No event shows the four housemates collectively agreeing on a host before the deadline.*
+*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host before the deadline.*
 
 **World judgment** (starting_event) at 2026-10-06T08:00:00+00:00
 
 > trigger: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
 >
-> The message is sent and becomes available in the group chat for all members to see.
-- proposes: The message appears in the group chat on all members' phones, but none of them have opened the chat yet. (for ['tomas', 'kwame', 'bea'], observed=False, after now)
+> Ines has sent the message; it is now available in the group chat for the other housemates to see when they check their phones.
+- proposes: The message lands in the group chat on all housemates' phones. (for ['ines', 'kwame', 'tomas', 'bea'], observed=False, after now)
 
 ---
 
 ## 2026-10-06T08:00:00+00:00 — committed event `e20`
 
-The message appears in the group chat on all members' phones, but none of them have opened the chat yet.
+The message lands in the group chat on all housemates' phones.
 
-- available to: tomas, kwame, bea
+- available to: ines, kwame, tomas, bea
 - AVAILABLE but NOT observed
 - source: world_call:c2
 
+**World judgment** (event_consequence) at 2026-10-06T08:00:00+00:00
+
+> trigger: The message lands in the group chat on all housemates' phones.
+>
+> The message has just arrived on all phones. At 08:00 on a Tuesday, housemates may be getting ready for work or school, so none of them are likely to be looking at their phones right now.
+- proposes: The message sits unread in the group chat on all housemates' phones. (for ['ines', 'kwame', 'tomas', 'bea'], observed=False, after now)
+- wake ines after 1 hour: Ines may check her phone during her morning routine.
+- wake kwame after 2 hours: Kwame might check his phone during a break.
+- wake tomas after 3 hours: Tomas could check his phone later in the morning.
+- wake bea after 4 hours: Bea might check her phone around lunchtime.
+
 *terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — No committed events show that the four housemates have collectively agreed on a host, and the deadline has not passed.*
 
+---
+
+## 2026-10-06T08:00:00+00:00 — committed event `e29`
+
+The message sits unread in the group chat on all housemates' phones.
+
+- available to: ines, kwame, tomas, bea
+- AVAILABLE but NOT observed
+- source: world_call:c3
+
+**World judgment** (event_consequence) at 2026-10-06T08:00:00+00:00
+
+> trigger: The message sits unread in the group chat on all housemates' phones.
+>
+> Ines is the one who sent the message, so she is aware of it already. The other housemates have not yet seen it. The message continues to sit unread on their phones.
+- proposes: (no concrete event yet)
+
+*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — No event shows the housemates agreeing on a host; only messages have been sent but not acted upon.*
+
 **World judgment** (pending_progression) at 2026-10-06T09:00:00+00:00
 
-> trigger: The items listed above are available to tomas but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Ines may check her phone during her morning routine.)
 >
-> Tomas is at work and hasn't checked his phone since early morning; he is in a meeting and won't look at the group chat until later.
-- proposes: (no concrete event yet)
-- wake tomas after 2 hours: Tomas may check his phone during a break after his morning meeting ends.
+> Ines is in the middle of her morning routine; she hasn't checked her phone since sending the message. She will pick up her phone now to see if there are any replies.
+- proposes: Ines picks up her phone and opens the group chat, seeing her own message and that no one has replied yet. (for ['ines'], observed=True, after now)
 
-*terminal check at 2026-10-06T09:00:00+00:00: UNRESOLVED — No agreement on a host has been reached yet, and the deadline (2026-10-10T00:00:00+00:00) has not passed.*
+*terminal check at 2026-10-06T09:00:00+00:00: UNRESOLVED — No event shows that the four housemates have collectively agreed on a host, and the deadline has not yet passed.*
 
-**World judgment** (pending_progression) at 2026-10-06T09:00:00+00:00
+---
 
-> trigger: The items listed above are available to kwame but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
+## 2026-10-06T09:00:00+00:00 — committed event `e37`
+
+Ines picks up her phone and opens the group chat, seeing her own message and that no one has replied yet.
+
+- available to: ines
+- OBSERVED by them
+- source: world_call:c7
+
+**ines decides** at 2026-10-06T09:00:00+00:00
+
+> Wait for others to reply before taking further action; I don't want to pressure anyone early in the morning.
+- attempts: I will wait and check the group chat again later today for responses.
+
+**World judgment** (actor_intention) at 2026-10-06T09:00:00+00:00
+
+> trigger: ines attempts: I will wait and check the group chat again later today for responses.
 >
-> Kwame is away and not actively checking his phone, so the message remains unread in the group chat.
+> Ines has just checked the chat and seen no replies, so she puts her phone down and goes about her day. The message remains unread on the other housemates' phones.
 - proposes: (no concrete event yet)
-- wake kwame after 3 days: Kwame may check his phone when he returns on Friday
+- wake ines after 4 hours: Ines said she would check again later; 4 hours is a plausible interval for her to return to the chat.
 
-*terminal check at 2026-10-06T09:00:00+00:00: UNRESOLVED — No event shows the four housemates collectively agreeing on a host, and the deadline has not passed.*
+*terminal check at 2026-10-06T09:00:00+00:00: UNRESOLVED — No events show a collective agreement on a host; the deadline has not passed.*
 
-**World judgment** (pending_progression) at 2026-10-06T09:00:00+00:00
+**World judgment** (pending_progression) at 2026-10-06T10:00:00+00:00
 
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
+> trigger: The items listed above are available to kwame but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Kwame might check his phone during a break.)
 >
-> Bea is asleep after her night shift, so her phone is on silent and she won't check it until she wakes up.
+> Kwame is away until Friday and may not be reachable until then; even though it's a break time, he is in a location with limited connectivity and likely not checking the group chat until later.
 - proposes: (no concrete event yet)
-- wake bea after 4 hours: Bea likely wakes up and may check her phone then.
+- wake kwame after 3 days: Kwame is expected back on Friday and may check his messages then.
 
-*terminal check at 2026-10-06T09:00:00+00:00: UNRESOLVED — No event shows the four housemates collectively agreeing on a host, and the deadline (2026-10-10T00:00:00+00:00) has not yet passed.*
+*terminal check at 2026-10-06T10:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host, and the deadline has not passed.*
 
 **World judgment** (pending_progression) at 2026-10-06T11:00:00+00:00
 
-> trigger: The items listed above are available to tomas but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Tomas may check his phone during a break after his morning meeting ends.)
+> trigger: The items listed above are available to tomas but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Tomas could check his phone later in the morning.)
 >
-> Tomas is in a morning meeting that just ended at 11:00, and he is about to check his phone during a break.
-- proposes: Tomas picks up his phone and opens the group chat, seeing Ines's message from 08:00. (for ['tomas'], observed=True, after now)
-
-*terminal check at 2026-10-06T11:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; only a message asking who will host has been sent.*
-
----
-
-## 2026-10-06T11:00:00+00:00 — committed event `e42`
-
-Tomas picks up his phone and opens the group chat, seeing Ines's message from 08:00.
-
-- available to: tomas
-- OBSERVED by them
-- source: world_call:c10
-
-**tomas decides** at 2026-10-06T11:00:00+00:00
-
-> I need to respond to Ines's message, but I really don't want to host. I'll try to deflect or suggest someone else.
-- attempts: Type a reply saying something like 'I can't host this time, maybe someone else can?' and send it to the group chat.
-- privately: I now know Ines is pushing for a decision on hosting, and I'm determined to avoid being the host.
-
-**World judgment** (actor_intention) at 2026-10-06T11:00:00+00:00
-
-> trigger: tomas attempts: Type a reply saying something like 'I can't host this time, maybe someone else can?' and send it to the group chat.
->
-> Tomas is looking at the chat and can type, so he composes the message, but before sending, he hesitates and re-reads Ines's message. He then presses send. The message is sent.
-- proposes: Tomas sends his reply to the group chat. (for ['tomas'], observed=False, after now)
-- wake kwame after 30 minutes: Tomas's message may be seen when Kwame next checks the chat.
-- wake bea after 30 minutes: Tomas's message may be seen when Bea next checks the chat.
-- wake ines after 30 minutes: Tomas's message may be seen when Ines next checks the chat.
-
-*terminal check at 2026-10-06T11:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host.*
-
----
-
-## 2026-10-06T11:00:00+00:00 — committed event `e52`
-
-Tomas sends his reply to the group chat.
-
-- available to: tomas
-- AVAILABLE but NOT observed
-- source: world_call:c13
-
-*terminal check at 2026-10-06T11:00:00+00:00: UNRESOLVED — The committed events show only Ines asking who will host and Tomas reading and replying, but no collective agreement among all four housemates has occurred yet, and the deadline has not passed.*
-
-**World judgment** (pending_progression) at 2026-10-06T11:30:00+00:00
-
-> trigger: The items listed above are available to kwame but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Tomas's message may be seen when Kwame next checks the chat.)
->
-> Kwame is away until Friday and may not be reachable until then. He has not checked his phone since the message arrived.
-- proposes: Kwame does not check the group chat now; the messages remain unread on his phone. (for ['kwame'], observed=False, after now)
-- wake kwame after 2 days: Kwame may check his phone later today or tomorrow, but if not, by Friday he will likely return and see the messages.
-
-*terminal check at 2026-10-06T11:30:00+00:00: UNRESOLVED — No committed events show that the four housemates have collectively agreed on a host; only Ines's question and Tomas's reply exist, with no agreement reached and deadline not passed.*
-
-**World judgment** (pending_progression) at 2026-10-06T11:30:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Tomas's message may be seen when Bea next checks the chat.)
->
-> Bea is at work (night shift) and likely sleeping during the day; she will not check the group chat until she wakes up in the evening.
+> Tomas is at work and hasn't checked his phone since the message arrived; it remains unread on his phone.
 - proposes: (no concrete event yet)
-- wake bea after 6 hours: Bea typically wakes up in the evening after a night shift and may then check her phone.
+- wake tomas after 1 hour: Tomas may check his phone during a break later in the morning.
 
-*terminal check at 2026-10-06T11:30:00+00:00: UNRESOLVED — The committed events show only that Ines asked who will host and Tomas replied, but there is no event showing a collective agreement among all four housemates on a host before the deadline.*
-
-**ines decides** at 2026-10-06T11:30:00+00:00
-
-> I'll wait a bit longer for others to respond before pushing further.
-
-*terminal check at 2026-10-06T11:30:00+00:00: UNRESOLVED — No event shows the four housemates collectively agreeing on a host; only a question and a reply exist.*
-
----
-
-## 2026-10-06T11:30:00+00:00 — committed event `e68`
-
-Kwame does not check the group chat now; the messages remain unread on his phone.
-
-- available to: kwame
-- AVAILABLE but NOT observed
-- source: world_call:c16
-
-*terminal check at 2026-10-06T11:30:00+00:00: UNRESOLVED — No committed event shows the four housemates collectively agreeing on a host before the deadline; only initial messages and a reply have occurred.*
+*terminal check at 2026-10-06T11:00:00+00:00: UNRESOLVED — No committed event shows the four housemates collectively agreeing on a host; the deadline of 2026-10-10 has not passed.*
 
 **World judgment** (pending_progression) at 2026-10-06T12:00:00+00:00
 
-> trigger: The items listed above are available to tomas but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
+> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea might check her phone around lunchtime.)
 >
-> Tomas already saw the group chat at 11:00 and sent his reply, so both items are already observed by him. There is nothing new to observe.
+> Bea is at work and her phone is in her locker; she won't check it until her break.
 - proposes: (no concrete event yet)
+- wake bea after 2 hours: Bea's lunch break is at 14:00, when she might check her phone.
+
+*terminal check at 2026-10-06T12:00:00+00:00: UNRESOLVED — No committed event shows the four housemates collectively agreeing on a host, and the deadline has not passed.*
+
+**World judgment** (pending_progression) at 2026-10-06T12:00:00+00:00
+
+> trigger: The items listed above are available to tomas but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Tomas may check his phone during a break later in the morning.)
+>
+> Tomas is currently at work and checks his phone during a mid-morning break.
+- proposes: Tomas picks up his phone, opens the group chat, and sees the message from Ines asking who will host the birthday dinner. (for ['tomas'], observed=True, after now)
 
 *terminal check at 2026-10-06T12:00:00+00:00: UNRESOLVED — No event shows that the four housemates have collectively agreed on a host; the deadline has not passed.*
 
-**World judgment** (pending_progression) at 2026-10-06T12:30:00+00:00
+---
 
-> trigger: The items listed above are available to kwame but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
->
-> Kwame is away and not checking his phone; the messages remain unread on his device.
-- proposes: (no concrete event yet)
-- wake kwame after 3 days: Kwame is away until Friday; he may check messages when he returns.
+## 2026-10-06T12:00:00+00:00 — committed event `e59`
 
-*terminal check at 2026-10-06T12:30:00+00:00: UNRESOLVED — No committed events show the four housemates collectively agreeing on a host, and the deadline (2026-10-10) has not yet passed.*
+Tomas picks up his phone, opens the group chat, and sees the message from Ines asking who will host the birthday dinner.
+
+- available to: tomas
+- OBSERVED by them
+- source: world_call:c18
+
+**tomas decides** at 2026-10-06T12:00:00+00:00
+
+> I don't want to host, so I'll wait to see if someone else volunteers before saying anything.
+- privately: I hope someone else offers to host so I don't have to.
+
+*terminal check at 2026-10-06T12:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host, and the deadline has not passed.*
 
 **World judgment** (pending_progression) at 2026-10-06T13:00:00+00:00
 
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea likely wakes up and may check her phone then.)
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Ines said she would check again later; 4 hours is a plausible interval for her to return to the chat.)
 >
-> Bea has just woken up and picks up her phone to check messages. She sees the unread group chat notification and opens it, observing Ines's message.
-- proposes: Bea opens the group chat and reads Ines's message from 08:00. (for ['bea'], observed=True, after now)
+> Ines has already observed e20 and e29 in the context of e37, so these items are already observed by her. The next concrete step is that Ines puts her phone down and continues her day, with no new event.
+- proposes: (no concrete event yet)
+- wake ines after 2 hours: She may check the chat again later.
 
-*terminal check at 2026-10-06T13:00:00+00:00: UNRESOLVED — The committed events show only a question and a reply from Tomas, with no collective agreement by all four housemates, and the deadline has not passed.*
+*terminal check at 2026-10-06T13:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host before the deadline.*
+
+**World judgment** (pending_progression) at 2026-10-06T14:00:00+00:00
+
+> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea's lunch break is at 14:00, when she might check her phone.)
+>
+> Bea is on her lunch break and picks up her phone, opening the group chat, where she sees Ines's message about hosting the birthday dinner.
+- proposes: Bea opens the group chat and sees Ines's message. (for ['bea'], observed=True, after now)
+
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No event shows that the four housemates have collectively agreed on a host, and the deadline has not passed.*
 
 ---
 
-## 2026-10-06T13:00:00+00:00 — committed event `e83`
+## 2026-10-06T14:00:00+00:00 — committed event `e72`
 
-Bea opens the group chat and reads Ines's message from 08:00.
+Bea opens the group chat and sees Ines's message.
 
 - available to: bea
 - OBSERVED by them
+- source: world_call:c24
+
+**bea decides** at 2026-10-06T14:00:00+00:00
+
+> I'm considering whether to volunteer my kitchen since it's the biggest, but I work nights and need to check my schedule first.
+- attempts: I will check my work schedule for the weekend of October 10-11 to see if I'm free to host.
+- privately: I remember that my kitchen is the largest, which might make hosting easier, but my night shifts could be a problem.
+
+**World judgment** (actor_intention) at 2026-10-06T14:00:00+00:00
+
+> trigger: bea attempts: I will check my work schedule for the weekend of October 10-11 to see if I'm free to host.
+>
+> Bea has just seen the group chat message. She now picks up her phone to check her work schedule.
+- proposes: Bea opens her work calendar app on her phone. (for ['bea'], observed=False, after now)
+
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; only messages asking for a host have been seen, and the deadline has not passed.*
+
+---
+
+## 2026-10-06T14:00:00+00:00 — committed event `e79`
+
+Bea opens her work calendar app on her phone.
+
+- available to: bea
+- AVAILABLE but NOT observed
 - source: world_call:c27
 
-**bea decides** at 2026-10-06T13:00:00+00:00
+**World judgment** (event_consequence) at 2026-10-06T14:00:00+00:00
 
-> I'm considering whether to offer my kitchen since it's the biggest, but I work nights so I need to check my schedule first.
-- attempts: I'll check my work schedule for the weekend starting 2026-10-10 to see if I can host.
-- privately: I remember that I have the biggest kitchen, which might make me a good host, but my night shifts could be a problem.
-
-**World judgment** (actor_intention) at 2026-10-06T13:00:00+00:00
-
-> trigger: bea attempts: I'll check my work schedule for the weekend starting 2026-10-10 to see if I can host.
+> trigger: Bea opens her work calendar app on her phone.
 >
-> Bea has just opened the group chat and read Ines's message; she is now in the chat app. She can navigate to her calendar or email to check her work schedule.
-- proposes: Bea navigates away from the group chat to her phone's calendar app to look up her work schedule for the weekend of 2026-10-10. (for ['bea'], observed=True, after now)
-- wake bea after 2 minutes: Time to find and read the schedule entry for that weekend.
+> Bea has just opened her calendar app, so the app displays her schedule. The next concrete event is that she sees her calendar for the relevant dates.
+- proposes: Bea's work calendar app loads and shows her schedule for the upcoming days, including the weekend of 2026-10-10. (for ['bea'], observed=False, after 0 seconds)
 
-*terminal check at 2026-10-06T13:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; only individual actions have occurred so far.*
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host, and the deadline 2026-10-10T00:00:00+00:00 has not yet passed.*
 
 ---
 
-## 2026-10-06T13:00:00+00:00 — committed event `e91`
+## 2026-10-06T14:00:00+00:00 — committed event `e84`
 
-Bea navigates away from the group chat to her phone's calendar app to look up her work schedule for the weekend of 2026-10-10.
+Bea's work calendar app loads and shows her schedule for the upcoming days, including the weekend of 2026-10-10.
 
 - available to: bea
-- OBSERVED by them
-- source: world_call:c30
+- AVAILABLE but NOT observed
+- source: world_call:c29
 
-**bea decides** at 2026-10-06T13:00:00+00:00
+**World judgment** (event_consequence) at 2026-10-06T14:00:00+00:00
 
-> I am checking my work schedule for the weekend to see if I can host the birthday dinner despite my night shifts.
-- attempts: Look at my calendar for Saturday 2026-10-10 and Sunday 2026-10-11 to see if I work those nights.
-
-**World judgment** (actor_intention) at 2026-10-06T13:00:00+00:00
-
-> trigger: bea attempts: Look at my calendar for Saturday 2026-10-10 and Sunday 2026-10-11 to see if I work those nights.
+> trigger: Bea's work calendar app loads and shows her schedule for the upcoming days, including the weekend of 2026-10-10.
 >
-> Bea has opened her calendar app and is now looking at the weekend of October 10-11. The calendar shows her work schedule for those days.
-- proposes: Bea sees her work schedule for Saturday 2026-10-10 and Sunday 2026-10-11 in her calendar app. (for ['bea'], observed=True, after now)
+> Bea is looking at her phone screen; the calendar is now visible. She sees her schedule for the weekend.
+- proposes: Bea sees her work schedule for the weekend of 2026-10-10 on her calendar app. (for ['bea'], observed=True, after now)
 
-*terminal check at 2026-10-06T13:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host before 2026-10-10T00:00:00+00:00.*
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; only messages have been seen but no agreement has been reached.*
 
 ---
 
-## 2026-10-06T13:00:00+00:00 — committed event `e97`
+## 2026-10-06T14:00:00+00:00 — committed event `e89`
 
-Bea sees her work schedule for Saturday 2026-10-10 and Sunday 2026-10-11 in her calendar app.
+Bea sees her work schedule for the weekend of 2026-10-10 on her calendar app.
 
 - available to: bea
 - OBSERVED by them
-- source: world_call:c33
+- source: world_call:c31
 
-**bea decides** at 2026-10-06T13:00:00+00:00
+**bea decides** at 2026-10-06T14:00:00+00:00
 
-> I need to check if my work schedule allows me to host the dinner, so I'm looking at my calendar for that weekend.
-- attempts: Check my work schedule for Saturday and Sunday of the weekend.
+> I'm checking my calendar to see if I'm free on the weekend to consider hosting.
+- attempts: Check my calendar to see my availability on Saturday 2026-10-10 and Sunday 2026-10-11.
 - privately: I now know my work schedule for that weekend.
 
-**World judgment** (actor_intention) at 2026-10-06T13:00:00+00:00
+**World judgment** (actor_intention) at 2026-10-06T14:00:00+00:00
 
-> trigger: bea attempts: Check my work schedule for Saturday and Sunday of the weekend.
+> trigger: bea attempts: Check my calendar to see my availability on Saturday 2026-10-10 and Sunday 2026-10-11.
 >
-> Bea is already looking at her work schedule for the weekend of 2026-10-10 in her calendar app, so she sees it immediately.
-- proposes: Bea sees her work schedule for Saturday and Sunday of the weekend in her calendar app. (for ['bea'], observed=True, after now)
+> Bea has already opened her calendar app and seen the weekend schedule in a previous event (e89). She now looks specifically at Saturday 2026-10-10 and Sunday 2026-10-11.
+- proposes: Bea scrolls or taps to view the details of Saturday 2026-10-10 and Sunday 2026-10-11 on her work calendar app. (for ['bea'], observed=True, after now)
 
-*terminal check at 2026-10-06T13:00:00+00:00: UNRESOLVED — No committed event shows a collective agreement on a host; only messages and individual actions have occurred, and the deadline has not passed.*
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No event shows that the four housemates have collectively agreed on a host; the deadline has not passed.*
 
 ---
 
-## 2026-10-06T13:00:00+00:00 — committed event `e104`
+## 2026-10-06T14:00:00+00:00 — committed event `e96`
 
-Bea sees her work schedule for Saturday and Sunday of the weekend in her calendar app.
+Bea scrolls or taps to view the details of Saturday 2026-10-10 and Sunday 2026-10-11 on her work calendar app.
 
 - available to: bea
 - OBSERVED by them
-- source: world_call:c36
+- source: world_call:c34
 
-**bea decides** at 2026-10-06T13:00:00+00:00
+**bea decides** at 2026-10-06T14:00:00+00:00
 
-> I'm checking my schedule to see if I can host, but I work nights so I'm not sure yet.
-- privately: I now know I work Saturday night and Sunday night that weekend, so hosting might be difficult unless the dinner is early enough.
+> I'm checking my work schedule to see if I can host the birthday dinner this weekend.
+- attempts: Look at the details of Saturday and Sunday shifts to determine my availability.
+- privately: I see my work schedule for that weekend.
 
-*terminal check at 2026-10-06T13:00:00+00:00: UNRESOLVED — No committed events show that all four housemates have collectively agreed on a host; only messages have been sent and read, but no agreement has been reached.*
+**World judgment** (actor_intention) at 2026-10-06T14:00:00+00:00
 
-**World judgment** (pending_progression) at 2026-10-06T13:02:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Time to find and read the schedule entry for that weekend.)
+> trigger: bea attempts: Look at the details of Saturday and Sunday shifts to determine my availability.
 >
-> Bea is currently looking at her calendar app, focusing on the weekend schedule. She has not returned to the group chat, so the unread messages remain there.
-- proposes: Bea continues viewing her calendar app, examining the schedule entries for Saturday and Sunday. The group chat message remains unread on her phone. (for ['bea'], observed=False, after now)
-- wake bea after 5 minutes: Bea may finish checking her calendar and then possibly return to the group chat.
+> Bea is already looking at the details of Saturday and Sunday on her work calendar app; the app displays her shifts for those days.
+- proposes: Bea's work calendar app shows her shifts for Saturday 2026-10-10 and Sunday 2026-10-11. (for ['bea'], observed=True, after now)
 
-*terminal check at 2026-10-06T13:02:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host before the deadline.*
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; only Ines's question has been sent and seen, but no agreement or reply is recorded.*
 
 ---
 
-## 2026-10-06T13:02:00+00:00 — committed event `e114`
+## 2026-10-06T14:00:00+00:00 — committed event `e103`
 
-Bea continues viewing her calendar app, examining the schedule entries for Saturday and Sunday. The group chat message remains unread on her phone.
-
-- available to: bea
-- AVAILABLE but NOT observed
-- source: world_call:c40
-
-*terminal check at 2026-10-06T13:02:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; the deadline has not passed.*
-
-**World judgment** (pending_progression) at 2026-10-06T13:07:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea may finish checking her calendar and then possibly return to the group chat.)
->
-> Bea finishes examining her calendar entries for the weekend and then switches back to the group chat to see the messages.
-- proposes: Bea opens the group chat and sees both Ines's original message and Tomas's reply. (for ['bea'], observed=True, after 30 seconds)
-
-*terminal check at 2026-10-06T13:07:00+00:00: UNRESOLVED — No committed event shows the four housemates have collectively agreed on a host; the deadline 2026-10-10T00:00:00+00:00 has not passed.*
-
----
-
-## 2026-10-06T13:07:30+00:00 — committed event `e122`
-
-Bea opens the group chat and sees both Ines's original message and Tomas's reply.
+Bea's work calendar app shows her shifts for Saturday 2026-10-10 and Sunday 2026-10-11.
 
 - available to: bea
 - OBSERVED by them
-- source: world_call:c43
+- source: world_call:c37
 
-**bea decides** at 2026-10-06T13:07:30+00:00
+**bea decides** at 2026-10-06T14:00:00+00:00
 
-> I'm considering whether to offer to host despite my night shifts, but I'll wait to see if someone else volunteers first since my schedule is tricky.
-- privately: I work Saturday and Sunday nights that weekend, so hosting would only work if the dinner is early afternoon.
+> I'm checking my weekend schedule to see if I can host the birthday dinner.
+- attempts: Look at my work shifts for Saturday 2026-10-10 and Sunday 2026-10-11.
+- privately: I now know my exact work schedule for that weekend.
 
-*terminal check at 2026-10-06T13:07:30+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; the deadline has not passed.*
+**World judgment** (actor_intention) at 2026-10-06T14:00:00+00:00
 
-**World judgment** (pending_progression) at 2026-10-06T14:02:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
+> trigger: bea attempts: Look at my work shifts for Saturday 2026-10-10 and Sunday 2026-10-11.
 >
-> Bea is still looking at her calendar app and has not returned to the group chat. The unread messages remain on her phone, unseen.
-- proposes: The group chat messages (Ines's original and Tomas's reply) remain unread on Bea's phone while she continues examining her calendar. (for ['bea'], observed=False, after 43 seconds)
-- wake bea after 5 minutes: Bea may finish checking her calendar and potentially return to the group chat.
-
-*terminal check at 2026-10-06T14:02:00+00:00: UNRESOLVED — No committed event shows the four housemates have collectively agreed on a host; the deadline has not passed.*
-
----
-
-## 2026-10-06T14:02:43+00:00 — committed event `e132`
-
-The group chat messages (Ines's original and Tomas's reply) remain unread on Bea's phone while she continues examining her calendar.
-
-- available to: bea
-- AVAILABLE but NOT observed
-- source: world_call:c47
-
-*terminal check at 2026-10-06T14:02:43+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; the deadline of 2026-10-10T00:00:00+00:00 has not yet passed.*
-
-**World judgment** (pending_progression) at 2026-10-06T14:07:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea may finish checking her calendar and potentially return to the group chat.)
->
-> Bea finishes examining her calendar entries and puts her phone down to get a drink. The group chat messages remain unread on her phone.
-- proposes: Bea puts her phone down without returning to the group chat. (for ['bea'], observed=False, after 2 minutes)
-- wake bea after 1 hour: Bea may pick up her phone again later.
-
-*terminal check at 2026-10-06T14:07:00+00:00: UNRESOLVED — No committed event shows the four housemates collectively agreeing on a host, and the deadline 2026-10-10T00:00:00+00:00 has not passed.*
-
----
-
-## 2026-10-06T14:09:00+00:00 — committed event `e141`
-
-Bea puts her phone down without returning to the group chat.
-
-- available to: bea
-- AVAILABLE but NOT observed
-- source: world_call:c50
-
-*terminal check at 2026-10-06T14:09:00+00:00: UNRESOLVED — No committed event shows that all four housemates have collectively agreed on a host before the deadline.*
-
-**World judgment** (pending_progression) at 2026-10-06T15:02:43+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
->
-> Bea has put her phone down and is not engaging with it. The group chat messages remain unread on her phone, and she is not looking at her phone at this moment.
+> Bea has already observed her shifts for Saturday and Sunday (e103). The work calendar app on her phone is already showing those details. There is nothing further to look at; the information is already in front of her.
 - proposes: (no concrete event yet)
-- wake bea after 1 hour: Bea might pick up her phone again later; check if she returns to the group chat.
 
-*terminal check at 2026-10-06T15:02:43+00:00: UNRESOLVED — No committed event shows the four housemates collectively agreeing on a host, and the deadline (2026-10-10T00:00:00+00:00) has not yet passed.*
+*terminal check at 2026-10-06T14:00:00+00:00: UNRESOLVED — No event shows that the four housemates have collectively agreed on a host; only messages and calendar checks have occurred.*
 
-**World judgment** (pending_progression) at 2026-10-06T15:07:00+00:00
+**World judgment** (pending_progression) at 2026-10-06T15:00:00+00:00
 
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea may pick up her phone again later.)
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: She may check the chat again later.)
 >
-> Bea has put her phone down and is not currently looking at it. The group chat messages remain unread on her phone, and she does not pick it up again in the next few minutes.
+> Ines has already observed her own message and seen no replies; the items are the same message sitting unread on her phone, but since she already saw it earlier, no new event occurs now.
 - proposes: (no concrete event yet)
-- wake bea after 2 hours: Bea may check her phone again later, perhaps after a nap or before her night shift.
 
-*terminal check at 2026-10-06T15:07:00+00:00: UNRESOLVED — No event shows the four housemates collectively agreeing on a host; the deadline 2026-10-10T00:00:00+00:00 has not yet passed.*
+*terminal check at 2026-10-06T15:00:00+00:00: UNRESOLVED — No committed events show the four housemates collectively agreeing on a host; only Ines's question and housemates seeing it have occurred.*
 
-**World judgment** (pending_progression) at 2026-10-06T15:09:00+00:00
+**World judgment** (pending_progression) at 2026-10-09T10:00:00+00:00
 
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: something is available to them that they have not observed)
+> trigger: The items listed above are available to kwame but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Kwame is expected back on Friday and may check his messages then.)
 >
-> Bea has put her phone down and is not currently interacting with it. The group chat messages remain unread on her phone, but she is not looking at the screen.
+> Kwame is away and not checking his phone until Friday. The message remains unread in the group chat.
 - proposes: (no concrete event yet)
-- wake bea after 2 hours: Bea may pick up her phone again later; check if she then notices the unread messages.
+- wake kwame after 3 days: Kwame is expected back on Friday and may check his messages then.
 
-*terminal check at 2026-10-06T15:09:00+00:00: UNRESOLVED — No committed event shows the four housemates collectively agreeing on a host before the deadline.*
+*terminal check at 2026-10-09T10:00:00+00:00: UNRESOLVED — No event shows that the four housemates have collectively agreed on a host before the deadline.*
 
-**World judgment** (pending_progression) at 2026-10-06T16:02:43+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea might pick up her phone again later; check if she returns to the group chat.)
->
-> Bea has put her phone down and is occupied with other things; she does not immediately return to the group chat.
-- proposes: (no concrete event yet)
-- wake bea after 2 hours: Bea may pick up her phone again later; check if she returns to the group chat.
-
-*terminal check at 2026-10-06T16:02:43+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; only messages have been sent and read.*
-
-**World judgment** (pending_progression) at 2026-10-06T17:07:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea may check her phone again later, perhaps after a nap or before her night shift.)
->
-> Bea has put her phone down and is occupied with her calendar. She does not check the group chat again now.
-- proposes: Bea continues looking at her calendar, then puts her phone aside and goes about her afternoon. The group chat messages remain unread on her phone. (for ['bea'], observed=False, after now)
-- wake bea after 4 hours: Bea may check her phone again before her night shift.
-
-*terminal check at 2026-10-06T17:07:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host before the deadline; only messages have been sent and read.*
-
----
-
-## 2026-10-06T17:07:00+00:00 — committed event `e166`
-
-Bea continues looking at her calendar, then puts her phone aside and goes about her afternoon. The group chat messages remain unread on her phone.
-
-- available to: bea
-- AVAILABLE but NOT observed
-- source: world_call:c61
-
-*terminal check at 2026-10-06T17:07:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host; the deadline has not passed.*
-
-**World judgment** (pending_progression) at 2026-10-06T17:09:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea may pick up her phone again later; check if she then notices the unread messages.)
->
-> Bea has put her phone aside and is occupied with other activities; she does not check her phone again immediately.
-- proposes: (no concrete event yet)
-- wake bea after 2 hours: Bea may pick up her phone later; check if she notices the unread messages then.
-
-*terminal check at 2026-10-06T17:09:00+00:00: UNRESOLVED — No committed event shows that the four housemates have collectively agreed on a host before the deadline.*
-
-**World judgment** (pending_progression) at 2026-10-06T17:30:00+00:00
-
-> trigger: The items listed above are available to bea but not yet observed by them.  What concretely becomes of them next?  (Context for revisiting now: Bea typically wakes up in the evening after a night shift and may then check her phone.)
->
-> Bea is currently going about her afternoon; she doesn't pick up her phone again until later. The messages remain unread.
-- proposes: (no concrete event yet)
-- wake bea after 3 hours: Bea may check her phone after her typical evening wake-up time.
-
-*terminal check at 2026-10-06T17:30:00+00:00: UNRESOLVED — No committed events show the four housemates collectively agreeing on a host, and the deadline 2026-10-10T00:00:00+00:00 has not passed.*
-
-*terminal check at 2026-10-10T20:00:00+00:00: NO_AT_CUTOFF — The deadline 2026-10-10T00:00:00+00:00 has passed and no committed events show that the four housemates collectively agreed on a host.*
+*terminal check at 2026-10-10T20:00:00+00:00: NO_AT_CUTOFF — The deadline 2026-10-10T00:00:00+00:00 has passed, and no committed event shows that the four housemates collectively agreed on a host.*

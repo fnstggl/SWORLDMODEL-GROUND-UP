@@ -5,18 +5,18 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed events show that the four housemates collectively agreed on a host."
+   "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed, and no committed event shows that the four housemates collectively agreed on a host."
   },
-  "reason": "step ceiling 34 reached before the cutoff",
-  "steps": 34,
-  "world_calls": 25,
-  "actor_calls": 7,
-  "judge_calls": 36
+  "reason": "",
+  "steps": 19,
+  "world_calls": 19,
+  "actor_calls": 6,
+  "judge_calls": 21
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed events show that the four housemates collectively agreed on a host."
+  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed, and no committed event shows that the four housemates collectively agreed on a host."
  },
- "reason": "step ceiling 34 reached before the cutoff"
+ "reason": ""
 }

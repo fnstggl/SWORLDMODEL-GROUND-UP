@@ -3,20 +3,20 @@
  "trajectory": {
   "status": "cutoff",
   "answer": {
-   "status": "UNRESOLVED",
+   "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln before the deadline."
+   "explanation": "The deadline 2026-09-20T00:00:00+01:00 has passed and no event shows that Priya Raghavan and Dmitri Sokolov agreed on a price for the used kiln."
   },
-  "reason": "step ceiling 34 reached before the cutoff",
-  "steps": 34,
-  "world_calls": 25,
-  "actor_calls": 6,
-  "judge_calls": 36
+  "reason": "",
+  "steps": 0,
+  "world_calls": 1,
+  "actor_calls": 0,
+  "judge_calls": 2
  },
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln before the deadline."
+  "explanation": "The deadline 2026-09-20T00:00:00+01:00 has passed and no event shows that Priya Raghavan and Dmitri Sokolov agreed on a price for the used kiln."
  },
- "reason": "step ceiling 34 reached before the cutoff"
+ "reason": ""
 }

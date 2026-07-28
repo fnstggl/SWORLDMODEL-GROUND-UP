@@ -84,6 +84,12 @@ Be realistic rather than convenient.  Ordinary human activity takes real \
 time; things fail, stall and get delayed; nothing should happen merely \
 because it would move the situation along.
 
+IF NOTHING CONCRETE CHANGES, RETURN "event": null.  Never emit an event \
+that merely restates that something is still sitting there, still unread, \
+still waiting, or that someone is still busy -- that is not an event, it \
+is the absence of one.  Say it in "judgment" and schedule a wake for when \
+the situation might genuinely differ.
+
 Reply with ONLY a JSON object:
 {
   "judgment": "one or two sentences grounded in the current situation",
