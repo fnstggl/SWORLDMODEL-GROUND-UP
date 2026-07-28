@@ -1,11 +1,18 @@
-{"actor":"ines","content":"I now plan to host the dinner and will start thinking about what to prepare.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"I note that I'm unavailable to host this weekend, so I need to see who else can take it on.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"Ines asked about hosting the birthday dinner; I have the biggest kitchen but my night shifts might make it tricky.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I need to confirm my availability before responding to Ines.","source":"actor_call:c19","t":"2026-10-06T08:05:00+00:00"}
-{"actor":"ines","content":"I'm committed to hosting unless someone else volunteers or objects.","source":"actor_call:c23","t":"2026-10-06T08:05:30+00:00"}
-{"actor":"ines","content":"I'll check the group chat again later today to see if anyone else has responded.","source":"actor_call:c25","t":"2026-10-06T08:10:00+00:00"}
-{"actor":"bea","content":"I realize I should check my night shift schedule before I can offer to host or suggest alternatives.","source":"actor_call:c33","t":"2026-10-06T08:13:00+00:00"}
-{"actor":"bea","content":"I realize I should confirm my availability before volunteering my kitchen.","source":"actor_call:c38","t":"2026-10-06T08:13:10+00:00"}
-{"actor":"bea","content":"I confirm I'm unavailable to host due to night shifts, but I'm willing to support Ines.","source":"actor_call:c45","t":"2026-10-06T08:13:30+00:00"}
-{"actor":"ines","content":"I'm now confirmed as host and will start thinking about food and logistics.","source":"actor_call:c58","t":"2026-10-06T08:15:30+00:00"}
+{"actor":"ines","content":"I plan to check the group chat later today and reply if no one else has volunteered by then.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I remember that I am away until Friday and cannot host the dinner.","source":"actor_call:c4","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I hope someone else volunteers to host so I don't have to.","source":"actor_call:c6","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I remember I work night shifts and need to check my schedule before offering to host.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I assume the dinner will be on the weekend (Saturday or Sunday) but I need confirmation.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"ines","content":"I need to see what Kwame said before deciding what to contribute.","source":"actor_call:c23","t":"2026-10-06T08:05:00+00:00"}
+{"actor":"bea","content":"I need to confirm which day Ines and Kwame are thinking before I can offer to host.","source":"actor_call:c35","t":"2026-10-06T09:20:00+00:00"}
+{"actor":"bea","content":"I confirm I'm available Sunday and will host if that works for everyone.","source":"actor_call:c48","t":"2026-10-06T09:20:20+00:00"}
+{"actor":"tomas","content":"I note that Bea is willing to host if the date works for her, so I hope she or someone else takes the lead.","source":"actor_call:c59","t":"2026-10-06T09:25:00+00:00"}
+{"actor":"tomas","content":"I'm relieved Bea volunteered so I don't have to host.","source":"actor_call:c63","t":"2026-10-06T09:30:20+00:00"}
+{"actor":"ines","content":"I now know Bea can host on Sunday, and I'm committed to that plan.","source":"actor_call:c71","t":"2026-10-06T09:31:00+00:00"}
+{"actor":"tomas","content":"I'm glad Bea stepped up to host, so I don't have to.","source":"actor_call:c79","t":"2026-10-06T09:32:32+00:00"}
+{"actor":"tomas","content":"I'm happy that hosting is sorted and I don't have to do it.","source":"actor_call:c81","t":"2026-10-06T09:33:30+00:00"}
+{"actor":"bea","content":"I now believe Sunday is confirmed as the dinner day since two people have agreed.","source":"actor_call:c83","t":"2026-10-06T09:34:40+00:00"}
+{"actor":"bea","content":"I need to plan for hosting: think about food, drinks, and any extra supplies I might need.","source":"actor_call:c83","t":"2026-10-06T09:34:40+00:00"}
+{"actor":"bea","content":"I need to start mentally planning the menu and what to buy, but I'll wait for Kwame's response before committing to a specific time.","source":"actor_call:c95","t":"2026-10-06T09:35:35+00:00"}
+{"actor":"bea","content":"I'll start thinking about what to cook and what I need to buy for Sunday dinner.","source":"actor_call:c97","t":"2026-10-06T09:36:00+00:00"}
+{"actor":"bea","content":"I'm mentally starting to plan the menu but will finalize after hearing back about timing and dietary needs.","source":"actor_call:c99","t":"2026-10-06T09:36:30+00:00"}

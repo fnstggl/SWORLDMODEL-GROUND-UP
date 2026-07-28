@@ -1,42 +1,53 @@
 {
- "provider_calls": 282,
+ "provider_calls": 78,
  "by_role": {
   "judge": {
-   "calls": 100,
-   "retries": 0,
-   "wall_s": 160.17,
-   "input_tokens": 290070,
-   "output_tokens": 6544
+   "calls": 24,
+   "retries": 1,
+   "wall_s": 37.6,
+   "input_tokens": 24604,
+   "output_tokens": 1452
   },
   "world": {
-   "calls": 128,
-   "retries": 10,
-   "wall_s": 270.79,
-   "input_tokens": 507867,
-   "output_tokens": 13946
+   "calls": 38,
+   "retries": 0,
+   "wall_s": 77.67,
+   "input_tokens": 88055,
+   "output_tokens": 4315
   },
   "actor": {
-   "calls": 54,
-   "retries": 1,
-   "wall_s": 115.31,
-   "input_tokens": 151380,
-   "output_tokens": 4478
+   "calls": 16,
+   "retries": 0,
+   "wall_s": 30.01,
+   "input_tokens": 18498,
+   "output_tokens": 1196
   }
  },
- "total_input_tokens": 949317,
- "total_output_tokens": 24968,
- "total_wall_s": 546.3,
- "status": "incomplete",
+ "total_input_tokens": 131157,
+ "total_output_tokens": 6963,
+ "total_wall_s": 145.32,
+ "status": "resolved",
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "Dr Aline Mercier has read the thesis chapter but has not yet sent comments to Ravi, and the deadline has not passed."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e125",
+   "e136",
+   "e141",
+   "e172",
+   "e177",
+   "e183",
+   "e189",
+   "e193",
+   "e201",
+   "e209"
+  ],
+  "explanation": "Dr Aline Mercier actually read Ravi Patel's thesis chapter as evidenced by events e125-e209 showing she downloaded, opened, and read the chapter, but she has not yet sent comments, so the resolution is not fully satisfied."
  },
- "reason": "step ceiling 120 reached at 2026-07-27T17:09:58+00:00, before the cutoff",
- "steps": 120,
- "world_calls": 118,
- "actor_calls": 53,
- "judge_calls": 100,
- "committed_events": 99,
- "ledger_records": 704
+ "reason": "",
+ "steps": 39,
+ "world_calls": 38,
+ "actor_calls": 16,
+ "judge_calls": 23,
+ "committed_events": 23,
+ "ledger_records": 212
 }

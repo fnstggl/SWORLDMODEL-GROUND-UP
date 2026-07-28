@@ -1,31 +1,33 @@
 {
  "llm_calls": 0,
- "records_replayed": 116,
+ "records_replayed": 268,
  "event_ids": [
   "e11",
-  "e21",
-  "e31",
-  "e67",
+  "e19",
+  "e25",
+  "e34",
+  "e66",
   "e74",
-  "e88",
-  "e94",
-  "e112"
+  "e95",
+  "e101",
+  "e143",
+  "e154",
+  "e201"
  ],
- "event_order_hash": "[\"e11\",\"e21\",\"e31\",\"e67\",\"e74\",\"e88\",\"e94\",\"e112\"]",
- "state_hash": "c5fda0394ff70b8576a95c15b115cb1ba013dc54195fe59618bf234bed7d8609",
- "terminal_status": "YES",
+ "event_order_hash": "[\"e11\",\"e19\",\"e25\",\"e34\",\"e66\",\"e74\",\"e95\",\"e101\",\"e143\",\"e154\",\"e201\"]",
+ "state_hash": "f316332b2eac2396c3fea1785d2bb5348a84114ca9f4ce8279da7e21ca1a5a8e",
+ "terminal_status": "NO_AT_CUTOFF",
  "terminal_support": [
-  "e88",
-  "e112"
+  "e154"
  ],
  "ledger_integrity": [],
  "checked": {
-  "records": 116,
-  "events": 8,
-  "observations": 1,
-  "terminal_checks": 8,
+  "records": 268,
+  "events": 11,
+  "observations": 8,
+  "terminal_checks": 12,
   "actors": 2,
-  "memories": 4
+  "memories": 6
  },
  "vacuous": false,
  "records_match": true,

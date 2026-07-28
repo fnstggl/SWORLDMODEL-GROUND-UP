@@ -1,38 +1,47 @@
 {
- "provider_calls": 64,
+ "provider_calls": 119,
  "by_role": {
   "judge": {
-   "calls": 20,
+   "calls": 35,
    "retries": 0,
-   "wall_s": 30.98,
-   "input_tokens": 18891,
-   "output_tokens": 1099
+   "wall_s": 55.14,
+   "input_tokens": 46299,
+   "output_tokens": 2118
   },
   "world": {
-   "calls": 32,
+   "calls": 63,
    "retries": 1,
-   "wall_s": 65.0,
-   "input_tokens": 76109,
-   "output_tokens": 3652
+   "wall_s": 131.49,
+   "input_tokens": 187747,
+   "output_tokens": 7503
   },
   "actor": {
-   "calls": 12,
+   "calls": 21,
    "retries": 0,
-   "wall_s": 21.79,
-   "input_tokens": 9658,
-   "output_tokens": 958
+   "wall_s": 38.26,
+   "input_tokens": 22832,
+   "output_tokens": 1702
   }
  },
- "total_input_tokens": 104658,
- "total_output_tokens": 5709,
- "total_wall_s": 117.76,
- "status": "failed",
- "answer": null,
- "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: several things have already happened at this exact instant, so this one cannot also take no time: say how long it really takes, however short",
- "steps": 31,
- "world_calls": 30,
- "actor_calls": 12,
- "judge_calls": 20,
- "committed_events": 21,
- "ledger_records": 191
+ "total_input_tokens": 256878,
+ "total_output_tokens": 11323,
+ "total_wall_s": 224.92,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e154",
+   "e204",
+   "e230",
+   "e276"
+  ],
+  "explanation": "Bea offered to host on Sunday (e154), Tomas agreed (e204), Ines agreed (e230), and Bea confirmed hosting (e276), collectively agreeing on a host before the deadline."
+ },
+ "reason": "",
+ "steps": 65,
+ "world_calls": 62,
+ "actor_calls": 21,
+ "judge_calls": 35,
+ "committed_events": 35,
+ "ledger_records": 378
 }

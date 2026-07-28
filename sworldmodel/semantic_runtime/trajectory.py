@@ -118,9 +118,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     backoff: dict = {}
 
     def _schedule_recheck(actor_id: str, cause: int) -> None:
-        hours = backoff.get(actor_id, 1) * 2
-        backoff[actor_id] = min(hours, 24)
-        due = world.clock.now + timedelta(hours=backoff[actor_id])
+        # ten minutes, then twenty, then forty, up to a day.  It starts
+        # short because some situations move in minutes and it widens
+        # because most do not; either way it walks to the horizon.
+        minutes = backoff.get(actor_id, 5) * 2
+        backoff[actor_id] = min(minutes, 24 * 60)
+        due = world.clock.now + timedelta(minutes=backoff[actor_id])
         if due <= cutoff:
             world.schedule(K_WAKE,
                            {"actor": actor_id,
@@ -241,10 +244,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                        trigger_text=f"{actor_id} attempts: {intent}",
                        cause=aseq, actor_id=actor_id)
 
-    #: consecutive purely environmental consequences with nobody aware.
-    #: Bounded like any causal chain: past this the runtime stops asking
-    #: "and then?" and lets time pass instead.
-    MAX_ENV_CHAIN = 3
+    #: How many times in a row the runtime asks "and then?" about
+    #: something nobody has noticed.  Once: a thing that was sent arrives,
+    #: and there it sits.  Asking again produced the third event of every
+    #: message -- "it remains unread" -- which is not an event at all but
+    #: the absence of one.  Whether it is ever noticed is a question about
+    #: a later moment, and later moments are what wakes are for.
+    MAX_ENV_CHAIN = 1
     env_chain = {"depth": 0}
 
     #: The world may not run this many steps in a row without a single

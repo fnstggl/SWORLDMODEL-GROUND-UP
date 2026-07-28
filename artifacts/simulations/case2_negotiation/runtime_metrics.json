@@ -1,38 +1,42 @@
 {
- "provider_calls": 167,
+ "provider_calls": 231,
  "by_role": {
   "judge": {
-   "calls": 55,
+   "calls": 80,
    "retries": 0,
-   "wall_s": 87.03,
-   "input_tokens": 107397,
-   "output_tokens": 3402
+   "wall_s": 129.75,
+   "input_tokens": 215816,
+   "output_tokens": 4940
   },
   "world": {
-   "calls": 85,
-   "retries": 2,
-   "wall_s": 192.08,
-   "input_tokens": 310064,
-   "output_tokens": 11089
+   "calls": 118,
+   "retries": 0,
+   "wall_s": 256.75,
+   "input_tokens": 497914,
+   "output_tokens": 15162
   },
   "actor": {
-   "calls": 27,
+   "calls": 33,
    "retries": 0,
-   "wall_s": 56.13,
-   "input_tokens": 33269,
-   "output_tokens": 2632
+   "wall_s": 65.84,
+   "input_tokens": 57848,
+   "output_tokens": 3483
   }
  },
- "total_input_tokens": 450730,
- "total_output_tokens": 17123,
- "total_wall_s": 335.2,
- "status": "failed",
- "answer": null,
- "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: several things have already happened at this exact instant, so this one cannot also take no time: say how long it really takes, however short",
- "steps": 91,
- "world_calls": 82,
- "actor_calls": 27,
- "judge_calls": 55,
- "committed_events": 56,
- "ledger_records": 513
+ "total_input_tokens": 771578,
+ "total_output_tokens": 23585,
+ "total_wall_s": 452.37,
+ "status": "incomplete",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have reached an agreement on a price for the used kiln; they have exchanged offers but not yet agreed."
+ },
+ "reason": "step ceiling 120 reached at 2026-09-08T09:25:10+00:00, before the cutoff",
+ "steps": 120,
+ "world_calls": 118,
+ "actor_calls": 33,
+ "judge_calls": 80,
+ "committed_events": 79,
+ "ledger_records": 700
 }

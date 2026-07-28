@@ -699,7 +699,7 @@ def test_silence_does_not_end_a_situation_before_its_horizon():
                    "wakes": []}] * 200,
         "actor": [NOTHING] * 200}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
-                          caller, max_steps=40, trace=Trace())
+                          caller, max_steps=120, trace=Trace())
     assert traj.status == "cutoff"
     assert traj.answer["status"] == "NO_AT_CUTOFF"
     # both people were revisited repeatedly across the two-week window

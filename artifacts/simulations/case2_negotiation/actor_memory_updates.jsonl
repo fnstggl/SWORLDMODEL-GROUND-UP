@@ -1,20 +1,30 @@
-{"actor":"priya_raghavan","content":"I believe Dmitri might respond to a modest increase from 900, and I am willing to go up to 1100 if necessary, but I want to avoid going higher than that.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm considering countering at 1200 but not ready to act yet.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am leaning towards countering at 1200 but want to wait a bit to see if Priya might increase her offer.","source":"actor_call:c19","t":"2026-09-08T11:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I've decided to act now rather than wait.","source":"actor_call:c22","t":"2026-09-08T14:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm willing to go to 1100 if needed, but I'll first see if 1000 gets a response.","source":"actor_call:c24","t":"2026-09-08T14:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now more anxious about the deadline and willing to go to 1000 as a first step, but I'll hold firm at 1100 as my maximum.","source":"actor_call:c37","t":"2026-09-08T14:01:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I've decided to counter at 1200, hoping to meet somewhere near 1100 eventually.","source":"actor_call:c47","t":"2026-09-08T14:17:10+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now committed to the 1200 counteroffer.","source":"actor_call:c59","t":"2026-09-08T14:30:10+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now committed to countering at 1200.","source":"actor_call:c65","t":"2026-09-08T14:31:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now more anxious about the deadline and willing to go to 1000 as a first step, but I'll hold firm at 1100 as my maximum.","source":"actor_call:c85","t":"2026-09-08T14:49:10+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now committed to countering at 1200.","source":"actor_call:c96","t":"2026-09-08T14:59:10+00:00"}
-{"actor":"priya_raghavan","content":"I now know Dmitri is firm at 1200, so I'll have to increase my offer. I'm willing to go to 1100 if he rejects 1000.","source":"actor_call:c98","t":"2026-09-08T14:59:10+00:00"}
-{"actor":"priya_raghavan","content":"I am now willing to go up to 1100, but no higher. I will not counter again if he rejects 1100.","source":"actor_call:c112","t":"2026-09-08T15:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I am now willing to go up to 1100, but no higher. I will not counter again if he rejects 1100.","source":"actor_call:c116","t":"2026-09-08T15:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now willing to go up to 1100, but no higher. I will not counter again if he rejects 1100.","source":"actor_call:c122","t":"2026-09-08T15:00:20+00:00"}
-{"actor":"priya_raghavan","content":"I now know Dmitri is firm at 1200, but I'm hoping 1100 might be enough if he's bluffing. I will not go higher than 1100.","source":"actor_call:c125","t":"2026-09-08T15:00:20+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now committed to countering at 1200, hoping we can settle near 1100.","source":"actor_call:c139","t":"2026-09-08T15:00:50+00:00"}
-{"actor":"priya_raghavan","content":"I am now committed to 1100 as my absolute maximum; if he rejects this, I will walk away and look for another kiln.","source":"actor_call:c143","t":"2026-09-08T15:01:00+00:00"}
-{"actor":"priya_raghavan","content":"I am now committed to 1100 as my absolute maximum; if he rejects this, I will walk away and look for another kiln.","source":"actor_call:c145","t":"2026-09-08T15:01:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now satisfied with 1100 and ready to finalize the transaction.","source":"actor_call:c157","t":"2026-09-08T15:01:30+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go up to 1200 but want to start with a smaller increase.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm willing to accept less than 1400 to avoid more searching, but I want to see if she'll meet me partway.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm willing to go to 1000 if she pushes back, but I'll start at 1150.","source":"actor_call:c17","t":"2026-09-08T09:01:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I now know Priya is willing to go to 1100, so I'm adjusting my bottom line to 1050.","source":"actor_call:c22","t":"2026-09-08T09:01:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go up to 1200 but want to start with a smaller increase.","source":"actor_call:c32","t":"2026-09-08T09:10:05+00:00"}
+{"actor":"dmitri_sokolov","content":"Priya's second offer of 1000 suggests she's trying to lower her offer, so I'll hold firm at 1150 for now.","source":"actor_call:c42","t":"2026-09-08T09:11:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya might be trying to negotiate down from 1100, so I'll stick to 1150 and see if she bites.","source":"actor_call:c51","t":"2026-09-08T09:15:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya might be trying to lower her offer from 1100, so I'll stick to 1150 and see if she accepts.","source":"actor_call:c54","t":"2026-09-08T09:15:15+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya might be trying to negotiate down from 1100, so I'll stick to 1150 and see if she accepts.","source":"actor_call:c64","t":"2026-09-08T09:15:30+00:00"}
+{"actor":"priya_raghavan","content":"I am now committed to trying a counteroffer of 1000, and I'm prepared to negotiate up to 1200 if needed.","source":"actor_call:c73","t":"2026-09-08T09:20:20+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya is trying to negotiate down from her earlier 1100, but she's indicated flexibility. I'll hold firm at 1150 for now.","source":"actor_call:c90","t":"2026-09-08T09:22:20+00:00"}
+{"actor":"priya_raghavan","content":"I need to see the email content before deciding my next move.","source":"actor_call:c105","t":"2026-09-08T09:23:22+00:00"}
+{"actor":"priya_raghavan","content":"I note that Dmitri has come down to 1150, so he's flexible.","source":"actor_call:c110","t":"2026-09-08T09:23:50+00:00"}
+{"actor":"priya_raghavan","content":"I'm prepared to negotiate up to 1200 if needed, but I'll start at 1000.","source":"actor_call:c110","t":"2026-09-08T09:23:50+00:00"}
+{"actor":"priya_raghavan","content":"I'm now aware that Dmitri has offered 1150 and is eager to sell.","source":"actor_call:c121","t":"2026-09-08T09:24:10+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go up to 1200 if needed, but I'll start at 1000.","source":"actor_call:c121","t":"2026-09-08T09:24:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya is trying to negotiate down from her earlier 1100, but she's indicated flexibility. I'll hold firm at 1150 for now.","source":"actor_call:c133","t":"2026-09-08T09:24:20+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya is trying to negotiate down from her earlier 1100, but she's indicated flexibility. I'll hold firm at 1150 for now.","source":"actor_call:c138","t":"2026-09-08T09:24:30+00:00"}
+{"actor":"priya_raghavan","content":"I am committing to starting at 1000 but am prepared to go up to 1200.","source":"actor_call:c145","t":"2026-09-08T09:24:33+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya is trying to negotiate down from her earlier 1100, but she's indicated flexibility. I'll hold firm at 1150 for now.","source":"actor_call:c154","t":"2026-09-08T09:24:35+00:00"}
+{"actor":"priya_raghavan","content":"I am now actively negotiating, starting at 1000.","source":"actor_call:c161","t":"2026-09-08T09:24:38+00:00"}
+{"actor":"dmitri_sokolov","content":"I believe Priya's 'final offer' is a negotiation tactic, and she may still be willing to go up to 1100 or 1150.","source":"actor_call:c172","t":"2026-09-08T09:24:48+00:00"}
+{"actor":"dmitri_sokolov","content":"I believe Priya's final offer of 1000 is a tactic, and she may still accept 1150.","source":"actor_call:c190","t":"2026-09-08T09:25:02+00:00"}
+{"actor":"priya_raghavan","content":"I am now actively negotiating, having made my counteroffer of 1000.","source":"actor_call:c192","t":"2026-09-08T09:25:02+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm sticking with 1150 as my counteroffer, expecting she might accept or counter higher than 1000.","source":"actor_call:c195","t":"2026-09-08T09:25:03+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya's final offer of 1000 is a tactic, and she may still accept 1150.","source":"actor_call:c206","t":"2026-09-08T09:25:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now aware of Priya's repeated offers of 1000, but I still think she might go higher.","source":"actor_call:c210","t":"2026-09-08T09:25:05+00:00"}
+{"actor":"priya_raghavan","content":"I have decided to accept 1150 rather than continue negotiating, as it's within my budget and I need the kiln before the 20th.","source":"actor_call:c220","t":"2026-09-08T09:25:07+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm holding firm at 1150 for now, expecting she might accept or counter higher.","source":"actor_call:c227","t":"2026-09-08T09:25:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I am sticking with 1150 as my counteroffer.","source":"actor_call:c229","t":"2026-09-08T09:25:10+00:00"}
