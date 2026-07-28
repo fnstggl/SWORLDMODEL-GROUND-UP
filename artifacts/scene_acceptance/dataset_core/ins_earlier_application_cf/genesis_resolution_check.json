@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "If Rosa had sent her application a week earlier last spring, would she have gotten the interview?",
+  "resolution": "Resolve YES if, during the simulation, the Hiring Committee decides to offer Rosa an interview after reviewing her application (submitted a week earlier than in reality). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-15T09:00:00-06:00",
+  "world_id": "w_70a12cec99a4"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

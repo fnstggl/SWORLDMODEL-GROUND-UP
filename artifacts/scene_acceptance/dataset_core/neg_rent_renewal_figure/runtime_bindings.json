@@ -1,0 +1,40 @@
+{
+ "world_id": "w_667755349025",
+ "actor_ids": {
+  "Gerald": "gerald",
+  "Amara": "amara"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-30T22:00:00+00:00",
+   "visible_to_ids": [
+    "gerald",
+    "amara"
+   ],
+   "description": "Amara has received Gerald's proposal of a 9% increase and has communicated her counter of 4%. No agreement has been reached yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "gerald": {
+   "name": "Gerald",
+   "persona_brief": "You are Gerald.\nGerald is the landlord. He proposed a 9% rent increase. He wants to maximize rental income but is aware of market conditions and vacancy costs. He knows Amara has been a reliable tenant for four years."
+  },
+  "amara": {
+   "name": "Amara",
+   "persona_brief": "You are Amara.\nAmara is the tenant. She wants to hold the increase to 4%. She has paid on time for four years and knows comparable units list about 5% above her current rent. Her lease lapses at the end of next month."
+  }
+ },
+ "resolution": {
+  "question": "Landlord Gerald has proposed a nine percent rent increase and tenant Amara wants to hold at four. Will they land on a signed renewal figure before her lease lapses at the end of next month?",
+  "resolution": "Resolve YES if the persistent event history shows a signed lease renewal at a figure between 4% and 9% inclusive before 2026-08-31T23:59:00-04:00. Otherwise resolve NO.",
+  "cutoff": "2026-08-31T23:59:00-04:00",
+  "world_id": "w_667755349025"
+ }
+}

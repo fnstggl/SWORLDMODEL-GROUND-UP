@@ -1,0 +1,88 @@
+{
+ "donald_trump": {
+  "id": "donald_trump",
+  "name": "Donald Trump",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2016-10-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "Donald Trump is the Republican presidential nominee. He has received an invitation to the Al Smith Memorial Foundation Dinner on October 20, 2016. He is considering whether to attend, weighing campaign schedule, security, and tradition.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2016-10-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "The Al Smith Memorial Foundation Dinner is an annual charity event in New York City, traditionally attended by major-party presidential nominees in election years. The dinner is scheduled for October 20, 2016. Both nominees have been invited. Attendance is voluntary and each nominee decides independently whether to attend in person.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "hillary_clinton": {
+  "id": "hillary_clinton",
+  "name": "Hillary Clinton",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2016-10-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "Hillary Clinton is the Democratic presidential nominee. She has received an invitation to the Al Smith Memorial Foundation Dinner on October 20, 2016. She is considering whether to attend, weighing campaign schedule, security, and tradition.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2016-10-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "The Al Smith Memorial Foundation Dinner is an annual charity event in New York City, traditionally attended by major-party presidential nominees in election years. The dinner is scheduled for October 20, 2016. Both nominees have been invited. Attendance is voluntary and each nominee decides independently whether to attend in person.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

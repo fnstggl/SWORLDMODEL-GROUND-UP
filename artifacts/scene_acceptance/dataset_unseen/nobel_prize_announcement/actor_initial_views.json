@@ -1,0 +1,45 @@
+{
+ "nobel_assembly_at_karolinska_institutet": {
+  "id": "nobel_assembly_at_karolinska_institutet",
+  "name": "Nobel Assembly at Karolinska Institutet",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-30T22:00:00+00:00",
+    "kind": "context",
+    "content": "The Nobel Assembly is the body that selects the laureate(s) for the Nobel Prize in Physiology or Medicine. They have their own internal procedures, criteria, and deliberations. They are aware of the nominations received for the 2026 prize and have been evaluating candidates. They have not yet made a final decision.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-30T22:00:00+00:00",
+    "kind": "context",
+    "content": "The Nobel Prize in Physiology or Medicine for 2026 will be announced on October 5, 2026. The prize can be awarded to one, two, or three individuals. The Nobel Assembly at Karolinska Institutet makes the final decision. The prize has historically been awarded to both men and women, but the gender of the laureates is not predetermined.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

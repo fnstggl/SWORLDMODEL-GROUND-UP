@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "CRITICAL",
+   "detail": "The shared context states 'The art director's promise of a decision within two weeks is known to both parties.' This pre-decides that the promise was made, which is a key fact that should be determined by the simulation. The scene should only set the stage, not assert the promise as a fact."
+  }
+ ],
+ "id": "hire_studio_decision_promised"
+}

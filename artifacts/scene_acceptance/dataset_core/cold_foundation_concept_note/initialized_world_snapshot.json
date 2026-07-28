@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "lucia_ferreyra": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "lucia_ferreyra",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared a concept note for the Alder Foundation and intends to submit it. She hopes for a substantive response within a month.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    },
+    {
+     "content": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    }
+   ],
+   "name": "Lucia Ferreyra",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "program_officer_alder_foundation": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "program_officer_alder_foundation",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The program officer receives many unsolicited concept notes and typically responds only to those that closely match the foundation's current funding priorities. They have no prior relationship with Lucia Ferreyra.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    },
+    {
+     "content": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T14:00:00+00:00"
+    }
+   ],
+   "name": "Program Officer (Alder Foundation)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the program officer at the Alder Foundation respond substantively to nonprofit director Lucia Ferreyra's unsolicited concept note within one month?",
+  "scene:shared_context": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T14:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T14:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

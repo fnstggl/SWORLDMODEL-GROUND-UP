@@ -1,0 +1,20 @@
+[
+  {
+    "id": "email_draft",
+    "title": "The cold email draft (verbatim)",
+    "date": "2026-07-27",
+    "content": "From: Jordan Reyes <jordan@courtvisionhq.com>\nTo: mark@markcubancompanies.com\nSubject: Cost Plus pricing playbook, applied to youth sports video\n\nMark -- CourtVision turns one phone camera at a youth basketball game into pro-grade stats parents actually pay for ($12/mo). We copied the Cost Plus Drugs move: publish the true cost breakdown on the pricing page. Conversion doubled to 9% in three months; 4,100 paying families, growing 22% m/m, profitable since May.\n\nOne specific ask: 15 minutes for your read on whether radical cost transparency keeps working as we go from 4k to 40k families, or breaks.\n\nNo deck unless you want it. Two-line reply is plenty.\n\nJordan Reyes, founder (bootstrapped, Dallas)"
+  },
+  {
+    "id": "recipient_email_habits",
+    "title": "Reported email habits of Mark Cuban (public interviews, 2013-2025)",
+    "date": "2026-06-30",
+    "content": "Mark Cuban has said in many interviews (Axios 2019, GQ 2022, podcast appearances through 2025) that he handles his own email, receives roughly 700-1000 messages a day, reads or skims nearly all of them himself on his phone, and replies personally -- usually within hours and often in one line -- to messages that are short, specific, and about business he finds interesting. He has repeatedly said he ignores long pitches, vague asks, and anything that opens with flattery. His address mark@markcubancompanies.com has been publicly known for years and he has kept it. He deletes without reply far more than he answers; estimates from his own interviews suggest he replies to a minority of cold pitches, but a nontrivial one when the pitch is tight and relevant to his portfolio interests (health-care pricing transparency, sports tech, AI)."
+  },
+  {
+    "id": "sender_context",
+    "title": "Sender context",
+    "date": "2026-07-27",
+    "content": "Jordan Reyes is the founder of CourtVision Analytics, a bootstrapped Dallas youth-sports video analytics company. Reyes has no prior relationship with Mark Cuban and no warm introduction. The email address used is the long-public one; there is no evidence it has changed. Reyes drafted the email on July 27, 2026 and intends to send it the same day during business hours. If no reply arrives, Reyes does not plan to follow up within the two-week window. Cuban's businesses include Cost Plus Drugs (drug pricing transparency); he remains a minority owner of the Dallas Mavericks after the 2023 sale and is active in sports-tech angel investing."
+  }
+]

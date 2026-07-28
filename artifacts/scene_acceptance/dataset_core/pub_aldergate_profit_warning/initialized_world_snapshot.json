@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "aldergate_rail": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "aldergate_rail",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Aldergate Rail is a listed firm. It has a signaling-contract delay that may be material to the market. It has not yet decided whether to issue a warning before its scheduled interim results day on November 5. The board and management are aware of the delay and its potential impact.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T08:00:00+00:00"
+    },
+    {
+     "content": "Aldergate Rail is a publicly listed company. Its interim results are scheduled for release on November 5. The company has a signaling-contract delay that could affect its financial outlook. Market regulations may require timely disclosure of material information.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T08:00:00+00:00"
+    }
+   ],
+   "name": "Aldergate Rail",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the listed firm Aldergate Rail warn the market about its signaling-contract delay before its scheduled interim results day on November 5?",
+  "scene:shared_context": "Aldergate Rail is a publicly listed company. Its interim results are scheduled for release on November 5. The company has a signaling-contract delay that could affect its financial outlook. Market regulations may require timely disclosure of material information."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-01T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-01T08:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

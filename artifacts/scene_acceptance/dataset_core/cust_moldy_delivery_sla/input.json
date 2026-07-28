@@ -1,0 +1,8 @@
+{
+ "question": "Will Ostara Foods' support desk resolve, or at least substantively reply to, customer Hana Suzuki's complaint about a moldy delivery within its advertised 24-hour window?",
+ "start": "2026-08-19T13:00:00+09:00",
+ "cutoff": "2026-08-20T13:00:00+09:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

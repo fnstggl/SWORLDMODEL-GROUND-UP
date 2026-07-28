@@ -1,0 +1,34 @@
+{
+ "world_id": "w_12237b3e62f6",
+ "actor_ids": {
+  "Mayor of Riverton": "mayor_of_riverton"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-08-12T13:00:00+00:00",
+   "visible_to_ids": [
+    "mayor_of_riverton"
+   ],
+   "description": "The third water-main burst of the morning has occurred. The mayor is aware of it."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "mayor_of_riverton": {
+   "name": "Mayor of Riverton",
+   "persona_brief": "You are Mayor of Riverton.\nThe mayor is aware of this morning's third water-main burst and the public concern it is generating. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out or staying silent."
+  }
+ },
+ "resolution": {
+  "question": "Will the mayor of Riverton issue any public statement about the water-main failures within 48 hours of this morning's third burst?",
+  "resolution": "Resolve YES if the persistent event history shows that the mayor of Riverton issued a public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-14T07:00:00-06:00",
+  "world_id": "w_12237b3e62f6"
+ }
+}

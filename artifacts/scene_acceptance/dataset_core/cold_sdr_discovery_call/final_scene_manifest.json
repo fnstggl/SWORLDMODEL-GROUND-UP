@@ -1,0 +1,179 @@
+{
+ "actors": [
+  {
+   "name": "Gustavo",
+   "private_context": "Gustavo is a mid-tier sales representative at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email each lead this week. His usual booking rate is about one discovery call per sixty cold emails."
+  },
+  {
+   "name": "Procurement Lead 1",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 2",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 3",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 4",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 5",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 6",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 7",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 8",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 9",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 10",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 11",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 12",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 13",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 14",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 15",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 16",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 17",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 18",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 19",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 20",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 21",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 22",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 23",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 24",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 25",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 26",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 27",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 28",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 29",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 30",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 31",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 32",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 33",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 34",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 35",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 36",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 37",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 38",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 39",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 40",
+   "private_context": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  }
+ ],
+ "shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+ "starting_events": [
+  {
+   "time": "2026-08-03T08:00:00-07:00",
+   "description": "Gustavo begins composing and sending cold emails to the forty procurement leads. He sends them throughout the week.",
+   "visible_to": [
+    "Gustavo"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads agreed to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at the cutoff."
+}

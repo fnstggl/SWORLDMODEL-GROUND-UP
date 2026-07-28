@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the Federal Reserve raise interest rates at its September 2026 meeting?",
+  "resolution": "Resolve YES if the persistent event history shows that the FOMC announced an increase in the federal funds rate at the conclusion of its September 2026 meeting. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-20T23:59:00-04:00",
+  "world_id": "w_8cb775c5ccb0"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

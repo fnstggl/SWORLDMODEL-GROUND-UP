@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Before the October 1 deadline, will the editor-in-chief of the Daily Chronicle, after consulting with the publisher, decide to retract the article about the mayor's alleged corruption?",
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that the Editor-in-Chief, after consulting with the publisher, made a decision to retract the article (e.g., a retraction notice is published or an official decision is recorded). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-01T23:59:00-05:00",
+  "world_id": "w_cdb56cf7cebf"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

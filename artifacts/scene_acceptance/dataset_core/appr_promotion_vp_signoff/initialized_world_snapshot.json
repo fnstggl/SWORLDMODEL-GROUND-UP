@@ -1,0 +1,160 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "jonas": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "jonas",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Jonas is a report of Rosa Maria. He is aware that Rosa Maria is working on his promotion case. He hopes the promotion goes through but has no direct control over the process.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T17:00:00+00:00"
+    },
+    {
+     "content": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T17:00:00+00:00"
+    }
+   ],
+   "name": "Jonas",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "rosa_maria": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "rosa_maria",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Rosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and submitted it for calibration. She wants the case to be approved and signed off by the VP before promotion letters go out on November 15. She knows the calibration process and VP sign-off are required steps.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T17:00:00+00:00"
+    },
+    {
+     "content": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T17:00:00+00:00"
+    }
+   ],
+   "name": "Rosa Maria",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "vp": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "vp",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The VP is the executive who must sign off on promotion cases. They have authority to approve or reject. They are aware of the promotion cycle and the November 15 deadline for letters.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T17:00:00+00:00"
+    },
+    {
+     "content": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T17:00:00+00:00"
+    }
+   ],
+   "name": "VP",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will manager Rosa Maria's promotion case for her report Jonas clear calibration and receive VP sign-off before promotion letters go out on November 15?",
+  "scene:shared_context": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-05T17:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-05T17:00:00+00:00",
+ "terminal": null,
+ "version": 14,
+ "watches": {}
+}

@@ -1,0 +1,40 @@
+{
+ "world_id": "w_b8ccf1140398",
+ "actor_ids": {
+  "Resident": "resident",
+  "Neighbors": "neighbors"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-01T10:00:00+00:00",
+   "visible_to_ids": [
+    "resident",
+    "neighbors"
+   ],
+   "description": "The current situation with the neighbors is tense but stable; no new incident has occurred at this moment."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "resident": {
+   "name": "Resident",
+   "persona_brief": "You are Resident.\nThe resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action."
+  },
+  "neighbors": {
+   "name": "Neighbors",
+   "persona_brief": "You are Neighbors.\nThe neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior."
+  }
+ },
+ "resolution": {
+  "question": "Will the situation with the neighbors improve over the next few months?",
+  "resolution": "Resolve YES if, by the cutoff, the persistent event history shows a clear, observable improvement in neighbor relations (e.g., a friendly interaction, a resolved dispute, or a mutual agreement). Otherwise resolve NO.",
+  "cutoff": "2026-11-01T12:00:00+02:00",
+  "world_id": "w_b8ccf1140398"
+ }
+}

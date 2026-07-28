@@ -1,0 +1,8 @@
+{
+ "question": "Will Bramblewick Studios send Elin Bjork any decision, offer or rejection, within the two weeks their art director promised at the end of her final interview?",
+ "start": "2026-10-09T16:00:00+01:00",
+ "cutoff": "2026-10-23T16:00:00+01:00",
+ "context": "Bramblewick is a thirty-person game studio mid-crunch on a delayed title; Elin's final interview went well, but the hiring manager mentioned that budget sign-off was still pending with the finance lead.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

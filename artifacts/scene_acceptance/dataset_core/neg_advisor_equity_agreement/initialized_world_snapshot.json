@@ -1,0 +1,160 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "advisor": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "advisor",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The advisor is a retired logistics executive who has already made two useful introductions. He has asked for 1% equity. He is considering the offer of 0.3% and may negotiate.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T17:00:00+00:00"
+    },
+    {
+     "content": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T17:00:00+00:00"
+    }
+   ],
+   "name": "Advisor",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "co_founder": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "co_founder",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The co-founder thinks anything above 0.5% equity for the advisor is too rich. They have influence over Leila's decisions.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T17:00:00+00:00"
+    },
+    {
+     "content": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T17:00:00+00:00"
+    }
+   ],
+   "name": "Co-founder",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "leila": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "leila",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Leila is the founder. She is offering 0.3% equity to a prospective advisor who has asked for 1%. She knows her co-founder thinks anything above 0.5% is too rich. She wants to reach an agreement within a month.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T17:00:00+00:00"
+    },
+    {
+     "content": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T17:00:00+00:00"
+    }
+   ],
+   "name": "Leila",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Founder Leila is offering her prospective advisor 0.3 percent equity and he has asked for 1 percent. Will they execute an advisor agreement within a month?",
+  "scene:shared_context": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-10T17:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-10T17:00:00+00:00",
+ "terminal": null,
+ "version": 14,
+ "watches": {}
+}

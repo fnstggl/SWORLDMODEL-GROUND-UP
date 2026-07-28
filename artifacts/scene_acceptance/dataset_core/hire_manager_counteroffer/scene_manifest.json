@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Sanjay",
+   "private_context": "Sanjay has just handed in his notice at Nimbus Freight this morning. He has an outside offer with a thirty percent salary increase. He leads the only team that understands the legacy routing system."
+  },
+  {
+   "name": "Sanjay's manager",
+   "private_context": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation this morning."
+  }
+ ],
+ "shared_context": "Sanjay works at Nimbus Freight and leads the only team that understands the legacy routing system. His manager has the authority to make a counteroffer. The company's standard process for counteroffers is unknown. The simulation runs from 2026-07-27T11:00:00+05:30 to 2026-08-03T18:00:00+05:30 (five working days).",
+ "starting_events": [
+  {
+   "time": "2026-07-27T11:00:00+05:30",
+   "description": "Sanjay hands in his notice to his manager at Nimbus Freight.",
+   "visible_to": [
+    "Sanjay",
+    "Sanjay's manager"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Sanjay's manager communicated a counteroffer to Sanjay before 2026-08-03T18:00:00+05:30. Otherwise resolve NO at the cutoff."
+}

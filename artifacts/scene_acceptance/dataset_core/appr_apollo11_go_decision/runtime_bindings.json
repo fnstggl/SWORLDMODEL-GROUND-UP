@@ -1,0 +1,34 @@
+{
+ "world_id": "w_0eadc52ebe13",
+ "actor_ids": {
+  "NASA Senior Managers": "nasa_senior_managers"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "1969-06-01T13:00:00+00:00",
+   "visible_to_ids": [
+    "nasa_senior_managers"
+   ],
+   "description": "The flight readiness review process for Apollo 11 begins, with NASA senior managers and technical teams assessing mission readiness."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "nasa_senior_managers": {
+   "name": "NASA Senior Managers",
+   "persona_brief": "You are NASA Senior Managers.\nThey are responsible for the Apollo 11 flight readiness review and must decide whether to publicly announce a go decision for the July launch window. They have access to technical reports and status updates from various teams. They are aware of the upcoming review process and the need to make a decision before the end of June."
+  }
+ },
+ "resolution": {
+  "question": "Will NASA's senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before the end of June 1969?",
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that NASA senior managers publicly announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process. Otherwise resolve NO.",
+  "cutoff": "1969-06-30T18:00:00-04:00",
+  "world_id": "w_0eadc52ebe13"
+ }
+}

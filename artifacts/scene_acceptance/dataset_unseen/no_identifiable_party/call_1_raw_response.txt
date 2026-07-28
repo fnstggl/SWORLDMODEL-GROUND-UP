@@ -1,0 +1,6 @@
+{
+  "actors": [],
+  "shared_context": "The question asks about rainfall in London on September 15, 2026. Weather is a natural phenomenon, not a social decision. No actor can decide or act to affect the outcome.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question concerns a natural event with no social decision or action to simulate."
+}

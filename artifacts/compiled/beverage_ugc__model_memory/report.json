@@ -1,0 +1,54 @@
+{
+ "question": "Should Coca-Cola launch a six-week TikTok user-generated-content contest campaign (branded hashtag, weekly creator prizes, roughly a two-million-dollar budget) in September 2026?",
+ "report": {
+  "reasons": [
+   "validation: terminal term on coca_cola_brand_equity_and_customer_base:incremental_sales_revenue: no process, action, or scheduled event moves this quantity",
+   "item communication[8] (\"Coca-Cola's data analysts can access sales data from loyalty programs, with data\") was not expressed: references could not be resolved: communication[8]: 'Coca-Cola sales data systems' is a aggregate, expected one of ['participant']",
+   "item actions[3] ('TikTok users may decide to engage with campaign content (views, likes, shares, c') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"define_action.provenance: a concrete number cannot be labeled 'uncertain' -- e",
+   "item actions[9] (\"Coca-Cola's data analysts attend email during business hours (e.g., 9 AM to 5 PM\") was not expressed: Attention for Coca-Cola data analysts on email is already declared; cannot duplicate."
+  ],
+  "repair_rounds": [
+   [
+    "validation: terminal term on coca_cola_sales_data_systems:incremental_sales_revenue: no process, action, or scheduled event moves this quantity",
+    "item communication[4] (\"Coca-Cola's data analysts can access sales data from point-of-sale systems and l\") was not expressed: The item describes data analysts accessing sales data systems, which is a data flow from an aggregate to a participant. The capability menu has no direct way to",
+    "item actions[2] ('Individual TikTok creators (influencers and users) may decide to participate by ') was not expressed: The item describes a possible future decision by a group of participants (Individual TikTok creators) to post videos, which is a voluntary action that cannot be",
+    "item actions[3] ('TikTok users may decide to engage with campaign content (views, likes, shares, c') was not expressed: The item describes possible future decisions and outcomes (engagement, brand exposure metrics) that are not a single capability from the menu. It involves multi"
+   ],
+   [
+    "reality review: Coca-Cola data analysts have no attention pattern, so they never notice any information. This precludes them from ever performing causal inference, making the answer impossible to obtain.: The data analysts have 'attends no channel', meaning they never read any information sent to them. They cannot receive the task, access sales data, or select a method. The simulation cannot produce an incremental sales revenue number, so the question cannot be answered. (fix: Add an attention pattern for coca_cola_data_analysts, e.g., checking email during business hours, consistent with typical analyst habits.)",
+    "reality review: No mechanism moves incremental_sales_revenue from zero to any non-zero value. The only action that changes it is select_causal_inference_method, which sets it to 0. The threshold watch on campaign_performance_metrics is also set to 0.0, which may never trigger or produce a meaningful value.: The quantity 'incremental_sales_revenue' is never increased by any process, action, or scheduled event. The action select_causal_inference_method changes it by 0. The sales_data_recording process has rate 0.0/h. The threshold watch on campaign_performance_metrics reaching 0.0 is ambiguous and may not produce a revenue figure. Without a mechanism to generate a non-zero incremental sales revenue, the simulation cannot answer the question. (fix: Define a process or action that computes and records incremental sales revenue based on campaign engagement and sales data, or allow the data analysts' causal inference action to produce a non-zero value.)",
+    "meaning review: Coca-Cola data analysts attend no channel: The runtime has Coca-Cola data analysts attending no channel, meaning they never notice any information sent to them. This prevents them from ever being tasked with measuring the campaign's causal effect, which is required for the answer to be produced. The approved description states that data analysts can be tasked and can access sales data; they must have some attention pattern to receive the task. (fix: Add an attention pattern for Coca-Cola data analysts, e.g., checking email during business hours, consistent with the inferred habits for the VP of Marketing.)",
+    "meaning review: TikTok account manager cannot reach Coca-Cola VP of Marketing on phone: The approved description states that Coca-Cola's VP of Marketing can communicate with TikTok's business operations team via phone, but the runtime only has a route from VP to account manager on phone, not the reverse. This asymmetry may prevent the account manager from contacting the VP if needed. (fix: Add a route from tiktok_account_manager to coca_cola_vp_of_marketing on phone.)",
+    "meaning review: Individual TikTok creators attend 'tiktok_feed' continuously, but the channel is for posting videos, not for receiving messages from the account manager: The approved description says TikTok's business operations team can communicate with individual creators via TikTok's creator marketplace platform or direct messages. The runtime only has a route from account manager to creators on 'tiktok_creator_marketplace', but creators attend 'tiktok_feed' continuously, not 'tiktok_creator_marketplace'. Thus, messages sent via the marketplace may never be noticed by creators, preventing them from learning about the campaign. (fix: Add an attention pattern for individual TikTok creators on 'tiktok_creator_marketplace' (e.g., checking every few hours) or change the route to use a channel they attend.)",
+    "meaning review: Threshold watch on campaign_performance_metrics may never trigger: The threshold watch is set to wake data analysts when campaign_performance_metrics reaches 0.0, but the metric starts at 0.0 and may never change, causing the watch to trigger immediately or never. The approved description does not specify such a watch; it relies on data analysts being tasked by the VP or deciding on their own. This watch may cause unintended behavior. (fix: Remove the threshold watch, or replace it with a mechanism that allows the VP to task the data analysts via communication.)"
+   ],
+   [
+    "validation: terminal term on coca_cola_brand_equity_and_customer_base:incremental_sales_revenue: no process, action, or scheduled event moves this quantity",
+    "item communication[8] (\"Coca-Cola's data analysts can access sales data from loyalty programs, with data\") was not expressed: references could not be resolved: communication[8]: 'Coca-Cola sales data systems' is a aggregate, expected one of ['participant']",
+    "item actions[3] ('TikTok users may decide to engage with campaign content (views, likes, shares, c') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"define_action.provenance: a concrete number cannot be labeled 'uncertain' -- e",
+    "item actions[9] (\"Coca-Cola's data analysts attend email during business hours (e.g., 9 AM to 5 PM\") was not expressed: Attention for Coca-Cola data analysts on email is already declared; cannot duplicate."
+   ]
+  ],
+  "reviews": null,
+  "validation": {
+   "blocking": [
+    "terminal term on coca_cola_brand_equity_and_customer_base:incremental_sales_revenue: no process, action, or scheduled event moves this quantity"
+   ],
+   "dry_run": {
+    "events_fired": 3,
+    "final_answer": {
+     "answer": 0.0,
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "coca_cola_brand_equity_and_customer_base:incremental_sales_revenue = 0.0"
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [],
+   "patchable": [],
+   "warnings": []
+  }
+ },
+ "status": "failed"
+}

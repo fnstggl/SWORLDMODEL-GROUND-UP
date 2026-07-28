@@ -1,0 +1,203 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "committee_member_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "committee_member_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    },
+    {
+     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    }
+   ],
+   "name": "Committee Member 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "committee_member_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "committee_member_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    },
+    {
+     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    }
+   ],
+   "name": "Committee Member 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "committee_member_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "committee_member_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    },
+    {
+     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    }
+   ],
+   "name": "Committee Member 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "femi_adeyemi": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "femi_adeyemi",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Femi is a doctoral candidate who needs to schedule a defense date in November. He has three committee members. He wants to find a date that works for all.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    },
+    {
+     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T08:00:00+00:00"
+    }
+   ],
+   "name": "Femi Adeyemi",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
+  "scene:shared_context": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-14T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-14T08:00:00+00:00",
+ "terminal": null,
+ "version": 17,
+ "watches": {}
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will both referees listed by shortlisted candidate Aoife Byrne return the recruiter's calls before the interview panel meets next Thursday?",
+  "resolution": "Resolve YES only if the persistent event history shows that both Referee 1 and Referee 2 actually returned the recruiter's calls before 2026-08-20T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-20T09:00:00+01:00",
+  "world_id": "w_3497f93290b7"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

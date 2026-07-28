@@ -1,0 +1,25 @@
+{
+  "actors": [
+    {
+      "name": "Family 1",
+      "private_context": "Family 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
+    },
+    {
+      "name": "Family 2",
+      "private_context": "Family 2 has one child who needs a ride. They can drive on some days but have limited availability. They are open to a rota if it works for everyone."
+    },
+    {
+      "name": "Family 3",
+      "private_context": "Family 3 has three children. They are eager to set up a carpool to reduce their driving burden. They are flexible on days."
+    }
+  ],
+  "shared_context": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+  "starting_events": [
+    {
+      "time": "2026-09-02T09:00:00+12:00",
+      "description": "The three families are aware of the need to arrange a carpool before term starts. No formal proposal has been made yet.",
+      "visible_to": ["Family 1", "Family 2", "Family 3"]
+    }
+  ],
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of who drives which days). Otherwise resolve NO at the cutoff."
+}

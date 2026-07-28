@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "parents_group": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "parents_group",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The group has agreed to collect money for cast flowers and hand them over backstage before curtain. They have a collection pot and a plan to coordinate. They are aware of the Friday 19:00 curtain time.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-11-16T09:00:00+00:00"
+    },
+    {
+     "content": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group is responsible for collecting for cast flowers and handing them over backstage before curtain. The group has access to the school and backstage area.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-11-16T09:00:00+00:00"
+    }
+   ],
+   "name": "Parents' group",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Opening night of Petersfield Secondary's play is Friday at 19:00. Will the parents' group have collected for the cast flowers and handed them over backstage before curtain?",
+  "scene:shared_context": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group is responsible for collecting for cast flowers and handing them over backstage before curtain. The group has access to the school and backstage area."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-11-16T09:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-11-16T09:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

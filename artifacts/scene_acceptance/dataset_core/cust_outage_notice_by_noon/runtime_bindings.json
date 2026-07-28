@@ -1,0 +1,39 @@
+{
+ "world_id": "w_0229fb3c106d",
+ "actor_ids": {
+  "Communications Lead": "communications_lead",
+  "Nimbus Freight (as an organization)": "nimbus_freight_as_an_organization"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-21T04:00:00+00:00",
+   "visible_to_ids": [
+    "nimbus_freight_as_an_organization"
+   ],
+   "description": "Nimbus Freight's tracking portal goes down."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "communications_lead": {
+   "name": "Communications Lead",
+   "persona_brief": "You are Communications Lead.\nThe Communications Lead is at an offsite all morning and may not be reachable. They are responsible for sending incident notices to enterprise customers per the runbook."
+  },
+  "nimbus_freight_as_an_organization": {
+   "name": "Nimbus Freight (as an organization)",
+   "persona_brief": "You are Nimbus Freight (as an organization).\nNimbus Freight has an incident runbook requiring customer email within four hours of outage start. The status page already acknowledges the outage. The company can decide to send the email even without the Communications Lead."
+  }
+ },
+ "resolution": {
+  "question": "Nimbus Freight's tracking portal has been down since 06:00. Will the company email affected enterprise customers an incident notice before noon?",
+  "resolution": "Resolve YES if the persistent event history shows that Nimbus Freight actually sent an incident notice email to affected enterprise customers before 2026-08-21T12:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-21T12:00:00+02:00",
+  "world_id": "w_0229fb3c106d"
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ravi": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ravi",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He has three days before the listing expires.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:30:00+00:00"
+    },
+    {
+     "content": "There is a 2019 hatchback listed for sale by a private seller. Ravi and the seller are 40,000 rupees apart on price. The listing will expire on 2026-08-23T10:00:00+05:30. They can communicate through the listing platform or other means.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:30:00+00:00"
+    }
+   ],
+   "name": "Ravi",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "seller": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "seller",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. The listing expires in three days.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:30:00+00:00"
+    },
+    {
+     "content": "There is a 2019 hatchback listed for sale by a private seller. Ravi and the seller are 40,000 rupees apart on price. The listing will expire on 2026-08-23T10:00:00+05:30. They can communicate through the listing platform or other means.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:30:00+00:00"
+    }
+   ],
+   "name": "Seller",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Ravi and the private seller of a 2019 hatchback are 40,000 rupees apart. Will they agree on a price in the three days before the seller's posted listing expires?",
+  "scene:shared_context": "There is a 2019 hatchback listed for sale by a private seller. Ravi and the seller are 40,000 rupees apart on price. The listing will expire on 2026-08-23T10:00:00+05:30. They can communicate through the listing platform or other means."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-20T04:30:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-20T04:30:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

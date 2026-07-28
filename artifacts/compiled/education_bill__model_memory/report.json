@@ -1,0 +1,46 @@
+{
+ "question": "Is the U.S. Senate going to pass a major K-12 education funding bill before the August 2026 recess?",
+ "report": {
+  "reasons": [
+   "assembly: 12 participants exceeds the limit of 8; aggregate the rest",
+   "item communication[14] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[14]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+   "item actions[3] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+   "item actions[4] ('Any senator can introduce a major K-12 education funding bill as a new piece of ') was not expressed: references could not be resolved: actions[4].effects[1]: 'Senate Staff' is a aggregate, expected one of ['participant']",
+   "item actions[7] ('Senator John Thune (R-SD), as Majority Whip, can attempt to secure Republican vo') was not expressed: The action requires contacting individual Republican senators, but the declared participants list only includes specific named senators (e.g., Susan Collins, Li",
+   "item actions[12] ('Senator Tim Scott (R-SC) and Senator Mike Braun (R-IN) can support or oppose the') was not expressed: The item names Senator Tim Scott and Senator Mike Braun, who are not in the DECLARED NAMES list. Adding them would exceed the participant limit of 8 (already 10",
+   "item actions[13] ('Senator Elizabeth Warren (D-MA) can advocate for progressive education funding p') was not expressed: references could not be resolved: actions[13]: allowed_roles includes 'Senator (D-MA)' but no participant has that role (roles: ['Chair of the Senate HELP Commi"
+  ],
+  "repair_rounds": [
+   [
+    "assembly: 16 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[4] ('Senators have staff who can relay messages, with typical delay of minutes to hou') was not expressed: The item describes a general capability of staff relaying messages, but does not specify which staff member or which senator. The declared names list only speci",
+    "item communication[5] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[5]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscor",
+    "item actions[0] ('Senator Bill Cassidy (R-LA), as HELP Committee chair, can schedule a committee m') was not expressed: no valid translation: translate.actions[0]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[1] ('The HELP Committee can vote to report a bill to the full Senate; requires a majo') was not expressed: no valid translation: translate.actions[1]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[2] ('Senator Mitch McConnell (R-KY), as Majority Leader, can schedule floor debate an') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[4]: no valid response after 3 attempts: [\"define_action.requires[0]: kind must be one of ['fact_absent', 'fact_equals', "
+   ],
+   [
+    "assembly: 10 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[14] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[14]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+    "item communication[15] ('Committee chairs can schedule markups by announcing in committee or via public n') was not expressed: no valid translation: translate.communication[15]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+    "item actions[2] ('Senator Mitch McConnell (R-KY), as Majority Leader, can schedule floor debate an') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[3] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('Any senator can introduce a major K-12 education funding bill as a new piece of ') was not expressed: references could not be resolved: actions[4].effects[1]: 'Senate Staff' is a aggregate, expected one of ['participant']",
+    "item actions[7] ('Senator John Thune (R-SD), as Majority Whip, can attempt to secure Republican vo') was not expressed: references could not be resolved: actions[7]: allowed_roles includes 'Senator (R-SD)' but no participant has that role (roles: ['Chair of the Senate HELP Commit"
+   ],
+   [
+    "assembly: 12 participants exceeds the limit of 8; aggregate the rest",
+    "item communication[14] ('The Majority Leader can schedule floor time by announcing on the Senate floor or') was not expressed: no valid translation: translate.communication[14]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/undersco",
+    "item actions[3] ('The Senate can pass a bill by simple majority if no filibuster occurs, or by 60 ') was not expressed: no valid translation: translate.actions[3]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[4] ('Any senator can introduce a major K-12 education funding bill as a new piece of ') was not expressed: references could not be resolved: actions[4].effects[1]: 'Senate Staff' is a aggregate, expected one of ['participant']",
+    "item actions[7] ('Senator John Thune (R-SD), as Majority Whip, can attempt to secure Republican vo') was not expressed: The action requires contacting individual Republican senators, but the declared participants list only includes specific named senators (e.g., Susan Collins, Li",
+    "item actions[12] ('Senator Tim Scott (R-SC) and Senator Mike Braun (R-IN) can support or oppose the') was not expressed: The item names Senator Tim Scott and Senator Mike Braun, who are not in the DECLARED NAMES list. Adding them would exceed the participant limit of 8 (already 10",
+    "item actions[13] ('Senator Elizabeth Warren (D-MA) can advocate for progressive education funding p') was not expressed: references could not be resolved: actions[13]: allowed_roles includes 'Senator (D-MA)' but no participant has that role (roles: ['Chair of the Senate HELP Commi"
+   ]
+  ],
+  "reviews": null,
+  "validation": null
+ },
+ "status": "failed"
+}

@@ -1,0 +1,40 @@
+{
+ "world_id": "w_ecbbdd76ea28",
+ "actor_ids": {
+  "Sunmark housing cooperative board": "sunmark_housing_cooperative_board",
+  "Sunmark housing cooperative members": "sunmark_housing_cooperative_members"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T07:00:00+00:00",
+   "visible_to_ids": [
+    "sunmark_housing_cooperative_board",
+    "sunmark_housing_cooperative_members"
+   ],
+   "description": "The board has sent notices to all members about the special general meeting on the 12th to vote on amending the pet policy."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "sunmark_housing_cooperative_board": {
+   "name": "Sunmark housing cooperative board",
+   "persona_brief": "You are Sunmark housing cooperative board.\nThe board has called a special general meeting for the 12th to vote on amending the pet policy. They know the bylaws require a two-thirds member turnout for the amendment to pass. They have sent out notices to all members."
+  },
+  "sunmark_housing_cooperative_members": {
+   "name": "Sunmark housing cooperative members",
+   "persona_brief": "You are Sunmark housing cooperative members.\nEach member has received notice of the special general meeting on the 12th regarding the pet policy amendment. They are aware of the meeting date and time, and that their attendance is needed to reach the required turnout."
+  }
+ },
+ "resolution": {
+  "question": "Will the Sunmark housing cooperative reach the two-thirds member turnout its bylaws require to amend the pet policy at the special general meeting called for the 12th?",
+  "resolution": "Resolve YES if the persistent event history shows that at least two-thirds of the cooperative's members attended the special general meeting (in person or by proxy) on the 12th. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-12T22:00:00+02:00",
+  "world_id": "w_ecbbdd76ea28"
+ }
+}

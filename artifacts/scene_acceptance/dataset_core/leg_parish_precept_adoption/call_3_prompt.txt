@@ -1,0 +1,131 @@
+You are applying a targeted correction to a compiled starting scene.  You receive the exact original manifest and the exact defect list from an independent review.  Apply ONLY the listed corrections.  Do not expand the scene, regenerate a different world, add unrelated actors, invent missing facts, rewrite correct parts for style, or add new schema fields.  Everything not named in a defect must remain byte-for-byte identical where possible.
+
+Reply with ONLY the corrected four-field JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?
+
+Simulation start time: 2027-01-04T09:00:00+00:00
+Hard cutoff: 2027-01-21T22:00:00+00:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE ORIGINAL MANIFEST:
+{
+ "actors": [
+  {
+   "name": "Kettlewell Parish Council",
+   "private_context": "The council is a body of elected members. Its standing orders require formal adoption of the precept at the January meeting. The council has a draft precept prepared by the clerk. Some members may have concerns about the proposed amount, but no formal decision has been made yet."
+  }
+ ],
+ "shared_context": "Kettlewell Parish Council's January meeting is scheduled to take place on a date in January 2027. The meeting agenda includes the item 'Adoption of the precept for the next financial year'. The council's standing orders require that the precept be formally adopted at this meeting. The draft precept has been circulated to members prior to the meeting.",
+ "starting_events": [
+  {
+   "time": "2027-01-04T09:00:00+00:00",
+   "description": "The January meeting of Kettlewell Parish Council is scheduled to begin. The agenda includes the item for formal adoption of the precept.",
+   "visible_to": [
+    "Kettlewell Parish Council"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the council formally adopted the precept at the January meeting before the cutoff. Otherwise resolve NO at the cutoff."
+}
+
+THE DEFECTS TO CORRECT (apply exactly these, nothing else):
+[
+ {
+  "path": "actors",
+  "problem": "The only actor is 'Kettlewell Parish Council', which is a collective entity. The runtime requires individual actors to make decisions and communicate. The council cannot act as a single actor; it needs individual members or at least a chair and clerk to simulate the meeting.",
+  "correction": "Replace the single actor with individual actors: e.g., 'Chair of Kettlewell Parish Council', 'Clerk of Kettlewell Parish Council', and at least one other council member (e.g., 'Councillor Smith'). Adjust private_context and visibility accordingly."
+ },
+ {
+  "path": "starting_events",
+  "problem": "The starting event describes the meeting beginning at the simulation start time, but the meeting's actual date is not specified in the shared_context. The simulation start time is 2027-01-04T09:00, but the meeting might be on a different day. This prewrites the meeting time without evidence.",
+  "correction": "Remove the starting event that schedules the meeting at the start time. Instead, add a shared_context note that the meeting is scheduled for a date in January (e.g., 'the second Tuesday of January') but not yet started. The simulation should begin before the meeting, allowing actors to prepare."
+ },
+ {
+  "path": "resolution",
+  "problem": "The resolution condition 'Resolve YES if the persistent event history shows that the council formally adopted the precept at the January meeting before the cutoff' is vague. It does not specify what constitutes 'formally adopted' (e.g., a vote, a motion passed). The runtime needs a clear observable event.",
+  "correction": "Specify a concrete observable event: e.g., 'Resolve YES if a motion to adopt the precept is passed by a majority vote at the January meeting and recorded in the minutes before the cutoff. Otherwise resolve NO at the cutoff.'"
+ }
+]
+
+Reply with ONLY the corrected four-field JSON object.

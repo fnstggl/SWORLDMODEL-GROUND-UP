@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the NFL suspend Dallas Cowboys head coach Mike McCarthy for the first game of the season due to the sideline incident?",
+  "resolution": "Resolve YES if, before the hard cutoff, the NFL officially announces that Mike McCarthy is suspended for the first game of the season due to the sideline incident. Otherwise resolve NO.",
+  "cutoff": "2026-09-10T23:59:00-04:00",
+  "world_id": "w_089e38189544"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

@@ -1,0 +1,131 @@
+{
+ "china_s_foreign_minister": {
+  "id": "china_s_foreign_minister",
+  "name": "China's Foreign Minister",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-31T15:00:00+00:00",
+    "kind": "context",
+    "content": "China's foreign minister is aware of the missile test and is cautious about condemning North Korea publicly. China prefers dialogue and may be reluctant to join a joint statement that could strain relations with North Korea.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-31T15:00:00+00:00",
+    "kind": "context",
+    "content": "North Korea conducted a missile test in late July 2026. The UN General Assembly is scheduled to convene in September 2026. The foreign ministers of Japan, South Korea, and China have the opportunity to issue a joint statement condemning the test before the General Assembly. No prior joint statement on this matter has been issued.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "japan_s_foreign_minister": {
+  "id": "japan_s_foreign_minister",
+  "name": "Japan's Foreign Minister",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-31T15:00:00+00:00",
+    "kind": "context",
+    "content": "Japan's foreign minister is aware of North Korea's recent missile test and is considering whether to pursue a joint statement with South Korea and China. Japan has historically taken a firm stance against North Korea's missile provocations and values coordination with allies and partners.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-31T15:00:00+00:00",
+    "kind": "context",
+    "content": "North Korea conducted a missile test in late July 2026. The UN General Assembly is scheduled to convene in September 2026. The foreign ministers of Japan, South Korea, and China have the opportunity to issue a joint statement condemning the test before the General Assembly. No prior joint statement on this matter has been issued.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "south_korea_s_foreign_minister": {
+  "id": "south_korea_s_foreign_minister",
+  "name": "South Korea's Foreign Minister",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-31T15:00:00+00:00",
+    "kind": "context",
+    "content": "South Korea's foreign minister is aware of the missile test and is weighing the benefits of a joint statement. South Korea seeks to maintain regional stability and has a complex relationship with both North Korea and China.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-31T15:00:00+00:00",
+    "kind": "context",
+    "content": "North Korea conducted a missile test in late July 2026. The UN General Assembly is scheduled to convene in September 2026. The foreign ministers of Japan, South Korea, and China have the opportunity to issue a joint statement condemning the test before the General Assembly. No prior joint statement on this matter has been issued.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

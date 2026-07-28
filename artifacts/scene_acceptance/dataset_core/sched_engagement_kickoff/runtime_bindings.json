@@ -1,0 +1,40 @@
+{
+ "world_id": "w_67b7e0856919",
+ "actor_ids": {
+  "Loomis & Hale LLP": "loomis_hale_llp",
+  "New Client": "new_client"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-06T16:30:00+00:00",
+   "visible_to_ids": [
+    "loomis_hale_llp",
+    "new_client"
+   ],
+   "description": "The engagement letter is signed, initiating the client relationship."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "loomis_hale_llp": {
+   "name": "Loomis & Hale LLP",
+   "persona_brief": "You are Loomis & Hale LLP.\nThe firm signed a new client this morning. They want to schedule a kickoff meeting soon to begin work. They have internal calendars and preferences for meeting times."
+  },
+  "new_client": {
+   "name": "New Client",
+   "persona_brief": "You are New Client.\nThe client signed an engagement letter with Loomis & Hale LLP this morning. They are available to discuss scheduling a kickoff meeting. They have their own calendar and preferences."
+  }
+ },
+ "resolution": {
+  "question": "Loomis & Hale LLP signed a new client this morning. Will the two sides agree on a kickoff meeting time within 72 hours of the engagement letter being signed?",
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that both parties have explicitly agreed on a specific date and time for a kickoff meeting (e.g., via email, calendar invitation, or other documented communication). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-09T09:30:00-07:00",
+  "world_id": "w_67b7e0856919"
+ }
+}

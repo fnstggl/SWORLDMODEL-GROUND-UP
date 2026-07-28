@@ -1,0 +1,88 @@
+{
+ "cfo": {
+  "id": "cfo",
+  "name": "CFO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "cmo": {
+  "id": "cmo",
+  "name": "CMO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-08T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

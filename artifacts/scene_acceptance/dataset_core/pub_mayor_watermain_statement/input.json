@@ -1,0 +1,8 @@
+{
+ "question": "Will the mayor of Riverton issue any public statement about the water-main failures within 48 hours of this morning's third burst?",
+ "start": "2026-08-12T07:00:00-06:00",
+ "cutoff": "2026-08-14T07:00:00-06:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

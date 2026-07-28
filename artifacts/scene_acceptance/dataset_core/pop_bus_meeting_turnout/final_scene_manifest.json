@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Kettlewell Parish Clerk",
+   "private_context": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They have no special knowledge of who will attend this time."
+  },
+  {
+   "name": "Villagers of Kettlewell",
+   "private_context": "The villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but individual attendance decisions are not yet made."
+  }
+ ],
+ "shared_context": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled for a date and time after the simulation start. The last similar meeting drew 22 attendees.",
+ "starting_events": [
+  {
+   "time": "2026-09-10T09:00:00+01:00",
+   "description": "The parish clerk has posted notices about the open meeting regarding the bus-route cut.",
+   "visible_to": [
+    "Kettlewell Parish Clerk",
+    "Villagers of Kettlewell"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least 30 distinct villagers attended the open meeting before the cutoff. Otherwise resolve NO at the cutoff."
+}

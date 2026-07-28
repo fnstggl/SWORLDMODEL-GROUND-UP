@@ -1,0 +1,246 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "climber_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "climber_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the four team members. Has personal preferences about rope order but no prior commitment.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    },
+    {
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    }
+   ],
+   "name": "Climber 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "climber_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "climber_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the four team members. Has personal preferences about rope order but no prior commitment.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    },
+    {
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    }
+   ],
+   "name": "Climber 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "climber_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "climber_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the four team members. Has personal preferences about rope order but no prior commitment.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    },
+    {
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    }
+   ],
+   "name": "Climber 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "climber_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "climber_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the four team members. Has personal preferences about rope order but no prior commitment.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    },
+    {
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    }
+   ],
+   "name": "Climber 4",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "expedition_leader": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "expedition_leader",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The leader wants the team to decide on a rope order for summit day. They have asked the team to discuss and pick one during tomorrow's rest-day meeting.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    },
+    {
+     "content": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T01:15:00+00:00"
+    }
+   ],
+   "name": "Expedition Leader",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the four-person climbing team pick a summit-day rope order during tomorrow's rest-day meeting at base camp, as their expedition leader has asked?",
+  "scene:shared_context": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T01:15:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T01:15:00+00:00",
+ "terminal": null,
+ "version": 20,
+ "watches": {}
+}

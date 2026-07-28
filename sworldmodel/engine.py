@@ -26,11 +26,11 @@ returns touches the world except through kernel validation.
 from __future__ import annotations
 
 import copy
-import math
+
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
-from .actions import Intention, check_conditions, subst
+from .actions import Intention, TemplateError, check_conditions, subst
 from .actors import (ACTOR_UPDATE_OPS, ActionView, ActorView, CommitmentView,
                      Decision, InfoView, VerbView)
 from .events import Event, ZeroTimeLoopError
@@ -602,22 +602,35 @@ class Engine:
         reject = None
         defn = w.action_defs.get(intent.verb)
         dur = None
-        if defn is None:
+        # an intention may state its own completion condition; otherwise the
+        # definition's declared default applies (universal fallback, exactly
+        # like the definition's default duration below)
+        completes_when = intent.completes_when
+        if completes_when is None and defn is not None \
+                and defn.get("default_completes_when") is not None:
+            try:
+                completes_when = subst(defn["default_completes_when"],
+                                       {"actor": st.id, "params": intent.params})
+            except TemplateError as e:
+                reject = f"default completion condition: {e}"
+        if reject is not None:
+            pass
+        elif defn is None:
             reject = f"unknown verb {intent.verb!r}"
         elif st.ongoing_action is not None:
             reject = f"busy with ongoing action {st.ongoing_action}"
         elif self._starting.get(st.id):
             reject = "already starting another action at this instant"
-        elif intent.completes_when is not None \
-                and "resource_at_least" not in intent.completes_when:
-            reject = f"unsupported completion condition {intent.completes_when!r}"
+        elif completes_when is not None \
+                and "resource_at_least" not in completes_when:
+            reject = f"unsupported completion condition {completes_when!r}"
         else:
             reject = check_conditions(w, st.id, intent.params,
                                       defn.get("conditions", []))
             if reject is None:
                 dur = intent.duration or (Duration.from_dict(defn["duration"])
                                           if defn.get("duration") else None)
-                if dur is None and intent.completes_when is None:
+                if dur is None and completes_when is None:
                     reject = ("no duration or completion condition; every action "
                               "needs a provenance-labeled duration")
         if reject is not None:
@@ -631,7 +644,7 @@ class Engine:
                        {"id": aid, "actor": st.id, "verb": intent.verb,
                         "params": intent.params,
                         "duration": dur.to_dict() if dur else None,
-                        "completes_when": intent.completes_when,
+                        "completes_when": completes_when,
                         "interruptible": intent.interruptible,
                         "interruption_note": intent.interruption_note,
                         "note": intent.note,

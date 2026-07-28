@@ -1,0 +1,20 @@
+{
+ "semantic_calls": 1,
+ "semantic_slots": [
+  "call_1_scene"
+ ],
+ "provider_requests": 1,
+ "total_prompt_tokens": 1744,
+ "total_completion_tokens": 262,
+ "per_slot": {
+  "call_1_scene": {
+   "attempts": 1,
+   "duration_s": 3.031,
+   "prompt_tokens": 1744,
+   "completion_tokens": 262
+  }
+ },
+ "wall_s": 3.03,
+ "compiler_version": "minimal_scene_v1",
+ "evidence_mode": "model_memory_unverified"
+}

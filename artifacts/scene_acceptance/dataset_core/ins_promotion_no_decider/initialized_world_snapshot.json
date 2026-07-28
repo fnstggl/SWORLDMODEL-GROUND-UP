@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "candidate": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "candidate",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Candidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-03T08:00:00+00:00"
+    },
+    {
+     "content": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-03T08:00:00+00:00"
+    }
+   ],
+   "name": "Candidate",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "manager": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "manager",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Manager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-03T08:00:00+00:00"
+    },
+    {
+     "content": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-03T08:00:00+00:00"
+    }
+   ],
+   "name": "Manager",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the promotion go through before the end of the quarter?",
+  "scene:shared_context": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-03T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-03T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

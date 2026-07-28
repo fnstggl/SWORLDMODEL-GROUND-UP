@@ -1,0 +1,45 @@
+{
+ "herrera_cousins_14_members": {
+  "id": "herrera_cousins_14_members",
+  "name": "Herrera cousins (14 members)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T16:00:00+00:00",
+    "kind": "context",
+    "content": "Each cousin has their own preferences and constraints for the reunion. Three cousins (names unknown) push for Oaxaca, two for San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. Other cousins have not expressed strong preferences yet.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T16:00:00+00:00",
+    "kind": "context",
+    "content": "There is a fourteen-person group chat that has been active for a month. The chat is used to plan next spring's family reunion. The group has not yet fixed a weekend or a town. The chat is ongoing and messages can be sent at any time.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

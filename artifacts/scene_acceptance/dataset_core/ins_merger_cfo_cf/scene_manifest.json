@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Aldergate Rail",
+   "private_context": "Aldergate Rail is a railway company pursuing a merger with Valdoria Metro. The CFO resigned in autumn 2019, which may affect the merger process. Aldergate Rail's leadership is evaluating whether to proceed with the merger given the CFO's departure."
+  },
+  {
+   "name": "Valdoria Metro",
+   "private_context": "Valdoria Metro is a metro system operator involved in merger negotiations with Aldergate Rail. It is aware of the CFO's resignation and is considering its own position on the merger."
+  }
+ ],
+ "shared_context": "In 2019, Aldergate Rail and Valdoria Metro were in merger negotiations. The CFO of Aldergate Rail resigned in autumn 2019. The merger's closing depends on regulatory approvals and internal decisions by both companies. The simulation starts at a point after the resignation, with the merger still pending.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00+00:00",
+   "description": "The merger between Aldergate Rail and Valdoria Metro is still pending. The CFO of Aldergate Rail has resigned, and both companies are considering next steps.",
+   "visible_to": [
+    "Aldergate Rail",
+    "Valdoria Metro"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the merger closed before the cutoff. Otherwise resolve NO at the cutoff."
+}

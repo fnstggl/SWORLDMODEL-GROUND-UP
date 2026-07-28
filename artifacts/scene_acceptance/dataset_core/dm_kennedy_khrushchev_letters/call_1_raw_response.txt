@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Premier Khrushchev",
+      "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options and may decide to communicate directly with President Kennedy."
+    },
+    {
+      "name": "President Kennedy",
+      "private_context": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba in response to the discovery of Soviet missiles. He is prepared to receive communications from Khrushchev and is considering possible responses."
+    }
+  ],
+  "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet shipments of offensive military equipment. The world is on edge as the Cuban Missile Crisis unfolds. Direct communication between the leaders is possible through diplomatic channels.",
+  "starting_events": [
+    {
+      "time": "1962-10-22T20:00:00-05:00",
+      "description": "President Kennedy delivers his televised address announcing the quarantine of Cuba.",
+      "visible_to": ["President Kennedy", "Premier Khrushchev"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Premier Khrushchev sent at least one direct letter to President Kennedy between 1962-10-22T20:00:00-05:00 and 1962-10-27T23:00:00-05:00. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,39 @@
+{
+ "world_id": "w_089e38189544",
+ "actor_ids": {
+  "NFL Commissioner": "nfl_commissioner",
+  "Mike McCarthy": "mike_mccarthy"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-15T04:00:00+00:00",
+   "visible_to_ids": [
+    "nfl_commissioner"
+   ],
+   "description": "The NFL Commissioner begins reviewing the incident report and video footage of the sideline incident involving Mike McCarthy."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "nfl_commissioner": {
+   "name": "NFL Commissioner",
+   "persona_brief": "You are NFL Commissioner.\nThe Commissioner is responsible for player and coach discipline. They have reviewed reports of the sideline incident involving Mike McCarthy and are considering whether to impose a suspension. The Commissioner is aware of the league's personal conduct policy and past precedents for similar incidents."
+  },
+  "mike_mccarthy": {
+   "name": "Mike McCarthy",
+   "persona_brief": "You are Mike McCarthy.\nMcCarthy is the head coach of the Dallas Cowboys. He was involved in a sideline incident during a preseason game. He has not yet been notified of any disciplinary action. He hopes to avoid a suspension and is preparing for the regular season."
+  }
+ },
+ "resolution": {
+  "question": "Will the NFL suspend Dallas Cowboys head coach Mike McCarthy for the first game of the season due to the sideline incident?",
+  "resolution": "Resolve YES if, before the hard cutoff, the NFL officially announces that Mike McCarthy is suspended for the first game of the season due to the sideline incident. Otherwise resolve NO.",
+  "cutoff": "2026-09-10T23:59:00-04:00",
+  "world_id": "w_089e38189544"
+ }
+}

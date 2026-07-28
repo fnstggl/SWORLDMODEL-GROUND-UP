@@ -1,0 +1,65 @@
+{
+ "question": "Should Coca-Cola launch the 'Share Your Real Thing' user-generated-content campaign described in the brief?",
+ "report": {
+  "reasons": [
+   "validation: terminal term fact_equals 'campaign_approval:share_your_real_thing:elena_vargas': nothing in the world can produce this fact (no action effect, no scheduled event)",
+   "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 due to weak moderat') was not expressed: The item describes a past event (Elena Vargas's previous rejection) and a current budget detail, which is a fact about the world. However, in the 'participants'",
+   "item participants[3] ('Elena Vargas attends email Mon-Fri 09:00-17:00 ET, checking every 60 minutes.') was not expressed: The item describes an attention pattern (Elena Vargas checks email Mon-Fri 09:00-17:00 ET every 60 minutes), which belongs to the 'add_attention' capability, no",
+   "item participants[5] ('The risk team attends email Mon-Fri 09:00-17:00 ET, checking every 60 minutes, a') was not expressed: The item describes attention patterns and a scheduled event (submission fact via email), which belong to categories like 'attention' or 'schedule_external_event",
+   "item participants[9] (\"The legal team can produce either 'clearance_granted' or 'clearance_denied_or_de\") was not expressed: The item describes an action (producing a clearance outcome) which belongs to the 'actions' category, not 'participants'. The only allowed capabilities for this",
+   "item participants[10] (\"Elena Vargas's decision on whether to sign off by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain decision, which is a state of knowledge, not a participant or aggregate. It belongs to the 'uncertainties' category, not 'partic",
+   "item participants[11] ('The outcome of the brand-safety review (whether it blocks the campaign) is uncer') was not expressed: The item describes an uncertain outcome, which is a belief or uncertainty, not a participant or aggregate. It belongs to the 'uncertainties' category, not 'part"
+  ],
+  "repair_rounds": [
+   [
+    "validation: terminal term fact_exists 'campaign_approval:share_your_real_thing:elena_vargas': nothing in the world can produce this fact (no action effect, no scheduled event)",
+    "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 due to weak moderat') was not expressed: The item describes a past decision and a current budget fact, not a participant or aggregate to add.",
+    "item participants[3] (\"Elena Vargas's decision on whether to sign off by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain future decision, not a participant or aggregate to add. It belongs to a different category (e.g., declare_uncertainty).",
+    "item participants[5] ('The outcome of the brand-safety review (whether it blocks the campaign) is uncer') was not expressed: The item describes an uncertain outcome, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+    "item participants[7] ('The outcome of legal clearance (whether it is obtained by the deadline) is uncer') was not expressed: The item describes an uncertain outcome, not a participant or aggregate. It belongs to a different category (e.g., declare_uncertainty).",
+    "item communication[5] ('Elena Vargas can initiate a meeting request or phone call with the risk team and') was not expressed: The item describes a generic ability to initiate a meeting or phone call, which is already covered by the universal action 'transmit_information' (sending a mes",
+    "item communication[7] (\"Elena Vargas's attention to email is continuous during business hours; she typic\") was not expressed: Attention for Elena Vargas on email_work_phone is already declared; no new capability to add."
+   ],
+   [
+    "reality review: Elena Vargas attends no channel: Elena Vargas has 'attends no channel', meaning she never notices any information sent to her. This pre-writes a NO outcome because she cannot receive the brand-safety review outcome or legal clearance, which are prerequisites for her sign-off. The evidence shows she is the decision-maker and must be reachable; her attention pattern is not documented but can be inferred (e.g., checks email daily). The current setting makes a YES impossible, distorting reality. (fix: Give Elena Vargas an attention pattern on email, e.g., checks every 60 minutes during business hours, similar to the risk team.)",
+    "reality review: The legal team attends no channel: The legal team has 'attends no channel', so they never notice any information. They cannot receive the campaign brief or submit their clearance, making legal clearance impossible. The evidence states legal clearance can run in parallel and has a standard turnaround; the team must be able to receive and act on information. This pre-writes a NO outcome. (fix: Give the legal team an attention pattern on email, e.g., checks every 60 minutes during business hours.)",
+    "reality review: Missing action for risk team to produce a blocking outcome: The only defined action for the risk team is 'complete_brand_safety_review' which always produces 'no_fatal_risk'. The evidence says the review may block the campaign (e.g., fatal risk flagged). The world pre-writes a favorable outcome, eliminating a key uncertainty. The simulation cannot produce a realistic NO due to brand-safety block. (fix: Add an action that allows the risk team to produce a blocking outcome (e.g., 'fatal_risk_flagged'), with the outcome determined by the actor model at simulation time.)",
+    "reality review: Missing action for legal team to fail clearance: The only defined action for legal is 'complete_contest_rules_clearance' which always succeeds. The evidence indicates legal clearance is uncertain and may not be obtained by the deadline. The world pre-writes a favorable outcome, eliminating a key uncertainty. (fix: Add an action that allows the legal team to fail or delay clearance, with the outcome determined by the actor model.)",
+    "reality review: Elena Vargas's sign-off action has no prerequisites: The 'sign_off_campaign' action has no prerequisites, so Elena Vargas can sign off without receiving brand-safety or legal clearance. The evidence and declared uncertainties indicate these are prerequisites. The world pre-writes a possible YES even if reviews are not complete, distorting the decision process. (fix: Add prerequisites to 'sign_off_campaign' requiring that Elena Vargas has noticed both the brand-safety review outcome and legal clearance.)",
+    "meaning review: Elena Vargas attends no channel: Elena Vargas has 'attends no channel', meaning she never notices any information sent to her. This pre-writes that she cannot receive the brand-safety review outcome or legal clearance, making it impossible for her to decide based on them. The approved description requires that she receives both outcomes and decides. This is a material distortion. (fix: Add an attention pattern for Elena Vargas on email, e.g., checks every 60 minutes during business hours, or a similar realistic estimate.)",
+    "meaning review: The legal team attends no channel: The legal team has 'attends no channel', so they never notice any information sent to them. The approved description requires that the legal team can receive the campaign brief and final mechanics (submitted July 24) to begin their review. Without attention, they cannot start the clearance process, making legal clearance impossible. This is a material distortion. (fix: Add an attention pattern for the legal team on email, e.g., checks every 60 minutes during business hours, or a similar realistic estimate.)",
+    "meaning review: The risk team's attention pattern is incomplete: The risk team attends 'email' only during 09:00-17:00 on all days (including weekends). However, the approved description states the review was submitted on July 24, 2026 (a Friday). The 10-business-day turnaround counts only business days, but the attention pattern includes weekends, which may cause premature or delayed noticing. More critically, the risk team's attention pattern does not include any mechanism to notice the submission of the campaign brief (which is not sent via email but is a fact in the world). The risk team needs to be aware of the submission to start the review. Without that, the review process may never start. (fix: Ensure the risk team can notice the submission fact, e.g., by having the submission trigger an email to the risk team, or by adding a scheduled attention to check for new submissions.)"
+   ],
+   [
+    "validation: terminal term fact_equals 'campaign_approval:share_your_real_thing:elena_vargas': nothing in the world can produce this fact (no action effect, no scheduled event)",
+    "item participants[1] ('Elena Vargas previously rejected a UGC concept in March 2026 due to weak moderat') was not expressed: The item describes a past event (Elena Vargas's previous rejection) and a current budget detail, which is a fact about the world. However, in the 'participants'",
+    "item participants[3] ('Elena Vargas attends email Mon-Fri 09:00-17:00 ET, checking every 60 minutes.') was not expressed: The item describes an attention pattern (Elena Vargas checks email Mon-Fri 09:00-17:00 ET every 60 minutes), which belongs to the 'add_attention' capability, no",
+    "item participants[5] ('The risk team attends email Mon-Fri 09:00-17:00 ET, checking every 60 minutes, a') was not expressed: The item describes attention patterns and a scheduled event (submission fact via email), which belong to categories like 'attention' or 'schedule_external_event",
+    "item participants[9] (\"The legal team can produce either 'clearance_granted' or 'clearance_denied_or_de\") was not expressed: The item describes an action (producing a clearance outcome) which belongs to the 'actions' category, not 'participants'. The only allowed capabilities for this",
+    "item participants[10] (\"Elena Vargas's decision on whether to sign off by August 15, 2026 is uncertain.\") was not expressed: The item describes an uncertain decision, which is a state of knowledge, not a participant or aggregate. It belongs to the 'uncertainties' category, not 'partic",
+    "item participants[11] ('The outcome of the brand-safety review (whether it blocks the campaign) is uncer') was not expressed: The item describes an uncertain outcome, which is a belief or uncertainty, not a participant or aggregate. It belongs to the 'uncertainties' category, not 'part"
+   ]
+  ],
+  "reviews": null,
+  "validation": {
+   "blocking": [
+    "terminal term fact_equals 'campaign_approval:share_your_real_thing:elena_vargas': nothing in the world can produce this fact (no action effect, no scheduled event)"
+   ],
+   "dry_run": {
+    "events_fired": 8,
+    "final_answer": {
+     "answer": "no",
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "Elena Vargas does not sign the approval by August 15, 2026"
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [],
+   "patchable": [],
+   "warnings": []
+  }
+ },
+ "status": "failed"
+}

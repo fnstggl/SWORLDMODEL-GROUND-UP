@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Loomis & Hale LLP signed a new client this morning. Will the two sides agree on a kickoff meeting time within 72 hours of the engagement letter being signed?",
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that both parties have explicitly agreed on a specific date and time for a kickoff meeting (e.g., via email, calendar invitation, or other documented communication). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-09T09:30:00-07:00",
+  "world_id": "w_67b7e0856919"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

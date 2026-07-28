@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Academic Senate",
+   "private_context": "The senate is a deliberative body that votes on academic policy. Its members have varying views on pass-fail grading, but no prior commitment has been made. The motion is on the agenda for the October plenary."
+  }
+ ],
+ "shared_context": "Ashvale University's academic senate will hold its October plenary on 2026-10-15. A motion to adopt pass-fail grading is on the agenda. The senate can pass, reject, or send the motion back to committee. The meeting is scheduled to occur before the hard cutoff.",
+ "starting_events": [
+  {
+   "time": "2026-10-01T09:00:00-05:00",
+   "description": "The academic senate's agenda for the October plenary includes the pass-fail grading motion.",
+   "visible_to": [
+    "Academic Senate"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the motion at the October plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO."
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Prime Minister David Cameron appear in at least one televised set-piece event about the EU referendum before polling day?",
+  "resolution": "Resolve YES if the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum before 2016-06-20T22:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2016-06-20T22:00:00+01:00",
+  "world_id": "w_c1673e5355e9"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

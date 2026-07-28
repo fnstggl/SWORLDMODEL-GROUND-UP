@@ -1,0 +1,34 @@
+{
+ "world_id": "w_12405d62235b",
+ "actor_ids": {
+  "Astronomy Club President": "astronomy_club_president"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-08-01T16:00:00+00:00",
+   "visible_to_ids": [
+    "astronomy_club_president"
+   ],
+   "description": "The simulation begins. No decision has been made yet about the viewing party."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "astronomy_club_president": {
+   "name": "Astronomy Club President",
+   "persona_brief": "You are Astronomy Club President.\nThe president is responsible for deciding whether the pier viewing party goes ahead. They are aware of the eclipse schedule and need to consider weather forecasts, equipment availability, and any logistical issues. They have not yet made a decision as of the simulation start."
+  }
+ },
+ "resolution": {
+  "question": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. Will the astronomy club's president confirm by the 10th whether the pier viewing party is going ahead?",
+  "resolution": "Resolve YES if the persistent event history shows that the astronomy club president has publicly confirmed (e.g., via club announcement, email, or social media) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-10T21:00:00-07:00",
+  "world_id": "w_12405d62235b"
+ }
+}

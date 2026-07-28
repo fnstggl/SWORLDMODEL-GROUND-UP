@@ -1,0 +1,131 @@
+{
+ "co_founder_1": {
+  "id": "co_founder_1",
+  "name": "Co-founder 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Co-founder 1 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline Software has three co-founders who jointly make major decisions. The January price increase is under consideration. The all-hands meeting is scheduled for 2026-12-18 at 10:00 AM Pacific Time. The co-founders can communicate with each other and with the team via email, messaging, or in-person meetings. The team expects to be informed of the decision at or before the all-hands meeting.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "co_founder_2": {
+  "id": "co_founder_2",
+  "name": "Co-founder 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Co-founder 2 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline Software has three co-founders who jointly make major decisions. The January price increase is under consideration. The all-hands meeting is scheduled for 2026-12-18 at 10:00 AM Pacific Time. The co-founders can communicate with each other and with the team via email, messaging, or in-person meetings. The team expects to be informed of the decision at or before the all-hands meeting.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "co_founder_3": {
+  "id": "co_founder_3",
+  "name": "Co-founder 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Co-founder 3 is one of the three co-founders of Brightline Software. They have not yet formed a final opinion on the January price increase and are aware that a decision must be made before the all-hands meeting on the 18th.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-12-01T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline Software has three co-founders who jointly make major decisions. The January price increase is under consideration. The all-hands meeting is scheduled for 2026-12-18 at 10:00 AM Pacific Time. The co-founders can communicate with each other and with the team via email, messaging, or in-person meetings. The team expects to be informed of the decision at or before the all-hands meeting.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

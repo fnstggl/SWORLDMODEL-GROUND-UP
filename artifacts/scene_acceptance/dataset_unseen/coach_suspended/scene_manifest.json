@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "NFL Commissioner",
+   "private_context": "The Commissioner is responsible for player and coach discipline. They have reviewed reports of the sideline incident involving Mike McCarthy and are considering whether to impose a suspension. The Commissioner is aware of the league's personal conduct policy and past precedents for similar incidents."
+  },
+  {
+   "name": "Mike McCarthy",
+   "private_context": "McCarthy is the head coach of the Dallas Cowboys. He was involved in a sideline incident during a preseason game. He has not yet been notified of any disciplinary action. He hopes to avoid a suspension and is preparing for the regular season."
+  }
+ ],
+ "shared_context": "The NFL is investigating a sideline incident involving Dallas Cowboys head coach Mike McCarthy that occurred during a preseason game. The league's personal conduct policy allows for fines or suspensions. The first game of the regular season is scheduled for September 2026. The NFL Commissioner has the authority to impose discipline.",
+ "starting_events": [
+  {
+   "time": "2026-08-15T00:00:00-04:00",
+   "description": "The NFL Commissioner begins reviewing the incident report and video footage of the sideline incident involving Mike McCarthy.",
+   "visible_to": [
+    "NFL Commissioner"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if, before the hard cutoff, the NFL officially announces that Mike McCarthy is suspended for the first game of the season due to the sideline incident. Otherwise resolve NO."
+}

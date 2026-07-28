@@ -1,0 +1,174 @@
+{
+ "bao_tran": {
+  "id": "bao_tran",
+  "name": "Bao Tran",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bao runs a well-reviewed banh mi food truck. He wants to secure a regular weekend parking spot at a brewery. He plans to approach three brewery managers in person this Saturday. He knows that two of the breweries already host rotating food trucks, and the third never has.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bao Tran plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time, to ask their managers about parking his food truck on their lots. The breweries are open during that time. Two of the breweries already host rotating food trucks; the third never has.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "brewery_manager_1": {
+  "id": "brewery_manager_1",
+  "name": "Brewery Manager 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks or satisfied with current arrangements.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bao Tran plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time, to ask their managers about parking his food truck on their lots. The breweries are open during that time. Two of the breweries already host rotating food trucks; the third never has.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "brewery_manager_2": {
+  "id": "brewery_manager_2",
+  "name": "Brewery Manager 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks or satisfied with current arrangements.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bao Tran plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time, to ask their managers about parking his food truck on their lots. The breweries are open during that time. Two of the breweries already host rotating food trucks; the third never has.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "brewery_manager_3": {
+  "id": "brewery_manager_3",
+  "name": "Brewery Manager 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Manager of a brewery that never hosts food trucks. May have a policy against it or other reasons.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-08T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bao Tran plans to visit three breweries in person on Saturday, August 8, 2026, between 10:00 and 20:00 local time, to ask their managers about parking his food truck on their lots. The breweries are open during that time. Two of the breweries already host rotating food trucks; the third never has.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

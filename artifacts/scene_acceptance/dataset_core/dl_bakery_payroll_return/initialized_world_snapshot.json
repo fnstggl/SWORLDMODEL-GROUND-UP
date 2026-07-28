@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "bookkeeper": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "bookkeeper",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and access to file. She has no known obstacles or changes in her routine.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    },
+    {
+     "content": "The quarterly payroll return is due by the end of October 2026. The bookkeeper has filed it on time for the previous seven quarters. The revenue service's deadline is October 31, 2026. The bakery operates normally and the bookkeeper has access to the necessary records.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    }
+   ],
+   "name": "Bookkeeper",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "herrera_bakery": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "herrera_bakery",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The bakery expects the bookkeeper to file the return as usual. They have provided all payroll data to the bookkeeper in a timely manner.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    },
+    {
+     "content": "The quarterly payroll return is due by the end of October 2026. The bookkeeper has filed it on time for the previous seven quarters. The revenue service's deadline is October 31, 2026. The bakery operates normally and the bookkeeper has access to the necessary records.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-19T15:00:00+00:00"
+    }
+   ],
+   "name": "Herrera Bakery",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
+  "scene:shared_context": "The quarterly payroll return is due by the end of October 2026. The bookkeeper has filed it on time for the previous seven quarters. The revenue service's deadline is October 31, 2026. The bakery operates normally and the bookkeeper has access to the necessary records."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-19T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-19T15:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

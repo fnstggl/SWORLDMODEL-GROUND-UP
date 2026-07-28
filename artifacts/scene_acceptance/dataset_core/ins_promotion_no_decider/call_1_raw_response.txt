@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Manager",
+      "private_context": "Manager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline."
+    },
+    {
+      "name": "Candidate",
+      "private_context": "Candidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information."
+    }
+  ],
+  "shared_context": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
+  "starting_events": [
+    {
+      "time": "2026-08-03T09:00:00+01:00",
+      "description": "The promotion request is on the manager's desk, awaiting a decision.",
+      "visible_to": ["Manager", "Candidate"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the manager formally approved the promotion before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

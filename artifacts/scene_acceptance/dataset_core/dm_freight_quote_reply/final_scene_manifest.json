@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Tomasz",
+   "private_context": "Tomasz is the account manager at Nimbus Freight handling about forty accounts. He has been on leave and returns on Wednesday 2026-08-12. He may have many emails to catch up on. He knows Kestrel Analytics as a mid-size existing customer that ships monthly."
+  },
+  {
+   "name": "Kestrel Analytics",
+   "private_context": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight that ships roughly monthly. They have sent an email request for an updated shipping quote to Tomasz's personal work address."
+  }
+ ],
+ "shared_context": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
+ "starting_events": [
+  {
+   "time": "2026-08-11T09:00:00+02:00",
+   "description": "The email from Kestrel Analytics requesting an updated shipping quote is already in Tomasz's personal work inbox.",
+   "visible_to": [
+    "Tomasz"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Tomasz actually sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+}

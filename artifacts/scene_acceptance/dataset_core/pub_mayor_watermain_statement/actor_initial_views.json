@@ -1,0 +1,45 @@
+{
+ "mayor_of_riverton": {
+  "id": "mayor_of_riverton",
+  "name": "Mayor of Riverton",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-12T13:00:00+00:00",
+    "kind": "context",
+    "content": "The mayor is aware of this morning's third water-main burst and the public concern it is generating. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out or staying silent.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-12T13:00:00+00:00",
+    "kind": "context",
+    "content": "Riverton has experienced three water-main bursts this morning (2026-08-12). The third burst occurred earlier today. The mayor's office is the usual channel for official public statements. The public and local media are paying attention.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

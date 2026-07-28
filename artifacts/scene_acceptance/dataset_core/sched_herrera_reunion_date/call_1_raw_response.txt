@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Herrera cousins (14 members)",
+      "private_context": "Each cousin has their own preferences and constraints for the reunion. Three cousins (names unknown) push for Oaxaca, two for San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. Other cousins have not expressed strong preferences yet."
+    }
+  ],
+  "shared_context": "There is a fourteen-person group chat that has been active for a month. The chat is used to plan next spring's family reunion. The group has not yet fixed a weekend or a town. The chat is ongoing and messages can be sent at any time.",
+  "starting_events": [
+    {
+      "time": "2026-08-01T10:00:00-06:00",
+      "description": "The group chat is active with ongoing discussion about the reunion location and date.",
+      "visible_to": ["Herrera cousins (14 members)"]
+    }
+  ],
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that the group chat contains a message or messages that collectively specify both a weekend (e.g., a specific date range in spring 2027) and a town (e.g., Oaxaca or San Antonio) for the reunion, and that no subsequent message contradicts that agreement. Otherwise resolve NO at the cutoff."
+}

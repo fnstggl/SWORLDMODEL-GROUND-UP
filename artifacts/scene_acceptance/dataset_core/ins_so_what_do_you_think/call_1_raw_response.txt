@@ -1,0 +1,6 @@
+{
+  "actors": [],
+  "shared_context": "",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question does not refer to any party who could decide or act, and no observable social event is described."
+}

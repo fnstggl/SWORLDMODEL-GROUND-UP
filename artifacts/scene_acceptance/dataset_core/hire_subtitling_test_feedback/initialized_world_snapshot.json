@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "noor_haddad": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "noor_haddad",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Noor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects a response within one month from the submission date. She has no prior relationship with the agency beyond this test.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-02T08:00:00+00:00"
+    },
+    {
+     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The submission date is not specified, but the simulation starts on 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00, which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-02T08:00:00+00:00"
+    }
+   ],
+   "name": "Noor Haddad",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "subtitling_agency": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "subtitling_agency",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The subtitling agency received a paid test piece from freelance translator Noor Haddad. The agency quoted a one-month turnaround for feedback. The agency has its own internal process for evaluating test pieces and may or may not respond within that timeframe.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-02T08:00:00+00:00"
+    },
+    {
+     "content": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The submission date is not specified, but the simulation starts on 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00, which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-02T08:00:00+00:00"
+    }
+   ],
+   "name": "Subtitling Agency",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
+  "scene:shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for a response. The submission date is not specified, but the simulation starts on 2026-09-02T10:00:00+02:00 and the hard cutoff is 2026-10-02T10:00:00+02:00, which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-02T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-02T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -1,0 +1,40 @@
+{
+ "world_id": "w_39f3464cfb6b",
+ "actor_ids": {
+  "Hillary Clinton": "hillary_clinton",
+  "Donald Trump": "donald_trump"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2016-10-01T13:00:00+00:00",
+   "visible_to_ids": [
+    "hillary_clinton",
+    "donald_trump"
+   ],
+   "description": "Both Hillary Clinton and Donald Trump have received invitations to the Al Smith Memorial Foundation Dinner on October 20, 2016. No public confirmation of attendance has been made by either campaign."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "hillary_clinton": {
+   "name": "Hillary Clinton",
+   "persona_brief": "You are Hillary Clinton.\nHillary Clinton is the Democratic presidential nominee. She has received an invitation to the Al Smith Memorial Foundation Dinner on October 20, 2016. She is considering whether to attend, weighing campaign schedule, security, and tradition."
+  },
+  "donald_trump": {
+   "name": "Donald Trump",
+   "persona_brief": "You are Donald Trump.\nDonald Trump is the Republican presidential nominee. He has received an invitation to the Al Smith Memorial Foundation Dinner on October 20, 2016. He is considering whether to attend, weighing campaign schedule, security, and tradition."
+  }
+ },
+ "resolution": {
+  "question": "The Al Smith Memorial Foundation Dinner is set for October 20, 2016 in New York. Will both major-party presidential nominees attend in person?",
+  "resolution": "Resolve YES if the persistent event history shows that both Hillary Clinton and Donald Trump actually attended the Al Smith Memorial Foundation Dinner in person on October 20, 2016. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2016-10-21T00:00:00-04:00",
+  "world_id": "w_39f3464cfb6b"
+ }
+}

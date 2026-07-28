@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "french_presidency_of_cop21": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "french_presidency_of_cop21",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The French Presidency is responsible for managing the negotiation process and producing draft texts. They aim to facilitate consensus among parties but face pressure from various national positions. They have the authority to circulate draft texts.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2015-11-30T08:00:00+00:00"
+    },
+    {
+     "content": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2015-11-30T08:00:00+00:00"
+    }
+   ],
+   "name": "French Presidency of COP21",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "national_delegations": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "national_delegations",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Each delegation represents its country's interests and expects to receive draft texts for review and negotiation. They are aware of the summit schedule and the need for a final agreement.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2015-11-30T08:00:00+00:00"
+    },
+    {
+     "content": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2015-11-30T08:00:00+00:00"
+    }
+   ],
+   "name": "National Delegations",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the French presidency of the COP21 climate conference circulate at least one consolidated draft agreement text to national delegations before the summit's final scheduled day?",
+  "scene:shared_context": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2015-11-30T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2015-11-30T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

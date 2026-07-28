@@ -1,0 +1,10 @@
+{
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The question asks about a specific permit approval, but the scene provides no identifying details about the permit, the applicant, the reviewing body, or the jurisdiction. The actors 'Applicant' and 'Permit Reviewer' are generic placeholders with no connection to any real or referenced entity. The scene lacks sufficient information to determine who the decision-maker is or what the observed resolving event (official approval record) refers to. This is an insufficiently specified simulation.",
+   "correction": "The question must provide enough context to identify the specific permit, the decision-making authority, and the criteria for approval. Without such details, the scene cannot be meaningfully simulated."
+  }
+ ]
+}

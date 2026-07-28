@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "neighbors": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "neighbors",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T10:00:00+00:00"
+    },
+    {
+     "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T10:00:00+00:00"
+    }
+   ],
+   "name": "Neighbors",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "resident": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "resident",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T10:00:00+00:00"
+    },
+    {
+     "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T10:00:00+00:00"
+    }
+   ],
+   "name": "Resident",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the situation with the neighbors improve over the next few months?",
+  "scene:shared_context": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-01T10:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-01T10:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

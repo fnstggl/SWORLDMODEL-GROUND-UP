@@ -1,0 +1,34 @@
+{
+ "actors": [
+  {
+   "name": "CEO",
+   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release and intend to post it at the ship time. They want the announcement to gain traction and hope design partners will repost it."
+  },
+  {
+   "name": "Design Partner 1",
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement."
+  },
+  {
+   "name": "Design Partner 2",
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement."
+  },
+  {
+   "name": "Design Partner 3",
+   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement."
+  }
+ ],
+ "shared_context": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and have social media accounts where they can repost. The 24-hour window for the resolution ends at 2026-09-16T10:00:00-07:00.",
+ "starting_events": [
+  {
+   "time": "2026-09-15T10:00:00-07:00",
+   "description": "Brightline ships v4. The CEO posts the launch announcement on social media.",
+   "visible_to": [
+    "CEO",
+    "Design Partner 1",
+    "Design Partner 2",
+    "Design Partner 3"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the CEO posted a launch announcement and at least one of the three design partners publicly reposted it within 24 hours of the ship time (i.e., before 2026-09-16T10:00:00-07:00). Otherwise resolve NO at the cutoff."
+}

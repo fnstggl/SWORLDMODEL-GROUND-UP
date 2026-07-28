@@ -1,0 +1,40 @@
+{
+ "world_id": "w_7928f36f065c",
+ "actor_ids": {
+  "Ravi": "ravi",
+  "Seller": "seller"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-20T04:30:00+00:00",
+   "visible_to_ids": [
+    "ravi",
+    "seller"
+   ],
+   "description": "Ravi and the seller are aware of each other's positions: Ravi has made an offer 40,000 rupees below the seller's asking price, and the seller has not yet accepted or countered."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ravi": {
+   "name": "Ravi",
+   "persona_brief": "You are Ravi.\nRavi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He has three days before the listing expires."
+  },
+  "seller": {
+   "name": "Seller",
+   "persona_brief": "You are Seller.\nThe seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. The listing expires in three days."
+  }
+ },
+ "resolution": {
+  "question": "Ravi and the private seller of a 2019 hatchback are 40,000 rupees apart. Will they agree on a price in the three days before the seller's posted listing expires?",
+  "resolution": "Resolve YES only if the persistent event history shows that Ravi and the seller agreed on a price (e.g., a binding acceptance or signed agreement) before 2026-08-23T10:00:00+05:30. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-23T10:00:00+05:30",
+  "world_id": "w_7928f36f065c"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "So, what do you think?",
+  "resolution": "Resolve YES if the persistent event history shows that Listener actually said something in response to the question before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-21T14:00:00-03:00",
+  "world_id": "w_d45b69805a95"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

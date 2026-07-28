@@ -1,0 +1,8 @@
+{
+ "question": "During the week after President Kennedy's October 22 address announcing a quarantine of Cuba, will Premier Khrushchev send Kennedy at least one direct letter about the crisis?",
+ "start": "1962-10-22T20:00:00-05:00",
+ "cutoff": "1962-10-27T23:00:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

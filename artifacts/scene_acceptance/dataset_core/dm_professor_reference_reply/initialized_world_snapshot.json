@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "kofi_asante": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "kofi_asante",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Kofi Asante is a former student of Professor Ilse Brandt. He took two of her seminars and earned top marks. They last spoke eight months ago. He has sent a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He hopes for a prompt reply.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-03T09:00:00+00:00"
+    },
+    {
+     "content": "Kofi Asante has sent a message to Professor Ilse Brandt via email (or another established channel) asking for a reference letter for a museum fellowship. The message is polite and specific. The deadline for the fellowship is in three weeks from the simulation start time. Professor Brandt can reply via the same channel.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-03T09:00:00+00:00"
+    }
+   ],
+   "name": "Kofi Asante",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "professor_ilse_brandt": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "professor_ilse_brandt",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Ilse Brandt is a professor at Ashvale University. She remembers Kofi Asante as a strong student who earned top marks in two of her seminars. They last spoke eight months ago. She is busy with her own work and receives many requests for references. She may prioritize requests based on her schedule and her assessment of the student's qualifications.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-03T09:00:00+00:00"
+    },
+    {
+     "content": "Kofi Asante has sent a message to Professor Ilse Brandt via email (or another established channel) asking for a reference letter for a museum fellowship. The message is polite and specific. The deadline for the fellowship is in three weeks from the simulation start time. Professor Brandt can reply via the same channel.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-03T09:00:00+00:00"
+    }
+   ],
+   "name": "Professor Ilse Brandt",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?",
+  "scene:shared_context": "Kofi Asante has sent a message to Professor Ilse Brandt via email (or another established channel) asking for a reference letter for a museum fellowship. The message is polite and specific. The deadline for the fellowship is in three weeks from the simulation start time. Professor Brandt can reply via the same channel."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-03T09:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-03T09:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

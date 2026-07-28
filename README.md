@@ -1,12 +1,68 @@
-# SWORLDMODEL — ground-up kernel
+# SWORLDMODEL — ground-up kernel + world compiler
 
-The first, smallest working piece of SWORLDMODEL: a **persistent shared
-world** plus a **realistic, event-driven, real-calendar time engine**, with
-three hand-authored test worlds proving the mechanics and one live LLM-backed
-actor (Phase B) proving the mind boundary.
+The smallest working core of SWORLDMODEL: a **persistent shared world**, a
+**realistic, event-driven, real-calendar time engine**, and a **universal
+world compiler** that turns ANY natural-language question into the smallest
+runnable model of the real situation needed to answer it.
 
-No scenario is hardcoded in the runtime. The kernel knows only universal
-mechanics; scenario meaning ("vote", "reply", "ship an order") is **data**.
+No scenario is hardcoded anywhere. The kernel knows only universal
+mechanics; the compiler knows only universal lifecycles; scenario meaning
+("vote", "reply", "ship an order") is **data** produced at compile time.
+
+## The world compiler — minimal_scene_v1 (production)
+
+```
+python3 compile_question.py "your question" \
+    [--start 2026-07-27T09:00:00-05:00] [--cutoff 2026-08-10T09:00:00-05:00] \
+    [--context "extra user context"] [--evidence-file docs.txt] \
+    [--out artifacts/scenes/name]
+```
+
+SWORLDMODEL is an evidence-grounded **social** simulator; the compiler's
+job is to construct the smallest correct **starting social scene** and
+nothing that happens afterward.  The governing rule: *compile only what
+must exist before the simulation starts; let the simulation create
+everything that happens afterward.*
+
+The canonical path is two semantic LLM calls (three max, enforced in code
+before the call — a fourth attempt fails with
+`COMPILER_CALL_BUDGET_EXCEEDED`):
+
+1. **Call 1 — scene construction**: one four-field manifest —
+   `actors` (name + private context each), `shared_context`,
+   `starting_events` (time, description, `visible_to`), and one
+   natural-language `resolution` describing what observed event history
+   counts as YES/NO.  No trajectories, no probabilities, no scheduled
+   future decisions, no invented intermediaries.
+2. **Call 2 — independent adversarial review**: APPROVE / REVISE (with
+   exact per-path defects) / ABSTAIN (honestly unsimulatable).
+3. **Call 3 — targeted correction** (only on REVISE): applies exactly the
+   listed defects; recorded as a repaired compile.
+
+Then deterministic code (zero LLM): strict schema, alias/duplicate
+normalization, visibility resolution, tz-aware times, genesis-false
+terminal check — and **direct instantiation** into the persistent runtime
+via a thin adapter (code owns all IDs; private context lives only in the
+owning actor; starting events are ledgered and visible only to declared
+actors; the cutoff runs through the existing clock).  The natural-language
+resolution binds through a generic wrapper: false at genesis, judged later
+against the actual event history (judgment is outside compilation and its
+call budget).
+
+Without `--evidence-file` the compiler runs in `model_memory_unverified`
+mode: **it tests compiler robustness and semantic world shape, not current
+real-world facts** — nothing is labeled verified and no factual-accuracy
+claim is made from it.  The evidence-package input boundary exists so live
+retrieval can attach later without changing the four-field contract.
+
+Acceptance harness: `python3 run_scene_acceptance.py` over the frozen
+dataset in `acceptance/`; reports live in
+`artifacts/minimal_scene_compiler/`.
+
+The superseded multi-stage compiler (~200 LLM calls per compile) lives in
+`compiler/legacy/`, reachable only via the explicit diagnostic flag
+`--compiler legacy`, never selected automatically
+(see `artifacts/minimal_scene_compiler/PRODUCTION_ROUTE_AUDIT.md`).
 
 ## Layout
 

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the Riverton city council hold the required second reading of its short-term-rental ordinance before the August recess begins?",
+  "resolution": "Resolve YES if the persistent event history shows that the Riverton city council held a meeting (regular or special) at which the second reading of the short-term-rental ordinance occurred before 2026-08-14T17:00:00-06:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-14T17:00:00-06:00",
+  "world_id": "w_b0ecd0c08623"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

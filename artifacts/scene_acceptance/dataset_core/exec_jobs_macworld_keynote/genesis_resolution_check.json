@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Apple confirm Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007 before the conference begins?",
+  "resolution": "Resolve YES if, before the hard cutoff at 2007-01-08T18:00:00-08:00, Apple Inc. makes a public announcement (e.g., press release, official website update, or public statement) confirming Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007. Otherwise resolve NO.",
+  "cutoff": "2007-01-08T18:00:00-08:00",
+  "world_id": "w_dae3c608fc09"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

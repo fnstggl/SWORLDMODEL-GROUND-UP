@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "tidepool": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "tidepool",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Tidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-22T15:00:00+00:00"
+    },
+    {
+     "content": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-22T15:00:00+00:00"
+    }
+   ],
+   "name": "Tidepool",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
+  "scene:shared_context": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-22T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-22T15:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

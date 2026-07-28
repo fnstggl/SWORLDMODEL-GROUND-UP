@@ -1,0 +1,8 @@
+{
+ "question": "Will the catering manager at Willow & Thyme answer bride-to-be Deepa's emailed question about nut-free menu options before her tasting on Saturday morning?",
+ "start": "2026-09-15T10:00:00+01:00",
+ "cutoff": "2026-09-19T11:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

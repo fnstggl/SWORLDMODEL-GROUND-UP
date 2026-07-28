@@ -1,0 +1,8 @@
+{
+ "question": "Brightline ships its v4 release at a fixed time on Tuesday. Will the CEO post a launch announcement, and at least one of the three design partners publicly repost it, within 24 hours of the ship time?",
+ "start": "2026-09-15T10:00:00-07:00",
+ "cutoff": "2026-09-16T10:00:00-07:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

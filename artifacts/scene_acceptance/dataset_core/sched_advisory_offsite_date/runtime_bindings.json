@@ -1,0 +1,59 @@
+{
+ "world_id": "w_5c1d282cabfc",
+ "actor_ids": {
+  "Advisor 1": "advisor_1",
+  "Advisor 2": "advisor_2",
+  "Advisor 3": "advisor_3",
+  "Advisor 4": "advisor_4",
+  "Advisor 5": "advisor_5",
+  "CEO's assistant": "ceo_s_assistant"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 23,
+   "at": "2026-07-29T08:00:00+00:00",
+   "visible_to_ids": [
+    "ceo_s_assistant"
+   ],
+   "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisory board members. Two advisors have already responded."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "advisor_1": {
+   "name": "Advisor 1",
+   "persona_brief": "You are Advisor 1.\nHas already responded to the poll with their availability."
+  },
+  "advisor_2": {
+   "name": "Advisor 2",
+   "persona_brief": "You are Advisor 2.\nHas already responded to the poll with their availability."
+  },
+  "advisor_3": {
+   "name": "Advisor 3",
+   "persona_brief": "You are Advisor 3.\nHas not yet responded to the poll."
+  },
+  "advisor_4": {
+   "name": "Advisor 4",
+   "persona_brief": "You are Advisor 4.\nHas not yet responded to the poll."
+  },
+  "advisor_5": {
+   "name": "Advisor 5",
+   "persona_brief": "You are Advisor 5.\nHas not yet responded to the poll."
+  },
+  "ceo_s_assistant": {
+   "name": "CEO's assistant",
+   "persona_brief": "You are CEO's assistant.\nSent a poll with four candidate weekends to all five advisors. Two advisors have responded. The assistant can follow up and coordinate to finalize a date."
+  }
+ },
+ "resolution": {
+  "question": "Will the five members of Ostara Foods' advisory board settle on a date for their autumn strategy offsite within the next three weeks?",
+  "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a specific date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., an email or calendar invitation confirming the date). Otherwise resolve NO.",
+  "cutoff": "2026-08-19T09:00:00+01:00",
+  "world_id": "w_5c1d282cabfc"
+ }
+}

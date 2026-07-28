@@ -1,0 +1,39 @@
+{
+ "world_id": "w_2f90cede6453",
+ "actor_ids": {
+  "Program Officer (Alder Foundation)": "program_officer_alder_foundation",
+  "Lucia Ferreyra": "lucia_ferreyra"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T14:00:00+00:00",
+   "visible_to_ids": [
+    "lucia_ferreyra"
+   ],
+   "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's submissions email address."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "program_officer_alder_foundation": {
+   "name": "Program Officer (Alder Foundation)",
+   "persona_brief": "You are Program Officer (Alder Foundation).\nThe program officer receives many unsolicited concept notes and typically responds only to those that closely match the foundation's current funding priorities. They have no prior relationship with Lucia Ferreyra."
+  },
+  "lucia_ferreyra": {
+   "name": "Lucia Ferreyra",
+   "persona_brief": "You are Lucia Ferreyra.\nLucia Ferreyra is the director of a nonprofit organization. She has prepared a concept note for the Alder Foundation and intends to submit it. She hopes for a substantive response within a month."
+  }
+ },
+ "resolution": {
+  "question": "Will the program officer at the Alder Foundation respond substantively to nonprofit director Lucia Ferreyra's unsolicited concept note within one month?",
+  "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response (i.e., a reply that engages with the content of the concept note, not an automated acknowledgment or form rejection) to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-01T09:00:00-05:00",
+  "world_id": "w_2f90cede6453"
+ }
+}

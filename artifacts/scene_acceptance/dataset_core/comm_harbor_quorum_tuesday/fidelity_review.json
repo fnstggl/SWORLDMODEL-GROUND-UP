@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The chair's private context states they 'intend to attend' and shared context says 'the chair has never missed a session', which strongly pre-decides the chair's attendance, making the YES condition more likely and reducing genuine uncertainty."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The shared context includes that the chair has never missed a session, which is arguably private knowledge about the chair's past behavior, but it is also common knowledge among committee members. However, it leaks the chair's reliability into shared context."
+  }
+ ],
+ "id": "comm_harbor_quorum_tuesday"
+}

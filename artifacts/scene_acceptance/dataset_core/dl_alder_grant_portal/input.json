@@ -1,0 +1,8 @@
+{
+ "question": "Will Lucia Ferreyra's two-person nonprofit submit its completed Alder Foundation application before the portal closes at 17:00 on the 30th?",
+ "start": "2026-09-21T09:00:00-05:00",
+ "cutoff": "2026-09-30T17:00:00-05:00",
+ "context": "Lucia's co-director drafted most sections last month; the budget spreadsheet is the only unfinished piece, and their fiscal sponsor needs 48 hours to countersign before submission.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

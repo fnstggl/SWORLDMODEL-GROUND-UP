@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "CRITICAL",
+   "detail": "The starting event states that the CEO posts the launch announcement at the ship time, which pre-decides that the CEO will post. The question asks whether the CEO will post, so this decision should be left to the simulation, not predetermined."
+  }
+ ],
+ "id": "mix_v4_launch_repost"
+}

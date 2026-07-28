@@ -1,0 +1,8 @@
+{
+ "question": "Will at least three of the eleven applicants for Calloway Regional Hospital's ward-clerk vacancy be invited to interview within two weeks of the posting closing tonight?",
+ "start": "2026-09-30T23:59:00-05:00",
+ "cutoff": "2026-10-14T23:59:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

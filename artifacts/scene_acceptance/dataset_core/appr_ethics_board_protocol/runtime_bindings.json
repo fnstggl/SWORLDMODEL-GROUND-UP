@@ -1,0 +1,40 @@
+{
+ "world_id": "w_b2bf99ddfb67",
+ "actor_ids": {
+  "Dr. Tanaka": "dr_tanaka",
+  "Ashvale University Research Ethics Board": "ashvale_university_research_ethics_board"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T00:00:00+00:00",
+   "visible_to_ids": [
+    "dr_tanaka",
+    "ashvale_university_research_ethics_board"
+   ],
+   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University research ethics board. The board's next monthly meeting is scheduled before the cutoff."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dr_tanaka": {
+   "name": "Dr. Tanaka",
+   "persona_brief": "You are Dr. Tanaka.\nDr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision at the next monthly meeting. They have no prior relationship with board members and have not received any preliminary feedback."
+  },
+  "ashvale_university_research_ethics_board": {
+   "name": "Ashvale University Research Ethics Board",
+   "persona_brief": "You are Ashvale University Research Ethics Board.\nThe board is a committee that reviews research protocols. It meets monthly. The next meeting is scheduled before the cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at that meeting. Board members have no prior knowledge of Dr. Tanaka or the protocol beyond the submitted materials."
+  }
+ },
+ "resolution": {
+  "question": "Will Ashvale University's research ethics board approve, request amendments to, or reject Dr. Tanaka's survey protocol at or before its next monthly meeting?",
+  "resolution": "Resolve YES if the persistent event history shows that the board communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-06T18:00:00+09:00",
+  "world_id": "w_b2bf99ddfb67"
+ }
+}

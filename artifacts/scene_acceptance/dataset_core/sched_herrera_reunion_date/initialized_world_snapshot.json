@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "herrera_cousins_14_members": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "herrera_cousins_14_members",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Each cousin has their own preferences and constraints for the reunion. Three cousins (names unknown) push for Oaxaca, two for San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. Other cousins have not expressed strong preferences yet.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    },
+    {
+     "content": "There is a fourteen-person group chat that has been active for a month. The chat is used to plan next spring's family reunion. The group has not yet fixed a weekend or a town. The chat is ongoing and messages can be sent at any time.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T16:00:00+00:00"
+    }
+   ],
+   "name": "Herrera cousins (14 members)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
+  "scene:shared_context": "There is a fourteen-person group chat that has been active for a month. The chat is used to plan next spring's family reunion. The group has not yet fixed a weekend or a town. The chat is ongoing and messages can be sent at any time."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-01T16:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-01T16:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

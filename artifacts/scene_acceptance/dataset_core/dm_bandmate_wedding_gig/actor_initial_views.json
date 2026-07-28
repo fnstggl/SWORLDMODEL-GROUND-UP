@@ -1,0 +1,88 @@
+{
+ "dario": {
+  "id": "dario",
+  "name": "Dario",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "Dario wants Selin to play bass at his October wedding. He has messaged her asking this. He hopes for a response within ten days.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "Dario and Selin were bandmates and parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can see and reply to it.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "selin": {
+  "id": "selin",
+  "name": "Selin",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "Selin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario when their band dissolved two years ago. She has just received Dario's message asking her to play at his October wedding.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "Dario and Selin were bandmates and parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can see and reply to it.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

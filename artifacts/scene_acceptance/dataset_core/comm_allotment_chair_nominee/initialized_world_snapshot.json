@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "chair_stepping_down": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "chair_stepping_down",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have no preferred successor and will not influence the election.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-25T17:00:00+00:00"
+    },
+    {
+     "content": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-25T17:00:00+00:00"
+    }
+   ],
+   "name": "Chair (stepping down)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "kettlewell_allotment_society_members": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "kettlewell_allotment_society_members",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The members are aware of the upcoming AGM and the chair's intention to step down. Some may be considering standing for chair, but no one has publicly declared their candidacy yet.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-25T17:00:00+00:00"
+    },
+    {
+     "content": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-25T17:00:00+00:00"
+    }
+   ],
+   "name": "Kettlewell Allotment Society members",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "The Kettlewell allotment society's chair is stepping down. Will anyone volunteer to stand for chair before nominations close at the annual general meeting in five weeks?",
+  "scene:shared_context": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-25T17:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-25T17:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "During the week after President Kennedy's October 22 address announcing a quarantine of Cuba, will Premier Khrushchev send Kennedy at least one direct letter about the crisis?",
+  "resolution": "Resolve YES if the persistent event history shows that Premier Khrushchev sent at least one direct letter to President Kennedy between 1962-10-22T20:00:00-05:00 and 1962-10-27T23:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "1962-10-27T23:00:00-05:00",
+  "world_id": "w_774fc4238367"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

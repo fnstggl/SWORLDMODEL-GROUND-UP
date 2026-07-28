@@ -1,0 +1,6 @@
+{
+  "actors": [],
+  "shared_context": "A four-meter Douglas-fir beam spans three meters between posts. The beam is subject to a 40-pounds-per-square-foot snow load. The question is whether the beam will sag under this load.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question is a structural engineering calculation with no social decision or actor interaction to simulate."
+}

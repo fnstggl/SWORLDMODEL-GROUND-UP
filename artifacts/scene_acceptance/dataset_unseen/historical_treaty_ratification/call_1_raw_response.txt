@@ -1,0 +1,22 @@
+{
+  "actors": [
+    {
+      "name": "President Woodrow Wilson",
+      "private_context": "Wilson is committed to ratification of the Treaty of Versailles, which he helped negotiate. He believes the treaty is essential for world peace and is prepared to campaign for it. He is aware of opposition from some senators."
+    },
+    {
+      "name": "United States Senate",
+      "private_context": "The Senate is divided. A faction of isolationists and reservationists oppose the treaty as written. The Senate must vote on ratification by a two-thirds majority. No decision has been made yet."
+    }
+  ],
+  "shared_context": "The Treaty of Versailles was signed in June 1919, ending World War I. It requires ratification by the U.S. Senate to take effect for the United States. The Senate is currently considering the treaty. President Wilson is advocating for its approval."
+,
+  "starting_events": [
+    {
+      "time": "1919-01-01T00:00:00-05:00",
+      "description": "The Treaty of Versailles has not yet been signed; negotiations are ongoing. The Senate has not yet voted on ratification.",
+      "visible_to": ["President Woodrow Wilson", "United States Senate"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that the United States Senate voted to ratify the Treaty of Versailles before 1919-12-31T23:59:00-05:00. Otherwise resolve NO at the cutoff."
+}

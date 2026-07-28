@@ -1,0 +1,88 @@
+{
+ "catering_manager": {
+  "id": "catering_manager",
+  "name": "Catering Manager",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T09:00:00+00:00",
+    "kind": "context",
+    "content": "The catering manager at Willow & Thyme is responsible for answering client inquiries. They have received Deepa's email about nut-free menu options and may respond before the tasting.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T09:00:00+00:00",
+    "kind": "context",
+    "content": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "deepa": {
+  "id": "deepa",
+  "name": "Deepa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T09:00:00+00:00",
+    "kind": "context",
+    "content": "Deepa is a bride-to-be who has emailed Willow & Thyme asking about nut-free menu options. She wants a response before her tasting on Saturday morning.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T09:00:00+00:00",
+    "kind": "context",
+    "content": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

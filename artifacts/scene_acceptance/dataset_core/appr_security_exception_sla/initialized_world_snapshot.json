@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "dev_patel": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dev_patel",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-10T18:00:00+00:00"
+    },
+    {
+     "content": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-10T18:00:00+00:00"
+    }
+   ],
+   "name": "Dev Patel",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "harborview_credit_union_security_team": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "harborview_credit_union_security_team",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-10T18:00:00+00:00"
+    },
+    {
+     "content": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-10T18:00:00+00:00"
+    }
+   ],
+   "name": "Harborview Credit Union Security Team",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
+  "scene:shared_context": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The current date and time is 2026-08-10T10:00:00-08:00. The hard cutoff for resolution is 2026-08-17T17:00:00-08:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-10T18:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-10T18:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

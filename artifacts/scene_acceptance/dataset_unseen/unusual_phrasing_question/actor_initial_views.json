@@ -1,0 +1,88 @@
+{
+ "editor_in_chief": {
+  "id": "editor_in_chief",
+  "name": "Editor-in-Chief",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T05:00:00+00:00",
+    "kind": "context",
+    "content": "The Editor-in-Chief is responsible for the Daily Chronicle's content. They are aware of the article about the mayor's alleged corruption and are considering whether to retract it. They have not yet decided. They plan to consult with the publisher before making a final decision.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T05:00:00+00:00",
+    "kind": "context",
+    "content": "The Daily Chronicle published an article alleging corruption by the mayor. There is public and internal pressure regarding the article's accuracy. The Editor-in-Chief intends to consult the publisher before deciding on retraction. The deadline for a decision is October 1.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "publisher": {
+  "id": "publisher",
+  "name": "Publisher",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T05:00:00+00:00",
+    "kind": "context",
+    "content": "The Publisher oversees the newspaper's operations and has authority over major editorial decisions. They are aware of the article and the potential controversy. They have not yet formed a final opinion on retraction.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T05:00:00+00:00",
+    "kind": "context",
+    "content": "The Daily Chronicle published an article alleging corruption by the mayor. There is public and internal pressure regarding the article's accuracy. The Editor-in-Chief intends to consult the publisher before deciding on retraction. The deadline for a decision is October 1.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

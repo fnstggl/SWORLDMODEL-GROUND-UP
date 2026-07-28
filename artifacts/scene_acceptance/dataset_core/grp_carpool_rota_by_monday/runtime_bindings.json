@@ -1,0 +1,46 @@
+{
+ "world_id": "w_940acfd23314",
+ "actor_ids": {
+  "Family 1": "family_1",
+  "Family 2": "family_2",
+  "Family 3": "family_3"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-09-01T21:00:00+00:00",
+   "visible_to_ids": [
+    "family_1",
+    "family_2",
+    "family_3"
+   ],
+   "description": "The three families are aware of the need to arrange a carpool before term starts. No formal proposal has been made yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "family_1": {
+   "name": "Family 1",
+   "persona_brief": "You are Family 1.\nFamily 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
+  },
+  "family_2": {
+   "name": "Family 2",
+   "persona_brief": "You are Family 2.\nFamily 2 has one child who needs a ride. They can drive on some days but have limited availability. They are open to a rota if it works for everyone."
+  },
+  "family_3": {
+   "name": "Family 3",
+   "persona_brief": "You are Family 3.\nFamily 3 has three children. They are eager to set up a carpool to reduce their driving burden. They are flexible on days."
+  }
+ },
+ "resolution": {
+  "question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
+  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of who drives which days). Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-07T08:00:00+12:00",
+  "world_id": "w_940acfd23314"
+ }
+}

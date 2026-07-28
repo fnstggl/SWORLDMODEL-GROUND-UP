@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the permit get approved by the end of August?",
+  "resolution": "Resolve YES if the persistent event history shows that the permit was officially approved by the Permit Reviewer before the cutoff of 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-31T17:00:00-05:00",
+  "world_id": "w_a7ebdc844b4c"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

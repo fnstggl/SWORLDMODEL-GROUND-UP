@@ -1,0 +1,8 @@
+{
+ "question": "Nurse Karolina posted in her ward's swap channel asking someone to take her Sunday night shift. Will a colleague claim it before the rota locks Friday at 15:00?",
+ "start": "2026-08-12T07:30:00+02:00",
+ "cutoff": "2026-08-14T15:00:00+02:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

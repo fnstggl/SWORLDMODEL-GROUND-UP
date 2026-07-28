@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "biogen_therapeutics_board": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "biogen_therapeutics_board",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The board has reviewed the acquisition proposal from PharmaCorp and decided to recommend against it. They will present their recommendation at the September 15 special meeting.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    },
+    {
+     "content": "PharmaCorp has made a tender offer to acquire BioGen Therapeutics, with a deadline of September 30. A special shareholder meeting is scheduled for September 15 to vote on the acquisition. The board has announced it recommends against the proposal.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    }
+   ],
+   "name": "BioGen Therapeutics Board",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "biogen_therapeutics_shareholders": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "biogen_therapeutics_shareholders",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Shareholders will vote on the acquisition proposal at the September 15 special meeting. They are aware of the board's recommendation but have their own views on the deal.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    },
+    {
+     "content": "PharmaCorp has made a tender offer to acquire BioGen Therapeutics, with a deadline of September 30. A special shareholder meeting is scheduled for September 15 to vote on the acquisition. The board has announced it recommends against the proposal.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T04:00:00+00:00"
+    }
+   ],
+   "name": "BioGen Therapeutics Shareholders",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the shareholders of BioGen Therapeutics, after the board recommends against the proposal, vote to approve the acquisition by PharmaCorp at the September 15 special meeting, given that the deadline for the tender offer is September 30?",
+  "scene:shared_context": "PharmaCorp has made a tender offer to acquire BioGen Therapeutics, with a deadline of September 30. A special shareholder meeting is scheduled for September 15 to vote on the acquisition. The board has announced it recommends against the proposal."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-20T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-20T04:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

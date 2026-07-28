@@ -1,0 +1,8 @@
+{
+ "question": "Will the listed firm Aldergate Rail warn the market about its signaling-contract delay before its scheduled interim results day on November 5?",
+ "start": "2026-10-01T08:00:00+00:00",
+ "cutoff": "2026-11-05T07:00:00+00:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

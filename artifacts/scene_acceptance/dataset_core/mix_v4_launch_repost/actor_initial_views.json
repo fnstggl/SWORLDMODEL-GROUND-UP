@@ -1,0 +1,174 @@
+{
+ "ceo": {
+  "id": "ceo",
+  "name": "CEO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release and intend to post it at the ship time. They want the announcement to gain traction and hope design partners will repost it.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and have social media accounts where they can repost. The 24-hour window for the resolution ends at 2026-09-16T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "design_partner_1": {
+  "id": "design_partner_1",
+  "name": "Design Partner 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and have social media accounts where they can repost. The 24-hour window for the resolution ends at 2026-09-16T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "design_partner_2": {
+  "id": "design_partner_2",
+  "name": "Design Partner 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and have social media accounts where they can repost. The 24-hour window for the resolution ends at 2026-09-16T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "design_partner_3": {
+  "id": "design_partner_3",
+  "name": "Design Partner 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T17:00:00+00:00",
+    "kind": "context",
+    "content": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and have social media accounts where they can repost. The 24-hour window for the resolution ends at 2026-09-16T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

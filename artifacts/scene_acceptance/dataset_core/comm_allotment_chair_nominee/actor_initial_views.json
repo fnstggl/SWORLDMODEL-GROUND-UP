@@ -1,0 +1,88 @@
+{
+ "chair_stepping_down": {
+  "id": "chair_stepping_down",
+  "name": "Chair (stepping down)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-25T17:00:00+00:00",
+    "kind": "context",
+    "content": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have no preferred successor and will not influence the election.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-25T17:00:00+00:00",
+    "kind": "context",
+    "content": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "kettlewell_allotment_society_members": {
+  "id": "kettlewell_allotment_society_members",
+  "name": "Kettlewell Allotment Society members",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-25T17:00:00+00:00",
+    "kind": "context",
+    "content": "The members are aware of the upcoming AGM and the chair's intention to step down. Some may be considering standing for chair, but no one has publicly declared their candidacy yet.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-25T17:00:00+00:00",
+    "kind": "context",
+    "content": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

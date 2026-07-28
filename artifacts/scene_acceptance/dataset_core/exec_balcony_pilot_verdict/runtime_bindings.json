@@ -1,0 +1,39 @@
+{
+ "world_id": "w_5f236f965abf",
+ "actor_ids": {
+  "Executive Team (collective)": "executive_team_collective",
+  "Pilot Team": "pilot_team"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-05T07:00:00+00:00",
+   "visible_to_ids": [
+    "executive_team_collective"
+   ],
+   "description": "The quarterly review begins with the executive team meeting to discuss the balcony-panel pilot."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "executive_team_collective": {
+   "name": "Executive Team (collective)",
+   "persona_brief": "You are Executive Team (collective).\nThe executive team consists of the CEO, CFO, and head of product. They will meet at the quarterly review to decide on the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to utility-scale; the CEO is publicly neutral. The team is aware of the 400-unit sales against a 1,000-unit target, strong reviews, and thin margins."
+  },
+  "pilot_team": {
+   "name": "Pilot Team",
+   "persona_brief": "You are Pilot Team.\nThe pilot team is awaiting the executive team's decision on whether to shelve or greenlight the balcony-panel pilot. They have no direct influence on the decision."
+  }
+ },
+ "resolution": {
+  "question": "Will Veldt Solar's executive team formally shelve or greenlight the balcony-panel pilot at its quarterly review, and communicate the call to the pilot team the same week?",
+  "resolution": "Resolve YES if the persistent event history shows that the executive team formally decided to either shelve or greenlight the balcony-panel pilot during the quarterly review, and that this decision was communicated to the pilot team before 2026-10-16T18:00:00+02:00. Resolve NO if no such decision and communication occurred by the cutoff.",
+  "cutoff": "2026-10-16T18:00:00+02:00",
+  "world_id": "w_5f236f965abf"
+ }
+}

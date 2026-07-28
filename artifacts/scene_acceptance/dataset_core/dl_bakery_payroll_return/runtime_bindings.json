@@ -1,0 +1,39 @@
+{
+ "world_id": "w_1e61b2a0f535",
+ "actor_ids": {
+  "Bookkeeper": "bookkeeper",
+  "Herrera Bakery": "herrera_bakery"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-10-19T15:00:00+00:00",
+   "visible_to_ids": [
+    "bookkeeper"
+   ],
+   "description": "The bookkeeper begins her workday and has the quarterly payroll data available to prepare the return."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "bookkeeper": {
+   "name": "Bookkeeper",
+   "persona_brief": "You are Bookkeeper.\nThe bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and access to file. She has no known obstacles or changes in her routine."
+  },
+  "herrera_bakery": {
+   "name": "Herrera Bakery",
+   "persona_brief": "You are Herrera Bakery.\nThe bakery expects the bookkeeper to file the return as usual. They have provided all payroll data to the bookkeeper in a timely manner."
+  }
+ },
+ "resolution": {
+  "question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
+  "resolution": "Resolve YES if the persistent event history shows that the quarterly payroll return was filed with the revenue service before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-31T23:59:00-06:00",
+  "world_id": "w_1e61b2a0f535"
+ }
+}

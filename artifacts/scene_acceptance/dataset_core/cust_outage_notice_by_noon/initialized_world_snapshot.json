@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "communications_lead": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "communications_lead",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The Communications Lead is at an offsite all morning and may not be reachable. They are responsible for sending incident notices to enterprise customers per the runbook.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-21T04:00:00+00:00"
+    },
+    {
+     "content": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The Communications Lead is at an offsite all morning.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-21T04:00:00+00:00"
+    }
+   ],
+   "name": "Communications Lead",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "nimbus_freight_as_an_organization": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "nimbus_freight_as_an_organization",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Nimbus Freight has an incident runbook requiring customer email within four hours of outage start. The status page already acknowledges the outage. The company can decide to send the email even without the Communications Lead.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-21T04:00:00+00:00"
+    },
+    {
+     "content": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The Communications Lead is at an offsite all morning.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-21T04:00:00+00:00"
+    }
+   ],
+   "name": "Nimbus Freight (as an organization)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Nimbus Freight's tracking portal has been down since 06:00. Will the company email affected enterprise customers an incident notice before noon?",
+  "scene:shared_context": "Nimbus Freight's tracking portal has been down since 06:00. The status page acknowledges the outage. The incident runbook requires customer email within four hours. The Communications Lead is at an offsite all morning."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-21T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-21T04:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

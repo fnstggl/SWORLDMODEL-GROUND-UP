@@ -1,0 +1,45 @@
+{
+ "interchange_format_working_group_21_members": {
+  "id": "interchange_format_working_group_21_members",
+  "name": "Interchange Format Working Group (21 members)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-15T00:00:00+00:00",
+    "kind": "context",
+    "content": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more likely to return ballots promptly, others may need reminders or may deprioritize the task.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-15T00:00:00+00:00",
+    "kind": "context",
+    "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Members are expected to return ballots indicating their approval, disapproval, or abstention by that deadline. The group's procedures require at least two-thirds of members to return ballots for the vote to be valid, but the outcome of the vote itself is not at issue here\u2014only whether enough ballots are returned.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

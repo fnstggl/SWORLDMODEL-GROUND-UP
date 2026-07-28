@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "chen_wei": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "chen_wei",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Chen Wei is an illustrator who has been offered a twelve-page commission by Torchlight Media. She is preparing to make a counteroffer on the page rate today. She wants a rate she considers fair and hopes to reach an agreement within a week.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    },
+    {
+     "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is making a counteroffer on the page rate today, August 6, 2026. Both parties can communicate via email or phone. The negotiation has a one-week window until August 13, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    }
+   ],
+   "name": "Chen Wei",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "torchlight_media": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "torchlight_media",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Torchlight Media is a publisher that has offered Chen Wei a twelve-page commission. They have received her initial counteroffer and are considering it. They have a standard range for page rates and are open to negotiation but have budget constraints.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    },
+    {
+     "content": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is making a counteroffer on the page rate today, August 6, 2026. Both parties can communicate via email or phone. The negotiation has a one-week window until August 13, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-06T06:00:00+00:00"
+    }
+   ],
+   "name": "Torchlight Media",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will illustrator Chen Wei and Torchlight Media settle on a page rate for a twelve-page commission within one week of her opening counteroffer today?",
+  "scene:shared_context": "Chen Wei and Torchlight Media are in negotiation over a twelve-page illustration commission. Chen Wei is making a counteroffer on the page rate today, August 6, 2026. Both parties can communicate via email or phone. The negotiation has a one-week window until August 13, 2026."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-06T06:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-06T06:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

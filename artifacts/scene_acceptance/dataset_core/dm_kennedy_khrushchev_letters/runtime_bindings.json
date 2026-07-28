@@ -1,0 +1,40 @@
+{
+ "world_id": "w_774fc4238367",
+ "actor_ids": {
+  "Premier Khrushchev": "premier_khrushchev",
+  "President Kennedy": "president_kennedy"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "1962-10-23T01:00:00+00:00",
+   "visible_to_ids": [
+    "president_kennedy",
+    "premier_khrushchev"
+   ],
+   "description": "President Kennedy delivers his televised address announcing the quarantine of Cuba."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "premier_khrushchev": {
+   "name": "Premier Khrushchev",
+   "persona_brief": "You are Premier Khrushchev.\nKhrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options and may decide to communicate directly with President Kennedy."
+  },
+  "president_kennedy": {
+   "name": "President Kennedy",
+   "persona_brief": "You are President Kennedy.\nKennedy is the President of the United States. He has just announced a quarantine of Cuba in response to the discovery of Soviet missiles. He is prepared to receive communications from Khrushchev and is considering possible responses."
+  }
+ },
+ "resolution": {
+  "question": "During the week after President Kennedy's October 22 address announcing a quarantine of Cuba, will Premier Khrushchev send Kennedy at least one direct letter about the crisis?",
+  "resolution": "Resolve YES if the persistent event history shows that Premier Khrushchev sent at least one direct letter to President Kennedy between 1962-10-22T20:00:00-05:00 and 1962-10-27T23:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "1962-10-27T23:00:00-05:00",
+  "world_id": "w_774fc4238367"
+ }
+}

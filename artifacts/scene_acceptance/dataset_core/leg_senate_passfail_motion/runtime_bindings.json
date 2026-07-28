@@ -1,0 +1,64 @@
+{
+ "world_id": "w_394f4d56b514",
+ "actor_ids": {
+  "Senate Chair": "senate_chair",
+  "Senator A": "senator_a",
+  "Senator B": "senator_b",
+  "Senator C": "senator_c"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-10-01T14:00:00+00:00",
+   "visible_to_ids": [
+    "senate_chair",
+    "senator_a",
+    "senator_b",
+    "senator_c"
+   ],
+   "description": "The academic senate's October plenary is scheduled for 2026-10-15. The pass-fail grading motion is on the agenda."
+  },
+  {
+   "event_id": "se2",
+   "ledger_seq": 18,
+   "at": "2026-10-15T15:00:00+00:00",
+   "visible_to_ids": [
+    "senate_chair",
+    "senator_a",
+    "senator_b",
+    "senator_c"
+   ],
+   "description": "The Senate Chair calls the plenary to order and introduces the pass-fail grading motion as the first item of business. Senators begin to express their initial positions."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "senate_chair": {
+   "name": "Senate Chair",
+   "persona_brief": "You are Senate Chair.\nThe chair is responsible for presiding over the plenary and ensuring orderly debate. They have no strong personal stance on the pass-fail motion but aim to facilitate a fair vote."
+  },
+  "senator_a": {
+   "name": "Senator A",
+   "persona_brief": "You are Senator A.\nSenator A supports the pass-fail grading motion, believing it reduces student stress and promotes exploration. They plan to speak in favor and encourage colleagues to pass it."
+  },
+  "senator_b": {
+   "name": "Senator B",
+   "persona_brief": "You are Senator B.\nSenator B opposes the pass-fail motion, arguing it may undermine academic rigor and grade inflation. They intend to argue for rejection or sending back to committee for more study."
+  },
+  "senator_c": {
+   "name": "Senator C",
+   "persona_brief": "You are Senator C.\nSenator C is undecided and wants to hear the debate before making a decision. They are open to persuasion from both sides."
+  }
+ },
+ "resolution": {
+  "question": "Will Ashvale University's academic senate pass, reject, or send back to committee the pass-fail grading motion at its October plenary?",
+  "resolution": "Resolve YES if the persistent event history shows that the senate passed the motion at the plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO.",
+  "cutoff": "2026-10-30T18:00:00-05:00",
+  "world_id": "w_394f4d56b514"
+ }
+}

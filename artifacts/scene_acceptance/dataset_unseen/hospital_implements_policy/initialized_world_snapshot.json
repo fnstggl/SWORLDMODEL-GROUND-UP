@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "st_mary_s_hospital_administration": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "st_mary_s_hospital_administration",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The administration is considering a new patient visitation policy. They have the authority to implement policy changes. They are aware of the October 1 deadline but have not yet decided on the policy details or implementation timeline.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T05:00:00+00:00"
+    },
+    {
+     "content": "St. Mary's Hospital currently has an existing patient visitation policy. A proposal for a new policy has been drafted and is under review. The hospital operates under standard administrative procedures for policy changes, which may involve approvals and communication to staff.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T05:00:00+00:00"
+    }
+   ],
+   "name": "St. Mary's Hospital Administration",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will St. Mary's Hospital implement the new patient visitation policy by October 1?",
+  "scene:shared_context": "St. Mary's Hospital currently has an existing patient visitation policy. A proposal for a new policy has been drafted and is under review. The hospital operates under standard administrative procedures for policy changes, which may involve approvals and communication to staff."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T05:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T05:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

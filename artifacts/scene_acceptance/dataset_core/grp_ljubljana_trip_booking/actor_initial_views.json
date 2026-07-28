@@ -1,0 +1,260 @@
+{
+ "friend_1": {
+  "id": "friend_1",
+  "name": "Friend 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "One of the six friends. Has a new job with limited leave, so has specific date constraints for the trip.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "friend_2": {
+  "id": "friend_2",
+  "name": "Friend 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "One of the six friends. Has a new job with limited leave, so has specific date constraints for the trip.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "friend_3": {
+  "id": "friend_3",
+  "name": "Friend 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "One of the six friends. No special constraints mentioned beyond being part of the group.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "friend_4": {
+  "id": "friend_4",
+  "name": "Friend 4",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "One of the six friends. No special constraints mentioned beyond being part of the group.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "friend_5": {
+  "id": "friend_5",
+  "name": "Friend 5",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "One of the six friends. No special constraints mentioned beyond being part of the group.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "jaka": {
+  "id": "jaka",
+  "name": "Jaka",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "Jaka is one of the six friends. He usually ends up doing the booking for group trips. He is aware that the early-bird train fares end on the 15th and that the apartment they liked last year is still listed. He wants to secure the booking but needs agreement on dates from the group.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-01T08:00:00+00:00",
+    "kind": "context",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The early-bird train fares end on 2026-08-15. The apartment they liked last year is still listed. The group needs to agree on dates and book the apartment before the early-bird deadline. Two friends have new jobs with limited leave, which may constrain available dates.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "actors": [
+  {
+   "name": "Expedition Leader",
+   "private_context": "The leader wants the team to decide on a rope order for summit day. They have asked the team to discuss and pick one during tomorrow's rest-day meeting."
+  },
+  {
+   "name": "Climber 1",
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
+  },
+  {
+   "name": "Climber 2",
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
+  },
+  {
+   "name": "Climber 3",
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
+  },
+  {
+   "name": "Climber 4",
+   "private_context": "One of the four team members. Has personal preferences about rope order but no prior commitment."
+  }
+ ],
+ "shared_context": "The four-person climbing team is at base camp. Tomorrow (2026-09-02) there is a rest-day meeting. The expedition leader has asked the team to pick a summit-day rope order during that meeting. No rope order has been decided yet.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T07:00:00+05:45",
+   "description": "The team is at base camp. The rest-day meeting is scheduled for tomorrow.",
+   "visible_to": [
+    "Expedition Leader",
+    "Climber 1",
+    "Climber 2",
+    "Climber 3",
+    "Climber 4"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the team actually picks a summit-day rope order during the rest-day meeting before the hard cutoff. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "invented_precision",
+   "severity": "MAJOR",
+   "detail": "The scene states that Jaka is aware of the early-bird deadline and the apartment listing, but the question and context do not specify that Jaka knows these details. This is an invented precision about Jaka's knowledge."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The scene states that Jaka 'usually ends up doing the booking' and that he 'wants to secure the booking but needs agreement on dates.' This pre-decides that Jaka will be the one to book, which may not be the case in the simulation. It also implies a motivation that could influence his actions."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "Jaka's private context includes that he is aware of the early-bird deadline and the apartment listing. This information is also in shared context, so it's not a leak, but it's redundant. However, the private context of Friend 1 and Friend 2 only says they have new jobs with limited leave, which is appropriate."
+  }
+ ],
+ "id": "grp_ljubljana_trip_booking"
+}

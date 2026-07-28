@@ -1,0 +1,131 @@
+{
+ "advisor": {
+  "id": "advisor",
+  "name": "Advisor",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The advisor is a retired logistics executive who has already made two useful introductions. He has asked for 1% equity. He is considering the offer of 0.3% and may negotiate.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "co_founder": {
+  "id": "co_founder",
+  "name": "Co-founder",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The co-founder thinks anything above 0.5% equity for the advisor is too rich. They have influence over Leila's decisions.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "leila": {
+  "id": "leila",
+  "name": "Leila",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "Leila is the founder. She is offering 0.3% equity to a prospective advisor who has asked for 1%. She knows her co-founder thinks anything above 0.5% is too rich. She wants to reach an agreement within a month.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-10T17:00:00+00:00",
+    "kind": "context",
+    "content": "The company's standard advisor template vests over two years. Leila and the advisor are in discussions about equity terms. The advisor has already made two useful introductions. The hard cutoff for an agreement is 2026-10-10T10:00:00-07:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

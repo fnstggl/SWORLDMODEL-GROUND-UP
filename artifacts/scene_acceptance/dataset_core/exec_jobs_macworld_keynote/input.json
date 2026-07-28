@@ -1,0 +1,8 @@
+{
+ "question": "Will Apple confirm Steve Jobs as the opening keynote speaker for Macworld San Francisco 2007 before the conference begins?",
+ "start": "2006-12-01T09:00:00-08:00",
+ "cutoff": "2007-01-08T18:00:00-08:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Dana",
+   "private_context": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
+  },
+  {
+   "name": "Yusuf",
+   "private_context": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores."
+  }
+ ],
+ "shared_context": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
+ "starting_events": [
+  {
+   "time": "2026-08-04T19:00:00+00:00",
+   "description": "Dana and Yusuf are both present in the flat group chat. No message about a cleaning rota has been sent yet.",
+   "visible_to": [
+    "Dana",
+    "Yusuf"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the flat group chat indicating their agreement to a specific cleaning rota (e.g., by typing 'I agree' or similar) before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff."
+}

@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Speaker",
+   "private_context": "Speaker has just asked 'So, what do you think?' to someone, expecting a response. Speaker is waiting for the other person's opinion."
+  },
+  {
+   "name": "Listener",
+   "private_context": "Listener has been asked 'So, what do you think?' by Speaker. Listener may have an opinion or not, and may choose to respond or not."
+  }
+ ],
+ "shared_context": "Speaker and Listener are in a conversation. Speaker has just posed the question 'So, what do you think?' to Listener. The topic of the question is not specified.",
+ "starting_events": [
+  {
+   "time": "2026-08-20T14:00:00-03:00",
+   "description": "Speaker asks Listener 'So, what do you think?'",
+   "visible_to": [
+    "Speaker",
+    "Listener"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Listener actually said something in response to Speaker's question before the cutoff. Otherwise resolve NO at the cutoff."
+}

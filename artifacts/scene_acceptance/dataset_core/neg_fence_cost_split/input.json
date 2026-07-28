@@ -1,0 +1,8 @@
+{
+ "question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
+ "start": "2026-08-02T12:00:00-05:00",
+ "cutoff": "2026-10-02T12:00:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

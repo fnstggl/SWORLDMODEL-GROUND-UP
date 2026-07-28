@@ -1,0 +1,28 @@
+{
+ "actors": [
+  {
+   "name": "Principal of Petersfield Secondary",
+   "private_context": "The principal is responsible for approving school trips. They are aware of the geography department's proposed coastal field trip and the half-term deadline for sending parental consent letters. They have no prior concerns about the trip, which has run without incident for four years."
+  },
+  {
+   "name": "Geography Department Head",
+   "private_context": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head. They know the deputy head is on leave until late September. They want the principal to sign off before the half-term deadline."
+  },
+  {
+   "name": "Deputy Head",
+   "private_context": "The deputy head is on leave until late September. They are the required signatory for the new risk-assessment form. They are not currently available to sign."
+  }
+ ],
+ "shared_context": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration.",
+ "starting_events": [
+  {
+   "time": "2026-09-07T08:30:00+01:00",
+   "description": "The geography department head submits the proposed coastal field trip paperwork to the principal's office, including the risk-assessment form that still needs the deputy head's signature.",
+   "visible_to": [
+    "Geography Department Head",
+    "Principal of Petersfield Secondary"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the trip before the half-term deadline (2026-10-16T15:30:00+01:00). Otherwise resolve NO at the cutoff."
+}

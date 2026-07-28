@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "invented_precision",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'the submission date is not specified, but the simulation starts on 2026-09-02... and the hard cutoff is 2026-10-02... which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff.' This invents a precise timeline (submission at start) that is not given in the question, which only says 'submitted a paid test piece' and 'quoted a one-month turnaround'. The question does not specify when the submission occurred relative to the start time, so assuming it happened exactly at the start is an invented precision that may affect the simulation's outcome."
+  }
+ ],
+ "id": "hire_subtitling_test_feedback"
+}

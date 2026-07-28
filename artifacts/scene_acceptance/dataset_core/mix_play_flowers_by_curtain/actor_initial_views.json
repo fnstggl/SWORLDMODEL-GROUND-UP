@@ -1,0 +1,45 @@
+{
+ "parents_group": {
+  "id": "parents_group",
+  "name": "Parents' group",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-11-16T09:00:00+00:00",
+    "kind": "context",
+    "content": "The group has agreed to collect money for cast flowers and hand them over backstage before curtain. They have a collection pot and a plan to coordinate. They are aware of the Friday 19:00 curtain time.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-11-16T09:00:00+00:00",
+    "kind": "context",
+    "content": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group is responsible for collecting for cast flowers and handing them over backstage before curtain. The group has access to the school and backstage area.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

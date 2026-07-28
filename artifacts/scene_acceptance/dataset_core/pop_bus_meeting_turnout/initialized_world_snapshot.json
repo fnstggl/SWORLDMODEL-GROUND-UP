@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "kettlewell_parish_clerk": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "kettlewell_parish_clerk",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They have no special knowledge of who will attend this time.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T08:00:00+00:00"
+    },
+    {
+     "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled for a date and time after the simulation start. The last similar meeting drew 22 attendees.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T08:00:00+00:00"
+    }
+   ],
+   "name": "Kettlewell Parish Clerk",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "villagers_of_kettlewell": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "villagers_of_kettlewell",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but individual attendance decisions are not yet made.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T08:00:00+00:00"
+    },
+    {
+     "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled for a date and time after the simulation start. The last similar meeting drew 22 attendees.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T08:00:00+00:00"
+    }
+   ],
+   "name": "Villagers of Kettlewell",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will at least thirty villagers attend Kettlewell's open meeting about the bus-route cut, given the parish clerk has posted notices and the last such meeting drew 22?",
+  "scene:shared_context": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled for a date and time after the simulation start. The last similar meeting drew 22 attendees."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-10T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-10T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

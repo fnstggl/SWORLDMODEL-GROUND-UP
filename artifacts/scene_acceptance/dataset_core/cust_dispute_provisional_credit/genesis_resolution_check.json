@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Harborview Credit Union provisionally credit Marisol's disputed 320-dollar card charge within the ten-business-day window she was quoted when she filed today?",
+  "resolution": "Resolve YES if the persistent event history shows that Harborview Credit Union provisionally credited $320 to Marisol's account on or before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-28T17:00:00-08:00",
+  "world_id": "w_1c09bab23d3b"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

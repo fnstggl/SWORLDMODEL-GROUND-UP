@@ -1,0 +1,1998 @@
+{
+ "dataset": "acceptance/dataset_core.json",
+ "rows": [
+  {
+   "id": "appr_apollo11_go_decision",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": true,
+   "status": "abstained",
+   "reason": "scene: The scene treats 'NASA Senior Managers' as a single monolithic actor, but the question refers to 'NASA's senior managers' as a group that makes a public announcement. However, the scene lacks sufficient detail to identify who exactly makes the decision and announcement. More critically, the r",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 6.4,
+   "actors": [
+    "NASA Senior Managers"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_apollo11_go_decision"
+  },
+  {
+   "id": "appr_ethics_board_protocol",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.78,
+   "actors": [
+    "Dr. Tanaka",
+    "Ashvale University Research Ethics Board"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_ethics_board_protocol"
+  },
+  {
+   "id": "appr_field_trip_signoff",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.33,
+   "actors": [
+    "Principal of Petersfield Secondary",
+    "Geography Department Head",
+    "Deputy Head"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_field_trip_signoff"
+  },
+  {
+   "id": "appr_legal_contract_clearance",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.05,
+   "actors": [
+    "Veldt Solar Legal Team"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_legal_contract_clearance"
+  },
+  {
+   "id": "appr_promotion_vp_signoff",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The scene invents a 'VP' actor and a calibration process that are not referenced in the question or context. The question only mentions 'manager Rosa Maria', 'her report Jonas', 'promotion case', 'calibration', and 'VP sign-off', but does not specify that the VP is a distinct individual or th",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 6.43,
+   "actors": [
+    "Rosa Maria",
+    "VP"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_promotion_vp_signoff"
+  },
+  {
+   "id": "appr_q4_budget_signoff",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.2,
+   "actors": [
+    "CFO",
+    "CMO"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_q4_budget_signoff"
+  },
+  {
+   "id": "appr_security_exception_sla",
+   "kind": "sufficient",
+   "category": "organizational_approval",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.19,
+   "actors": [
+    "Dev Patel",
+    "Harborview Credit Union Security Team"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/appr_security_exception_sla"
+  },
+  {
+   "id": "cold_alumni_first_pledge",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.4,
+   "actors": [
+    "Ashvale University Annual-Fund Caller",
+    "Dr. Renata Sousa"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_alumni_first_pledge"
+  },
+  {
+   "id": "cold_foodtruck_brewery_ask",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.5,
+   "actors": [
+    "Bao Tran",
+    "Brewery Manager 1",
+    "Brewery Manager 2",
+    "Brewery Manager 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_foodtruck_brewery_ask"
+  },
+  {
+   "id": "cold_foundation_concept_note",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.57,
+   "actors": [
+    "Program Officer (Alder Foundation)",
+    "Lucia Ferreyra"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_foundation_concept_note"
+  },
+  {
+   "id": "cold_gallery_portfolio_reply",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.99,
+   "actors": [
+    "Yusuf Ndiaye",
+    "Ines Duarte"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_gallery_portfolio_reply"
+  },
+  {
+   "id": "cold_podcast_founder_invite",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.79,
+   "actors": [
+    "Anouk Visser",
+    "Founder of Veldt Solar"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_podcast_founder_invite"
+  },
+  {
+   "id": "cold_recruiter_colorist_ping",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.7,
+   "actors": [
+    "Recruiter from Torchlight Media",
+    "Petra Kovac"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_recruiter_colorist_ping"
+  },
+  {
+   "id": "cold_sdr_discovery_call",
+   "kind": "sufficient",
+   "category": "cold_outreach",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 12.63,
+   "actors": [
+    "Gustavo",
+    "Procurement Lead 1",
+    "Procurement Lead 2",
+    "Procurement Lead 3",
+    "Procurement Lead 4",
+    "Procurement Lead 5",
+    "Procurement Lead 6",
+    "Procurement Lead 7",
+    "Procurement Lead 8",
+    "Procurement Lead 9",
+    "Procurement Lead 10",
+    "Procurement Lead 11",
+    "Procurement Lead 12",
+    "Procurement Lead 13",
+    "Procurement Lead 14",
+    "Procurement Lead 15",
+    "Procurement Lead 16",
+    "Procurement Lead 17",
+    "Procurement Lead 18",
+    "Procurement Lead 19",
+    "Procurement Lead 20",
+    "Procurement Lead 21",
+    "Procurement Lead 22",
+    "Procurement Lead 23",
+    "Procurement Lead 24",
+    "Procurement Lead 25",
+    "Procurement Lead 26",
+    "Procurement Lead 27",
+    "Procurement Lead 28",
+    "Procurement Lead 29",
+    "Procurement Lead 30",
+    "Procurement Lead 31",
+    "Procurement Lead 32",
+    "Procurement Lead 33",
+    "Procurement Lead 34",
+    "Procurement Lead 35",
+    "Procurement Lead 36",
+    "Procurement Lead 37",
+    "Procurement Lead 38",
+    "Procurement Lead 39",
+    "Procurement Lead 40"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cold_sdr_discovery_call"
+  },
+  {
+   "id": "comm_allotment_chair_nominee",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.62,
+   "actors": [
+    "Chair (stepping down)",
+    "Kettlewell Allotment Society members"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_allotment_chair_nominee"
+  },
+  {
+   "id": "comm_cop21_draft_circulation",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": true,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.5,
+   "actors": [
+    "French Presidency of COP21",
+    "National Delegations"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_cop21_draft_circulation"
+  },
+  {
+   "id": "comm_harbor_quorum_tuesday",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.78,
+   "actors": [
+    "Chair",
+    "Member 1",
+    "Member 2",
+    "Member 3",
+    "Member 4",
+    "Member 5",
+    "Member 6",
+    "Member 7",
+    "Member 8",
+    "Member 9"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_harbor_quorum_tuesday"
+  },
+  {
+   "id": "comm_parks_dissent_vote",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.79,
+   "actors": [
+    "Committee Member 1",
+    "Committee Member 2",
+    "Committee Member 3",
+    "Committee Member 4",
+    "Committee Member 5"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_parks_dissent_vote"
+  },
+  {
+   "id": "comm_pta_stall_coordinators",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The scene treats the PTA subcommittee as a single actor, but the question asks whether the subcommittee will recruit four stall coordinators. The subcommittee itself is the recruiter, not a potential recruit. The actors who would be recruited (the stall coordinators) are not present, and the ",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.72,
+   "actors": [
+    "PTA Subcommittee for the Winter Fair"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_pta_stall_coordinators"
+  },
+  {
+   "id": "comm_tenants_elect_treasurer",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.55,
+   "actors": [
+    "Tenants' Association of the Aurora Block",
+    "Interested Resident 1",
+    "Interested Resident 2",
+    "Interested Resident 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_tenants_elect_treasurer"
+  },
+  {
+   "id": "comm_wg_ballot_return",
+   "kind": "sufficient",
+   "category": "committee_participation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.42,
+   "actors": [
+    "Interchange Format Working Group (21 members)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/comm_wg_ballot_return"
+  },
+  {
+   "id": "cust_bistro_review_reply",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.65,
+   "actors": [
+    "Marguerite"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_bistro_review_reply"
+  },
+  {
+   "id": "cust_caterer_allergy_answer",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.1,
+   "actors": [
+    "Deepa",
+    "Catering Manager"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_caterer_allergy_answer"
+  },
+  {
+   "id": "cust_dispute_provisional_credit",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.15,
+   "actors": [
+    "Marisol",
+    "Harborview Credit Union"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_dispute_provisional_credit"
+  },
+  {
+   "id": "cust_moldy_delivery_sla",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.33,
+   "actors": [
+    "Hana Suzuki",
+    "Ostara Foods Support Desk"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_moldy_delivery_sla"
+  },
+  {
+   "id": "cust_outage_notice_by_noon",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.36,
+   "actors": [
+    "Communications Lead",
+    "Nimbus Freight (as an organization)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_outage_notice_by_noon"
+  },
+  {
+   "id": "cust_retention_call_save",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.11,
+   "actors": [
+    "Account Manager (Brightline Software)",
+    "Fenwick & Sloane representative"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_retention_call_save"
+  },
+  {
+   "id": "cust_warranty_second_line",
+   "kind": "sufficient",
+   "category": "customer_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.22,
+   "actors": [
+    "Rustam",
+    "Manufacturer's second-line team"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/cust_warranty_second_line"
+  },
+  {
+   "id": "dl_alder_grant_portal",
+   "kind": "sufficient",
+   "category": "deadline_bounded_action",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.32,
+   "actors": [
+    "Lucia Ferreyra",
+    "Co-director"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_alder_grant_portal"
+  },
+  {
+   "id": "dl_bakery_payroll_return",
+   "kind": "sufficient",
+   "category": "deadline_bounded_action",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.27,
+   "actors": [
+    "Bookkeeper",
+    "Herrera Bakery"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_bakery_payroll_return"
+  },
+  {
+   "id": "dl_hr_sponsorship_letter",
+   "kind": "sufficient",
+   "category": "deadline_bounded_action",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.94,
+   "actors": [
+    "Kwame",
+    "HR Team"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_hr_sponsorship_letter"
+  },
+  {
+   "id": "dl_manuscript_resubmission",
+   "kind": "sufficient",
+   "category": "deadline_bounded_action",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.67,
+   "actors": [
+    "Dr. Tanaka",
+    "Co-author A",
+    "Co-author B"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_manuscript_resubmission"
+  },
+  {
+   "id": "dl_second_referee_36h",
+   "kind": "sufficient",
+   "category": "deadline_bounded_action",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.33,
+   "actors": [
+    "Kofi",
+    "Second Referee"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_second_referee_36h"
+  },
+  {
+   "id": "dl_valdoria_tender_noon",
+   "kind": "sufficient",
+   "category": "deadline_bounded_action",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.38,
+   "actors": [
+    "Nimbus Freight's bid team",
+    "Director 1",
+    "Director 2"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dl_valdoria_tender_noon"
+  },
+  {
+   "id": "dm_bandmate_wedding_gig",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.35,
+   "actors": [
+    "Dario",
+    "Selin"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_bandmate_wedding_gig"
+  },
+  {
+   "id": "dm_brother_loan_answer",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.5,
+   "actors": [
+    "Rosa",
+    "Emilio"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_brother_loan_answer"
+  },
+  {
+   "id": "dm_freight_quote_reply",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.86,
+   "actors": [
+    "Tomasz",
+    "Kestrel Analytics"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_freight_quote_reply"
+  },
+  {
+   "id": "dm_kennedy_khrushchev_letters",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": true,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.4,
+   "actors": [
+    "Premier Khrushchev",
+    "President Kennedy"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_kennedy_khrushchev_letters"
+  },
+  {
+   "id": "dm_landlord_heater_reply",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.7,
+   "actors": [
+    "Maya Okonkwo",
+    "Stavros"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_landlord_heater_reply"
+  },
+  {
+   "id": "dm_professor_reference_reply",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.21,
+   "actors": [
+    "Professor Ilse Brandt",
+    "Kofi Asante"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_professor_reference_reply"
+  },
+  {
+   "id": "dm_teacher_seating_email",
+   "kind": "sufficient",
+   "category": "direct_message_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.82,
+   "actors": [
+    "Mr. Abernathy",
+    "Chioma Eze"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/dm_teacher_seating_email"
+  },
+  {
+   "id": "exec_balcony_pilot_verdict",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.0,
+   "actors": [
+    "Executive Team (collective)",
+    "Pilot Team"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_balcony_pilot_verdict"
+  },
+  {
+   "id": "exec_jobs_macworld_keynote",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": true,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.08,
+   "actors": [
+    "Apple Inc.",
+    "Steve Jobs"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_jobs_macworld_keynote"
+  },
+  {
+   "id": "exec_price_rise_allhands",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.94,
+   "actors": [
+    "Co-founder 1",
+    "Co-founder 2",
+    "Co-founder 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_price_rise_allhands"
+  },
+  {
+   "id": "exec_restructure_consultation",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.48,
+   "actors": [
+    "Managing Director",
+    "Works Council"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_restructure_consultation"
+  },
+  {
+   "id": "exec_successor_named",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.19,
+   "actors": [
+    "Owner of Fenwick & Sloane",
+    "Deputy (Buying)",
+    "Deputy (Operations)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_successor_named"
+  },
+  {
+   "id": "exec_tidepool_buyout_announce",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.71,
+   "actors": [
+    "Founder A",
+    "Founder B",
+    "Employees (as a group)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_tidepool_buyout_announce"
+  },
+  {
+   "id": "exec_wharf_lease_option",
+   "kind": "sufficient",
+   "category": "founder_executive_decision",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.51,
+   "actors": [
+    "CEO of Kestrel Analytics",
+    "Landlord of Riverside Wharf"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/exec_wharf_lease_option"
+  },
+  {
+   "id": "grp_band_setlist_rehearsal",
+   "kind": "sufficient",
+   "category": "small_group_coordination",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.24,
+   "actors": [
+    "Cheap Detour (band as a unit)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_band_setlist_rehearsal"
+  },
+  {
+   "id": "grp_carpool_rota_by_monday",
+   "kind": "sufficient",
+   "category": "small_group_coordination",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.79,
+   "actors": [
+    "Family 1",
+    "Family 2",
+    "Family 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_carpool_rota_by_monday"
+  },
+  {
+   "id": "grp_ljubljana_trip_booking",
+   "kind": "sufficient",
+   "category": "small_group_coordination",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.73,
+   "actors": [
+    "Jaka",
+    "Friend 1",
+    "Friend 2",
+    "Friend 3",
+    "Friend 4",
+    "Friend 5"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_ljubljana_trip_booking"
+  },
+  {
+   "id": "grp_meal_train_fill",
+   "kind": "sufficient",
+   "category": "small_group_coordination",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.9,
+   "actors": [
+    "Fran",
+    "Neighbors on Alder Court"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_meal_train_fill"
+  },
+  {
+   "id": "grp_rope_order_restday",
+   "kind": "sufficient",
+   "category": "small_group_coordination",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.42,
+   "actors": [
+    "Expedition Leader",
+    "Climber 1",
+    "Climber 2",
+    "Climber 3",
+    "Climber 4"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_rope_order_restday"
+  },
+  {
+   "id": "grp_study_chapter_split",
+   "kind": "sufficient",
+   "category": "small_group_coordination",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.95,
+   "actors": [
+    "Student 1",
+    "Student 2",
+    "Student 3",
+    "Student 4",
+    "Student 5"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/grp_study_chapter_split"
+  },
+  {
+   "id": "hire_internal_ops_application",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The scene lacks any other actor who could affect Dmytro's decision or the application process. The question is about a social decision (applying for a role), but the scene only includes Dmytro. There is no manager, HR, colleague, or any other person who could influence, discuss, or be involve",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.42,
+   "actors": [
+    "Dmytro"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_internal_ops_application"
+  },
+  {
+   "id": "hire_manager_counteroffer",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.15,
+   "actors": [
+    "Sanjay",
+    "Sanjay's manager"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_manager_counteroffer"
+  },
+  {
+   "id": "hire_offer_answer_week",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.75,
+   "actors": [
+    "Wanjiru Kamau",
+    "Kestrel Analytics"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_offer_answer_week"
+  },
+  {
+   "id": "hire_referees_return_calls",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.34,
+   "actors": [
+    "Aoife Byrne",
+    "Referee 1",
+    "Referee 2",
+    "Recruiter"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_referees_return_calls"
+  },
+  {
+   "id": "hire_studio_decision_promised",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.43,
+   "actors": [
+    "Bramblewick Studios",
+    "Elin Bjork"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_studio_decision_promised"
+  },
+  {
+   "id": "hire_subtitling_test_feedback",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.71,
+   "actors": [
+    "Noor Haddad",
+    "Subtitling Agency"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_subtitling_test_feedback"
+  },
+  {
+   "id": "hire_wardclerk_interview_invites",
+   "kind": "sufficient",
+   "category": "hiring_response",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.04,
+   "actors": [
+    "Calloway Regional Hospital HR"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/hire_wardclerk_interview_invites"
+  },
+  {
+   "id": "ins_allhands_after_shutdown",
+   "kind": "insufficient",
+   "category": "contradictory_premise",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.48,
+   "actors": [
+    "CEO"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_allhands_after_shutdown"
+  },
+  {
+   "id": "ins_bare_question_mark",
+   "kind": "insufficient",
+   "category": "empty_question",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is empty, so there is no social scenario to simulate.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.22,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_bare_question_mark"
+  },
+  {
+   "id": "ins_battery_cold_start",
+   "kind": "insufficient",
+   "category": "pure_physics",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision or actor who can decide or act; it is a pure physics/operations question with no social simulation to perfor",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 3.0,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_battery_cold_start"
+  },
+  {
+   "id": "ins_beam_load_physics",
+   "kind": "insufficient",
+   "category": "pure_physics",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a structural engineering calculation with no social decision or actor interaction to simulate.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 2.0,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_beam_load_physics"
+  },
+  {
+   "id": "ins_capital_lookup",
+   "kind": "insufficient",
+   "category": "pure_fact_lookup",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a factual lookup, not a social simulation with observable decisions or actions.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.67,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_capital_lookup"
+  },
+  {
+   "id": "ins_city_nicer_taste",
+   "kind": "insufficient",
+   "category": "matter_of_taste",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a subjective comparison with no observable social event or decision to simulate.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.68,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_city_nicer_taste"
+  },
+  {
+   "id": "ins_company_improve_vague",
+   "kind": "insufficient",
+   "category": "vague_no_observable",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The question asks 'Will things get better for the company next quarter?' but the scene provides no specific company identity, no financial data, no market conditions, and no decision-makers with concrete information. The single actor 'Company leadership' is a generic placeholder with no priva",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.78,
+   "actors": [
+    "Company leadership"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_company_improve_vague"
+  },
+  {
+   "id": "ins_deadline_before_open",
+   "kind": "insufficient",
+   "category": "contradictory_premise",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The question asks whether Priya will submit before the deadline, but the deadline passed a month before applications opened, which is a self-contradictory or impossible premise. The scene cannot simulate a meaningful social decision under these conditions.",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.02,
+   "actors": [
+    "Priya"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_deadline_before_open"
+  },
+  {
+   "id": "ins_earlier_application_cf",
+   "kind": "insufficient",
+   "category": "past_counterfactual",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler: UNRESOLVABLE: The question asks about a past counterfactual (whether Rosa would have gotten the interview if she had applied earlier last spring), which cannot be resolved by observing future events from the simulation start time.",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 3.17,
+   "actors": [
+    "Rosa",
+    "Hiring Manager"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_earlier_application_cf"
+  },
+  {
+   "id": "ins_happy_in_job_feelings",
+   "kind": "insufficient",
+   "category": "unstated_feelings",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler: UNRESOLVABLE: The question asks about an internal state ('happy') with no observable proxy provided; happiness is not directly observable in the simulation's event history.",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 2.79,
+   "actors": [
+    "User"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_happy_in_job_feelings"
+  },
+  {
+   "id": "ins_logo_prettier_taste",
+   "kind": "insufficient",
+   "category": "matter_of_taste",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks for a subjective aesthetic comparison with no observable social event that could resolve it.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.8,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_logo_prettier_taste"
+  },
+  {
+   "id": "ins_merger_cfo_cf",
+   "kind": "insufficient",
+   "category": "past_counterfactual",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The question asks about a historical counterfactual (2019 merger) but the simulation is set in 2026, which is after the known outcome. The scene does not specify that it is a counterfactual simulation starting from a point before the outcome, and the resolution condition (checking if merger c",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 6.39,
+   "actors": [
+    "Aldergate Rail",
+    "Valdoria Metro"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_merger_cfo_cf"
+  },
+  {
+   "id": "ins_morale_no_observable",
+   "kind": "insufficient",
+   "category": "missing_observable_outcome",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.06,
+   "actors": [
+    "Support Team Members",
+    "Kestrel Analytics Management"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_morale_no_observable"
+  },
+  {
+   "id": "ins_neighbors_improve_vague",
+   "kind": "insufficient",
+   "category": "vague_no_observable",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.24,
+   "actors": [
+    "Resident",
+    "Neighbors"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_neighbors_improve_vague"
+  },
+  {
+   "id": "ins_permit_no_decider",
+   "kind": "insufficient",
+   "category": "missing_decision_maker",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The question asks about a specific permit approval, but the scene provides no identifying details about the permit, the applicant, the reviewing body, or the jurisdiction. The actors 'Applicant' and 'Permit Reviewer' are generic placeholders with no connection to any real or referenced entity",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.35,
+   "actors": [
+    "Applicant",
+    "Permit Reviewer"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_permit_no_decider"
+  },
+  {
+   "id": "ins_promotion_no_decider",
+   "kind": "insufficient",
+   "category": "missing_decision_maker",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.14,
+   "actors": [
+    "Manager",
+    "Candidate"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_promotion_no_decider"
+  },
+  {
+   "id": "ins_regret_move_feelings",
+   "kind": "insufficient",
+   "category": "unstated_feelings",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler: UNRESOLVABLE: The question asks about an internal emotional state ('regret') with no observable proxy provided; regret is not directly observable in the event history.",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 3.03,
+   "actors": [
+    "User",
+    "Partner"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_regret_move_feelings"
+  },
+  {
+   "id": "ins_respect_no_observable",
+   "kind": "insufficient",
+   "category": "missing_observable_outcome",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.6,
+   "actors": [
+    "Amara",
+    "Coworker 1",
+    "Coworker 2",
+    "Coworker 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_respect_no_observable"
+  },
+  {
+   "id": "ins_so_what_do_you_think",
+   "kind": "insufficient",
+   "category": "empty_question",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question does not refer to any party who could decide or act, and no observable social event is described.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.33,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_so_what_do_you_think"
+  },
+  {
+   "id": "ins_treaty_year_lookup",
+   "kind": "insufficient",
+   "category": "pure_fact_lookup",
+   "historical": false,
+   "status": "abstained",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is a pure factual lookup with no social decision to simulate.)",
+   "semantic_calls": 1,
+   "provider_requests": 1,
+   "wall_s": 1.49,
+   "actors": [],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/ins_treaty_year_lookup"
+  },
+  {
+   "id": "leg_coop_pet_policy_turnout",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.41,
+   "actors": [
+    "Sunmark housing cooperative board",
+    "Sunmark housing cooperative members"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_coop_pet_policy_turnout"
+  },
+  {
+   "id": "leg_deklerk_opening_address",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": true,
+   "status": "abstained",
+   "reason": "scene: The scene includes only F. W. de Klerk as an actor, but the resolution depends on an observable event (delivery of an address) that requires at minimum an audience or institutional context to be meaningfully simulated. The question asks about a real historical event, and the scene lacks any o",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 6.11,
+   "actors": [
+    "F. W. de Klerk"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_deklerk_opening_address"
+  },
+  {
+   "id": "leg_parish_precept_adoption",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.38,
+   "actors": [
+    "Kettlewell Parish Council"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_parish_precept_adoption"
+  },
+  {
+   "id": "leg_school_board_start_times",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.21,
+   "actors": [
+    "Marlin Bay Unified school board (as a body)",
+    "Parent group"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_school_board_start_times"
+  },
+  {
+   "id": "leg_senate_passfail_motion",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The scene treats the Academic Senate as a single monolithic actor, but a deliberative body that votes is composed of individual members whose interactions and voting decisions are the core of the social simulation. The question asks about a decision made by a group, which inherently involves ",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.86,
+   "actors": [
+    "Academic Senate"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_senate_passfail_motion"
+  },
+  {
+   "id": "leg_str_second_reading",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.47,
+   "actors": [
+    "Riverton city council"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_str_second_reading"
+  },
+  {
+   "id": "leg_valdoria_rail_hearing",
+   "kind": "sufficient",
+   "category": "legislative_institutional",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.0,
+   "actors": [
+    "Transport Committee Chair",
+    "Transport Committee Members"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/leg_valdoria_rail_hearing"
+  },
+  {
+   "id": "mix_alsmith_dinner_2016",
+   "kind": "sufficient",
+   "category": "mixed_social_scheduled",
+   "historical": true,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.35,
+   "actors": [
+    "Hillary Clinton",
+    "Donald Trump"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_alsmith_dinner_2016"
+  },
+  {
+   "id": "mix_eclipse_party_confirm",
+   "kind": "sufficient",
+   "category": "mixed_social_scheduled",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The scene lacks sufficient information to identify the decision-maker or the observed resolving event. The astronomy club president is an invented actor not referenced in the question or context; the question only mentions 'the astronomy club's president' as a role, but the scene provides no ",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.8,
+   "actors": [
+    "Astronomy Club President"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_eclipse_party_confirm"
+  },
+  {
+   "id": "mix_marathon_water_table",
+   "kind": "sufficient",
+   "category": "mixed_social_scheduled",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.58,
+   "actors": [
+    "Priya",
+    "Alder Court neighbors (as a group)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_marathon_water_table"
+  },
+  {
+   "id": "mix_play_flowers_by_curtain",
+   "kind": "sufficient",
+   "category": "mixed_social_scheduled",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.84,
+   "actors": [
+    "Parents' group"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_play_flowers_by_curtain"
+  },
+  {
+   "id": "mix_results_day_phone_call",
+   "kind": "sufficient",
+   "category": "mixed_social_scheduled",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.01,
+   "actors": [
+    "Femi",
+    "Femi's mother"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_results_day_phone_call"
+  },
+  {
+   "id": "mix_v4_launch_repost",
+   "kind": "sufficient",
+   "category": "mixed_social_scheduled",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.29,
+   "actors": [
+    "CEO",
+    "Design Partner 1",
+    "Design Partner 2",
+    "Design Partner 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/mix_v4_launch_repost"
+  },
+  {
+   "id": "neg_advisor_equity_agreement",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.37,
+   "actors": [
+    "Leila",
+    "Advisor",
+    "Co-founder"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_advisor_equity_agreement"
+  },
+  {
+   "id": "neg_fence_cost_split",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.78,
+   "actors": [
+    "Bill",
+    "Osei family"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_fence_cost_split"
+  },
+  {
+   "id": "neg_flatmates_cleaning_rota",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.55,
+   "actors": [
+    "Dana",
+    "Yusuf"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_flatmates_cleaning_rota"
+  },
+  {
+   "id": "neg_hatchback_price_gap",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.2,
+   "actors": [
+    "Ravi",
+    "Seller"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_hatchback_price_gap"
+  },
+  {
+   "id": "neg_holiday_custody_split",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.68,
+   "actors": [
+    "Ingrid",
+    "Mattias",
+    "Mediator"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_holiday_custody_split"
+  },
+  {
+   "id": "neg_illustrator_page_rate",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.99,
+   "actors": [
+    "Chen Wei",
+    "Torchlight Media"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_illustrator_page_rate"
+  },
+  {
+   "id": "neg_rent_renewal_figure",
+   "kind": "sufficient",
+   "category": "interpersonal_negotiation",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.41,
+   "actors": [
+    "Gerald",
+    "Amara"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/neg_rent_renewal_figure"
+  },
+  {
+   "id": "pop_2012_poll_releases",
+   "kind": "sufficient",
+   "category": "representative_population",
+   "historical": true,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.3,
+   "actors": [
+    "Gallup",
+    "Pew Research Center",
+    "ABC News/Washington Post",
+    "NBC News/Wall Street Journal",
+    "CBS News/New York Times",
+    "Reuters/Ipsos"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_2012_poll_releases"
+  },
+  {
+   "id": "pop_beta_waitlist_200",
+   "kind": "sufficient",
+   "category": "representative_population",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.44,
+   "actors": [
+    "Tidepool"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_beta_waitlist_200"
+  },
+  {
+   "id": "pop_bus_meeting_turnout",
+   "kind": "sufficient",
+   "category": "representative_population",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.18,
+   "actors": [
+    "Kettlewell Parish Clerk",
+    "Villagers of Kettlewell"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_bus_meeting_turnout"
+  },
+  {
+   "id": "pop_engagement_survey_60",
+   "kind": "sufficient",
+   "category": "representative_population",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.68,
+   "actors": [
+    "HR Department",
+    "Employees (400 individuals)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_engagement_survey_60"
+  },
+  {
+   "id": "pop_quarry_petition_1500",
+   "kind": "sufficient",
+   "category": "representative_population",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.07,
+   "actors": [
+    "Petition organizers",
+    "Quarry operator",
+    "Town residents (cohort)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_quarry_petition_1500"
+  },
+  {
+   "id": "pop_townhall_rsvp_half",
+   "kind": "sufficient",
+   "category": "representative_population",
+   "historical": false,
+   "status": "abstained",
+   "reason": "scene: The scene includes only 3 generic parent actors to represent 120 invited parents, which is insufficient to simulate whether more than half will RSVP. The question requires a collective outcome from 120 individuals, but the scene provides no mechanism to model the behavior of all 120 parents. ",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 6.61,
+   "actors": [
+    "Petersfield Secondary School Administration",
+    "Parent 1",
+    "Parent 2",
+    "Parent 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pop_townhall_rsvp_half"
+  },
+  {
+   "id": "pub_aldergate_profit_warning",
+   "kind": "sufficient",
+   "category": "public_communication",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.05,
+   "actors": [
+    "Aldergate Rail"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_aldergate_profit_warning"
+  },
+  {
+   "id": "pub_cameron_referendum_tv",
+   "kind": "sufficient",
+   "category": "public_communication",
+   "historical": true,
+   "status": "abstained",
+   "reason": "scene: The scene lacks the necessary actors to simulate the decision. The question asks whether David Cameron will appear in a televised set-piece event, which requires at least one other actor (e.g., a broadcaster or event organizer) to invite or schedule such an event. Without any such actor, the ",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.08,
+   "actors": [
+    "David Cameron"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_cameron_referendum_tv"
+  },
+  {
+   "id": "pub_dockworkers_endorsement",
+   "kind": "sufficient",
+   "category": "public_communication",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.17,
+   "actors": [
+    "Marlin Bay dockworkers' union local"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_dockworkers_endorsement"
+  },
+  {
+   "id": "pub_head_teacher_newsletter",
+   "kind": "sufficient",
+   "category": "public_communication",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 5.09,
+   "actors": [
+    "Head Teacher",
+    "Parent 1",
+    "Parent 2",
+    "Parent 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_head_teacher_newsletter"
+  },
+  {
+   "id": "pub_mayor_watermain_statement",
+   "kind": "sufficient",
+   "category": "public_communication",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.93,
+   "actors": [
+    "Mayor of Riverton"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_mayor_watermain_statement"
+  },
+  {
+   "id": "pub_tidepool_founder_response",
+   "kind": "sufficient",
+   "category": "public_communication",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.19,
+   "actors": [
+    "Founder of Tidepool"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/pub_tidepool_founder_response"
+  },
+  {
+   "id": "sched_2008_debate_confirmations",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": true,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.94,
+   "actors": [
+    "McCain campaign",
+    "Obama campaign"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_2008_debate_confirmations"
+  },
+  {
+   "id": "sched_advisory_offsite_date",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.74,
+   "actors": [
+    "Advisor 1",
+    "Advisor 2",
+    "Advisor 3",
+    "Advisor 4",
+    "Advisor 5",
+    "CEO's assistant"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_advisory_offsite_date"
+  },
+  {
+   "id": "sched_defense_date_window",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.66,
+   "actors": [
+    "Femi Adeyemi",
+    "Committee Member 1",
+    "Committee Member 2",
+    "Committee Member 3"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_defense_date_window"
+  },
+  {
+   "id": "sched_dental_reslot",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 3.72,
+   "actors": [
+    "Priya",
+    "Front Desk"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_dental_reslot"
+  },
+  {
+   "id": "sched_engagement_kickoff",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.72,
+   "actors": [
+    "Loomis & Hale LLP",
+    "New Client"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_engagement_kickoff"
+  },
+  {
+   "id": "sched_herrera_reunion_date",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.79,
+   "actors": [
+    "Herrera cousins (14 members)"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_herrera_reunion_date"
+  },
+  {
+   "id": "sched_ward_shift_swap",
+   "kind": "sufficient",
+   "category": "scheduling",
+   "historical": false,
+   "status": "compiled",
+   "reason": "",
+   "semantic_calls": 2,
+   "provider_requests": 2,
+   "wall_s": 4.94,
+   "actors": [
+    "Nurse Karolina",
+    "Colleagues in the ward"
+   ],
+   "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_core/sched_ward_shift_swap"
+  }
+ ],
+ "summary": {
+  "total": 120,
+  "sufficient": {
+   "n": 100,
+   "compiled_first_pass": 91.0,
+   "corrected": 0.0,
+   "schema_success": 100.0,
+   "instantiated": 91.0,
+   "abstained": 9,
+   "failed": 0
+  },
+  "insufficient": {
+   "n": 20,
+   "honest_abstention_or_structured": 75.0,
+   "abstained": 15,
+   "compiled_anyway": 5
+  },
+  "semantic_calls": {
+   "median": 2.0,
+   "max": 2,
+   "over_budget": 0
+  },
+  "wall_s": {
+   "median": 4.5600000000000005,
+   "p95": 5.95
+  },
+  "failures": []
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "info_boundaries",
+   "severity": "MAJOR",
+   "detail": "The Communications Lead's private context states they are at an offsite and may not be reachable, but this is also stated in shared context, leaking private information about their availability."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'The company can decide to send the email even without the Communications Lead' which pre-decides that the organization has the authority to bypass the lead, influencing the simulation outcome."
+  }
+ ],
+ "id": "cust_outage_notice_by_noon"
+}

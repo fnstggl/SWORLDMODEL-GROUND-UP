@@ -1,0 +1,46 @@
+{
+ "world_id": "w_cd1b4051c73e",
+ "actor_ids": {
+  "Leila": "leila",
+  "Advisor": "advisor",
+  "Co-founder": "co_founder"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-09-10T17:00:00+00:00",
+   "visible_to_ids": [
+    "leila",
+    "advisor",
+    "co_founder"
+   ],
+   "description": "Leila and the advisor are at an impasse: Leila offers 0.3% equity, the advisor wants 1%. No agreement has been reached yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "leila": {
+   "name": "Leila",
+   "persona_brief": "You are Leila.\nLeila is the founder. She is offering 0.3% equity to a prospective advisor who has asked for 1%. She knows her co-founder thinks anything above 0.5% is too rich. She wants to reach an agreement within a month."
+  },
+  "advisor": {
+   "name": "Advisor",
+   "persona_brief": "You are Advisor.\nThe advisor is a retired logistics executive who has already made two useful introductions. He has asked for 1% equity. He is considering the offer of 0.3% and may negotiate."
+  },
+  "co_founder": {
+   "name": "Co-founder",
+   "persona_brief": "You are Co-founder.\nThe co-founder thinks anything above 0.5% equity for the advisor is too rich. They have influence over Leila's decisions."
+  }
+ },
+ "resolution": {
+  "question": "Founder Leila is offering her prospective advisor 0.3 percent equity and he has asked for 1 percent. Will they execute an advisor agreement within a month?",
+  "resolution": "Resolve YES only if the persistent event history shows that an advisor agreement was executed between Leila and the advisor before 2026-10-10T10:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-10T10:00:00-07:00",
+  "world_id": "w_cd1b4051c73e"
+ }
+}

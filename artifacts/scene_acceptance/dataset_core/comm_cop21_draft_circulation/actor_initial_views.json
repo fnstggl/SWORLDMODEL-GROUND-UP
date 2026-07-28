@@ -1,0 +1,88 @@
+{
+ "french_presidency_of_cop21": {
+  "id": "french_presidency_of_cop21",
+  "name": "French Presidency of COP21",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2015-11-30T08:00:00+00:00",
+    "kind": "context",
+    "content": "The French Presidency is responsible for managing the negotiation process and producing draft texts. They aim to facilitate consensus among parties but face pressure from various national positions. They have the authority to circulate draft texts.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2015-11-30T08:00:00+00:00",
+    "kind": "context",
+    "content": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "national_delegations": {
+  "id": "national_delegations",
+  "name": "National Delegations",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2015-11-30T08:00:00+00:00",
+    "kind": "context",
+    "content": "Each delegation represents its country's interests and expects to receive draft texts for review and negotiation. They are aware of the summit schedule and the need for a final agreement.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2015-11-30T08:00:00+00:00",
+    "kind": "context",
+    "content": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

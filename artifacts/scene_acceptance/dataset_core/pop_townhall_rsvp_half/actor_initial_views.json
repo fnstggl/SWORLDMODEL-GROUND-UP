@@ -1,0 +1,88 @@
+{
+ "invited_parents_as_a_cohort": {
+  "id": "invited_parents_as_a_cohort",
+  "name": "Invited Parents (as a cohort)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T08:00:00+00:00",
+    "kind": "context",
+    "content": "Each of the 120 parents received an invitation to the town hall. They may or may not RSVP by the deadline. Their individual decisions are unknown.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T08:00:00+00:00",
+    "kind": "context",
+    "content": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "petersfield_secondary_school_administration": {
+  "id": "petersfield_secondary_school_administration",
+  "name": "Petersfield Secondary School Administration",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T08:00:00+00:00",
+    "kind": "context",
+    "content": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior knowledge of which parents will RSVP.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T08:00:00+00:00",
+    "kind": "context",
+    "content": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

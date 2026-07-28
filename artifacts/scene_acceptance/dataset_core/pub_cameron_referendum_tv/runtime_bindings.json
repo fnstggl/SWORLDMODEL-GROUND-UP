@@ -1,0 +1,46 @@
+{
+ "world_id": "w_c1673e5355e9",
+ "actor_ids": {
+  "David Cameron": "david_cameron",
+  "BBC": "bbc",
+  "ITV": "itv"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2016-05-02T08:00:00+00:00",
+   "visible_to_ids": [
+    "david_cameron",
+    "bbc",
+    "itv"
+   ],
+   "description": "The EU referendum campaign is ongoing. Broadcasters are planning televised set-piece events. No specific event featuring David Cameron has been announced yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "david_cameron": {
+   "name": "David Cameron",
+   "persona_brief": "You are David Cameron.\nCameron is Prime Minister and has called the EU referendum for 23 June 2016. He is leading the Remain campaign. He has a busy schedule and must decide which televised events to attend, balancing campaign strategy, government duties, and personal preference."
+  },
+  "bbc": {
+   "name": "BBC",
+   "persona_brief": "You are BBC.\nBBC is a major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders."
+  },
+  "itv": {
+   "name": "ITV",
+   "persona_brief": "You are ITV.\nITV is another major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders."
+  }
+ },
+ "resolution": {
+  "question": "Will Prime Minister David Cameron appear in at least one televised set-piece event about the EU referendum before polling day?",
+  "resolution": "Resolve YES if the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum before 2016-06-20T22:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2016-06-20T22:00:00+01:00",
+  "world_id": "w_c1673e5355e9"
+ }
+}

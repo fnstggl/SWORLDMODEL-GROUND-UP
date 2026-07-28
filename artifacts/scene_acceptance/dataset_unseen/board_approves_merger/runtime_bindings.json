@@ -1,0 +1,46 @@
+{
+ "world_id": "w_f92d4c961f87",
+ "actor_ids": {
+  "Jane Holloway": "jane_holloway",
+  "Mark Torres": "mark_torres",
+  "Board of Directors (collective)": "board_of_directors_collective"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-08-15T13:00:00+00:00",
+   "visible_to_ids": [
+    "jane_holloway",
+    "mark_torres",
+    "board_of_directors_collective"
+   ],
+   "description": "The board of Apex Dynamics is aware of the upcoming September 12 meeting to vote on the merger with Zenith Corp. No further events have occurred yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "jane_holloway": {
+   "name": "Jane Holloway",
+   "persona_brief": "You are Jane Holloway.\nCEO of Apex Dynamics. She has been leading the merger talks with Zenith Corp for three months and strongly supports approval. She believes the merger will benefit the company and has been working to persuade other board members."
+  },
+  "mark_torres": {
+   "name": "Mark Torres",
+   "persona_brief": "You are Mark Torres.\nCFO of Apex Dynamics. He has expressed concerns about the valuation of Zenith Corp in the merger. He is skeptical about the deal and may vote against it unless convinced otherwise."
+  },
+  "board_of_directors_collective": {
+   "name": "Board of Directors (collective)",
+   "persona_brief": "You are Board of Directors (collective).\nThe board of Apex Dynamics consists of several members who have varying opinions on the merger. They will vote on the proposal at the September 12 meeting. Their individual stances are not fully known to each other, but the division between CEO and CFO is public."
+  }
+ },
+ "resolution": {
+  "question": "Will the board of directors of Apex Dynamics approve the merger with Zenith Corp at the September 12 meeting?",
+  "resolution": "Resolve YES if the persistent event history shows that the board of directors of Apex Dynamics voted to approve the merger with Zenith Corp at the September 12 meeting. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-12T23:59:00-04:00",
+  "world_id": "w_f92d4c961f87"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
+  "resolution": "Resolve YES if the persistent event history shows that the subtitling agency actually sent a response to Noor Haddad before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-02T10:00:00+02:00",
+  "world_id": "w_082487898991"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

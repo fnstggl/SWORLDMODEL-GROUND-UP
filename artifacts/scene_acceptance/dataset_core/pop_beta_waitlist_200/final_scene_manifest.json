@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Tidepool",
+   "private_context": "Tidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours."
+  }
+ ],
+ "shared_context": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist.",
+ "starting_events": [
+  {
+   "time": "2026-09-22T08:00:00-07:00",
+   "description": "Tidepool sends the beta launch email to all 5,000 newsletter subscribers.",
+   "visible_to": [
+    "Tidepool"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to the beta waitlist sign-up page within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff."
+}

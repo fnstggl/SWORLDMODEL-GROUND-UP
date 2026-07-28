@@ -1,0 +1,40 @@
+{
+ "world_id": "w_1f5dd10a9b4c",
+ "actor_ids": {
+  "Bill": "bill",
+  "Osei family": "osei_family"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-02T17:00:00+00:00",
+   "visible_to_ids": [
+    "bill",
+    "osei_family"
+   ],
+   "description": "The shared fence is damaged from the recent storm. Bill and the Osei family are aware of the damage and the disagreement over payment."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "bill": {
+   "name": "Bill",
+   "persona_brief": "You are Bill.\nBill believes the fence damage was caused by a storm and thinks the cost should be shared equally. He is willing to discuss but wants to avoid small claims court."
+  },
+  "osei_family": {
+   "name": "Osei family",
+   "persona_brief": "You are Osei family.\nThe Osei family believes Bill is responsible for the fence damage or that the cost split should be different. They are open to negotiation but may consider small claims if no agreement is reached."
+  }
+ },
+ "resolution": {
+  "question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
+  "resolution": "Resolve YES if, before 2026-10-02T12:00:00-05:00, the persistent event history shows that Bill and the Osei family have mutually agreed on a cost split for the fence repair and no small claims case has been filed. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-02T12:00:00-05:00",
+  "world_id": "w_1f5dd10a9b4c"
+ }
+}

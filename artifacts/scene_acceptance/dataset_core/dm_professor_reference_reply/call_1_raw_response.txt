@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Professor Ilse Brandt",
+      "private_context": "Ilse Brandt is a professor at Ashvale University. She remembers Kofi Asante as a strong student who earned top marks in two of her seminars. They last spoke eight months ago. She is busy with her own work and receives many requests for references. She may prioritize requests based on her schedule and her assessment of the student's qualifications."
+    },
+    {
+      "name": "Kofi Asante",
+      "private_context": "Kofi Asante is a former student of Professor Ilse Brandt. He took two of her seminars and earned top marks. They last spoke eight months ago. He has sent a polite and specific message asking for a reference letter for a museum fellowship due in three weeks. He hopes for a prompt reply."
+    }
+  ],
+  "shared_context": "Kofi Asante has sent a message to Professor Ilse Brandt via email (or another established channel) asking for a reference letter for a museum fellowship. The message is polite and specific. The deadline for the fellowship is in three weeks from the simulation start time. Professor Brandt can reply via the same channel.",
+  "starting_events": [
+    {
+      "time": "2026-08-03T10:00:00+01:00",
+      "description": "Kofi Asante sends his message requesting a reference letter to Professor Ilse Brandt.",
+      "visible_to": ["Kofi Asante"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Professor Ilse Brandt sent a reply to Kofi Asante's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

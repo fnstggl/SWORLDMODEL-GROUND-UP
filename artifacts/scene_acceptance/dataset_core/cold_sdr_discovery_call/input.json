@@ -1,0 +1,8 @@
+{
+ "question": "Will at least one of the forty procurement leads that Brightline Software's rep Gustavo cold-emails this week agree to a discovery call before the end of the month?",
+ "start": "2026-08-03T08:00:00-07:00",
+ "cutoff": "2026-08-31T17:00:00-07:00",
+ "context": "Gustavo is a mid-tier performer selling invoice-automation software; his list is mid-market manufacturers in the Pacific Northwest, and his usual booking rate is about one call per sixty cold emails.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

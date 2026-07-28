@@ -1,0 +1,46 @@
+{
+ "world_id": "w_c31314534ade",
+ "actor_ids": {
+  "Dr. Tanaka": "dr_tanaka",
+  "Co-author A": "co_author_a",
+  "Co-author B": "co_author_b"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-08-24T00:00:00+00:00",
+   "visible_to_ids": [
+    "dr_tanaka",
+    "co_author_a",
+    "co_author_b"
+   ],
+   "description": "The 14-day resubmission period begins. Dr. Tanaka and co-authors have the revised manuscript to complete and upload before the deadline."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dr_tanaka": {
+   "name": "Dr. Tanaka",
+   "persona_brief": "You are Dr. Tanaka.\nTanaka is the lead author and has blocked out the final weekend (Sep 5-6) to integrate all revisions. She is aware of the 14-day deadline (Sep 7 23:59). She knows one co-author is at a field station with patchy email until Sep 1."
+  },
+  "co_author_a": {
+   "name": "Co-author A",
+   "persona_brief": "You are Co-author A.\nCo-author A is at a field station with patchy email until Sep 1. They have their part of the revisions to contribute."
+  },
+  "co_author_b": {
+   "name": "Co-author B",
+   "persona_brief": "You are Co-author B.\nCo-author B has normal email access and their part of the revisions to contribute."
+  }
+ },
+ "resolution": {
+  "question": "Will Dr. Tanaka and her two co-authors upload their revised manuscript before the journal's fourteen-day resubmission deadline expires?",
+  "resolution": "Resolve YES only if the persistent event history shows that the revised manuscript was successfully uploaded by Dr. Tanaka (or on her behalf) before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-07T23:59:00+09:00",
+  "world_id": "w_c31314534ade"
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene only includes the three interested residents as actors, but the tenants' association consists of many members who will vote. The other members are materially relevant because they determine the election outcome."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The private context of each interested resident is identical and includes 'plans to attend' which is a future intention that could be considered private, but it's not leaked. However, the shared context states 'three residents have expressed interest' which is public knowledge, so no major issue."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'The meeting agenda includes electing a treasurer' and 'The association's members will decide on the election during the meeting.' This pre-decides that the election will be on the agenda and that a decision will be made, but it does not pre-decide the outcome. However, the resolution says 'Resolve YES if the persistent event history shows that a treasurer was elected' which assumes the election process happens. But the question asks 'will they elect a treasurer?' The scene should not assume the election will occur; it should be possible that the meeting does not get to that agenda item or that no one is elected. The scene pre-decides that the election is on the agenda and that a decision will be made, which is a prewritten outcome. This is a major defect."
+  }
+ ],
+ "id": "comm_tenants_elect_treasurer"
+}

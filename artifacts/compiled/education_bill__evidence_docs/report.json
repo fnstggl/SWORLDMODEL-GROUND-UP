@@ -1,0 +1,64 @@
+{
+ "question": "Is the Senate going to pass the education funding bill before the August recess?",
+ "report": {
+  "reasons": [
+   "validation: terminal term counting 'final_passage_vote:education_funding_bill:': nothing can create records under this prefix",
+   "item participants[4] ('Any single senator can object to a unanimous consent request for a time agreemen') was not expressed: The item describes an action (objecting to a unanimous consent request) that is not a participant or aggregate; it belongs to the define_action category, not pa",
+   "item communication[7] ('The 10 publicly undecided senators include 4 minority-party appropriators who ha') was not expressed: references could not be resolved: communication[7]: 'undecided senators' is a aggregate, expected one of ['participant']",
+   "item communication[13] ('The 100 senators can vote on cloture on the motion to proceed to S. 3418.') was not expressed: The item describes a factual capability (100 senators can vote on cloture) that is already covered by the universal action 'transmit_information' (voting is a f",
+   "item communication[14] ('The 100 senators can vote on final passage of S. 3418.') was not expressed: The item describes a voting event that is a scheduled external event or a process, but no capability in the menu directly models a vote by a group of participan",
+   "item communication[15] ('Any single senator can object to a unanimous consent request for a time agreemen') was not expressed: The action 'object_to_unanimous_consent' is already defined. The item describes the same action with no new capability to add.",
+   "item actions[2] ('Sen. Maura Kelly may broker negotiations on the state-flexibility amendment and ') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go"
+  ],
+  "repair_rounds": [
+   [
+    "validation: terminal term counting 'cloture_motion:education_funding_bill:': nothing can create records under this prefix",
+    "item participants[4] ('Any single senator can object to a time agreement, potentially delaying final pa') was not expressed: The item describes an action (objecting to a time agreement) that is not a participant or aggregate; it belongs to a different category (define_action).",
+    "item communication[6] ('Any senator can object to a unanimous consent request for a time agreement by st') was not expressed: no valid translation: translate.communication[6]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscor",
+    "item communication[7] ('The 10 publicly undecided senators include 4 minority-party appropriators who ha') was not expressed: The item describes a group of 10 undecided senators, but the declared participants are only three named senators. The group 'undecided senators' is an aggregate",
+    "item actions[1] ('Sen. Dana Whitfield or bill manager Maura Kelly may file cloture on the motion t') was not expressed: The action 'file_cloture_motion' is already defined. The item describes a specific instance of that action (who may file it and when), which is a scheduling con",
+    "item actions[2] ('Sen. Maura Kelly may broker negotiations on the state-flexibility amendment and ') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[3] ('The 10 publicly undecided senators may decide to vote for or against cloture and') was not expressed: The item describes a possible future decision by a group already declared as an aggregate, not a new participant. The aggregate 'undecided senators' already exi"
+   ],
+   [
+    "validation: terminal term on undecided_senators:yes_votes_count: no process, action, or scheduled event moves this quantity",
+    "item participants[4] ('Any single senator can object to a time agreement, potentially delaying final pa') was not expressed: The item describes an action (objecting to a time agreement) that is not a participant or aggregate; it belongs to a different category (define_action).",
+    "item communication[7] ('The 10 publicly undecided senators include 4 minority-party appropriators who ha') was not expressed: references could not be resolved: communication[7]: 'undecided senators' is a aggregate, expected one of ['participant']",
+    "item actions[1] ('Sen. Dana Whitfield or bill manager Maura Kelly may file a cloture motion on the') was not expressed: The action 'file_cloture_motion' is already defined. The item describes a specific instance (who may file and when), which is a scheduling constraint, not a new",
+    "item actions[2] ('Sen. Maura Kelly may broker negotiations on the state-flexibility amendment and ') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go",
+    "item actions[3] ('The 10 publicly undecided senators may decide to vote for or against cloture and') was not expressed: The item describes a possible future decision by a group already declared as an aggregate ('undecided senators'), not a new participant or action. The aggregate",
+    "item actions[5] ('Any single senator may object to a unanimous consent request for a time agreemen') was not expressed: The verb 'object_to_unanimous_consent' is already defined; the item describes the same action with no new capability to add."
+   ],
+   [
+    "validation: terminal term counting 'final_passage_vote:education_funding_bill:': nothing can create records under this prefix",
+    "item participants[4] ('Any single senator can object to a unanimous consent request for a time agreemen') was not expressed: The item describes an action (objecting to a unanimous consent request) that is not a participant or aggregate; it belongs to the define_action category, not pa",
+    "item communication[7] ('The 10 publicly undecided senators include 4 minority-party appropriators who ha') was not expressed: references could not be resolved: communication[7]: 'undecided senators' is a aggregate, expected one of ['participant']",
+    "item communication[13] ('The 100 senators can vote on cloture on the motion to proceed to S. 3418.') was not expressed: The item describes a factual capability (100 senators can vote on cloture) that is already covered by the universal action 'transmit_information' (voting is a f",
+    "item communication[14] ('The 100 senators can vote on final passage of S. 3418.') was not expressed: The item describes a voting event that is a scheduled external event or a process, but no capability in the menu directly models a vote by a group of participan",
+    "item communication[15] ('Any single senator can object to a unanimous consent request for a time agreemen') was not expressed: The action 'object_to_unanimous_consent' is already defined. The item describes the same action with no new capability to add.",
+    "item actions[2] ('Sen. Maura Kelly may broker negotiations on the state-flexibility amendment and ') was not expressed: no valid translation: translate.actions[2]: no valid response after 3 attempts: [\"create_record.subject: lowercase slug required (letters/digits/underscore), go"
+   ]
+  ],
+  "reviews": null,
+  "validation": {
+   "blocking": [
+    "terminal term counting 'final_passage_vote:education_funding_bill:': nothing can create records under this prefix"
+   ],
+   "dry_run": {
+    "events_fired": 7,
+    "final_answer": {
+     "answer": "no",
+     "computed_from": [
+      "terminal.cutoff"
+     ],
+     "detail": "The bill does not pass before the recess."
+    },
+    "status": "cutoff"
+   },
+   "needs_review": [],
+   "patchable": [],
+   "warnings": []
+  }
+ },
+ "status": "failed"
+}

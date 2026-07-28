@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "dmytro": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dmytro",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has his own assessment of his qualifications, career ambitions, and any personal circumstances that may influence his decision.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-17T07:00:00+00:00"
+    },
+    {
+     "content": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07 at 17:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-17T07:00:00+00:00"
+    }
+   ],
+   "name": "Dmytro",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will warehouse supervisor Dmytro formally apply for the newly posted operations-manager role at his own company before applications close in three weeks?",
+  "scene:shared_context": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07 at 17:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-17T07:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-17T07:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

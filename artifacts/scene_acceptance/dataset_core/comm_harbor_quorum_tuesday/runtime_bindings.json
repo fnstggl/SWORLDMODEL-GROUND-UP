@@ -1,0 +1,88 @@
+{
+ "world_id": "w_d70b06ec32f6",
+ "actor_ids": {
+  "Chair": "chair",
+  "Member 1": "member_1",
+  "Member 2": "member_2",
+  "Member 3": "member_3",
+  "Member 4": "member_4",
+  "Member 5": "member_5",
+  "Member 6": "member_6",
+  "Member 7": "member_7",
+  "Member 8": "member_8",
+  "Member 9": "member_9"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 35,
+   "at": "2026-08-09T15:00:00+00:00",
+   "visible_to_ids": [
+    "chair",
+    "member_1",
+    "member_2",
+    "member_3",
+    "member_4",
+    "member_5",
+    "member_6",
+    "member_7",
+    "member_8",
+    "member_9"
+   ],
+   "description": "The committee's rescheduled Tuesday evening meeting is set for 2026-08-11T19:00:00-07:00. The chair and three members have confirmed; two are traveling; four have not yet indicated their plans."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "chair": {
+   "name": "Chair",
+   "persona_brief": "You are Chair.\nThe chair has never missed a session and intends to attend this rescheduled meeting as well."
+  },
+  "member_1": {
+   "name": "Member 1",
+   "persona_brief": "You are Member 1.\nOne of the two members who are traveling during the school-holiday week; may not be able to attend."
+  },
+  "member_2": {
+   "name": "Member 2",
+   "persona_brief": "You are Member 2.\nThe other traveling member; may not be able to attend."
+  },
+  "member_3": {
+   "name": "Member 3",
+   "persona_brief": "You are Member 3.\nHas already confirmed attendance at the rescheduled meeting."
+  },
+  "member_4": {
+   "name": "Member 4",
+   "persona_brief": "You are Member 4.\nHas already confirmed attendance at the rescheduled meeting."
+  },
+  "member_5": {
+   "name": "Member 5",
+   "persona_brief": "You are Member 5.\nHas already confirmed attendance at the rescheduled meeting."
+  },
+  "member_6": {
+   "name": "Member 6",
+   "persona_brief": "You are Member 6.\nOne of the remaining four members whose attendance is uncertain."
+  },
+  "member_7": {
+   "name": "Member 7",
+   "persona_brief": "You are Member 7.\nOne of the remaining four members whose attendance is uncertain."
+  },
+  "member_8": {
+   "name": "Member 8",
+   "persona_brief": "You are Member 8.\nOne of the remaining four members whose attendance is uncertain."
+  },
+  "member_9": {
+   "name": "Member 9",
+   "persona_brief": "You are Member 9.\nOne of the remaining four members whose attendance is uncertain."
+  }
+ },
+ "resolution": {
+  "question": "The Marlin Bay harbor advisory committee needs five of its nine members present to act. Will it reach quorum at its rescheduled Tuesday evening meeting?",
+  "resolution": "Resolve YES if at least five members (including the chair) are physically present at the meeting location at the scheduled start time or within 15 minutes thereafter, as recorded in the meeting minutes or attendance log. Otherwise resolve NO at the hard cutoff.",
+  "cutoff": "2026-08-11T21:00:00-07:00",
+  "world_id": "w_d70b06ec32f6"
+ }
+}

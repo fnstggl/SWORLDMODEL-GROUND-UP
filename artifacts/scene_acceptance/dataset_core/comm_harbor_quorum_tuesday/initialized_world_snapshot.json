@@ -1,0 +1,461 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "chair": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "chair",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The chair has never missed a session and intends to attend this rescheduled meeting as well.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Chair",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the two members who are traveling during the school-holiday week; may not be able to attend.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The other traveling member; may not be able to attend.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Has already confirmed attendance at the rescheduled meeting.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Has already confirmed attendance at the rescheduled meeting.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 4",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_5": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_5",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Has already confirmed attendance at the rescheduled meeting.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 5",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_6": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_6",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the remaining four members whose attendance is uncertain.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 6",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_7": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_7",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the remaining four members whose attendance is uncertain.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 7",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_8": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_8",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the remaining four members whose attendance is uncertain.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 8",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "member_9": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "member_9",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the remaining four members whose attendance is uncertain.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-09T15:00:00+00:00"
+    }
+   ],
+   "name": "Member 9",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "The Marlin Bay harbor advisory committee needs five of its nine members present to act. Will it reach quorum at its rescheduled Tuesday evening meeting?",
+  "scene:shared_context": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-09T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-09T15:00:00+00:00",
+ "terminal": null,
+ "version": 35,
+ "watches": {}
+}

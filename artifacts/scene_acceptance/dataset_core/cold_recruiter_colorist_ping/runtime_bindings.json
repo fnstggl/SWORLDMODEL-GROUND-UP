@@ -1,0 +1,39 @@
+{
+ "world_id": "w_2c64246a9ded",
+ "actor_ids": {
+  "Recruiter from Torchlight Media": "recruiter_from_torchlight_media",
+  "Petra Kovac": "petra_kovac"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-07T08:00:00+00:00",
+   "visible_to_ids": [
+    "recruiter_from_torchlight_media"
+   ],
+   "description": "The recruiter sends the first-contact message to Petra Kovac about the opening at Torchlight Media."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "recruiter_from_torchlight_media": {
+   "name": "Recruiter from Torchlight Media",
+   "persona_brief": "You are Recruiter from Torchlight Media.\nThe recruiter has identified Petra Kovac as a potential candidate for an opening at Torchlight Media. They have prepared a first-contact message to send to Petra."
+  },
+  "petra_kovac": {
+   "name": "Petra Kovac",
+   "persona_brief": "You are Petra Kovac.\nPetra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability."
+  }
+ },
+ "resolution": {
+  "question": "A recruiter from Torchlight Media is sending Petra Kovac, a senior colorist who is happily employed elsewhere, a first-contact message about an opening. Will Petra reply at all within five business days?",
+  "resolution": "Resolve YES if the persistent event history shows that Petra Kovac sent any reply to the recruiter's message before 2026-09-14T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-14T18:00:00+02:00",
+  "world_id": "w_2c64246a9ded"
+ }
+}

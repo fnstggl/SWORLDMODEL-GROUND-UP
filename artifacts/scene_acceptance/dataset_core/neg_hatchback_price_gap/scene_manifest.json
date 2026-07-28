@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Ravi",
+   "private_context": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He has three days before the listing expires."
+  },
+  {
+   "name": "Seller",
+   "private_context": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. The listing expires in three days."
+  }
+ ],
+ "shared_context": "There is a 2019 hatchback listed for sale by a private seller. Ravi and the seller are 40,000 rupees apart on price. The listing will expire on 2026-08-23T10:00:00+05:30. They can communicate through the listing platform or other means.",
+ "starting_events": [
+  {
+   "time": "2026-08-20T10:00:00+05:30",
+   "description": "Ravi and the seller are aware of each other's positions: Ravi has made an offer 40,000 rupees below the seller's asking price, and the seller has not yet accepted or countered.",
+   "visible_to": [
+    "Ravi",
+    "Seller"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Ravi and the seller agreed on a price (e.g., a binding acceptance or signed agreement) before 2026-08-23T10:00:00+05:30. Otherwise resolve NO at the cutoff."
+}

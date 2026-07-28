@@ -1,0 +1,40 @@
+{
+ "world_id": "w_bbc75d0a11d7",
+ "actor_ids": {
+  "Kofi": "kofi",
+  "Second Referee": "second_referee"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-13T21:00:00+00:00",
+   "visible_to_ids": [
+    "kofi",
+    "second_referee"
+   ],
+   "description": "The simulation begins. The second referee has not yet uploaded the letter."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "kofi": {
+   "name": "Kofi",
+   "persona_brief": "You are Kofi.\nKofi has asked a second referee to upload a letter for a fellowship application. The referee has not yet uploaded it. Kofi knows the portal deadline is 2026-09-15T09:00:00+00:00."
+  },
+  "second_referee": {
+   "name": "Second Referee",
+   "persona_brief": "You are Second Referee.\nThe second referee has been asked by Kofi to upload a letter for a fellowship application. They have not yet done so. They may have other commitments or may be unaware of the deadline."
+  }
+ },
+ "resolution": {
+  "question": "Will Kofi's second referee upload her letter before the fellowship portal's hard deadline 36 hours from now?",
+  "resolution": "Resolve YES if the persistent event history shows that the second referee uploaded the letter before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-15T09:00:00+00:00",
+  "world_id": "w_bbc75d0a11d7"
+ }
+}

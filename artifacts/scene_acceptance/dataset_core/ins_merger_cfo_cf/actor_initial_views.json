@@ -1,0 +1,88 @@
+{
+ "aldergate_rail_ceo": {
+  "id": "aldergate_rail_ceo",
+  "name": "Aldergate Rail CEO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "Aldergate Rail CEO is leading the company's merger with Valdoria Metro. The merger is under regulatory review and requires internal approvals. The CFO resigned in autumn 2019, which may have affected the merger process. The CEO is evaluating whether to proceed with the merger despite the CFO's departure.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "The proposed merger between Aldergate Rail and Valdoria Metro was announced in 2019. The CFO of Aldergate Rail resigned in autumn 2019. The merger requires approval from both companies' boards and relevant regulators. The resignation may have implications for the merger's financial structuring and internal support.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "valdoria_metro_ceo": {
+  "id": "valdoria_metro_ceo",
+  "name": "Valdoria Metro CEO",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "Valdoria Metro CEO is considering a merger with Aldergate Rail. The merger is subject to regulatory approval and internal board decisions. The CEO is aware of the CFO's resignation at Aldergate Rail and is assessing its impact on the merger.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T09:00:00+00:00",
+    "kind": "context",
+    "content": "The proposed merger between Aldergate Rail and Valdoria Metro was announced in 2019. The CFO of Aldergate Rail resigned in autumn 2019. The merger requires approval from both companies' boards and relevant regulators. The resignation may have implications for the merger's financial structuring and internal support.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

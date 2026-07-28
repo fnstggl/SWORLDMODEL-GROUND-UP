@@ -1,0 +1,88 @@
+{
+ "mayor_elena_vasquez": {
+  "id": "mayor_elena_vasquez",
+  "name": "Mayor Elena Vasquez",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T05:00:00+00:00",
+    "kind": "context",
+    "content": "Mayor Vasquez has threatened to veto the budget unless the council restores library funding. She is considering whether to sign or veto the budget before the October 1 deadline.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T05:00:00+00:00",
+    "kind": "context",
+    "content": "The city council of Oakwood passed a revised budget on September 14, which now awaits the mayor's signature. The fiscal year begins October 1. The mayor has threatened a veto unless the council restores funding for the library.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "oakwood_city_council": {
+  "id": "oakwood_city_council",
+  "name": "Oakwood City Council",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-15T05:00:00+00:00",
+    "kind": "context",
+    "content": "The council passed a revised budget on September 14, which now awaits the mayor's signature. They are aware of the mayor's veto threat regarding library funding.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-15T05:00:00+00:00",
+    "kind": "context",
+    "content": "The city council of Oakwood passed a revised budget on September 14, which now awaits the mayor's signature. The fiscal year begins October 1. The mayor has threatened a veto unless the council restores funding for the library.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Loomis & Hale LLP",
+      "private_context": "The firm signed a new client this morning. They want to schedule a kickoff meeting soon to begin work. They have internal calendars and preferences for meeting times."
+    },
+    {
+      "name": "New Client",
+      "private_context": "The client signed an engagement letter with Loomis & Hale LLP this morning. They are available to discuss scheduling a kickoff meeting. They have their own calendar and preferences."
+    }
+  ],
+  "shared_context": "An engagement letter was signed between Loomis & Hale LLP and the new client on the morning of 2026-10-06. Both parties have the contact information to communicate about scheduling a kickoff meeting. The 72-hour window for agreement ends at 2026-10-09T09:30:00-07:00.",
+  "starting_events": [
+    {
+      "time": "2026-10-06T09:30:00-07:00",
+      "description": "The engagement letter is signed, initiating the client relationship.",
+      "visible_to": ["Loomis & Hale LLP", "New Client"]
+    }
+  ],
+  "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that both parties have explicitly agreed on a specific date and time for a kickoff meeting (e.g., via email, calendar invitation, or other documented communication). Otherwise resolve NO at the cutoff."
+}

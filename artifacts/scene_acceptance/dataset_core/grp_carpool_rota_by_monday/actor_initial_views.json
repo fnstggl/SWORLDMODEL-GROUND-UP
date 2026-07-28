@@ -1,0 +1,131 @@
+{
+ "family_1": {
+  "id": "family_1",
+  "name": "Family 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Family 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "family_2": {
+  "id": "family_2",
+  "name": "Family 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Family 2 has one child who needs a ride. They can drive on some days but have limited availability. They are open to a rota if it works for everyone.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "family_3": {
+  "id": "family_3",
+  "name": "Family 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Family 3 has three children. They are eager to set up a carpool to reduce their driving burden. They are flexible on days.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

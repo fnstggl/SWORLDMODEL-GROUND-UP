@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "alder_court_neighbors_as_a_group": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "alder_court_neighbors_as_a_group",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Nine households on Alder Court have said they are in for setting up the water table. They have discussed it all month on the app. They have not yet set up the table as of the simulation start.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-08T15:00:00+00:00"
+    },
+    {
+     "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-08T15:00:00+00:00"
+    }
+   ],
+   "name": "Alder Court neighbors (as a group)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "priya": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "priya",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Priya has already bought cups for the water table. She is one of the Alder Court neighbors who discussed the plan on the app. She wants the table to be set up before the runners pass.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-08T15:00:00+00:00"
+    },
+    {
+     "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-08T15:00:00+00:00"
+    }
+   ],
+   "name": "Priya",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "The Riverton marathon starts Sunday at 07:00. Will the Alder Court neighbors, who have discussed it all month on the app, actually set up their planned water table before the first runners pass around 08:30?",
+  "scene:shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-08T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-08T15:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -1,0 +1,8 @@
+{
+ "question": "Will the United States Senate ratify the Treaty of Versailles before the end of 1919?",
+ "start": "1919-01-01T00:00:00-05:00",
+ "cutoff": "1919-12-31T23:59:00-05:00",
+ "context": "The Treaty of Versailles was signed in June 1919, ending World War I. President Woodrow Wilson pushed for ratification, but the Senate was divided, with isolationists opposing. The question does not state the outcome.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

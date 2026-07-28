@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Priya",
+      "private_context": "Priya wants to apply to a program. She is aware that the deadline passed a month before applications opened, but she still intends to submit an application. She has not yet submitted."
+    }
+  ],
+  "shared_context": "The program's deadline passed a month before applications opened. The application system is still accepting submissions, but the deadline has already passed.",
+  "starting_events": [
+    {
+      "time": "2026-08-05T09:00:00+05:30",
+      "description": "Priya has not yet submitted her application. The deadline has already passed.",
+      "visible_to": ["Priya"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that Priya submitted an application before the hard cutoff. Otherwise resolve NO at the cutoff."
+}

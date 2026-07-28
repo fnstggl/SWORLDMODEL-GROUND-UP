@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "info_boundaries",
+   "severity": "MAJOR",
+   "detail": "The shared context states that the Head Teacher may or may not have heard about the parents' discussion, but the starting events description 'The Head Teacher is at school and may or may not have heard about the parents' discussion' is visible only to the parents, not to the Head Teacher. This implies the Head Teacher's knowledge state is being treated as shared or observable by parents, which leaks private information about the Head Teacher's awareness."
+  }
+ ],
+ "id": "pub_head_teacher_newsletter"
+}

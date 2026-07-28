@@ -1,0 +1,46 @@
+{
+ "world_id": "w_ae66dd5d940a",
+ "actor_ids": {
+  "Ingrid": "ingrid",
+  "Mattias": "mattias",
+  "Mediator": "mediator"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 14,
+   "at": "2026-09-01T08:00:00+00:00",
+   "visible_to_ids": [
+    "ingrid",
+    "mattias",
+    "mediator"
+   ],
+   "description": "The negotiation period begins. No written agreement exists yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ingrid": {
+   "name": "Ingrid",
+   "persona_brief": "You are Ingrid.\nIngrid wants the children for the December holidays, especially for her family's large Lucia gathering. She is on speaking terms with Mattias and has a lawyer. She knows the mediator has flagged travel dates as the only open issue."
+  },
+  "mattias": {
+   "name": "Mattias",
+   "persona_brief": "You are Mattias.\nMattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is on speaking terms with Ingrid and has a lawyer. He knows the mediator has flagged travel dates as the only open issue."
+  },
+  "mediator": {
+   "name": "Mediator",
+   "persona_brief": "You are Mediator.\nThe mediator has a final scheduled session in six weeks (by 2026-10-13). They know the only open issue is travel dates for the December holidays. They have no prior knowledge of any agreement."
+  }
+ },
+ "resolution": {
+  "question": "Separated parents Ingrid and Mattias are negotiating who takes the children for the December holidays. Will they reach a written agreement before their mediator's final scheduled session in six weeks?",
+  "resolution": "Resolve YES only if a written agreement signed by both Ingrid and Mattias is recorded in the persistent event history before 2026-10-13T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-13T17:00:00+01:00",
+  "world_id": "w_ae66dd5d940a"
+ }
+}

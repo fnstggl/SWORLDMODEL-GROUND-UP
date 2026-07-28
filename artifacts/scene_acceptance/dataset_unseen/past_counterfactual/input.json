@@ -1,0 +1,8 @@
+{
+ "question": "Would the Allies have won World War II if the D-Day invasion had failed?",
+ "start": "2026-08-01T00:00:00+00:00",
+ "cutoff": "2026-08-31T23:59:00+00:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

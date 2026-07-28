@@ -1,0 +1,131 @@
+{
+ "bbc": {
+  "id": "bbc",
+  "name": "BBC",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2016-05-02T08:00:00+00:00",
+    "kind": "context",
+    "content": "BBC is a major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2016-05-02T08:00:00+00:00",
+    "kind": "context",
+    "content": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "david_cameron": {
+  "id": "david_cameron",
+  "name": "David Cameron",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2016-05-02T08:00:00+00:00",
+    "kind": "context",
+    "content": "Cameron is Prime Minister and has called the EU referendum for 23 June 2016. He is leading the Remain campaign. He has a busy schedule and must decide which televised events to attend, balancing campaign strategy, government duties, and personal preference.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2016-05-02T08:00:00+00:00",
+    "kind": "context",
+    "content": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "itv": {
+  "id": "itv",
+  "name": "ITV",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2016-05-02T08:00:00+00:00",
+    "kind": "context",
+    "content": "ITV is another major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2016-05-02T08:00:00+00:00",
+    "kind": "context",
+    "content": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "jordan_reyes": {
+  "id": "jordan_reyes",
+  "name": "Jordan Reyes",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-27T14:00:00+00:00",
+    "kind": "context",
+    "content": "Jordan Reyes is the founder of a bootstrapped sports-analytics startup. He has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. He plans to send it today and does not intend to follow up.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-27T14:00:00+00:00",
+    "kind": "context",
+    "content": "Jordan Reyes has Mark Cuban's public email address and can send the cold email. The email will be sent from Jordan's account to Mark's inbox. Mark may or may not read it, and may or may not respond.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "mark_cuban": {
+  "id": "mark_cuban",
+  "name": "Mark Cuban",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-27T14:00:00+00:00",
+    "kind": "context",
+    "content": "Mark Cuban is a billionaire investor and entrepreneur, known for being on Shark Tank and for his Cost Plus Drugs company. He receives a high volume of emails and often responds to concise, relevant pitches that catch his interest, but his response rate is low. He has no prior relationship with Jordan Reyes.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-27T14:00:00+00:00",
+    "kind": "context",
+    "content": "Jordan Reyes has Mark Cuban's public email address and can send the cold email. The email will be sent from Jordan's account to Mark's inbox. Mark may or may not read it, and may or may not respond.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

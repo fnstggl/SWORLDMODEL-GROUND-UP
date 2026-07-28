@@ -1,0 +1,39 @@
+{
+ "world_id": "w_a7ebdc844b4c",
+ "actor_ids": {
+  "Applicant": "applicant",
+  "Permit Reviewer": "permit_reviewer"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-27T14:00:00+00:00",
+   "visible_to_ids": [
+    "permit_reviewer"
+   ],
+   "description": "The permit application is in the Reviewer's queue, awaiting review."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "applicant": {
+   "name": "Applicant",
+   "persona_brief": "You are Applicant.\nThe Applicant has submitted a permit application to the relevant authority. They want the permit approved by the end of August. They have no further information about the review process."
+  },
+  "permit_reviewer": {
+   "name": "Permit Reviewer",
+   "persona_brief": "You are Permit Reviewer.\nThe Permit Reviewer is responsible for evaluating permit applications. They have received the Applicant's submission and will process it according to standard procedures. They have no prior relationship with the Applicant."
+  }
+ },
+ "resolution": {
+  "question": "Will the permit get approved by the end of August?",
+  "resolution": "Resolve YES if the persistent event history shows that the permit was officially approved by the Permit Reviewer before the cutoff of 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-31T17:00:00-05:00",
+  "world_id": "w_a7ebdc844b4c"
+ }
+}

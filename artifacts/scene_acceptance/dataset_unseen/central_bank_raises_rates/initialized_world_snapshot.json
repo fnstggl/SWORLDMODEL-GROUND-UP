@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "federal_open_market_committee_fomc": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "federal_open_market_committee_fomc",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The FOMC is the body that sets the federal funds rate. Its members have access to current economic data, forecasts, and internal deliberations. They are aware of the upcoming September 2026 meeting and the need to decide on interest rates based on their dual mandate.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-01T04:00:00+00:00"
+    },
+    {
+     "content": "The Federal Reserve's Federal Open Market Committee (FOMC) is scheduled to meet in September 2026 to decide on interest rates. The meeting is a regular policy meeting. Economic conditions, inflation, employment, and other factors will be considered. The decision will be announced after the meeting.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-01T04:00:00+00:00"
+    }
+   ],
+   "name": "Federal Open Market Committee (FOMC)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Federal Reserve raise interest rates at its September 2026 meeting?",
+  "scene:shared_context": "The Federal Reserve's Federal Open Market Committee (FOMC) is scheduled to meet in September 2026 to decide on interest rates. The meeting is a regular policy meeting. Economic conditions, inflation, employment, and other factors will be considered. The decision will be announced after the meeting."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-01T04:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-01T04:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

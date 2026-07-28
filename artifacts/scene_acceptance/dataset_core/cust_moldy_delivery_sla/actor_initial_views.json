@@ -1,0 +1,88 @@
+{
+ "hana_suzuki": {
+  "id": "hana_suzuki",
+  "name": "Hana Suzuki",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-19T04:00:00+00:00",
+    "kind": "context",
+    "content": "Hana Suzuki received a moldy delivery from Ostara Foods. She has drafted a complaint and intends to send it to Ostara Foods' support desk. She expects a reply within 24 hours as advertised.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-19T04:00:00+00:00",
+    "kind": "context",
+    "content": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "ostara_foods_support_desk": {
+  "id": "ostara_foods_support_desk",
+  "name": "Ostara Foods Support Desk",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-19T04:00:00+00:00",
+    "kind": "context",
+    "content": "The support desk handles customer complaints and aims to respond within 24 hours. They have not yet received Hana Suzuki's complaint.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-19T04:00:00+00:00",
+    "kind": "context",
+    "content": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

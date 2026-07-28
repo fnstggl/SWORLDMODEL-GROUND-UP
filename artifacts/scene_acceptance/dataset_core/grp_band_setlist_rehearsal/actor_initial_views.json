@@ -1,0 +1,45 @@
+{
+ "cheap_detour_band_as_a_unit": {
+  "id": "cheap_detour_band_as_a_unit",
+  "name": "Cheap Detour (band as a unit)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T17:00:00+00:00",
+    "kind": "context",
+    "content": "The four members have a wedding gig on Saturday and need to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has personal preferences and song ideas, but no agreement has been reached yet.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T17:00:00+00:00",
+    "kind": "context",
+    "content": "The band Cheap Detour has a wedding gig on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at an unspecified time before 22:00. The setlist must be twelve songs. No setlist has been settled yet.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

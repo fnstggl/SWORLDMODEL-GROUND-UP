@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Robert Chen",
+   "private_context": "Robert Chen is the CEO of GreenLeaf Energy. He is aware of the insider trading allegations that have been made public. He is considering his options, including whether to resign, but has not made a decision yet. He has personal and professional incentives to either stay or leave."
+  },
+  {
+   "name": "GreenLeaf Energy Board of Directors",
+   "private_context": "The board is aware of the insider trading allegations against Robert Chen. They have the authority to accept or request his resignation. They are monitoring the situation and have not yet taken any formal action."
+  }
+ ],
+ "shared_context": "Insider trading allegations against Robert Chen, CEO of GreenLeaf Energy, have been publicly reported. The allegations are under investigation by relevant authorities. The company's stock price has been volatile. There is media and investor attention on the matter.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T00:00:00+00:00",
+   "description": "The simulation begins with the insider trading allegations already public and under investigation.",
+   "visible_to": [
+    "Robert Chen",
+    "GreenLeaf Energy Board of Directors"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if, by the cutoff time, the persistent event history shows that Robert Chen has formally resigned as CEO of GreenLeaf Energy (e.g., a public announcement, a filed resignation letter, or a board statement confirming his resignation). Otherwise resolve NO."
+}

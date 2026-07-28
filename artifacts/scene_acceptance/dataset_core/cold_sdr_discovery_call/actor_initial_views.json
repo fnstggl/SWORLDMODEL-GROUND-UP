@@ -1,0 +1,1765 @@
+{
+ "gustavo": {
+  "id": "gustavo",
+  "name": "Gustavo",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo is a mid-tier sales representative at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email each lead this week. His usual booking rate is about one discovery call per sixty cold emails.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_1": {
+  "id": "procurement_lead_1",
+  "name": "Procurement Lead 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_10": {
+  "id": "procurement_lead_10",
+  "name": "Procurement Lead 10",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_11": {
+  "id": "procurement_lead_11",
+  "name": "Procurement Lead 11",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_12": {
+  "id": "procurement_lead_12",
+  "name": "Procurement Lead 12",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_13": {
+  "id": "procurement_lead_13",
+  "name": "Procurement Lead 13",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_14": {
+  "id": "procurement_lead_14",
+  "name": "Procurement Lead 14",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_15": {
+  "id": "procurement_lead_15",
+  "name": "Procurement Lead 15",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_16": {
+  "id": "procurement_lead_16",
+  "name": "Procurement Lead 16",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_17": {
+  "id": "procurement_lead_17",
+  "name": "Procurement Lead 17",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_18": {
+  "id": "procurement_lead_18",
+  "name": "Procurement Lead 18",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_19": {
+  "id": "procurement_lead_19",
+  "name": "Procurement Lead 19",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_2": {
+  "id": "procurement_lead_2",
+  "name": "Procurement Lead 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_20": {
+  "id": "procurement_lead_20",
+  "name": "Procurement Lead 20",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_21": {
+  "id": "procurement_lead_21",
+  "name": "Procurement Lead 21",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_22": {
+  "id": "procurement_lead_22",
+  "name": "Procurement Lead 22",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_23": {
+  "id": "procurement_lead_23",
+  "name": "Procurement Lead 23",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_24": {
+  "id": "procurement_lead_24",
+  "name": "Procurement Lead 24",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_25": {
+  "id": "procurement_lead_25",
+  "name": "Procurement Lead 25",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_26": {
+  "id": "procurement_lead_26",
+  "name": "Procurement Lead 26",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_27": {
+  "id": "procurement_lead_27",
+  "name": "Procurement Lead 27",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_28": {
+  "id": "procurement_lead_28",
+  "name": "Procurement Lead 28",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_29": {
+  "id": "procurement_lead_29",
+  "name": "Procurement Lead 29",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_3": {
+  "id": "procurement_lead_3",
+  "name": "Procurement Lead 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_30": {
+  "id": "procurement_lead_30",
+  "name": "Procurement Lead 30",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_31": {
+  "id": "procurement_lead_31",
+  "name": "Procurement Lead 31",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_32": {
+  "id": "procurement_lead_32",
+  "name": "Procurement Lead 32",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_33": {
+  "id": "procurement_lead_33",
+  "name": "Procurement Lead 33",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_34": {
+  "id": "procurement_lead_34",
+  "name": "Procurement Lead 34",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_35": {
+  "id": "procurement_lead_35",
+  "name": "Procurement Lead 35",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_36": {
+  "id": "procurement_lead_36",
+  "name": "Procurement Lead 36",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_37": {
+  "id": "procurement_lead_37",
+  "name": "Procurement Lead 37",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_38": {
+  "id": "procurement_lead_38",
+  "name": "Procurement Lead 38",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_39": {
+  "id": "procurement_lead_39",
+  "name": "Procurement Lead 39",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_4": {
+  "id": "procurement_lead_4",
+  "name": "Procurement Lead 4",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_40": {
+  "id": "procurement_lead_40",
+  "name": "Procurement Lead 40",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_5": {
+  "id": "procurement_lead_5",
+  "name": "Procurement Lead 5",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_6": {
+  "id": "procurement_lead_6",
+  "name": "Procurement Lead 6",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_7": {
+  "id": "procurement_lead_7",
+  "name": "Procurement Lead 7",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_8": {
+  "id": "procurement_lead_8",
+  "name": "Procurement Lead 8",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "procurement_lead_9": {
+  "id": "procurement_lead_9",
+  "name": "Procurement Lead 9",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "A procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He can send cold emails to them via email. A discovery call is a scheduled phone or video conversation to discuss the software. The leads may or may not respond to emails.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

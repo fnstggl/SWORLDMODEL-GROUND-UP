@@ -1,0 +1,222 @@
+[
+ {
+  "id": "board_approves_merger",
+  "kind": "sufficient",
+  "category": "corporate_governance",
+  "historical": false,
+  "question": "Will the board of directors of Apex Dynamics approve the merger with Zenith Corp at the September 12 meeting?",
+  "start": "2026-08-15T09:00:00-04:00",
+  "cutoff": "2026-09-12T23:59:00-04:00",
+  "context": "Apex Dynamics, a mid-sized robotics firm, has been in merger talks with Zenith Corp for three months. The board is divided, with CEO Jane Holloway pushing for approval and CFO Mark Torres expressing concerns about valuation. The meeting is scheduled for September 12 at 10 AM Eastern.",
+  "why": "The question identifies a specific decision-making body (board of directors), a concrete action (approve merger), and a clear deadline (September 12 meeting)."
+ },
+ {
+  "id": "mayor_signs_budget",
+  "kind": "sufficient",
+  "category": "municipal_government",
+  "historical": false,
+  "question": "Will Mayor Elena Vasquez sign the city budget before the October 1 fiscal year deadline?",
+  "start": "2026-09-15T00:00:00-05:00",
+  "cutoff": "2026-10-01T23:59:00-05:00",
+  "context": "The city council of Oakwood passed a revised budget on September 14, which now awaits the mayor's signature. Mayor Vasquez has threatened a veto unless the council restores funding for the library. The fiscal year begins October 1.",
+  "why": "The question has a specific actor (Mayor Vasquez), a clear action (sign budget), and a deadline (October 1)."
+ },
+ {
+  "id": "ceo_resigns_after_scandal",
+  "kind": "sufficient",
+  "category": "corporate_governance",
+  "historical": false,
+  "question": "Will the CEO of GreenLeaf Energy, Robert Chen, resign by the end of September following the insider trading allegations?",
+  "start": "2026-09-01T00:00:00+00:00",
+  "cutoff": "2026-09-30T23:59:00+00:00",
+  "context": null,
+  "why": "The question names a specific individual (Robert Chen) and a concrete action (resign) with a time horizon."
+ },
+ {
+  "id": "union_accepts_contract",
+  "kind": "sufficient",
+  "category": "labor_relations",
+  "historical": false,
+  "question": "Will the United Auto Workers Local 1012 ratify the proposed contract with AutoParts Inc. by the strike deadline of September 5?",
+  "start": "2026-08-20T00:00:00-04:00",
+  "cutoff": "2026-09-05T23:59:00-04:00",
+  "context": null,
+  "why": "Identifies a specific union local and a deadline for ratification."
+ },
+ {
+  "id": "judge_rules_on_injunction",
+  "kind": "sufficient",
+  "category": "judicial",
+  "historical": false,
+  "question": "Will Judge Patricia O'Neill issue a preliminary injunction against the construction of the new highway by September 30?",
+  "start": "2026-09-01T00:00:00-04:00",
+  "cutoff": "2026-09-30T23:59:00-04:00",
+  "context": null,
+  "why": "Specific judge, specific legal action, and a deadline."
+ },
+ {
+  "id": "nobel_prize_announcement",
+  "kind": "sufficient",
+  "category": "science_awards",
+  "historical": false,
+  "question": "Will the Nobel Prize in Physiology or Medicine be awarded to a woman in 2026?",
+  "start": "2026-10-01T00:00:00+02:00",
+  "cutoff": "2026-10-05T23:59:00+02:00",
+  "context": null,
+  "why": "The Nobel committee is the identifiable party, and the announcement date is known."
+ },
+ {
+  "id": "central_bank_raises_rates",
+  "kind": "sufficient",
+  "category": "monetary_policy",
+  "historical": false,
+  "question": "Will the Federal Reserve raise interest rates at its September 2026 meeting?",
+  "start": "2026-08-01T00:00:00-04:00",
+  "cutoff": "2026-09-20T23:59:00-04:00",
+  "context": null,
+  "why": "The Federal Reserve is a specific institution with a scheduled meeting."
+ },
+ {
+  "id": "school_board_adopts_curriculum",
+  "kind": "sufficient",
+  "category": "education_policy",
+  "historical": false,
+  "question": "Will the Springfield School Board adopt the new math curriculum at the August 25 meeting?",
+  "start": "2026-08-01T00:00:00-05:00",
+  "cutoff": "2026-08-25T23:59:00-05:00",
+  "context": null,
+  "why": "Specific board, specific action, and meeting date."
+ },
+ {
+  "id": "coach_suspended",
+  "kind": "sufficient",
+  "category": "sports",
+  "historical": false,
+  "question": "Will the NFL suspend Dallas Cowboys head coach Mike McCarthy for the first game of the season due to the sideline incident?",
+  "start": "2026-08-15T00:00:00-04:00",
+  "cutoff": "2026-09-10T23:59:00-04:00",
+  "context": null,
+  "why": "The NFL is the identifiable party that can suspend, with a specific coach and timeline."
+ },
+ {
+  "id": "hospital_implements_policy",
+  "kind": "sufficient",
+  "category": "healthcare",
+  "historical": false,
+  "question": "Will St. Mary's Hospital implement the new patient visitation policy by October 1?",
+  "start": "2026-09-01T00:00:00-05:00",
+  "cutoff": "2026-10-01T23:59:00-05:00",
+  "context": null,
+  "why": "Specific hospital, specific policy, and deadline."
+ },
+ {
+  "id": "historical_treaty_ratification",
+  "kind": "sufficient",
+  "category": "diplomacy",
+  "historical": true,
+  "question": "Will the United States Senate ratify the Treaty of Versailles before the end of 1919?",
+  "start": "1919-01-01T00:00:00-05:00",
+  "cutoff": "1919-12-31T23:59:00-05:00",
+  "context": "The Treaty of Versailles was signed in June 1919, ending World War I. President Woodrow Wilson pushed for ratification, but the Senate was divided, with isolationists opposing. The question does not state the outcome.",
+  "why": "Historical case with identifiable parties (U.S. Senate) and a deadline, without stating the outcome."
+ },
+ {
+  "id": "nested_deadline_question",
+  "kind": "sufficient",
+  "category": "corporate_governance",
+  "historical": false,
+  "question": "Will the shareholders of BioGen Therapeutics, after the board recommends against the proposal, vote to approve the acquisition by PharmaCorp at the September 15 special meeting, given that the deadline for the tender offer is September 30?",
+  "start": "2026-08-20T00:00:00-04:00",
+  "cutoff": "2026-09-15T23:59:00-04:00",
+  "context": null,
+  "why": "Multiple parties (shareholders, board, PharmaCorp) and nested deadlines (meeting and tender offer)."
+ },
+ {
+  "id": "multiple_parties_question",
+  "kind": "sufficient",
+  "category": "international_relations",
+  "historical": false,
+  "question": "Will the foreign ministers of Japan, South Korea, and China issue a joint statement condemning North Korea's missile test before the UN General Assembly in September?",
+  "start": "2026-08-01T00:00:00+09:00",
+  "cutoff": "2026-09-20T23:59:00+09:00",
+  "context": null,
+  "why": "Multiple identifiable parties (three foreign ministers) and a specific action with a deadline."
+ },
+ {
+  "id": "unusual_phrasing_question",
+  "kind": "sufficient",
+  "category": "media",
+  "historical": false,
+  "question": "Before the October 1 deadline, will the editor-in-chief of the Daily Chronicle, after consulting with the publisher, decide to retract the article about the mayor's alleged corruption?",
+  "start": "2026-09-01T00:00:00-05:00",
+  "cutoff": "2026-10-01T23:59:00-05:00",
+  "context": null,
+  "why": "Unusual phrasing with nested clauses, but still identifies specific parties (editor-in-chief, publisher) and a deadline."
+ },
+ {
+  "id": "context_provided_case",
+  "kind": "sufficient",
+  "category": "environmental_policy",
+  "historical": false,
+  "question": "Will the Environmental Protection Agency (EPA) approve the permit for the new oil drilling project in Alaska by September 30?",
+  "start": "2026-08-15T00:00:00-08:00",
+  "cutoff": "2026-09-30T23:59:00-08:00",
+  "context": "The EPA has been reviewing the permit for six months. Environmental groups have lobbied against it, while the oil company, Arctic Drilling Inc., has promised jobs. The EPA administrator, Sarah Jenkins, is expected to make a decision by the end of September.",
+  "why": "Identifiable agency (EPA) and specific action with deadline, with context."
+ },
+ {
+  "id": "no_identifiable_party",
+  "kind": "insufficient",
+  "category": "general",
+  "historical": false,
+  "question": "Will it rain in London on September 15, 2026?",
+  "start": "2026-09-01T00:00:00+01:00",
+  "cutoff": "2026-09-15T23:59:00+01:00",
+  "context": null,
+  "why": "No identifiable party; it's a weather prediction, not a social decision."
+ },
+ {
+  "id": "pure_fact_lookup",
+  "kind": "insufficient",
+  "category": "general",
+  "historical": false,
+  "question": "What was the population of Tokyo in 2020?",
+  "start": "2026-08-01T00:00:00+09:00",
+  "cutoff": "2026-08-31T23:59:00+09:00",
+  "context": null,
+  "why": "Pure fact lookup with no decision or party."
+ },
+ {
+  "id": "past_counterfactual",
+  "kind": "insufficient",
+  "category": "general",
+  "historical": false,
+  "question": "Would the Allies have won World War II if the D-Day invasion had failed?",
+  "start": "2026-08-01T00:00:00+00:00",
+  "cutoff": "2026-08-31T23:59:00+00:00",
+  "context": null,
+  "why": "Past counterfactual with no identifiable party or decision to be made."
+ },
+ {
+  "id": "unobservable_feeling",
+  "kind": "insufficient",
+  "category": "general",
+  "historical": false,
+  "question": "Does the CEO of TechCorp feel confident about the company's future?",
+  "start": "2026-08-01T00:00:00-04:00",
+  "cutoff": "2026-08-31T23:59:00-04:00",
+  "context": null,
+  "why": "Unobservable internal feeling with no proxy action."
+ },
+ {
+  "id": "no_decision_maker",
+  "kind": "insufficient",
+  "category": "general",
+  "historical": false,
+  "question": "Will the stock price of Apple exceed $200 by October 1, 2026?",
+  "start": "2026-08-01T00:00:00-04:00",
+  "cutoff": "2026-10-01T23:59:00-04:00",
+  "context": null,
+  "why": "No identifiable party makes a decision; stock price is a market outcome."
+ }
+]

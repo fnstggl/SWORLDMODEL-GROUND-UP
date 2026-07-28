@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "invented_precision",
+   "severity": "MAJOR",
+   "detail": "The scene specifies that the breweries are open during the visit window (10:00-20:00) and that Bao begins at 10:00. The question only says 'this Saturday' without specific hours; the start time and assumption of brewery hours are invented precision not supported by the question or common knowledge (breweries may open later)."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "Bao's private context includes knowledge that two breweries host rotating trucks and one never has. This is information he would know, but it is also stated in shared context, which is acceptable. However, the private contexts of the managers are vague and could be considered shared knowledge about their policies, but not a major leak."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'Two of the breweries already host rotating food trucks; the third never has.' This pre-decides that the third brewery has a policy against food trucks, making a 'yes' from that manager highly unlikely and potentially pre-deciding the outcome if the other two say no. The question only says 'the third never has' (food trucks), which could mean they never have them, but the scene treats it as a fixed policy rather than an observation."
+  }
+ ],
+ "id": "cold_foodtruck_brewery_ask"
+}

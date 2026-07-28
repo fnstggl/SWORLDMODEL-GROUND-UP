@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Wanjiru Kamau",
+   "private_context": "Wanjiru has received a data-engineer offer from Kestrel Analytics with a 15% raise over her current telecom salary, fully remote. She is tired of shift-adjacent support work. Her partner is midway through a nursing program in Nairobi, so relocation is undesirable. She must decide whether to accept or decline by the deadline."
+  },
+  {
+   "name": "Kestrel Analytics",
+   "private_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. They await her definitive answer."
+  }
+ ],
+ "shared_context": "The offer was extended on Monday, 2026-08-03, with a deadline of one week, i.e., by 2026-08-10T17:00:00+03:00. The offer includes a 15% raise over her current telecom salary and is fully remote.",
+ "starting_events": [
+  {
+   "time": "2026-08-03T17:00:00+03:00",
+   "description": "Wanjiru Kamau has received the offer from Kestrel Analytics and is aware of the one-week deadline.",
+   "visible_to": [
+    "Wanjiru Kamau"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Wanjiru Kamau communicated a definitive acceptance or rejection to Kestrel Analytics before 2026-08-10T17:00:00+03:00. Otherwise resolve NO at the cutoff."
+}

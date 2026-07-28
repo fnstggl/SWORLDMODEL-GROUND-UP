@@ -1,0 +1,8 @@
+{
+ "question": "Ashvale University releases exam results at 09:00 on Thursday. Will Femi call his mother with his result before noon that day?",
+ "start": "2026-08-13T09:00:00+01:00",
+ "cutoff": "2026-08-13T12:00:00+01:00",
+ "context": "Femi has phoned his mother within an hour of every results release since his first year; she has said she will keep her phone on her all Thursday morning, and he expects to pass.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

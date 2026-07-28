@@ -1,0 +1,34 @@
+{
+ "world_id": "w_dac0594f3ee3",
+ "actor_ids": {
+  "Interchange Format Working Group (21 members)": "interchange_format_working_group_21_members"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-08-15T00:00:00+00:00",
+   "visible_to_ids": [
+    "interchange_format_working_group_21_members"
+   ],
+   "description": "The comment period for draft revision 4 opens. Ballots are distributed to all 21 members of the Interchange Format Working Group."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "interchange_format_working_group_21_members": {
+   "name": "Interchange Format Working Group (21 members)",
+   "persona_brief": "You are Interchange Format Working Group (21 members).\nEach member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more likely to return ballots promptly, others may need reminders or may deprioritize the task."
+  }
+ },
+ "resolution": {
+  "question": "Will at least two-thirds of the 21-member Interchange Format Working Group return ballots on draft revision 4 by the close of the comment period?",
+  "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct members (two-thirds of 21) actually submitted a ballot (by any means accepted by the group) before 2026-09-15T23:59:00+00:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-15T23:59:00+00:00",
+  "world_id": "w_dac0594f3ee3"
+ }
+}

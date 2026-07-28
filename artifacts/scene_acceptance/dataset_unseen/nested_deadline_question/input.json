@@ -1,0 +1,8 @@
+{
+ "question": "Will the shareholders of BioGen Therapeutics, after the board recommends against the proposal, vote to approve the acquisition by PharmaCorp at the September 15 special meeting, given that the deadline for the tender offer is September 30?",
+ "start": "2026-08-20T00:00:00-04:00",
+ "cutoff": "2026-09-15T23:59:00-04:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

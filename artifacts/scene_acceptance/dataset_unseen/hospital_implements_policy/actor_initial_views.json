@@ -1,0 +1,45 @@
+{
+ "st_mary_s_hospital_administration": {
+  "id": "st_mary_s_hospital_administration",
+  "name": "St. Mary's Hospital Administration",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T05:00:00+00:00",
+    "kind": "context",
+    "content": "The administration is considering a new patient visitation policy. They have the authority to implement policy changes. They are aware of the October 1 deadline but have not yet decided on the policy details or implementation timeline.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T05:00:00+00:00",
+    "kind": "context",
+    "content": "St. Mary's Hospital currently has an existing patient visitation policy. A proposal for a new policy has been drafted and is under review. The hospital operates under standard administrative procedures for policy changes, which may involve approvals and communication to staff.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

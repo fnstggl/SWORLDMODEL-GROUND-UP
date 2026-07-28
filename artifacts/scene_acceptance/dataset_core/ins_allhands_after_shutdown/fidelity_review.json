@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "CRITICAL",
+   "detail": "The scene includes only the CEO as an actor, but the all-hands meeting involves employees who may ask questions. The CEO's decision to take questions depends on the presence and behavior of employees. Without employees as actors, the simulation cannot model the interaction that determines the outcome."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The private context states 'The CEO has not decided whether to take questions at that meeting.' This pre-decides that the CEO is undecided, but the question is about whether the CEO will take questions. The scene should not pre-state the CEO's indecision; it should be a genuine unknown. However, this is borderline because it leaves the decision open, but it explicitly states the CEO's internal state, which could bias the simulation."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The shared context includes that the CEO is expected to address employees, which is public knowledge. However, the private context includes the CEO's knowledge of the shutdown date and the meeting schedule, which is also shared. This is minor because the shutdown date is already in shared context."
+  }
+ ],
+ "id": "ins_allhands_after_shutdown"
+}

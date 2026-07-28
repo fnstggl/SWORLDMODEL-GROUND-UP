@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "mccain_campaign": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "mccain_campaign",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The campaign has received an invitation to the first presidential debate at the University of Mississippi on September 26, 2008. They are considering whether to confirm participation publicly. They have not yet made a public confirmation.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2008-09-01T14:00:00+00:00"
+    },
+    {
+     "content": "The first presidential debate of the 2008 election is scheduled for September 26, 2008, at the University of Mississippi. Both campaigns have been invited. As of September 1, 2008, neither campaign has publicly confirmed their candidate's participation. The debate is a major media event, and public confirmation is typically done through official statements or press releases.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2008-09-01T14:00:00+00:00"
+    }
+   ],
+   "name": "McCain campaign",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "obama_campaign": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "obama_campaign",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The campaign has received an invitation to the first presidential debate at the University of Mississippi on September 26, 2008. They are considering whether to confirm participation publicly. They have not yet made a public confirmation.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2008-09-01T14:00:00+00:00"
+    },
+    {
+     "content": "The first presidential debate of the 2008 election is scheduled for September 26, 2008, at the University of Mississippi. Both campaigns have been invited. As of September 1, 2008, neither campaign has publicly confirmed their candidate's participation. The debate is a major media event, and public confirmation is typically done through official statements or press releases.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2008-09-01T14:00:00+00:00"
+    }
+   ],
+   "name": "Obama campaign",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the McCain and Obama campaigns both publicly confirm their candidates' participation in the first 2008 presidential debate at the University of Mississippi before the scheduled debate day?",
+  "scene:shared_context": "The first presidential debate of the 2008 election is scheduled for September 26, 2008, at the University of Mississippi. Both campaigns have been invited. As of September 1, 2008, neither campaign has publicly confirmed their candidate's participation. The debate is a major media event, and public confirmation is typically done through official statements or press releases."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2008-09-01T14:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2008-09-01T14:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

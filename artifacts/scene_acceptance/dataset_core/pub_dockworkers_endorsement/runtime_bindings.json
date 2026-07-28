@@ -1,0 +1,34 @@
+{
+ "world_id": "w_a1b225f62bf2",
+ "actor_ids": {
+  "Marlin Bay dockworkers' union local": "marlin_bay_dockworkers_union_local"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-08-27T16:00:00+00:00",
+   "visible_to_ids": [
+    "marlin_bay_dockworkers_union_local"
+   ],
+   "description": "The simulation begins. No press release has been issued yet by the local."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "marlin_bay_dockworkers_union_local": {
+   "name": "Marlin Bay dockworkers' union local",
+   "persona_brief": "You are Marlin Bay dockworkers' union local.\nThe local's executive board met twice last week without issuing a statement. The local is aware of the port automation memorandum and is considering whether to endorse it. There is internal disagreement: a rank-and-file caucus has been leafleting against the memorandum. The international union endorsed a similar deal at another port last month, which may influence but does not bind the local."
+  }
+ },
+ "resolution": {
+  "question": "Will the dockworkers' union local at Marlin Bay put out a press release before Monday saying whether it endorses the port automation memorandum?",
+  "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating its endorsement or non-endorsement of the port automation memorandum. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-31T09:00:00-07:00",
+  "world_id": "w_a1b225f62bf2"
+ }
+}

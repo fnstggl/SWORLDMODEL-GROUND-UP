@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "kettlewell_parish_council": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "kettlewell_parish_council",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The council is a body of elected members. It must formally adopt the precept for the next financial year at its January meeting, as required by its standing orders. The council has a chairperson and a clerk. The meeting is scheduled for a date in January 2027.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    },
+    {
+     "content": "Kettlewell Parish Council is a local government body. Its standing orders require the council to formally adopt the precept for the next financial year at its January meeting. The precept is the amount of council tax the parish council will collect. The meeting is scheduled to occur before the hard cutoff date of 2027-01-21T22:00:00+00:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2027-01-04T09:00:00+00:00"
+    }
+   ],
+   "name": "Kettlewell Parish Council",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?",
+  "scene:shared_context": "Kettlewell Parish Council is a local government body. Its standing orders require the council to formally adopt the precept for the next financial year at its January meeting. The precept is the amount of council tax the parish council will collect. The meeting is scheduled to occur before the hard cutoff date of 2027-01-21T22:00:00+00:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2027-01-04T09:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2027-01-04T09:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

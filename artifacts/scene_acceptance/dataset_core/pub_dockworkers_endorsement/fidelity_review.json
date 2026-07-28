@@ -1,0 +1,27 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene includes only the union local as an actor, but the question asks about a press release that would be issued to the public. The press release is an action taken by the local, but the local is a collective; the decision-making process involves individuals or subgroups (e.g., executive board, rank-and-file caucus) that are not represented as separate actors. However, the question does not require modeling internal dynamics, so this might be acceptable. More critically, the scene omits any actor representing the 'public' or 'media' that would receive the press release, but that is not necessary for the decision. The main issue is that the local's private context includes internal disagreement and international influence, which are not modeled as separate actors, but that is acceptable for a single-actor simulation. However, the scene lacks any actor that could issue the press release on behalf of the local (e.g., a spokesperson). The local as a collective cannot act without a designated representative. This is a minor issue. The major defect is that the scene does not include the possibility that the local might not issue any press release at all, which is a valid outcome. But the resolution says 'Resolve YES if ... the local actually issued a press release ... Otherwise resolve NO.' This is correct. The missing actor issue is not critical."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The starting event says 'No press release has been issued yet by the local.' This is a factual statement that sets the initial condition. However, the private context includes 'The local is aware of the port automation memorandum and is considering whether to endorse it.' This implies the local is already in the process of considering, which might pre-decide that they will eventually make a decision. But the question is about whether they put out a press release before Monday, not whether they decide. The scene does not pre-decide the outcome. However, the private context states 'There is internal disagreement: a rank-and-file caucus has been leafleting against the memorandum.' This could be seen as pre-deciding that the local is leaning against endorsement, but it does not force a specific outcome. The major issue is that the scene includes the international union's endorsement as part of the local's private context, which is information that the local knows, but it might be considered as influencing the decision. However, that is appropriate context. The prewritten defect is not severe."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MAJOR",
+   "detail": "The shared context includes 'The port automation memorandum exists and is a matter of public record.' This is fine. But it also includes 'The local can issue a press release through standard channels.' This is common knowledge. However, the shared context says 'The deadline for a decision is before Monday, 2026-08-31.' This is not necessarily common knowledge; the deadline might be internal to the local or imposed by the question. The question sets the cutoff, but the local might not perceive a deadline. This imposes an external constraint that may not be realistic. This is a major defect because it invents a deadline that is not supported by the question or context."
+  },
+  {
+   "aspect": "invented_precision",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'The deadline for a decision is before Monday, 2026-08-31.' This is an invented precision: the question only says 'before Monday' but does not specify that the local perceives a deadline. The scene imposes a deadline that may not exist in the local's mind, potentially forcing a decision that might not otherwise occur. This is a major defect."
+  }
+ ],
+ "id": "pub_dockworkers_endorsement"
+}

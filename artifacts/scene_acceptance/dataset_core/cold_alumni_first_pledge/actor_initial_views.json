@@ -1,0 +1,88 @@
+{
+ "ashvale_university_annual_fund_caller": {
+  "id": "ashvale_university_annual_fund_caller",
+  "name": "Ashvale University Annual-Fund Caller",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "dr_renata_sousa": {
+  "id": "dr_renata_sousa",
+  "name": "Dr. Renata Sousa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T21:00:00+00:00",
+    "kind": "context",
+    "content": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

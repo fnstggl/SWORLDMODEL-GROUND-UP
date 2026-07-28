@@ -1,0 +1,38 @@
+{
+  "actors": [
+    {
+      "name": "Advisor 1",
+      "private_context": "Has already responded to the poll with their availability."
+    },
+    {
+      "name": "Advisor 2",
+      "private_context": "Has already responded to the poll with their availability."
+    },
+    {
+      "name": "Advisor 3",
+      "private_context": "Has not yet responded to the poll."
+    },
+    {
+      "name": "Advisor 4",
+      "private_context": "Has not yet responded to the poll."
+    },
+    {
+      "name": "Advisor 5",
+      "private_context": "Has not yet responded to the poll."
+    },
+    {
+      "name": "CEO's assistant",
+      "private_context": "Sent a poll with four candidate weekends to all five advisors. Two advisors have responded. The assistant can follow up and coordinate to finalize a date."
+    }
+  ],
+  "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29."
+,
+  "starting_events": [
+    {
+      "time": "2026-07-29T09:00:00+01:00",
+      "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisory board members. Two advisors have already responded.",
+      "visible_to": ["CEO's assistant"]
+    }
+  ],
+  "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a specific date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., an email or calendar invitation confirming the date). Otherwise resolve NO."
+}

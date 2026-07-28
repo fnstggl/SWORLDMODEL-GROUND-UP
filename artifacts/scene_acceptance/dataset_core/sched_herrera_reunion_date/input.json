@@ -1,0 +1,8 @@
+{
+ "question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
+ "start": "2026-08-01T10:00:00-06:00",
+ "cutoff": "2026-09-30T22:00:00-06:00",
+ "context": "The chat has been active for a month; three cousins push for Oaxaca, two for San Antonio, and the eldest, Tia Marisol, says she will go with the majority but keeps changing the subject to catering.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

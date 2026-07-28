@@ -1,0 +1,10 @@
+{
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The scene treats the United States Senate as a single actor, but the question requires a vote by individual senators. The Senate as a monolithic actor cannot simulate the internal division and voting dynamics necessary for ratification. The scene is not simulatable as a social scene with the given actor granularity.",
+   "correction": "The scene must either model individual senators or provide a mechanism for internal deliberation and voting. Without that, the simulation cannot meaningfully answer the question."
+  }
+ ]
+}

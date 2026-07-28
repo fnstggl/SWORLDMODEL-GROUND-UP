@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Amara's coworkers respect her more by the end of the quarter?",
+  "resolution": "Resolve YES only if, by the hard cutoff, there is observable evidence (e.g., a coworker explicitly states increased respect, Amara receives a promotion or positive performance review citing respect, or a reliable survey or feedback mechanism records higher respect) that Amara's coworkers respect her more than at the start. Otherwise resolve NO.",
+  "cutoff": "2026-12-31T17:00:00-04:00",
+  "world_id": "w_4cf54d8ad18a"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

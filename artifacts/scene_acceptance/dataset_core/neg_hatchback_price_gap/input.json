@@ -1,0 +1,8 @@
+{
+ "question": "Ravi and the private seller of a 2019 hatchback are 40,000 rupees apart. Will they agree on a price in the three days before the seller's posted listing expires?",
+ "start": "2026-08-20T10:00:00+05:30",
+ "cutoff": "2026-08-23T10:00:00+05:30",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

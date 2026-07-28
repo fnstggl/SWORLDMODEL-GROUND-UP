@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "French Presidency of COP21",
+   "private_context": "The French Presidency is responsible for managing the negotiation process and producing draft texts. They aim to facilitate consensus among parties but face pressure from various national positions. They have the authority to circulate draft texts."
+  },
+  {
+   "name": "National Delegations",
+   "private_context": "Each delegation represents its country's interests and expects to receive draft texts for review and negotiation. They are aware of the summit schedule and the need for a final agreement."
+  }
+ ],
+ "shared_context": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations.",
+ "starting_events": [
+  {
+   "time": "2015-11-30T09:00:00+01:00",
+   "description": "The COP21 climate conference officially opens in Paris.",
+   "visible_to": [
+    "French Presidency of COP21",
+    "National Delegations"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the French Presidency circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00. Otherwise resolve NO at the hard cutoff."
+}

@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "marlin_bay_unified_school_board_as_a_body": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marlin_bay_unified_school_board_as_a_body",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board has tabled the proposal twice before. The board may decide to take a recorded vote or not.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can choose to take a recorded vote on the proposal at either meeting.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T15:00:00+00:00"
+    }
+   ],
+   "name": "Marlin Bay Unified school board (as a body)",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "parent_group": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "parent_group",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The group has promised to pack the public-comment period at the September meetings to advocate for the later-start-times proposal.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T15:00:00+00:00"
+    },
+    {
+     "content": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can choose to take a recorded vote on the proposal at either meeting.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T15:00:00+00:00"
+    }
+   ],
+   "name": "Parent group",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Marlin Bay Unified school board take a recorded vote on the later-start-times proposal at either of its two September meetings?",
+  "scene:shared_context": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can choose to take a recorded vote on the proposal at either meeting."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T15:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T15:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. Will she give Kestrel a definitive answer before the deadline passes?",
+  "resolution": "Resolve YES if the persistent event history shows that Wanjiru Kamau communicated a definitive acceptance or rejection to Kestrel Analytics before 2026-08-10T17:00:00+03:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-10T17:00:00+03:00",
+  "world_id": "w_ebb175be55b9"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

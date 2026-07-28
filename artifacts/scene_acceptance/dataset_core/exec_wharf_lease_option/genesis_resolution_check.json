@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Kestrel Analytics' CEO sign, or walk away from, the proposed five-year lease on the Riverside Wharf office before the landlord's option expires next Friday?",
+  "resolution": "Resolve YES if the persistent event history shows that the CEO of Kestrel Analytics signed the lease before 2026-08-21T17:00:00+01:00. Resolve NO if the CEO walked away or did not sign by that time.",
+  "cutoff": "2026-08-21T17:00:00+01:00",
+  "world_id": "w_797c134735e5"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

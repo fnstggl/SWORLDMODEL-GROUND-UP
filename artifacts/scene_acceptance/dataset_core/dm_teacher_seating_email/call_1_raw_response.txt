@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Mr. Abernathy",
+      "private_context": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and typically responds during school hours or in the evening. He is aware of the upcoming weekend and may prioritize urgent matters."
+    },
+    {
+      "name": "Chioma Eze",
+      "private_context": "Chioma Eze is a parent of a year-five student at Petersfield Primary. She has written an email to Mr. Abernathy requesting a seating change for her son. She expects a response before the weekend."
+    }
+  ],
+  "shared_context": "Petersfield Primary School operates on weekdays. The weekend begins after Friday, 2026-09-18. Emails sent to school staff are typically received and can be read during school hours or later. There is no school policy guaranteeing a response time.",
+  "starting_events": [
+    {
+      "time": "2026-09-16T08:00:00+01:00",
+      "description": "Chioma Eze's email about her son's seating change is in Mr. Abernathy's inbox, sent earlier that morning.",
+      "visible_to": ["Mr. Abernathy"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that Mr. Abernathy actually sent a reply to Chioma Eze's email before 2026-09-19T08:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

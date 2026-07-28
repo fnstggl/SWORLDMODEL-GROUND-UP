@@ -1,0 +1,39 @@
+{
+ "world_id": "w_a22b00174353",
+ "actor_ids": {
+  "Anouk Visser": "anouk_visser",
+  "Founder of Veldt Solar": "founder_of_veldt_solar"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-05T07:00:00+00:00",
+   "visible_to_ids": [
+    "anouk_visser"
+   ],
+   "description": "Anouk Visser sends a cold email to the founder of Veldt Solar, inviting her onto a new energy podcast for a 30-minute interview, offering questions in advance and a publication date."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "anouk_visser": {
+   "name": "Anouk Visser",
+   "persona_brief": "You are Anouk Visser.\nAnouk is a freelance journalist preparing to launch a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast. She has drafted a cold email offering a 30-minute interview, questions in advance, and a publication date. She intends to send this email to the founder."
+  },
+  "founder_of_veldt_solar": {
+   "name": "Founder of Veldt Solar",
+   "persona_brief": "You are Founder of Veldt Solar.\nThe founder of Veldt Solar receives many cold emails. They are busy running a solar energy company. They may or may not respond to interview requests depending on interest, time, and alignment with their priorities."
+  }
+ },
+ "resolution": {
+  "question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
+  "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent any reply to Anouk Visser's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-08-19T09:00:00+02:00",
+  "world_id": "w_a22b00174353"
+ }
+}

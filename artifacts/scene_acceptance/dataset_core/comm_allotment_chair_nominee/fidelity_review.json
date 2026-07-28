@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "MAJOR",
+   "detail": "The scene includes only two actors: the stepping-down chair and the collective 'Kettlewell Allotment Society members'. This lumps all members into a single actor, which may be insufficient to model individual decisions to volunteer. However, for a simple yes/no question about whether anyone volunteers, a collective actor can be acceptable if the simulation can model the collective's behavior. The main issue is that the scene does not specify any mechanism for individual members to decide, but that might be handled by the simulation. Still, it's borderline."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The private context of the chair states they have no preferred successor and will not influence the election. This pre-decides that the chair will not influence the outcome, which is a future choice. The simulation should allow the chair to potentially influence the election if they choose, but this context removes that possibility. This could affect the realism of the simulation."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The shared context states that 'any member may volunteer to stand for chair by submitting a nomination before the deadline.' This is common knowledge and acceptable. However, the private context of the members says they are 'aware of the upcoming AGM and the chair's intention to step down.' This is also shared knowledge, so it's not a leak. But the private context of the chair includes their decision to step down, which is private to the chair until announced. The scene says the chair's intention is known to the membership, which contradicts the private context. This is a minor inconsistency."
+  }
+ ],
+ "id": "comm_allotment_chair_nominee"
+}

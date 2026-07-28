@@ -1,0 +1,45 @@
+{
+ "calloway_regional_hospital_hr": {
+  "id": "calloway_regional_hospital_hr",
+  "name": "Calloway Regional Hospital HR",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "HR is responsible for reviewing applications for the ward-clerk vacancy. They have received eleven applications by the closing time. They have internal criteria for selecting candidates to invite for interview, but no decision has been made yet.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "The posting for the ward-clerk vacancy at Calloway Regional Hospital closed at 23:59 on 2026-09-30. Eleven applications were received. The hospital typically invites some applicants for interview within two weeks of closing.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

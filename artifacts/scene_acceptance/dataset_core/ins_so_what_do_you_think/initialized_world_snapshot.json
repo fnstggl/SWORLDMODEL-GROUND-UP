@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "listener": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "listener",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Listener heard the question 'So, what do you think?' and may or may not have an opinion to share. Listener can choose to respond or not.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T17:00:00+00:00"
+    },
+    {
+     "content": "Speaker and Listener are in a conversation. The question has been asked and is awaiting a reply.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T17:00:00+00:00"
+    }
+   ],
+   "name": "Listener",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "speaker": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "speaker",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Speaker has just asked 'So, what do you think?' and is waiting for a response from the Listener. Speaker is interested in the Listener's opinion.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-20T17:00:00+00:00"
+    },
+    {
+     "content": "Speaker and Listener are in a conversation. The question has been asked and is awaiting a reply.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-20T17:00:00+00:00"
+    }
+   ],
+   "name": "Speaker",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "So, what do you think?",
+  "scene:shared_context": "Speaker and Listener are in a conversation. The question has been asked and is awaiting a reply."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-20T17:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-20T17:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

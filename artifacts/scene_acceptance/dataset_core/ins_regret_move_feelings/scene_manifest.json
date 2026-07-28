@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "User",
+   "private_context": "The user is considering moving in with their partner and is uncertain about the decision. They have private hopes and concerns about the relationship and cohabitation."
+  },
+  {
+   "name": "Partner",
+   "private_context": "The partner is in a relationship with the user and has agreed to move in together. They have their own private expectations and feelings about cohabitation."
+  }
+ ],
+ "shared_context": "The user and their partner have decided to move in together. They have a shared residence arranged and are planning to begin cohabitation around the simulation start time. The relationship is ongoing, and both parties have communicated their intention to live together.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00+10:00",
+   "description": "The user and their partner begin living together in their shared residence.",
+   "visible_to": [
+    "User",
+    "Partner"
+   ]
+  }
+ ],
+ "resolution": "UNRESOLVABLE: The question asks about an internal emotional state ('regret') with no observable proxy provided; regret is not directly observable in the event history."
+}

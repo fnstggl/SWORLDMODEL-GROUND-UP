@@ -1,0 +1,10 @@
+{
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "resolution",
+   "problem": "The resolution condition is ambiguous and potentially pre-decided. It says 'Resolve YES only if the persistent event history shows that the Hiring Committee actually offered Rosa an interview after receiving her application (regardless of timing).' This implies that the simulation must already know the outcome of the actual application (whether she got an interview) from model memory, which would leak the historical outcome into the simulation. The question is counterfactual: would she have gotten an interview if she had applied earlier? The resolution should be based on the simulated decision of the Hiring Committee in the counterfactual scenario, not on the actual historical outcome.",
+   "correction": "Change resolution to: 'Resolve YES if, during the simulation, the Hiring Committee decides to offer Rosa an interview after reviewing her application (submitted a week earlier than in reality). Otherwise resolve NO at the cutoff.'"
+  }
+ ]
+}

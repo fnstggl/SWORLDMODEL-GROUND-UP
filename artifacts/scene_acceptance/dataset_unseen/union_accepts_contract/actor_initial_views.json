@@ -1,0 +1,131 @@
+{
+ "autoparts_inc": {
+  "id": "autoparts_inc",
+  "name": "AutoParts Inc.",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T04:00:00+00:00",
+    "kind": "context",
+    "content": "AutoParts Inc. has offered the proposed contract and awaits ratification. They have a strike contingency plan but prefer ratification. They have no further leverage until the vote.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T04:00:00+00:00",
+    "kind": "context",
+    "content": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "uaw_local_1012_leadership": {
+  "id": "uaw_local_1012_leadership",
+  "name": "UAW Local 1012 leadership",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T04:00:00+00:00",
+    "kind": "context",
+    "content": "The leadership has negotiated the proposed contract with AutoParts Inc. They recommend ratification but are uncertain of the membership's vote. They are responsible for organizing the ratification vote.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T04:00:00+00:00",
+    "kind": "context",
+    "content": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "uaw_local_1012_membership": {
+  "id": "uaw_local_1012_membership",
+  "name": "UAW Local 1012 membership",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T04:00:00+00:00",
+    "kind": "context",
+    "content": "The membership has been briefed on the proposed contract terms. They have varying opinions on wages, benefits, and job security. They must vote to ratify or reject by the strike deadline.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T04:00:00+00:00",
+    "kind": "context",
+    "content": "The proposed contract between UAW Local 1012 and AutoParts Inc. is on the table. A ratification vote is scheduled before the strike deadline of September 5, 2026. If the contract is not ratified by then, a strike may occur.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

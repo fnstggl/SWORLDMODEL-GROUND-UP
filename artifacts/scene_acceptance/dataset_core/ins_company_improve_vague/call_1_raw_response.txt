@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Company leadership",
+      "private_context": "The leadership is aware of current financial struggles and is considering strategic changes. They have no certainty about future outcomes."
+    }
+  ],
+  "shared_context": "The company operates in a competitive market. The next quarter runs from October to December 2026. No major external shocks are known at the start.",
+  "starting_events": [
+    {
+      "time": "2026-10-01T09:00:00-05:00",
+      "description": "The new quarter begins. The company's financial performance for the previous quarter is known internally.",
+      "visible_to": ["Company leadership"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that the company's quarterly revenue or profit (as reported in official financial statements) increased compared to the previous quarter by the cutoff. Otherwise resolve NO at the cutoff."
+}
