@@ -3,13 +3,13 @@
  "trajectory": {
   "status": "failed",
   "answer": null,
-  "reason": "ActorGroundingError: dev_sandhu: the reply still does not follow from what they have, after one correction: The reply restates the exact same position as the previous two turns without any new observation or change in circumstances, merely repeating 'still stuck waiting' despite time passing.",
-  "steps": 7,
-  "world_calls": 9,
-  "actor_calls": 10,
-  "judge_calls": 4,
-  "review_calls": 13
+  "reason": "EventGroundingError: the proposed event is still not a real thing that happened after one correction: Dev reading the message is a voluntary choice he has not yet made; the message is only available, not observed.",
+  "steps": 3,
+  "world_calls": 11,
+  "actor_calls": 5,
+  "judge_calls": 3,
+  "review_calls": 11
  },
  "answer": null,
- "reason": "ActorGroundingError: dev_sandhu: the reply still does not follow from what they have, after one correction: The reply restates the exact same position as the previous two turns without any new observation or change in circumstances, merely repeating 'still stuck waiting' despite time passing."
+ "reason": "EventGroundingError: the proposed event is still not a real thing that happened after one correction: Dev reading the message is a voluntary choice he has not yet made; the message is only available, not observed."
 }

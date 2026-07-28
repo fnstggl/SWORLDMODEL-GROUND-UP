@@ -4,62 +4,63 @@
   "judge": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.28,
-   "input_tokens": 1116,
-   "output_tokens": 132
+   "wall_s": 2.87,
+   "input_tokens": 1102,
+   "output_tokens": 102
   },
   "world": {
-   "calls": 3,
+   "calls": 4,
    "retries": 1,
-   "wall_s": 6.69,
-   "input_tokens": 6044,
-   "output_tokens": 384
+   "wall_s": 6.82,
+   "input_tokens": 8121,
+   "output_tokens": 417
   },
   "actor": {
-   "calls": 2,
-   "retries": 0,
-   "wall_s": 3.04,
-   "input_tokens": 2536,
-   "output_tokens": 129
-  },
-  "continuity": {
-   "calls": 2,
-   "retries": 0,
-   "wall_s": 3.05,
-   "input_tokens": 1362,
-   "output_tokens": 77
-  },
-  "event_review": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.2,
-   "input_tokens": 771,
-   "output_tokens": 41
+   "wall_s": 1.79,
+   "input_tokens": 1239,
+   "output_tokens": 88
+  },
+  "continuity": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.36,
+   "input_tokens": 874,
+   "output_tokens": 38
+  },
+  "event_review": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.33,
+   "input_tokens": 1547,
+   "output_tokens": 92
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.49,
-   "input_tokens": 464,
+   "wall_s": 1.17,
+   "input_tokens": 514,
    "output_tokens": 45
   }
  },
- "total_input_tokens": 12293,
- "total_output_tokens": 808,
- "total_wall_s": 18.74,
- "status": "cutoff",
+ "total_input_tokens": 13397,
+ "total_output_tokens": 782,
+ "total_wall_s": 17.34,
+ "status": "resolved",
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-  "disagreement": true
+  "status": "YES",
+  "supporting_event_ids": [
+   "e20"
+  ],
+  "explanation": "Sam Okonjo sent a text message confirming the appointment, as recorded in event e20, before the deadline."
  },
  "reason": "",
  "steps": 1,
- "world_calls": 2,
- "actor_calls": 2,
+ "world_calls": 3,
+ "actor_calls": 1,
  "judge_calls": 2,
  "review_calls": 4,
- "committed_events": 1,
- "ledger_records": 23
+ "committed_events": 2,
+ "ledger_records": 27
 }

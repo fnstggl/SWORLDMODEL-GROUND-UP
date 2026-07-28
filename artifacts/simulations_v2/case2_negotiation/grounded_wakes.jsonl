@@ -1,0 +1,3 @@
+{"about":"actor_intention","actor":"dmitri_sokolov","due":"2026-09-08T09:01:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Dmitri has seen the message","t":"2026-09-08T09:00:00+00:00"}
+{"about":"event_consequence","actor":"dmitri_sokolov","due":"2026-09-08T09:05:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Dmitri might notice the message after a brief delay.","t":"2026-09-08T09:00:00+00:00"}
+{"about":"pending_progression","actor":"dmitri_sokolov","due":"2026-09-08T09:15:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Dmitri will likely finish unloading and check his phone.","t":"2026-09-08T09:05:00+00:00"}

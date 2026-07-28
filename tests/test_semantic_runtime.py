@@ -1477,7 +1477,11 @@ def test_an_answer_needs_two_independent_readings_to_agree():
                                "explanation": "e11 shows it"}), {}
         if role == "verifier":
             seen["verifier_prompts"].append(user)
-            return json.dumps({"status": "UNRESOLVED",
+            # a second reading that does not agree: the cited event is her
+            # sending it, not his reply
+            deadline = "THE DEADLINE HAS NOW BEEN REACHED" in user
+            return json.dumps({"status": "NO_AT_CUTOFF" if deadline
+                               else "UNRESOLVED",
                                "supporting_event_ids": [],
                                "explanation": "e11 is her sending it, not "
                                               "his reply"}), {}
@@ -1498,8 +1502,8 @@ def test_an_answer_needs_two_independent_readings_to_agree():
     # and the verifier was never told what the judge had concluded
     assert seen["verifier_prompts"]
     for p in seen["verifier_prompts"]:
-        assert "e11 shows it" not in p
-        assert "THIS IS THE FINAL JUDGMENT" not in p
+        assert "e11 shows it" not in p          # not the first verdict
+        assert "supporting_event_ids" not in p  # nor its citations
 
 
 def test_the_verifier_reads_the_record_and_nothing_about_the_first_reading():

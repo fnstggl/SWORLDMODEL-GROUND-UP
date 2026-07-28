@@ -1,53 +1,65 @@
 {
- "provider_calls": 35,
+ "provider_calls": 8,
  "by_role": {
   "judge": {
-   "calls": 4,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 6.17,
-   "input_tokens": 2504,
-   "output_tokens": 225
+   "wall_s": 4.53,
+   "input_tokens": 1795,
+   "output_tokens": 172
   },
   "world": {
-   "calls": 10,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 22.62,
-   "input_tokens": 22673,
-   "output_tokens": 1446
+   "wall_s": 1.63,
+   "input_tokens": 1947,
+   "output_tokens": 105
   },
   "event_review": {
-   "calls": 7,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 9.84,
-   "input_tokens": 5996,
-   "output_tokens": 275
+   "wall_s": 1.51,
+   "input_tokens": 730,
+   "output_tokens": 40
   },
   "actor": {
-   "calls": 7,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 14.71,
-   "input_tokens": 9649,
-   "output_tokens": 762
+   "wall_s": 1.62,
+   "input_tokens": 1225,
+   "output_tokens": 73
   },
   "continuity": {
-   "calls": 7,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 10.76,
-   "input_tokens": 5729,
-   "output_tokens": 299
+   "wall_s": 1.33,
+   "input_tokens": 838,
+   "output_tokens": 39
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.65,
+   "input_tokens": 532,
+   "output_tokens": 53
   }
  },
- "total_input_tokens": 46551,
- "total_output_tokens": 3007,
- "total_wall_s": 64.1,
- "status": "failed",
- "answer": null,
- "reason": "ActorGroundingError: dr_aline_mercier: the reply still does not follow from what they have, after one correction: The reply says 'I've tried to skim Ravi's chapter three times today' but the evidence shows only three attempts to check whether they already did it, not three attempts to actually skim it.",
- "steps": 7,
- "world_calls": 10,
- "actor_calls": 7,
- "judge_calls": 4,
- "review_calls": 14,
- "committed_events": 4,
- "ledger_records": 64
+ "total_input_tokens": 7067,
+ "total_output_tokens": 482,
+ "total_wall_s": 12.28,
+ "status": "disagreement",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
+  "disagreement": true
+ },
+ "reason": "",
+ "steps": 1,
+ "world_calls": 1,
+ "actor_calls": 1,
+ "judge_calls": 3,
+ "review_calls": 3,
+ "committed_events": 2,
+ "ledger_records": 24
 }

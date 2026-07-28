@@ -1,53 +1,53 @@
 {
- "provider_calls": 36,
+ "provider_calls": 30,
  "by_role": {
   "judge": {
-   "calls": 4,
-   "retries": 0,
-   "wall_s": 5.79,
-   "input_tokens": 3461,
-   "output_tokens": 214
-  },
-  "world": {
-   "calls": 9,
-   "retries": 0,
-   "wall_s": 17.91,
-   "input_tokens": 22580,
-   "output_tokens": 951
-  },
-  "actor": {
-   "calls": 10,
-   "retries": 0,
-   "wall_s": 19.84,
-   "input_tokens": 14018,
-   "output_tokens": 992
-  },
-  "continuity": {
-   "calls": 10,
-   "retries": 0,
-   "wall_s": 15.95,
-   "input_tokens": 8373,
-   "output_tokens": 462
-  },
-  "event_review": {
    "calls": 3,
    "retries": 0,
-   "wall_s": 4.53,
-   "input_tokens": 3413,
-   "output_tokens": 136
+   "wall_s": 3.82,
+   "input_tokens": 2499,
+   "output_tokens": 144
+  },
+  "world": {
+   "calls": 11,
+   "retries": 0,
+   "wall_s": 20.95,
+   "input_tokens": 27363,
+   "output_tokens": 1253
+  },
+  "actor": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 10.68,
+   "input_tokens": 6647,
+   "output_tokens": 561
+  },
+  "continuity": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 7.79,
+   "input_tokens": 4923,
+   "output_tokens": 236
+  },
+  "event_review": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 8.81,
+   "input_tokens": 6761,
+   "output_tokens": 247
   }
  },
- "total_input_tokens": 51845,
- "total_output_tokens": 2755,
- "total_wall_s": 64.03,
+ "total_input_tokens": 48193,
+ "total_output_tokens": 2441,
+ "total_wall_s": 52.03,
  "status": "failed",
  "answer": null,
- "reason": "ActorGroundingError: dev_sandhu: the reply still does not follow from what they have, after one correction: The reply restates the exact same position as the previous two turns without any new observation or change in circumstances, merely repeating 'still stuck waiting' despite time passing.",
- "steps": 7,
- "world_calls": 9,
- "actor_calls": 10,
- "judge_calls": 4,
- "review_calls": 13,
- "committed_events": 7,
- "ledger_records": 79
+ "reason": "EventGroundingError: the proposed event is still not a real thing that happened after one correction: Dev reading the message is a voluntary choice he has not yet made; the message is only available, not observed.",
+ "steps": 3,
+ "world_calls": 11,
+ "actor_calls": 5,
+ "judge_calls": 3,
+ "review_calls": 11,
+ "committed_events": 6,
+ "ledger_records": 63
 }

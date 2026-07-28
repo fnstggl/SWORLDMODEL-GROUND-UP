@@ -1,1 +1,1 @@
-{"agreed":false,"explanation":"Only two events have been committed, showing Ines asked and Bea offered, but no collective agreement among all four housemates has been reached.","first":"NO_AT_CUTOFF","kind":"terminal_verification","second":"UNRESOLVED","t":"2026-10-10T20:00:00+00:00"}
+{"agreed":false,"explanation":"No committed event shows all four housemates collectively agreeing on a host; only Bea's offer is recorded.","first":"NO_AT_CUTOFF","kind":"terminal_verification","second":"UNRESOLVED","t":"2026-10-10T20:00:00+00:00"}

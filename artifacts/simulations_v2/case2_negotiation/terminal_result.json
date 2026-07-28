@@ -1,15 +1,25 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "failed",
-  "answer": null,
-  "reason": "ActorGroundingError: priya_raghavan: the reply still does not follow from what they have, after one correction: The reply says 'I am not willing to go higher yet' but Priya's evidence shows she would rather close than keep looking, which implies willingness to increase to secure the deal, so the plan contradicts her expressed preference.",
-  "steps": 0,
-  "world_calls": 1,
-  "actor_calls": 2,
-  "judge_calls": 1,
-  "review_calls": 2
+  "status": "disagreement",
+  "answer": {
+   "status": "UNRESOLVED",
+   "supporting_event_ids": [],
+   "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
+   "disagreement": true
+  },
+  "reason": "",
+  "steps": 6,
+  "world_calls": 8,
+  "actor_calls": 5,
+  "judge_calls": 5,
+  "review_calls": 12
  },
- "answer": null,
- "reason": "ActorGroundingError: priya_raghavan: the reply still does not follow from what they have, after one correction: The reply says 'I am not willing to go higher yet' but Priya's evidence shows she would rather close than keep looking, which implies willingness to increase to secure the deal, so the plan contradicts her expressed preference."
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
+  "disagreement": true
+ },
+ "reason": ""
 }

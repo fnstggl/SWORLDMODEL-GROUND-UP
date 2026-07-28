@@ -256,9 +256,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     actor_step(who[0], cause=cause)
                     return None
             if attempt:
-                raise EventGroundingError(
-                    f"the proposed event is still not a real thing that "
-                    f"happened after one correction: {verdict['reason']}")
+                # One correction was not enough.  The world does not get to
+                # commit it, and the run does not die over it either: what
+                # the world could not say happened, did not happen.
+                note("event_abandoned", t=_iso_now(world),
+                     call_id=out["call_id"], reason=verdict["reason"],
+                     rejected=envelope["description"])
+                parsed = dict(parsed, event_checked=None, event=None)
+                envelope = None
+                break
             ask = (user + f"\n\nYOUR PROPOSED EVENT WAS REJECTED\n"
                           f"{contained(verdict['reason'])}\n"
                           f"Answer again for the same trigger, fixing "
@@ -578,7 +584,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # the same record, which is never told what the first one said.  A
         # YES used to end a run the instant one judge flipped, so no YES
         # was ever tested against anything.
-        second = _verify(cause=cause)
+        second = _verify(cause=cause, final=final)
         agreed = (second["status"] == parsed["status"])
         note("terminal_verification", t=_iso_now(world), agreed=agreed,
              first=parsed["status"], second=second["status"],
@@ -595,7 +601,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 f"claimed"),
                 "disagreement": True}
 
-    def _verify(*, cause: int) -> dict:
+    def _verify(*, cause: int, final: bool = False) -> dict:
         events = journal.events()
         out = caller.ask("verifier", resolution_mod.VERIFIER_SYSTEM,
                          resolution_mod.verifier_user_prompt(
@@ -604,9 +610,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                "description": e["description"],
                                "for": e["for"],
                                "observed_by": e["observed_by"]}
-                              for e in events]),
+                              for e in events], final=final),
                          resolution_mod.make_verifier_validator(
-                             {e["event_id"] for e in events}),
+                             {e["event_id"] for e in events}, final=final),
                          sim_time=_iso_now(world), trigger="terminal_verify",
                          reserved=True)
         traj.review_calls += 1

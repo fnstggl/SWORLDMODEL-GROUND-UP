@@ -176,12 +176,24 @@ Reply with ONLY a JSON object:
  "explanation": "one sentence, from the events alone"}"""
 
 
-def verifier_user_prompt(resolution: str, now: str, events: list) -> str:
-    """Deliberately NOT the judge's prompt: no final-judgment framing, no
-    hint of which way anything is leaning."""
+def verifier_user_prompt(resolution: str, now: str, events: list, *,
+                         final: bool = False) -> str:
+    """Deliberately NOT the judge's prompt: it never carries the first
+    reading's verdict, citations or explanation.
+
+    It does carry whether the deadline has been reached, because that is a
+    fact about the clock rather than anything the first reader concluded.
+    Withholding it made the two disagree at every horizon by construction:
+    the judge was required to answer YES or NO, and the verifier, not
+    knowing time was up, kept answering "not yet".
+    """
     lines = [f"CURRENT TIME\n{now}", "",
-             f"THE CONDITION\n{resolution}", "",
-             "EVERY COMMITTED EVENT"]
+             f"THE CONDITION\n{resolution}", ""]
+    if final:
+        lines += ["THE DEADLINE HAS NOW BEEN REACHED.  Either the events "
+                  "below satisfy the condition, or the time for it has run "
+                  "out; \"UNRESOLVED\" is not available.", ""]
+    lines += ["EVERY COMMITTED EVENT"]
     if events:
         for e in events:
             who = ", ".join(e.get("for") or []) or "no one"
@@ -197,7 +209,7 @@ def verifier_user_prompt(resolution: str, now: str, events: list) -> str:
     return "\n".join(lines)
 
 
-def make_verifier_validator(known_event_ids):
+def make_verifier_validator(known_event_ids, *, final: bool = False):
     """The verifier is under the same citation rules as the judge, and
     under no time rule: it is asked what the record shows, not what may be
     concluded at this instant."""
@@ -221,6 +233,10 @@ def make_verifier_validator(known_event_ids):
                     f"journal")
         if obj.get("status") == "YES" and not ids:
             raise ResolutionError("YES must cite the events that show it")
+        if final and obj.get("status") == "UNRESOLVED":
+            raise ResolutionError(
+                "the deadline has been reached: the condition is either "
+                "satisfied by the committed events or it is not")
         if not isinstance(obj.get("explanation"), str) \
                 or not obj["explanation"].strip():
             raise ResolutionError("explanation must be a non-empty string")
