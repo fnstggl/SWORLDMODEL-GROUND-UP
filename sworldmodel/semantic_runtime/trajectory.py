@@ -70,10 +70,15 @@ def budget_for(*, max_steps: int, actors: int,
     most one environmental consequence, one call per actor who becomes
     aware, one world adjudication per intention each of them may take, and
     one terminal check; every call may additionally be retried once.
+
+    An actor turn and a world event each carry a read-only review, and a
+    rejected one is asked again, so a turn costs up to four calls rather
+    than one and an adjudication up to four rather than two.  A candidate
+    answer costs a second, independent reading.
     """
-    per_turn = 1 + actor_mind.MAX_INTENTIONS_PER_TURN
-    per_step = 1 + actors * per_turn + 1
-    per_start = 1 + actors * per_turn
+    per_turn = 2 * (2 + 2 * actor_mind.MAX_INTENTIONS_PER_TURN)
+    per_step = 2 + actors * per_turn + 2
+    per_start = 2 + actors * per_turn
     attempts = MAX_RETRIES_PER_CALL + 1
     return (attempts * (max_steps * per_step + starting_events * per_start + 2)
             + RESERVED_FINAL_CALLS)
@@ -565,7 +570,51 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                   "final": final, "trajectory_id": tid}, cause)
         note("terminal_check", call_id=out["call_id"], t=_iso_now(world),
              final=final, **parsed)
-        return parsed
+        if parsed["status"] == "UNRESOLVED":
+            return parsed            # nothing is being claimed yet
+        # A candidate answer is checked by an independent second reading of
+        # the same record, which is never told what the first one said.  A
+        # YES used to end a run the instant one judge flipped, so no YES
+        # was ever tested against anything.
+        second = _verify(cause=cause)
+        agreed = (second["status"] == parsed["status"])
+        note("terminal_verification", t=_iso_now(world), agreed=agreed,
+             first=parsed["status"], second=second["status"],
+             explanation=second["explanation"])
+        if agreed:
+            return parsed
+        # they disagree, so nothing is claimed: the run carries on if there
+        # is anything left to happen, and says so plainly if there is not
+        return {"status": "UNRESOLVED",
+                "supporting_event_ids": [],
+                "explanation": (f"two independent readings of the record "
+                                f"disagree ({parsed['status']} against "
+                                f"{second['status']}), so no answer is "
+                                f"claimed"),
+                "disagreement": True}
+
+    def _verify(*, cause: int) -> dict:
+        events = journal.events()
+        out = caller.ask("verifier", resolution_mod.VERIFIER_SYSTEM,
+                         resolution_mod.verifier_user_prompt(
+                             resolution, _iso_now(world),
+                             [{"event_id": e["event_id"], "t": e["t"],
+                               "description": e["description"],
+                               "for": e["for"],
+                               "observed_by": e["observed_by"]}
+                              for e in events]),
+                         resolution_mod.make_verifier_validator(
+                             {e["event_id"] for e in events}),
+                         sim_time=_iso_now(world), trigger="terminal_verify",
+                         reserved=True)
+        traj.review_calls += 1
+        world.apply(OP_VERIFY, {"call_id": out["call_id"],
+                                "status": out["parsed"]["status"],
+                                "supporting_event_ids":
+                                    out["parsed"]["supporting_event_ids"],
+                                "explanation": out["parsed"]["explanation"],
+                                "trajectory_id": tid}, cause)
+        return out["parsed"]
 
     def finish(reason: str, *, truncated: bool = False) -> SemanticTrajectory:
         """The one way a run ends without failing.

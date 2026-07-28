@@ -59,18 +59,25 @@ class Script:
     def __init__(self, by_role):
         self.by_role = {k: list(v) for k, v in by_role.items()}
         self.seen = []
+        self.last_judgment = UNRESOLVED
 
     def __call__(self, system, user):
         role = role_of(system)
         self.seen.append(role)
         if role in ("continuity", "event_review") and role not in self.by_role:
             return json.dumps(PASSES), {}      # reviews default to PASS
+        if role == "verifier" and role not in self.by_role:
+            # a second reading of the same record: unless a test is about
+            # disagreement, it reaches the same conclusion
+            return json.dumps(self.last_judgment), {}
         queue = self.by_role.get(role) or []
         if not queue:
             raise AssertionError(f"script exhausted for role {role!r}")
         item = queue.pop(0)
         if role == "judge" and FINAL_MARKER in user and item is UNRESOLVED:
             item = NO_AT_CUTOFF      # code forbids UNRESOLVED at the cutoff
+        if role == "judge" and isinstance(item, dict):
+            self.last_judgment = item
         return (item if isinstance(item, str) else json.dumps(item)), {}
 
 
@@ -79,6 +86,8 @@ def role_of(system: str) -> str:
     read-only checks, and a test that is not about them lets them PASS."""
     if "read-only outcome judge" in system:
         return "judge"
+    if "whether a stated condition has been met" in system:
+        return "verifier"
     if "whether what this person just said follows" in system:
         return "continuity"
     if "whether the proposed event" in system:
@@ -93,14 +102,21 @@ PASSES = {"verdict": "PASS", "reason": "consistent with what they have"}
 
 
 def reviewed(transport):
-    """Wrap a hand-written transport so the two read-only reviews PASS.
+    """Wrap a hand-written transport so the two read-only reviews PASS and
+    the independent verifier reaches the same conclusion the judge just
+    did.  A test that is about those roles scripts them itself."""
+    last = {"judgment": json.dumps(UNRESOLVED)}
 
-    A test that is not about the reviews should not have to script them,
-    and one that is scripts them itself and does not use this."""
     def t(system, user):
-        if role_of(system) in ("continuity", "event_review"):
+        role = role_of(system)
+        if role in ("continuity", "event_review"):
             return json.dumps(PASSES), {}
-        return transport(system, user)
+        if role == "verifier":
+            return last["judgment"], {}
+        raw, usage = transport(system, user)
+        if role == "judge":
+            last["judgment"] = raw
+        return raw, usage
     return t
 
 UNRESOLVED = {"status": "UNRESOLVED", "supporting_event_ids": [],
@@ -1293,3 +1309,260 @@ def test_the_same_event_cannot_happen_twice_word_for_word():
     nxt = json.loads(json.dumps(body))
     nxt["event"]["description"] = "She reaches the end of the section"
     assert strict(nxt)["event_checked"]
+
+
+# ================================================== the completion pass
+def test_a_reply_that_does_not_follow_is_sent_back_once():
+    """The continuity review is not advice: a reply that does not follow
+    from what this person has is refused, the exact defect goes back to
+    the same person, and one corrected attempt is accepted."""
+    seen = {"actor": 0, "reasons": []}
+
+    def transport(system, user):
+        role = role_of(system)
+        if role == "judge":
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if role == "verifier":
+            return json.dumps(NO_AT_CUTOFF), {}
+        if role == "event_review":
+            return json.dumps(PASSES), {}
+        if role == "continuity":
+            # the first reply from each person is refused, the second taken
+            n = seen["actor"]
+            return json.dumps(PASSES if n % 2 == 0 else
+                              {"verdict": "REVISE",
+                               "reason": "she has already sent that"}), {}
+        if role == "world":
+            return json.dumps({"judgment": "nothing comes of it",
+                               "event": None, "wakes": []}), {}
+        seen["actor"] += 1
+        if "DID NOT FOLLOW FROM WHAT" in user:
+            seen["reasons"].append(user)
+        return json.dumps(NOTHING), {}
+
+    world, journal, bindings = build()
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=6,
+                          trace=Trace())
+    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert seen["reasons"], "no correction was ever asked for"
+    assert "she has already sent that" in seen["reasons"][0]
+    # the refused reply was never committed as a decision
+    calls = [r for r in world.records if r["op"] == "semantic.actor_call"]
+    reviews = [r for r in world.records
+               if r["op"] == "semantic.continuity_review"]
+    assert reviews and len(reviews) > len(calls)
+
+
+def test_a_reply_that_still_does_not_follow_fails_the_run_honestly():
+    """Code does not invent a replacement decision, and it does not ask
+    the world to invent one either."""
+    def transport(system, user):
+        role = role_of(system)
+        if role == "judge":
+            return json.dumps(UNRESOLVED), {}
+        if role == "continuity":
+            return json.dumps({"verdict": "REVISE",
+                               "reason": "he is remembering something he was "
+                                         "never told"}), {}
+        if role == "event_review":
+            return json.dumps(PASSES), {}
+        if role == "world":
+            return json.dumps({"judgment": "nothing", "event": None,
+                               "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    world, journal, bindings = build()
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=6,
+                          trace=Trace())
+    assert traj.status == "failed"
+    assert "never told" in traj.reason
+    # nothing of the refused reply is in the record
+    assert not [r for r in world.records if r["op"] == "semantic.actor_call"]
+
+
+def test_a_meaningless_event_is_sent_back_and_null_is_accepted():
+    """Half of every committed event in the previous six runs was somebody
+    operating a device.  A rejected event is asked again, and "nothing
+    happened" is a correct answer, not a failure."""
+    asks = {"n": 0, "corrections": []}
+
+    def transport(system, user):
+        role = role_of(system)
+        if role == "judge":
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if role == "verifier":
+            return json.dumps(NO_AT_CUTOFF), {}
+        if role == "continuity":
+            return json.dumps(PASSES), {}
+        if role == "event_review":
+            return json.dumps({"verdict": "REVISE",
+                               "reason": "opening an application is not an "
+                                         "event"}), {}
+        if role == "world":
+            asks["n"] += 1
+            if "PROPOSED EVENT WAS REJECTED" in user:
+                asks["corrections"].append(user)
+                return json.dumps({"judgment": "nothing meaningful changes",
+                                   "event": None, "wakes": []}), {}
+            return json.dumps({"judgment": "she opens the app", "event": {
+                "description": "Ada opens her messaging application",
+                "for": ["ada_vance"], "observed": True, "after": "now",
+                "follow_up": False}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    world, journal, bindings = build()
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=6,
+                          trace=Trace())
+    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert asks["corrections"], "the world was never asked again"
+    assert "not an event" in asks["corrections"][0]
+    # and the interface event never reached the journal
+    assert all("opens her messaging application" not in e["description"]
+               for e in journal.events())
+
+
+def test_a_human_choice_written_by_the_world_becomes_that_persons_turn():
+    """The verdict no verb list could reach: the world has written
+    somebody's decision, so the decision goes to them."""
+    handed = {"to": []}
+
+    def transport(system, user):
+        role = role_of(system)
+        if role == "judge":
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if role == "verifier":
+            return json.dumps(NO_AT_CUTOFF), {}
+        if role == "continuity":
+            return json.dumps(PASSES), {}
+        if role == "event_review":
+            return json.dumps({"verdict": "ACTOR_TURN_REQUIRED",
+                               "reason": "whether she opens it is hers to "
+                                         "decide"}), {}
+        if role == "world":
+            return json.dumps({"judgment": "she opens it", "event": {
+                "description": "Ada opens the message and decides to reply",
+                "for": ["ada_vance"], "observed": True, "after": "now",
+                "follow_up": False}, "wakes": []}), {}
+        handed["to"].append("Ada Vance" in user)
+        return json.dumps(NOTHING), {}
+
+    world, journal, bindings = build()
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=transport), max_steps=6,
+                   trace=Trace())
+    assert any(handed["to"]), "the turn never went to the person"
+    # the world's version of her decision was never committed
+    assert all("decides to reply" not in e["description"]
+               for e in journal.events())
+
+
+def test_an_answer_needs_two_independent_readings_to_agree():
+    """A YES used to end a run the instant one judge flipped, so no YES was
+    ever tested against anything.  Now a candidate answer is read a second
+    time by someone who is not told what the first one said."""
+    world, journal, bindings = build()
+    seen = {"verifier_prompts": []}
+
+    def transport(system, user):
+        role = role_of(system)
+        if role == "judge":
+            return json.dumps({"status": "YES",
+                               "supporting_event_ids": ["e11"],
+                               "explanation": "e11 shows it"}), {}
+        if role == "verifier":
+            seen["verifier_prompts"].append(user)
+            return json.dumps({"status": "UNRESOLVED",
+                               "supporting_event_ids": [],
+                               "explanation": "e11 is her sending it, not "
+                                              "his reply"}), {}
+        if role in ("continuity", "event_review"):
+            return json.dumps(PASSES), {}
+        if role == "world":
+            return json.dumps({"judgment": "nothing", "event": None,
+                               "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=4,
+                          trace=Trace())
+    # the YES was NOT accepted
+    assert traj.status != "resolved"
+    assert traj.answer["status"] != "YES"
+    assert traj.answer.get("disagreement") is True
+    # and the verifier was never told what the judge had concluded
+    assert seen["verifier_prompts"]
+    for p in seen["verifier_prompts"]:
+        assert "e11 shows it" not in p
+        assert "THIS IS THE FINAL JUDGMENT" not in p
+
+
+def test_the_verifier_reads_the_record_and_nothing_about_the_first_reading():
+    from sworldmodel.semantic_runtime.resolution import (verifier_user_prompt,
+                                                         VERIFIER_SYSTEM)
+    p = verifier_user_prompt("the condition", "2026-01-01T00:00:00+00:00",
+                             [{"event_id": "e1", "t": "T",
+                               "description": "something happened",
+                               "for": ["a"], "observed_by": []}])
+    assert "the condition" in p and "something happened" in p
+    assert "NOT observed by anyone" in p
+    assert "judge" not in p.lower()
+    assert "there is no answer anyone wants" in VERIFIER_SYSTEM
+
+
+def test_the_compiled_shared_context_never_reaches_an_actor():
+    """It is the world's background.  In all six previous runs it was the
+    channel through which people knew things nobody had told them."""
+    marker = "prepared a short message about her proposal"
+    world, journal, bindings = build()
+    assert marker in journal.shared_context()
+    for aid in sorted(world.actors):
+        rendered = render_view(build_view(world, journal, aid))
+        assert marker not in rendered
+        assert "SHARED CONTEXT" not in rendered
+    # ... and the world does still get it
+    from sworldmodel.semantic_runtime.world_mind import world_user_prompt
+    wp = world_user_prompt(now="T", shared_context=journal.shared_context(),
+                           journal_text="-", actor_ids=["ada_vance"],
+                           trigger_kind="k", trigger_text="t")
+    assert marker in wp
+
+
+def test_an_actor_plan_is_a_plan_not_a_poll():
+    from sworldmodel.semantic_runtime.actor_mind import (ActorResponseError,
+                                                         validate_next_wake)
+    ok = validate_next_wake({"after": "1 day",
+                             "reason": "chase it tomorrow if he has not "
+                                       "replied"})
+    assert ok["after"] == "1 day"
+    assert validate_next_wake(None) is None
+    for bad in ({"after": "1 day"},                      # no reason
+                {"after": "whenever", "reason": "x"},    # unparseable
+                {"reason": "x"}):                        # no time
+        with pytest.raises(ActorResponseError):
+            validate_next_wake(bad)
+
+
+def test_a_wake_never_carries_information_to_the_person_it_wakes():
+    """Wake reasons are scheduler metadata.  They are recorded, and they
+    reach nobody: what a person learns, they observe."""
+    secret = "Bo has already decided to refuse and told his solicitor"
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=Script({
+        "judge": [UNRESOLVED] * 8,
+        "world": [{"judgment": "nothing yet", "event": None,
+                   "wakes": [{"actor": "bo_ferrer", "after": "2 hours",
+                              "reason": secret}]}] * 8,
+        "actor": [NOTHING] * 8}))
+    trace = Trace()
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=6, trace=trace)
+    for v in trace.of("actor_view"):
+        assert secret not in v["rendered"]
+        assert secret not in json.dumps(v["view"])
+    assert any(secret in json.dumps(r) for r in world.records)   # traced

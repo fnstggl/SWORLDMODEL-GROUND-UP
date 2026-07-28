@@ -13,6 +13,8 @@ import os
 
 from sworldmodel import canonical_json
 
+from .adapter import CONSUMED_FIELDS
+
 
 class Trace:
     def __init__(self) -> None:
@@ -72,6 +74,23 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                  trace.of("world_judgment"))
     _write_jsonl(os.path.join(out_dir, "terminal_checks.jsonl"),
                  trace.of("terminal_check"))
+    _write_jsonl(os.path.join(out_dir, "terminal_verifications.jsonl"),
+                 trace.of("terminal_verification"))
+    _write_jsonl(os.path.join(out_dir, "actor_continuity_reviews.jsonl"),
+                 trace.of("continuity_review") + trace.of(
+                     "actor_response_rejected"))
+    _write_jsonl(os.path.join(out_dir, "event_quality_reviews.jsonl"),
+                 trace.of("event_review") + trace.of("event_rejected"))
+    _write_jsonl(os.path.join(out_dir, "grounded_wakes.jsonl"),
+                 trace.of("wake_scheduled"))
+    _write_jsonl(os.path.join(out_dir, "review_exchanges.jsonl"),
+                 [c for c in caller.calls
+                  if c["role"] in ("continuity", "event_review", "verifier")])
+    j("compile_runtime_bindings.json",
+      {k: v for k, v in bindings.items() if k != "actor_ids"} |
+      {"actor_ids": bindings.get("actor_ids", {}),
+       "consumed_fields": list(CONSUMED_FIELDS),
+       "resolution_reaches": "the read-only judge and verifier only"})
     j("terminal_result.json",
       {"question": question, "trajectory": trajectory.to_dict(),
        "answer": trajectory.answer, "reason": trajectory.reason})
