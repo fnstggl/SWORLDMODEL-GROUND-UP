@@ -1,44 +1,22 @@
 {
  "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
  "trajectory": {
-  "status": "resolved",
+  "status": "incomplete",
   "answer": {
-   "status": "YES",
-   "supporting_event_ids": [
-    "e125",
-    "e136",
-    "e141",
-    "e172",
-    "e177",
-    "e183",
-    "e189",
-    "e193",
-    "e201",
-    "e209"
-   ],
-   "explanation": "Dr Aline Mercier actually read Ravi Patel's thesis chapter as evidenced by events e125-e209 showing she downloaded, opened, and read the chapter, but she has not yet sent comments, so the resolution is not fully satisfied."
+   "status": "UNRESOLVED",
+   "supporting_event_ids": [],
+   "explanation": "Aline has read the thesis chapter and typed comments but has not yet sent those comments to Ravi Patel."
   },
-  "reason": "",
-  "steps": 39,
-  "world_calls": 38,
-  "actor_calls": 16,
-  "judge_calls": 23
+  "reason": "step ceiling 120 reached at 2026-07-27T10:20:30+00:00, before the cutoff",
+  "steps": 120,
+  "world_calls": 102,
+  "actor_calls": 40,
+  "judge_calls": 94
  },
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e125",
-   "e136",
-   "e141",
-   "e172",
-   "e177",
-   "e183",
-   "e189",
-   "e193",
-   "e201",
-   "e209"
-  ],
-  "explanation": "Dr Aline Mercier actually read Ravi Patel's thesis chapter as evidenced by events e125-e209 showing she downloaded, opened, and read the chapter, but she has not yet sent comments, so the resolution is not fully satisfied."
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "Aline has read the thesis chapter and typed comments but has not yet sent those comments to Ravi Patel."
  },
- "reason": ""
+ "reason": "step ceiling 120 reached at 2026-07-27T10:20:30+00:00, before the cutoff"
 }

@@ -4,23 +4,19 @@
   "status": "cutoff",
   "answer": {
    "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [
-    "e154"
-   ],
-   "explanation": "The committed events show Mark Cuban deleted Jordan Reyes's email without opening it, and no response was ever sent before the deadline."
+   "supporting_event_ids": [],
+   "explanation": "The deadline 2026-08-10T09:00:00-05:00 has passed and no committed event shows Mark Cuban sending a response to Jordan Reyes's email."
   },
   "reason": "",
-  "steps": 71,
-  "world_calls": 40,
-  "actor_calls": 38,
+  "steps": 59,
+  "world_calls": 33,
+  "actor_calls": 35,
   "judge_calls": 12
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e154"
-  ],
-  "explanation": "The committed events show Mark Cuban deleted Jordan Reyes's email without opening it, and no response was ever sent before the deadline."
+  "supporting_event_ids": [],
+  "explanation": "The deadline 2026-08-10T09:00:00-05:00 has passed and no committed event shows Mark Cuban sending a response to Jordan Reyes's email."
  },
  "reason": ""
 }

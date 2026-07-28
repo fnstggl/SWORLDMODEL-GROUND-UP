@@ -5,28 +5,28 @@
   "answer": {
    "status": "YES",
    "supporting_event_ids": [
-    "e154",
-    "e204",
-    "e230",
-    "e276"
+    "e104",
+    "e275",
+    "e358",
+    "e447"
    ],
-   "explanation": "Bea offered to host on Sunday (e154), Tomas agreed (e204), Ines agreed (e230), and Bea confirmed hosting (e276), collectively agreeing on a host before the deadline."
+   "explanation": "Ines offered to host (e104), Kwame agreed (e275), Bea agreed (e358), and Tomas agreed (e447), showing collective agreement before the deadline."
   },
   "reason": "",
-  "steps": 65,
-  "world_calls": 62,
-  "actor_calls": 21,
-  "judge_calls": 35
+  "steps": 94,
+  "world_calls": 72,
+  "actor_calls": 30,
+  "judge_calls": 43
  },
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e154",
-   "e204",
-   "e230",
-   "e276"
+   "e104",
+   "e275",
+   "e358",
+   "e447"
   ],
-  "explanation": "Bea offered to host on Sunday (e154), Tomas agreed (e204), Ines agreed (e230), and Bea confirmed hosting (e276), collectively agreeing on a host before the deadline."
+  "explanation": "Ines offered to host (e104), Kwame agreed (e275), Bea agreed (e358), and Tomas agreed (e447), showing collective agreement before the deadline."
  },
  "reason": ""
 }

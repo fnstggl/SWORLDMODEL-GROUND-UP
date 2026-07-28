@@ -1,42 +1,46 @@
 {
- "provider_calls": 231,
+ "provider_calls": 117,
  "by_role": {
   "judge": {
-   "calls": 80,
+   "calls": 41,
    "retries": 0,
-   "wall_s": 129.75,
-   "input_tokens": 215816,
-   "output_tokens": 4940
+   "wall_s": 65.23,
+   "input_tokens": 67302,
+   "output_tokens": 2295
   },
   "world": {
-   "calls": 118,
+   "calls": 55,
    "retries": 0,
-   "wall_s": 256.75,
-   "input_tokens": 497914,
-   "output_tokens": 15162
+   "wall_s": 119.31,
+   "input_tokens": 183718,
+   "output_tokens": 7235
   },
   "actor": {
-   "calls": 33,
+   "calls": 21,
    "retries": 0,
-   "wall_s": 65.84,
-   "input_tokens": 57848,
-   "output_tokens": 3483
+   "wall_s": 41.15,
+   "input_tokens": 28120,
+   "output_tokens": 2015
   }
  },
- "total_input_tokens": 771578,
- "total_output_tokens": 23585,
- "total_wall_s": 452.37,
- "status": "incomplete",
+ "total_input_tokens": 279140,
+ "total_output_tokens": 11545,
+ "total_wall_s": 225.7,
+ "status": "resolved",
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have reached an agreement on a price for the used kiln; they have exchanged offers but not yet agreed."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e276",
+   "e282",
+   "e373"
+  ],
+  "explanation": "Priya accepted Dmitri's offer of 1100 in event e276, which Dmitri observed in event e373, establishing an agreed price before the deadline."
  },
- "reason": "step ceiling 120 reached at 2026-09-08T09:25:10+00:00, before the cutoff",
- "steps": 120,
- "world_calls": 118,
- "actor_calls": 33,
- "judge_calls": 80,
- "committed_events": 79,
- "ledger_records": 700
+ "reason": "",
+ "steps": 68,
+ "world_calls": 55,
+ "actor_calls": 21,
+ "judge_calls": 41,
+ "committed_events": 41,
+ "ledger_records": 388
 }

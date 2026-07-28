@@ -1,44 +1,42 @@
 {
- "provider_calls": 90,
+ "provider_calls": 80,
  "by_role": {
   "judge": {
    "calls": 12,
    "retries": 0,
-   "wall_s": 17.35,
-   "input_tokens": 8819,
-   "output_tokens": 639
+   "wall_s": 18.59,
+   "input_tokens": 8768,
+   "output_tokens": 725
   },
   "world": {
-   "calls": 40,
+   "calls": 33,
    "retries": 0,
-   "wall_s": 79.87,
-   "input_tokens": 86438,
-   "output_tokens": 4368
+   "wall_s": 67.63,
+   "input_tokens": 63282,
+   "output_tokens": 3436
   },
   "actor": {
-   "calls": 38,
+   "calls": 35,
    "retries": 0,
-   "wall_s": 55.84,
-   "input_tokens": 33287,
-   "output_tokens": 1815
+   "wall_s": 57.18,
+   "input_tokens": 31822,
+   "output_tokens": 2124
   }
  },
- "total_input_tokens": 128544,
- "total_output_tokens": 6822,
- "total_wall_s": 153.03,
+ "total_input_tokens": 103872,
+ "total_output_tokens": 6285,
+ "total_wall_s": 143.35,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e154"
-  ],
-  "explanation": "The committed events show Mark Cuban deleted Jordan Reyes's email without opening it, and no response was ever sent before the deadline."
+  "supporting_event_ids": [],
+  "explanation": "The deadline 2026-08-10T09:00:00-05:00 has passed and no committed event shows Mark Cuban sending a response to Jordan Reyes's email."
  },
  "reason": "",
- "steps": 71,
- "world_calls": 40,
- "actor_calls": 38,
+ "steps": 59,
+ "world_calls": 33,
+ "actor_calls": 35,
  "judge_calls": 12,
  "committed_events": 11,
- "ledger_records": 268
+ "ledger_records": 238
 }

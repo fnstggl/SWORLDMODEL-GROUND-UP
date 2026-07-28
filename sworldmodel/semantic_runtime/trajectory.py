@@ -117,14 +117,22 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: what, if anything, happens)
     backoff: dict = {}
 
+    #: one pending revisit per person.  Without this they stack: several
+    #: are scheduled before the first fires, so the interval never widens
+    #: and someone is revisited every couple of simulated minutes forever.
+    recheck_pending: set = set()
+
     def _schedule_recheck(actor_id: str, cause: int) -> None:
         # ten minutes, then twenty, then forty, up to a day.  It starts
         # short because some situations move in minutes and it widens
         # because most do not; either way it walks to the horizon.
+        if actor_id in recheck_pending:
+            return
         minutes = backoff.get(actor_id, 5) * 2
         backoff[actor_id] = min(minutes, 24 * 60)
         due = world.clock.now + timedelta(minutes=backoff[actor_id])
         if due <= cutoff:
+            recheck_pending.add(actor_id)
             world.schedule(K_WAKE,
                            {"actor": actor_id,
                             "reason": "time has passed and something is "
@@ -133,14 +141,17 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
 
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
-                   actor_id: str | None = None, concerns=()) -> dict | None:
+                   actor_id: str | None = None, concerns=(),
+                   self_act_of=None) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
         # an event produced by adjudicating someone's own attempt is that
-        # person's own doing; the queue carries that fact so the commit
-        # rule can tell it apart from something happening TO them
-        self_act_of = actor_id if trigger_kind == "actor_intention" else None
+        # person's own doing, and so is whatever follows from it: the
+        # queue carries that fact so the commit rule can tell it apart
+        # from something happening TO them
+        if trigger_kind == "actor_intention":
+            self_act_of = actor_id
         user = world_mind.world_user_prompt(
             now=_iso_now(world), shared_context=journal.shared_context(),
             journal_text=journal.render_for_world(), actor_ids=actor_ids,
@@ -221,6 +232,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                          sim_time=_iso_now(world), trigger=f"actor:{actor_id}")
         traj.actor_calls += 1
         since_actor["n"] = 0
+        news_at_turn[actor_id] = news.get(actor_id, 0)
         parsed = out["parsed"]
         aseq = world.apply(OP_ACTOR_CALL,
                            {"call_id": out["call_id"], "actor": actor_id,
@@ -263,11 +275,33 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     MAX_WORLD_RUN = 6
     since_actor = {"n": 0}
 
+    #: how many things each person has LEARNED -- events delivered to them
+    #: that were not their own doing -- and how many they had learned when
+    #: they were last consulted.
+    news: dict = {}
+    news_at_turn: dict = {}
+
+    def _has_learned_something(actor_id: str) -> bool:
+        return news.get(actor_id, 0) > news_at_turn.get(actor_id, -1)
+
     def _hand_back_the_turn(actors, rec) -> None:
+        """The world has been running on its own for too long.
+
+        Someone who has learned something gets their say now.  Someone in
+        the middle of their own long task has not: consulting them again
+        immediately is what turned one live run into a supervisor reading
+        a thesis one page at a time, forty minutes of simulated time and
+        the whole step budget gone.  For them, time passes instead, on the
+        widening interval -- which is what being deep in something looks
+        like from outside.
+        """
         since_actor["n"] = 0
         env_chain["depth"] = 0
         for aid in actors:
-            actor_step(aid, cause=rec["seq"])
+            if _has_learned_something(aid):
+                actor_step(aid, cause=rec["seq"])
+            else:
+                _schedule_recheck(aid, rec["seq"])
 
     def _after_commit(rec: dict, envelope: dict, self_act_of=None) -> None:
         """The single post-commit rule, identical for starting events and
@@ -287,6 +321,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             # somebody LEARNED something: their turn, and nothing further
             env_chain["depth"] = 0
             for aid in others:
+                news[aid] = news.get(aid, 0) + 1
                 actor_step(aid, cause=rec["seq"],
                            trigger_event_ids=[rec["event_id"]])
             return
@@ -311,7 +346,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             trigger_kind="event_consequence",
             trigger_text=envelope["description"], cause=rec["seq"],
             actor_id=envelope["for"][0] if envelope["for"] else None,
-            concerns=[rec["event_id"]])
+            concerns=[rec["event_id"]], self_act_of=self_act_of)
         progressed = (len(journal.events()) > before
                       or world.queue.peek() is not None)
         if parsed is not None and not (parsed["wakes"] or progressed):
@@ -457,6 +492,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                               self_act_of=ev.data.get("self_act_of"))
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
+                recheck_pending.discard(aid)
                 pending = journal.available_unobserved(aid)
                 if pending and since_actor["n"] >= MAX_WORLD_RUN:
                     _hand_back_the_turn([aid], {"seq": fired})

@@ -1037,3 +1037,39 @@ def test_one_instant_cannot_be_subdivided_forever():
     from collections import Counter
     assert max(Counter(times).values()) <= MAX_EVENTS_PER_INSTANT + 1
     assert times[-1] > times[0]
+
+
+def test_being_deep_in_your_own_task_does_not_earn_a_fresh_turn():
+    """Someone who has learned something gets their say.  Someone in the
+    middle of their own long task has not learned anything: consulting
+    them again immediately turned one live run into a supervisor reading a
+    thesis one page at a time."""
+    world, journal, bindings = build()
+    turns = []
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            # her own work, seen by nobody else, on and on
+            return json.dumps({"judgment": "she carries on", "event": {
+                "description": "Ada works on her own thing a while longer",
+                "for": ["ada_vance"], "observed": True,
+                "after": "2 minutes"}, "wakes": []}), {}
+        turns.append(user.splitlines()[1])      # the CURRENT TIME line
+        return json.dumps({"decision": "keep at it",
+                           "intentions": ["carry on with it"],
+                           "private_updates": []}), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=40,
+                          trace=Trace())
+    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    # she is revisited on a WIDENING schedule rather than every few
+    # simulated minutes, so the run walks forward through real time
+    assert len(set(turns)) == len(turns)          # never twice at one instant
+    gaps = [(parse_iso(b) - parse_iso(a)).total_seconds()
+            for a, b in zip(turns, turns[1:])]
+    assert gaps and gaps[-1] > gaps[0]            # the interval grew
+    span = parse_iso(turns[-1]) - parse_iso(turns[0])
+    assert span.total_seconds() > 3600            # hours, not minutes
