@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,28 +116,28 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Nimbus Freight's bid team",
-   "private_context": "The team has prepared a tender for the Valdoria postal contract. They need to get the tender document signed by two required directors and submitted before Friday's 12:00 deadline. They know who the two directors are and have a process for obtaining signatures."
+   "private_context": "The team has prepared a tender for the Valdoria postal contract. They need to get the tender document signed by two required directors and submitted before Friday's 12:00 deadline. They are aware of the deadline and the signing requirement."
   },
   {
    "name": "Director 1",
-   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. They are aware of the tender and the deadline but have not yet signed."
+   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document."
   },
   {
    "name": "Director 2",
-   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. They are aware of the tender and the deadline but have not yet signed."
+   "private_context": "The other director whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document."
   }
  ],
- "shared_context": "Nimbus Freight is pursuing the Valdoria postal contract. The tender document requires signatures from two directors before submission. The submission deadline is Friday, 2026-08-28 at 12:00. The bid team can approach the directors for signatures. The directors may be available or unavailable, and may sign or not sign.",
+ "shared_context": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to.",
  "starting_events": [
   {
    "time": "2026-08-24T08:00:00+02:00",
-   "description": "The bid team begins work on obtaining the two required signatures for the Valdoria postal-contract tender.",
+   "description": "The bid team has the tender document ready but unsigned. They have not yet approached the directors for signatures.",
    "visible_to": [
     "Nimbus Freight's bid team"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that both required directors signed the tender document and the signed document was submitted before Friday 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that both Director 1 and Director 2 actually signed the tender document and the signed document was submitted before 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -1,0 +1,6 @@
+{
+  "actors": [],
+  "shared_context": "London is a city in the United Kingdom. Weather forecasting is a scientific process, but the question asks about a future weather event that is not determined by social decisions.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question asks about a natural weather event, not a social decision or action, so no social simulation can resolve it."
+}

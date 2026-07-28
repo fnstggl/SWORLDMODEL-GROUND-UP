@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The question asks whether anyone will volunteer to stand for chair, which requires individual members as actors. The scene only includes the society as a single actor, which cannot volunteer or be nominated. The question does not name any specific members, but the referring expression 'anyone' implies individual members of the society. The scene invents a single collective actor that cannot perform the action of volunteering, making it impossible to simulate the question's core social dynamic.",
+   "correction": "Include individual members of the Kettlewell Allotment Society as actors, or at least a set of members who can decide to volunteer. The society as a collective cannot volunteer; only individuals can."
+  }
+ ]
 }

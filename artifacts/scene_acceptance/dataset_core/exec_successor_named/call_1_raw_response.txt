@@ -2,24 +2,24 @@
   "actors": [
     {
       "name": "Owner of Fenwick & Sloane",
-      "private_context": "Owner has run the store for 31 years. She has two deputies: one runs buying, the other runs operations. She has not yet decided which deputy will succeed her as general manager. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about the decision."
+      "private_context": "Owner has run the store for 31 years. She has two deputies: one runs buying, the other operations. Her accountant has advised settling the succession before seasonal hires arrive. She has not yet decided which deputy to name as general manager, or whether to name one at all before November 1."
     },
     {
       "name": "Deputy (Buying)",
-      "private_context": "One of two deputies at Fenwick & Sloane, responsible for buying. Aware that the owner is retiring and that a successor will be named. Has not been told the decision."
+      "private_context": "Runs buying at Fenwick & Sloane. Aware that staff are asking openly about succession. Wants to be named general manager."
     },
     {
       "name": "Deputy (Operations)",
-      "private_context": "One of two deputies at Fenwick & Sloane, responsible for operations. Aware that the owner is retiring and that a successor will be named. Has not been told the decision."
+      "private_context": "Runs operations at Fenwick & Sloane. Aware that staff are asking openly about succession. Wants to be named general manager."
     }
   ],
-  "shared_context": "Fenwick & Sloane is a store. The owner is retiring and will name one of her two deputies as general manager. Holiday trading starts on November 1. The accountant has advised settling the succession before seasonal hires arrive. Staff have been asking openly about the decision.",
+  "shared_context": "Fenwick & Sloane is a store. Holiday trading starts on November 1. The owner is retiring and has two deputies. Staff have started asking openly about who will take over. The owner's accountant has advised settling the matter before seasonal hires arrive.",
   "starting_events": [
     {
       "time": "2026-09-15T09:00:00+00:00",
-      "description": "The owner has not yet announced her decision. The two deputies are aware of the impending succession decision.",
+      "description": "The owner has not yet named a successor. The store is open for business as usual.",
       "visible_to": ["Owner of Fenwick & Sloane", "Deputy (Buying)", "Deputy (Operations)"]
     }
   ],
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-11-01T09:00:00+00:00, the persistent event history shows that the owner has publicly named which deputy will take over as general manager (e.g., an announcement to staff, a written notice, or a direct communication to both deputies). Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that the owner publicly named one of the two deputies as general manager before 2026-11-01T00:00:00+00:00 (the start of holiday trading on November 1). Otherwise resolve NO at the hard cutoff 2026-11-01T09:00:00+00:00."
 }

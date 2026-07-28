@@ -2,30 +2,33 @@
  "actors": [
   {
    "name": "Femi Adeyemi",
-   "private_context": "Femi is a doctoral candidate who needs to schedule a defense date in November. He has three committee members. He wants to find a date that works for all."
+   "private_context": "Femi is a doctoral candidate who needs to schedule a defense date within the department's November window. They have three committee members who must agree on a date. Femi knows the department's November window and has some preferred dates but is flexible."
   },
   {
    "name": "Committee Member 1",
-   "private_context": "A faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "private_context": "One of Femi's three committee members. They have their own schedule constraints and preferences for defense dates within the November window. They are aware of the need to converge on a date."
   },
   {
    "name": "Committee Member 2",
-   "private_context": "A faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "private_context": "One of Femi's three committee members. They have their own schedule constraints and preferences for defense dates within the November window. They are aware of the need to converge on a date."
   },
   {
    "name": "Committee Member 3",
-   "private_context": "A faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "private_context": "One of Femi's three committee members. They have their own schedule constraints and preferences for defense dates within the November window. They are aware of the need to converge on a date."
   }
  ],
- "shared_context": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+ "shared_context": "Femi Adeyemi is a doctoral candidate. The department has a November window for defenses. Femi and the three committee members need to agree on a specific defense date within that window. The current date is 2026-09-14. They have ten days (until 2026-09-24) to converge on a date. Communication among them is possible via email or meetings.",
  "starting_events": [
   {
    "time": "2026-09-14T09:00:00+01:00",
-   "description": "Femi sends an email to his three committee members proposing several possible defense dates in November and asking for their availability.",
+   "description": "Femi and the three committee members are aware that they need to schedule a defense date within the November window. No date has been proposed yet.",
    "visible_to": [
-    "Femi Adeyemi"
+    "Femi Adeyemi",
+    "Committee Member 1",
+    "Committee Member 2",
+    "Committee Member 3"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all four actors have agreed on a specific defense date within the department's November window. Otherwise resolve NO."
+ "resolution": "Resolve YES only if, by 2026-09-24T17:00:00+01:00, the persistent event history shows that all four parties (Femi and the three committee members) have explicitly agreed on a specific defense date that falls within the department's November window. Otherwise resolve NO at the cutoff."
 }

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will at least two-thirds of the 21-member Interchange Format Working Group return ballots on draft revision 4 by the close of the comment period?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct members (two-thirds of 21) actually submitted a ballot (by any means accepted by the group) before 2026-09-15T23:59:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct members (two-thirds of 21) actually submitted a ballot on draft revision 4 before 2026-09-15T23:59:00+00:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-15T23:59:00+00:00",
   "world_id": "w_dac0594f3ee3"
  },

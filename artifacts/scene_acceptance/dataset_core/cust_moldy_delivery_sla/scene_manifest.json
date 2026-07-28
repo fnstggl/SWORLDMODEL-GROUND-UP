@@ -1,23 +1,24 @@
 {
  "actors": [
   {
-   "name": "Hana Suzuki",
-   "private_context": "Hana Suzuki received a moldy delivery from Ostara Foods. She has drafted a complaint and intends to send it to Ostara Foods' support desk. She expects a reply within 24 hours as advertised."
+   "name": "Ostara Foods Support Desk",
+   "private_context": "The support desk operates with a policy to respond to customer complaints within 24 hours. They have received Hana Suzuki's complaint about a moldy delivery and are processing it."
   },
   {
-   "name": "Ostara Foods Support Desk",
-   "private_context": "The support desk handles customer complaints and aims to respond within 24 hours. They have not yet received Hana Suzuki's complaint."
+   "name": "Hana Suzuki",
+   "private_context": "Hana Suzuki is a customer who received a moldy delivery from Ostara Foods. She has submitted a complaint to the support desk and expects a response within the advertised 24-hour window."
   }
  ],
- "shared_context": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
+ "shared_context": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki's complaint about a moldy delivery was submitted before the simulation start time. The support desk has the complaint on record and can reply via the same channel.",
  "starting_events": [
   {
    "time": "2026-08-19T13:00:00+09:00",
-   "description": "Hana Suzuki sends her complaint about the moldy delivery to Ostara Foods' support desk.",
+   "description": "Hana Suzuki's complaint about a moldy delivery is already received by Ostara Foods' support desk.",
    "visible_to": [
+    "Ostara Foods Support Desk",
     "Hana Suzuki"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. A substantive reply is one that addresses the complaint (e.g., offers a resolution, asks for more details, or acknowledges the issue with intent to resolve). Otherwise resolve NO at the cutoff."
 }

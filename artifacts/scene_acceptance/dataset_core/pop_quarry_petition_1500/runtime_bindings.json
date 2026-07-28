@@ -2,8 +2,8 @@
  "world_id": "w_a1f11604124a",
  "actor_ids": {
   "Petition organizers": "petition_organizers",
-  "Quarry operator": "quarry_operator",
-  "Town residents (cohort)": "town_residents_cohort"
+  "Riverton residents": "riverton_residents",
+  "Quarry operator": "quarry_operator"
  },
  "event_records": [
   {
@@ -11,11 +11,9 @@
    "ledger_seq": 14,
    "at": "2026-08-03T15:00:00+00:00",
    "visible_to_ids": [
-    "petition_organizers",
-    "quarry_operator",
-    "town_residents_cohort"
+    "petition_organizers"
    ],
-   "description": "Petition organizers have 400 signatures and continue their drive. The quarry operator's counter-flyer is in circulation."
+   "description": "The petition organizers have 400 signatures and continue their campaign to collect more signatures from Riverton residents."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +24,20 @@
  "personas": {
   "petition_organizers": {
    "name": "Petition organizers",
-   "persona_brief": "You are Petition organizers.\nThey have gathered 400 signatures in the first fortnight, mostly at the farmers market. They need 1,500 total by the deadline. They are aware of the counter-flyer from the quarry operator."
+   "persona_brief": "You are Petition organizers.\nThey have gathered 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline from the start date (2026-08-03), meaning the deadline is 2026-09-14. They have seen the counter-flyer from the quarry operator."
+  },
+  "riverton_residents": {
+   "name": "Riverton residents",
+   "persona_brief": "You are Riverton residents.\nResidents have varying opinions on the quarry extension. Some are concerned about environmental impacts, others value the jobs (85 employed by the quarry). They may sign the petition if approached or if they feel strongly."
   },
   "quarry_operator": {
    "name": "Quarry operator",
-   "persona_brief": "You are Quarry operator.\nThe operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to prevent the petition from reaching 1,500 signatures."
-  },
-  "town_residents_cohort": {
-   "name": "Town residents (cohort)",
-   "persona_brief": "You are Town residents (cohort).\nThe town has 19,000 residents. Some may be undecided, some may support or oppose the quarry extension. They may encounter petition drives or counter-flyers."
+   "persona_brief": "You are Quarry operator.\nThe operator distributed a counter-flyer last week opposing the petition. They want to prevent the petition from reaching 1,500 signatures."
   }
  },
  "resolution": {
   "question": "Will the residents' petition against the Riverton quarry extension collect the 1,500 signatures needed to trigger a council debate before the submission deadline in six weeks?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before the deadline. Otherwise resolve NO at the deadline.",
+  "resolution": "Resolve YES only if the persistent event history shows that the petition has at least 1,500 valid signatures submitted before the deadline of 2026-09-14T17:00:00-06:00. Otherwise resolve NO at the deadline.",
   "cutoff": "2026-09-14T17:00:00-06:00",
   "world_id": "w_a1f11604124a"
  }

@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "John",
+   "private_context": "John is a person who may have preferences and emotional reactions to receiving gifts. He is about to receive a gift."
+  }
+ ],
+ "shared_context": "John is at a location where a gift is being given to him on August 10, 2026. The gift is being presented by someone else (not an actor in this simulation).",
+ "starting_events": [
+  {
+   "time": "2026-08-10T12:00:00-05:00",
+   "description": "John receives a gift.",
+   "visible_to": [
+    "John"
+   ]
+  }
+ ],
+ "resolution": "UNRESOLVABLE: The question asks about John's internal feeling of happiness, which is not directly observable. No observable proxy for happiness is provided in the question or context."
+}

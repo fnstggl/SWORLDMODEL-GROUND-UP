@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,25 +119,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CFO",
-   "private_context": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. The CFO has not yet decided whether to approve the revised budget."
+   "private_context": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. They are aware the offsite agenda includes the campaign as a topic."
   },
   {
    "name": "CMO",
-   "private_context": "The CMO leads the marketing team and revised the Q4 budget downward by eight percent after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. The CMO wants approval before the leadership offsite on the 21st."
+   "private_context": "The CMO leads the marketing team and has revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. They know the offsite agenda lists the campaign as a topic."
   }
  ],
- "shared_context": "Ostara Foods has a leadership offsite scheduled for 2026-09-21, with the campaign listed as a topic on the agenda. The CFO and CMO meet weekly. The revised Q4 marketing budget is eight percent below the original ask.",
+ "shared_context": "Ostara Foods has a leadership offsite scheduled for September 21, 2026. The offsite agenda already lists the campaign as a topic. The marketing team's revised Q4 budget is eight percent below the original ask. The CFO and CMO meet weekly and work together decently.",
  "starting_events": [
   {
    "time": "2026-09-08T09:00:00+01:00",
-   "description": "The marketing team's revised Q4 budget is submitted to the CFO for approval.",
+   "description": "The simulation begins. The revised Q4 budget exists but has not yet been submitted for approval.",
    "visible_to": [
     "CFO",
     "CMO"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the CFO communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the CFO actually approved the marketing team's revised Q4 budget before the leadership offsite on September 21, 2026 (i.e., before 2026-09-21T00:00:00+01:00). Otherwise resolve NO at the start of the offsite."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

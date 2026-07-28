@@ -11,10 +11,9 @@
    "ledger_seq": 14,
    "at": "2026-10-05T17:00:00+00:00",
    "visible_to_ids": [
-    "rosa_maria",
-    "vp"
+    "rosa_maria"
    ],
-   "description": "Rosa Maria's promotion case for Jonas has been submitted for calibration. The calibration process is pending or ongoing."
+   "description": "Rosa Maria has prepared Jonas's promotion case and is ready to submit it for calibration."
   }
  ],
  "code_owned_defaults": {
@@ -25,20 +24,20 @@
  "personas": {
   "rosa_maria": {
    "name": "Rosa Maria",
-   "persona_brief": "You are Rosa Maria.\nRosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and submitted it for calibration. She wants the case to be approved and signed off by the VP before promotion letters go out on November 15. She knows the calibration process and VP sign-off are required steps."
+   "persona_brief": "You are Rosa Maria.\nRosa Maria is Jonas's manager. She has prepared a promotion case for Jonas and wants it to clear calibration and receive VP sign-off before November 15. She is aware of the promotion letter deadline."
   },
   "jonas": {
    "name": "Jonas",
-   "persona_brief": "You are Jonas.\nJonas is a report of Rosa Maria. He is aware that Rosa Maria is working on his promotion case. He hopes the promotion goes through but has no direct control over the process."
+   "persona_brief": "You are Jonas.\nJonas is Rosa Maria's report. He is aware that Rosa Maria is working on his promotion case but does not know the details of the calibration or VP sign-off process."
   },
   "vp": {
    "name": "VP",
-   "persona_brief": "You are VP.\nThe VP is the executive who must sign off on promotion cases. They have authority to approve or reject. They are aware of the promotion cycle and the November 15 deadline for letters."
+   "persona_brief": "You are VP.\nThe VP is responsible for signing off on promotion cases. They have not yet seen Jonas's case. They have other priorities and may need to review the case before signing."
   }
  },
  "resolution": {
   "question": "Will manager Rosa Maria's promotion case for her report Jonas clear calibration and receive VP sign-off before promotion letters go out on November 15?",
-  "resolution": "Resolve YES only if the persistent event history shows that Jonas's promotion case cleared calibration and received VP sign-off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Jonas's promotion case cleared calibration and received VP sign-off before November 15, 2026. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-11-15T09:00:00-08:00",
   "world_id": "w_e3126859ec6d"
  }

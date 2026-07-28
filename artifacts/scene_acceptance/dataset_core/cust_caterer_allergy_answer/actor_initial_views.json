@@ -23,13 +23,13 @@
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "The catering manager at Willow & Thyme is responsible for answering client inquiries. They have received Deepa's email about nut-free menu options and may respond before the tasting.",
+    "content": "The catering manager at Willow & Thyme is responsible for responding to client inquiries. They have received Deepa's email but have not yet replied. They may have other commitments and priorities.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email.",
+    "content": "Willow & Thyme is a catering company. Deepa sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning (2026-09-19). The catering manager has access to the email and can reply via email.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Deepa is a bride-to-be who has emailed Willow & Thyme asking about nut-free menu options. She wants a response before her tasting on Saturday morning.",
+    "content": "Deepa is a bride-to-be who has emailed Willow & Thyme asking about nut-free menu options. She has a tasting scheduled for Saturday morning and wants an answer before then.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email.",
+    "content": "Willow & Thyme is a catering company. Deepa sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning (2026-09-19). The catering manager has access to the email and can reply via email.",
     "source": "scene_manifest:shared_context"
    }
   ],

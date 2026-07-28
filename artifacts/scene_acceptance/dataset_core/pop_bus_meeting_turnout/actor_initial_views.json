@@ -1,7 +1,7 @@
 {
  "kettlewell_parish_clerk": {
   "id": "kettlewell_parish_clerk",
-  "name": "Kettlewell Parish Clerk",
+  "name": "Kettlewell parish clerk",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-09-10T08:00:00+00:00",
     "kind": "context",
-    "content": "The clerk posted notices about the open meeting regarding the bus-route cut. They are aware that the last such meeting drew 22 attendees. They have no special knowledge of who will attend this time.",
+    "content": "The clerk posted notices about the open meeting regarding the bus-route cut. They are responsible for organizing the meeting and have no special knowledge about attendance.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-10T08:00:00+00:00",
     "kind": "context",
-    "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled for a date and time after the simulation start. The last similar meeting drew 22 attendees.",
+    "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to take place at a time and location specified in the notices. The last similar meeting about a different issue drew 22 attendees.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-10T08:00:00+00:00",
     "kind": "context",
-    "content": "The villagers have seen the notices about the open meeting. Some may be concerned about the bus-route cut, but individual attendance decisions are not yet made.",
+    "content": "The villagers have seen the notices about the open meeting. Some may recall that the last such meeting drew 22 attendees. They have varying levels of concern about the bus-route cut and may or may not attend.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-10T08:00:00+00:00",
     "kind": "context",
-    "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled for a date and time after the simulation start. The last similar meeting drew 22 attendees.",
+    "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to take place at a time and location specified in the notices. The last similar meeting about a different issue drew 22 attendees.",
     "source": "scene_manifest:shared_context"
    }
   ],

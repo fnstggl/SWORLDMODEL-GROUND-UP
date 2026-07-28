@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dmytro",
-   "private_context": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role. He has not yet decided whether to apply. He may have personal considerations (e.g., confidence, career goals, concerns about workload or competition) that affect his decision."
+   "private_context": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has his own career aspirations, concerns about qualifications, and personal circumstances that may influence his decision."
   }
  ],
- "shared_context": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system.",
+ "shared_context": "The company has posted an operations-manager role. Applications close in three weeks from the simulation start time, i.e., by 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply as an internal candidate. The application process is known to employees.",
  "starting_events": [
   {
    "time": "2026-08-17T09:00:00+02:00",
-   "description": "The operations-manager role is posted and visible to all employees, including Dmytro.",
+   "description": "The operations-manager role is open for applications. Dmytro is aware of the posting.",
    "visible_to": [
     "Dmytro"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Dmytro submitted a formal application for the operations-manager role before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Dmytro formally submitted an application for the operations-manager role before 2026-09-07T17:00:00+02:00. Otherwise resolve NO at that deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

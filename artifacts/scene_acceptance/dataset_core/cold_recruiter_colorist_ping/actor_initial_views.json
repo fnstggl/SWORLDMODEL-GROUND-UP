@@ -23,13 +23,13 @@
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "Petra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability.",
+    "content": "Petra is a senior colorist currently employed elsewhere and is happily employed. She has no prior relationship with the recruiter or Torchlight Media. She may or may not check messages from unknown senders.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter.",
+    "content": "The recruiter can send a message to Petra via a professional networking platform or email, and Petra can reply through the same channel. The message is a first-contact inquiry about an opening at Torchlight Media.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -72,7 +72,7 @@
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra's contact information is known to the recruiter.",
+    "content": "The recruiter can send a message to Petra via a professional networking platform or email, and Petra can reply through the same channel. The message is a first-contact inquiry about an opening at Torchlight Media.",
     "source": "scene_manifest:shared_context"
    }
   ],

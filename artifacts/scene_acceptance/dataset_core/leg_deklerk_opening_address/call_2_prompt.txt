@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "F. W. de Klerk",
-   "private_context": "De Klerk is the State President of South Africa. He is considering whether to deliver the customary opening address to Parliament in February 1990. He has not yet made a final decision and is aware of the political sensitivities surrounding the address."
+   "private_context": "De Klerk is the State President of South Africa. He is considering whether to deliver the customary opening address to Parliament in the first week of its February 1990 session. He has not yet made a final decision, but is aware of the tradition and the political implications."
   }
  ],
- "shared_context": "The South African Parliament is scheduled to open in the first week of February 1990. Customarily, the State President delivers the opening address. The date and time of the opening have been set, but it is not yet publicly known whether de Klerk will personally deliver the address.",
+ "shared_context": "The South African Parliament is scheduled to open its February 1990 session in the first week of February. Customarily, the State President delivers the opening address. The exact date of the opening has been set for February 2, 1990.",
  "starting_events": [
   {
    "time": "1990-01-20T09:00:00+02:00",
-   "description": "The parliamentary session is scheduled to begin in the first week of February 1990. No official announcement has been made regarding who will deliver the opening address.",
+   "description": "The South African Parliament is scheduled to open its session on February 2, 1990. The customary opening address is expected to be delivered by the State President.",
    "visible_to": [
     "F. W. de Klerk"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff, the persistent event history shows that F. W. de Klerk personally delivered the opening address to the South African Parliament during the first week of its February 1990 session. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that F. W. de Klerk personally delivered the opening address to the South African Parliament during the first week of February 1990 (i.e., on or before February 3, 1990, assuming the week starts Monday February 5? Actually first week of February 1990: February 1-7? The question says 'first week of its February 1990 session', and the session opens February 2. So the first week is February 2-8? To be safe, resolve YES if the address was delivered on February 2, 1990 or any day up to February 8, 1990. But the hard cutoff is February 6, so effectively by February 6. Resolve NO otherwise at the hard cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

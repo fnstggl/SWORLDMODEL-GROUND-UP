@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,25 +116,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Resident",
-   "private_context": "The resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action."
+   "private_context": "The resident has been experiencing ongoing issues with neighbors (e.g., noise, disputes) and hopes for improvement. They are considering possible actions but have not yet decided on any specific approach."
   },
   {
    "name": "Neighbors",
-   "private_context": "The neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior."
+   "private_context": "The neighbors are aware of some tension but have their own perspectives and routines. They may or may not be open to improving relations."
   }
  ],
- "shared_context": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
+ "shared_context": "There is a history of minor conflicts between the resident and the neighbors (e.g., noise complaints, boundary disagreements). Both parties live in close proximity and interact occasionally. No formal complaints or mediation have been initiated as of the start time.",
  "starting_events": [
   {
    "time": "2026-08-01T12:00:00+02:00",
-   "description": "The current situation with the neighbors is tense but stable; no new incident has occurred at this moment.",
+   "description": "The current situation between the resident and the neighbors is as described in shared_context.",
    "visible_to": [
     "Resident",
     "Neighbors"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the cutoff, the persistent event history shows a clear, observable improvement in neighbor relations (e.g., a friendly interaction, a resolved dispute, or a mutual agreement). Otherwise resolve NO."
+ "resolution": "Resolve YES only if, by 2026-11-01T12:00:00+02:00, the persistent event history shows a clear, observable improvement in the relationship (e.g., a friendly interaction, a resolved dispute, a mutual agreement, or a sustained reduction in conflicts). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

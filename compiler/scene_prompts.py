@@ -130,6 +130,17 @@ prepared message to B.", "visible_to": ["Person A"]}],
 that B actually sent A a response before the cutoff.  Otherwise resolve NO \
 at the cutoff."}
 
+STEP ZERO -- THE IDENTIFIABILITY CHECK.  Before writing anything, quote \
+to yourself the exact words of the question or context that supply each \
+of the four elements below.  If you cannot point at actual words for one \
+of them -- if you would be supplying it from imagination or from what is \
+typical -- you must refuse.  Naming a party "the CEO", "the Applicant", \
+"Neighbor A" or "the Permit Reviewer" when the question never mentions \
+such a party is exactly that failure.  Likewise, if the question asks \
+about an internal state (morale, respect, regret, opinion) and neither \
+the question nor the context names an observable behaviour that would \
+show it, you must not choose one yourself.
+
 WHEN TO REFUSE INSTEAD OF COMPILING.  Four elements must be identifiable \
 from the question, the user context, or supplied evidence:
   (i) the relevant subject or decision-maker;

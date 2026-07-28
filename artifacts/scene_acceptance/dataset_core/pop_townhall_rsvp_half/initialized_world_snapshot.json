@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "invited_parents_as_a_cohort": {
+  "invited_parents_120": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "invited_parents_as_a_cohort",
+   "id": "invited_parents_120",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each of the 120 parents received an invitation to the town hall. They may or may not RSVP by the deadline. Their individual decisions are unknown.",
+     "content": "Each parent has received an invitation to the town hall. They may or may not RSVP based on their interest, availability, and other factors.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T08:00:00+00:00"
     },
     {
-     "content": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
+     "content": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for 2026-10-20 at 18:00. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T08:00:00+00:00"
     }
    ],
-   "name": "Invited Parents (as a cohort)",
+   "name": "Invited Parents (120)",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "petersfield_secondary_school_administration": {
+  "petersfield_secondary_school": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "petersfield_secondary_school_administration",
+   "id": "petersfield_secondary_school",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The administration has sent invitations to 120 parents for a curriculum-change town hall. They need to know how many will attend to plan logistics. They have no prior knowledge of which parents will RSVP.",
+     "content": "The school has sent invitations to 120 parents for a curriculum-change town hall. It wants to gauge attendance and may follow up if needed.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T08:00:00+00:00"
     },
     {
-     "content": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date.",
+     "content": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for 2026-10-20 at 18:00. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T08:00:00+00:00"
     }
    ],
-   "name": "Petersfield Secondary School Administration",
+   "name": "Petersfield Secondary School",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will more than half of the 120 invited parents RSVP either way to Petersfield Secondary's curriculum-change town hall by the Friday before it?",
-  "scene:shared_context": "Petersfield Secondary School is holding a curriculum-change town hall. Invitations were sent to 120 parents. The RSVP deadline is Friday, 2026-10-16 at 17:00. The town hall will occur after that date."
+  "scene:shared_context": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for 2026-10-20 at 18:00. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs."
  },
  "history": [],
  "infos": {},

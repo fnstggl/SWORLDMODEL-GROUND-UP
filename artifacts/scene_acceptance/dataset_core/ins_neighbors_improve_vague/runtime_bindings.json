@@ -13,7 +13,7 @@
     "resident",
     "neighbors"
    ],
-   "description": "The current situation with the neighbors is tense but stable; no new incident has occurred at this moment."
+   "description": "The current situation between the resident and the neighbors is as described in shared_context."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "resident": {
    "name": "Resident",
-   "persona_brief": "You are Resident.\nThe resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action."
+   "persona_brief": "You are Resident.\nThe resident has been experiencing ongoing issues with neighbors (e.g., noise, disputes) and hopes for improvement. They are considering possible actions but have not yet decided on any specific approach."
   },
   "neighbors": {
    "name": "Neighbors",
-   "persona_brief": "You are Neighbors.\nThe neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior."
+   "persona_brief": "You are Neighbors.\nThe neighbors are aware of some tension but have their own perspectives and routines. They may or may not be open to improving relations."
   }
  },
  "resolution": {
   "question": "Will the situation with the neighbors improve over the next few months?",
-  "resolution": "Resolve YES if, by the cutoff, the persistent event history shows a clear, observable improvement in neighbor relations (e.g., a friendly interaction, a resolved dispute, or a mutual agreement). Otherwise resolve NO.",
+  "resolution": "Resolve YES only if, by 2026-11-01T12:00:00+02:00, the persistent event history shows a clear, observable improvement in the relationship (e.g., a friendly interaction, a resolved dispute, a mutual agreement, or a sustained reduction in conflicts). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-01T12:00:00+02:00",
   "world_id": "w_b8ccf1140398"
  }

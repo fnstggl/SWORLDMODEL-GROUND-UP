@@ -2,28 +2,20 @@
   "actors": [
     {
       "name": "Head Teacher",
-      "private_context": "The Head Teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to mention it in the newsletter."
+      "private_context": "The head teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter."
     },
     {
-      "name": "Parent 1",
-      "private_context": "Parent 1 raised the inspection at drop-off this week and is concerned about it. They hope the Head Teacher will address it in the newsletter."
-    },
-    {
-      "name": "Parent 2",
-      "private_context": "Parent 2 also raised the inspection at drop-off this week and is interested in seeing it addressed."
-    },
-    {
-      "name": "Parent 3",
-      "private_context": "Parent 3 also raised the inspection at drop-off this week and wants the school to communicate about it."
+      "name": "Three Parents",
+      "private_context": "The three parents raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter."
     }
   ],
-  "shared_context": "Petersfield Primary has an upcoming inspection. The school sends a parent newsletter every Friday. This week's newsletter is due to be sent on Friday, 2026-09-25. The Head Teacher compiles the newsletter and decides its content. The three parents discussed the inspection at drop-off this week, but it is not known whether the Head Teacher is aware of their discussion.",
+  "shared_context": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a parent newsletter every Friday. This week's newsletter is due on Friday, 2026-09-25. The three parents discussed the inspection at drop-off this week, but it is not known whether the head teacher is aware of their discussion.",
   "starting_events": [
     {
       "time": "2026-09-22T08:00:00+01:00",
-      "description": "The three parents have raised the upcoming inspection at drop-off this week. The Head Teacher is at school and may or may not have heard about the parents' discussion.",
-      "visible_to": ["Parent 1", "Parent 2", "Parent 3"]
+      "description": "The three parents raised the upcoming inspection at drop-off this week.",
+      "visible_to": ["Three Parents"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the Friday parent newsletter (sent on or before 2026-09-25T18:00:00+01:00) contains any mention of the upcoming inspection. Otherwise resolve NO."
+  "resolution": "Resolve YES only if the persistent event history shows that the head teacher actually included a mention of the upcoming inspection in the Friday parent newsletter published before 2026-09-25T18:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

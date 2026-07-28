@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Parents' group",
-      "private_context": "The group has agreed to collect money for cast flowers and hand them over backstage before curtain. They have a collection pot and a plan to coordinate. They are aware of the Friday 19:00 curtain time."
+      "private_context": "The group is aware of the tradition of presenting flowers to cast members after the opening night performance. They have not yet collected the flowers or made arrangements for handover."
     }
   ],
-  "shared_context": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group is responsible for collecting for cast flowers and handing them over backstage before curtain. The group has access to the school and backstage area.",
+  "shared_context": "Petersfield Secondary's play opens on Friday at 19:00. The cast will be backstage before and after the performance. The parents' group can collect flowers and hand them over backstage before curtain if they choose to do so.",
   "starting_events": [
     {
       "time": "2026-11-16T09:00:00+00:00",
-      "description": "The parents' group begins their collection and coordination efforts for the cast flowers.",
+      "description": "The parents' group has not yet taken any action regarding flowers for the cast.",
       "visible_to": ["Parents' group"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that the parents' group actually collected money for the cast flowers and handed them over backstage before 2026-11-20T19:00:00+00:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that the parents' group actually collected flowers and handed them over backstage before 2026-11-20T19:00:00+00:00. Otherwise resolve NO at the cutoff."
 }

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to the beta waitlist sign-up page within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to join the beta waitlist within 72 hours of the email send (i.e., by 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T08:00:00-07:00",
   "world_id": "w_70636bf7beb3"
  },

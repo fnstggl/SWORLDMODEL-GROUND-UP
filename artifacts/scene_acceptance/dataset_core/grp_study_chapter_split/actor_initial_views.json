@@ -23,13 +23,13 @@
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "Student 1 has prepared a chapter they want to present, but is open to negotiation. They want the group to reach an agreement tonight.",
+    "content": "Student 1 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "The five students are members of an actuarial study group. They have a meeting scheduled tonight at 19:00 to decide who presents which chapter at Saturday's session. There are five chapters to cover, one per student. The meeting is expected to last until 23:00. Each student has their own preferences and constraints, but no prior agreements have been made.",
+    "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "Student 2 has a strong preference for a specific chapter and is willing to argue for it. They want the group to decide tonight.",
+    "content": "Student 2 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "The five students are members of an actuarial study group. They have a meeting scheduled tonight at 19:00 to decide who presents which chapter at Saturday's session. There are five chapters to cover, one per student. The meeting is expected to last until 23:00. Each student has their own preferences and constraints, but no prior agreements have been made.",
+    "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "Student 3 is flexible and mainly wants to avoid a difficult chapter. They hope the group can agree quickly.",
+    "content": "Student 3 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "The five students are members of an actuarial study group. They have a meeting scheduled tonight at 19:00 to decide who presents which chapter at Saturday's session. There are five chapters to cover, one per student. The meeting is expected to last until 23:00. Each student has their own preferences and constraints, but no prior agreements have been made.",
+    "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "Student 4 has not prepared any preference and is willing to take whatever is left. They just want the meeting to be productive.",
+    "content": "Student 4 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "The five students are members of an actuarial study group. They have a meeting scheduled tonight at 19:00 to decide who presents which chapter at Saturday's session. There are five chapters to cover, one per student. The meeting is expected to last until 23:00. Each student has their own preferences and constraints, but no prior agreements have been made.",
+    "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -195,13 +195,13 @@
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "Student 5 has a preferred chapter but is willing to compromise. They want to avoid conflict and reach consensus.",
+    "content": "Student 5 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T11:00:00+00:00",
     "kind": "context",
-    "content": "The five students are members of an actuarial study group. They have a meeting scheduled tonight at 19:00 to decide who presents which chapter at Saturday's session. There are five chapters to cover, one per student. The meeting is expected to last until 23:00. Each student has their own preferences and constraints, but no prior agreements have been made.",
+    "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
     "source": "scene_manifest:shared_context"
    }
   ],

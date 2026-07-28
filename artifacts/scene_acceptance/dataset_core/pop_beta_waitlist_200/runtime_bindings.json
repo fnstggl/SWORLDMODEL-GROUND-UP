@@ -1,17 +1,18 @@
 {
  "world_id": "w_70636bf7beb3",
  "actor_ids": {
-  "Tidepool": "tidepool"
+  "Tidepool": "tidepool",
+  "Newsletter Subscribers (cohort of 5000)": "newsletter_subscribers_cohort_of_5000"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 8,
+   "ledger_seq": 11,
    "at": "2026-09-22T15:00:00+00:00",
    "visible_to_ids": [
     "tidepool"
    ],
-   "description": "Tidepool sends the beta launch email to all 5,000 newsletter subscribers."
+   "description": "Tidepool sends the launch email to all 5000 newsletter subscribers."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +23,16 @@
  "personas": {
   "tidepool": {
    "name": "Tidepool",
-   "persona_brief": "You are Tidepool.\nTidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours."
+   "persona_brief": "You are Tidepool.\nTidepool is sending a launch email to its newsletter subscribers. It has a beta waitlist and wants to maximize signups. The email includes a personal note from the founder and the waitlist link is above the fold."
+  },
+  "newsletter_subscribers_cohort_of_5000": {
+   "name": "Newsletter Subscribers (cohort of 5000)",
+   "persona_brief": "You are Newsletter Subscribers (cohort of 5000).\nEach subscriber receives the Tidepool newsletter. Their typical click-through rate is 6%. They may or may not be interested in joining a beta waitlist."
   }
  },
  "resolution": {
   "question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to the beta waitlist sign-up page within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to join the beta waitlist within 72 hours of the email send (i.e., by 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T08:00:00-07:00",
   "world_id": "w_70636bf7beb3"
  }

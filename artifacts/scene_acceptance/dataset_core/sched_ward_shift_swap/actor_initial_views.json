@@ -1,7 +1,7 @@
 {
- "colleagues_in_the_ward": {
-  "id": "colleagues_in_the_ward",
-  "name": "Colleagues in the ward",
+ "colleagues_ward_nurses": {
+  "id": "colleagues_ward_nurses",
+  "name": "Colleagues (ward nurses)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "The colleagues are nurses who can see the swap channel. Some may be interested in picking up an extra shift for pay or flexibility, but none have a prior commitment to take this shift.",
+    "content": "Each colleague may check the swap channel and decide whether to claim the shift based on their own preferences and availability.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00, after which no changes are possible. Karolina's post is visible to all colleagues in the channel.",
+    "content": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She will not be available to swap herself after the rota locks.",
+    "content": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-12T05:30:00+00:00",
     "kind": "context",
-    "content": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00, after which no changes are possible. Karolina's post is visible to all colleagues in the channel.",
+    "content": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
     "source": "scene_manifest:shared_context"
    }
   ],

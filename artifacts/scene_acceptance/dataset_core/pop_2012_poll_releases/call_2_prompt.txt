@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,33 +115,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Gallup",
-   "private_context": "Gallup is a major national polling organization. It has the capability to conduct and release head-to-head surveys of the Obama-Romney race. It has no pre-existing commitment to release a survey in the first week of October 2012."
-  },
-  {
-   "name": "Pew Research Center",
-   "private_context": "Pew Research Center is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-  },
-  {
-   "name": "ABC News/Washington Post",
-   "private_context": "ABC News/Washington Post is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-  },
-  {
-   "name": "NBC News/Wall Street Journal",
-   "private_context": "NBC News/Wall Street Journal is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-  },
-  {
-   "name": "CBS News/New York Times",
-   "private_context": "CBS News/New York Times is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-  },
-  {
-   "name": "Reuters/Ipsos",
-   "private_context": "Reuters/Ipsos is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
+   "name": "Major national polling organizations",
+   "private_context": "Each organization has its own internal processes for conducting and releasing surveys. They may have ongoing tracking polls or scheduled releases. They are aware of the upcoming election and the public interest in head-to-head Obama-Romney polls."
   }
  ],
- "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
- "starting_events": [],
- "resolution": "Resolve YES if the persistent event history shows that at least three distinct major national polling organizations publicly released a head-to-head Obama-Romney survey between 2012-10-01T00:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
+ "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The simulation starts at 9:00 AM EDT on October 1, 2012.",
+ "starting_events": [
+  {
+   "time": "2012-10-01T09:00:00-04:00",
+   "description": "The first week of October 2012 begins. No new head-to-head surveys have been publicly released yet this week.",
+   "visible_to": [
+    "Major national polling organizations"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least three distinct head-to-head surveys on the Obama-Romney race were publicly released by major national polling organizations between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

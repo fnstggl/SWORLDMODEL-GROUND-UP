@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will at least one member of Riverton's parks committee vote against the skate-park relocation when it comes up at Thursday's session?",
-  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session (2026-09-17). Otherwise resolve NO at the hard cutoff (2026-09-17T22:00:00-06:00).",
   "cutoff": "2026-09-17T22:00:00-06:00",
   "world_id": "w_138490e1d51a"
  },

@@ -2,21 +2,17 @@
  "world_id": "w_315fd279701b",
  "actor_ids": {
   "Head Teacher": "head_teacher",
-  "Parent 1": "parent_1",
-  "Parent 2": "parent_2",
-  "Parent 3": "parent_3"
+  "Three Parents": "three_parents"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 17,
+   "ledger_seq": 11,
    "at": "2026-09-22T07:00:00+00:00",
    "visible_to_ids": [
-    "parent_1",
-    "parent_2",
-    "parent_3"
+    "three_parents"
    ],
-   "description": "The three parents have raised the upcoming inspection at drop-off this week. The Head Teacher is at school and may or may not have heard about the parents' discussion."
+   "description": "The three parents raised the upcoming inspection at drop-off this week."
   }
  ],
  "code_owned_defaults": {
@@ -27,24 +23,16 @@
  "personas": {
   "head_teacher": {
    "name": "Head Teacher",
-   "persona_brief": "You are Head Teacher.\nThe Head Teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to mention it in the newsletter."
+   "persona_brief": "You are Head Teacher.\nThe head teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter."
   },
-  "parent_1": {
-   "name": "Parent 1",
-   "persona_brief": "You are Parent 1.\nParent 1 raised the inspection at drop-off this week and is concerned about it. They hope the Head Teacher will address it in the newsletter."
-  },
-  "parent_2": {
-   "name": "Parent 2",
-   "persona_brief": "You are Parent 2.\nParent 2 also raised the inspection at drop-off this week and is interested in seeing it addressed."
-  },
-  "parent_3": {
-   "name": "Parent 3",
-   "persona_brief": "You are Parent 3.\nParent 3 also raised the inspection at drop-off this week and wants the school to communicate about it."
+  "three_parents": {
+   "name": "Three Parents",
+   "persona_brief": "You are Three Parents.\nThe three parents raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter."
   }
  },
  "resolution": {
   "question": "Three parents raised the upcoming inspection at drop-off this week. Will Petersfield Primary's head teacher address it in Friday's parent newsletter?",
-  "resolution": "Resolve YES if the persistent event history shows that the Friday parent newsletter (sent on or before 2026-09-25T18:00:00+01:00) contains any mention of the upcoming inspection. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that the head teacher actually included a mention of the upcoming inspection in the Friday parent newsletter published before 2026-09-25T18:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T18:00:00+01:00",
   "world_id": "w_315fd279701b"
  }

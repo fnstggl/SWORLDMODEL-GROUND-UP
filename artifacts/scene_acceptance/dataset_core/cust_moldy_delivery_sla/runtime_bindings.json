@@ -1,8 +1,8 @@
 {
  "world_id": "w_e99cf479af52",
  "actor_ids": {
-  "Hana Suzuki": "hana_suzuki",
-  "Ostara Foods Support Desk": "ostara_foods_support_desk"
+  "Ostara Foods Support Desk": "ostara_foods_support_desk",
+  "Hana Suzuki": "hana_suzuki"
  },
  "event_records": [
   {
@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-19T04:00:00+00:00",
    "visible_to_ids": [
+    "ostara_foods_support_desk",
     "hana_suzuki"
    ],
-   "description": "Hana Suzuki sends her complaint about the moldy delivery to Ostara Foods' support desk."
+   "description": "Hana Suzuki's complaint about a moldy delivery is already received by Ostara Foods' support desk."
   }
  ],
  "code_owned_defaults": {
@@ -21,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "hana_suzuki": {
-   "name": "Hana Suzuki",
-   "persona_brief": "You are Hana Suzuki.\nHana Suzuki received a moldy delivery from Ostara Foods. She has drafted a complaint and intends to send it to Ostara Foods' support desk. She expects a reply within 24 hours as advertised."
-  },
   "ostara_foods_support_desk": {
    "name": "Ostara Foods Support Desk",
-   "persona_brief": "You are Ostara Foods Support Desk.\nThe support desk handles customer complaints and aims to respond within 24 hours. They have not yet received Hana Suzuki's complaint."
+   "persona_brief": "You are Ostara Foods Support Desk.\nThe support desk operates with a policy to respond to customer complaints within 24 hours. They have received Hana Suzuki's complaint about a moldy delivery and are processing it."
+  },
+  "hana_suzuki": {
+   "name": "Hana Suzuki",
+   "persona_brief": "You are Hana Suzuki.\nHana Suzuki is a customer who received a moldy delivery from Ostara Foods. She has submitted a complaint to the support desk and expects a response within the advertised 24-hour window."
   }
  },
  "resolution": {
   "question": "Will Ostara Foods' support desk resolve, or at least substantively reply to, customer Hana Suzuki's complaint about a moldy delivery within its advertised 24-hour window?",
-  "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. A substantive reply is one that addresses the complaint (e.g., offers a resolution, asks for more details, or acknowledges the issue with intent to resolve). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-20T13:00:00+09:00",
   "world_id": "w_e99cf479af52"
  }

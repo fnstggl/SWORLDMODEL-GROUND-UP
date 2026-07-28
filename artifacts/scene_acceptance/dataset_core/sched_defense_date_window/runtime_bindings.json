@@ -12,9 +12,12 @@
    "ledger_seq": 17,
    "at": "2026-09-14T08:00:00+00:00",
    "visible_to_ids": [
-    "femi_adeyemi"
+    "femi_adeyemi",
+    "committee_member_1",
+    "committee_member_2",
+    "committee_member_3"
    ],
-   "description": "Femi sends an email to his three committee members proposing several possible defense dates in November and asking for their availability."
+   "description": "Femi and the three committee members are aware that they need to schedule a defense date within the November window. No date has been proposed yet."
   }
  ],
  "code_owned_defaults": {
@@ -25,24 +28,24 @@
  "personas": {
   "femi_adeyemi": {
    "name": "Femi Adeyemi",
-   "persona_brief": "You are Femi Adeyemi.\nFemi is a doctoral candidate who needs to schedule a defense date in November. He has three committee members. He wants to find a date that works for all."
+   "persona_brief": "You are Femi Adeyemi.\nFemi is a doctoral candidate who needs to schedule a defense date within the department's November window. They have three committee members who must agree on a date. Femi knows the department's November window and has some preferred dates but is flexible."
   },
   "committee_member_1": {
    "name": "Committee Member 1",
-   "persona_brief": "You are Committee Member 1.\nA faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "persona_brief": "You are Committee Member 1.\nOne of Femi's three committee members. They have their own schedule constraints and preferences for defense dates within the November window. They are aware of the need to converge on a date."
   },
   "committee_member_2": {
    "name": "Committee Member 2",
-   "persona_brief": "You are Committee Member 2.\nA faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "persona_brief": "You are Committee Member 2.\nOne of Femi's three committee members. They have their own schedule constraints and preferences for defense dates within the November window. They are aware of the need to converge on a date."
   },
   "committee_member_3": {
    "name": "Committee Member 3",
-   "persona_brief": "You are Committee Member 3.\nA faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "persona_brief": "You are Committee Member 3.\nOne of Femi's three committee members. They have their own schedule constraints and preferences for defense dates within the November window. They are aware of the need to converge on a date."
   }
  },
  "resolution": {
   "question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
-  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all four actors have agreed on a specific defense date within the department's November window. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if, by 2026-09-24T17:00:00+01:00, the persistent event history shows that all four parties (Femi and the three committee members) have explicitly agreed on a specific defense date that falls within the department's November window. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-24T17:00:00+01:00",
   "world_id": "w_6a17eeaea3c7"
  }

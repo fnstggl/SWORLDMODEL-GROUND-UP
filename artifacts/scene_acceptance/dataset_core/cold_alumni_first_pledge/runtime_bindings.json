@@ -1,7 +1,7 @@
 {
  "world_id": "w_ae9990a18905",
  "actor_ids": {
-  "Ashvale University Annual-Fund Caller": "ashvale_university_annual_fund_caller",
+  "Ashvale University annual-fund caller": "ashvale_university_annual_fund_caller",
   "Dr. Renata Sousa": "dr_renata_sousa"
  },
  "event_records": [
@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "ashvale_university_annual_fund_caller"
    ],
-   "description": "The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list."
+   "description": "The annual-fund caller begins their shift and has Renata's contact information ready to call."
   }
  ],
  "code_owned_defaults": {
@@ -22,17 +22,17 @@
  },
  "personas": {
   "ashvale_university_annual_fund_caller": {
-   "name": "Ashvale University Annual-Fund Caller",
-   "persona_brief": "You are Ashvale University Annual-Fund Caller.\nThe caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift."
+   "name": "Ashvale University annual-fund caller",
+   "persona_brief": "You are Ashvale University annual-fund caller.\nThe caller is assigned to phone alumna Dr. Renata Sousa for a first-time donation ask. The caller has a script and a goal to secure pledges. They have no prior relationship with Renata."
   },
   "dr_renata_sousa": {
    "name": "Dr. Renata Sousa",
-   "persona_brief": "You are Dr. Renata Sousa.\nRenata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller."
+   "persona_brief": "You are Dr. Renata Sousa.\nRenata is an alumna of Ashvale University who has never donated to the annual fund. She may have her own reasons for not donating previously. She is unaware of the upcoming call."
   }
  },
  "resolution": {
   "question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
-  "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Renata made a pledge (any amount) to the Ashvale University annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-10-31T21:00:00-03:00",
   "world_id": "w_ae9990a18905"
  }

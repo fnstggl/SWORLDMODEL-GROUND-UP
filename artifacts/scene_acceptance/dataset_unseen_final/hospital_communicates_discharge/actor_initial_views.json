@@ -1,0 +1,88 @@
+{
+ "bob_chen": {
+  "id": "bob_chen",
+  "name": "Bob Chen",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bob Chen is a patient at St. Mary's Hospital being discharged today. He expects to receive discharge instructions from Dr. Alan Reed before leaving.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bob Chen is being discharged from St. Mary's Hospital on September 3, 2026. Dr. Alan Reed is the attending physician responsible for communicating discharge instructions. The hospital has standard procedures for discharge, including providing written and verbal instructions. The deadline for communication is 5 PM on the same day.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "dr_alan_reed": {
+  "id": "dr_alan_reed",
+  "name": "Dr. Alan Reed",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Dr. Alan Reed is the attending physician for patient Bob Chen at St. Mary's Hospital. He is responsible for providing discharge instructions to Bob Chen before discharge. He has a busy schedule and may have other patients to attend to.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-03T15:00:00+00:00",
+    "kind": "context",
+    "content": "Bob Chen is being discharged from St. Mary's Hospital on September 3, 2026. Dr. Alan Reed is the attending physician responsible for communicating discharge instructions. The hospital has standard procedures for discharge, including providing written and verbal instructions. The deadline for communication is 5 PM on the same day.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

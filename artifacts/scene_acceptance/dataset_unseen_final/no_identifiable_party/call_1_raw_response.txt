@@ -1,0 +1,6 @@
+{
+  "actors": [],
+  "shared_context": "XYZ Corp is a publicly traded company. Its stock price is determined by market trading on September 1, 2026. The market opens at 9:30 AM ET and closes at 4:00 PM ET. No specific events or information are known at the start of the simulation that would guarantee a price change.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question asks about a market outcome (stock price change) that is determined by the collective actions of many traders, not by a single social decision or event that can be simulated with identifiable actors. No specific decision-maker or social process is identified that could be modeled to produce a YES/NO answer."
+}

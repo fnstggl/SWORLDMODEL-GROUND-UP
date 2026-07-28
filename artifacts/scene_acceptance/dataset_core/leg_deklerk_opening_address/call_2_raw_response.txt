@@ -1,10 +1,15 @@
 {
- "verdict": "ABSTAIN",
+ "verdict": "REVISE",
  "defects": [
   {
-   "path": "scene",
-   "problem": "The scene includes only F. W. de Klerk as an actor, but the resolution depends on an observable event (delivery of an address) that requires at minimum an audience or institutional context to be meaningfully simulated. The question asks about a real historical event, and the scene lacks any other actors (e.g., parliamentary officials, media, or witnesses) who could observe and record the delivery. Without such actors, the simulation cannot produce a verifiable outcome; the event is not externally observable within the scene's actor set. Additionally, the scene does not specify how the delivery would be recorded or confirmed, making the resolution unenforceable.",
-   "correction": "Add at least one actor who can observe and report the delivery (e.g., a parliamentary secretary or a journalist) and include a mechanism for recording the event in the persistent event history."
+   "path": "resolution",
+   "problem": "The resolution contains contradictory reasoning about the date range for the first week, and the final condition is ambiguous. It first suggests February 1-7, then February 2-8, then effectively February 6 due to cutoff. This must be a single clear condition.",
+   "correction": "Specify a single unambiguous date range: 'Resolve YES only if the persistent event history shows that F. W. de Klerk personally delivered the opening address to the South African Parliament on or before 1990-02-06T18:00:00+02:00 (the hard cutoff), and during the first week of the February 1990 session, which begins on February 2, 1990. Resolve NO otherwise.'"
+  },
+  {
+   "path": "starting_events[0]",
+   "problem": "The starting event states the session opens on February 2, 1990, but this is a prewritten outcome that partially resolves the question (the date of the opening address is set). The question asks whether de Klerk will deliver the address, not whether the session will open on a specific date. However, the question's context may imply the session date is known; but the scene should not assume the opening address will occur on that date. The event should not pre-commit to the address happening.",
+   "correction": "Remove the statement that the opening address is expected to be delivered by the State President, or rephrase to indicate it is customary but not certain. For example: 'The South African Parliament is scheduled to open its session on February 2, 1990. Customarily, the State President delivers the opening address, but it is not yet confirmed whether de Klerk will do so.'"
   }
  ]
 }

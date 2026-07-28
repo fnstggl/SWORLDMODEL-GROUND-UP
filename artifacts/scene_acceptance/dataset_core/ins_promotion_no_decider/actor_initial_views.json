@@ -1,7 +1,7 @@
 {
- "candidate": {
-  "id": "candidate",
-  "name": "Candidate",
+ "employee": {
+  "id": "employee",
+  "name": "Employee",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,56 @@
    {
     "t": "2026-08-03T08:00:00+00:00",
     "kind": "context",
-    "content": "Candidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information.",
+    "content": "Employee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter. They have no direct control over the decision.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T08:00:00+00:00",
     "kind": "context",
-    "content": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
+    "content": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "hr": {
+  "id": "hr",
+  "name": "HR",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "HR handles the formal approval and processing of promotions. They require a recommendation from the manager and may have additional criteria or timelines.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-03T08:00:00+00:00",
+    "kind": "context",
+    "content": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +109,13 @@
    {
     "t": "2026-08-03T08:00:00+00:00",
     "kind": "context",
-    "content": "Manager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline.",
+    "content": "Manager is responsible for recommending the employee for promotion. They have the authority to initiate the promotion process. They are aware of the employee's performance and the upcoming quarterly review.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T08:00:00+00:00",
     "kind": "context",
-    "content": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
+    "content": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
     "source": "scene_manifest:shared_context"
    }
   ],

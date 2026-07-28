@@ -1,0 +1,45 @@
+{
+ "springfield_city_council": {
+  "id": "springfield_city_council",
+  "name": "Springfield City Council",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-05T23:00:00+00:00",
+    "kind": "context",
+    "content": "The council is a group of elected officials who will meet to discuss and vote on the 2027 budget. Each member has their own views on the budget, but the council as a whole must decide by majority vote.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-05T23:00:00+00:00",
+    "kind": "context",
+    "content": "The Springfield City Council is scheduled to meet on October 5, 2026, at 6:00 PM local time. The agenda includes a vote on the proposed 2027 budget. The meeting will proceed according to standard council procedures, and the vote will be recorded in the official minutes.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

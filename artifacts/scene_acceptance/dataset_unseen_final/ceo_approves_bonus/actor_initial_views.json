@@ -1,0 +1,45 @@
+{
+ "ceo_jane_zhao": {
+  "id": "ceo_jane_zhao",
+  "name": "CEO Jane Zhao",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "Jane Zhao is the CEO of NovaTech Inc. She must decide whether to approve the Q3 performance bonus for the engineering team. She is aware of the engineering team's Q2 performance and has her own criteria for bonus approval. She will make the decision by the board meeting on September 15, 2026.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "NovaTech Inc. has a board meeting scheduled for September 15, 2026. The engineering team exceeded Q2 targets. The Q3 performance bonus for the engineering team is pending CEO approval. The decision will be announced at or before the board meeting.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

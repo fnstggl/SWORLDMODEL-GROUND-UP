@@ -27,12 +27,12 @@
   },
   "petra_kovac": {
    "name": "Petra Kovac",
-   "persona_brief": "You are Petra Kovac.\nPetra is a senior colorist happily employed elsewhere. She receives unsolicited recruitment messages occasionally and may or may not respond depending on her interest and availability."
+   "persona_brief": "You are Petra Kovac.\nPetra is a senior colorist currently employed elsewhere and is happily employed. She has no prior relationship with the recruiter or Torchlight Media. She may or may not check messages from unknown senders."
   }
  },
  "resolution": {
   "question": "A recruiter from Torchlight Media is sending Petra Kovac, a senior colorist who is happily employed elsewhere, a first-contact message about an opening. Will Petra reply at all within five business days?",
-  "resolution": "Resolve YES if the persistent event history shows that Petra Kovac sent any reply to the recruiter's message before 2026-09-14T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Petra Kovac actually sent a reply to the recruiter's message before 2026-09-14T10:00:00+02:00 (five business days from start). Otherwise resolve NO at that deadline.",
   "cutoff": "2026-09-14T18:00:00+02:00",
   "world_id": "w_2c64246a9ded"
  }

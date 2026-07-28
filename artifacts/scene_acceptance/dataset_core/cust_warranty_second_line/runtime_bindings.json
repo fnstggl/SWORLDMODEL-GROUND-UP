@@ -13,7 +13,7 @@
     "rustam",
     "manufacturer_s_second_line_team"
    ],
-   "description": "Rustam's escalated warranty claim is pending with the manufacturer's second-line team. The ten-working-day period begins."
+   "description": "Rustam's escalated warranty claim is pending with the manufacturer's second-line team. The ten-working-day period for a decision has begun."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "rustam": {
    "name": "Rustam",
-   "persona_brief": "You are Rustam.\nRustam has a failed washing machine and has escalated his warranty claim. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team would provide a decision within ten working days. He expects a decision by the cutoff."
+   "persona_brief": "You are Rustam.\nRustam has a washing machine that failed. He escalated a warranty claim and received an email yesterday stating that the manufacturer's second-line team would provide a decision within ten working days. He wants a decision within that timeframe."
   },
   "manufacturer_s_second_line_team": {
    "name": "Manufacturer's second-line team",
-   "persona_brief": "You are Manufacturer's second-line team.\nThe second-line team handles escalated warranty claims. They have a queue of claims and aim to respond within the quoted timeframes. They have received Rustam's escalated claim and are aware of the ten-working-day commitment."
+   "persona_brief": "You are Manufacturer's second-line team.\nThe second-line team handles escalated warranty claims. They have received Rustam's claim and are aware of the ten-working-day response commitment made in yesterday's email. They have the authority to make a decision on the claim."
   }
  },
  "resolution": {
   "question": "Will Rustam's escalated warranty claim for a failed washing machine get a decision from the manufacturer's second-line team within the ten working days quoted in yesterday's email?",
-  "resolution": "Resolve YES only if the persistent event history shows that the manufacturer's second-line team actually communicated a decision (approval, denial, or other) to Rustam before the hard cutoff of 2026-08-19T18:00:00+05:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the manufacturer's second-line team actually communicated a decision on Rustam's warranty claim before the end of the ten working days from the date of yesterday's email (i.e., by the deadline implied by that email, which is no later than 2026-08-19T18:00:00+05:00 if that falls within the ten working days; otherwise, compute the exact deadline based on working days). Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-08-19T18:00:00+05:00",
   "world_id": "w_0cee8e06baa6"
  }

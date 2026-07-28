@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ceo_jane_zhao": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ceo_jane_zhao",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Jane Zhao is the CEO of NovaTech Inc. She must decide whether to approve the Q3 performance bonus for the engineering team. She is aware of the engineering team's Q2 performance and has her own criteria for bonus approval. She will make the decision by the board meeting on September 15, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-01T13:00:00+00:00"
+    },
+    {
+     "content": "NovaTech Inc. has a board meeting scheduled for September 15, 2026. The engineering team exceeded Q2 targets. The Q3 performance bonus for the engineering team is pending CEO approval. The decision will be announced at or before the board meeting.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-01T13:00:00+00:00"
+    }
+   ],
+   "name": "CEO Jane Zhao",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Does CEO Jane Zhao approve the Q3 performance bonus for the engineering team by September 15, 2026?",
+  "scene:shared_context": "NovaTech Inc. has a board meeting scheduled for September 15, 2026. The engineering team exceeded Q2 targets. The Q3 performance bonus for the engineering team is pending CEO approval. The decision will be announced at or before the board meeting."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-01T13:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-01T13:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

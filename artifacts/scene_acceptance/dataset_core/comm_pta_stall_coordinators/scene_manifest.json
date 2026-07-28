@@ -1,19 +1,19 @@
 {
  "actors": [
   {
-   "name": "PTA Subcommittee for the Winter Fair",
-   "private_context": "The subcommittee is responsible for organizing the winter fair and needs to recruit four stall coordinators. It has a meeting scheduled for October 19, 2026. The subcommittee has not yet recruited any stall coordinators as of the simulation start."
+   "name": "PTA subcommittee for the winter fair",
+   "private_context": "The subcommittee is responsible for organizing the winter fair. It needs to recruit four stall coordinators to manage the stalls at the fair. The subcommittee has not yet recruited any stall coordinators as of the start time. It plans to hold an October planning meeting where recruitment may be discussed."
   }
  ],
- "shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee will hold its October planning meeting on 2026-10-19 at 21:00. Potential coordinators may be recruited before or at that meeting.",
+ "shared_context": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The October planning meeting is scheduled to occur before the hard cutoff. The subcommittee can recruit coordinators through various means (e.g., announcements, personal outreach) before or during the meeting.",
  "starting_events": [
   {
    "time": "2026-09-21T19:00:00-05:00",
-   "description": "The PTA subcommittee begins its recruitment efforts for four stall coordinators.",
+   "description": "The PTA subcommittee for the winter fair has not yet recruited any stall coordinators. The subcommittee is aware of the need to recruit four stall coordinators.",
    "visible_to": [
-    "PTA Subcommittee for the Winter Fair"
+    "PTA subcommittee for the winter fair"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that four stall coordinators have been recruited (i.e., have agreed to serve) by the end of the October planning meeting (2026-10-19T21:00:00-05:00). Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that the PTA subcommittee for the winter fair has recruited four stall coordinators at or before the October planning meeting (i.e., by the end of that meeting, which occurs before the hard cutoff). Otherwise resolve NO at the hard cutoff."
 }

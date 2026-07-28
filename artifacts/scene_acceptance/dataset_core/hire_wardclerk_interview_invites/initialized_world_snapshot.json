@@ -2,6 +2,479 @@
  "action_defs": {},
  "actions": {},
  "actors": {
+  "applicant_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_10": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_10",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 10",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_11": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_11",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 11",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_4": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_4",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 4",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_5": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_5",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 5",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_6": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_6",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 6",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_7": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_7",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 7",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_8": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_8",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 8",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "applicant_9": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "applicant_9",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "One of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    },
+    {
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-01T04:59:00+00:00"
+    }
+   ],
+   "name": "Applicant 9",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
   "calloway_regional_hospital_hr": {
    "attention": {
     "scene": {
@@ -21,13 +494,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "HR is responsible for reviewing applications for the ward-clerk vacancy. They have received eleven applications by the closing time. They have internal criteria for selecting candidates to invite for interview, but no decision has been made yet.",
+     "content": "HR is responsible for screening applicants for the ward-clerk vacancy. They have received or will receive applications from eleven individuals. They have their own criteria and process for deciding whom to invite for an interview.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T04:59:00+00:00"
     },
     {
-     "content": "The posting for the ward-clerk vacancy at Calloway Regional Hospital closed at 23:59 on 2026-09-30. Eleven applications were received. The hospital typically invites some applicants for interview within two weeks of closing.",
+     "content": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T04:59:00+00:00"
@@ -59,7 +532,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least three of the eleven applicants for Calloway Regional Hospital's ward-clerk vacancy be invited to interview within two weeks of the posting closing tonight?",
-  "scene:shared_context": "The posting for the ward-clerk vacancy at Calloway Regional Hospital closed at 23:59 on 2026-09-30. Eleven applications were received. The hospital typically invites some applicants for interview within two weeks of closing."
+  "scene:shared_context": "Calloway Regional Hospital has a ward-clerk vacancy. The posting closes at 2026-09-30T23:59:00-05:00. Eleven applicants have applied. The hospital's HR department will review applications and may invite some applicants for interviews. The decision process and criteria are not publicly known."
  },
  "history": [],
  "infos": {},
@@ -69,6 +542,6 @@
  "resources": {},
  "start": "2026-10-01T04:59:00+00:00",
  "terminal": null,
- "version": 8,
+ "version": 41,
  "watches": {}
 }

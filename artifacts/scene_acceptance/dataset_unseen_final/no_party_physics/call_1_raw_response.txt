@@ -1,0 +1,12 @@
+{
+  "actors": [],
+  "shared_context": "A ball is dropped from a height of 10 meters at the start time. The acceleration due to gravity is approximately 9.8 m/s². The time to hit the ground can be calculated using the formula t = sqrt(2h/g) ≈ sqrt(20/9.8) ≈ 1.43 seconds, which is less than 2 seconds. However, this is a deterministic physical process, not a social simulation.",
+  "starting_events": [
+    {
+      "time": "2026-08-01T00:00:00+00:00",
+      "description": "A ball is dropped from a height of 10 meters.",
+      "visible_to": []
+    }
+  ],
+  "resolution": "UNRESOLVABLE: The question is about a deterministic physical event with no social decision-making, so it cannot be resolved through social simulation."
+}

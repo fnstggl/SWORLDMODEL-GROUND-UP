@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared a concept note for the Alder Foundation and intends to submit it. She hopes for a substantive response within a month.",
+     "content": "Lucia is the director of a nonprofit organization. She has prepared an unsolicited concept note about a potential project and intends to send it to the program officer at the Alder Foundation. She hopes for a substantive response within a month.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T14:00:00+00:00"
     },
     {
-     "content": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
+     "content": "The Alder Foundation accepts unsolicited concept notes via email. Lucia Ferreyra can send her concept note to the foundation's general submissions email or directly to the program officer if she knows their contact. The program officer typically responds substantively (e.g., with feedback, a request for more information, or an invitation to submit a full proposal) to a small fraction of unsolicited notes, usually within a month if interested.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T14:00:00+00:00"
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "program_officer_alder_foundation": {
+  "program_officer_at_alder_foundation": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "program_officer_alder_foundation",
+   "id": "program_officer_at_alder_foundation",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The program officer receives many unsolicited concept notes and typically responds only to those that closely match the foundation's current funding priorities. They have no prior relationship with Lucia Ferreyra.",
+     "content": "The program officer is responsible for reviewing unsolicited concept notes. They receive many such submissions and decide which ones to respond to substantively based on alignment with foundation priorities and available resources. They have no prior relationship with Lucia Ferreyra.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T14:00:00+00:00"
     },
     {
-     "content": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
+     "content": "The Alder Foundation accepts unsolicited concept notes via email. Lucia Ferreyra can send her concept note to the foundation's general submissions email or directly to the program officer if she knows their contact. The program officer typically responds substantively (e.g., with feedback, a request for more information, or an invitation to submit a full proposal) to a small fraction of unsolicited notes, usually within a month if interested.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T14:00:00+00:00"
     }
    ],
-   "name": "Program Officer (Alder Foundation)",
+   "name": "Program Officer at Alder Foundation",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the program officer at the Alder Foundation respond substantively to nonprofit director Lucia Ferreyra's unsolicited concept note within one month?",
-  "scene:shared_context": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known."
+  "scene:shared_context": "The Alder Foundation accepts unsolicited concept notes via email. Lucia Ferreyra can send her concept note to the foundation's general submissions email or directly to the program officer if she knows their contact. The program officer typically responds substantively (e.g., with feedback, a request for more information, or an invitation to submit a full proposal) to a small fraction of unsolicited notes, usually within a month if interested."
  },
  "history": [],
  "infos": {},

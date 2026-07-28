@@ -1,7 +1,7 @@
 {
- "front_desk": {
-  "id": "front_desk",
-  "name": "Front Desk",
+ "maple_row_dental_front_desk": {
+  "id": "maple_row_dental_front_desk",
+  "name": "Maple Row Dental front desk",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "The front desk at Maple Row Dental manages appointment scheduling. They have availability information for various slots and can propose alternatives.",
+    "content": "The front desk handles appointment scheduling and rescheduling. They have availability for dental cleanings this week, but do not know Priya's request yet.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
+    "content": "Priya has a dental cleaning appointment at Maple Row Dental on Thursday. She needs to move it due to a work trip. The front desk can be reached by phone or in person during business hours.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "Priya has a dental cleaning scheduled for Thursday, but she needs to reschedule due to a work trip. She wants to find a new slot before Wednesday noon.",
+    "content": "Priya has a dental cleaning scheduled for Thursday, but a work trip conflicts. She wants to reschedule to a new slot before Wednesday noon. She has the contact information for Maple Row Dental front desk.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T12:00:00+00:00",
     "kind": "context",
-    "content": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
+    "content": "Priya has a dental cleaning appointment at Maple Row Dental on Thursday. She needs to move it due to a work trip. The front desk can be reached by phone or in person during business hours.",
     "source": "scene_manifest:shared_context"
    }
   ],

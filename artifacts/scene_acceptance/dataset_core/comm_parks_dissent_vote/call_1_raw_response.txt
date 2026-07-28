@@ -1,33 +1,33 @@
 {
   "actors": [
     {
-      "name": "Committee Member 1",
-      "private_context": "Lives near the proposed site. Has heard strong opinions from neighbors. Undecided on the vote."
+      "name": "Parks Committee Member 1",
+      "private_context": "Lives near the proposed skate-park relocation site. Has received both supportive and opposing letters from neighbors. Has not yet decided how to vote."
     },
     {
-      "name": "Committee Member 2",
-      "private_context": "Lives near the proposed site. Has heard strong opinions from neighbors. Leaning against relocation."
+      "name": "Parks Committee Member 2",
+      "private_context": "Lives near the proposed skate-park relocation site. Has received both supportive and opposing letters from neighbors. Has not yet decided how to vote."
     },
     {
-      "name": "Committee Member 3",
-      "private_context": "No personal stake in location. Has read the letters in the paper. Undecided."
+      "name": "Parks Committee Member 3",
+      "private_context": "No special proximity to the site. Aware of the public controversy but has not formed a firm position."
     },
     {
-      "name": "Committee Member 4",
-      "private_context": "No personal stake in location. Has read the letters in the paper. Supports relocation."
+      "name": "Parks Committee Member 4",
+      "private_context": "No special proximity to the site. Aware of the public controversy but has not formed a firm position."
     },
     {
-      "name": "Committee Member 5",
-      "private_context": "No personal stake in location. Has read the letters in the paper. Supports relocation."
+      "name": "Parks Committee Member 5",
+      "private_context": "No special proximity to the site. Aware of the public controversy but has not formed a firm position."
     }
   ],
-  "shared_context": "Riverton's parks committee has five members. The skate-park relocation is on the agenda for Thursday's session (2026-09-17). Two public-comment periods have occurred; the local paper ran letters both for and against last week. The committee will vote on the relocation at the session.",
+  "shared_context": "The Riverton parks committee will hold a session on Thursday, 2026-09-17, where a vote on the skate-park relocation will occur. The relocation has been through two noisy public-comment periods. The local paper ran letters both for and against last week. The committee has five members.",
   "starting_events": [
     {
       "time": "2026-09-14T09:00:00-06:00",
-      "description": "The committee members are aware of the upcoming Thursday session and the skate-park relocation item.",
-      "visible_to": ["Committee Member 1", "Committee Member 2", "Committee Member 3", "Committee Member 4", "Committee Member 5"]
+      "description": "The committee members are aware of the upcoming Thursday session and the skate-park relocation vote.",
+      "visible_to": ["Parks Committee Member 1", "Parks Committee Member 2", "Parks Committee Member 3", "Parks Committee Member 4", "Parks Committee Member 5"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that at least one committee member voted against the skate-park relocation during the Thursday session (2026-09-17). Otherwise resolve NO at the hard cutoff (2026-09-17T22:00:00-06:00)."
 }

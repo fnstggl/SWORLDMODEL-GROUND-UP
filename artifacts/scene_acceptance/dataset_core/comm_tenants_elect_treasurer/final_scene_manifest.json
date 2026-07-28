@@ -2,33 +2,33 @@
  "actors": [
   {
    "name": "Tenants' Association of the Aurora Block",
-   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have expressed interest in the role."
+   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have shown interest in the role."
   },
   {
-   "name": "Interested Resident 1",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
+   "name": "Resident 1",
+   "private_context": "Has shown interest in becoming treasurer. May attend the meeting."
   },
   {
-   "name": "Interested Resident 2",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
+   "name": "Resident 2",
+   "private_context": "Has shown interest in becoming treasurer. May attend the meeting."
   },
   {
-   "name": "Interested Resident 3",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
+   "name": "Resident 3",
+   "private_context": "Has shown interest in becoming treasurer. May attend the meeting."
   }
  ],
- "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The association's members will decide on the election during the meeting.",
+ "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight at 18:30. The meeting will include the election of a treasurer. Three residents have expressed interest in the position.",
  "starting_events": [
   {
-   "time": "2026-09-02T18:30:00+02:00",
-   "description": "The first meeting of the season of the Aurora Block tenants' association begins.",
+   "time": "2026-09-02T16:30:00+00:00",
+   "description": "The first meeting of the season begins.",
    "visible_to": [
     "Tenants' Association of the Aurora Block",
-    "Interested Resident 1",
-    "Interested Resident 2",
-    "Interested Resident 3"
+    "Resident 1",
+    "Resident 2",
+    "Resident 3"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected by the association during the meeting before the cutoff at 21:30. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that a treasurer was elected during the meeting before 2026-09-02T21:30:00+02:00. Otherwise resolve NO at the cutoff."
 }

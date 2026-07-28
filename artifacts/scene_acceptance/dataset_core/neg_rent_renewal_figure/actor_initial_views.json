@@ -23,13 +23,13 @@
    {
     "t": "2026-07-30T22:00:00+00:00",
     "kind": "context",
-    "content": "Amara is the tenant. She wants to hold the increase to 4%. She has paid on time for four years and knows comparable units list about 5% above her current rent. Her lease lapses at the end of next month.",
+    "content": "Amara is the tenant. She wants to hold the increase to four percent. She has paid on time for four years and knows comparable one-bedrooms nearby list about five percent above her current rent. Her lease lapses at the end of next month.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-30T22:00:00+00:00",
     "kind": "context",
-    "content": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Gerald proposed a 9% increase; Amara countered at 4%. They are negotiating a renewal figure before the lease ends on 2026-08-31.",
+    "content": "Gerald has proposed a nine percent rent increase; Amara wants to hold at four percent. The building has two vacant units. Comparable one-bedrooms nearby list about five percent above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026).",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-30T22:00:00+00:00",
     "kind": "context",
-    "content": "Gerald is the landlord. He proposed a 9% rent increase. He wants to maximize rental income but is aware of market conditions and vacancy costs. He knows Amara has been a reliable tenant for four years.",
+    "content": "Gerald is the landlord. He proposed a nine percent rent increase. He wants to maximize rental income and is aware of two vacant units and comparable rents about five percent above Amara's current rent.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-30T22:00:00+00:00",
     "kind": "context",
-    "content": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Gerald proposed a 9% increase; Amara countered at 4%. They are negotiating a renewal figure before the lease ends on 2026-08-31.",
+    "content": "Gerald has proposed a nine percent rent increase; Amara wants to hold at four percent. The building has two vacant units. Comparable one-bedrooms nearby list about five percent above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026).",
     "source": "scene_manifest:shared_context"
    }
   ],

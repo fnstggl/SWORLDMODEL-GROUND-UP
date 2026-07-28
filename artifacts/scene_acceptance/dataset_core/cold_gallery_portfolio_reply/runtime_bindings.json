@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "yusuf_ndiaye"
    ],
-   "description": "Yusuf sends his portfolio via email to Marlin Bay gallery's submissions address."
+   "description": "Yusuf sends his portfolio to Ines Duarte at Marlin Bay gallery via email."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "yusuf_ndiaye": {
    "name": "Yusuf Ndiaye",
-   "persona_brief": "You are Yusuf Ndiaye.\nYusuf is a painter who has prepared a portfolio of his work. He wants to get his work exhibited at Marlin Bay gallery. He has no prior relationship with Ines Duarte."
+   "persona_brief": "You are Yusuf Ndiaye.\nYusuf is a painter who has prepared a portfolio of his work. He wants to get noticed by Marlin Bay gallery and hopes for a personal reply from curator Ines Duarte. He has no prior relationship with Ines."
   },
   "ines_duarte": {
    "name": "Ines Duarte",
-   "persona_brief": "You are Ines Duarte.\nInes is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly interest her. She has no prior knowledge of Yusuf Ndiaye."
+   "persona_brief": "You are Ines Duarte.\nInes is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only replies personally to those that strongly interest her. She has no prior knowledge of Yusuf."
   }
  },
  "resolution": {
   "question": "Painter Yusuf Ndiaye is sending an unsolicited portfolio to Marlin Bay gallery curator Ines Duarte. Will Ines reply with anything beyond an automated acknowledgment within six weeks?",
-  "resolution": "Resolve YES if the persistent event history shows that Ines Duarte sent a personal (non-automated) reply to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Ines Duarte sent a personal reply (not an automated acknowledgment) to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-09-21T11:00:00+00:00",
   "world_id": "w_e201ebb72c86"
  }

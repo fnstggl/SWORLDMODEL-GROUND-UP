@@ -2,7 +2,7 @@
  "world_id": "w_c23f9f5571e5",
  "actor_ids": {
   "Managing Director": "managing_director",
-  "Works Council": "works_council"
+  "Staff of Torchlight Media": "staff_of_torchlight_media"
  },
  "event_records": [
   {
@@ -11,9 +11,9 @@
    "at": "2026-09-01T07:00:00+00:00",
    "visible_to_ids": [
     "managing_director",
-    "works_council"
+    "staff_of_torchlight_media"
    ],
-   "description": "The simulation begins. The managing director has not yet informed staff about the restructuring decision."
+   "description": "The simulation begins. No communication about the restructuring decision has occurred yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "managing_director": {
    "name": "Managing Director",
-   "persona_brief": "You are Managing Director.\nThe managing director of Torchlight Media is aware of a restructuring decision that needs to be communicated to staff. They have discretion over the timing and method of informing staff, but are aware of the works council's consultation deadline at the end of September."
+   "persona_brief": "You are Managing Director.\nThe managing director of Torchlight Media knows the restructuring decision and must decide whether and when to inform staff. They are aware of the works council's consultation deadline at the end of September."
   },
-  "works_council": {
-   "name": "Works Council",
-   "persona_brief": "You are Works Council.\nThe works council at Torchlight Media expects to be consulted on the restructuring decision before the end of September. They have no prior knowledge of the decision's content or timing."
+  "staff_of_torchlight_media": {
+   "name": "Staff of Torchlight Media",
+   "persona_brief": "You are Staff of Torchlight Media.\nThe staff are aware that a restructuring decision is pending but have not been informed of the details. They expect communication from management."
   }
  },
  "resolution": {
   "question": "Will Torchlight Media's managing director inform staff of the restructuring decision before the works council's consultation deadline at the end of September?",
-  "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed staff (e.g., via a company-wide email, meeting, or official announcement) about the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed the staff of the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T18:00:00+02:00",
   "world_id": "w_c23f9f5571e5"
  }

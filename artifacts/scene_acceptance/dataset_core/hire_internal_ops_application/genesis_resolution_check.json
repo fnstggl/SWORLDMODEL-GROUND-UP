@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will warehouse supervisor Dmytro formally apply for the newly posted operations-manager role at his own company before applications close in three weeks?",
-  "resolution": "Resolve YES if the persistent event history shows that Dmytro submitted a formal application for the operations-manager role before 2026-09-07T17:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Dmytro formally submitted an application for the operations-manager role before 2026-09-07T17:00:00+02:00. Otherwise resolve NO at that deadline.",
   "cutoff": "2026-09-07T17:00:00+02:00",
   "world_id": "w_e1a12bb24516"
  },

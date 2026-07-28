@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "User",
-   "private_context": "The user is considering a job offer and wants to know if they will be happy taking it. They have their own preferences, values, and expectations about the job, but these are not specified further."
+   "private_context": "The user is considering a job offer and wants to know if they will be happy if they take it. They have their own preferences, values, and expectations about the job, but these are not specified further."
   }
  ],
- "shared_context": "The user has received a job offer. The details of the job (e.g., role, company, location, salary) are known to the user but not specified in the question. The user has not yet accepted or rejected the offer.",
+ "shared_context": "The user has received a job offer. The job has certain characteristics (e.g., salary, location, responsibilities, culture) that are known to the user but not specified in detail. The user's happiness depends on how well the job aligns with their personal criteria.",
  "starting_events": [
   {
    "time": "2026-08-17T09:00:00-07:00",
-   "description": "The user is aware of the job offer and is deciding whether to accept it.",
+   "description": "The user is considering whether to accept the job offer.",
    "visible_to": [
     "User"
    ]
   }
  ],
- "resolution": "UNRESOLVABLE: The question asks about an internal state ('happy') with no observable proxy provided; happiness is not directly observable in the simulation's event history."
+ "resolution": "UNRESOLVABLE: The question asks about an internal emotional state ('happy') with no observable proxy provided, and no deadline or observable event is specified to resolve YES or NO."
 }

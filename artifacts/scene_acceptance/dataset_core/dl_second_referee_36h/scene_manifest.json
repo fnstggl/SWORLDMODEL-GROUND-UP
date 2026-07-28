@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Kofi",
-   "private_context": "Kofi has asked a second referee to upload a letter for a fellowship application. The referee has not yet uploaded it. Kofi knows the portal deadline is 2026-09-15T09:00:00+00:00."
+   "private_context": "Kofi has applied to a fellowship and needs a letter from his second referee. He knows the portal deadline is 36 hours from now. He has asked the referee to upload the letter but does not know if she has done so yet."
   },
   {
-   "name": "Second Referee",
-   "private_context": "The second referee has been asked by Kofi to upload a letter for a fellowship application. They have not yet done so. They may have other commitments or may be unaware of the deadline."
+   "name": "Second referee",
+   "private_context": "The second referee has been asked by Kofi to upload a letter of recommendation to the fellowship portal. She is aware of the deadline but has not yet uploaded the letter. She may or may not have started writing it."
   }
  ],
- "shared_context": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00.",
+ "shared_context": "The fellowship portal has a hard deadline 36 hours from the simulation start time (2026-09-15T09:00:00+00:00). Referees can upload letters through the portal. Kofi cannot upload the letter himself; only the referee can do so.",
  "starting_events": [
   {
    "time": "2026-09-13T21:00:00+00:00",
-   "description": "The simulation begins. The second referee has not yet uploaded the letter.",
+   "description": "The simulation begins. Kofi's second referee has not yet uploaded her letter to the fellowship portal.",
    "visible_to": [
     "Kofi",
-    "Second Referee"
+    "Second referee"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the second referee uploaded the letter before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the second referee actually uploaded her letter to the fellowship portal before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at that time."
 }

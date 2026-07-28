@@ -2,26 +2,26 @@
  "actors": [
   {
    "name": "Nimbus Freight's bid team",
-   "private_context": "The team has prepared a tender for the Valdoria postal contract. They need to get the tender document signed by two required directors and submitted before Friday's 12:00 deadline. They know who the two directors are and have a process for obtaining signatures."
+   "private_context": "The team has prepared a tender for the Valdoria postal contract. They need to get the tender document signed by two required directors and submitted before Friday's 12:00 deadline. They are aware of the deadline and the signing requirement."
   },
   {
    "name": "Director 1",
-   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. They are aware of the tender and the deadline but have not yet signed."
+   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document."
   },
   {
    "name": "Director 2",
-   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. They are aware of the tender and the deadline but have not yet signed."
+   "private_context": "The other director whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document."
   }
  ],
- "shared_context": "Nimbus Freight is pursuing the Valdoria postal contract. The tender document requires signatures from two directors before submission. The submission deadline is Friday, 2026-08-28 at 12:00. The bid team can approach the directors for signatures. The directors may be available or unavailable, and may sign or not sign.",
+ "shared_context": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to.",
  "starting_events": [
   {
    "time": "2026-08-24T08:00:00+02:00",
-   "description": "The bid team begins work on obtaining the two required signatures for the Valdoria postal-contract tender.",
+   "description": "The bid team has the tender document ready but unsigned. They have not yet approached the directors for signatures.",
    "visible_to": [
     "Nimbus Freight's bid team"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that both required directors signed the tender document and the signed document was submitted before Friday 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that both Director 1 and Director 2 actually signed the tender document and the signed document was submitted before 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the deadline."
 }

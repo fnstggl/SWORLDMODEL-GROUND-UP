@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Bill",
-   "private_context": "Bill believes the fence damage was caused by a storm and thinks the cost should be shared equally. He is willing to discuss but wants to avoid small claims court."
+   "private_context": "Bill believes the fence is shared property and that the Osei family should pay half of the repair cost. He is open to negotiation but prefers to avoid court. He has not yet formally proposed a split."
   },
   {
    "name": "Osei family",
-   "private_context": "The Osei family believes Bill is responsible for the fence damage or that the cost split should be different. They are open to negotiation but may consider small claims if no agreement is reached."
+   "private_context": "The Osei family believes the fence is Bill's responsibility or that they should pay less than half. They are willing to discuss but want to avoid small claims court. They have not yet made a counteroffer."
   }
  ],
- "shared_context": "Bill and the Osei family are neighbors who share a fence that was damaged in a storm. The fence needs repair, and there is a dispute over who should pay and in what proportion. Both parties can communicate directly or through informal channels. There is a two-month window to reach an agreement before the hard cutoff.",
+ "shared_context": "A storm has damaged a shared fence between Bill's property and the Osei family's property. The fence is on the property line. Both parties are aware of the damage and have spoken briefly about it but have not agreed on a cost split. The cost to repair is estimated at $2,000. Small claims court is an option if no agreement is reached.",
  "starting_events": [
   {
-   "time": "2026-08-02T12:00:00-05:00",
-   "description": "The shared fence is damaged from the recent storm. Bill and the Osei family are aware of the damage and the disagreement over payment.",
+   "time": "2026-08-02T17:00:00+00:00",
+   "description": "Bill and the Osei family are aware of the storm damage to the shared fence and have had initial informal discussion but no agreement on cost sharing.",
    "visible_to": [
     "Bill",
     "Osei family"
    ]
   }
  ],
- "resolution": "Resolve YES if, before 2026-10-02T12:00:00-05:00, the persistent event history shows that Bill and the Osei family have mutually agreed on a cost split for the fence repair and no small claims case has been filed. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Bill and the Osei family have mutually agreed on a specific cost split for the fence repair (e.g., 50/50 or another split) and that agreement is documented or verbally confirmed by both parties before 2026-10-02T12:00:00-05:00, and no small claims case is filed. Otherwise resolve NO at the cutoff."
 }

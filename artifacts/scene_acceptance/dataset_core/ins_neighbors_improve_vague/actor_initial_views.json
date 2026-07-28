@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The neighbors are aware of tensions but have their own perspectives and may or may not be willing to change behavior.",
+    "content": "The neighbors are aware of some tension but have their own perspectives and routines. They may or may not be open to improving relations.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
+    "content": "There is a history of minor conflicts between the resident and the neighbors (e.g., noise complaints, boundary disagreements). Both parties live in close proximity and interact occasionally. No formal complaints or mediation have been initiated as of the start time.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The resident has had ongoing issues with neighbors (noise, parking disputes, etc.) and hopes for improvement. They are considering whether to take any action.",
+    "content": "The resident has been experiencing ongoing issues with neighbors (e.g., noise, disputes) and hopes for improvement. They are considering possible actions but have not yet decided on any specific approach.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The resident and neighbors live in the same residential area. There have been recurring conflicts (e.g., noise, parking) that have created a strained atmosphere. No formal complaints or interventions have been made recently.",
+    "content": "There is a history of minor conflicts between the resident and the neighbors (e.g., noise complaints, boundary disagreements). Both parties live in close proximity and interact occasionally. No formal complaints or mediation have been initiated as of the start time.",
     "source": "scene_manifest:shared_context"
    }
   ],

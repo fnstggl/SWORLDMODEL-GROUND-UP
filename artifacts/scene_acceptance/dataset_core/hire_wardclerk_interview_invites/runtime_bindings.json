@@ -1,17 +1,28 @@
 {
  "world_id": "w_e4ada05f2d55",
  "actor_ids": {
-  "Calloway Regional Hospital HR": "calloway_regional_hospital_hr"
+  "Calloway Regional Hospital HR": "calloway_regional_hospital_hr",
+  "Applicant 1": "applicant_1",
+  "Applicant 2": "applicant_2",
+  "Applicant 3": "applicant_3",
+  "Applicant 4": "applicant_4",
+  "Applicant 5": "applicant_5",
+  "Applicant 6": "applicant_6",
+  "Applicant 7": "applicant_7",
+  "Applicant 8": "applicant_8",
+  "Applicant 9": "applicant_9",
+  "Applicant 10": "applicant_10",
+  "Applicant 11": "applicant_11"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 8,
+   "ledger_seq": 41,
    "at": "2026-10-01T04:59:00+00:00",
    "visible_to_ids": [
     "calloway_regional_hospital_hr"
    ],
-   "description": "The application period for the ward-clerk vacancy closes. Eleven applications have been submitted."
+   "description": "The job posting for the ward-clerk vacancy closes. Eleven applications have been received."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +33,56 @@
  "personas": {
   "calloway_regional_hospital_hr": {
    "name": "Calloway Regional Hospital HR",
-   "persona_brief": "You are Calloway Regional Hospital HR.\nHR is responsible for reviewing applications for the ward-clerk vacancy. They have received eleven applications by the closing time. They have internal criteria for selecting candidates to invite for interview, but no decision has been made yet."
+   "persona_brief": "You are Calloway Regional Hospital HR.\nHR is responsible for screening applicants for the ward-clerk vacancy. They have received or will receive applications from eleven individuals. They have their own criteria and process for deciding whom to invite for an interview."
+  },
+  "applicant_1": {
+   "name": "Applicant 1",
+   "persona_brief": "You are Applicant 1.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_2": {
+   "name": "Applicant 2",
+   "persona_brief": "You are Applicant 2.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_3": {
+   "name": "Applicant 3",
+   "persona_brief": "You are Applicant 3.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_4": {
+   "name": "Applicant 4",
+   "persona_brief": "You are Applicant 4.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_5": {
+   "name": "Applicant 5",
+   "persona_brief": "You are Applicant 5.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_6": {
+   "name": "Applicant 6",
+   "persona_brief": "You are Applicant 6.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_7": {
+   "name": "Applicant 7",
+   "persona_brief": "You are Applicant 7.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_8": {
+   "name": "Applicant 8",
+   "persona_brief": "You are Applicant 8.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_9": {
+   "name": "Applicant 9",
+   "persona_brief": "You are Applicant 9.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_10": {
+   "name": "Applicant 10",
+   "persona_brief": "You are Applicant 10.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
+  },
+  "applicant_11": {
+   "name": "Applicant 11",
+   "persona_brief": "You are Applicant 11.\nOne of the eleven applicants for the ward-clerk vacancy. Has submitted an application before the posting closes."
   }
  },
  "resolution": {
   "question": "Will at least three of the eleven applicants for Calloway Regional Hospital's ward-clerk vacancy be invited to interview within two weeks of the posting closing tonight?",
-  "resolution": "Resolve YES if the persistent event history shows that at least three distinct applicants were sent an interview invitation by Calloway Regional Hospital HR before 2026-10-14T23:59:00-05:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least three distinct applicants received an invitation to interview for the ward-clerk vacancy before 2026-10-14T23:59:00-05:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-10-14T23:59:00-05:00",
   "world_id": "w_e4ada05f2d55"
  }

@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "resolution",
+   "problem": "The resolution does not specify the exact half-term deadline date, relying on an assumption that it is before the hard cutoff. This could lead to ambiguity about when the deadline actually occurs.",
+   "correction": "Specify the exact half-term deadline date (e.g., 2026-10-09) based on typical UK school half-term schedules or the user-provided context, or state that the deadline is unknown and must be determined during simulation."
+  }
+ ]
 }

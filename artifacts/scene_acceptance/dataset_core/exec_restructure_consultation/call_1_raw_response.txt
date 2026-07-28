@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Managing Director",
-      "private_context": "The managing director of Torchlight Media is aware of a restructuring decision that needs to be communicated to staff. They have discretion over the timing and method of informing staff, but are aware of the works council's consultation deadline at the end of September."
+      "private_context": "The managing director of Torchlight Media knows the restructuring decision and must decide whether and when to inform staff. They are aware of the works council's consultation deadline at the end of September."
     },
     {
-      "name": "Works Council",
-      "private_context": "The works council at Torchlight Media expects to be consulted on the restructuring decision before the end of September. They have no prior knowledge of the decision's content or timing."
+      "name": "Staff of Torchlight Media",
+      "private_context": "The staff are aware that a restructuring decision is pending but have not been informed of the details. They expect communication from management."
     }
   ],
-  "shared_context": "Torchlight Media is undergoing a restructuring process. The managing director is responsible for informing staff about the restructuring decision. The works council has a consultation deadline at the end of September 2026. The managing director has not yet informed staff or the works council as of the simulation start time.",
+  "shared_context": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to inform staff about the decision.",
   "starting_events": [
     {
       "time": "2026-09-01T09:00:00+02:00",
-      "description": "The simulation begins. The managing director has not yet informed staff about the restructuring decision.",
-      "visible_to": ["Managing Director", "Works Council"]
+      "description": "The simulation begins. No communication about the restructuring decision has occurred yet.",
+      "visible_to": ["Managing Director", "Staff of Torchlight Media"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed staff (e.g., via a company-wide email, meeting, or official announcement) about the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed the staff of the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff."
 }

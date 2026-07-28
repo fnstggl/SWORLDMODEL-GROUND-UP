@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Jonas is a report of Rosa Maria. He is aware that Rosa Maria is working on his promotion case. He hopes the promotion goes through but has no direct control over the process.",
+     "content": "Jonas is Rosa Maria's report. He is aware that Rosa Maria is working on his promotion case but does not know the details of the calibration or VP sign-off process.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T17:00:00+00:00"
     },
     {
-     "content": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+     "content": "The company has a promotion calibration process where managers present cases for their reports. After calibration, cases require VP sign-off. Promotion letters are scheduled to go out on November 15, 2026. The current date is October 5, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T17:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Rosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and submitted it for calibration. She wants the case to be approved and signed off by the VP before promotion letters go out on November 15. She knows the calibration process and VP sign-off are required steps.",
+     "content": "Rosa Maria is Jonas's manager. She has prepared a promotion case for Jonas and wants it to clear calibration and receive VP sign-off before November 15. She is aware of the promotion letter deadline.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T17:00:00+00:00"
     },
     {
-     "content": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+     "content": "The company has a promotion calibration process where managers present cases for their reports. After calibration, cases require VP sign-off. Promotion letters are scheduled to go out on November 15, 2026. The current date is October 5, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T17:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The VP is the executive who must sign off on promotion cases. They have authority to approve or reject. They are aware of the promotion cycle and the November 15 deadline for letters.",
+     "content": "The VP is responsible for signing off on promotion cases. They have not yet seen Jonas's case. They have other priorities and may need to review the case before signing.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-05T17:00:00+00:00"
     },
     {
-     "content": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+     "content": "The company has a promotion calibration process where managers present cases for their reports. After calibration, cases require VP sign-off. Promotion letters are scheduled to go out on November 15, 2026. The current date is October 5, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-05T17:00:00+00:00"
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will manager Rosa Maria's promotion case for her report Jonas clear calibration and receive VP sign-off before promotion letters go out on November 15?",
-  "scene:shared_context": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears."
+  "scene:shared_context": "The company has a promotion calibration process where managers present cases for their reports. After calibration, cases require VP sign-off. Promotion letters are scheduled to go out on November 15, 2026. The current date is October 5, 2026."
  },
  "history": [],
  "infos": {},

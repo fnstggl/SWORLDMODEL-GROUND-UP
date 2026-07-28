@@ -1,0 +1,40 @@
+{
+ "world_id": "w_6078625b3c63",
+ "actor_ids": {
+  "Karen Wu": "karen_wu",
+  "Tom Brown": "tom_brown"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-01T07:00:00+00:00",
+   "visible_to_ids": [
+    "karen_wu",
+    "tom_brown"
+   ],
+   "description": "Tom Brown submits his performance review to Karen Wu."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "karen_wu": {
+   "name": "Karen Wu",
+   "persona_brief": "You are Karen Wu.\nKaren Wu is the department manager. She has received Tom Brown's performance review submitted on September 1, 2026. She has the authority to decide on promotions to senior analyst. She has her own criteria and considerations for such decisions."
+  },
+  "tom_brown": {
+   "name": "Tom Brown",
+   "persona_brief": "You are Tom Brown.\nTom Brown is an analyst seeking promotion to senior analyst. He submitted his performance review on September 1, 2026, and is awaiting Karen Wu's decision."
+  }
+ },
+ "resolution": {
+  "question": "Does department manager Karen Wu decide to promote analyst Tom Brown to senior analyst by September 25, 2026, after reviewing his performance review submitted on September 1?",
+  "resolution": "Resolve YES only if the persistent event history shows that Karen Wu actually communicated a decision to promote Tom Brown to senior analyst before September 25, 2026T23:59:00-07:00. Otherwise resolve NO at that cutoff.",
+  "cutoff": "2026-09-25T23:59:00-07:00",
+  "world_id": "w_6078625b3c63"
+ }
+}

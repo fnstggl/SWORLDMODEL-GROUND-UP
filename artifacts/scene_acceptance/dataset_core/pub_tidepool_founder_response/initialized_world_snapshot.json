@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The founder knows that the company's head of support has privately confirmed that some critical reviews were taken down. The founder has received emails from two journalists requesting comment. The founder is deciding whether to post a public response to the viral thread.",
+     "content": "The founder knows that Tidepool's head of support privately confirmed that some critical reviews were taken down. The founder has received email inquiries from two journalists about the viral thread. The founder must decide whether to post a public response.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-03T22:00:00+00:00"
     },
     {
-     "content": "A viral thread accusing Tidepool of deleting critical reviews has accumulated two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder can post a public response on the same platform.",
+     "content": "A viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder has the ability to post a public response on the same platform.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-03T22:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the founder of the Tidepool app post a public response within one week to the viral thread accusing the company of deleting critical reviews?",
-  "scene:shared_context": "A viral thread accusing Tidepool of deleting critical reviews has accumulated two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder can post a public response on the same platform."
+  "scene:shared_context": "A viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder has the ability to post a public response on the same platform."
  },
  "history": [],
  "infos": {},

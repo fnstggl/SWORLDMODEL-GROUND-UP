@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The Applicant has submitted a permit application to the relevant authority. They want the permit approved by the end of August. They have no further information about the review process.",
+     "content": "The Applicant has submitted a permit application to the relevant authority and is awaiting a decision. They have no special influence or inside knowledge about the decision process.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-27T14:00:00+00:00"
     },
     {
-     "content": "A permit application has been submitted by the Applicant to the Permit Reviewer. The review process involves checking compliance with regulations, and the Reviewer may request additional information. The deadline for approval is the end of August 2026.",
+     "content": "A permit application has been submitted by the Applicant to the Permit Authority. The Permit Authority has a standard review process that may involve checks, consultations, and internal approvals. The deadline for a decision is the end of August 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-27T14:00:00+00:00"
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "permit_reviewer": {
+  "permit_authority": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "permit_reviewer",
+   "id": "permit_authority",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The Permit Reviewer is responsible for evaluating permit applications. They have received the Applicant's submission and will process it according to standard procedures. They have no prior relationship with the Applicant.",
+     "content": "The Permit Authority is the organization responsible for reviewing and approving or denying permit applications. They have standard procedures and a backlog of applications. They have not yet made a decision on this application.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-27T14:00:00+00:00"
     },
     {
-     "content": "A permit application has been submitted by the Applicant to the Permit Reviewer. The review process involves checking compliance with regulations, and the Reviewer may request additional information. The deadline for approval is the end of August 2026.",
+     "content": "A permit application has been submitted by the Applicant to the Permit Authority. The Permit Authority has a standard review process that may involve checks, consultations, and internal approvals. The deadline for a decision is the end of August 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-27T14:00:00+00:00"
     }
    ],
-   "name": "Permit Reviewer",
+   "name": "Permit Authority",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the permit get approved by the end of August?",
-  "scene:shared_context": "A permit application has been submitted by the Applicant to the Permit Reviewer. The review process involves checking compliance with regulations, and the Reviewer may request additional information. The deadline for approval is the end of August 2026."
+  "scene:shared_context": "A permit application has been submitted by the Applicant to the Permit Authority. The Permit Authority has a standard review process that may involve checks, consultations, and internal approvals. The deadline for a decision is the end of August 2026."
  },
  "history": [],
  "infos": {},

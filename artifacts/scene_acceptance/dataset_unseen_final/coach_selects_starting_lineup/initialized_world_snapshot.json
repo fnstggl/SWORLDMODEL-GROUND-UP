@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "coach_mike_johnson": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "coach_mike_johnson",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Coach Mike Johnson is responsible for selecting the starting lineup for the championship game. He has not yet finalized the lineup as of the start time. He may have preferences, strategies, or constraints regarding player selection.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-09T18:00:00+00:00"
+    },
+    {
+     "content": "The championship game is scheduled for September 10, 2026. The starting lineup must be selected by 8 AM on that day. The team roster and relevant performance data are available to Coach Johnson.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-09T18:00:00+00:00"
+    }
+   ],
+   "name": "Coach Mike Johnson",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Does Coach Mike Johnson select the starting lineup for the championship game by 8 AM on September 10, 2026?",
+  "scene:shared_context": "The championship game is scheduled for September 10, 2026. The starting lineup must be selected by 8 AM on that day. The team roster and relevant performance data are available to Coach Johnson."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-09T18:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-09T18:00:00+00:00",
+ "terminal": null,
+ "version": 7,
+ "watches": {}
+}

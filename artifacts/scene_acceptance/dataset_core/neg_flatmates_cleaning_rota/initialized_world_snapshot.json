@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores.",
+     "content": "Dana shares a flat with Yusuf. They have not yet agreed on a cleaning rota. Dana wants a rota that is fair and manageable, and is willing to discuss and sign off on a proposal in the group chat.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-04T19:00:00+00:00"
     },
     {
-     "content": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
+     "content": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-04T19:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores.",
+     "content": "Yusuf shares a flat with Dana. They have not yet agreed on a cleaning rota. Yusuf wants a rota that is clear and equitable, and is open to agreeing on one in the group chat.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-04T19:00:00+00:00"
     },
     {
-     "content": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
+     "content": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-04T19:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will flatmates Dana and Yusuf agree on a cleaning rota that both explicitly sign off on in their flat group chat before Sunday night?",
-  "scene:shared_context": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time."
+  "scene:shared_context": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00)."
  },
  "history": [],
  "infos": {},

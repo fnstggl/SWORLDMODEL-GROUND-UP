@@ -23,13 +23,13 @@
    {
     "t": "2026-10-14T18:00:00+00:00",
     "kind": "context",
-    "content": "Harborview Credit Union has a policy for handling card disputes. It received Marisol's dispute today. It may provisionally credit disputed amounts within ten business days, subject to its internal review process.",
+    "content": "Harborview Credit Union has received Marisol's dispute for a 320-dollar charge. Its policy is to provisionally credit disputed amounts within ten business days of the dispute filing, unless an exception applies. The credit union processes disputes through its internal systems and may require additional review.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-14T18:00:00+00:00",
     "kind": "context",
-    "content": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a $320 charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually 2026-10-14 is a Wednesday, so ten business days later is 2026-10-28, a Wednesday). The credit union has the ability to provisionally credit the amount within that window.",
+    "content": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a 320-dollar charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day period runs from 2026-10-14 through 2026-10-28 (inclusive of business days, excluding weekends and holidays).",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-14T18:00:00+00:00",
     "kind": "context",
-    "content": "Marisol filed a dispute today (2026-10-14) for a $320 card charge. She was quoted a ten-business-day window for provisional credit. She expects the credit within that window.",
+    "content": "Marisol filed a dispute today (2026-10-14) for a 320-dollar charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. She expects the credit to be applied within that window.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-14T18:00:00+00:00",
     "kind": "context",
-    "content": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a $320 charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually 2026-10-14 is a Wednesday, so ten business days later is 2026-10-28, a Wednesday). The credit union has the ability to provisionally credit the amount within that window.",
+    "content": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a 320-dollar charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day period runs from 2026-10-14 through 2026-10-28 (inclusive of business days, excluding weekends and holidays).",
     "source": "scene_manifest:shared_context"
    }
   ],

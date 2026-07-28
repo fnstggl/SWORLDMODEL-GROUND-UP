@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Mayor of Riverton",
-   "private_context": "The mayor is aware of this morning's third water-main burst and the public concern it is generating. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out or staying silent."
+   "private_context": "The mayor is aware of the water-main failures and the public concern. They have not yet decided whether to issue a statement. They consider the political and operational implications of speaking publicly."
   }
  ],
- "shared_context": "Riverton has experienced three water-main bursts this morning (2026-08-12). The third burst occurred earlier today. The mayor's office is the usual channel for official public statements. The public and local media are paying attention.",
+ "shared_context": "Riverton has experienced three water-main bursts, the most recent this morning (2026-08-12). The bursts have caused disruptions and public concern. The mayor has the ability to issue a public statement through official channels.",
  "starting_events": [
   {
    "time": "2026-08-12T07:00:00-06:00",
-   "description": "The third water-main burst of the morning has occurred. The mayor is aware of it.",
+   "description": "The third water-main burst occurs this morning.",
    "visible_to": [
     "Mayor of Riverton"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the mayor of Riverton issued a public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the mayor of Riverton issued any public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

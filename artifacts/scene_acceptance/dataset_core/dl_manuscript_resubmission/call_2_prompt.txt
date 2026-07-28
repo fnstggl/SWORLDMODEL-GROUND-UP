@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,30 +119,30 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dr. Tanaka",
-   "private_context": "Tanaka is the lead author and has blocked out the final weekend (Sep 5-6) to integrate all revisions. She is aware of the 14-day deadline (Sep 7 23:59). She knows one co-author is at a field station with patchy email until Sep 1."
+   "private_context": "Tanaka is the lead author responsible for integrating the revised manuscript. She has blocked out the final weekend (August 29-30) to compile all contributions. She is aware of the 14-day resubmission deadline and wants to meet it."
   },
   {
-   "name": "Co-author A",
-   "private_context": "Co-author A is at a field station with patchy email until Sep 1. They have their part of the revisions to contribute."
+   "name": "Co-author 1",
+   "private_context": "This co-author is at a field station with patchy email access until September 1. They have contributed writing but may have limited ability to send or receive large files before then."
   },
   {
-   "name": "Co-author B",
-   "private_context": "Co-author B has normal email access and their part of the revisions to contribute."
+   "name": "Co-author 2",
+   "private_context": "This co-author has typical email access and is expected to provide their revisions. No special constraints are known."
   }
  ],
- "shared_context": "The journal has a 14-day resubmission deadline expiring at 2026-09-07T23:59:00+09:00. The revisions are mostly writing, not new experiments. The manuscript is to be uploaded by Dr. Tanaka via the journal's online system.",
+ "shared_context": "The journal has a 14-day resubmission deadline for revised manuscripts. The deadline is calculated from the start time: 2026-08-24T09:00:00+09:00 plus 14 days, expiring at 2026-09-07T23:59:00+09:00. The revisions are mostly writing, not new experiments. The manuscript must be uploaded to the journal's submission system before the deadline.",
  "starting_events": [
   {
    "time": "2026-08-24T09:00:00+09:00",
-   "description": "The 14-day resubmission period begins. Dr. Tanaka and co-authors have the revised manuscript to complete and upload before the deadline.",
+   "description": "The 14-day resubmission window begins. Dr. Tanaka and co-authors have not yet uploaded the revised manuscript.",
    "visible_to": [
     "Dr. Tanaka",
-    "Co-author A",
-    "Co-author B"
+    "Co-author 1",
+    "Co-author 2"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the revised manuscript was successfully uploaded by Dr. Tanaka (or on her behalf) before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the revised manuscript was successfully uploaded to the journal's submission system before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

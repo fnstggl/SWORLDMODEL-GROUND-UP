@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "account_manager_brightline_software": {
+  "brightline_software_account_manager": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "account_manager_brightline_software",
+   "id": "brightline_software_account_manager",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The account manager has been trained to offer a pause option as a retention tactic and has authority to propose a pause. They want to persuade the retailer to pause instead of cancel.",
+     "content": "The account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The manager's goal is to persuade them to pause instead. They have prepared talking points about the benefits of pausing and potential future discounts.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-08T16:00:00+00:00"
     },
     {
-     "content": "Brightline Software provides a software subscription to Fenwick & Sloane. A retention call is scheduled for this week (between 2026-09-08 and 2026-09-11). During the call, the account manager can propose a pause option. Fenwick & Sloane's subscription is currently active but they have indicated a desire to cancel.",
+     "content": "Brightline Software provides a subscription service to Fenwick & Sloane. A retention call is scheduled for this week (the week of 2026-09-08). The call will discuss the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-08T16:00:00+00:00"
     }
    ],
-   "name": "Account Manager (Brightline Software)",
+   "name": "Brightline Software Account Manager",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,19 +64,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The representative is the point of contact for the subscription. They have been directed by their organization to cancel the subscription due to budget cuts or dissatisfaction. They are open to hearing alternatives but are leaning toward cancellation. They have the authority to decide on a pause if it meets their needs.",
+     "content": "The representative is the decision-maker for the subscription. They have been considering cancellation due to budget constraints and perceived lack of use. They are open to hearing options but are leaning toward cancellation. They have authority to decide on pausing or canceling.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-08T16:00:00+00:00"
     },
     {
-     "content": "Brightline Software provides a software subscription to Fenwick & Sloane. A retention call is scheduled for this week (between 2026-09-08 and 2026-09-11). During the call, the account manager can propose a pause option. Fenwick & Sloane's subscription is currently active but they have indicated a desire to cancel.",
+     "content": "Brightline Software provides a subscription service to Fenwick & Sloane. A retention call is scheduled for this week (the week of 2026-09-08). The call will discuss the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-08T16:00:00+00:00"
     }
    ],
-   "name": "Fenwick & Sloane representative",
+   "name": "Fenwick & Sloane Representative",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Brightline Software's account manager persuade the retailer Fenwick & Sloane to pause rather than cancel their subscription during this week's scheduled retention call?",
-  "scene:shared_context": "Brightline Software provides a software subscription to Fenwick & Sloane. A retention call is scheduled for this week (between 2026-09-08 and 2026-09-11). During the call, the account manager can propose a pause option. Fenwick & Sloane's subscription is currently active but they have indicated a desire to cancel."
+  "scene:shared_context": "Brightline Software provides a subscription service to Fenwick & Sloane. A retention call is scheduled for this week (the week of 2026-09-08). The call will discuss the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative."
  },
  "history": [],
  "infos": {},

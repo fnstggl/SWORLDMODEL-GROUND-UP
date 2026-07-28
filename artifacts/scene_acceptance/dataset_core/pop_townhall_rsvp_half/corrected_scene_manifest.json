@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Petersfield Secondary School",
+   "private_context": "The school has sent invitations to 120 parents for a curriculum-change town hall. It wants to gauge attendance and may follow up if needed."
+  },
+  {
+   "name": "Invited Parents (120)",
+   "private_context": "Each parent has received an invitation to the town hall. They may or may not RSVP based on their interest, availability, and other factors."
+  }
+ ],
+ "shared_context": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for 2026-10-20 at 18:00. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
+ "starting_events": [
+  {
+   "time": "2026-10-05T09:00:00+01:00",
+   "description": "Invitations have been sent to 120 parents for the curriculum-change town hall. No RSVPs have been received yet.",
+   "visible_to": [
+    "Petersfield Secondary School"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that more than 60 distinct parents (i.e., more than half of 120) have sent an RSVP (either 'yes' or 'no') to the school before the Friday before the town hall (i.e., before 2026-10-16T17:00:00+01:00). Otherwise resolve NO at the hard cutoff (2026-10-16T17:00:00+01:00) if the Friday before the town hall has passed by then, or at the end of that Friday if it falls before the cutoff."
+}

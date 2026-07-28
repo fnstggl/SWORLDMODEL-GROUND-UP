@@ -23,13 +23,13 @@
    {
     "t": "2026-09-21T14:00:00+00:00",
     "kind": "context",
-    "content": "The co-director drafted most sections of the application last month. They know the budget spreadsheet is unfinished. They are aware of the 48-hour countersign requirement and the deadline.",
+    "content": "The co-director drafted most sections of the Alder Foundation application last month. They know the budget spreadsheet is the only unfinished piece. They are aware of the 48-hour countersign requirement and the 17:00 deadline on the 30th.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-21T14:00:00+00:00",
     "kind": "context",
-    "content": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The budget spreadsheet is the only incomplete section. The co-director drafted most other sections last month.",
+    "content": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The application draft is mostly complete except for the budget spreadsheet. The two co-directors can communicate and work together to finish and submit the application.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-21T14:00:00+00:00",
     "kind": "context",
-    "content": "Lucia is the co-director of a two-person nonprofit. She knows the Alder Foundation application is due by 17:00 on the 30th. The budget spreadsheet is the only unfinished piece. She is aware that their fiscal sponsor needs 48 hours to countersign before submission. She has not yet sent the budget to the sponsor.",
+    "content": "Lucia is co-director of a two-person nonprofit. She knows the Alder Foundation application is due by 17:00 on the 30th. The budget spreadsheet is unfinished. She is aware that their fiscal sponsor needs 48 hours to countersign before submission. She has access to the draft sections prepared by her co-director.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-21T14:00:00+00:00",
     "kind": "context",
-    "content": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The budget spreadsheet is the only incomplete section. The co-director drafted most other sections last month.",
+    "content": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The application draft is mostly complete except for the budget spreadsheet. The two co-directors can communicate and work together to finish and submit the application.",
     "source": "scene_manifest:shared_context"
    }
   ],

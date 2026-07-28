@@ -1,0 +1,88 @@
+{
+ "david_park": {
+  "id": "david_park",
+  "name": "David Park",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-12T12:30:00+00:00",
+    "kind": "context",
+    "content": "David Park is a customer service agent. He has received the complaint from Omega Corp and is aware of the 48-hour response policy. He has other tasks and may prioritize based on workload and urgency.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-12T12:30:00+00:00",
+    "kind": "context",
+    "content": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The company policy requires a response within 48 hours of receipt.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "omega_corp": {
+  "id": "omega_corp",
+  "name": "Omega Corp",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-12T12:30:00+00:00",
+    "kind": "context",
+    "content": "Omega Corp is a client that has filed a complaint via email. They expect a response within 48 hours.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-12T12:30:00+00:00",
+    "kind": "context",
+    "content": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The company policy requires a response within 48 hours of receipt.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

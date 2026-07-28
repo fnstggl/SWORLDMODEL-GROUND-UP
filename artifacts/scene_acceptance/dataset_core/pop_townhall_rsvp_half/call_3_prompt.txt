@@ -1,0 +1,125 @@
+You are applying a targeted correction to a compiled starting scene.  You receive the exact original manifest and the exact defect list from an independent review.  Apply ONLY the listed corrections.  Do not expand the scene, regenerate a different world, add unrelated actors, invent missing facts, rewrite correct parts for style, or add new schema fields.  Everything not named in a defect must remain byte-for-byte identical where possible.
+
+Reply with ONLY the corrected four-field JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will more than half of the 120 invited parents RSVP either way to Petersfield Secondary's curriculum-change town hall by the Friday before it?
+
+Simulation start time: 2026-10-05T09:00:00+01:00
+Hard cutoff: 2026-10-16T17:00:00+01:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE ORIGINAL MANIFEST:
+{
+ "actors": [
+  {
+   "name": "Petersfield Secondary School",
+   "private_context": "The school has sent invitations to 120 parents for a curriculum-change town hall. It wants to gauge attendance and may follow up if needed."
+  },
+  {
+   "name": "Invited Parents (120)",
+   "private_context": "Each parent has received an invitation to the town hall. They may or may not RSVP based on their interest, availability, and other factors."
+  }
+ ],
+ "shared_context": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for a date after the Friday before it. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
+ "starting_events": [
+  {
+   "time": "2026-10-05T09:00:00+01:00",
+   "description": "Invitations have been sent to 120 parents for the curriculum-change town hall. No RSVPs have been received yet.",
+   "visible_to": [
+    "Petersfield Secondary School"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that more than 60 distinct parents (i.e., more than half of 120) have sent an RSVP (either 'yes' or 'no') to the school before the Friday before the town hall. Otherwise resolve NO at the hard cutoff (2026-10-16T17:00:00+01:00) if the Friday before the town hall has passed by then, or at the end of that Friday if it falls before the cutoff."
+}
+
+THE DEFECTS TO CORRECT (apply exactly these, nothing else):
+[
+ {
+  "path": "resolution",
+  "problem": "The resolution references 'the Friday before the town hall' but the town hall date is not specified in the scene or question, making it impossible to determine the deadline. The hard cutoff is 2026-10-16, but without the town hall date, the Friday before it is unknown.",
+  "correction": "Specify the town hall date in the shared context or resolution, or define the deadline relative to the hard cutoff if the town hall is after the cutoff."
+ }
+]
+
+Reply with ONLY the corrected four-field JSON object.

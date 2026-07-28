@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,25 +116,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dr. Tanaka",
-   "private_context": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for approval. They are awaiting the board's decision at the next monthly meeting. They have no prior relationship with board members and have not received any preliminary feedback."
+   "private_context": "Dr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for review. They are awaiting the board's decision and have no prior relationship with board members beyond the submission."
   },
   {
    "name": "Ashvale University Research Ethics Board",
-   "private_context": "The board is a committee that reviews research protocols. It meets monthly. The next meeting is scheduled before the cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at that meeting. Board members have no prior knowledge of Dr. Tanaka or the protocol beyond the submitted materials."
+   "private_context": "The board is a committee that reviews research protocols. It meets monthly, and the next meeting is scheduled before the hard cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at the next meeting. Members have their own individual views but act collectively."
   }
  ],
- "shared_context": "Ashvale University's research ethics board holds monthly meetings to review protocols. Dr. Tanaka's survey protocol has been submitted and is on the agenda for the next meeting, which occurs before 2026-10-06T18:00:00+09:00. The board can approve, request amendments, or reject the protocol. The decision will be communicated to Dr. Tanaka after the meeting.",
+ "shared_context": "Ashvale University's research ethics board holds monthly meetings to review protocols. Dr. Tanaka's survey protocol has been submitted and is on the agenda for the next meeting. The board can approve, request amendments, or reject the protocol. The next meeting occurs before 2026-10-06T18:00:00+09:00.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+09:00",
-   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University research ethics board. The board's next monthly meeting is scheduled before the cutoff.",
+   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University research ethics board, scheduled for the next monthly meeting.",
    "visible_to": [
     "Dr. Tanaka",
     "Ashvale University Research Ethics Board"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the board communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the board has approved, requested amendments to, or rejected the protocol at or before its next monthly meeting (which occurs before 2026-10-06T18:00:00+09:00). Resolve NO if the board has not made any of these decisions by that deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

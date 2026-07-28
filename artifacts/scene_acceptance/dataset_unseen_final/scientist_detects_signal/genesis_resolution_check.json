@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Does Dr. Emily Zhao detect the anomalous signal from the radio telescope before the observation window closes on October 1, 2026?",
+  "resolution": "Resolve YES only if the persistent event history shows that Dr. Emily Zhao actually detected the anomalous signal (e.g., by noting it in a log, flagging it for review, or otherwise recording the detection) before the observation window closes on October 1, 2026. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-01T23:59:00+00:00",
+  "world_id": "w_90c446139baa"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

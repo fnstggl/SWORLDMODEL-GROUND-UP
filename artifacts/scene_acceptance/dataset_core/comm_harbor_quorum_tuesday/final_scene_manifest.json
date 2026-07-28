@@ -2,50 +2,46 @@
  "actors": [
   {
    "name": "Chair",
-   "private_context": "The chair has never missed a session and intends to attend this rescheduled meeting as well."
+   "private_context": "The chair has never missed a session and intends to attend this rescheduled meeting."
   },
   {
    "name": "Member 1",
-   "private_context": "One of the two members who are traveling during the school-holiday week; may not be able to attend."
+   "private_context": "Has already confirmed attendance for the rescheduled Tuesday evening meeting."
   },
   {
    "name": "Member 2",
-   "private_context": "The other traveling member; may not be able to attend."
+   "private_context": "Has already confirmed attendance for the rescheduled Tuesday evening meeting."
   },
   {
    "name": "Member 3",
-   "private_context": "Has already confirmed attendance at the rescheduled meeting."
+   "private_context": "Has already confirmed attendance for the rescheduled Tuesday evening meeting."
   },
   {
    "name": "Member 4",
-   "private_context": "Has already confirmed attendance at the rescheduled meeting."
+   "private_context": "Is traveling during the school-holiday week and cannot attend the rescheduled meeting."
   },
   {
    "name": "Member 5",
-   "private_context": "Has already confirmed attendance at the rescheduled meeting."
+   "private_context": "Is traveling during the school-holiday week and cannot attend the rescheduled meeting."
   },
   {
    "name": "Member 6",
-   "private_context": "One of the remaining four members whose attendance is uncertain."
+   "private_context": "Has not yet confirmed attendance; may or may not attend."
   },
   {
    "name": "Member 7",
-   "private_context": "One of the remaining four members whose attendance is uncertain."
+   "private_context": "Has not yet confirmed attendance; may or may not attend."
   },
   {
    "name": "Member 8",
-   "private_context": "One of the remaining four members whose attendance is uncertain."
-  },
-  {
-   "name": "Member 9",
-   "private_context": "One of the remaining four members whose attendance is uncertain."
+   "private_context": "Has not yet confirmed attendance; may or may not attend."
   }
  ],
- "shared_context": "The Marlin Bay harbor advisory committee has nine members. A quorum requires five members present. The meeting was rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling, three have confirmed attendance, and the chair has never missed a session. The meeting is scheduled for 2026-08-11T19:00:00-07:00.",
+ "shared_context": "The Marlin Bay harbor advisory committee has nine members. Five members are needed for quorum. The meeting is rescheduled to a Tuesday evening during a school-holiday week. Two members are traveling and cannot attend. Three members have already confirmed attendance. The chair has never missed a session. The remaining three members have not yet confirmed.",
  "starting_events": [
   {
-   "time": "2026-08-09T08:00:00-07:00",
-   "description": "The committee's rescheduled Tuesday evening meeting is set for 2026-08-11T19:00:00-07:00. The chair and three members have confirmed; two are traveling; four have not yet indicated their plans.",
+   "time": "2026-08-09T15:00:00+00:00",
+   "description": "The rescheduled Tuesday evening meeting is upcoming. Three members have confirmed attendance; two members are traveling and cannot attend; the chair intends to attend; three members have not yet confirmed.",
    "visible_to": [
     "Chair",
     "Member 1",
@@ -55,10 +51,9 @@
     "Member 5",
     "Member 6",
     "Member 7",
-    "Member 8",
-    "Member 9"
+    "Member 8"
    ]
   }
  ],
- "resolution": "Resolve YES if at least five members (including the chair) are physically present at the meeting location at the scheduled start time or within 15 minutes thereafter, as recorded in the meeting minutes or attendance log. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that at least five members (including the chair) are actually present at the rescheduled Tuesday evening meeting before the meeting's end. Otherwise resolve NO at the hard cutoff 2026-08-11T21:00:00-07:00."
 }

@@ -23,13 +23,13 @@
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "One of two deputies at Fenwick & Sloane, responsible for buying. Aware that the owner is retiring and that a successor will be named. Has not been told the decision.",
+    "content": "Runs buying at Fenwick & Sloane. Aware that staff are asking openly about succession. Wants to be named general manager.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Fenwick & Sloane is a store. The owner is retiring and will name one of her two deputies as general manager. Holiday trading starts on November 1. The accountant has advised settling the succession before seasonal hires arrive. Staff have been asking openly about the decision.",
+    "content": "Fenwick & Sloane is a store. Holiday trading starts on November 1. The owner is retiring and has two deputies. Staff have started asking openly about who will take over. The owner's accountant has advised settling the matter before seasonal hires arrive.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "One of two deputies at Fenwick & Sloane, responsible for operations. Aware that the owner is retiring and that a successor will be named. Has not been told the decision.",
+    "content": "Runs operations at Fenwick & Sloane. Aware that staff are asking openly about succession. Wants to be named general manager.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Fenwick & Sloane is a store. The owner is retiring and will name one of her two deputies as general manager. Holiday trading starts on November 1. The accountant has advised settling the succession before seasonal hires arrive. Staff have been asking openly about the decision.",
+    "content": "Fenwick & Sloane is a store. Holiday trading starts on November 1. The owner is retiring and has two deputies. Staff have started asking openly about who will take over. The owner's accountant has advised settling the matter before seasonal hires arrive.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Owner has run the store for 31 years. She has two deputies: one runs buying, the other runs operations. She has not yet decided which deputy will succeed her as general manager. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about the decision.",
+    "content": "Owner has run the store for 31 years. She has two deputies: one runs buying, the other operations. Her accountant has advised settling the succession before seasonal hires arrive. She has not yet decided which deputy to name as general manager, or whether to name one at all before November 1.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T09:00:00+00:00",
     "kind": "context",
-    "content": "Fenwick & Sloane is a store. The owner is retiring and will name one of her two deputies as general manager. Holiday trading starts on November 1. The accountant has advised settling the succession before seasonal hires arrive. Staff have been asking openly about the decision.",
+    "content": "Fenwick & Sloane is a store. Holiday trading starts on November 1. The owner is retiring and has two deputies. Staff have started asking openly about who will take over. The owner's accountant has advised settling the matter before seasonal hires arrive.",
     "source": "scene_manifest:shared_context"
    }
   ],

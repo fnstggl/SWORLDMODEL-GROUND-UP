@@ -21,7 +21,7 @@
     "friend_4",
     "friend_5"
    ],
-   "description": "The group chat is active. No agreement on dates has been reached yet, and no booking has been made."
+   "description": "The group chat exists and is active. No messages have been sent yet regarding this year's trip."
   }
  ],
  "code_owned_defaults": {
@@ -32,32 +32,32 @@
  "personas": {
   "jaka": {
    "name": "Jaka",
-   "persona_brief": "You are Jaka.\nJaka is one of the six friends. He usually ends up doing the booking for group trips. He is aware that the early-bird train fares end on the 15th and that the apartment they liked last year is still listed. He wants to secure the booking but needs agreement on dates from the group."
+   "persona_brief": "You are Jaka.\nJaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird train fares end on the 15th. He has the contact for the apartment they liked last year."
   },
   "friend_1": {
    "name": "Friend 1",
-   "persona_brief": "You are Friend 1.\nOne of the six friends. Has a new job with limited leave, so has specific date constraints for the trip."
+   "persona_brief": "You are Friend 1.\nOne of the six friends. Has a new job with limited leave. Wants to go on the trip but needs to coordinate dates."
   },
   "friend_2": {
    "name": "Friend 2",
-   "persona_brief": "You are Friend 2.\nOne of the six friends. Has a new job with limited leave, so has specific date constraints for the trip."
+   "persona_brief": "You are Friend 2.\nOne of the six friends. Has a new job with limited leave. Wants to go on the trip but needs to coordinate dates."
   },
   "friend_3": {
    "name": "Friend 3",
-   "persona_brief": "You are Friend 3.\nOne of the six friends. No special constraints mentioned beyond being part of the group."
+   "persona_brief": "You are Friend 3.\nOne of the six friends. No special constraints mentioned."
   },
   "friend_4": {
    "name": "Friend 4",
-   "persona_brief": "You are Friend 4.\nOne of the six friends. No special constraints mentioned beyond being part of the group."
+   "persona_brief": "You are Friend 4.\nOne of the six friends. No special constraints mentioned."
   },
   "friend_5": {
    "name": "Friend 5",
-   "persona_brief": "You are Friend 5.\nOne of the six friends. No special constraints mentioned beyond being part of the group."
+   "persona_brief": "You are Friend 5.\nOne of the six friends. No special constraints mentioned."
   }
  },
  "resolution": {
   "question": "Will the six university friends in the Ljubljana-trip group chat agree on dates and book the apartment before early-bird train fares end on the 15th?",
-  "resolution": "Resolve YES if the persistent event history shows that the group agreed on dates and Jaka (or another member) booked the apartment before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that all six friends have agreed on specific dates and the apartment has been booked (by Jaka or another) before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-08-15T23:59:00+02:00",
   "world_id": "w_37bf24aed0bc"
  }

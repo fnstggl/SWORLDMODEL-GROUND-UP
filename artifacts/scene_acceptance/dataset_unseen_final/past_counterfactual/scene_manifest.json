@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Allied Powers (UK, USSR, and other allies)",
+   "private_context": "The Allies are fighting against the Axis powers. The UK has been at war since 1939, the USSR since June 1941. They are aware of US Lend-Lease aid but uncertain about future US military involvement. They hope for US entry but cannot rely on it."
+  },
+  {
+   "name": "Axis Powers (Germany, Italy, Japan)",
+   "private_context": "The Axis powers are engaged in war with the Allies. They are aware of US neutrality and Lend-Lease aid to the Allies. They hope to avoid US military entry and aim to defeat the Allies before the US could intervene."
+  }
+ ],
+ "shared_context": "World War II is ongoing. The United States is officially neutral but provides material support to the Allies via Lend-Lease. The US has not yet entered the war militarily. The question asks whether the Allies would have won if the US had not entered at all, meaning no US military participation. The outcome is uncertain and depends on future events.",
+ "starting_events": [
+  {
+   "time": "1941-01-01T00:00:00+00:00",
+   "description": "The war continues with the Allies and Axis powers in conflict. The US remains neutral.",
+   "visible_to": [
+    "Allied Powers (UK, USSR, and other allies)",
+    "Axis Powers (Germany, Italy, Japan)"
+   ]
+  }
+ ],
+ "resolution": "UNRESOLVABLE: The question is a past counterfactual that cannot be resolved by observing future events in a simulation starting in 1941, as the actual historical outcome is known and the counterfactual cannot be observed."
+}

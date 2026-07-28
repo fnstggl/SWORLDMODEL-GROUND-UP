@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T15:00:00+00:00",
     "kind": "context",
-    "content": "The board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board has tabled the proposal twice before. The board may decide to take a recorded vote or not.",
+    "content": "The board has the proposal on its agenda for both September meetings. Two trustees are up for re-election in November. The board operates under standard procedures: a recorded vote occurs when a trustee requests it or when the board chair decides to record it. The board is aware of the parent group's plan to pack public comment.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can choose to take a recorded vote on the proposal at either meeting.",
+    "content": "The Marlin Bay Unified school board has two meetings in September 2026. The later-start-times proposal has been tabled twice since spring. The board's agenda for each meeting includes the proposal. A recorded vote is a formal roll-call vote that is documented in the meeting minutes.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T15:00:00+00:00",
     "kind": "context",
-    "content": "The group has promised to pack the public-comment period at the September meetings to advocate for the later-start-times proposal.",
+    "content": "The group has promised to pack the public-comment period at the September meetings to advocate for the later-start-times proposal. They have no formal decision-making power on the board.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T15:00:00+00:00",
     "kind": "context",
-    "content": "The Marlin Bay Unified school board holds two meetings in September 2026. The later-start-times proposal is on the agenda for both meetings. The board can choose to take a recorded vote on the proposal at either meeting.",
+    "content": "The Marlin Bay Unified school board has two meetings in September 2026. The later-start-times proposal has been tabled twice since spring. The board's agenda for each meeting includes the proposal. A recorded vote is a formal roll-call vote that is documented in the meeting minutes.",
     "source": "scene_manifest:shared_context"
    }
   ],

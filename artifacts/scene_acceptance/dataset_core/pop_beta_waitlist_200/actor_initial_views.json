@@ -1,4 +1,47 @@
 {
+ "newsletter_subscribers_cohort_of_5000": {
+  "id": "newsletter_subscribers_cohort_of_5000",
+  "name": "Newsletter Subscribers (cohort of 5000)",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-22T15:00:00+00:00",
+    "kind": "context",
+    "content": "Each subscriber receives the Tidepool newsletter. Their typical click-through rate is 6%. They may or may not be interested in joining a beta waitlist.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-22T15:00:00+00:00",
+    "kind": "context",
+    "content": "Tidepool has a newsletter with 5000 subscribers. On launch morning (2026-09-22T08:00:00-07:00), Tidepool sends an email to all subscribers promoting a beta waitlist. The email includes a personal note from the founder and the waitlist link is above the fold. The typical click-through rate for the newsletter is 6%.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
  "tidepool": {
   "id": "tidepool",
   "name": "Tidepool",
@@ -23,13 +66,13 @@
    {
     "t": "2026-09-22T15:00:00+00:00",
     "kind": "context",
-    "content": "Tidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours.",
+    "content": "Tidepool is sending a launch email to its newsletter subscribers. It has a beta waitlist and wants to maximize signups. The email includes a personal note from the founder and the waitlist link is above the fold.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T15:00:00+00:00",
     "kind": "context",
-    "content": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist.",
+    "content": "Tidepool has a newsletter with 5000 subscribers. On launch morning (2026-09-22T08:00:00-07:00), Tidepool sends an email to all subscribers promoting a beta waitlist. The email includes a personal note from the founder and the waitlist link is above the fold. The typical click-through rate for the newsletter is 6%.",
     "source": "scene_manifest:shared_context"
    }
   ],

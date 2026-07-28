@@ -1,7 +1,7 @@
 {
  "kestrel_analytics_management": {
   "id": "kestrel_analytics_management",
-  "name": "Kestrel Analytics Management",
+  "name": "Kestrel Analytics management",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Management has planned and is about to implement a reorganization of the support team. They have specific goals for efficiency and cost reduction but have not communicated all details to the team. They will oversee the reorg process.",
+    "content": "Management has decided on a reorg of the support team. They have a plan for new roles, reporting lines, and possibly layoffs or reassignments. They intend to announce the reorg soon.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Kestrel Analytics is a company with a support team that handles customer inquiries. A reorganization (reorg) of the support team is scheduled to begin on 2026-09-01. The reorg may involve changes to team structure, roles, responsibilities, and reporting lines. Morale refers to the team's overall job satisfaction, confidence, and enthusiasm.",
+    "content": "Kestrel Analytics has a support team that handles customer inquiries. A reorganization (reorg) of this team is planned and will be announced shortly. The reorg may change team composition, roles, and management. Morale is currently moderate but uncertain due to the upcoming changes.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "support_team_members": {
-  "id": "support_team_members",
-  "name": "Support Team Members",
+ "support_team_members_collective": {
+  "id": "support_team_members_collective",
+  "name": "Support team members (collective)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "The support team at Kestrel Analytics is aware of the upcoming reorg. They have varying levels of job security concerns and expectations about changes in workload, reporting structure, and team culture. They have not yet experienced the reorg's effects.",
+    "content": "Each team member has their own morale level, concerns about job security, workload, and reporting structure. They have heard rumors about a reorg but have no official details yet.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Kestrel Analytics is a company with a support team that handles customer inquiries. A reorganization (reorg) of the support team is scheduled to begin on 2026-09-01. The reorg may involve changes to team structure, roles, responsibilities, and reporting lines. Morale refers to the team's overall job satisfaction, confidence, and enthusiasm.",
+    "content": "Kestrel Analytics has a support team that handles customer inquiries. A reorganization (reorg) of this team is planned and will be announced shortly. The reorg may change team composition, roles, and management. Morale is currently moderate but uncertain due to the upcoming changes.",
     "source": "scene_manifest:shared_context"
    }
   ],

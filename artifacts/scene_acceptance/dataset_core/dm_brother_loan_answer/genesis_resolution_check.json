@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Rosa asked her brother Emilio by text for a 2,000-peso loan until payday. Will Emilio give her a yes-or-no answer within 48 hours?",
-  "resolution": "Resolve YES if the persistent event history shows that Emilio sent a text message to Rosa containing a clear yes or no answer to the loan request before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Emilio sent a message to Rosa that constitutes a clear yes-or-no answer to the loan request before 2026-09-06T19:00:00-06:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-09-06T19:00:00-06:00",
   "world_id": "w_48ce349f80db"
  },

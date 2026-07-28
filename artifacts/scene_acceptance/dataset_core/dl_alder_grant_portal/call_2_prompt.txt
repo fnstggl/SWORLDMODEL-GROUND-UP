@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,25 +119,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Lucia Ferreyra",
-   "private_context": "Lucia is the co-director of a two-person nonprofit. She knows the Alder Foundation application is due by 17:00 on the 30th. The budget spreadsheet is the only unfinished piece. She is aware that their fiscal sponsor needs 48 hours to countersign before submission. She has not yet sent the budget to the sponsor."
+   "private_context": "Lucia is co-director of a two-person nonprofit. She knows the Alder Foundation application is due by 17:00 on the 30th. The budget spreadsheet is unfinished. She is aware that their fiscal sponsor needs 48 hours to countersign before submission. She has access to the draft sections prepared by her co-director."
   },
   {
    "name": "Co-director",
-   "private_context": "The co-director drafted most sections of the application last month. They know the budget spreadsheet is unfinished. They are aware of the 48-hour countersign requirement and the deadline."
+   "private_context": "The co-director drafted most sections of the Alder Foundation application last month. They know the budget spreadsheet is the only unfinished piece. They are aware of the 48-hour countersign requirement and the 17:00 deadline on the 30th."
   }
  ],
- "shared_context": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The budget spreadsheet is the only incomplete section. The co-director drafted most other sections last month.",
+ "shared_context": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The application draft is mostly complete except for the budget spreadsheet. The two co-directors can communicate and work together to finish and submit the application.",
  "starting_events": [
   {
    "time": "2026-09-21T09:00:00-05:00",
-   "description": "Lucia and the co-director are aware of the deadline and the unfinished budget spreadsheet. No action has been taken yet on the budget or sponsor countersignature.",
+   "description": "Lucia and her co-director are aware that the budget spreadsheet is the only unfinished piece of the Alder Foundation application, and that the fiscal sponsor needs 48 hours to countersign before submission.",
    "visible_to": [
     "Lucia Ferreyra",
     "Co-director"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the completed application was submitted to the Alder Foundation portal before 17:00 on 2026-09-30. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the completed Alder Foundation application was submitted before 2026-09-30T17:00:00-05:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

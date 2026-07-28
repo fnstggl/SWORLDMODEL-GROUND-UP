@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "alder_court_neighbors_as_a_group": {
+  "alder_court_neighbors_collective": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "alder_court_neighbors_as_a_group",
+   "id": "alder_court_neighbors_collective",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Nine households on Alder Court have said they are in for setting up the water table. They have discussed it all month on the app. They have not yet set up the table as of the simulation start.",
+     "content": "Nine households on Alder Court have agreed to set up a water table at mile four of the Riverton marathon. They have discussed it on the app all month. They have not yet set it up as of the start time.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-08T15:00:00+00:00"
     },
     {
-     "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00.",
+     "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table on the app all month, and nine households said they are in. Priya has already bought cups. The table is not yet set up at the start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-08T15:00:00+00:00"
     }
    ],
-   "name": "Alder Court neighbors (as a group)",
+   "name": "Alder Court neighbors (collective)",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -70,7 +70,7 @@
      "t": "2026-10-08T15:00:00+00:00"
     },
     {
-     "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00.",
+     "content": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table on the app all month, and nine households said they are in. Priya has already bought cups. The table is not yet set up at the start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-08T15:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "The Riverton marathon starts Sunday at 07:00. Will the Alder Court neighbors, who have discussed it all month on the app, actually set up their planned water table before the first runners pass around 08:30?",
-  "scene:shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00."
+  "scene:shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table on the app all month, and nine households said they are in. Priya has already bought cups. The table is not yet set up at the start time."
  },
  "history": [],
  "infos": {},

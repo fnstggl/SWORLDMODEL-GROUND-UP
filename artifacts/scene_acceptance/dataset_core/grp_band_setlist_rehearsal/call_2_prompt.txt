@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Cheap Detour (band as a unit)",
-   "private_context": "The four members have a wedding gig on Saturday and need to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has personal preferences and song ideas, but no agreement has been reached yet."
+   "private_context": "The band has a wedding gig coming up and needs to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has their own preferences and ideas for the setlist, but no agreement has been reached yet."
   }
  ],
- "shared_context": "The band Cheap Detour has a wedding gig on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at an unspecified time before 22:00. The setlist must be twelve songs. No setlist has been settled yet.",
+ "shared_context": "Cheap Detour is a covers band with four members. They have a wedding gig to play and need to settle on a twelve-song setlist. A rehearsal is scheduled for Thursday (2026-09-10). The band typically makes decisions collectively during rehearsals.",
  "starting_events": [
   {
    "time": "2026-09-07T18:00:00+01:00",
-   "description": "The band members are aware of the upcoming rehearsal and the need to finalize the setlist.",
+   "description": "The band has not yet settled the setlist. They have a rehearsal scheduled for Thursday.",
    "visible_to": [
     "Cheap Detour (band as a unit)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

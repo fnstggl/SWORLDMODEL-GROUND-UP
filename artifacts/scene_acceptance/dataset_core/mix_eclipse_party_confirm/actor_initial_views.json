@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T16:00:00+00:00",
     "kind": "context",
-    "content": "The president is responsible for deciding whether the pier viewing party goes ahead. They are aware of the eclipse schedule and need to consider weather forecasts, equipment availability, and any logistical issues. They have not yet made a decision as of the simulation start.",
+    "content": "The president is responsible for organizing club events and making decisions about whether to hold the pier viewing party. They are aware of the scheduled partial solar eclipse on the 12th and need to decide by the 10th whether the party goes ahead, considering weather forecasts, safety, and logistics.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T16:00:00+00:00",
     "kind": "context",
-    "content": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club typically holds a pier viewing party for such events. The president is expected to confirm by the 10th whether the party is going ahead. Weather forecasts and other conditions may influence the decision.",
+    "content": "A partial solar eclipse is scheduled over Marlin Bay on August 12, 2026. The astronomy club typically holds viewing parties at the pier for such events. The club president is expected to confirm by August 10 whether the party will proceed. The decision may depend on factors like weather, safety, and member interest.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,0 +1,8 @@
+{
+ "question": "Does CEO Jane Zhao approve the Q3 performance bonus for the engineering team by September 15, 2026?",
+ "start": "2026-09-01T09:00:00-04:00",
+ "cutoff": "2026-09-15T23:59:00-04:00",
+ "context": "At NovaTech Inc., the engineering team exceeded Q2 targets. CEO Jane Zhao must decide on a bonus by the board meeting on Sep 15.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

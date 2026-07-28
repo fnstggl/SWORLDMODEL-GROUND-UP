@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,22 +116,22 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Family 1",
-   "private_context": "Family 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
+   "private_context": "Family 1 has children who need to be driven to school. They are interested in a carpool to share the driving load. They have not yet discussed specific schedules with the other families."
   },
   {
    "name": "Family 2",
-   "private_context": "Family 2 has one child who needs a ride. They can drive on some days but have limited availability. They are open to a rota if it works for everyone."
+   "private_context": "Family 2 has children who need to be driven to school. They are interested in a carpool but have not yet committed to any specific arrangement."
   },
   {
    "name": "Family 3",
-   "private_context": "Family 3 has three children. They are eager to set up a carpool to reduce their driving burden. They are flexible on days."
+   "private_context": "Family 3 has children who need to be driven to school. They are open to a carpool but have not yet discussed details."
   }
  ],
- "shared_context": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+ "shared_context": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool. Term starts on Monday morning (2026-09-07). They have not yet agreed on a weekly driving rota. They can communicate with each other (e.g., in person, by phone, or by messaging).",
  "starting_events": [
   {
    "time": "2026-09-02T09:00:00+12:00",
-   "description": "The three families are aware of the need to arrange a carpool before term starts. No formal proposal has been made yet.",
+   "description": "The three families are aware of the carpool idea and are considering it, but no rota has been agreed upon yet.",
    "visible_to": [
     "Family 1",
     "Family 2",
@@ -122,7 +139,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of who drives which days). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that all three families have agreed on a specific weekly driving rota before 2026-09-07T00:00:00+12:00 (Monday morning). Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

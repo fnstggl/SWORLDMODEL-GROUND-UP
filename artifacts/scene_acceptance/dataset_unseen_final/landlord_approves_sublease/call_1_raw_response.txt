@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "Green Properties Inc.",
+      "private_context": "Green Properties Inc. is the landlord of the property Sarah Lee rents. They have received a sublease request from Sarah Lee and are considering it. They have internal policies and criteria for approving subleases."
+    },
+    {
+      "name": "Sarah Lee",
+      "private_context": "Sarah Lee is the tenant who submitted a sublease request to Green Properties Inc. She is awaiting their decision."
+    }
+  ],
+  "shared_context": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026.",
+  "starting_events": [
+    {
+      "time": "2026-09-10T09:00:00-07:00",
+      "description": "Sarah Lee's sublease request is pending review by Green Properties Inc.",
+      "visible_to": ["Green Properties Inc.", "Sarah Lee"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that Green Properties Inc. actually communicated approval of the sublease request to Sarah Lee before September 20, 2026 at 23:59:00-07:00. Otherwise resolve NO at that cutoff."
+}

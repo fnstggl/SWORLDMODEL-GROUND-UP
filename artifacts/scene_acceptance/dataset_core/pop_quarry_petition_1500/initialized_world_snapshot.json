@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They need 1,500 total by the deadline. They are aware of the counter-flyer from the quarry operator.",
+     "content": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline from the start date (2026-08-03), meaning the deadline is 2026-09-14. They have seen the counter-flyer from the quarry operator.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
+     "content": "The town of Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is six weeks from the start date, i.e., 2026-09-14. The organizers have already collected 400 signatures. The quarry operator distributed a counter-flyer last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to prevent the petition from reaching 1,500 signatures.",
+     "content": "The operator distributed a counter-flyer last week opposing the petition. They want to prevent the petition from reaching 1,500 signatures.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
+     "content": "The town of Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is six weeks from the start date, i.e., 2026-09-14. The organizers have already collected 400 signatures. The quarry operator distributed a counter-flyer last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
@@ -88,7 +88,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "town_residents_cohort": {
+  "riverton_residents": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -103,23 +103,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "town_residents_cohort",
+   "id": "riverton_residents",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The town has 19,000 residents. Some may be undecided, some may support or oppose the quarry extension. They may encounter petition drives or counter-flyers.",
+     "content": "Residents have varying opinions on the quarry extension. Some are concerned about environmental impacts, others value the jobs (85 employed by the quarry). They may sign the petition if approached or if they feel strongly.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
+     "content": "The town of Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is six weeks from the start date, i.e., 2026-09-14. The organizers have already collected 400 signatures. The quarry operator distributed a counter-flyer last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
-   "name": "Town residents (cohort)",
+   "name": "Riverton residents",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the residents' petition against the Riverton quarry extension collect the 1,500 signatures needed to trigger a council debate before the submission deadline in six weeks?",
-  "scene:shared_context": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents."
+  "scene:shared_context": "The town of Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is six weeks from the start date, i.e., 2026-09-14. The organizers have already collected 400 signatures. The quarry operator distributed a counter-flyer last week."
  },
  "history": [],
  "infos": {},

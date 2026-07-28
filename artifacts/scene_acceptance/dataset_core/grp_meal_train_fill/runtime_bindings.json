@@ -13,7 +13,7 @@
     "fran",
     "neighbors_on_alder_court"
    ],
-   "description": "The meal train sign-up for the Okafor family has eight slots already claimed. The remaining six slots are visible to all neighbors on the app."
+   "description": "The meal train sign-up for the Okafor family is active on the neighborhood app, with eight slots already claimed and six slots remaining."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "fran": {
    "name": "Fran",
-   "persona_brief": "You are Fran.\nFran started the meal train for the Okafor family on the neighborhood app. She knows that eight slots were claimed the first evening, leaving six slots unfilled. She wants the remaining slots to be filled within four days."
+   "persona_brief": "You are Fran.\nFran started the meal train for the Okafor family on the neighborhood app. She knows that eight slots were claimed the first evening, leaving six slots unfilled. She hopes the remaining slots will be filled quickly."
   },
   "neighbors_on_alder_court": {
    "name": "Neighbors on Alder Court",
-   "persona_brief": "You are Neighbors on Alder Court.\nThe neighbors are part of a sixty-household neighborhood app. They are aware of the meal train sign-up for the Okafor family, who just came home with newborn twins. Some may have already signed up, and others may consider signing up."
+   "persona_brief": "You are Neighbors on Alder Court.\nThe neighbors are aware of the meal train sign-up posted by Fran on the neighborhood app. They may or may not choose to sign up for a slot. Some may have already signed up, but the remaining six slots are still open."
   }
  },
  "resolution": {
   "question": "Will the neighbors on Alder Court fill all fourteen slots of the meal train they started for the Okafor family within four days?",
-  "resolution": "Resolve YES if the persistent event history shows that all fourteen slots of the meal train were filled (i.e., signed up for) by 2026-10-09T09:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that all fourteen slots of the meal train were filled (i.e., the sign-up shows no remaining open slots) by 2026-10-09T09:00:00-04:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-10-09T09:00:00-04:00",
   "world_id": "w_8e95e3a32bd9"
  }

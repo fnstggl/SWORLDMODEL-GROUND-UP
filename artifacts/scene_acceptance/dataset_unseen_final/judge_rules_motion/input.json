@@ -1,0 +1,8 @@
+{
+ "question": "Does Judge Patricia O'Neill rule on the motion to dismiss by September 30, 2026?",
+ "start": "2026-09-01T09:00:00-04:00",
+ "cutoff": "2026-09-30T23:59:00-04:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

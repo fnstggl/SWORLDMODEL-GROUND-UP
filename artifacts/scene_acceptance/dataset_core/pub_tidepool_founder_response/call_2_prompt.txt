@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,20 +119,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Founder of Tidepool",
-   "private_context": "The founder knows that the company's head of support has privately confirmed that some critical reviews were taken down. The founder has received emails from two journalists requesting comment. The founder is deciding whether to post a public response to the viral thread."
+   "private_context": "The founder knows that Tidepool's head of support privately confirmed that some critical reviews were taken down. The founder has received email inquiries from two journalists about the viral thread. The founder must decide whether to post a public response."
   }
  ],
- "shared_context": "A viral thread accusing Tidepool of deleting critical reviews has accumulated two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder can post a public response on the same platform.",
+ "shared_context": "A viral thread accusing Tidepool of deleting critical reviews has gained two million views and includes screenshots that appear genuine. The thread is publicly visible. The founder has the ability to post a public response on the same platform.",
  "starting_events": [
   {
    "time": "2026-09-03T15:00:00-07:00",
-   "description": "The viral thread accusing Tidepool of deleting critical reviews is publicly visible with two million views and screenshots.",
+   "description": "The viral thread accusing Tidepool of deleting critical reviews is publicly visible with two million views and screenshots that look genuine.",
    "visible_to": [
     "Founder of Tidepool"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the founder posted a public response to the viral thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the founder of Tidepool posted a public response to the viral thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

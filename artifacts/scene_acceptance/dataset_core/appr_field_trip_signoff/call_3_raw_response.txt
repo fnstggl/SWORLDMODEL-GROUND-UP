@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Principal",
+   "private_context": "The principal is responsible for approving school activities and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the coastal field trip, which has run safely for four years. They know the deputy head is on leave until late September."
+  },
+  {
+   "name": "Geography Department Head",
+   "private_context": "The geography department head has proposed the coastal field trip and needs the principal's sign-off before the half-term deadline. They are aware of the new coach operator and the extra signature requirement from the deputy head, who is on leave."
+  }
+ ],
+ "shared_context": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, a new coach operator is being used, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for sign-off.",
+ "starting_events": [
+  {
+   "time": "2026-09-07T08:30:00+01:00",
+   "description": "The geography department head has the proposed coastal field trip paperwork ready to submit to the principal for sign-off.",
+   "visible_to": [
+    "Geography Department Head"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the coastal field trip before the half-term deadline for sending parental consent letters. The half-term deadline is assumed to be 2026-10-09 (typical UK half-term), but if the question's own deadline is different, use that instead. Otherwise resolve NO at the hard cutoff (2026-10-16T15:30:00+01:00)."
+}

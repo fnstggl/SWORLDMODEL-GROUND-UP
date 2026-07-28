@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "CEO of Kestrel Analytics",
-   "private_context": "CEO is considering the proposed five-year lease on Riverside Wharf office. CFO has privately told CEO she prefers a shorter term. Headcount plans were cut 20% last quarter and half the team is remote. CEO must decide whether to sign or walk away before the landlord's option expires next Friday."
+   "private_context": "The CEO is the decision-maker on the lease. They know the CFO privately prefers a shorter term. They are aware of the 20% headcount cut and that half the team is remote. They must decide whether to sign or walk away before the landlord's option expires next Friday."
   },
   {
-   "name": "Landlord of Riverside Wharf",
-   "private_context": "Landlord has offered six months rent-free as an incentive for the lease. The option to sign expires next Friday, 2026-08-21."
+   "name": "CFO of Kestrel Analytics",
+   "private_context": "The CFO has privately told the CEO she prefers a shorter term lease. She is aware of the headcount cuts and remote team situation."
   }
  ],
- "shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday, 2026-08-21. The CEO has the authority to sign or walk away.",
+ "shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free as an incentive. The landlord's option to accept the lease expires next Friday (2026-08-14). The CEO must decide to sign or walk away before that deadline.",
  "starting_events": [
   {
-   "time": "2026-08-10T09:00:00+01:00",
-   "description": "The CEO of Kestrel Analytics is aware of the proposed five-year lease on Riverside Wharf office and the landlord's offer of six months rent-free. The deadline to sign is next Friday.",
+   "time": "2026-08-10T08:00:00+00:00",
+   "description": "The CEO is aware of the lease proposal and the upcoming deadline. No decision has been made yet.",
    "visible_to": [
     "CEO of Kestrel Analytics"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the CEO of Kestrel Analytics signed the lease before 2026-08-21T17:00:00+01:00. Resolve NO if the CEO walked away or did not sign by that time."
+ "resolution": "Resolve YES if the persistent event history shows that the CEO actually signed the lease before the landlord's option expires at the end of next Friday (2026-08-14T23:59:59+01:00). Resolve NO if the CEO walks away (explicitly declines or lets the option expire) or if no signing occurs by that deadline."
 }

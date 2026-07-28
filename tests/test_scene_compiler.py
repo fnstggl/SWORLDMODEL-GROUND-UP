@@ -111,6 +111,21 @@ def test_alias_merge_and_duplicate_event_collapse():
     assert report["merged_or_collapsed"] >= 2
 
 
+def test_visible_to_short_form_resolves_only_when_unambiguous():
+    m = json.loads(json.dumps(MANIFEST))
+    m["actors"][0]["name"] = "Tomás García"
+    m["starting_events"][0]["visible_to"] = ["Tomás"]
+    scene, report, errors, _ = validate_scene(m, START, CUTOFF)
+    assert errors == []
+    assert scene["starting_events"][0]["visible_to"] == ["Tomás García"]
+    assert any("resolved to the one declared actor" in n
+               for n in report["notes"])
+    # two candidates -> ambiguity is an error, never a guess
+    m["actors"].append({"name": "Tomás Rivera", "private_context": "other"})
+    _, _, errors, _ = validate_scene(m, START, CUTOFF)
+    assert any("is ambiguous between" in e for e in errors)
+
+
 def test_unknown_visible_to_and_late_events_fail():
     m = json.loads(json.dumps(MANIFEST))
     m["starting_events"][0]["visible_to"] = ["Person Z"]

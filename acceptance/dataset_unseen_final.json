@@ -1,0 +1,222 @@
+[
+ {
+  "id": "ceo_approves_bonus",
+  "kind": "sufficient",
+  "category": "corporate_decision",
+  "historical": false,
+  "question": "Does CEO Jane Zhao approve the Q3 performance bonus for the engineering team by September 15, 2026?",
+  "start": "2026-09-01T09:00:00-04:00",
+  "cutoff": "2026-09-15T23:59:00-04:00",
+  "context": "At NovaTech Inc., the engineering team exceeded Q2 targets. CEO Jane Zhao must decide on a bonus by the board meeting on Sep 15.",
+  "why": "The question identifies a specific decision-maker (CEO Jane Zhao), a clear action (approve bonus), a defined group (engineering team), and a deadline."
+ },
+ {
+  "id": "neighbor_notices_breakin",
+  "kind": "sufficient",
+  "category": "neighborhood_watch",
+  "historical": false,
+  "question": "Does neighbor Maria Santos notice the break-in at 42 Oak Street before the police arrive on August 20, 2026?",
+  "start": "2026-08-20T02:00:00-05:00",
+  "cutoff": "2026-08-20T04:00:00-05:00",
+  "context": null,
+  "why": "The question specifies a named person (Maria Santos), an observable event (break-in), and a time window."
+ },
+ {
+  "id": "hospital_communicates_discharge",
+  "kind": "sufficient",
+  "category": "healthcare",
+  "historical": false,
+  "question": "Does Dr. Alan Reed communicate the discharge instructions to patient Bob Chen before 5 PM on September 3, 2026?",
+  "start": "2026-09-03T08:00:00-07:00",
+  "cutoff": "2026-09-03T17:00:00-07:00",
+  "context": "Patient Bob Chen is being discharged from St. Mary's Hospital. Dr. Alan Reed is the attending physician.",
+  "why": "Identifies the communicator (Dr. Alan Reed), recipient (Bob Chen), action (communicate instructions), and deadline."
+ },
+ {
+  "id": "city_council_votes_budget",
+  "kind": "sufficient",
+  "category": "local_government",
+  "historical": false,
+  "question": "Does the Springfield City Council vote to approve the 2027 budget during the October 5, 2026 meeting?",
+  "start": "2026-10-05T18:00:00-05:00",
+  "cutoff": "2026-10-05T23:59:00-05:00",
+  "context": null,
+  "why": "The question involves a defined body (Springfield City Council) and a specific action (vote to approve budget) at a known meeting."
+ },
+ {
+  "id": "teacher_responds_to_email",
+  "kind": "sufficient",
+  "category": "education",
+  "historical": false,
+  "question": "Does teacher Ms. Laura Kim respond to parent John's email about the field trip by August 25, 2026?",
+  "start": "2026-08-20T10:00:00-04:00",
+  "cutoff": "2026-08-25T23:59:00-04:00",
+  "context": null,
+  "why": "Identifies the responder (Ms. Laura Kim), the initiator (parent John), the topic (field trip), and a deadline."
+ },
+ {
+  "id": "reporter_publishes_article",
+  "kind": "sufficient",
+  "category": "journalism",
+  "historical": false,
+  "question": "Does reporter Alex Torres publish the investigation on city hall corruption before the September 1, 2026 deadline?",
+  "start": "2026-08-15T00:00:00-05:00",
+  "cutoff": "2026-09-01T23:59:00-05:00",
+  "context": "Alex Torres works for the Daily Chronicle. The editor set a deadline for the corruption story.",
+  "why": "Specifies the actor (Alex Torres), action (publish article), topic (city hall corruption), and deadline."
+ },
+ {
+  "id": "coach_selects_starting_lineup",
+  "kind": "sufficient",
+  "category": "sports",
+  "historical": false,
+  "question": "Does Coach Mike Johnson select the starting lineup for the championship game by 8 AM on September 10, 2026?",
+  "start": "2026-09-09T12:00:00-06:00",
+  "cutoff": "2026-09-10T08:00:00-06:00",
+  "context": null,
+  "why": "Identifies the decision-maker (Coach Mike Johnson), action (select lineup), event (championship game), and deadline."
+ },
+ {
+  "id": "landlord_approves_sublease",
+  "kind": "sufficient",
+  "category": "housing",
+  "historical": false,
+  "question": "Does landlord Green Properties Inc. approve the sublease request from tenant Sarah Lee by September 20, 2026?",
+  "start": "2026-09-10T09:00:00-07:00",
+  "cutoff": "2026-09-20T23:59:00-07:00",
+  "context": null,
+  "why": "Identifies the party (Green Properties Inc.), the requester (Sarah Lee), the action (approve sublease), and deadline."
+ },
+ {
+  "id": "customer_service_responds_complaint",
+  "kind": "sufficient",
+  "category": "customer_service",
+  "historical": false,
+  "question": "Does customer service agent David Park respond to the complaint from client Omega Corp within 48 hours of receipt on August 12, 2026?",
+  "start": "2026-08-12T14:30:00+02:00",
+  "cutoff": "2026-08-14T14:30:00+02:00",
+  "context": "Omega Corp filed a complaint via email on Aug 12 at 14:30 CET. David Park is the assigned agent.",
+  "why": "Specifies the responder (David Park), the complainant (Omega Corp), the action (respond), and a precise deadline."
+ },
+ {
+  "id": "judge_rules_motion",
+  "kind": "sufficient",
+  "category": "legal",
+  "historical": false,
+  "question": "Does Judge Patricia O'Neill rule on the motion to dismiss by September 30, 2026?",
+  "start": "2026-09-01T09:00:00-04:00",
+  "cutoff": "2026-09-30T23:59:00-04:00",
+  "context": null,
+  "why": "Identifies the decision-maker (Judge Patricia O'Neill), the action (rule on motion), and a deadline."
+ },
+ {
+  "id": "scientist_detects_signal",
+  "kind": "sufficient",
+  "category": "research",
+  "historical": false,
+  "question": "Does Dr. Emily Zhao detect the anomalous signal from the radio telescope before the observation window closes on October 1, 2026?",
+  "start": "2026-09-28T00:00:00+00:00",
+  "cutoff": "2026-10-01T23:59:00+00:00",
+  "context": "Dr. Emily Zhao is leading a SETI project at the Arecibo Observatory. The observation window ends Oct 1.",
+  "why": "Identifies the scientist (Dr. Emily Zhao), the observable event (detect signal), and a deadline."
+ },
+ {
+  "id": "board_appoints_new_ceo",
+  "kind": "sufficient",
+  "category": "corporate_governance",
+  "historical": false,
+  "question": "Does the board of directors of Apex Industries appoint a new CEO during the September 12, 2026 meeting?",
+  "start": "2026-09-12T10:00:00-05:00",
+  "cutoff": "2026-09-12T18:00:00-05:00",
+  "context": null,
+  "why": "Identifies the decision-making body (board of Apex Industries), the action (appoint CEO), and a specific meeting."
+ },
+ {
+  "id": "neighbor_feeds_cat",
+  "kind": "sufficient",
+  "category": "pet_care",
+  "historical": false,
+  "question": "Does neighbor Tom\u00e1s Garc\u00eda feed the cat while owner Lisa is away from August 5 to August 10, 2026?",
+  "start": "2026-08-05T08:00:00-04:00",
+  "cutoff": "2026-08-10T20:00:00-04:00",
+  "context": "Lisa asked Tom\u00e1s to feed her cat daily while she is on vacation.",
+  "why": "Identifies the actor (Tom\u00e1s Garc\u00eda), the action (feed cat), the beneficiary (Lisa's cat), and a time window."
+ },
+ {
+  "id": "historical_ambassador_delivers_note",
+  "kind": "sufficient",
+  "category": "diplomacy",
+  "historical": true,
+  "question": "Does French Ambassador Jean-Pierre Dupont deliver the protest note to the German Foreign Office before the ultimatum expires on July 28, 1914?",
+  "start": "1914-07-23T12:00:00+01:00",
+  "cutoff": "1914-07-28T23:59:00+01:00",
+  "context": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis.",
+  "why": "Historical case with real setting, identifiable parties (Ambassador Dupont, German Foreign Office), action (deliver note), and deadline (ultimatum expiry). The outcome is not stated."
+ },
+ {
+  "id": "manager_decides_promotion",
+  "kind": "sufficient",
+  "category": "human_resources",
+  "historical": false,
+  "question": "Does department manager Karen Wu decide to promote analyst Tom Brown to senior analyst by September 25, 2026, after reviewing his performance review submitted on September 1?",
+  "start": "2026-09-01T00:00:00-07:00",
+  "cutoff": "2026-09-25T23:59:00-07:00",
+  "context": null,
+  "why": "Identifies the decision-maker (Karen Wu), the subject (Tom Brown), the action (decide promotion), and a deadline tied to a prior event."
+ },
+ {
+  "id": "no_party_weather",
+  "kind": "insufficient",
+  "category": "weather",
+  "historical": false,
+  "question": "Will it rain in London on September 15, 2026?",
+  "start": "2026-09-15T00:00:00+01:00",
+  "cutoff": "2026-09-15T23:59:00+01:00",
+  "context": null,
+  "why": "Pure fact lookup about weather, no identifiable party making a decision or taking action."
+ },
+ {
+  "id": "no_party_physics",
+  "kind": "insufficient",
+  "category": "physics",
+  "historical": false,
+  "question": "Will a ball dropped from 10 meters hit the ground in less than 2 seconds?",
+  "start": "2026-08-01T00:00:00+00:00",
+  "cutoff": "2026-08-01T23:59:00+00:00",
+  "context": null,
+  "why": "Pure physics question with no human party involved."
+ },
+ {
+  "id": "past_counterfactual",
+  "kind": "insufficient",
+  "category": "history",
+  "historical": false,
+  "question": "Would the Allies have won WWII if the US had not entered?",
+  "start": "1941-01-01T00:00:00+00:00",
+  "cutoff": "1945-09-02T23:59:00+00:00",
+  "context": null,
+  "why": "Past counterfactual that cannot be observed; no identifiable party acting in the present."
+ },
+ {
+  "id": "unobservable_feeling",
+  "kind": "insufficient",
+  "category": "psychology",
+  "historical": false,
+  "question": "Does John feel happy after receiving the gift on August 10, 2026?",
+  "start": "2026-08-10T12:00:00-05:00",
+  "cutoff": "2026-08-10T23:59:00-05:00",
+  "context": null,
+  "why": "Unobservable internal feeling with no proxy action or statement specified."
+ },
+ {
+  "id": "no_identifiable_party",
+  "kind": "insufficient",
+  "category": "misc",
+  "historical": false,
+  "question": "Will the stock price of XYZ Corp increase by more than 5% on September 1, 2026?",
+  "start": "2026-09-01T09:30:00-04:00",
+  "cutoff": "2026-09-01T16:00:00-04:00",
+  "context": null,
+  "why": "No identifiable party making a decision; market movement is aggregate of many actors, not a specific person or group."
+ }
+]

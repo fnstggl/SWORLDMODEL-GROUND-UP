@@ -5,20 +5,20 @@
    "private_context": "Priya has already bought cups for the water table. She is one of the Alder Court neighbors who discussed the plan on the app. She wants the table to be set up before the runners pass."
   },
   {
-   "name": "Alder Court neighbors (as a group)",
-   "private_context": "Nine households on Alder Court have said they are in for setting up the water table. They have discussed it all month on the app. They have not yet set up the table as of the simulation start."
+   "name": "Alder Court neighbors (collective)",
+   "private_context": "Nine households on Alder Court have agreed to set up a water table at mile four of the Riverton marathon. They have discussed it on the app all month. They have not yet set it up as of the start time."
   }
  ],
- "shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00.",
+ "shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the Alder Court corner (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table on the app all month, and nine households said they are in. Priya has already bought cups. The table is not yet set up at the start time.",
  "starting_events": [
   {
    "time": "2026-10-08T09:00:00-06:00",
-   "description": "The Alder Court neighbors have discussed setting up a water table for the marathon on Sunday. Priya has bought cups. No setup has occurred yet.",
+   "description": "The Alder Court neighbors have not yet set up the water table. The marathon is scheduled for Sunday at 07:00.",
    "visible_to": [
     "Priya",
-    "Alder Court neighbors (as a group)"
+    "Alder Court neighbors (collective)"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the water table was actually set up at the corner of Alder Court (mile four) before the first runners pass around 08:30 on Sunday, 2026-10-11. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the water table was actually set up at the Alder Court corner before 2026-10-11T08:30:00-06:00 (i.e., before the first runners pass). Otherwise resolve NO at the cutoff."
 }

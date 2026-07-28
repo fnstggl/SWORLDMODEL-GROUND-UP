@@ -1,7 +1,7 @@
 {
- "marlin_bay_dockworkers_union_local": {
-  "id": "marlin_bay_dockworkers_union_local",
-  "name": "Marlin Bay dockworkers' union local",
+ "marlin_bay_dockworkers_union_local_executive_board": {
+  "id": "marlin_bay_dockworkers_union_local_executive_board",
+  "name": "Marlin Bay dockworkers' union local executive board",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,56 @@
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The local's executive board met twice last week without issuing a statement. The local is aware of the port automation memorandum and is considering whether to endorse it. There is internal disagreement: a rank-and-file caucus has been leafleting against the memorandum. The international union endorsed a similar deal at another port last month, which may influence but does not bind the local.",
+    "content": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse the memorandum.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The port automation memorandum exists and is a matter of public record. The local can issue a press release through standard channels. The deadline for a decision is before Monday, 2026-08-31.",
+    "content": "The local's executive board has not yet issued a press release regarding endorsement of the port automation memorandum. The international union endorsed a similar deal at another port last month. The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local can issue a press release at any time before Monday.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "marlin_bay_dockworkers_union_local_rank_and_file_caucus": {
+  "id": "marlin_bay_dockworkers_union_local_rank_and_file_caucus",
+  "name": "Marlin Bay dockworkers' union local rank-and-file caucus",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-27T16:00:00+00:00",
+    "kind": "context",
+    "content": "The caucus has been leafleting against the port automation memorandum. They want the local to oppose it.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-27T16:00:00+00:00",
+    "kind": "context",
+    "content": "The local's executive board has not yet issued a press release regarding endorsement of the port automation memorandum. The international union endorsed a similar deal at another port last month. The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local can issue a press release at any time before Monday.",
     "source": "scene_manifest:shared_context"
    }
   ],

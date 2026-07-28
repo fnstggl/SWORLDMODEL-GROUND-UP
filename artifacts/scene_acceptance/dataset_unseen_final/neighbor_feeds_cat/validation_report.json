@@ -1,0 +1,6 @@
+{
+ "errors": [
+  "starting_events[0].visible_to: 'Tom\u00e1s' does not resolve to a declared actor"
+ ],
+ "warnings": []
+}

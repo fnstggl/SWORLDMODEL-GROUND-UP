@@ -1,0 +1,128 @@
+You are applying a targeted correction to a compiled starting scene.  You receive the exact original manifest and the exact defect list from an independent review.  Apply ONLY the listed corrections.  Do not expand the scene, regenerate a different world, add unrelated actors, invent missing facts, rewrite correct parts for style, or add new schema fields.  Everything not named in a defect must remain byte-for-byte identical where possible.
+
+Reply with ONLY the corrected four-field JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the principal of Petersfield Secondary sign off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters?
+
+Simulation start time: 2026-09-07T08:30:00+01:00
+Hard cutoff: 2026-10-16T15:30:00+01:00
+
+USER-PROVIDED CONTEXT:
+The trip has run without incident for four years; the only changes this year are a new coach operator and a risk-assessment form that now needs an extra signature from the deputy head, who is on leave until late September.
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE ORIGINAL MANIFEST:
+{
+ "actors": [
+  {
+   "name": "Principal",
+   "private_context": "The principal is responsible for approving school activities and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the coastal field trip, which has run safely for four years. They know the deputy head is on leave until late September."
+  },
+  {
+   "name": "Geography Department Head",
+   "private_context": "The geography department head has proposed the coastal field trip and needs the principal's sign-off before the half-term deadline. They are aware of the new coach operator and the extra signature requirement from the deputy head, who is on leave."
+  }
+ ],
+ "shared_context": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, a new coach operator is being used, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for sign-off.",
+ "starting_events": [
+  {
+   "time": "2026-09-07T08:30:00+01:00",
+   "description": "The geography department head has the proposed coastal field trip paperwork ready to submit to the principal for sign-off.",
+   "visible_to": [
+    "Geography Department Head"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the hard cutoff (2026-10-16T15:30:00+01:00). The half-term deadline is assumed to be before the hard cutoff; if the question's own deadline is earlier, use that instead."
+}
+
+THE DEFECTS TO CORRECT (apply exactly these, nothing else):
+[
+ {
+  "path": "resolution",
+  "problem": "The resolution does not specify the exact half-term deadline date, relying on an assumption that it is before the hard cutoff. This could lead to ambiguity about when the deadline actually occurs.",
+  "correction": "Specify the exact half-term deadline date (e.g., 2026-10-09) based on typical UK school half-term schedules or the user-provided context, or state that the deadline is unknown and must be determined during simulation."
+ }
+]
+
+Reply with ONLY the corrected four-field JSON object.

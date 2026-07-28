@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Riverton city council",
-   "private_context": "The council has a short-term-rental ordinance that has had a first reading. A second reading is required before final passage. The council's next regular meeting is scheduled for August 3, 2026, and the August recess begins August 15, 2026. The council can schedule a special meeting if needed."
+   "private_context": "The council is aware that a first reading of the short-term-rental ordinance has occurred. The council has a scheduled August recess beginning on a date known to them. They must hold a second reading before that recess begins. Individual council members may have varying opinions on the ordinance."
   }
  ],
- "shared_context": "The Riverton city council is a governing body that holds public meetings. The short-term-rental ordinance requires two readings to pass. The first reading has already occurred. The August recess begins on August 15, 2026, and the council's last regular meeting before recess is on August 3, 2026. The council can call a special meeting before the recess if a majority agrees.",
+ "shared_context": "The Riverton city council has a short-term-rental ordinance that requires a second reading before it can be adopted. The council's August recess is scheduled to begin on a specific date, which is before the hard cutoff of 2026-08-14T17:00:00-06:00. The council has the authority to schedule meetings and readings. The exact date of the recess start is known to the council but not specified here.",
  "starting_events": [
   {
    "time": "2026-07-28T09:00:00-06:00",
-   "description": "The Riverton city council is aware that the second reading of the short-term-rental ordinance has not yet been scheduled. The next regular meeting is August 3, 2026.",
+   "description": "The Riverton city council is in session and aware of the need to hold a second reading of the short-term-rental ordinance before the August recess.",
    "visible_to": [
     "Riverton city council"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the Riverton city council held a meeting (regular or special) at which the second reading of the short-term-rental ordinance occurred before 2026-08-14T17:00:00-06:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the Riverton city council actually held the second reading of the short-term-rental ordinance before the start of the August recess. Otherwise resolve NO at the start of the recess or at the hard cutoff, whichever comes first."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

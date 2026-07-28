@@ -1,22 +1,18 @@
 {
   "actors": [
     {
-      "name": "Transport Committee Chair",
-      "private_context": "The Chair is responsible for setting the committee's agenda and scheduling public hearings. They are aware of the sixty-day window for scheduling a hearing on the rail franchise bill. The Chair has not yet decided whether to schedule a hearing."
-    },
-    {
-      "name": "Transport Committee Members",
-      "private_context": "The committee members have varying opinions on the rail franchise bill. Some may push for a hearing, others may oppose it. They can vote on scheduling if the Chair brings it to a vote."
+      "name": "Parliamentary Transport Committee",
+      "private_context": "The committee is responsible for reviewing transport-related legislation. Its rules allow a sixty-day window from the bill's referral to schedule a public hearing. The committee has discretion over scheduling and may consider political factors, workload, and public interest."
     }
   ],
-  "shared_context": "The Republic of Valdoria's parliamentary transport committee is considering the rail franchise bill. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The bill was referred to the committee on 2026-07-15, so the window ends on 2026-09-13. The committee has not yet scheduled a hearing as of the simulation start time."
+  "shared_context": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The bill has been formally referred to the committee, triggering a sixty-day window within which the committee may schedule a public hearing. The committee's rules do not mandate a hearing but permit one to be scheduled within that period."
 ,
   "starting_events": [
     {
       "time": "2026-08-01T09:00:00+03:00",
-      "description": "The transport committee is in session. The Chair has the agenda for the day, which does not include scheduling a hearing on the rail franchise bill.",
-      "visible_to": ["Transport Committee Chair", "Transport Committee Members"]
+      "description": "The rail franchise bill is referred to the parliamentary transport committee, starting the sixty-day window for scheduling a public hearing.",
+      "visible_to": ["Parliamentary Transport Committee"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that the transport committee scheduled a public hearing on the rail franchise bill on or before 2026-09-13T23:59:59+03:00. Otherwise resolve NO at the hard cutoff of 2026-09-30T18:00:00+03:00."
+  "resolution": "Resolve YES only if the persistent event history shows that the parliamentary transport committee actually scheduled a public hearing on the rail franchise bill before 2026-09-30T09:00:00+03:00 (sixty days after referral). Otherwise resolve NO at the hard cutoff of 2026-09-30T18:00:00+03:00."
 }

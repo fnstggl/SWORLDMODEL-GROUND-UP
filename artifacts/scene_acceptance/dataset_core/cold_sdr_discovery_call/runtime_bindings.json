@@ -2,56 +2,17 @@
  "world_id": "w_6c74014c41aa",
  "actor_ids": {
   "Gustavo": "gustavo",
-  "Procurement Lead 1": "procurement_lead_1",
-  "Procurement Lead 2": "procurement_lead_2",
-  "Procurement Lead 3": "procurement_lead_3",
-  "Procurement Lead 4": "procurement_lead_4",
-  "Procurement Lead 5": "procurement_lead_5",
-  "Procurement Lead 6": "procurement_lead_6",
-  "Procurement Lead 7": "procurement_lead_7",
-  "Procurement Lead 8": "procurement_lead_8",
-  "Procurement Lead 9": "procurement_lead_9",
-  "Procurement Lead 10": "procurement_lead_10",
-  "Procurement Lead 11": "procurement_lead_11",
-  "Procurement Lead 12": "procurement_lead_12",
-  "Procurement Lead 13": "procurement_lead_13",
-  "Procurement Lead 14": "procurement_lead_14",
-  "Procurement Lead 15": "procurement_lead_15",
-  "Procurement Lead 16": "procurement_lead_16",
-  "Procurement Lead 17": "procurement_lead_17",
-  "Procurement Lead 18": "procurement_lead_18",
-  "Procurement Lead 19": "procurement_lead_19",
-  "Procurement Lead 20": "procurement_lead_20",
-  "Procurement Lead 21": "procurement_lead_21",
-  "Procurement Lead 22": "procurement_lead_22",
-  "Procurement Lead 23": "procurement_lead_23",
-  "Procurement Lead 24": "procurement_lead_24",
-  "Procurement Lead 25": "procurement_lead_25",
-  "Procurement Lead 26": "procurement_lead_26",
-  "Procurement Lead 27": "procurement_lead_27",
-  "Procurement Lead 28": "procurement_lead_28",
-  "Procurement Lead 29": "procurement_lead_29",
-  "Procurement Lead 30": "procurement_lead_30",
-  "Procurement Lead 31": "procurement_lead_31",
-  "Procurement Lead 32": "procurement_lead_32",
-  "Procurement Lead 33": "procurement_lead_33",
-  "Procurement Lead 34": "procurement_lead_34",
-  "Procurement Lead 35": "procurement_lead_35",
-  "Procurement Lead 36": "procurement_lead_36",
-  "Procurement Lead 37": "procurement_lead_37",
-  "Procurement Lead 38": "procurement_lead_38",
-  "Procurement Lead 39": "procurement_lead_39",
-  "Procurement Lead 40": "procurement_lead_40"
+  "Procurement Leads": "procurement_leads"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 128,
+   "ledger_seq": 11,
    "at": "2026-08-03T15:00:00+00:00",
    "visible_to_ids": [
     "gustavo"
    ],
-   "description": "Gustavo begins composing and sending cold emails to the forty procurement leads. He sends them throughout the week."
+   "description": "Gustavo begins sending cold emails to the forty procurement leads."
   }
  ],
  "code_owned_defaults": {
@@ -62,172 +23,16 @@
  "personas": {
   "gustavo": {
    "name": "Gustavo",
-   "persona_brief": "You are Gustavo.\nGustavo is a mid-tier sales representative at Brightline Software, selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email each lead this week. His usual booking rate is about one discovery call per sixty cold emails."
+   "persona_brief": "You are Gustavo.\nGustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails."
   },
-  "procurement_lead_1": {
-   "name": "Procurement Lead 1",
-   "persona_brief": "You are Procurement Lead 1.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_2": {
-   "name": "Procurement Lead 2",
-   "persona_brief": "You are Procurement Lead 2.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_3": {
-   "name": "Procurement Lead 3",
-   "persona_brief": "You are Procurement Lead 3.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_4": {
-   "name": "Procurement Lead 4",
-   "persona_brief": "You are Procurement Lead 4.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_5": {
-   "name": "Procurement Lead 5",
-   "persona_brief": "You are Procurement Lead 5.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_6": {
-   "name": "Procurement Lead 6",
-   "persona_brief": "You are Procurement Lead 6.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_7": {
-   "name": "Procurement Lead 7",
-   "persona_brief": "You are Procurement Lead 7.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_8": {
-   "name": "Procurement Lead 8",
-   "persona_brief": "You are Procurement Lead 8.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_9": {
-   "name": "Procurement Lead 9",
-   "persona_brief": "You are Procurement Lead 9.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_10": {
-   "name": "Procurement Lead 10",
-   "persona_brief": "You are Procurement Lead 10.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_11": {
-   "name": "Procurement Lead 11",
-   "persona_brief": "You are Procurement Lead 11.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_12": {
-   "name": "Procurement Lead 12",
-   "persona_brief": "You are Procurement Lead 12.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_13": {
-   "name": "Procurement Lead 13",
-   "persona_brief": "You are Procurement Lead 13.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_14": {
-   "name": "Procurement Lead 14",
-   "persona_brief": "You are Procurement Lead 14.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_15": {
-   "name": "Procurement Lead 15",
-   "persona_brief": "You are Procurement Lead 15.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_16": {
-   "name": "Procurement Lead 16",
-   "persona_brief": "You are Procurement Lead 16.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_17": {
-   "name": "Procurement Lead 17",
-   "persona_brief": "You are Procurement Lead 17.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_18": {
-   "name": "Procurement Lead 18",
-   "persona_brief": "You are Procurement Lead 18.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_19": {
-   "name": "Procurement Lead 19",
-   "persona_brief": "You are Procurement Lead 19.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_20": {
-   "name": "Procurement Lead 20",
-   "persona_brief": "You are Procurement Lead 20.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_21": {
-   "name": "Procurement Lead 21",
-   "persona_brief": "You are Procurement Lead 21.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_22": {
-   "name": "Procurement Lead 22",
-   "persona_brief": "You are Procurement Lead 22.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_23": {
-   "name": "Procurement Lead 23",
-   "persona_brief": "You are Procurement Lead 23.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_24": {
-   "name": "Procurement Lead 24",
-   "persona_brief": "You are Procurement Lead 24.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_25": {
-   "name": "Procurement Lead 25",
-   "persona_brief": "You are Procurement Lead 25.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_26": {
-   "name": "Procurement Lead 26",
-   "persona_brief": "You are Procurement Lead 26.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_27": {
-   "name": "Procurement Lead 27",
-   "persona_brief": "You are Procurement Lead 27.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_28": {
-   "name": "Procurement Lead 28",
-   "persona_brief": "You are Procurement Lead 28.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_29": {
-   "name": "Procurement Lead 29",
-   "persona_brief": "You are Procurement Lead 29.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_30": {
-   "name": "Procurement Lead 30",
-   "persona_brief": "You are Procurement Lead 30.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_31": {
-   "name": "Procurement Lead 31",
-   "persona_brief": "You are Procurement Lead 31.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_32": {
-   "name": "Procurement Lead 32",
-   "persona_brief": "You are Procurement Lead 32.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_33": {
-   "name": "Procurement Lead 33",
-   "persona_brief": "You are Procurement Lead 33.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_34": {
-   "name": "Procurement Lead 34",
-   "persona_brief": "You are Procurement Lead 34.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_35": {
-   "name": "Procurement Lead 35",
-   "persona_brief": "You are Procurement Lead 35.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_36": {
-   "name": "Procurement Lead 36",
-   "persona_brief": "You are Procurement Lead 36.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_37": {
-   "name": "Procurement Lead 37",
-   "persona_brief": "You are Procurement Lead 37.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_38": {
-   "name": "Procurement Lead 38",
-   "persona_brief": "You are Procurement Lead 38.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_39": {
-   "name": "Procurement Lead 39",
-   "persona_brief": "You are Procurement Lead 39.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
-  },
-  "procurement_lead_40": {
-   "name": "Procurement Lead 40",
-   "persona_brief": "You are Procurement Lead 40.\nA procurement lead at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  "procurement_leads": {
+   "name": "Procurement Leads",
+   "persona_brief": "You are Procurement Leads.\nForty procurement leads at mid-market manufacturers in the Pacific Northwest. Each receives many cold emails and may or may not be interested in invoice-automation software. Their collective response rate is approximately one discovery call per sixty cold emails."
   }
  },
  "resolution": {
   "question": "Will at least one of the forty procurement leads that Brightline Software's rep Gustavo cold-emails this week agree to a discovery call before the end of the month?",
-  "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads agreed to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads actually scheduled or agreed to a discovery call with Gustavo before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-08-31T17:00:00-07:00",
   "world_id": "w_6c74014c41aa"
  }

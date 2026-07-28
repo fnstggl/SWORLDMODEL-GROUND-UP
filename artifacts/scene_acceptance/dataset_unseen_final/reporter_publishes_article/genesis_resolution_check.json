@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Does reporter Alex Torres publish the investigation on city hall corruption before the September 1, 2026 deadline?",
+  "resolution": "Resolve YES only if the persistent event history shows that Alex Torres's investigation was published (i.e., made publicly available by the Daily Chronicle) before or on September 1, 2026. Otherwise resolve NO at the hard cutoff.",
+  "cutoff": "2026-09-01T23:59:00-05:00",
+  "world_id": "w_62908d2766ed"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

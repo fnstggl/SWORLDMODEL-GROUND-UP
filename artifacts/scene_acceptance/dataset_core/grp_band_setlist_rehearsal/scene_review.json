@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "ABSTAIN",
+ "defects": [
+  {
+   "path": "scene",
+   "problem": "The question asks about four individual members of a band settling a setlist, which is a social decision-making process among distinct individuals. The scene models the band as a single monolithic actor, which cannot simulate the internal negotiation, disagreements, or collective decision-making among four separate people. This is an insufficiency: the scene reduces a multi-actor social process to a single-actor state, making it impossible to meaningfully simulate the question.",
+   "correction": "Model each of the four band members as separate actors with their own preferences and private contexts, and include starting events that capture their individual stances or lack of agreement."
+  }
+ ]
 }

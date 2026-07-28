@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will illustrator Chen Wei and Torchlight Media settle on a page rate for a twelve-page commission within one week of her opening counteroffer today?",
-  "resolution": "Resolve YES if, before the cutoff on 2026-08-13T14:00:00+08:00, the persistent event history shows that both Chen Wei and Torchlight Media have agreed to a specific page rate for the twelve-page commission (e.g., via signed contract, email acceptance, or other documented mutual agreement). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Chen Wei and Torchlight Media have mutually agreed on a specific page rate for the twelve-page commission before 2026-08-13T14:00:00+08:00. Otherwise resolve NO at that deadline.",
   "cutoff": "2026-08-13T14:00:00+08:00",
   "world_id": "w_fc404e614548"
  },

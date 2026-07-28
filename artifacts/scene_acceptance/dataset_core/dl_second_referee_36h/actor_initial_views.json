@@ -23,13 +23,13 @@
    {
     "t": "2026-09-13T21:00:00+00:00",
     "kind": "context",
-    "content": "Kofi has asked a second referee to upload a letter for a fellowship application. The referee has not yet uploaded it. Kofi knows the portal deadline is 2026-09-15T09:00:00+00:00.",
+    "content": "Kofi has applied to a fellowship and needs a letter from his second referee. He knows the portal deadline is 36 hours from now. He has asked the referee to upload the letter but does not know if she has done so yet.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-13T21:00:00+00:00",
     "kind": "context",
-    "content": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00.",
+    "content": "The fellowship portal has a hard deadline 36 hours from the simulation start time (2026-09-15T09:00:00+00:00). Referees can upload letters through the portal. Kofi cannot upload the letter himself; only the referee can do so.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -44,7 +44,7 @@
  },
  "second_referee": {
   "id": "second_referee",
-  "name": "Second Referee",
+  "name": "Second referee",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-13T21:00:00+00:00",
     "kind": "context",
-    "content": "The second referee has been asked by Kofi to upload a letter for a fellowship application. They have not yet done so. They may have other commitments or may be unaware of the deadline.",
+    "content": "The second referee has been asked by Kofi to upload a letter of recommendation to the fellowship portal. She is aware of the deadline but has not yet uploaded the letter. She may or may not have started writing it.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-13T21:00:00+00:00",
     "kind": "context",
-    "content": "The fellowship portal accepts referee letters until 2026-09-15T09:00:00+00:00. The second referee has not uploaded the letter as of 2026-09-13T21:00:00+00:00.",
+    "content": "The fellowship portal has a hard deadline 36 hours from the simulation start time (2026-09-15T09:00:00+00:00). Referees can upload letters through the portal. Kofi cannot upload the letter himself; only the referee can do so.",
     "source": "scene_manifest:shared_context"
    }
   ],

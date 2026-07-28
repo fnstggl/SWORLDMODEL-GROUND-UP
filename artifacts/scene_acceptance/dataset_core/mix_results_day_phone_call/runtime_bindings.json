@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-13T08:00:00+00:00",
    "visible_to_ids": [
-    "femi"
+    "femi",
+    "femi_s_mother"
    ],
-   "description": "Ashvale University releases exam results. Femi's result becomes available to him."
+   "description": "Ashvale University releases exam results."
   }
  ],
  "code_owned_defaults": {
@@ -27,12 +28,12 @@
   },
   "femi_s_mother": {
    "name": "Femi's mother",
-   "persona_brief": "You are Femi's mother.\nShe has told Femi she will keep her phone on all Thursday morning. She is available to receive calls."
+   "persona_brief": "You are Femi's mother.\nShe has said she will keep her phone on all Thursday morning, expecting a call from Femi about his results."
   }
  },
  "resolution": {
   "question": "Ashvale University releases exam results at 09:00 on Thursday. Will Femi call his mother with his result before noon that day?",
-  "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother and they spoke about his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Femi actually called his mother and communicated his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-13T12:00:00+01:00",
   "world_id": "w_83b08e70bea7"
  }

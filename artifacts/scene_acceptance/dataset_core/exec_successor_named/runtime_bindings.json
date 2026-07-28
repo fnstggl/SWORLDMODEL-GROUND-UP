@@ -15,7 +15,7 @@
     "deputy_buying",
     "deputy_operations"
    ],
-   "description": "The owner has not yet announced her decision. The two deputies are aware of the impending succession decision."
+   "description": "The owner has not yet named a successor. The store is open for business as usual."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "owner_of_fenwick_sloane": {
    "name": "Owner of Fenwick & Sloane",
-   "persona_brief": "You are Owner of Fenwick & Sloane.\nOwner has run the store for 31 years. She has two deputies: one runs buying, the other runs operations. She has not yet decided which deputy will succeed her as general manager. Her accountant has advised settling the succession before seasonal hires arrive. Staff have started asking openly about the decision."
+   "persona_brief": "You are Owner of Fenwick & Sloane.\nOwner has run the store for 31 years. She has two deputies: one runs buying, the other operations. Her accountant has advised settling the succession before seasonal hires arrive. She has not yet decided which deputy to name as general manager, or whether to name one at all before November 1."
   },
   "deputy_buying": {
    "name": "Deputy (Buying)",
-   "persona_brief": "You are Deputy (Buying).\nOne of two deputies at Fenwick & Sloane, responsible for buying. Aware that the owner is retiring and that a successor will be named. Has not been told the decision."
+   "persona_brief": "You are Deputy (Buying).\nRuns buying at Fenwick & Sloane. Aware that staff are asking openly about succession. Wants to be named general manager."
   },
   "deputy_operations": {
    "name": "Deputy (Operations)",
-   "persona_brief": "You are Deputy (Operations).\nOne of two deputies at Fenwick & Sloane, responsible for operations. Aware that the owner is retiring and that a successor will be named. Has not been told the decision."
+   "persona_brief": "You are Deputy (Operations).\nRuns operations at Fenwick & Sloane. Aware that staff are asking openly about succession. Wants to be named general manager."
   }
  },
  "resolution": {
   "question": "Will the retiring owner of Fenwick & Sloane name which of her two deputies will take over as general manager before holiday trading starts on November 1?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-11-01T09:00:00+00:00, the persistent event history shows that the owner has publicly named which deputy will take over as general manager (e.g., an announcement to staff, a written notice, or a direct communication to both deputies). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the owner publicly named one of the two deputies as general manager before 2026-11-01T00:00:00+00:00 (the start of holiday trading on November 1). Otherwise resolve NO at the hard cutoff 2026-11-01T09:00:00+00:00.",
   "cutoff": "2026-11-01T09:00:00+00:00",
   "world_id": "w_e90e1ae506ed"
  }

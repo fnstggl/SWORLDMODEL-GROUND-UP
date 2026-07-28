@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
-  "resolution": "Resolve YES if, before 2026-10-02T12:00:00-05:00, the persistent event history shows that Bill and the Osei family have mutually agreed on a cost split for the fence repair and no small claims case has been filed. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Bill and the Osei family have mutually agreed on a specific cost split for the fence repair (e.g., 50/50 or another split) and that agreement is documented or verbally confirmed by both parties before 2026-10-02T12:00:00-05:00, and no small claims case is filed. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-02T12:00:00-05:00",
   "world_id": "w_1f5dd10a9b4c"
  },

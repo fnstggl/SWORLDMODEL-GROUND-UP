@@ -1,44 +1,19 @@
 {
  "actors": [
   {
-   "name": "Senate Chair",
-   "private_context": "The chair is responsible for presiding over the plenary and ensuring orderly debate. They have no strong personal stance on the pass-fail motion but aim to facilitate a fair vote."
-  },
-  {
-   "name": "Senator A",
-   "private_context": "Senator A supports the pass-fail grading motion, believing it reduces student stress and promotes exploration. They plan to speak in favor and encourage colleagues to pass it."
-  },
-  {
-   "name": "Senator B",
-   "private_context": "Senator B opposes the pass-fail motion, arguing it may undermine academic rigor and grade inflation. They intend to argue for rejection or sending back to committee for more study."
-  },
-  {
-   "name": "Senator C",
-   "private_context": "Senator C is undecided and wants to hear the debate before making a decision. They are open to persuasion from both sides."
+   "name": "Academic Senate",
+   "private_context": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It has a chair, a secretary, and voting members including faculty representatives from each department. The senate has received a motion to adopt pass-fail grading for the current academic year. Members have varying opinions on the motion, but no formal vote has been taken yet."
   }
  ],
- "shared_context": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
+ "shared_context": "Ashvale University's academic senate will hold its October plenary meeting on 2026-10-15. The agenda includes a motion to adopt pass-fail grading for the current academic year. The motion was introduced by a faculty member and has been reviewed by the curriculum committee, which recommended sending it back to committee for further study. The senate can vote to pass, reject, or send back to committee.",
  "starting_events": [
   {
-   "time": "2026-10-01T09:00:00-05:00",
+   "time": "2026-10-01T14:00:00+00:00",
    "description": "The academic senate's October plenary is scheduled for 2026-10-15. The pass-fail grading motion is on the agenda.",
    "visible_to": [
-    "Senate Chair",
-    "Senator A",
-    "Senator B",
-    "Senator C"
-   ]
-  },
-  {
-   "time": "2026-10-15T10:00:00-05:00",
-   "description": "The Senate Chair calls the plenary to order and introduces the pass-fail grading motion as the first item of business. Senators begin to express their initial positions.",
-   "visible_to": [
-    "Senate Chair",
-    "Senator A",
-    "Senator B",
-    "Senator C"
+    "Academic Senate"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the senate passed the motion at the plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that the academic senate voted to pass the motion at the October plenary (by 2026-10-15T23:59:59-05:00). Resolve NO if the senate voted to reject the motion. Resolve SEND_BACK if the senate voted to send the motion back to committee. If no vote occurs by the end of the plenary, resolve NO."
 }

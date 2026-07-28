@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Brightline ships its v4 release at a fixed time on Tuesday. Will the CEO post a launch announcement, and at least one of the three design partners publicly repost it, within 24 hours of the ship time?",
-  "resolution": "Resolve YES if the persistent event history shows that the CEO posted a launch announcement and at least one of the three design partners publicly reposted it within 24 hours of the ship time (i.e., before 2026-09-16T10:00:00-07:00). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the CEO posted a launch announcement on social media within 24 hours of the ship time (i.e., by 2026-09-16T10:00:00-07:00) AND at least one of the three design partners publicly reposted that announcement within the same 24-hour window. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-16T10:00:00-07:00",
   "world_id": "w_5a57d0c10ba9"
  },

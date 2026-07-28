@@ -2,7 +2,7 @@
  "world_id": "w_53084529bcac",
  "actor_ids": {
   "Nurse Karolina": "nurse_karolina",
-  "Colleagues in the ward": "colleagues_in_the_ward"
+  "Colleagues (ward nurses)": "colleagues_ward_nurses"
  },
  "event_records": [
   {
@@ -11,9 +11,9 @@
    "at": "2026-08-12T05:30:00+00:00",
    "visible_to_ids": [
     "nurse_karolina",
-    "colleagues_in_the_ward"
+    "colleagues_ward_nurses"
    ],
-   "description": "Nurse Karolina posts a request in the ward's swap channel asking someone to take her Sunday night shift."
+   "description": "Nurse Karolina posts in the ward's swap channel asking someone to take her Sunday night shift."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "nurse_karolina": {
    "name": "Nurse Karolina",
-   "persona_brief": "You are Nurse Karolina.\nKarolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She will not be available to swap herself after the rota locks."
+   "persona_brief": "You are Nurse Karolina.\nKarolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel."
   },
-  "colleagues_in_the_ward": {
-   "name": "Colleagues in the ward",
-   "persona_brief": "You are Colleagues in the ward.\nThe colleagues are nurses who can see the swap channel. Some may be interested in picking up an extra shift for pay or flexibility, but none have a prior commitment to take this shift."
+  "colleagues_ward_nurses": {
+   "name": "Colleagues (ward nurses)",
+   "persona_brief": "You are Colleagues (ward nurses).\nEach colleague may check the swap channel and decide whether to claim the shift based on their own preferences and availability."
   }
  },
  "resolution": {
   "question": "Nurse Karolina posted in her ward's swap channel asking someone to take her Sunday night shift. Will a colleague claim it before the rota locks Friday at 15:00?",
-  "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the shift (e.g., by posting a reply or using the swap system) before the rota locks at 2026-08-14T15:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that a colleague actually claimed the shift before 2026-08-14T15:00:00+02:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-14T15:00:00+02:00",
   "world_id": "w_53084529bcac"
  }

@@ -2,16 +2,16 @@
   "actors": [
     {
       "name": "Kettlewell Parish Council",
-      "private_context": "The council is a body of elected members. It must formally adopt the precept for the next financial year at its January meeting, as required by its standing orders. The council has a chairperson and a clerk. The meeting is scheduled for a date in January 2027."
+      "private_context": "The council is a body of elected members. Its standing orders require formal adoption of the precept at the January meeting. The council has a chair and a clerk. The precept proposal has been prepared but not yet formally adopted."
     }
   ],
-  "shared_context": "Kettlewell Parish Council is a local government body. Its standing orders require the council to formally adopt the precept for the next financial year at its January meeting. The precept is the amount of council tax the parish council will collect. The meeting is scheduled to occur before the hard cutoff date of 2027-01-21T22:00:00+00:00.",
+  "shared_context": "Kettlewell Parish Council's January meeting is scheduled to occur after the simulation start time. The meeting agenda includes the item to formally adopt next year's precept. The council's standing orders mandate that this adoption occur at the January meeting.",
   "starting_events": [
     {
       "time": "2027-01-04T09:00:00+00:00",
-      "description": "The January meeting of Kettlewell Parish Council is scheduled to take place. The agenda includes the formal adoption of next year's precept.",
+      "description": "The simulation begins. The council's January meeting has not yet taken place.",
       "visible_to": ["Kettlewell Parish Council"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Kettlewell Parish Council formally adopted next year's precept at its January meeting before the hard cutoff. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that Kettlewell Parish Council formally adopted next year's precept during its January meeting, before the hard cutoff of 2027-01-21T22:00:00+00:00. Otherwise resolve NO at the cutoff."
 }

@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,26 +116,26 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "CEO",
-   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement post for the v4 release and intend to post it at the ship time. They want the announcement to gain traction and hope design partners will repost it."
+   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement for the v4 release and can post it on social media. They want to promote the release."
   },
   {
    "name": "Design Partner 1",
-   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement."
+   "private_context": "One of three design partners for Brightline v4. They may see and repost the CEO's announcement if they choose."
   },
   {
    "name": "Design Partner 2",
-   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement."
+   "private_context": "One of three design partners for Brightline v4. They may see and repost the CEO's announcement if they choose."
   },
   {
    "name": "Design Partner 3",
-   "private_context": "One of three design partners for Brightline v4. They have a public social media account and may repost content from Brightline if they find it noteworthy. They have no prior commitment to repost this announcement."
+   "private_context": "One of three design partners for Brightline v4. They may see and repost the CEO's announcement if they choose."
   }
  ],
- "shared_context": "Brightline is shipping its v4 release at a fixed time on Tuesday, 2026-09-15T10:00:00-07:00. The CEO plans to post a launch announcement on social media at that time. The three design partners are publicly known and have social media accounts where they can repost. The 24-hour window for the resolution ends at 2026-09-16T10:00:00-07:00.",
+ "shared_context": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO has a social media account and can post a launch announcement. The three design partners have social media accounts and can repost the CEO's announcement. The ship time is known to all involved.",
  "starting_events": [
   {
    "time": "2026-09-15T10:00:00-07:00",
-   "description": "Brightline ships v4. The CEO posts the launch announcement on social media.",
+   "description": "Brightline v4 is shipped at the fixed time.",
    "visible_to": [
     "CEO",
     "Design Partner 1",
@@ -127,7 +144,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the CEO posted a launch announcement and at least one of the three design partners publicly reposted it within 24 hours of the ship time (i.e., before 2026-09-16T10:00:00-07:00). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the CEO posted a launch announcement on social media within 24 hours of the ship time (i.e., by 2026-09-16T10:00:00-07:00) AND at least one of the three design partners publicly reposted that announcement within the same 24-hour window. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

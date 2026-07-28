@@ -1,23 +1,23 @@
 {
  "actors": [
   {
-   "name": "Ashvale University Annual-Fund Caller",
-   "private_context": "The caller has a list of alumni to contact, including Dr. Renata Sousa, who has never donated. The caller is trained to make first-time asks and will call Renata during the shift."
+   "name": "Ashvale University annual-fund caller",
+   "private_context": "The caller is assigned to phone alumna Dr. Renata Sousa for a first-time donation ask. The caller has a script and a goal to secure pledges. They have no prior relationship with Renata."
   },
   {
    "name": "Dr. Renata Sousa",
-   "private_context": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have various reasons for not donating previously, and her current financial situation and willingness to pledge are unknown to the caller."
+   "private_context": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have her own reasons for not donating previously. She is unaware of the upcoming call."
   }
  ],
- "shared_context": "Ashvale University runs an annual-fund campaign where callers contact alumni to solicit donations. Dr. Renata Sousa is an alumna who has never donated. The caller will phone Renata with a first-time ask before the end of the month.",
+ "shared_context": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before.",
  "starting_events": [
   {
-   "time": "2026-10-01T18:00:00-03:00",
-   "description": "The Ashvale University annual-fund caller begins their shift and has Dr. Renata Sousa on their call list.",
+   "time": "2026-10-01T21:00:00+00:00",
+   "description": "The annual-fund caller begins their shift and has Renata's contact information ready to call.",
    "visible_to": [
-    "Ashvale University Annual-Fund Caller"
+    "Ashvale University annual-fund caller"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Dr. Renata Sousa made any pledge (verbal or written) to donate to Ashvale University's annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Renata made a pledge (any amount) to the Ashvale University annual fund before 2026-10-31T21:00:00-03:00. Otherwise resolve NO at that time."
 }

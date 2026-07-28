@@ -21,7 +21,7 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The CEO knows Torchlight Media is shutting down permanently on the 14th. The all-hands meeting is scheduled for the 15th. The CEO has not decided whether to take questions at that meeting.",
+     "content": "The CEO knows Torchlight Media is shutting down permanently on the 14th. The all-hands is scheduled for the 15th. The CEO has not yet decided whether to take questions at that meeting.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T07:00:00+00:00"

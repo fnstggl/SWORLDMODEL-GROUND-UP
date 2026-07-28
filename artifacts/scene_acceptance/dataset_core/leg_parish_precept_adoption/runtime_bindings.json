@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "kettlewell_parish_council"
    ],
-   "description": "The January meeting of Kettlewell Parish Council is scheduled to take place. The agenda includes the formal adoption of next year's precept."
+   "description": "The simulation begins. The council's January meeting has not yet taken place."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "kettlewell_parish_council": {
    "name": "Kettlewell Parish Council",
-   "persona_brief": "You are Kettlewell Parish Council.\nThe council is a body of elected members. It must formally adopt the precept for the next financial year at its January meeting, as required by its standing orders. The council has a chairperson and a clerk. The meeting is scheduled for a date in January 2027."
+   "persona_brief": "You are Kettlewell Parish Council.\nThe council is a body of elected members. Its standing orders require formal adoption of the precept at the January meeting. The council has a chair and a clerk. The precept proposal has been prepared but not yet formally adopted."
   }
  },
  "resolution": {
   "question": "Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?",
-  "resolution": "Resolve YES if the persistent event history shows that Kettlewell Parish Council formally adopted next year's precept at its January meeting before the hard cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Kettlewell Parish Council formally adopted next year's precept during its January meeting, before the hard cutoff of 2027-01-21T22:00:00+00:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2027-01-21T22:00:00+00:00",
   "world_id": "w_1d6c68a61057"
  }

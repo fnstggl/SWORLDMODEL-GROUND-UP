@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "NASA Senior Managers",
-   "private_context": "They are responsible for the Apollo 11 program and must decide whether to give a public go decision for the July launch window after the flight readiness review. They have access to technical reports and status updates from various teams. They are aware of the upcoming flight readiness review process and the need to make a decision before the end of June."
+   "private_context": "They are responsible for the Apollo program and will decide whether to announce a go decision for Apollo 11's July launch window after the flight readiness review. They have access to technical assessments and schedules."
   }
  ],
- "shared_context": "The Apollo 11 mission is scheduled for a July 1969 launch window. A flight readiness review process is underway to assess the readiness of the spacecraft, launch vehicle, and support systems. The review involves multiple NASA centers and contractors. A public announcement of a go decision would be made by senior managers after the review concludes.",
+ "shared_context": "Apollo 11 is scheduled for a July 1969 launch window. A flight readiness review process is underway to assess readiness. The review is expected to conclude before the end of June 1969. A public announcement of a go decision would be made by senior managers at the conclusion of the review.",
  "starting_events": [
   {
    "time": "1969-06-01T09:00:00-04:00",
-   "description": "The flight readiness review process for Apollo 11 begins.",
+   "description": "The flight readiness review process for Apollo 11 is ongoing.",
    "visible_to": [
     "NASA Senior Managers"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that NASA senior managers publicly announced a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that NASA's senior managers publicly announced a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before 1969-06-30T18:00:00-04:00. Otherwise resolve NO at the cutoff."
 }

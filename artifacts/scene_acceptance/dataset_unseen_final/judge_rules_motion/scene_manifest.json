@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Judge Patricia O'Neill",
+   "private_context": "Judge O'Neill has the motion to dismiss under advisement. She is aware of the briefing schedule and any applicable local rules or deadlines. She has her own workflow and priorities for issuing rulings."
+  }
+ ],
+ "shared_context": "A motion to dismiss has been filed in a case before Judge Patricia O'Neill. The motion is fully briefed and ready for decision as of the start time. The court's normal operations and any applicable rules or deadlines for issuing rulings apply.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T09:00:00-04:00",
+   "description": "The motion to dismiss is pending before Judge O'Neill, fully briefed and awaiting ruling.",
+   "visible_to": [
+    "Judge Patricia O'Neill"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Judge Patricia O'Neill issued a ruling on the motion to dismiss on or before 2026-09-30T23:59:00-04:00. Otherwise resolve NO at that cutoff."
+}

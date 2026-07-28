@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-10T18:00:00+00:00",
    "visible_to_ids": [
-    "dev_patel"
+    "dev_patel",
+    "harborview_credit_union_security_team"
    ],
-   "description": "Dev Patel submits his software-exception request to the Harborview Credit Union security team."
+   "description": "Dev Patel's software-exception request is pending review by the security team."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +24,16 @@
  "personas": {
   "dev_patel": {
    "name": "Dev Patel",
-   "persona_brief": "You are Dev Patel.\nDev Patel is an analyst at Harborview Credit Union. He has prepared a software-exception request that he intends to submit to the security team. He is aware of the published five-business-day service window and hopes for a timely decision."
+   "persona_brief": "You are Dev Patel.\nDev Patel is an analyst at Harborview Credit Union. He has submitted a software-exception request and is awaiting the security team's decision. He has no special influence over the team's process."
   },
   "harborview_credit_union_security_team": {
    "name": "Harborview Credit Union Security Team",
-   "persona_brief": "You are Harborview Credit Union Security Team.\nThe security team at Harborview Credit Union is responsible for reviewing and approving or rejecting software-exception requests. They operate under a published policy of responding within five business days. The team has no prior knowledge of Dev Patel's specific request until it is submitted."
+   "persona_brief": "You are Harborview Credit Union Security Team.\nThe security team at Harborview Credit Union reviews software-exception requests. They follow a published five-business-day service window for decisions. They have received Dev Patel's request and will process it according to their standard procedures."
   }
  },
  "resolution": {
   "question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
-  "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before 2026-08-17T17:00:00-08:00. Resolve NO if no such communication occurs by that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the security team communicated an approval decision to Dev Patel before the end of the five-business-day window (i.e., by 2026-08-14T17:00:00-08:00, assuming submission on 2026-08-10). Resolve NO if the team communicates a rejection within that window, or if no decision is communicated by the window's end. The hard cutoff of 2026-08-17 is not the deadline; the five-business-day window is the deadline.",
   "cutoff": "2026-08-17T17:00:00-08:00",
   "world_id": "w_7332ce33442b"
  }

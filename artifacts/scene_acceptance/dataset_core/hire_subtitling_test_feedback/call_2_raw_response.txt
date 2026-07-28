@@ -1,4 +1,10 @@
 {
- "verdict": "APPROVE",
- "defects": []
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "resolution",
+   "problem": "The resolution says 'If the submission date is unknown, use the simulation start time as the reference point'. This is a prewritten outcome that assumes the submission date is unknown and sets the deadline to the hard cutoff. However, the question states 'submitted a paid test piece' and the agency 'quoted a one-month turnaround'. The submission date is not given, but the simulation start time is 2026-09-02T10:00:00+02:00. The resolution should not pre-decide that the deadline is the hard cutoff; it should leave the submission date as an unknown that the simulation can determine. This prewrites a fallback that may not be accurate.",
+   "correction": "Remove the fallback that uses the simulation start time as the reference point. Instead, leave the submission date as an unknown that the simulation can establish, and resolve based on the actual submission date relative to the one-month turnaround."
+  }
+ ]
 }

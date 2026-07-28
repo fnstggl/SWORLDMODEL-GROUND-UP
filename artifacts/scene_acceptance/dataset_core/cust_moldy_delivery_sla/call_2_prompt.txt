@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,25 +115,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Hana Suzuki",
-   "private_context": "Hana Suzuki received a moldy delivery from Ostara Foods. She has drafted a complaint and intends to send it to Ostara Foods' support desk. She expects a reply within 24 hours as advertised."
+   "name": "Ostara Foods Support Desk",
+   "private_context": "The support desk operates with a policy to respond to customer complaints within 24 hours. They have received Hana Suzuki's complaint about a moldy delivery and are processing it."
   },
   {
-   "name": "Ostara Foods Support Desk",
-   "private_context": "The support desk handles customer complaints and aims to respond within 24 hours. They have not yet received Hana Suzuki's complaint."
+   "name": "Hana Suzuki",
+   "private_context": "Hana Suzuki is a customer who received a moldy delivery from Ostara Foods. She has submitted a complaint to the support desk and expects a response within the advertised 24-hour window."
   }
  ],
- "shared_context": "Ostara Foods advertises a 24-hour response window for customer support inquiries. Hana Suzuki has a moldy delivery and plans to submit a complaint via the company's support channel.",
+ "shared_context": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki's complaint about a moldy delivery was submitted before the simulation start time. The support desk has the complaint on record and can reply via the same channel.",
  "starting_events": [
   {
    "time": "2026-08-19T13:00:00+09:00",
-   "description": "Hana Suzuki sends her complaint about the moldy delivery to Ostara Foods' support desk.",
+   "description": "Hana Suzuki's complaint about a moldy delivery is already received by Ostara Foods' support desk.",
    "visible_to": [
+    "Ostara Foods Support Desk",
     "Hana Suzuki"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. A substantive reply is one that addresses the complaint (e.g., offers a resolution, asks for more details, or acknowledges the issue with intent to resolve). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

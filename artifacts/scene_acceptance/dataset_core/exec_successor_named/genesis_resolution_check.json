@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the retiring owner of Fenwick & Sloane name which of her two deputies will take over as general manager before holiday trading starts on November 1?",
-  "resolution": "Resolve YES if, before the hard cutoff at 2026-11-01T09:00:00+00:00, the persistent event history shows that the owner has publicly named which deputy will take over as general manager (e.g., an announcement to staff, a written notice, or a direct communication to both deputies). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the owner publicly named one of the two deputies as general manager before 2026-11-01T00:00:00+00:00 (the start of holiday trading on November 1). Otherwise resolve NO at the hard cutoff 2026-11-01T09:00:00+00:00.",
   "cutoff": "2026-11-01T09:00:00+00:00",
   "world_id": "w_e90e1ae506ed"
  },

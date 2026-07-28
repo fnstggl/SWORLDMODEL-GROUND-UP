@@ -1,0 +1,45 @@
+{
+ "judge_patricia_o_neill": {
+  "id": "judge_patricia_o_neill",
+  "name": "Judge Patricia O'Neill",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "Judge O'Neill has the motion to dismiss under advisement. She is aware of the briefing schedule and any applicable local rules or deadlines. She has her own workflow and priorities for issuing rulings.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "A motion to dismiss has been filed in a case before Judge Patricia O'Neill. The motion is fully briefed and ready for decision as of the start time. The court's normal operations and any applicable rules or deadlines for issuing rulings apply.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

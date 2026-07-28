@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Aldergate Rail",
-   "private_context": "Aldergate Rail is a railway company pursuing a merger with Valdoria Metro. The CFO resigned in autumn 2019, which may affect the merger process. Aldergate Rail's leadership is evaluating whether to proceed with the merger given the CFO's departure."
+   "private_context": "Aldergate Rail is a company pursuing a merger with Valdoria Metro. The CFO resigned in autumn 2019, which may affect the merger's closure. The company's leadership is considering the implications of the resignation on the merger timeline and conditions."
   },
   {
    "name": "Valdoria Metro",
-   "private_context": "Valdoria Metro is a metro system operator involved in merger negotiations with Aldergate Rail. It is aware of the CFO's resignation and is considering its own position on the merger."
+   "private_context": "Valdoria Metro is the other party to the merger. It is aware of the CFO's resignation and is evaluating whether this constitutes a material change that could affect the merger agreement."
   }
  ],
- "shared_context": "In 2019, Aldergate Rail and Valdoria Metro were in merger negotiations. The CFO of Aldergate Rail resigned in autumn 2019. The merger's closing depends on regulatory approvals and internal decisions by both companies. The simulation starts at a point after the resignation, with the merger still pending.",
+ "shared_context": "The merger agreement between Aldergate Rail and Valdoria Metro was announced earlier in 2019. The CFO of Aldergate Rail resigned in autumn 2019. The merger is subject to regulatory approvals and shareholder votes. The resignation may trigger conditions in the merger agreement regarding material adverse changes or key personnel retention.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+00:00",
-   "description": "The merger between Aldergate Rail and Valdoria Metro is still pending. The CFO of Aldergate Rail has resigned, and both companies are considering next steps.",
+   "description": "The CFO of Aldergate Rail has resigned in autumn 2019. The merger has not yet closed as of the start time.",
    "visible_to": [
     "Aldergate Rail",
     "Valdoria Metro"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the merger closed before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the merger between Aldergate Rail and Valdoria Metro actually closed by the hard cutoff of 2026-10-01T09:00:00+00:00. Otherwise resolve NO at the cutoff."
 }

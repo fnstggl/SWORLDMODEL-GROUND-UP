@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,25 +116,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Nurse Karolina",
-   "private_context": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel. She will not be available to swap herself after the rota locks."
+   "private_context": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel."
   },
   {
-   "name": "Colleagues in the ward",
-   "private_context": "The colleagues are nurses who can see the swap channel. Some may be interested in picking up an extra shift for pay or flexibility, but none have a prior commitment to take this shift."
+   "name": "Colleagues (ward nurses)",
+   "private_context": "Each colleague may check the swap channel and decide whether to claim the shift based on their own preferences and availability."
   }
  ],
- "shared_context": "The ward has a swap channel where nurses can post shift exchange requests. The rota locks on Friday at 15:00, after which no changes are possible. Karolina's post is visible to all colleagues in the channel.",
+ "shared_context": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
  "starting_events": [
   {
    "time": "2026-08-12T07:30:00+02:00",
-   "description": "Nurse Karolina posts a request in the ward's swap channel asking someone to take her Sunday night shift.",
+   "description": "Nurse Karolina posts in the ward's swap channel asking someone to take her Sunday night shift.",
    "visible_to": [
     "Nurse Karolina",
-    "Colleagues in the ward"
+    "Colleagues (ward nurses)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the shift (e.g., by posting a reply or using the swap system) before the rota locks at 2026-08-14T15:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that a colleague actually claimed the shift before 2026-08-14T15:00:00+02:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

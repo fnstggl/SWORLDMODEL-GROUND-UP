@@ -23,13 +23,13 @@
    {
     "t": "2026-08-15T00:00:00+00:00",
     "kind": "context",
-    "content": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more likely to return ballots promptly, others may need reminders or may deprioritize the task.",
+    "content": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more diligent about returning ballots, others may be less so. No member has a known commitment to return the ballot by the deadline.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-15T00:00:00+00:00",
     "kind": "context",
-    "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for comment, with a comment period closing on 2026-09-15T23:59:00+00:00. Members are expected to return ballots indicating their approval, disapproval, or abstention by that deadline. The group's procedures require at least two-thirds of members to return ballots for the vote to be valid, but the outcome of the vote itself is not at issue here\u2014only whether enough ballots are returned.",
+    "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for ballot. The comment period closes at the hard cutoff: 2026-09-15T23:59:00+00:00. Ballots are returned individually by members. The group has no formal enforcement mechanism for ballot return.",
     "source": "scene_manifest:shared_context"
    }
   ],

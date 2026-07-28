@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "green_properties_inc": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "green_properties_inc",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Green Properties Inc. is the landlord of the property Sarah Lee rents. They have received a sublease request from Sarah Lee and are considering it. They have internal policies and criteria for approving subleases.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T16:00:00+00:00"
+    },
+    {
+     "content": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T16:00:00+00:00"
+    }
+   ],
+   "name": "Green Properties Inc.",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "sarah_lee": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "sarah_lee",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Sarah Lee is the tenant who submitted a sublease request to Green Properties Inc. She is awaiting their decision.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-10T16:00:00+00:00"
+    },
+    {
+     "content": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-10T16:00:00+00:00"
+    }
+   ],
+   "name": "Sarah Lee",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Does landlord Green Properties Inc. approve the sublease request from tenant Sarah Lee by September 20, 2026?",
+  "scene:shared_context": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-10T16:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-10T16:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

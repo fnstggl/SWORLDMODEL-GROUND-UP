@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Ms. Laura Kim",
+   "private_context": "Ms. Laura Kim is a teacher. She has received John's email about the field trip. She may or may not respond before the deadline."
+  },
+  {
+   "name": "John",
+   "private_context": "John is a parent who sent an email to Ms. Laura Kim about the field trip. He is waiting for a response."
+  }
+ ],
+ "shared_context": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has access to her email and can reply.",
+ "starting_events": [
+  {
+   "time": "2026-08-20T14:00:00+00:00",
+   "description": "John's email about the field trip is in Ms. Laura Kim's inbox.",
+   "visible_to": [
+    "Ms. Laura Kim"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Ms. Laura Kim actually sent a reply to John's email before 2026-08-25T23:59:00-04:00. Otherwise resolve NO at that time."
+}

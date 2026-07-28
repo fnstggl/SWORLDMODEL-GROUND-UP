@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,25 +119,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Gerald",
-   "private_context": "Gerald is the landlord. He proposed a 9% rent increase. He wants to maximize rental income but is aware of market conditions and vacancy costs. He knows Amara has been a reliable tenant for four years."
+   "private_context": "Gerald is the landlord. He proposed a nine percent rent increase. He wants to maximize rental income and is aware of two vacant units and comparable rents about five percent above Amara's current rent."
   },
   {
    "name": "Amara",
-   "private_context": "Amara is the tenant. She wants to hold the increase to 4%. She has paid on time for four years and knows comparable units list about 5% above her current rent. Her lease lapses at the end of next month."
+   "private_context": "Amara is the tenant. She wants to hold the increase to four percent. She has paid on time for four years and knows comparable one-bedrooms nearby list about five percent above her current rent. Her lease lapses at the end of next month."
   }
  ],
- "shared_context": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Gerald proposed a 9% increase; Amara countered at 4%. They are negotiating a renewal figure before the lease ends on 2026-08-31.",
+ "shared_context": "Gerald has proposed a nine percent rent increase; Amara wants to hold at four percent. The building has two vacant units. Comparable one-bedrooms nearby list about five percent above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026).",
  "starting_events": [
   {
    "time": "2026-07-30T18:00:00-04:00",
-   "description": "Amara has received Gerald's proposal of a 9% increase and has communicated her counter of 4%. No agreement has been reached yet.",
+   "description": "Amara and Gerald are aware of the rent increase proposal and counterproposal. No agreement has been reached yet.",
    "visible_to": [
     "Gerald",
     "Amara"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows a signed lease renewal at a figure between 4% and 9% inclusive before 2026-08-31T23:59:00-04:00. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that Gerald and Amara signed a renewal lease with a rent increase figure before 2026-08-31T23:59:00-04:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Does Dr. Alan Reed communicate the discharge instructions to patient Bob Chen before 5 PM on September 3, 2026?",
+  "resolution": "Resolve YES only if the persistent event history shows that Dr. Alan Reed actually communicated the discharge instructions to Bob Chen before 2026-09-03T17:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-03T17:00:00-07:00",
+  "world_id": "w_a0604acdc62c"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

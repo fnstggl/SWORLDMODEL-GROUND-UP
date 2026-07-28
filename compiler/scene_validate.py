@@ -118,6 +118,25 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str,
         for v in e["visible_to"]:
             k = norm_name(v)
             if k not in by_key:
+                # unambiguous alias: a shorter form of exactly ONE declared
+                # name (a first name, or a name without its title/suffix).
+                # Exactly one candidate resolves; several is an ambiguity
+                # that must never be guessed.
+                cands = [kk for kk in by_key
+                         if k and (kk.split() and k in kk.split()
+                                   or kk.startswith(k + " "))]
+                if len(cands) == 1:
+                    notes.append(f"starting_events[{i}].visible_to: {v!r} "
+                                 f"resolved to the one declared actor it "
+                                 f"names ({by_key[cands[0]]['name']!r})")
+                    k = cands[0]
+                elif len(cands) > 1:
+                    errors.append(
+                        f"starting_events[{i}].visible_to: {v!r} is "
+                        f"ambiguous between "
+                        f"{sorted(by_key[c]['name'] for c in cands)}")
+                    continue
+            if k not in by_key:
                 errors.append(f"starting_events[{i}].visible_to: {v!r} does "
                               f"not resolve to a declared actor")
             elif by_key[k]["name"] in vis:

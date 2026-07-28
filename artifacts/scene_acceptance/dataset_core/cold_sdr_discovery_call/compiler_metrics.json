@@ -1,29 +1,36 @@
 {
- "semantic_calls": 2,
+ "semantic_calls": 3,
  "semantic_slots": [
   "call_1_scene",
-  "call_2_review"
+  "call_2_review",
+  "call_3_correction"
  ],
- "provider_requests": 2,
- "total_prompt_tokens": 5243,
- "total_completion_tokens": 2213,
+ "provider_requests": 3,
+ "total_prompt_tokens": 5305,
+ "total_completion_tokens": 782,
  "per_slot": {
   "call_1_scene": {
    "attempts": 1,
-   "duration_s": 11.249,
-   "prompt_tokens": 1817,
-   "completion_tokens": 2197
+   "duration_s": 3.036,
+   "prompt_tokens": 2314,
+   "completion_tokens": 329
   },
   "call_2_review": {
    "attempts": 1,
-   "duration_s": 1.36,
-   "prompt_tokens": 3426,
-   "completion_tokens": 16
+   "duration_s": 1.942,
+   "prompt_tokens": 1812,
+   "completion_tokens": 116
+  },
+  "call_3_correction": {
+   "attempts": 1,
+   "duration_s": 2.748,
+   "prompt_tokens": 1179,
+   "completion_tokens": 337
   }
  },
- "wall_s": 12.63,
+ "wall_s": 7.73,
  "compiler_version": "minimal_scene_v1",
  "evidence_mode": "model_memory_unverified",
- "repaired_compile": false,
+ "repaired_compile": true,
  "world_id": "w_6c74014c41aa"
 }

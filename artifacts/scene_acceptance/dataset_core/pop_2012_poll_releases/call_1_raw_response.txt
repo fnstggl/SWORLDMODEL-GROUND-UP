@@ -1,31 +1,17 @@
 {
   "actors": [
     {
-      "name": "Gallup",
-      "private_context": "Gallup is a major national polling organization. It has the capability to conduct and release head-to-head surveys of the Obama-Romney race. It has no pre-existing commitment to release a survey in the first week of October 2012."
-    },
-    {
-      "name": "Pew Research Center",
-      "private_context": "Pew Research Center is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-    },
-    {
-      "name": "ABC News/Washington Post",
-      "private_context": "ABC News/Washington Post is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-    },
-    {
-      "name": "NBC News/Wall Street Journal",
-      "private_context": "NBC News/Wall Street Journal is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-    },
-    {
-      "name": "CBS News/New York Times",
-      "private_context": "CBS News/New York Times is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
-    },
-    {
-      "name": "Reuters/Ipsos",
-      "private_context": "Reuters/Ipsos is a major national polling organization. It can conduct and release head-to-head surveys. It has no pre-existing commitment to release a survey in the first week of October 2012."
+      "name": "Major national polling organizations",
+      "private_context": "Each organization has its own internal processes for conducting and releasing surveys. They may have ongoing tracking polls or scheduled releases. They are aware of the upcoming election and the public interest in head-to-head Obama-Romney polls."
     }
   ],
-  "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and publicly release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The hard cutoff for resolution is 21:00 EDT on Monday October 8, 2012.",
-  "starting_events": [],
-  "resolution": "Resolve YES if the persistent event history shows that at least three distinct major national polling organizations publicly released a head-to-head Obama-Romney survey between 2012-10-01T00:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
+  "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The simulation starts at 9:00 AM EDT on October 1, 2012.",
+  "starting_events": [
+    {
+      "time": "2012-10-01T09:00:00-04:00",
+      "description": "The first week of October 2012 begins. No new head-to-head surveys have been publicly released yet this week.",
+      "visible_to": ["Major national polling organizations"]
+    }
+  ],
+  "resolution": "Resolve YES if the persistent event history shows that at least three distinct head-to-head surveys on the Obama-Romney race were publicly released by major national polling organizations between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO at the cutoff."
 }

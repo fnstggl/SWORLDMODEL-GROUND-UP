@@ -1,24 +1,29 @@
 {
  "actors": [
   {
-   "name": "Manager",
-   "private_context": "Manager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline."
+   "name": "Employee",
+   "private_context": "Employee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter. They have no direct control over the decision."
   },
   {
-   "name": "Candidate",
-   "private_context": "Candidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information."
+   "name": "Manager",
+   "private_context": "Manager is responsible for recommending the employee for promotion. They have the authority to initiate the promotion process. They are aware of the employee's performance and the upcoming quarterly review."
+  },
+  {
+   "name": "HR",
+   "private_context": "HR handles the formal approval and processing of promotions. They require a recommendation from the manager and may have additional criteria or timelines."
   }
  ],
- "shared_context": "The promotion decision is pending. The end of the quarter is 2026-09-30. The manager must formally approve the promotion for it to go through. No other approvals are required.",
+ "shared_context": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
  "starting_events": [
   {
    "time": "2026-08-03T09:00:00+01:00",
-   "description": "The promotion request is on the manager's desk, awaiting a decision.",
+   "description": "The simulation begins. No promotion decision has been made yet.",
    "visible_to": [
+    "Employee",
     "Manager",
-    "Candidate"
+    "HR"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the manager formally approved the promotion before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the promotion was formally approved and communicated to the employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

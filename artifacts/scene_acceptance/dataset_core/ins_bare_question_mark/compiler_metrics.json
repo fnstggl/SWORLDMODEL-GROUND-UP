@@ -4,17 +4,17 @@
   "call_1_scene"
  ],
  "provider_requests": 1,
- "total_prompt_tokens": 1736,
- "total_completion_tokens": 45,
+ "total_prompt_tokens": 2233,
+ "total_completion_tokens": 46,
  "per_slot": {
   "call_1_scene": {
    "attempts": 1,
-   "duration_s": 1.216,
-   "prompt_tokens": 1736,
-   "completion_tokens": 45
+   "duration_s": 2.13,
+   "prompt_tokens": 2233,
+   "completion_tokens": 46
   }
  },
- "wall_s": 1.22,
+ "wall_s": 2.13,
  "compiler_version": "minimal_scene_v1",
  "evidence_mode": "model_memory_unverified"
 }

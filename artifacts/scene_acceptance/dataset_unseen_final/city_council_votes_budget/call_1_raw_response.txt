@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Springfield City Council",
+      "private_context": "The council is a group of elected officials who will meet to discuss and vote on the 2027 budget. Each member has their own views on the budget, but the council as a whole must decide by majority vote."
+    }
+  ],
+  "shared_context": "The Springfield City Council is scheduled to meet on October 5, 2026, at 6:00 PM local time. The agenda includes a vote on the proposed 2027 budget. The meeting will proceed according to standard council procedures, and the vote will be recorded in the official minutes.",
+  "starting_events": [
+    {
+      "time": "2026-10-05T18:00:00-05:00",
+      "description": "The Springfield City Council meeting begins. The proposed 2027 budget is on the agenda for discussion and a vote.",
+      "visible_to": ["Springfield City Council"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that the Springfield City Council voted to approve the 2027 budget during the October 5, 2026 meeting, before the meeting ends or the hard cutoff of 2026-10-05T23:59:00-05:00. Otherwise resolve NO at the cutoff."
+}

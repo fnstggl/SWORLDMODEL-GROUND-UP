@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Dario wants Selin to play bass at his October wedding. He has messaged her asking this. He hopes for a response within ten days.",
+     "content": "Dario wants Selin to play bass at his October wedding. He has messaged her asking whether she will. He hopes for a positive response but is uncertain.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T09:00:00+00:00"
     },
     {
-     "content": "Dario and Selin were bandmates and parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can see and reply to it.",
+     "content": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent Selin a message asking if she will play bass at his October wedding. The message was sent before the simulation start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T09:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Selin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario when their band dissolved two years ago. She has just received Dario's message asking her to play at his October wedding.",
+     "content": "Selin is a gigging musician in Istanbul, active on social media. She parted on good terms with Dario two years ago. She has just received Dario's message asking her to play bass at his October wedding. She has not yet responded.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T09:00:00+00:00"
     },
     {
-     "content": "Dario and Selin were bandmates and parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can see and reply to it.",
+     "content": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent Selin a message asking if she will play bass at his October wedding. The message was sent before the simulation start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T09:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Dario messaged his old bandmate Selin asking whether she would play bass at his October wedding. Will she respond either way within ten days?",
-  "scene:shared_context": "Dario and Selin were bandmates and parted on good terms two years ago. Dario has sent a message to Selin asking if she will play bass at his October wedding. The message was sent via a channel where Selin can see and reply to it."
+  "scene:shared_context": "Dario and Selin were bandmates who parted on good terms two years ago. Dario has sent Selin a message asking if she will play bass at his October wedding. The message was sent before the simulation start time."
  },
  "history": [],
  "infos": {},

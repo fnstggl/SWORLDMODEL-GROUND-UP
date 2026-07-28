@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Aldergate Rail",
-   "private_context": "Aldergate Rail is a listed firm. It has a signaling-contract delay that may be material to the market. It has not yet decided whether to issue a warning before its scheduled interim results day on November 5. The board and management are aware of the delay and its potential impact."
+   "private_context": "Aldergate Rail is a listed firm. It has a signaling-contract that is experiencing a delay. The firm's board and management are aware of the delay and its potential materiality. They have not yet decided whether to issue a market warning before the scheduled interim results day on November 5. The firm is subject to disclosure obligations under listing rules."
   }
  ],
- "shared_context": "Aldergate Rail is a publicly listed company. Its interim results are scheduled for release on November 5. The company has a signaling-contract delay that could affect its financial outlook. Market regulations may require timely disclosure of material information.",
+ "shared_context": "Aldergate Rail is a listed company. Its scheduled interim results day is November 5. The firm has a signaling-contract that is delayed. The market is not yet aware of the delay. The firm may issue a warning about the delay before the results day.",
  "starting_events": [
   {
    "time": "2026-10-01T08:00:00+00:00",
-   "description": "Aldergate Rail's management is aware of the signaling-contract delay and is considering whether to issue a market warning before the scheduled interim results day.",
+   "description": "Aldergate Rail's management is aware of the signaling-contract delay and is considering whether to issue a market warning before the interim results day on November 5.",
    "visible_to": [
     "Aldergate Rail"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the hard cutoff at 2026-11-05T07:00:00+00:00, Aldergate Rail issues a public warning to the market about the signaling-contract delay (e.g., via a regulatory filing, press release, or stock exchange announcement). Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that Aldergate Rail actually issued a warning to the market about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff."
 }

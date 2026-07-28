@@ -1,0 +1,8 @@
+{
+ "question": "Does neighbor Tom\u00e1s Garc\u00eda feed the cat while owner Lisa is away from August 5 to August 10, 2026?",
+ "start": "2026-08-05T08:00:00-04:00",
+ "cutoff": "2026-08-10T20:00:00-04:00",
+ "context": "Lisa asked Tom\u00e1s to feed her cat daily while she is on vacation.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

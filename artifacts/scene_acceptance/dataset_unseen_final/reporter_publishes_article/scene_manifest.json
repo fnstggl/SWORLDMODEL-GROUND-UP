@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Alex Torres",
+   "private_context": "Alex is a reporter for the Daily Chronicle. They have been investigating city hall corruption and have gathered evidence and sources. The editor has set a deadline of September 1, 2026 for the story. Alex wants to publish a thorough and accurate investigation."
+  },
+  {
+   "name": "Editor (Daily Chronicle)",
+   "private_context": "The editor oversees the newsroom and has set a deadline of September 1, 2026 for Alex's corruption investigation. The editor expects the story to be ready for publication by that date, but may also consider extensions or other factors."
+  }
+ ],
+ "shared_context": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the corruption investigation story. The story is about city hall corruption. The investigation is ongoing as of August 15, 2026.",
+ "starting_events": [
+  {
+   "time": "2026-08-15T00:00:00-05:00",
+   "description": "Alex Torres is working on the city hall corruption investigation with a deadline of September 1, 2026.",
+   "visible_to": [
+    "Alex Torres",
+    "Editor (Daily Chronicle)"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Alex Torres's investigation was published (i.e., made publicly available by the Daily Chronicle) before or on September 1, 2026. Otherwise resolve NO at the hard cutoff."
+}

@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -101,21 +118,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Marlin Bay dockworkers' union local",
-   "private_context": "The local's executive board met twice last week without issuing a statement. The local is aware of the port automation memorandum and is considering whether to endorse it. There is internal disagreement: a rank-and-file caucus has been leafleting against the memorandum. The international union endorsed a similar deal at another port last month, which may influence but does not bind the local."
+   "name": "Marlin Bay dockworkers' union local executive board",
+   "private_context": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse the memorandum."
+  },
+  {
+   "name": "Marlin Bay dockworkers' union local rank-and-file caucus",
+   "private_context": "The caucus has been leafleting against the port automation memorandum. They want the local to oppose it."
   }
  ],
- "shared_context": "The port automation memorandum exists and is a matter of public record. The local can issue a press release through standard channels. The deadline for a decision is before Monday, 2026-08-31.",
+ "shared_context": "The local's executive board has not yet issued a press release regarding endorsement of the port automation memorandum. The international union endorsed a similar deal at another port last month. The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local can issue a press release at any time before Monday.",
  "starting_events": [
   {
    "time": "2026-08-27T09:00:00-07:00",
-   "description": "The simulation begins. No press release has been issued yet by the local.",
+   "description": "The simulation begins. No press release has been issued yet.",
    "visible_to": [
-    "Marlin Bay dockworkers' union local"
+    "Marlin Bay dockworkers' union local executive board",
+    "Marlin Bay dockworkers' union local rank-and-file caucus"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the local actually issued a press release before 2026-08-31T09:00:00-07:00 stating its endorsement or non-endorsement of the port automation memorandum. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the Marlin Bay dockworkers' union local actually issued a press release before 2026-08-31T00:00:00-07:00 (Monday) stating whether it endorses the port automation memorandum. Otherwise resolve NO at the hard cutoff 2026-08-31T09:00:00-07:00."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

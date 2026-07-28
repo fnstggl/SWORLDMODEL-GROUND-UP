@@ -2,5 +2,5 @@
   "actors": [],
   "shared_context": "",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is empty, so there is no social scenario to simulate."
+  "resolution": "UNRESOLVABLE: The question is empty; no subject, actor, or event is specified."
 }
