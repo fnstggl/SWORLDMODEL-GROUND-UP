@@ -1,0 +1,38 @@
+{
+ "provider_calls": 7,
+ "by_role": {
+  "judge": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.11,
+   "input_tokens": 1018,
+   "output_tokens": 97
+  },
+  "world": {
+   "calls": 4,
+   "retries": 1,
+   "wall_s": 8.19,
+   "input_tokens": 5584,
+   "output_tokens": 454
+  },
+  "actor": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.39,
+   "input_tokens": 649,
+   "output_tokens": 42
+  }
+ },
+ "total_input_tokens": 7251,
+ "total_output_tokens": 593,
+ "total_wall_s": 12.69,
+ "status": "failed",
+ "answer": null,
+ "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: unparseable duration '1 hour 30 minutes': use 'now' or '<number> <seconds|minutes|hours|days>'",
+ "steps": 2,
+ "world_calls": 2,
+ "actor_calls": 1,
+ "judge_calls": 2,
+ "committed_events": 2,
+ "ledger_records": 22
+}

@@ -72,6 +72,15 @@ Be realistic rather than convenient.  Ordinary human activity takes real \
 time; things fail, stall and get delayed; nothing should happen merely \
 because it would move the situation along.
 
+HOW LONG IT TAKES: "after" is how long THIS PARTICULAR THING really takes, \
+judged from the situation in front of you.  Automatic and mechanical steps \
+are fast -- seconds, not hours.  Anything a person does takes as long as a \
+person takes to do it.  Waiting for someone to be free, to get to \
+something, or to come back to it takes as long as their own circumstances \
+say it does.  Use "now" only when the event is genuinely simultaneous with \
+its cause; almost nothing is.  A sequence of things a person does one \
+after another cannot all happen at the same instant.
+
 IF NOTHING CONCRETE CHANGES, RETURN "event": null.  Never emit an event \
 that merely restates that something is still sitting there, still unread, \
 still waiting, or that someone is still busy -- that is not an event, it \

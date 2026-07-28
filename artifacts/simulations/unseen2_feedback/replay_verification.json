@@ -1,0 +1,18 @@
+{
+ "llm_calls": 0,
+ "records_replayed": 22,
+ "event_ids": [
+  "e11",
+  "e18"
+ ],
+ "event_order_hash": "[\"e11\",\"e18\"]",
+ "state_hash": "57640d34a979f37b14b75d5b54066e776e5f68f82459083455c7811152f823eb",
+ "terminal_status": "UNRESOLVED",
+ "terminal_support": [],
+ "state_hash_matches": true,
+ "event_ids_match": true,
+ "views_match": true,
+ "memories_match": true,
+ "terminal_matches": true,
+ "exact": true
+}

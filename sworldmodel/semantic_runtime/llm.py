@@ -133,13 +133,23 @@ class RuntimeCaller:
         for attempt in range(MAX_RETRIES_PER_CALL + 1):
             call_id = f"c{len(self.calls) + 1}"
             t0 = time.monotonic()
+            # a retry that repeats the identical prompt gets the identical
+            # mistake; the rejection reason is stated so the model can
+            # correct exactly what was wrong.  This says nothing about the
+            # situation -- only about the shape of the reply.
+            attempt_user = user if not attempt else (
+                f"{user}\n\nYOUR PREVIOUS REPLY WAS REJECTED\n"
+                f"{last_err}\n"
+                f"Reply again with ONLY a corrected JSON object that fixes "
+                f"exactly that problem.  Change nothing else.")
             entry = {"call_id": call_id, "role": role, "model": self.model,
-                     "attempt": attempt, "system": system, "user": user,
+                     "attempt": attempt, "system": system,
+                     "user": attempt_user,
                      "raw": None, "parsed": None, "validation": None,
                      "sim_time": sim_time, "trigger": trigger,
                      "wall_s": None, "input_tokens": 0, "output_tokens": 0}
             try:
-                result = self.transport(system, user)
+                result = self.transport(system, attempt_user)
                 raw, usage = result if isinstance(result, tuple) else (result, {})
                 entry["raw"] = raw
                 entry["wall_s"] = round(time.monotonic() - t0, 3)

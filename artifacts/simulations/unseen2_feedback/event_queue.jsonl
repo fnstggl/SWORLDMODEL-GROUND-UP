@@ -1,0 +1,3 @@
+{"cause":13,"data":{"concerns":[],"envelope":{"after":"now","description":"The email arrives in Dr Aline Mercier's inbox on the university email server.","for":["dr_aline_mercier"],"observed":false},"source":"world_call:c2"},"kind":"semantic.event","seq":14,"t":"2026-07-27T08:00:00+00:00"}
+{"cause":13,"data":{"actor":"dr_aline_mercier","reason":"Aline may check her email after her lecture or during a break."},"kind":"semantic.wake","seq":15,"t":"2026-07-27T09:00:00+00:00"}
+{"cause":19,"data":{"actor":"dr_aline_mercier","reason":"She will likely check her email at the start of her workday around 10 AM."},"kind":"semantic.wake","seq":20,"t":"2026-07-27T10:00:00+00:00"}

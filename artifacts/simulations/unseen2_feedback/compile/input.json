@@ -1,0 +1,8 @@
+{
+ "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
+ "start": "2026-07-27T09:00:00+01:00",
+ "cutoff": "2026-07-31T17:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

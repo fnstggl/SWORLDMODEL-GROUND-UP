@@ -1,0 +1,2 @@
+{"call_id":"c1","explanation":"The committed event shows a message arriving, but not Sam Okonjo sending a confirmation text; no such event has occurred yet and the deadline has not passed.","final":false,"kind":"terminal_check","status":"UNRESOLVED","supporting_event_ids":[],"t":"2026-07-28T08:00:00+00:00"}
+{"call_id":"c8","explanation":"Sam Okonjo sent a reply confirming the appointment via text message before the deadline.","final":false,"kind":"terminal_check","status":"YES","supporting_event_ids":["e18"],"t":"2026-07-28T08:00:00+00:00"}

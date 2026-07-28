@@ -53,8 +53,16 @@ def contained(text) -> str:
 _UNITS = {"second": 1, "seconds": 1, "sec": 1, "secs": 1,
           "minute": 60, "minutes": 60, "min": 60, "mins": 60,
           "hour": 3600, "hours": 3600, "hr": 3600, "hrs": 3600,
-          "day": 86400, "days": 86400}
-_DURATION_RE = re.compile(r"^\s*(\d+(?:\.\d+)?)\s*([a-z]+)\s*$", re.I)
+          "day": 86400, "days": 86400,
+          "week": 604800, "weeks": 604800}
+#: one "<number> <unit>" part; a duration is one or more of them, because
+#: people (and models) write "1 hour 30 minutes" as naturally as "90
+#: minutes" and both mean the same amount of time
+_DURATION_PART = re.compile(r"(\d+(?:\.\d+)?)\s*([a-z]+)")
+#: what may sit BETWEEN parts.  A minus sign is deliberately not one of
+#: them: time in this runtime only ever moves forward, so "-5 minutes" is
+#: a rejection rather than five minutes.
+_SEPARATORS = ("and", "&", "+")
 
 #: Bound on a single proposed step: a jump larger than this is a narration
 #: of the far future rather than an immediate consequence.
@@ -66,23 +74,31 @@ class EnvelopeError(ValueError):
 
 
 def parse_duration(text: str) -> timedelta:
-    """'now' | '<number> <unit>' -> timedelta.  Anything else raises."""
+    """'now' | one or more '<number> <unit>' parts -> timedelta.
+
+    Anything else raises.  This is time bookkeeping and nothing else: it
+    understands amounts of time, never what the time is for.
+    """
     if not isinstance(text, str):
         raise EnvelopeError(f"duration must be a string, got {type(text).__name__}")
     s = text.strip().lower()
     if s in ("now", "immediately", "0", "none"):
         return timedelta(0)
-    m = _DURATION_RE.match(s)
-    if not m:
+    parts = _DURATION_PART.findall(s)
+    leftover = [t for t in re.split(r"[\s,]+", _DURATION_PART.sub(" ", s)) if t]
+    if not parts or any(t not in _SEPARATORS for t in leftover):
         raise EnvelopeError(
-            f"unparseable duration {text!r}: use 'now' or '<number> "
-            f"<seconds|minutes|hours|days>'")
-    value, unit = float(m.group(1)), m.group(2)
-    if unit not in _UNITS:
-        raise EnvelopeError(
-            f"unknown time unit {unit!r} in {text!r}: use seconds, minutes, "
-            f"hours or days")
-    delta = timedelta(seconds=value * _UNITS[unit])
+            f"unparseable duration {text!r}: use 'now', '<number> "
+            f"<seconds|minutes|hours|days>', or several such parts such as "
+            f"'1 hour 30 minutes'")
+    seconds = 0.0
+    for value, unit in parts:
+        if unit not in _UNITS:
+            raise EnvelopeError(
+                f"unknown time unit {unit!r} in {text!r}: use seconds, "
+                f"minutes, hours or days")
+        seconds += float(value) * _UNITS[unit]
+    delta = timedelta(seconds=seconds)
     if delta > timedelta(days=MAX_STEP_DAYS):
         raise EnvelopeError(
             f"duration {text!r} exceeds the {MAX_STEP_DAYS}-day single-step "

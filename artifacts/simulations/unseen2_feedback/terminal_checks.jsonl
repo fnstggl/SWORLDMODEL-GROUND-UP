@@ -1,0 +1,2 @@
+{"call_id":"c1","explanation":"The current time is before the deadline, and no events show Dr Aline Mercier reading the chapter or sending comments.","final":false,"kind":"terminal_check","status":"UNRESOLVED","supporting_event_ids":[],"t":"2026-07-27T08:00:00+00:00"}
+{"call_id":"c5","explanation":"The deadline has not passed and no event shows Dr Aline Mercier reading the chapter or sending comments.","final":false,"kind":"terminal_check","status":"UNRESOLVED","supporting_event_ids":[],"t":"2026-07-27T08:00:00+00:00"}

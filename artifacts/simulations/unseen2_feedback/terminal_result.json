@@ -1,0 +1,14 @@
+{
+ "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
+ "trajectory": {
+  "status": "failed",
+  "answer": null,
+  "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: unparseable duration '1 hour 30 minutes': use 'now' or '<number> <seconds|minutes|hours|days>'",
+  "steps": 2,
+  "world_calls": 2,
+  "actor_calls": 1,
+  "judge_calls": 2
+ },
+ "answer": null,
+ "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: unparseable duration '1 hour 30 minutes': use 'now' or '<number> <seconds|minutes|hours|days>'"
+}

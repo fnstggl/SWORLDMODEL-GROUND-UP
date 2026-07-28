@@ -1,0 +1,2 @@
+{"cause":10,"description":"Ravi Patel sends an email to Dr Aline Mercier with his thesis chapter attached.","event_id":"e11","for":["ravi_patel"],"observed":true,"observed_by":["ravi_patel"],"seq":11,"source":"starting_event[0]","t":"2026-07-27T08:00:00+00:00"}
+{"cause":17,"description":"The email arrives in Dr Aline Mercier's inbox on the university email server.","event_id":"e18","for":["dr_aline_mercier"],"observed":false,"observed_by":[],"seq":18,"source":"world_call:c2","t":"2026-07-27T08:00:00+00:00"}

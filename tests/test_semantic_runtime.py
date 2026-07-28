@@ -610,3 +610,46 @@ def test_noticing_an_item_settles_that_item_without_rewriting_it():
     replayed = Journal(World.from_records(world.records))
     assert [e["event_id"] for e in replayed.observed_by("bo_ferrer")] \
         == [rec["event_id"]]
+
+
+# ------------------------------------------------- durations and retries
+def test_a_duration_may_be_written_in_several_parts():
+    from datetime import timedelta
+    assert parse_duration("1 hour 30 minutes") == timedelta(minutes=90)
+    assert parse_duration("2 days 4 hours") == timedelta(days=2, hours=4)
+    assert parse_duration("1 hour and 30 minutes") == timedelta(minutes=90)
+    assert parse_duration("90 minutes") == timedelta(minutes=90)
+    assert parse_duration("1 week") == timedelta(days=7)
+    for bad in ("soon", "a while", "1 hour later today", "tomorrow morning",
+                "when he gets round to it", "1 fortnight"):
+        with pytest.raises(EnvelopeError):
+            parse_duration(bad)
+
+
+def test_a_retry_is_told_exactly_what_was_wrong():
+    """A retry that repeats the identical prompt gets the identical
+    mistake.  The rejection reason is handed back so the model can fix
+    precisely that -- and nothing about the situation is added."""
+    seen = []
+
+    def transport(system, user):
+        seen.append(user)
+        if len(seen) == 1:
+            return json.dumps({"judgment": "j", "event": {
+                "description": "d", "for": ["ada_vance"], "observed": True,
+                "after": "in a little while"}, "wakes": []}), {}
+        return json.dumps({"judgment": "j", "event": {
+            "description": "d", "for": ["ada_vance"], "observed": True,
+            "after": "10 minutes"}, "wakes": []}), {}
+
+    from sworldmodel.semantic_runtime.world_mind import (WORLD_SYSTEM,
+                                                         make_world_validator)
+    caller = RuntimeCaller(transport=transport)
+    out = caller.ask("world", WORLD_SYSTEM, "TRIGGER\nx",
+                     make_world_validator({"ada_vance"}))
+    assert out["parsed"]["event_checked"]["after"] == "10 minutes"
+    assert len(seen) == 2
+    assert "YOUR PREVIOUS REPLY WAS REJECTED" in seen[1]
+    assert "unparseable duration" in seen[1]
+    assert seen[0] in seen[1]                    # the original ask is intact
+    assert caller.calls[1]["user"] == seen[1]    # and it is what was logged
