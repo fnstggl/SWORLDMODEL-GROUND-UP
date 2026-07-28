@@ -702,3 +702,97 @@ def test_silence_does_not_end_a_situation_before_its_horizon():
     assert len(days) > 1                     # spread across real days
     assert all(parse_iso(c["sim_time"]) <= parse_iso(CUTOFF)
                for c in consulted)
+
+
+# ------------------------------------ the replay check must be able to fail
+def completed_run():
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=lifecycle_script())
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          caller, max_steps=20, trace=Trace())
+    return world, journal, traj
+
+
+def test_replay_detects_a_forged_terminal():
+    """The reconstruction must share no object with what it is compared
+    to, or every comparison is an identity check that cannot fail."""
+    world, _, _ = completed_run()
+    honest = replay_trajectory(world.records, live_world=world)
+    assert honest["exact"] is True and honest["vacuous"] is False
+    forged = json.loads(json.dumps(world.records))
+    for r in reversed(forged):
+        if r["op"] == "semantic.terminal_check":
+            r["data"]["status"] = "YES"
+            r["data"]["supporting_event_ids"] = ["e999999"]
+            break
+    check = replay_trajectory(forged, live_world=world)
+    assert check["exact"] is False
+    assert check["terminal_matches"] is False or check["records_match"] is False
+    assert any("e999999" in p for p in check["ledger_integrity"])
+
+
+def test_replay_detects_deleted_and_rewritten_provenance():
+    world, _, _ = completed_run()
+    thinned = [r for r in json.loads(json.dumps(world.records))
+               if r["op"] != "semantic.world_call"]
+    assert len(thinned) < len(world.records)
+    assert replay_trajectory(thinned, live_world=world)["exact"] is False
+    rewritten = json.loads(json.dumps(world.records))
+    for r in rewritten:
+        if r["op"] == "semantic.actor_call":
+            r["data"]["decision"] = "something the actor never decided"
+            break
+    check = replay_trajectory(rewritten, live_world=world)
+    assert check["exact"] is False and check["records_match"] is False
+
+
+def test_replay_detects_a_rewritten_event_that_no_hash_covers():
+    world, _, _ = completed_run()
+    tampered = json.loads(json.dumps(world.records))
+    for r in tampered:
+        if r["op"] == "journal.event":
+            r["data"]["description"] = "an event that never happened"
+            r["data"]["observed"] = True
+            break
+    check = replay_trajectory(tampered, live_world=world)
+    assert check["exact"] is False
+    assert check["events_match"] is False
+
+
+def test_replay_checks_the_ledger_on_its_own_terms():
+    world, _, _ = completed_run()
+    from sworldmodel.semantic_runtime.replay import check_ledger_integrity
+    assert check_ledger_integrity(world.records) == []
+    # a causeless record after genesis
+    broken = json.loads(json.dumps(world.records))
+    for r in broken:
+        if r["op"] == "journal.event":
+            r["cause"] = None
+            break
+    assert any("no cause" in p for p in check_ledger_integrity(broken))
+    # an observation by someone the event never reached
+    broken2 = json.loads(json.dumps(world.records))
+    for r in broken2:
+        if r["op"] == "journal.observed":
+            r["data"]["actor"] = "ada_vance"
+            break
+    problems = check_ledger_integrity(broken2)
+    assert any("never reached" in p for p in problems) or not any(
+        r["op"] == "journal.observed" for r in world.records)
+
+
+def test_replay_reports_itself_vacuous_when_there_is_nothing_to_verify():
+    world, _, _ = build()
+    empty = replay_trajectory(world.records, live_world=world)
+    assert empty["vacuous"] is True             # no terminal was ever taken
+    assert empty["exact"] is False              # never "exact" by default
+    assert empty["checked"]["terminal_checks"] == 0
+
+
+def test_replay_measures_rather_than_asserts_zero_calls():
+    world, _, _ = completed_run()
+    before = RuntimeCaller.total_calls
+    assert before > 0                            # the live run really called
+    check = replay_trajectory(world.records, live_world=world)
+    assert check["llm_calls"] == 0
+    assert RuntimeCaller.total_calls == before   # and nothing was called

@@ -1,42 +1,42 @@
 {
- "provider_calls": 102,
+ "provider_calls": 173,
  "by_role": {
   "judge": {
-   "calls": 42,
-   "retries": 0,
-   "wall_s": 74.2,
-   "input_tokens": 49526,
-   "output_tokens": 2518
+   "calls": 83,
+   "retries": 1,
+   "wall_s": 153.48,
+   "input_tokens": 115942,
+   "output_tokens": 4905
   },
   "world": {
-   "calls": 44,
-   "retries": 1,
-   "wall_s": 109.3,
-   "input_tokens": 94078,
-   "output_tokens": 4849
+   "calls": 77,
+   "retries": 0,
+   "wall_s": 174.77,
+   "input_tokens": 212186,
+   "output_tokens": 8235
   },
   "actor": {
-   "calls": 16,
+   "calls": 13,
    "retries": 0,
-   "wall_s": 36.04,
-   "input_tokens": 16760,
-   "output_tokens": 1614
+   "wall_s": 31.58,
+   "input_tokens": 13097,
+   "output_tokens": 1393
   }
  },
- "total_input_tokens": 160364,
- "total_output_tokens": 8981,
- "total_wall_s": 219.57,
- "status": "cutoff",
+ "total_input_tokens": 341225,
+ "total_output_tokens": 14533,
+ "total_wall_s": 359.81,
+ "status": "incomplete",
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The committed events show only offers and counteroffers up to 1050, but no event shows that Priya Raghavan and Dmitri Sokolov have both agreed on a final price; the last message from Priya ('1050 works for me') was not observed by Dmitri, so no agreement was reached before the deadline."
+  "explanation": "No agreement has been reached yet; the deadline is 2026-09-20, which has not passed."
  },
- "reason": "step ceiling 40 reached before the cutoff",
- "steps": 40,
- "world_calls": 43,
- "actor_calls": 16,
- "judge_calls": 42,
- "committed_events": 25,
- "ledger_records": 255
+ "reason": "step ceiling 80 reached at 2026-09-08T12:00:02+00:00, before the cutoff",
+ "steps": 80,
+ "world_calls": 77,
+ "actor_calls": 13,
+ "judge_calls": 82,
+ "committed_events": 32,
+ "ledger_records": 418
 }

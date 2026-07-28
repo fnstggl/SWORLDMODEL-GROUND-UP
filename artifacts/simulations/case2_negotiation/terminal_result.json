@@ -1,22 +1,22 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "cutoff",
+  "status": "incomplete",
   "answer": {
-   "status": "NO_AT_CUTOFF",
+   "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "The committed events show only offers and counteroffers up to 1050, but no event shows that Priya Raghavan and Dmitri Sokolov have both agreed on a final price; the last message from Priya ('1050 works for me') was not observed by Dmitri, so no agreement was reached before the deadline."
+   "explanation": "No agreement has been reached yet; the deadline is 2026-09-20, which has not passed."
   },
-  "reason": "step ceiling 40 reached before the cutoff",
-  "steps": 40,
-  "world_calls": 43,
-  "actor_calls": 16,
-  "judge_calls": 42
+  "reason": "step ceiling 80 reached at 2026-09-08T12:00:02+00:00, before the cutoff",
+  "steps": 80,
+  "world_calls": 77,
+  "actor_calls": 13,
+  "judge_calls": 82
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The committed events show only offers and counteroffers up to 1050, but no event shows that Priya Raghavan and Dmitri Sokolov have both agreed on a final price; the last message from Priya ('1050 works for me') was not observed by Dmitri, so no agreement was reached before the deadline."
+  "explanation": "No agreement has been reached yet; the deadline is 2026-09-20, which has not passed."
  },
- "reason": "step ceiling 40 reached before the cutoff"
+ "reason": "step ceiling 80 reached at 2026-09-08T12:00:02+00:00, before the cutoff"
 }

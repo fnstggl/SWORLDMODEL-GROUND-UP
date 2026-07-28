@@ -50,6 +50,11 @@ class CallBudgetExceeded(RuntimeError):
 class RuntimeCaller:
     """One configured endpoint with full per-call logging."""
 
+    #: every provider attempt made by any caller in this process.  Replay
+    #: reads it before and after reconstructing, so "zero provider calls"
+    #: is a measurement rather than a claim.
+    total_calls = 0
+
     def __init__(self, model: str = DEFAULT_MODEL, transport=None,
                  max_calls: int = 400,
                  reserved_calls: int = RESERVED_FINAL_CALLS) -> None:
@@ -149,6 +154,7 @@ class RuntimeCaller:
                      "sim_time": sim_time, "trigger": trigger,
                      "wall_s": None, "input_tokens": 0, "output_tokens": 0}
             try:
+                RuntimeCaller.total_calls += 1
                 result = self.transport(system, attempt_user)
                 raw, usage = result if isinstance(result, tuple) else (result, {})
                 entry["raw"] = raw

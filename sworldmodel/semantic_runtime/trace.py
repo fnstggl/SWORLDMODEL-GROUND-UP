@@ -74,11 +74,30 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
       dict(caller.metrics(), **trajectory.to_dict(),
            committed_events=len(journal.events()),
            ledger_records=len(world.records)))
-    j("replay_verification.json", replay)
+    if replay is not None:
+        j("replay_verification.json", replay)
     with open(os.path.join(out_dir, "trajectory.md"), "w",
               encoding="utf-8") as f:
         f.write(render_trajectory(question, journal, trace, trajectory))
     _write_jsonl(os.path.join(out_dir, "ledger.jsonl"), world.records)
+
+
+def read_ledger(out_dir: str) -> list:
+    """The persisted ledger, read back from disk.
+
+    Replaying what was actually written is the real proof; replaying the
+    live world's own in-memory list only proves the process can talk to
+    itself.
+    """
+    path = os.path.join(out_dir, "ledger.jsonl")
+    with open(path, encoding="utf-8") as f:
+        return [json.loads(line) for line in f if line.strip()]
+
+
+def write_replay_verification(out_dir: str, verification: dict) -> None:
+    with open(os.path.join(out_dir, "replay_verification.json"), "w",
+              encoding="utf-8") as f:
+        f.write(json.dumps(verification, indent=1, default=str))
 
 
 def render_trajectory(question, journal, trace: Trace, trajectory) -> str:

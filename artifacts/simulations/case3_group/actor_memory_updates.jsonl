@@ -1,7 +1,12 @@
-{"actor":"ines","content":"I now know Ines is asking who will host the shared birthday dinner. I wonder if I could host, but I need to check my availability.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"I've clarified that I'm unavailable to host, so the decision is up to the others.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"Ines asked about hosting for the birthday dinner; I hope someone else volunteers so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I remember Ines asked about hosting; I'll check my work schedule for the weekend before committing to anything.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I need to confirm my availability before offering to host.","source":"actor_call:c11","t":"2026-10-06T08:02:00+00:00"}
-{"actor":"bea","content":"I am considering hosting if I'm free, but I need to confirm my schedule first.","source":"actor_call:c14","t":"2026-10-06T08:02:00+00:00"}
-{"actor":"bea","content":"I now know my work schedule for that weekend.","source":"actor_call:c20","t":"2026-10-06T08:02:00+00:00"}
+{"actor":"ines","content":"I'm aware Ines asked who will host the birthday dinner. I'm open to hosting but want to gauge interest from others before deciding.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I've noted the topic and will check the chat when I return.","source":"actor_call:c4","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I'm annoyed Ines brought this up. I'm going to wait and see if anyone else offers before I say anything.","source":"actor_call:c6","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I realize I should check my availability before responding in the chat.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I realize I need to confirm my availability before offering to host.","source":"actor_call:c13","t":"2026-10-06T08:00:10+00:00"}
+{"actor":"bea","content":"I now know I work Friday and Saturday nights, so I can't host on those days.","source":"actor_call:c16","t":"2026-10-06T08:00:10+00:00"}
+{"actor":"bea","content":"I now know I work Sunday night, so I cannot host that evening.","source":"actor_call:c19","t":"2026-10-06T08:00:20+00:00"}
+{"actor":"ines","content":"I now know Kwame has responded, but I haven't read his message yet.","source":"actor_call:c22","t":"2026-10-06T08:00:23+00:00"}
+{"actor":"bea","content":"I now know I work night shifts on Friday and Saturday, so I cannot host on those days.","source":"actor_call:c29","t":"2026-10-06T08:00:25+00:00"}
+{"actor":"bea","content":"I've now seen both messages and know Kwame is away, so I'm the first to respond with my unavailability.","source":"actor_call:c56","t":"2026-10-10T16:20:05+00:00"}
+{"actor":"ines","content":"I now know Kwame offered to host and Bea suggested splitting the hosting duties.","source":"actor_call:c69","t":"2026-10-10T16:50:10+00:00"}
+{"actor":"ines","content":"I realize I need to read the earlier messages to know what Kwame and Bea said before I can decide anything.","source":"actor_call:c72","t":"2026-10-10T16:50:20+00:00"}

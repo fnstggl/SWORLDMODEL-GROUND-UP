@@ -1,4 +1,12 @@
-{"actor":"jordan_reyes","content":"I have sent the cold email to Mark Cuban and do not plan to follow up.","source":"actor_call:c3","t":"2026-07-27T14:00:00+00:00"}
-{"actor":"mark_cuban","content":"I am now aware of the email's subject line and preview text.","source":"actor_call:c39","t":"2026-07-28T06:01:02+00:00"}
-{"actor":"mark_cuban","content":"I've read the email from Jordan Reyes. It's a cold email asking for a 15-minute call about my Cost Plus Drugs pricing playbook. I'm not sure if I'll respond.","source":"actor_call:c42","t":"2026-07-28T06:01:02+00:00"}
-{"actor":"mark_cuban","content":"I noted the email from Jordan Reyes but am not prioritizing it right now.","source":"actor_call:c44","t":"2026-07-28T08:02:37+00:00"}
+{"actor":"jordan_reyes","content":"I have sent the email and consider it a one-shot attempt; I do not plan to follow up.","source":"actor_call:c3","t":"2026-07-27T14:00:00+00:00"}
+{"actor":"mark_cuban","content":"I noticed a cold email about Cost Plus Drugs, but I'm not opening it now. I'll maybe check it if I have time later.","source":"actor_call:c46","t":"2026-07-28T06:15:12+00:00"}
+{"actor":"mark_cuban","content":"I recall seeing a cold email about Cost Plus Drugs but decide it's not urgent; I'll check it later if I remember.","source":"actor_call:c48","t":"2026-07-28T06:30:12+00:00"}
+{"actor":"mark_cuban","content":"I vaguely remember seeing an email about Cost Plus Drugs but I'm not prioritizing it right now.","source":"actor_call:c51","t":"2026-07-28T07:30:12+00:00"}
+{"actor":"mark_cuban","content":"I remember there's a cold email about Cost Plus Drugs in my inbox, but I'm not interested enough to open it right now.","source":"actor_call:c53","t":"2026-07-28T08:00:14+00:00"}
+{"actor":"mark_cuban","content":"I recall seeing a cold email about Cost Plus Drugs but decide it's not urgent; I'll check it later if I remember.","source":"actor_call:c55","t":"2026-07-28T08:00:17+00:00"}
+{"actor":"mark_cuban","content":"I remember seeing a cold email about Cost Plus Drugs but decide it's not urgent; I'll check it later if I remember.","source":"actor_call:c59","t":"2026-07-28T09:00:17+00:00"}
+{"actor":"mark_cuban","content":"I recall there's a cold email about Cost Plus Drugs that I haven't read yet; I'll see what it says.","source":"actor_call:c63","t":"2026-07-28T13:00:17+00:00"}
+{"actor":"mark_cuban","content":"I now know the email asks for a 15-minute call and references my Cost Plus Drugs pricing playbook. I'm intrigued enough to consider a brief reply.","source":"actor_call:c68","t":"2026-07-28T13:00:17+00:00"}
+{"actor":"mark_cuban","content":"I am now aware of Jordan Reyes's request for a 15-minute call about Cost Plus Drugs pricing.","source":"actor_call:c71","t":"2026-07-28T13:00:17+00:00"}
+{"actor":"mark_cuban","content":"I am considering the proposal but need more concrete information before agreeing to a call.","source":"actor_call:c71","t":"2026-07-28T13:00:17+00:00"}
+{"actor":"mark_cuban","content":"I am now aware of Jordan Reyes's request and am considering it, but I need more concrete details before agreeing to a call.","source":"actor_call:c74","t":"2026-07-28T13:00:17+00:00"}

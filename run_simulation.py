@@ -22,7 +22,9 @@ from compiler import SceneCaller, compile_scene
 from sworldmodel.semantic_runtime import instantiate_scene_manifest
 from sworldmodel.semantic_runtime.llm import RuntimeCaller
 from sworldmodel.semantic_runtime.replay import replay_trajectory
-from sworldmodel.semantic_runtime.trace import Trace, write_artifacts
+from sworldmodel.semantic_runtime.trace import (Trace, read_ledger,
+                                                write_artifacts,
+                                                write_replay_verification)
 from sworldmodel.semantic_runtime.trajectory import budget_for, run_trajectory
 
 
@@ -82,17 +84,23 @@ def main() -> int:
           f"cutoff {cutoff}, call ceiling {ceiling}")
     traj = run_trajectory(world, journal, bindings, scene["resolution"],
                           caller, max_steps=args.max_steps, trace=trace)
-    verification = replay_trajectory(world.records, live_world=world)
+    # write the ledger first, then replay what was actually PERSISTED:
+    # replaying the live world's own in-memory list would only prove the
+    # process can talk to itself
     write_artifacts(out, scene=scene, world=world, journal=journal,
                     bindings=bindings, trajectory=traj, caller=caller,
-                    trace=trace, replay=verification, question=question)
+                    trace=trace, replay=None, question=question)
+    verification = replay_trajectory(read_ledger(out), live_world=world)
+    write_replay_verification(out, verification)
     print(f"[run] {traj.status}: "
           f"{(traj.answer or {}).get('status')} — {traj.reason[:150]}")
     print(f"[run] {traj.steps} steps | {traj.world_calls} world calls | "
           f"{traj.actor_calls} actor calls | {traj.judge_calls} judge calls "
           f"| {len(journal.events())} committed events")
     print(f"[replay] exact={verification.get('exact')} "
-          f"llm_calls={verification['llm_calls']}")
+          f"llm_calls={verification['llm_calls']} "
+          f"integrity={'ok' if not verification['ledger_integrity'] else verification['ledger_integrity'][:2]} "
+          f"checked={verification['checked']}")
     print(f"artifacts -> {out}")
     return 0 if traj.status in ("resolved", "cutoff") else 1
 

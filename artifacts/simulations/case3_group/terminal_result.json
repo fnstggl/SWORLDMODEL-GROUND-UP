@@ -8,10 +8,10 @@
    "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed event shows that the four housemates collectively agreed on a host."
   },
   "reason": "",
-  "steps": 5,
-  "world_calls": 8,
-  "actor_calls": 8,
-  "judge_calls": 7
+  "steps": 31,
+  "world_calls": 33,
+  "actor_calls": 13,
+  "judge_calls": 33
  },
  "answer": {
   "status": "NO_AT_CUTOFF",

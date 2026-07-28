@@ -1,14 +1,12 @@
-{"actor":"priya_raghavan","content":"I'm willing to go up to 1050 if needed, but I'll start with 950 to see if he bites.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to move from 1400 to 1200, but I won't go below that unless Priya counters again.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm still hoping to close this quickly, but I'm prepared to negotiate up to 1050 if needed.","source":"actor_call:c22","t":"2026-09-08T09:15:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm sticking with my plan to go up to 1050 if needed, but I'll start at 950.","source":"actor_call:c26","t":"2026-09-08T09:15:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm sticking to my plan to go up to 1050 if needed, but I'll start at 950.","source":"actor_call:c29","t":"2026-09-08T09:15:00+00:00"}
-{"actor":"priya_raghavan","content":"I note that Dmitri has moved down from 1400 to 1200, which signals willingness to negotiate. I remain willing to go up to 1050.","source":"actor_call:c32","t":"2026-09-08T09:15:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now willing to go up to 1050 if he rejects 950, but I'll hold at 950 first.","source":"actor_call:c52","t":"2026-09-08T09:35:00+00:00"}
-{"actor":"dmitri_sokolov","content":"Priya's final offer is 950, which is lower than my minimum of 1200. I need to decide whether to counter or walk away.","source":"actor_call:c69","t":"2026-09-08T09:50:30+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm sticking to my minimum of 1200 and will not go lower unless she counters again.","source":"actor_call:c73","t":"2026-09-08T09:50:30+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now committed to 1200 as my final offer; if she doesn't accept, I'll walk away.","source":"actor_call:c76","t":"2026-09-08T09:50:30+00:00"}
-{"actor":"priya_raghavan","content":"I'm now more optimistic that we can reach a deal, but I'll stick to my plan to go up to 1050 if needed.","source":"actor_call:c88","t":"2026-09-08T09:50:30+00:00"}
-{"actor":"priya_raghavan","content":"I'm satisfied that we reached an agreement at my maximum price.","source":"actor_call:c93","t":"2026-09-08T09:50:35+00:00"}
-{"actor":"priya_raghavan","content":"The deal is done, I just need to confirm logistics.","source":"actor_call:c93","t":"2026-09-08T09:50:35+00:00"}
-{"actor":"priya_raghavan","content":"I've accepted at 1050, the maximum I was willing to pay. Deal is done.","source":"actor_call:c99","t":"2026-09-08T09:50:40+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to compromise but I don't want to go much higher.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I believe 1150 is a reasonable counteroffer that might get us closer to a deal.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"Priya has moved from 900 to 1100; I'm willing to meet halfway at 1150.","source":"actor_call:c42","t":"2026-09-08T09:55:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe we are close enough that a deal at 1150 is likely.","source":"actor_call:c51","t":"2026-09-08T10:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident we can reach a deal at 1150.","source":"actor_call:c54","t":"2026-09-08T10:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I believe Dmitri is willing to negotiate further, but I don't want to go above 1000.","source":"actor_call:c77","t":"2026-09-08T10:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm now willing to walk away if he doesn't accept 1000, even though I'd rather close the deal.","source":"actor_call:c87","t":"2026-09-08T10:50:01+00:00"}
+{"actor":"priya_raghavan","content":"I've decided my absolute maximum is 1000; if he doesn't accept, I'll walk away.","source":"actor_call:c96","t":"2026-09-08T10:55:01+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident we can reach a deal at 1150.","source":"actor_call:c106","t":"2026-09-08T11:10:01+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident we can reach a deal at 1150.","source":"actor_call:c113","t":"2026-09-08T11:15:01+00:00"}
+{"actor":"dmitri_sokolov","content":"I am annoyed that Priya lowered her offer after claiming 1100 was her best, but I still think 1150 is a fair compromise.","source":"actor_call:c119","t":"2026-09-08T11:20:01+00:00"}
+{"actor":"dmitri_sokolov","content":"I am frustrated that Priya lowered her offer after saying 1100 was her best, but I still think 1150 is a fair compromise and I want to close this deal.","source":"actor_call:c124","t":"2026-09-08T11:20:02+00:00"}
