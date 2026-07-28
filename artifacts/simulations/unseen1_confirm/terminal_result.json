@@ -7,7 +7,7 @@
    "supporting_event_ids": [
     "e17"
    ],
-   "explanation": "Event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
+   "explanation": "Committed event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
   },
   "reason": "",
   "steps": 1,
@@ -20,7 +20,7 @@
   "supporting_event_ids": [
    "e17"
   ],
-  "explanation": "Event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
+  "explanation": "Committed event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
  },
  "reason": ""
 }
