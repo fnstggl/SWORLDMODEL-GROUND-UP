@@ -1,0 +1,10 @@
+{
+ "dmitri_sokolov": {
+  "name": "Dmitri Sokolov",
+  "private_context": "Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900."
+ },
+ "priya_raghavan": {
+  "name": "Priya Raghavan",
+  "private_context": "Priya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then."
+ }
+}

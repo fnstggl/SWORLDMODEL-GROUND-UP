@@ -8,7 +8,11 @@ import ast
 import os
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCAN_DIRS = ("compiler", "compiler/legacy", "sworldmodel")
+#: every production directory, walked RECURSIVELY.  A non-recursive listing
+#: silently exempted whole packages: sworldmodel/semantic_runtime/ was
+#: scanned by nothing at all, and an injected `is_email_scenario()` passed
+#: this guard and the entire suite.
+SCAN_ROOTS = ("compiler", "sworldmodel")
 
 #: scene_prompts.py contains the UNIVERSAL prohibition doctrine, which must
 #: name the acts that may never be scheduled ("never schedule a reply, a
@@ -79,13 +83,34 @@ def scan_file(path: str) -> list:
     return problems
 
 
+def production_files() -> list:
+    out = []
+    for root in SCAN_ROOTS:
+        for dirpath, _dirs, files in os.walk(os.path.join(HERE, root)):
+            if "__pycache__" in dirpath:
+                continue
+            for fname in sorted(files):
+                if not fname.endswith(".py"):
+                    continue
+                full = os.path.join(dirpath, fname)
+                rel = os.path.relpath(full, HERE)
+                if rel not in ALLOWLIST:
+                    out.append((rel, full))
+    return sorted(out)
+
+
+def test_every_production_file_is_actually_scanned():
+    """The guard is only worth what it covers."""
+    scanned = {rel for rel, _ in production_files()}
+    assert any(r.startswith("sworldmodel/semantic_runtime/") for r in scanned)
+    assert any(r.startswith("compiler/legacy/") for r in scanned)
+    assert len(scanned) > 25
+
+
 def test_no_scenario_vocabulary_in_core_logic():
     problems = []
-    for d in SCAN_DIRS:
-        for fname in sorted(os.listdir(os.path.join(HERE, d))):
-            rel = f"{d}/{fname}"
-            if fname.endswith(".py") and rel not in ALLOWLIST:
-                problems.extend(scan_file(os.path.join(HERE, d, fname)))
+    for _rel, full in production_files():
+        problems.extend(scan_file(full))
     assert problems == [], (
         "scenario vocabulary found in core logic -- the compiler/runtime "
         "must stay universal:\n" + "\n".join(problems))

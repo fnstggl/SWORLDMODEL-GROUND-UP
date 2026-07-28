@@ -1,0 +1,203 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "dev_sandhu": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dev_sandhu",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dev is completely up for the trip and has said so twice in the thread. However, a new clutch took \u00a3620 off him a fortnight ago and he isn't paid until the 28th. He has a credit card he promised his wife he'd stop using. He is aware of the deposit requirement of \u00a3200 per household.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    },
+    {
+     "content": "Cove Cottage in Beadnell is available for the October half-term week (24th to 31st) at \u00a31,800. A deposit of \u00a3600 is required to secure it, to be paid into Marian Prowse's bank account by the end of Wednesday 16th September. The deposit can be split three ways (\u00a3200 per household) or covered by one party or any other arrangement. Ruth, Dev, and Nina are the three households interested. Ruth has already booked the week off and told her kids. Dev has expressed enthusiasm twice in the thread. Nina has not replied. Marian has given a deadline of end of Wednesday 16th September for the deposit.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    }
+   ],
+   "name": "Dev Sandhu",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "marian_prowse": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marian_prowse",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Marian owns Cove Cottage and runs it out of a paper diary. She rang Ruth on Friday (presumably 11th September) to say a couple from Leeds have asked about that same week, and that she'll hold it until the end of Wednesday (16th September) but not a day longer; she wants the \u00a3600 deposit in her bank account by then. She is waiting for the deposit.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    },
+    {
+     "content": "Cove Cottage in Beadnell is available for the October half-term week (24th to 31st) at \u00a31,800. A deposit of \u00a3600 is required to secure it, to be paid into Marian Prowse's bank account by the end of Wednesday 16th September. The deposit can be split three ways (\u00a3200 per household) or covered by one party or any other arrangement. Ruth, Dev, and Nina are the three households interested. Ruth has already booked the week off and told her kids. Dev has expressed enthusiasm twice in the thread. Nina has not replied. Marian has given a deadline of end of Wednesday 16th September for the deposit.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    }
+   ],
+   "name": "Marian Prowse",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "nina_achebe": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "nina_achebe",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Nina hasn't replied at all in the thread. This is not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet. Saying that out loud would make it a thing she has to deal with. She is aware of the deposit requirement of \u00a3200 per household.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    },
+    {
+     "content": "Cove Cottage in Beadnell is available for the October half-term week (24th to 31st) at \u00a31,800. A deposit of \u00a3600 is required to secure it, to be paid into Marian Prowse's bank account by the end of Wednesday 16th September. The deposit can be split three ways (\u00a3200 per household) or covered by one party or any other arrangement. Ruth, Dev, and Nina are the three households interested. Ruth has already booked the week off and told her kids. Dev has expressed enthusiasm twice in the thread. Nina has not replied. Marian has given a deadline of end of Wednesday 16th September for the deposit.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    }
+   ],
+   "name": "Nina Achebe",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "ruth_kelleher": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ruth_kelleher",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Ruth has been trying to get the same three families away together since March. She has found Cove Cottage in Beadnell, \u00a31,800 for the October half-term week (24th to 31st). She has already booked the week off and told her kids. She fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on being the one who covers people again. She received a call from Marian Prowse on Friday (presumably 11th September) saying a couple from Leeds have asked about that same week, and that Marian will hold it until the end of Wednesday (16th September) but not a day longer; she wants the \u00a3600 deposit in her bank account by then. That's \u00a3200 a household. Ruth is coordinating with Dev Sandhu and Nina Achebe.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    },
+    {
+     "content": "Cove Cottage in Beadnell is available for the October half-term week (24th to 31st) at \u00a31,800. A deposit of \u00a3600 is required to secure it, to be paid into Marian Prowse's bank account by the end of Wednesday 16th September. The deposit can be split three ways (\u00a3200 per household) or covered by one party or any other arrangement. Ruth, Dev, and Nina are the three households interested. Ruth has already booked the week off and told her kids. Dev has expressed enthusiasm twice in the thread. Nina has not replied. Marian has given a deadline of end of Wednesday 16th September for the deposit.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-13T19:40:00+00:00"
+    }
+   ],
+   "name": "Ruth Kelleher",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Ruth Kelleher has been trying to get the same three families away together since March and has finally found somewhere that works \u2014 Cove Cottage in Beadnell, \u00a31,800 for the October half-term week, the 24th to the 31st. Marian Prowse, who owns it and runs it out of a paper diary, rang Ruth on Friday to say a couple from Leeds have asked about that same week, and that she'll hold it until the end of Wednesday but not a day longer; she wants the \u00a3600 deposit in her bank account by then. That's \u00a3200 a household. Ruth has already booked the week off and told her kids, but she also fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on being the one who covers people again. Dev Sandhu is completely up for it and has said so twice in the thread, but a new clutch took \u00a3620 off him a fortnight ago and he isn't paid until the 28th, and he has a credit card he promised his wife he'd stop using. Nina Achebe hasn't replied at all \u2014 not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet, and saying that out loud would make it a thing she has to deal with. Will the full \u00a3600 have reached Marian's account by the end of Wednesday the 16th \u2014 however it gets there, split three ways or covered by one of them or any other route?",
+  "scene:shared_context": "Cove Cottage in Beadnell is available for the October half-term week (24th to 31st) at \u00a31,800. A deposit of \u00a3600 is required to secure it, to be paid into Marian Prowse's bank account by the end of Wednesday 16th September. The deposit can be split three ways (\u00a3200 per household) or covered by one party or any other arrangement. Ruth, Dev, and Nina are the three households interested. Ruth has already booked the week off and told her kids. Dev has expressed enthusiasm twice in the thread. Nina has not replied. Marian has given a deadline of end of Wednesday 16th September for the deposit."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-13T19:40:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-13T19:40:00+00:00",
+ "terminal": null,
+ "version": 20,
+ "watches": {}
+}

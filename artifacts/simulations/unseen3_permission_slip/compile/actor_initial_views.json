@@ -1,0 +1,174 @@
+{
+ "chris": {
+  "id": "chris",
+  "name": "Chris",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Chris has custody of Ezra Sunday through Friday this week. He started a new job as a service manager three weeks ago, out at 7 a.m., back after 6 p.m. His father had a stent placed Tuesday, so evenings are spent on calls with his mom. He has notifications for the school app turned off. Ezra mentioned 'there's a thing in my folder' on Tuesday while Chris was on a work call, but Chris hasn't followed up.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Ezra's fourth-grade class has an overnight trip to a nature camp next week. The permission slip and $85 fee are due at the school office by 3 p.m. Friday, September 18, when the cabin and bus count goes final. The form is still in Ezra's backpack as of the start time. The school app is available; Chris has notifications off, Naomi sees it as a 6 a.m. email digest. The school office is open during school hours.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "ezra": {
+  "id": "ezra",
+  "name": "Ezra",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Ezra is nine years old, in fourth grade. He wants to go on the overnight trip but is not campaigning because his friend Dev said the cabins have spiders. He told Chris about 'a thing in my folder' on Tuesday but hasn't mentioned it since. The permission slip and $85 are still flat in the bottom of his backpack.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Ezra's fourth-grade class has an overnight trip to a nature camp next week. The permission slip and $85 fee are due at the school office by 3 p.m. Friday, September 18, when the cabin and bus count goes final. The form is still in Ezra's backpack as of the start time. The school app is available; Chris has notifications off, Naomi sees it as a 6 a.m. email digest. The school office is open during school hours.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "mr_whitcomb": {
+  "id": "mr_whitcomb",
+  "name": "Mr. Whitcomb",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Mr. Whitcomb is Ezra's fourth-grade teacher. He sent home permission slips and $85 in kids' folders on Monday, due at the school office by 3 p.m. Friday, September 18. He usually pings families still missing forms through the school app.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Ezra's fourth-grade class has an overnight trip to a nature camp next week. The permission slip and $85 fee are due at the school office by 3 p.m. Friday, September 18, when the cabin and bus count goes final. The form is still in Ezra's backpack as of the start time. The school app is available; Chris has notifications off, Naomi sees it as a 6 a.m. email digest. The school office is open during school hours.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "naomi": {
+  "id": "naomi",
+  "name": "Naomi",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Naomi normally handles all school paperwork. She skimmed the class newsletter on Monday but does not know about the trip. She works night shifts at the hospital Thursday through Saturday, 7 p.m. to 7:30 a.m., so she will be asleep most of Friday from about 8 a.m. until late afternoon. She receives the school app as a 6 a.m. email digest.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-17T13:45:00+00:00",
+    "kind": "context",
+    "content": "Ezra's fourth-grade class has an overnight trip to a nature camp next week. The permission slip and $85 fee are due at the school office by 3 p.m. Friday, September 18, when the cabin and bus count goes final. The form is still in Ezra's backpack as of the start time. The school app is available; Chris has notifications off, Naomi sees it as a 6 a.m. email digest. The school office is open during school hours.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

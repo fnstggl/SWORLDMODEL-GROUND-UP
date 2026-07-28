@@ -1,0 +1,42 @@
+{
+ "provider_calls": 312,
+ "by_role": {
+  "judge": {
+   "calls": 80,
+   "retries": 10,
+   "wall_s": 128.94,
+   "input_tokens": 252946,
+   "output_tokens": 4937
+  },
+  "world": {
+   "calls": 114,
+   "retries": 0,
+   "wall_s": 266.77,
+   "input_tokens": 543257,
+   "output_tokens": 15539
+  },
+  "actor": {
+   "calls": 118,
+   "retries": 0,
+   "wall_s": 224.61,
+   "input_tokens": 364768,
+   "output_tokens": 9420
+  }
+ },
+ "total_input_tokens": 1160971,
+ "total_output_tokens": 29896,
+ "total_wall_s": 620.4,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline."
+ },
+ "reason": "",
+ "steps": 168,
+ "world_calls": 114,
+ "actor_calls": 118,
+ "judge_calls": 70,
+ "committed_events": 72,
+ "ledger_records": 814
+}

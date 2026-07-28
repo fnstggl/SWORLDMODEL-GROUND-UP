@@ -1,0 +1,138 @@
+"""The actor model: one universal prompt for every scenario.
+
+The actor answers exactly one question: given what this person currently
+knows, remembers and observes, what do they attempt, and how does their
+private understanding change?
+
+They never receive the global journal, unobserved information, another
+actor's private memories, the resolution, the YES/NO target, future
+scheduled events, or hidden world judgments -- the view handed in is
+built by code from their own authorized records alone.
+
+An actor proposes; it never adjudicates.  Nothing an actor writes is ever
+committed as something that happened: an intention is handed to the world
+as an ATTEMPT and the world decides what, if anything, came of it, and
+only committed events can satisfy the question.
+
+That is a structural guarantee, and it is the only one.  If an actor
+writes an intention phrased as an accomplished fact about someone else --
+"Bo reads my message and agrees" -- code does not detect it; that text is
+passed to the world as what this person attempted, and the world is
+instructed to adjudicate the attempt rather than adopt the claim.  The
+prompt below is where that is asked for; it is not enforced.
+"""
+from __future__ import annotations
+
+from .envelope import EnvelopeError, clean_text
+
+#: A person takes a bounded number of actions in one moment.  This is also
+#: the budget boundary: every intention costs a world adjudication, so an
+#: unbounded list would let the model decide how much the runtime spends.
+#: Code controls access; the model writes meaning.
+MAX_INTENTIONS_PER_TURN = 3
+MAX_PRIVATE_UPDATES_PER_TURN = 6
+
+ACTOR_SYSTEM = """You are one specific person inside a real, ongoing \
+situation.  You are not an assistant, not a narrator, and not a \
+storyteller: you are this person, living their own day, with their own \
+priorities, workload, habits and limits.
+
+The SHARED CONTEXT you are shown is the situation as an outsider would \
+describe it.  It is NOT a briefing you were given and it is not what you \
+have in mind: you know a detail in it only if you would really know it, \
+being who you are.  Someone else's plans, intentions or private business \
+are theirs, even when they appear there.
+
+You know ONLY what appears in the briefing you are given.  You cannot see \
+anyone else's thoughts, you do not know what anyone else has noticed or \
+decided, and you cannot see anything you have not personally observed.  \
+Time has passed exactly as the briefing says.
+
+You decide only what YOU attempt.  You do NOT decide:
+- whether your attempt succeeds;
+- whether anyone receives, notices, reads or understands anything;
+- what anyone else thinks, feels, believes, or does;
+- whether any agreement, outcome or result exists.
+Those are consequences the world determines.  State attempts as attempts \
+("I write and send X", "I look at Y", "I wait until Z"), never as \
+accomplished facts about other people.
+
+Behave like the real person would, including when that is unhelpful: real \
+people are busy, distracted, sceptical, forgetful, slow to reply, and \
+often do nothing at all.  Doing nothing is a legitimate answer.
+
+Do not settle a situation sooner than you really would.  If there is \
+still time, there is still time: people wait, chase, ask again, put it \
+off, and leave things open until they actually have to decide.  Calling \
+something off, giving up on it, or announcing it cannot happen is itself \
+a decision with consequences -- make it only at the point where you truly \
+would, not the first time it looks difficult.
+
+If you attempt more than one thing, they must be genuinely different \
+things.  Saying the same thing twice in different words is one action, \
+not two.
+
+Say what you attempt at the scale you would tell someone about it \
+afterwards -- "I put it in my diary for Thursday", not opening the diary, \
+typing the entry and closing it again.  Never describe the mechanics of \
+using a thing.
+
+Reply with ONLY a JSON object:
+{
+  "decision": "one or two sentences: what you are deciding and why",
+  "intentions": ["a concrete action you attempt now, in your own words"],
+  "private_updates": ["a memory, interpretation, belief, plan or \
+commitment you now privately hold"]
+}
+"intentions" may be empty if you attempt nothing right now.
+"private_updates" may be empty if nothing about your understanding changed.
+Do not include any other fields.  Do not explain your reasoning beyond the \
+brief "decision" summary."""
+
+
+class ActorResponseError(ValueError):
+    pass
+
+
+def validate_actor_response(obj) -> dict:
+    if not isinstance(obj, dict):
+        raise ActorResponseError("actor response must be an object")
+    unknown = set(obj) - {"decision", "intentions", "private_updates"}
+    if unknown:
+        raise ActorResponseError(
+            f"actor response has unexpected fields {sorted(unknown)}")
+    if not isinstance(obj.get("decision"), str) or not obj["decision"].strip():
+        raise ActorResponseError("decision must be a non-empty string")
+    try:
+        decision = clean_text(obj["decision"].strip(), field="decision")
+    except EnvelopeError as e:
+        raise ActorResponseError(str(e)) from None
+    out = {"decision": decision, "intentions": [], "private_updates": []}
+    caps = {"intentions": MAX_INTENTIONS_PER_TURN,
+            "private_updates": MAX_PRIVATE_UPDATES_PER_TURN}
+    for field in ("intentions", "private_updates"):
+        value = obj.get(field, [])
+        if value is None:
+            value = []
+        if not isinstance(value, list):
+            raise ActorResponseError(f"{field} must be an array")
+        if len(value) > caps[field]:
+            raise ActorResponseError(
+                f"{field} has {len(value)} entries; at most {caps[field]} "
+                f"are accepted in one turn")
+        for item in value:
+            if not isinstance(item, str):
+                raise ActorResponseError(f"{field} entries must be strings")
+            if item.strip():
+                try:
+                    out[field].append(clean_text(item.strip(), field=field))
+                except EnvelopeError as e:
+                    raise ActorResponseError(str(e)) from None
+    return out
+
+
+def actor_user_prompt(rendered_view: str) -> str:
+    return (rendered_view
+            + "\n\nGiven only what you know above, what do you attempt now, "
+              "and what changes in your own private understanding?  Reply "
+              "with ONLY the JSON object.")

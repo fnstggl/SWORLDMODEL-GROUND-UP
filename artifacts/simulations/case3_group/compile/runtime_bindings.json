@@ -1,0 +1,52 @@
+{
+ "world_id": "w_415ef1ca5374",
+ "actor_ids": {
+  "Ines": "ines",
+  "Kwame": "kwame",
+  "Tomas": "tomas",
+  "Bea": "bea"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-10-06T08:00:00+00:00",
+   "visible_to_ids": [
+    "ines",
+    "kwame",
+    "tomas",
+    "bea"
+   ],
+   "description": "Ines sends a message in the group chat about the shared birthday dinner, asking who will host."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ines": {
+   "name": "Ines",
+   "persona_brief": "You are Ines.\nInes raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend."
+  },
+  "kwame": {
+   "name": "Kwame",
+   "persona_brief": "You are Kwame.\nKwame is away until Friday and may not be reachable until then. He has no strong preference about hosting."
+  },
+  "tomas": {
+   "name": "Tomas",
+   "persona_brief": "You are Tomas.\nTomas hates hosting and would prefer not to host."
+  },
+  "bea": {
+   "name": "Bea",
+   "persona_brief": "You are Bea.\nBea has the biggest kitchen but works nights, which may affect her availability or willingness to host."
+  }
+ },
+ "resolution": {
+  "question": "Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.",
+  "resolution": "Resolve YES only if the simulation shows that the four housemates have collectively agreed on a host before 2026-10-10T00:00:00+00:00. Otherwise resolve NO at that time.",
+  "cutoff": "2026-10-10T20:00:00+00:00",
+  "world_id": "w_415ef1ca5374"
+ }
+}

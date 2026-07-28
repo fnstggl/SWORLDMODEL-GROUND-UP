@@ -1,0 +1,88 @@
+{
+ "dmitri_sokolov": {
+  "id": "dmitri_sokolov",
+  "name": "Dmitri Sokolov",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-08T09:00:00+00:00",
+    "kind": "context",
+    "content": "Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-08T09:00:00+00:00",
+    "kind": "context",
+    "content": "Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "priya_raghavan": {
+  "id": "priya_raghavan",
+  "name": "Priya Raghavan",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-08T09:00:00+00:00",
+    "kind": "context",
+    "content": "Priya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-08T09:00:00+00:00",
+    "kind": "context",
+    "content": "Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

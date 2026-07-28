@@ -1,0 +1,174 @@
+{
+ "bea": {
+  "id": "bea",
+  "name": "Bea",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "Bea has the biggest kitchen but works nights, which may affect her availability or willingness to host.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "The four housemates live at 14 Ferndale Road. They need to decide who will host the shared birthday dinner. The weekend starts on Saturday 2026-10-10. Ines raised the topic in the group chat this morning (2026-10-06).",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "ines": {
+  "id": "ines",
+  "name": "Ines",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "The four housemates live at 14 Ferndale Road. They need to decide who will host the shared birthday dinner. The weekend starts on Saturday 2026-10-10. Ines raised the topic in the group chat this morning (2026-10-06).",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "kwame": {
+  "id": "kwame",
+  "name": "Kwame",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "Kwame is away until Friday and may not be reachable until then. He has no strong preference about hosting.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "The four housemates live at 14 Ferndale Road. They need to decide who will host the shared birthday dinner. The weekend starts on Saturday 2026-10-10. Ines raised the topic in the group chat this morning (2026-10-06).",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "tomas": {
+  "id": "tomas",
+  "name": "Tomas",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "Tomas hates hosting and would prefer not to host.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-06T08:00:00+00:00",
+    "kind": "context",
+    "content": "The four housemates live at 14 Ferndale Road. They need to decide who will host the shared birthday dinner. The weekend starts on Saturday 2026-10-10. Ines raised the topic in the group chat this morning (2026-10-06).",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

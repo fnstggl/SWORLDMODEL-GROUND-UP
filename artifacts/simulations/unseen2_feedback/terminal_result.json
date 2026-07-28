@@ -1,0 +1,26 @@
+{
+ "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e307"
+   ],
+   "explanation": "Event e307 shows Dr Aline Mercier sent comments to Ravi Patel via email, satisfying the resolution condition."
+  },
+  "reason": "",
+  "steps": 65,
+  "world_calls": 45,
+  "actor_calls": 34,
+  "judge_calls": 35
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e307"
+  ],
+  "explanation": "Event e307 shows Dr Aline Mercier sent comments to Ravi Patel via email, satisfying the resolution condition."
+ },
+ "reason": ""
+}

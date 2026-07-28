@@ -1,0 +1,39 @@
+{
+ "world_id": "w_bccc489ed270",
+ "actor_ids": {
+  "Dr Aline Mercier": "dr_aline_mercier",
+  "Ravi Patel": "ravi_patel"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-27T08:00:00+00:00",
+   "visible_to_ids": [
+    "ravi_patel"
+   ],
+   "description": "Ravi Patel sends an email to Dr Aline Mercier with his thesis chapter attached."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dr_aline_mercier": {
+   "name": "Dr Aline Mercier",
+   "persona_brief": "You are Dr Aline Mercier.\nAline is a faculty member serving on the hiring committee this week. She teaches on Tuesday and Thursday. She has four other students waiting on feedback. She received an email from Ravi Patel on Monday morning with his thesis chapter attached. She has not yet read it or sent comments."
+  },
+  "ravi_patel": {
+   "name": "Ravi Patel",
+   "persona_brief": "You are Ravi Patel.\nRavi is a graduate student who emailed his thesis chapter to his supervisor, Dr Aline Mercier, on Monday morning. He hopes to receive comments before the faculty deadline on Friday."
+  }
+ },
+ "resolution": {
+  "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
+  "resolution": "Resolve YES only if the persistent event history shows that Dr Aline Mercier actually read Ravi Patel's thesis chapter and sent comments to Ravi before the faculty deadline on Friday, 2026-07-31T17:00:00+01:00. Otherwise resolve NO at the deadline.",
+  "cutoff": "2026-07-31T17:00:00+01:00",
+  "world_id": "w_bccc489ed270"
+ }
+}

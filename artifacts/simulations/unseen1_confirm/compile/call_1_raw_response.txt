@@ -1,0 +1,17 @@
+{
+  "actors": [
+    {
+      "name": "Sam Okonjo",
+      "private_context": "Sam has been waiting three weeks for a boiler repair appointment. He is at his desk all day with his phone next to him. He knows that confirming the Thursday 8am slot requires one text message reply to Bristol Plumbing's 9am text. He wants to keep the appointment."
+    }
+  ],
+  "shared_context": "Bristol Plumbing sent Sam Okonjo a text message at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm today or lose it. The message is on Sam's phone.",
+  "starting_events": [
+    {
+      "time": "2026-07-28T09:00:00+01:00",
+      "description": "Bristol Plumbing's text message arrives on Sam Okonjo's phone.",
+      "visible_to": ["Sam Okonjo"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that Sam Okonjo sent a text message confirming the appointment before 2026-07-28T18:00:00+01:00. Otherwise resolve NO at that time."
+}

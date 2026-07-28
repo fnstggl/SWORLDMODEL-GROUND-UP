@@ -1,0 +1,40 @@
+{
+ "question": "Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e143",
+    "e187",
+    "e250",
+    "e305",
+    "e382",
+    "e464",
+    "e644",
+    "e662"
+   ],
+   "explanation": "By e662, Kwame has observed the full thread confirming Bea's offer to host on Saturday at 2pm, Ines's agreement, and Bea's final confirmation, showing all four housemates collectively agreed on Bea as host before the deadline."
+  },
+  "reason": "",
+  "steps": 145,
+  "world_calls": 96,
+  "actor_calls": 119,
+  "judge_calls": 42
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e143",
+   "e187",
+   "e250",
+   "e305",
+   "e382",
+   "e464",
+   "e644",
+   "e662"
+  ],
+  "explanation": "By e662, Kwame has observed the full thread confirming Bea's offer to host on Saturday at 2pm, Ines's agreement, and Bea's final confirmation, showing all four housemates collectively agreed on Bea as host before the deadline."
+ },
+ "reason": ""
+}

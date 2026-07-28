@@ -1,0 +1,30 @@
+{
+ "provider_calls": 1,
+ "by_role": {
+  "judge": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 2.04,
+   "input_tokens": 526,
+   "output_tokens": 98
+  }
+ },
+ "total_input_tokens": 526,
+ "total_output_tokens": 98,
+ "total_wall_s": 2.04,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e9"
+  ],
+  "explanation": "Event e9 shows Sam Okonjo observed a text message from Bristol Plumbing at 2026-07-28T08:00:00+00:00, which is before the deadline of 2026-07-28T17:00:00+00:00 (equivalent to 18:00+01:00), and the message confirms the appointment."
+ },
+ "reason": "the compiled scene already satisfies its own resolution at initialization",
+ "steps": 0,
+ "world_calls": 0,
+ "actor_calls": 0,
+ "judge_calls": 1,
+ "committed_events": 1,
+ "ledger_records": 10
+}
