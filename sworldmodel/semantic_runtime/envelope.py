@@ -37,6 +37,30 @@ from datetime import timedelta
 MAX_WAKES_PER_JUDGMENT = 4
 
 
+#: A sentence or two.  Every model-written string is one, and a ceiling on
+#: them is the only thing standing between a merely verbose model and an
+#: unbounded run: the call budget counts calls, not characters.
+MAX_TEXT_CHARS = 2000
+
+
+def clean_text(text: str, *, field: str) -> str:
+    """A model-written string, made storable.
+
+    Text that cannot be encoded (a lone surrogate, say) is not a strange
+    edge case: it passes every "is this a non-empty string" check, then
+    destroys the artifact write at the end of a completed run.  It is
+    repaired here, at the validation boundary, before anything is
+    committed -- along with control characters, which belong to no
+    sentence anyone wrote.
+    """
+    if len(text) > MAX_TEXT_CHARS:
+        raise EnvelopeError(
+            f"{field} is {len(text)} characters; at most {MAX_TEXT_CHARS} "
+            f"are accepted -- say it in a sentence or two")
+    repaired = text.encode("utf-8", "replace").decode("utf-8")
+    return "".join(c for c in repaired if c >= " " or c in "\t\n")
+
+
 def contained(text) -> str:
     """Model-written text, made safe to place inside a code-owned prompt.
 
@@ -98,7 +122,12 @@ def parse_duration(text: str) -> timedelta:
                 f"unknown time unit {unit!r} in {text!r}: use seconds, "
                 f"minutes, hours or days")
         seconds += float(value) * _UNITS[unit]
-    delta = timedelta(seconds=seconds)
+    try:
+        delta = timedelta(seconds=seconds)
+    except OverflowError:
+        raise EnvelopeError(
+            f"duration {text!r} is not an amount of time anything could "
+            f"take") from None
     if delta > timedelta(days=MAX_STEP_DAYS):
         raise EnvelopeError(
             f"duration {text!r} exceeds the {MAX_STEP_DAYS}-day single-step "
@@ -139,7 +168,8 @@ def validate_event(proposed, known_actor_ids) -> dict:
         if aid not in clean_for:
             clean_for.append(aid)
     delta = parse_duration(proposed["after"])
-    return {"description": proposed["description"].strip(),
+    return {"description": clean_text(proposed["description"].strip(),
+                                      field="event.description"),
             "for": clean_for, "observed": proposed["observed"],
             "after": proposed["after"].strip(), "delta": delta}
 
@@ -176,5 +206,6 @@ def validate_wakes(proposed, known_actor_ids) -> list:
             raise EnvelopeError(f"wakes[{i}].reason must be non-empty")
         out.append({"actor": actor, "delta": parse_duration(w.get("after", "")),
                     "after": str(w.get("after")).strip(),
-                    "reason": str(w["reason"]).strip()})
+                    "reason": clean_text(str(w["reason"]).strip(),
+                                         field=f"wakes[{i}].reason")})
     return out

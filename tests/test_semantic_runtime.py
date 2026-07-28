@@ -541,6 +541,9 @@ def test_the_call_ceiling_sits_above_the_ordinary_path():
 
 
 def test_spending_the_call_ceiling_is_a_horizon_not_a_failure():
+    """Running out of calls is a truncation like any other: the run still
+    gets a closing judgment, paid for out of the reserve, but it is judged
+    where it stopped and may not answer NO over time it never simulated."""
     world, journal, bindings = build()
     caller = RuntimeCaller(max_calls=5, transport=Script({
         "judge": [UNRESOLVED] * 8,
@@ -548,9 +551,11 @@ def test_spending_the_call_ceiling_is_a_horizon_not_a_failure():
         "actor": [NOTHING] * 8}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=50, trace=Trace())
-    assert traj.status == "cutoff"                # not "failed"
+    assert traj.status == "incomplete"            # not "failed", not "cutoff"
     assert "call ceiling" in traj.reason
-    assert traj.answer["status"] == "NO_AT_CUTOFF"   # an honest answer exists
+    assert traj.answer is not None                # a closing judgment happened
+    assert traj.answer["status"] != "NO_AT_CUTOFF"
+    assert world.clock.now < parse_iso(CUTOFF)    # the clock was not jumped
     assert len(caller.calls) <= 5
 
 
@@ -584,10 +589,11 @@ def test_the_judge_is_told_who_actually_observed_each_event():
 # --------------------------------------------- noticing settles the item
 def test_noticing_an_item_settles_that_item_without_rewriting_it():
     world, journal, _ = build()
+    assert journal.trajectory_id
     rec = journal.commit({"description": "a letter arrives for Bo",
                           "for": ["bo_ferrer"], "observed": False},
                          cause=world.version, source="test",
-                         trajectory_id="t")
+                         trajectory_id=journal.trajectory_id)
     assert [e["event_id"] for e in journal.available_unobserved("bo_ferrer")] \
         == [rec["event_id"]]
     assert journal.observed_by("bo_ferrer") == []
@@ -796,3 +802,100 @@ def test_replay_measures_rather_than_asserts_zero_calls():
     check = replay_trajectory(world.records, live_world=world)
     assert check["llm_calls"] == 0
     assert RuntimeCaller.total_calls == before   # and nothing was called
+
+
+def test_a_judgment_cannot_cite_another_trajectory():
+    """A journal is one trajectory's history.  Events belonging to a
+    different run must be invisible to views and uncitable by a
+    judgment."""
+    world, journal, bindings = build()
+    other = Journal(world, trajectory_id="traj_somebody_else")
+    other.commit({"description": "something in another run entirely",
+                  "for": ["bo_ferrer"], "observed": True},
+                 cause=world.version, source="other",
+                 trajectory_id="traj_somebody_else")
+    mine = [e["description"] for e in journal.events()]
+    assert "something in another run entirely" not in mine
+    assert all("another run" not in e["description"]
+               for e in journal.observed_by("bo_ferrer"))
+    rendered = render_view(build_view(world, journal, "bo_ferrer"))
+    assert "another run" not in rendered
+    # ... and the other journal does see its own
+    assert len(other.events()) == 1
+
+
+def test_a_scene_with_no_window_is_refused():
+    with pytest.raises(ValueError):
+        instantiate_scene_manifest(SCENE, QUESTION, CUTOFF, START)
+    with pytest.raises(ValueError):
+        instantiate_scene_manifest(SCENE, QUESTION, START, START)
+
+
+def test_a_starting_event_beyond_the_cutoff_is_never_scheduled():
+    late = dict(SCENE, starting_events=[
+        dict(SCENE["starting_events"][0], time="2026-09-30T09:00:00-05:00")])
+    world, journal, bindings = instantiate_scene_manifest(
+        late, QUESTION, START, CUTOFF)
+    assert bindings["starting_event_ids"] == []
+    assert bindings["starting_events_beyond_cutoff"]
+    assert world.queue.peek() is None            # nothing waiting past it
+    assert journal.events() == []
+
+
+# --------------------------------------------------- hostile model output
+def test_unstorable_text_is_repaired_before_it_is_committed():
+    """A lone surrogate passes every "is this a non-empty string" check and
+    then destroys the artifact write at the end of a paid-for run."""
+    from sworldmodel.semantic_runtime.envelope import clean_text
+    world, journal, bindings = build()
+    poison = "pre\ud800post\x00\x07 tail"
+    caller = RuntimeCaller(transport=Script({
+        "judge": [UNRESOLVED] * 6,
+        "world": [{"judgment": poison, "event": {
+            "description": poison, "for": ["bo_ferrer"], "observed": True,
+            "after": "5 minutes"}, "wakes": []}] * 6,
+        "actor": [{"decision": poison, "intentions": [],
+                   "private_updates": [poison]}] * 6}))
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          caller, max_steps=2, trace=Trace())
+    assert traj.status != "failed", traj.reason
+    blob = json.dumps(world.records)          # everything is storable
+    assert "\ud800" not in blob and "\x00" not in blob
+    json.dumps(world.records).encode("utf-8")  # and encodable
+    assert clean_text("a\ud800b", field="x") == "a?b"   # repaired, not raised
+
+
+def test_a_merely_verbose_model_cannot_run_up_the_bill():
+    """The ceiling counts calls, not characters, so the characters need a
+    ceiling of their own."""
+    from sworldmodel.semantic_runtime.envelope import (MAX_TEXT_CHARS,
+                                                       clean_text)
+    with pytest.raises(EnvelopeError):
+        clean_text("x" * (MAX_TEXT_CHARS + 1), field="event.description")
+    known = {"ada_vance"}
+    with pytest.raises(EnvelopeError):
+        validate_event({"description": "y" * (MAX_TEXT_CHARS + 1),
+                        "for": ["ada_vance"], "observed": True,
+                        "after": "now"}, known)
+    from sworldmodel.semantic_runtime.actor_mind import (
+        ActorResponseError, validate_actor_response)
+    with pytest.raises(ActorResponseError):
+        validate_actor_response({"decision": "z" * (MAX_TEXT_CHARS + 1),
+                                 "intentions": [], "private_updates": []})
+
+
+def test_reaching_the_horizon_is_recorded_so_the_run_stays_replayable():
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=Script({
+        "judge": [UNRESOLVED] * 300,
+        "world": [{"judgment": "nothing happens", "event": None,
+                   "wakes": []}] * 300,
+        "actor": [NOTHING] * 300}))
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          caller, max_steps=60, trace=Trace())
+    assert traj.status == "cutoff"
+    assert world.clock.now == parse_iso(CUTOFF)
+    # the clock did not move without the ledger saying so
+    assert parse_iso(world.records[-1]["t"]) == parse_iso(CUTOFF)
+    assert any(r["op"] == "semantic.horizon_reached" for r in world.records)
+    assert replay_trajectory(world.records, live_world=world)["exact"] is True

@@ -67,7 +67,7 @@ def render_view(view: dict) -> str:
     parts = [
         "CURRENT TIME", view["now"], "",
         "WHO YOU ARE",
-        f"{view['name']} (your identity in this situation: "
+        f"{contained(view['name'])} (your identity in this situation: "
         f"{view['actor_id']})",
         contained(view["private_context"]) if view["private_context"]
         else "(no further private context)", "",

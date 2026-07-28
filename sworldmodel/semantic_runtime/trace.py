@@ -26,7 +26,9 @@ class Trace:
 
 
 def _write_jsonl(path, rows):
-    with open(path, "w", encoding="utf-8") as f:
+    # errors="replace": an artifact write happens after a whole paid-for
+    # run, and must never be the thing that loses it
+    with open(path, "w", encoding="utf-8", errors="replace") as f:
         for r in rows:
             f.write(canonical_json(r) + "\n")
 
@@ -36,9 +38,12 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                     question: str) -> None:
     os.makedirs(out_dir, exist_ok=True)
     j = lambda name, obj: open(os.path.join(out_dir, name), "w",
-                               encoding="utf-8").write(
+                               encoding="utf-8", errors="replace").write(
                                    json.dumps(obj, indent=1, default=str))
 
+    # the ledger is the authoritative artifact, so it is written FIRST:
+    # nothing later may be able to lose it
+    _write_jsonl(os.path.join(out_dir, "ledger.jsonl"), world.records)
     j("compiled_scene.json", scene)
     j("initial_actor_states.json",
       {aid: {"name": st.name,
@@ -77,9 +82,8 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
     if replay is not None:
         j("replay_verification.json", replay)
     with open(os.path.join(out_dir, "trajectory.md"), "w",
-              encoding="utf-8") as f:
+              encoding="utf-8", errors="replace") as f:
         f.write(render_trajectory(question, journal, trace, trajectory))
-    _write_jsonl(os.path.join(out_dir, "ledger.jsonl"), world.records)
 
 
 def read_ledger(out_dir: str) -> list:
@@ -96,7 +100,7 @@ def read_ledger(out_dir: str) -> list:
 
 def write_replay_verification(out_dir: str, verification: dict) -> None:
     with open(os.path.join(out_dir, "replay_verification.json"), "w",
-              encoding="utf-8") as f:
+              encoding="utf-8", errors="replace") as f:
         f.write(json.dumps(verification, indent=1, default=str))
 
 

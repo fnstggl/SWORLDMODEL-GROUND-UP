@@ -240,8 +240,18 @@ The break is then **silent** in every direction:
   lineage of a record with `cause=3.5` prints `[(16, 'journal.event')]` — one hop, no
   marker. `lineage()` explicitly flags *truncation* (`world.py:344-346`) but not a
   dangling link.
-* `World.from_records` replays the ledger with no causality check at all; `replay.py`
-  reported `exact` reconstruction of the corrupt ledger (`state_hash=a744aa48…`).
+* `World.from_records` replays the ledger with no causality check at all; at commit
+  `763147f` `replay.py` reported `exact` reconstruction of the corrupt ledger
+  (`state_hash=a744aa48…`).
+
+> **Concurrent work — partially closed.** An uncommitted rewrite of `replay.py` in the
+> working tree (another agent, in flight at the time of writing) adds a `ledger_integrity`
+> check. Re-running the same probe against it gives
+> `ledger_integrity: ['seq 12 names a cause 99999 that does not exist before it']` and
+> `exact=False`. That closes the **detection** half (M-9). The **prevention** half stands
+> unchanged: `World.apply` still accepts `cause=99999` at write time, and `lineage()` is
+> still silent about the break. A corrupt chain is now caught only at replay, after it is
+> already durable in the ledger.
 
 **What holds.** The runtime's *own* paths never produce a bad cause. P2.1 walked all 33
 committed events of a full run to genesis with zero breaks, and P2.6 confirmed every
@@ -369,10 +379,13 @@ returning `after:"now"` with observed events and 3 intentions per turn — produ
 `max_steps`. Time did not run backwards and nothing passed the cutoff, so claims 1/3/8 are
 not violated; but the kernel's stated protection is not in force.
 
-**M-9 — Replay does not verify causality.** Consequence of H-3, listed separately because
-`replay.py` is in scope: `replay_trajectory` reported `exact` reconstruction of a ledger
-containing five dangling causes. Replay checks state, event ids, views, memories and the
-terminal — never the cause graph.
+**M-9 — Replay does not verify causality — *being fixed in the working tree*.**
+Consequence of H-3, listed separately because `replay.py` is in scope. At commit
+`763147f`, `replay_trajectory` reported `exact` reconstruction of a ledger containing five
+dangling causes; it checked state, event ids, views, memories and the terminal — never the
+cause graph. An **uncommitted** rewrite of `replay.py` present in the working tree adds a
+`ledger_integrity` field that catches exactly this (verified: see the note under H-3).
+Treat M-9 as closed once that lands; H-3's write-time prevention gap is separate and open.
 
 ---
 

@@ -21,7 +21,8 @@ anything is committed.
 """
 from __future__ import annotations
 
-from .envelope import contained, validate_event, validate_wakes
+from .envelope import (EnvelopeError, clean_text, contained,
+                       validate_event, validate_wakes)
 
 WORLD_SYSTEM = """You are the world: physical reality, institutions, \
 systems, and the ordinary circumstances that surround people.  You decide \
@@ -38,6 +39,12 @@ arrive somewhere a person could see it, then actually reach their \
 attention, then actually be read, then be understood.  Arriving is NOT \
 noticing.  Noticing is NOT reading.  People miss things, postpone them, \
 skim them, forget them, and never get to them at all.
+
+Keep every step at the scale a person would actually notice.  Machinery \
+that simply works is ONE step, not several: something either gets where it \
+is going or it does not, and nobody experiences it travelling.  Split a \
+step only where a person could genuinely be involved -- it arriving where \
+they are, them noticing it, them reading it, them acting.
 
 You decide circumstances; you never decide what a person intends or \
 chooses.  You may determine that someone is busy, interrupted, away, or \
@@ -172,7 +179,11 @@ def validate_world_response(obj) -> dict:
             f"world response has unexpected fields {sorted(unknown)}")
     if not isinstance(obj.get("judgment"), str) or not obj["judgment"].strip():
         raise WorldResponseError("judgment must be a non-empty string")
-    return {"judgment": obj["judgment"].strip(),
+    try:
+        judgment = clean_text(obj["judgment"].strip(), field="judgment")
+    except EnvelopeError as e:
+        raise WorldResponseError(str(e)) from None
+    return {"judgment": judgment,
             "event": obj.get("event"),
             "wakes": obj.get("wakes") or []}
 

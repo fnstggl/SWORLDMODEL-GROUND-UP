@@ -35,7 +35,7 @@ def main() -> int:
     ap.add_argument("--cutoff", default=None)
     ap.add_argument("--context", default=None)
     ap.add_argument("--out", default=None)
-    ap.add_argument("--max-steps", type=int, default=40)
+    ap.add_argument("--max-steps", type=int, default=150)
     ap.add_argument("--scene", default=None,
                     help="reuse a compiled final_scene_manifest.json")
     ap.add_argument("--model", default="deepseek-chat")

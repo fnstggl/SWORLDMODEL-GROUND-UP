@@ -49,9 +49,14 @@ def instantiate_scene_manifest(scene: dict, question: str, start_iso: str,
     """-> (world, journal, bindings).  Deterministic: identical inputs
     produce a byte-identical world (hash-checked in tests)."""
     start = parse_iso(start_iso)
+    cutoff = parse_iso(cutoff_iso)
+    if cutoff <= start:
+        raise ValueError(
+            f"the cutoff {cutoff_iso} is not after the start {start_iso}: "
+            f"there is no window in which anything could happen")
     world = World(start)
-    journal = Journal(world)
     tid = trajectory_id_for(question, start_iso, cutoff_iso)
+    journal = Journal(world, trajectory_id=tid)
     bindings = {"trajectory_id": tid, "actor_ids": {}, "question": question,
                 "start": start_iso, "cutoff": cutoff_iso,
                 "starting_event_ids": []}
@@ -90,9 +95,15 @@ def instantiate_scene_manifest(scene: dict, question: str, start_iso: str,
                                  source=f"starting_event[{i}]",
                                  trajectory_id=tid)
             bindings["starting_event_ids"].append(rec["event_id"])
-        else:
+        elif when <= cutoff:
             world.schedule("semantic.event",
                            {"envelope": payload,
                             "source": f"starting_event[{i}]"},
                            when, genesis_seq)
+        else:
+            # the window is the question's, not the scene's: nothing may
+            # be scheduled into time the question does not cover
+            bindings.setdefault("starting_events_beyond_cutoff", []).append(
+                {"index": i, "time": e["time"],
+                 "description": e["description"]})
     return world, journal, bindings

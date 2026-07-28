@@ -15,6 +15,8 @@ are world consequences and are rejected as intentions.
 """
 from __future__ import annotations
 
+from .envelope import EnvelopeError, clean_text
+
 #: A person takes a bounded number of actions in one moment.  This is also
 #: the budget boundary: every intention costs a world adjudication, so an
 #: unbounded list would let the model decide how much the runtime spends.
@@ -71,8 +73,11 @@ def validate_actor_response(obj) -> dict:
             f"actor response has unexpected fields {sorted(unknown)}")
     if not isinstance(obj.get("decision"), str) or not obj["decision"].strip():
         raise ActorResponseError("decision must be a non-empty string")
-    out = {"decision": obj["decision"].strip(), "intentions": [],
-           "private_updates": []}
+    try:
+        decision = clean_text(obj["decision"].strip(), field="decision")
+    except EnvelopeError as e:
+        raise ActorResponseError(str(e)) from None
+    out = {"decision": decision, "intentions": [], "private_updates": []}
     caps = {"intentions": MAX_INTENTIONS_PER_TURN,
             "private_updates": MAX_PRIVATE_UPDATES_PER_TURN}
     for field in ("intentions", "private_updates"):
@@ -89,7 +94,10 @@ def validate_actor_response(obj) -> dict:
             if not isinstance(item, str):
                 raise ActorResponseError(f"{field} entries must be strings")
             if item.strip():
-                out[field].append(item.strip())
+                try:
+                    out[field].append(clean_text(item.strip(), field=field))
+                except EnvelopeError as e:
+                    raise ActorResponseError(str(e)) from None
     return out
 
 

@@ -27,7 +27,8 @@ from sworldmodel.simclock import iso, parse_iso
 
 from . import actor_mind, resolution as resolution_mod, world_mind
 from .envelope import EnvelopeError, parse_duration, validate_event
-from .journal import Journal, OP_ACTOR_CALL, OP_TERMINAL, OP_WORLD_CALL
+from .journal import (Journal, OP_ACTOR_CALL, OP_HORIZON, OP_TERMINAL,
+                      OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
@@ -63,7 +64,11 @@ class SemanticTrajectory:
     #: cutoff     -- the trajectory reached the horizon and did not
     #: incomplete -- it ran out of steps or calls first, so the horizon was
     #:               never reached and no NO may be claimed
-    #: failed     -- a technical failure; nothing partial was committed
+    #: failed     -- a technical failure.  No RESPONSE is ever partially
+    #:               committed: a rejected one writes nothing at all.
+    #:               Records written by calls that had already completed
+    #:               within the same step do remain, because those things
+    #:               really did happen before the failure.
     status: str = "running"
     answer: dict | None = None
     reason: str = ""
@@ -246,7 +251,14 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 _schedule_recheck(aid, rec["seq"])
 
     # ---------------------------------------------------------------
-    def judge(*, final: bool, cause: int) -> dict:
+    def judge(*, final: bool, cause: int, reserved: bool = False) -> dict:
+        """``final`` says the cutoff has been reached, so UNRESOLVED is not
+        available.  ``reserved`` says this is the judgment that closes the
+        run and must be paid for out of the held-back allowance -- which is
+        true of EVERY closing judgment, including the one that closes a run
+        because the budget ran out.  Deriving one from the other would make
+        the closing judgment of a budget-exhausted run unaffordable, and
+        the truncation rule below unreachable."""
         events = journal.events()
         validator = resolution_mod.make_validator(
             {e["event_id"] for e in events}, world.clock.now, cutoff,
@@ -260,7 +272,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                "observed_by": e["observed_by"]}
                               for e in events], final=final),
                          validator, sim_time=_iso_now(world),
-                         trigger="terminal_check", reserved=final)
+                         trigger="terminal_check", reserved=reserved)
         traj.judge_calls += 1
         parsed = out["parsed"]
         world.apply(OP_TERMINAL, {"call_id": out["call_id"],
@@ -287,7 +299,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         """
         if not truncated and world.clock.now < cutoff:
             world.clock.advance_to(cutoff)
-        answer = judge(final=not truncated, cause=world.records[-1]["seq"])
+            # the advance itself is recorded.  A clock moved without a
+            # record is a clock the ledger cannot reproduce, and if the
+            # closing judgment then fails, the run becomes unreplayable
+            # through no fault of the record.
+            world.apply(OP_HORIZON, {"cutoff": iso(cutoff),
+                                     "trajectory_id": tid},
+                        world.records[-1]["seq"])
+        answer = judge(final=not truncated, cause=world.records[-1]["seq"],
+                       reserved=True)
         traj.answer = answer
         if answer["status"] == "YES":
             traj.status = "resolved"
@@ -308,6 +328,10 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             traj.reason = ("the compiled scene already satisfies its own "
                            "resolution at initialization")
             return traj
+
+        #: how many events had been committed when the terminal was last
+        #: asked; re-asking without a new one cannot change the answer
+        judged_after = {"events": len(journal.events())}
 
         # starting events follow the same post-commit rule as any other
         # committed event: whoever is aware of one gets their turn, and
@@ -394,11 +418,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             else:
                 continue
 
-            checked = judge(final=False, cause=fired)
-            if checked["status"] == "YES":
-                traj.status = "resolved"
-                traj.answer = checked
-                return traj
+            # only committed events can satisfy a resolution, so asking
+            # again when nothing has been committed since the last answer
+            # cannot change it -- it only spends the budget
+            if len(journal.events()) != judged_after["events"]:
+                judged_after["events"] = len(journal.events())
+                checked = judge(final=False, cause=fired)
+                if checked["status"] == "YES":
+                    traj.status = "resolved"
+                    traj.answer = checked
+                    return traj
 
         if traj.steps >= max_steps:
             return finish(f"step ceiling {max_steps} reached at "
@@ -412,9 +441,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     except CallBudgetExceeded as e:
         # the backstop is a horizon, not a failure: calls are held in
         # reserve precisely so a run that spends its budget mid-step still
-        # gets an honest judgment of the trajectory it actually produced
+        # gets an honest judgment of the trajectory it actually produced.
+        # It is a TRUNCATION, so it is judged where it stopped and may not
+        # answer NO over time it never simulated.
         try:
-            return finish(f"call ceiling reached mid-step: {e}")
+            return finish(f"call ceiling reached mid-step at "
+                          f"{_iso_now(world)}: {e}", truncated=True)
         except (EnvelopeError, RuntimeTechnicalFailure, CallBudgetExceeded,
                 ValueError) as e2:
             traj.status = "failed"

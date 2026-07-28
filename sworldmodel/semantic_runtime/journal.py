@@ -25,13 +25,21 @@ OP_PROFILE = "semantic.actor_profile"
 OP_ACTOR_CALL = "semantic.actor_call"
 OP_WORLD_CALL = "semantic.world_call"
 OP_TERMINAL = "semantic.terminal_check"
+OP_HORIZON = "semantic.horizon_reached"
 
 
 class Journal:
     """Append-only committed history, projected from the kernel ledger."""
 
-    def __init__(self, world) -> None:
+    def __init__(self, world, trajectory_id: str | None = None) -> None:
         self.world = world
+        # A journal is the history of ONE trajectory.  If a world ever
+        # held more than one, events from another must not appear in a
+        # view or be citable by a judgment, so the projection is scoped by
+        # identity.  The scene records its own id, so replay picks the
+        # same scope up without being told.
+        self.trajectory_id = trajectory_id or world.facts.get(
+            "scene:trajectory_id")
 
     # -- commit -------------------------------------------------------
     def commit(self, envelope: dict, *, cause: int, source: str,
@@ -91,6 +99,9 @@ class Journal:
             if r["op"] != OP_EVENT:
                 continue
             d = r["data"]
+            if self.trajectory_id and d.get("trajectory_id") \
+                    != self.trajectory_id:
+                continue
             audience = list(d["for"])
             seen = (list(audience) if d["observed"]
                     else [a for a in audience

@@ -33,6 +33,14 @@ TOTAL_READ_DEADLINE_S = 240.0
 TOTAL_REQUEST_DEADLINE_S = 270.0
 MAX_RETRIES_PER_CALL = 1
 
+#: how much of a rejection is quoted back on the retry.  The reason may
+#: contain the model's own text, and a retry must not be a way to grow the
+#: next prompt without bound.
+MAX_REJECTION_ECHO = 500
+
+#: a response body larger than this is not an answer to anything
+MAX_RESPONSE_BYTES = 4 * 1024 * 1024
+
 #: Calls held out of the ordinary budget so the final judgment can always
 #: be taken (one call plus its one retry).
 RESERVED_FINAL_CALLS = 2
@@ -110,13 +118,17 @@ class RuntimeCaller:
         with urllib.request.urlopen(req, timeout=SOCKET_TIMEOUT_S,
                                     context=ctx) as resp:
             deadline = time.monotonic() + TOTAL_READ_DEADLINE_S
-            chunks = []
+            chunks, total = [], 0
             while True:
                 if time.monotonic() > deadline:
                     raise TimeoutError("response exceeded the read deadline")
                 chunk = resp.read(65536)
                 if not chunk:
                     break
+                total += len(chunk)
+                if total > MAX_RESPONSE_BYTES:
+                    raise RuntimeTechnicalFailure(
+                        f"response exceeded {MAX_RESPONSE_BYTES} bytes")
                 chunks.append(chunk)
         out = json.loads(b"".join(chunks).decode("utf-8"))
         return (out["choices"][0]["message"]["content"], out.get("usage", {}))
@@ -144,7 +156,7 @@ class RuntimeCaller:
             # situation -- only about the shape of the reply.
             attempt_user = user if not attempt else (
                 f"{user}\n\nYOUR PREVIOUS REPLY WAS REJECTED\n"
-                f"{last_err}\n"
+                f"{str(last_err)[:MAX_REJECTION_ECHO]}\n"
                 f"Reply again with ONLY a corrected JSON object that fixes "
                 f"exactly that problem.  Change nothing else.")
             entry = {"call_id": call_id, "role": role, "model": self.model,

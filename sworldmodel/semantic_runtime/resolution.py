@@ -26,7 +26,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from .envelope import contained
+from .envelope import EnvelopeError, clean_text, contained
 
 STATUSES = ("YES", "UNRESOLVED", "NO_AT_CUTOFF")
 
@@ -127,7 +127,12 @@ def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
                 "this is the judgment AT the cutoff: the question is "
                 "either satisfied by committed events (YES) or it is not "
                 "(NO_AT_CUTOFF); UNRESOLVED is not available")
+        try:
+            explanation = clean_text(obj["explanation"].strip(),
+                                     field="explanation")
+        except EnvelopeError as e:
+            raise ResolutionError(str(e)) from None
         return {"status": status, "supporting_event_ids": list(ids),
-                "explanation": obj["explanation"].strip()}
+                "explanation": explanation}
 
     return validate
