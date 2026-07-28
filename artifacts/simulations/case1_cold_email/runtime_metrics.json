@@ -1,44 +1,47 @@
 {
- "provider_calls": 50,
+ "provider_calls": 78,
  "by_role": {
   "judge": {
-   "calls": 11,
+   "calls": 15,
    "retries": 0,
-   "wall_s": 17.34,
-   "input_tokens": 8627,
-   "output_tokens": 586
+   "wall_s": 24.65,
+   "input_tokens": 13618,
+   "output_tokens": 891
   },
   "world": {
-   "calls": 20,
+   "calls": 23,
    "retries": 0,
-   "wall_s": 44.7,
-   "input_tokens": 45058,
-   "output_tokens": 2378
+   "wall_s": 49.0,
+   "input_tokens": 54999,
+   "output_tokens": 2732
   },
   "actor": {
-   "calls": 19,
+   "calls": 40,
    "retries": 0,
-   "wall_s": 29.91,
-   "input_tokens": 21707,
-   "output_tokens": 1083
+   "wall_s": 62.45,
+   "input_tokens": 61355,
+   "output_tokens": 2176
   }
  },
- "total_input_tokens": 75392,
- "total_output_tokens": 4047,
- "total_wall_s": 91.97,
+ "total_input_tokens": 129972,
+ "total_output_tokens": 5799,
+ "total_wall_s": 136.09,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e107"
+   "e171",
+   "e199",
+   "e207",
+   "e217"
   ],
-  "explanation": "Event e107 shows Mark Cuban sent a response to Jordan Reyes's email before the cutoff."
+  "explanation": "Event e171 shows Mark Cuban's assistant sent a reply email to Jordan Reyes before the cutoff, and events e199, e207, and e217 confirm Jordan Reyes observed it, constituting a response sent by Mark Cuban."
  },
  "reason": "",
- "steps": 27,
- "world_calls": 20,
- "actor_calls": 19,
- "judge_calls": 11,
- "committed_events": 11,
- "ledger_records": 135
+ "steps": 51,
+ "world_calls": 23,
+ "actor_calls": 40,
+ "judge_calls": 15,
+ "committed_events": 15,
+ "ledger_records": 219
 }

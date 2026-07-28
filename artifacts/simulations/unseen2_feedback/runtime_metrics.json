@@ -1,42 +1,44 @@
 {
- "provider_calls": 192,
+ "provider_calls": 114,
  "by_role": {
   "judge": {
-   "calls": 60,
-   "retries": 2,
-   "wall_s": 92.98,
-   "input_tokens": 133133,
-   "output_tokens": 4214
+   "calls": 35,
+   "retries": 0,
+   "wall_s": 51.78,
+   "input_tokens": 48727,
+   "output_tokens": 1956
   },
   "world": {
-   "calls": 76,
+   "calls": 45,
    "retries": 0,
-   "wall_s": 180.62,
-   "input_tokens": 282086,
-   "output_tokens": 10148
+   "wall_s": 99.55,
+   "input_tokens": 132969,
+   "output_tokens": 5699
   },
   "actor": {
-   "calls": 56,
+   "calls": 34,
    "retries": 0,
-   "wall_s": 107.35,
-   "input_tokens": 156262,
-   "output_tokens": 4547
+   "wall_s": 61.87,
+   "input_tokens": 67589,
+   "output_tokens": 2514
   }
  },
- "total_input_tokens": 571481,
- "total_output_tokens": 18909,
- "total_wall_s": 380.97,
- "status": "cutoff",
+ "total_input_tokens": 249285,
+ "total_output_tokens": 10169,
+ "total_wall_s": 213.21,
+ "status": "resolved",
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that Dr Aline Mercier actually sent comments to Ravi Patel before the deadline; she only read parts of the chapter and replied promising to send comments."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e307"
+  ],
+  "explanation": "Event e307 shows Dr Aline Mercier sent comments to Ravi Patel via email, satisfying the resolution condition."
  },
  "reason": "",
- "steps": 108,
- "world_calls": 76,
- "actor_calls": 56,
- "judge_calls": 58,
- "committed_events": 57,
- "ledger_records": 508
+ "steps": 65,
+ "world_calls": 45,
+ "actor_calls": 34,
+ "judge_calls": 35,
+ "committed_events": 35,
+ "ledger_records": 308
 }

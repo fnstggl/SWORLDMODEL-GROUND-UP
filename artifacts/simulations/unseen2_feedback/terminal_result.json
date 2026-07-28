@@ -1,22 +1,26 @@
 {
  "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
  "trajectory": {
-  "status": "cutoff",
+  "status": "resolved",
   "answer": {
-   "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [],
-   "explanation": "No committed event shows that Dr Aline Mercier actually sent comments to Ravi Patel before the deadline; she only read parts of the chapter and replied promising to send comments."
+   "status": "YES",
+   "supporting_event_ids": [
+    "e307"
+   ],
+   "explanation": "Event e307 shows Dr Aline Mercier sent comments to Ravi Patel via email, satisfying the resolution condition."
   },
   "reason": "",
-  "steps": 108,
-  "world_calls": 76,
-  "actor_calls": 56,
-  "judge_calls": 58
+  "steps": 65,
+  "world_calls": 45,
+  "actor_calls": 34,
+  "judge_calls": 35
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that Dr Aline Mercier actually sent comments to Ravi Patel before the deadline; she only read parts of the chapter and replied promising to send comments."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e307"
+  ],
+  "explanation": "Event e307 shows Dr Aline Mercier sent comments to Ravi Patel via email, satisfying the resolution condition."
  },
  "reason": ""
 }

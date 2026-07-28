@@ -1,46 +1,46 @@
 {
- "provider_calls": 42,
+ "provider_calls": 66,
  "by_role": {
   "judge": {
-   "calls": 14,
+   "calls": 19,
    "retries": 0,
-   "wall_s": 23.56,
-   "input_tokens": 13476,
-   "output_tokens": 887
+   "wall_s": 30.35,
+   "input_tokens": 21134,
+   "output_tokens": 1077
   },
   "world": {
-   "calls": 18,
+   "calls": 26,
    "retries": 0,
-   "wall_s": 41.17,
-   "input_tokens": 45005,
-   "output_tokens": 2581
+   "wall_s": 55.27,
+   "input_tokens": 69865,
+   "output_tokens": 3370
   },
   "actor": {
-   "calls": 10,
+   "calls": 21,
    "retries": 0,
-   "wall_s": 18.32,
-   "input_tokens": 10774,
-   "output_tokens": 779
+   "wall_s": 38.49,
+   "input_tokens": 30074,
+   "output_tokens": 1518
   }
  },
- "total_input_tokens": 69255,
- "total_output_tokens": 4247,
- "total_wall_s": 83.05,
+ "total_input_tokens": 121073,
+ "total_output_tokens": 5965,
+ "total_wall_s": 124.12,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e56",
-   "e65",
-   "e110"
+   "e117",
+   "e131",
+   "e179"
   ],
-  "explanation": "Dmitri observed Priya's offer of 1150 (e56) and agreed by sending '1150 works' (e65), which Priya observed (e110), forming an agreement on price 1150."
+  "explanation": "Dmitri saw Priya's offer of 1100 (e117) and accepted it (e131), and Priya saw that acceptance (e179), forming an agreement before the deadline."
  },
  "reason": "",
- "steps": 19,
- "world_calls": 18,
- "actor_calls": 10,
- "judge_calls": 14,
- "committed_events": 14,
- "ledger_records": 121
+ "steps": 33,
+ "world_calls": 26,
+ "actor_calls": 21,
+ "judge_calls": 19,
+ "committed_events": 19,
+ "ledger_records": 188
 }

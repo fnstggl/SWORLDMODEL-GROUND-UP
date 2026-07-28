@@ -1,49 +1,51 @@
 {
- "provider_calls": 200,
+ "provider_calls": 259,
  "by_role": {
   "judge": {
-   "calls": 33,
+   "calls": 42,
    "retries": 0,
-   "wall_s": 53.28,
-   "input_tokens": 48903,
-   "output_tokens": 1949
+   "wall_s": 68.16,
+   "input_tokens": 70075,
+   "output_tokens": 2525
   },
   "world": {
-   "calls": 74,
-   "retries": 0,
-   "wall_s": 153.35,
-   "input_tokens": 242140,
-   "output_tokens": 8137
+   "calls": 98,
+   "retries": 2,
+   "wall_s": 226.05,
+   "input_tokens": 347773,
+   "output_tokens": 11474
   },
   "actor": {
-   "calls": 93,
+   "calls": 119,
    "retries": 0,
-   "wall_s": 144.85,
-   "input_tokens": 172014,
-   "output_tokens": 5135
+   "wall_s": 201.77,
+   "input_tokens": 292696,
+   "output_tokens": 7205
   }
  },
- "total_input_tokens": 463057,
- "total_output_tokens": 15221,
- "total_wall_s": 351.51,
+ "total_input_tokens": 710544,
+ "total_output_tokens": 21204,
+ "total_wall_s": 496.04,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e159",
-   "e172",
-   "e294",
-   "e352",
-   "e514",
-   "e531"
+   "e143",
+   "e187",
+   "e250",
+   "e305",
+   "e382",
+   "e464",
+   "e644",
+   "e662"
   ],
-  "explanation": "Ines offered to host on Saturday evening (e159), and all housemates (Tomas, Bea, Kwame) saw and acknowledged this, with Bea and Kwame explicitly thanking Ines for hosting, indicating collective agreement on Ines as host before the deadline."
+  "explanation": "By e662, Kwame has observed the full thread confirming Bea's offer to host on Saturday at 2pm, Ines's agreement, and Bea's final confirmation, showing all four housemates collectively agreed on Bea as host before the deadline."
  },
  "reason": "",
- "steps": 111,
- "world_calls": 74,
- "actor_calls": 93,
- "judge_calls": 33,
- "committed_events": 33,
- "ledger_records": 539
+ "steps": 145,
+ "world_calls": 96,
+ "actor_calls": 119,
+ "judge_calls": 42,
+ "committed_events": 42,
+ "ledger_records": 678
 }

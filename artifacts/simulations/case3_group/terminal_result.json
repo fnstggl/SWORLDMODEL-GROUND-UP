@@ -5,32 +5,36 @@
   "answer": {
    "status": "YES",
    "supporting_event_ids": [
-    "e159",
-    "e172",
-    "e294",
-    "e352",
-    "e514",
-    "e531"
+    "e143",
+    "e187",
+    "e250",
+    "e305",
+    "e382",
+    "e464",
+    "e644",
+    "e662"
    ],
-   "explanation": "Ines offered to host on Saturday evening (e159), and all housemates (Tomas, Bea, Kwame) saw and acknowledged this, with Bea and Kwame explicitly thanking Ines for hosting, indicating collective agreement on Ines as host before the deadline."
+   "explanation": "By e662, Kwame has observed the full thread confirming Bea's offer to host on Saturday at 2pm, Ines's agreement, and Bea's final confirmation, showing all four housemates collectively agreed on Bea as host before the deadline."
   },
   "reason": "",
-  "steps": 111,
-  "world_calls": 74,
-  "actor_calls": 93,
-  "judge_calls": 33
+  "steps": 145,
+  "world_calls": 96,
+  "actor_calls": 119,
+  "judge_calls": 42
  },
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e159",
-   "e172",
-   "e294",
-   "e352",
-   "e514",
-   "e531"
+   "e143",
+   "e187",
+   "e250",
+   "e305",
+   "e382",
+   "e464",
+   "e644",
+   "e662"
   ],
-  "explanation": "Ines offered to host on Saturday evening (e159), and all housemates (Tomas, Bea, Kwame) saw and acknowledged this, with Bea and Kwame explicitly thanking Ines for hosting, indicating collective agreement on Ines as host before the deadline."
+  "explanation": "By e662, Kwame has observed the full thread confirming Bea's offer to host on Saturday at 2pm, Ines's agreement, and Bea's final confirmation, showing all four housemates collectively agreed on Bea as host before the deadline."
  },
  "reason": ""
 }

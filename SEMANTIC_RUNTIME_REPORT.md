@@ -316,8 +316,8 @@ that merely arrived.
 
 ## 14. Invariant-test results
 
-`python3 -m pytest tests/ -q` → **223 passed**, of which 36 are specific to
-this phase (33 in `tests/test_semantic_runtime.py`, 4 in
+`python3 -m pytest tests/ -q` → **230 passed**, of which 55 are specific to
+this phase (50 in `tests/test_semantic_runtime.py`, 4 in
 `tests/test_compiler_runtime_integration.py`, plus the universality-guard
 coverage test). Every test in the suite is deterministic and calls no
 provider.
@@ -357,7 +357,16 @@ The invariants each one holds down:
 | reaching the horizon is recorded | `test_reaching_the_horizon_is_recorded_so_the_run_stays_replayable` |
 | replay is exact and calls no model | `test_replay_is_exact_and_calls_no_model`, `test_replay_measures_rather_than_asserts_zero_calls` |
 | **and the replay check can fail** | `test_replay_detects_a_forged_terminal`, `test_replay_detects_deleted_and_rewritten_provenance`, `test_replay_detects_a_rewritten_event_that_no_hash_covers`, `test_replay_checks_the_ledger_on_its_own_terms`, `test_replay_reports_itself_vacuous_when_there_is_nothing_to_verify` |
+| a person remembers what they themselves did | `test_a_person_remembers_what_they_themselves_did` |
+| a person's own action gives them no fresh turn | `test_a_persons_own_action_does_not_hand_them_another_turn` |
+| what a person does still travels afterwards | `test_what_a_person_does_still_travels_after_they_do_it` |
+| being deep in your own task is not news | `test_being_deep_in_your_own_task_does_not_earn_a_fresh_turn` |
+| one person noticing is not everyone noticing | `test_one_person_noticing_is_not_everyone_noticing` |
+| the same thing cannot happen twice, word for word | `test_the_same_event_cannot_happen_twice_word_for_word` |
+| nobody is quietly dropped before the horizon | `test_nobody_is_quietly_dropped_before_the_horizon` |
+| one pending revisit per person, however asked for | `test_one_pending_revisit_per_person_however_it_was_asked_for` |
 | the compiler is frozen, on disk, including untracked files | `test_frozen_compiler_files_are_unchanged` |
+| the runtime is frozen for the unseen case | `test_the_runtime_is_frozen_for_the_unseen_case` |
 | the universality guard covers every production file | `test_every_production_file_is_actually_scanned` |
 
 ## 16. Adversarial findings, and 17. what was done about each
@@ -498,3 +507,166 @@ guarantees.
 6. **No live retrieval.** Everything the world contains comes from the
    compiled scene. No claim is made about current real-world facts beyond
    what the compiler put there.
+
+## 15. Live-run metrics
+
+Every run goes through the production entry point: the frozen compiler's
+own manifest, the mechanical adapter, the semantic runtime, then replay
+verified against the ledger written to disk.
+
+| case | answer | steps | events | provider calls | input tokens | output tokens | wall s | replay |
+|---|---|---|---|---|---|---|---|---|
+| `case1_cold_email` | YES | 51 | 15 | 78 | 129,972 | 5,799 | 136 | exact, 0 calls |
+| `case2_negotiation` | YES | 33 | 19 | 66 | 121,073 | 5,965 | 124 | exact, 0 calls |
+| `case3_group` | YES | 145 | 42 | 259 | 710,544 | 21,204 | 496 | exact, 0 calls |
+| `unseen1_confirm` | YES | 0 | 1 | 1 | 526 | 98 | 2 | exact, 0 calls |
+| `unseen2_feedback` | YES | 65 | 35 | 114 | 249,285 | 10,169 | 213 | exact, 0 calls |
+| `unseen4_holiday_deposit` | NO_AT_CUTOFF | 168 | 72 | 312 | 1,160,971 | 29,896 | 620 | exact, 0 calls |
+| **total** | | 462 | 184 | 830 | 2,372,371 | 73,131 | 1592 | 6/6 exact |
+
+Every one of the six replays is exact, performs zero provider calls
+(measured, not asserted), and passes the ledger-integrity check with no
+problems found.
+
+Two of these numbers deserve to be read rather than skipped.
+
+`unseen1_confirm` ran **zero steps**. Its judge concluded at
+initialization that the compiled scene already satisfied its own
+resolution, and the runtime stopped and said so rather than simulating a
+question that was already answered. That is the initialization invariant
+doing its job, but it also means this case contributed nothing as an
+acceptance run this round: the same scene, on earlier runs of the same
+code, was judged UNRESOLVED at initialization and went on to simulate
+properly. A terminal check that flips on identical input is a judge that
+is not reliable at the margin.
+
+`unseen4_holiday_deposit` cost as much as the other five together. It is
+four people over three and a half days, and 37 of its 72 events are
+somebody operating a device.
+
+### Run-to-run variance
+
+This is one trajectory, sampled once, with no aggregation — which is the
+phase's design, not an oversight. The same scene run repeatedly does not
+give the same answer: `case1_cold_email` answered NO, YES, NO, YES and
+YES across five runs of successive builds. Nothing here should be read
+as "the system's answer" to a question. It is one world that happened.
+
+## 19. One full readable trace per case
+
+`artifacts/simulations/<case>/trajectory.md` is the complete chronology
+for each run, in order: simulated time, the triggering event, who could
+access it, who actually observed it, each actor's entire local prompt (in
+a collapsed block), their decision, their intentions, the world's
+judgment, the committed event, private memory updates, scheduled wakes,
+and every terminal check. The same directory holds the machine-readable
+form of all of it, plus `ledger.jsonl`, the authoritative record.
+
+For each case, the questions the phase asks explicitly:
+
+| | cold email | negotiation | housemates | plumber | thesis | deposit |
+|---|---|---|---|---|---|---|
+| delivery stayed separate from noticing | yes | yes | yes | n/a | yes | yes |
+| noticing stayed separate from reading | yes | yes | yes | n/a | yes | yes |
+| reading stayed separate from interpretation | yes | partly | yes | n/a | yes | yes |
+| every actor received only local information | yes | yes | yes | n/a | yes | yes |
+| actors behaved as distinct people | **no** | partly | partly | n/a | partly | partly |
+| the world avoided choosing actor intentions | partly | partly | partly | n/a | partly | partly |
+| time advanced realistically | partly | **no** | partly | n/a | **no** | **no** |
+| every event followed its cause | yes | yes | yes | n/a | partly | yes |
+| the final answer cited committed events | yes | yes | yes | yes | yes | yes |
+| replay used zero model calls | yes | yes | yes | yes | yes | yes |
+| the same machinery ran it, with no scenario code | yes | yes | yes | yes | yes | yes |
+| the resulting behaviour was believable | **no** | partly | partly | n/a | **no** | partly |
+
+"n/a" for the plumber case because it ran zero steps this round (§15).
+The bottom three rows are the quality gate's, not mine; the reasoning is
+in `artifacts/semantic_runtime/QUALITY_GATE_FINAL.md`.
+
+## 20. Replay proof
+
+For every run, `replay_verification.json` records the result of rebuilding
+the world from `ledger.jsonl` **as read back from disk**:
+
+- `llm_calls: 0` — measured across the reconstruction by a process-wide
+  counter on the caller, before and after, not asserted;
+- `ledger_integrity: []` — contiguous sequence numbers, non-decreasing
+  time, every cause existing and preceding its record, every observation
+  naming an event that actually reached that actor, every YES citing
+  events that exist;
+- `records_match`, `events_match`, `observations_match`, `views_match`,
+  `memories_match`, `terminal_matches`, `state_hash_matches`,
+  `clock_matches`, `event_ids_match` — all true, each compared field by
+  field between the reconstruction and the live world, which share no
+  object because the records are deep-copied first;
+- `checked` — how much was actually compared, so the result cannot be
+  vacuously true.
+
+The check is falsifiable, and five tests demonstrate it failing: a forged
+terminal, deleted provenance, a rewritten judgment, a rewritten event no
+hash covers, and a ledger whose causality does not hold. A verification
+with nothing to verify reports itself vacuous rather than exact.
+
+## 21. Pull request and commit
+
+Branch `claude/sworldmodel-semantic-runtime`, opened as a **draft** against
+`main` and deliberately not merged. The PR description carries the same
+verdict as §22 below. Commit SHA is recorded in the PR itself.
+
+## 22. Stopping conditions: what is met, and what is not
+
+The phase defines when it may be called complete. It may not be.
+
+**Met:**
+
+- all pre-existing tests pass, and all new invariant tests pass (230 total)
+- all three required live trajectories ran through the canonical path
+- the unseen case ran with no scenario-specific change
+- the compiler's production files are byte-for-byte unchanged, verified on
+  disk against a pre-phase record, with no untracked additions
+- no alternate compiler or runtime was introduced
+- local-view isolation is mechanically proven
+- delivered does not imply noticed; noticed does not imply read
+- intentions do not imply success
+- no probability, weighting, particle or branching machinery exists
+- terminal YES cites committed events
+- exact replay performs zero model calls, and the check can fail
+- the complete artifact set exists for every run
+- the draft PR is pushed and not merged
+
+**Not met:**
+
+- **the real-world quality gate fails.** Independent reviewers returned
+  FAIL on actor realism for two runs, on causal realism for one, on
+  information realism for one, and on timing realism for four. The gate's
+  own rule is that a trajectory fails if any reviewer finds implausible
+  behaviour, unrealistic timing, or skipped causality. Several do.
+- **zero unresolved HIGH findings** is not true either: the residuals in
+  §18, plus the three below, are open.
+
+Three findings from the final gate that remain open:
+
+1. **A YES stops the run; a NO must reach the cutoff.** This is sound for
+   a monotone question — committed events cannot become uncommitted — but
+   it means no YES is ever tested against what came next, while every NO
+   is tested against everything. One run's YES stands on an acceptance the
+   other party had not yet received.
+2. **Half of what happens is somebody operating a device.** 53 of 184
+   committed events in the final runs, and 37 of 72 in the largest one.
+   The world prompt forbids narrating mechanics and gives the exact
+   counter-example; it does it anyway. I attempted the structural fix —
+   do not ask the world what became of something its own doer already
+   knows — and it broke message delivery, because "she sends the message"
+   and "he puts his phone down" are the same shape: an act observed only
+   by the person who performed it. Only one of them has anywhere to go.
+   Telling them apart requires reading the sentence.
+3. **Only inattention goes wrong.** Across the corpus, almost nothing is
+   misread, breaks, is cancelled, or is done by anyone outside the cast.
+   The world prompt now asks for all of these explicitly. It complied in
+   one run out of six.
+
+None of these are hidden by narrowing the scope. The phase's mechanical
+bet — that a thin deterministic shell can hold time, information
+boundaries, identity, causality, memory, terminal lineage and replay while
+the meaning stays natural language — is demonstrated. The second half of
+the bet, that what results reads like real people, is not yet earned.

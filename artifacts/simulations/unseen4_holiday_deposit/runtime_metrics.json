@@ -1,42 +1,42 @@
 {
- "provider_calls": 529,
+ "provider_calls": 312,
  "by_role": {
   "judge": {
-   "calls": 195,
-   "retries": 47,
-   "wall_s": 367.95,
-   "input_tokens": 1200803,
-   "output_tokens": 15260
+   "calls": 80,
+   "retries": 10,
+   "wall_s": 128.94,
+   "input_tokens": 252946,
+   "output_tokens": 4937
   },
   "world": {
-   "calls": 207,
+   "calls": 114,
    "retries": 0,
-   "wall_s": 505.69,
-   "input_tokens": 1210934,
-   "output_tokens": 27785
+   "wall_s": 266.77,
+   "input_tokens": 543257,
+   "output_tokens": 15539
   },
   "actor": {
-   "calls": 127,
+   "calls": 118,
    "retries": 0,
-   "wall_s": 272.01,
-   "input_tokens": 533923,
-   "output_tokens": 11652
+   "wall_s": 224.61,
+   "input_tokens": 364768,
+   "output_tokens": 9420
   }
  },
- "total_input_tokens": 2945660,
- "total_output_tokens": 54697,
- "total_wall_s": 1145.66,
- "status": "incomplete",
+ "total_input_tokens": 1160971,
+ "total_output_tokens": 29896,
+ "total_wall_s": 620.4,
+ "status": "cutoff",
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No deposit of \u00a3600 has been deposited into Marian Prowse's bank account by the current time, and the deadline has not yet passed."
+  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline."
  },
- "reason": "step ceiling 250 reached at 2026-09-15T08:11:00+00:00, before the cutoff",
- "steps": 250,
- "world_calls": 207,
- "actor_calls": 127,
- "judge_calls": 148,
- "committed_events": 150,
- "ledger_records": 1327
+ "reason": "",
+ "steps": 168,
+ "world_calls": 114,
+ "actor_calls": 118,
+ "judge_calls": 70,
+ "committed_events": 72,
+ "ledger_records": 814
 }
