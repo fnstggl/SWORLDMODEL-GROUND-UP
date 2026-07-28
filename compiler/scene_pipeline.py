@@ -170,8 +170,8 @@ def compile_scene(question: str, start: str, cutoff: str,
             # deterministic validation follows; the reviewer is NOT recalled
 
         # ---- deterministic validation + normalization -----------------
-        scene, norm_report, errors, warnings = validate_scene(manifest,
-                                                              start, cutoff)
+        scene, norm_report, errors, warnings = validate_scene(
+            manifest, start, cutoff, question=question, context=context)
         art["final_scene_manifest.json"] = json.dumps(scene, indent=1)
         art["normalization_report.json"] = json.dumps(norm_report, indent=1)
         art["validation_report.json"] = json.dumps(

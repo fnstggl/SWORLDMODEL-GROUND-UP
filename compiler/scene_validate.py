@@ -11,6 +11,8 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 
+from .scene_guards import prewritten_outcome_findings, window_findings
+
 
 def parse_ts(s: str) -> datetime:
     return datetime.fromisoformat(s.replace("Z", "+00:00"))
@@ -38,9 +40,15 @@ def display_name(name: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
-def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
+def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str,
+                   question: str | None = None, context: str | None = None):
     """-> (normalized_manifest, normalization_report, validation_errors,
-    validation_warnings).  On errors the manifest must not instantiate."""
+    validation_warnings).  On errors the manifest must not instantiate.
+
+    When the question is supplied, two shallow backup guards also run (see
+    scene_guards): near-identical prewritten outcomes, and a question
+    window narrower than the compile cutoff.  The independent reviewer
+    remains the primary detector for both."""
     errors: list = []
     warnings: list = []
     notes: list = []
@@ -159,6 +167,14 @@ def validate_scene(manifest: dict, start_iso: str, cutoff_iso: str):
                     _strip_invisibles(manifest["shared_context"])).strip()
     if not shared:
         errors.append("shared_context is empty after normalization")
+
+    # ---- shallow backup guards (Call 2 is the primary detector) -------
+    if question is not None and resolution:
+        g_err, g_warn = prewritten_outcome_findings(events, resolution)
+        errors.extend(g_err)
+        warnings.extend(g_warn)
+        errors.extend(window_findings(question, context, resolution,
+                                      start, cutoff))
 
     normalized = {"actors": actors, "shared_context": shared,
                   "starting_events": events, "resolution": resolution}
