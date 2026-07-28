@@ -1,0 +1,15 @@
+{
+ "question": "Is this cold email likely to get a response from Mark Cuban within two weeks? Jordan Reyes, founder of a bootstrapped sports-analytics startup, has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. Jordan will send it today and does not plan to follow up.",
+ "trajectory": {
+  "status": "failed",
+  "answer": null,
+  "reason": "ActorGroundingError: mark_cuban: the reply still does not follow from what they have, after one correction: You have already decided and attempted to wait 21 times, yet you propose the same waiting action again without any change in circumstances, contradicting the implied expectation that waiting might eventually yield results.",
+  "steps": 25,
+  "world_calls": 30,
+  "actor_calls": 27,
+  "judge_calls": 3,
+  "review_calls": 33
+ },
+ "answer": null,
+ "reason": "ActorGroundingError: mark_cuban: the reply still does not follow from what they have, after one correction: You have already decided and attempted to wait 21 times, yet you propose the same waiting action again without any change in circumstances, contradicting the implied expectation that waiting might eventually yield results."
+}

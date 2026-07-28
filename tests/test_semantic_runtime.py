@@ -1355,13 +1355,18 @@ def test_a_reply_that_does_not_follow_is_sent_back_once():
     assert reviews and len(reviews) > len(calls)
 
 
-def test_a_reply_that_still_does_not_follow_fails_the_run_honestly():
+def test_a_reply_that_still_does_not_follow_loses_the_turn_not_the_run():
     """Code does not invent a replacement decision, and it does not ask
-    the world to invent one either."""
+    the world to invent one.  What it also does not do is throw away the
+    run: ending the trajectory over one ungrounded sentence discarded
+    twenty-five committed steps in a live run."""
     def transport(system, user):
         role = role_of(system)
         if role == "judge":
-            return json.dumps(UNRESOLVED), {}
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if role == "verifier":
+            return json.dumps(NO_AT_CUTOFF), {}
         if role == "continuity":
             return json.dumps({"verdict": "REVISE",
                                "reason": "he is remembering something he was "
@@ -1377,11 +1382,14 @@ def test_a_reply_that_still_does_not_follow_fails_the_run_honestly():
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           RuntimeCaller(transport=transport), max_steps=6,
                           trace=Trace())
-    assert traj.status == "failed"
-    assert "never told" in traj.reason
-    # nothing of the refused reply is in the record
+    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert traj.abandoned_turns > 0
+    # nothing of the refused reply is in the record ...
     assert not [r for r in world.records if r["op"] == "semantic.actor_call"]
-
+    # ... and the abandonment itself is, with its reason
+    lost = [r for r in world.records
+            if r["op"] == "semantic.actor_turn_abandoned"]
+    assert lost and "never told" in lost[0]["data"]["reason"]
 
 def test_a_meaningless_event_is_sent_back_and_null_is_accepted():
     """Half of every committed event in the previous six runs was somebody

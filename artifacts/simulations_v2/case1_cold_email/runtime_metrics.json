@@ -1,0 +1,53 @@
+{
+ "provider_calls": 93,
+ "by_role": {
+  "judge": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.85,
+   "input_tokens": 1729,
+   "output_tokens": 167
+  },
+  "world": {
+   "calls": 30,
+   "retries": 0,
+   "wall_s": 63.07,
+   "input_tokens": 65950,
+   "output_tokens": 3537
+  },
+  "event_review": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 8.02,
+   "input_tokens": 4786,
+   "output_tokens": 230
+  },
+  "actor": {
+   "calls": 27,
+   "retries": 0,
+   "wall_s": 36.91,
+   "input_tokens": 43721,
+   "output_tokens": 1333
+  },
+  "continuity": {
+   "calls": 27,
+   "retries": 0,
+   "wall_s": 38.45,
+   "input_tokens": 32434,
+   "output_tokens": 1039
+  }
+ },
+ "total_input_tokens": 148620,
+ "total_output_tokens": 6306,
+ "total_wall_s": 151.28,
+ "status": "failed",
+ "answer": null,
+ "reason": "ActorGroundingError: mark_cuban: the reply still does not follow from what they have, after one correction: You have already decided and attempted to wait 21 times, yet you propose the same waiting action again without any change in circumstances, contradicting the implied expectation that waiting might eventually yield results.",
+ "steps": 25,
+ "world_calls": 30,
+ "actor_calls": 27,
+ "judge_calls": 3,
+ "review_calls": 33,
+ "committed_events": 3,
+ "ledger_records": 150
+}

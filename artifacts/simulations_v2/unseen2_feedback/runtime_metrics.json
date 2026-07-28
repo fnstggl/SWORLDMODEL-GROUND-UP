@@ -1,65 +1,53 @@
 {
- "provider_calls": 8,
+ "provider_calls": 48,
  "by_role": {
   "judge": {
-   "calls": 3,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 4.53,
-   "input_tokens": 1795,
-   "output_tokens": 172
+   "wall_s": 2.99,
+   "input_tokens": 1134,
+   "output_tokens": 93
   },
   "world": {
-   "calls": 1,
+   "calls": 16,
    "retries": 0,
-   "wall_s": 1.63,
-   "input_tokens": 1947,
-   "output_tokens": 105
+   "wall_s": 33.73,
+   "input_tokens": 34340,
+   "output_tokens": 2016
   },
   "event_review": {
-   "calls": 1,
+   "calls": 10,
    "retries": 0,
-   "wall_s": 1.51,
-   "input_tokens": 730,
-   "output_tokens": 40
+   "wall_s": 14.54,
+   "input_tokens": 7992,
+   "output_tokens": 410
   },
   "actor": {
-   "calls": 1,
+   "calls": 10,
    "retries": 0,
-   "wall_s": 1.62,
-   "input_tokens": 1225,
-   "output_tokens": 73
+   "wall_s": 19.72,
+   "input_tokens": 14417,
+   "output_tokens": 1062
   },
   "continuity": {
-   "calls": 1,
+   "calls": 10,
    "retries": 0,
-   "wall_s": 1.33,
-   "input_tokens": 838,
-   "output_tokens": 39
-  },
-  "verifier": {
-   "calls": 1,
-   "retries": 0,
-   "wall_s": 1.65,
-   "input_tokens": 532,
-   "output_tokens": 53
+   "wall_s": 14.78,
+   "input_tokens": 10732,
+   "output_tokens": 473
   }
  },
- "total_input_tokens": 7067,
- "total_output_tokens": 482,
- "total_wall_s": 12.28,
- "status": "disagreement",
- "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-  "disagreement": true
- },
- "reason": "",
- "steps": 1,
- "world_calls": 1,
- "actor_calls": 1,
- "judge_calls": 3,
- "review_calls": 3,
+ "total_input_tokens": 68615,
+ "total_output_tokens": 4054,
+ "total_wall_s": 85.74,
+ "status": "failed",
+ "answer": null,
+ "reason": "ActorGroundingError: dr_aline_mercier: the reply still does not follow from what they have, after one correction: The reply states 'It's Tuesday morning' but the current time is Thursday 2026-07-28T09:00:02, contradicting the established time.",
+ "steps": 8,
+ "world_calls": 16,
+ "actor_calls": 10,
+ "judge_calls": 2,
+ "review_calls": 20,
  "committed_events": 2,
- "ledger_records": 24
+ "ledger_records": 78
 }

@@ -29,6 +29,7 @@ OP_HORIZON = "semantic.horizon_reached"
 OP_CONTINUITY = "semantic.continuity_review"
 OP_EVENT_REVIEW = "semantic.event_review"
 OP_VERIFY = "semantic.terminal_verification"
+OP_TURN_ABANDONED = "semantic.actor_turn_abandoned"
 
 
 class Journal:

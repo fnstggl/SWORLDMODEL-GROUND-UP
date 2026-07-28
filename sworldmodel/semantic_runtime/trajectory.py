@@ -30,7 +30,8 @@ from .envelope import (EnvelopeError, contained, parse_duration,
                        validate_event)
 from .journal import (Journal, OP_ACTOR_CALL, OP_CONTINUITY,
                       OP_EVENT_REVIEW, OP_HORIZON, OP_TERMINAL,
-                      OP_VERIFY, OP_WORLD_CALL)
+                      OP_TURN_ABANDONED, OP_VERIFY,
+                      OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
@@ -106,6 +107,7 @@ class SemanticTrajectory:
     actor_calls: int = 0
     judge_calls: int = 0
     review_calls: int = 0
+    abandoned_turns: int = 0
 
     def to_dict(self) -> dict:
         return {"status": self.status, "answer": self.answer,
@@ -113,7 +115,8 @@ class SemanticTrajectory:
                 "world_calls": self.world_calls,
                 "actor_calls": self.actor_calls,
                 "judge_calls": self.judge_calls,
-                "review_calls": self.review_calls}
+                "review_calls": self.review_calls,
+                "abandoned_turns": self.abandoned_turns}
 
 
 def _iso_now(world) -> str:
@@ -181,11 +184,11 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             world.cancel_event(old["seq"],
                                "replaced by a nearer wake for the same "
                                "purpose", cause)
-        seq = world.schedule(K_WAKE,
-                             {"actor": actor_id, "reason": reason,
-                              "provenance": provenance, "about": about},
-                             due, cause)
-        pending_wakes[key] = {"due": due, "seq": seq}
+        ev = world.schedule(K_WAKE,
+                            {"actor": actor_id, "reason": reason,
+                             "provenance": provenance, "about": about},
+                            due, cause)
+        pending_wakes[key] = {"due": due, "seq": ev.seq}
         note("wake_scheduled", actor=actor_id, t=_iso_now(world),
              due=iso(due), provenance=provenance, about=about, reason=reason)
         return True
@@ -385,12 +388,22 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                  t=_iso_now(world), call_id=out["call_id"], attempt=attempt,
                  reason=verdict["reason"], rejected=parsed)
             if attempt:
-                # A second failure is a structured failure.  Code does not
-                # invent a replacement decision, and it does not ask the
-                # world to invent one either.
-                raise ActorGroundingError(
-                    f"{actor_id}: the reply still does not follow from what "
-                    f"they have, after one correction: {verdict['reason']}")
+                # A second failure is a structured failure -- of the TURN,
+                # not of the run.  Code does not invent a replacement
+                # decision and does not ask the world to invent one: this
+                # person simply did not say anything usable, which is
+                # recorded, and the situation carries on without them for
+                # now.  Ending the trajectory here threw away
+                # twenty-five committed steps over one sentence.
+                world.apply(OP_TURN_ABANDONED,
+                            {"call_id": out["call_id"], "actor": actor_id,
+                             "reason": verdict["reason"],
+                             "trajectory_id": tid}, cause)
+                note("actor_turn_abandoned", actor=actor_id,
+                     t=_iso_now(world), call_id=out["call_id"],
+                     reason=verdict["reason"])
+                traj.abandoned_turns += 1
+                return
             user = (base + f"\n\nYOUR PREVIOUS REPLY DID NOT FOLLOW FROM WHAT "
                            f"YOU HAVE\n{contained(verdict['reason'])}\n"
                            f"Reply again, as this person, fixing exactly "

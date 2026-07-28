@@ -1,25 +1,15 @@
 {
  "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
  "trajectory": {
-  "status": "disagreement",
-  "answer": {
-   "status": "UNRESOLVED",
-   "supporting_event_ids": [],
-   "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-   "disagreement": true
-  },
-  "reason": "",
-  "steps": 1,
-  "world_calls": 1,
-  "actor_calls": 1,
-  "judge_calls": 3,
-  "review_calls": 3
+  "status": "failed",
+  "answer": null,
+  "reason": "ActorGroundingError: dr_aline_mercier: the reply still does not follow from what they have, after one correction: The reply states 'It's Tuesday morning' but the current time is Thursday 2026-07-28T09:00:02, contradicting the established time.",
+  "steps": 8,
+  "world_calls": 16,
+  "actor_calls": 10,
+  "judge_calls": 2,
+  "review_calls": 20
  },
- "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-  "disagreement": true
- },
- "reason": ""
+ "answer": null,
+ "reason": "ActorGroundingError: dr_aline_mercier: the reply still does not follow from what they have, after one correction: The reply states 'It's Tuesday morning' but the current time is Thursday 2026-07-28T09:00:02, contradicting the established time."
 }
