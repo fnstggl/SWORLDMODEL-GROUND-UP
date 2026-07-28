@@ -218,7 +218,7 @@ def validate_world_response(obj) -> dict:
             "wakes": obj.get("wakes") or []}
 
 
-def make_world_validator(known_actor_ids):
+def make_world_validator(known_actor_ids, *, already_committed=()):
     """The whole response, checked in one place, before the caller returns.
 
     Envelope and wake validation live INSIDE the validated call so that an
@@ -233,6 +233,16 @@ def make_world_validator(known_actor_ids):
         parsed = validate_world_response(obj)
         env = (validate_event(parsed["event"], known_actor_ids)
                if parsed["event"] is not None else None)
+        duplicate = None
+        if env is not None and contained(env["description"]).casefold() \
+                in already_committed:
+            # Word for word, this has already happened.  One live run
+            # committed "she reads the next portion of the results
+            # section" nine times, and the week that produced its NO was
+            # a loop.  The same thing cannot occur twice, so nothing
+            # occurs: the judgment and the wakes stand, the event does
+            # not.  Refusing the whole answer would kill the run over it.
+            duplicate, env = env["description"], None
         wakes = validate_wakes(parsed["wakes"], known_actor_ids)
         parsed["event_checked"] = (
             None if env is None
@@ -240,6 +250,7 @@ def make_world_validator(known_actor_ids):
                                       "after")})
         parsed["wakes_checked"] = [{"actor": w["actor"], "after": w["after"],
                                     "reason": w["reason"]} for w in wakes]
+        parsed["duplicate_dropped"] = duplicate
         return parsed
 
     return validate

@@ -26,7 +26,8 @@ from datetime import timedelta
 from sworldmodel.simclock import iso, parse_iso
 
 from . import actor_mind, resolution as resolution_mod, world_mind
-from .envelope import EnvelopeError, parse_duration, validate_event
+from .envelope import (EnvelopeError, contained, parse_duration,
+                       validate_event)
 from .journal import (Journal, OP_ACTOR_CALL, OP_HORIZON, OP_TERMINAL,
                       OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
@@ -183,13 +184,20 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         crowded = sum(1 for e in journal.events()
                       if e["t"] == _iso_now(world)) >= MAX_EVENTS_PER_INSTANT
         out = caller.ask("world", world_mind.WORLD_SYSTEM, user,
-                         world_mind.make_world_validator(set(actor_ids)),
+                         world_mind.make_world_validator(
+                             set(actor_ids),
+                             already_committed=frozenset(
+                                 contained(e["description"]).casefold()
+                                 for e in journal.events())),
                          sim_time=_iso_now(world), trigger=trigger_kind)
         traj.world_calls += 1
         since_actor["n"] += 1
         parsed = out["parsed"]
         envelope = parsed["event_checked"]
         wakes = parsed["wakes_checked"]
+        if parsed.get("duplicate_dropped"):
+            note("duplicate_event_dropped", call_id=out["call_id"],
+                 t=_iso_now(world), description=parsed["duplicate_dropped"])
         # commit atomically
         wseq = world.apply(OP_WORLD_CALL,
                            {"call_id": out["call_id"], "trigger": trigger_kind,

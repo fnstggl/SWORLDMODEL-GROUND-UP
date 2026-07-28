@@ -912,6 +912,7 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
     decides again -- one live run spent its whole budget on a man debugging
     a line of code while the question it was asked went nowhere."""
     world, journal, bindings = build()
+    n = {"i": 0}
     busy = {"decision": "I keep working", "intentions": ["keep working"],
             "private_updates": []}
 
@@ -924,8 +925,9 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
             # model supplies one when told why it was rejected.
             after = ("2 minutes" if "cannot also take no time" in user
                      else "now")
+            n["i"] += 1
             return json.dumps({"judgment": "she does it", "event": {
-                "description": "Ada carries on with her own work",
+                "description": f"Ada gets on with the {n['i']}th piece of it",
                 "for": ["ada_vance"], "observed": True, "after": after},
                 "wakes": []}), {}
         return json.dumps(busy), {}
@@ -1018,14 +1020,16 @@ def test_one_instant_cannot_be_subdivided_forever():
     code moves it on -- rejecting the answer instead killed whole runs
     over a duration."""
     world, journal, bindings = build()
+    n = {"i": 0}
 
     def transport(system, user):
         if "read-only outcome judge" in system:
             return json.dumps(UNRESOLVED), {}
         if "You are the world" in system:
             # a world that insists everything takes no time at all
+            n["i"] += 1
             return json.dumps({"judgment": "and another thing", "event": {
-                "description": "one more thing happens",
+                "description": f"thing number {n['i']} happens",
                 "for": ["ada_vance"], "observed": False,
                 "after": "now"}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
@@ -1226,3 +1230,25 @@ def test_nobody_is_quietly_dropped_before_the_horizon():
     assert consulted.get("ada", 0) > 3 and consulted.get("bo", 0) > 3
     # and the last thing that happened is at the horizon itself
     assert parse_iso(world.records[-1]["t"]) == parse_iso(CUTOFF)
+
+
+def test_the_same_event_cannot_happen_twice_word_for_word():
+    """One live run committed "she reads the next portion of the results
+    section" nine times, and the week that produced its NO was a loop."""
+    from sworldmodel.semantic_runtime.world_mind import make_world_validator
+    body = {"judgment": "again", "event": {
+        "description": "She reads the next portion of the results section",
+        "for": ["ada_vance"], "observed": True, "after": "5 minutes"},
+        "wakes": []}
+    seen = frozenset({"she reads the next portion of the results section"})
+    fresh = make_world_validator({"ada_vance"})
+    assert fresh(json.loads(json.dumps(body)))["event_checked"]
+    strict = make_world_validator({"ada_vance"}, already_committed=seen)
+    repeated = strict(json.loads(json.dumps(body)))
+    assert repeated["event_checked"] is None      # nothing occurs
+    assert repeated["duplicate_dropped"]          # and it is recorded why
+    assert repeated["judgment"]                   # the rest of it stands
+    # something genuinely next is fine
+    nxt = json.loads(json.dumps(body))
+    nxt["event"]["description"] = "She reaches the end of the section"
+    assert strict(nxt)["event_checked"]
