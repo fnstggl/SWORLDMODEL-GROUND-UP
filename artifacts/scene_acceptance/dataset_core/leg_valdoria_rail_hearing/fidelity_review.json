@@ -1,21 +1,51 @@
 {
  "verdict": "DEFECT",
- "worst_severity": "CRITICAL",
+ "worst_severity": "MAJOR",
  "defects": [
   {
-   "aspect": "invented_precision",
+   "aspect": "smallest_world",
    "severity": "MAJOR",
-   "detail": "The shared context states the bill was referred on 2026-07-15 and the window ends on 2026-09-13, but the question only mentions a 'sixty-day window' without specifying the referral date. This precise date is not supported by the question or common knowledge."
+   "detail": "The scene includes only the committee as a single actor, but the decision to schedule a hearing may involve other actors such as the bill's sponsor, government whips, or opposition members who could influence the committee. The world is not causally sufficient as it omits potential influences."
+  },
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "Materially relevant actors are missing: individual committee members with their own agendas, the bill's sponsor, and possibly the government or opposition leaders who could pressure the committee. Their absence may affect the realism of the decision."
+  },
+  {
+   "aspect": "decorative",
+   "severity": "MINOR",
+   "detail": "The committee is treated as a single actor, which is acceptable for collective decision-making, but the private context mentions 'varying opinions' without specifying them, which is vague but not decorative."
+  },
+  {
+   "aspect": "invented_precision",
+   "severity": "NONE",
+   "detail": "No unsupported precise facts are stated."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "NONE",
+   "detail": "Private context is appropriately limited to the committee, and shared context is public knowledge."
   },
   {
    "aspect": "prewritten",
-   "severity": "CRITICAL",
-   "detail": "The starting event states the agenda does not include scheduling a hearing, which pre-decides that no hearing is scheduled at the start, but the question asks whether a hearing will be scheduled within the window. This could be seen as pre-deciding the initial state, but more critically, the resolution's YES condition is already false at start because the window ends before the cutoff, and the starting event shows no hearing scheduled. However, the simulation could still schedule a hearing later, so this is not fully pre-decided. The real issue is that the resolution's YES condition is tied to a date (2026-09-13) that is before the cutoff, meaning the simulation could schedule a hearing after the window but before the cutoff, and the resolution would incorrectly resolve NO. This pre-decides the answer if no hearing is scheduled by 2026-09-13, but the question asks about scheduling within the window, so the resolution should only check up to the window end. The cutoff is after the window, so the resolution should resolve NO at the window end if no hearing scheduled, not at the cutoff. This misalignment is critical."
+   "severity": "NONE",
+   "detail": "No decision is prewritten; the committee's choice is open."
   },
   {
    "aspect": "observable_resolution",
-   "severity": "CRITICAL",
-   "detail": "The resolution uses a hard cutoff of 2026-09-30, but the question asks about scheduling within the sixty-day window ending 2026-09-13. The resolution should resolve at the window end, not the cutoff. This means the simulation could schedule a hearing after the window but before the cutoff, and the resolution would incorrectly resolve NO, or if the simulation schedules after the window, the answer should be NO, but the resolution would still be NO, but the timing is wrong. The resolution must be tied to the window end, not the cutoff."
+   "severity": "NONE",
+   "detail": "The resolution is an observable event (scheduling a hearing) in the persistent history."
+  },
+  {
+   "aspect": "leakage",
+   "severity": "NONE",
+   "detail": "No post-start outcome knowledge is present."
+  },
+  {
+   "aspect": "genuinely_open",
+   "severity": "NONE",
+   "detail": "The simulation could produce either YES or NO."
   }
  ],
  "id": "leg_valdoria_rail_hearing"

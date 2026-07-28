@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "invented_precision",
+   "severity": "CRITICAL",
+   "detail": "The scene invents a hard cutoff date (2026-10-16) as the RSVP deadline, but the question states the deadline is 'the Friday before' the town hall, whose date is unknown. This changes the question's condition."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "CRITICAL",
+   "detail": "The resolution pre-decides that the hard cutoff is the deadline, effectively setting the town hall date to be on or after that Friday, which is not given in the question. This pre-decides the timing condition."
+  },
+  {
+   "aspect": "genuinely_open",
+   "severity": "CRITICAL",
+   "detail": "The simulation is not genuinely open because the deadline is artificially fixed, potentially making the YES/NO outcome depend on an invented date rather than the actual Friday-before condition."
+  }
+ ],
+ "id": "pop_townhall_rsvp_half"
+}

@@ -1,6 +1,12 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states that Fenwick & Sloane has indicated they may cancel, but the account manager will propose pausing instead. This pre-decides the account manager's action (proposing pausing) and the representative's openness, which should be emergent from the simulation."
+  }
+ ],
  "id": "cust_retention_call_save"
 }

@@ -5,12 +5,12 @@
   {
    "aspect": "prewritten",
    "severity": "MAJOR",
-   "detail": "The chair's private context states they 'intend to attend' and shared context says 'the chair has never missed a session', which strongly pre-decides the chair's attendance, making the YES condition more likely and reducing genuine uncertainty."
+   "detail": "The private context for the chair states 'intends to attend' and for the three confirmed members states 'has confirmed attendance', which pre-decides their attendance, making the YES condition already partially true. The simulation should leave attendance decisions to the actors."
   },
   {
    "aspect": "info_boundaries",
    "severity": "MINOR",
-   "detail": "The shared context includes that the chair has never missed a session, which is arguably private knowledge about the chair's past behavior, but it is also common knowledge among committee members. However, it leaks the chair's reliability into shared context."
+   "detail": "The shared context includes that two members are traveling and three have confirmed, which is information that might not be known to all members. However, this is minor as it is plausible common knowledge."
   }
  ],
  "id": "comm_harbor_quorum_tuesday"

@@ -5,22 +5,22 @@
   {
    "aspect": "smallest_world",
    "severity": "CRITICAL",
-   "detail": "The scene includes only the council as a single actor, but the decision to adopt the precept involves individual members with potentially differing views. The council as a collective cannot make decisions without internal dynamics; the simulation needs individual actors (e.g., chairperson, clerk, members) to allow for genuine uncertainty."
+   "detail": "The scene models the parish council as a single actor, but the decision to adopt the precept involves multiple members with potentially differing views. The smallest causally sufficient world should include individual councillors or at least a chair and clerk to allow for debate, motions, and voting."
   },
   {
    "aspect": "missing",
    "severity": "CRITICAL",
-   "detail": "Materially relevant actors are missing: individual council members (including chairperson and clerk) who vote or influence the decision. Without them, the simulation cannot model the decision-making process."
+   "detail": "Materially relevant actors are missing: individual councillors (or at least a chairperson and clerk) who can propose, second, and vote on the precept. Without them, the adoption process cannot be simulated realistically."
   },
   {
    "aspect": "prewritten",
    "severity": "CRITICAL",
-   "detail": "The starting events state that the agenda includes formal adoption of the precept, which pre-decides that the item is on the agenda. However, the question is whether it will be formally adopted, not whether it is on the agenda. More critically, the shared context states that standing orders require adoption at the January meeting, which may make the YES outcome inevitable if the council follows orders, reducing genuine uncertainty."
+   "detail": "The starting events state that 'the precept is on the agenda for formal adoption,' which pre-decides that the council will consider adoption. This makes the YES condition more likely and removes the possibility that the council might not even consider it (e.g., due to lack of quorum or other business)."
   },
   {
    "aspect": "genuinely_open",
    "severity": "CRITICAL",
-   "detail": "Given the shared context that standing orders require adoption at the January meeting, and no countervailing factors (e.g., lack of quorum, disagreement, procedural issues) are introduced, the simulation is heavily biased toward YES. The scene does not provide mechanisms for a NO outcome (e.g., failure to adopt due to lack of quorum, amendment, or deferral)."
+   "detail": "The simulation is not genuinely open because the scene already sets the precept as on the agenda for formal adoption, and the council is a single actor with no internal dissent. The outcome is effectively predetermined to be YES unless an external event prevents the meeting, which is not modeled."
   }
  ],
  "id": "leg_parish_precept_adoption"

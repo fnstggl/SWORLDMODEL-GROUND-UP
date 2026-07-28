@@ -1,6 +1,17 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The resolution condition 'Resolve YES only if the persistent event history shows that Tomasz actually sent a reply...' is a pre-decision of the outcome condition, but the scene itself does not pre-decide the actor's choice. However, the starting events state 'The simulation begins. Tomasz has the email from Kestrel Analytics in his inbox, sent prior to this time.' This is acceptable. The defect is that the resolution is not an externally observable event/record; it is a meta-instruction to the simulator. The resolution should be a natural-language statement of what observable event constitutes YES/NO, not a directive to the simulator."
+  },
+  {
+   "aspect": "observable_resolution",
+   "severity": "MAJOR",
+   "detail": "The resolution is phrased as a directive to the simulator ('Resolve YES only if...') rather than a description of an observable event. It should state what observable event in the persistent history constitutes a YES (e.g., 'Tomasz sends a reply email before the deadline') and what constitutes a NO (e.g., 'No reply is sent by the deadline')."
+  }
+ ],
  "id": "dm_freight_quote_reply"
 }

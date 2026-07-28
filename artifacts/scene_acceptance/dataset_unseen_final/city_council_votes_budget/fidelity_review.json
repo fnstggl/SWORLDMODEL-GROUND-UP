@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "MAJOR",
+   "detail": "The scene models the City Council as a single actor, but the question asks about a vote outcome which depends on individual member decisions. A single actor cannot produce a vote; the council should be modeled as multiple actors or the resolution should reflect collective decision-making."
+  }
+ ],
+ "id": "city_council_votes_budget"
+}

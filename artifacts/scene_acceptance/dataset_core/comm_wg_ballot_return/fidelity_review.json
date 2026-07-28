@@ -1,6 +1,12 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "MAJOR",
+   "detail": "The scene models the entire working group as a single actor, but the question asks about the actions of individual members (returning ballots). A single actor cannot represent the independent decisions of 21 members; the simulation would need to model each member separately to allow for varying behavior."
+  }
+ ],
  "id": "comm_wg_ballot_return"
 }

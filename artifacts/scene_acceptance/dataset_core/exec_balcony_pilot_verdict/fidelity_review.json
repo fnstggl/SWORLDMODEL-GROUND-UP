@@ -1,16 +1,16 @@
 {
  "verdict": "DEFECT",
- "worst_severity": "MAJOR",
+ "worst_severity": "CRITICAL",
  "defects": [
   {
    "aspect": "prewritten",
-   "severity": "MAJOR",
-   "detail": "The starting event states the quarterly review begins at 2026-10-05T09:00:00+02:00, but the question asks whether the decision is made at the quarterly review and communicated the same week. The scene pre-commits to the review happening at that time, which is fine, but the resolution condition 'Resolve YES if the persistent event history shows that the executive team formally decided...' is not prewritten; however, the shared context says 'The quarterly review is scheduled for 2026-10-05' which is a fact from the question. The defect is that the scene includes the exact date and time of the review, which is not provided in the question or context. The question only says 'at its quarterly review' without specifying the date. This is an invented precision that could constrain the simulation unnecessarily."
+   "severity": "CRITICAL",
+   "detail": "The starting event states 'The quarterly review meeting begins. The executive team is to discuss and decide on the balcony-panel pilot.' This pre-decides that the decision will be made during the meeting, but the question asks whether the decision is made and communicated by the end of the week. The scene should not assume the decision is made at the meeting; it could be made later in the week."
   },
   {
-   "aspect": "invented_precision",
+   "aspect": "observable_resolution",
    "severity": "MAJOR",
-   "detail": "The scene specifies the exact start time of the quarterly review (2026-10-05T09:00:00+02:00) and the cutoff time (2026-10-16T18:00:00+02:00). The question only mentions 'the same week' and a cutoff date of 2026-10-16, but does not specify the exact start time of the review. This precision is not supported by the question or context."
+   "detail": "The resolution condition requires the decision to be communicated to the pilot team, but the scene does not include any mechanism for the pilot team to observe the decision (e.g., they are not present at the meeting). The resolution should be based on an observable event, such as a company-wide announcement or a direct communication record."
   }
  ],
  "id": "exec_balcony_pilot_verdict"
