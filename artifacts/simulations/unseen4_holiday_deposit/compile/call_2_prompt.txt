@@ -116,32 +116,53 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Ruth Kelleher",
-   "private_context": "Ruth has been trying to arrange a group holiday with three families since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). She has already booked the week off and told her kids. She fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on covering others again. She received a call from Marian Prowse on Friday saying a couple from Leeds has asked about the same week, and Marian will hold it until the end of Wednesday (16th) but not a day longer; she needs the \u00a3600 deposit in her bank account by then. Ruth knows the deposit is \u00a3200 per household. She is aware that Dev Sandhu is keen but may have financial constraints, and Nina Achebe hasn't replied."
-  },
-  {
-   "name": "Marian Prowse",
-   "private_context": "Marian owns Cove Cottage and runs it out of a paper diary. She rang Ruth on Friday to inform her about the couple from Leeds and said she will hold the cottage until the end of Wednesday (16th) but not a day longer. She wants the \u00a3600 deposit in her bank account by then. She has no other relevant private information."
+   "private_context": "Ruth has been trying to get the same three families away together since March. She has found Cove Cottage in Beadnell, \u00a31,800 for the October half-term week (24th to 31st). She has already booked the week off and told her kids. She fronted \u00a3340 for a group meal last year and was still chasing the last of it in the spring, so she is not keen on being the one who covers people again. She received a call from Marian Prowse on Friday (presumably 11th September) saying a couple from Leeds have asked about that same week, and that Marian will hold it until the end of Wednesday (16th September) but not a day longer; she wants the \u00a3600 deposit in her bank account by then. That's \u00a3200 a household. Ruth is coordinating with Dev Sandhu and Nina Achebe."
   },
   {
    "name": "Dev Sandhu",
-   "private_context": "Dev is completely up for the holiday and has said so twice in the thread. However, a new clutch cost him \u00a3620 a fortnight ago and he isn't paid until the 28th. He has a credit card he promised his wife he'd stop using. He knows the deposit is \u00a3200 per household."
+   "private_context": "Dev is completely up for the trip and has said so twice in the thread. However, a new clutch took \u00a3620 off him a fortnight ago and he isn't paid until the 28th. He has a credit card he promised his wife he'd stop using. He is aware of the deposit requirement of \u00a3200 per household."
   },
   {
    "name": "Nina Achebe",
-   "private_context": "Nina hasn't replied to the holiday thread. This is not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet. Saying that out loud would make it a thing she has to deal with. She knows the deposit is \u00a3200 per household."
+   "private_context": "Nina hasn't replied at all in the thread. This is not out of rudeness, but because her mum came out of hospital after a fall three weeks ago and Nina genuinely doesn't know what October looks like yet. Saying that out loud would make it a thing she has to deal with. She is aware of the deposit requirement of \u00a3200 per household."
+  },
+  {
+   "name": "Marian Prowse",
+   "private_context": "Marian owns Cove Cottage and runs it out of a paper diary. She rang Ruth on Friday (presumably 11th September) to say a couple from Leeds have asked about that same week, and that she'll hold it until the end of Wednesday (16th September) but not a day longer; she wants the \u00a3600 deposit in her bank account by then. She is waiting for the deposit."
   }
  ],
- "shared_context": "Ruth Kelleher has been trying to arrange a group holiday with three families (her own, Dev Sandhu's, and Nina Achebe's) since March. She has found Cove Cottage in Beadnell for \u00a31,800 for the October half-term week (24th-31st). The owner, Marian Prowse, called Ruth on Friday to say a couple from Leeds has asked about that same week, and she will hold it until the end of Wednesday 16th September but not a day longer; she needs the \u00a3600 deposit in her bank account by then. That is \u00a3200 per household. The deposit must be paid by the end of Wednesday 16th September 2026. The group has a communication thread where they have been discussing the holiday.",
+ "shared_context": "Cove Cottage in Beadnell is available for the October half-term week (24th to 31st) at \u00a31,800. A deposit of \u00a3600 is required to secure it, to be paid into Marian Prowse's bank account by the end of Wednesday 16th September. The deposit can be split three ways (\u00a3200 per household) or covered by one party or any other arrangement. Ruth, Dev, and Nina are the three households interested. Ruth has already booked the week off and told her kids. Dev has expressed enthusiasm twice in the thread. Nina has not replied. Marian has given a deadline of end of Wednesday 16th September for the deposit.",
  "starting_events": [
   {
    "time": "2026-09-13T20:40:00+01:00",
-   "description": "Ruth Kelleher has received a call from Marian Prowse about the deposit deadline. Ruth knows the deposit must be in Marian's account by the end of Wednesday 16th September.",
+   "description": "Ruth Kelleher has received a call from Marian Prowse about the deposit deadline. Ruth is aware that the deposit must be in Marian's account by end of Wednesday 16th September. Ruth has not yet paid the deposit herself and is waiting to see how the group will handle it.",
    "visible_to": [
     "Ruth Kelleher"
    ]
+  },
+  {
+   "time": "2026-09-13T20:40:00+01:00",
+   "description": "Dev Sandhu has expressed enthusiasm for the trip twice in the thread but has not yet paid any deposit. He is aware of the deadline.",
+   "visible_to": [
+    "Dev Sandhu"
+   ]
+  },
+  {
+   "time": "2026-09-13T20:40:00+01:00",
+   "description": "Nina Achebe has not replied to the thread about the trip. She is aware of the deposit requirement but has not communicated her decision.",
+   "visible_to": [
+    "Nina Achebe"
+   ]
+  },
+  {
+   "time": "2026-09-13T20:40:00+01:00",
+   "description": "Marian Prowse is holding the week for the group until end of Wednesday 16th September. She has not yet received any deposit.",
+   "visible_to": [
+    "Marian Prowse"
+   ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that a total of \u00a3600 (or more) has been deposited into Marian Prowse's bank account by 2026-09-16T23:59:59+01:00, regardless of who pays. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that a total of \u00a3600 has been deposited into Marian Prowse's bank account by 2026-09-16T23:59:59+01:00, regardless of who pays. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.
