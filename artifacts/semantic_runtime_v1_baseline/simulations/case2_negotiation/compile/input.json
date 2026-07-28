@@ -1,0 +1,8 @@
+{
+ "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
+ "start": "2026-09-08T10:00:00+01:00",
+ "cutoff": "2026-09-20T18:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

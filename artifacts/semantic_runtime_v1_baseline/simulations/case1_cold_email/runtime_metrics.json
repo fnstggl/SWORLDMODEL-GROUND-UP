@@ -1,0 +1,47 @@
+{
+ "provider_calls": 78,
+ "by_role": {
+  "judge": {
+   "calls": 15,
+   "retries": 0,
+   "wall_s": 24.65,
+   "input_tokens": 13618,
+   "output_tokens": 891
+  },
+  "world": {
+   "calls": 23,
+   "retries": 0,
+   "wall_s": 49.0,
+   "input_tokens": 54999,
+   "output_tokens": 2732
+  },
+  "actor": {
+   "calls": 40,
+   "retries": 0,
+   "wall_s": 62.45,
+   "input_tokens": 61355,
+   "output_tokens": 2176
+  }
+ },
+ "total_input_tokens": 129972,
+ "total_output_tokens": 5799,
+ "total_wall_s": 136.09,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e171",
+   "e199",
+   "e207",
+   "e217"
+  ],
+  "explanation": "Event e171 shows Mark Cuban's assistant sent a reply email to Jordan Reyes before the cutoff, and events e199, e207, and e217 confirm Jordan Reyes observed it, constituting a response sent by Mark Cuban."
+ },
+ "reason": "",
+ "steps": 51,
+ "world_calls": 23,
+ "actor_calls": 40,
+ "judge_calls": 15,
+ "committed_events": 15,
+ "ledger_records": 219
+}

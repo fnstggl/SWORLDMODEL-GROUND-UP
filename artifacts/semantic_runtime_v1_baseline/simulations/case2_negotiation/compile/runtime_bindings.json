@@ -1,0 +1,40 @@
+{
+ "world_id": "w_b913202fdd62",
+ "actor_ids": {
+  "Priya Raghavan": "priya_raghavan",
+  "Dmitri Sokolov": "dmitri_sokolov"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-08T09:00:00+00:00",
+   "visible_to_ids": [
+    "priya_raghavan",
+    "dmitri_sokolov"
+   ],
+   "description": "Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "priya_raghavan": {
+   "name": "Priya Raghavan",
+   "persona_brief": "You are Priya Raghavan.\nPriya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then."
+  },
+  "dmitri_sokolov": {
+   "name": "Dmitri Sokolov",
+   "persona_brief": "You are Dmitri Sokolov.\nDmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900."
+  }
+ },
+ "resolution": {
+  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
+  "resolution": "Resolve YES only if the persistent event history shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln before 2026-09-20T00:00:00+01:00 (the start of the lease renewal day). Otherwise resolve NO at that time.",
+  "cutoff": "2026-09-20T18:00:00+01:00",
+  "world_id": "w_b913202fdd62"
+ }
+}

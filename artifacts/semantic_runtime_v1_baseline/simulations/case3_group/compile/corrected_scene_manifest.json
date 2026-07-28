@@ -1,0 +1,34 @@
+{
+ "actors": [
+  {
+   "name": "Ines",
+   "private_context": "Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend."
+  },
+  {
+   "name": "Kwame",
+   "private_context": "Kwame is away until Friday and may not be reachable until then. He has no strong preference about hosting."
+  },
+  {
+   "name": "Tomas",
+   "private_context": "Tomas hates hosting and would prefer not to host."
+  },
+  {
+   "name": "Bea",
+   "private_context": "Bea has the biggest kitchen but works nights, which may affect her availability or willingness to host."
+  }
+ ],
+ "shared_context": "The four housemates live at 14 Ferndale Road. They need to decide who will host the shared birthday dinner. The weekend starts on Saturday 2026-10-10. Ines raised the topic in the group chat this morning (2026-10-06).",
+ "starting_events": [
+  {
+   "time": "2026-10-06T08:00:00+00:00",
+   "description": "Ines sends a message in the group chat about the shared birthday dinner, asking who will host.",
+   "visible_to": [
+    "Ines",
+    "Kwame",
+    "Tomas",
+    "Bea"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the simulation shows that the four housemates have collectively agreed on a host before 2026-10-10T00:00:00+00:00. Otherwise resolve NO at that time."
+}

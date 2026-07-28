@@ -1,0 +1,34 @@
+{
+ "world_id": "w_7c337a8430aa",
+ "actor_ids": {
+  "Sam Okonjo": "sam_okonjo"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-07-28T08:00:00+00:00",
+   "visible_to_ids": [
+    "sam_okonjo"
+   ],
+   "description": "Bristol Plumbing's text message arrives on Sam Okonjo's phone."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "sam_okonjo": {
+   "name": "Sam Okonjo",
+   "persona_brief": "You are Sam Okonjo.\nSam has been waiting three weeks for a boiler repair appointment. He is at his desk all day with his phone next to him. He knows that confirming the Thursday 8am slot requires one text message reply to Bristol Plumbing's 9am text. He wants to keep the appointment."
+  }
+ },
+ "resolution": {
+  "question": "Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.",
+  "resolution": "Resolve YES only if the persistent event history shows that Sam Okonjo sent a text message confirming the appointment before 2026-07-28T18:00:00+01:00. Otherwise resolve NO at that time.",
+  "cutoff": "2026-07-28T18:00:00+01:00",
+  "world_id": "w_7c337a8430aa"
+ }
+}

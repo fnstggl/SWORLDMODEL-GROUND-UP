@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
+  "resolution": "Resolve YES only if the persistent event history shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln before 2026-09-20T00:00:00+01:00 (the start of the lease renewal day). Otherwise resolve NO at that time.",
+  "cutoff": "2026-09-20T18:00:00+01:00",
+  "world_id": "w_b913202fdd62"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}
