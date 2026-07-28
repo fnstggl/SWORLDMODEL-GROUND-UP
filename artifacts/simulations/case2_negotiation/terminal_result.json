@@ -1,30 +1,22 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "resolved",
+  "status": "cutoff",
   "answer": {
-   "status": "YES",
-   "supporting_event_ids": [
-    "e276",
-    "e282",
-    "e373"
-   ],
-   "explanation": "Priya accepted Dmitri's offer of 1100 in event e276, which Dmitri observed in event e373, establishing an agreed price before the deadline."
+   "status": "NO_AT_CUTOFF",
+   "supporting_event_ids": [],
+   "explanation": "The deadline 2026-09-20T00:00:00+01:00 (2026-09-19T23:00:00Z) has passed, and the committed events show no agreement on a price between Priya Raghavan and Dmitri Sokolov."
   },
   "reason": "",
-  "steps": 68,
-  "world_calls": 55,
-  "actor_calls": 21,
-  "judge_calls": 41
+  "steps": 58,
+  "world_calls": 49,
+  "actor_calls": 17,
+  "judge_calls": 19
  },
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e276",
-   "e282",
-   "e373"
-  ],
-  "explanation": "Priya accepted Dmitri's offer of 1100 in event e276, which Dmitri observed in event e373, establishing an agreed price before the deadline."
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline 2026-09-20T00:00:00+01:00 (2026-09-19T23:00:00Z) has passed, and the committed events show no agreement on a price between Priya Raghavan and Dmitri Sokolov."
  },
  "reason": ""
 }

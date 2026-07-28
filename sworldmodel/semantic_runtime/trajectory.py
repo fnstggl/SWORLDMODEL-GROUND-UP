@@ -207,7 +207,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                      due=iso(due), description=envelope["description"])
         for w in wakes:
             due = world.clock.now + parse_duration(w["after"])
-            if due <= cutoff:
+            # one pending revisit per person, whoever asked for it.  The
+            # world asked to be called back about the same person eighty-six
+            # times in one run, and every one of those was a step: the
+            # situation was revisited constantly and never moved.
+            if due <= cutoff and w["actor"] not in recheck_pending:
+                recheck_pending.add(w["actor"])
                 # the reason is recorded for tracing and shown to no one:
                 # a wake is timing, never information (see validate_wakes)
                 world.schedule(K_WAKE, {"actor": w["actor"],

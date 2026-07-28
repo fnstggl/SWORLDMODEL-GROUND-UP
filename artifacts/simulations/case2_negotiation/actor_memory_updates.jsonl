@@ -1,19 +1,12 @@
-{"actor":"priya_raghavan","content":"I'm willing to go up to 1100 if needed, but I start with 1000.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I believe 1200 is a fair compromise and I'm willing to negotiate further if needed.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now offering 1000, but I'm prepared to go up to 1100 if he counters.","source":"actor_call:c18","t":"2026-09-08T09:05:05+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm sticking to my 1200 target, but I'm open to further negotiation if she counters.","source":"actor_call:c25","t":"2026-09-08T09:08:05+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm holding firm at 1200 but ready to negotiate if she counters.","source":"actor_call:c33","t":"2026-09-08T09:10:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm willing to go up to 1100 if he counters, but I'll start at 1000.","source":"actor_call:c50","t":"2026-09-08T09:12:05+00:00"}
-{"actor":"priya_raghavan","content":"I'm sticking to my plan to offer 1000, but I'm prepared to go up to 1100 if he counters again.","source":"actor_call:c56","t":"2026-09-08T09:15:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to drop from 1200 to 1100 to close the deal, but I won't go lower.","source":"actor_call:c62","t":"2026-09-08T09:15:35+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm now willing to accept 1100, but not less.","source":"actor_call:c68","t":"2026-09-08T09:17:06+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now willing to accept 1100, but not less.","source":"actor_call:c70","t":"2026-09-08T09:20:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now willing to accept 1100, and I consider this my bottom line.","source":"actor_call:c76","t":"2026-09-08T09:20:10+00:00"}
-{"actor":"priya_raghavan","content":"I'm relieved he came down to my limit; now I can stop looking and focus on preparing the workshop.","source":"actor_call:c80","t":"2026-09-08T09:21:07+00:00"}
-{"actor":"priya_raghavan","content":"I'm relieved to have reached an agreement; now I can focus on preparing the workshop.","source":"actor_call:c90","t":"2026-09-08T09:25:35+00:00"}
-{"actor":"priya_raghavan","content":"I'm satisfied we reached a deal at my limit; now I can prepare the workshop.","source":"actor_call:c94","t":"2026-09-08T09:30:07+00:00"}
-{"actor":"priya_raghavan","content":"I'm glad this is settled; now I can prepare the workshop for the kiln's arrival.","source":"actor_call:c100","t":"2026-09-08T09:38:05+00:00"}
-{"actor":"priya_raghavan","content":"I'm satisfied we reached a deal; now I can prepare the workshop for the kiln's arrival.","source":"actor_call:c102","t":"2026-09-08T09:40:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm glad this is settled; now I can prepare the workshop for the kiln's arrival.","source":"actor_call:c104","t":"2026-09-08T09:40:02+00:00"}
-{"actor":"priya_raghavan","content":"I'm relieved to have reached an agreement at my limit; now I can prepare the workshop for the kiln's arrival.","source":"actor_call:c111","t":"2026-09-08T09:40:05+00:00"}
-{"actor":"dmitri_sokolov","content":"The deal is agreed at 1100. I am satisfied.","source":"actor_call:c115","t":"2026-09-08T09:42:35+00:00"}
+{"actor":"priya_raghavan","content":"I'm hoping Dmitri will come down to 900 or at least meet me somewhere in the middle.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I believe 1200 is a reasonable compromise from my initial 1400.","source":"actor_call:c4","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I plan to hold firm at 1200 and not go lower.","source":"actor_call:c4","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I've decided to make 1200 my bottom line and won't go lower.","source":"actor_call:c39","t":"2026-09-20T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am anxious that if she doesn't accept 1200, I might have to reconsider, but for now I'm sticking to my plan.","source":"actor_call:c45","t":"2026-09-20T14:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go up to 1000 but no higher; if he doesn't accept, I'll have to look elsewhere.","source":"actor_call:c56","t":"2026-09-20T14:07:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now setting my maximum at 1000 and will not go higher.","source":"actor_call:c64","t":"2026-09-20T14:10:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I confirm my bottom line is 1200 and I'm not willing to go lower right now.","source":"actor_call:c67","t":"2026-09-20T14:14:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I am sticking to my bottom line of 1200 and will not go lower.","source":"actor_call:c73","t":"2026-09-20T14:17:05+00:00"}
+{"actor":"priya_raghavan","content":"I notice the notification but decide to read it after I finish what I'm doing.","source":"actor_call:c81","t":"2026-09-20T14:25:15+00:00"}
+{"actor":"priya_raghavan","content":"I am now setting my maximum at 1000 and will not go higher.","source":"actor_call:c83","t":"2026-09-20T14:27:10+00:00"}
+{"actor":"priya_raghavan","content":"I now know Dmitri's offer is 1200. I need to decide whether to counter or accept. I'm willing to go up to 1000, so 1200 is too high. I'll counter at 1000 as my final offer.","source":"actor_call:c85","t":"2026-09-20T14:29:10+00:00"}

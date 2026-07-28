@@ -1,42 +1,42 @@
 {
- "provider_calls": 236,
+ "provider_calls": 153,
  "by_role": {
   "judge": {
-   "calls": 94,
+   "calls": 36,
    "retries": 0,
-   "wall_s": 161.17,
-   "input_tokens": 261164,
-   "output_tokens": 5221
+   "wall_s": 61.96,
+   "input_tokens": 51073,
+   "output_tokens": 2218
   },
   "world": {
-   "calls": 102,
+   "calls": 100,
    "retries": 0,
-   "wall_s": 228.61,
-   "input_tokens": 414269,
-   "output_tokens": 11746
+   "wall_s": 253.34,
+   "input_tokens": 293116,
+   "output_tokens": 12269
   },
   "actor": {
-   "calls": 40,
+   "calls": 17,
    "retries": 0,
-   "wall_s": 73.93,
-   "input_tokens": 90489,
-   "output_tokens": 2794
+   "wall_s": 32.83,
+   "input_tokens": 28558,
+   "output_tokens": 1296
   }
  },
- "total_input_tokens": 765922,
- "total_output_tokens": 19761,
- "total_wall_s": 463.66,
+ "total_input_tokens": 372747,
+ "total_output_tokens": 15783,
+ "total_wall_s": 348.11,
  "status": "incomplete",
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Aline has read the thesis chapter and typed comments but has not yet sent those comments to Ravi Patel."
+  "explanation": "Aline has begun reading the chapter but has not yet sent comments to Ravi, and the deadline has not passed."
  },
- "reason": "step ceiling 120 reached at 2026-07-27T10:20:30+00:00, before the cutoff",
+ "reason": "step ceiling 120 reached at 2026-07-27T20:00:40+00:00, before the cutoff",
  "steps": 120,
- "world_calls": 102,
- "actor_calls": 40,
- "judge_calls": 94,
- "committed_events": 93,
- "ledger_records": 648
+ "world_calls": 100,
+ "actor_calls": 17,
+ "judge_calls": 36,
+ "committed_events": 35,
+ "ledger_records": 493
 }

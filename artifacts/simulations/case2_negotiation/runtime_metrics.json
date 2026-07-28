@@ -1,46 +1,42 @@
 {
- "provider_calls": 117,
+ "provider_calls": 87,
  "by_role": {
   "judge": {
-   "calls": 41,
-   "retries": 0,
-   "wall_s": 65.23,
-   "input_tokens": 67302,
-   "output_tokens": 2295
+   "calls": 21,
+   "retries": 2,
+   "wall_s": 39.06,
+   "input_tokens": 20883,
+   "output_tokens": 1404
   },
   "world": {
-   "calls": 55,
+   "calls": 49,
    "retries": 0,
-   "wall_s": 119.31,
-   "input_tokens": 183718,
-   "output_tokens": 7235
+   "wall_s": 95.3,
+   "input_tokens": 108050,
+   "output_tokens": 4324
   },
   "actor": {
-   "calls": 21,
+   "calls": 17,
    "retries": 0,
-   "wall_s": 41.15,
-   "input_tokens": 28120,
-   "output_tokens": 2015
+   "wall_s": 56.43,
+   "input_tokens": 15786,
+   "output_tokens": 1478
   }
  },
- "total_input_tokens": 279140,
- "total_output_tokens": 11545,
- "total_wall_s": 225.7,
- "status": "resolved",
+ "total_input_tokens": 144719,
+ "total_output_tokens": 7206,
+ "total_wall_s": 190.82,
+ "status": "cutoff",
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e276",
-   "e282",
-   "e373"
-  ],
-  "explanation": "Priya accepted Dmitri's offer of 1100 in event e276, which Dmitri observed in event e373, establishing an agreed price before the deadline."
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline 2026-09-20T00:00:00+01:00 (2026-09-19T23:00:00Z) has passed, and the committed events show no agreement on a price between Priya Raghavan and Dmitri Sokolov."
  },
  "reason": "",
- "steps": 68,
- "world_calls": 55,
- "actor_calls": 21,
- "judge_calls": 41,
- "committed_events": 41,
- "ledger_records": 388
+ "steps": 58,
+ "world_calls": 49,
+ "actor_calls": 17,
+ "judge_calls": 19,
+ "committed_events": 18,
+ "ledger_records": 252
 }

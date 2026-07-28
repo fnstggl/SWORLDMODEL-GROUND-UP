@@ -1,20 +1,13 @@
-{"actor":"kwame","content":"I need to check my schedule when I return on Friday before making any hosting decisions.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c6","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I note Ines's message but won't volunteer immediately; hosting might clash with my night shifts.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I hope Ines or someone else offers to host so I don't have to.","source":"actor_call:c23","t":"2026-10-06T08:12:00+00:00"}
-{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c25","t":"2026-10-06T08:12:00+00:00"}
-{"actor":"ines","content":"I'm willing to host the birthday dinner, but I want to check if others are okay with it.","source":"actor_call:c28","t":"2026-10-06T08:22:00+00:00"}
-{"actor":"ines","content":"I've put the offer out there and I'm not going to push further right now.","source":"actor_call:c38","t":"2026-10-06T08:23:00+00:00"}
-{"actor":"bea","content":"I'm hesitant to host because of my night shift schedule, but I'll consider it if no one else can.","source":"actor_call:c46","t":"2026-10-06T10:10:00+00:00"}
-{"actor":"tomas","content":"Ines has offered to host, so I'm off the hook.","source":"actor_call:c62","t":"2026-10-06T12:45:12+00:00"}
-{"actor":"tomas","content":"I'm glad Ines offered, I really didn't want to host.","source":"actor_call:c64","t":"2026-10-06T13:12:00+00:00"}
-{"actor":"tomas","content":"I'm relieved Ines stepped up, so I can avoid hosting.","source":"actor_call:c65","t":"2026-10-06T13:25:00+00:00"}
-{"actor":"bea","content":"I'm not volunteering to host right now because of my work schedule.","source":"actor_call:c75","t":"2026-10-06T14:05:00+00:00"}
-{"actor":"bea","content":"I'm not volunteering now, but I'll keep an eye on the chat.","source":"actor_call:c78","t":"2026-10-06T14:42:00+00:00"}
-{"actor":"kwame","content":"I've confirmed I can't host and support Ines's offer.","source":"actor_call:c85","t":"2026-10-10T10:42:00+00:00"}
-{"actor":"ines","content":"Kwame hasn't volunteered to host, so I'll wait for more responses before acting.","source":"actor_call:c102","t":"2026-10-10T11:53:00+00:00"}
-{"actor":"bea","content":"I'm relieved Ines offered to host, even though she said her room is small. I'll wait and see if anyone else volunteers or if Ines's offer is accepted.","source":"actor_call:c111","t":"2026-10-10T14:25:00+00:00"}
-{"actor":"bea","content":"I've now publicly stated my position, so I'm committed to not hosting unless things change.","source":"actor_call:c114","t":"2026-10-10T14:25:10+00:00"}
-{"actor":"ines","content":"Kwame and Bea have both responded, neither is hosting, so it looks like I'll be the host unless someone else steps up.","source":"actor_call:c139","t":"2026-10-10T14:33:20+00:00"}
-{"actor":"tomas","content":"I'm relieved this is settled without me having to host.","source":"actor_call:c142","t":"2026-10-10T14:33:30+00:00"}
-{"actor":"tomas","content":"The hosting decision seems resolved with Ines, so I don't have to worry about it anymore.","source":"actor_call:c149","t":"2026-10-10T14:34:00+00:00"}
+{"actor":"ines","content":"I've decided to offer to host the birthday dinner.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I am away until Friday, so hosting is not possible for me.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I hope someone else volunteers to host so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I notice Ines raised the hosting question, but I'm not committing yet.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I'm relieved Ines offered since I can't host.","source":"actor_call:c11","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I'm relieved Ines volunteered, so I don't have to host.","source":"actor_call:c13","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I note that Ines has volunteered to host, but I'm not committing yet.","source":"actor_call:c15","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"ines","content":"It seems settled that I'll host the dinner at our place.","source":"actor_call:c33","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"ines","content":"I should start planning what to cook and what decorations to get.","source":"actor_call:c33","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"ines","content":"I'm now committed to hosting the dinner at our place.","source":"actor_call:c36","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"ines","content":"I need to start planning the menu, decorations, and coordinate with Kwame about his contribution.","source":"actor_call:c36","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"kwame","content":"I now know Ines is hosting and planning the menu; I'm comfortable with that.","source":"actor_call:c45","t":"2026-10-06T08:05:10+00:00"}
+{"actor":"ines","content":"I'm now the confirmed host for the birthday dinner.","source":"actor_call:c65","t":"2026-10-06T08:11:00+00:00"}

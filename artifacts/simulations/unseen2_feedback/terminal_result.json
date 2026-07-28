@@ -5,18 +5,18 @@
   "answer": {
    "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "Aline has read the thesis chapter and typed comments but has not yet sent those comments to Ravi Patel."
+   "explanation": "Aline has begun reading the chapter but has not yet sent comments to Ravi, and the deadline has not passed."
   },
-  "reason": "step ceiling 120 reached at 2026-07-27T10:20:30+00:00, before the cutoff",
+  "reason": "step ceiling 120 reached at 2026-07-27T20:00:40+00:00, before the cutoff",
   "steps": 120,
-  "world_calls": 102,
-  "actor_calls": 40,
-  "judge_calls": 94
+  "world_calls": 100,
+  "actor_calls": 17,
+  "judge_calls": 36
  },
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Aline has read the thesis chapter and typed comments but has not yet sent those comments to Ravi Patel."
+  "explanation": "Aline has begun reading the chapter but has not yet sent comments to Ravi, and the deadline has not passed."
  },
- "reason": "step ceiling 120 reached at 2026-07-27T10:20:30+00:00, before the cutoff"
+ "reason": "step ceiling 120 reached at 2026-07-27T20:00:40+00:00, before the cutoff"
 }

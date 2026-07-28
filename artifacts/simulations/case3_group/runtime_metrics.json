@@ -1,47 +1,48 @@
 {
- "provider_calls": 150,
+ "provider_calls": 76,
  "by_role": {
   "judge": {
-   "calls": 47,
-   "retries": 4,
-   "wall_s": 77.57,
-   "input_tokens": 71473,
-   "output_tokens": 2891
+   "calls": 26,
+   "retries": 0,
+   "wall_s": 45.88,
+   "input_tokens": 29473,
+   "output_tokens": 1522
   },
   "world": {
-   "calls": 73,
-   "retries": 1,
-   "wall_s": 149.51,
-   "input_tokens": 205490,
-   "output_tokens": 7681
+   "calls": 37,
+   "retries": 0,
+   "wall_s": 101.7,
+   "input_tokens": 100986,
+   "output_tokens": 4020
   },
   "actor": {
-   "calls": 30,
+   "calls": 13,
    "retries": 0,
-   "wall_s": 52.63,
-   "input_tokens": 29238,
-   "output_tokens": 1989
+   "wall_s": 26.83,
+   "input_tokens": 11788,
+   "output_tokens": 1089
   }
  },
- "total_input_tokens": 306201,
- "total_output_tokens": 12561,
- "total_wall_s": 279.73,
+ "total_input_tokens": 142247,
+ "total_output_tokens": 6631,
+ "total_wall_s": 174.43,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e104",
-   "e275",
-   "e358",
-   "e447"
+   "e38",
+   "e61",
+   "e66",
+   "e120",
+   "e125"
   ],
-  "explanation": "Ines offered to host (e104), Kwame agreed (e275), Bea agreed (e358), and Tomas agreed (e447), showing collective agreement before the deadline."
+  "explanation": "Ines offered to host (e38), Tomas and Kwame agreed (e61, e66), and Ines confirmed (e120, e125), showing collective agreement before the deadline."
  },
  "reason": "",
- "steps": 94,
- "world_calls": 72,
- "actor_calls": 30,
- "judge_calls": 43,
- "committed_events": 43,
- "ledger_records": 462
+ "steps": 40,
+ "world_calls": 37,
+ "actor_calls": 13,
+ "judge_calls": 26,
+ "committed_events": 26,
+ "ledger_records": 249
 }

@@ -1073,3 +1073,32 @@ def test_being_deep_in_your_own_task_does_not_earn_a_fresh_turn():
     assert gaps and gaps[-1] > gaps[0]            # the interval grew
     span = parse_iso(turns[-1]) - parse_iso(turns[0])
     assert span.total_seconds() > 3600            # hours, not minutes
+
+
+def test_one_pending_revisit_per_person_however_it_was_asked_for():
+    """The world asked to be called back about the same person eighty-six
+    times in one live run, and every one of those was a step."""
+    world, journal, bindings = build()
+    wakes = [{"actor": "bo_ferrer", "after": f"{n + 1} hours",
+              "reason": "check again"} for n in range(4)]
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            return json.dumps({"judgment": "call me back about him",
+                               "event": None, "wakes": wakes}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=transport), max_steps=8,
+                   trace=Trace())
+    queued = [r for r in world.records if r["op"] == "event.scheduled"
+              and r["data"]["kind"] == "semantic.wake"
+              and r["data"]["data"]["actor"] == "bo_ferrer"]
+    # four were asked for at once; they cannot all be waiting at once
+    times = [r["data"]["t"] for r in queued]
+    assert len(times) == len(set(times)), times
+    fired = [r for r in world.records if r["op"] == "event.fired"
+             and r["data"]["kind"] == "semantic.wake"]
+    assert len(queued) <= len(fired) + 1
