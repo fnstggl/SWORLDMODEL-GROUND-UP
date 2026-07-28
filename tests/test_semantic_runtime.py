@@ -909,14 +909,23 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
     world, journal, bindings = build()
     busy = {"decision": "I keep working", "intentions": ["keep working"],
             "private_updates": []}
-    caller = RuntimeCaller(transport=Script({
-        "judge": [UNRESOLVED] * 400,
-        # every attempt succeeds instantly and only the actor sees it
-        "world": [{"judgment": "he does it", "event": {
-            "description": "Ada carries on with her own work",
-            "for": ["ada_vance"], "observed": True, "after": "now"},
-            "wakes": []}] * 400,
-        "actor": [busy] * 400}))
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            # every attempt succeeds and only the actor sees it.  Once the
+            # instant is crowded code insists on a duration, and a real
+            # model supplies one when told why it was rejected.
+            after = ("2 minutes" if "cannot also take no time" in user
+                     else "now")
+            return json.dumps({"judgment": "she does it", "event": {
+                "description": "Ada carries on with her own work",
+                "for": ["ada_vance"], "observed": True, "after": after},
+                "wakes": []}), {}
+        return json.dumps(busy), {}
+
+    caller = RuntimeCaller(transport=transport)
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=12, trace=Trace())
     times = [parse_iso(e["t"]) for e in journal.events()]
@@ -996,3 +1005,27 @@ def test_the_world_cannot_run_for_long_without_asking_anyone():
     assert seen["actor"] > 1, "nobody was ever asked anything"
     # no unbroken run of world judgments longer than the bound
     assert max(seen["runs"]) <= 6, seen["runs"]
+
+
+def test_one_instant_cannot_be_subdivided_forever():
+    """A hundred events on a single timestamp is not a sequence of events,
+    it is one moment being cut into pieces.  Once an instant is crowded,
+    the world must say how long the next thing takes."""
+    from sworldmodel.semantic_runtime.world_mind import make_world_validator
+    from sworldmodel.semantic_runtime.trajectory import MAX_EVENTS_PER_INSTANT
+    assert MAX_EVENTS_PER_INSTANT >= 1
+    body = {"judgment": "j", "event": {"description": "d",
+                                       "for": ["ada_vance"],
+                                       "observed": True, "after": "now"},
+            "wakes": []}
+    relaxed = make_world_validator({"ada_vance"})
+    assert relaxed(dict(body))["event_checked"]["after"] == "now"
+    strict = make_world_validator({"ada_vance"}, require_elapsed=True)
+    with pytest.raises(EnvelopeError):
+        strict(dict(body))
+    moved = json.loads(json.dumps(body))
+    moved["event"]["after"] = "90 seconds"
+    assert strict(moved)["event_checked"]["after"] == "90 seconds"
+    # and nothing at all is still always allowed
+    assert strict({"judgment": "j", "event": None,
+                   "wakes": []})["event_checked"] is None

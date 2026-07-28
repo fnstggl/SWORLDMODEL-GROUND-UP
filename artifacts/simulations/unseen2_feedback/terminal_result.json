@@ -5,18 +5,18 @@
   "answer": {
    "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "Dr Aline Mercier has read the thesis chapter (e105, e126, e151, etc.) but has not yet sent comments to Ravi, and the deadline (2026-07-31T17:00:00+01:00) has not passed."
+   "explanation": "Dr Aline Mercier has opened the email and seen the attachment (e60, e65), but has not yet read the thesis chapter or sent comments to Ravi, and the deadline (2026-07-31T17:00:00+01:00) has not passed."
   },
-  "reason": "step ceiling 120 reached at 2026-07-27T17:40:10+00:00, before the cutoff",
+  "reason": "step ceiling 120 reached at 2026-07-27T12:02:49+00:00, before the cutoff",
   "steps": 120,
-  "world_calls": 121,
-  "actor_calls": 85,
-  "judge_calls": 65
+  "world_calls": 127,
+  "actor_calls": 46,
+  "judge_calls": 105
  },
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Dr Aline Mercier has read the thesis chapter (e105, e126, e151, etc.) but has not yet sent comments to Ravi, and the deadline (2026-07-31T17:00:00+01:00) has not passed."
+  "explanation": "Dr Aline Mercier has opened the email and seen the attachment (e60, e65), but has not yet read the thesis chapter or sent comments to Ravi, and the deadline (2026-07-31T17:00:00+01:00) has not passed."
  },
- "reason": "step ceiling 120 reached at 2026-07-27T17:40:10+00:00, before the cutoff"
+ "reason": "step ceiling 120 reached at 2026-07-27T12:02:49+00:00, before the cutoff"
 }

@@ -1,42 +1,45 @@
 {
- "provider_calls": 220,
+ "provider_calls": 82,
  "by_role": {
   "judge": {
-   "calls": 62,
+   "calls": 25,
    "retries": 0,
-   "wall_s": 98.48,
-   "input_tokens": 142099,
-   "output_tokens": 3651
+   "wall_s": 38.64,
+   "input_tokens": 28101,
+   "output_tokens": 1518
   },
   "world": {
-   "calls": 120,
+   "calls": 43,
    "retries": 0,
-   "wall_s": 266.69,
-   "input_tokens": 433486,
-   "output_tokens": 13972
+   "wall_s": 86.02,
+   "input_tokens": 107510,
+   "output_tokens": 4748
   },
   "actor": {
-   "calls": 38,
+   "calls": 14,
    "retries": 0,
-   "wall_s": 86.88,
-   "input_tokens": 65878,
-   "output_tokens": 4497
+   "wall_s": 29.03,
+   "input_tokens": 14258,
+   "output_tokens": 1489
   }
  },
- "total_input_tokens": 641463,
- "total_output_tokens": 22120,
- "total_wall_s": 451.95,
- "status": "incomplete",
+ "total_input_tokens": 149869,
+ "total_output_tokens": 7755,
+ "total_wall_s": 153.68,
+ "status": "resolved",
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya and Dmitri have agreed on a price; they have exchanged offers but no acceptance has been observed."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e139",
+   "e180"
+  ],
+  "explanation": "Priya offered 1200 (e139) and Dmitri accepted that offer (e180), so they agreed on a price of 1200 for the kiln before the deadline."
  },
- "reason": "step ceiling 120 reached at 2026-09-08T14:45:08+00:00, before the cutoff",
- "steps": 120,
- "world_calls": 120,
- "actor_calls": 38,
- "judge_calls": 62,
- "committed_events": 61,
- "ledger_records": 648
+ "reason": "",
+ "steps": 43,
+ "world_calls": 43,
+ "actor_calls": 14,
+ "judge_calls": 25,
+ "committed_events": 25,
+ "ledger_records": 242
 }

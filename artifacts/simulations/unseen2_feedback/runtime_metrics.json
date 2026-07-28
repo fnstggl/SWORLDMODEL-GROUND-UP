@@ -1,42 +1,42 @@
 {
- "provider_calls": 272,
+ "provider_calls": 279,
  "by_role": {
   "judge": {
-   "calls": 65,
-   "retries": 0,
-   "wall_s": 105.39,
-   "input_tokens": 144649,
-   "output_tokens": 4735
+   "calls": 106,
+   "retries": 1,
+   "wall_s": 173.48,
+   "input_tokens": 341746,
+   "output_tokens": 6958
   },
   "world": {
-   "calls": 121,
+   "calls": 127,
    "retries": 0,
-   "wall_s": 274.14,
-   "input_tokens": 468212,
-   "output_tokens": 14432
+   "wall_s": 266.27,
+   "input_tokens": 550414,
+   "output_tokens": 14075
   },
   "actor": {
-   "calls": 86,
-   "retries": 1,
-   "wall_s": 162.62,
-   "input_tokens": 225600,
-   "output_tokens": 6767
+   "calls": 46,
+   "retries": 0,
+   "wall_s": 91.4,
+   "input_tokens": 133385,
+   "output_tokens": 4018
   }
  },
- "total_input_tokens": 838461,
- "total_output_tokens": 25934,
- "total_wall_s": 542.13,
+ "total_input_tokens": 1025545,
+ "total_output_tokens": 25051,
+ "total_wall_s": 531.2,
  "status": "incomplete",
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Dr Aline Mercier has read the thesis chapter (e105, e126, e151, etc.) but has not yet sent comments to Ravi, and the deadline (2026-07-31T17:00:00+01:00) has not passed."
+  "explanation": "Dr Aline Mercier has opened the email and seen the attachment (e60, e65), but has not yet read the thesis chapter or sent comments to Ravi, and the deadline (2026-07-31T17:00:00+01:00) has not passed."
  },
- "reason": "step ceiling 120 reached at 2026-07-27T17:40:10+00:00, before the cutoff",
+ "reason": "step ceiling 120 reached at 2026-07-27T12:02:49+00:00, before the cutoff",
  "steps": 120,
- "world_calls": 121,
- "actor_calls": 85,
- "judge_calls": 65,
- "committed_events": 64,
- "ledger_records": 687
+ "world_calls": 127,
+ "actor_calls": 46,
+ "judge_calls": 105,
+ "committed_events": 104,
+ "ledger_records": 700
 }

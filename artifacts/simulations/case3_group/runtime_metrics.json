@@ -1,42 +1,46 @@
 {
- "provider_calls": 118,
+ "provider_calls": 110,
  "by_role": {
   "judge": {
-   "calls": 28,
-   "retries": 0,
-   "wall_s": 44.12,
-   "input_tokens": 32945,
-   "output_tokens": 1455
+   "calls": 34,
+   "retries": 1,
+   "wall_s": 55.19,
+   "input_tokens": 46793,
+   "output_tokens": 2026
   },
   "world": {
-   "calls": 47,
+   "calls": 54,
    "retries": 0,
-   "wall_s": 95.39,
-   "input_tokens": 118226,
-   "output_tokens": 4578
+   "wall_s": 111.93,
+   "input_tokens": 151943,
+   "output_tokens": 6151
   },
   "actor": {
-   "calls": 43,
+   "calls": 22,
    "retries": 0,
-   "wall_s": 78.26,
-   "input_tokens": 46099,
-   "output_tokens": 3129
+   "wall_s": 43.97,
+   "input_tokens": 22234,
+   "output_tokens": 1915
   }
  },
- "total_input_tokens": 197270,
- "total_output_tokens": 9162,
- "total_wall_s": 217.76,
- "status": "cutoff",
+ "total_input_tokens": 220970,
+ "total_output_tokens": 10092,
+ "total_wall_s": 211.04,
+ "status": "resolved",
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that all four housemates collectively agreed on a host before the deadline; the messages only show discussions but no agreement."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e278",
+   "e283",
+   "e288"
+  ],
+  "explanation": "Ines's message 'Great, I'll host the dinner this Saturday at my place.' was observed by Bea, and together with prior messages showing no objections, this constitutes collective agreement on Ines as host before the deadline."
  },
  "reason": "",
- "steps": 60,
- "world_calls": 47,
- "actor_calls": 43,
- "judge_calls": 28,
- "committed_events": 27,
- "ledger_records": 336
+ "steps": 56,
+ "world_calls": 54,
+ "actor_calls": 22,
+ "judge_calls": 33,
+ "committed_events": 33,
+ "ledger_records": 338
 }

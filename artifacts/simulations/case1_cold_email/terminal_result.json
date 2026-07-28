@@ -1,22 +1,22 @@
 {
  "question": "Is this cold email likely to get a response from Mark Cuban within two weeks? Jordan Reyes, founder of a bootstrapped sports-analytics startup, has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. Jordan will send it today and does not plan to follow up.",
  "trajectory": {
-  "status": "incomplete",
+  "status": "cutoff",
   "answer": {
-   "status": "UNRESOLVED",
+   "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No event shows Mark Cuban sending a response to Jordan Reyes's email; the cutoff is 2026-08-10T09:00:00-05:00, which has not yet passed."
+   "explanation": "The deadline 2026-08-10T09:00:00-05:00 has passed without any committed event showing Mark Cuban actually sent a response to Jordan Reyes's email."
   },
-  "reason": "step ceiling 120 reached at 2026-07-30T03:05:59+00:00, before the cutoff",
-  "steps": 120,
-  "world_calls": 125,
-  "actor_calls": 85,
-  "judge_calls": 92
+  "reason": "",
+  "steps": 50,
+  "world_calls": 30,
+  "actor_calls": 39,
+  "judge_calls": 8
  },
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No event shows Mark Cuban sending a response to Jordan Reyes's email; the cutoff is 2026-08-10T09:00:00-05:00, which has not yet passed."
+  "explanation": "The deadline 2026-08-10T09:00:00-05:00 has passed without any committed event showing Mark Cuban actually sent a response to Jordan Reyes's email."
  },
- "reason": "step ceiling 120 reached at 2026-07-30T03:05:59+00:00, before the cutoff"
+ "reason": ""
 }

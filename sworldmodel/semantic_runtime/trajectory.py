@@ -33,6 +33,10 @@ from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
 
+#: how many events may share one exact instant before the world is
+#: required to say how long the next one takes
+MAX_EVENTS_PER_INSTANT = 3
+
 #: kernel queue kinds owned by this layer
 K_EVENT = "semantic.event"      # a world-proposed event, due at its instant
 K_WAKE = "semantic.wake"        # reconsider an actor's situation
@@ -140,8 +144,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # the validator checks the response AND its event AND its wakes, so
         # an unusable one is retried once inside the call and nothing here
         # is reached until everything is known good
+        # if this instant is already crowded, the next thing may not also
+        # take no time -- time has to move for a sequence to be a sequence
+        crowded = sum(1 for e in journal.events()
+                      if e["t"] == _iso_now(world)) >= MAX_EVENTS_PER_INSTANT
         out = caller.ask("world", world_mind.WORLD_SYSTEM, user,
-                         world_mind.make_world_validator(set(actor_ids)),
+                         world_mind.make_world_validator(
+                             set(actor_ids), require_elapsed=crowded),
                          sim_time=_iso_now(world), trigger=trigger_kind)
         traj.world_calls += 1
         since_actor["n"] += 1

@@ -1,63 +1,37 @@
-{"actor":"ravi_patel","content":"I sent the thesis chapter to Dr Mercier on Monday morning.","source":"actor_call:c3","t":"2026-07-27T08:00:00+00:00"}
-{"actor":"ravi_patel","content":"I hope she can review it before Friday's deadline.","source":"actor_call:c3","t":"2026-07-27T08:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I noticed Ravi's email but will read it after class.","source":"actor_call:c16","t":"2026-07-27T14:05:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I realize I should prioritize Ravi's chapter over some other tasks because the deadline is fixed.","source":"actor_call:c19","t":"2026-07-27T16:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am now committing to reading Ravi's chapter this week, starting now.","source":"actor_call:c22","t":"2026-07-27T16:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I now have the chapter saved and plan to read it tonight.","source":"actor_call:c26","t":"2026-07-27T16:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I now have the chapter saved and plan to read it tonight.","source":"actor_call:c30","t":"2026-07-27T16:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I now have the chapter saved and plan to read it tonight.","source":"actor_call:c34","t":"2026-07-27T16:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am now engaged in reading the chapter and intend to finish it tonight.","source":"actor_call:c37","t":"2026-07-27T16:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I realize I have been inconsistent with my email handling and need to be more deliberate.","source":"actor_call:c40","t":"2026-07-27T16:00:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am now focused on reading the chapter and intend to finish it tonight.","source":"actor_call:c43","t":"2026-07-27T16:00:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am now fully engaged in reading the chapter and plan to finish it tonight.","source":"actor_call:c46","t":"2026-07-27T16:00:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am determined to finish reading this chapter tonight despite the interruption.","source":"actor_call:c49","t":"2026-07-27T16:02:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am committed to finishing this chapter tonight.","source":"actor_call:c53","t":"2026-07-27T16:02:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am now fully engaged in reading the chapter and committed to finishing it tonight.","source":"actor_call:c58","t":"2026-07-27T16:02:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am reassured that I am on track to meet the Friday deadline for providing feedback.","source":"actor_call:c70","t":"2026-07-27T16:05:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making steady progress and feel confident I can finish the chapter tonight.","source":"actor_call:c72","t":"2026-07-27T16:05:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making steady progress and feel confident I can finish the chapter tonight.","source":"actor_call:c81","t":"2026-07-27T16:05:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making steady progress and feel confident I can finish the chapter tonight.","source":"actor_call:c87","t":"2026-07-27T16:07:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making steady progress and feel confident I can finish the chapter tonight.","source":"actor_call:c92","t":"2026-07-27T16:07:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making steady progress and feel confident I can finish the chapter tonight.","source":"actor_call:c95","t":"2026-07-27T16:07:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making good progress and should be able to finish the chapter tonight.","source":"actor_call:c107","t":"2026-07-27T16:07:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am confident I can finish reading the chapter tonight and provide feedback by Friday.","source":"actor_call:c110","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making steady progress and am confident I will finish the chapter tonight, allowing me to provide feedback by Friday.","source":"actor_call:c113","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am confident I can finish the chapter tonight and provide feedback by Friday.","source":"actor_call:c116","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am interrupted by the meeting but still plan to finish the chapter tonight.","source":"actor_call:c118","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the committee meeting is important.","source":"actor_call:c118","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the committee meeting is important.","source":"actor_call:c122","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am confident I can finish the chapter tonight and provide feedback by Friday.","source":"actor_call:c122","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but I know the committee meeting is important and I will return to the chapter tonight.","source":"actor_call:c126","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the committee meeting is important; I will return to the chapter tonight.","source":"actor_call:c130","t":"2026-07-27T16:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but I know the committee meeting is important; I will return to the chapter tonight.","source":"actor_call:c132","t":"2026-07-27T16:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am confident I can finish the chapter tonight and provide feedback by Friday.","source":"actor_call:c132","t":"2026-07-27T16:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the committee meeting is important; I will return to the chapter tonight.","source":"actor_call:c137","t":"2026-07-27T16:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the committee meeting and class prep are important; I will return to the chapter tonight.","source":"actor_call:c142","t":"2026-07-27T16:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I'm a bit frustrated by the interruption but I know the meeting is important; I'll return to the chapter tonight.","source":"actor_call:c145","t":"2026-07-27T16:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c147","t":"2026-07-27T16:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting and class prep are important; I will return to the chapter tonight.","source":"actor_call:c152","t":"2026-07-27T16:12:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am making progress but the meeting may slow me down; I still intend to finish tonight.","source":"actor_call:c162","t":"2026-07-27T16:15:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c165","t":"2026-07-27T16:17:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am in the middle of a hiring committee meeting and cannot read the chapter now; I will return to it tonight.","source":"actor_call:c167","t":"2026-07-27T16:37:10+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c170","t":"2026-07-27T17:00:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c176","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I confirm that I will read Ravi's chapter tonight after my class prep and meeting are done.","source":"actor_call:c180","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c184","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I confirm that I will read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c188","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c191","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I confirm that I will read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c194","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c197","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I confirm that I will read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c200","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to the chapter tonight.","source":"actor_call:c202","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I confirm that I will read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c205","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c208","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I confirm that I will read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c213","t":"2026-07-27T17:10:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c216","t":"2026-07-27T17:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am slightly frustrated by the interruption but know the meeting is important; I will return to Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c218","t":"2026-07-27T17:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I am reaffirming my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c224","t":"2026-07-27T17:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I reaffirm my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c227","t":"2026-07-27T17:10:05+00:00"}
-{"actor":"dr_aline_mercier","content":"I reaffirm my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c230","t":"2026-07-27T17:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I reaffirm my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c232","t":"2026-07-27T17:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I reaffirm my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c235","t":"2026-07-27T17:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I reaffirm my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c236","t":"2026-07-27T17:12:00+00:00"}
-{"actor":"dr_aline_mercier","content":"I reaffirm my plan to read Ravi's chapter tonight after the meeting and class prep.","source":"actor_call:c247","t":"2026-07-27T17:17:10+00:00"}
+{"actor":"ravi_patel","content":"I sent the chapter to Aline on Monday morning. I hope she can review it before Friday's deadline.","source":"actor_call:c3","t":"2026-07-27T08:00:00+00:00"}
+{"actor":"dr_aline_mercier","content":"I am aware that I have a deadline on Friday for Ravi's chapter, and I have other students waiting on feedback, so I need to prioritize.","source":"actor_call:c12","t":"2026-07-27T12:00:02+00:00"}
+{"actor":"dr_aline_mercier","content":"I now have the chapter file saved locally.","source":"actor_call:c22","t":"2026-07-27T12:00:17+00:00"}
+{"actor":"dr_aline_mercier","content":"I plan to read it tomorrow morning to meet the Friday deadline.","source":"actor_call:c22","t":"2026-07-27T12:00:17+00:00"}
+{"actor":"dr_aline_mercier","content":"I need to block out at least two hours tomorrow to read and comment on the chapter.","source":"actor_call:c30","t":"2026-07-27T12:00:17+00:00"}
+{"actor":"dr_aline_mercier","content":"The chapter file is now saved locally, so I can access it tomorrow without needing to download again.","source":"actor_call:c35","t":"2026-07-27T12:00:22+00:00"}
+{"actor":"dr_aline_mercier","content":"I have a clear plan to read Ravi's chapter on Tuesday afternoon, so I can focus on other tasks now.","source":"actor_call:c39","t":"2026-07-27T12:00:22+00:00"}
+{"actor":"dr_aline_mercier","content":"I should ensure I have enough time for the other four students before Friday as well.","source":"actor_call:c39","t":"2026-07-27T12:00:22+00:00"}
+{"actor":"dr_aline_mercier","content":"I need to also schedule time for the other four students' feedback before Friday.","source":"actor_call:c59","t":"2026-07-27T12:00:29+00:00"}
+{"actor":"dr_aline_mercier","content":"I have a clear plan to read Ravi's chapter on Tuesday afternoon, so I can focus on teaching prep now.","source":"actor_call:c66","t":"2026-07-27T12:00:31+00:00"}
+{"actor":"dr_aline_mercier","content":"I now have a better sense of the workload from the other four students.","source":"actor_call:c79","t":"2026-07-27T12:00:33+00:00"}
+{"actor":"dr_aline_mercier","content":"I realize I need to allocate time for each of them, not just Ravi.","source":"actor_call:c79","t":"2026-07-27T12:00:33+00:00"}
+{"actor":"dr_aline_mercier","content":"I need to allocate specific time blocks for each of the four other students' feedback, not just Ravi.","source":"actor_call:c97","t":"2026-07-27T12:00:36+00:00"}
+{"actor":"dr_aline_mercier","content":"I am starting to get a sense of how much time I'll need for each student's feedback.","source":"actor_call:c107","t":"2026-07-27T12:00:36+00:00"}
+{"actor":"dr_aline_mercier","content":"I am beginning to estimate the time needed for each student's feedback, which will help me schedule specific blocks.","source":"actor_call:c112","t":"2026-07-27T12:00:36+00:00"}
+{"actor":"dr_aline_mercier","content":"I am now focused on teaching prep, knowing Ravi's chapter is scheduled for tomorrow afternoon.","source":"actor_call:c130","t":"2026-07-27T12:00:38+00:00"}
+{"actor":"dr_aline_mercier","content":"I need to quickly scan all four student submissions to plan my week.","source":"actor_call:c135","t":"2026-07-27T12:00:41+00:00"}
+{"actor":"dr_aline_mercier","content":"I am now estimating the time needed for each student's feedback as I scan their files.","source":"actor_call:c140","t":"2026-07-27T12:00:41+00:00"}
+{"actor":"dr_aline_mercier","content":"I am building a clearer picture of the total workload for the four other students.","source":"actor_call:c145","t":"2026-07-27T12:00:47+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for each of the four other students.","source":"actor_call:c150","t":"2026-07-27T12:00:52+00:00"}
+{"actor":"dr_aline_mercier","content":"I'm getting a clearer sense of the workload for the second student, which will help me schedule feedback time.","source":"actor_call:c155","t":"2026-07-27T12:00:52+00:00"}
+{"actor":"dr_aline_mercier","content":"I am building a clearer picture of the workload for the second student.","source":"actor_call:c160","t":"2026-07-27T12:00:55+00:00"}
+{"actor":"dr_aline_mercier","content":"I have now assessed two of the four other student submissions and am building a clearer picture of the total workload.","source":"actor_call:c167","t":"2026-07-27T12:02:00+00:00"}
+{"actor":"dr_aline_mercier","content":"I have assessed two of the four other student submissions and am building a clearer picture of the total workload.","source":"actor_call:c170","t":"2026-07-27T12:02:00+00:00"}
+{"actor":"dr_aline_mercier","content":"I am building a clearer picture of the workload for the third student.","source":"actor_call:c176","t":"2026-07-27T12:02:00+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the third student.","source":"actor_call:c181","t":"2026-07-27T12:02:01+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the third student.","source":"actor_call:c191","t":"2026-07-27T12:02:04+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the third student.","source":"actor_call:c196","t":"2026-07-27T12:02:04+00:00"}
+{"actor":"dr_aline_mercier","content":"I am building a clearer picture of the workload for the third student.","source":"actor_call:c205","t":"2026-07-27T12:02:06+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the third student.","source":"actor_call:c210","t":"2026-07-27T12:02:06+00:00"}
+{"actor":"dr_aline_mercier","content":"I am building a clearer picture of the workload for the third student.","source":"actor_call:c219","t":"2026-07-27T12:02:06+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the third student.","source":"actor_call:c226","t":"2026-07-27T12:02:08+00:00"}
+{"actor":"dr_aline_mercier","content":"I am now assessing the third student's submission to estimate time needed for feedback.","source":"actor_call:c240","t":"2026-07-27T12:02:16+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the third student.","source":"actor_call:c252","t":"2026-07-27T12:02:38+00:00"}
+{"actor":"dr_aline_mercier","content":"I am continuing to build a full picture of the total workload from all four students before scheduling specific feedback blocks.","source":"actor_call:c255","t":"2026-07-27T12:02:41+00:00"}
+{"actor":"dr_aline_mercier","content":"I am getting a clearer sense of the workload for the fourth student, adding to my overall picture of the week's tasks.","source":"actor_call:c266","t":"2026-07-27T12:02:42+00:00"}
+{"actor":"dr_aline_mercier","content":"I am adding to my sense of the total workload from all four students.","source":"actor_call:c276","t":"2026-07-27T12:02:49+00:00"}
