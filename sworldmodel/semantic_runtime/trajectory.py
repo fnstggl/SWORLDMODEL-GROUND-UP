@@ -495,23 +495,24 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         happens in life: time passes, and he comes back to things.
         """
         others = [a for a in envelope["for"] if a != self_act_of]
-        if envelope["observed"] and others:
-            # somebody LEARNED something: their turn, and nothing further
+        learned = bool(envelope["observed"] and others)
+        if learned:
+            # somebody LEARNED something: their turn
             env_chain["depth"] = 0
             for aid in others:
                 news[aid] = news.get(aid, 0) + 1
                 actor_step(aid, cause=rec["seq"],
                            trigger_event_ids=[rec["event_id"]])
-            return
-        # nobody new learned anything.  If this was a person's own doing,
-        # they get no fresh turn -- but the world must still say what
-        # became of what they did, or a message they sent would simply
-        # stop where it was sent.
+        # ... and, independently of that, the world may have said this
+        # event leaves something unresolved.  Both can be true at once: a
+        # message that reaches one person can still be on its way to
+        # another, and treating them as alternatives left things stopped
+        # where they were sent.
         # whoever this concerns, INCLUDING the person whose doing it was:
         # someone who sends a thing to someone else is still waiting on it
         waiting = list(dict.fromkeys(
             list(envelope["for"]) + ([self_act_of] if self_act_of else [])))
-        if since_actor["n"] >= MAX_WORLD_RUN and waiting:
+        if since_actor["n"] >= MAX_WORLD_RUN and waiting and not learned:
             # the world has been going by itself for too long: whatever it
             # has been writing, the people in it get to speak
             _hand_back_the_turn(waiting, rec)

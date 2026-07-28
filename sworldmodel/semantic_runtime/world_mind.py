@@ -255,7 +255,7 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
         parsed["event_checked"] = (
             None if env is None
             else {k: env[k] for k in ("description", "for", "observed",
-                                      "after")})
+                                      "after", "follow_up")})
         parsed["wakes_checked"] = [{"actor": w["actor"], "after": w["after"],
                                     "reason": w["reason"]} for w in wakes]
         parsed["duplicate_dropped"] = duplicate
