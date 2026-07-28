@@ -87,9 +87,17 @@ Reply with ONLY a JSON object:
 "event" may be null when nothing concrete happens yet.
 "wakes" may be empty.
 "for" lists the actor ids the event or its information becomes AVAILABLE \
-to.  "observed" is true only if EVERY listed actor has actually observed \
-it already; if some have and some have not, emit the event for one group \
-now and let the rest be judged separately later.
+to -- which is usually the person it is heading TOWARDS, not the person \
+who set it in motion.  If something is travelling to someone, the next \
+step is it arriving where THEY could encounter it, listed for them with \
+"observed": false.  "observed" is true only if EVERY listed actor has \
+actually observed it already; if some have and some have not, emit the \
+event for one group now and let the rest be judged separately later.
+When you are shown items that are available to someone but not yet \
+observed, decide what concretely becomes of them next: they may move \
+further along, they may reach that person's attention, or they may simply \
+sit there untouched while that person deals with other things.  Any of \
+those is a legitimate answer; say which one actually happens.
 "after" is how much simulated time passes before this event occurs: "now", \
 "43 seconds", "5 minutes", "2 hours", or "3 days".
 Use exactly the actor ids given to you.  Do not add any other fields."""

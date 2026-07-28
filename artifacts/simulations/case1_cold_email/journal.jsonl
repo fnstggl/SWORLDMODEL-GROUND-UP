@@ -1,0 +1,2 @@
+{"cause":10,"description":"Jordan Reyes sends the cold email to Mark Cuban's public email address.","event_id":"e11","for":["jordan_reyes"],"observed":true,"seq":11,"source":"starting_event[0]","t":"2026-07-27T14:00:00+00:00"}
+{"cause":15,"description":"The email leaves Jordan's outbox and is transmitted over the internet towards Mark Cuban's email server.","event_id":"e16","for":["jordan_reyes"],"observed":false,"seq":16,"source":"world_call:c2","t":"2026-07-27T14:00:00+00:00"}

@@ -206,7 +206,7 @@ class LifecycleModel:
                                              "Bo's inbox.",
                               "for": ["bo_ferrer"], "observed": False,
                               "after": "43 seconds"}, "wakes": []}), {}
-            if "attention_check" in user:
+            if "pending_progression" in user:
                 self.attention_checks += 1
                 if self.attention_checks == 1:
                     return json.dumps({
@@ -287,7 +287,7 @@ def test_intentions_are_not_committed_events():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=lifecycle_script())
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
-                          caller, max_steps=8, trace=Trace())
+                          caller, max_steps=20, trace=Trace())
     committed = " ".join(e["description"] for e in journal.events())
     # actors proposed these; none of them may appear as committed events
     assert "Wait." not in committed

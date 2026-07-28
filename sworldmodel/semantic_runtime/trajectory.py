@@ -73,6 +73,22 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         if trace is not None:
             trace.record(kind, **data)
 
+    #: per-actor revisit interval, widened each time a revisit finds that
+    #: nothing has changed (pure time bookkeeping; the world still decides
+    #: what, if anything, happens)
+    backoff: dict = {}
+
+    def _schedule_recheck(actor_id: str, cause: int) -> None:
+        hours = backoff.get(actor_id, 1) * 2
+        backoff[actor_id] = min(hours, 24)
+        due = world.clock.now + timedelta(hours=backoff[actor_id])
+        if due <= cutoff:
+            world.schedule(K_WAKE,
+                           {"actor": actor_id,
+                            "reason": "time has passed and something is "
+                                      "still sitting unattended"},
+                           due, cause)
+
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
                    actor_id: str | None = None) -> dict | None:
@@ -245,12 +261,24 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 aid = ev.data["actor"]
                 pending = journal.available_unobserved(aid)
                 if pending:
-                    world_step(trigger_kind="attention_check",
-                               trigger_text=(f"Does anything available to "
-                                             f"{aid} reach their attention "
-                                             f"now?  Reason for looking: "
-                                             f"{ev.data['reason']}"),
-                               cause=fired, actor_id=aid)
+                    before = len(journal.events())
+                    parsed = world_step(
+                        trigger_kind="pending_progression",
+                        trigger_text=(f"The items listed above are available "
+                                      f"to {aid} but not yet observed by "
+                                      f"them.  What concretely becomes of "
+                                      f"them next?  (Context for revisiting "
+                                      f"now: {ev.data['reason']})"),
+                        cause=fired, actor_id=aid)
+                    # a situation with something still pending is never
+                    # abandoned: if the world neither moved it on nor
+                    # scheduled its own revisit, code revisits it later on a
+                    # widening interval.  This is time bookkeeping, not
+                    # meaning -- the world still decides what happens.
+                    moved = (len(journal.events()) > before
+                             or world.queue.peek() is not None)
+                    if parsed is not None and not (parsed["wakes"] or moved):
+                        _schedule_recheck(aid, fired)
                 else:
                     actor_step(aid, cause=fired,
                                reasons=[ev.data.get("reason", "reconsider")])
