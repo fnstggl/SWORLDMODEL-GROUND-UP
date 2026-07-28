@@ -91,6 +91,8 @@ class SemanticTrajectory:
     #: cutoff     -- the trajectory reached the horizon and did not
     #: incomplete -- it ran out of steps or calls first, so the horizon was
     #:               never reached and no NO may be claimed
+    #: disagreement -- two independent readings of the record disagreed at
+    #:               the horizon, so no answer is claimed
     #: failed     -- a technical failure.  No RESPONSE is ever partially
     #:               committed: a rejected one writes nothing at all.
     #:               Records written by calls that had already completed
@@ -640,7 +642,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         answer = judge(final=not truncated, cause=world.records[-1]["seq"],
                        reserved=True)
         traj.answer = answer
-        if answer["status"] == "YES":
+        if answer.get("disagreement"):
+            # two independent readings of the same record reached different
+            # conclusions at the horizon.  That is not an answer, and it is
+            # not a NO either: it is the run saying so.
+            traj.status = "disagreement"
+        elif answer["status"] == "YES":
             traj.status = "resolved"
         else:
             traj.status = "incomplete" if truncated else "cutoff"
