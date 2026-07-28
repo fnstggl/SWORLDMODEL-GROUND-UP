@@ -33,9 +33,14 @@ from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
 
-#: how many events may share one exact instant before the world is
-#: required to say how long the next one takes
+#: How many events may share one exact instant before code stops
+#: accepting "no time at all" for the next one.  A hundred events on a
+#: single timestamp is not a sequence of events, it is one moment being
+#: cut into pieces forever -- a live run did exactly that.  Time is
+#: code's to keep, so code moves it on rather than refusing the answer:
+#: rejecting the response instead killed whole runs over a duration.
 MAX_EVENTS_PER_INSTANT = 3
+MIN_STEP_ON_A_CROWDED_INSTANT = timedelta(minutes=1)
 
 #: kernel queue kinds owned by this layer
 K_EVENT = "semantic.event"      # a world-proposed event, due at its instant
@@ -144,13 +149,10 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # the validator checks the response AND its event AND its wakes, so
         # an unusable one is retried once inside the call and nothing here
         # is reached until everything is known good
-        # if this instant is already crowded, the next thing may not also
-        # take no time -- time has to move for a sequence to be a sequence
         crowded = sum(1 for e in journal.events()
                       if e["t"] == _iso_now(world)) >= MAX_EVENTS_PER_INSTANT
         out = caller.ask("world", world_mind.WORLD_SYSTEM, user,
-                         world_mind.make_world_validator(
-                             set(actor_ids), require_elapsed=crowded),
+                         world_mind.make_world_validator(set(actor_ids)),
                          sim_time=_iso_now(world), trigger=trigger_kind)
         traj.world_calls += 1
         since_actor["n"] += 1
@@ -167,7 +169,14 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              judgment=parsed["judgment"],
              event=parsed["event"], wakes=parsed["wakes"])
         if envelope is not None:
-            due = world.clock.now + parse_duration(envelope["after"])
+            delta = parse_duration(envelope["after"])
+            if crowded and not delta.total_seconds():
+                # this instant is already full; the next thing takes at
+                # least a moment, whatever the world says
+                delta = MIN_STEP_ON_A_CROWDED_INSTANT
+                note("duration_floored", call_id=out["call_id"],
+                     t=_iso_now(world), description=envelope["description"])
+            due = world.clock.now + delta
             if due <= cutoff:
                 world.schedule(K_EVENT,
                                {"envelope": dict(envelope),

@@ -20,7 +20,8 @@ from sworldmodel.semantic_runtime.replay import replay_trajectory
 from sworldmodel.semantic_runtime.resolution import (ResolutionError,
                                                      make_validator)
 from sworldmodel.semantic_runtime.trace import Trace
-from sworldmodel.semantic_runtime.trajectory import run_trajectory
+from sworldmodel.semantic_runtime.trajectory import (MAX_EVENTS_PER_INSTANT,
+                                                     run_trajectory)
 from sworldmodel.semantic_runtime.views import build_view, render_view
 from sworldmodel.simclock import parse_iso
 
@@ -1009,23 +1010,30 @@ def test_the_world_cannot_run_for_long_without_asking_anyone():
 
 def test_one_instant_cannot_be_subdivided_forever():
     """A hundred events on a single timestamp is not a sequence of events,
-    it is one moment being cut into pieces.  Once an instant is crowded,
-    the world must say how long the next thing takes."""
-    from sworldmodel.semantic_runtime.world_mind import make_world_validator
-    from sworldmodel.semantic_runtime.trajectory import MAX_EVENTS_PER_INSTANT
-    assert MAX_EVENTS_PER_INSTANT >= 1
-    body = {"judgment": "j", "event": {"description": "d",
-                                       "for": ["ada_vance"],
-                                       "observed": True, "after": "now"},
-            "wakes": []}
-    relaxed = make_world_validator({"ada_vance"})
-    assert relaxed(dict(body))["event_checked"]["after"] == "now"
-    strict = make_world_validator({"ada_vance"}, require_elapsed=True)
-    with pytest.raises(EnvelopeError):
-        strict(dict(body))
-    moved = json.loads(json.dumps(body))
-    moved["event"]["after"] = "90 seconds"
-    assert strict(moved)["event_checked"]["after"] == "90 seconds"
-    # and nothing at all is still always allowed
-    assert strict({"judgment": "j", "event": None,
-                   "wakes": []})["event_checked"] is None
+    it is one moment being cut into pieces.  Time is code's to keep, so
+    code moves it on -- rejecting the answer instead killed whole runs
+    over a duration."""
+    world, journal, bindings = build()
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            # a world that insists everything takes no time at all
+            return json.dumps({"judgment": "and another thing", "event": {
+                "description": "one more thing happens",
+                "for": ["ada_vance"], "observed": False,
+                "after": "now"}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=14,
+                          trace=Trace())
+    assert traj.status != "failed", traj.reason      # never dies over this
+    times = [parse_iso(e["t"]) for e in journal.events()]
+    assert times == sorted(times)
+    assert len(journal.events()) > MAX_EVENTS_PER_INSTANT
+    # the instant filled up, and then time moved on regardless
+    from collections import Counter
+    assert max(Counter(times).values()) <= MAX_EVENTS_PER_INSTANT + 1
+    assert times[-1] > times[0]

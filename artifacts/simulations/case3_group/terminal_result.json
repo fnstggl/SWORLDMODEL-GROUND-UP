@@ -1,30 +1,14 @@
 {
  "question": "Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.",
  "trajectory": {
-  "status": "resolved",
-  "answer": {
-   "status": "YES",
-   "supporting_event_ids": [
-    "e278",
-    "e283",
-    "e288"
-   ],
-   "explanation": "Ines's message 'Great, I'll host the dinner this Saturday at my place.' was observed by Bea, and together with prior messages showing no objections, this constitutes collective agreement on Ines as host before the deadline."
-  },
-  "reason": "",
-  "steps": 56,
-  "world_calls": 54,
-  "actor_calls": 22,
-  "judge_calls": 33
+  "status": "failed",
+  "answer": null,
+  "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: several things have already happened at this exact instant, so this one cannot also take no time: say how long it really takes, however short",
+  "steps": 31,
+  "world_calls": 30,
+  "actor_calls": 12,
+  "judge_calls": 20
  },
- "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e278",
-   "e283",
-   "e288"
-  ],
-  "explanation": "Ines's message 'Great, I'll host the dinner this Saturday at my place.' was observed by Bea, and together with prior messages showing no objections, this constitutes collective agreement on Ines as host before the deadline."
- },
- "reason": ""
+ "answer": null,
+ "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: several things have already happened at this exact instant, so this one cannot also take no time: say how long it really takes, however short"
 }

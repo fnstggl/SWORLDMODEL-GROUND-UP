@@ -195,7 +195,7 @@ def validate_world_response(obj) -> dict:
             "wakes": obj.get("wakes") or []}
 
 
-def make_world_validator(known_actor_ids, *, require_elapsed: bool = False):
+def make_world_validator(known_actor_ids):
     """The whole response, checked in one place, before the caller returns.
 
     Envelope and wake validation live INSIDE the validated call so that an
@@ -210,16 +210,6 @@ def make_world_validator(known_actor_ids, *, require_elapsed: bool = False):
         parsed = validate_world_response(obj)
         env = (validate_event(parsed["event"], known_actor_ids)
                if parsed["event"] is not None else None)
-        if require_elapsed and env is not None \
-                and not env["delta"].total_seconds():
-            # several things have already happened at this exact instant.
-            # One more taking no time at all is not a sequence of events,
-            # it is one moment being subdivided forever; a live run stacked
-            # a hundred of them on a single timestamp.
-            raise EnvelopeError(
-                "several things have already happened at this exact "
-                "instant, so this one cannot also take no time: say how "
-                "long it really takes, however short")
         wakes = validate_wakes(parsed["wakes"], known_actor_ids)
         parsed["event_checked"] = (
             None if env is None

@@ -1,14 +1,20 @@
-{"actor":"priya_raghavan","content":"I believe that offering 1100 is a reasonable midpoint that might get Dmitri to counter or accept, and I'm willing to go up to 1200 if necessary, but I'll start here.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I now believe I am willing to negotiate down to 1200, but I would prefer not to go lower. I want to close the deal before the 20th.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am willing to accept 1200, but I will not go below 1000.","source":"actor_call:c17","t":"2026-09-08T09:05:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now considering that I might accept 1200 if pushed, but I will try for 1250 first.","source":"actor_call:c22","t":"2026-09-08T09:35:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now considering 1200 as a possible fallback if she counters again, but I will hold firm at 1250 for now.","source":"actor_call:c31","t":"2026-09-08T10:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm encouraged that Dmitri moved from 1400 to 1200; I think 1100 is a fair counter and I'm willing to go up to 1200 if needed.","source":"actor_call:c33","t":"2026-09-08T10:00:05+00:00"}
-{"actor":"priya_raghavan","content":"I now know Dmitri's lowest is 1250, so I'm willing to go up to 1200 if he counters again.","source":"actor_call:c40","t":"2026-09-08T10:07:05+00:00"}
-{"actor":"priya_raghavan","content":"I now know Dmitri's lowest is 1250, so 1200 is a reasonable final offer.","source":"actor_call:c43","t":"2026-09-08T10:07:05+00:00"}
-{"actor":"priya_raghavan","content":"I'm willing to accept 1200 as the price.","source":"actor_call:c55","t":"2026-09-08T10:17:05+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now satisfied with 1200 and want to close the deal immediately.","source":"actor_call:c58","t":"2026-09-08T10:30:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am satisfied with 1200 and want to finalize the sale immediately.","source":"actor_call:c69","t":"2026-09-08T10:35:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now committed to accepting 1200 and finalizing the sale.","source":"actor_call:c71","t":"2026-09-08T10:37:05+00:00"}
-{"actor":"dmitri_sokolov","content":"I am satisfied with 1200 and want to finalize the sale immediately.","source":"actor_call:c77","t":"2026-09-08T11:07:05+00:00"}
-{"actor":"priya_raghavan","content":"The deal is done at 1200, I'm satisfied.","source":"actor_call:c80","t":"2026-09-08T11:07:05+00:00"}
+{"actor":"priya_raghavan","content":"I believe Dmitri might respond to a modest increase from 900, and I am willing to go up to 1100 if necessary, but I want to avoid going higher than that.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm considering countering at 1200 but not ready to act yet.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am leaning towards countering at 1200 but want to wait a bit to see if Priya might increase her offer.","source":"actor_call:c19","t":"2026-09-08T11:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I've decided to act now rather than wait.","source":"actor_call:c22","t":"2026-09-08T14:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go to 1100 if needed, but I'll first see if 1000 gets a response.","source":"actor_call:c24","t":"2026-09-08T14:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm now more anxious about the deadline and willing to go to 1000 as a first step, but I'll hold firm at 1100 as my maximum.","source":"actor_call:c37","t":"2026-09-08T14:01:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I've decided to counter at 1200, hoping to meet somewhere near 1100 eventually.","source":"actor_call:c47","t":"2026-09-08T14:17:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now committed to the 1200 counteroffer.","source":"actor_call:c59","t":"2026-09-08T14:30:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now committed to countering at 1200.","source":"actor_call:c65","t":"2026-09-08T14:31:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm now more anxious about the deadline and willing to go to 1000 as a first step, but I'll hold firm at 1100 as my maximum.","source":"actor_call:c85","t":"2026-09-08T14:49:10+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now committed to countering at 1200.","source":"actor_call:c96","t":"2026-09-08T14:59:10+00:00"}
+{"actor":"priya_raghavan","content":"I now know Dmitri is firm at 1200, so I'll have to increase my offer. I'm willing to go to 1100 if he rejects 1000.","source":"actor_call:c98","t":"2026-09-08T14:59:10+00:00"}
+{"actor":"priya_raghavan","content":"I am now willing to go up to 1100, but no higher. I will not counter again if he rejects 1100.","source":"actor_call:c112","t":"2026-09-08T15:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now willing to go up to 1100, but no higher. I will not counter again if he rejects 1100.","source":"actor_call:c116","t":"2026-09-08T15:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm now willing to go up to 1100, but no higher. I will not counter again if he rejects 1100.","source":"actor_call:c122","t":"2026-09-08T15:00:20+00:00"}
+{"actor":"priya_raghavan","content":"I now know Dmitri is firm at 1200, but I'm hoping 1100 might be enough if he's bluffing. I will not go higher than 1100.","source":"actor_call:c125","t":"2026-09-08T15:00:20+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now committed to countering at 1200, hoping we can settle near 1100.","source":"actor_call:c139","t":"2026-09-08T15:00:50+00:00"}
+{"actor":"priya_raghavan","content":"I am now committed to 1100 as my absolute maximum; if he rejects this, I will walk away and look for another kiln.","source":"actor_call:c143","t":"2026-09-08T15:01:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now committed to 1100 as my absolute maximum; if he rejects this, I will walk away and look for another kiln.","source":"actor_call:c145","t":"2026-09-08T15:01:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now satisfied with 1100 and ready to finalize the transaction.","source":"actor_call:c157","t":"2026-09-08T15:01:30+00:00"}

@@ -55,6 +55,11 @@ Behave like the real person would, including when that is unhelpful: real \
 people are busy, distracted, sceptical, forgetful, slow to reply, and \
 often do nothing at all.  Doing nothing is a legitimate answer.
 
+Say what you attempt at the scale you would tell someone about it \
+afterwards -- "I put it in my diary for Thursday", not opening the diary, \
+typing the entry and closing it again.  Never describe the mechanics of \
+using a thing.
+
 Reply with ONLY a JSON object:
 {
   "decision": "one or two sentences: what you are deciding and why",

@@ -1,28 +1,14 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "resolved",
-  "answer": {
-   "status": "YES",
-   "supporting_event_ids": [
-    "e139",
-    "e180"
-   ],
-   "explanation": "Priya offered 1200 (e139) and Dmitri accepted that offer (e180), so they agreed on a price of 1200 for the kiln before the deadline."
-  },
-  "reason": "",
-  "steps": 43,
-  "world_calls": 43,
-  "actor_calls": 14,
-  "judge_calls": 25
+  "status": "failed",
+  "answer": null,
+  "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: several things have already happened at this exact instant, so this one cannot also take no time: say how long it really takes, however short",
+  "steps": 91,
+  "world_calls": 82,
+  "actor_calls": 27,
+  "judge_calls": 55
  },
- "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e139",
-   "e180"
-  ],
-  "explanation": "Priya offered 1200 (e139) and Dmitri accepted that offer (e180), so they agreed on a price of 1200 for the kiln before the deadline."
- },
- "reason": ""
+ "answer": null,
+ "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: several things have already happened at this exact instant, so this one cannot also take no time: say how long it really takes, however short"
 }
