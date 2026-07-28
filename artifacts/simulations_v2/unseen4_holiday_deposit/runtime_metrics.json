@@ -1,53 +1,65 @@
 {
- "provider_calls": 30,
+ "provider_calls": 280,
  "by_role": {
   "judge": {
-   "calls": 3,
-   "retries": 0,
-   "wall_s": 3.82,
-   "input_tokens": 2499,
-   "output_tokens": 144
+   "calls": 18,
+   "retries": 3,
+   "wall_s": 27.8,
+   "input_tokens": 22314,
+   "output_tokens": 1026
   },
   "world": {
-   "calls": 11,
+   "calls": 85,
    "retries": 0,
-   "wall_s": 20.95,
-   "input_tokens": 27363,
-   "output_tokens": 1253
+   "wall_s": 180.19,
+   "input_tokens": 262591,
+   "output_tokens": 10562
   },
   "actor": {
-   "calls": 5,
+   "calls": 71,
    "retries": 0,
-   "wall_s": 10.68,
-   "input_tokens": 6647,
-   "output_tokens": 561
+   "wall_s": 109.04,
+   "input_tokens": 144446,
+   "output_tokens": 4617
   },
   "continuity": {
-   "calls": 5,
+   "calls": 71,
    "retries": 0,
-   "wall_s": 7.79,
-   "input_tokens": 4923,
-   "output_tokens": 236
+   "wall_s": 102.48,
+   "input_tokens": 116270,
+   "output_tokens": 2907
   },
   "event_review": {
-   "calls": 6,
+   "calls": 34,
    "retries": 0,
-   "wall_s": 8.81,
-   "input_tokens": 6761,
-   "output_tokens": 247
+   "wall_s": 53.14,
+   "input_tokens": 47691,
+   "output_tokens": 1464
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.74,
+   "input_tokens": 1492,
+   "output_tokens": 41
   }
  },
- "total_input_tokens": 48193,
- "total_output_tokens": 2441,
- "total_wall_s": 52.03,
- "status": "failed",
- "answer": null,
- "reason": "EventGroundingError: the proposed event is still not a real thing that happened after one correction: Dev reading the message is a voluntary choice he has not yet made; the message is only available, not observed.",
- "steps": 3,
- "world_calls": 11,
- "actor_calls": 5,
- "judge_calls": 3,
- "review_calls": 11,
- "committed_events": 6,
- "ledger_records": 63
+ "total_input_tokens": 594804,
+ "total_output_tokens": 20617,
+ "total_wall_s": 474.31,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline."
+ },
+ "reason": "",
+ "steps": 78,
+ "world_calls": 85,
+ "actor_calls": 71,
+ "judge_calls": 15,
+ "review_calls": 106,
+ "abandoned_turns": 0,
+ "committed_events": 17,
+ "ledger_records": 465
 }

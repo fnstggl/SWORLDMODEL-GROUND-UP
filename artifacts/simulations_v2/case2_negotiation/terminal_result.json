@@ -1,25 +1,24 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "disagreement",
+  "status": "incomplete",
   "answer": {
    "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-   "disagreement": true
+   "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement on a price; all offers are unread messages, so no agreement has been reached."
   },
-  "reason": "",
-  "steps": 6,
-  "world_calls": 8,
-  "actor_calls": 5,
-  "judge_calls": 5,
-  "review_calls": 12
+  "reason": "step ceiling 250 reached at 2026-09-13T08:00:00+00:00, before the cutoff",
+  "steps": 250,
+  "world_calls": 333,
+  "actor_calls": 232,
+  "judge_calls": 16,
+  "review_calls": 353,
+  "abandoned_turns": 0
  },
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-  "disagreement": true
+  "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement on a price; all offers are unread messages, so no agreement has been reached."
  },
- "reason": ""
+ "reason": "step ceiling 250 reached at 2026-09-13T08:00:00+00:00, before the cutoff"
 }

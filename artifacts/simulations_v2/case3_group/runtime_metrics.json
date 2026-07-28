@@ -1,65 +1,65 @@
 {
- "provider_calls": 20,
+ "provider_calls": 48,
  "by_role": {
   "judge": {
-   "calls": 3,
-   "retries": 0,
-   "wall_s": 4.73,
-   "input_tokens": 1834,
-   "output_tokens": 185
-  },
-  "world": {
    "calls": 4,
    "retries": 0,
-   "wall_s": 6.67,
-   "input_tokens": 8550,
-   "output_tokens": 410
+   "wall_s": 6.23,
+   "input_tokens": 2513,
+   "output_tokens": 212
   },
-  "actor": {
-   "calls": 5,
+  "world": {
+   "calls": 14,
    "retries": 0,
-   "wall_s": 9.33,
-   "input_tokens": 6084,
-   "output_tokens": 474
-  },
-  "continuity": {
-   "calls": 5,
-   "retries": 0,
-   "wall_s": 7.25,
-   "input_tokens": 4273,
-   "output_tokens": 208
+   "wall_s": 23.9,
+   "input_tokens": 30420,
+   "output_tokens": 1346
   },
   "event_review": {
-   "calls": 2,
+   "calls": 7,
    "retries": 0,
-   "wall_s": 3.01,
-   "input_tokens": 1739,
-   "output_tokens": 74
+   "wall_s": 9.24,
+   "input_tokens": 5989,
+   "output_tokens": 277
+  },
+  "actor": {
+   "calls": 11,
+   "retries": 0,
+   "wall_s": 18.98,
+   "input_tokens": 14958,
+   "output_tokens": 926
+  },
+  "continuity": {
+   "calls": 11,
+   "retries": 0,
+   "wall_s": 15.57,
+   "input_tokens": 10800,
+   "output_tokens": 452
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.46,
-   "input_tokens": 555,
+   "wall_s": 1.35,
+   "input_tokens": 632,
    "output_tokens": 44
   }
  },
- "total_input_tokens": 23035,
- "total_output_tokens": 1395,
- "total_wall_s": 32.47,
- "status": "disagreement",
+ "total_input_tokens": 65312,
+ "total_output_tokens": 3257,
+ "total_wall_s": 75.27,
+ "status": "cutoff",
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-  "disagreement": true
+  "explanation": "The committed events show only messages from Ines and Bea, but no evidence that all four housemates collectively agreed on a host before the deadline."
  },
  "reason": "",
- "steps": 2,
- "world_calls": 4,
- "actor_calls": 5,
- "judge_calls": 3,
- "review_calls": 8,
- "committed_events": 2,
- "ledger_records": 45
+ "steps": 8,
+ "world_calls": 14,
+ "actor_calls": 11,
+ "judge_calls": 4,
+ "review_calls": 19,
+ "abandoned_turns": 1,
+ "committed_events": 3,
+ "ledger_records": 87
 }

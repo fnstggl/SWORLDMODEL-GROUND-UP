@@ -1,25 +1,24 @@
 {
  "question": "Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.",
  "trajectory": {
-  "status": "disagreement",
+  "status": "cutoff",
   "answer": {
-   "status": "UNRESOLVED",
+   "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-   "disagreement": true
+   "explanation": "The committed events show only messages from Ines and Bea, but no evidence that all four housemates collectively agreed on a host before the deadline."
   },
   "reason": "",
-  "steps": 2,
-  "world_calls": 4,
-  "actor_calls": 5,
-  "judge_calls": 3,
-  "review_calls": 8
+  "steps": 8,
+  "world_calls": 14,
+  "actor_calls": 11,
+  "judge_calls": 4,
+  "review_calls": 19,
+  "abandoned_turns": 1
  },
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (NO_AT_CUTOFF against UNRESOLVED), so no answer is claimed",
-  "disagreement": true
+  "explanation": "The committed events show only messages from Ines and Bea, but no evidence that all four housemates collectively agreed on a host before the deadline."
  },
  "reason": ""
 }

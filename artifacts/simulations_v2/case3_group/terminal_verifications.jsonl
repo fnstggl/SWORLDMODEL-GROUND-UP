@@ -1,1 +1,1 @@
-{"agreed":false,"explanation":"No committed event shows all four housemates collectively agreeing on a host; only Bea's offer is recorded.","first":"NO_AT_CUTOFF","kind":"terminal_verification","second":"UNRESOLVED","t":"2026-10-10T20:00:00+00:00"}
+{"agreed":true,"explanation":"The events show only individual offers but no collective agreement by all four housemates before the deadline.","first":"NO_AT_CUTOFF","kind":"terminal_verification","second":"NO_AT_CUTOFF","t":"2026-10-10T20:00:00+00:00"}

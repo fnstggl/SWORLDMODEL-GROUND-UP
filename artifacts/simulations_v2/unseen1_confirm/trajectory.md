@@ -1,14 +1,14 @@
 # Trajectory
 **Question:** Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.
-**Result:** disagreement — UNRESOLVED
+**Result:** resolved — YES
 
-*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No event shows Sam Okonjo sending a text message confirming the appointment, and the cutoff time has not passed.*
+*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No event shows Sam Okonjo sending a text message confirming the appointment; only an incoming message is recorded.*
 
 **World judgment** (starting_event) at 2026-07-28T08:00:00+00:00
 
 > trigger: Bristol Plumbing's text message arrives on Sam Okonjo's phone.
 >
-> The text message has arrived on Sam's phone and is available for him to see, but he has not yet looked at his phone. The message sits in his notifications.
+> The text message has already arrived and is on Sam's phone. No further physical event occurs until Sam looks at his phone.
 - proposes: (no concrete event yet)
 
 <details><summary>what sam_okonjo could see at 2026-07-28T08:00:00+00:00 (their entire prompt)</summary>
@@ -40,27 +40,32 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 **sam_okonjo decides** at 2026-07-28T08:00:00+00:00
 
-> I will reply to confirm the Thursday 8am slot as requested.
-- attempts: I pick up my phone and reply to Bristol Plumbing's text message: 'Yes, Thursday 8am works. Thanks.'
-- privately: I have sent the confirmation for the boiler repair appointment.
+> I need to reply to Bristol Plumbing to confirm the Thursday 8am slot as requested.
+- attempts: I pick up my phone and reply to Bristol Plumbing's text message confirming the Thursday 8am appointment.
+- privately: I have confirmed the boiler repair appointment for Thursday 8am.
 
 **World judgment** (actor_intention) at 2026-07-28T08:00:00+00:00
 
-> trigger: sam_okonjo attempts: I pick up my phone and reply to Bristol Plumbing's text message: 'Yes, Thursday 8am works. Thanks.'
+> trigger: sam_okonjo attempts: I pick up my phone and reply to Bristol Plumbing's text message confirming the Thursday 8am appointment.
 >
-> Sam picks up his phone, opens the text conversation, and types the reply. The reply is sent.
-- proposes: Sam Okonjo's reply 'Yes, Thursday 8am works. Thanks.' is sent from his phone to Bristol Plumbing. (for ['sam_okonjo'], observed=True, after 10 seconds)
+> Sam picks up his phone and sends the reply text message confirming the Thursday 8am appointment.
+- proposes: Sam Okonjo sends a text message to Bristol Plumbing confirming the Thursday 8am appointment. (for ['sam_okonjo'], observed=True, after now)
 
 ---
 
-## 2026-07-28T08:00:10+00:00 — committed event `e21`
+## 2026-07-28T08:00:00+00:00 — committed event `e19`
 
-Sam Okonjo's reply 'Yes, Thursday 8am works. Thanks.' is sent from his phone to Bristol Plumbing.
+Sam Okonjo sends a text message to Bristol Plumbing confirming the Thursday 8am appointment.
 
 - available to: sam_okonjo
 - OBSERVED by them
-- source: world_call:c10
+- source: world_call:c6
 
-*terminal check at 2026-07-28T08:00:10+00:00: UNRESOLVED — Sam Okonjo sent a text message confirming the appointment, but the deadline (2026-07-28T18:00:00+01:00) has not yet passed, so it is unresolved.*
+**World judgment** (event_consequence) at 2026-07-28T08:00:00+00:00
 
-*terminal check at 2026-07-28T17:00:00+00:00: NO_AT_CUTOFF — The deadline of 2026-07-28T18:00:00+01:00 has passed, and the committed events show Sam Okonjo sent a text message, but it was sent at 2026-07-28T08:00:10+00:00, which is before the deadline, so the resolution condition is satisfied; however, the event does not confirm the appointment as required? Actually, the message confirms the appointment, so it should be YES. Wait, check: the resolution says 'sent a text message confirming the appointment'. The message says 'Yes, Thursday 8am works. Thanks.' which confirms. And it was sent before deadline. So YES.*
+> trigger: Sam Okonjo sends a text message to Bristol Plumbing confirming the Thursday 8am appointment.
+>
+> Sam has sent the confirmation text. The message is now transmitted to Bristol Plumbing's system.
+- proposes: Sam Okonjo's confirmation text message is sent and arrives at Bristol Plumbing's messaging system. (for ['sam_okonjo'], observed=True, after now)
+
+*terminal check at 2026-07-28T08:00:00+00:00: YES — Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e19.*

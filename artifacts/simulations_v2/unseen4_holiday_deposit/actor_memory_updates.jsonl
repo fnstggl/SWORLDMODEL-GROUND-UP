@@ -1,5 +1,11 @@
-{"actor":"ruth_kelleher","content":"I'm not paying the full deposit upfront \u2013 I'll only pay my share and expect the others to do the same.","source":"actor_call:c3","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I am conflicted: I really want to go but I cannot use my credit card, and I am not paid until the 28th.","source":"actor_call:c8","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"nina_achebe","content":"I'm aware I need to decide about the trip and the \u00a3200 deposit, but I'm putting it off until I know more about my mum's care situation in October.","source":"actor_call:c14","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"marian_prowse","content":"I'll check my bank account on Wednesday morning; if no deposit by then I'll contact the group.","source":"actor_call:c17","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I remember the deposit is \u00a3200 per household and I cannot use my credit card; I am paid on the 28th.","source":"actor_call:c25","t":"2026-09-13T19:46:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm not willing to front the full deposit myself because I'm still annoyed about the group meal money last year.","source":"actor_call:c3","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm aware the deadline is tight and I need to get a response from Dev and Nina soon.","source":"actor_call:c3","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I really want to go but the \u00a3200 deposit is impossible for me until payday on the 28th, and I promised my wife I'd stop using the credit card.","source":"actor_call:c8","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"nina_achebe","content":"I'm aware I need to reply eventually, but with mum just out of hospital I can't plan October yet. I'll check back when I know more.","source":"actor_call:c11","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I'm not going to pay the deposit now; I'll wait until payday on the 28th and risk the trip being full.","source":"actor_call:c23","t":"2026-09-13T19:51:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm starting to get a bit anxious about the deadline, but I'm not going to chase them tonight. I'll follow up tomorrow morning if I still haven't heard anything.","source":"actor_call:c34","t":"2026-09-13T23:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm getting frustrated that they haven't replied yet; I might need to call them if I don't hear back today.","source":"actor_call:c87","t":"2026-09-15T07:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I've now replied to Ruth explaining my situation, so she knows I'm not bailing, just delayed.","source":"actor_call:c108","t":"2026-09-15T08:15:00+00:00"}
+{"actor":"dev_sandhu","content":"I've messaged Ruth, so now it's up to her to respond.","source":"actor_call:c116","t":"2026-09-15T08:40:05+00:00"}
+{"actor":"ruth_kelleher","content":"I'm getting worried that silence means they might not be interested anymore, but I'm not giving up yet.","source":"actor_call:c133","t":"2026-09-15T11:40:00+00:00"}
+{"actor":"marian_prowse","content":"The deadline has passed without deposit, so the hold is cancelled.","source":"actor_call:c253","t":"2026-09-16T19:40:00+00:00"}

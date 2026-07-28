@@ -1,53 +1,67 @@
 {
- "provider_calls": 48,
+ "provider_calls": 16,
  "by_role": {
   "judge": {
-   "calls": 2,
+   "calls": 4,
    "retries": 0,
-   "wall_s": 2.99,
-   "input_tokens": 1134,
-   "output_tokens": 93
+   "wall_s": 6.09,
+   "input_tokens": 2493,
+   "output_tokens": 208
   },
   "world": {
-   "calls": 16,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 33.73,
-   "input_tokens": 34340,
-   "output_tokens": 2016
+   "wall_s": 5.5,
+   "input_tokens": 6176,
+   "output_tokens": 314
   },
   "event_review": {
-   "calls": 10,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 14.54,
-   "input_tokens": 7992,
-   "output_tokens": 410
+   "wall_s": 4.37,
+   "input_tokens": 2351,
+   "output_tokens": 138
   },
   "actor": {
-   "calls": 10,
-   "retries": 0,
-   "wall_s": 19.72,
-   "input_tokens": 14417,
-   "output_tokens": 1062
+   "calls": 3,
+   "retries": 1,
+   "wall_s": 14.26,
+   "input_tokens": 2534,
+   "output_tokens": 178
   },
   "continuity": {
-   "calls": 10,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 14.78,
-   "input_tokens": 10732,
-   "output_tokens": 473
+   "wall_s": 2.76,
+   "input_tokens": 1755,
+   "output_tokens": 79
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.35,
+   "input_tokens": 621,
+   "output_tokens": 43
   }
  },
- "total_input_tokens": 68615,
- "total_output_tokens": 4054,
- "total_wall_s": 85.74,
- "status": "failed",
- "answer": null,
- "reason": "ActorGroundingError: dr_aline_mercier: the reply still does not follow from what they have, after one correction: The reply states 'It's Tuesday morning' but the current time is Thursday 2026-07-28T09:00:02, contradicting the established time.",
- "steps": 8,
- "world_calls": 16,
- "actor_calls": 10,
- "judge_calls": 2,
- "review_calls": 20,
- "committed_events": 2,
- "ledger_records": 78
+ "total_input_tokens": 15930,
+ "total_output_tokens": 960,
+ "total_wall_s": 34.35,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [
+   "e21"
+  ],
+  "explanation": "Dr Aline Mercier never observed the email or the thesis chapter, and no comments were sent by the deadline."
+ },
+ "reason": "",
+ "steps": 3,
+ "world_calls": 3,
+ "actor_calls": 2,
+ "judge_calls": 4,
+ "review_calls": 6,
+ "abandoned_turns": 0,
+ "committed_events": 3,
+ "ledger_records": 36
 }

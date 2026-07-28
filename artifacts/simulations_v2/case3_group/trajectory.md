@@ -1,14 +1,14 @@
 # Trajectory
 **Question:** Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.
-**Result:** disagreement — UNRESOLVED
+**Result:** cutoff — NO_AT_CUTOFF
 
-*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — Only a message asking who will host has been sent; no collective agreement on a host has occurred yet.*
+*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — Only a query has been sent; no collective agreement on a host has been reached yet and the deadline has not passed.*
 
 **World judgment** (starting_event) at 2026-10-06T08:00:00+00:00
 
 > trigger: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
 >
-> The message is sent and arrives in the group chat for all housemates to see. They have all observed it already.
+> The message has already been sent and observed by all housemates. No new event has occurred since then.
 - proposes: (no concrete event yet)
 
 <details><summary>what ines could see at 2026-10-06T08:00:00+00:00 (their entire prompt)</summary>
@@ -40,8 +40,17 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 **ines decides** at 2026-10-06T08:00:00+00:00
 
-> I will wait for others to respond before committing to host, as I haven't decided yet.
-- privately: I've seen Ines's message about the birthday dinner host; I'll check back later to see who volunteers.
+> I just woke up and saw Ines's message asking who will host the birthday dinner. I need to think about it before responding.
+- attempts: I will read the message and consider whether I can host, then reply later today.
+- privately: I am aware that Ines wants to settle on a host before the weekend.
+
+**World judgment** (actor_intention) at 2026-10-06T08:00:00+00:00
+
+> trigger: ines attempts: I will read the message and consider whether I can host, then reply later today.
+>
+> Ines has already read the message since she sent it and it's in the group chat she observed. She is now going about her morning routine, not immediately replying.
+- proposes: (no concrete event yet)
+- wake ines after 2 hours: Ines said she would consider and reply later today; check if she decides to reply.
 
 <details><summary>what kwame could see at 2026-10-06T08:00:00+00:00 (their entire prompt)</summary>
 
@@ -72,8 +81,8 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 **kwame decides** at 2026-10-06T08:00:00+00:00
 
-> I am away until Friday and have no strong preference, so I will not respond now.
-- privately: Ines asked about hosting; I'll check back when I'm back on Friday.
+> I am away until Friday and cannot respond now, so I will leave it to others to decide.
+- privately: I am not available to host or discuss hosting until Friday, so I will not engage in the chat now.
 
 <details><summary>what tomas could see at 2026-10-06T08:00:00+00:00 (their entire prompt)</summary>
 
@@ -104,8 +113,8 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 **tomas decides** at 2026-10-06T08:00:00+00:00
 
-> I hate hosting and hope someone else volunteers, so I'll wait and see if anyone responds before saying anything.
-- privately: I know Ines is asking for a host for the birthday dinner, but I really don't want to host. I'll wait for others to reply first.
+> I don't want to host, so I'll wait to see if someone else volunteers before responding.
+- privately: Ines asked who will host the shared birthday dinner; I hope someone else offers because I hate hosting.
 
 <details><summary>what bea could see at 2026-10-06T08:00:00+00:00 (their entire prompt)</summary>
 
@@ -136,57 +145,57 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 **bea decides** at 2026-10-06T08:00:00+00:00
 
-> I just woke up and saw Ines's message asking who will host. I have the biggest kitchen but I work nights, so I need to think about whether I can host. I'll reply to the group chat to say I can host but need to set some ground rules due to my schedule.
-- attempts: Reply to the group chat: 'I can host since I have the biggest kitchen, but I work nights so I'll need everyone to be out by 10pm and keep noise down during the day while I sleep. Let me know if that works.'
-- privately: I remember that I work nights and my availability is limited, so hosting requires clear boundaries.
+> Ines is asking about hosting, but I work nights so I need to check my schedule before volunteering. I'll reply that I'll check my night shift schedule and get back to them.
+- attempts: Reply in the group chat: 'Hey Ines, I can check my night shift schedule for that week and let you know if I can host. I'll get back to you later today.'
+- privately: I need to look up my work schedule to see if I'm free that evening or if I can adjust.
 
 **World judgment** (actor_intention) at 2026-10-06T08:00:00+00:00
 
-> trigger: bea attempts: Reply to the group chat: 'I can host since I have the biggest kitchen, but I work nights so I'll need everyone to be out by 10pm and keep noise down during the day while I sleep. Let me know if that works.'
+> trigger: bea attempts: Reply in the group chat: 'Hey Ines, I can check my night shift schedule for that week and let you know if I can host. I'll get back to you later today.'
 >
-> Bea types and sends her reply in the group chat. The message is now available to all housemates.
-- proposes: Bea sends a message in the group chat: 'I can host since I have the biggest kitchen, but I work nights so I'll need everyone to be out by 10pm and keep noise down during the day while I sleep. Let me know if that works.' (for ['ines', 'kwame', 'tomas', 'bea'], observed=False, after now)
+> Bea is typing and sending her reply in the group chat. The message will be available to all housemates immediately after sending.
+- proposes: Bea sends a reply in the group chat: 'Hey Ines, I can check my night shift schedule for that week and let you know if I can host. I'll get back to you later today.' (for ['ines', 'kwame', 'tomas', 'bea'], observed=False, after now)
 
 ---
 
-## 2026-10-06T08:00:00+00:00 — committed event `e35`
+## 2026-10-06T08:00:00+00:00 — committed event `e37`
 
-Bea sends a message in the group chat: 'I can host since I have the biggest kitchen, but I work nights so I'll need everyone to be out by 10pm and keep noise down during the day while I sleep. Let me know if that works.'
+Bea sends a reply in the group chat: 'Hey Ines, I can check my night shift schedule for that week and let you know if I can host. I'll get back to you later today.'
 
 - available to: ines, kwame, tomas, bea
 - AVAILABLE but NOT observed
-- source: world_call:c11
+- source: world_call:c14
 
-*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — No committed event shows that all four housemates have collectively agreed on a host; only Bea has offered to host, but no agreement from the others has been observed.*
+*terminal check at 2026-10-06T08:00:00+00:00: UNRESOLVED — No committed event shows that all four housemates have collectively agreed on a host; only Ines asked and Bea replied conditionally, with no agreement reached.*
 
-**World judgment** (pending_progression) at 2026-10-09T08:00:00+00:00
+**World judgment** (pending_progression) at 2026-10-06T10:00:00+00:00
 
-> trigger: The items listed above are available to kwame but not yet observed by them.  What concretely becomes of them next?
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?
 >
-> Kwame is away until Friday and has not looked at his phone since the message was sent. The message remains unread in the group chat.
+> Ines is probably not looking at her phone right now; she may be busy with morning activities. The message from Bea sits unread in the group chat.
 - proposes: (no concrete event yet)
-- wake kwame after 3 days: Kwame returns on Friday evening and may check messages then.
+- wake ines after 30 minutes: Allow time for Ines to check her phone later in the morning.
 
-<details><summary>what kwame could see at 2026-10-09T08:00:00+00:00 (their entire prompt)</summary>
+<details><summary>what ines could see at 2026-10-06T10:00:00+00:00 (their entire prompt)</summary>
 
 ```
 CURRENT TIME
-2026-10-09T08:00:00+00:00
+2026-10-06T10:00:00+00:00
 
 WHO YOU ARE
-Kwame (your identity in this situation: kwame)
+Ines (your identity in this situation: ines)
 
 AUTHORITATIVE ACTOR EVIDENCE
-Kwame is away until Friday and may not be reachable until then. He has no strong preference about hosting.
+Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend.
 
 WHAT YOU HAVE ACTUALLY OBSERVED
 - 2026-10-06T08:00:00+00:00: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
 
 WHAT YOU HAVE ALREADY DECIDED AND TRIED
-- 2026-10-06T08:00:00+00:00: I am away until Friday and have no strong preference, so I will not respond now. -> you attempted: nothing
+- 2026-10-06T08:00:00+00:00: I just woke up and saw Ines's message asking who will host the birthday dinner. I need to think about it before responding. -> you attempted: I will read the message and consider whether I can host, then reply later today.
 
 YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS
-- Ines asked about hosting; I'll check back when I'm back on Friday.
+- I am aware that Ines wants to settle on a host before the weekend.
 
 WHAT HAS CHANGED SINCE YOUR LAST TURN
 - time has passed and you are looking at your situation again
@@ -194,8 +203,205 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 </details>
 
-**kwame decides** at 2026-10-09T08:00:00+00:00
+**ines decides** at 2026-10-06T10:00:00+00:00
 
-> I am still away until Friday and have no strong preference, so still no need to respond now.
+> I still need to think about hosting. I haven't decided yet, so I'll wait a bit longer before replying.
+- privately: I'm still considering whether I can host the birthday dinner.
 
-*terminal check at 2026-10-10T20:00:00+00:00: NO_AT_CUTOFF — The deadline 2026-10-10T00:00:00+00:00 has passed, and the committed events show only that Ines asked who will host and Bea offered to host, but no collective agreement among all four housemates was reached.*
+<details><summary>what ines could see at 2026-10-06T10:30:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-10-06T10:30:00+00:00
+
+WHO YOU ARE
+Ines (your identity in this situation: ines)
+
+AUTHORITATIVE ACTOR EVIDENCE
+Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend.
+
+WHAT YOU HAVE ACTUALLY OBSERVED
+- 2026-10-06T08:00:00+00:00: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-10-06T08:00:00+00:00: I just woke up and saw Ines's message asking who will host the birthday dinner. I need to think about it before responding. -> you attempted: I will read the message and consider whether I can host, then reply later today.
+- 2026-10-06T10:00:00+00:00: I still need to think about hosting. I haven't decided yet, so I'll wait a bit longer before replying. -> you attempted: nothing
+
+YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS
+- I am aware that Ines wants to settle on a host before the weekend.
+- I'm still considering whether I can host the birthday dinner.
+
+WHAT HAS CHANGED SINCE YOUR LAST TURN
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**ines decides** at 2026-10-06T10:30:00+00:00
+
+> I still haven't decided if I can host, so I'll think about it a bit more before replying.
+
+**World judgment** (pending_progression) at 2026-10-06T12:30:00+00:00
+
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?
+>
+> Ines is likely busy with other morning activities and hasn't checked her phone since sending the message. The reply from Bea is sitting in the group chat, unread.
+- proposes: (no concrete event yet)
+- wake ines after 30 minutes: Ines may check her phone after finishing her current activity.
+
+<details><summary>what ines could see at 2026-10-06T12:30:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-10-06T12:30:00+00:00
+
+WHO YOU ARE
+Ines (your identity in this situation: ines)
+
+AUTHORITATIVE ACTOR EVIDENCE
+Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend.
+
+WHAT YOU HAVE ACTUALLY OBSERVED
+- 2026-10-06T08:00:00+00:00: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-10-06T08:00:00+00:00: I just woke up and saw Ines's message asking who will host the birthday dinner. I need to think about it before responding. -> you attempted: I will read the message and consider whether I can host, then reply later today.
+- 2026-10-06T10:00:00+00:00: I still need to think about hosting. I haven't decided yet, so I'll wait a bit longer before replying. -> you attempted: nothing
+- 2026-10-06T10:30:00+00:00: I still haven't decided if I can host, so I'll think about it a bit more before replying. -> you attempted: nothing
+
+YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS
+- I am aware that Ines wants to settle on a host before the weekend.
+- I'm still considering whether I can host the birthday dinner.
+
+WHAT HAS CHANGED SINCE YOUR LAST TURN
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**ines decides** at 2026-10-06T12:30:00+00:00
+
+> I need to make a decision about hosting soon, but I still haven't decided. I'll check my calendar for the weekend to see if I'm free.
+- attempts: I open my calendar app on my phone and check my schedule for the upcoming weekend to see if I have any conflicts that would prevent me from hosting.
+- privately: I realize I need concrete information about my availability before I can decide on hosting.
+
+**World judgment** (actor_intention) at 2026-10-06T12:30:00+00:00
+
+> trigger: ines attempts: I open my calendar app on my phone and check my schedule for the upcoming weekend to see if I have any conflicts that would prevent me from hosting.
+>
+> Ines opens her calendar app and sees her schedule for the upcoming weekend. She has no prior commitments that would prevent her from hosting.
+- proposes: (no concrete event yet)
+
+**World judgment** (pending_progression) at 2026-10-06T13:00:00+00:00
+
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?
+>
+> Ines is likely busy with other things and hasn't checked the group chat since sending her message. The reply from Bea is sitting there unread, but Ines hasn't looked at her phone yet.
+- proposes: (no concrete event yet)
+- wake ines after 30 minutes: Ines might check her phone soon, or she may be occupied longer.
+
+**World judgment** (pending_progression) at 2026-10-06T13:30:00+00:00
+
+> trigger: The items listed above are available to ines but not yet observed by them.  What concretely becomes of them next?
+>
+> Ines is likely busy with other things mid-morning and hasn't checked the group chat since her own message. Bea's reply sits unread.
+- proposes: (no concrete event yet)
+- wake ines after 1 hour: Check if Ines has now noticed Bea's reply in the group chat.
+
+<details><summary>what ines could see at 2026-10-06T13:30:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-10-06T13:30:00+00:00
+
+WHO YOU ARE
+Ines (your identity in this situation: ines)
+
+AUTHORITATIVE ACTOR EVIDENCE
+Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend.
+
+WHAT YOU HAVE ACTUALLY OBSERVED
+- 2026-10-06T08:00:00+00:00: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-10-06T08:00:00+00:00: I just woke up and saw Ines's message asking who will host the birthday dinner. I need to think about it before responding. -> you attempted: I will read the message and consider whether I can host, then reply later today.
+- 2026-10-06T10:00:00+00:00: I still need to think about hosting. I haven't decided yet, so I'll wait a bit longer before replying. -> you attempted: nothing
+- 2026-10-06T10:30:00+00:00: I still haven't decided if I can host, so I'll think about it a bit more before replying. -> you attempted: nothing
+- 2026-10-06T12:30:00+00:00: I need to make a decision about hosting soon, but I still haven't decided. I'll check my calendar for the weekend to see if I'm free. -> you attempted: I open my calendar app on my phone and check my schedule for the upcoming weekend to see if I have any conflicts that would prevent me from hosting.
+
+YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS
+- I am aware that Ines wants to settle on a host before the weekend.
+- I'm still considering whether I can host the birthday dinner.
+- I realize I need concrete information about my availability before I can decide on hosting.
+
+WHAT HAS CHANGED SINCE YOUR LAST TURN
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**ines decides** at 2026-10-06T13:30:00+00:00
+
+> I checked my calendar and I'm free this weekend, so I can host the birthday dinner. I'll reply to the group chat to volunteer.
+- attempts: I reply in the group chat: 'I can host this weekend, my place is free.'
+- privately: I have decided to host the birthday dinner this weekend.
+
+**World judgment** (actor_intention) at 2026-10-06T13:30:00+00:00
+
+> trigger: ines attempts: I reply in the group chat: 'I can host this weekend, my place is free.'
+>
+> Ines types and sends her reply in the group chat. The message is posted and becomes available to all members.
+- proposes: Ines sends a reply in the group chat: 'I can host this weekend, my place is free.' (for ['ines', 'kwame', 'tomas', 'bea'], observed=True, after now)
+
+---
+
+## 2026-10-06T13:30:00+00:00 — committed event `e77`
+
+Ines sends a reply in the group chat: 'I can host this weekend, my place is free.'
+
+- available to: ines, kwame, tomas, bea
+- AVAILABLE but NOT observed
+- source: world_call:c40
+
+*terminal check at 2026-10-06T13:30:00+00:00: UNRESOLVED — No event shows all four housemates collectively agreeing on a host; only Ines and Bea have responded, and no agreement has been reached.*
+
+<details><summary>what ines could see at 2026-10-06T14:30:00+00:00 (their entire prompt)</summary>
+
+```
+CURRENT TIME
+2026-10-06T14:30:00+00:00
+
+WHO YOU ARE
+Ines (your identity in this situation: ines)
+
+AUTHORITATIVE ACTOR EVIDENCE
+Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend.
+
+WHAT YOU HAVE ACTUALLY OBSERVED
+- 2026-10-06T08:00:00+00:00: Ines sends a message in the group chat about the shared birthday dinner, asking who will host.
+- 2026-10-06T13:30:00+00:00: Ines sends a reply in the group chat: 'I can host this weekend, my place is free.'
+
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-10-06T08:00:00+00:00: I just woke up and saw Ines's message asking who will host the birthday dinner. I need to think about it before responding. -> you attempted: I will read the message and consider whether I can host, then reply later today.
+- 2026-10-06T10:00:00+00:00: I still need to think about hosting. I haven't decided yet, so I'll wait a bit longer before replying. -> you attempted: nothing
+- 2026-10-06T10:30:00+00:00: I still haven't decided if I can host, so I'll think about it a bit more before replying. -> you attempted: nothing
+- 2026-10-06T12:30:00+00:00: I need to make a decision about hosting soon, but I still haven't decided. I'll check my calendar for the weekend to see if I'm free. -> you attempted: I open my calendar app on my phone and check my schedule for the upcoming weekend to see if I have any conflicts that would prevent me from hosting.
+- 2026-10-06T13:30:00+00:00: I checked my calendar and I'm free this weekend, so I can host the birthday dinner. I'll reply to the group chat to volunteer. -> you attempted: I reply in the group chat: 'I can host this weekend, my place is free.'
+
+YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS
+- I am aware that Ines wants to settle on a host before the weekend.
+- I'm still considering whether I can host the birthday dinner.
+- I realize I need concrete information about my availability before I can decide on hosting.
+- I have decided to host the birthday dinner this weekend.
+
+WHAT HAS CHANGED SINCE YOUR LAST TURN
+- time has passed and you are looking at your situation again
+```
+
+</details>
+
+**ines decides** at 2026-10-06T14:30:00+00:00
+
+> I already volunteered to host, so I'll wait for others to acknowledge or discuss details.
+
+*terminal check at 2026-10-10T20:00:00+00:00: NO_AT_CUTOFF — The committed events show only messages from Ines and Bea, but no evidence that all four housemates collectively agreed on a host before the deadline.*

@@ -307,15 +307,26 @@ given;
 - more success than the attempt behind it actually supports;
 - convenient progress invented to keep things moving.
 
-Answer ACTOR_TURN_REQUIRED when the event contains a voluntary human \
-choice that person has not made.  Opening a message, reading it, \
-replying, agreeing, refusing, asking, signing, going, buying, carrying \
-on, stopping, deciding to wait, deciding NOT to do something -- those \
-belong to whoever would make them, and they are still choices when they \
-are negative.  A thing ARRIVING where someone could see it is not a \
-choice.  A thing reaching their attention, given the circumstances, is \
-not a choice.  The immediate consequence of an attempt they explicitly \
-made is not a new choice.
+ATTENTION IS NOT A CHOICE, and this is the most important thing on this \
+page.  Whether something reaches a person -- whether it arrives, whether \
+they happen to see it, whether they notice it among everything else, \
+whether they are even looking -- is decided by circumstances, not by \
+them.  "The message arrives on her phone", "his phone buzzes and he sees \
+the banner", "she notices it while clearing her messages", "he does not \
+see it because he is driving": every one of those is PASS.  This is how \
+anyone ever comes to know anything here, so refusing them stops the world \
+dead: nobody learns anything, nobody can act, and the situation freezes \
+with a message sitting unread forever.  When in doubt about noticing, \
+PASS.
+
+Answer ACTOR_TURN_REQUIRED only when the event has the person DOING \
+something they decided to do: opening a message they have noticed, \
+reading it, replying, agreeing, refusing, asking, signing, going, buying, \
+carrying on with something, stopping, deciding to wait, deciding not to \
+bother.  Those are still choices when they are negative.  The immediate \
+consequence of an attempt they explicitly made is NOT a new choice -- if \
+they said they would send it, the sending is not their decision to make \
+again.
 
 Reply with ONLY a JSON object:
 {"verdict": "PASS" | "REVISE" | "ACTOR_TURN_REQUIRED", "reason": "one \
