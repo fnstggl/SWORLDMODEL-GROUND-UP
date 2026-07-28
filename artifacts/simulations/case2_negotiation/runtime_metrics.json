@@ -1,42 +1,42 @@
 {
- "provider_calls": 173,
+ "provider_calls": 220,
  "by_role": {
   "judge": {
-   "calls": 83,
-   "retries": 1,
-   "wall_s": 153.48,
-   "input_tokens": 115942,
-   "output_tokens": 4905
+   "calls": 62,
+   "retries": 0,
+   "wall_s": 98.48,
+   "input_tokens": 142099,
+   "output_tokens": 3651
   },
   "world": {
-   "calls": 77,
+   "calls": 120,
    "retries": 0,
-   "wall_s": 174.77,
-   "input_tokens": 212186,
-   "output_tokens": 8235
+   "wall_s": 266.69,
+   "input_tokens": 433486,
+   "output_tokens": 13972
   },
   "actor": {
-   "calls": 13,
+   "calls": 38,
    "retries": 0,
-   "wall_s": 31.58,
-   "input_tokens": 13097,
-   "output_tokens": 1393
+   "wall_s": 86.88,
+   "input_tokens": 65878,
+   "output_tokens": 4497
   }
  },
- "total_input_tokens": 341225,
- "total_output_tokens": 14533,
- "total_wall_s": 359.81,
+ "total_input_tokens": 641463,
+ "total_output_tokens": 22120,
+ "total_wall_s": 451.95,
  "status": "incomplete",
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "No agreement has been reached yet; the deadline is 2026-09-20, which has not passed."
+  "explanation": "No committed event shows that Priya and Dmitri have agreed on a price; they have exchanged offers but no acceptance has been observed."
  },
- "reason": "step ceiling 80 reached at 2026-09-08T12:00:02+00:00, before the cutoff",
- "steps": 80,
- "world_calls": 77,
- "actor_calls": 13,
- "judge_calls": 82,
- "committed_events": 32,
- "ledger_records": 418
+ "reason": "step ceiling 120 reached at 2026-09-08T14:45:08+00:00, before the cutoff",
+ "steps": 120,
+ "world_calls": 120,
+ "actor_calls": 38,
+ "judge_calls": 62,
+ "committed_events": 61,
+ "ledger_records": 648
 }

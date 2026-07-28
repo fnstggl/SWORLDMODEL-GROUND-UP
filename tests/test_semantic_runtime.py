@@ -899,3 +899,30 @@ def test_reaching_the_horizon_is_recorded_so_the_run_stays_replayable():
     assert parse_iso(world.records[-1]["t"]) == parse_iso(CUTOFF)
     assert any(r["op"] == "semantic.horizon_reached" for r in world.records)
     assert replay_trajectory(world.records, live_world=world)["exact"] is True
+
+
+def test_a_persons_own_action_does_not_hand_them_another_turn():
+    """Watching yourself act is not news.  Without this the actor and the
+    world play catch inside a single instant: he acts, sees himself act,
+    decides again -- one live run spent its whole budget on a man debugging
+    a line of code while the question it was asked went nowhere."""
+    world, journal, bindings = build()
+    busy = {"decision": "I keep working", "intentions": ["keep working"],
+            "private_updates": []}
+    caller = RuntimeCaller(transport=Script({
+        "judge": [UNRESOLVED] * 400,
+        # every attempt succeeds instantly and only the actor sees it
+        "world": [{"judgment": "he does it", "event": {
+            "description": "Ada carries on with her own work",
+            "for": ["ada_vance"], "observed": True, "after": "now"},
+            "wakes": []}] * 400,
+        "actor": [busy] * 400}))
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          caller, max_steps=12, trace=Trace())
+    times = [parse_iso(e["t"]) for e in journal.events()]
+    assert times == sorted(times)
+    # time actually moved instead of the same instant repeating forever
+    assert len(set(times)) > 1
+    assert times[-1] > times[0]
+    # and Ada was not consulted once per event she herself caused
+    assert traj.actor_calls < len(journal.events()) + 3

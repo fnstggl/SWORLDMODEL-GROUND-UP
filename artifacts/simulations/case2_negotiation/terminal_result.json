@@ -5,18 +5,18 @@
   "answer": {
    "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "No agreement has been reached yet; the deadline is 2026-09-20, which has not passed."
+   "explanation": "No committed event shows that Priya and Dmitri have agreed on a price; they have exchanged offers but no acceptance has been observed."
   },
-  "reason": "step ceiling 80 reached at 2026-09-08T12:00:02+00:00, before the cutoff",
-  "steps": 80,
-  "world_calls": 77,
-  "actor_calls": 13,
-  "judge_calls": 82
+  "reason": "step ceiling 120 reached at 2026-09-08T14:45:08+00:00, before the cutoff",
+  "steps": 120,
+  "world_calls": 120,
+  "actor_calls": 38,
+  "judge_calls": 62
  },
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "No agreement has been reached yet; the deadline is 2026-09-20, which has not passed."
+  "explanation": "No committed event shows that Priya and Dmitri have agreed on a price; they have exchanged offers but no acceptance has been observed."
  },
- "reason": "step ceiling 80 reached at 2026-09-08T12:00:02+00:00, before the cutoff"
+ "reason": "step ceiling 120 reached at 2026-09-08T14:45:08+00:00, before the cutoff"
 }

@@ -125,6 +125,10 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
+        # an event produced by adjudicating someone's own attempt is that
+        # person's own doing; the queue carries that fact so the commit
+        # rule can tell it apart from something happening TO them
+        self_act_of = actor_id if trigger_kind == "actor_intention" else None
         user = world_mind.world_user_prompt(
             now=_iso_now(world), shared_context=journal.shared_context(),
             journal_text=journal.render_for_world(), actor_ids=actor_ids,
@@ -162,6 +166,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 # be that attention reached them, they stop
                                 # being pending at THAT instant, not now
                                 "concerns": list(concerns),
+                                "self_act_of": self_act_of,
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
             else:
@@ -222,15 +227,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     MAX_ENV_CHAIN = 3
     env_chain = {"depth": 0}
 
-    def _after_commit(rec: dict, envelope: dict) -> None:
+    def _after_commit(rec: dict, envelope: dict, self_act_of=None) -> None:
         """The single post-commit rule, identical for starting events and
         world-produced events: awareness hands the turn to the person;
-        otherwise the environment continues, bounded."""
+        otherwise the environment continues, bounded.
+
+        A person's OWN action completing is not news to them -- they did
+        it -- so it does not hand them another turn.  Without this the
+        actor and the world play catch: he acts, watches himself act,
+        decides again, all inside the same instant, forever.  One live run
+        spent its whole budget on a man debugging a line of code while the
+        question it was asked went nowhere.  What happens instead is what
+        happens in life: time passes, and he comes back to things.
+        """
         if envelope["observed"] and envelope["for"]:
             env_chain["depth"] = 0
-            for aid in envelope["for"]:
+            others = [a for a in envelope["for"] if a != self_act_of]
+            for aid in others:
                 actor_step(aid, cause=rec["seq"],
                            trigger_event_ids=[rec["event_id"]])
+            if not others and self_act_of:
+                _schedule_recheck(self_act_of, rec["seq"])
             return
         if env_chain["depth"] >= MAX_ENV_CHAIN:
             env_chain["depth"] = 0
@@ -385,7 +402,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                     source=f"observed_via:{rec['event_id']}"):
                                 note("item_observed", event_id=eid, actor=aid,
                                      t=_iso_now(world), via=rec["event_id"])
-                _after_commit(rec, envelope)
+                _after_commit(rec, envelope,
+                              self_act_of=ev.data.get("self_act_of"))
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
                 pending = journal.available_unobserved(aid)

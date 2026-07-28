@@ -1,12 +1,30 @@
-{"actor":"ines","content":"I'm aware Ines asked who will host the birthday dinner. I'm open to hosting but want to gauge interest from others before deciding.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"I've noted the topic and will check the chat when I return.","source":"actor_call:c4","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I'm annoyed Ines brought this up. I'm going to wait and see if anyone else offers before I say anything.","source":"actor_call:c6","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I realize I should check my availability before responding in the chat.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I realize I need to confirm my availability before offering to host.","source":"actor_call:c13","t":"2026-10-06T08:00:10+00:00"}
-{"actor":"bea","content":"I now know I work Friday and Saturday nights, so I can't host on those days.","source":"actor_call:c16","t":"2026-10-06T08:00:10+00:00"}
-{"actor":"bea","content":"I now know I work Sunday night, so I cannot host that evening.","source":"actor_call:c19","t":"2026-10-06T08:00:20+00:00"}
-{"actor":"ines","content":"I now know Kwame has responded, but I haven't read his message yet.","source":"actor_call:c22","t":"2026-10-06T08:00:23+00:00"}
-{"actor":"bea","content":"I now know I work night shifts on Friday and Saturday, so I cannot host on those days.","source":"actor_call:c29","t":"2026-10-06T08:00:25+00:00"}
-{"actor":"bea","content":"I've now seen both messages and know Kwame is away, so I'm the first to respond with my unavailability.","source":"actor_call:c56","t":"2026-10-10T16:20:05+00:00"}
-{"actor":"ines","content":"I now know Kwame offered to host and Bea suggested splitting the hosting duties.","source":"actor_call:c69","t":"2026-10-10T16:50:10+00:00"}
-{"actor":"ines","content":"I realize I need to read the earlier messages to know what Kwame and Bea said before I can decide anything.","source":"actor_call:c72","t":"2026-10-10T16:50:20+00:00"}
+{"actor":"ines","content":"I need to check my schedule for the weekend before committing to host.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I've made my unavailability clear, so the others can sort it out without me.","source":"actor_call:c4","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I notice Ines has brought up hosting for the birthday dinner. I hope someone else volunteers so I don't have to.","source":"actor_call:c6","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I need to check my work rota to see if I'm free on Saturday evening to host.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"ines","content":"Bea might be able to host if her schedule works out, but I should also check my availability in case she can't.","source":"actor_call:c12","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"Bea is considering hosting but needs to check her schedule; I'll stay out of it.","source":"actor_call:c14","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"Bea might host, so I'll hold off responding to avoid offering.","source":"actor_call:c15","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I now know I can't host the dinner because I'm working from 18:00 to 02:00 on Saturday.","source":"actor_call:c29","t":"2026-10-06T08:00:05+00:00"}
+{"actor":"bea","content":"I now know Kwame's reply, but it doesn't change my situation.","source":"actor_call:c41","t":"2026-10-06T08:02:00+00:00"}
+{"actor":"ines","content":"I now know Bea can't host, so I need to see if I can.","source":"actor_call:c44","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"ines","content":"I now know Bea cannot host, so I need to see if I can host.","source":"actor_call:c47","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"ines","content":"Now I can see if I am available to host.","source":"actor_call:c50","t":"2026-10-06T08:05:05+00:00"}
+{"actor":"ines","content":"I now know Bea cannot host, so I need to confirm my own availability.","source":"actor_call:c55","t":"2026-10-06T08:30:00+00:00"}
+{"actor":"tomas","content":"I see Bea said she can't host because she works Saturday night. That means I might need to host unless Kwame or Ines offers.","source":"actor_call:c73","t":"2026-10-06T12:57:00+00:00"}
+{"actor":"tomas","content":"Bea is out, so hosting might fall to me if no one else steps up. I'm worried I'll have to host.","source":"actor_call:c76","t":"2026-10-06T12:57:00+00:00"}
+{"actor":"tomas","content":"Bea is out, so I'm more likely to be stuck hosting if no one else volunteers. I'll delay replying to avoid being the first to offer.","source":"actor_call:c79","t":"2026-10-06T12:57:00+00:00"}
+{"actor":"tomas","content":"Bea is out, so hosting might fall to me unless someone else volunteers. I'll keep quiet for now.","source":"actor_call:c81","t":"2026-10-06T12:57:30+00:00"}
+{"actor":"tomas","content":"I'm relieved Bea declined, but now I'm more worried I'll have to host. I'll keep delaying my reply to avoid offering.","source":"actor_call:c83","t":"2026-10-06T14:57:00+00:00"}
+{"actor":"kwame","content":"I now know Bea cannot host because she's working Saturday night. Ines hasn't confirmed yet. I'm still unavailable, so I'll wait for Ines or someone else to volunteer.","source":"actor_call:c91","t":"2026-10-09T08:30:00+00:00"}
+{"actor":"kwame","content":"Bea confirmed she can't host due to work Saturday night. Ines hasn't yet said if she can host. I'm still unavailable, so the decision rests with Ines or the others.","source":"actor_call:c94","t":"2026-10-09T08:30:00+00:00"}
+{"actor":"kwame","content":"Bea is out, so Ines or someone else will need to host. I'm still unavailable, so I won't volunteer.","source":"actor_call:c96","t":"2026-10-09T08:30:00+00:00"}
+{"actor":"kwame","content":"Bea is out, so the hosting decision is now between Ines and possibly the others. I remain unavailable.","source":"actor_call:c101","t":"2026-10-09T10:30:00+00:00"}
+{"actor":"tomas","content":"I'm increasingly anxious that I'll be forced to host, but I'm still hoping someone else steps up.","source":"actor_call:c102","t":"2026-10-09T10:30:00+00:00"}
+{"actor":"ines","content":"I now need to confirm my own availability to host.","source":"actor_call:c104","t":"2026-10-09T14:30:00+00:00"}
+{"actor":"kwame","content":"Bea is out, so hosting rests on Ines or someone else. I remain unavailable.","source":"actor_call:c106","t":"2026-10-09T14:30:00+00:00"}
+{"actor":"tomas","content":"I'm becoming more anxious that I'll have to host, but I still want to avoid being the one to offer.","source":"actor_call:c107","t":"2026-10-09T14:30:00+00:00"}
+{"actor":"ines","content":"I now know Bea can't host, so I need to see if I can.","source":"actor_call:c109","t":"2026-10-09T22:30:00+00:00"}
+{"actor":"tomas","content":"I'm getting more anxious about hosting, but I'll delay replying to avoid being the one to offer.","source":"actor_call:c112","t":"2026-10-09T22:30:00+00:00"}
+{"actor":"ines","content":"I now know Bea cannot host, so I need to confirm my own availability.","source":"actor_call:c114","t":"2026-10-10T14:30:00+00:00"}
+{"actor":"tomas","content":"I'm even more worried now that I'll have to host since Bea is out, but I'll keep delaying my reply to avoid being the one to offer.","source":"actor_call:c117","t":"2026-10-10T14:30:00+00:00"}

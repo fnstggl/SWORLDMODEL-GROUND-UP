@@ -1,12 +1,48 @@
-{"actor":"priya_raghavan","content":"I'm willing to compromise but I don't want to go much higher.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I believe 1150 is a reasonable counteroffer that might get us closer to a deal.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"Priya has moved from 900 to 1100; I'm willing to meet halfway at 1150.","source":"actor_call:c42","t":"2026-09-08T09:55:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I now believe we are close enough that a deal at 1150 is likely.","source":"actor_call:c51","t":"2026-09-08T10:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now more confident we can reach a deal at 1150.","source":"actor_call:c54","t":"2026-09-08T10:00:00+00:00"}
-{"actor":"priya_raghavan","content":"I believe Dmitri is willing to negotiate further, but I don't want to go above 1000.","source":"actor_call:c77","t":"2026-09-08T10:45:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm now willing to walk away if he doesn't accept 1000, even though I'd rather close the deal.","source":"actor_call:c87","t":"2026-09-08T10:50:01+00:00"}
-{"actor":"priya_raghavan","content":"I've decided my absolute maximum is 1000; if he doesn't accept, I'll walk away.","source":"actor_call:c96","t":"2026-09-08T10:55:01+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now more confident we can reach a deal at 1150.","source":"actor_call:c106","t":"2026-09-08T11:10:01+00:00"}
-{"actor":"dmitri_sokolov","content":"I am now more confident we can reach a deal at 1150.","source":"actor_call:c113","t":"2026-09-08T11:15:01+00:00"}
-{"actor":"dmitri_sokolov","content":"I am annoyed that Priya lowered her offer after claiming 1100 was her best, but I still think 1150 is a fair compromise.","source":"actor_call:c119","t":"2026-09-08T11:20:01+00:00"}
-{"actor":"dmitri_sokolov","content":"I am frustrated that Priya lowered her offer after saying 1100 was her best, but I still think 1150 is a fair compromise and I want to close this deal.","source":"actor_call:c124","t":"2026-09-08T11:20:02+00:00"}
+{"actor":"priya_raghavan","content":"I think a split-the-difference offer might be acceptable and faster than continuing to haggle.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am willing to go down to 1000 if needed, but I start at 1200 to leave room.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I now know Priya is willing to go up to 1150, which is close to my target.","source":"actor_call:c22","t":"2026-09-08T10:45:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I now know Priya is willing to go up to 1150, so I have room to negotiate.","source":"actor_call:c29","t":"2026-09-08T10:45:30+00:00"}
+{"actor":"dmitri_sokolov","content":"I now know Priya is willing to pay 1150, which confirms I can push a bit higher than my bottom line.","source":"actor_call:c32","t":"2026-09-08T11:00:00+00:00"}
+{"actor":"priya_raghavan","content":"Dmitri's messages are inconsistent; he might be testing me. I need to act fast before the 20th deadline.","source":"actor_call:c50","t":"2026-09-08T12:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm concerned about Dmitri's shifting prices but still want to secure the kiln before the 20th.","source":"actor_call:c58","t":"2026-09-08T12:15:00+00:00"}
+{"actor":"priya_raghavan","content":"I now believe Dmitri may be unreliable due to his changing prices, but I still need the kiln urgently, so I'll try one more counteroffer before looking elsewhere.","source":"actor_call:c65","t":"2026-09-08T12:46:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm worried about his shifting prices but still want to close before the 20th.","source":"actor_call:c68","t":"2026-09-08T13:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I am frustrated by Dmitri's inconsistency but still want the kiln; I'll try one more counteroffer before looking elsewhere.","source":"actor_call:c76","t":"2026-09-08T13:05:00+00:00"}
+{"actor":"priya_raghavan","content":"I am willing to go up to 1100 but no higher; if he rejects, I will look for another kiln.","source":"actor_call:c83","t":"2026-09-08T13:30:35+00:00"}
+{"actor":"priya_raghavan","content":"I am now firm at 1100 as my absolute maximum.","source":"actor_call:c88","t":"2026-09-08T13:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I will start researching other kiln options if Dmitri rejects or doesn't respond by tomorrow.","source":"actor_call:c88","t":"2026-09-08T13:45:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I confirm Priya is willing to go above 1100, so I have room to negotiate up to my target of 1200.","source":"actor_call:c97","t":"2026-09-08T14:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I now believe Priya might accept 1200 since she was willing to go to 1150 earlier.","source":"actor_call:c102","t":"2026-09-08T14:00:02+00:00"}
+{"actor":"dmitri_sokolov","content":"I am sticking to my target of 1200 because Priya was willing to go to 1150 before, so 1200 is reasonable.","source":"actor_call:c109","t":"2026-09-08T14:00:35+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now aware that Priya has sent multiple offers, and I believe 1200 is achievable.","source":"actor_call:c113","t":"2026-09-08T14:05:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident that 1200 is a reasonable target given Priya's earlier willingness to pay 1150.","source":"actor_call:c115","t":"2026-09-08T14:05:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident that 1200 is achievable given her earlier offers.","source":"actor_call:c122","t":"2026-09-08T14:15:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident that 1200 is achievable given her earlier willingness to pay 1150.","source":"actor_call:c124","t":"2026-09-08T14:15:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am now more confident that 1200 is achievable given her earlier willingness to pay 1150.","source":"actor_call:c127","t":"2026-09-08T14:15:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I am confident that 1200 is achievable given her earlier willingness to pay 1150.","source":"actor_call:c141","t":"2026-09-08T14:30:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now firm at 1100 as my absolute maximum.","source":"actor_call:c153","t":"2026-09-08T14:35:05+00:00"}
+{"actor":"priya_raghavan","content":"I will start researching other kiln options if Dmitri rejects or doesn't respond by tomorrow.","source":"actor_call:c153","t":"2026-09-08T14:35:05+00:00"}
+{"actor":"priya_raghavan","content":"I am now firm at 1100 as my absolute maximum.","source":"actor_call:c160","t":"2026-09-08T14:40:00+00:00"}
+{"actor":"priya_raghavan","content":"I will start researching other kiln options if Dmitri rejects or doesn't respond by tomorrow.","source":"actor_call:c160","t":"2026-09-08T14:40:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now firm at 1100 as my absolute maximum.","source":"actor_call:c168","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I will start researching other kiln options if Dmitri rejects or doesn't respond by tomorrow.","source":"actor_call:c168","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now prepared to walk away if Dmitri doesn't accept 1100.","source":"actor_call:c170","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I will not increase my offer above 1100 under any circumstances.","source":"actor_call:c170","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now resolved to walk away if Dmitri doesn't accept 1100.","source":"actor_call:c173","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now committed to not offering more than 1100 to Dmitri","source":"actor_call:c179","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I am prioritizing finding a different kiln over continuing negotiations with Dmitri","source":"actor_call:c179","t":"2026-09-08T14:45:00+00:00"}
+{"actor":"priya_raghavan","content":"I am now resolved to not offer more than 1100 to Dmitri and will not engage further with him","source":"actor_call:c185","t":"2026-09-08T14:45:02+00:00"}
+{"actor":"priya_raghavan","content":"I am prioritizing finding a different kiln over continuing negotiations with Dmitri","source":"actor_call:c185","t":"2026-09-08T14:45:02+00:00"}
+{"actor":"priya_raghavan","content":"I am now actively considering alternative kilns and may not respond to Dmitri further if I find a suitable option.","source":"actor_call:c192","t":"2026-09-08T14:45:02+00:00"}
+{"actor":"priya_raghavan","content":"I am now seriously considering buying from another seller if I find a kiln that fits my needs and budget, rather than continuing to negotiate with Dmitri.","source":"actor_call:c195","t":"2026-09-08T14:45:02+00:00"}
+{"actor":"priya_raghavan","content":"I am now actively comparing this listing to Dmitri's offer.","source":"actor_call:c198","t":"2026-09-08T14:45:04+00:00"}
+{"actor":"priya_raghavan","content":"I am now seriously considering buying from another seller if I find a suitable kiln, rather than continuing negotiations with Dmitri.","source":"actor_call:c201","t":"2026-09-08T14:45:05+00:00"}
+{"actor":"priya_raghavan","content":"I am now comparing this new listing to Dmitri's offer to decide whether to pursue it instead of negotiating further.","source":"actor_call:c203","t":"2026-09-08T14:45:06+00:00"}
+{"actor":"priya_raghavan","content":"I now have a concrete alternative in mind, which strengthens my resolve not to exceed 1100 with Dmitri.","source":"actor_call:c206","t":"2026-09-08T14:45:06+00:00"}
+{"actor":"priya_raghavan","content":"I am more willing to walk away from Dmitri if he rejects 1100, since I have other options.","source":"actor_call:c206","t":"2026-09-08T14:45:06+00:00"}
+{"actor":"priya_raghavan","content":"I now have a concrete alternative in mind, which strengthens my resolve not to exceed 1100 with Dmitri.","source":"actor_call:c210","t":"2026-09-08T14:45:08+00:00"}
+{"actor":"priya_raghavan","content":"I am more willing to walk away from Dmitri if he rejects 1100, since I have other options.","source":"actor_call:c210","t":"2026-09-08T14:45:08+00:00"}
+{"actor":"priya_raghavan","content":"I now have a concrete alternative in mind, which strengthens my resolve not to exceed 1100 with Dmitri.","source":"actor_call:c214","t":"2026-09-08T14:45:08+00:00"}
+{"actor":"priya_raghavan","content":"I am more willing to walk away from Dmitri if he rejects 1100, since I have other options.","source":"actor_call:c214","t":"2026-09-08T14:45:08+00:00"}
+{"actor":"priya_raghavan","content":"I am now more confident in walking away from Dmitri because I have a concrete alternative.","source":"actor_call:c217","t":"2026-09-08T14:45:08+00:00"}
+{"actor":"priya_raghavan","content":"I will not increase my offer to Dmitri above 1100.","source":"actor_call:c217","t":"2026-09-08T14:45:08+00:00"}

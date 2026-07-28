@@ -5,18 +5,18 @@
   "answer": {
    "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "The committed events show Mark Cuban is still composing a reply, but no event shows that he actually sent the email before the cutoff."
+   "explanation": "No event shows Mark Cuban sending a response to Jordan Reyes's email; the cutoff is 2026-08-10T09:00:00-05:00, which has not yet passed."
   },
-  "reason": "step ceiling 80 reached at 2026-07-28T13:08:10+00:00, before the cutoff",
-  "steps": 80,
-  "world_calls": 66,
-  "actor_calls": 13,
-  "judge_calls": 82
+  "reason": "step ceiling 120 reached at 2026-07-30T03:05:59+00:00, before the cutoff",
+  "steps": 120,
+  "world_calls": 125,
+  "actor_calls": 85,
+  "judge_calls": 92
  },
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The committed events show Mark Cuban is still composing a reply, but no event shows that he actually sent the email before the cutoff."
+  "explanation": "No event shows Mark Cuban sending a response to Jordan Reyes's email; the cutoff is 2026-08-10T09:00:00-05:00, which has not yet passed."
  },
- "reason": "step ceiling 80 reached at 2026-07-28T13:08:10+00:00, before the cutoff"
+ "reason": "step ceiling 120 reached at 2026-07-30T03:05:59+00:00, before the cutoff"
 }
