@@ -3,20 +3,20 @@
  "trajectory": {
   "status": "cutoff",
   "answer": {
-   "status": "NO_AT_CUTOFF",
+   "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "Cutoff time 2026-08-10T09:00:00-05:00 has passed and no event shows Mark Cuban sending a response."
+   "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email before the cutoff; the deadline has not yet passed."
   },
-  "reason": "",
-  "steps": 4,
-  "world_calls": 3,
-  "actor_calls": 4,
-  "judge_calls": 6
+  "reason": "step ceiling 40 reached before the cutoff",
+  "steps": 40,
+  "world_calls": 42,
+  "actor_calls": 2,
+  "judge_calls": 42
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Cutoff time 2026-08-10T09:00:00-05:00 has passed and no event shows Mark Cuban sending a response."
+  "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email before the cutoff; the deadline has not yet passed."
  },
- "reason": ""
+ "reason": "step ceiling 40 reached before the cutoff"
 }

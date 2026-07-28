@@ -1,42 +1,42 @@
 {
- "provider_calls": 13,
+ "provider_calls": 86,
  "by_role": {
   "judge": {
-   "calls": 6,
+   "calls": 42,
    "retries": 0,
-   "wall_s": 9.54,
-   "input_tokens": 2643,
-   "output_tokens": 346
+   "wall_s": 74.9,
+   "input_tokens": 29957,
+   "output_tokens": 2193
   },
   "world": {
-   "calls": 3,
+   "calls": 42,
    "retries": 0,
-   "wall_s": 7.47,
-   "input_tokens": 3033,
-   "output_tokens": 344
+   "wall_s": 100.04,
+   "input_tokens": 72914,
+   "output_tokens": 4237
   },
   "actor": {
-   "calls": 4,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 7.88,
-   "input_tokens": 2812,
-   "output_tokens": 253
+   "wall_s": 4.54,
+   "input_tokens": 1389,
+   "output_tokens": 144
   }
  },
- "total_input_tokens": 8488,
- "total_output_tokens": 943,
- "total_wall_s": 24.91,
+ "total_input_tokens": 104260,
+ "total_output_tokens": 6574,
+ "total_wall_s": 179.53,
  "status": "cutoff",
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Cutoff time 2026-08-10T09:00:00-05:00 has passed and no event shows Mark Cuban sending a response."
+  "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email before the cutoff; the deadline has not yet passed."
  },
- "reason": "",
- "steps": 4,
- "world_calls": 3,
- "actor_calls": 4,
- "judge_calls": 6,
- "committed_events": 3,
- "ledger_records": 36
+ "reason": "step ceiling 40 reached before the cutoff",
+ "steps": 40,
+ "world_calls": 42,
+ "actor_calls": 2,
+ "judge_calls": 42,
+ "committed_events": 13,
+ "ledger_records": 196
 }

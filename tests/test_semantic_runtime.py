@@ -288,6 +288,31 @@ def test_full_lifecycle_keeps_delivery_notice_and_read_distinct():
     assert all(e["cause"] is not None for e in events)
 
 
+def test_observation_hands_the_turn_to_the_actor_not_the_world():
+    """The world chain stops the moment someone becomes aware: an observed
+    event is followed by that actor's own decision, never by another world
+    consequence deciding for them."""
+    world, journal, bindings = build()
+    model = LifecycleModel()
+    caller = RuntimeCaller(transport=model)
+    trace = Trace()
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=20, trace=trace)
+    order = [e["kind"] for e in trace.entries]
+    notice_idx = next(i for i, e in enumerate(trace.entries)
+                      if e["kind"] == "committed_event"
+                      and "notices the subject line" in e["description"])
+    after = trace.entries[notice_idx + 1:]
+    # the very next semantic step after awareness is the ACTOR's decision
+    nxt = next(e for e in after
+               if e["kind"] in ("actor_decision", "world_judgment"))
+    assert nxt["kind"] == "actor_decision", \
+        f"the world continued after awareness instead of the actor: {nxt}"
+    # and the reading that follows was produced by the actor's intention
+    world_after = [e for e in after if e["kind"] == "world_judgment"]
+    assert world_after and world_after[0]["trigger"] == "actor_intention"
+
+
 def test_intentions_are_not_committed_events():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=lifecycle_script())

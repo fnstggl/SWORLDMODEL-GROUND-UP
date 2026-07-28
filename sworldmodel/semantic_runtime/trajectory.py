@@ -240,30 +240,33 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                      source=ev.data.get("source", "scheduled"),
                                      trajectory_id=tid)
                 note("committed_event", **rec)
-                # only actors who ACTUALLY observed it are consulted
-                if envelope["observed"]:
+                if envelope["observed"] and envelope["for"]:
+                    # someone has become aware: it is THEIR turn.  The world
+                    # chain stops here by construction, so the environment
+                    # can never decide what a person does about something
+                    # they have just noticed -- their own model does, and
+                    # their intention becomes the next world trigger.
                     for aid in envelope["for"]:
                         actor_step(aid, cause=rec["seq"],
                                    reasons=[f"you observed: "
                                             f"{envelope['description']}"])
-                # the causal chain continues ONE step: every committed event
-                # gets exactly one immediate-consequence adjudication, so
-                # something set in motion keeps moving (sent -> arrives ->
-                # sits where it could be seen) instead of stopping the
-                # moment nobody happens to act.  The world ends the chain by
-                # returning no event.
-                before = len(journal.events())
-                parsed = world_step(
-                    trigger_kind="event_consequence",
-                    trigger_text=envelope["description"],
-                    cause=rec["seq"],
-                    actor_id=envelope["for"][0] if envelope["for"] else None)
-                progressed = (len(journal.events()) > before
-                              or world.queue.peek() is not None)
-                if not envelope["observed"] and parsed is not None \
-                        and not (parsed["wakes"] or progressed):
-                    for aid in envelope["for"]:
-                        _schedule_recheck(aid, rec["seq"])
+                else:
+                    # nobody is aware of it yet, so the chain of purely
+                    # environmental consequences continues ONE step (sent ->
+                    # arrives -> sits where it could be seen).  The world
+                    # ends the chain by returning no event.
+                    before = len(journal.events())
+                    parsed = world_step(
+                        trigger_kind="event_consequence",
+                        trigger_text=envelope["description"],
+                        cause=rec["seq"],
+                        actor_id=envelope["for"][0] if envelope["for"] else None)
+                    progressed = (len(journal.events()) > before
+                                  or world.queue.peek() is not None)
+                    if parsed is not None and not (parsed["wakes"]
+                                                   or progressed):
+                        for aid in envelope["for"]:
+                            _schedule_recheck(aid, rec["seq"])
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
                 pending = journal.available_unobserved(aid)
