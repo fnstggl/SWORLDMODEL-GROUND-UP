@@ -1,0 +1,31 @@
+{
+ "actors": [
+  {
+   "name": "CEO",
+   "private_context": "CEO posted the launch announcement this morning and wants it to gain traction. They have no specific knowledge of which design partners will repost."
+  },
+  {
+   "name": "Design Partner 1",
+   "private_context": "A design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost."
+  },
+  {
+   "name": "Design Partner 2",
+   "private_context": "A design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost."
+  },
+  {
+   "name": "Design Partner 3",
+   "private_context": "A design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost."
+  }
+ ],
+ "shared_context": "The CEO posted the launch announcement on a social media platform this morning. The post is visible to the public, including design partners. Design partners can repost it publicly. The deadline for reposting is Friday, 2026-09-18T17:00:00-07:00.",
+ "starting_events": [
+  {
+   "time": "2026-09-14T09:00:00-07:00",
+   "description": "CEO posts the launch announcement on social media.",
+   "visible_to": [
+    "CEO"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that at least one design partner publicly reposted the CEO's launch announcement before Friday, 2026-09-18T17:00:00-07:00. Otherwise resolve NO at that cutoff."
+}

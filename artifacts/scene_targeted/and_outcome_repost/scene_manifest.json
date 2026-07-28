@@ -1,0 +1,34 @@
+{
+ "actors": [
+  {
+   "name": "CEO",
+   "private_context": "CEO is the chief executive of Brightline. They have prepared a launch announcement for the v4 release and can post it on social media. They want to promote the release."
+  },
+  {
+   "name": "Design Partner 1",
+   "private_context": "One of three design partners for Brightline v4. They have access to social media and may repost the CEO's announcement if they see it and choose to."
+  },
+  {
+   "name": "Design Partner 2",
+   "private_context": "One of three design partners for Brightline v4. They have access to social media and may repost the CEO's announcement if they see it and choose to."
+  },
+  {
+   "name": "Design Partner 3",
+   "private_context": "One of three design partners for Brightline v4. They have access to social media and may repost the CEO's announcement if they see it and choose to."
+  }
+ ],
+ "shared_context": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The exact ship time is known to the CEO and design partners. The CEO can post a launch announcement on social media at or after the ship time. The three design partners can see the CEO's post on social media and may publicly repost it. The 24-hour window for posting and reposting starts at the ship time.",
+ "starting_events": [
+  {
+   "time": "2026-09-14T09:00:00-07:00",
+   "description": "Simulation begins. The v4 release is scheduled to ship on Tuesday, 2026-09-15 at a fixed time (not yet specified). No events have occurred yet.",
+   "visible_to": [
+    "CEO",
+    "Design Partner 1",
+    "Design Partner 2",
+    "Design Partner 3"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the CEO posted a launch announcement on social media within 24 hours of the ship time (i.e., between the ship time and 24 hours after), AND at least one of the three design partners publicly reposted that announcement within the same 24-hour window. Otherwise resolve NO at the hard cutoff (2026-09-18T09:00:00-07:00)."
+}

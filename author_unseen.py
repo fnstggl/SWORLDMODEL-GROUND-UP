@@ -54,7 +54,7 @@ def main():
         assert c["kind"] in ("sufficient", "insufficient")
         c.setdefault("context", None)
         c.setdefault("historical", False)
-    path = os.path.join(HERE, "acceptance", "dataset_unseen.json")
+    path = os.path.join(HERE, "acceptance", "dataset_unseen_final.json")
     with open(path, "w") as f:
         json.dump(cases, f, indent=1)
     kinds = [c["kind"] for c in cases]

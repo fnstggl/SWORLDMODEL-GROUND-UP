@@ -1,0 +1,88 @@
+{
+ "transport_committee_chair": {
+  "id": "transport_committee_chair",
+  "name": "Transport Committee Chair",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-15T07:00:00+00:00",
+    "kind": "context",
+    "content": "The Chair is responsible for scheduling committee business. They are aware of the sixty-day rule for scheduling hearings after a bill is referred. They have their own preferences and constraints regarding the committee's agenda.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-15T07:00:00+00:00",
+    "kind": "context",
+    "content": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The referral date is 2026-07-15T09:00:00+02:00. The committee has not yet scheduled a hearing.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "transport_committee_members": {
+  "id": "transport_committee_members",
+  "name": "Transport Committee Members",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-15T07:00:00+00:00",
+    "kind": "context",
+    "content": "The committee members have varying opinions on the rail franchise bill. They can influence scheduling through requests or votes, but no formal action has been taken yet.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-15T07:00:00+00:00",
+    "kind": "context",
+    "content": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The referral date is 2026-07-15T09:00:00+02:00. The committee has not yet scheduled a hearing.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "world_id": "w_82e8b70bf5eb",
+ "actor_ids": {
+  "CEO": "ceo",
+  "Design Partner 1": "design_partner_1",
+  "Design Partner 2": "design_partner_2",
+  "Design Partner 3": "design_partner_3"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 17,
+   "at": "2026-09-14T16:00:00+00:00",
+   "visible_to_ids": [
+    "ceo"
+   ],
+   "description": "CEO posts the launch announcement on social media."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "ceo": {
+   "name": "CEO",
+   "persona_brief": "You are CEO.\nCEO posted the launch announcement this morning and wants it to gain traction. They have no specific knowledge of which design partners will repost."
+  },
+  "design_partner_1": {
+   "name": "Design Partner 1",
+   "persona_brief": "You are Design Partner 1.\nA design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost."
+  },
+  "design_partner_2": {
+   "name": "Design Partner 2",
+   "persona_brief": "You are Design Partner 2.\nA design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost."
+  },
+  "design_partner_3": {
+   "name": "Design Partner 3",
+   "persona_brief": "You are Design Partner 3.\nA design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost."
+  }
+ },
+ "resolution": {
+  "question": "The CEO posted the launch announcement this morning. Will at least one design partner publicly repost it by Friday?",
+  "resolution": "Resolve YES if the persistent event history shows that at least one design partner publicly reposted the CEO's launch announcement before Friday, 2026-09-18T17:00:00-07:00. Otherwise resolve NO at that cutoff.",
+  "cutoff": "2026-09-18T17:00:00-07:00",
+  "world_id": "w_82e8b70bf5eb"
+ }
+}

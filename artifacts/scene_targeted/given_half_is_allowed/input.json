@@ -1,0 +1,8 @@
+{
+ "question": "The CEO posted the launch announcement this morning. Will at least one design partner publicly repost it by Friday?",
+ "start": "2026-09-14T09:00:00-07:00",
+ "cutoff": "2026-09-18T17:00:00-07:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

@@ -1,0 +1,40 @@
+{
+ "world_id": "w_5591d2faee63",
+ "actor_ids": {
+  "Transport Committee Chair": "transport_committee_chair",
+  "Transport Committee Members": "transport_committee_members"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-07-15T07:00:00+00:00",
+   "visible_to_ids": [
+    "transport_committee_chair",
+    "transport_committee_members"
+   ],
+   "description": "The rail franchise bill has been referred to the transport committee. The committee has not yet scheduled a public hearing."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "transport_committee_chair": {
+   "name": "Transport Committee Chair",
+   "persona_brief": "You are Transport Committee Chair.\nThe Chair is responsible for scheduling committee business. They are aware of the sixty-day rule for scheduling hearings after a bill is referred. They have their own preferences and constraints regarding the committee's agenda."
+  },
+  "transport_committee_members": {
+   "name": "Transport Committee Members",
+   "persona_brief": "You are Transport Committee Members.\nThe committee members have varying opinions on the rail franchise bill. They can influence scheduling through requests or votes, but no formal action has been taken yet."
+  }
+ },
+ "resolution": {
+  "question": "Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?",
+  "resolution": "Resolve YES if the persistent event history shows that the transport committee scheduled a public hearing on the rail franchise bill before 2026-09-13T09:00:00+02:00 (sixty days from the referral date). Otherwise resolve NO at the hard cutoff 2026-09-30T09:00:00+02:00.",
+  "cutoff": "2026-09-30T09:00:00+02:00",
+  "world_id": "w_5591d2faee63"
+ }
+}
