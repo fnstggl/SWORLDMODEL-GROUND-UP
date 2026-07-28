@@ -1,17 +1,6 @@
 {
- "verdict": "DEFECT",
- "worst_severity": "MAJOR",
- "defects": [
-  {
-   "aspect": "prewritten",
-   "severity": "MAJOR",
-   "detail": "The private context of Apple Inc. states 'Apple is considering whether to confirm Jobs as the speaker before the conference.' This pre-decides that Apple has the option to confirm, but the question is whether they will confirm. The scene should not include any indication of Apple's internal decision-making process; it should only set the initial state of no confirmation. The phrase 'considering whether to confirm' implies a pending decision that may be resolved, but it also suggests that confirmation is a possible outcome, which is acceptable. However, the private context of Steve Jobs says 'He has not yet received confirmation from Apple's public relations team about an official announcement.' This implies that the PR team is involved and that an announcement is pending, which could be seen as pre-deciding that an announcement will happen. More critically, the shared context states 'The conference organizers expect Apple to confirm the speaker before the conference begins.' This expectation could influence the simulation towards a YES outcome, as it sets a norm. The scene should be neutral."
-  },
-  {
-   "aspect": "info_boundaries",
-   "severity": "MINOR",
-   "detail": "The shared context includes 'The conference organizers expect Apple to confirm the speaker before the conference begins.' This is an expectation that might be known to the public or to Apple, but it is not clearly private or shared. It could be considered shared knowledge, but it might also be an assumption that leaks the organizers' internal expectations. However, this is minor."
-  }
- ],
+ "verdict": "OK",
+ "worst_severity": "NONE",
+ "defects": [],
  "id": "exec_jobs_macworld_keynote"
 }

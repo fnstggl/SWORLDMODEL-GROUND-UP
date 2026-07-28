@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,24 +119,24 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tomasz",
-   "private_context": "Tomasz is the account manager at Nimbus Freight handling about forty accounts. He has been on leave and returns on Wednesday 2026-08-12. He may have many emails to catch up on. He knows Kestrel Analytics as a mid-size existing customer that ships monthly."
+   "private_context": "Tomasz is an account manager at Nimbus Freight handling about forty accounts. He was on leave and returned on Wednesday, 2026-08-12. He has received an email from Kestrel Analytics requesting an updated shipping quote, sent to his personal work address. He may prioritize responses based on account importance or urgency."
   },
   {
    "name": "Kestrel Analytics",
-   "private_context": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight that ships roughly monthly. They have sent an email request for an updated shipping quote to Tomasz's personal work address."
+   "private_context": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight that ships roughly monthly. They have sent an email to Tomasz requesting an updated shipping quote. They expect a reply before Friday's close of business."
   }
  ],
- "shared_context": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
+ "shared_context": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Friday's close of business is 2026-08-14T17:00:00+02:00.",
  "starting_events": [
   {
    "time": "2026-08-11T09:00:00+02:00",
-   "description": "The email from Kestrel Analytics requesting an updated shipping quote is already in Tomasz's personal work inbox.",
+   "description": "The simulation begins. Tomasz has the email from Kestrel Analytics in his inbox, sent prior to this time.",
    "visible_to": [
     "Tomasz"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Tomasz actually sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Tomasz actually sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

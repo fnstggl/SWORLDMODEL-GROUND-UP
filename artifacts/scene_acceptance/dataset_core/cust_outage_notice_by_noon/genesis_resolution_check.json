@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Nimbus Freight's tracking portal has been down since 06:00. Will the company email affected enterprise customers an incident notice before noon?",
-  "resolution": "Resolve YES if the persistent event history shows that Nimbus Freight actually sent an incident notice email to affected enterprise customers before 2026-08-21T12:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Nimbus Freight actually sent an incident notice email to affected enterprise customers before 2026-08-21T12:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-21T12:00:00+02:00",
   "world_id": "w_0229fb3c106d"
  },

@@ -2,28 +2,23 @@
  "actors": [
   {
    "name": "Founder A",
-   "private_context": "Founder A believes the company should pivot to a subscription model and is frustrated with Founder B's insistence on ad-based revenue. A has been exploring buyout options with potential investors and is considering buying out Founder B."
+   "private_context": "Founder A has been at odds with Founder B over strategy since spring. A may consider a buyout of B's stake or being bought out. A has not yet decided or communicated a buyout plan to employees."
   },
   {
    "name": "Founder B",
-   "private_context": "Founder B is committed to the ad-based revenue model and thinks Founder A's pivot idea is risky. B has been in talks with a venture capital firm about buying out Founder A's stake."
-  },
-  {
-   "name": "Employees (as a group)",
-   "private_context": "The twelve employees are aware of the founders' disagreements through office gossip and all-hands meetings. They are concerned about job security and the company's direction, but have no direct decision-making power in a buyout."
+   "private_context": "Founder B has been at odds with Founder A over strategy since spring. B may consider a buyout of A's stake or being bought out. B has not yet decided or communicated a buyout plan to employees."
   }
  ],
- "shared_context": "Tidepool is a mobile app company with two founders and twelve employees. The founders have been publicly at odds over strategy since spring 2026. A buyout would involve one founder purchasing the other's shares and the departing founder leaving the company. The company has no board of directors; the founders hold equal equity and decision-making power. The employees have no formal role in a buyout decision.",
+ "shared_context": "Tidepool app has twelve employees. The two founders have been at odds over strategy since spring. No buyout has been announced yet. The company operates normally as of the start time.",
  "starting_events": [
   {
    "time": "2026-08-01T10:00:00-07:00",
-   "description": "The simulation begins. The founders are at odds, and no buyout has been announced yet.",
+   "description": "The simulation begins with the founders in ongoing strategic disagreement. No buyout announcement has been made.",
    "visible_to": [
     "Founder A",
-    "Founder B",
-    "Employees (as a group)"
+    "Founder B"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that either Founder A or Founder B publicly announces to the employees that a buyout of one founder's shares by the other has been agreed upon and will proceed. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the founders actually announced a buyout of one side to the twelve employees before 2026-11-01T10:00:00-07:00. Otherwise resolve NO at the cutoff."
 }

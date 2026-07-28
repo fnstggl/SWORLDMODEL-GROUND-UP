@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the French presidency of the COP21 climate conference circulate at least one consolidated draft agreement text to national delegations before the summit's final scheduled day?",
-  "resolution": "Resolve YES if the persistent event history shows that the French Presidency circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00. Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the French Presidency of COP21 actually circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00 (the start of the final scheduled day). Otherwise resolve NO at that deadline.",
   "cutoff": "2015-12-10T09:00:00+01:00",
   "world_id": "w_70376843594d"
  },

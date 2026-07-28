@@ -1,6 +1,27 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "MAJOR",
+   "detail": "The scene includes only two collective actors (support team and management) but does not include individual team members or other stakeholders (e.g., HR, other teams) that could materially affect morale. However, the question is about team morale, so the collective actor is acceptable. The main issue is that the scene lacks specificity about the reorg details, which could affect the simulation's ability to generate realistic interactions."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states that morale is currently at a moderate level. This pre-decides a baseline that may not be justified by the question or context, and it could influence the simulation's outcome by anchoring the starting point. The question does not provide any information about current morale, so this is an invented precision."
+  },
+  {
+   "aspect": "invented_precision",
+   "severity": "MAJOR",
+   "detail": "The shared context states that morale is currently at a moderate level. This is an unsupported precise claim about the state of morale, which is not provided in the question or context. It could bias the simulation."
+  },
+  {
+   "aspect": "observable_resolution",
+   "severity": "MINOR",
+   "detail": "The resolution requires that a majority of team members have expressed that morale is better than before the reorg. This is observable in principle, but the phrase 'expressed (in observable communications or surveys)' is somewhat vague. However, it is acceptable as a resolution condition."
+  }
+ ],
  "id": "ins_morale_no_observable"
 }

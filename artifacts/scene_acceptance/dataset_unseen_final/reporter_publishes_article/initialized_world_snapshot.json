@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "alex_torres": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "alex_torres",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Alex is a reporter for the Daily Chronicle. They have been investigating city hall corruption and have gathered evidence and sources. The editor has set a deadline of September 1, 2026 for the story. Alex wants to publish a thorough and accurate investigation.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T05:00:00+00:00"
+    },
+    {
+     "content": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the investigation on city hall corruption. The story is not yet published as of August 15, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T05:00:00+00:00"
+    }
+   ],
+   "name": "Alex Torres",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "editor": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "editor",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The editor at the Daily Chronicle set the September 1, 2026 deadline for the corruption story. They expect a publishable piece by that date.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-08-15T05:00:00+00:00"
+    },
+    {
+     "content": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the investigation on city hall corruption. The story is not yet published as of August 15, 2026.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-08-15T05:00:00+00:00"
+    }
+   ],
+   "name": "Editor",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Does reporter Alex Torres publish the investigation on city hall corruption before the September 1, 2026 deadline?",
+  "scene:shared_context": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the investigation on city hall corruption. The story is not yet published as of August 15, 2026."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-08-15T05:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-08-15T05:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

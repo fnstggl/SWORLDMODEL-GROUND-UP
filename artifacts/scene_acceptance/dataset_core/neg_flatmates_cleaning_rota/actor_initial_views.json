@@ -23,13 +23,13 @@
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores.",
+    "content": "Dana lives with Yusuf and wants a cleaning rota that is fair and manageable. Dana is willing to negotiate and sign off on a rota if it seems reasonable.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
+    "content": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores.",
+    "content": "Yusuf lives with Dana and wants a cleaning rota that is fair and manageable. Yusuf is willing to negotiate and sign off on a rota if it seems reasonable.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-04T19:00:00+00:00",
     "kind": "context",
-    "content": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
+    "content": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
     "source": "scene_manifest:shared_context"
    }
   ],

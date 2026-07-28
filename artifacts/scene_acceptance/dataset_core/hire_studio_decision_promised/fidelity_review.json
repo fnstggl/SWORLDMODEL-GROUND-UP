@@ -1,12 +1,7 @@
 {
- "verdict": "DEFECT",
- "worst_severity": "CRITICAL",
- "defects": [
-  {
-   "aspect": "prewritten",
-   "severity": "CRITICAL",
-   "detail": "The shared context states 'The art director's promise of a decision within two weeks is known to both parties.' This pre-decides that the promise was made, which is a key fact that should be determined by the simulation. The scene should only set the stage, not assert the promise as a fact."
-  }
- ],
+ "verdict": "REVIEW_ERROR",
+ "worst_severity": "NONE",
+ "defects": [],
+ "error": "fidelity: provider request failed after 2 attempts: Unterminated string starting at: line 8 column 17 (char 154)",
  "id": "hire_studio_decision_promised"
 }

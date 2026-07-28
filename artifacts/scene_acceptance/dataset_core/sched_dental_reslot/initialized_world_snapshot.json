@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "front_desk": {
+  "maple_row_dental_front_desk": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "front_desk",
+   "id": "maple_row_dental_front_desk",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The front desk at Maple Row Dental manages appointment scheduling. They have availability information for various slots and can propose alternatives.",
+     "content": "The front desk handles appointment scheduling and can offer available slots. They are aware of Priya's existing Thursday appointment.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-10T12:00:00+00:00"
     },
     {
-     "content": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
+     "content": "Priya has an existing dental cleaning appointment on Thursday at Maple Row Dental. She needs to reschedule it because of a work trip. The front desk can be contacted via phone or in person during business hours.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-10T12:00:00+00:00"
     }
    ],
-   "name": "Front Desk",
+   "name": "Maple Row Dental front desk",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Priya has a dental cleaning scheduled for Thursday, but she needs to reschedule due to a work trip. She wants to find a new slot before Wednesday noon.",
+     "content": "Priya has a dental cleaning scheduled for Thursday, but needs to reschedule due to a work trip. She wants to find a new slot by Wednesday noon.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-10T12:00:00+00:00"
     },
     {
-     "content": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
+     "content": "Priya has an existing dental cleaning appointment on Thursday at Maple Row Dental. She needs to reschedule it because of a work trip. The front desk can be contacted via phone or in person during business hours.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-10T12:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Priya needs to move her Thursday dental cleaning because of a work trip. Will she and the Maple Row Dental front desk agree on a new slot by Wednesday noon?",
-  "scene:shared_context": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling."
+  "scene:shared_context": "Priya has an existing dental cleaning appointment on Thursday at Maple Row Dental. She needs to reschedule it because of a work trip. The front desk can be contacted via phone or in person during business hours."
  },
  "history": [],
  "infos": {},

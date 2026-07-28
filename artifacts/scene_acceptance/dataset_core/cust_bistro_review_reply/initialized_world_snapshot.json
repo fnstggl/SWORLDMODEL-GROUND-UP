@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Marguerite is the owner of the Copper Kettle bistro. She typically replies to most reviews within days, and her replies tend to be defensive. She has just become aware of a one-star review posted last night complaining about a 45-minute wait on a night the bistro was short two servers.",
+     "content": "Marguerite is the owner of the Copper Kettle bistro. She replies to most reviews within days, usually defensively. She knows the bistro was short two servers on the night in question.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-30T13:00:00+00:00"
     },
     {
-     "content": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review mentions a 45-minute wait and that the bistro was short two servers that night. The review site allows business owners to post public replies to reviews.",
+     "content": "A one-star review of the Copper Kettle bistro went up on a major review site last night. The review complains about a 45-minute wait on a night the bistro was short two servers.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-30T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
-  "scene:shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review mentions a 45-minute wait and that the bistro was short two servers that night. The review site allows business owners to post public replies to reviews."
+  "scene:shared_context": "A one-star review of the Copper Kettle bistro went up on a major review site last night. The review complains about a 45-minute wait on a night the bistro was short two servers."
  },
  "history": [],
  "infos": {},

@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Astronomy Club President",
-   "private_context": "The president is responsible for deciding whether the pier viewing party for the solar eclipse goes ahead. They need to consider weather forecasts, equipment availability, and any logistical issues. They have not yet made a decision as of the simulation start."
+   "private_context": "The president is responsible for organizing club events and making decisions about the pier viewing party. They have not yet decided whether to go ahead with the event."
   }
  ],
- "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club typically holds a pier viewing party for such events. The president is expected to confirm by the 10th whether the party is going ahead. The simulation starts on 2026-08-01.",
+ "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club is considering a pier viewing party for the eclipse. The president must confirm by the 10th whether the party is going ahead.",
  "starting_events": [
   {
    "time": "2026-08-01T09:00:00-07:00",
-   "description": "The simulation begins. No decision has been made yet about the pier viewing party.",
+   "description": "The astronomy club president is aware of the upcoming solar eclipse and the need to confirm the pier viewing party by the 10th.",
    "visible_to": [
     "Astronomy Club President"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the astronomy club president has confirmed (by any means, e.g., announcement, message, or public statement) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the astronomy club president actually communicated a confirmation (by any means) that the pier viewing party is going ahead, before the deadline of 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

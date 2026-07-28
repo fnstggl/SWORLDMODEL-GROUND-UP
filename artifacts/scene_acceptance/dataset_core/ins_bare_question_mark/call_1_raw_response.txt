@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "",
+  "shared_context": "No question was provided.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is empty, so there is no social scenario to simulate."
+  "resolution": "UNRESOLVABLE: No question was provided to simulate."
 }

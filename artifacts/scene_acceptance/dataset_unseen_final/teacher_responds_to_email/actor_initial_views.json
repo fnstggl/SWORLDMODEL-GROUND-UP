@@ -1,0 +1,88 @@
+{
+ "john": {
+  "id": "john",
+  "name": "John",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T14:00:00+00:00",
+    "kind": "context",
+    "content": "John is a parent who sent an email to Ms. Laura Kim about the field trip. He is waiting for a response.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T14:00:00+00:00",
+    "kind": "context",
+    "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "ms_laura_kim": {
+  "id": "ms_laura_kim",
+  "name": "Ms. Laura Kim",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T14:00:00+00:00",
+    "kind": "context",
+    "content": "Ms. Laura Kim is a teacher. She has received John's email about the field trip but has not yet responded. She may have other commitments and may prioritize responding based on her own schedule.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T14:00:00+00:00",
+    "kind": "context",
+    "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

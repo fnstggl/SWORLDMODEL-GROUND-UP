@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "riverton_city_council"
    ],
-   "description": "The Riverton city council is aware that the second reading of the short-term-rental ordinance has not yet been scheduled. The next regular meeting is August 3, 2026."
+   "description": "The Riverton city council is in session and aware of the need to hold a second reading of the short-term-rental ordinance before the August recess."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "riverton_city_council": {
    "name": "Riverton city council",
-   "persona_brief": "You are Riverton city council.\nThe council has a short-term-rental ordinance that has had a first reading. A second reading is required before final passage. The council's next regular meeting is scheduled for August 3, 2026, and the August recess begins August 15, 2026. The council can schedule a special meeting if needed."
+   "persona_brief": "You are Riverton city council.\nThe council is aware that a first reading of the short-term-rental ordinance has occurred. The council has a scheduled August recess beginning on a date known to them. They must hold a second reading before that recess begins. Individual council members may have varying opinions on the ordinance."
   }
  },
  "resolution": {
   "question": "Will the Riverton city council hold the required second reading of its short-term-rental ordinance before the August recess begins?",
-  "resolution": "Resolve YES if the persistent event history shows that the Riverton city council held a meeting (regular or special) at which the second reading of the short-term-rental ordinance occurred before 2026-08-14T17:00:00-06:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the Riverton city council actually held the second reading of the short-term-rental ordinance before the start of the August recess. Otherwise resolve NO at the start of the recess or at the hard cutoff, whichever comes first.",
   "cutoff": "2026-08-14T17:00:00-06:00",
   "world_id": "w_b0ecd0c08623"
  }

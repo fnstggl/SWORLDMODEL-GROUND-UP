@@ -23,13 +23,13 @@
    {
     "t": "2026-09-01T21:00:00+00:00",
     "kind": "context",
-    "content": "Family 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families.",
+    "content": "Family 1 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T21:00:00+00:00",
     "kind": "context",
-    "content": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+    "content": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-01T21:00:00+00:00",
     "kind": "context",
-    "content": "Family 2 has one child who needs a ride. They can drive on some days but have limited availability. They are open to a rota if it works for everyone.",
+    "content": "Family 2 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T21:00:00+00:00",
     "kind": "context",
-    "content": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+    "content": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-01T21:00:00+00:00",
     "kind": "context",
-    "content": "Family 3 has three children. They are eager to set up a carpool to reduce their driving burden. They are flexible on days.",
+    "content": "Family 3 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T21:00:00+00:00",
     "kind": "context",
-    "content": "The three families live on the same cul-de-sac and their children attend the same school. They have discussed the idea of a carpool informally but have not yet agreed on a weekly driving rota. Term starts on Monday, September 7, 2026. They have until Monday morning to finalize a rota.",
+    "content": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
     "source": "scene_manifest:shared_context"
    }
   ],

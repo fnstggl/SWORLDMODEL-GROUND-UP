@@ -23,13 +23,13 @@
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Has already responded to the poll with their availability.",
+    "content": "Has received the poll with four candidate weekends. Has not yet responded.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
+    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Has already responded to the poll with their availability.",
+    "content": "Has received the poll with four candidate weekends. Has not yet responded.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
+    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Has not yet responded to the poll.",
+    "content": "Has received the poll with four candidate weekends. Has not yet responded.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
+    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Has not yet responded to the poll.",
+    "content": "Has received the poll with four candidate weekends. Has already responded with their availability.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
+    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -195,56 +195,13 @@
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Has not yet responded to the poll.",
+    "content": "Has received the poll with four candidate weekends. Has already responded with their availability.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-29T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "ceo_s_assistant": {
-  "id": "ceo_s_assistant",
-  "name": "CEO's assistant",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-07-29T08:00:00+00:00",
-    "kind": "context",
-    "content": "Sent a poll with four candidate weekends to all five advisors. Two advisors have responded. The assistant can follow up and coordinate to finalize a date.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-07-29T08:00:00+00:00",
-    "kind": "context",
-    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
+    "content": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
     "source": "scene_manifest:shared_context"
    }
   ],

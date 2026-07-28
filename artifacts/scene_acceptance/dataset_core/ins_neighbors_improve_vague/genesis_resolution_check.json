@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the situation with the neighbors improve over the next few months?",
-  "resolution": "Resolve YES if, by the cutoff, the persistent event history shows a clear, observable improvement in neighbor relations (e.g., a friendly interaction, a resolved dispute, or a mutual agreement). Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2026-11-01T12:00:00+02:00, both neighbors have engaged in at least one positive interaction (e.g., a friendly conversation, a mutual agreement, or a cooperative action) that indicates an improvement in their relationship, as observed by an external party or documented in communication. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-01T12:00:00+02:00",
   "world_id": "w_b8ccf1140398"
  },

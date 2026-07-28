@@ -74,6 +74,16 @@ unavoidably scheduled at initialization.
 10. NEVER schedule a reply, a vote, an agreement, an approval, a refusal, \
 a purchase, a resignation, or any other terminal-producing actor choice -- \
 unless the question explicitly states it has already occurred.
+10a. NO PARTIAL OUTCOMES.  Before writing starting_events, break the YES \
+condition into EVERY required part.  A starting event may satisfy a part \
+ONLY if the question or context explicitly states that it already \
+happened before the start time.  If the question asks whether X happens \
+AND whether Y happens, putting X in starting_events answers half the \
+question for the simulation -- that is forbidden, even though X is the \
+earlier and more predictable half.  ("Will the CEO post and will a \
+partner repost?" -> neither belongs in starting_events.  "The CEO posted \
+this morning.  Will a partner repost?" -> the post belongs there, because \
+the question states it already happened.)
 11. Do not write a future trajectory.
 12. Do not narrate futures like "X notices the message, likes it, and \
 responds".
@@ -89,6 +99,17 @@ must not predict which result occurs.
 sent; a record actually created; a decision actually announced; a \
 measurable quantity in the persistent history; an action actually \
 completed.
+18a. THE RESOLUTION MUST CARRY THE QUESTION'S OWN DEADLINE.  The hard \
+cutoff given above is only the latest instant the runtime may operate; it \
+is NOT the answer's deadline.  If the question states or implies its own \
+window ("within 60 days", "before Friday", "by the end of the quarter", \
+"at the September 12 meeting"), compute that window from the START TIME \
+given above and state the resulting instant or date inside the \
+resolution.  Preserve the exact sense of "before", "by", "within", \
+"during", and "after".  Use the cutoff as the deadline only when the \
+question's own window genuinely ends there.  (Start 2026-07-15, "within \
+60 days" -> the resolution's deadline is 2026-09-13, NOT a later compile \
+cutoff.)
 19. Do not use vague psychological resolution conditions ("shows \
 interest", "seems supportive", "is likely to agree") unless the user \
 explicitly asks about that internal state and it can be observed.
@@ -109,10 +130,34 @@ prepared message to B.", "visible_to": ["Person A"]}],
 that B actually sent A a response before the cutoff.  Otherwise resolve NO \
 at the cutoff."}
 
-WHEN TO REFUSE INSTEAD OF COMPILING.  If any of the following hold, still \
-return the four fields but set resolution to the single word \
-"UNRESOLVABLE" followed by a colon and a one-sentence reason -- do not \
-invent a fake scene:
+STEP ZERO -- THE IDENTIFIABILITY CHECK.  Before writing anything, quote \
+to yourself the exact words of the question or context that supply each \
+of the four elements below.  If you cannot point at actual words for one \
+of them -- if you would be supplying it from imagination or from what is \
+typical -- you must refuse.  Naming a party "the CEO", "the Applicant", \
+"Neighbor A" or "the Permit Reviewer" when the question never mentions \
+such a party is exactly that failure.  Likewise, if the question asks \
+about an internal state (morale, respect, regret, opinion) and neither \
+the question nor the context names an observable behaviour that would \
+show it, you must not choose one yourself.
+
+WHEN TO REFUSE INSTEAD OF COMPILING.  Four elements must be identifiable \
+from the question, the user context, or supplied evidence:
+  (i) the relevant subject or decision-maker;
+  (ii) the event, action, or state being asked about;
+  (iii) an observable YES/NO resolution;
+  (iv) enough context to distinguish the actual situation being simulated.
+If any is missing, you must NOT invent it -- not which permit, which \
+organization, which application, who "they" refers to, an approving \
+authority, or a missing deadline.
+Do NOT refuse merely because the outcome is uncertain, an actor's \
+behavior is unknown, secondary participants are unknown, or the situation \
+is socially complex: that is exactly what the simulation is for.
+When an element is missing, still return the four fields but set \
+resolution to the single word "UNRESOLVABLE" followed by a colon and a \
+one-sentence reason -- do not invent a fake scene.  Concretely, these \
+refuse without added context: "Will the permit be approved?", "Will they \
+agree?", "Will the application succeed?"  The following also refuse:
 - the question refers to NO party who could decide or act.  Identification \
 is by REFERENCE, not by name: whenever the question or context refers to a \
 party -- by name, role, relation, office, or as a defined group or cohort \
@@ -152,7 +197,30 @@ CALL2_SYSTEM = """You are an independent adversarial reviewer of a compiled \
 starting scene for a social simulator.  You did not write the scene.  Your \
 verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or \
+part of the resolution.
+If it does, approve it only when the original question or supplied context \
+explicitly states that the event had already occurred by the simulation \
+start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required \
+part ("the announcement goes live", "the request is filed") counts as \
+satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the \
+resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?

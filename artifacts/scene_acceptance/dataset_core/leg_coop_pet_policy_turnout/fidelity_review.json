@@ -1,6 +1,22 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "CRITICAL",
+   "detail": "The scene models the entire membership as a single actor, which is not the smallest causally sufficient social world. Individual members' decisions to attend are independent and must be modeled separately to allow the simulation to produce either YES or NO based on their choices."
+  },
+  {
+   "aspect": "missing",
+   "severity": "CRITICAL",
+   "detail": "Individual members are missing. The turnout depends on each member's decision to attend or send a proxy; modeling the membership as a single actor cannot capture the necessary causal process."
+  },
+  {
+   "aspect": "genuinely_open",
+   "severity": "CRITICAL",
+   "detail": "With the membership as a single actor, the simulation cannot genuinely produce both YES and NO outcomes because the actor's private context provides no basis for deciding attendance. The scene precludes meaningful simulation of individual choices."
+  }
+ ],
  "id": "leg_coop_pet_policy_turnout"
 }

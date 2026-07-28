@@ -1,12 +1,13 @@
 {
  "world_id": "w_70636bf7beb3",
  "actor_ids": {
-  "Tidepool": "tidepool"
+  "Tidepool": "tidepool",
+  "Newsletter Subscribers (cohort)": "newsletter_subscribers_cohort"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 8,
+   "ledger_seq": 11,
    "at": "2026-09-22T15:00:00+00:00",
    "visible_to_ids": [
     "tidepool"
@@ -22,12 +23,16 @@
  "personas": {
   "tidepool": {
    "name": "Tidepool",
-   "persona_brief": "You are Tidepool.\nTidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours."
+   "persona_brief": "You are Tidepool.\nTidepool is sending a launch email to its 5,000 newsletter subscribers. It wants at least 200 subscribers to click through to join the beta waitlist within 72 hours. The email includes a personal note from the founder and the waitlist link is above the fold."
+  },
+  "newsletter_subscribers_cohort": {
+   "name": "Newsletter Subscribers (cohort)",
+   "persona_brief": "You are Newsletter Subscribers (cohort).\nThe 5,000 subscribers have a typical click-through rate of 6% on Tidepool's newsletters. They may or may not open or click this particular email."
   }
  },
  "resolution": {
   "question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to the beta waitlist sign-up page within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that at least 200 distinct subscribers clicked through to join the beta waitlist within 72 hours of the email send (i.e., by 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T08:00:00-07:00",
   "world_id": "w_70636bf7beb3"
  }

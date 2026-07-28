@@ -29,7 +29,7 @@
    {
     "t": "2026-07-27T05:30:00+00:00",
     "kind": "context",
-    "content": "Sanjay works at Nimbus Freight and leads the only team that understands the legacy routing system. His manager has the authority to make a counteroffer. The company's standard process for counteroffers is unknown. The simulation runs from 2026-07-27T11:00:00+05:30 to 2026-08-03T18:00:00+05:30 (five working days).",
+    "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -72,7 +72,7 @@
    {
     "t": "2026-07-27T05:30:00+00:00",
     "kind": "context",
-    "content": "Sanjay works at Nimbus Freight and leads the only team that understands the legacy routing system. His manager has the authority to make a counteroffer. The company's standard process for counteroffers is unknown. The simulation runs from 2026-07-27T11:00:00+05:30 to 2026-08-03T18:00:00+05:30 (five working days).",
+    "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay.",
     "source": "scene_manifest:shared_context"
    }
   ],

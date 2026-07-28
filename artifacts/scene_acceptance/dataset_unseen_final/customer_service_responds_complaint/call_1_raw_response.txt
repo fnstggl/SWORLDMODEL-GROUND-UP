@@ -1,0 +1,21 @@
+{
+  "actors": [
+    {
+      "name": "David Park",
+      "private_context": "David Park is a customer service agent. He has received the complaint from Omega Corp via email on August 12, 2026 at 14:30 CET. He is aware of the 48-hour response policy."
+    },
+    {
+      "name": "Omega Corp",
+      "private_context": "Omega Corp is a client that has filed a complaint via email on August 12, 2026 at 14:30 CET. They expect a response within 48 hours."
+    }
+  ],
+  "shared_context": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The complaint is in the company's email system, accessible to David Park.",
+  "starting_events": [
+    {
+      "time": "2026-08-12T14:30:00+02:00",
+      "description": "Omega Corp sends a complaint email to the customer service department. The email is received and assigned to David Park.",
+      "visible_to": ["David Park", "Omega Corp"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that David Park actually sent a response to Omega Corp's complaint before 2026-08-14T14:30:00+02:00. Otherwise resolve NO at the cutoff."
+}

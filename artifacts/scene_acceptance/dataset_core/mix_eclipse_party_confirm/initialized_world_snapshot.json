@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The president is responsible for deciding whether the pier viewing party goes ahead. They are aware of the eclipse schedule and need to consider weather forecasts, equipment availability, and any logistical issues. They have not yet made a decision as of the simulation start.",
+     "content": "The president is responsible for organizing club events and making decisions about the pier viewing party. They have not yet decided whether to go ahead with the event.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T16:00:00+00:00"
     },
     {
-     "content": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club typically holds a pier viewing party for such events. The president is expected to confirm by the 10th whether the party is going ahead. Weather forecasts and other conditions may influence the decision.",
+     "content": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club is considering a pier viewing party for the eclipse. The president must confirm by the 10th whether the party is going ahead.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T16:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. Will the astronomy club's president confirm by the 10th whether the pier viewing party is going ahead?",
-  "scene:shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club typically holds a pier viewing party for such events. The president is expected to confirm by the 10th whether the party is going ahead. Weather forecasts and other conditions may influence the decision."
+  "scene:shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club is considering a pier viewing party for the eclipse. The president must confirm by the 10th whether the party is going ahead."
  },
  "history": [],
  "infos": {},

@@ -1,0 +1,29 @@
+{
+ "world_id": "w_a0604acdc62c",
+ "actor_ids": {
+  "Dr. Alan Reed": "dr_alan_reed",
+  "Bob Chen": "bob_chen"
+ },
+ "event_records": [],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dr_alan_reed": {
+   "name": "Dr. Alan Reed",
+   "persona_brief": "You are Dr. Alan Reed.\nDr. Alan Reed is the attending physician for patient Bob Chen at St. Mary's Hospital. He is responsible for providing discharge instructions to Bob Chen before discharge."
+  },
+  "bob_chen": {
+   "name": "Bob Chen",
+   "persona_brief": "You are Bob Chen.\nBob Chen is a patient at St. Mary's Hospital being discharged today. He expects to receive discharge instructions from his attending physician."
+  }
+ },
+ "resolution": {
+  "question": "Does Dr. Alan Reed communicate the discharge instructions to patient Bob Chen before 5 PM on September 3, 2026?",
+  "resolution": "Resolve YES only if the persistent event history shows that Dr. Alan Reed actually communicated the discharge instructions to Bob Chen before 5 PM on September 3, 2026. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-03T17:00:00-07:00",
+  "world_id": "w_a0604acdc62c"
+ }
+}

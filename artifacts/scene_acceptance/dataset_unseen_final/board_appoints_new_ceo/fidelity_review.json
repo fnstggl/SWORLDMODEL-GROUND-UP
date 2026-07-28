@@ -1,0 +1,27 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene includes only the board as a collective actor, but the CEO appointment decision is typically made by individual board members with distinct preferences and voting behavior. The simulation cannot model the decision-making process without individual actors."
+  },
+  {
+   "aspect": "decorative",
+   "severity": "MINOR",
+   "detail": "The board is treated as a single actor, which is acceptable for collective decisions, but the private context mentions unspecified individual preferences, which are not modeled."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The shared context states 'The meeting agenda includes the appointment of a new CEO' and 'The current CEO position is vacant or the incumbent is departing', which pre-decides that the board will consider the appointment, but does not pre-decide the outcome. However, the resolution condition is correctly open."
+  },
+  {
+   "aspect": "observable_resolution",
+   "severity": "MINOR",
+   "detail": "The resolution is observable as a persistent event, but the scene does not specify how the appointment is recorded (e.g., board minutes, public announcement). This is minor."
+  }
+ ],
+ "id": "board_appoints_new_ceo"
+}

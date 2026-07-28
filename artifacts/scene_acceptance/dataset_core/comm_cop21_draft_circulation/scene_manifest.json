@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "French Presidency of COP21",
-   "private_context": "The French Presidency is responsible for managing the negotiation process and producing draft texts. They aim to facilitate consensus among parties but face pressure from various national positions. They have the authority to circulate draft texts."
+   "private_context": "The French Presidency is responsible for managing the COP21 climate conference and aims to produce a consolidated draft agreement text for negotiation. They have been working on drafts and are aware of the need to circulate a text before the final scheduled day of the summit."
   },
   {
    "name": "National Delegations",
-   "private_context": "Each delegation represents its country's interests and expects to receive draft texts for review and negotiation. They are aware of the summit schedule and the need for a final agreement."
+   "private_context": "Each national delegation is participating in COP21 and expects to receive draft agreement texts for review and negotiation. They have no prior knowledge of the specific content of the consolidated draft that the French Presidency may circulate."
   }
  ],
- "shared_context": "The COP21 climate conference is taking place in Paris from November 30 to December 11, 2015. The final scheduled day is December 11. The French Presidency is expected to produce and circulate consolidated draft agreement texts to facilitate negotiations. The process involves multiple rounds of drafts and consultations.",
+ "shared_context": "COP21 is the 2015 United Nations Climate Change Conference held in Paris. The summit is scheduled to run from November 30 to December 11, 2015. The French Presidency is tasked with facilitating negotiations and producing a draft agreement text. The final scheduled day of the summit is December 11, 2015.",
  "starting_events": [
   {
    "time": "2015-11-30T09:00:00+01:00",
-   "description": "The COP21 climate conference officially opens in Paris.",
+   "description": "COP21 officially opens in Paris. The French Presidency begins its role as the presiding body of the conference.",
    "visible_to": [
     "French Presidency of COP21",
     "National Delegations"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the French Presidency circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the French Presidency of COP21 actually circulated at least one consolidated draft agreement text to national delegations before 2015-12-11T00:00:00+01:00 (the start of the final scheduled day). Otherwise resolve NO at that deadline."
 }

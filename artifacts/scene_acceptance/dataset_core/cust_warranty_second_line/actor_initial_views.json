@@ -23,13 +23,13 @@
    {
     "t": "2026-08-05T04:00:00+00:00",
     "kind": "context",
-    "content": "The second-line team handles escalated warranty claims. They have a queue of claims and aim to respond within the quoted timeframes. They have received Rustam's escalated claim and are aware of the ten-working-day commitment.",
+    "content": "The second-line team handles escalated warranty claims. They have received Rustam's claim and are aware of the ten-working-day quoted timeframe. They have not yet made a decision.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-05T04:00:00+00:00",
     "kind": "context",
-    "content": "Rustam's washing machine failed and he filed a warranty claim. The claim was escalated to the manufacturer's second-line team. Yesterday (2026-08-04), the manufacturer emailed Rustam stating that the second-line team would provide a decision within ten working days. The ten working days run from 2026-08-05 to 2026-08-18 inclusive (assuming standard working days). The hard cutoff for resolution is 2026-08-19T18:00:00+05:00.",
+    "content": "Rustam's escalated warranty claim for a failed washing machine is pending with the manufacturer's second-line team. An email was sent yesterday (2026-08-04) quoting a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-17 (excluding weekends). The simulation start time is 2026-08-05T09:00:00+05:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-05T04:00:00+00:00",
     "kind": "context",
-    "content": "Rustam has a failed washing machine and has escalated his warranty claim. He received an email yesterday (2026-08-04) stating that the manufacturer's second-line team would provide a decision within ten working days. He expects a decision by the cutoff.",
+    "content": "Rustam has an escalated warranty claim for a failed washing machine. He received an email yesterday stating that the manufacturer's second-line team would provide a decision within ten working days. He wants a decision within that timeframe.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-05T04:00:00+00:00",
     "kind": "context",
-    "content": "Rustam's washing machine failed and he filed a warranty claim. The claim was escalated to the manufacturer's second-line team. Yesterday (2026-08-04), the manufacturer emailed Rustam stating that the second-line team would provide a decision within ten working days. The ten working days run from 2026-08-05 to 2026-08-18 inclusive (assuming standard working days). The hard cutoff for resolution is 2026-08-19T18:00:00+05:00.",
+    "content": "Rustam's escalated warranty claim for a failed washing machine is pending with the manufacturer's second-line team. An email was sent yesterday (2026-08-04) quoting a decision within ten working days. The ten working days from 2026-08-04 end on 2026-08-17 (excluding weekends). The simulation start time is 2026-08-05T09:00:00+05:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

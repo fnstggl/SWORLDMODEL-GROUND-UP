@@ -2,49 +2,6 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "south_african_parliament": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "south_african_parliament",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "The Parliament is scheduled to convene in the first week of February 1990. The opening address is traditionally delivered by the State President. The Parliament expects the address to outline the government's legislative agenda and policy direction for the session.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "1990-01-20T07:00:00+00:00"
-    },
-    {
-     "content": "The South African Parliament is set to open its 1990 session in the first week of February. The State President traditionally delivers the opening address. As of January 20, 1990, no official announcement has been made regarding whether President de Klerk will personally deliver the address or delegate it to another official. The address is scheduled to occur before the hard cutoff on February 6, 1990.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "1990-01-20T07:00:00+00:00"
-    }
-   ],
-   "name": "South African Parliament",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
   "state_president_f_w_de_klerk": {
    "attention": {
     "scene": {
@@ -64,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "De Klerk is aware of the upcoming parliamentary session in February 1990. He has been considering significant policy changes, including the possibility of unbanning the ANC and releasing Nelson Mandela, but has not yet made a final decision or announced any changes. He knows that the customary opening address is a major event and that his decision to deliver it personally or delegate it will be closely watched.",
+     "content": "De Klerk is aware of the upcoming February 1990 parliamentary session and the tradition of the State President delivering the opening address. He has not yet decided whether he will personally deliver the address, and is considering various factors including political strategy and personal preference.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "1990-01-20T07:00:00+00:00"
     },
     {
-     "content": "The South African Parliament is set to open its 1990 session in the first week of February. The State President traditionally delivers the opening address. As of January 20, 1990, no official announcement has been made regarding whether President de Klerk will personally deliver the address or delegate it to another official. The address is scheduled to occur before the hard cutoff on February 6, 1990.",
+     "content": "The South African Parliament is scheduled to open its February 1990 session during the first week of February. Customarily, the State President delivers the opening address. The exact date of the opening has been set, but the public does not yet know whether de Klerk will personally deliver the address.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "1990-01-20T07:00:00+00:00"
@@ -102,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will State President F. W. de Klerk personally deliver the customary opening address to the South African Parliament during the first week of its February 1990 session?",
-  "scene:shared_context": "The South African Parliament is set to open its 1990 session in the first week of February. The State President traditionally delivers the opening address. As of January 20, 1990, no official announcement has been made regarding whether President de Klerk will personally deliver the address or delegate it to another official. The address is scheduled to occur before the hard cutoff on February 6, 1990."
+  "scene:shared_context": "The South African Parliament is scheduled to open its February 1990 session during the first week of February. Customarily, the State President delivers the opening address. The exact date of the opening has been set, but the public does not yet know whether de Klerk will personally deliver the address."
  },
  "history": [],
  "infos": {},
@@ -112,6 +69,6 @@
  "resources": {},
  "start": "1990-01-20T07:00:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 8,
  "watches": {}
 }

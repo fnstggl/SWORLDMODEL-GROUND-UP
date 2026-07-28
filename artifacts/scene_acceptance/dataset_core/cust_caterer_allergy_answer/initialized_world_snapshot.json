@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The catering manager at Willow & Thyme is responsible for answering client inquiries. They have received Deepa's email about nut-free menu options and may respond before the tasting.",
+     "content": "The catering manager at Willow & Thyme is responsible for responding to client inquiries. They have received Deepa's email about nut-free menu options and are aware of the upcoming tasting on Saturday morning.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
     },
     {
-     "content": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email.",
+     "content": "Willow & Thyme is a catering company. Deepa has an upcoming tasting scheduled for Saturday morning. She sent an email to the catering manager asking about nut-free menu options. The email was sent before the simulation start time and is in the catering manager's inbox.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-15T09:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Deepa is a bride-to-be who has emailed Willow & Thyme asking about nut-free menu options. She wants a response before her tasting on Saturday morning.",
+     "content": "Deepa is a bride-to-be who has sent an email to Willow & Thyme asking about nut-free menu options. She has a tasting scheduled for Saturday morning and wants to know about nut-free options before then.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-15T09:00:00+00:00"
     },
     {
-     "content": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email.",
+     "content": "Willow & Thyme is a catering company. Deepa has an upcoming tasting scheduled for Saturday morning. She sent an email to the catering manager asking about nut-free menu options. The email was sent before the simulation start time and is in the catering manager's inbox.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-15T09:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the catering manager at Willow & Thyme answer bride-to-be Deepa's emailed question about nut-free menu options before her tasting on Saturday morning?",
-  "scene:shared_context": "Willow & Thyme is a catering company. Deepa has sent an email to the catering manager asking about nut-free menu options. The tasting is scheduled for Saturday morning, 2026-09-19. The catering manager can reply via email."
+  "scene:shared_context": "Willow & Thyme is a catering company. Deepa has an upcoming tasting scheduled for Saturday morning. She sent an email to the catering manager asking about nut-free menu options. The email was sent before the simulation start time and is in the catering manager's inbox."
  },
  "history": [],
  "infos": {},

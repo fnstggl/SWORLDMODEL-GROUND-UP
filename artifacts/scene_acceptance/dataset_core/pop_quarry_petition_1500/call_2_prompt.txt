@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -101,31 +118,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Petition organizers",
-   "private_context": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They need 1,500 total by the deadline. They are aware of the counter-flyer from the quarry operator."
+   "name": "Petition Organizers",
+   "private_context": "They have collected 400 signatures so far, mostly at the farmers market. They aim to collect 1,500 total to trigger a council debate. They are aware of the six-week deadline from the start date (2026-08-03), which gives them until approximately 2026-09-14. They know the town has 19,000 residents and that the quarry employs 85. They have seen the counter-flyer from the operator."
   },
   {
-   "name": "Quarry operator",
-   "private_context": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to prevent the petition from reaching 1,500 signatures."
-  },
-  {
-   "name": "Town residents (cohort)",
-   "private_context": "The town has 19,000 residents. Some may be undecided, some may support or oppose the quarry extension. They may encounter petition drives or counter-flyers."
+   "name": "Quarry Operator",
+   "private_context": "They distributed a counter-flyer last week opposing the petition. They are aware of the petition drive and want to prevent it from reaching 1,500 signatures. They employ 85 residents."
   }
  ],
- "shared_context": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
+ "shared_context": "The town of Riverton has 19,000 residents. The quarry employs 85 residents. A petition against the quarry extension is being circulated. Organizers have collected 400 signatures in the first fortnight. The submission deadline is in six weeks from the start date (2026-08-03), i.e., by 2026-09-14. A counter-flyer from the quarry operator appeared last week.",
  "starting_events": [
   {
    "time": "2026-08-03T09:00:00-06:00",
-   "description": "Petition organizers have 400 signatures and continue their drive. The quarry operator's counter-flyer is in circulation.",
+   "description": "The petition stands at 400 signatures collected so far. The six-week submission deadline begins.",
    "visible_to": [
-    "Petition organizers",
-    "Quarry operator",
-    "Town residents (cohort)"
+    "Petition Organizers",
+    "Quarry Operator"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least 1,500 valid signatures were submitted to the council before the deadline. Otherwise resolve NO at the deadline."
+ "resolution": "Resolve YES only if the persistent event history shows that the petition has collected at least 1,500 valid signatures before 2026-09-14T17:00:00-06:00 (the deadline). Otherwise resolve NO at the deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

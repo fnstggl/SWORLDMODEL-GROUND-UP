@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the tenants' association of the Aurora Block elect a treasurer at tonight's first meeting of the season, given that three residents have shown interest?",
-  "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected by the association during the meeting before the cutoff at 21:30. Otherwise resolve NO.",
+  "resolution": "Resolve YES if the persistent event history shows that the tenants' association elected a treasurer during the meeting (before 2026-09-02T21:30:00+02:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-02T21:30:00+02:00",
   "world_id": "w_e42e9e0ff6dd"
  },

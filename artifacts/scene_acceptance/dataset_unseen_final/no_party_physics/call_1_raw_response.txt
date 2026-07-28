@@ -1,0 +1,12 @@
+{
+  "actors": [],
+  "shared_context": "A ball is dropped from a height of 10 meters. The acceleration due to gravity is approximately 9.8 m/s². The time to hit the ground can be calculated using the formula t = sqrt(2h/g).",
+  "starting_events": [
+    {
+      "time": "2026-08-01T00:00:00+00:00",
+      "description": "The ball is released from rest at a height of 10 meters.",
+      "visible_to": []
+    }
+  ],
+  "resolution": "Resolve YES if the ball hits the ground before 2026-08-01T00:00:02+00:00 (2 seconds after start). Otherwise resolve NO at that time."
+}

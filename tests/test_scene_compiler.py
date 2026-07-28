@@ -111,6 +111,21 @@ def test_alias_merge_and_duplicate_event_collapse():
     assert report["merged_or_collapsed"] >= 2
 
 
+def test_visible_to_short_form_resolves_only_when_unambiguous():
+    m = json.loads(json.dumps(MANIFEST))
+    m["actors"][0]["name"] = "Tomás García"
+    m["starting_events"][0]["visible_to"] = ["Tomás"]
+    scene, report, errors, _ = validate_scene(m, START, CUTOFF)
+    assert errors == []
+    assert scene["starting_events"][0]["visible_to"] == ["Tomás García"]
+    assert any("resolved to the one declared actor" in n
+               for n in report["notes"])
+    # two candidates -> ambiguity is an error, never a guess
+    m["actors"].append({"name": "Tomás Rivera", "private_context": "other"})
+    _, _, errors, _ = validate_scene(m, START, CUTOFF)
+    assert any("is ambiguous between" in e for e in errors)
+
+
 def test_unknown_visible_to_and_late_events_fail():
     m = json.loads(json.dumps(MANIFEST))
     m["starting_events"][0]["visible_to"] = ["Person Z"]
@@ -170,6 +185,147 @@ def test_hostile_invisibles_offsets_and_bad_frames():
     m["starting_events"][0]["description"] = "A sends the prepared message to B."
     _, _, errors, _ = validate_scene(m, START, CUTOFF)
     assert any("must not already be an occurred event" in e for e in errors)
+
+
+# ------------------------------------------- prewritten-outcome regressions
+# The five cases the defect class requires.  The deterministic guard is a
+# BACKUP for near-identical wording; paraphrase and the already-happened
+# judgement belong to Call 2 (proved separately in the Call-3 tests).
+AND_RESOLUTION = ("Resolve YES only if the persistent event history shows "
+                  "that the chief executive posted the launch announcement "
+                  "and a design partner reposted the launch announcement "
+                  "before the cutoff. Otherwise resolve NO.")
+
+
+def scene_with(events, resolution=AND_RESOLUTION):
+    return {"actors": [{"name": "Person A", "private_context": "a"},
+                       {"name": "Person B", "private_context": "b"}],
+            "shared_context": "the shared situation",
+            "starting_events": [dict(e, visible_to=e.get("visible_to",
+                                                         ["Person A"]))
+                                for e in events],
+            "resolution": resolution}
+
+
+def test_prewrite_full_outcome_is_an_error():
+    m = scene_with([
+        {"time": START, "description": "The chief executive posted the "
+                                       "launch announcement."},
+        {"time": START, "description": "A design partner reposted the "
+                                       "launch announcement."}])
+    _, _, errors, _ = validate_scene(m, START, CUTOFF, question="q?")
+    assert any("entire YES condition" in e for e in errors)
+
+
+def test_prewrite_one_half_of_an_and_outcome_is_flagged():
+    m = scene_with([{"time": START,
+                     "description": "The chief executive posted the launch "
+                                    "announcement."}])
+    _, _, errors, warnings = validate_scene(m, START, CUTOFF, question="q?")
+    assert errors == []                      # Call 2 adjudicates half-matches
+    assert any("closely matches part of the resolution" in w
+               for w in warnings)
+
+
+def test_prewrite_paraphrase_is_left_to_the_reviewer():
+    """A paraphrase must NOT be blocked by the shallow guard -- code cannot
+    read paraphrase, so it stays silent and Call 2 owns the judgement."""
+    m = scene_with([{"time": START,
+                     "description": "The company's founder puts the v4 news "
+                                    "live on social media."}])
+    _, _, errors, warnings = validate_scene(m, START, CUTOFF, question="q?")
+    assert errors == []
+    assert not any("closely matches" in w for w in warnings)
+
+
+def test_prewrite_explicitly_given_event_still_only_warns():
+    """When the question says it already happened, the event is legitimate;
+    the guard must never hard-error on a partial match."""
+    m = scene_with([{"time": START,
+                     "description": "The chief executive posted the launch "
+                                    "announcement."}])
+    _, _, errors, _ = validate_scene(
+        m, START, CUTOFF,
+        question="The chief executive posted the launch announcement this "
+                 "morning. Will a design partner repost it by Friday?")
+    assert errors == []
+
+
+def test_legitimate_starting_event_is_not_flagged():
+    m = scene_with([{"time": START,
+                     "description": "The quarterly planning cycle opens and "
+                                    "the team receives its brief."}])
+    _, _, errors, warnings = validate_scene(m, START, CUTOFF, question="q?")
+    assert errors == []
+    assert not any("closely matches" in w for w in warnings)
+
+
+# ------------------------------------------------ question-window regressions
+def window_scene(resolution):
+    return {"actors": [{"name": "Person A", "private_context": "a"}],
+            "shared_context": "the shared situation",
+            "starting_events": [],
+            "resolution": resolution}
+
+
+def test_window_absolute_deadline_must_appear_in_resolution():
+    q = "Will the committee schedule the hearing before September 13, 2026?"
+    bad = window_scene("Resolve YES if the history shows the hearing was "
+                       "scheduled before 2026-09-30. Otherwise NO.")
+    _, _, errors, _ = validate_scene(bad, "2026-07-15T09:00:00+00:00",
+                                     "2026-09-30T09:00:00+00:00", question=q)
+    assert any("narrower than the compile cutoff" in e for e in errors)
+    good = window_scene("Resolve YES if the history shows the hearing was "
+                        "scheduled before 2026-09-13. Otherwise NO at the "
+                        "cutoff.")
+    _, _, errors, _ = validate_scene(good, "2026-07-15T09:00:00+00:00",
+                                     "2026-09-30T09:00:00+00:00", question=q)
+    assert errors == []
+
+
+def test_window_relative_days_resolved_from_start():
+    q = "Will the transport committee schedule a public hearing within 60 days?"
+    bad = window_scene("Resolve YES if a hearing is scheduled before the "
+                       "cutoff on 2026-09-30. Otherwise NO.")
+    _, _, errors, _ = validate_scene(bad, "2026-07-15T09:00:00+00:00",
+                                     "2026-09-30T09:00:00+00:00", question=q)
+    assert any("within 60 days" in e for e in errors)
+    good = window_scene("Resolve YES if a hearing is scheduled on or before "
+                        "2026-09-13 (60 days from the start). Otherwise NO.")
+    _, _, errors, _ = validate_scene(good, "2026-07-15T09:00:00+00:00",
+                                     "2026-09-30T09:00:00+00:00", question=q)
+    assert errors == []
+
+
+def test_window_relative_weeks_and_restated_phrase_accepted():
+    q = "Will the studio send any decision within two weeks?"
+    good = window_scene("Resolve YES if the studio sent a decision within "
+                        "two weeks of the start. Otherwise NO.")
+    _, _, errors, _ = validate_scene(good, "2026-07-15T09:00:00+00:00",
+                                     "2026-09-30T09:00:00+00:00", question=q)
+    assert errors == []
+    bad = window_scene("Resolve YES if the studio sent a decision before "
+                       "2026-09-30. Otherwise NO.")
+    _, _, errors, _ = validate_scene(bad, "2026-07-15T09:00:00+00:00",
+                                     "2026-09-30T09:00:00+00:00", question=q)
+    assert errors and "narrower" in errors[0]
+
+
+def test_window_equal_to_cutoff_is_legitimate():
+    q = "Will the board approve the merger within 14 days?"
+    scene = window_scene("Resolve YES if the board approved the merger "
+                         "before the cutoff. Otherwise NO at the cutoff.")
+    _, _, errors, _ = validate_scene(scene, "2026-08-15T09:00:00+00:00",
+                                     "2026-08-29T09:00:00+00:00", question=q)
+    assert errors == []          # the question's window IS the cutoff
+
+
+def test_window_absent_from_question_never_fires():
+    q = "Will the landlord reply to the tenant's message?"
+    scene = window_scene("Resolve YES if the landlord replied before the "
+                         "cutoff. Otherwise NO.")
+    _, _, errors, _ = validate_scene(scene, START, CUTOFF, question=q)
+    assert errors == []
 
 
 # ----------------------------------------------------------------- adapter
@@ -278,6 +434,71 @@ def test_scripted_corrected_compile():
     assert result.status == "corrected"
     assert result.metrics["semantic_calls"] == 3
     assert result.metrics["repaired_compile"] is True
+
+
+def test_revise_to_call3_carries_defects_and_changes_only_that_field():
+    """The full REVISE -> Call 3 contract: the exact defect list and the
+    exact original manifest reach Call 3, the correction touches only the
+    defective field, the corrected scene validates and instantiates,
+    exactly three semantic stages are used, and no fourth call occurs."""
+    prewritten = json.loads(json.dumps(MANIFEST))
+    prewritten["starting_events"].append({
+        "time": START, "description": "B sends A a response.",
+        "visible_to": ["Person B"]})
+    defects = [{"path": "starting_events[1]",
+                "problem": "This event completes the requested outcome, but "
+                           "the question does not say it already happened.",
+                "correction": "Remove this event; begin before B responds."}]
+    revise = {"verdict": "REVISE", "defects": defects}
+    corrected = json.loads(json.dumps(MANIFEST))     # offending event gone
+    captured = []
+
+    class Recorder(Script):
+        def __call__(self, system, user):
+            captured.append((system, user))
+            return super().__call__(system, user)
+
+    caller = SceneCaller(transport=Recorder([prewritten, revise, corrected]))
+    result = compile_scene(QUESTION, START, CUTOFF, caller=caller)
+
+    assert result.status == "corrected", result.reason
+    assert caller.metrics()["semantic_calls"] == 3
+    assert caller.semantic_slots == ["call_1_scene", "call_2_review",
+                                     "call_3_correction"]
+    # the exact defect list and the exact original manifest reached Call 3
+    c3_user = captured[2][1]
+    assert defects[0]["problem"] in c3_user
+    assert defects[0]["correction"] in c3_user
+    assert "B sends A a response." in c3_user
+    # only the defective field changed
+    assert result.manifest["actors"] == MANIFEST["actors"]
+    assert result.manifest["shared_context"] == MANIFEST["shared_context"]
+    assert result.manifest["resolution"] == MANIFEST["resolution"]
+    assert len(result.manifest["starting_events"]) == 1
+    # the corrected scene really instantiates, and no fourth call is possible
+    world, _ = instantiate_scene(result.manifest, QUESTION, START, CUTOFF)
+    assert len(world.actors) == 2
+    with pytest.raises(CompilerCallBudgetExceeded):
+        caller.semantic_call("call_4", "s", "u")
+
+
+def test_malformed_output_retries_same_slot_then_fails_structurally():
+    """One technical retry per slot, same task and schema, every attempt
+    logged with its raw body, no silent salvage of partial JSON."""
+    truncated = '{"actors": [{"name": "A", "private_context": "x"}'
+    caller = SceneCaller(transport=Script([truncated, truncated]))
+    result = compile_scene(QUESTION, START, CUTOFF, caller=caller)
+    assert result.status == "failed"
+    assert "TECHNICAL_FAILURE" in result.reason
+    assert caller.metrics()["semantic_calls"] == 1      # one slot consumed
+    assert caller.metrics()["provider_requests"] == 2   # initial + one retry
+    assert [r["attempt"] for r in caller.requests] == [0, 1]
+    assert all(r["response"] == truncated for r in caller.requests)
+    assert all(r["error"] for r in caller.requests)
+    # the retry re-sent the identical task and schema
+    assert caller.requests[0]["system"] == caller.requests[1]["system"]
+    assert caller.requests[0]["user"] == caller.requests[1]["user"]
+    assert result.manifest is None                      # nothing salvaged
 
 
 def test_scripted_abstention_is_structured():

@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "bookkeeper"
    ],
-   "description": "The bookkeeper begins her workday and has the quarterly payroll data available to prepare the return."
+   "description": "The bookkeeper begins her workday and has the quarterly payroll return to prepare and file before the deadline."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "bookkeeper": {
    "name": "Bookkeeper",
-   "persona_brief": "You are Bookkeeper.\nThe bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has the necessary information and access to file. She has no known obstacles or changes in her routine."
+   "persona_brief": "You are Bookkeeper.\nThe bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has a routine for preparing and submitting the return."
   },
   "herrera_bakery": {
    "name": "Herrera Bakery",
-   "persona_brief": "You are Herrera Bakery.\nThe bakery expects the bookkeeper to file the return as usual. They have provided all payroll data to the bookkeeper in a timely manner."
+   "persona_brief": "You are Herrera Bakery.\nThe bakery relies on the bookkeeper to handle payroll filings. It has no specific knowledge of her current progress on the return."
   }
  },
  "resolution": {
   "question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
-  "resolution": "Resolve YES if the persistent event history shows that the quarterly payroll return was filed with the revenue service before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the bookkeeper actually filed the quarterly payroll return before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-31T23:59:00-06:00",
   "world_id": "w_1e61b2a0f535"
  }

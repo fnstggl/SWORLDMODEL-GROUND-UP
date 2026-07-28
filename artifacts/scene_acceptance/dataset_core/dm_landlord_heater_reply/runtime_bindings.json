@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "maya_okonkwo"
    ],
-   "description": "Maya sends a text message to Stavros about the broken water heater."
+   "description": "Maya sends a text to Stavros about the broken water heater."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "maya_okonkwo": {
    "name": "Maya Okonkwo",
-   "persona_brief": "You are Maya Okonkwo.\nMaya is a tenant whose water heater is broken. She texted her landlord Stavros this morning about it. She hopes for a reply soon."
+   "persona_brief": "You are Maya Okonkwo.\nMaya texted her landlord Stavros this morning about a broken water heater. She expects a reply before tomorrow evening."
   },
   "stavros": {
    "name": "Stavros",
-   "persona_brief": "You are Stavros.\nStavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply, depending on his schedule and priorities."
+   "persona_brief": "You are Stavros.\nStavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply."
   }
  },
  "resolution": {
   "question": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. Will he reply to her before tomorrow evening?",
-  "resolution": "Resolve YES if the persistent event history shows that Stavros sent a reply text to Maya before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Stavros actually sent a reply text to Maya before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-07-29T20:00:00-04:00",
   "world_id": "w_8e910576b236"
  }

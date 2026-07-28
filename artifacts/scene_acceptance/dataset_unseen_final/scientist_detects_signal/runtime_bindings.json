@@ -1,0 +1,34 @@
+{
+ "world_id": "w_90c446139baa",
+ "actor_ids": {
+  "Dr. Emily Zhao": "dr_emily_zhao"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 8,
+   "at": "2026-09-28T00:00:00+00:00",
+   "visible_to_ids": [
+    "dr_emily_zhao"
+   ],
+   "description": "The observation window is open and data collection is ongoing."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "dr_emily_zhao": {
+   "name": "Dr. Emily Zhao",
+   "persona_brief": "You are Dr. Emily Zhao.\nDr. Emily Zhao is leading a SETI project at the Arecibo Observatory. She is monitoring the radio telescope data for anomalous signals. She knows the observation window ends on October 1, 2026."
+  }
+ },
+ "resolution": {
+  "question": "Does Dr. Emily Zhao detect the anomalous signal from the radio telescope before the observation window closes on October 1, 2026?",
+  "resolution": "Resolve YES only if the persistent event history shows that Dr. Emily Zhao actually detected the anomalous signal from the radio telescope before the observation window closes on October 1, 2026. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-10-01T23:59:00+00:00",
+  "world_id": "w_90c446139baa"
+ }
+}

@@ -1,7 +1,7 @@
 {
- "veldt_solar_legal_team": {
-  "id": "veldt_solar_legal_team",
-  "name": "Veldt Solar Legal Team",
+ "veldt_solar_s_legal_team": {
+  "id": "veldt_solar_s_legal_team",
+  "name": "Veldt Solar's legal team",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-18T09:00:00+00:00",
     "kind": "context",
-    "content": "The legal team has received the revised supplier contract today (2026-08-18) and must review it for legal risks, compliance, and alignment with company policies before clearing it for signature. They have no prior knowledge of this specific contract beyond what is in the document.",
+    "content": "The legal team has received the revised supplier contract today (2026-08-18) and must review it for clearance. They have their own internal processes and priorities, and may have other pending work.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-18T09:00:00+00:00",
     "kind": "context",
-    "content": "The revised supplier contract has been submitted to Veldt Solar's legal team for review. The team is expected to complete their review within ten working days. The cutoff for resolution is 2026-09-01T17:00:00+02:00.",
+    "content": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance before signature. The deadline for clearance is ten working days from today, i.e., by 2026-09-01 (assuming no holidays). The hard cutoff for the simulation is 2026-09-01T17:00:00+02:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

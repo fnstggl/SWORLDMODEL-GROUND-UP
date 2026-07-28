@@ -1,0 +1,203 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ceo": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ceo",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "CEO posted the launch announcement this morning and wants it to gain traction. They have no specific knowledge of which design partners will repost.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    },
+    {
+     "content": "The CEO posted the launch announcement on a social media platform this morning. The post is visible to the public, including design partners. Design partners can repost it publicly. The deadline for reposting is Friday, 2026-09-18T17:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    }
+   ],
+   "name": "CEO",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "design_partner_1": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "design_partner_1",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    },
+    {
+     "content": "The CEO posted the launch announcement on a social media platform this morning. The post is visible to the public, including design partners. Design partners can repost it publicly. The deadline for reposting is Friday, 2026-09-18T17:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    }
+   ],
+   "name": "Design Partner 1",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "design_partner_2": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "design_partner_2",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    },
+    {
+     "content": "The CEO posted the launch announcement on a social media platform this morning. The post is visible to the public, including design partners. Design partners can repost it publicly. The deadline for reposting is Friday, 2026-09-18T17:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    }
+   ],
+   "name": "Design Partner 2",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "design_partner_3": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "design_partner_3",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "A design partner of the company. They may or may not see the CEO's post. They decide independently whether to repost.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    },
+    {
+     "content": "The CEO posted the launch announcement on a social media platform this morning. The post is visible to the public, including design partners. Design partners can repost it publicly. The deadline for reposting is Friday, 2026-09-18T17:00:00-07:00.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-14T16:00:00+00:00"
+    }
+   ],
+   "name": "Design Partner 3",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "The CEO posted the launch announcement this morning. Will at least one design partner publicly repost it by Friday?",
+  "scene:shared_context": "The CEO posted the launch announcement on a social media platform this morning. The post is visible to the public, including design partners. Design partners can repost it publicly. The deadline for reposting is Friday, 2026-09-18T17:00:00-07:00."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-14T16:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-14T16:00:00+00:00",
+ "terminal": null,
+ "version": 17,
+ "watches": {}
+}

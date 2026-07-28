@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,26 +115,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Hillary Clinton",
-   "private_context": "Hillary Clinton is the Democratic presidential nominee. She has received an invitation to the Al Smith Memorial Foundation Dinner on October 20, 2016. She is considering whether to attend, weighing campaign schedule, security, and tradition."
+   "name": "Donald Trump",
+   "private_context": "Donald Trump is the Republican Party's presidential nominee. He has been invited to the Al Smith Memorial Foundation Dinner on October 20, 2016. He has not yet confirmed attendance."
   },
   {
-   "name": "Donald Trump",
-   "private_context": "Donald Trump is the Republican presidential nominee. He has received an invitation to the Al Smith Memorial Foundation Dinner on October 20, 2016. He is considering whether to attend, weighing campaign schedule, security, and tradition."
+   "name": "Hillary Clinton",
+   "private_context": "Hillary Clinton is the Democratic Party's presidential nominee. She has been invited to the Al Smith Memorial Foundation Dinner on October 20, 2016. She has not yet confirmed attendance."
   }
  ],
- "shared_context": "The Al Smith Memorial Foundation Dinner is an annual charity event in New York City, traditionally attended by major-party presidential nominees in election years. The dinner is scheduled for October 20, 2016. Both nominees have been invited. Attendance is voluntary and each nominee decides independently whether to attend in person.",
+ "shared_context": "The Al Smith Memorial Foundation Dinner is a charitable event scheduled for October 20, 2016 in New York City. It is traditional for major-party presidential nominees to attend and deliver humorous speeches. Both nominees have been invited but have not yet publicly confirmed whether they will attend in person.",
  "starting_events": [
   {
    "time": "2016-10-01T09:00:00-04:00",
-   "description": "Both Hillary Clinton and Donald Trump have received invitations to the Al Smith Memorial Foundation Dinner on October 20, 2016. No public confirmation of attendance has been made by either campaign.",
+   "description": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016 in New York City. Both major-party nominees have been invited.",
    "visible_to": [
-    "Hillary Clinton",
-    "Donald Trump"
+    "Donald Trump",
+    "Hillary Clinton"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that both Hillary Clinton and Donald Trump actually attended the Al Smith Memorial Foundation Dinner in person on October 20, 2016. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that both Donald Trump and Hillary Clinton actually attended the dinner in person on October 20, 2016. Otherwise resolve NO at 2016-10-21T00:00:00-04:00."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

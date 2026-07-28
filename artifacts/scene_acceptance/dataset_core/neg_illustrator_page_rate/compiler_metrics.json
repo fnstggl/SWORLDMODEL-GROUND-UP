@@ -5,23 +5,23 @@
   "call_2_review"
  ],
  "provider_requests": 2,
- "total_prompt_tokens": 3300,
- "total_completion_tokens": 376,
+ "total_prompt_tokens": 4193,
+ "total_completion_tokens": 370,
  "per_slot": {
   "call_1_scene": {
    "attempts": 1,
-   "duration_s": 3.958,
-   "prompt_tokens": 1764,
-   "completion_tokens": 360
+   "duration_s": 3.648,
+   "prompt_tokens": 2409,
+   "completion_tokens": 354
   },
   "call_2_review": {
    "attempts": 1,
-   "duration_s": 1.031,
-   "prompt_tokens": 1536,
+   "duration_s": 1.461,
+   "prompt_tokens": 1784,
    "completion_tokens": 16
   }
  },
- "wall_s": 4.99,
+ "wall_s": 5.11,
  "compiler_version": "minimal_scene_v1",
  "evidence_mode": "model_memory_unverified",
  "repaired_compile": false,

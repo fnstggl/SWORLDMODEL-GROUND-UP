@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the McCain and Obama campaigns both publicly confirm their candidates' participation in the first 2008 presidential debate at the University of Mississippi before the scheduled debate day?",
-  "resolution": "Resolve YES if, before the hard cutoff on 2008-09-26T12:00:00-05:00, the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public statement (e.g., press release, official announcement) confirming their candidate's participation in the debate. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public confirmation (e.g., via official statement, press release, or public announcement) of their candidate's participation in the first 2008 presidential debate at the University of Mississippi before the debate day (September 26, 2008). Otherwise resolve NO at the hard cutoff (2008-09-26T12:00:00-05:00).",
   "cutoff": "2008-09-26T12:00:00-05:00",
   "world_id": "w_7cbc8bb5102f"
  },

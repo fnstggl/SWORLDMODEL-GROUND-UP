@@ -1,0 +1,88 @@
+{
+ "lisa": {
+  "id": "lisa",
+  "name": "Lisa",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-05T12:00:00+00:00",
+    "kind": "context",
+    "content": "Lisa is away on vacation from August 5 to August 10, 2026. She asked Tom\u00e1s to feed her cat daily and trusts him to do so. She has no other arrangements for the cat's care.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-05T12:00:00+00:00",
+    "kind": "context",
+    "content": "Lisa's cat is at her home. Tom\u00e1s has the key and knows the feeding routine. The cat requires daily feeding.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "tom_s_garc_a": {
+  "id": "tom_s_garc_a",
+  "name": "Tom\u00e1s Garc\u00eda",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-05T12:00:00+00:00",
+    "kind": "context",
+    "content": "Tom\u00e1s agreed to feed Lisa's cat daily from August 5 to August 10, 2026, while she is away. He knows the cat's feeding routine and has access to the cat food and the house key.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-05T12:00:00+00:00",
+    "kind": "context",
+    "content": "Lisa's cat is at her home. Tom\u00e1s has the key and knows the feeding routine. The cat requires daily feeding.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

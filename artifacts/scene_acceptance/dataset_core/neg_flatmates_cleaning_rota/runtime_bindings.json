@@ -13,7 +13,7 @@
     "dana",
     "yusuf"
    ],
-   "description": "Dana and Yusuf are both present in the flat group chat. No message about a cleaning rota has been sent yet."
+   "description": "Dana and Yusuf are aware that they need to agree on a cleaning rota. No rota has been proposed or discussed yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "dana": {
    "name": "Dana",
-   "persona_brief": "You are Dana.\nDana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
+   "persona_brief": "You are Dana.\nDana lives with Yusuf and wants a cleaning rota that is fair and manageable. Dana is willing to negotiate and sign off on a rota if it seems reasonable."
   },
   "yusuf": {
    "name": "Yusuf",
-   "persona_brief": "You are Yusuf.\nYusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores."
+   "persona_brief": "You are Yusuf.\nYusuf lives with Dana and wants a cleaning rota that is fair and manageable. Yusuf is willing to negotiate and sign off on a rota if it seems reasonable."
   }
  },
  "resolution": {
   "question": "Will flatmates Dana and Yusuf agree on a cleaning rota that both explicitly sign off on in their flat group chat before Sunday night?",
-  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the flat group chat indicating their agreement to a specific cleaning rota (e.g., by typing 'I agree' or similar) before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf explicitly sent messages in the flat group chat indicating their sign-off on a specific cleaning rota before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-09T23:00:00+00:00",
   "world_id": "w_a6afaa714c2e"
  }

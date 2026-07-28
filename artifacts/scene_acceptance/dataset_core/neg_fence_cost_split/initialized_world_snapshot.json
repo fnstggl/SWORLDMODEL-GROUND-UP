@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Bill believes the fence damage was caused by a storm and thinks the cost should be shared equally. He is willing to discuss but wants to avoid small claims court.",
+     "content": "Bill is a neighbor who shares a fence with the Osei family. The fence was damaged in a recent storm. Bill believes the cost should be split equally, but is open to negotiation. He wants to avoid small claims court.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-02T17:00:00+00:00"
     },
     {
-     "content": "Bill and the Osei family are neighbors who share a fence that was damaged in a storm. The fence needs repair, and there is a dispute over who should pay and in what proportion. Both parties can communicate directly or through informal channels. There is a two-month window to reach an agreement before the hard cutoff.",
+     "content": "A shared fence between Bill's property and the Osei family's property was damaged in a storm. Both parties are aware of the damage and have discussed it briefly. They have two months to reach an agreement on a cost split, or the matter may go to small claims court.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-02T17:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The Osei family believes Bill is responsible for the fence damage or that the cost split should be different. They are open to negotiation but may consider small claims if no agreement is reached.",
+     "content": "The Osei family are neighbors who share a fence with Bill. The fence was damaged in a recent storm. They have their own view on who should pay for repairs, but are willing to discuss a cost split. They also prefer to avoid small claims court.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-02T17:00:00+00:00"
     },
     {
-     "content": "Bill and the Osei family are neighbors who share a fence that was damaged in a storm. The fence needs repair, and there is a dispute over who should pay and in what proportion. Both parties can communicate directly or through informal channels. There is a two-month window to reach an agreement before the hard cutoff.",
+     "content": "A shared fence between Bill's property and the Osei family's property was damaged in a storm. Both parties are aware of the damage and have discussed it briefly. They have two months to reach an agreement on a cost split, or the matter may go to small claims court.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-02T17:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
-  "scene:shared_context": "Bill and the Osei family are neighbors who share a fence that was damaged in a storm. The fence needs repair, and there is a dispute over who should pay and in what proportion. Both parties can communicate directly or through informal channels. There is a two-month window to reach an agreement before the hard cutoff."
+  "scene:shared_context": "A shared fence between Bill's property and the Osei family's property was damaged in a storm. Both parties are aware of the damage and have discussed it briefly. They have two months to reach an agreement on a cost split, or the matter may go to small claims court."
  },
  "history": [],
  "infos": {},

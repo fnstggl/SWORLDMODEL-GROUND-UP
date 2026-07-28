@@ -3,19 +3,14 @@
  "worst_severity": "MAJOR",
  "defects": [
   {
-   "aspect": "missing",
-   "severity": "MAJOR",
-   "detail": "The scene does not include any actor representing the city or marathon organizers who might have rules or permits affecting the water table setup. Also, no actor representing other neighbors who might help or hinder the setup is included beyond the group."
-  },
-  {
    "aspect": "prewritten",
    "severity": "MAJOR",
-   "detail": "The resolution states 'Resolve YES only if the persistent event history shows that the water table was actually set up...' This pre-decides that the simulation must check for a specific event, but the scene already includes that Priya has bought cups and the neighbors have discussed it, which could bias the simulation towards YES. More importantly, the resolution's condition is already partially satisfied by the shared context that the neighbors have a plan, making the YES condition more likely."
+   "detail": "The shared context states 'They have a plan to set up before the first runners pass around 08:30.' This pre-decides that the neighbors have a concrete plan, which may not be true; it could be just discussion. This biases the simulation toward YES."
   },
   {
-   "aspect": "genuinely_open",
-   "severity": "MAJOR",
-   "detail": "The scene heavily implies that the neighbors are committed and have taken preparatory steps (Priya bought cups), which reduces the uncertainty of whether they will set up the table. The simulation might still produce NO, but the setup is strongly suggested, making the outcome less genuinely open."
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The collective actor's private context includes 'They have a plan to set up...' which is also in shared context, causing redundancy but not leakage."
   }
  ],
  "id": "mix_marathon_water_table"

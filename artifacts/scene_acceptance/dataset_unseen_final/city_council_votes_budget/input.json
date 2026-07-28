@@ -1,0 +1,8 @@
+{
+ "question": "Does the Springfield City Council vote to approve the 2027 budget during the October 5, 2026 meeting?",
+ "start": "2026-10-05T18:00:00-05:00",
+ "cutoff": "2026-10-05T23:59:00-05:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

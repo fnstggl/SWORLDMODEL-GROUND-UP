@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,40 +119,40 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Advisor 1",
-   "private_context": "Has already responded to the poll with their availability."
+   "private_context": "Has received the poll with four candidate weekends. Has not yet responded."
   },
   {
    "name": "Advisor 2",
-   "private_context": "Has already responded to the poll with their availability."
+   "private_context": "Has received the poll with four candidate weekends. Has not yet responded."
   },
   {
    "name": "Advisor 3",
-   "private_context": "Has not yet responded to the poll."
+   "private_context": "Has received the poll with four candidate weekends. Has not yet responded."
   },
   {
    "name": "Advisor 4",
-   "private_context": "Has not yet responded to the poll."
+   "private_context": "Has received the poll with four candidate weekends. Has already responded with their availability."
   },
   {
    "name": "Advisor 5",
-   "private_context": "Has not yet responded to the poll."
-  },
-  {
-   "name": "CEO's assistant",
-   "private_context": "Sent a poll with four candidate weekends to all five advisors. Two advisors have responded. The assistant can follow up and coordinate to finalize a date."
+   "private_context": "Has received the poll with four candidate weekends. Has already responded with their availability."
   }
  ],
- "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded. The remaining three have not yet responded. The deadline for settling a date is within three weeks from 2026-07-29.",
+ "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
  "starting_events": [
   {
    "time": "2026-07-29T09:00:00+01:00",
-   "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisory board members. Two advisors have already responded.",
+   "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisors. Two advisors have already responded with their availability.",
    "visible_to": [
-    "CEO's assistant"
+    "Advisor 1",
+    "Advisor 2",
+    "Advisor 3",
+    "Advisor 4",
+    "Advisor 5"
    ]
   }
  ],
- "resolution": "Resolve YES if, by 2026-08-19T09:00:00+01:00, the persistent event history shows that a specific date for the autumn strategy offsite has been agreed upon by the advisory board (e.g., an email or calendar invitation confirming the date). Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that all five advisors have agreed on a specific date for the autumn strategy offsite before 2026-08-19T09:00:00+01:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

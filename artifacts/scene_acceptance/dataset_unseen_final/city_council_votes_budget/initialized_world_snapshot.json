@@ -1,0 +1,74 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "springfield_city_council": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "springfield_city_council",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The council is a group of elected officials who will meet to discuss and vote on the 2027 budget. Each member has their own views on the budget, but these are not specified.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-10-05T23:00:00+00:00"
+    },
+    {
+     "content": "The Springfield City Council is scheduled to hold a meeting on October 5, 2026, starting at 18:00 local time. The agenda includes a vote on the proposed 2027 budget. The meeting will proceed according to standard council procedures, including discussion and a vote. The outcome of the vote is not predetermined.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-10-05T23:00:00+00:00"
+    }
+   ],
+   "name": "Springfield City Council",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Does the Springfield City Council vote to approve the 2027 budget during the October 5, 2026 meeting?",
+  "scene:shared_context": "The Springfield City Council is scheduled to hold a meeting on October 5, 2026, starting at 18:00 local time. The agenda includes a vote on the proposed 2027 budget. The meeting will proceed according to standard council procedures, including discussion and a vote. The outcome of the vote is not predetermined."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-10-05T23:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-10-05T23:00:00+00:00",
+ "terminal": null,
+ "version": 8,
+ "watches": {}
+}

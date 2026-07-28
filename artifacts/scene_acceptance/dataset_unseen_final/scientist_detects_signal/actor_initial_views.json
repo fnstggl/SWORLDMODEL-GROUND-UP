@@ -1,0 +1,45 @@
+{
+ "dr_emily_zhao": {
+  "id": "dr_emily_zhao",
+  "name": "Dr. Emily Zhao",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-28T00:00:00+00:00",
+    "kind": "context",
+    "content": "Dr. Emily Zhao is leading a SETI project at the Arecibo Observatory. She is monitoring the radio telescope data for anomalous signals. She knows the observation window ends on October 1, 2026.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-28T00:00:00+00:00",
+    "kind": "context",
+    "content": "The Arecibo Observatory's radio telescope is operational and collecting data. The observation window for the current SETI project closes on October 1, 2026. An anomalous signal may be present in the data.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

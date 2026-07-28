@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "german_foreign_office": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "german_foreign_office",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The German Foreign Office is the recipient of diplomatic communications. It operates during normal business hours and may receive notes through official channels. It has no prior knowledge of the specific protest note.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "1914-07-23T11:00:00+00:00"
+    },
+    {
+     "content": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "1914-07-23T11:00:00+00:00"
+    }
+   ],
+   "name": "German Foreign Office",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "jean_pierre_dupont": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "jean_pierre_dupont",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dupont is the French Ambassador to Germany. He has received instructions from the French government to deliver a protest note to the German Foreign Office regarding the ongoing diplomatic crisis. He is aware of the ultimatum's expiration on July 28, 1914, and intends to deliver the note before that deadline.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "1914-07-23T11:00:00+00:00"
+    },
+    {
+     "content": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "1914-07-23T11:00:00+00:00"
+    }
+   ],
+   "name": "Jean-Pierre Dupont",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Does French Ambassador Jean-Pierre Dupont deliver the protest note to the German Foreign Office before the ultimatum expires on July 28, 1914?",
+  "scene:shared_context": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914."
+ },
+ "history": [],
+ "infos": {},
+ "now": "1914-07-23T11:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "1914-07-23T11:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

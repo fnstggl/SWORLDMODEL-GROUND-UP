@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. Will the astronomy club's president confirm by the 10th whether the pier viewing party is going ahead?",
-  "resolution": "Resolve YES if the persistent event history shows that the astronomy club president has publicly confirmed (e.g., via club announcement, email, or social media) that the pier viewing party is going ahead before the cutoff on 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the astronomy club president actually communicated a confirmation (by any means) that the pier viewing party is going ahead, before the deadline of 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the deadline.",
   "cutoff": "2026-08-10T21:00:00-07:00",
   "world_id": "w_12405d62235b"
  },

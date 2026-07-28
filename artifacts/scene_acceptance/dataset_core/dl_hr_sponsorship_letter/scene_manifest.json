@@ -2,22 +2,23 @@
  "actors": [
   {
    "name": "Kwame",
-   "private_context": "Kwame needs a sponsorship letter from his employer's HR team for his visa renewal. He has a visa-renewal appointment on November 9th. He is aware of the deadline and wants the letter issued before then."
+   "private_context": "Kwame needs a sponsorship letter from his employer's HR team for his visa-renewal appointment on the 9th. He has not yet received the letter and is concerned about the deadline."
   },
   {
    "name": "HR Team",
-   "private_context": "The HR team handles employment-related documentation, including sponsorship letters. They have received or may receive requests from employees. They have their own processes and priorities."
+   "private_context": "The HR team is responsible for issuing sponsorship letters for employees. They have received Kwame's request but have not yet processed it. They may have other priorities or require additional information."
   }
  ],
- "shared_context": "Kwame is an employee of the company. The HR team is responsible for issuing sponsorship letters. The visa-renewal appointment is on November 9th. The current time is October 26th, leaving about two weeks before the deadline.",
+ "shared_context": "Kwame is an employee of the company. The HR team has the authority to issue sponsorship letters. The visa-renewal appointment is on 2026-11-09. The current time is 2026-10-26T09:00:00+01:00.",
  "starting_events": [
   {
    "time": "2026-10-26T09:00:00+01:00",
-   "description": "Kwame decides to request the sponsorship letter from the HR team.",
+   "description": "Kwame has requested a sponsorship letter from the HR team, but the letter has not yet been issued.",
    "visible_to": [
-    "Kwame"
+    "Kwame",
+    "HR Team"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the HR team issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the HR team actually issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

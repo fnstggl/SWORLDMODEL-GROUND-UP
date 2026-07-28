@@ -2,49 +2,6 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "bbc": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "bbc",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "BBC is a major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2016-05-02T08:00:00+00:00"
-    },
-    {
-     "content": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2016-05-02T08:00:00+00:00"
-    }
-   ],
-   "name": "BBC",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
   "david_cameron": {
    "attention": {
     "scene": {
@@ -64,62 +21,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Cameron is Prime Minister and has called the EU referendum for 23 June 2016. He is leading the Remain campaign. He has a busy schedule and must decide which televised events to attend, balancing campaign strategy, government duties, and personal preference.",
+     "content": "Cameron is Prime Minister and has publicly stated he will campaign for the UK to remain in the EU. He has not yet confirmed any specific televised set-piece events about the referendum, but he is aware of the upcoming referendum and the need to communicate his position.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2016-05-02T08:00:00+00:00"
     },
     {
-     "content": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
+     "content": "The UK EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates or major interviews) about the referendum may be organized by broadcasters. The Prime Minister's participation in such events is at his discretion and subject to scheduling.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2016-05-02T08:00:00+00:00"
     }
    ],
    "name": "David Cameron",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "itv": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "itv",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "ITV is another major broadcaster planning televised set-piece events about the EU referendum. It can invite political figures and schedule debates or interviews. It wants to feature key campaign leaders.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2016-05-02T08:00:00+00:00"
-    },
-    {
-     "content": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2016-05-02T08:00:00+00:00"
-    }
-   ],
-   "name": "ITV",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -145,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Prime Minister David Cameron appear in at least one televised set-piece event about the EU referendum before polling day?",
-  "scene:shared_context": "The EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates, major interviews, or special programmes) are being organized by broadcasters like BBC and ITV. David Cameron is the Prime Minister and a key figure in the Remain campaign. The broadcasters can extend invitations to Cameron to appear in such events. Cameron's attendance is not yet confirmed for any specific event."
+  "scene:shared_context": "The UK EU referendum is scheduled for 23 June 2016. Televised set-piece events (such as debates or major interviews) about the referendum may be organized by broadcasters. The Prime Minister's participation in such events is at his discretion and subject to scheduling."
  },
  "history": [],
  "infos": {},
@@ -155,6 +69,6 @@
  "resources": {},
  "start": "2016-05-02T08:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 8,
  "watches": {}
 }

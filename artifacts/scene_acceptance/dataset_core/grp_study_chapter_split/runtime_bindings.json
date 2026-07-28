@@ -19,7 +19,7 @@
     "student_4",
     "student_5"
    ],
-   "description": "The five students gather for their scheduled meeting to discuss chapter assignments for Saturday's session."
+   "description": "The five students begin their meeting to discuss and agree on who presents which chapter at Saturday's session."
   }
  ],
  "code_owned_defaults": {
@@ -30,28 +30,28 @@
  "personas": {
   "student_1": {
    "name": "Student 1",
-   "persona_brief": "You are Student 1.\nStudent 1 has prepared a chapter they want to present, but is open to negotiation. They want the group to reach an agreement tonight."
+   "persona_brief": "You are Student 1.\nStudent 1 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
   },
   "student_2": {
    "name": "Student 2",
-   "persona_brief": "You are Student 2.\nStudent 2 has a strong preference for a specific chapter and is willing to argue for it. They want the group to decide tonight."
+   "persona_brief": "You are Student 2.\nStudent 2 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
   },
   "student_3": {
    "name": "Student 3",
-   "persona_brief": "You are Student 3.\nStudent 3 is flexible and mainly wants to avoid a difficult chapter. They hope the group can agree quickly."
+   "persona_brief": "You are Student 3.\nStudent 3 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
   },
   "student_4": {
    "name": "Student 4",
-   "persona_brief": "You are Student 4.\nStudent 4 has not prepared any preference and is willing to take whatever is left. They just want the meeting to be productive."
+   "persona_brief": "You are Student 4.\nStudent 4 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
   },
   "student_5": {
    "name": "Student 5",
-   "persona_brief": "You are Student 5.\nStudent 5 has a preferred chapter but is willing to compromise. They want to avoid conflict and reach consensus."
+   "persona_brief": "You are Student 5.\nStudent 5 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
   }
  },
  "resolution": {
   "question": "Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?",
-  "resolution": "Resolve YES if, by 2026-08-19T23:00:00+08:00, the persistent event history shows that all five students have explicitly agreed on a complete assignment of each chapter to a specific student. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that by 2026-08-19T23:00:00+08:00, all five students have explicitly agreed on a complete assignment of each chapter to a presenter for Saturday's session. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-19T23:00:00+08:00",
   "world_id": "w_37d90970752b"
  }

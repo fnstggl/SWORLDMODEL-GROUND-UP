@@ -23,13 +23,13 @@
    {
     "t": "2026-11-16T09:00:00+00:00",
     "kind": "context",
-    "content": "The group has agreed to collect money for cast flowers and hand them over backstage before curtain. They have a collection pot and a plan to coordinate. They are aware of the Friday 19:00 curtain time.",
+    "content": "The parents' group is aware of the play and intends to collect for flowers and hand them over backstage before curtain. They have not yet collected the money or purchased the flowers.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-11-16T09:00:00+00:00",
     "kind": "context",
-    "content": "Petersfield Secondary's play opening night is Friday at 19:00. The parents' group is responsible for collecting for cast flowers and handing them over backstage before curtain. The group has access to the school and backstage area.",
+    "content": "Petersfield Secondary's play opens on Friday at 19:00. The parents' group can collect money from parents, buy flowers, and deliver them backstage before the curtain rises.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,29 +119,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Principal of Petersfield Secondary",
-   "private_context": "The principal is responsible for approving school trips. They are aware of the geography department's proposed coastal field trip and the half-term deadline for sending parental consent letters. They have no prior concerns about the trip, which has run without incident for four years."
+   "private_context": "The principal is responsible for approving school trips. They are aware of the geography department's proposed coastal field trip and the half-term deadline for sending parental consent letters. They know the deputy head is on leave until late September, which may affect the new risk-assessment signature requirement."
   },
   {
-   "name": "Geography Department Head",
-   "private_context": "The geography department head has prepared the proposal for the coastal field trip, including a risk-assessment form that now requires an extra signature from the deputy head. They know the deputy head is on leave until late September. They want the principal to sign off before the half-term deadline."
-  },
-  {
-   "name": "Deputy Head",
-   "private_context": "The deputy head is on leave until late September. They are the required signatory for the new risk-assessment form. They are not currently available to sign."
+   "name": "Geography Department",
+   "private_context": "The geography department has proposed a coastal field trip, which has run without incident for four years. This year, there is a new coach operator and a risk-assessment form that needs an extra signature from the deputy head, who is on leave until late September. The department wants the principal's sign-off before the half-term deadline for sending parental consent letters."
   }
  ],
- "shared_context": "Petersfield Secondary School has a standard procedure for approving field trips, requiring sign-off from the principal. The geography department's proposed coastal field trip has run without incident for four years. This year, a new coach operator is contracted, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching; the exact date is known to the school administration.",
+ "shared_context": "The coastal field trip has run without incident for four years. This year, there is a new coach operator and a risk-assessment form that now needs an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching. The principal's sign-off is required for the trip to proceed.",
  "starting_events": [
   {
    "time": "2026-09-07T08:30:00+01:00",
-   "description": "The geography department head submits the proposed coastal field trip paperwork to the principal's office, including the risk-assessment form that still needs the deputy head's signature.",
+   "description": "The geography department has submitted the proposed coastal field trip for the principal's approval, including the risk-assessment form that requires the deputy head's signature.",
    "visible_to": [
-    "Geography Department Head",
-    "Principal of Petersfield Secondary"
+    "Principal of Petersfield Secondary",
+    "Geography Department"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the trip before the half-term deadline (2026-10-16T15:30:00+01:00). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

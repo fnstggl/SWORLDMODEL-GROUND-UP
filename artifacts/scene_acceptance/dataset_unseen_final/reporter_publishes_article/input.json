@@ -1,0 +1,8 @@
+{
+ "question": "Does reporter Alex Torres publish the investigation on city hall corruption before the September 1, 2026 deadline?",
+ "start": "2026-08-15T00:00:00-05:00",
+ "cutoff": "2026-09-01T23:59:00-05:00",
+ "context": "Alex Torres works for the Daily Chronicle. The editor set a deadline for the corruption story.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

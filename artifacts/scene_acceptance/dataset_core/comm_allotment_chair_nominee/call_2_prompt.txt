@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,25 +115,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Chair (stepping down)",
-   "private_context": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have no preferred successor and will not influence the election."
-  },
-  {
-   "name": "Kettlewell Allotment Society members",
-   "private_context": "The members are aware of the upcoming AGM and the chair's intention to step down. Some may be considering standing for chair, but no one has publicly declared their candidacy yet."
+   "name": "Kettlewell allotment society members",
+   "private_context": "Each member has their own reasons for or against standing for chair. Some may be interested, others not. No member has yet volunteered."
   }
  ],
- "shared_context": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline.",
+ "shared_context": "The Kettlewell allotment society's chair is stepping down. Nominations for the new chair close at the annual general meeting in five weeks, on 2026-09-29. The society has a membership who can volunteer to stand for chair.",
  "starting_events": [
   {
    "time": "2026-08-25T18:00:00+01:00",
-   "description": "The chair's intention to step down is known to the membership, but no formal announcement has been made at a meeting. The AGM is scheduled for 2026-09-29.",
+   "description": "The chair's stepping down is announced to the membership, and nominations are opened.",
    "visible_to": [
-    "Kettlewell Allotment Society members"
+    "Kettlewell allotment society members"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff (2026-09-29T20:00:00+01:00), the persistent event history shows that at least one member has submitted a valid nomination to stand for chair. Otherwise resolve NO."
+ "resolution": "Resolve YES if, before 2026-09-29T20:00:00+01:00, the persistent event history shows that at least one member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

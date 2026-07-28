@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
-  "resolution": "Resolve YES if the persistent event history shows that the founder of Veldt Solar sent any reply to Anouk Visser's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the founder of Veldt Solar actually sent a reply to Anouk Visser's email before 2026-08-19T09:00:00+02:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-19T09:00:00+02:00",
   "world_id": "w_a22b00174353"
  },

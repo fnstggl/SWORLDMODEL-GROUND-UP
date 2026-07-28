@@ -1,0 +1,8 @@
+{
+ "question": "Does French Ambassador Jean-Pierre Dupont deliver the protest note to the German Foreign Office before the ultimatum expires on July 28, 1914?",
+ "start": "1914-07-23T12:00:00+01:00",
+ "cutoff": "1914-07-28T23:59:00+01:00",
+ "context": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

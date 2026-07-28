@@ -1,6 +1,12 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene models 'Colleagues in the ward' as a single actor, but the question asks whether 'a colleague' will claim the shift. This requires individual colleagues with distinct preferences and decision-making. A collective actor cannot capture the individual choice needed to answer the question."
+  }
+ ],
  "id": "sched_ward_shift_swap"
 }

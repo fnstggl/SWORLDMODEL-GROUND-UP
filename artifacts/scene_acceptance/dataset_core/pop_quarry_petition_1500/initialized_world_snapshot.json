@@ -21,19 +21,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They need 1,500 total by the deadline. They are aware of the counter-flyer from the quarry operator.",
+     "content": "They have collected 400 signatures so far, mostly at the farmers market. They aim to collect 1,500 total to trigger a council debate. They are aware of the six-week deadline from the start date (2026-08-03), which gives them until approximately 2026-09-14. They know the town has 19,000 residents and that the quarry employs 85. They have seen the counter-flyer from the operator.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
+     "content": "The town of Riverton has 19,000 residents. The quarry employs 85 residents. A petition against the quarry extension is being circulated. Organizers have collected 400 signatures in the first fortnight. The submission deadline is in six weeks from the start date (2026-08-03), i.e., by 2026-09-14. A counter-flyer from the quarry operator appeared last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
-   "name": "Petition organizers",
+   "name": "Petition Organizers",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -64,62 +64,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The operator distributed a counter-flyer last week opposing the petition. They employ 85 residents and want to prevent the petition from reaching 1,500 signatures.",
+     "content": "They distributed a counter-flyer last week opposing the petition. They are aware of the petition drive and want to prevent it from reaching 1,500 signatures. They employ 85 residents.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
+     "content": "The town of Riverton has 19,000 residents. The quarry employs 85 residents. A petition against the quarry extension is being circulated. Organizers have collected 400 signatures in the first fortnight. The submission deadline is in six weeks from the start date (2026-08-03), i.e., by 2026-09-14. A counter-flyer from the quarry operator appeared last week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
-   "name": "Quarry operator",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "town_residents_cohort": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "town_residents_cohort",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "The town has 19,000 residents. Some may be undecided, some may support or oppose the quarry extension. They may encounter petition drives or counter-flyers.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-08-03T15:00:00+00:00"
-    },
-    {
-     "content": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-08-03T15:00:00+00:00"
-    }
-   ],
-   "name": "Town residents (cohort)",
+   "name": "Quarry Operator",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -145,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the residents' petition against the Riverton quarry extension collect the 1,500 signatures needed to trigger a council debate before the submission deadline in six weeks?",
-  "scene:shared_context": "The Riverton quarry extension is a local issue. A petition is being circulated to trigger a council debate, requiring 1,500 signatures by the submission deadline in six weeks (2026-09-14T17:00:00-06:00). The organizers have 400 signatures so far. The quarry operator distributed a counter-flyer last week. The town population is 19,000; the quarry employs 85 residents."
+  "scene:shared_context": "The town of Riverton has 19,000 residents. The quarry employs 85 residents. A petition against the quarry extension is being circulated. Organizers have collected 400 signatures in the first fortnight. The submission deadline is in six weeks from the start date (2026-08-03), i.e., by 2026-09-14. A counter-flyer from the quarry operator appeared last week."
  },
  "history": [],
  "infos": {},
@@ -155,6 +112,6 @@
  "resources": {},
  "start": "2026-08-03T15:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 11,
  "watches": {}
 }

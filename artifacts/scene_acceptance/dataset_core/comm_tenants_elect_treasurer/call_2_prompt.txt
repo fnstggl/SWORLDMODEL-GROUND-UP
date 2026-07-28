@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,35 +116,35 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tenants' Association of the Aurora Block",
-   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have expressed interest in the role."
+   "private_context": "The association is holding its first meeting of the season tonight. It needs to elect a treasurer. Three residents have shown interest in the role."
   },
   {
-   "name": "Interested Resident 1",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
+   "name": "Resident 1",
+   "private_context": "Has shown interest in becoming treasurer. Will attend tonight's meeting."
   },
   {
-   "name": "Interested Resident 2",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
+   "name": "Resident 2",
+   "private_context": "Has shown interest in becoming treasurer. Will attend tonight's meeting."
   },
   {
-   "name": "Interested Resident 3",
-   "private_context": "Has shown interest in becoming treasurer. Plans to attend the meeting and may volunteer or accept the role if nominated."
+   "name": "Resident 3",
+   "private_context": "Has shown interest in becoming treasurer. Will attend tonight's meeting."
   }
  ],
- "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight at 18:30. The meeting agenda includes electing a treasurer. Three residents have expressed interest in the position. The association's members will decide on the election during the meeting.",
+ "shared_context": "The tenants' association of the Aurora Block is holding its first meeting of the season tonight at 2026-09-02T18:30:00+02:00. Three residents have expressed interest in the treasurer position. The meeting will proceed until 21:30.",
  "starting_events": [
   {
    "time": "2026-09-02T18:30:00+02:00",
-   "description": "The first meeting of the season of the Aurora Block tenants' association begins.",
+   "description": "The first meeting of the season begins.",
    "visible_to": [
     "Tenants' Association of the Aurora Block",
-    "Interested Resident 1",
-    "Interested Resident 2",
-    "Interested Resident 3"
+    "Resident 1",
+    "Resident 2",
+    "Resident 3"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that a treasurer was elected by the association during the meeting before the cutoff at 21:30. Otherwise resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that the tenants' association elected a treasurer during the meeting (before 2026-09-02T21:30:00+02:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

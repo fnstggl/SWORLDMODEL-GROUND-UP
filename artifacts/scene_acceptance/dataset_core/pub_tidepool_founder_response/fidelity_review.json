@@ -5,17 +5,17 @@
   {
    "aspect": "missing",
    "severity": "MAJOR",
-   "detail": "The head of support and journalists are materially relevant actors whose actions (e.g., leaking, pressuring) could affect the founder's decision, but they are not included as actors."
+   "detail": "The head of support, who privately confirmed the takedowns to the founder, is not included as an actor. This person is materially relevant because their confirmation is a key piece of information that influences the founder's decision, and their actions (e.g., further communication) could affect the outcome."
   },
   {
    "aspect": "info_boundaries",
    "severity": "MINOR",
-   "detail": "The founder's private context includes knowledge of the head of support's confirmation and journalist emails, but these are not shared with other actors; however, the shared context does not leak private info."
+   "detail": "The shared context states that the founder has not yet posted any public response, which is also part of the founder's private context. This is a minor overlap, but acceptable as it is a fact known to all."
   },
   {
    "aspect": "prewritten",
-   "severity": "MINOR",
-   "detail": "The starting events only state the thread is visible, which is fine, but the resolution is correctly open."
+   "severity": "MAJOR",
+   "detail": "The starting events include the viral thread with two million views and screenshots that look genuine. This pre-decides the severity of the crisis, which heavily influences the founder's decision to respond. The simulation should allow for the possibility that the thread might not be as impactful or that the screenshots might be disputed."
   }
  ],
  "id": "pub_tidepool_founder_response"

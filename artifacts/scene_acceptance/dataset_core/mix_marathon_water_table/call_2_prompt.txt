@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,25 +119,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Priya",
-   "private_context": "Priya has already bought cups for the water table. She is one of the Alder Court neighbors who discussed the plan on the app. She wants the table to be set up before the runners pass."
+   "private_context": "Priya has already bought cups for the water table. She is one of the nine households who said they are in. She may coordinate with others."
   },
   {
-   "name": "Alder Court neighbors (as a group)",
-   "private_context": "Nine households on Alder Court have said they are in for setting up the water table. They have discussed it all month on the app. They have not yet set up the table as of the simulation start."
+   "name": "Alder Court neighbors (collective)",
+   "private_context": "Nine households have said they are in for setting up a water table. They have discussed it all month on the app. They have a plan to set up before the first runners pass around 08:30."
   }
  ],
- "shared_context": "The Riverton marathon starts Sunday at 07:00. The first runners are expected to pass the corner of Alder Court (mile four) around 08:30. The city's runner guide lists their corner as mile four. The weather forecast is fine. The neighbors have a plan to set up a water table at that corner before the runners pass. The simulation start time is 2026-10-08T09:00:00-06:00, and the hard cutoff is 2026-10-11T08:30:00-06:00.",
+ "shared_context": "The Riverton marathon starts Sunday at 07:00. The city's runner guide lists the Alder Court corner as mile four. The weather forecast is fine. The neighbors have discussed setting up a water table all month on the app, and nine households said they are in. Priya has already bought cups. The first runners are expected around 08:30.",
  "starting_events": [
   {
    "time": "2026-10-08T09:00:00-06:00",
-   "description": "The Alder Court neighbors have discussed setting up a water table for the marathon on Sunday. Priya has bought cups. No setup has occurred yet.",
+   "description": "The Alder Court neighbors have discussed setting up a water table for the marathon on the app all month. Nine households have said they are in. Priya has bought cups. The marathon starts Sunday at 07:00, and the first runners are expected at their corner around 08:30.",
    "visible_to": [
     "Priya",
-    "Alder Court neighbors (as a group)"
+    "Alder Court neighbors (collective)"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the water table was actually set up at the corner of Alder Court (mile four) before the first runners pass around 08:30 on Sunday, 2026-10-11. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the water table was actually set up at the Alder Court corner before 08:30 on Sunday (2026-10-11T08:30:00-06:00). Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

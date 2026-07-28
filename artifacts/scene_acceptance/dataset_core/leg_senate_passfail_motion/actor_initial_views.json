@@ -1,7 +1,7 @@
 {
- "senate_chair": {
-  "id": "senate_chair",
-  "name": "Senate Chair",
+ "academic_senate": {
+  "id": "academic_senate",
+  "name": "Academic Senate",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,142 +23,13 @@
    {
     "t": "2026-10-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The chair is responsible for presiding over the plenary and ensuring orderly debate. They have no strong personal stance on the pass-fail motion but aim to facilitate a fair vote.",
+    "content": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It consists of faculty representatives, administrators, and possibly student representatives. The members have varying opinions on the pass-fail grading motion, but their individual positions are not predetermined. The Senate operates under standard parliamentary procedures for debate and voting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-01T14:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "senator_a": {
-  "id": "senator_a",
-  "name": "Senator A",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-10-01T14:00:00+00:00",
-    "kind": "context",
-    "content": "Senator A supports the pass-fail grading motion, believing it reduces student stress and promotes exploration. They plan to speak in favor and encourage colleagues to pass it.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-10-01T14:00:00+00:00",
-    "kind": "context",
-    "content": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "senator_b": {
-  "id": "senator_b",
-  "name": "Senator B",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-10-01T14:00:00+00:00",
-    "kind": "context",
-    "content": "Senator B opposes the pass-fail motion, arguing it may undermine academic rigor and grade inflation. They intend to argue for rejection or sending back to committee for more study.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-10-01T14:00:00+00:00",
-    "kind": "context",
-    "content": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "senator_c": {
-  "id": "senator_c",
-  "name": "Senator C",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-10-01T14:00:00+00:00",
-    "kind": "context",
-    "content": "Senator C is undecided and wants to hear the debate before making a decision. They are open to persuasion from both sides.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-10-01T14:00:00+00:00",
-    "kind": "context",
-    "content": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
+    "content": "Ashvale University's Academic Senate will hold its October plenary meeting on a date within October 2026. A motion to adopt pass-fail grading for certain courses is on the agenda. The Senate can vote to pass the motion, reject it, or send it back to committee for further review. The meeting is scheduled to occur before the hard cutoff of 2026-10-30T18:00:00-05:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

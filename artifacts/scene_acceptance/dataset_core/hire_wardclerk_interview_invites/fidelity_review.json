@@ -3,14 +3,14 @@
  "worst_severity": "MAJOR",
  "defects": [
   {
-   "aspect": "missing",
+   "aspect": "smallest_world",
    "severity": "MAJOR",
-   "detail": "The scene includes only HR as an actor, but the applicants are materially relevant because they could withdraw, decline, or be unreachable, affecting the count of invitations. Without applicants as actors, the simulation cannot model such possibilities."
+   "detail": "The scene includes 11 individual applicant actors, but they are all identical in private context (only wanting an interview) and cannot affect the outcome individually. The simulation only needs to know that there are 11 applicants; the HR actor is the only one making decisions. The applicants could be represented as a single collective actor or omitted entirely, as their individual actions are irrelevant to the question."
   },
   {
-   "aspect": "info_boundaries",
-   "severity": "MINOR",
-   "detail": "The shared context states 'Eleven applications were received' which is public knowledge, but it also says 'The hospital typically invites some applicants for interview within two weeks of closing.' This is a general practice, not private, but it might be considered a minor assumption."
+   "aspect": "decorative",
+   "severity": "MAJOR",
+   "detail": "All 11 applicant actors are decorative because they have no agency or private information that can influence the outcome. They only have a desire to be interviewed, but they cannot take any actions that affect whether they are invited. The only actor that matters is HR."
   }
  ],
  "id": "hire_wardclerk_interview_invites"

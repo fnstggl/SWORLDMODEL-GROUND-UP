@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,25 +115,25 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Program Officer (Alder Foundation)",
-   "private_context": "The program officer receives many unsolicited concept notes and typically responds only to those that closely match the foundation's current funding priorities. They have no prior relationship with Lucia Ferreyra."
+   "name": "Lucia Ferreyra",
+   "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared an unsolicited concept note to send to the Alder Foundation. She hopes for a substantive response within a month."
   },
   {
-   "name": "Lucia Ferreyra",
-   "private_context": "Lucia Ferreyra is the director of a nonprofit organization. She has prepared a concept note for the Alder Foundation and intends to submit it. She hopes for a substantive response within a month."
+   "name": "Program Officer at Alder Foundation",
+   "private_context": "The program officer at the Alder Foundation is responsible for reviewing unsolicited concept notes. They have no prior relationship with Lucia Ferreyra. They may respond substantively if the concept note aligns with the foundation's priorities and if they have capacity."
   }
  ],
- "shared_context": "The Alder Foundation accepts unsolicited concept notes via email. The foundation's current funding priorities are publicly known. Lucia Ferreyra can send her concept note to the foundation's general submissions email or to a specific program officer if known.",
+ "shared_context": "The Alder Foundation is a philanthropic organization that accepts unsolicited concept notes. Lucia Ferreyra can send her concept note to the foundation through an established channel (e.g., email or online submission). The program officer will receive it and may choose to respond substantively (e.g., with feedback, a request for more information, or an invitation to submit a full proposal) or not respond at all.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00-05:00",
-   "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's submissions email address.",
+   "description": "Lucia Ferreyra sends her unsolicited concept note to the Alder Foundation's program officer.",
    "visible_to": [
     "Lucia Ferreyra"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the program officer sent a substantive response (i.e., a reply that engages with the content of the concept note, not an automated acknowledgment or form rejection) to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the program officer at the Alder Foundation actually sent a substantive response to Lucia Ferreyra before 2026-10-01T09:00:00-05:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

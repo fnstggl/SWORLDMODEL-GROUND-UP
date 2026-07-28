@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has his own assessment of his qualifications, career ambitions, and any personal circumstances that may influence his decision.",
+     "content": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has his own career aspirations, concerns about qualifications, and personal circumstances that may influence his decision.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-17T07:00:00+00:00"
     },
     {
-     "content": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07 at 17:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system.",
+     "content": "The company has posted an operations-manager role internally. Applications close in three weeks from the simulation start time, i.e., by 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply as an internal candidate.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-17T07:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will warehouse supervisor Dmytro formally apply for the newly posted operations-manager role at his own company before applications close in three weeks?",
-  "scene:shared_context": "The company has posted an internal job opening for an operations-manager role. Applications close on 2026-09-07 at 17:00. Dmytro is eligible to apply. The application process requires submitting a formal application through the company's HR system."
+  "scene:shared_context": "The company has posted an operations-manager role internally. Applications close in three weeks from the simulation start time, i.e., by 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply as an internal candidate."
  },
  "history": [],
  "infos": {},

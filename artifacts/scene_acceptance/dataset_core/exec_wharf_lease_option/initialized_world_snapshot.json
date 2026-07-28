@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "CEO is considering the proposed five-year lease on Riverside Wharf office. CFO has privately told CEO she prefers a shorter term. Headcount plans were cut 20% last quarter and half the team is remote. CEO must decide whether to sign or walk away before the landlord's option expires next Friday.",
+     "content": "The CEO is considering the proposed five-year lease on the Riverside Wharf office. The CFO has privately told the CEO she prefers a shorter term. The CEO knows headcount plans were cut twenty percent last quarter and half the team is remote.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-10T08:00:00+00:00"
     },
     {
-     "content": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday, 2026-08-21. The CEO has the authority to sign or walk away.",
+     "content": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option expires next Friday (2026-08-14). The CEO must decide to sign or walk away before that deadline.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-10T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Landlord has offered six months rent-free as an incentive for the lease. The option to sign expires next Friday, 2026-08-21.",
+     "content": "The landlord has offered six months rent-free as an incentive. The landlord has set an option expiration date of next Friday (2026-08-14) for the CEO to sign or walk away.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-10T08:00:00+00:00"
     },
     {
-     "content": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday, 2026-08-21. The CEO has the authority to sign or walk away.",
+     "content": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option expires next Friday (2026-08-14). The CEO must decide to sign or walk away before that deadline.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-10T08:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Kestrel Analytics' CEO sign, or walk away from, the proposed five-year lease on the Riverside Wharf office before the landlord's option expires next Friday?",
-  "scene:shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option to sign expires next Friday, 2026-08-21. The CEO has the authority to sign or walk away."
+  "scene:shared_context": "Kestrel Analytics is considering a proposed five-year lease on the Riverside Wharf office. The landlord has offered six months rent-free. The option expires next Friday (2026-08-14). The CEO must decide to sign or walk away before that deadline."
  },
  "history": [],
  "infos": {},

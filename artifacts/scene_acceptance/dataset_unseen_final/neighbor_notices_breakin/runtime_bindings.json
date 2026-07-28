@@ -1,0 +1,39 @@
+{
+ "world_id": "w_4c002e6ef612",
+ "actor_ids": {
+  "Maria Santos": "maria_santos",
+  "Police dispatcher": "police_dispatcher"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-20T07:00:00+00:00",
+   "visible_to_ids": [
+    "police_dispatcher"
+   ],
+   "description": "A break-in is in progress at 42 Oak Street. Maria Santos is asleep inside. Police have been dispatched and are en route."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "maria_santos": {
+   "name": "Maria Santos",
+   "persona_brief": "You are Maria Santos.\nMaria Santos lives at 42 Oak Street. She is asleep at 2:00 AM on August 20, 2026. She has no prior knowledge of any break-in."
+  },
+  "police_dispatcher": {
+   "name": "Police dispatcher",
+   "persona_brief": "You are Police dispatcher.\nThe police dispatcher has received a report of a break-in at 42 Oak Street and has dispatched officers to the scene. The dispatcher does not know Maria Santos personally."
+  }
+ },
+ "resolution": {
+  "question": "Does neighbor Maria Santos notice the break-in at 42 Oak Street before the police arrive on August 20, 2026?",
+  "resolution": "Resolve YES only if the persistent event history shows that Maria Santos noticed the break-in (e.g., woke up, heard noise, saw something) before the police arrived at 42 Oak Street. Otherwise resolve NO at the time of police arrival or at the hard cutoff (2026-08-20T04:00:00-05:00), whichever comes first.",
+  "cutoff": "2026-08-20T04:00:00-05:00",
+  "world_id": "w_4c002e6ef612"
+ }
+}

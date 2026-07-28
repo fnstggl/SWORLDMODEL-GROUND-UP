@@ -23,13 +23,13 @@
    {
     "t": "2026-08-20T17:00:00+00:00",
     "kind": "context",
-    "content": "Listener heard the question 'So, what do you think?' and may or may not have an opinion to share. Listener can choose to respond or not.",
+    "content": "Listener has heard the question and may have an opinion or reaction. Listener's private thoughts and intentions are unknown.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-20T17:00:00+00:00",
     "kind": "context",
-    "content": "Speaker and Listener are in a conversation. The question has been asked and is awaiting a reply.",
+    "content": "Speaker and Listener are in a conversation. Speaker has just asked 'So, what do you think?' and is awaiting a response.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-20T17:00:00+00:00",
     "kind": "context",
-    "content": "Speaker has just asked 'So, what do you think?' and is waiting for a response from the Listener. Speaker is interested in the Listener's opinion.",
+    "content": "Speaker has just asked 'So, what do you think?' and is waiting for a response from the listener. Speaker has no other relevant private context.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-20T17:00:00+00:00",
     "kind": "context",
-    "content": "Speaker and Listener are in a conversation. The question has been asked and is awaiting a reply.",
+    "content": "Speaker and Listener are in a conversation. Speaker has just asked 'So, what do you think?' and is awaiting a response.",
     "source": "scene_manifest:shared_context"
    }
   ],

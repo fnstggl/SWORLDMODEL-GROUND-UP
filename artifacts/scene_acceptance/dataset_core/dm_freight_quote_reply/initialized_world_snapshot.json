@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight that ships roughly monthly. They have sent an email request for an updated shipping quote to Tomasz's personal work address.",
+     "content": "Kestrel Analytics is a mid-size existing customer of Nimbus Freight that ships roughly monthly. They have sent an email to Tomasz requesting an updated shipping quote. They expect a reply before Friday's close of business.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-11T07:00:00+00:00"
     },
     {
-     "content": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
+     "content": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Friday's close of business is 2026-08-14T17:00:00+02:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-11T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Tomasz is the account manager at Nimbus Freight handling about forty accounts. He has been on leave and returns on Wednesday 2026-08-12. He may have many emails to catch up on. He knows Kestrel Analytics as a mid-size existing customer that ships monthly.",
+     "content": "Tomasz is an account manager at Nimbus Freight handling about forty accounts. He was on leave and returned on Wednesday, 2026-08-12. He has received an email from Kestrel Analytics requesting an updated shipping quote, sent to his personal work address. He may prioritize responses based on account importance or urgency.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-11T07:00:00+00:00"
     },
     {
-     "content": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time.",
+     "content": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Friday's close of business is 2026-08-14T17:00:00+02:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-11T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Nimbus Freight's account manager Tomasz reply to Kestrel Analytics' emailed request for an updated shipping quote before Friday's close of business?",
-  "scene:shared_context": "Kestrel Analytics sent an email requesting an updated shipping quote to Tomasz's personal work address. The email was sent before the simulation start time. Tomasz is back from leave on Wednesday 2026-08-12. The cutoff for a reply is Friday 2026-08-14 at 17:00 local time."
+  "scene:shared_context": "Kestrel Analytics sent an email to Tomasz's personal work address requesting an updated shipping quote. The email was sent before the simulation start time. Friday's close of business is 2026-08-14T17:00:00+02:00."
  },
  "history": [],
  "infos": {},

@@ -1,24 +1,24 @@
 {
  "actors": [
   {
-   "name": "Support Team Members",
-   "private_context": "The support team at Kestrel Analytics is aware of the upcoming reorg. They have varying levels of job security concerns and expectations about changes in workload, reporting structure, and team culture. They have not yet experienced the reorg's effects."
+   "name": "Kestrel Analytics support team members",
+   "private_context": "Each team member has their own perceptions about the upcoming reorg, but no one knows how it will actually affect their roles or workload. They have varying levels of trust in management and concerns about job security."
   },
   {
-   "name": "Kestrel Analytics Management",
-   "private_context": "Management has planned and is about to implement a reorganization of the support team. They have specific goals for efficiency and cost reduction but have not communicated all details to the team. They will oversee the reorg process."
+   "name": "Kestrel Analytics management",
+   "private_context": "Management has decided on a reorganization of the support team, with the goal of improving efficiency. They have not yet communicated the details to the team."
   }
  ],
- "shared_context": "Kestrel Analytics is a company with a support team that handles customer inquiries. A reorganization (reorg) of the support team is scheduled to begin on 2026-09-01. The reorg may involve changes to team structure, roles, responsibilities, and reporting lines. Morale refers to the team's overall job satisfaction, confidence, and enthusiasm.",
+ "shared_context": "Kestrel Analytics is a company with a support team that is about to undergo a reorganization. The reorg has been announced but not yet implemented. The team's morale is currently at a moderate level, with some uncertainty about the future.",
  "starting_events": [
   {
-   "time": "2026-09-01T09:00:00+01:00",
-   "description": "The reorg of Kestrel Analytics' support team officially begins. Management starts implementing changes.",
+   "time": "2026-09-01T08:00:00+00:00",
+   "description": "The reorg is scheduled to begin today, but no changes have been implemented yet.",
    "visible_to": [
-    "Support Team Members",
-    "Kestrel Analytics Management"
+    "Kestrel Analytics support team members",
+    "Kestrel Analytics management"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff, the persistent event history contains credible evidence (e.g., survey results, manager observations, or team communications) that support team morale is better than before the reorg. Resolve NO if evidence indicates morale is the same or worse, or if no credible evidence is available."
+ "resolution": "Resolve YES only if, by the hard cutoff, the persistent event history shows that a majority of support team members have expressed (in observable communications or surveys) that morale is better than before the reorg. Otherwise resolve NO."
 }

@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Fran",
-   "private_context": "Fran started the meal train for the Okafor family on the neighborhood app. She knows that eight slots were claimed the first evening, leaving six slots unfilled. She wants the remaining slots to be filled within four days."
+   "private_context": "Fran posted the meal train sign-up to the neighborhood app on the evening of 2026-10-04. Eight slots were claimed that evening. Fran wants to fill all fourteen slots within four days to support the Okafor family."
   },
   {
    "name": "Neighbors on Alder Court",
-   "private_context": "The neighbors are part of a sixty-household neighborhood app. They are aware of the meal train sign-up for the Okafor family, who just came home with newborn twins. Some may have already signed up, and others may consider signing up."
+   "private_context": "The neighbors are a group of sixty households on Alder Court who use the neighborhood app. Some may have already signed up for a slot; others may not have seen the post yet or may be considering it. They have varying degrees of familiarity with the Okafor family and willingness to help."
   }
  ],
- "shared_context": "A meal train sign-up for the Okafor family was posted on the neighborhood app by Fran. The sign-up has fourteen slots total. Eight slots were claimed the first evening (by 2026-10-05T09:00:00-04:00). The remaining six slots are open. The app allows neighbors to view and sign up for slots. The cutoff for filling all slots is 2026-10-09T09:00:00-04:00.",
+ "shared_context": "A meal train sign-up for the Okafor family (who just came home with newborn twins) was posted to the sixty-household neighborhood app by Fran on the evening of 2026-10-04. The sign-up has fourteen slots. As of 2026-10-05T09:00:00-04:00, eight slots have been claimed. The remaining six slots are open for any neighbor to claim. The app allows neighbors to see the sign-up and claim slots.",
  "starting_events": [
   {
-   "time": "2026-10-05T09:00:00-04:00",
-   "description": "The meal train sign-up for the Okafor family has eight slots already claimed. The remaining six slots are visible to all neighbors on the app.",
+   "time": "2026-10-05T13:00:00+00:00",
+   "description": "The meal train sign-up has eight slots claimed and six slots remaining. Fran and the neighbors are aware of the sign-up.",
    "visible_to": [
     "Fran",
     "Neighbors on Alder Court"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that all fourteen slots of the meal train were filled (i.e., signed up for) by 2026-10-09T09:00:00-04:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that all fourteen slots of the meal train were claimed by 2026-10-09T09:00:00-04:00. Otherwise resolve NO at that time."
 }

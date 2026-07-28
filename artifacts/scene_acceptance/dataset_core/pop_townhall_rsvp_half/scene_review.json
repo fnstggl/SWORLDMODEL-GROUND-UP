@@ -1,10 +1,10 @@
 {
- "verdict": "ABSTAIN",
+ "verdict": "REVISE",
  "defects": [
   {
-   "path": "scene",
-   "problem": "The scene includes only 3 generic parent actors to represent 120 invited parents, which is insufficient to simulate whether more than half will RSVP. The question requires a collective outcome from 120 individuals, but the scene provides no mechanism to model the behavior of all 120 parents. The actors 'Parent 1', 'Parent 2', 'Parent 3' are not representative of the full set, and the scene does not define how their decisions scale or how the remaining 117 parents' RSVPs are determined. This is not a simulatable social scene for the given question.",
-   "correction": "The scene must either include all 120 parents as actors (impractical) or define a group-level decision process (e.g., a single actor representing the parent cohort with a probabilistic or rule-based RSVP behavior). Without such, the scene cannot meaningfully resolve the question."
+   "path": "resolution",
+   "problem": "The resolution uses the hard cutoff as the deadline for counting RSVPs, but the question specifies the deadline as 'the Friday before it' (the town hall). The town hall date is not provided, so the deadline is unknown. Using the hard cutoff as a substitute changes the meaning of the question's time restriction.",
+   "correction": "Either specify the town hall date in the shared context so the Friday before can be computed, or adjust the resolution to reflect that the deadline is unknown and the simulation must determine it from the town hall date (which should be defined). Alternatively, if the hard cutoff is intended to be the deadline, the question must be clarified."
   }
  ]
 }

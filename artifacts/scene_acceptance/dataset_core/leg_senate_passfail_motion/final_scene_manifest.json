@@ -1,44 +1,19 @@
 {
  "actors": [
   {
-   "name": "Senate Chair",
-   "private_context": "The chair is responsible for presiding over the plenary and ensuring orderly debate. They have no strong personal stance on the pass-fail motion but aim to facilitate a fair vote."
-  },
-  {
-   "name": "Senator A",
-   "private_context": "Senator A supports the pass-fail grading motion, believing it reduces student stress and promotes exploration. They plan to speak in favor and encourage colleagues to pass it."
-  },
-  {
-   "name": "Senator B",
-   "private_context": "Senator B opposes the pass-fail motion, arguing it may undermine academic rigor and grade inflation. They intend to argue for rejection or sending back to committee for more study."
-  },
-  {
-   "name": "Senator C",
-   "private_context": "Senator C is undecided and wants to hear the debate before making a decision. They are open to persuasion from both sides."
+   "name": "Academic Senate",
+   "private_context": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It consists of faculty representatives, administrators, and possibly student representatives. The members have varying opinions on the pass-fail grading motion, but their individual positions are not predetermined. The Senate operates under standard parliamentary procedures for debate and voting."
   }
  ],
- "shared_context": "Ashvale University's academic senate will hold its October plenary on 2026-10-15 at 10:00 AM. The pass-fail grading motion is on the agenda. The motion was previously discussed in committee and has been reported to the full senate. The senate can pass, reject, or send it back to committee.",
+ "shared_context": "Ashvale University's Academic Senate will hold its October plenary meeting on a date within October 2026. A motion to adopt pass-fail grading for certain courses is on the agenda. The Senate can vote to pass the motion, reject it, or send it back to committee for further review. The meeting is scheduled to occur before the hard cutoff of 2026-10-30T18:00:00-05:00.",
  "starting_events": [
   {
-   "time": "2026-10-01T09:00:00-05:00",
-   "description": "The academic senate's October plenary is scheduled for 2026-10-15. The pass-fail grading motion is on the agenda.",
+   "time": "2026-10-01T14:00:00+00:00",
+   "description": "The Academic Senate's October plenary meeting has not yet occurred. The pass-fail grading motion is on the agenda for that meeting.",
    "visible_to": [
-    "Senate Chair",
-    "Senator A",
-    "Senator B",
-    "Senator C"
-   ]
-  },
-  {
-   "time": "2026-10-15T10:00:00-05:00",
-   "description": "The Senate Chair calls the plenary to order and introduces the pass-fail grading motion as the first item of business. Senators begin to express their initial positions.",
-   "visible_to": [
-    "Senate Chair",
-    "Senator A",
-    "Senator B",
-    "Senator C"
+    "Academic Senate"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the senate passed the motion at the plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that the Academic Senate voted to pass the motion at its October plenary before 2026-10-30T18:00:00-05:00. Resolve NO if the Senate voted to reject the motion or sent it back to committee, or if no final decision was reached by the cutoff. The specific outcome (reject vs. send back) is not distinguished in this resolution; only whether the motion passed or not."
 }

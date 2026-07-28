@@ -1,4 +1,7 @@
 {
  "errors": [],
- "warnings": []
+ "warnings": [
+  "actor names 'Applicant 1' and 'Applicant 10' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)",
+  "actor names 'Applicant 1' and 'Applicant 11' contain one another: possible aliases kept as DISTINCT actors (never merged on a guess)"
+ ]
 }

@@ -1,0 +1,45 @@
+{
+ "coach_mike_johnson": {
+  "id": "coach_mike_johnson",
+  "name": "Coach Mike Johnson",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-09T18:00:00+00:00",
+    "kind": "context",
+    "content": "Coach Mike Johnson is responsible for selecting the starting lineup for the championship game. He has not yet finalized the lineup as of the start time. He may have preferences, strategies, or constraints known only to him.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-09T18:00:00+00:00",
+    "kind": "context",
+    "content": "The championship game is scheduled for September 10, 2026. The starting lineup must be selected by 8 AM on that day. The team roster and player performance data are available to Coach Johnson.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

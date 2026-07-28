@@ -1,21 +1,6 @@
 {
-  "actors": [
-    {
-      "name": "Rosa",
-      "private_context": "Rosa is considering whether to send an application for a position. She believes that applying earlier might increase her chances of getting an interview. She has not yet sent the application."
-    },
-    {
-      "name": "Hiring Manager",
-      "private_context": "The hiring manager is responsible for reviewing applications and selecting candidates for interviews. They have not yet seen Rosa's application."
-    }
-  ],
-  "shared_context": "There is a job opening that Rosa is interested in. Applications are reviewed on a rolling basis. The hiring manager decides whom to interview based on the applications received.",
-  "starting_events": [
-    {
-      "time": "2026-08-01T09:00:00-06:00",
-      "description": "Rosa sends her application for the position.",
-      "visible_to": ["Rosa"]
-    }
-  ],
-  "resolution": "UNRESOLVABLE: The question asks about a past counterfactual (whether Rosa would have gotten the interview if she had applied earlier last spring), which cannot be resolved by observing future events from the simulation start time."
+  "actors": [],
+  "shared_context": "",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question is a past counterfactual about an event that would have occurred last spring; no future observation can resolve an alternate past."
 }

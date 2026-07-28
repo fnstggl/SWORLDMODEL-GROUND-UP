@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The four members have a wedding gig on Saturday and need to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has personal preferences and song ideas, but no agreement has been reached yet.",
+     "content": "The band has a wedding gig coming up and needs to finalize a twelve-song setlist. They have a rehearsal scheduled on Thursday. Each member may have preferences or suggestions for the setlist, but no agreement has been reached yet.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-07T17:00:00+00:00"
     },
     {
-     "content": "The band Cheap Detour has a wedding gig on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at an unspecified time before 22:00. The setlist must be twelve songs. No setlist has been settled yet.",
+     "content": "Cheap Detour is a covers band. They are booked to play a wedding and need to settle on a twelve-song setlist. The next rehearsal is on Thursday, 2026-09-10. The band has not yet finalized the setlist as of the simulation start time.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-07T17:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the four members of the covers band Cheap Detour settle their twelve-song wedding setlist at or before Thursday's rehearsal?",
-  "scene:shared_context": "The band Cheap Detour has a wedding gig on Saturday 2026-09-12. They have a rehearsal scheduled for Thursday 2026-09-10 at an unspecified time before 22:00. The setlist must be twelve songs. No setlist has been settled yet."
+  "scene:shared_context": "Cheap Detour is a covers band. They are booked to play a wedding and need to settle on a twelve-song setlist. The next rehearsal is on Thursday, 2026-09-10. The band has not yet finalized the setlist as of the simulation start time."
  },
  "history": [],
  "infos": {},

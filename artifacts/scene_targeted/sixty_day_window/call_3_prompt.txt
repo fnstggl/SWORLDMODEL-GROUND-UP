@@ -1,0 +1,126 @@
+You are applying a targeted correction to a compiled starting scene.  You receive the exact original manifest and the exact defect list from an independent review.  Apply ONLY the listed corrections.  Do not expand the scene, regenerate a different world, add unrelated actors, invent missing facts, rewrite correct parts for style, or add new schema fields.  Everything not named in a defect must remain byte-for-byte identical where possible.
+
+Reply with ONLY the corrected four-field JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?
+
+Simulation start time: 2026-07-15T09:00:00+02:00
+Hard cutoff: 2026-09-30T09:00:00+02:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE ORIGINAL MANIFEST:
+{
+ "actors": [
+  {
+   "name": "Transport Committee Chair",
+   "private_context": "The Chair is responsible for scheduling committee business. They are aware of the sixty-day rule for scheduling hearings after a bill is referred. They have their own preferences and constraints regarding the committee's agenda."
+  },
+  {
+   "name": "Transport Committee Members",
+   "private_context": "The committee members have varying opinions on the rail franchise bill. They can influence scheduling through requests or votes, but no formal action has been taken yet."
+  }
+ ],
+ "shared_context": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The referral date is not specified in the question, but the simulation start time is 2026-07-15T09:00:00+02:00. The committee has not yet scheduled a hearing.",
+ "starting_events": [
+  {
+   "time": "2026-07-15T09:00:00+02:00",
+   "description": "The rail franchise bill has been referred to the transport committee. The committee has not yet scheduled a public hearing.",
+   "visible_to": [
+    "Transport Committee Chair",
+    "Transport Committee Members"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that the transport committee scheduled a public hearing on the rail franchise bill before 2026-09-13T09:00:00+02:00 (sixty days from the start time). Otherwise resolve NO at the hard cutoff 2026-09-30T09:00:00+02:00."
+}
+
+THE DEFECTS TO CORRECT (apply exactly these, nothing else):
+[
+ {
+  "path": "resolution",
+  "problem": "The resolution assumes the sixty-day window starts from the simulation start time (2026-07-15), but the question states the window is from the bill's referral, which is not specified. The start time may not equal the referral date.",
+  "correction": "Either specify the referral date in shared_context or adjust the resolution to compute the deadline from the referral date, not the start time. If the referral date is unknown, the scene cannot determine the deadline."
+ }
+]
+
+Reply with ONLY the corrected four-field JSON object.

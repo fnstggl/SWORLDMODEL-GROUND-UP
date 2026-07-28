@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "transport_committee_chair": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "transport_committee_chair",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The Chair is responsible for scheduling committee business. They are aware of the sixty-day rule for scheduling hearings after a bill is referred. They have their own preferences and constraints regarding the committee's agenda.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-07-15T07:00:00+00:00"
+    },
+    {
+     "content": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The referral date is 2026-07-15T09:00:00+02:00. The committee has not yet scheduled a hearing.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-07-15T07:00:00+00:00"
+    }
+   ],
+   "name": "Transport Committee Chair",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "transport_committee_members": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "transport_committee_members",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The committee members have varying opinions on the rail franchise bill. They can influence scheduling through requests or votes, but no formal action has been taken yet.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-07-15T07:00:00+00:00"
+    },
+    {
+     "content": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The referral date is 2026-07-15T09:00:00+02:00. The committee has not yet scheduled a hearing.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-07-15T07:00:00+00:00"
+    }
+   ],
+   "name": "Transport Committee Members",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?",
+  "scene:shared_context": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The committee's rules allow a sixty-day window from the bill's referral to schedule a public hearing. The referral date is 2026-07-15T09:00:00+02:00. The committee has not yet scheduled a hearing."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-07-15T07:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-07-15T07:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

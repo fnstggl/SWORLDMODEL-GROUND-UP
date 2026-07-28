@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Academic Senate",
-   "private_context": "The senate is a deliberative body that votes on academic policy. Its members have varying views on pass-fail grading, but no prior commitment has been made. The motion is on the agenda for the October plenary."
+   "private_context": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It consists of faculty representatives, administrators, and possibly student representatives. The members have varying opinions on the pass-fail grading motion, but their individual positions are not predetermined. The Senate operates under standard parliamentary procedures for debate and voting."
   }
  ],
- "shared_context": "Ashvale University's academic senate will hold its October plenary on 2026-10-15. A motion to adopt pass-fail grading is on the agenda. The senate can pass, reject, or send the motion back to committee. The meeting is scheduled to occur before the hard cutoff.",
+ "shared_context": "Ashvale University's Academic Senate will hold its October plenary meeting on a date within October 2026. A motion to adopt pass-fail grading for certain courses is on the agenda. The Senate can vote to pass the motion, reject it, or send it back to committee for further review. The meeting is scheduled to occur before the hard cutoff of 2026-10-30T18:00:00-05:00.",
  "starting_events": [
   {
    "time": "2026-10-01T09:00:00-05:00",
-   "description": "The academic senate's agenda for the October plenary includes the pass-fail grading motion.",
+   "description": "The Academic Senate's October plenary meeting has not yet occurred. The pass-fail grading motion is on the agenda for that meeting.",
    "visible_to": [
     "Academic Senate"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the academic senate passed the motion at the October plenary. Resolve NO if the senate rejected the motion. Resolve SEND_BACK if the senate sent the motion back to committee. If no decision is recorded by the cutoff, resolve NO."
+ "resolution": "Resolve YES if the persistent event history shows that the Academic Senate voted to pass the motion at its October plenary before 2026-10-30T18:00:00-05:00. Resolve NO if the Senate voted to reject the motion or sent it back to committee, or if no final decision was reached by the cutoff. The specific outcome (reject vs. send back) is not distinguished in this resolution; only whether the motion passed or not."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

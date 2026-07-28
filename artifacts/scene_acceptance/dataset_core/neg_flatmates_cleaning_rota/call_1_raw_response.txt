@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Dana",
-      "private_context": "Dana wants a cleaning rota to be agreed upon and signed off by both flatmates before Sunday night. Dana is willing to negotiate but prefers a fair split of chores."
+      "private_context": "Dana lives with Yusuf and wants a cleaning rota that is fair and manageable. Dana is willing to negotiate and sign off on a rota if it seems reasonable."
     },
     {
       "name": "Yusuf",
-      "private_context": "Yusuf is aware that Dana wants a cleaning rota. Yusuf has his own preferences about chore distribution and is open to discussing but may have constraints on time or specific chores."
+      "private_context": "Yusuf lives with Dana and wants a cleaning rota that is fair and manageable. Yusuf is willing to negotiate and sign off on a rota if it seems reasonable."
     }
   ],
-  "shared_context": "Dana and Yusuf are flatmates sharing a flat. They have a flat group chat where they can communicate. No cleaning rota has been proposed or discussed yet as of the simulation start time.",
+  "shared_context": "Dana and Yusuf are flatmates. They have a flat group chat where they can communicate. They have not yet agreed on a cleaning rota. The deadline for agreement is Sunday night (2026-08-09T23:00:00+00:00).",
   "starting_events": [
     {
       "time": "2026-08-04T19:00:00+00:00",
-      "description": "Dana and Yusuf are both present in the flat group chat. No message about a cleaning rota has been sent yet.",
+      "description": "Dana and Yusuf are aware that they need to agree on a cleaning rota. No rota has been proposed or discussed yet.",
       "visible_to": ["Dana", "Yusuf"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf have explicitly sent messages in the flat group chat indicating their agreement to a specific cleaning rota (e.g., by typing 'I agree' or similar) before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that both Dana and Yusuf explicitly sent messages in the flat group chat indicating their sign-off on a specific cleaning rota before 2026-08-09T23:00:00+00:00. Otherwise resolve NO at the cutoff."
 }

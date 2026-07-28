@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Maya is a tenant whose water heater is broken. She texted her landlord Stavros this morning about it. She hopes for a reply soon.",
+     "content": "Maya texted her landlord Stavros this morning about a broken water heater. She expects a reply before tomorrow evening.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-28T12:30:00+00:00"
     },
     {
-     "content": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. The text was sent via standard SMS. Stavros has the ability to reply via text.",
+     "content": "Maya Okonkwo is a tenant of Stavros. The water heater is broken. Maya texted Stavros this morning (2026-07-28) about it. Stavros can reply via text message.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-28T12:30:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply, depending on his schedule and priorities.",
+     "content": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-28T12:30:00+00:00"
     },
     {
-     "content": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. The text was sent via standard SMS. Stavros has the ability to reply via text.",
+     "content": "Maya Okonkwo is a tenant of Stavros. The water heater is broken. Maya texted Stavros this morning (2026-07-28) about it. Stavros can reply via text message.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-28T12:30:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. Will he reply to her before tomorrow evening?",
-  "scene:shared_context": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. The text was sent via standard SMS. Stavros has the ability to reply via text."
+  "scene:shared_context": "Maya Okonkwo is a tenant of Stavros. The water heater is broken. Maya texted Stavros this morning (2026-07-28) about it. Stavros can reply via text message."
  },
  "history": [],
  "infos": {},

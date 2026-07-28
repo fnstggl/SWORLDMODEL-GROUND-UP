@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the founder of the Tidepool app post a public response within one week to the viral thread accusing the company of deleting critical reviews?",
-  "resolution": "Resolve YES if the persistent event history shows that the founder posted a public response to the viral thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the founder of Tidepool posted a public response to the viral thread before 2026-09-10T15:00:00-07:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-09-10T15:00:00-07:00",
   "world_id": "w_8ccdd9dd85b9"
  },

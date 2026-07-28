@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,24 +116,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Applicant",
-   "private_context": "The Applicant submitted a permit application and is waiting for approval. They have no special influence or inside knowledge about the review process."
+   "private_context": "The Applicant has submitted a permit application and is awaiting approval. They have no special influence or inside knowledge about the review process."
   },
   {
    "name": "Permit Reviewer",
-   "private_context": "The Permit Reviewer is responsible for evaluating the application. They have a standard workload and follow established procedures. They are not predisposed to approve or deny."
+   "private_context": "The Permit Reviewer is responsible for evaluating the application and making a decision. They have a standard workload and follow established procedures."
   }
  ],
- "shared_context": "A permit application has been submitted and is pending review. The review process typically takes several weeks. The deadline for approval is the end of August 2026.",
+ "shared_context": "A permit application has been submitted and is under review. The deadline for approval is the end of August 2026. The review process involves checking compliance with regulations, and the decision is made by the Permit Reviewer.",
  "starting_events": [
   {
    "time": "2026-07-27T09:00:00-05:00",
-   "description": "The permit application is in the queue for review.",
+   "description": "The permit application is pending review.",
    "visible_to": [
+    "Applicant",
     "Permit Reviewer"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the permit was approved (i.e., an official approval record is created) on or before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the permit was approved by 2026-08-31T17:00:00-05:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -13,7 +13,7 @@
     "elin_bjork",
     "bramblewick_studios"
    ],
-   "description": "Elin Bjork's final interview concludes. The art director promises a decision, offer or rejection within two weeks."
+   "description": "Elin Bjork's final interview with Bramblewick Studios ends. The art director promises that Bramblewick will send Elin a decision, offer or rejection within two weeks."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "bramblewick_studios": {
    "name": "Bramblewick Studios",
-   "persona_brief": "You are Bramblewick Studios.\nBramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision, offer or rejection within two weeks after her final interview. The hiring manager mentioned that budget sign-off was still pending with the finance lead."
+   "persona_brief": "You are Bramblewick Studios.\nBramblewick is a thirty-person game studio mid-crunch on a delayed title. The art director promised Elin Bjork a decision, offer or rejection within two weeks after her final interview. Budget sign-off is still pending with the finance lead."
   },
   "elin_bjork": {
    "name": "Elin Bjork",
-   "persona_brief": "You are Elin Bjork.\nElin Bjork has completed her final interview with Bramblewick Studios. The art director promised her a decision, offer or rejection within two weeks. She is waiting to hear back."
+   "persona_brief": "You are Elin Bjork.\nElin Bjork has completed her final interview with Bramblewick Studios. The art director promised a decision, offer or rejection within two weeks. She is waiting to hear back."
   }
  },
  "resolution": {
   "question": "Will Bramblewick Studios send Elin Bjork any decision, offer or rejection, within the two weeks their art director promised at the end of her final interview?",
-  "resolution": "Resolve YES if the persistent event history shows that Bramblewick Studios sent Elin Bjork any communication that constitutes a decision, offer or rejection before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Bramblewick Studios actually sent Elin Bjork a decision, offer or rejection before 2026-10-23T16:00:00+01:00. Otherwise resolve NO at that deadline.",
   "cutoff": "2026-10-23T16:00:00+01:00",
   "world_id": "w_0b1b243c529e"
  }

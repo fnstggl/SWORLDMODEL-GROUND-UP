@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
+     "content": "A member of Femi's dissertation committee. They have their own schedule constraints and preferences for defense dates within the November window.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "content": "Femi Adeyemi is a doctoral candidate. The department has a November window for defenses. Femi and the three committee members need to converge on a specific defense date within that window. The next ten days (until 2026-09-24T17:00:00+01:00) are available for scheduling discussions. No defense date has been set yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
+     "content": "A member of Femi's dissertation committee. They have their own schedule constraints and preferences for defense dates within the November window.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "content": "Femi Adeyemi is a doctoral candidate. The department has a November window for defenses. Femi and the three committee members need to converge on a specific defense date within that window. The next ten days (until 2026-09-24T17:00:00+01:00) are available for scheduling discussions. No defense date has been set yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "A faculty member serving on Femi's committee. Has a schedule with some availability in November.",
+     "content": "A member of Femi's dissertation committee. They have their own schedule constraints and preferences for defense dates within the November window.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "content": "Femi Adeyemi is a doctoral candidate. The department has a November window for defenses. Femi and the three committee members need to converge on a specific defense date within that window. The next ten days (until 2026-09-24T17:00:00+01:00) are available for scheduling discussions. No defense date has been set yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
@@ -150,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Femi is a doctoral candidate who needs to schedule a defense date in November. He has three committee members. He wants to find a date that works for all.",
+     "content": "Femi is a doctoral candidate who needs to schedule a defense date within the department's November window. They have three committee members who must agree on a date. Femi wants to converge on a date within the next ten days.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-14T08:00:00+00:00"
     },
     {
-     "content": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24.",
+     "content": "Femi Adeyemi is a doctoral candidate. The department has a November window for defenses. Femi and the three committee members need to converge on a specific defense date within that window. The next ten days (until 2026-09-24T17:00:00+01:00) are available for scheduling discussions. No defense date has been set yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-14T08:00:00+00:00"
@@ -188,7 +188,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
-  "scene:shared_context": "The department has a November window for defenses. Femi and his three committee members can communicate via email or in person to coordinate a date. The next ten days are weekdays from 2026-09-14 to 2026-09-24."
+  "scene:shared_context": "Femi Adeyemi is a doctoral candidate. The department has a November window for defenses. Femi and the three committee members need to converge on a specific defense date within that window. The next ten days (until 2026-09-24T17:00:00+01:00) are available for scheduling discussions. No defense date has been set yet."
  },
  "history": [],
  "infos": {},

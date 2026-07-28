@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,21 +115,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Veldt Solar Legal Team",
-   "private_context": "The legal team has received the revised supplier contract today (2026-08-18) and must review it for legal risks, compliance, and alignment with company policies before clearing it for signature. They have no prior knowledge of this specific contract beyond what is in the document."
+   "name": "Veldt Solar's legal team",
+   "private_context": "The legal team has received the revised supplier contract today (2026-08-18) and must review it for clearance. They have their own internal processes and priorities, and may have other pending work."
   }
  ],
- "shared_context": "The revised supplier contract has been submitted to Veldt Solar's legal team for review. The team is expected to complete their review within ten working days. The cutoff for resolution is 2026-09-01T17:00:00+02:00.",
+ "shared_context": "The revised supplier contract has been submitted to Veldt Solar's legal team for review and clearance before signature. The deadline for clearance is ten working days from today, i.e., by 2026-09-01 (assuming no holidays). The hard cutoff for the simulation is 2026-09-01T17:00:00+02:00.",
  "starting_events": [
   {
    "time": "2026-08-18T11:00:00+02:00",
    "description": "The revised supplier contract is received by Veldt Solar's legal team for review.",
    "visible_to": [
-    "Veldt Solar Legal Team"
+    "Veldt Solar's legal team"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that the legal team formally cleared the contract for signature (e.g., by sending an approval notice or updating a status) before the cutoff. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Veldt Solar's legal team actually cleared the revised supplier contract for signature before 2026-09-01T17:00:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

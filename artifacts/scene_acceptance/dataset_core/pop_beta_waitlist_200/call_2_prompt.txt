@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -102,10 +119,14 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Tidepool",
-   "private_context": "Tidepool has a newsletter with 5,000 subscribers. They plan to send a launch email on 2026-09-22T08:00:00-07:00. The email includes a personal note from the founder and a waitlist link above the fold. Tidepool wants at least 200 subscribers to click through and join the beta waitlist within 72 hours."
+   "private_context": "Tidepool is sending a launch email to its 5,000 newsletter subscribers. It wants at least 200 subscribers to click through to join the beta waitlist within 72 hours. The email includes a personal note from the founder and the waitlist link is above the fold."
+  },
+  {
+   "name": "Newsletter Subscribers (cohort)",
+   "private_context": "The 5,000 subscribers have a typical click-through rate of 6% on Tidepool's newsletters. They may or may not open or click this particular email."
   }
  ],
- "shared_context": "The newsletter has a typical click-through rate of 6%. The beta email is scheduled to be sent to all 5,000 subscribers at the start time. The email contains a personal note from the founder and a waitlist link above the fold. Subscribers may or may not open the email, click the link, and join the waitlist.",
+ "shared_context": "Tidepool's newsletter has 5,000 subscribers. The typical click-through rate is 6%. The beta launch email includes a personal note from the founder and the waitlist link is above the fold.",
  "starting_events": [
   {
    "time": "2026-09-22T08:00:00-07:00",
@@ -115,7 +136,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least 200 distinct subscribers clicked through to the beta waitlist sign-up page within 72 hours of the email send (i.e., before 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that at least 200 distinct subscribers clicked through to join the beta waitlist within 72 hours of the email send (i.e., by 2026-09-25T08:00:00-07:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

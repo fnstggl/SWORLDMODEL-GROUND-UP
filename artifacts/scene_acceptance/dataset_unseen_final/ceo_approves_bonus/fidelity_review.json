@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene includes only CEO Jane Zhao as an actor, but the engineering team (or a representative) is materially relevant because their performance and any communication with the CEO could influence the decision. Additionally, the board meeting implies other board members who might affect the outcome."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "The shared context states 'The engineering team exceeded Q2 targets' which is also in Jane's private context, but this is not a leak; however, the private context is essentially a repetition of shared context and does not contain unique private information."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The starting event states 'CEO Jane Zhao has the authority to approve or deny it.' This pre-decides that she has the authority, which is fine, but the resolution condition 'Resolve YES only if the persistent event history shows that CEO Jane Zhao actually approved...' assumes that the decision is made by her alone, ignoring potential influence from other actors. The scene does not allow for the possibility that the decision might be made by the board or that Jane might delegate."
+  }
+ ],
+ "id": "ceo_approves_bonus"
+}

@@ -1,0 +1,45 @@
+{
+ "judge_patricia_o_neill": {
+  "id": "judge_patricia_o_neill",
+  "name": "Judge Patricia O'Neill",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "Judge O'Neill has a motion to dismiss pending before her. She is aware of the deadline to rule but has discretion over timing. She has other cases and obligations that may affect when she issues a ruling.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-01T13:00:00+00:00",
+    "kind": "context",
+    "content": "A motion to dismiss has been filed in a case before Judge Patricia O'Neill. The motion is fully briefed and ready for decision. The court's normal procedures allow the judge to issue rulings at any time. The deadline of September 30, 2026 is not a court-imposed deadline but a date of interest to the parties.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

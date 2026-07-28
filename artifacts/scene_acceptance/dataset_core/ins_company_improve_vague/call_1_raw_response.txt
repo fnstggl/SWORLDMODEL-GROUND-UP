@@ -1,17 +1,6 @@
 {
-  "actors": [
-    {
-      "name": "Company leadership",
-      "private_context": "The leadership is aware of current financial struggles and is considering strategic changes. They have no certainty about future outcomes."
-    }
-  ],
-  "shared_context": "The company operates in a competitive market. The next quarter runs from October to December 2026. No major external shocks are known at the start.",
-  "starting_events": [
-    {
-      "time": "2026-10-01T09:00:00-05:00",
-      "description": "The new quarter begins. The company's financial performance for the previous quarter is known internally.",
-      "visible_to": ["Company leadership"]
-    }
-  ],
-  "resolution": "Resolve YES only if the persistent event history shows that the company's quarterly revenue or profit (as reported in official financial statements) increased compared to the previous quarter by the cutoff. Otherwise resolve NO at the cutoff."
+  "actors": [],
+  "shared_context": "The company is a business entity. The next quarter is Q4 2026, starting October 1, 2026 and ending December 31, 2026. The question asks whether 'things get better' for the company, which is vague and lacks specific observable criteria.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question does not specify what 'better' means in observable terms, nor does it identify any decision-maker or action that could be measured."
 }

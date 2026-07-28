@@ -1,19 +1,19 @@
 {
  "actors": [
   {
-   "name": "Herrera cousins (14 members)",
-   "private_context": "Each cousin has their own preferences and constraints for the reunion. Three cousins (names unknown) push for Oaxaca, two for San Antonio. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. Other cousins have not expressed strong preferences yet."
+   "name": "Herrera cousins (14 individuals in group chat)",
+   "private_context": "Each cousin has their own preferences and constraints for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio, and the others have not stated a strong preference. Tia Marisol, the eldest, privately intends to go with the majority but is more focused on catering details."
   }
  ],
- "shared_context": "There is a fourteen-person group chat that has been active for a month. The chat is used to plan next spring's family reunion. The group has not yet fixed a weekend or a town. The chat is ongoing and messages can be sent at any time.",
+ "shared_context": "The Herrera cousins have an active group chat that has been running for a month. The chat includes all 14 cousins. The topic of the next spring's family reunion has been discussed, with three cousins advocating for Oaxaca, two for San Antonio, and Tia Marisol frequently changing the subject to catering. No decision on weekend or town has been made yet.",
  "starting_events": [
   {
    "time": "2026-08-01T10:00:00-06:00",
-   "description": "The group chat is active with ongoing discussion about the reunion location and date.",
+   "description": "The group chat is active with ongoing discussion about the reunion location and timing.",
    "visible_to": [
-    "Herrera cousins (14 members)"
+    "Herrera cousins (14 individuals in group chat)"
    ]
   }
  ],
- "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that the group chat contains a message or messages that collectively specify both a weekend (e.g., a specific date range in spring 2027) and a town (e.g., Oaxaca or San Antonio) for the reunion, and that no subsequent message contradicts that agreement. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message in the group chat explicitly states both a specific weekend (e.g., a date range) and a specific town for the reunion, and no subsequent message contradicts that as a final decision. Otherwise resolve NO at the cutoff."
 }

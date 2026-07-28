@@ -1,0 +1,8 @@
+{
+ "question": "Would the Allies have won WWII if the US had not entered?",
+ "start": "1941-01-01T00:00:00+00:00",
+ "cutoff": "1945-09-02T23:59:00+00:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

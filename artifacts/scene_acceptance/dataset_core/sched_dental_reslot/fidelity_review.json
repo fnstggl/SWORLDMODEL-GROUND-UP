@@ -3,19 +3,9 @@
  "worst_severity": "MAJOR",
  "defects": [
   {
-   "aspect": "smallest_world",
-   "severity": "MAJOR",
-   "detail": "The scene includes only Priya and the front desk, but the front desk is a collective actor. However, the scene does not specify that the front desk has the authority to agree on a new slot, or that there is a scheduler or dentist involved. This may be insufficient for the simulation to realistically determine agreement."
-  },
-  {
-   "aspect": "info_boundaries",
-   "severity": "MAJOR",
-   "detail": "Priya's private context states she wants to find a new slot before Wednesday noon, which is a goal that should be part of her decision-making, not a fixed fact. This could pre-decide her actions. Also, the front desk's private context says they have availability information, which is fine, but the shared context mentions the front desk can be contacted by phone or in person, which is common knowledge and not a leak."
-  },
-  {
    "aspect": "prewritten",
    "severity": "MAJOR",
-   "detail": "The starting event says 'Priya decides to contact Maple Row Dental to reschedule her Thursday cleaning.' This pre-decides that Priya will initiate contact, which is a choice that should be open in the simulation. She might not contact them, or might do so later."
+   "detail": "The starting event states 'Priya intends to contact Maple Row Dental front desk to reschedule her Thursday cleaning.' This pre-decides that Priya will initiate contact, which is a future actor choice that should be left open."
   }
  ],
  "id": "sched_dental_reslot"

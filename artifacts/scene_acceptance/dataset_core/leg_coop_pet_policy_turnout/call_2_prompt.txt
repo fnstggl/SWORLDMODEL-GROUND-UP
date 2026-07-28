@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -98,26 +115,21 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Sunmark housing cooperative board",
-   "private_context": "The board has called a special general meeting for the 12th to vote on amending the pet policy. They know the bylaws require a two-thirds member turnout for the amendment to pass. They have sent out notices to all members."
-  },
-  {
-   "name": "Sunmark housing cooperative members",
-   "private_context": "Each member has received notice of the special general meeting on the 12th regarding the pet policy amendment. They are aware of the meeting date and time, and that their attendance is needed to reach the required turnout."
+   "name": "Sunmark housing cooperative (membership as a whole)",
+   "private_context": "Each member has their own schedule, priorities, and views on the pet policy amendment. No member knows how many others will attend."
   }
  ],
- "shared_context": "Sunmark housing cooperative's bylaws require a two-thirds member turnout for amendments to the pet policy. A special general meeting has been called for the 12th to vote on such an amendment. The meeting will be held at the cooperative's common room at 7 PM. Members can attend in person or by proxy.",
+ "shared_context": "Sunmark housing cooperative's bylaws require a two-thirds turnout of all members to amend the pet policy. A special general meeting has been called for September 12, 2026, to vote on the amendment. The meeting will be held at a specific time and location known to all members. Members may attend in person or by proxy as permitted by the bylaws.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+02:00",
-   "description": "The board has sent notices to all members about the special general meeting on the 12th to vote on amending the pet policy.",
+   "description": "The special general meeting is scheduled for September 12, 2026. Members have been notified of the meeting and the proposed pet policy amendment.",
    "visible_to": [
-    "Sunmark housing cooperative board",
-    "Sunmark housing cooperative members"
+    "Sunmark housing cooperative (membership as a whole)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least two-thirds of the cooperative's members attended the special general meeting (in person or by proxy) on the 12th. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that at least two-thirds of all members of Sunmark housing cooperative actually attended (in person or by proxy) the special general meeting on September 12, 2026, before the meeting's conclusion. Otherwise resolve NO at the hard cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

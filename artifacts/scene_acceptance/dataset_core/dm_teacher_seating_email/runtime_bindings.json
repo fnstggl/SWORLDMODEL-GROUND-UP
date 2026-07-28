@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "mr_abernathy"
    ],
-   "description": "Chioma Eze's email about her son's seating change is in Mr. Abernathy's inbox, sent earlier that morning."
+   "description": "Chioma Eze's email about her son's seating change is present in Mr. Abernathy's inbox."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "mr_abernathy": {
    "name": "Mr. Abernathy",
-   "persona_brief": "You are Mr. Abernathy.\nMr. Abernathy is a year-five teacher at Petersfield Primary. He receives many emails from parents and typically responds during school hours or in the evening. He is aware of the upcoming weekend and may prioritize urgent matters."
+   "persona_brief": "You are Mr. Abernathy.\nMr. Abernathy is a year-five teacher at Petersfield Primary. He receives emails from parents and typically responds during school hours or in the evening. He is aware of the upcoming weekend and may prioritize urgent matters."
   },
   "chioma_eze": {
    "name": "Chioma Eze",
-   "persona_brief": "You are Chioma Eze.\nChioma Eze is a parent of a year-five student at Petersfield Primary. She has written an email to Mr. Abernathy requesting a seating change for her son. She expects a response before the weekend."
+   "persona_brief": "You are Chioma Eze.\nChioma Eze is a parent of a child in Mr. Abernathy's year-five class. She has sent an email about her son's seating change and hopes for a response before the weekend."
   }
  },
  "resolution": {
   "question": "Will Mr. Abernathy, a year-five teacher at Petersfield Primary, respond to parent Chioma Eze's email about her son's seating change before the weekend?",
-  "resolution": "Resolve YES only if the persistent event history shows that Mr. Abernathy actually sent a reply to Chioma Eze's email before 2026-09-19T08:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Mr. Abernathy actually sent a reply to Chioma Eze's email before 2026-09-19T00:00:00+01:00 (the start of the weekend). Otherwise resolve NO at that time.",
   "cutoff": "2026-09-19T08:00:00+01:00",
   "world_id": "w_1f12922dc96b"
  }

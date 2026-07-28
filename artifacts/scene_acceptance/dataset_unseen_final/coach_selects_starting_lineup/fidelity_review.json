@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The scene includes only Coach Mike Johnson, but the starting lineup selection involves players, assistant coaches, or other staff who may influence or be affected by the decision. Their absence could affect the realism of the simulation."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The starting event states that Coach Johnson 'begins the process' at a specific time, which pre-decides that he starts at that time, rather than leaving it open whether he starts earlier or later."
+  }
+ ],
+ "id": "coach_selects_starting_lineup"
+}

@@ -1,8 +1,8 @@
 {
  "world_id": "w_568ccd100625",
  "actor_ids": {
-  "Support Team Members": "support_team_members",
-  "Kestrel Analytics Management": "kestrel_analytics_management"
+  "Kestrel Analytics support team members": "kestrel_analytics_support_team_members",
+  "Kestrel Analytics management": "kestrel_analytics_management"
  },
  "event_records": [
   {
@@ -10,10 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-09-01T08:00:00+00:00",
    "visible_to_ids": [
-    "support_team_members",
+    "kestrel_analytics_support_team_members",
     "kestrel_analytics_management"
    ],
-   "description": "The reorg of Kestrel Analytics' support team officially begins. Management starts implementing changes."
+   "description": "The reorg is scheduled to begin today, but no changes have been implemented yet."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "support_team_members": {
-   "name": "Support Team Members",
-   "persona_brief": "You are Support Team Members.\nThe support team at Kestrel Analytics is aware of the upcoming reorg. They have varying levels of job security concerns and expectations about changes in workload, reporting structure, and team culture. They have not yet experienced the reorg's effects."
+  "kestrel_analytics_support_team_members": {
+   "name": "Kestrel Analytics support team members",
+   "persona_brief": "You are Kestrel Analytics support team members.\nEach team member has their own perceptions about the upcoming reorg, but no one knows how it will actually affect their roles or workload. They have varying levels of trust in management and concerns about job security."
   },
   "kestrel_analytics_management": {
-   "name": "Kestrel Analytics Management",
-   "persona_brief": "You are Kestrel Analytics Management.\nManagement has planned and is about to implement a reorganization of the support team. They have specific goals for efficiency and cost reduction but have not communicated all details to the team. They will oversee the reorg process."
+   "name": "Kestrel Analytics management",
+   "persona_brief": "You are Kestrel Analytics management.\nManagement has decided on a reorganization of the support team, with the goal of improving efficiency. They have not yet communicated the details to the team."
   }
  },
  "resolution": {
   "question": "Will morale on Kestrel Analytics' support team be better after the reorg?",
-  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history contains credible evidence (e.g., survey results, manager observations, or team communications) that support team morale is better than before the reorg. Resolve NO if evidence indicates morale is the same or worse, or if no credible evidence is available.",
+  "resolution": "Resolve YES only if, by the hard cutoff, the persistent event history shows that a majority of support team members have expressed (in observable communications or surveys) that morale is better than before the reorg. Otherwise resolve NO.",
   "cutoff": "2026-11-30T17:00:00+01:00",
   "world_id": "w_568ccd100625"
  }

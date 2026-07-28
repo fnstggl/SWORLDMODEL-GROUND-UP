@@ -1,0 +1,8 @@
+{
+ "question": "Does Dr. Emily Zhao detect the anomalous signal from the radio telescope before the observation window closes on October 1, 2026?",
+ "start": "2026-09-28T00:00:00+00:00",
+ "cutoff": "2026-10-01T23:59:00+00:00",
+ "context": "Dr. Emily Zhao is leading a SETI project at the Arecibo Observatory. The observation window ends Oct 1.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

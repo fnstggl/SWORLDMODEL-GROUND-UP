@@ -1,0 +1,17 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "smallest_world",
+   "severity": "CRITICAL",
+   "detail": "The scene models the Academic Senate as a single actor, but the question asks about the outcome of a vote, which requires modeling individual members or at least factions with distinct preferences. A single actor cannot produce a vote outcome; it would either always pass or always fail, pre-deciding the result."
+  },
+  {
+   "aspect": "genuinely_open",
+   "severity": "CRITICAL",
+   "detail": "With a single actor, the simulation cannot genuinely produce both YES and NO outcomes. The actor's private context is vague and does not specify any decision-making process, making the outcome arbitrary or predetermined."
+  }
+ ],
+ "id": "leg_senate_passfail_motion"
+}

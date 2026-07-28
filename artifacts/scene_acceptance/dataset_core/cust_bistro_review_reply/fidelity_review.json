@@ -1,6 +1,17 @@
 {
- "verdict": "OK",
- "worst_severity": "NONE",
- "defects": [],
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The review site is a material actor because it can affect whether the reply is posted (e.g., moderation, technical issues). The scene should include the review site as an actor or at least note its behavior in shared context."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The private context states that Marguerite 'replies to most reviews within days, usually defensively.' This pre-decides a tendency that may make the YES outcome too likely, reducing genuine uncertainty."
+  }
+ ],
  "id": "cust_bistro_review_reply"
 }

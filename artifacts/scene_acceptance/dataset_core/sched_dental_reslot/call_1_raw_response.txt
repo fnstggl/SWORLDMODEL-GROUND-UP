@@ -2,20 +2,20 @@
   "actors": [
     {
       "name": "Priya",
-      "private_context": "Priya has a dental cleaning scheduled for Thursday, but she needs to reschedule due to a work trip. She wants to find a new slot before Wednesday noon."
+      "private_context": "Priya has a dental cleaning scheduled for Thursday, but needs to reschedule due to a work trip. She wants to find a new slot by Wednesday noon."
     },
     {
-      "name": "Front Desk",
-      "private_context": "The front desk at Maple Row Dental manages appointment scheduling. They have availability information for various slots and can propose alternatives."
+      "name": "Maple Row Dental front desk",
+      "private_context": "The front desk handles appointment scheduling and can offer available slots. They are aware of Priya's existing Thursday appointment."
     }
   ],
-  "shared_context": "Maple Row Dental is a dental office. Priya has an existing appointment for a dental cleaning on Thursday. The front desk can be contacted by phone or in person during business hours to discuss rescheduling.",
+  "shared_context": "Priya has an existing dental cleaning appointment on Thursday at Maple Row Dental. She needs to reschedule it because of a work trip. The front desk can be contacted via phone or in person during business hours.",
   "starting_events": [
     {
       "time": "2026-08-10T08:00:00-04:00",
-      "description": "Priya decides to contact Maple Row Dental to reschedule her Thursday cleaning.",
+      "description": "Priya intends to contact Maple Row Dental front desk to reschedule her Thursday cleaning.",
       "visible_to": ["Priya"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Priya and the front desk have agreed on a new appointment slot before 2026-08-12T12:00:00-04:00. Otherwise resolve NO."
+  "resolution": "Resolve YES only if the persistent event history shows that Priya and the Maple Row Dental front desk have agreed on a new appointment slot before 2026-08-12T12:00:00-04:00. Otherwise resolve NO at that time."
 }

@@ -23,13 +23,13 @@
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "The Applicant has submitted a permit application to the relevant authority. They want the permit approved by the end of August. They have no further information about the review process.",
+    "content": "The Applicant has submitted a permit application and is awaiting approval. They have no special influence or inside knowledge about the review process.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "A permit application has been submitted by the Applicant to the Permit Reviewer. The review process involves checking compliance with regulations, and the Reviewer may request additional information. The deadline for approval is the end of August 2026.",
+    "content": "A permit application has been submitted and is under review. The deadline for approval is the end of August 2026. The review process involves checking compliance with regulations, and the decision is made by the Permit Reviewer.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "The Permit Reviewer is responsible for evaluating permit applications. They have received the Applicant's submission and will process it according to standard procedures. They have no prior relationship with the Applicant.",
+    "content": "The Permit Reviewer is responsible for evaluating the application and making a decision. They have a standard workload and follow established procedures.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "A permit application has been submitted by the Applicant to the Permit Reviewer. The review process involves checking compliance with regulations, and the Reviewer may request additional information. The deadline for approval is the end of August 2026.",
+    "content": "A permit application has been submitted and is under review. The deadline for approval is the end of August 2026. The review process involves checking compliance with regulations, and the decision is made by the Permit Reviewer.",
     "source": "scene_manifest:shared_context"
    }
   ],

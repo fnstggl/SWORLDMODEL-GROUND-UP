@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Ingrid wants the children for the December holidays, especially for her family's large Lucia gathering. She is on speaking terms with Mattias and has a lawyer. She knows the mediator has flagged travel dates as the only open issue.",
+     "content": "Ingrid wants the children for the December holidays, especially for her family's large Lucia gathering. She is aware that Mattias has a deposit on a ski trip for the first week of the break. She is on speaking terms with Mattias and has a lawyer.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T08:00:00+00:00"
     },
     {
-     "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering; Mattias has a deposit down on a ski trip for the first week of the break. The mediator has flagged travel dates as the only open issue. The final scheduled mediation session is in six weeks (by 2026-10-13).",
+     "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. They have a mediator who has scheduled a final session in six weeks (by 2026-10-13). The mediator has flagged travel dates as the only open issue. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, and Mattias has a deposit down on a ski trip for the first week of the break.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T08:00:00+00:00"
@@ -64,62 +64,19 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Mattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is on speaking terms with Ingrid and has a lawyer. He knows the mediator has flagged travel dates as the only open issue.",
+     "content": "Mattias wants the children for the December holidays, particularly for the ski trip he has a deposit on for the first week of the break. He is aware of Ingrid's family's Lucia gathering. He is on speaking terms with Ingrid and has a lawyer.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T08:00:00+00:00"
     },
     {
-     "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering; Mattias has a deposit down on a ski trip for the first week of the break. The mediator has flagged travel dates as the only open issue. The final scheduled mediation session is in six weeks (by 2026-10-13).",
+     "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. They have a mediator who has scheduled a final session in six weeks (by 2026-10-13). The mediator has flagged travel dates as the only open issue. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, and Mattias has a deposit down on a ski trip for the first week of the break.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T08:00:00+00:00"
     }
    ],
    "name": "Mattias",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "mediator": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "mediator",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "The mediator has a final scheduled session in six weeks (by 2026-10-13). They know the only open issue is travel dates for the December holidays. They have no prior knowledge of any agreement.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-09-01T08:00:00+00:00"
-    },
-    {
-     "content": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering; Mattias has a deposit down on a ski trip for the first week of the break. The mediator has flagged travel dates as the only open issue. The final scheduled mediation session is in six weeks (by 2026-10-13).",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-09-01T08:00:00+00:00"
-    }
-   ],
-   "name": "Mediator",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -145,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Separated parents Ingrid and Mattias are negotiating who takes the children for the December holidays. Will they reach a written agreement before their mediator's final scheduled session in six weeks?",
-  "scene:shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering; Mattias has a deposit down on a ski trip for the first week of the break. The mediator has flagged travel dates as the only open issue. The final scheduled mediation session is in six weeks (by 2026-10-13)."
+  "scene:shared_context": "Ingrid and Mattias are separated parents negotiating who takes the children for the December holidays. They have a mediator who has scheduled a final session in six weeks (by 2026-10-13). The mediator has flagged travel dates as the only open issue. Both have lawyers but remain on speaking terms. Ingrid's family hosts a large Lucia gathering, and Mattias has a deposit down on a ski trip for the first week of the break."
  },
  "history": [],
  "infos": {},
@@ -155,6 +112,6 @@
  "resources": {},
  "start": "2026-09-01T08:00:00+00:00",
  "terminal": null,
- "version": 14,
+ "version": 11,
  "watches": {}
 }

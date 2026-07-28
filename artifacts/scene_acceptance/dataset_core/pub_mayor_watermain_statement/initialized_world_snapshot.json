@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The mayor is aware of this morning's third water-main burst and the public concern it is generating. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out or staying silent.",
+     "content": "The mayor is aware of the water-main failures and the third burst this morning. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-12T13:00:00+00:00"
     },
     {
-     "content": "Riverton has experienced three water-main bursts this morning (2026-08-12). The third burst occurred earlier today. The mayor's office is the usual channel for official public statements. The public and local media are paying attention.",
+     "content": "Riverton has experienced three water-main bursts, the third occurring this morning (2026-08-12). The mayor is the public official typically expected to address such infrastructure emergencies. There is no prior public statement from the mayor about these failures.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-12T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the mayor of Riverton issue any public statement about the water-main failures within 48 hours of this morning's third burst?",
-  "scene:shared_context": "Riverton has experienced three water-main bursts this morning (2026-08-12). The third burst occurred earlier today. The mayor's office is the usual channel for official public statements. The public and local media are paying attention."
+  "scene:shared_context": "Riverton has experienced three water-main bursts, the third occurring this morning (2026-08-12). The mayor is the public official typically expected to address such infrastructure emergencies. There is no prior public statement from the mayor about these failures."
  },
  "history": [],
  "infos": {},

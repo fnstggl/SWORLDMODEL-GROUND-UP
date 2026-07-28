@@ -2,27 +2,26 @@
  "actors": [
   {
    "name": "Rosa Maria",
-   "private_context": "Rosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and submitted it for calibration. She wants the case to be approved and signed off by the VP before promotion letters go out on November 15. She knows the calibration process and VP sign-off are required steps."
+   "private_context": "Rosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and wants it to clear calibration and receive VP sign-off before promotion letters go out on November 15. She is aware of the calibration process and the need for VP approval."
   },
   {
    "name": "Jonas",
-   "private_context": "Jonas is a report of Rosa Maria. He is aware that Rosa Maria is working on his promotion case. He hopes the promotion goes through but has no direct control over the process."
+   "private_context": "Jonas is a report of Rosa Maria. He is the subject of the promotion case. He may have expectations about the promotion but no direct role in the approval process."
   },
   {
    "name": "VP",
-   "private_context": "The VP is the executive who must sign off on promotion cases. They have authority to approve or reject. They are aware of the promotion cycle and the November 15 deadline for letters."
+   "private_context": "The VP is the executive who must sign off on the promotion case. The VP may have criteria for approval and may be involved in calibration."
   }
  ],
- "shared_context": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15. The current date is October 5, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting may or may not have occurred yet; the outcome is unknown. The VP will need to sign off after calibration clears.",
+ "shared_context": "Promotion letters are scheduled to go out on November 15. The promotion case for Jonas must clear calibration and receive VP sign-off before that date. The calibration process involves reviewing the case against company standards.",
  "starting_events": [
   {
-   "time": "2026-10-05T09:00:00-08:00",
-   "description": "Rosa Maria's promotion case for Jonas has been submitted for calibration. The calibration process is pending or ongoing.",
+   "time": "2026-10-05T17:00:00+00:00",
+   "description": "Rosa Maria has prepared the promotion case for Jonas and is ready to submit it for calibration.",
    "visible_to": [
-    "Rosa Maria",
-    "VP"
+    "Rosa Maria"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Jonas's promotion case cleared calibration and received VP sign-off before November 15, 2026 at 09:00:00-08:00. Otherwise resolve NO at that cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the promotion case for Jonas cleared calibration and received VP sign-off before 2026-11-15T09:00:00-08:00. Otherwise resolve NO at that time."
 }

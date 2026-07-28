@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Maya Okonkwo",
-   "private_context": "Maya is a tenant whose water heater is broken. She texted her landlord Stavros this morning about it. She hopes for a reply soon."
+   "private_context": "Maya texted her landlord Stavros this morning about a broken water heater. She expects a reply before tomorrow evening."
   },
   {
    "name": "Stavros",
-   "private_context": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply, depending on his schedule and priorities."
+   "private_context": "Stavros is Maya's landlord. He received a text from Maya this morning about a broken water heater. He may or may not reply."
   }
  ],
- "shared_context": "Maya Okonkwo texted her landlord Stavros this morning about a broken water heater. The text was sent via standard SMS. Stavros has the ability to reply via text.",
+ "shared_context": "Maya Okonkwo is a tenant of Stavros. The water heater is broken. Maya texted Stavros this morning (2026-07-28) about it. Stavros can reply via text message.",
  "starting_events": [
   {
-   "time": "2026-07-28T08:30:00-04:00",
-   "description": "Maya sends a text message to Stavros about the broken water heater.",
+   "time": "2026-07-28T12:30:00+00:00",
+   "description": "Maya sends a text to Stavros about the broken water heater.",
    "visible_to": [
     "Maya Okonkwo"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Stavros sent a reply text to Maya before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Stavros actually sent a reply text to Maya before 2026-07-29T20:00:00-04:00. Otherwise resolve NO at that time."
 }

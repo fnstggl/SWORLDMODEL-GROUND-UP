@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Yusuf Ndiaye",
-   "private_context": "Yusuf is a painter who has prepared a portfolio of his work. He wants to get his work exhibited at Marlin Bay gallery. He has no prior relationship with Ines Duarte."
+   "private_context": "Yusuf is a painter who has prepared a portfolio of his work. He wants to send it to Marlin Bay gallery curator Ines Duarte in hopes of getting a response beyond an automated acknowledgment. He has no prior relationship with Ines."
   },
   {
    "name": "Ines Duarte",
-   "private_context": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only responds personally to those that strongly interest her. She has no prior knowledge of Yusuf Ndiaye."
+   "private_context": "Ines is the curator at Marlin Bay gallery. She receives unsolicited portfolios and sometimes replies personally if she finds the work interesting, but often only sends automated acknowledgments. She does not know Yusuf."
   }
  ],
- "shared_context": "Marlin Bay gallery has a public email address for submissions. Yusuf can send his portfolio to that address. The gallery has an automated acknowledgment system that replies to all incoming emails. Ines checks the gallery's email inbox periodically.",
+ "shared_context": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email or postal mail. The gallery has an automated acknowledgment system for incoming submissions.",
  "starting_events": [
   {
    "time": "2026-08-10T11:00:00+00:00",
-   "description": "Yusuf sends his portfolio via email to Marlin Bay gallery's submissions address.",
+   "description": "Yusuf sends his portfolio to Ines Duarte at Marlin Bay gallery.",
    "visible_to": [
     "Yusuf Ndiaye"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Ines Duarte sent a personal (non-automated) reply to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Ines Duarte sent a personal reply (not an automated acknowledgment) to Yusuf Ndiaye before 2026-09-21T11:00:00+00:00. Otherwise resolve NO at that time."
 }

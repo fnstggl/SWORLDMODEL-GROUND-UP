@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Ravi",
-   "private_context": "Ravi wants to buy a 2019 hatchback. He is 40,000 rupees below the seller's asking price. He has three days before the listing expires."
+   "private_context": "Ravi wants to buy a 2019 hatchback and is willing to negotiate. He knows the seller's listed price and is 40,000 rupees below it. He has the funds and can contact the seller."
   },
   {
    "name": "Seller",
-   "private_context": "The seller has listed a 2019 hatchback at a certain price. They are 40,000 rupees above Ravi's offer. The listing expires in three days."
+   "private_context": "The seller is offering a 2019 hatchback at a listed price. They are 40,000 rupees above Ravi's offer. The listing expires in three days. They may be open to negotiation."
   }
  ],
- "shared_context": "There is a 2019 hatchback listed for sale by a private seller. Ravi and the seller are 40,000 rupees apart on price. The listing will expire on 2026-08-23T10:00:00+05:30. They can communicate through the listing platform or other means.",
+ "shared_context": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The seller's listing expires on 2026-08-23T10:00:00+05:30. The current price gap is 40,000 rupees.",
  "starting_events": [
   {
-   "time": "2026-08-20T10:00:00+05:30",
-   "description": "Ravi and the seller are aware of each other's positions: Ravi has made an offer 40,000 rupees below the seller's asking price, and the seller has not yet accepted or countered.",
+   "time": "2026-08-20T04:30:00+00:00",
+   "description": "Ravi and the seller are aware of the price gap of 40,000 rupees. No agreement has been reached yet.",
    "visible_to": [
     "Ravi",
     "Seller"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Ravi and the seller agreed on a price (e.g., a binding acceptance or signed agreement) before 2026-08-23T10:00:00+05:30. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Ravi and the seller agreed on a price before 2026-08-23T10:00:00+05:30. Otherwise resolve NO at that time."
 }

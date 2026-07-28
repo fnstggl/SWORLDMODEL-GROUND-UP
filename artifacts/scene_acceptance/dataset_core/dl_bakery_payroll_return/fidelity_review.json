@@ -1,11 +1,11 @@
 {
  "verdict": "DEFECT",
- "worst_severity": "CRITICAL",
+ "worst_severity": "MAJOR",
  "defects": [
   {
    "aspect": "prewritten",
-   "severity": "CRITICAL",
-   "detail": "The private context states the bookkeeper 'has filed on time for the last seven quarters' and 'has no known obstacles or changes in her routine', which strongly pre-decides that she will file on time again, making the YES condition almost certain."
+   "severity": "MAJOR",
+   "detail": "The bookkeeper's private context states she 'has filed on time for the last seven quarters' and 'has a routine', which strongly implies she will continue to do so, pre-deciding the outcome in favor of YES."
   }
  ],
  "id": "dl_bakery_payroll_return"

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?",
-  "resolution": "Resolve YES if, by 2026-08-19T23:00:00+08:00, the persistent event history shows that all five students have explicitly agreed on a complete assignment of each chapter to a specific student. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that by 2026-08-19T23:00:00+08:00, all five students have explicitly agreed on a complete assignment of each chapter to a presenter for Saturday's session. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-19T23:00:00+08:00",
   "world_id": "w_37d90970752b"
  },

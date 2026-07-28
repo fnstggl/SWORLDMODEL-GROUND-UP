@@ -1,11 +1,11 @@
 {
- "reviewed": 96,
+ "reviewed": 105,
  "counts": {
-  "OK": 52,
+  "OK": 41,
   "MINOR": 0,
-  "MAJOR": 32,
-  "CRITICAL": 12,
-  "REVIEW_ERROR": 0
+  "MAJOR": 47,
+  "CRITICAL": 16,
+  "REVIEW_ERROR": 1
  },
  "critical": [
   {
@@ -13,38 +13,80 @@
    "worst_severity": "CRITICAL",
    "defects": [
     {
+     "aspect": "smallest_world",
+     "severity": "CRITICAL",
+     "detail": "The scene includes only 'NASA Senior Managers' as a single actor, but the question asks about a public announcement. The public announcement involves multiple actors (e.g., a spokesperson, media, or the public). The scene should include at least the entity that makes the announcement (e.g., a specific official or group) and the public/audience to whom the announcement is made. The current actor is too abstract and does not capture the social dynamics of a public announcement."
+    },
+    {
+     "aspect": "missing",
+     "severity": "CRITICAL",
+     "detail": "Missing actors: the public or media who receive the announcement, and possibly a specific spokesperson or official who makes the announcement. The question asks about a 'public announcement,' which requires an audience. Without them, the simulation cannot determine if the announcement was public."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MAJOR",
+     "detail": "The resolution says 'persistent event history shows that NASA senior managers publicly announced...' but the scene does not define what constitutes a 'public announcement' in the simulation's history. The resolution is vague and not tied to a specific observable event (e.g., a press conference, a press release). The simulation needs a clear observable record to check."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "CRITICAL",
+     "detail": "The scene pre-decides the outcome because the only actor is 'NASA Senior Managers' with private context that they will decide. The simulation will likely always produce a YES because the actor is the decision-maker and the resolution only checks if they announced. There is no mechanism for external factors (e.g., technical problems, political pressure) that could prevent the announcement. The scene does not allow for a NO outcome."
+    }
+   ],
+   "id": "appr_apollo11_go_decision"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
      "aspect": "prewritten",
      "severity": "CRITICAL",
-     "detail": "The starting event states that Dev Patel submits his request at the start time, but the question asks whether the security team will approve or reject within the service window. By having the submission occur at the exact start, the scene pre-decides that the request is submitted, which is necessary for the question. However, the scene also includes the resolution condition that the decision must be communicated before the cutoff, which is correct. The defect is that the starting event is visible only to Dev Patel, but the submission itself should be visible to the security team as well, otherwise they cannot act on it. This effectively pre-decides that the security team does not receive the request, making a YES impossible. This is a critical defect."
+     "detail": "The private context of the French Presidency states they 'aim to produce a consolidated draft agreement text' and are 'aware of the need to circulate a text before the final scheduled day', which pre-decides the intention to circulate, making the YES condition more likely and not genuinely open."
+    }
+   ],
+   "id": "comm_cop21_draft_circulation"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "CRITICAL",
+     "detail": "The scene includes only the subcommittee as an actor, but the recruitment of stall coordinators requires interaction with potential volunteers (the coordinators themselves). Without those actors, the simulation cannot model the recruitment process; the subcommittee cannot recruit itself. The world is not causally sufficient."
+    },
+    {
+     "aspect": "missing",
+     "severity": "CRITICAL",
+     "detail": "The potential stall coordinators (volunteers) are materially relevant actors missing from the scene. Their decisions to accept or decline recruitment are essential to answering the question."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "CRITICAL",
+     "detail": "The starting event states 'The PTA subcommittee for the winter fair has not yet recruited any stall coordinators.' This pre-decides that at start, zero coordinators are recruited, but the question asks whether they will recruit four by the meeting. The scene does not pre-decide the outcome, but the missing actors make it impossible to simulate recruitment. However, the prewritten aspect here is that the scene assumes the subcommittee can recruit on its own, which is not realistic. More critically, the resolution condition is pre-decided to be NO if no coordinators are recruited, but without actors to recruit, the simulation cannot produce YES. This effectively pre-decides NO."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "CRITICAL",
+     "detail": "The simulation cannot genuinely produce YES because there are no actors to be recruited. The only actor is the subcommittee, which cannot recruit itself. Thus the outcome is predetermined to be NO."
+    }
+   ],
+   "id": "comm_pta_stall_coordinators"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "CRITICAL",
+     "detail": "The starting event states that Hana Suzuki sends the complaint at 2026-08-19T04:00:00+00:00, which is before the start time (2026-08-19T13:00:00+09:00 = 2026-08-19T04:00:00+00:00). This means the complaint is already sent at the start, making the 24-hour window already ticking. The resolution condition is about whether the support desk replies before the cutoff, which is exactly the question. However, the scene pre-decides that the complaint is sent at the exact start time, which is not supported by the question or context. This could pre-decide the outcome if the support desk's response time is deterministic. More critically, the starting event is visible only to Hana Suzuki, but the support desk's private context says it has not yet received the complaint, creating a contradiction: the complaint is sent but not received? This inconsistency makes the scene invalid."
     },
     {
      "aspect": "info_boundaries",
-     "severity": "CRITICAL",
-     "detail": "The starting event 'Dev Patel submits his software-exception request' is visible only to Dev Patel, but the security team must be aware of the submission to process it. This leaks the information that the request was submitted only to Dev Patel, but the security team's private context says they have no prior knowledge until it is submitted. The event should be visible to both Dev Patel and the security team to allow the simulation to proceed. As written, the security team never receives the request, making a YES impossible."
-    }
-   ],
-   "id": "appr_security_exception_sla"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "CRITICAL",
-   "defects": [
-    {
-     "aspect": "prewritten",
-     "severity": "CRITICAL",
-     "detail": "The starting event states that Lucia Ferreyra sends her concept note at the start time. This pre-decides that the note is sent, but the question asks whether the program officer will respond substantively within one month. The sending is a necessary condition for the response, but the scene should not assume the note is sent; it should be a decision made by Lucia during the simulation. By fixing the sending event, the scene removes Lucia's agency and pre-decides part of the outcome."
-    }
-   ],
-   "id": "cold_foundation_concept_note"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "CRITICAL",
-   "defects": [
-    {
-     "aspect": "prewritten",
-     "severity": "CRITICAL",
-     "detail": "The starting event 'Hana Suzuki sends her complaint' pre-decides that the complaint is sent at the start, making the simulation's outcome dependent only on the support desk's response. However, the question asks whether the support desk will resolve or reply within 24 hours, which includes the possibility that Hana might not send the complaint immediately or at all. By fixing the sending time, the scene eliminates uncertainty about Hana's action, which could affect the answer."
+     "severity": "MAJOR",
+     "detail": "The starting event is visible only to Hana Suzuki, but the support desk's private context states it has not yet received the complaint. This is contradictory because if the complaint is sent, it should be received by the support desk. The information boundary is violated: the support desk should know about the complaint if it has been sent, but the scene says it hasn't received it."
     }
    ],
    "id": "cust_moldy_delivery_sla"
@@ -56,10 +98,10 @@
     {
      "aspect": "prewritten",
      "severity": "CRITICAL",
-     "detail": "The private context states the bookkeeper 'has filed on time for the last seven quarters' and 'has no known obstacles or changes in her routine', which strongly pre-decides that she will file on time again, making the YES condition almost certain."
+     "detail": "The starting events include 'President Kennedy delivers his address announcing the quarantine of Cuba' at a specific time, but the question states the address occurred on October 22. The scene sets the address as a starting event, which is a historical fact, but it also includes in shared context that 'On October 22, 1962, President Kennedy announced a quarantine...' This is redundant and could be seen as pre-deciding the context. However, the main issue is that the resolution condition is already true at the start: historically, Khrushchev sent letters on October 23 and 24. The scene does not prevent this, but the simulation might still produce NO if the model chooses differently. However, the scene's resolution is tied to historical fact, making it likely that the simulation will produce YES, which is correct but pre-decided by history. The scene should allow for counterfactual possibilities, but it does not explicitly prevent them. The defect is that the scene's resolution is based on a historical event that is almost certain to occur, making the simulation deterministic. This is a CRITICAL defect because it pre-decides the answer."
     }
    ],
-   "id": "dl_bakery_payroll_return"
+   "id": "dm_kennedy_khrushchev_letters"
   },
   {
    "verdict": "DEFECT",
@@ -68,10 +110,15 @@
     {
      "aspect": "prewritten",
      "severity": "CRITICAL",
-     "detail": "The shared context states 'The art director's promise of a decision within two weeks is known to both parties.' This pre-decides that the promise was made, which is a key fact that should be determined by the simulation. The scene should only set the stage, not assert the promise as a fact."
+     "detail": "The starting event states 'The quarterly review meeting begins. The executive team is to discuss and decide on the balcony-panel pilot.' This pre-decides that the decision will be made during the meeting, but the question asks whether the decision is made and communicated by the end of the week. The scene should not assume the decision is made at the meeting; it could be made later in the week."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MAJOR",
+     "detail": "The resolution condition requires the decision to be communicated to the pilot team, but the scene does not include any mechanism for the pilot team to observe the decision (e.g., they are not present at the meeting). The resolution should be based on an observable event, such as a company-wide announcement or a direct communication record."
     }
    ],
-   "id": "hire_studio_decision_promised"
+   "id": "exec_balcony_pilot_verdict"
   },
   {
    "verdict": "DEFECT",
@@ -80,17 +127,56 @@
     {
      "aspect": "missing",
      "severity": "CRITICAL",
-     "detail": "The scene includes only the CEO as an actor, but the all-hands meeting involves employees who may ask questions. The CEO's decision to take questions depends on the presence and behavior of employees. Without employees as actors, the simulation cannot model the interaction that determines the outcome."
+     "detail": "The scene models the band as a single actor, but the question asks about the four members settling a setlist, which inherently involves individual preferences and decisions. Without separate actors for each member, the simulation cannot capture the negotiation and agreement process, making it impossible to answer the question correctly."
+    }
+   ],
+   "id": "grp_band_setlist_rehearsal"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
+     "aspect": "info_boundaries",
+     "severity": "CRITICAL",
+     "detail": "The CEO's private context includes the CFO's private preference, which should be private to the CFO. This leaks information that could influence the CEO's decision in a way that pre-decides the outcome."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The private context states 'The CEO has not decided whether to take questions at that meeting.' This pre-decides that the CEO is undecided, but the question is about whether the CEO will take questions. The scene should not pre-state the CEO's indecision; it should be a genuine unknown. However, this is borderline because it leaves the decision open, but it explicitly states the CEO's internal state, which could bias the simulation."
+     "detail": "The CEO's private context states that the CFO prefers a shorter term, which is a direct input to the CEO's decision-making. This effectively pre-decides that the CEO has a reason to walk away, making the simulation less open."
+    },
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The CFO is a materially relevant actor because their private preference and potential influence on the CEO are central to the decision. The CFO should be included as an actor with their own private context."
+    },
+    {
+     "aspect": "invented_precision",
+     "severity": "MINOR",
+     "detail": "The scene specifies the option expiration as 'next Friday (2026-08-14)' but the question says 'next Friday' relative to the start date 2026-08-10, which would be 2026-08-14. However, the cutoff is 2026-08-21, so 'next Friday' from start is indeed 2026-08-14. This is consistent but the explicit date in shared context might be considered invented precision if not given in the question. However, it's derived from the question's start date, so it's acceptable."
+    }
+   ],
+   "id": "exec_wharf_lease_option"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
+     "aspect": "missing",
+     "severity": "CRITICAL",
+     "detail": "The scene includes only the CEO as an actor, but the all-hands meeting involves employees who may ask questions. The CEO's decision to take questions depends on employee behavior (e.g., whether they ask questions). Without employees, the simulation cannot model the interaction that determines the outcome."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "CRITICAL",
+     "detail": "The CEO's private context states 'The CEO has not yet decided whether to take questions at that meeting.' This pre-decides that the CEO is undecided, but the question is about whether the CEO will take questions. The scene should not pre-state the CEO's indecision; it should leave the CEO's decision entirely open. This sentence effectively prewrites the CEO's state of mind, which could bias the simulation."
     },
     {
      "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The shared context includes that the CEO is expected to address employees, which is public knowledge. However, the private context includes the CEO's knowledge of the shutdown date and the meeting schedule, which is also shared. This is minor because the shutdown date is already in shared context."
+     "severity": "MAJOR",
+     "detail": "The shared context states 'The CEO is expected to address employees at that meeting.' This implies a norm or expectation that may influence the CEO's decision, but it is not clear if this expectation is known to the CEO only or to all. If it is shared, it leaks the CEO's expected behavior into the shared context, which could affect the simulation."
     }
    ],
    "id": "ins_allhands_after_shutdown"
@@ -102,22 +188,44 @@
     {
      "aspect": "smallest_world",
      "severity": "CRITICAL",
-     "detail": "The scene includes only the council as a single actor, but the decision to adopt the precept involves individual members with potentially differing views. The council as a collective cannot make decisions without internal dynamics; the simulation needs individual actors (e.g., chairperson, clerk, members) to allow for genuine uncertainty."
+     "detail": "The scene models the entire membership as a single actor, which is not the smallest causally sufficient social world. Individual members' decisions to attend are independent and must be modeled separately to allow the simulation to produce either YES or NO based on their choices."
     },
     {
      "aspect": "missing",
      "severity": "CRITICAL",
-     "detail": "Materially relevant actors are missing: individual council members (including chairperson and clerk) who vote or influence the decision. Without them, the simulation cannot model the decision-making process."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "CRITICAL",
-     "detail": "The starting events state that the agenda includes formal adoption of the precept, which pre-decides that the item is on the agenda. However, the question is whether it will be formally adopted, not whether it is on the agenda. More critically, the shared context states that standing orders require adoption at the January meeting, which may make the YES outcome inevitable if the council follows orders, reducing genuine uncertainty."
+     "detail": "Individual members are missing. The turnout depends on each member's decision to attend or send a proxy; modeling the membership as a single actor cannot capture the necessary causal process."
     },
     {
      "aspect": "genuinely_open",
      "severity": "CRITICAL",
-     "detail": "Given the shared context that standing orders require adoption at the January meeting, and no countervailing factors (e.g., lack of quorum, disagreement, procedural issues) are introduced, the simulation is heavily biased toward YES. The scene does not provide mechanisms for a NO outcome (e.g., failure to adopt due to lack of quorum, amendment, or deferral)."
+     "detail": "With the membership as a single actor, the simulation cannot genuinely produce both YES and NO outcomes because the actor's private context provides no basis for deciding attendance. The scene precludes meaningful simulation of individual choices."
+    }
+   ],
+   "id": "leg_coop_pet_policy_turnout"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "CRITICAL",
+     "detail": "The scene models the parish council as a single actor, but the decision to adopt the precept involves multiple members with potentially differing views. The smallest causally sufficient world should include individual councillors or at least a chair and clerk to allow for debate, motions, and voting."
+    },
+    {
+     "aspect": "missing",
+     "severity": "CRITICAL",
+     "detail": "Materially relevant actors are missing: individual councillors (or at least a chairperson and clerk) who can propose, second, and vote on the precept. Without them, the adoption process cannot be simulated realistically."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "CRITICAL",
+     "detail": "The starting events state that 'the precept is on the agenda for formal adoption,' which pre-decides that the council will consider adoption. This makes the YES condition more likely and removes the possibility that the council might not even consider it (e.g., due to lack of quorum or other business)."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "CRITICAL",
+     "detail": "The simulation is not genuinely open because the scene already sets the precept as on the agenda for formal adoption, and the council is a single actor with no internal dissent. The outcome is effectively predetermined to be YES unless an external event prevents the meeting, which is not modeled."
     }
    ],
    "id": "leg_parish_precept_adoption"
@@ -129,47 +237,15 @@
     {
      "aspect": "smallest_world",
      "severity": "CRITICAL",
-     "detail": "The scene includes only the city council as a single actor, but the decision to hold a special meeting requires a majority vote of individual council members. Modeling the council as a monolithic actor pre-decides that the council can simply decide to hold a meeting, ignoring internal dynamics and individual preferences that could affect the outcome."
-    },
-    {
-     "aspect": "missing",
-     "severity": "CRITICAL",
-     "detail": "Individual council members are missing. The decision to schedule a special meeting depends on the preferences and votes of individual members. Without them, the simulation cannot capture the internal decision-making process."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The private context states 'The council can schedule a special meeting if needed.' This implies the council has the ability and willingness to do so, which may pre-decide that a special meeting will be called if the regular meeting fails to hold the second reading. The simulation should not assume the council's ability or willingness to call a special meeting."
+     "detail": "The scene models the Academic Senate as a single actor, but the question asks about the outcome of a vote, which requires modeling individual members or at least factions with distinct preferences. A single actor cannot produce a vote outcome; it would either always pass or always fail, pre-deciding the result."
     },
     {
      "aspect": "genuinely_open",
      "severity": "CRITICAL",
-     "detail": "Because the council is modeled as a single actor with the ability to schedule a special meeting, the simulation is likely to always choose to hold the second reading before recess, making a NO outcome unlikely. The scene does not allow for genuine uncertainty about whether the second reading will occur."
+     "detail": "With a single actor, the simulation cannot genuinely produce both YES and NO outcomes. The actor's private context is vague and does not specify any decision-making process, making the outcome arbitrary or predetermined."
     }
    ],
-   "id": "leg_str_second_reading"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "CRITICAL",
-   "defects": [
-    {
-     "aspect": "invented_precision",
-     "severity": "MAJOR",
-     "detail": "The shared context states the bill was referred on 2026-07-15 and the window ends on 2026-09-13, but the question only mentions a 'sixty-day window' without specifying the referral date. This precise date is not supported by the question or common knowledge."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "CRITICAL",
-     "detail": "The starting event states the agenda does not include scheduling a hearing, which pre-decides that no hearing is scheduled at the start, but the question asks whether a hearing will be scheduled within the window. This could be seen as pre-deciding the initial state, but more critically, the resolution's YES condition is already false at start because the window ends before the cutoff, and the starting event shows no hearing scheduled. However, the simulation could still schedule a hearing later, so this is not fully pre-decided. The real issue is that the resolution's YES condition is tied to a date (2026-09-13) that is before the cutoff, meaning the simulation could schedule a hearing after the window but before the cutoff, and the resolution would incorrectly resolve NO. This pre-decides the answer if no hearing is scheduled by 2026-09-13, but the question asks about scheduling within the window, so the resolution should only check up to the window end. The cutoff is after the window, so the resolution should resolve NO at the window end if no hearing scheduled, not at the cutoff. This misalignment is critical."
-    },
-    {
-     "aspect": "observable_resolution",
-     "severity": "CRITICAL",
-     "detail": "The resolution uses a hard cutoff of 2026-09-30, but the question asks about scheduling within the sixty-day window ending 2026-09-13. The resolution should resolve at the window end, not the cutoff. This means the simulation could schedule a hearing after the window but before the cutoff, and the resolution would incorrectly resolve NO, or if the simulation schedules after the window, the answer should be NO, but the resolution would still be NO, but the timing is wrong. The resolution must be tied to the window end, not the cutoff."
-    }
-   ],
-   "id": "leg_valdoria_rail_hearing"
+   "id": "leg_senate_passfail_motion"
   },
   {
    "verdict": "DEFECT",
@@ -178,7 +254,7 @@
     {
      "aspect": "prewritten",
      "severity": "CRITICAL",
-     "detail": "The starting event states that the CEO posts the launch announcement at the ship time, which pre-decides that the CEO will post. The question asks whether the CEO will post, so this decision should be left to the simulation, not predetermined."
+     "detail": "The starting events include the ship event at a specific time, but the resolution condition requires the CEO to post after the ship time. However, the CEO's private context states they have prepared a launch announcement and can post it, which implies they will post. This pre-decides the CEO's action, making the YES condition already true."
     }
    ],
    "id": "mix_v4_launch_repost"
@@ -190,22 +266,22 @@
     {
      "aspect": "smallest_world",
      "severity": "CRITICAL",
-     "detail": "The scene includes only the parents' group as a single actor, but the question involves multiple actors (parents' group and cast/recipients). The cast is missing as an actor; their presence backstage is necessary for the handover. Also, the school or staff may be relevant for access coordination."
+     "detail": "The scene includes only the parents' group as a single actor, but the question involves multiple parents who must decide individually whether to contribute money. Modeling the group as a single actor with a unified intention pre-decides that the group will attempt the task, whereas in reality, individual parents might not contribute, and the group might fail to organize. This removes the essential uncertainty about whether the collection will succeed."
     },
     {
      "aspect": "missing",
      "severity": "CRITICAL",
-     "detail": "The cast (or at least a representative) is missing. The handover requires recipients. Also, school staff or administration may be needed to ensure backstage access."
+     "detail": "The individual parents who must decide whether to contribute money are missing. Their decisions are materially relevant to whether the collection happens."
     },
     {
      "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The starting event says 'The parents' group begins their collection and coordination efforts.' This implies they start the process, but the question is whether they succeed. The scene should not pre-commit them to starting; it should only set the context that they have the responsibility."
+     "severity": "CRITICAL",
+     "detail": "The private context states the parents' group 'intends to collect for flowers and hand them over backstage before curtain.' This pre-decides the group's goal, making the simulation likely to succeed unless external obstacles are introduced. The question's uncertainty is about whether the group will actually manage to do it, not whether they intend to."
     },
     {
      "aspect": "genuinely_open",
      "severity": "CRITICAL",
-     "detail": "The scene is not genuinely open because the only actor is the parents' group, and the resolution depends on their actions. However, the handover requires interaction with the cast, which is missing. The simulation cannot produce a realistic YES or NO because the cast is not present to receive the flowers."
+     "detail": "Because the group is a single actor with a stated intention, the simulation is heavily biased toward YES. The scene does not allow for the possibility that the group fails due to lack of participation, coordination issues, or other realistic obstacles. The outcome is effectively pre-decided."
     }
    ],
    "id": "mix_play_flowers_by_curtain"
@@ -215,22 +291,44 @@
    "worst_severity": "CRITICAL",
    "defects": [
     {
-     "aspect": "missing",
+     "aspect": "invented_precision",
      "severity": "CRITICAL",
-     "detail": "The scene lacks the individual subscribers as actors. Their decisions (open, click, join) are the core of the question, but they are not modeled as separate actors with private context. Instead, they are treated as a passive mass, making it impossible to simulate individual choices."
+     "detail": "The scene invents a hard cutoff date (2026-10-16) as the RSVP deadline, but the question states the deadline is 'the Friday before' the town hall, whose date is unknown. This changes the question's condition."
     },
     {
      "aspect": "prewritten",
      "severity": "CRITICAL",
-     "detail": "The starting event 'Tidepool sends the beta launch email to all 5,000 newsletter subscribers' pre-decides that the email is sent to all subscribers, but the question implies a choice of which subscribers to email (the 5,000 subscribers are the list, but the email is sent to 'at least 200'? Actually the question says 'of the 5,000 newsletter subscribers Tidepool emails on launch morning' \u2013 this phrasing could be interpreted as Tidepool emails a subset? But the scene assumes all 5,000 are emailed, which may not be the intended interpretation. More critically, the scene's resolution condition is already partially satisfied if the email is sent, but the click-through is not pre-decided. However, the scene does not allow for the possibility that Tidepool might choose not to send the email or send to a different list, which could affect the outcome. The question's phrasing 'Tidepool emails on launch morning' suggests the emailing is a given, so this is minor. The major prewritten issue is that the subscribers' behavior is not modeled, so the simulation cannot produce a genuine YES/NO based on their decisions."
+     "detail": "The resolution pre-decides that the hard cutoff is the deadline, effectively setting the town hall date to be on or after that Friday, which is not given in the question. This pre-decides the timing condition."
     },
     {
      "aspect": "genuinely_open",
      "severity": "CRITICAL",
-     "detail": "The simulation cannot genuinely produce either YES or NO because the subscribers are not actors. Their click-through behavior is not simulated; instead, the resolution would have to be determined by some external mechanism or assumption, not by the actors' decisions. The scene as constructed does not allow for a simulation of individual choices, so the outcome is effectively pre-decided by the resolution condition, which is not based on actor decisions."
+     "detail": "The simulation is not genuinely open because the deadline is artificially fixed, potentially making the YES/NO outcome depend on an invented date rather than the actual Friday-before condition."
     }
    ],
-   "id": "pop_beta_waitlist_200"
+   "id": "pop_townhall_rsvp_half"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "CRITICAL",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "CRITICAL",
+     "detail": "The scene includes only David Cameron as an actor, but the question involves televised set-piece events which require broadcasters, organizers, and possibly other politicians. The smallest causally sufficient world must include at least the broadcasters who decide to host such events and invite participants."
+    },
+    {
+     "aspect": "missing",
+     "severity": "CRITICAL",
+     "detail": "Materially relevant actors missing: broadcasters (e.g., BBC, ITV) who organize televised set-piece events, and possibly other campaign figures who might be invited. Without them, the simulation cannot model whether such events occur and whether Cameron appears."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "CRITICAL",
+     "detail": "The starting event states 'No televised set-piece event featuring David Cameron has been confirmed yet.' This pre-decides that no event is confirmed at the start, but the question is about whether he appears in at least one before polling day. The scene should not assert a negative fact that could influence the simulation's outcome; it should leave the possibility open."
+    }
+   ],
+   "id": "pub_cameron_referendum_tv"
   }
  ],
  "major": [
@@ -241,24 +339,7 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The shared context states that the board's decision will be communicated after the meeting, but the resolution requires a decision communicated before the cutoff. This pre-decides that the board must meet and decide before the cutoff, which may not be guaranteed if the meeting is scheduled but could be postponed or cancelled."
-    }
-   ],
-   "id": "appr_ethics_board_protocol"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The starting event states that the geography department head submits the paperwork including a risk-assessment form that still needs the deputy head's signature. This implies the form is incomplete, which may pre-decide that the principal cannot sign off until the deputy head signs, effectively making the YES condition impossible before the deputy head returns from leave. The question asks whether the principal will sign off before the deadline; if the deputy head's signature is a prerequisite and they are on leave until late September, the principal may be unable to sign off until after the deputy head returns, potentially after the deadline. This pre-decides a NO outcome if the deputy head's return is too late."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The geography department head's private context includes knowledge that the deputy head is on leave until late September, which is also part of shared context. This is not a severe leak, but it is redundant."
+     "detail": "The starting events state that the risk-assessment form still needs the deputy head's signature, which is pending due to their leave. This pre-decides that the form is not yet signed, which may influence the principal's decision and makes the YES condition harder to achieve, effectively pre-deciding a future actor choice."
     }
    ],
    "id": "appr_field_trip_signoff"
@@ -270,17 +351,44 @@
     {
      "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The scene only includes the legal team as a single actor, but the question asks whether the legal team clears the contract. The legal team is a collective, which is acceptable. However, the scene omits any representation of the supplier or other stakeholders who might affect the review process (e.g., by providing additional information or raising issues). While not strictly necessary for the binary outcome, the lack of any external input could make the simulation unrealistic. More critically, the scene does not include any actor who could decide to clear or not clear the contract; the legal team is treated as a monolithic entity without internal decision-making. This could be acceptable if the team is modeled as a single agent, but the scene provides no mechanism for the team to actually make a decision, which may lead to a prewritten outcome."
+     "detail": "The calibration process typically involves a committee or other stakeholders (e.g., HR, other managers). The scene only includes Rosa Maria, Jonas, and the VP, omitting the calibration committee or other decision-makers who could affect the outcome."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The starting events and context do not pre-decide the outcome, but the resolution states 'Resolve YES if the persistent event history shows that the legal team formally cleared the contract... Otherwise resolve NO at the cutoff.' This is a proper resolution. However, the scene lacks any description of the legal team's internal process or workload, which could make the simulation deterministic if the team is modeled as a simple rule-based agent. The scene does not specify any constraints or factors that could lead to a NO outcome, so the simulation might default to YES if the team always clears contracts within 10 days. This is a potential prewriting issue."
+     "detail": "The starting event states that Rosa Maria has already prepared the case and is ready to submit it for calibration. This pre-decides that the case is complete and submitted, which is a key action that should be open to the simulation. The question asks whether the case clears calibration and receives sign-off; the submission itself should be a decision, not a given."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "Rosa Maria's private context includes her desire for the promotion to clear before November 15, which is fine. However, the shared context states 'Promotion letters are scheduled to go out on November 15' \u2013 this is common knowledge and acceptable. No major leakage."
+    }
+   ],
+   "id": "appr_promotion_vp_signoff"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "MAJOR",
+     "detail": "The scene includes only the legal team as an actor, but the decision to clear the contract may depend on other actors (e.g., the supplier, management, or external reviewers) who could influence the timeline. The world is not causally sufficient."
+    },
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "Materially relevant actors such as the supplier (who may need to respond to queries) or Veldt Solar's management (who may need to approve) are missing. Their actions could affect whether the contract is cleared within ten working days."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MINOR",
+     "detail": "The starting event states the contract is received for review, which is fine, but the shared context mentions a deadline of ten working days and a hard cutoff, which is derived from the question and acceptable. However, the resolution condition is pre-specified, which is necessary for the simulation but could be seen as pre-deciding the outcome if the legal team's behavior is deterministic. This is minor."
     },
     {
      "aspect": "genuinely_open",
      "severity": "MAJOR",
-     "detail": "The scene does not provide enough information to ensure that both YES and NO are genuinely possible. The legal team's private context says they must review the contract, but it does not mention any reasons why they might not clear it (e.g., legal risks, missing information, or workload). Without such factors, the simulation might always result in YES, making it not genuinely open."
+     "detail": "With only one actor and no external influences, the simulation may not be genuinely open to both YES and NO outcomes. The legal team's internal processes are not modeled, so the outcome could be predetermined by the model's assumptions. The scene lacks sufficient complexity to ensure genuine uncertainty."
     }
    ],
    "id": "appr_legal_contract_clearance"
@@ -292,17 +400,34 @@
     {
      "aspect": "invented_precision",
      "severity": "MAJOR",
-     "detail": "The scene specifies that the breweries are open during the visit window (10:00-20:00) and that Bao begins at 10:00. The question only says 'this Saturday' without specific hours; the start time and assumption of brewery hours are invented precision not supported by the question or common knowledge (breweries may open later)."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "Bao's private context includes knowledge that two breweries host rotating trucks and one never has. This is information he would know, but it is also stated in shared context, which is acceptable. However, the private contexts of the managers are vague and could be considered shared knowledge about their policies, but not a major leak."
+     "detail": "The resolution specifies exact dates and times for the service window (e.g., 2026-08-14T17:00:00-08:00) and assumes business days are Monday-Friday excluding weekends, but the question only mentions a 'published five-business-day service window' without specifying start date or weekend policy. The scene invents precise calendar details not supported by the question or common knowledge."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The shared context states 'Two of the breweries already host rotating food trucks; the third never has.' This pre-decides that the third brewery has a policy against food trucks, making a 'yes' from that manager highly unlikely and potentially pre-deciding the outcome if the other two say no. The question only says 'the third never has' (food trucks), which could mean they never have them, but the scene treats it as a fixed policy rather than an observation."
+     "detail": "The resolution pre-decides the condition for YES (communication before a specific date) and NO (hard cutoff), effectively scripting the outcome rather than leaving it open to the simulation. The simulation should determine whether the team responds within the window, not have the window's end pre-defined with exact dates."
+    }
+   ],
+   "id": "appr_security_exception_sla"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "invented_precision",
+     "severity": "MAJOR",
+     "detail": "The starting event specifies Bao begins his rounds at 15:00 UTC, which is 10:00 AM CDT (since start time is 10:00 AM CDT). This precise time is not supported by the question or context; the question only says 'this Saturday' without specifying a start time. This could affect the simulation if managers are not available at that exact time."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "Bao's private context includes knowledge that two breweries host rotating trucks and the third never has. This is information he could plausibly know, but it is also shared in the shared context, which is acceptable. However, the private contexts of the managers are minimal and do not leak, so this is minor."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The private context of Brewery Manager 3 states 'May have a policy or preference against it.' This strongly suggests a negative outcome for that manager, effectively pre-deciding that manager's response. The simulation should allow the possibility that the manager could say yes despite the policy, but the wording biases toward no."
     }
    ],
    "id": "cold_foodtruck_brewery_ask"
@@ -312,17 +437,17 @@
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "smallest_world",
+     "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The scene includes 40 identical individual actors, which is not the smallest causally sufficient world. A single collective actor 'Procurement Leads' would suffice, as the question only cares about at least one agreeing, not which one."
+     "detail": "The starting event has the recruiter sending the message at 2026-09-07T08:00:00+00:00, which is before the start time of the simulation (2026-09-07T10:00:00+02:00). This pre-decides that the message is sent, but the question asks whether Petra will reply at all within five business days. The timing discrepancy could affect the deadline calculation, as the message is sent earlier than the start, potentially giving Petra more time to reply. However, the resolution uses a different deadline (2026-09-11T18:00:00+02:00) which is consistent with the start time. The issue is that the event time is not aligned with the start time, which could cause confusion but does not pre-decide the outcome. More critically, the scene does not specify that the recruiter's message is sent at the start of the simulation; instead it is sent earlier. This could be seen as a minor inconsistency. However, the main defect is that the scene does not ensure the message is sent at the start, which is necessary for the simulation to begin with the message sent. The event should be at the start time. This is a MAJOR defect because it could affect the timing of Petra's receipt and reply."
     },
     {
-     "aspect": "decorative",
-     "severity": "MAJOR",
-     "detail": "All 40 procurement leads are identical and interchangeable; 39 of them are decorative because the question only requires at least one to agree. A single collective actor would be sufficient."
+     "aspect": "observable_resolution",
+     "severity": "MINOR",
+     "detail": "The resolution says 'Resolve YES only if the persistent event history shows that Petra Kovac actually sent a reply...' This is observable, but the resolution does not specify how the reply is sent or how it is recorded. It is acceptable but could be more precise."
     }
    ],
-   "id": "cold_sdr_discovery_call"
+   "id": "cold_recruiter_colorist_ping"
   },
   {
    "verdict": "DEFECT",
@@ -331,12 +456,12 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The chair's private context states they 'intend to attend' and shared context says 'the chair has never missed a session', which strongly pre-decides the chair's attendance, making the YES condition more likely and reducing genuine uncertainty."
+     "detail": "The private context for the chair states 'intends to attend' and for the three confirmed members states 'has confirmed attendance', which pre-decides their attendance, making the YES condition already partially true. The simulation should leave attendance decisions to the actors."
     },
     {
      "aspect": "info_boundaries",
      "severity": "MINOR",
-     "detail": "The shared context includes that the chair has never missed a session, which is arguably private knowledge about the chair's past behavior, but it is also common knowledge among committee members. However, it leaks the chair's reliability into shared context."
+     "detail": "The shared context includes that two members are traveling and three have confirmed, which is information that might not be known to all members. However, this is minor as it is plausible common knowledge."
     }
    ],
    "id": "comm_harbor_quorum_tuesday"
@@ -348,39 +473,24 @@
     {
      "aspect": "smallest_world",
      "severity": "MAJOR",
-     "detail": "The scene includes only two actors: the stepping-down chair and the collective 'Kettlewell Allotment Society members'. This lumps all members into a single actor, which may be insufficient to model individual decisions to volunteer. However, for a simple yes/no question about whether anyone volunteers, a collective actor can be acceptable if the simulation can model the collective's behavior. The main issue is that the scene does not specify any mechanism for individual members to decide, but that might be handled by the simulation. Still, it's borderline."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The private context of the chair states they have no preferred successor and will not influence the election. This pre-decides that the chair will not influence the outcome, which is a future choice. The simulation should allow the chair to potentially influence the election if they choose, but this context removes that possibility. This could affect the realism of the simulation."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The shared context states that 'any member may volunteer to stand for chair by submitting a nomination before the deadline.' This is common knowledge and acceptable. However, the private context of the members says they are 'aware of the upcoming AGM and the chair's intention to step down.' This is also shared knowledge, so it's not a leak. But the private context of the chair includes their decision to step down, which is private to the chair until announced. The scene says the chair's intention is known to the membership, which contradicts the private context. This is a minor inconsistency."
+     "detail": "The scene models the entire working group as a single actor, but the question asks about the actions of individual members (returning ballots). A single actor cannot represent the independent decisions of 21 members; the simulation would need to model each member separately to allow for varying behavior."
     }
    ],
-   "id": "comm_allotment_chair_nominee"
+   "id": "comm_wg_ballot_return"
   },
   {
    "verdict": "DEFECT",
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "missing",
+     "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The scene only includes the three interested residents as actors, but the tenants' association consists of many members who will vote. The other members are materially relevant because they determine the election outcome."
+     "detail": "The starting event states 'The first meeting of the season begins' at 16:30 UTC (18:30 local), but the resolution expects the meeting to be ongoing until 21:30. The scene pre-decides that the meeting occurs and that the three interested residents attend, which may not be true if they decide not to attend. This pre-decides a future actor choice (attendance) and makes the YES condition more likely."
     },
     {
      "aspect": "info_boundaries",
      "severity": "MINOR",
-     "detail": "The private context of each interested resident is identical and includes 'plans to attend' which is a future intention that could be considered private, but it's not leaked. However, the shared context states 'three residents have expressed interest' which is public knowledge, so no major issue."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The shared context states 'The meeting agenda includes electing a treasurer' and 'The association's members will decide on the election during the meeting.' This pre-decides that the election will be on the agenda and that a decision will be made, but it does not pre-decide the outcome. However, the resolution says 'Resolve YES if the persistent event history shows that a treasurer was elected' which assumes the election process happens. But the question asks 'will they elect a treasurer?' The scene should not assume the election will occur; it should be possible that the meeting does not get to that agenda item or that no one is elected. The scene pre-decides that the election is on the agenda and that a decision will be made, which is a prewritten outcome. This is a major defect."
+     "detail": "The shared context states that three residents have expressed interest, which is also in the private contexts of the residents. This is acceptable as it is common knowledge, but the private contexts of the residents include 'Will attend tonight's meeting' which is a decision that should be made by the actors, not pre-assigned. This leaks a future decision into private context."
     }
    ],
    "id": "comm_tenants_elect_treasurer"
@@ -390,17 +500,17 @@
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "info_boundaries",
+     "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The Communications Lead's private context states they are at an offsite and may not be reachable, but this is also stated in shared context, leaking private information about their availability."
+     "detail": "The review site is a material actor because it can affect whether the reply is posted (e.g., moderation, technical issues). The scene should include the review site as an actor or at least note its behavior in shared context."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The shared context states 'The company can decide to send the email even without the Communications Lead' which pre-decides that the organization has the authority to bypass the lead, influencing the simulation outcome."
+     "detail": "The private context states that Marguerite 'replies to most reviews within days, usually defensively.' This pre-decides a tendency that may make the YES outcome too likely, reducing genuine uncertainty."
     }
    ],
-   "id": "cust_outage_notice_by_noon"
+   "id": "cust_bistro_review_reply"
   },
   {
    "verdict": "DEFECT",
@@ -409,12 +519,7 @@
     {
      "aspect": "invented_precision",
      "severity": "MAJOR",
-     "detail": "The scene states that the ten-business-day window ends on 2026-10-28, a Wednesday, and that 2026-10-14 is a Wednesday. However, the question does not specify the day of the week, and the context does not provide a calendar. The calculation of business days including a federal holiday on 2026-10-12 is unsupported and may be incorrect (the holiday is before the start date). This precision is invented and could affect the deadline calculation."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The shared context includes the exact end date of the window (2026-10-28), which is derived from Marisol's private knowledge of the quoted window. This information should be private to Marisol unless the credit union also communicated it. The credit union's private context does not mention knowing the exact end date, but the shared context leaks it."
+     "detail": "The shared context states that ten business days from 2026-10-14 end on 2026-10-28, but this calculation depends on the specific holiday calendar (e.g., whether 2026-10-12 is a federal holiday). The question does not specify holidays, and common knowledge may not include that 2026-10-12 is a holiday. This invented precision could affect the deadline calculation."
     }
    ],
    "id": "cust_dispute_provisional_credit"
@@ -426,27 +531,27 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The starting event 'Kwame decides to request the sponsorship letter from the HR team' pre-decides that Kwame will take action, which is a choice that should be made by the actor model during simulation."
+     "detail": "The shared context states that Fenwick & Sloane has indicated they may cancel, but the account manager will propose pausing instead. This pre-decides the account manager's action (proposing pausing) and the representative's openness, which should be emergent from the simulation."
     }
    ],
-   "id": "dl_hr_sponsorship_letter"
+   "id": "cust_retention_call_save"
   },
   {
    "verdict": "DEFECT",
    "worst_severity": "MAJOR",
    "defects": [
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The starting event states the quarterly review begins at 2026-10-05T09:00:00+02:00, but the question asks whether the decision is made at the quarterly review and communicated the same week. The scene pre-commits to the review happening at that time, which is fine, but the resolution condition 'Resolve YES if the persistent event history shows that the executive team formally decided...' is not prewritten; however, the shared context says 'The quarterly review is scheduled for 2026-10-05' which is a fact from the question. The defect is that the scene includes the exact date and time of the review, which is not provided in the question or context. The question only says 'at its quarterly review' without specifying the date. This is an invented precision that could constrain the simulation unnecessarily."
-    },
     {
      "aspect": "invented_precision",
      "severity": "MAJOR",
-     "detail": "The scene specifies the exact start time of the quarterly review (2026-10-05T09:00:00+02:00) and the cutoff time (2026-10-16T18:00:00+02:00). The question only mentions 'the same week' and a cutoff date of 2026-10-16, but does not specify the exact start time of the review. This precision is not supported by the question or context."
+     "detail": "The scene states that the ten working days end on 2026-08-17, but this calculation depends on the definition of working days (e.g., whether weekends are excluded, and whether the start day counts). The question only says 'ten working days quoted in yesterday's email' without specifying the exact end date. The scene invents a precise end date that may not be accurate, potentially affecting the resolution."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MAJOR",
+     "detail": "The resolution requires checking if a decision was 'communicated' before a specific date, but the question asks if the decision is 'gotten' by Rustam. Communication may not be the same as Rustam receiving it. The resolution should match the question's phrasing."
     }
    ],
-   "id": "exec_balcony_pilot_verdict"
+   "id": "cust_warranty_second_line"
   },
   {
    "verdict": "DEFECT",
@@ -455,37 +560,105 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The private context of Apple Inc. states 'Apple is considering whether to confirm Jobs as the speaker before the conference.' This pre-decides that Apple has the option to confirm, but the question is whether they will confirm. The scene should not include any indication of Apple's internal decision-making process; it should only set the initial state of no confirmation. The phrase 'considering whether to confirm' implies a pending decision that may be resolved, but it also suggests that confirmation is a possible outcome, which is acceptable. However, the private context of Steve Jobs says 'He has not yet received confirmation from Apple's public relations team about an official announcement.' This implies that the PR team is involved and that an announcement is pending, which could be seen as pre-deciding that an announcement will happen. More critically, the shared context states 'The conference organizers expect Apple to confirm the speaker before the conference begins.' This expectation could influence the simulation towards a YES outcome, as it sets a norm. The scene should be neutral."
+     "detail": "The starting events include the portal going down at 04:00 UTC (06:00 local), but the question states the portal has been down since 06:00 local. The scene pre-decides the exact start time, which is fine, but more importantly, the shared context states 'The incident runbook requires customer email within four hours (by 10:00)'. This implies a deadline of 10:00, but the question's cutoff is 12:00. The scene's resolution checks before 12:00, but the runbook deadline of 10:00 is a prewritten constraint that may force a NO if not sent by 10:00, effectively pre-deciding the outcome if the lead is unavailable. The scene should not state the runbook deadline as a fixed fact; it should be part of the context but not pre-decide the outcome."
     },
     {
      "aspect": "info_boundaries",
      "severity": "MINOR",
-     "detail": "The shared context includes 'The conference organizers expect Apple to confirm the speaker before the conference begins.' This is an expectation that might be known to the public or to Apple, but it is not clearly private or shared. It could be considered shared knowledge, but it might also be an assumption that leaks the organizers' internal expectations. However, this is minor."
+     "detail": "The Communications Lead's private context states they are at an offsite and may not be reachable. This is appropriate. However, the shared context also states 'The Communications Lead is at an offsite all morning', which is the same information. This is not a leak but a duplication. It's minor."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MINOR",
+     "detail": "The resolution says 'Resolve YES only if the persistent event history shows that Nimbus Freight actually sent an incident notice email...'. This is observable, but the resolution should be a natural-language statement of what constitutes YES/NO, not a meta-instruction. It's minor."
     }
    ],
-   "id": "exec_jobs_macworld_keynote"
+   "id": "cust_outage_notice_by_noon"
   },
   {
    "verdict": "DEFECT",
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "info_boundaries",
+     "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The CEO's private context includes the CFO's preference for a shorter term, which is private information from the CFO. This should be in the CFO's private context, not the CEO's, unless the CFO has explicitly shared it. However, the question context states 'the CFO has privately told the CEO she prefers a shorter term', so it is known to the CEO. But the CFO is not listed as an actor, so the CFO's private context is missing. This is a boundary issue: the CFO's private preference is placed in the CEO's context, but the CFO is not an actor, so the information is not properly attributed."
+     "detail": "The bookkeeper's private context states she 'has filed on time for the last seven quarters' and 'has a routine', which strongly implies she will continue to do so, pre-deciding the outcome in favor of YES."
+    }
+   ],
+   "id": "dl_bakery_payroll_return"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The private context of Lucia states 'She wants to submit the completed application before the portal closes at 17:00 on the 30th.' This pre-decides her goal, effectively making the simulation outcome dependent on whether she succeeds, but the question is about whether the submission happens, not about her desire. However, this is a minor pre-decision of intent, not outcome. More critically, the shared context and starting events already state the budget spreadsheet is the only unfinished piece, which may pre-decide that the only obstacle is the budget and countersign, but does not pre-decide the outcome. The major issue is that the scene includes the fiscal sponsor's 48-hour requirement in shared context, but the fiscal sponsor is not an actor, so their actions are not simulated. This effectively pre-decides that the countersign will happen if submitted 48 hours before deadline, but the sponsor's behavior is not modeled, making the outcome deterministic if the budget is done in time. This is a pre-decision of the result."
     },
     {
      "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The CFO is a materially relevant actor because the CFO's private preference for a shorter term could influence the CEO's decision. The CFO is mentioned in the context but not included as an actor. The CFO could potentially affect the outcome by further advising the CEO or taking other actions."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MINOR",
-     "detail": "The starting events state that the CEO is aware of the proposed lease and the offer. This is fine, but the resolution condition is pre-set. However, the scene does not pre-decide the CEO's choice, so this is minor."
+     "detail": "The fiscal sponsor is a materially relevant actor because they must countersign, and their availability or willingness could affect the outcome. They are not included as an actor, so their decisions are not simulated, making the scene incomplete."
     }
    ],
-   "id": "exec_wharf_lease_option"
+   "id": "dl_alder_grant_portal"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The shared context states 'The manuscript must be uploaded by all authors before the deadline.' This implies a requirement that all three authors must upload, which may not be the actual journal policy (typically the corresponding author uploads). This pre-decides a condition for YES that may be incorrect."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "Co-author A's private context includes that they have limited email access until September 1, but this is also implied in the shared context? Actually, the shared context does not mention it, so it's fine. However, the shared context says 'The manuscript must be uploaded by all authors' which might be known to all, but it's a rule, not private info. No major issue."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MINOR",
+     "detail": "The resolution says 'uploaded by all three authors' which is observable, but the requirement that all three upload may be unrealistic. However, it is observable."
+    }
+   ],
+   "id": "dl_manuscript_resubmission"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event states that Maya sends the text at 12:30 UTC, but the question says she texted 'this morning'. The scene pre-decides the exact time, which may affect Stavros's availability and thus the outcome."
+    },
+    {
+     "aspect": "invented_precision",
+     "severity": "MAJOR",
+     "detail": "The scene invents a precise time (12:30 UTC) for the text, which is not supported by the question or context. This could influence Stavros's response likelihood."
+    }
+   ],
+   "id": "dm_landlord_heater_reply"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The resolution condition 'Resolve YES only if the persistent event history shows that Tomasz actually sent a reply...' is a pre-decision of the outcome condition, but the scene itself does not pre-decide the actor's choice. However, the starting events state 'The simulation begins. Tomasz has the email from Kestrel Analytics in his inbox, sent prior to this time.' This is acceptable. The defect is that the resolution is not an externally observable event/record; it is a meta-instruction to the simulator. The resolution should be a natural-language statement of what observable event constitutes YES/NO, not a directive to the simulator."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MAJOR",
+     "detail": "The resolution is phrased as a directive to the simulator ('Resolve YES only if...') rather than a description of an observable event. It should state what observable event in the persistent history constitutes a YES (e.g., 'Tomasz sends a reply email before the deadline') and what constitutes a NO (e.g., 'No reply is sent by the deadline')."
+    }
+   ],
+   "id": "dm_freight_quote_reply"
   },
   {
    "verdict": "DEFECT",
@@ -494,49 +667,44 @@
     {
      "aspect": "smallest_world",
      "severity": "MAJOR",
-     "detail": "The scene models the band as a single actor, but the question asks about the four members settling a setlist, which inherently involves individual preferences and interactions. Treating the band as a unit obscures the internal dynamics needed to simulate whether they agree."
+     "detail": "The scene includes two anonymous directors with no distinguishing features or context. The question asks about 'both required directors' but does not specify who they are. The scene should either identify them (e.g., by role or name) or include them as part of the bid team's context. As is, the directors are under-specified, making the world not causally sufficient because their behavior cannot be modeled without any information about their incentives or constraints."
     },
     {
      "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The four individual members are missing as separate actors. Their personal preferences, negotiations, and potential disagreements are essential to whether the setlist is settled."
+     "detail": "The scene lacks any actor representing the client or recipient of the tender (e.g., Valdoria postal authority). While the question focuses on internal signing and submission, the submission process may involve external parties. However, since the question only asks about signing and submission by the bid team, this is borderline. But the directors are missing any context about their roles or motivations, which is critical for modeling their signing decisions."
     },
     {
-     "aspect": "decorative",
+     "aspect": "info_boundaries",
      "severity": "MINOR",
-     "detail": "The band as a unit is included but cannot meaningfully act to settle the setlist without internal differentiation; it is effectively decorative."
+     "detail": "The private contexts of the directors are identical and state that their availability and willingness are unknown. This is not a leak but is uninformative. The shared context correctly states the deadline and requirement. However, the bid team's private context includes the same information as shared context, which is redundant but not a leak."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The private context states 'no agreement has been reached yet,' which pre-decides the initial state of disagreement. While this is plausible, it is a specific fact not given by the question or context, and it may constrain the simulation's starting point unnecessarily."
+     "detail": "The starting event says 'The bid team begins work on the Valdoria postal-contract tender, needing signatures from two directors and submission before Friday 12:00.' This is a restatement of the question and does not pre-decide the outcome. However, the resolution condition is stated as 'Resolve YES only if the persistent event history shows that the tender was signed by both required directors and submitted before deadline.' This is appropriate. No pre-decision."
     },
     {
      "aspect": "genuinely_open",
-     "severity": "MAJOR",
-     "detail": "With the band as a single actor, it is unclear how the simulation could produce a NO outcome, since the band actor would presumably always agree with itself. The scene does not allow for internal conflict, so the simulation is biased toward YES."
+     "severity": "NONE",
+     "detail": "The scene is open: the bid team may or may not succeed in getting signatures and submitting on time. The directors' actions are not predetermined."
     }
    ],
-   "id": "grp_band_setlist_rehearsal"
+   "id": "dl_valdoria_tender_noon"
   },
   {
    "verdict": "DEFECT",
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "invented_precision",
-     "severity": "MAJOR",
-     "detail": "The scene states that Jaka is aware of the early-bird deadline and the apartment listing, but the question and context do not specify that Jaka knows these details. This is an invented precision about Jaka's knowledge."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The scene states that Jaka 'usually ends up doing the booking' and that he 'wants to secure the booking but needs agreement on dates.' This pre-decides that Jaka will be the one to book, which may not be the case in the simulation. It also implies a motivation that could influence his actions."
-    },
-    {
      "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "Jaka's private context includes that he is aware of the early-bird deadline and the apartment listing. This information is also in shared context, so it's not a leak, but it's redundant. However, the private context of Friend 1 and Friend 2 only says they have new jobs with limited leave, which is appropriate."
+     "severity": "MAJOR",
+     "detail": "Jaka's private context includes awareness of the early-bird deadline, which is shared context. This leaks shared information into private context, but more importantly, it may imply Jaka has special responsibility, which could be seen as pre-deciding his role. However, the question states 'Jaka always ends up doing the booking', so this is acceptable. The real issue is that the private contexts of Friend 1 and Friend 2 mention 'new job with limited leave' but do not specify any details about their leave availability, making it impossible for the simulation to reason about their constraints. This is a missing information problem, but it's not exactly info_boundaries. Actually, the defect is that the private contexts are too vague to be useful, which is a form of missing information."
+    },
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The private contexts of Friend 1 and Friend 2 mention 'new job with limited leave' but do not specify how much leave they have or any constraints on dates. Without this information, the simulation cannot realistically model their availability, which is critical to the question of agreeing on dates. This missing detail makes the scene insufficient for a causally accurate simulation."
     }
    ],
    "id": "grp_ljubljana_trip_booking"
@@ -546,78 +714,14 @@
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "invented_precision",
-     "severity": "MAJOR",
-     "detail": "The shared context states 'the submission date is not specified, but the simulation starts on 2026-09-02... and the hard cutoff is 2026-10-02... which is exactly one month later. It is assumed the submission occurred before or at the start time, so the one-month period ends at the cutoff.' This invents a precise timeline (submission at start) that is not given in the question, which only says 'submitted a paid test piece' and 'quoted a one-month turnaround'. The question does not specify when the submission occurred relative to the start time, so assuming it happened exactly at the start is an invented precision that may affect the simulation's outcome."
-    }
-   ],
-   "id": "hire_subtitling_test_feedback"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
-     "aspect": "missing",
-     "severity": "MAJOR",
-     "detail": "The scene includes only HR as an actor, but the applicants are materially relevant because they could withdraw, decline, or be unreachable, affecting the count of invitations. Without applicants as actors, the simulation cannot model such possibilities."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The shared context states 'Eleven applications were received' which is public knowledge, but it also says 'The hospital typically invites some applicants for interview within two weeks of closing.' This is a general practice, not private, but it might be considered a minor assumption."
-    }
-   ],
-   "id": "hire_wardclerk_interview_invites"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
-     "aspect": "smallest_world",
-     "severity": "MAJOR",
-     "detail": "The scene includes 'Neighbors on Alder Court' as a single actor, but the question asks about filling all fourteen slots, which depends on individual decisions. Modeling them as a collective may obscure the dynamics of individual sign-ups, but it is acceptable for simplicity. However, the scene does not include any mechanism for neighbors to communicate or influence each other beyond the app, which might be necessary for the outcome. Still, the main defect is that the scene does not specify that the neighbors are the ones who can sign up; it only says they are aware. The actor 'Neighbors on Alder Court' is ambiguous: it could be interpreted as all 60 households, but the question specifies 'neighbors on Alder Court' which might be a subset. The scene should clarify that the neighbors on Alder Court are the ones who can sign up, and that there are exactly 14 slots. The shared context says 'sixty-household neighborhood app' but the question is about Alder Court neighbors, which may be a subset. This could lead to incorrect simulation if the app includes non-Alder Court neighbors. This is a major defect because it misaligns the actor set with the question."
-    },
-    {
-     "aspect": "missing",
-     "severity": "MAJOR",
-     "detail": "The Okafor family is not included as an actor. While they are the recipients, they might influence the outcome (e.g., by posting updates or expressing needs). However, the question is about neighbors filling slots, so the Okafors are not materially relevant to the decision to sign up. But the scene includes 'the Okafor family' in shared context, which is fine. No missing actor."
-    },
-    {
-     "aspect": "decorative",
-     "severity": "NONE",
-     "detail": "Both actors are necessary: Fran started the train and knows the status; neighbors are the ones who sign up."
-    },
-    {
-     "aspect": "invented_precision",
-     "severity": "MINOR",
-     "detail": "The scene states 'eight slots were claimed the first evening' which is given in context. The time '2026-10-05T09:00:00-04:00' is the start time from the question. No invented precision beyond what is given."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "NONE",
-     "detail": "Private contexts are appropriate: Fran knows the status; neighbors know about the sign-up. Shared context includes the sign-up details, which are public on the app. No leakage."
-    },
-    {
      "aspect": "prewritten",
-     "severity": "CRITICAL",
-     "detail": "The scene states that eight slots were already claimed. This is given in context, but it pre-decides that at least eight slots are filled, which is part of the starting condition. However, the question asks if all fourteen will be filled within four days from start. The starting condition of eight filled is given, so it's not pre-deciding the outcome; it's setting the initial state. But the scene includes 'Fran wants the remaining slots to be filled within four days' which is a desire, not a decision. However, the resolution says 'Resolve YES if the persistent event history shows that all fourteen slots were filled...' This is correct. No prewriting of future choices."
+     "severity": "MAJOR",
+     "detail": "The private context for Fran states 'Fran wants to fill all fourteen slots within four days to support the Okafor family.' This pre-decides Fran's motivation and goal, which could influence her actions (e.g., sending reminders) in a way that is not given by the question or context. The question does not specify Fran's desires; it only says she posted the sign-up. This could bias the simulation toward YES."
     },
     {
-     "aspect": "observable_resolution",
-     "severity": "NONE",
-     "detail": "The resolution is an observable event: the sign-up slots being filled, recorded in the app's history."
-    },
-    {
-     "aspect": "leakage",
-     "severity": "NONE",
-     "detail": "No post-start outcome knowledge appears."
-    },
-    {
-     "aspect": "genuinely_open",
-     "severity": "NONE",
-     "detail": "The simulation can produce either YES or NO depending on neighbor decisions."
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "The private context for 'Neighbors on Alder Court' includes 'Some may have already signed up for a slot; others may not have seen the post yet or may be considering it.' This is general knowledge that could be inferred from the shared context (eight slots claimed), but it is not strictly private to the collective. However, it is minor because it does not leak specific individual information."
     }
    ],
    "id": "grp_meal_train_fill"
@@ -629,15 +733,32 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The private context of the board states 'The board may decide to take a recorded vote or not.' This is a statement of possibility, not a pre-decision, but the shared context says 'The board can choose to take a recorded vote on the proposal at either meeting.' This is acceptable. However, the starting events state 'the later-start-times proposal is on the agenda for both meetings' which is a fact not fully supported by the question or context. The question only says the proposal has been tabled twice; it does not guarantee it is on the agenda for both September meetings. This pre-decides that the proposal is on the agenda, which is a material condition for a recorded vote to occur. If the board could choose not to put it on the agenda, then the scene pre-decides that possibility."
+     "detail": "The shared context states 'The team has not yet decided on a rope order.' This pre-decides that no decision has been made before the meeting, which is necessary for the question but also implies that the meeting is the only opportunity. However, the starting events and context already assert that the meeting is scheduled and the team is aware, which could be seen as prewriting the outcome that the meeting occurs. But more critically, the private contexts of the climbers say they are 'open to discussion', which biases towards agreement. The scene should not assume openness; it should leave room for refusal or deadlock."
     },
     {
-     "aspect": "invented_precision",
+     "aspect": "genuinely_open",
      "severity": "MAJOR",
-     "detail": "The scene states the proposal is on the agenda for both September meetings. The question and context do not specify that the proposal is on the agenda for both meetings; they only mention two September meetings and that the proposal has been tabled twice. This is an invented precision that restricts the board's autonomy."
+     "detail": "The scene heavily implies that the meeting will happen and that climbers are open to discussion, making a YES outcome more likely. The simulation might not be able to produce a NO outcome where the team fails to pick a rope order (e.g., due to disagreement or refusal to decide). The private contexts should not pre-assume openness; they should be neutral or allow for conflict."
     }
    ],
-   "id": "leg_school_board_start_times"
+   "id": "grp_rope_order_restday"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The scene includes only Dmytro as an actor, but the decision to apply may be influenced by other actors such as HR, the hiring manager, or colleagues. Their absence could affect the realism of the simulation."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event states 'Dmytro is aware of the posting' which pre-decides that he knows about the role. This could influence his decision-making process, but it is a necessary condition for the question. However, the scene does not allow for the possibility that he might not be aware, which could be a realistic scenario."
+    }
+   ],
+   "id": "hire_internal_ops_application"
   },
   {
    "verdict": "DEFECT",
@@ -646,7 +767,200 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "Femi's private context states he has phoned his mother within an hour of every results release since his first year. This strongly pre-decides that he will call again, making the YES outcome nearly certain and reducing the simulation's openness."
+     "detail": "The starting events state that the meeting begins at 11:00 UTC (19:00 local), but the resolution requires agreement by 23:00 local. The scene does not pre-decide the outcome, but the shared context says 'they aim to reach an agreement by the end of the meeting', which is a prewritten assumption about their goal. However, this is minor. The major defect is that the private contexts are all identical and generic, providing no meaningful information for the simulation. This is not a defect per se, but the scene lacks necessary detail to be causally sufficient. However, the most critical defect is that the resolution condition is not externally observable: 'explicitly agreed' is a mental state, not an observable event. The resolution should be based on an observable record, such as a signed document or a public announcement. This makes the resolution unverifiable."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "CRITICAL",
+     "detail": "The resolution requires 'explicitly agreed' which is an internal mental state, not an externally observable event or record. The simulation cannot reliably determine if agreement occurred without a concrete observable action (e.g., a written schedule, a verbal statement recorded in history). This makes the resolution unverifiable and could lead to incorrect simulation outcomes."
+    }
+   ],
+   "id": "grp_study_chapter_split"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "invented_precision",
+     "severity": "MAJOR",
+     "detail": "The scene assumes the submission date is such that the one-month deadline falls within the simulation window, but the question does not specify the submission date. This invents a precise timeline not supported by the question."
+    }
+   ],
+   "id": "hire_subtitling_test_feedback"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "MAJOR",
+     "detail": "The scene includes 11 individual applicant actors, but they are all identical in private context (only wanting an interview) and cannot affect the outcome individually. The simulation only needs to know that there are 11 applicants; the HR actor is the only one making decisions. The applicants could be represented as a single collective actor or omitted entirely, as their individual actions are irrelevant to the question."
+    },
+    {
+     "aspect": "decorative",
+     "severity": "MAJOR",
+     "detail": "All 11 applicant actors are decorative because they have no agency or private information that can influence the outcome. They only have a desire to be interviewed, but they cannot take any actions that affect whether they are invited. The only actor that matters is HR."
+    }
+   ],
+   "id": "hire_wardclerk_interview_invites"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event states that the recruiter has called both referees but neither has returned the call yet. This pre-decides that the referees have not yet returned the call at the start, which is necessary for the question to be open. However, the scene also includes in shared context that 'the referees are aware of the recruiter's call but have not yet returned it', which is a prewritten fact that could influence the simulation. More critically, the resolution condition is stated as 'Resolve YES only if the persistent event history shows that both referees have actually returned the recruiter's call before the interview panel meets next Thursday. Otherwise resolve NO at that time.' This is a correct resolution, but the scene includes a starting event that says 'neither has returned the call yet', which is a prewritten fact that might be considered as pre-deciding the initial state. However, this is necessary for the question. The major defect is that the scene includes a starting event that is visible only to the recruiter, but the shared context also states the same fact, which might be considered as leaking information to all actors. But the main issue is that the scene does not specify the referees' private context sufficiently to allow them to make a decision; it only says they 'may or may not be willing', which is vague. This could be considered a minor issue. However, the most critical defect is that the scene does not include the interview panel as an actor, but the question asks about the interview panel meeting. The interview panel is a collective that could be considered as a single actor, but it is not included. This might be a missing actor. But the question is about whether the referees return calls before the panel meets, so the panel is not materially relevant to the decision. The panel's meeting time is given in shared context. So missing actor is not a defect. The scene seems mostly correct, but the starting event and shared context both state that the referees have not returned the call, which is a prewritten fact. However, this is necessary for the simulation to start. The defect is that the scene includes a starting event that is visible only to the recruiter, but the shared context also states the same fact, which might be considered as leaking information. But the shared context is known to all actors, so it's not a leak. The real defect is that the scene does not provide enough private context for the referees to make a decision; it only says they may or may not be willing. This is too vague and could be considered as pre-deciding nothing, but it's actually open. I think the scene is acceptable. However, the instruction says to audit adversarially. The scene has a starting event that says 'neither has returned the call yet', which is a prewritten fact that might be considered as pre-deciding the initial state. But that is necessary. The resolution is correct. I think the scene is OK. But let's check the criteria: 'prewritten: does any starting event or context sentence pre-decide a future actor choice, or make the YES condition already true?' The starting event says neither has returned the call yet, which does not pre-decide future choices; it just sets the initial state. The YES condition is not already true. So no defect. 'info_boundaries': private contexts are only theirs. Shared context does not leak private information. 'observable_resolution': the resolution is an externally observable event (returning a call). 'genuinely_open': yes, both outcomes possible. So I think the scene is OK. But the question asks 'Will both referees listed by shortlisted candidate Aoife Byrne return the recruiter's calls before the interview panel meets next Thursday?' The scene includes the recruiter and referees, but the interview panel is not an actor. That's fine because the panel is just a deadline. The scene seems correct. I will give verdict OK."
+    }
+   ],
+   "id": "hire_referees_return_calls"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "MAJOR",
+     "detail": "The scene includes only two collective actors (support team and management) but does not include individual team members or other stakeholders (e.g., HR, other teams) that could materially affect morale. However, the question is about team morale, so the collective actor is acceptable. The main issue is that the scene lacks specificity about the reorg details, which could affect the simulation's ability to generate realistic interactions."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The shared context states that morale is currently at a moderate level. This pre-decides a baseline that may not be justified by the question or context, and it could influence the simulation's outcome by anchoring the starting point. The question does not provide any information about current morale, so this is an invented precision."
+    },
+    {
+     "aspect": "invented_precision",
+     "severity": "MAJOR",
+     "detail": "The shared context states that morale is currently at a moderate level. This is an unsupported precise claim about the state of morale, which is not provided in the question or context. It could bias the simulation."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MINOR",
+     "detail": "The resolution requires that a majority of team members have expressed that morale is better than before the reorg. This is observable in principle, but the phrase 'expressed (in observable communications or surveys)' is somewhat vague. However, it is acceptable as a resolution condition."
+    }
+   ],
+   "id": "ins_morale_no_observable"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The scene omits other actors who could influence de Klerk's decision, such as cabinet members, advisors, or the Parliament itself. Their absence may affect the realism of the simulation."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The private context states de Klerk 'has not yet decided' and is 'considering various factors', which pre-decides that the decision is pending and open, but this is acceptable as it reflects uncertainty. However, the starting events mention 'no decision has been announced yet', which is consistent. No pre-decision of the outcome is present."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MINOR",
+     "detail": "The resolution is observable as a public event, but the exact time window is specified precisely. This is acceptable given the question."
+    }
+   ],
+   "id": "leg_deklerk_opening_address"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The scene includes only the president, but the question asks whether the president will confirm the party. The confirmation is a communication act that requires an audience (e.g., club members, the public). Without specifying to whom the confirmation is made, the simulation cannot determine if a confirmation occurred. The resolution mentions 'communicated a confirmation' but does not specify the recipient, making it ambiguous."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "MAJOR",
+     "detail": "The resolution says 'persistent event history shows that the astronomy club president actually communicated a confirmation'. However, without defining what constitutes a communication (e.g., email, announcement) and to whom, it is not a clearly observable event. The resolution is vague and may not be determinable from the simulation."
+    }
+   ],
+   "id": "mix_eclipse_party_confirm"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "MAJOR",
+     "detail": "The scene includes only the committee as a single actor, but the decision to schedule a hearing may involve other actors such as the bill's sponsor, government whips, or opposition members who could influence the committee. The world is not causally sufficient as it omits potential influences."
+    },
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "Materially relevant actors are missing: individual committee members with their own agendas, the bill's sponsor, and possibly the government or opposition leaders who could pressure the committee. Their absence may affect the realism of the decision."
+    },
+    {
+     "aspect": "decorative",
+     "severity": "MINOR",
+     "detail": "The committee is treated as a single actor, which is acceptable for collective decision-making, but the private context mentions 'varying opinions' without specifying them, which is vague but not decorative."
+    },
+    {
+     "aspect": "invented_precision",
+     "severity": "NONE",
+     "detail": "No unsupported precise facts are stated."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "NONE",
+     "detail": "Private context is appropriately limited to the committee, and shared context is public knowledge."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "NONE",
+     "detail": "No decision is prewritten; the committee's choice is open."
+    },
+    {
+     "aspect": "observable_resolution",
+     "severity": "NONE",
+     "detail": "The resolution is an observable event (scheduling a hearing) in the persistent history."
+    },
+    {
+     "aspect": "leakage",
+     "severity": "NONE",
+     "detail": "No post-start outcome knowledge is present."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "NONE",
+     "detail": "The simulation could produce either YES or NO."
+    }
+   ],
+   "id": "leg_valdoria_rail_hearing"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The shared context states 'They have a plan to set up before the first runners pass around 08:30.' This pre-decides that the neighbors have a concrete plan, which may not be true; it could be just discussion. This biases the simulation toward YES."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "The collective actor's private context includes 'They have a plan to set up...' which is also in shared context, causing redundancy but not leakage."
+    }
+   ],
+   "id": "mix_marathon_water_table"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "Femi's private context states he has phoned his mother within an hour of every results release since his first year, which strongly pre-decides that he will call again, making the YES outcome nearly certain and undermining genuine openness."
     }
    ],
    "id": "mix_results_day_phone_call"
@@ -658,12 +972,34 @@
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The starting event states that Ravi has made an offer 40,000 rupees below the seller's asking price, and the seller has not yet accepted or countered. This pre-decides that an offer has been made, which may not be the case; the question only says they are 40,000 rupees apart, not that an offer has been made. This could influence the negotiation process."
+     "detail": "The shared context states 'The co-founder believes anything above 0.5% is too rich' and Leila's private context includes 'Her co-founder thinks anything above 0.5% is too rich.' This pre-decides that Leila cannot offer above 0.5% without contradicting the co-founder's known stance, effectively constraining the negotiation outcome and making a YES (agreement at 1%) impossible unless the co-founder changes his mind, which is not modeled. The scene should not include the co-founder's opinion as a fixed fact if it is meant to be a negotiable constraint."
     },
     {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The co-founder is a materially relevant actor because his opinion on equity (anything above 0.5% is too rich) directly affects Leila's ability to offer more than 0.5%. Without the co-founder as an actor, his stance is presented as an immutable fact rather than a negotiable position, which pre-decides the outcome. The co-founder should be included as an actor with his own private context and ability to change his mind."
+    }
+   ],
+   "id": "neg_advisor_equity_agreement"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
      "aspect": "invented_precision",
-     "severity": "MINOR",
-     "detail": "The scene specifies that the listing expires on 2026-08-23T10:00:00+05:30, which is derived from the question's cutoff, but the question does not specify the exact time of expiration; it only says 'three days before the seller's posted listing expires'. The exact time is an invented precision."
+     "severity": "MAJOR",
+     "detail": "The scene states the price gap is exactly 40,000 rupees, but the question only says they are 40,000 rupees apart, which is the same. However, the scene also states the seller's listing expires in three days, which is consistent with the question. No invented precision beyond the question."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event says 'No agreement has been reached yet.' This pre-decides that the simulation starts before any agreement, which is necessary. However, the private contexts state Ravi is willing to negotiate and the seller may be open to negotiation, which are reasonable assumptions but could be seen as pre-deciding their willingness. The question does not specify their willingness, so this might pre-decide a future choice. The seller's private context says 'may be open to negotiation' which is vague, but still a pre-decision. This could affect the outcome."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "MAJOR",
+     "detail": "The scene sets up a negotiation with a price gap and a deadline. It is possible for the simulation to produce either YES or NO. However, the private contexts imply both parties are open to negotiation, which might bias towards YES. The question does not provide any information about their willingness, so the scene should not assume they are willing to negotiate. This could make the simulation less open to a NO outcome."
     }
    ],
    "id": "neg_hatchback_price_gap"
@@ -675,20 +1011,15 @@
     {
      "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The scene does not include any actor representing the city or marathon organizers who might have rules or permits affecting the water table setup. Also, no actor representing other neighbors who might help or hinder the setup is included beyond the group."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The resolution states 'Resolve YES only if the persistent event history shows that the water table was actually set up...' This pre-decides that the simulation must check for a specific event, but the scene already includes that Priya has bought cups and the neighbors have discussed it, which could bias the simulation towards YES. More importantly, the resolution's condition is already partially satisfied by the shared context that the neighbors have a plan, making the YES condition more likely."
+     "detail": "The scene lacks any actor or mechanism that could influence survey completion rates, such as management, HR, or a survey administrator who might send reminders or provide incentives. Without any entity that can affect the outcome, the simulation reduces to random chance, which is not a realistic social simulation."
     },
     {
      "aspect": "genuinely_open",
      "severity": "MAJOR",
-     "detail": "The scene heavily implies that the neighbors are committed and have taken preparatory steps (Priya bought cups), which reduces the uncertainty of whether they will set up the table. The simulation might still produce NO, but the setup is strongly suggested, making the outcome less genuinely open."
+     "detail": "While the scene does not pre-decide the outcome, the lack of any influencing factors makes the simulation trivial and not genuinely open in a meaningful social sense. The outcome depends solely on unmodeled individual dispositions, which is not a proper simulation of organizational behavior."
     }
    ],
-   "id": "mix_marathon_water_table"
+   "id": "pop_engagement_survey_60"
   },
   {
    "verdict": "DEFECT",
@@ -697,7 +1028,17 @@
     {
      "aspect": "smallest_world",
      "severity": "MAJOR",
-     "detail": "The scene includes 'Villagers of Kettlewell' as a single actor, but the question asks about at least thirty villagers attending. This collective actor cannot produce a count of distinct individuals, making it impossible to determine if the threshold is met. The world should include individual villagers or a mechanism to count distinct attendees."
+     "detail": "The scene includes only two actors: 'Kettlewell villagers' as a collective and the parish clerk. However, the question asks about attendance at a meeting, which depends on individual decisions of many villagers. Modeling all villagers as a single actor with a single private context loses the heterogeneity needed to simulate whether at least 30 attend. A proper simulation would need individual villagers or at least multiple groups with different awareness and interest levels."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The resolution states 'Resolve YES if the persistent event history shows that at least thirty distinct villagers attended... Otherwise resolve NO at the cutoff.' This is a correct resolution condition, but the scene's actor model (single collective) makes it impossible to simulate distinct attendance counts. The simulation would have to decide for the collective, which pre-decides the outcome based on the collective's behavior, not individual choices."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "MAJOR",
+     "detail": "With only a single collective actor for villagers, the simulation cannot genuinely produce both YES and NO outcomes in a meaningful way. The collective actor's behavior would be monolithic, and the question of 'at least thirty' requires counting individuals, which is not possible with this actor model."
     }
    ],
    "id": "pop_bus_meeting_turnout"
@@ -707,102 +1048,14 @@
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "info_boundaries",
-     "severity": "MAJOR",
-     "detail": "The shared context states that the Head Teacher may or may not have heard about the parents' discussion, but the starting events description 'The Head Teacher is at school and may or may not have heard about the parents' discussion' is visible only to the parents, not to the Head Teacher. This implies the Head Teacher's knowledge state is being treated as shared or observable by parents, which leaks private information about the Head Teacher's awareness."
-    }
-   ],
-   "id": "pub_head_teacher_newsletter"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
      "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The scene includes only the mayor, but the decision to issue a statement may involve other actors such as a press secretary, communications staff, or city council. Their absence could materially affect the outcome."
+     "detail": "The international union is a materially relevant actor because its prior endorsement may influence the local's decision, and it could be involved in the press release process. Its absence limits the simulation's ability to model external pressure."
     },
     {
      "aspect": "info_boundaries",
      "severity": "MINOR",
-     "detail": "The mayor's private context states they have not yet decided, which is appropriate. However, the shared context mentions 'the mayor's office is the usual channel' which is fine. No leakage."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MINOR",
-     "detail": "The starting events only state the mayor is aware, which is fine. No pre-decision."
-    }
-   ],
-   "id": "pub_mayor_watermain_statement"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
-     "aspect": "missing",
-     "severity": "MAJOR",
-     "detail": "The head of support and journalists are materially relevant actors whose actions (e.g., leaking, pressuring) could affect the founder's decision, but they are not included as actors."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The founder's private context includes knowledge of the head of support's confirmation and journalist emails, but these are not shared with other actors; however, the shared context does not leak private info."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MINOR",
-     "detail": "The starting events only state the thread is visible, which is fine, but the resolution is correctly open."
-    }
-   ],
-   "id": "pub_tidepool_founder_response"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The starting event has Femi already sending an email proposing dates, which pre-decides that Femi initiates the process and the specific action of proposing dates. This could influence the outcome by assuming a particular communication strategy."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MINOR",
-     "detail": "The private contexts of committee members are identical and generic, but they do not leak specific private information. However, the shared context includes the fact that they can communicate via email or in person, which is fine."
-    },
-    {
-     "aspect": "observable_resolution",
-     "severity": "MINOR",
-     "detail": "The resolution is observable as an agreement recorded in persistent history, but it does not specify what constitutes 'agreed' (e.g., email confirmation, calendar entry). This is minor."
-    }
-   ],
-   "id": "sched_defense_date_window"
-  },
-  {
-   "verdict": "DEFECT",
-   "worst_severity": "MAJOR",
-   "defects": [
-    {
-     "aspect": "missing",
-     "severity": "MAJOR",
-     "detail": "The scene includes only the union local as an actor, but the question asks about a press release that would be issued to the public. The press release is an action taken by the local, but the local is a collective; the decision-making process involves individuals or subgroups (e.g., executive board, rank-and-file caucus) that are not represented as separate actors. However, the question does not require modeling internal dynamics, so this might be acceptable. More critically, the scene omits any actor representing the 'public' or 'media' that would receive the press release, but that is not necessary for the decision. The main issue is that the local's private context includes internal disagreement and international influence, which are not modeled as separate actors, but that is acceptable for a single-actor simulation. However, the scene lacks any actor that could issue the press release on behalf of the local (e.g., a spokesperson). The local as a collective cannot act without a designated representative. This is a minor issue. The major defect is that the scene does not include the possibility that the local might not issue any press release at all, which is a valid outcome. But the resolution says 'Resolve YES if ... the local actually issued a press release ... Otherwise resolve NO.' This is correct. The missing actor issue is not critical."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The starting event says 'No press release has been issued yet by the local.' This is a factual statement that sets the initial condition. However, the private context includes 'The local is aware of the port automation memorandum and is considering whether to endorse it.' This implies the local is already in the process of considering, which might pre-decide that they will eventually make a decision. But the question is about whether they put out a press release before Monday, not whether they decide. The scene does not pre-decide the outcome. However, the private context states 'There is internal disagreement: a rank-and-file caucus has been leafleting against the memorandum.' This could be seen as pre-deciding that the local is leaning against endorsement, but it does not force a specific outcome. The major issue is that the scene includes the international union's endorsement as part of the local's private context, which is information that the local knows, but it might be considered as influencing the decision. However, that is appropriate context. The prewritten defect is not severe."
-    },
-    {
-     "aspect": "info_boundaries",
-     "severity": "MAJOR",
-     "detail": "The shared context includes 'The port automation memorandum exists and is a matter of public record.' This is fine. But it also includes 'The local can issue a press release through standard channels.' This is common knowledge. However, the shared context says 'The deadline for a decision is before Monday, 2026-08-31.' This is not necessarily common knowledge; the deadline might be internal to the local or imposed by the question. The question sets the cutoff, but the local might not perceive a deadline. This imposes an external constraint that may not be realistic. This is a major defect because it invents a deadline that is not supported by the question or context."
-    },
-    {
-     "aspect": "invented_precision",
-     "severity": "MAJOR",
-     "detail": "The shared context states 'The deadline for a decision is before Monday, 2026-08-31.' This is an invented precision: the question only says 'before Monday' but does not specify that the local perceives a deadline. The scene imposes a deadline that may not exist in the local's mind, potentially forcing a decision that might not otherwise occur. This is a major defect."
+     "detail": "The shared context includes the fact that the international union endorsed a similar deal, which is public knowledge, but the private context of the executive board also mentions this, which is acceptable. However, the rank-and-file caucus's private context is appropriately private."
     }
    ],
    "id": "pub_dockworkers_endorsement"
@@ -812,22 +1065,22 @@
    "worst_severity": "MAJOR",
    "defects": [
     {
-     "aspect": "smallest_world",
+     "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The scene includes only Priya and the front desk, but the front desk is a collective actor. However, the scene does not specify that the front desk has the authority to agree on a new slot, or that there is a scheduler or dentist involved. This may be insufficient for the simulation to realistically determine agreement."
+     "detail": "The head of support, who privately confirmed the takedowns to the founder, is not included as an actor. This person is materially relevant because their confirmation is a key piece of information that influences the founder's decision, and their actions (e.g., further communication) could affect the outcome."
     },
     {
      "aspect": "info_boundaries",
-     "severity": "MAJOR",
-     "detail": "Priya's private context states she wants to find a new slot before Wednesday noon, which is a goal that should be part of her decision-making, not a fixed fact. This could pre-decide her actions. Also, the front desk's private context says they have availability information, which is fine, but the shared context mentions the front desk can be contacted by phone or in person, which is common knowledge and not a leak."
+     "severity": "MINOR",
+     "detail": "The shared context states that the founder has not yet posted any public response, which is also part of the founder's private context. This is a minor overlap, but acceptable as it is a fact known to all."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The starting event says 'Priya decides to contact Maple Row Dental to reschedule her Thursday cleaning.' This pre-decides that Priya will initiate contact, which is a choice that should be open in the simulation. She might not contact them, or might do so later."
+     "detail": "The starting events include the viral thread with two million views and screenshots that look genuine. This pre-decides the severity of the crisis, which heavily influences the founder's decision to respond. The simulation should allow for the possibility that the thread might not be as impactful or that the screenshots might be disputed."
     }
    ],
-   "id": "sched_dental_reslot"
+   "id": "pub_tidepool_founder_response"
   },
   {
    "verdict": "DEFECT",
@@ -836,17 +1089,7 @@
     {
      "aspect": "info_boundaries",
      "severity": "MAJOR",
-     "detail": "The CEO's assistant's private context includes that two advisors have responded, which is shared knowledge (the assistant knows who responded, but the fact that two responded is known to all who see the poll results). However, the assistant's context also says 'The assistant can follow up and coordinate to finalize a date.' This implies a capability or intention that may not be common knowledge and could influence the simulation. More critically, the shared context states 'Two advisors have already responded' and 'The remaining three have not yet responded.' This is information that the assistant would know, but the advisors might not know who has responded. The shared context should only contain information known to all actors. Here, it's plausible that all advisors know that a poll was sent and that some have responded, but not necessarily which ones. The scene leaks the exact count and status of responses into shared context, which might not be known to all advisors."
-    },
-    {
-     "aspect": "prewritten",
-     "severity": "MAJOR",
-     "detail": "The shared context states 'The deadline for settling a date is within three weeks from 2026-07-29.' This imposes a deadline that may not be part of the original question or common knowledge. The question asks if they will settle within three weeks, but the scene explicitly states that as a deadline, which could pre-decide the urgency and behavior of actors. The resolution also mirrors this deadline. This could pre-decide the outcome by making the deadline salient."
-    },
-    {
-     "aspect": "observable_resolution",
-     "severity": "MINOR",
-     "detail": "The resolution specifies 'an email or calendar invitation confirming the date' as evidence. This is reasonable, but it might be too narrow; other forms of agreement (e.g., verbal confirmation in a meeting) could also constitute settling on a date. However, since the simulation is text-based, this is acceptable."
+     "detail": "The shared context states that two advisors have already responded, but the private contexts of Advisor 4 and Advisor 5 also state they have responded. This leaks the identity of the responders into shared context, which should be private. The shared context should only say 'some advisors have responded' without specifying which ones."
     }
    ],
    "id": "sched_advisory_offsite_date"
@@ -858,15 +1101,125 @@
     {
      "aspect": "missing",
      "severity": "MAJOR",
-     "detail": "The scene treats the 14 cousins as a single actor, but the question asks about the cousins collectively fixing a weekend and town. However, the private context mentions specific factions (three for Oaxaca, two for San Antonio, Tia Marisol) which are not represented as separate actors. This could lead to the simulation not capturing the negotiation dynamics needed to reach a decision."
+     "detail": "The scene includes only the mayor as an actor, but the question asks about a public statement. A public statement implies an audience (e.g., residents, media) and possibly a spokesperson or press secretary. The mayor's decision may be influenced by advisors, public opinion, or media presence. Without any other actors, the simulation cannot realistically model the social dynamics that lead to a public statement."
     },
     {
      "aspect": "prewritten",
      "severity": "MAJOR",
-     "detail": "The resolution states that a YES outcome requires a message or messages specifying both a weekend and a town, and that no subsequent message contradicts that agreement. This pre-decides that the agreement must be explicit and uncontradicted, which may not match the question's intent (e.g., a consensus might be reached implicitly). The scene's resolution imposes a stricter condition than the question implies."
+     "detail": "The starting events include only the third burst occurring this morning, but the shared context states 'There is no prior public statement from the mayor about these failures.' This pre-decides that no statement was made before the start, which is necessary for the question but also implies the mayor has not yet acted. However, the private context says 'They have not yet decided whether to issue a public statement.' This is acceptable, but the resolution condition is prewritten: 'Resolve YES only if...' This is standard for resolution, but the scene itself does not pre-decide the outcome. However, the lack of any other actors or events that could influence the mayor's decision makes the simulation essentially a single-agent decision, which may be too simplistic but not necessarily prewritten. The defect is that the scene does not provide any mechanism for the mayor to be influenced, making the outcome effectively random or predetermined by the model's default behavior."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "MAJOR",
+     "detail": "While the scene does not explicitly force a YES or NO, the lack of any other actors or contextual factors (e.g., media pressure, public outcry, advisor input) means the simulation's outcome depends solely on the mayor's internal decision-making. This is a very narrow simulation that may not capture the real-world complexity, but it is still open in principle. However, the missing actors and context make it unlikely that the simulation will produce a realistic range of outcomes, thus the openness is compromised."
+    }
+   ],
+   "id": "pub_mayor_watermain_statement"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event states 'Priya intends to contact Maple Row Dental front desk to reschedule her Thursday cleaning.' This pre-decides that Priya will initiate contact, which is a future actor choice that should be left open."
+    }
+   ],
+   "id": "sched_dental_reslot"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "MAJOR",
+     "detail": "The scene includes three committee members but does not specify their identities or any distinguishing characteristics, which is acceptable. However, the scene lacks any mention of the department's scheduling process or constraints (e.g., room availability, other candidates), which could be materially relevant to whether a date can be converged upon. The world is not minimal but may be missing causal factors."
+    },
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The department's administrative staff or scheduling system is not included, but they might be necessary to book a room or finalize a date. However, the question focuses on convergence among the four people, so this may be acceptable. More critically, the scene does not include any external constraints like other committee members' other commitments or department policies that could affect availability. The missing actors could be the department scheduler or other candidates competing for dates."
+    },
+    {
+     "aspect": "invented_precision",
+     "severity": "MINOR",
+     "detail": "The scene states 'the next ten days (until 2026-09-24T17:00:00+01:00) are available for scheduling discussions' which is derived from the cutoff, but it also says 'No defense date has been set yet' which is fine. However, it invents that the process starts at 2026-09-14T08:00:00+00:00, which is not in the question. This is a minor invented precision."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event says 'Femi Adeyemi begins the process of scheduling a defense date with the three committee members.' This implies that Femi is the one initiating and driving the process, which may pre-decide that Femi is responsible for coordination. If the question is about convergence, this could bias the simulation towards Femi taking action. Also, the shared context states 'the next ten days are available for scheduling discussions' which assumes that all parties are willing to discuss during that period, potentially pre-deciding availability."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "MAJOR",
+     "detail": "The scene does not provide enough constraints to ensure that both YES and NO are genuinely possible. For example, if committee members have conflicting schedules that cannot be resolved within ten days, the simulation might be forced to NO. But the scene does not specify any constraints, so it is open. However, the prewritten aspects may reduce openness. The scene is likely open enough, but the prewritten bias is a concern."
+    }
+   ],
+   "id": "sched_defense_date_window"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The scene treats the 14 cousins as a single actor, but the question asks about the cousins collectively fixing a weekend and town. However, the scene does not include any individual actors with distinct preferences or decision-making roles, which could affect the outcome. The private context lumps all preferences together, but the simulation needs individual actors to make decisions and send messages. The scene should model each cousin as a separate actor to allow genuine interaction."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The shared context states that 'no decision on weekend or town has been made yet,' which is acceptable as a starting condition. However, the private context says Tia Marisol 'privately intends to go with the majority but is more focused on catering details.' This pre-decides her future behavior, making her less likely to push for a decision, which could influence the outcome. The simulation should not pre-write intentions; it should only set up the situation."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "The private context for the cousins includes preferences (three prefer Oaxaca, two prefer San Antonio) that are also mentioned in the shared context. This is a minor inconsistency: the shared context already states these preferences, so they are not truly private. The private context should contain only information not known to others."
     }
    ],
    "id": "sched_herrera_reunion_date"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "smallest_world",
+     "severity": "MAJOR",
+     "detail": "The scene includes only two actors (Loomis & Hale LLP and New Client) but scheduling a meeting typically involves individuals with specific calendars and decision-making authority. The firms as collective actors are too abstract; the simulation cannot realistically model calendar conflicts or internal coordination without individual actors."
+    },
+    {
+     "aspect": "info_boundaries",
+     "severity": "MINOR",
+     "detail": "Private contexts are vague and overlapping; both actors have 'internal calendars and preferences' which is not truly private to each. Shared context includes the deadline, which is fine, but private context should be more specific and distinct."
+    },
+    {
+     "aspect": "prewritten",
+     "severity": "MAJOR",
+     "detail": "The starting event states 'The engagement letter is signed by both...' but the question says it was signed 'this morning' (2026-10-06T09:30). The scene places the signing event at 16:30 UTC (09:30 PDT), which is correct, but the description 'signed by both' implies it's a single event, which is fine. However, the private contexts already state that both parties 'want to schedule a kickoff meeting soon' and 'are available to discuss scheduling', which pre-decides their willingness to engage in scheduling, removing uncertainty about whether they will even attempt to agree."
+    },
+    {
+     "aspect": "genuinely_open",
+     "severity": "MAJOR",
+     "detail": "The scene heavily biases towards YES by stating both parties want to schedule and are available. The simulation is unlikely to produce NO unless there is an arbitrary failure to communicate, which is not modeled. The outcome is effectively predetermined."
+    }
+   ],
+   "id": "sched_engagement_kickoff"
+  },
+  {
+   "verdict": "DEFECT",
+   "worst_severity": "MAJOR",
+   "defects": [
+    {
+     "aspect": "missing",
+     "severity": "MAJOR",
+     "detail": "The scene models 'Colleagues in the ward' as a single actor, but the question asks whether 'a colleague' will claim the shift. This requires individual colleagues with distinct preferences and decision-making. A collective actor cannot capture the individual choice needed to answer the question."
+    }
+   ],
+   "id": "sched_ward_shift_swap"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "The Riverton marathon starts Sunday at 07:00. Will the Alder Court neighbors, who have discussed it all month on the app, actually set up their planned water table before the first runners pass around 08:30?",
-  "resolution": "Resolve YES only if the persistent event history shows that the water table was actually set up at the corner of Alder Court (mile four) before the first runners pass around 08:30 on Sunday, 2026-10-11. Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the water table was actually set up at the Alder Court corner before 08:30 on Sunday (2026-10-11T08:30:00-06:00). Otherwise resolve NO at that time.",
   "cutoff": "2026-10-11T08:30:00-06:00",
   "world_id": "w_a0d43c6ac255"
  },

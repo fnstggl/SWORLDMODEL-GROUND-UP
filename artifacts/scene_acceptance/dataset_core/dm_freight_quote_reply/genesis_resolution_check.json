@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Nimbus Freight's account manager Tomasz reply to Kestrel Analytics' emailed request for an updated shipping quote before Friday's close of business?",
-  "resolution": "Resolve YES if the persistent event history shows that Tomasz actually sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Tomasz actually sent a reply to Kestrel Analytics' email before 2026-08-14T17:00:00+02:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-14T17:00:00+02:00",
   "world_id": "w_a6517bca35e9"
  },

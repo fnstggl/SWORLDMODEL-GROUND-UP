@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,25 +116,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Marisol",
-   "private_context": "Marisol filed a dispute today (2026-10-14) for a $320 card charge. She was quoted a ten-business-day window for provisional credit. She expects the credit within that window."
+   "private_context": "Marisol filed a dispute today (2026-10-14) for a 320-dollar charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. She expects the credit within that window."
   },
   {
    "name": "Harborview Credit Union",
-   "private_context": "Harborview Credit Union has a policy for handling card disputes. It received Marisol's dispute today. It may provisionally credit disputed amounts within ten business days, subject to its internal review process."
+   "private_context": "Harborview Credit Union has a policy to provisionally credit disputed charges within ten business days of the dispute filing. They received Marisol's dispute today (2026-10-14). They process disputes through their internal system."
   }
  ],
- "shared_context": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a $320 charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day window ends on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually 2026-10-14 is a Wednesday, so ten business days later is 2026-10-28, a Wednesday). The credit union has the ability to provisionally credit the amount within that window.",
+ "shared_context": "Marisol filed a dispute with Harborview Credit Union on 2026-10-14 for a 320-dollar charge on her card. The credit union quoted a ten-business-day window for provisional credit. The ten business days from 2026-10-14 end on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually, 2026-10-14 is a Wednesday; ten business days later is 2026-10-28, a Wednesday). The hard cutoff is 2026-10-28T17:00:00-08:00.",
  "starting_events": [
   {
    "time": "2026-10-14T10:00:00-08:00",
-   "description": "Marisol files a dispute with Harborview Credit Union for a $320 card charge. She is quoted a ten-business-day window for provisional credit.",
+   "description": "Marisol files a dispute with Harborview Credit Union for a 320-dollar charge on her card. She is quoted a ten-business-day window for provisional credit.",
    "visible_to": [
     "Marisol",
     "Harborview Credit Union"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that Harborview Credit Union provisionally credited $320 to Marisol's account on or before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that Harborview Credit Union actually provisionally credited Marisol's account for the disputed 320-dollar charge before 2026-10-28T17:00:00-08:00. Otherwise resolve NO at that cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

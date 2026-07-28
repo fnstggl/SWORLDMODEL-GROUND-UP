@@ -14,7 +14,7 @@
    "visible_to_ids": [
     "femi_adeyemi"
    ],
-   "description": "Femi sends an email to his three committee members proposing several possible defense dates in November and asking for their availability."
+   "description": "Femi Adeyemi begins the process of scheduling a defense date with the three committee members."
   }
  ],
  "code_owned_defaults": {
@@ -25,24 +25,24 @@
  "personas": {
   "femi_adeyemi": {
    "name": "Femi Adeyemi",
-   "persona_brief": "You are Femi Adeyemi.\nFemi is a doctoral candidate who needs to schedule a defense date in November. He has three committee members. He wants to find a date that works for all."
+   "persona_brief": "You are Femi Adeyemi.\nFemi is a doctoral candidate who needs to schedule a defense date within the department's November window. They have three committee members who must agree on a date. Femi wants to converge on a date within the next ten days."
   },
   "committee_member_1": {
    "name": "Committee Member 1",
-   "persona_brief": "You are Committee Member 1.\nA faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "persona_brief": "You are Committee Member 1.\nA member of Femi's dissertation committee. They have their own schedule constraints and preferences for defense dates within the November window."
   },
   "committee_member_2": {
    "name": "Committee Member 2",
-   "persona_brief": "You are Committee Member 2.\nA faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "persona_brief": "You are Committee Member 2.\nA member of Femi's dissertation committee. They have their own schedule constraints and preferences for defense dates within the November window."
   },
   "committee_member_3": {
    "name": "Committee Member 3",
-   "persona_brief": "You are Committee Member 3.\nA faculty member serving on Femi's committee. Has a schedule with some availability in November."
+   "persona_brief": "You are Committee Member 3.\nA member of Femi's dissertation committee. They have their own schedule constraints and preferences for defense dates within the November window."
   }
  },
  "resolution": {
   "question": "Will doctoral candidate Femi Adeyemi and his three committee members converge on a defense date inside the department's November window within the next ten days?",
-  "resolution": "Resolve YES if, by the hard cutoff, the persistent event history shows that all four actors have agreed on a specific defense date within the department's November window. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that all three committee members and Femi have agreed on a specific defense date within the department's November window before 2026-09-24T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-24T17:00:00+01:00",
   "world_id": "w_6a17eeaea3c7"
  }

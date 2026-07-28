@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Does neighbor Maria Santos notice the break-in at 42 Oak Street before the police arrive on August 20, 2026?",
+  "resolution": "Resolve YES only if the persistent event history shows that Maria Santos noticed the break-in (e.g., woke up, heard noise, saw something) before the police arrived at 42 Oak Street. Otherwise resolve NO at the time of police arrival or at the hard cutoff (2026-08-20T04:00:00-05:00), whichever comes first.",
+  "cutoff": "2026-08-20T04:00:00-05:00",
+  "world_id": "w_4c002e6ef612"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

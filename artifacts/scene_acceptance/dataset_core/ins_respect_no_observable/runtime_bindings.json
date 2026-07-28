@@ -2,22 +2,18 @@
  "world_id": "w_4cf54d8ad18a",
  "actor_ids": {
   "Amara": "amara",
-  "Coworker 1": "coworker_1",
-  "Coworker 2": "coworker_2",
-  "Coworker 3": "coworker_3"
+  "Coworkers": "coworkers"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 17,
+   "ledger_seq": 11,
    "at": "2026-10-01T13:00:00+00:00",
    "visible_to_ids": [
     "amara",
-    "coworker_1",
-    "coworker_2",
-    "coworker_3"
+    "coworkers"
    ],
-   "description": "The quarter begins. Amara and her coworkers start their workday."
+   "description": "The quarter begins. Amara and her coworkers are at work."
   }
  ],
  "code_owned_defaults": {
@@ -28,24 +24,16 @@
  "personas": {
   "amara": {
    "name": "Amara",
-   "persona_brief": "You are Amara.\nAmara is a professional who cares about her reputation among coworkers. She has no specific knowledge of how her coworkers currently perceive her, but she hopes to earn more respect by the end of the quarter."
+   "persona_brief": "You are Amara.\nAmara is an employee who wants to earn more respect from her coworkers. She is aware of her current standing and may take actions to improve it."
   },
-  "coworker_1": {
-   "name": "Coworker 1",
-   "persona_brief": "You are Coworker 1.\nA coworker of Amara. Has their own impressions of Amara based on past interactions, but these are not specified. May notice Amara's actions over the quarter."
-  },
-  "coworker_2": {
-   "name": "Coworker 2",
-   "persona_brief": "You are Coworker 2.\nAnother coworker of Amara. Similarly has existing impressions and may observe Amara's behavior."
-  },
-  "coworker_3": {
-   "name": "Coworker 3",
-   "persona_brief": "You are Coworker 3.\nA third coworker of Amara. May also form or change opinions based on Amara's actions."
+  "coworkers": {
+   "name": "Coworkers",
+   "persona_brief": "You are Coworkers.\nThe coworkers are a group of individuals who work with Amara. They have their own perceptions of Amara and may change their respect for her based on her actions."
   }
  },
  "resolution": {
   "question": "Will Amara's coworkers respect her more by the end of the quarter?",
-  "resolution": "Resolve YES only if, by the hard cutoff, there is observable evidence (e.g., a coworker explicitly states increased respect, Amara receives a promotion or positive performance review citing respect, or a reliable survey or feedback mechanism records higher respect) that Amara's coworkers respect her more than at the start. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if, by 2026-12-31T17:00:00-04:00, there is observable evidence (e.g., coworkers explicitly stating increased respect, deferring to Amara's opinions, or seeking her input more frequently) that indicates the coworkers respect Amara more than at the start of the quarter. Otherwise resolve NO.",
   "cutoff": "2026-12-31T17:00:00-04:00",
   "world_id": "w_4cf54d8ad18a"
  }

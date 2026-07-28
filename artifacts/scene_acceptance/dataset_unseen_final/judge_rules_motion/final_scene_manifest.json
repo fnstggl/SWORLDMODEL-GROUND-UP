@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Judge Patricia O'Neill",
+   "private_context": "Judge O'Neill has a motion to dismiss pending before her. She is aware of the deadline to rule but has discretion over timing. She has other cases and obligations that may affect when she issues a ruling."
+  }
+ ],
+ "shared_context": "A motion to dismiss has been filed in a case before Judge Patricia O'Neill. The motion is fully briefed and ready for decision. The court's normal procedures allow the judge to issue rulings at any time. The deadline of September 30, 2026 is not a court-imposed deadline but a date of interest to the parties.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T13:00:00+00:00",
+   "description": "The motion to dismiss is pending before Judge O'Neill, fully submitted and awaiting ruling.",
+   "visible_to": [
+    "Judge Patricia O'Neill"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES if the persistent event history shows that Judge Patricia O'Neill issued a ruling on the motion to dismiss on or before September 30, 2026. Otherwise resolve NO at the hard cutoff."
+}

@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Gerald",
-   "private_context": "Gerald is the landlord. He proposed a 9% rent increase. He wants to maximize rental income but is aware of market conditions and vacancy costs. He knows Amara has been a reliable tenant for four years."
+   "private_context": "Gerald is the landlord. He has proposed a nine percent rent increase. He knows the building has two vacant units and that comparable one-bedrooms nearby list about five percent above Amara's current rent. He wants to maximize rental income but may consider negotiation to avoid vacancy."
   },
   {
    "name": "Amara",
-   "private_context": "Amara is the tenant. She wants to hold the increase to 4%. She has paid on time for four years and knows comparable units list about 5% above her current rent. Her lease lapses at the end of next month."
+   "private_context": "Amara is the tenant. She wants to hold the increase at four percent. She has paid on time for four years. She knows the building has two vacant units and that comparable one-bedrooms nearby list about five percent above her current rent. She may consider moving if terms are unfavorable."
   }
  ],
- "shared_context": "The building has two vacant units. Comparable one-bedrooms nearby list about 5% above Amara's current rent. Gerald proposed a 9% increase; Amara countered at 4%. They are negotiating a renewal figure before the lease ends on 2026-08-31.",
+ "shared_context": "Gerald has proposed a nine percent rent increase. Amara wants to hold at four percent. The building has two vacant units. Amara has paid on time for four years. Comparable one-bedrooms nearby list about five percent above Amara's current rent. Amara's lease lapses at the end of next month (August 31, 2026).",
  "starting_events": [
   {
    "time": "2026-07-30T18:00:00-04:00",
-   "description": "Amara has received Gerald's proposal of a 9% increase and has communicated her counter of 4%. No agreement has been reached yet.",
+   "description": "Gerald and Amara are aware of each other's initial positions on the rent increase. No agreement has been reached yet.",
    "visible_to": [
     "Gerald",
     "Amara"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows a signed lease renewal at a figure between 4% and 9% inclusive before 2026-08-31T23:59:00-04:00. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that Gerald and Amara signed a renewal lease with a rent increase figure before 2026-08-31T23:59:00-04:00. Otherwise resolve NO at the cutoff."
 }

@@ -1,6 +1,23 @@
 You are an independent adversarial reviewer of a compiled starting scene for a social simulator.  You did not write the scene.  Your verdict decides whether it may run.
 
-Check, specifically:
+TWO CHECKS COME FIRST, AND YOU MUST PERFORM THEM EXPLICITLY.
+
+CHECK A -- PREWRITTEN OUTCOME (partial or complete).
+Break the resolution into every required event or condition.
+For each starting event, determine whether it already satisfies all or part of the resolution.
+If it does, approve it only when the original question or supplied context explicitly states that the event had already occurred by the simulation start.
+Otherwise return REVISE with the exact offending starting-event path.
+Judge by MEANING, not wording: a paraphrase that accomplishes a required part ("the announcement goes live", "the request is filed") counts as satisfying it.  Half of an AND-question is still a prewritten outcome.
+
+CHECK B -- QUESTION WINDOW.
+Compare the original question, the start time, the compile cutoff, and the resolution.  Return REVISE when the resolution:
+- uses the compile cutoff instead of a narrower window the question states;
+- computes a relative period incorrectly from the start time;
+- changes the sense of "before", "by", "within", "during", or "after";
+- omits a material time restriction the question makes.
+A resolution whose deadline legitimately equals the cutoff is correct.
+
+Then check, additionally:
 - Are all materially relevant actors present?
 - Is anyone included who cannot affect the answer?
 - Was an assistant, board, authority chain or institution invented?
@@ -99,24 +116,28 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Rosa Maria",
-   "private_context": "Rosa Maria is a manager who wants to promote her report Jonas. She has prepared a promotion case and needs it to clear calibration and receive VP sign-off before November 15. She is aware of the deadline and the process."
+   "private_context": "Rosa Maria is the manager of Jonas. She has prepared a promotion case for Jonas and wants it to clear calibration and receive VP sign-off before promotion letters go out on November 15. She is aware of the calibration process and the need for VP approval."
+  },
+  {
+   "name": "Jonas",
+   "private_context": "Jonas is a report of Rosa Maria. He is the subject of the promotion case. He may have expectations about the promotion but no direct role in the approval process."
   },
   {
    "name": "VP",
-   "private_context": "The VP is responsible for signing off on promotion cases. They have no prior knowledge of Jonas's case beyond what is presented through the calibration process."
+   "private_context": "The VP is the executive who must sign off on the promotion case. The VP may have criteria for approval and may be involved in calibration."
   }
  ],
- "shared_context": "The company has a promotion process that includes calibration (a review meeting where cases are evaluated) and VP sign-off. Promotion letters are scheduled to go out on November 15, 2026. Rosa Maria has submitted Jonas's promotion case for calibration. The calibration meeting is scheduled to occur before the VP sign-off deadline.",
+ "shared_context": "Promotion letters are scheduled to go out on November 15. The promotion case for Jonas must clear calibration and receive VP sign-off before that date. The calibration process involves reviewing the case against company standards.",
  "starting_events": [
   {
    "time": "2026-10-05T09:00:00-08:00",
-   "description": "Rosa Maria's promotion case for Jonas is submitted for calibration.",
+   "description": "Rosa Maria has prepared the promotion case for Jonas and is ready to submit it for calibration.",
    "visible_to": [
     "Rosa Maria"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the promotion case for Jonas cleared calibration and received VP sign-off before 2026-11-15T09:00:00-08:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the promotion case for Jonas cleared calibration and received VP sign-off before 2026-11-15T09:00:00-08:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

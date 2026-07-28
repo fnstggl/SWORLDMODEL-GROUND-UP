@@ -1,0 +1,10 @@
+{
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "resolution",
+   "problem": "The resolution assumes the sixty-day window starts from the simulation start time (2026-07-15), but the question states the window is from the bill's referral, which is not specified. The start time may not equal the referral date.",
+   "correction": "Either specify the referral date in shared_context or adjust the resolution to compute the deadline from the referral date, not the start time. If the referral date is unknown, the scene cannot determine the deadline."
+  }
+ ]
+}

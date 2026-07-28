@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Premier Khrushchev",
-   "private_context": "Khrushchev is the leader of the Soviet Union. He has authorized the placement of nuclear missiles in Cuba and is now faced with the US quarantine. He is considering his options and may decide to communicate directly with President Kennedy."
+   "private_context": "Khrushchev is the leader of the Soviet Union. He has received news of President Kennedy's October 22 address announcing a quarantine of Cuba. He is considering his options for responding to the crisis, including possibly sending a direct letter to Kennedy."
   },
   {
    "name": "President Kennedy",
-   "private_context": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba in response to the discovery of Soviet missiles. He is prepared to receive communications from Khrushchev and is considering possible responses."
+   "private_context": "Kennedy is the President of the United States. He has just delivered an address announcing a quarantine of Cuba. He is aware that the Soviet Union may respond, possibly through direct communication."
   }
  ],
- "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba to prevent further Soviet shipments of offensive military equipment. The world is on edge as the Cuban Missile Crisis unfolds. Direct communication between the leaders is possible through diplomatic channels.",
+ "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is now in a tense standoff. Diplomatic channels between the US and USSR are open, including the possibility of direct letters between the leaders.",
  "starting_events": [
   {
-   "time": "1962-10-22T20:00:00-05:00",
-   "description": "President Kennedy delivers his televised address announcing the quarantine of Cuba.",
+   "time": "1962-10-23T01:00:00+00:00",
+   "description": "President Kennedy delivers his address announcing the quarantine of Cuba.",
    "visible_to": [
     "President Kennedy",
     "Premier Khrushchev"

@@ -6,16 +6,16 @@
     },
     {
       "name": "Femi's mother",
-      "private_context": "She has told Femi she will keep her phone on all Thursday morning. She is available to receive calls."
+      "private_context": "She has said she will keep her phone on all Thursday morning. She is expecting a call from Femi about his results."
     }
   ],
-  "shared_context": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his result online or through the university portal at that time. He has his mother's phone number and can call her.",
+  "shared_context": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online at that time. The deadline for calling is noon that day.",
   "starting_events": [
     {
       "time": "2026-08-13T09:00:00+01:00",
-      "description": "Ashvale University releases exam results. Femi's result becomes available to him.",
-      "visible_to": ["Femi"]
+      "description": "Ashvale University releases exam results.",
+      "visible_to": ["Femi", "Femi's mother"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that Femi actually called his mother and they spoke about his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that Femi actually called his mother and communicated his result before 2026-08-13T12:00:00+01:00. Otherwise resolve NO at the cutoff."
 }

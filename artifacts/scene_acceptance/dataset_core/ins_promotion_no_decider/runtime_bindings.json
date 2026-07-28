@@ -1,19 +1,21 @@
 {
  "world_id": "w_7bf392a84614",
  "actor_ids": {
+  "Employee": "employee",
   "Manager": "manager",
-  "Candidate": "candidate"
+  "HR": "hr"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 14,
    "at": "2026-08-03T08:00:00+00:00",
    "visible_to_ids": [
+    "employee",
     "manager",
-    "candidate"
+    "hr"
    ],
-   "description": "The promotion request is on the manager's desk, awaiting a decision."
+   "description": "The promotion consideration is ongoing. No formal action has been taken yet."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +24,22 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
+  "employee": {
+   "name": "Employee",
+   "persona_brief": "You are Employee.\nEmployee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter."
+  },
   "manager": {
    "name": "Manager",
-   "persona_brief": "You are Manager.\nManager has the authority to approve the promotion. They are aware of the candidate's performance and are considering the promotion. They have no strong preference yet and are waiting for final paperwork or a decision deadline."
+   "persona_brief": "You are Manager.\nManager is responsible for recommending the promotion. They have the authority to initiate the process but need approval from higher management."
   },
-  "candidate": {
-   "name": "Candidate",
-   "persona_brief": "You are Candidate.\nCandidate is the employee being considered for promotion. They have submitted their case and are waiting for the manager's decision. They have no additional leverage or information."
+  "hr": {
+   "name": "HR",
+   "persona_brief": "You are HR.\nHR handles the formal promotion process, including paperwork and approvals. They process promotions based on manager recommendations and company policy."
   }
  },
  "resolution": {
   "question": "Will the promotion go through before the end of the quarter?",
-  "resolution": "Resolve YES if the persistent event history shows that the manager formally approved the promotion before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the promotion was formally approved and communicated to the Employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T17:00:00+01:00",
   "world_id": "w_7bf392a84614"
  }

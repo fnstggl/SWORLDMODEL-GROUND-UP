@@ -1,0 +1,88 @@
+{
+ "german_foreign_office": {
+  "id": "german_foreign_office",
+  "name": "German Foreign Office",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "1914-07-23T11:00:00+00:00",
+    "kind": "context",
+    "content": "The German Foreign Office is the recipient of diplomatic communications. It operates during normal business hours and may receive notes through official channels. It has no prior knowledge of the specific protest note.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "1914-07-23T11:00:00+00:00",
+    "kind": "context",
+    "content": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "jean_pierre_dupont": {
+  "id": "jean_pierre_dupont",
+  "name": "Jean-Pierre Dupont",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "1914-07-23T11:00:00+00:00",
+    "kind": "context",
+    "content": "Dupont is the French Ambassador to Germany. He has received instructions from the French government to deliver a protest note to the German Foreign Office regarding the ongoing diplomatic crisis. He is aware of the ultimatum's expiration on July 28, 1914, and intends to deliver the note before that deadline.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "1914-07-23T11:00:00+00:00",
+    "kind": "context",
+    "content": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

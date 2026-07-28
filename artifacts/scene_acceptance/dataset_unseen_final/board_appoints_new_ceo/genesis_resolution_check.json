@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Does the board of directors of Apex Industries appoint a new CEO during the September 12, 2026 meeting?",
+  "resolution": "Resolve YES only if the persistent event history shows that the board of directors of Apex Industries actually appointed a new CEO during the meeting, before the hard cutoff at 2026-09-12T18:00:00-05:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-12T18:00:00-05:00",
+  "world_id": "w_357cd13df7c7"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

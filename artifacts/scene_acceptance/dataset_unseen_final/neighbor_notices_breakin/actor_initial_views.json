@@ -1,0 +1,88 @@
+{
+ "maria_santos": {
+  "id": "maria_santos",
+  "name": "Maria Santos",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T07:00:00+00:00",
+    "kind": "context",
+    "content": "Maria Santos lives at 42 Oak Street. She is asleep at 2:00 AM on August 20, 2026. She has no prior knowledge of any break-in.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T07:00:00+00:00",
+    "kind": "context",
+    "content": "42 Oak Street is a residential property. A break-in is occurring at 42 Oak Street at approximately 2:00 AM on August 20, 2026. The police have been notified and are en route. The exact time of police arrival is unknown but expected within the window before 4:00 AM.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "police_dispatcher": {
+  "id": "police_dispatcher",
+  "name": "Police dispatcher",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-08-20T07:00:00+00:00",
+    "kind": "context",
+    "content": "The police dispatcher has received a report of a break-in at 42 Oak Street and has dispatched officers to the scene. The dispatcher does not know Maria Santos personally.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-08-20T07:00:00+00:00",
+    "kind": "context",
+    "content": "42 Oak Street is a residential property. A break-in is occurring at 42 Oak Street at approximately 2:00 AM on August 20, 2026. The police have been notified and are en route. The exact time of police arrival is unknown but expected within the window before 4:00 AM.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

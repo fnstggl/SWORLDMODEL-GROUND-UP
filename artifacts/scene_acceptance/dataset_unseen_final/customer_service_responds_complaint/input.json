@@ -1,0 +1,8 @@
+{
+ "question": "Does customer service agent David Park respond to the complaint from client Omega Corp within 48 hours of receipt on August 12, 2026?",
+ "start": "2026-08-12T14:30:00+02:00",
+ "cutoff": "2026-08-14T14:30:00+02:00",
+ "context": "Omega Corp filed a complaint via email on Aug 12 at 14:30 CET. David Park is the assigned agent.",
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

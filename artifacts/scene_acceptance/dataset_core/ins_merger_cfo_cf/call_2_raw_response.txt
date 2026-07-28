@@ -3,8 +3,8 @@
  "defects": [
   {
    "path": "scene",
-   "problem": "The question asks about a historical counterfactual (2019 merger) but the simulation is set in 2026, which is after the known outcome. The scene does not specify that it is a counterfactual simulation starting from a point before the outcome, and the resolution condition (checking if merger closed before cutoff) would rely on model memory of the actual historical outcome, which is not allowed. The scene is essentially a past counterfactual dressed up as a future simulation.",
-   "correction": "Either set the simulation start time before the 2019 merger decision (e.g., 2019-08-01) and treat it as a counterfactual with no knowledge of the actual outcome, or clarify that the simulation is a counterfactual replay. However, the current setup is not simulatable as a social scene because the actors are vague and the resolution depends on historical fact."
+   "problem": "The question asks about a historical counterfactual (2019 merger) but the simulation is set in 2026, after the known historical outcome. The scene cannot simulate a counterfactual past event without importing post-cutoff knowledge or inventing a speculative future. The question is not simulatable as a social scene because the merger's closure in 2019 is a historical fact, not a future event that can be simulated from a 2026 start time.",
+   "correction": "The question should be reframed as a simulation set before the merger decision, or the scene should be designed as a counterfactual simulation starting before the CFO's resignation in 2019."
   }
  ]
 }

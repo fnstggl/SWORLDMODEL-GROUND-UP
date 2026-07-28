@@ -1,0 +1,12 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "CRITICAL",
+ "defects": [
+  {
+   "aspect": "prewritten",
+   "severity": "CRITICAL",
+   "detail": "The private context states that Tom\u00e1s agreed to feed the cat daily, which pre-decides his commitment and makes the YES condition already true in terms of intention, undermining the open question of whether he actually does it."
+  }
+ ],
+ "id": "neighbor_feeds_cat"
+}

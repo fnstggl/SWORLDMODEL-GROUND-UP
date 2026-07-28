@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "employees_400_individuals": {
+  "calloway_regional_hospital_employees": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,66 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "employees_400_individuals",
+   "id": "calloway_regional_hospital_employees",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each employee has their own workload, interest in the survey, and tendency to respond to workplace surveys. Some may complete it early, some late, some not at all.",
+     "content": "Each employee has their own disposition toward completing surveys, typical workload, and personal schedule during the two-week window. No employee has a prior commitment to complete the survey.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T13:00:00+00:00"
     },
     {
-     "content": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open from 2026-09-01T08:00:00-05:00 to 2026-09-15T17:00:00-05:00. Employees can complete the survey online via a link sent to their work email. HR will send an initial invitation at the start and periodic reminders. Participation is voluntary and anonymous.",
+     "content": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and closing at 2026-09-15T17:00:00-05:00. Employees can complete the survey online or via paper. The survey is anonymous and voluntary. No incentives or reminders have been announced.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T13:00:00+00:00"
     }
    ],
-   "name": "Employees (400 individuals)",
-   "noticed_info": [],
-   "ongoing_action": null,
-   "physical_state": "",
-   "plan": "",
-   "reconsider": [],
-   "relationships": {},
-   "role": "actor",
-   "tz": "UTC",
-   "unprocessed_info": [],
-   "values": []
-  },
-  "hr_department": {
-   "attention": {
-    "scene": {
-     "basis": "verified",
-     "calendar": null,
-     "check_every_seconds": null,
-     "note": "events declared visible to this actor are directly experienced"
-    }
-   },
-   "available_info": [],
-   "beliefs": {},
-   "commitments": {},
-   "deferred_wakes": [],
-   "emotional_state": "",
-   "goals": [],
-   "id": "hr_department",
-   "last_decision_at": null,
-   "memories": [
-    {
-     "content": "HR wants a high response rate to make the survey results credible. They have prepared the survey and will send the initial invitation and reminders according to a standard schedule.",
-     "kind": "context",
-     "source": "scene_manifest:private_context",
-     "t": "2026-09-01T13:00:00+00:00"
-    },
-    {
-     "content": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open from 2026-09-01T08:00:00-05:00 to 2026-09-15T17:00:00-05:00. Employees can complete the survey online via a link sent to their work email. HR will send an initial invitation at the start and periodic reminders. Participation is voluntary and anonymous.",
-     "kind": "context",
-     "source": "scene_manifest:shared_context",
-     "t": "2026-09-01T13:00:00+00:00"
-    }
-   ],
-   "name": "HR Department",
+   "name": "Calloway Regional Hospital employees",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least 60 of the 400 employees at Calloway Regional Hospital complete the annual engagement survey during its two-week window?",
-  "scene:shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open from 2026-09-01T08:00:00-05:00 to 2026-09-15T17:00:00-05:00. Employees can complete the survey online via a link sent to their work email. HR will send an initial invitation at the start and periodic reminders. Participation is voluntary and anonymous."
+  "scene:shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and closing at 2026-09-15T17:00:00-05:00. Employees can complete the survey online or via paper. The survey is anonymous and voluntary. No incentives or reminders have been announced."
  },
  "history": [],
  "infos": {},
@@ -112,6 +69,6 @@
  "resources": {},
  "start": "2026-09-01T13:00:00+00:00",
  "terminal": null,
- "version": 11,
+ "version": 8,
  "watches": {}
 }

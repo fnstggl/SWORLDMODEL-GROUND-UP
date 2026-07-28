@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Noor Haddad",
+   "private_context": "Noor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month from the submission date. She has no prior relationship with the agency beyond this submission."
+  },
+  {
+   "name": "Subtitling Agency",
+   "private_context": "The agency receives test pieces from freelance translators and evaluates them. They quoted a one-month turnaround for feedback. They have no prior relationship with Noor Haddad."
+  }
+ ],
+ "shared_context": "Noor Haddad submitted a paid test piece to the subtitling agency. The agency quoted a one-month turnaround for feedback. The submission date is not explicitly given, but the simulation starts on 2026-09-02T10:00:00+02:00, and the one-month deadline is relative to the submission date. The agency can contact Noor via the contact information she provided with her submission.",
+ "starting_events": [
+  {
+   "time": "2026-09-02T10:00:00+02:00",
+   "description": "Noor Haddad has already submitted the paid test piece to the subtitling agency. The agency has received it and is processing it.",
+   "visible_to": [
+    "Noor Haddad",
+    "Subtitling Agency"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the subtitling agency actually sent a response (any form of communication) to Noor Haddad regarding the test piece before the one-month deadline from the submission date. The submission date is an unknown that the simulation can establish. Otherwise resolve NO at the deadline."
+}

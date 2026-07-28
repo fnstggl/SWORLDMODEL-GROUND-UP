@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that the group chat contains a message or messages that collectively specify both a weekend (e.g., a specific date range in spring 2027) and a town (e.g., Oaxaca or San Antonio) for the reunion, and that no subsequent message contradicts that agreement. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message in the group chat explicitly states both a specific weekend (e.g., a date range) and a specific town for the reunion, and no subsequent message contradicts that as a final decision. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T22:00:00-06:00",
   "world_id": "w_677e0c447bae"
  },

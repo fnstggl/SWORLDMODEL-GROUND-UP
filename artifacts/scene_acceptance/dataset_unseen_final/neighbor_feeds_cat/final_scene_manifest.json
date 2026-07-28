@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Tom\u00e1s Garc\u00eda",
+   "private_context": "Tom\u00e1s agreed to feed Lisa's cat daily from August 5 to August 10, 2026, while she is away. He knows the cat's feeding routine and has access to the cat food and the house key."
+  },
+  {
+   "name": "Lisa",
+   "private_context": "Lisa is away on vacation from August 5 to August 10, 2026. She asked Tom\u00e1s to feed her cat daily and trusts him to do so. She has no other arrangements for the cat's care."
+  }
+ ],
+ "shared_context": "Lisa's cat is at her home. Tom\u00e1s has the key and knows the feeding routine. The cat requires daily feeding.",
+ "starting_events": [
+  {
+   "time": "2026-08-05T12:00:00+00:00",
+   "description": "Lisa leaves for vacation, having asked Tom\u00e1s to feed the cat daily.",
+   "visible_to": [
+    "Lisa",
+    "Tom\u00e1s Garc\u00eda"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Tom\u00e1s actually fed the cat on each day from August 5 to August 10, 2026, inclusive, before the cutoff. Otherwise resolve NO at the cutoff."
+}

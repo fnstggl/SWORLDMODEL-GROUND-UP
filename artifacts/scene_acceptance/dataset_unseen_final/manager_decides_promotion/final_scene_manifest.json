@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Karen Wu",
+   "private_context": "Karen Wu is the department manager. She has received Tom Brown's performance review submitted on September 1, 2026, and must decide whether to promote him to senior analyst by September 25, 2026. She has her own criteria for promotion and knowledge of Tom's performance."
+  },
+  {
+   "name": "Tom Brown",
+   "private_context": "Tom Brown is an analyst who submitted his performance review on September 1, 2026, seeking promotion to senior analyst. He is aware that Karen Wu will review his submission and decide."
+  }
+ ],
+ "shared_context": "Tom Brown submitted a performance review on September 1, 2026, as part of the process for potential promotion to senior analyst. Karen Wu, as department manager, is responsible for making the promotion decision by September 25, 2026.",
+ "starting_events": [
+  {
+   "time": "2026-09-01T07:00:00+00:00",
+   "description": "Tom Brown submits his performance review to Karen Wu for consideration of promotion to senior analyst.",
+   "visible_to": [
+    "Karen Wu",
+    "Tom Brown"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Karen Wu actually communicated a decision to promote Tom Brown to senior analyst before September 25, 2026. Otherwise resolve NO at the cutoff."
+}

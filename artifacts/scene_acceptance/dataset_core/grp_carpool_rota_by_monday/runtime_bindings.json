@@ -15,7 +15,7 @@
     "family_2",
     "family_3"
    ],
-   "description": "The three families are aware of the need to arrange a carpool before term starts. No formal proposal has been made yet."
+   "description": "The three families are aware of the carpool idea and have not yet agreed on a rota."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "family_1": {
    "name": "Family 1",
-   "persona_brief": "You are Family 1.\nFamily 1 has two children who need to be driven to school. They are willing to drive on some days but prefer not to drive every day. They have not yet discussed preferences with the other families."
+   "persona_brief": "You are Family 1.\nFamily 1 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   },
   "family_2": {
    "name": "Family 2",
-   "persona_brief": "You are Family 2.\nFamily 2 has one child who needs a ride. They can drive on some days but have limited availability. They are open to a rota if it works for everyone."
+   "persona_brief": "You are Family 2.\nFamily 2 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   },
   "family_3": {
    "name": "Family 3",
-   "persona_brief": "You are Family 3.\nFamily 3 has three children. They are eager to set up a carpool to reduce their driving burden. They are flexible on days."
+   "persona_brief": "You are Family 3.\nFamily 3 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   }
  },
  "resolution": {
   "question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
-  "resolution": "Resolve YES if, before the cutoff, the persistent event history shows that all three families have explicitly agreed to a specific weekly driving rota (e.g., a schedule of who drives which days). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that all three families have agreed on a specific weekly driving rota before 2026-09-07T00:00:00+12:00 (Monday morning). Otherwise resolve NO at that time.",
   "cutoff": "2026-09-07T08:00:00+12:00",
   "world_id": "w_940acfd23314"
  }

@@ -1,23 +1,19 @@
 {
  "actors": [
   {
-   "name": "Chair (stepping down)",
-   "private_context": "The chair has decided to step down and will announce this at the upcoming annual general meeting. They have no preferred successor and will not influence the election."
-  },
-  {
-   "name": "Kettlewell Allotment Society members",
-   "private_context": "The members are aware of the upcoming AGM and the chair's intention to step down. Some may be considering standing for chair, but no one has publicly declared their candidacy yet."
+   "name": "Kettlewell allotment society members",
+   "private_context": "Each member has their own reasons for or against standing for chair. Some may be interested, others not. No member has yet volunteered."
   }
  ],
- "shared_context": "The Kettlewell Allotment Society holds an annual general meeting in five weeks (2026-09-29). Nominations for chair close at the start of that meeting. The current chair is stepping down, leaving the position open. Any member may volunteer to stand for chair by submitting a nomination before the deadline.",
+ "shared_context": "The Kettlewell allotment society's chair is stepping down. Nominations for the new chair close at the annual general meeting in five weeks, on 2026-09-29. The society has a membership who can volunteer to stand for chair.",
  "starting_events": [
   {
    "time": "2026-08-25T18:00:00+01:00",
-   "description": "The chair's intention to step down is known to the membership, but no formal announcement has been made at a meeting. The AGM is scheduled for 2026-09-29.",
+   "description": "The chair's stepping down is announced to the membership, and nominations are opened.",
    "visible_to": [
-    "Kettlewell Allotment Society members"
+    "Kettlewell allotment society members"
    ]
   }
  ],
- "resolution": "Resolve YES if, by the hard cutoff (2026-09-29T20:00:00+01:00), the persistent event history shows that at least one member has submitted a valid nomination to stand for chair. Otherwise resolve NO."
+ "resolution": "Resolve YES if, before 2026-09-29T20:00:00+01:00, the persistent event history shows that at least one member has formally volunteered to stand for chair (e.g., by submitting a nomination or publicly declaring candidacy). Otherwise resolve NO at the cutoff."
 }

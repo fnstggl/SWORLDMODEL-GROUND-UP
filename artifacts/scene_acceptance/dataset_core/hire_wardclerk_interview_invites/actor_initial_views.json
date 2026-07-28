@@ -1,4 +1,477 @@
 {
+ "applicant_1": {
+  "id": "applicant_1",
+  "name": "Applicant 1",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_10": {
+  "id": "applicant_10",
+  "name": "Applicant 10",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_11": {
+  "id": "applicant_11",
+  "name": "Applicant 11",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_2": {
+  "id": "applicant_2",
+  "name": "Applicant 2",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_3": {
+  "id": "applicant_3",
+  "name": "Applicant 3",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_4": {
+  "id": "applicant_4",
+  "name": "Applicant 4",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_5": {
+  "id": "applicant_5",
+  "name": "Applicant 5",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_6": {
+  "id": "applicant_6",
+  "name": "Applicant 6",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_7": {
+  "id": "applicant_7",
+  "name": "Applicant 7",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_8": {
+  "id": "applicant_8",
+  "name": "Applicant 8",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "applicant_9": {
+  "id": "applicant_9",
+  "name": "Applicant 9",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Has applied for the ward-clerk vacancy at Calloway Regional Hospital. Wants to be invited for an interview.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-10-01T04:59:00+00:00",
+    "kind": "context",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
  "calloway_regional_hospital_hr": {
   "id": "calloway_regional_hospital_hr",
   "name": "Calloway Regional Hospital HR",
@@ -23,13 +496,13 @@
    {
     "t": "2026-10-01T04:59:00+00:00",
     "kind": "context",
-    "content": "HR is responsible for reviewing applications for the ward-clerk vacancy. They have received eleven applications by the closing time. They have internal criteria for selecting candidates to invite for interview, but no decision has been made yet.",
+    "content": "HR is responsible for reviewing applications for the ward-clerk vacancy and deciding which applicants to invite for interview. They have received or will receive applications from eleven individuals. They aim to fill the position with a suitable candidate and may have internal criteria for shortlisting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-01T04:59:00+00:00",
     "kind": "context",
-    "content": "The posting for the ward-clerk vacancy at Calloway Regional Hospital closed at 23:59 on 2026-09-30. Eleven applications were received. The hospital typically invites some applicants for interview within two weeks of closing.",
+    "content": "Calloway Regional Hospital posted a vacancy for a ward-clerk position. Eleven applicants have applied. The posting closes tonight (2026-09-30T23:59:00-05:00). The hospital's HR department will review applications and may invite some applicants for interviews. The deadline for interview invitations is two weeks after the posting closes, i.e., by 2026-10-14T23:59:00-05:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

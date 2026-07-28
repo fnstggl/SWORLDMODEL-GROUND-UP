@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Coach Mike Johnson",
+   "private_context": "Coach Mike Johnson is responsible for selecting the starting lineup for the championship game. He has not yet finalized the lineup as of the start time. He may have preferences, strategies, or constraints known only to him."
+  }
+ ],
+ "shared_context": "The championship game is scheduled for September 10, 2026. The starting lineup must be selected by 8 AM on that day. The team roster and player performance data are available to Coach Johnson.",
+ "starting_events": [
+  {
+   "time": "2026-09-09T12:00:00-06:00",
+   "description": "Coach Mike Johnson begins the process of selecting the starting lineup for the championship game.",
+   "visible_to": [
+    "Coach Mike Johnson"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Coach Mike Johnson actually communicated or recorded a final starting lineup selection before 8 AM on September 10, 2026. Otherwise resolve NO at the hard cutoff."
+}

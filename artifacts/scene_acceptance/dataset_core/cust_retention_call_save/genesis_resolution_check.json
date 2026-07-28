@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Brightline Software's account manager persuade the retailer Fenwick & Sloane to pause rather than cancel their subscription during this week's scheduled retention call?",
-  "resolution": "Resolve YES if the persistent event history shows that Fenwick & Sloane's representative explicitly agreed to pause the subscription (rather than cancel) before the cutoff. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that during the scheduled retention call (before 2026-09-11T17:00:00-07:00), the Fenwick & Sloane representative explicitly agrees to pause rather than cancel their subscription. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-11T17:00:00-07:00",
   "world_id": "w_62914afab5b2"
  },

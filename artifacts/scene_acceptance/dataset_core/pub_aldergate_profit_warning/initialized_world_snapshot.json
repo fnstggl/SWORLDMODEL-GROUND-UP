@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Aldergate Rail is a listed firm. It has a signaling-contract delay that may be material to the market. It has not yet decided whether to issue a warning before its scheduled interim results day on November 5. The board and management are aware of the delay and its potential impact.",
+     "content": "Aldergate Rail is a listed firm. It has a signaling-contract that is delayed. It must decide whether to issue a market warning about the delay before its scheduled interim results day on November 5. The firm's leadership is aware of the delay and the potential impact on its financial results.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T08:00:00+00:00"
     },
     {
-     "content": "Aldergate Rail is a publicly listed company. Its interim results are scheduled for release on November 5. The company has a signaling-contract delay that could affect its financial outlook. Market regulations may require timely disclosure of material information.",
+     "content": "Aldergate Rail is a listed company. It has a signaling-contract that is delayed. The company is scheduled to release its interim results on November 5. Market regulations may require timely disclosure of material information, but the specific obligations and the firm's interpretation are not predetermined.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T08:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the listed firm Aldergate Rail warn the market about its signaling-contract delay before its scheduled interim results day on November 5?",
-  "scene:shared_context": "Aldergate Rail is a publicly listed company. Its interim results are scheduled for release on November 5. The company has a signaling-contract delay that could affect its financial outlook. Market regulations may require timely disclosure of material information."
+  "scene:shared_context": "Aldergate Rail is a listed company. It has a signaling-contract that is delayed. The company is scheduled to release its interim results on November 5. Market regulations may require timely disclosure of material information, but the specific obligations and the firm's interpretation are not predetermined."
  },
  "history": [],
  "infos": {},

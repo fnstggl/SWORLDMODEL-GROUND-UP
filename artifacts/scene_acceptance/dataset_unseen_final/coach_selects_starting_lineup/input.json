@@ -1,0 +1,8 @@
+{
+ "question": "Does Coach Mike Johnson select the starting lineup for the championship game by 8 AM on September 10, 2026?",
+ "start": "2026-09-09T12:00:00-06:00",
+ "cutoff": "2026-09-10T08:00:00-06:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

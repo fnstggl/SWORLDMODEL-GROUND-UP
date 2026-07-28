@@ -3,19 +3,14 @@
  "worst_severity": "MAJOR",
  "defects": [
   {
-   "aspect": "invented_precision",
-   "severity": "MAJOR",
-   "detail": "The scene states that Jaka is aware of the early-bird deadline and the apartment listing, but the question and context do not specify that Jaka knows these details. This is an invented precision about Jaka's knowledge."
-  },
-  {
-   "aspect": "prewritten",
-   "severity": "MAJOR",
-   "detail": "The scene states that Jaka 'usually ends up doing the booking' and that he 'wants to secure the booking but needs agreement on dates.' This pre-decides that Jaka will be the one to book, which may not be the case in the simulation. It also implies a motivation that could influence his actions."
-  },
-  {
    "aspect": "info_boundaries",
-   "severity": "MINOR",
-   "detail": "Jaka's private context includes that he is aware of the early-bird deadline and the apartment listing. This information is also in shared context, so it's not a leak, but it's redundant. However, the private context of Friend 1 and Friend 2 only says they have new jobs with limited leave, which is appropriate."
+   "severity": "MAJOR",
+   "detail": "Jaka's private context includes awareness of the early-bird deadline, which is shared context. This leaks shared information into private context, but more importantly, it may imply Jaka has special responsibility, which could be seen as pre-deciding his role. However, the question states 'Jaka always ends up doing the booking', so this is acceptable. The real issue is that the private contexts of Friend 1 and Friend 2 mention 'new job with limited leave' but do not specify any details about their leave availability, making it impossible for the simulation to reason about their constraints. This is a missing information problem, but it's not exactly info_boundaries. Actually, the defect is that the private contexts are too vague to be useful, which is a form of missing information."
+  },
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The private contexts of Friend 1 and Friend 2 mention 'new job with limited leave' but do not specify how much leave they have or any constraints on dates. Without this information, the simulation cannot realistically model their availability, which is critical to the question of agreeing on dates. This missing detail makes the scene insufficient for a causally accurate simulation."
   }
  ],
  "id": "grp_ljubljana_trip_booking"
