@@ -1,13 +1,16 @@
-{"actor":"ines","content":"I've decided to offer to host the birthday dinner.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"I am away until Friday, so hosting is not possible for me.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I hope someone else volunteers to host so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I notice Ines raised the hosting question, but I'm not committing yet.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"I'm relieved Ines offered since I can't host.","source":"actor_call:c11","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I'm relieved Ines volunteered, so I don't have to host.","source":"actor_call:c13","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I note that Ines has volunteered to host, but I'm not committing yet.","source":"actor_call:c15","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"ines","content":"It seems settled that I'll host the dinner at our place.","source":"actor_call:c33","t":"2026-10-06T08:05:05+00:00"}
-{"actor":"ines","content":"I should start planning what to cook and what decorations to get.","source":"actor_call:c33","t":"2026-10-06T08:05:05+00:00"}
-{"actor":"ines","content":"I'm now committed to hosting the dinner at our place.","source":"actor_call:c36","t":"2026-10-06T08:05:05+00:00"}
-{"actor":"ines","content":"I need to start planning the menu, decorations, and coordinate with Kwame about his contribution.","source":"actor_call:c36","t":"2026-10-06T08:05:05+00:00"}
-{"actor":"kwame","content":"I now know Ines is hosting and planning the menu; I'm comfortable with that.","source":"actor_call:c45","t":"2026-10-06T08:05:10+00:00"}
-{"actor":"ines","content":"I'm now the confirmed host for the birthday dinner.","source":"actor_call:c65","t":"2026-10-06T08:11:00+00:00"}
+{"actor":"ines","content":"I am aware that we need to decide on a host for the shared birthday dinner before the weekend","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I'm not available to host this weekend due to being away.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I remember that I work nights, so hosting a dinner could be complicated if it's on a workday.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I need to check my work schedule before deciding to host.","source":"actor_call:c25","t":"2026-10-06T12:12:00+00:00"}
+{"actor":"tomas","content":"I notice Kwame hasn't volunteered yet either.","source":"actor_call:c61","t":"2026-10-06T22:47:00+00:00"}
+{"actor":"tomas","content":"I'm relieved Kwame didn't volunteer either, so I'm not the only one avoiding it.","source":"actor_call:c64","t":"2026-10-06T22:47:00+00:00"}
+{"actor":"tomas","content":"I'm hoping Ines or someone else will step up, so I don't have to host.","source":"actor_call:c69","t":"2026-10-06T22:52:00+00:00"}
+{"actor":"bea","content":"I now know I work Friday night and Sunday night, so Saturday is better for hosting if we do it early enough.","source":"actor_call:c76","t":"2026-10-09T13:42:00+00:00"}
+{"actor":"tomas","content":"I notice Bea offered to host on Saturday or Sunday, which is good, maybe she'll do it.","source":"actor_call:c87","t":"2026-10-09T13:52:05+00:00"}
+{"actor":"ines","content":"I note that Bea is willing to host, which solves the hosting issue if others agree.","source":"actor_call:c97","t":"2026-10-09T14:22:00+00:00"}
+{"actor":"tomas","content":"I see Ines replied to Bea asking about day preference, but I'm not going to jump in yet.","source":"actor_call:c128","t":"2026-10-09T18:57:00+00:00"}
+{"actor":"tomas","content":"I still hope someone else will host so I don't have to.","source":"actor_call:c128","t":"2026-10-09T18:57:00+00:00"}
+{"actor":"bea","content":"I'm leaning towards Saturday early evening as the best option since I work Sunday night, but I'll wait for Alex and Kwame to respond.","source":"actor_call:c132","t":"2026-10-09T20:22:00+00:00"}
+{"actor":"ines","content":"I'm starting to feel a bit impatient that no one else has responded, but I'll give it until this evening before nudging the group.","source":"actor_call:c156","t":"2026-10-10T07:52:10+00:00"}
+{"actor":"tomas","content":"I'm still hoping Bea will host since she offered, or that Ines will take over.","source":"actor_call:c157","t":"2026-10-10T09:12:10+00:00"}

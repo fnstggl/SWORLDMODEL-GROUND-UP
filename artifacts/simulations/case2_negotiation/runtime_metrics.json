@@ -1,42 +1,42 @@
 {
- "provider_calls": 87,
+ "provider_calls": 185,
  "by_role": {
   "judge": {
-   "calls": 21,
-   "retries": 2,
-   "wall_s": 39.06,
-   "input_tokens": 20883,
-   "output_tokens": 1404
+   "calls": 63,
+   "retries": 0,
+   "wall_s": 112.21,
+   "input_tokens": 137690,
+   "output_tokens": 3848
   },
   "world": {
-   "calls": 49,
-   "retries": 0,
-   "wall_s": 95.3,
-   "input_tokens": 108050,
-   "output_tokens": 4324
+   "calls": 100,
+   "retries": 1,
+   "wall_s": 242.25,
+   "input_tokens": 385121,
+   "output_tokens": 12624
   },
   "actor": {
-   "calls": 17,
+   "calls": 22,
    "retries": 0,
-   "wall_s": 56.43,
-   "input_tokens": 15786,
-   "output_tokens": 1478
+   "wall_s": 50.39,
+   "input_tokens": 36723,
+   "output_tokens": 2228
   }
  },
- "total_input_tokens": 144719,
- "total_output_tokens": 7206,
- "total_wall_s": 190.82,
- "status": "cutoff",
+ "total_input_tokens": 559534,
+ "total_output_tokens": 18700,
+ "total_wall_s": 404.82,
+ "status": "incomplete",
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-09-20T00:00:00+01:00 (2026-09-19T23:00:00Z) has passed, and the committed events show no agreement on a price between Priya Raghavan and Dmitri Sokolov."
+  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price; the latest offers are 1150 and 1300, with no acceptance."
  },
- "reason": "",
- "steps": 58,
- "world_calls": 49,
- "actor_calls": 17,
- "judge_calls": 19,
- "committed_events": 18,
- "ledger_records": 252
+ "reason": "step ceiling 120 reached at 2026-09-10T22:14:45+00:00, before the cutoff",
+ "steps": 120,
+ "world_calls": 99,
+ "actor_calls": 22,
+ "judge_calls": 63,
+ "committed_events": 62,
+ "ledger_records": 551
 }

@@ -1,42 +1,42 @@
 {
- "provider_calls": 153,
+ "provider_calls": 189,
  "by_role": {
   "judge": {
-   "calls": 36,
+   "calls": 75,
    "retries": 0,
-   "wall_s": 61.96,
-   "input_tokens": 51073,
-   "output_tokens": 2218
+   "wall_s": 130.58,
+   "input_tokens": 173704,
+   "output_tokens": 4777
   },
   "world": {
-   "calls": 100,
+   "calls": 89,
    "retries": 0,
-   "wall_s": 253.34,
-   "input_tokens": 293116,
-   "output_tokens": 12269
+   "wall_s": 208.45,
+   "input_tokens": 322240,
+   "output_tokens": 11096
   },
   "actor": {
-   "calls": 17,
+   "calls": 25,
    "retries": 0,
-   "wall_s": 32.83,
-   "input_tokens": 28558,
-   "output_tokens": 1296
+   "wall_s": 50.48,
+   "input_tokens": 49838,
+   "output_tokens": 1877
   }
  },
- "total_input_tokens": 372747,
- "total_output_tokens": 15783,
- "total_wall_s": 348.11,
+ "total_input_tokens": 545782,
+ "total_output_tokens": 17750,
+ "total_wall_s": 389.53,
  "status": "incomplete",
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "Aline has begun reading the chapter but has not yet sent comments to Ravi, and the deadline has not passed."
+  "explanation": "The committed events show Dr Aline Mercier reading the thesis chapter, but there is no event showing she sent comments to Ravi, and the deadline has not passed."
  },
- "reason": "step ceiling 120 reached at 2026-07-27T20:00:40+00:00, before the cutoff",
+ "reason": "step ceiling 120 reached at 2026-07-29T10:05:47+00:00, before the cutoff",
  "steps": 120,
- "world_calls": 100,
- "actor_calls": 17,
- "judge_calls": 36,
- "committed_events": 35,
- "ledger_records": 493
+ "world_calls": 89,
+ "actor_calls": 25,
+ "judge_calls": 75,
+ "committed_events": 74,
+ "ledger_records": 564
 }

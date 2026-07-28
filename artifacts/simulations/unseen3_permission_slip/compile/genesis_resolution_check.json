@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "My friend Naomi and her ex Chris share custody of their nine-year-old, Ezra, in Portland, and Ezra is at Chris's place Sunday through Friday this week. Ezra's fourth-grade class has an overnight trip to a nature camp next week, and his teacher Mr. Whitcomb sent home a permission slip plus $85 in the kids' folders on Monday, due at the school office by 3 p.m. this Friday, September 18, because that's when the cabin and bus count goes final. The form is still flat in the bottom of Ezra's backpack \u2014 he told Chris \"there's a thing in my folder\" on Tuesday while Chris was on a work call and hasn't mentioned it since; he wants to go, but his friend Dev told him the cabins have spiders, so he isn't exactly campaigning for it. Chris started a new job as a service manager at a dealership three weeks ago, is out the door at 7 and back after 6, and his dad had a stent put in Tuesday, so his evenings have been phone calls with his mom. Naomi is the one who normally handles all the school paperwork, but she only skimmed the class newsletter Monday and doesn't really know the trip is happening, and she's on night shifts at the hospital Thursday, Friday and Saturday, 7 p.m. to 7:30 a.m., which means she'll be asleep most of Friday from about 8 a.m. until late afternoon. Mr. Whitcomb usually pings the families still missing forms through the school app; Chris has notifications for that app turned off and Naomi only sees it as a 6 a.m. email digest. Will Ezra's signed permission slip and the $85 actually make it to the school office \u2014 dropped off by a parent or sent in with Ezra \u2014 by 3 p.m. Friday?",
+  "resolution": "Resolve YES only if the persistent event history shows that the signed permission slip and $85 were received at the school office by 3 p.m. Friday, September 18, 2026, either dropped off by a parent or sent in with Ezra. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-18T15:00:00-07:00",
+  "world_id": "w_f13a188d5d9a"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

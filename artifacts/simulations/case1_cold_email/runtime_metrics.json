@@ -1,42 +1,42 @@
 {
- "provider_calls": 84,
+ "provider_calls": 64,
  "by_role": {
   "judge": {
-   "calls": 10,
+   "calls": 9,
    "retries": 0,
-   "wall_s": 16.07,
-   "input_tokens": 6949,
-   "output_tokens": 565
+   "wall_s": 15.39,
+   "input_tokens": 6102,
+   "output_tokens": 504
   },
   "world": {
-   "calls": 30,
-   "retries": 0,
-   "wall_s": 58.1,
-   "input_tokens": 59085,
-   "output_tokens": 2523
+   "calls": 46,
+   "retries": 1,
+   "wall_s": 105.68,
+   "input_tokens": 90998,
+   "output_tokens": 4652
   },
   "actor": {
-   "calls": 44,
+   "calls": 9,
    "retries": 0,
-   "wall_s": 98.86,
-   "input_tokens": 38130,
-   "output_tokens": 2367
+   "wall_s": 18.56,
+   "input_tokens": 7156,
+   "output_tokens": 668
   }
  },
- "total_input_tokens": 104164,
- "total_output_tokens": 5455,
- "total_wall_s": 173.05,
+ "total_input_tokens": 104256,
+ "total_output_tokens": 5824,
+ "total_wall_s": 139.68,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email; the deadline 2026-08-10T09:00:00-05:00 (14:00 UTC) has passed."
+  "explanation": "The resolution requires Mark Cuban to send a response before 2026-08-10T09:00:00-05:00 (14:00 UTC), but the committed events show no response was sent by that deadline."
  },
  "reason": "",
- "steps": 56,
- "world_calls": 30,
- "actor_calls": 44,
- "judge_calls": 10,
- "committed_events": 9,
- "ledger_records": 225
+ "steps": 54,
+ "world_calls": 45,
+ "actor_calls": 9,
+ "judge_calls": 9,
+ "committed_events": 8,
+ "ledger_records": 198
 }
