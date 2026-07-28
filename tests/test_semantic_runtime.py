@@ -1102,3 +1102,22 @@ def test_one_pending_revisit_per_person_however_it_was_asked_for():
     fired = [r for r in world.records if r["op"] == "event.fired"
              and r["data"]["kind"] == "semantic.wake"]
     assert len(queued) <= len(fired) + 1
+
+
+def test_the_runtime_is_frozen_for_the_unseen_case():
+    """The unseen social case was authored and run against exactly this
+    implementation.  If a production file changes after the freeze, the
+    unseen case has to be authored again against the new one."""
+    import subprocess
+    frozen = {}
+    with open("artifacts/semantic_runtime/RUNTIME_FREEZE.txt") as f:
+        for line in f:
+            if line.strip():
+                blob, path = line.split()
+                frozen[path] = blob
+    assert len(frozen) == 13
+    paths = sorted(frozen)
+    out = subprocess.run(["git", "hash-object"] + paths,
+                         capture_output=True, text=True, check=True)
+    on_disk = dict(zip(paths, out.stdout.split()))
+    assert [p for p in paths if on_disk[p] != frozen[p]] == []
