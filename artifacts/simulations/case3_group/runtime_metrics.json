@@ -1,0 +1,42 @@
+{
+ "provider_calls": 68,
+ "by_role": {
+  "judge": {
+   "calls": 36,
+   "retries": 0,
+   "wall_s": 61.82,
+   "input_tokens": 25077,
+   "output_tokens": 1923
+  },
+  "world": {
+   "calls": 25,
+   "retries": 0,
+   "wall_s": 54.73,
+   "input_tokens": 36965,
+   "output_tokens": 2723
+  },
+  "actor": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 14.69,
+   "input_tokens": 5300,
+   "output_tokens": 529
+  }
+ },
+ "total_input_tokens": 67342,
+ "total_output_tokens": 5175,
+ "total_wall_s": 131.22,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed events show that the four housemates collectively agreed on a host."
+ },
+ "reason": "step ceiling 34 reached before the cutoff",
+ "steps": 34,
+ "world_calls": 25,
+ "actor_calls": 7,
+ "judge_calls": 36,
+ "committed_events": 14,
+ "ledger_records": 177
+}

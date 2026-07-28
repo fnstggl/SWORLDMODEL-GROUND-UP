@@ -246,17 +246,24 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                         actor_step(aid, cause=rec["seq"],
                                    reasons=[f"you observed: "
                                             f"{envelope['description']}"])
-                else:
-                    # available but unobserved: the world decides later
-                    # whether it ever reaches attention
+                # the causal chain continues ONE step: every committed event
+                # gets exactly one immediate-consequence adjudication, so
+                # something set in motion keeps moving (sent -> arrives ->
+                # sits where it could be seen) instead of stopping the
+                # moment nobody happens to act.  The world ends the chain by
+                # returning no event.
+                before = len(journal.events())
+                parsed = world_step(
+                    trigger_kind="event_consequence",
+                    trigger_text=envelope["description"],
+                    cause=rec["seq"],
+                    actor_id=envelope["for"][0] if envelope["for"] else None)
+                progressed = (len(journal.events()) > before
+                              or world.queue.peek() is not None)
+                if not envelope["observed"] and parsed is not None \
+                        and not (parsed["wakes"] or progressed):
                     for aid in envelope["for"]:
-                        world.schedule(K_WAKE,
-                                       {"actor": aid,
-                                        "reason": "something is available to "
-                                                  "them that they have not "
-                                                  "observed"},
-                                       min(world.clock.now + timedelta(hours=1),
-                                           cutoff), rec["seq"])
+                        _schedule_recheck(aid, rec["seq"])
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
                 pending = journal.available_unobserved(aid)

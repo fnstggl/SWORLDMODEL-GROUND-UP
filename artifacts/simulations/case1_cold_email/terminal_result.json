@@ -3,20 +3,20 @@
  "trajectory": {
   "status": "cutoff",
   "answer": {
-   "status": "UNRESOLVED",
+   "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No event shows Mark Cuban sending a response, and the cutoff time has not yet passed."
+   "explanation": "Cutoff time 2026-08-10T09:00:00-05:00 has passed and no event shows Mark Cuban sending a response."
   },
   "reason": "",
-  "steps": 2,
-  "world_calls": 2,
-  "actor_calls": 0,
-  "judge_calls": 4
+  "steps": 4,
+  "world_calls": 3,
+  "actor_calls": 4,
+  "judge_calls": 6
  },
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No event shows Mark Cuban sending a response, and the cutoff time has not yet passed."
+  "explanation": "Cutoff time 2026-08-10T09:00:00-05:00 has passed and no event shows Mark Cuban sending a response."
  },
  "reason": ""
 }

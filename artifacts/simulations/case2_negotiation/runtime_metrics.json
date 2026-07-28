@@ -1,0 +1,42 @@
+{
+ "provider_calls": 68,
+ "by_role": {
+  "judge": {
+   "calls": 37,
+   "retries": 1,
+   "wall_s": 62.3,
+   "input_tokens": 26607,
+   "output_tokens": 2223
+  },
+  "world": {
+   "calls": 25,
+   "retries": 0,
+   "wall_s": 53.23,
+   "input_tokens": 38462,
+   "output_tokens": 2777
+  },
+  "actor": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 14.67,
+   "input_tokens": 4545,
+   "output_tokens": 644
+  }
+ },
+ "total_input_tokens": 69614,
+ "total_output_tokens": 5644,
+ "total_wall_s": 130.16,
+ "status": "cutoff",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln before the deadline."
+ },
+ "reason": "step ceiling 34 reached before the cutoff",
+ "steps": 34,
+ "world_calls": 25,
+ "actor_calls": 6,
+ "judge_calls": 36,
+ "committed_events": 15,
+ "ledger_records": 175
+}

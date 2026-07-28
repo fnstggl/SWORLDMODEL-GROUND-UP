@@ -1,0 +1,24 @@
+{
+ "actors": [
+  {
+   "name": "Priya Raghavan",
+   "private_context": "Priya wants to buy a used kiln. She has offered 900 and would rather close than keep looking. Her workshop lease renews on the 20th, and she needs the kiln before then."
+  },
+  {
+   "name": "Dmitri Sokolov",
+   "private_context": "Dmitri is selling a used kiln. He is asking 1400 and would rather close than keep looking. He knows Priya has offered 900."
+  }
+ ],
+ "shared_context": "Priya Raghavan and Dmitri Sokolov are negotiating the price of a used kiln. Priya has offered 900 and Dmitri is asking 1400. Both would rather reach an agreement than continue searching. The deadline for agreement is before Priya's workshop lease renewal on the 20th.",
+ "starting_events": [
+  {
+   "time": "2026-09-08T10:00:00+01:00",
+   "description": "Priya and Dmitri are aware of each other's initial price positions (Priya offered 900, Dmitri asks 1400). No agreement has been reached yet.",
+   "visible_to": [
+    "Priya Raghavan",
+    "Dmitri Sokolov"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Priya Raghavan and Dmitri Sokolov have agreed on a price for the used kiln before 2026-09-20T00:00:00+01:00 (the start of the lease renewal day). Otherwise resolve NO at that time."
+}

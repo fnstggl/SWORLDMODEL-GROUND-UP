@@ -198,6 +198,11 @@ class LifecycleModel:
             return json.dumps(UNRESOLVED), {}
         if "You are the world" in system:
             self.seen.append("world")
+            if "event_consequence" in user:
+                # the chain step: nothing further follows immediately in
+                # this scripted world -- attention is judged separately
+                return json.dumps({"judgment": "It sits where it is.",
+                                   "event": None, "wakes": []}), {}
             if "starting_event" in user:
                 return json.dumps({
                     "judgment": "The message travels and lands where Bo "

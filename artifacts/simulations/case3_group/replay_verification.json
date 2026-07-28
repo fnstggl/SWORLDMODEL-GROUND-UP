@@ -1,0 +1,30 @@
+{
+ "llm_calls": 0,
+ "records_replayed": 177,
+ "event_ids": [
+  "e15",
+  "e20",
+  "e42",
+  "e52",
+  "e68",
+  "e83",
+  "e91",
+  "e97",
+  "e104",
+  "e114",
+  "e122",
+  "e132",
+  "e141",
+  "e166"
+ ],
+ "event_order_hash": "[\"e15\",\"e20\",\"e42\",\"e52\",\"e68\",\"e83\",\"e91\",\"e97\",\"e104\",\"e114\",\"e122\",\"e132\",\"e141\",\"e166\"]",
+ "state_hash": "f63e998fd8900c21bee06db0011e44ec7db5ed52f06de9fd3f241d918f1b2ad5",
+ "terminal_status": "NO_AT_CUTOFF",
+ "terminal_support": [],
+ "state_hash_matches": true,
+ "event_ids_match": true,
+ "views_match": true,
+ "memories_match": true,
+ "terminal_matches": true,
+ "exact": true
+}
