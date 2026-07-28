@@ -1,22 +1,26 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "incomplete",
+  "status": "resolved",
   "answer": {
-   "status": "UNRESOLVED",
-   "supporting_event_ids": [],
-   "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price; the latest offers are 1150 and 1300, with no acceptance."
+   "status": "YES",
+   "supporting_event_ids": [
+    "e125"
+   ],
+   "explanation": "Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it."
   },
-  "reason": "step ceiling 120 reached at 2026-09-10T22:14:45+00:00, before the cutoff",
-  "steps": 120,
-  "world_calls": 99,
-  "actor_calls": 22,
-  "judge_calls": 63
+  "reason": "",
+  "steps": 20,
+  "world_calls": 20,
+  "actor_calls": 7,
+  "judge_calls": 17
  },
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price; the latest offers are 1150 and 1300, with no acceptance."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e125"
+  ],
+  "explanation": "Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it."
  },
- "reason": "step ceiling 120 reached at 2026-09-10T22:14:45+00:00, before the cutoff"
+ "reason": ""
 }

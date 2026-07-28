@@ -1,21 +1,7 @@
-{"actor":"priya_raghavan","content":"I'm willing to go up to 1150 to close the deal, but I'll start with that offer.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to go down to 1200, but I won't go below 1000. I'd rather close this deal than keep waiting.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I now know Priya is willing to go up to 1150, so there is room to negotiate.","source":"actor_call:c18","t":"2026-09-08T09:10:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I now believe Priya is flexible and we can likely settle around 1200.","source":"actor_call:c24","t":"2026-09-08T09:15:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm nervous but 1150 is my limit; if he rejects, I'll have to look elsewhere.","source":"actor_call:c36","t":"2026-09-08T09:59:05+00:00"}
-{"actor":"priya_raghavan","content":"I'm sticking to my 1150 limit; if he says no, I'll need to look for another kiln.","source":"actor_call:c43","t":"2026-09-08T10:01:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to go down to 1200 if needed, but I'll start higher.","source":"actor_call:c54","t":"2026-09-08T12:15:05+00:00"}
-{"actor":"priya_raghavan","content":"I am now aware that Dmitri has rejected my 1150 offer and is insisting on 1250 as final.","source":"actor_call:c84","t":"2026-09-08T22:45:15+00:00"}
-{"actor":"priya_raghavan","content":"I am disappointed but still committed to my 1150 limit; I will not go higher.","source":"actor_call:c84","t":"2026-09-08T22:45:15+00:00"}
-{"actor":"priya_raghavan","content":"I've decided not to accept 1250 and will not counter now.","source":"actor_call:c88","t":"2026-09-08T22:45:15+00:00"}
-{"actor":"priya_raghavan","content":"I've accepted that this deal is dead at 1250.","source":"actor_call:c91","t":"2026-09-09T00:05:20+00:00"}
-{"actor":"priya_raghavan","content":"I need to find another kiln before the 20th.","source":"actor_call:c91","t":"2026-09-09T00:05:20+00:00"}
-{"actor":"priya_raghavan","content":"I'm disappointed but relieved to move on from the Dmitri negotiation.","source":"actor_call:c101","t":"2026-09-10T00:15:23+00:00"}
-{"actor":"priya_raghavan","content":"I'm hopeful this might be a viable alternative to Dmitri's kiln.","source":"actor_call:c107","t":"2026-09-10T00:17:33+00:00"}
-{"actor":"dmitri_sokolov","content":"I now have Priya's latest message in front of me.","source":"actor_call:c122","t":"2026-09-10T09:05:20+00:00"}
-{"actor":"priya_raghavan","content":"Dmitri's latest offer confirms he won't go to my price, so the deal is definitely off.","source":"actor_call:c137","t":"2026-09-10T09:07:35+00:00"}
-{"actor":"priya_raghavan","content":"I need to find another kiln before the 20th, so I'll focus on other listings.","source":"actor_call:c137","t":"2026-09-10T09:07:35+00:00"}
-{"actor":"priya_raghavan","content":"I am now actively pursuing another kiln listing and will not return to negotiating with Dmitri.","source":"actor_call:c143","t":"2026-09-10T09:09:35+00:00"}
-{"actor":"priya_raghavan","content":"I'm getting anxious about the deadline; I need to secure a kiln soon.","source":"actor_call:c156","t":"2026-09-10T12:54:45+00:00"}
-{"actor":"priya_raghavan","content":"I'm feeling the pressure of the deadline; if the other seller doesn't reply soon, I might need to reconsider my options.","source":"actor_call:c165","t":"2026-09-10T18:14:45+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to go down to 1200 if she counters, but I'll start at 1300.","source":"actor_call:c172","t":"2026-09-10T20:09:35+00:00"}
+{"actor":"priya_raghavan","content":"I believe 1150 is a fair compromise and hope Dmitri will accept to avoid further delay.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm willing to come down from 1400 to 1100 as a first concession, but I won't go below 1000.","source":"actor_call:c5","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm now closer to an agreement; if he rejects 1050, I'll accept his 1100.","source":"actor_call:c15","t":"2026-09-08T10:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I note that Priya is eager to close, which might give me some leverage, but I'm still willing to settle around 1050-1100.","source":"actor_call:c18","t":"2026-09-08T10:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"Priya has moved to 1150, which is close to my acceptable range. I can try to get 1100, but I'm okay settling at 1050 if needed.","source":"actor_call:c26","t":"2026-09-08T10:00:02+00:00"}
+{"actor":"dmitri_sokolov","content":"I have decided to accept 1050, as it meets my bottom line and avoids further delay.","source":"actor_call:c36","t":"2026-09-08T10:05:05+00:00"}
+{"actor":"dmitri_sokolov","content":"I've decided to accept 1050, so the negotiation is effectively over.","source":"actor_call:c40","t":"2026-09-08T10:05:30+00:00"}

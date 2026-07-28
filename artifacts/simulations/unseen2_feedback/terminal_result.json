@@ -1,22 +1,22 @@
 {
  "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
  "trajectory": {
-  "status": "incomplete",
+  "status": "cutoff",
   "answer": {
-   "status": "UNRESOLVED",
+   "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "The committed events show Dr Aline Mercier reading the thesis chapter, but there is no event showing she sent comments to Ravi, and the deadline has not passed."
+   "explanation": "Aline read Ravi's thesis chapter but never sent comments to Ravi; the last event shows her composing a reply, but no event shows the email was sent, and the deadline has passed."
   },
-  "reason": "step ceiling 120 reached at 2026-07-29T10:05:47+00:00, before the cutoff",
-  "steps": 120,
-  "world_calls": 89,
-  "actor_calls": 25,
-  "judge_calls": 75
+  "reason": "",
+  "steps": 48,
+  "world_calls": 27,
+  "actor_calls": 27,
+  "judge_calls": 24
  },
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "The committed events show Dr Aline Mercier reading the thesis chapter, but there is no event showing she sent comments to Ravi, and the deadline has not passed."
+  "explanation": "Aline read Ravi's thesis chapter but never sent comments to Ravi; the last event shows her composing a reply, but no event shows the email was sent, and the deadline has passed."
  },
- "reason": "step ceiling 120 reached at 2026-07-29T10:05:47+00:00, before the cutoff"
+ "reason": ""
 }

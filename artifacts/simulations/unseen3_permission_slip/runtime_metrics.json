@@ -1,0 +1,42 @@
+{
+ "provider_calls": 125,
+ "by_role": {
+  "judge": {
+   "calls": 52,
+   "retries": 9,
+   "wall_s": 88.77,
+   "input_tokens": 90179,
+   "output_tokens": 3801
+  },
+  "world": {
+   "calls": 55,
+   "retries": 0,
+   "wall_s": 129.49,
+   "input_tokens": 168580,
+   "output_tokens": 7076
+  },
+  "actor": {
+   "calls": 18,
+   "retries": 0,
+   "wall_s": 37.66,
+   "input_tokens": 20691,
+   "output_tokens": 1787
+  }
+ },
+ "total_input_tokens": 279450,
+ "total_output_tokens": 12664,
+ "total_wall_s": 255.88,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline of 3 p.m. Friday, September 18, 2026 has passed and the committed events show that the permission slip was signed and a check written but never delivered to the school office."
+ },
+ "reason": "",
+ "steps": 72,
+ "world_calls": 55,
+ "actor_calls": 18,
+ "judge_calls": 43,
+ "committed_events": 42,
+ "ledger_records": 346
+}

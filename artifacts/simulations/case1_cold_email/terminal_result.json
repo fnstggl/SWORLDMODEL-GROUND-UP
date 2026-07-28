@@ -5,18 +5,18 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "The resolution requires Mark Cuban to send a response before 2026-08-10T09:00:00-05:00 (14:00 UTC), but the committed events show no response was sent by that deadline."
+   "explanation": "The deadline has passed (2026-08-10T09:00:00-05:00) and no event shows Mark Cuban sending a response to Jordan Reyes's email."
   },
   "reason": "",
-  "steps": 54,
-  "world_calls": 45,
-  "actor_calls": 9,
-  "judge_calls": 9
+  "steps": 60,
+  "world_calls": 37,
+  "actor_calls": 36,
+  "judge_calls": 21
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "The resolution requires Mark Cuban to send a response before 2026-08-10T09:00:00-05:00 (14:00 UTC), but the committed events show no response was sent by that deadline."
+  "explanation": "The deadline has passed (2026-08-10T09:00:00-05:00) and no event shows Mark Cuban sending a response to Jordan Reyes's email."
  },
  "reason": ""
 }

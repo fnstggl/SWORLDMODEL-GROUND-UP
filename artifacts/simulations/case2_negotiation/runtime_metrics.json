@@ -1,42 +1,44 @@
 {
- "provider_calls": 185,
+ "provider_calls": 44,
  "by_role": {
   "judge": {
-   "calls": 63,
+   "calls": 17,
    "retries": 0,
-   "wall_s": 112.21,
-   "input_tokens": 137690,
-   "output_tokens": 3848
+   "wall_s": 29.57,
+   "input_tokens": 15978,
+   "output_tokens": 1049
   },
   "world": {
-   "calls": 100,
-   "retries": 1,
-   "wall_s": 242.25,
-   "input_tokens": 385121,
-   "output_tokens": 12624
+   "calls": 20,
+   "retries": 0,
+   "wall_s": 45.58,
+   "input_tokens": 45028,
+   "output_tokens": 2539
   },
   "actor": {
-   "calls": 22,
+   "calls": 7,
    "retries": 0,
-   "wall_s": 50.39,
-   "input_tokens": 36723,
-   "output_tokens": 2228
+   "wall_s": 15.5,
+   "input_tokens": 6597,
+   "output_tokens": 764
   }
  },
- "total_input_tokens": 559534,
- "total_output_tokens": 18700,
- "total_wall_s": 404.82,
- "status": "incomplete",
+ "total_input_tokens": 67603,
+ "total_output_tokens": 4352,
+ "total_wall_s": 90.61,
+ "status": "resolved",
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya Raghavan and Dmitri Sokolov have agreed on a price; the latest offers are 1150 and 1300, with no acceptance."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e125"
+  ],
+  "explanation": "Dmitri Sokolov sent an email to Priya Raghavan stating '1050 works for me', indicating agreement on price before the deadline, though Priya has not yet observed it."
  },
- "reason": "step ceiling 120 reached at 2026-09-10T22:14:45+00:00, before the cutoff",
- "steps": 120,
- "world_calls": 99,
- "actor_calls": 22,
- "judge_calls": 63,
- "committed_events": 62,
- "ledger_records": 551
+ "reason": "",
+ "steps": 20,
+ "world_calls": 20,
+ "actor_calls": 7,
+ "judge_calls": 17,
+ "committed_events": 17,
+ "ledger_records": 128
 }

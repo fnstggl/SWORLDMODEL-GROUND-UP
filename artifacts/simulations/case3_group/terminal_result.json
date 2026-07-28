@@ -5,18 +5,18 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No committed event shows that all four housemates collectively agreed on a host before the deadline of 2026-10-10T00:00:00+00:00."
+   "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and the committed events do not show that the four housemates collectively agreed on a host."
   },
   "reason": "",
-  "steps": 102,
-  "world_calls": 83,
-  "actor_calls": 35,
-  "judge_calls": 44
+  "steps": 165,
+  "world_calls": 130,
+  "actor_calls": 37,
+  "judge_calls": 72
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows that all four housemates collectively agreed on a host before the deadline of 2026-10-10T00:00:00+00:00."
+  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and the committed events do not show that the four housemates collectively agreed on a host."
  },
  "reason": ""
 }
