@@ -129,16 +129,26 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: and someone is revisited every couple of simulated minutes forever.
     recheck_pending: set = set()
 
+    FIRST_RECHECK_MINUTES = 5
+
     def _schedule_recheck(actor_id: str, cause: int) -> None:
-        # ten minutes, then twenty, then forty, up to a day.  It starts
-        # short because some situations move in minutes and it widens
-        # because most do not; either way it walks to the horizon.
+        """Ten minutes, then twenty, then forty, up to a day.
+
+        It starts short because some situations move in minutes, widens
+        because most do not, and RESETS the moment something happens to
+        that person -- an interval that only ever grows is not patience,
+        it is a slow exit.  A revisit that would fall past the horizon is
+        pulled back to it rather than dropped: an independent review found
+        that this silent drop, with two others like it, could only ever
+        suppress events, and only suppressed events produce NO.
+        """
         if actor_id in recheck_pending:
             return
-        minutes = backoff.get(actor_id, 5) * 2
+        minutes = backoff.get(actor_id, FIRST_RECHECK_MINUTES) * 2
         backoff[actor_id] = min(minutes, 24 * 60)
-        due = world.clock.now + timedelta(minutes=backoff[actor_id])
-        if due <= cutoff:
+        due = min(world.clock.now + timedelta(minutes=backoff[actor_id]),
+                  cutoff)
+        if due > world.clock.now:
             recheck_pending.add(actor_id)
             world.schedule(K_WAKE,
                            {"actor": actor_id,
@@ -336,6 +346,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             env_chain["depth"] = 0
             for aid in others:
                 news[aid] = news.get(aid, 0) + 1
+                # something happened to them, so their patience resets:
+                # it widens while nothing does
+                backoff[aid] = FIRST_RECHECK_MINUTES
                 actor_step(aid, cause=rec["seq"],
                            trigger_event_ids=[rec["event_id"]])
             return
@@ -343,7 +356,10 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # they get no fresh turn -- but the world must still say what
         # became of what they did, or a message they sent would simply
         # stop where it was sent.
-        waiting = envelope["for"] or ([self_act_of] if self_act_of else [])
+        # whoever this concerns, INCLUDING the person whose doing it was:
+        # someone who sends a thing to someone else is still waiting on it
+        waiting = list(dict.fromkeys(
+            list(envelope["for"]) + ([self_act_of] if self_act_of else [])))
         if since_actor["n"] >= MAX_WORLD_RUN and waiting:
             # the world has been going by itself for too long: whatever it
             # has been writing, the people in it get to speak
@@ -558,6 +574,11 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                              or world.queue.peek() is not None)
                     if parsed is not None and not (parsed["wakes"] or moved):
                         _schedule_recheck(aid, fired)
+                    # ... and the person themselves gets their look.  A
+                    # wake spent entirely on what is sitting in someone's
+                    # inbox leaves the person out of their own life: they
+                    # may have something else entirely to do about this.
+                    actor_step(aid, cause=fired)
                 else:
                     # nothing is pending for them; they are simply being
                     # consulted again because time has passed.  The world's

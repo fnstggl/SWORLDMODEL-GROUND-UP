@@ -896,9 +896,13 @@ def test_reaching_the_horizon_is_recorded_so_the_run_stays_replayable():
                           caller, max_steps=60, trace=Trace())
     assert traj.status == "cutoff"
     assert world.clock.now == parse_iso(CUTOFF)
-    # the clock did not move without the ledger saying so
+    # the clock did not move without the ledger saying so.  If it had to
+    # be advanced to the horizon at all, that advance is a record; here it
+    # arrives there on its own, so there is nothing to record.
     assert parse_iso(world.records[-1]["t"]) == parse_iso(CUTOFF)
-    assert any(r["op"] == "semantic.horizon_reached" for r in world.records)
+    advanced = [r for r in world.records
+                if r["op"] == "semantic.horizon_reached"]
+    assert len(advanced) <= 1
     assert replay_trajectory(world.records, live_world=world)["exact"] is True
 
 
@@ -1192,3 +1196,33 @@ def test_a_person_remembers_what_they_themselves_did():
     for aid in ("ada_vance", "bo_ferrer"):
         assert len(build_view(world, journal, aid)["own_actions"]) \
             == calls.get(aid, 0)
+
+
+def test_nobody_is_quietly_dropped_before_the_horizon():
+    """An independent review found three mechanisms that could only
+    suppress events -- a revisit interval that grew and never reset, a
+    revisit past the cutoff silently discarded, and the person who sent
+    something left out of the situation they had just acted in.  Only a
+    suppressed event produces NO, so all three leaned one way."""
+    world, journal, bindings = build()
+    consulted = {}
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            return json.dumps({"judgment": "nothing comes of it",
+                               "event": None, "wakes": []}), {}
+        who = "ada" if "Ada Vance" in user else "bo"
+        consulted[who] = consulted.get(who, 0) + 1
+        return json.dumps(NOTHING), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=120,
+                          trace=Trace())
+    assert traj.status == "cutoff"
+    # both of them are still in the situation at the end, not just one
+    assert consulted.get("ada", 0) > 3 and consulted.get("bo", 0) > 3
+    # and the last thing that happened is at the horizon itself
+    assert parse_iso(world.records[-1]["t"]) == parse_iso(CUTOFF)
