@@ -2,15 +2,14 @@
 **Question:** Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.
 **Result:** resolved — YES
 
-*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No committed event shows Sam Okonjo sending a text message confirming the appointment; only an incoming message from Bristol Plumbing has occurred.*
+*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No event shows Sam Okonjo sending a text message confirming the appointment; only an incoming message has occurred.*
 
 **World judgment** (starting_event) at 2026-07-28T08:00:00+00:00
 
 > trigger: Bristol Plumbing's text message arrives on Sam Okonjo's phone.
 >
-> The message has already arrived and been observed by Sam. No further immediate concrete change occurs.
+> The message has already arrived and been observed. No new event occurs.
 - proposes: (no concrete event yet)
-- wake sam_okonjo after 30 minutes: Sam may check his phone again or respond after some time passes.
 
 <details><summary>what sam_okonjo could see at 2026-07-28T08:00:00+00:00 (their entire prompt)</summary>
 
@@ -39,33 +38,32 @@ WHY YOU ARE CONSIDERING THINGS NOW
 
 **sam_okonjo decides** at 2026-07-28T08:00:00+00:00
 
-> I see the text from Bristol Plumbing and need to confirm the Thursday 8am slot before 6pm. I'll reply now so I don't forget.
-- attempts: I will reply to the text message with 'Yes, I confirm the Thursday 8am slot.'
-- privately: I have confirmed the appointment and expect to keep it.
+> I've been waiting three weeks for this repair, so I'll reply immediately to confirm the Thursday 8am slot before I forget.
+- attempts: I pick up my phone and reply 'Yes, Thursday 8am works for me' to Bristol Plumbing's text message.
+- privately: I've confirmed the appointment and am relieved to finally have a date.
 
 **World judgment** (actor_intention) at 2026-07-28T08:00:00+00:00
 
-> trigger: sam_okonjo attempts: I will reply to the text message with 'Yes, I confirm the Thursday 8am slot.'
+> trigger: sam_okonjo attempts: I pick up my phone and reply 'Yes, Thursday 8am works for me' to Bristol Plumbing's text message.
 >
-> Sam picks up his phone and taps the reply button. He types his confirmation and sends it. The message is transmitted instantly.
-- proposes: Sam Okonjo replies to Bristol Plumbing's text message with 'Yes, I confirm the Thursday 8am slot.' The reply is sent from his phone. (for ['sam_okonjo'], observed=True, after now)
+> Sam picks up his phone and types the reply. The message is sent immediately.
+- proposes: Sam sends the reply 'Yes, Thursday 8am works for me' to Bristol Plumbing's text message. (for ['sam_okonjo'], observed=True, after 5 seconds)
 
 ---
 
-## 2026-07-28T08:00:00+00:00 — committed event `e18`
+## 2026-07-28T08:00:05+00:00 — committed event `e17`
 
-Sam Okonjo replies to Bristol Plumbing's text message with 'Yes, I confirm the Thursday 8am slot.' The reply is sent from his phone.
+Sam sends the reply 'Yes, Thursday 8am works for me' to Bristol Plumbing's text message.
 
 - available to: sam_okonjo
 - OBSERVED by them
 - source: world_call:c4
 
-**World judgment** (event_consequence) at 2026-07-28T08:00:00+00:00
+**World judgment** (event_consequence) at 2026-07-28T08:00:05+00:00
 
-> trigger: Sam Okonjo replies to Bristol Plumbing's text message with 'Yes, I confirm the Thursday 8am slot.' The reply is sent from his phone.
+> trigger: Sam sends the reply 'Yes, Thursday 8am works for me' to Bristol Plumbing's text message.
 >
-> The reply has been sent from Sam's phone and is now in transit to Bristol Plumbing's system.
-- proposes: The text message reply from Sam Okonjo is transmitted over the cellular network towards Bristol Plumbing's messaging system. (for ['sam_okonjo'], observed=False, after now)
-- wake sam_okonjo after 1 minute: To check if Bristol Plumbing has acknowledged or if any follow-up is needed.
+> Sam's phone sends the message to Bristol Plumbing's system. The message is transmitted over the cellular network.
+- proposes: The text message is sent from Sam's phone to Bristol Plumbing's messaging system. (for ['sam_okonjo'], observed=True, after now)
 
-*terminal check at 2026-07-28T08:00:00+00:00: YES — Sam Okonjo sent a text message confirming the appointment (e18) before the deadline.*
+*terminal check at 2026-07-28T08:00:05+00:00: YES — Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:05+00:00, which is before the deadline of 2026-07-28T18:00:00+01:00 (equivalent to 17:00 UTC).*
