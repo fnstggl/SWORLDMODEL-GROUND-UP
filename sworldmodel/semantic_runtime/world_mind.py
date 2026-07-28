@@ -12,33 +12,16 @@ whether it has already been observed.
 It never chooses what an actor intends, never narrates several future
 stages at once, never produces probabilities or weights, never sees the
 resolution, and never steers toward an outcome.
+
+The response shape is enforced in code, not by the provider:
+``validate_world_response`` requires the three fields and rejects every
+additional property, and the event and wakes it carries are then checked
+by ``envelope.validate_event`` / ``envelope.validate_wakes`` before
+anything is committed.
 """
 from __future__ import annotations
 
-from .envelope import EVENT_SCHEMA
-
-WORLD_SCHEMA = {
-    "type": "object",
-    "additionalProperties": False,
-    "required": ["judgment", "event", "wakes"],
-    "properties": {
-        "judgment": {"type": "string", "minLength": 1},
-        "event": {"anyOf": [EVENT_SCHEMA, {"type": "null"}]},
-        "wakes": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "required": ["actor", "after", "reason"],
-                "properties": {
-                    "actor": {"type": "string", "minLength": 1},
-                    "after": {"type": "string", "minLength": 1},
-                    "reason": {"type": "string", "minLength": 1},
-                },
-            },
-        },
-    },
-}
+from .envelope import contained, validate_event, validate_wakes
 
 WORLD_SYSTEM = """You are the world: physical reality, institutions, \
 systems, and the ordinary circumstances that surround people.  You decide \
@@ -73,6 +56,11 @@ environment did.
 Do not contradict what is already in the record: if a message has already \
 arrived somewhere, it cannot arrive somewhere else later, and nothing that \
 has been committed can be undone or rewritten.
+
+What you are shown about a person's own circumstances is background for \
+YOUR judgment.  Never repeat it, quote it, or restate it inside an event: \
+an event says what visibly happened, not what someone privately thinks, \
+plans, feels or is secretly dealing with.
 
 Attention is a concrete situated event, never a chance: judge from the \
 actual circumstances in front of you (what else is happening, how much \
@@ -128,21 +116,29 @@ def world_user_prompt(*, now: str, shared_context: str, journal_text: str,
                       actor_id: str | None = None,
                       actor_private: str | None = None,
                       available_unobserved: list | None = None) -> str:
+    """Code writes every heading; model-written text is contained inside
+    the single line code gives it (``journal_text`` is already rendered
+    line by line by the journal itself)."""
     parts = [f"CURRENT TIME\n{now}", "",
-             f"BACKGROUND (true for this situation)\n{shared_context}", "",
+             f"BACKGROUND (true for this situation)\n"
+             f"{contained(shared_context)}", "",
              f"ACTOR IDS YOU MAY USE\n{', '.join(actor_ids)}", "",
              f"WHAT HAS CONCRETELY HAPPENED SO FAR\n{journal_text}", ""]
     if actor_id:
         parts += [f"THE PERSON THIS CONCERNS\n{actor_id}"
-                  + (f"\ntheir circumstances: {actor_private}"
+                  + (f"\ntheir circumstances (background for your judgment "
+                     f"only, never to be repeated in an event): "
+                     f"{contained(actor_private)}"
                      if actor_private else ""), ""]
     if available_unobserved:
         parts.append("ITEMS AVAILABLE TO THEM THAT THEY HAVE NOT YET "
                      "OBSERVED")
         for e in available_unobserved:
-            parts.append(f"- [{e['t']}] ({e['event_id']}) {e['description']}")
+            parts.append(f"- [{e['t']}] ({e['event_id']}) "
+                         f"{contained(e['description'])}")
         parts.append("")
-    parts += [f"THE TRIGGER YOU MUST JUDGE ({trigger_kind})\n{trigger_text}",
+    parts += [f"THE TRIGGER YOU MUST JUDGE ({trigger_kind})\n"
+              f"{contained(trigger_text)}",
               "",
               "What immediately and concretely happens next?  One step "
               "only.  Reply with ONLY the JSON object."]
@@ -165,3 +161,30 @@ def validate_world_response(obj) -> dict:
     return {"judgment": obj["judgment"].strip(),
             "event": obj.get("event"),
             "wakes": obj.get("wakes") or []}
+
+
+def make_world_validator(known_actor_ids):
+    """The whole response, checked in one place, before the caller returns.
+
+    Envelope and wake validation live INSIDE the validated call so that an
+    unusable event gets exactly the same single retry as unparseable JSON,
+    instead of ending the run.  The checked forms are returned alongside
+    the raw ones (raw for the trace, checked for the runtime); both are
+    JSON-safe, so the durations stay as their original text and code
+    re-parses them at the moment it schedules.
+    """
+
+    def validate(obj) -> dict:
+        parsed = validate_world_response(obj)
+        env = (validate_event(parsed["event"], known_actor_ids)
+               if parsed["event"] is not None else None)
+        wakes = validate_wakes(parsed["wakes"], known_actor_ids)
+        parsed["event_checked"] = (
+            None if env is None
+            else {k: env[k] for k in ("description", "for", "observed",
+                                      "after")})
+        parsed["wakes_checked"] = [{"actor": w["actor"], "after": w["after"],
+                                    "reason": w["reason"]} for w in wakes]
+        return parsed
+
+    return validate

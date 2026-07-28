@@ -15,18 +15,12 @@ are world consequences and are rejected as intentions.
 """
 from __future__ import annotations
 
-ACTOR_SCHEMA = {
-    "type": "object",
-    "additionalProperties": False,
-    "required": ["decision", "intentions", "private_updates"],
-    "properties": {
-        "decision": {"type": "string", "minLength": 1},
-        "intentions": {"type": "array",
-                       "items": {"type": "string", "minLength": 1}},
-        "private_updates": {"type": "array",
-                            "items": {"type": "string", "minLength": 1}},
-    },
-}
+#: A person takes a bounded number of actions in one moment.  This is also
+#: the budget boundary: every intention costs a world adjudication, so an
+#: unbounded list would let the model decide how much the runtime spends.
+#: Code controls access; the model writes meaning.
+MAX_INTENTIONS_PER_TURN = 3
+MAX_PRIVATE_UPDATES_PER_TURN = 6
 
 ACTOR_SYSTEM = """You are one specific person inside a real, ongoing \
 situation.  You are not an assistant, not a narrator, and not a \
@@ -79,12 +73,18 @@ def validate_actor_response(obj) -> dict:
         raise ActorResponseError("decision must be a non-empty string")
     out = {"decision": obj["decision"].strip(), "intentions": [],
            "private_updates": []}
+    caps = {"intentions": MAX_INTENTIONS_PER_TURN,
+            "private_updates": MAX_PRIVATE_UPDATES_PER_TURN}
     for field in ("intentions", "private_updates"):
         value = obj.get(field, [])
         if value is None:
             value = []
         if not isinstance(value, list):
             raise ActorResponseError(f"{field} must be an array")
+        if len(value) > caps[field]:
+            raise ActorResponseError(
+                f"{field} has {len(value)} entries; at most {caps[field]} "
+                f"are accepted in one turn")
         for item in value:
             if not isinstance(item, str):
                 raise ActorResponseError(f"{field} entries must be strings")

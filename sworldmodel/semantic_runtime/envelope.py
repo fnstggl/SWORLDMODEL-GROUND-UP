@@ -19,24 +19,36 @@ genuinely distinct.
 
 The duration grammar is universal time bookkeeping ("now", "43 seconds",
 "5 minutes", "2 hours", "3 days"), never a social-action vocabulary.
+
+The shape is enforced HERE, in code, not by the provider: the transport
+asks only for a JSON object, so ``validate_event`` is the single place
+that requires the four fields, fixes their types, rejects every additional
+property, and rejects unknown actor ids.  Nothing reaches the ledger that
+did not pass through it.
 """
 from __future__ import annotations
 
 import re
 from datetime import timedelta
 
-#: Provider-native strict schema for a proposed event.
-EVENT_SCHEMA = {
-    "type": "object",
-    "additionalProperties": False,
-    "required": ["description", "for", "observed", "after"],
-    "properties": {
-        "description": {"type": "string", "minLength": 1},
-        "for": {"type": "array", "items": {"type": "string", "minLength": 1}},
-        "observed": {"type": "boolean"},
-        "after": {"type": "string", "minLength": 1},
-    },
-}
+#: Bound on wakes proposed in one judgment.  Like the intention cap, this
+#: is a budget boundary: every wake becomes a scheduled step, so an
+#: unbounded list would let the model decide how long the runtime runs.
+MAX_WAKES_PER_JUDGMENT = 4
+
+
+def contained(text) -> str:
+    """Model-written text, made safe to place inside a code-owned prompt.
+
+    Every prompt this runtime builds is a sequence of code-owned ALL-CAPS
+    section headings with data underneath, and model-written strings are
+    data.  Flattening all whitespace guarantees such a string can never
+    begin a line it does not begin: it cannot open a forged section, forge
+    an entry in another section, or split itself across the structure.
+    """
+    s = "" if text is None else str(text)
+    return " ".join(s.split()) or "(empty)"
+
 
 _UNITS = {"second": 1, "seconds": 1, "sec": 1, "secs": 1,
           "minute": 60, "minutes": 60, "min": 60, "mins": 60,
@@ -75,8 +87,6 @@ def parse_duration(text: str) -> timedelta:
         raise EnvelopeError(
             f"duration {text!r} exceeds the {MAX_STEP_DAYS}-day single-step "
             f"bound: an immediate consequence may not jump the far future")
-    if delta < timedelta(0):
-        raise EnvelopeError(f"negative duration {text!r}")
     return delta
 
 
@@ -119,11 +129,21 @@ def validate_event(proposed, known_actor_ids) -> dict:
 
 
 def validate_wakes(proposed, known_actor_ids) -> list:
-    """Wakes are reconsideration triggers, never events."""
+    """Wakes are reconsideration triggers, never events.
+
+    A wake carries TIME ONLY.  Its ``reason`` is recorded for tracing and
+    is shown to no one: anything a person is entitled to know has to be an
+    event they observed, which is why this channel cannot be used to tell
+    an actor anything.
+    """
     if proposed is None:
         return []
     if not isinstance(proposed, list):
         raise EnvelopeError("wakes must be an array")
+    if len(proposed) > MAX_WAKES_PER_JUDGMENT:
+        raise EnvelopeError(
+            f"{len(proposed)} wakes proposed; at most "
+            f"{MAX_WAKES_PER_JUDGMENT} are accepted in one judgment")
     out = []
     for i, w in enumerate(proposed):
         if not isinstance(w, dict):

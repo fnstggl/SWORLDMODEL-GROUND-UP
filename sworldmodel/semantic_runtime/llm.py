@@ -6,8 +6,13 @@ request wall deadline, chunked reads under a total deadline, exactly ONE
 technical retry per semantic call, and complete logging of every attempt
 (prompt, raw body, tokens, duration, validation outcome).
 
-A run-level call ceiling exists only as a runaway backstop; exceeding it
-is a structured technical failure, never a silent truncation.
+A run-level call ceiling exists only as a runaway backstop.  It is sized
+above the ordinary path (see ``trajectory.budget_for``) so that reaching
+it means something is genuinely looping, and a small number of calls is
+held in reserve so that a run which does spend its budget can still take
+an honest final judgment on the trajectory it actually produced instead of
+dying with nothing.  Exceeding the ceiling is never a silent truncation:
+it is a recorded horizon, exactly like the step ceiling.
 """
 from __future__ import annotations
 
@@ -28,6 +33,10 @@ TOTAL_READ_DEADLINE_S = 240.0
 TOTAL_REQUEST_DEADLINE_S = 270.0
 MAX_RETRIES_PER_CALL = 1
 
+#: Calls held out of the ordinary budget so the final judgment can always
+#: be taken (one call plus its one retry).
+RESERVED_FINAL_CALLS = 2
+
 
 class RuntimeTechnicalFailure(RuntimeError):
     """A semantic call could not produce a usable response; nothing is
@@ -42,11 +51,21 @@ class RuntimeCaller:
     """One configured endpoint with full per-call logging."""
 
     def __init__(self, model: str = DEFAULT_MODEL, transport=None,
-                 max_calls: int = 400) -> None:
+                 max_calls: int = 400,
+                 reserved_calls: int = RESERVED_FINAL_CALLS) -> None:
         self.model = model
         self.transport = transport or self._call_api
         self.max_calls = max_calls
+        self.reserved_calls = reserved_calls
         self.calls: list[dict] = []
+
+    # -- budget --------------------------------------------------------
+    def _ordinary_ceiling(self) -> int:
+        return max(1, self.max_calls - self.reserved_calls)
+
+    def budget_exhausted(self) -> bool:
+        """True once only the reserved final-judgment calls remain."""
+        return len(self.calls) >= self._ordinary_ceiling()
 
     # -- provider ------------------------------------------------------
     def _call_api(self, system: str, user: str):
@@ -99,14 +118,17 @@ class RuntimeCaller:
 
     # -- one semantic call ---------------------------------------------
     def ask(self, role: str, system: str, user: str, validate,
-            *, sim_time: str = "", trigger: str = "") -> dict:
+            *, sim_time: str = "", trigger: str = "",
+            reserved: bool = False) -> dict:
         """Call, parse, validate; ONE retry of the same call on failure.
         Returns {"parsed", "raw", "call_id"}; raises
         RuntimeTechnicalFailure after the retry, having committed
-        nothing."""
-        if len(self.calls) >= self.max_calls:
+        nothing.  ``reserved=True`` spends the held-back final-judgment
+        allowance and is used only for the judgment that closes a run."""
+        ceiling = self.max_calls if reserved else self._ordinary_ceiling()
+        if len(self.calls) >= ceiling:
             raise CallBudgetExceeded(
-                f"{role}: run exceeded {self.max_calls} provider calls")
+                f"{role}: run exceeded {ceiling} provider calls")
         last_err = None
         for attempt in range(MAX_RETRIES_PER_CALL + 1):
             call_id = f"c{len(self.calls) + 1}"

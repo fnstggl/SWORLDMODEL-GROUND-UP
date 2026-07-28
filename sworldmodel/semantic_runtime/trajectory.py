@@ -20,20 +20,40 @@ nothing.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from dataclasses import dataclass
+from datetime import timedelta
 
 from sworldmodel.simclock import iso, parse_iso
 
 from . import actor_mind, resolution as resolution_mod, world_mind
-from .envelope import EnvelopeError, validate_event, validate_wakes
+from .envelope import EnvelopeError, parse_duration, validate_event
 from .journal import Journal, OP_ACTOR_CALL, OP_TERMINAL, OP_WORLD_CALL
-from .llm import CallBudgetExceeded, RuntimeCaller, RuntimeTechnicalFailure
+from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
+                  RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
 
 #: kernel queue kinds owned by this layer
 K_EVENT = "semantic.event"      # a world-proposed event, due at its instant
 K_WAKE = "semantic.wake"        # reconsider an actor's situation
+
+
+def budget_for(*, max_steps: int, actors: int,
+               starting_events: int = 0) -> int:
+    """A call ceiling that provably sits above the ordinary path.
+
+    A backstop that can fire on a normal run is a step ceiling in disguise
+    and turns an honest ``cutoff`` into noise, so it is derived from the
+    runtime's own structural caps rather than picked.  One step costs at
+    most one environmental consequence, one call per actor who becomes
+    aware, one world adjudication per intention each of them may take, and
+    one terminal check; every call may additionally be retried once.
+    """
+    per_turn = 1 + actor_mind.MAX_INTENTIONS_PER_TURN
+    per_step = 1 + actors * per_turn + 1
+    per_start = 1 + actors * per_turn
+    attempts = MAX_RETRIES_PER_CALL + 1
+    return (attempts * (max_steps * per_step + starting_events * per_start + 2)
+            + RESERVED_FINAL_CALLS)
 
 
 @dataclass
@@ -45,7 +65,6 @@ class SemanticTrajectory:
     world_calls: int = 0
     actor_calls: int = 0
     judge_calls: int = 0
-    records: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         return {"status": self.status, "answer": self.answer,
@@ -91,7 +110,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
 
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
-                   actor_id: str | None = None) -> dict | None:
+                   actor_id: str | None = None, concerns=()) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
@@ -103,20 +122,17 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             actor_private=profiles.get(actor_id) if actor_id else None,
             available_unobserved=(journal.available_unobserved(actor_id)
                                   if actor_id else None))
+        # the validator checks the response AND its event AND its wakes, so
+        # an unusable one is retried once inside the call and nothing here
+        # is reached until everything is known good
         out = caller.ask("world", world_mind.WORLD_SYSTEM, user,
-                         world_mind.validate_world_response,
+                         world_mind.make_world_validator(set(actor_ids)),
                          sim_time=_iso_now(world), trigger=trigger_kind)
         traj.world_calls += 1
         parsed = out["parsed"]
-        # validate EVERYTHING before touching the ledger
-        envelope = None
-        if parsed["event"] is not None:
-            envelope = validate_event(parsed["event"], set(actor_ids))
-            due = world.clock.now + envelope["delta"]
-            if due < world.clock.now:
-                raise EnvelopeError("proposed event moves time backwards")
-        wakes = validate_wakes(parsed["wakes"], set(actor_ids))
-        # ... then commit atomically
+        envelope = parsed["event_checked"]
+        wakes = parsed["wakes_checked"]
+        # commit atomically
         wseq = world.apply(OP_WORLD_CALL,
                            {"call_id": out["call_id"], "trigger": trigger_kind,
                             "judgment": parsed["judgment"],
@@ -126,29 +142,40 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              judgment=parsed["judgment"],
              event=parsed["event"], wakes=parsed["wakes"])
         if envelope is not None:
-            due = world.clock.now + envelope["delta"]
+            due = world.clock.now + parse_duration(envelope["after"])
             if due <= cutoff:
                 world.schedule(K_EVENT,
-                               {"envelope": {k: envelope[k] for k in
-                                             ("description", "for",
-                                              "observed", "after")},
+                               {"envelope": dict(envelope),
+                                # the already-available items this step was
+                                # asked about: if the answer turns out to
+                                # be that attention reached them, they stop
+                                # being pending at THAT instant, not now
+                                "concerns": list(concerns),
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
             else:
                 note("event_beyond_cutoff", call_id=out["call_id"],
                      due=iso(due), description=envelope["description"])
         for w in wakes:
-            due = world.clock.now + w["delta"]
+            due = world.clock.now + parse_duration(w["after"])
             if due <= cutoff:
+                # the reason is recorded for tracing and shown to no one:
+                # a wake is timing, never information (see validate_wakes)
                 world.schedule(K_WAKE, {"actor": w["actor"],
                                         "reason": w["reason"]}, due, wseq)
         return parsed
 
     # ---------------------------------------------------------------
-    def actor_step(actor_id: str, *, cause: int, reasons: list) -> None:
+    def actor_step(actor_id: str, *, cause: int, trigger_event_ids=()) -> None:
         """Consult one actor, store their private updates, and send each
-        intention to the world as its own separate trigger."""
-        view = build_view(world, journal, actor_id, reasons=reasons)
+        intention to the world as its own separate trigger.
+
+        Only event IDS are passed in: the view code looks them up in this
+        actor's own observed records, so nothing can reach a person through
+        the fact that they were consulted.
+        """
+        view = build_view(world, journal, actor_id,
+                          trigger_event_ids=trigger_event_ids)
         rendered = render_view(view)
         out = caller.ask("actor", actor_mind.ACTOR_SYSTEM,
                          actor_mind.actor_user_prompt(rendered),
@@ -192,7 +219,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             env_chain["depth"] = 0
             for aid in envelope["for"]:
                 actor_step(aid, cause=rec["seq"],
-                           reasons=[f"you observed: {envelope['description']}"])
+                           trigger_event_ids=[rec["event_id"]])
             return
         if env_chain["depth"] >= MAX_ENV_CHAIN:
             env_chain["depth"] = 0
@@ -204,7 +231,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         parsed = world_step(
             trigger_kind="event_consequence",
             trigger_text=envelope["description"], cause=rec["seq"],
-            actor_id=envelope["for"][0] if envelope["for"] else None)
+            actor_id=envelope["for"][0] if envelope["for"] else None,
+            concerns=[rec["event_id"]])
         progressed = (len(journal.events()) > before
                       or world.queue.peek() is not None)
         if parsed is not None and not (parsed["wakes"] or progressed):
@@ -215,15 +243,18 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     def judge(*, final: bool, cause: int) -> dict:
         events = journal.events()
         validator = resolution_mod.make_validator(
-            {e["event_id"] for e in events}, world.clock.now, cutoff)
+            {e["event_id"] for e in events}, world.clock.now, cutoff,
+            final=final)
         out = caller.ask("judge", resolution_mod.JUDGE_SYSTEM,
                          resolution_mod.judge_user_prompt(
                              resolution, _iso_now(world),
                              [{"event_id": e["event_id"], "t": e["t"],
-                               "description": e["description"]}
-                              for e in events]),
+                               "description": e["description"],
+                               "for": e["for"],
+                               "observed_by": e["observed_by"]}
+                              for e in events], final=final),
                          validator, sim_time=_iso_now(world),
-                         trigger="terminal_check")
+                         trigger="terminal_check", reserved=final)
         traj.judge_calls += 1
         parsed = out["parsed"]
         world.apply(OP_TERMINAL, {"call_id": out["call_id"],
@@ -235,6 +266,17 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         note("terminal_check", call_id=out["call_id"], t=_iso_now(world),
              final=final, **parsed)
         return parsed
+
+    def finish(reason: str) -> SemanticTrajectory:
+        """The one way a run ends without failing: advance to the cutoff
+        and judge the trajectory that actually occurred."""
+        if world.clock.now < cutoff:
+            world.clock.advance_to(cutoff)
+        answer = judge(final=True, cause=world.records[-1]["seq"])
+        traj.answer = answer
+        traj.status = "resolved" if answer["status"] == "YES" else "cutoff"
+        traj.reason = reason
+        return traj
 
     # ---------------------------------------------------------------
     try:
@@ -260,11 +302,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                        trigger_text=e["description"], cause=e["seq"])
             if envelope["observed"] and envelope["for"]:
                 for aid in envelope["for"]:
-                    actor_step(aid, cause=e["seq"],
-                               reasons=[f"the situation you are in: "
-                                        f"{e['description']}"])
+                    actor_step(aid, cause=e["seq"], trigger_event_ids=[eid])
 
-        while traj.steps < max_steps:
+        while traj.steps < max_steps and not caller.budget_exhausted():
             ev = world.queue.peek()
             if ev is None or ev.t > cutoff:
                 break
@@ -282,6 +322,17 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                      source=ev.data.get("source", "scheduled"),
                                      trajectory_id=tid)
                 note("committed_event", **rec)
+                # attention reaching someone settles the items this step was
+                # asked about: they are that person's business now, not a
+                # pending question to be asked again
+                if envelope["observed"]:
+                    for eid in ev.data.get("concerns") or []:
+                        for aid in envelope["for"]:
+                            if journal.mark_observed(
+                                    eid, aid, cause=rec["seq"],
+                                    source=f"observed_via:{rec['event_id']}"):
+                                note("item_observed", event_id=eid, actor=aid,
+                                     t=_iso_now(world), via=rec["event_id"])
                 _after_commit(rec, envelope)
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
@@ -295,7 +346,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                       f"them.  What concretely becomes of "
                                       f"them next?  (Context for revisiting "
                                       f"now: {ev.data['reason']})"),
-                        cause=fired, actor_id=aid)
+                        cause=fired, actor_id=aid,
+                        concerns=[e["event_id"] for e in pending])
                     # a situation with something still pending is never
                     # abandoned: if the world neither moved it on nor
                     # scheduled its own revisit, code revisits it later on a
@@ -306,8 +358,11 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     if parsed is not None and not (parsed["wakes"] or moved):
                         _schedule_recheck(aid, fired)
                 else:
-                    actor_step(aid, cause=fired,
-                               reasons=[ev.data.get("reason", "reconsider")])
+                    # nothing is pending for them; they are simply being
+                    # consulted again because time has passed.  The world's
+                    # stated reason stays in the ledger and never reaches
+                    # them -- a person learns things only by observing them.
+                    actor_step(aid, cause=fired)
             else:
                 continue
 
@@ -317,19 +372,25 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 traj.answer = checked
                 return traj
 
-        # horizon: advance to the cutoff and take the final judgment
-        if world.clock.now < cutoff:
-            world.clock.advance_to(cutoff)
-        last_cause = world.records[-1]["seq"]
-        final = judge(final=True, cause=last_cause)
-        traj.answer = final
-        traj.status = "resolved" if final["status"] == "YES" else "cutoff"
+        reason = ""
         if traj.steps >= max_steps:
-            traj.reason = (f"step ceiling {max_steps} reached before the "
-                           f"cutoff")
-        return traj
-    except (EnvelopeError, RuntimeTechnicalFailure, CallBudgetExceeded,
-            ValueError) as e:
+            reason = f"step ceiling {max_steps} reached before the cutoff"
+        elif caller.budget_exhausted():
+            reason = (f"call ceiling {caller.max_calls} reached before the "
+                      f"cutoff")
+        return finish(reason)
+    except CallBudgetExceeded as e:
+        # the backstop is a horizon, not a failure: calls are held in
+        # reserve precisely so a run that spends its budget mid-step still
+        # gets an honest judgment of the trajectory it actually produced
+        try:
+            return finish(f"call ceiling reached mid-step: {e}")
+        except (EnvelopeError, RuntimeTechnicalFailure, CallBudgetExceeded,
+                ValueError) as e2:
+            traj.status = "failed"
+            traj.reason = f"{type(e2).__name__} after budget horizon: {e2}"
+            return traj
+    except (EnvelopeError, RuntimeTechnicalFailure, ValueError) as e:
         traj.status = "failed"
         traj.reason = f"{type(e).__name__}: {e}"
         return traj

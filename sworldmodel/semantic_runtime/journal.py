@@ -14,10 +14,13 @@ committed event.
 """
 from __future__ import annotations
 
+from .envelope import contained
+
 #: ledger op names owned by the semantic runtime (all trace-only in the
 #: kernel: they are inspectable history, and the projections below are the
 #: only readers, so no kernel reducer is added or modified)
 OP_EVENT = "journal.event"
+OP_OBSERVED = "journal.observed"
 OP_PROFILE = "semantic.actor_profile"
 OP_ACTOR_CALL = "semantic.actor_call"
 OP_WORLD_CALL = "semantic.world_call"
@@ -52,17 +55,49 @@ class Journal:
                 "observed": bool(envelope["observed"]),
                 "source": source}
 
+    def mark_observed(self, event_id: str, actor_id: str, *, cause: int,
+                      source: str) -> bool:
+        """Record that an item already available to someone has now been
+        observed by them.
+
+        Being noticed is a transition of the SAME item, not a different
+        one: an email that has been seen is still that email.  Without
+        this, an item would stay 'available, not observed' forever even
+        after the world says it reached the person, and the runtime would
+        keep asking about something already dealt with.  The ledger stays
+        append-only -- the transition is appended and the projections below
+        apply it.
+        """
+        e = self.by_id(event_id)
+        if e is None or actor_id not in e["for"] \
+                or actor_id in e["observed_by"]:
+            return False
+        self.world.apply(OP_OBSERVED, {"event_id": event_id,
+                                       "actor": actor_id,
+                                       "source": source}, cause)
+        return True
+
     # -- projections ---------------------------------------------------
     def events(self) -> list:
-        """Every committed event, in commit order."""
+        """Every committed event, in commit order, with the observation
+        transitions that have since been recorded applied."""
+        later: dict = {}
+        for r in self.world.records:
+            if r["op"] == OP_OBSERVED:
+                later.setdefault(r["data"]["event_id"], set()).add(
+                    r["data"]["actor"])
         out = []
         for r in self.world.records:
             if r["op"] != OP_EVENT:
                 continue
             d = r["data"]
+            audience = list(d["for"])
+            seen = (list(audience) if d["observed"]
+                    else [a for a in audience
+                          if a in later.get(d["event_id"], ())])
             out.append({"event_id": d["event_id"], "seq": r["seq"], "t": r["t"],
-                        "description": d["description"], "for": list(d["for"]),
-                        "observed": bool(d["observed"]),
+                        "description": d["description"], "for": audience,
+                        "observed": bool(d["observed"]), "observed_by": seen,
                         "source": d.get("source", ""), "cause": r["cause"]})
         return out
 
@@ -75,15 +110,14 @@ class Journal:
     def observed_by(self, actor_id: str) -> list:
         """Exactly what this actor has actually observed -- the only events
         code will ever place in that actor's view."""
-        return [e for e in self.events()
-                if actor_id in e["for"] and e["observed"]]
+        return [e for e in self.events() if actor_id in e["observed_by"]]
 
     def available_unobserved(self, actor_id: str) -> list:
         """Available to the actor but NOT observed: the world may reason
         about these when adjudicating attention; the actor never sees
         them."""
         return [e for e in self.events()
-                if actor_id in e["for"] and not e["observed"]]
+                if actor_id in e["for"] and actor_id not in e["observed_by"]]
 
     def profiles(self) -> dict:
         """actor_id -> compiler-provided private context."""
@@ -98,7 +132,12 @@ class Journal:
         lines = []
         for e in self.events()[-limit:]:
             who = ", ".join(e["for"]) or "no one"
-            seen = "observed" if e["observed"] else "available, NOT observed"
-            lines.append(f"- [{e['t']}] ({e['event_id']}) {e['description']} "
+            unseen = [a for a in e["for"] if a not in e["observed_by"]]
+            seen = ("observed by " + ", ".join(e["observed_by"])
+                    if e["observed_by"] else "NOT observed")
+            if e["observed_by"] and unseen:
+                seen += "; not yet observed by " + ", ".join(unseen)
+            lines.append(f"- [{e['t']}] ({e['event_id']}) "
+                         f"{contained(e['description'])} "
                          f"| available to: {who} | {seen}")
         return "\n".join(lines) or "(nothing has happened yet)"

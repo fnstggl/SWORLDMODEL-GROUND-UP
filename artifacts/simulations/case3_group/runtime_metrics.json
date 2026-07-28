@@ -1,42 +1,42 @@
 {
- "provider_calls": 46,
+ "provider_calls": 101,
  "by_role": {
   "judge": {
-   "calls": 21,
+   "calls": 42,
    "retries": 0,
-   "wall_s": 31.07,
-   "input_tokens": 12808,
-   "output_tokens": 1040
+   "wall_s": 60.56,
+   "input_tokens": 37206,
+   "output_tokens": 2117
   },
   "world": {
-   "calls": 19,
+   "calls": 43,
    "retries": 0,
-   "wall_s": 38.24,
-   "input_tokens": 29269,
-   "output_tokens": 1878
+   "wall_s": 83.34,
+   "input_tokens": 88173,
+   "output_tokens": 4576
   },
   "actor": {
-   "calls": 6,
+   "calls": 16,
    "retries": 0,
-   "wall_s": 11.08,
-   "input_tokens": 4440,
-   "output_tokens": 433
+   "wall_s": 28.51,
+   "input_tokens": 12128,
+   "output_tokens": 1223
   }
  },
- "total_input_tokens": 46517,
- "total_output_tokens": 3351,
- "total_wall_s": 80.42,
+ "total_input_tokens": 137507,
+ "total_output_tokens": 7916,
+ "total_wall_s": 172.41,
  "status": "cutoff",
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed, and no committed event shows that the four housemates collectively agreed on a host."
+  "explanation": "No committed event shows that the four housemates have collectively agreed on a host before the deadline."
  },
- "reason": "",
- "steps": 19,
- "world_calls": 19,
- "actor_calls": 6,
- "judge_calls": 21,
- "committed_events": 11,
- "ledger_records": 114
+ "reason": "step ceiling 40 reached before the cutoff",
+ "steps": 40,
+ "world_calls": 43,
+ "actor_calls": 16,
+ "judge_calls": 42,
+ "committed_events": 17,
+ "ledger_records": 234
 }

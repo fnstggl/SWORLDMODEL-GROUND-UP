@@ -23,7 +23,7 @@ from sworldmodel.semantic_runtime import instantiate_scene_manifest
 from sworldmodel.semantic_runtime.llm import RuntimeCaller
 from sworldmodel.semantic_runtime.replay import replay_trajectory
 from sworldmodel.semantic_runtime.trace import Trace, write_artifacts
-from sworldmodel.semantic_runtime.trajectory import run_trajectory
+from sworldmodel.semantic_runtime.trajectory import budget_for, run_trajectory
 
 
 def main() -> int:
@@ -71,11 +71,15 @@ def main() -> int:
 
     world, journal, bindings = instantiate_scene_manifest(
         scene, question, start, cutoff)
-    caller = RuntimeCaller(args.model)
+    # the backstop is derived from this scene's own shape, so it can only
+    # fire on genuine runaway rather than truncating an ordinary run
+    ceiling = budget_for(max_steps=args.max_steps, actors=len(world.actors),
+                         starting_events=len(scene["starting_events"]))
+    caller = RuntimeCaller(args.model, max_calls=ceiling)
     trace = Trace()
     print(f"[run] {len(world.actors)} actors, "
           f"{len(bindings['starting_event_ids'])} starting events, "
-          f"cutoff {cutoff}")
+          f"cutoff {cutoff}, call ceiling {ceiling}")
     traj = run_trajectory(world, journal, bindings, scene["resolution"],
                           caller, max_steps=args.max_steps, trace=trace)
     verification = replay_trajectory(world.records, live_world=world)

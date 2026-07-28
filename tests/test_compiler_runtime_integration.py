@@ -63,8 +63,10 @@ def compile_via_production_route():
 
 def runtime_model(system, user):
     if "read-only outcome judge" in system:
-        return json.dumps({"status": "UNRESOLVED",
-                           "supporting_event_ids": [],
+        # UNRESOLVED is not available at the cutoff, and code enforces it
+        status = ("NO_AT_CUTOFF" if "THIS IS THE FINAL JUDGMENT" in user
+                  else "UNRESOLVED")
+        return json.dumps({"status": status, "supporting_event_ids": [],
                            "explanation": "nothing yet"}), {}
     if "You are the world" in system:
         if "starting_event" in user:

@@ -3,20 +3,20 @@
  "trajectory": {
   "status": "cutoff",
   "answer": {
-   "status": "NO_AT_CUTOFF",
+   "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed, and no committed event shows that the four housemates collectively agreed on a host."
+   "explanation": "No committed event shows that the four housemates have collectively agreed on a host before the deadline."
   },
-  "reason": "",
-  "steps": 19,
-  "world_calls": 19,
-  "actor_calls": 6,
-  "judge_calls": 21
+  "reason": "step ceiling 40 reached before the cutoff",
+  "steps": 40,
+  "world_calls": 43,
+  "actor_calls": 16,
+  "judge_calls": 42
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed, and no committed event shows that the four housemates collectively agreed on a host."
+  "explanation": "No committed event shows that the four housemates have collectively agreed on a host before the deadline."
  },
- "reason": ""
+ "reason": "step ceiling 40 reached before the cutoff"
 }
