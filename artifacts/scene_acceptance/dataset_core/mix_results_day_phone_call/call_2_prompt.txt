@@ -123,10 +123,10 @@ THE COMPILED SCENE (exact manifest under review):
   },
   {
    "name": "Femi's mother",
-   "private_context": "She has said she will keep her phone on all Thursday morning, expecting a call from Femi about his results."
+   "private_context": "She has said she will keep her phone on all Thursday morning. She is expecting a call from Femi about his results."
   }
  ],
- "shared_context": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online or through the university portal at that time. He can call his mother using his phone.",
+ "shared_context": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online at that time. The deadline for calling is noon that day.",
  "starting_events": [
   {
    "time": "2026-08-13T09:00:00+01:00",

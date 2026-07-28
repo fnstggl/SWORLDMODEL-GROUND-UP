@@ -1,19 +1,17 @@
 {
  "world_id": "w_ecbbdd76ea28",
  "actor_ids": {
-  "Sunmark housing cooperative board": "sunmark_housing_cooperative_board",
-  "Sunmark housing cooperative members": "sunmark_housing_cooperative_members"
+  "Sunmark housing cooperative (membership as a whole)": "sunmark_housing_cooperative_membership_as_a_whole"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 11,
+   "ledger_seq": 8,
    "at": "2026-09-01T07:00:00+00:00",
    "visible_to_ids": [
-    "sunmark_housing_cooperative_board",
-    "sunmark_housing_cooperative_members"
+    "sunmark_housing_cooperative_membership_as_a_whole"
    ],
-   "description": "The Sunmark housing cooperative board has called a special general meeting for September 12 to vote on amending the pet policy. Notices have been sent to all members."
+   "description": "The special general meeting is scheduled for September 12, 2026. Members have been notified of the meeting and the proposed pet policy amendment."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +20,14 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "sunmark_housing_cooperative_board": {
-   "name": "Sunmark housing cooperative board",
-   "persona_brief": "You are Sunmark housing cooperative board.\nThe board has called a special general meeting for September 12 to vote on amending the pet policy. They are aware of the two-thirds member turnout requirement in the bylaws. They have sent notices to all members about the meeting and the proposed amendment."
-  },
-  "sunmark_housing_cooperative_members": {
-   "name": "Sunmark housing cooperative members",
-   "persona_brief": "You are Sunmark housing cooperative members.\nEach member has received notice of the special general meeting on September 12 regarding the pet policy amendment. Members have varying levels of interest in the pet policy and may or may not plan to attend. Some members may be unable to attend due to other commitments."
+  "sunmark_housing_cooperative_membership_as_a_whole": {
+   "name": "Sunmark housing cooperative (membership as a whole)",
+   "persona_brief": "You are Sunmark housing cooperative (membership as a whole).\nEach member has their own schedule, priorities, and views on the pet policy amendment. No member knows how many others will attend."
   }
  },
  "resolution": {
   "question": "Will the Sunmark housing cooperative reach the two-thirds member turnout its bylaws require to amend the pet policy at the special general meeting called for the 12th?",
-  "resolution": "Resolve YES only if the persistent event history shows that at least two-thirds of all Sunmark housing cooperative members actually attended (or were represented by proxy, if allowed) the special general meeting on September 12, 2026, before the meeting's conclusion. Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that at least two-thirds of all members of Sunmark housing cooperative actually attended (in person or by proxy) the special general meeting on September 12, 2026, before the meeting's conclusion. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-09-12T22:00:00+02:00",
   "world_id": "w_ecbbdd76ea28"
  }

@@ -32,20 +32,20 @@
   },
   "resident_1": {
    "name": "Resident 1",
-   "persona_brief": "You are Resident 1.\nHas shown interest in becoming treasurer. May attend the meeting."
+   "persona_brief": "You are Resident 1.\nHas shown interest in becoming treasurer. Will attend tonight's meeting."
   },
   "resident_2": {
    "name": "Resident 2",
-   "persona_brief": "You are Resident 2.\nHas shown interest in becoming treasurer. May attend the meeting."
+   "persona_brief": "You are Resident 2.\nHas shown interest in becoming treasurer. Will attend tonight's meeting."
   },
   "resident_3": {
    "name": "Resident 3",
-   "persona_brief": "You are Resident 3.\nHas shown interest in becoming treasurer. May attend the meeting."
+   "persona_brief": "You are Resident 3.\nHas shown interest in becoming treasurer. Will attend tonight's meeting."
   }
  },
  "resolution": {
   "question": "Will the tenants' association of the Aurora Block elect a treasurer at tonight's first meeting of the season, given that three residents have shown interest?",
-  "resolution": "Resolve YES only if the persistent event history shows that a treasurer was elected during the meeting before 2026-09-02T21:30:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the tenants' association elected a treasurer during the meeting (before 2026-09-02T21:30:00+02:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-02T21:30:00+02:00",
   "world_id": "w_e42e9e0ff6dd"
  }

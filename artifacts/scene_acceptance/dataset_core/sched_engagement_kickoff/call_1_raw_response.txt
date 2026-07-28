@@ -2,14 +2,14 @@
   "actors": [
     {
       "name": "Loomis & Hale LLP",
-      "private_context": "The firm signed a new client this morning and wants to schedule a kickoff meeting. The partner handling the client is eager to set a time within 72 hours."
+      "private_context": "Loomis & Hale LLP signed a new client this morning. They want to schedule a kickoff meeting soon. They have internal calendars and preferences for meeting times."
     },
     {
       "name": "New Client",
-      "private_context": "The client signed an engagement letter with Loomis & Hale LLP this morning. They are open to scheduling a kickoff meeting but have their own calendar constraints."
+      "private_context": "The new client signed an engagement letter with Loomis & Hale LLP this morning. They are available to discuss scheduling a kickoff meeting. They have their own calendar and preferences."
     }
   ],
-  "shared_context": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both sides have access to standard communication channels (email, phone) to coordinate a meeting time. The 72-hour window ends at 2026-10-09T09:30:00-07:00.",
+  "shared_context": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the contact information to communicate about scheduling a kickoff meeting. The deadline for agreement is 72 hours from the signing, i.e., 2026-10-09T09:30:00-07:00.",
   "starting_events": [
     {
       "time": "2026-10-06T09:30:00-07:00",
@@ -17,5 +17,5 @@
       "visible_to": ["Loomis & Hale LLP", "New Client"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that both sides have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that both sides have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Otherwise resolve NO at that cutoff."
 }

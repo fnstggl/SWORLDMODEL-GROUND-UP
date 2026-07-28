@@ -2,7 +2,7 @@
  "world_id": "w_6c74014c41aa",
  "actor_ids": {
   "Gustavo": "gustavo",
-  "Procurement Leads": "procurement_leads"
+  "Procurement Leads (40)": "procurement_leads_40"
  },
  "event_records": [
   {
@@ -23,16 +23,16 @@
  "personas": {
   "gustavo": {
    "name": "Gustavo",
-   "persona_brief": "You are Gustavo.\nGustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails."
+   "persona_brief": "You are Gustavo.\nGustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. His usual booking rate is about one call per sixty cold emails. He intends to cold-email these leads this week."
   },
-  "procurement_leads": {
-   "name": "Procurement Leads",
-   "persona_brief": "You are Procurement Leads.\nForty procurement leads at mid-market manufacturers in the Pacific Northwest. Each receives many cold emails and may or may not be interested in invoice-automation software. Their collective response rate is approximately one discovery call per sixty cold emails."
+  "procurement_leads_40": {
+   "name": "Procurement Leads (40)",
+   "persona_brief": "You are Procurement Leads (40).\nA group of forty procurement leads at mid-market manufacturers in the Pacific Northwest. They receive many cold emails and may or may not respond to them."
   }
  },
  "resolution": {
   "question": "Will at least one of the forty procurement leads that Brightline Software's rep Gustavo cold-emails this week agree to a discovery call before the end of the month?",
-  "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads actually scheduled or agreed to a discovery call with Gustavo before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads agreed to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-31T17:00:00-07:00",
   "world_id": "w_6c74014c41aa"
  }

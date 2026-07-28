@@ -22,12 +22,12 @@
  "personas": {
   "springfield_city_council": {
    "name": "Springfield City Council",
-   "persona_brief": "You are Springfield City Council.\nThe council is a group of elected officials who will meet to discuss and vote on the 2027 budget. Each member has their own views on the budget, but the council as a whole must decide by majority vote."
+   "persona_brief": "You are Springfield City Council.\nThe council is a group of elected officials who will meet to discuss and vote on the 2027 budget. Each member has their own views on the budget, but these are not specified."
   }
  },
  "resolution": {
   "question": "Does the Springfield City Council vote to approve the 2027 budget during the October 5, 2026 meeting?",
-  "resolution": "Resolve YES only if the persistent event history shows that the Springfield City Council voted to approve the 2027 budget during the October 5, 2026 meeting, before the meeting ends or the hard cutoff of 2026-10-05T23:59:00-05:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the Springfield City Council voted to approve the 2027 budget during the meeting that started on 2026-10-05T18:00:00-05:00 and before 2026-10-05T23:59:00-05:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-05T23:59:00-05:00",
   "world_id": "w_7777566bdeb8"
  }

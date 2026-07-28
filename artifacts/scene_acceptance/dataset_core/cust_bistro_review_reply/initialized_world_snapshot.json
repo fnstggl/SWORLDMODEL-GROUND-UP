@@ -27,7 +27,7 @@
      "t": "2026-08-30T13:00:00+00:00"
     },
     {
-     "content": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review complains about a 45-minute wait. Marguerite can post a public reply on the review site.",
+     "content": "A one-star review of the Copper Kettle bistro went up on a major review site last night. The review complains about a 45-minute wait on a night the bistro was short two servers.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-30T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
-  "scene:shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review complains about a 45-minute wait. Marguerite can post a public reply on the review site."
+  "scene:shared_context": "A one-star review of the Copper Kettle bistro went up on a major review site last night. The review complains about a 45-minute wait on a night the bistro was short two servers."
  },
  "history": [],
  "infos": {},

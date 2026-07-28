@@ -115,26 +115,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Brightline Software Account Manager",
-   "private_context": "The account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The manager's goal is to persuade them to pause instead. They have prepared talking points about the benefits of pausing and potential future discounts."
+   "name": "Account Manager (Brightline Software)",
+   "private_context": "The account manager is preparing for a scheduled retention call with Fenwick & Sloane. They know Fenwick & Sloane has expressed intent to cancel their subscription. The account manager's goal is to persuade them to pause instead. They have prepared talking points about the benefits of pausing and potential future value."
   },
   {
    "name": "Fenwick & Sloane Representative",
-   "private_context": "The representative is the decision-maker for the subscription. They have been considering cancellation due to budget constraints and perceived lack of use. They are open to hearing options but are leaning toward cancellation. They have authority to decide on pausing or canceling."
+   "private_context": "The representative from Fenwick & Sloane is scheduled for a retention call with Brightline Software. They are considering cancellation due to budget constraints or dissatisfaction. They are open to hearing the account manager's proposal but have not yet decided."
   }
  ],
- "shared_context": "Brightline Software provides a subscription service to Fenwick & Sloane. A retention call is scheduled for this week (the week of 2026-09-08). The call will discuss the subscription status. Fenwick & Sloane has indicated they want to cancel, but Brightline hopes to offer a pause as an alternative.",
+ "shared_context": "A retention call between Brightline Software's account manager and a representative from Fenwick & Sloane is scheduled for this week (the week of 2026-09-08). The call is intended to discuss the subscription status. Fenwick & Sloane has indicated they may cancel, but the account manager will propose pausing instead.",
  "starting_events": [
   {
    "time": "2026-09-08T09:00:00-07:00",
-   "description": "The scheduled retention call between Brightline Software's account manager and Fenwick & Sloane's representative is about to begin.",
+   "description": "The retention call is scheduled to occur at some point during this week. No specific time has been set yet.",
    "visible_to": [
-    "Brightline Software Account Manager",
+    "Account Manager (Brightline Software)",
     "Fenwick & Sloane Representative"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that during the call, Fenwick & Sloane's representative explicitly agrees to pause (rather than cancel) their subscription before the call ends. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that during the scheduled retention call (before 2026-09-11T17:00:00-07:00), the Fenwick & Sloane representative explicitly agrees to pause rather than cancel their subscription. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

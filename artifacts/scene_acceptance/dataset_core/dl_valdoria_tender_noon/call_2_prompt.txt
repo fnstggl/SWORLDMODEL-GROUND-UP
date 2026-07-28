@@ -116,28 +116,28 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Nimbus Freight's bid team",
-   "private_context": "The team has prepared a tender for the Valdoria postal contract. They need to get the tender document signed by two required directors and submitted before Friday's 12:00 deadline. They are aware of the deadline and the signing requirement."
+   "private_context": "The bid team is preparing the Valdoria postal-contract tender. They need to get the contract signed by two required directors and submitted before Friday's 12:00 deadline. They are aware of the deadline and the signing requirement."
   },
   {
    "name": "Director 1",
-   "private_context": "One of the two directors whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document."
+   "private_context": "One of the two required directors who must sign the tender. Their availability and willingness to sign are unknown."
   },
   {
    "name": "Director 2",
-   "private_context": "The other director whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document."
+   "private_context": "The other required director who must sign the tender. Their availability and willingness to sign are unknown."
   }
  ],
- "shared_context": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to.",
+ "shared_context": "The Valdoria postal-contract tender must be signed by two required directors and submitted before Friday, 2026-08-28 at 12:00. The bid team is working on the tender document. The deadline is approaching.",
  "starting_events": [
   {
    "time": "2026-08-24T08:00:00+02:00",
-   "description": "The bid team has the tender document ready but unsigned. They have not yet approached the directors for signatures.",
+   "description": "The bid team begins work on the Valdoria postal-contract tender, needing signatures from two directors and submission before Friday 12:00.",
    "visible_to": [
     "Nimbus Freight's bid team"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that both Director 1 and Director 2 actually signed the tender document and the signed document was submitted before 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the deadline."
+ "resolution": "Resolve YES only if the persistent event history shows that the tender was signed by both required directors and submitted before 2026-08-28T12:00:00+02:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

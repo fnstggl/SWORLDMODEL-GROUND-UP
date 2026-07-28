@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Does Judge Patricia O'Neill rule on the motion to dismiss by September 30, 2026?",
-  "resolution": "Resolve YES only if the persistent event history shows that Judge Patricia O'Neill issued a ruling on the motion to dismiss on or before 2026-09-30T23:59:00-04:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Judge Patricia O'Neill issued a ruling on the motion to dismiss on or before September 30, 2026. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-09-30T23:59:00-04:00",
   "world_id": "w_f0ab3e5569f0"
  },

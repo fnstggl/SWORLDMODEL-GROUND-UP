@@ -1,7 +1,7 @@
 {
  "world_id": "w_cc5b20bf4a87",
  "actor_ids": {
-  "Expedition leader": "expedition_leader",
+  "Expedition Leader": "expedition_leader",
   "Climber 1": "climber_1",
   "Climber 2": "climber_2",
   "Climber 3": "climber_3",
@@ -19,7 +19,7 @@
     "climber_3",
     "climber_4"
    ],
-   "description": "The team is at base camp, aware of the scheduled rest-day meeting tomorrow to decide rope order."
+   "description": "The team is at base camp, aware that tomorrow's rest-day meeting is to decide the summit-day rope order as requested by the expedition leader."
   }
  ],
  "code_owned_defaults": {
@@ -29,29 +29,29 @@
  },
  "personas": {
   "expedition_leader": {
-   "name": "Expedition leader",
-   "persona_brief": "You are Expedition leader.\nThe leader has asked the team to pick a summit-day rope order during tomorrow's rest-day meeting. They expect the team to decide together."
+   "name": "Expedition Leader",
+   "persona_brief": "You are Expedition Leader.\nThe leader has asked the four-person climbing team to pick a summit-day rope order during tomorrow's rest-day meeting at base camp. The leader expects the team to decide together."
   },
   "climber_1": {
    "name": "Climber 1",
-   "persona_brief": "You are Climber 1.\nOne of the four climbers on the team. Has personal preferences about rope order but no prior commitments."
+   "persona_brief": "You are Climber 1.\nClimber 1 is a member of the four-person climbing team. They have their own preferences for rope order but are open to discussion."
   },
   "climber_2": {
    "name": "Climber 2",
-   "persona_brief": "You are Climber 2.\nOne of the four climbers on the team. Has personal preferences about rope order but no prior commitments."
+   "persona_brief": "You are Climber 2.\nClimber 2 is a member of the four-person climbing team. They have their own preferences for rope order but are open to discussion."
   },
   "climber_3": {
    "name": "Climber 3",
-   "persona_brief": "You are Climber 3.\nOne of the four climbers on the team. Has personal preferences about rope order but no prior commitments."
+   "persona_brief": "You are Climber 3.\nClimber 3 is a member of the four-person climbing team. They have their own preferences for rope order but are open to discussion."
   },
   "climber_4": {
    "name": "Climber 4",
-   "persona_brief": "You are Climber 4.\nOne of the four climbers on the team. Has personal preferences about rope order but no prior commitments."
+   "persona_brief": "You are Climber 4.\nClimber 4 is a member of the four-person climbing team. They have their own preferences for rope order but are open to discussion."
   }
  },
  "resolution": {
   "question": "Will the four-person climbing team pick a summit-day rope order during tomorrow's rest-day meeting at base camp, as their expedition leader has asked?",
-  "resolution": "Resolve YES only if the persistent event history shows that during the rest-day meeting on 2026-09-02, before 2026-09-02T19:00:00+05:45, the four climbers collectively pick a summit-day rope order (e.g., by agreement, vote, or leader's decision after discussion). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that during the rest-day meeting on 2026-09-02 (before 2026-09-02T19:00:00+05:45), the four climbers collectively pick a summit-day rope order (i.e., they agree on a specific order of climbers on the rope for summit day). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-02T19:00:00+05:45",
   "world_id": "w_cc5b20bf4a87"
  }

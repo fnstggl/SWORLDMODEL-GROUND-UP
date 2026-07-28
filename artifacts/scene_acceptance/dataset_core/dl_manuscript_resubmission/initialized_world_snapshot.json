@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "co_author_1": {
+  "co_author_a": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "co_author_1",
+   "id": "co_author_a",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "This co-author is at a field station with patchy email access until September 1. They have contributed writing but may have limited ability to send or receive large files before then.",
+     "content": "Co-author A is at a field station with patchy email until September 1. They have contributed to the revisions and need to send their final input to Tanaka.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-24T00:00:00+00:00"
     },
     {
-     "content": "The journal has a 14-day resubmission deadline for revised manuscripts. The deadline is calculated from the start time: 2026-08-24T09:00:00+09:00 plus 14 days, expiring at 2026-09-07T23:59:00+09:00. The revisions are mostly writing, not new experiments. The manuscript must be uploaded to the journal's submission system before the deadline.",
+     "content": "The journal has a 14-day resubmission deadline starting from the date of the revision request. The deadline is 14 days from the start time, i.e., September 7, 2026. The revisions are mostly writing rather than new experiments. The manuscript must be uploaded by all authors before the deadline.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-24T00:00:00+00:00"
     }
    ],
-   "name": "Co-author 1",
+   "name": "Co-author A",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "co_author_2": {
+  "co_author_b": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "co_author_2",
+   "id": "co_author_b",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "This co-author has typical email access and is expected to provide their revisions. No special constraints are known.",
+     "content": "Co-author B has normal email access and has contributed to the revisions. They are expected to send their final input to Tanaka.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-24T00:00:00+00:00"
     },
     {
-     "content": "The journal has a 14-day resubmission deadline for revised manuscripts. The deadline is calculated from the start time: 2026-08-24T09:00:00+09:00 plus 14 days, expiring at 2026-09-07T23:59:00+09:00. The revisions are mostly writing, not new experiments. The manuscript must be uploaded to the journal's submission system before the deadline.",
+     "content": "The journal has a 14-day resubmission deadline starting from the date of the revision request. The deadline is 14 days from the start time, i.e., September 7, 2026. The revisions are mostly writing rather than new experiments. The manuscript must be uploaded by all authors before the deadline.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-24T00:00:00+00:00"
     }
    ],
-   "name": "Co-author 2",
+   "name": "Co-author B",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Tanaka is the lead author responsible for integrating the revised manuscript. She has blocked out the final weekend (August 29-30) to compile all contributions. She is aware of the 14-day resubmission deadline and wants to meet it.",
+     "content": "Tanaka is the lead author responsible for integrating the revised manuscript. She has blocked out the final weekend (August 29-30) to complete the integration. She is aware of the 14-day resubmission deadline and that one co-author has limited email access until September 1.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-24T00:00:00+00:00"
     },
     {
-     "content": "The journal has a 14-day resubmission deadline for revised manuscripts. The deadline is calculated from the start time: 2026-08-24T09:00:00+09:00 plus 14 days, expiring at 2026-09-07T23:59:00+09:00. The revisions are mostly writing, not new experiments. The manuscript must be uploaded to the journal's submission system before the deadline.",
+     "content": "The journal has a 14-day resubmission deadline starting from the date of the revision request. The deadline is 14 days from the start time, i.e., September 7, 2026. The revisions are mostly writing rather than new experiments. The manuscript must be uploaded by all authors before the deadline.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-24T00:00:00+00:00"
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Dr. Tanaka and her two co-authors upload their revised manuscript before the journal's fourteen-day resubmission deadline expires?",
-  "scene:shared_context": "The journal has a 14-day resubmission deadline for revised manuscripts. The deadline is calculated from the start time: 2026-08-24T09:00:00+09:00 plus 14 days, expiring at 2026-09-07T23:59:00+09:00. The revisions are mostly writing, not new experiments. The manuscript must be uploaded to the journal's submission system before the deadline."
+  "scene:shared_context": "The journal has a 14-day resubmission deadline starting from the date of the revision request. The deadline is 14 days from the start time, i.e., September 7, 2026. The revisions are mostly writing rather than new experiments. The manuscript must be uploaded by all authors before the deadline."
  },
  "history": [],
  "infos": {},

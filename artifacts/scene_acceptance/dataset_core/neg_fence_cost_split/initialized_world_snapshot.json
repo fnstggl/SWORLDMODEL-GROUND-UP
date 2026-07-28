@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Bill believes the fence is shared property and that the Osei family should pay half of the repair cost. He is open to negotiation but prefers to avoid court. He has not yet formally proposed a split.",
+     "content": "Bill is a neighbor who shares a fence with the Osei family. The fence was damaged in a recent storm. Bill believes the cost should be split equally, but is open to negotiation. He wants to avoid small claims court.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-02T17:00:00+00:00"
     },
     {
-     "content": "A storm has damaged a shared fence between Bill's property and the Osei family's property. The fence is on the property line. Both parties are aware of the damage and have spoken briefly about it but have not agreed on a cost split. The cost to repair is estimated at $2,000. Small claims court is an option if no agreement is reached.",
+     "content": "A shared fence between Bill's property and the Osei family's property was damaged in a storm. Both parties are aware of the damage and have discussed it briefly. They have two months to reach an agreement on a cost split, or the matter may go to small claims court.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-02T17:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The Osei family believes the fence is Bill's responsibility or that they should pay less than half. They are willing to discuss but want to avoid small claims court. They have not yet made a counteroffer.",
+     "content": "The Osei family are neighbors who share a fence with Bill. The fence was damaged in a recent storm. They have their own view on who should pay for repairs, but are willing to discuss a cost split. They also prefer to avoid small claims court.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-02T17:00:00+00:00"
     },
     {
-     "content": "A storm has damaged a shared fence between Bill's property and the Osei family's property. The fence is on the property line. Both parties are aware of the damage and have spoken briefly about it but have not agreed on a cost split. The cost to repair is estimated at $2,000. Small claims court is an option if no agreement is reached.",
+     "content": "A shared fence between Bill's property and the Osei family's property was damaged in a storm. Both parties are aware of the damage and have discussed it briefly. They have two months to reach an agreement on a cost split, or the matter may go to small claims court.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-02T17:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Neighbors Bill and the Osei family disagree over who pays for a storm-damaged shared fence. Will they agree on a cost split, without going to small claims, within two months?",
-  "scene:shared_context": "A storm has damaged a shared fence between Bill's property and the Osei family's property. The fence is on the property line. Both parties are aware of the damage and have spoken briefly about it but have not agreed on a cost split. The cost to repair is estimated at $2,000. Small claims court is an option if no agreement is reached."
+  "scene:shared_context": "A shared fence between Bill's property and the Osei family's property was damaged in a storm. Both parties are aware of the damage and have discussed it briefly. They have two months to reach an agreement on a cost split, or the matter may go to small claims court."
  },
  "history": [],
  "infos": {},

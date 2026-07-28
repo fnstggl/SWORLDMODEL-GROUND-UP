@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "One of the six friends. Has a new job with limited leave. Wants to go on the trip but needs to coordinate dates.",
+    "content": "One of the six friends. Has a new job with limited leave.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "One of the six friends. Has a new job with limited leave. Wants to go on the trip but needs to coordinate dates.",
+    "content": "One of the six friends. Has a new job with limited leave.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -115,7 +115,7 @@
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -158,7 +158,7 @@
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -201,7 +201,7 @@
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -238,13 +238,13 @@
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "Jaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird train fares end on the 15th. He has the contact for the apartment they liked last year.",
+    "content": "Jaka is one of the six friends. He usually ends up doing the booking for group trips. He is aware that the early-bird train fares end on the 15th.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T08:00:00+00:00",
     "kind": "context",
-    "content": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+    "content": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
     "source": "scene_manifest:shared_context"
    }
   ],

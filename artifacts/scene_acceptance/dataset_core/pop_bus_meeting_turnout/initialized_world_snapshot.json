@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "kettlewell_parish_clerk": {
+  "kettlewell_villagers": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "kettlewell_parish_clerk",
+   "id": "kettlewell_villagers",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The clerk posted notices about the open meeting regarding the bus-route cut. They are responsible for organizing the meeting and have no special knowledge about attendance.",
+     "content": "Villagers have varying awareness of and interest in the bus-route cut. Some may have seen the posted notices, some may not. The last meeting drew 22 attendees, which is known to some villagers.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-10T08:00:00+00:00"
     },
     {
-     "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to take place at a time and location specified in the notices. The last similar meeting about a different issue drew 22 attendees.",
+     "content": "An open meeting about the bus-route cut is scheduled to take place in Kettlewell. The parish clerk has posted notices to inform villagers. The meeting is open to all villagers. The last such meeting drew 22 attendees.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-10T08:00:00+00:00"
     }
    ],
-   "name": "Kettlewell parish clerk",
+   "name": "Kettlewell villagers",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "villagers_of_kettlewell": {
+  "parish_clerk": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "villagers_of_kettlewell",
+   "id": "parish_clerk",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The villagers have seen the notices about the open meeting. Some may recall that the last such meeting drew 22 attendees. They have varying levels of concern about the bus-route cut and may or may not attend.",
+     "content": "The parish clerk has posted notices about the open meeting regarding the bus-route cut. They are responsible for organizing the meeting but have no control over attendance.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-10T08:00:00+00:00"
     },
     {
-     "content": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to take place at a time and location specified in the notices. The last similar meeting about a different issue drew 22 attendees.",
+     "content": "An open meeting about the bus-route cut is scheduled to take place in Kettlewell. The parish clerk has posted notices to inform villagers. The meeting is open to all villagers. The last such meeting drew 22 attendees.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-10T08:00:00+00:00"
     }
    ],
-   "name": "Villagers of Kettlewell",
+   "name": "Parish clerk",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least thirty villagers attend Kettlewell's open meeting about the bus-route cut, given the parish clerk has posted notices and the last such meeting drew 22?",
-  "scene:shared_context": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to take place at a time and location specified in the notices. The last similar meeting about a different issue drew 22 attendees."
+  "scene:shared_context": "An open meeting about the bus-route cut is scheduled to take place in Kettlewell. The parish clerk has posted notices to inform villagers. The meeting is open to all villagers. The last such meeting drew 22 attendees."
  },
  "history": [],
  "infos": {},

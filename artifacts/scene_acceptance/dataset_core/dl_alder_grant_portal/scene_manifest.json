@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "Lucia Ferreyra",
-   "private_context": "Lucia is co-director of a two-person nonprofit. She knows the Alder Foundation application is due by 17:00 on the 30th. The budget spreadsheet is unfinished. She is aware that their fiscal sponsor needs 48 hours to countersign before submission. She has access to the draft sections prepared by her co-director."
+   "private_context": "Lucia is the director of a two-person nonprofit. She knows the co-director drafted most sections last month, the budget spreadsheet is the only unfinished piece, and their fiscal sponsor needs 48 hours to countersign before submission. She wants to submit the completed application before the portal closes at 17:00 on the 30th."
   },
   {
    "name": "Co-director",
-   "private_context": "The co-director drafted most sections of the Alder Foundation application last month. They know the budget spreadsheet is the only unfinished piece. They are aware of the 48-hour countersign requirement and the 17:00 deadline on the 30th."
+   "private_context": "The co-director drafted most sections last month and knows the budget spreadsheet is the only unfinished piece. They are aware of the 48-hour countersign requirement and the 17:00 deadline on the 30th."
   }
  ],
- "shared_context": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on the 30th. The application draft is mostly complete except for the budget spreadsheet. The two co-directors can communicate and work together to finish and submit the application.",
+ "shared_context": "The nonprofit has a fiscal sponsor that requires 48 hours to countersign the application before submission. The Alder Foundation application portal closes at 17:00 on September 30, 2026. The budget spreadsheet is the only unfinished section of the application.",
  "starting_events": [
   {
    "time": "2026-09-21T09:00:00-05:00",
-   "description": "Lucia and her co-director are aware that the budget spreadsheet is the only unfinished piece of the Alder Foundation application, and that the fiscal sponsor needs 48 hours to countersign before submission.",
+   "description": "Lucia and the co-director are aware of the application deadline and the remaining work on the budget spreadsheet.",
    "visible_to": [
     "Lucia Ferreyra",
     "Co-director"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the completed Alder Foundation application was submitted before 2026-09-30T17:00:00-05:00. Otherwise resolve NO at that time."
+ "resolution": "Resolve YES only if the persistent event history shows that the completed Alder Foundation application was submitted before 17:00 on September 30, 2026. Otherwise resolve NO at the cutoff."
 }

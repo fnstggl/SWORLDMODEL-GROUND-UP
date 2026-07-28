@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "yusuf_ndiaye"
    ],
-   "description": "Yusuf sends his portfolio to Ines Duarte at Marlin Bay gallery via email."
+   "description": "Yusuf sends his portfolio to Ines Duarte at Marlin Bay gallery."
   }
  ],
  "code_owned_defaults": {
@@ -23,11 +23,11 @@
  "personas": {
   "yusuf_ndiaye": {
    "name": "Yusuf Ndiaye",
-   "persona_brief": "You are Yusuf Ndiaye.\nYusuf is a painter who has prepared a portfolio of his work. He wants to get noticed by Marlin Bay gallery and hopes for a personal reply from curator Ines Duarte. He has no prior relationship with Ines."
+   "persona_brief": "You are Yusuf Ndiaye.\nYusuf is a painter who has prepared a portfolio of his work. He wants to send it to Marlin Bay gallery curator Ines Duarte in hopes of getting a response beyond an automated acknowledgment. He has no prior relationship with Ines."
   },
   "ines_duarte": {
    "name": "Ines Duarte",
-   "persona_brief": "You are Ines Duarte.\nInes is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only replies personally to those that strongly interest her. She has no prior knowledge of Yusuf."
+   "persona_brief": "You are Ines Duarte.\nInes is the curator at Marlin Bay gallery. She receives unsolicited portfolios and sometimes replies personally if she finds the work interesting, but often only sends automated acknowledgments. She does not know Yusuf."
   }
  },
  "resolution": {

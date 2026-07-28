@@ -1,21 +1,21 @@
 {
   "actors": [
     {
-      "name": "Kettlewell parish clerk",
-      "private_context": "The clerk posted notices about the open meeting regarding the bus-route cut. They are responsible for organizing the meeting and have no special knowledge about attendance."
+      "name": "Kettlewell villagers",
+      "private_context": "Villagers have varying awareness of and interest in the bus-route cut. Some may have seen the posted notices, some may not. The last meeting drew 22 attendees, which is known to some villagers."
     },
     {
-      "name": "Villagers of Kettlewell",
-      "private_context": "The villagers have seen the notices about the open meeting. Some may recall that the last such meeting drew 22 attendees. They have varying levels of concern about the bus-route cut and may or may not attend."
+      "name": "Parish clerk",
+      "private_context": "The parish clerk has posted notices about the open meeting regarding the bus-route cut. They are responsible for organizing the meeting but have no control over attendance."
     }
   ],
-  "shared_context": "Kettlewell is a village. The parish clerk has posted notices about an open meeting to discuss the proposed bus-route cut. The meeting is scheduled to take place at a time and location specified in the notices. The last similar meeting about a different issue drew 22 attendees.",
+  "shared_context": "An open meeting about the bus-route cut is scheduled to take place in Kettlewell. The parish clerk has posted notices to inform villagers. The meeting is open to all villagers. The last such meeting drew 22 attendees.",
   "starting_events": [
     {
       "time": "2026-09-10T09:00:00+01:00",
       "description": "The parish clerk has posted notices about the open meeting regarding the bus-route cut.",
-      "visible_to": ["Kettlewell parish clerk", "Villagers of Kettlewell"]
+      "visible_to": ["Kettlewell villagers", "Parish clerk"]
     }
   ],
-  "resolution": "Resolve YES if the persistent event history shows that at least thirty distinct villagers attended the open meeting before the meeting ends (which is before the hard cutoff). Otherwise resolve NO at the hard cutoff."
+  "resolution": "Resolve YES if the persistent event history shows that at least thirty distinct villagers attended the open meeting before the meeting ends (by 2026-09-24T21:00:00+01:00). Otherwise resolve NO at the cutoff."
 }

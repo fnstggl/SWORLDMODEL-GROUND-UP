@@ -6,29 +6,29 @@
   "call_3_correction"
  ],
  "provider_requests": 3,
- "total_prompt_tokens": 5428,
- "total_completion_tokens": 908,
+ "total_prompt_tokens": 5625,
+ "total_completion_tokens": 954,
  "per_slot": {
   "call_1_scene": {
    "attempts": 1,
-   "duration_s": 3.811,
-   "prompt_tokens": 2313,
-   "completion_tokens": 388
+   "duration_s": 3.537,
+   "prompt_tokens": 2461,
+   "completion_tokens": 381
   },
   "call_2_review": {
    "attempts": 1,
-   "duration_s": 2.02,
-   "prompt_tokens": 1870,
-   "completion_tokens": 124
+   "duration_s": 2.895,
+   "prompt_tokens": 1864,
+   "completion_tokens": 185
   },
   "call_3_correction": {
    "attempts": 1,
-   "duration_s": 2.986,
-   "prompt_tokens": 1245,
-   "completion_tokens": 396
+   "duration_s": 3.117,
+   "prompt_tokens": 1300,
+   "completion_tokens": 388
   }
  },
- "wall_s": 8.82,
+ "wall_s": 9.55,
  "compiler_version": "minimal_scene_v1",
  "evidence_mode": "model_memory_unverified",
  "repaired_compile": true,

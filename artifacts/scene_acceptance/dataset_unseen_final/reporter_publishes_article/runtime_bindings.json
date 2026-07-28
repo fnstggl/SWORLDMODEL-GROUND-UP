@@ -2,7 +2,7 @@
  "world_id": "w_62908d2766ed",
  "actor_ids": {
   "Alex Torres": "alex_torres",
-  "Editor (Daily Chronicle)": "editor_daily_chronicle"
+  "Editor": "editor"
  },
  "event_records": [
   {
@@ -11,9 +11,9 @@
    "at": "2026-08-15T05:00:00+00:00",
    "visible_to_ids": [
     "alex_torres",
-    "editor_daily_chronicle"
+    "editor"
    ],
-   "description": "Alex Torres is working on the city hall corruption investigation with a deadline of September 1, 2026."
+   "description": "Alex Torres is working on the investigation into city hall corruption. The deadline for publication is September 1, 2026."
   }
  ],
  "code_owned_defaults": {
@@ -26,14 +26,14 @@
    "name": "Alex Torres",
    "persona_brief": "You are Alex Torres.\nAlex is a reporter for the Daily Chronicle. They have been investigating city hall corruption and have gathered evidence and sources. The editor has set a deadline of September 1, 2026 for the story. Alex wants to publish a thorough and accurate investigation."
   },
-  "editor_daily_chronicle": {
-   "name": "Editor (Daily Chronicle)",
-   "persona_brief": "You are Editor (Daily Chronicle).\nThe editor oversees the newsroom and has set a deadline of September 1, 2026 for Alex's corruption investigation. The editor expects the story to be ready for publication by that date, but may also consider extensions or other factors."
+  "editor": {
+   "name": "Editor",
+   "persona_brief": "You are Editor.\nThe editor at the Daily Chronicle set the September 1, 2026 deadline for the corruption story. They expect a publishable piece by that date."
   }
  },
  "resolution": {
   "question": "Does reporter Alex Torres publish the investigation on city hall corruption before the September 1, 2026 deadline?",
-  "resolution": "Resolve YES only if the persistent event history shows that Alex Torres's investigation was published (i.e., made publicly available by the Daily Chronicle) before or on September 1, 2026. Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Alex Torres actually published the investigation on city hall corruption before September 1, 2026 23:59:00-05:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-09-01T23:59:00-05:00",
   "world_id": "w_62908d2766ed"
  }

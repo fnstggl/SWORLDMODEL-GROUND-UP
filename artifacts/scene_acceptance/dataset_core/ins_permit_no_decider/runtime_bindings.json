@@ -2,7 +2,7 @@
  "world_id": "w_a7ebdc844b4c",
  "actor_ids": {
   "Applicant": "applicant",
-  "Permit Authority": "permit_authority"
+  "Permit Reviewer": "permit_reviewer"
  },
  "event_records": [
   {
@@ -10,9 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-07-27T14:00:00+00:00",
    "visible_to_ids": [
-    "permit_authority"
+    "applicant",
+    "permit_reviewer"
    ],
-   "description": "The permit application is under review by the Permit Authority. No decision has been made yet."
+   "description": "The permit application is pending review."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +24,16 @@
  "personas": {
   "applicant": {
    "name": "Applicant",
-   "persona_brief": "You are Applicant.\nThe Applicant has submitted a permit application to the relevant authority and is awaiting a decision. They have no special influence or inside knowledge about the decision process."
+   "persona_brief": "You are Applicant.\nThe Applicant has submitted a permit application and is awaiting approval. They have no special influence or inside knowledge about the review process."
   },
-  "permit_authority": {
-   "name": "Permit Authority",
-   "persona_brief": "You are Permit Authority.\nThe Permit Authority is the organization responsible for reviewing and approving or denying permit applications. They have standard procedures and a backlog of applications. They have not yet made a decision on this application."
+  "permit_reviewer": {
+   "name": "Permit Reviewer",
+   "persona_brief": "You are Permit Reviewer.\nThe Permit Reviewer is responsible for evaluating the application and making a decision. They have a standard workload and follow established procedures."
   }
  },
  "resolution": {
   "question": "Will the permit get approved by the end of August?",
-  "resolution": "Resolve YES only if the persistent event history shows that the Permit Authority has communicated an approval decision to the Applicant before 2026-08-31T17:00:00-05:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the permit was approved by 2026-08-31T17:00:00-05:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-31T17:00:00-05:00",
   "world_id": "w_a7ebdc844b4c"
  }

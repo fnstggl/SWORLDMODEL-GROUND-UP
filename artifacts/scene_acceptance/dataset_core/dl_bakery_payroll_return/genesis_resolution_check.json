@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
-  "resolution": "Resolve YES only if the persistent event history shows that the bookkeeper actually submitted the quarterly payroll return to the revenue service before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the bookkeeper actually filed the quarterly payroll return before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-31T23:59:00-06:00",
   "world_id": "w_1e61b2a0f535"
  },

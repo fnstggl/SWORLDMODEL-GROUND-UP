@@ -6,14 +6,14 @@
   },
   {
    "name": "Sarah Lee",
-   "private_context": "Sarah Lee is the tenant who submitted a sublease request to Green Properties Inc. She is awaiting their decision."
+   "private_context": "Sarah Lee is a tenant of Green Properties Inc. She has submitted a sublease request to Green Properties Inc. and is awaiting their decision. She wants approval by September 20, 2026."
   }
  ],
- "shared_context": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026.",
+ "shared_context": "Sarah Lee is a tenant of Green Properties Inc. She has submitted a sublease request to Green Properties Inc. The deadline for approval is September 20, 2026. Green Properties Inc. has the authority to approve or deny the request.",
  "starting_events": [
   {
    "time": "2026-09-10T09:00:00-07:00",
-   "description": "Sarah Lee's sublease request is pending review by Green Properties Inc.",
+   "description": "Sarah Lee's sublease request is pending with Green Properties Inc. No decision has been made yet.",
    "visible_to": [
     "Green Properties Inc.",
     "Sarah Lee"

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Employee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter. They have no direct control over the decision.",
+     "content": "Employee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T08:00:00+00:00"
     },
     {
-     "content": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
+     "content": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion decision has not been made yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T08:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "HR handles the formal approval and processing of promotions. They require a recommendation from the manager and may have additional criteria or timelines.",
+     "content": "HR handles the formal promotion process, including paperwork and approvals. They process promotions based on manager recommendations and company policy.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T08:00:00+00:00"
     },
     {
-     "content": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
+     "content": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion decision has not been made yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T08:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Manager is responsible for recommending the employee for promotion. They have the authority to initiate the promotion process. They are aware of the employee's performance and the upcoming quarterly review.",
+     "content": "Manager is responsible for recommending the promotion. They have the authority to initiate the process but need approval from higher management.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T08:00:00+00:00"
     },
     {
-     "content": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion.",
+     "content": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion decision has not been made yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T08:00:00+00:00"
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the promotion go through before the end of the quarter?",
-  "scene:shared_context": "The company has a standard promotion process that requires a manager's recommendation and HR approval. The end of the quarter is 2026-09-30. The employee is eligible for promotion."
+  "scene:shared_context": "The company has a standard promotion process that requires manager recommendation, HR review, and final approval. The end of the quarter is 2026-09-30. The promotion decision has not been made yet."
  },
  "history": [],
  "infos": {},

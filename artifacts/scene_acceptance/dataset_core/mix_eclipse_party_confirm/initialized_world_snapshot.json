@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The president is responsible for organizing club events and making decisions about whether to hold the pier viewing party. They are aware of the scheduled partial solar eclipse on the 12th and need to decide by the 10th whether the party goes ahead, considering weather forecasts, safety, and logistics.",
+     "content": "The president is responsible for organizing club events and making decisions about the pier viewing party. They have not yet decided whether to go ahead with the event.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-01T16:00:00+00:00"
     },
     {
-     "content": "A partial solar eclipse is scheduled over Marlin Bay on August 12, 2026. The astronomy club typically holds viewing parties at the pier for such events. The club president is expected to confirm by August 10 whether the party will proceed. The decision may depend on factors like weather, safety, and member interest.",
+     "content": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club is considering a pier viewing party for the eclipse. The president must confirm by the 10th whether the party is going ahead.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-01T16:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. Will the astronomy club's president confirm by the 10th whether the pier viewing party is going ahead?",
-  "scene:shared_context": "A partial solar eclipse is scheduled over Marlin Bay on August 12, 2026. The astronomy club typically holds viewing parties at the pier for such events. The club president is expected to confirm by August 10 whether the party will proceed. The decision may depend on factors like weather, safety, and member interest."
+  "scene:shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club is considering a pier viewing party for the eclipse. The president must confirm by the 10th whether the party is going ahead."
  },
  "history": [],
  "infos": {},

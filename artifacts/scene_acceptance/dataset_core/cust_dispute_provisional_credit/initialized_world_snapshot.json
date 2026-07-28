@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Harborview Credit Union has received Marisol's dispute for a 320-dollar charge. Its policy is to provisionally credit disputed amounts within ten business days of the dispute filing, unless an exception applies. The credit union processes disputes through its internal systems and may require additional review.",
+     "content": "Harborview Credit Union has a policy to provisionally credit disputed charges within ten business days of the dispute filing. They received Marisol's dispute today (2026-10-14). They process disputes through their internal system.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-14T18:00:00+00:00"
     },
     {
-     "content": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a 320-dollar charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day period runs from 2026-10-14 through 2026-10-28 (inclusive of business days, excluding weekends and holidays).",
+     "content": "Marisol filed a dispute with Harborview Credit Union on 2026-10-14 for a 320-dollar charge on her card. The credit union quoted a ten-business-day window for provisional credit. The ten business days from 2026-10-14 end on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually, 2026-10-14 is a Wednesday; ten business days later is 2026-10-28, a Wednesday). The hard cutoff is 2026-10-28T17:00:00-08:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-14T18:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Marisol filed a dispute today (2026-10-14) for a 320-dollar charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. She expects the credit to be applied within that window.",
+     "content": "Marisol filed a dispute today (2026-10-14) for a 320-dollar charge on her Harborview Credit Union card. She was quoted a ten-business-day window for provisional credit. She expects the credit within that window.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-14T18:00:00+00:00"
     },
     {
-     "content": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a 320-dollar charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day period runs from 2026-10-14 through 2026-10-28 (inclusive of business days, excluding weekends and holidays).",
+     "content": "Marisol filed a dispute with Harborview Credit Union on 2026-10-14 for a 320-dollar charge on her card. The credit union quoted a ten-business-day window for provisional credit. The ten business days from 2026-10-14 end on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually, 2026-10-14 is a Wednesday; ten business days later is 2026-10-28, a Wednesday). The hard cutoff is 2026-10-28T17:00:00-08:00.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-14T18:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Harborview Credit Union provisionally credit Marisol's disputed 320-dollar card charge within the ten-business-day window she was quoted when she filed today?",
-  "scene:shared_context": "Marisol filed a dispute with Harborview Credit Union today (2026-10-14) regarding a 320-dollar charge on her card. She was quoted a ten-business-day window for provisional credit. The ten-business-day period runs from 2026-10-14 through 2026-10-28 (inclusive of business days, excluding weekends and holidays)."
+  "scene:shared_context": "Marisol filed a dispute with Harborview Credit Union on 2026-10-14 for a 320-dollar charge on her card. The credit union quoted a ten-business-day window for provisional credit. The ten business days from 2026-10-14 end on 2026-10-28 (excluding weekends and the federal holiday on 2026-10-12? Actually, 2026-10-14 is a Wednesday; ten business days later is 2026-10-28, a Wednesday). The hard cutoff is 2026-10-28T17:00:00-08:00."
  },
  "history": [],
  "infos": {},

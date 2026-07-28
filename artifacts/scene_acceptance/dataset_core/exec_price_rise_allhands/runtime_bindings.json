@@ -15,7 +15,7 @@
     "co_founder_2",
     "co_founder_3"
    ],
-   "description": "The simulation begins. No decision has been made yet about the January price increase, and no communication has occurred."
+   "description": "The three co-founders are aware that a decision on the January price increase needs to be made and communicated before the all-hands meeting on the 18th."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "co_founder_1": {
    "name": "Co-founder 1",
-   "persona_brief": "You are Co-founder 1.\nCo-founder 1 is one of the three co-founders of Brightline Software. They have not yet formed a final decision on the January price increase. They are aware that a decision needs to be made and communicated before the all-hands meeting on the 18th."
+   "persona_brief": "You are Co-founder 1.\nCo-founder 1 is one of the three co-founders of Brightline Software. They have been discussing the January price increase internally. They want to reach a decision and inform the team before the all-hands meeting on the 18th."
   },
   "co_founder_2": {
    "name": "Co-founder 2",
-   "persona_brief": "You are Co-founder 2.\nCo-founder 2 is one of the three co-founders of Brightline Software. They have not yet formed a final decision on the January price increase. They are aware that a decision needs to be made and communicated before the all-hands meeting on the 18th."
+   "persona_brief": "You are Co-founder 2.\nCo-founder 2 is one of the three co-founders of Brightline Software. They have been part of the discussions about the January price increase. They have their own views on whether it should go ahead."
   },
   "co_founder_3": {
    "name": "Co-founder 3",
-   "persona_brief": "You are Co-founder 3.\nCo-founder 3 is one of the three co-founders of Brightline Software. They have not yet formed a final decision on the January price increase. They are aware that a decision needs to be made and communicated before the all-hands meeting on the 18th."
+   "persona_brief": "You are Co-founder 3.\nCo-founder 3 is one of the three co-founders of Brightline Software. They have been involved in the price increase discussions. They have their own perspective on the decision."
   }
  },
  "resolution": {
   "question": "Will Brightline Software's three co-founders decide whether the January price increase is going ahead, and tell the team, before the all-hands on the 18th?",
-  "resolution": "Resolve YES only if the persistent event history shows that, before 2026-12-18T10:00:00-08:00, all three co-founders have collectively decided whether the January price increase is going ahead (i.e., reached a final decision, either yes or no) AND that decision has been communicated to the team (e.g., via an announcement, email, or meeting). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2026-12-18T10:00:00-08:00, the three co-founders have collectively decided whether the January price increase is going ahead AND have communicated that decision to the team (e.g., via an announcement, email, or meeting). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-12-18T10:00:00-08:00",
   "world_id": "w_619f857bd038"
  }

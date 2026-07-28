@@ -29,7 +29,7 @@
    {
     "t": "2026-08-20T14:00:00+00:00",
     "kind": "context",
-    "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has access to her email and can reply.",
+    "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-20T14:00:00+00:00",
     "kind": "context",
-    "content": "Ms. Laura Kim is a teacher. She has received John's email about the field trip. She may or may not respond before the deadline.",
+    "content": "Ms. Laura Kim is a teacher. She has received John's email about the field trip but has not yet responded. She may have other commitments and may prioritize responding based on her own schedule.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-20T14:00:00+00:00",
     "kind": "context",
-    "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has access to her email and can reply.",
+    "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -93,32 +93,33 @@ THE ORIGINAL MANIFEST:
  "actors": [
   {
    "name": "Petersfield Secondary School",
-   "private_context": "The school has sent invitations to 120 parents for a curriculum-change town hall. It wants to gauge attendance and may follow up if needed."
+   "private_context": "The school has sent invitations to 120 parents for a curriculum-change town hall. It expects RSVPs but has no prior knowledge of how many will respond."
   },
   {
-   "name": "Invited Parents (120)",
-   "private_context": "Each parent has received an invitation to the town hall. They may or may not RSVP based on their interest, availability, and other factors."
+   "name": "Invited Parents (120 individuals)",
+   "private_context": "Each parent has received an invitation to the town hall. They may or may not RSVP, and may do so by various means (e.g., email, phone, online form). Their decisions are independent."
   }
  ],
- "shared_context": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for a date after the Friday before it. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
+ "shared_context": "Petersfield Secondary School is holding a town hall meeting about curriculum changes. Invitations were sent to 120 parents. The school has set a deadline for RSVPs: the Friday before the town hall. The town hall date is not specified, but the RSVP deadline is the Friday before it. The simulation start time is 2026-10-05T09:00:00+01:00, and the hard cutoff is 2026-10-16T17:00:00+01:00. The Friday before the town hall must be determined from the town hall date, which is unknown; however, the hard cutoff may serve as the latest possible deadline if the town hall is on or after that date. For resolution, the deadline is the Friday before the town hall, but since the town hall date is not given, the resolution will use the hard cutoff as the deadline for counting RSVPs.",
  "starting_events": [
   {
    "time": "2026-10-05T09:00:00+01:00",
-   "description": "Invitations have been sent to 120 parents for the curriculum-change town hall. No RSVPs have been received yet.",
+   "description": "The invitation period is ongoing; parents have been invited and may RSVP at any time.",
    "visible_to": [
-    "Petersfield Secondary School"
+    "Petersfield Secondary School",
+    "Invited Parents (120 individuals)"
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that more than 60 distinct parents (i.e., more than half of 120) have sent an RSVP (either 'yes' or 'no') to the school before the Friday before the town hall. Otherwise resolve NO at the hard cutoff (2026-10-16T17:00:00+01:00) if the Friday before the town hall has passed by then, or at the end of that Friday if it falls before the cutoff."
+ "resolution": "Resolve YES if, by the hard cutoff (2026-10-16T17:00:00+01:00), the persistent event history shows that more than 60 of the 120 invited parents have submitted an RSVP (either yes or no). Otherwise resolve NO at the cutoff."
 }
 
 THE DEFECTS TO CORRECT (apply exactly these, nothing else):
 [
  {
   "path": "resolution",
-  "problem": "The resolution references 'the Friday before the town hall' but the town hall date is not specified in the scene or question, making it impossible to determine the deadline. The hard cutoff is 2026-10-16, but without the town hall date, the Friday before it is unknown.",
-  "correction": "Specify the town hall date in the shared context or resolution, or define the deadline relative to the hard cutoff if the town hall is after the cutoff."
+  "problem": "The resolution uses the hard cutoff as the deadline for counting RSVPs, but the question specifies the deadline as 'the Friday before it' (the town hall). The town hall date is not provided, so the deadline is unknown. Using the hard cutoff as a substitute changes the meaning of the question's time restriction.",
+  "correction": "Either specify the town hall date in the shared context so the Friday before can be computed, or adjust the resolution to reflect that the deadline is unknown and the simulation must determine it from the town hall date (which should be defined). Alternatively, if the hard cutoff is intended to be the deadline, the question must be clarified."
  }
 ]
 

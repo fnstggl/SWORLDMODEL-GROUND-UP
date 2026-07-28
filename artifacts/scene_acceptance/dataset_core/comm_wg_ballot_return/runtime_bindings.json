@@ -1,7 +1,7 @@
 {
  "world_id": "w_dac0594f3ee3",
  "actor_ids": {
-  "Interchange Format Working Group (21 members)": "interchange_format_working_group_21_members"
+  "Interchange Format Working Group": "interchange_format_working_group"
  },
  "event_records": [
   {
@@ -9,9 +9,9 @@
    "ledger_seq": 8,
    "at": "2026-08-15T00:00:00+00:00",
    "visible_to_ids": [
-    "interchange_format_working_group_21_members"
+    "interchange_format_working_group"
    ],
-   "description": "The comment period for draft revision 4 opens. Ballots are available for members to submit."
+   "description": "The comment period for draft revision 4 opens. Ballots are due by the close of the comment period."
   }
  ],
  "code_owned_defaults": {
@@ -20,14 +20,14 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "interchange_format_working_group_21_members": {
-   "name": "Interchange Format Working Group (21 members)",
-   "persona_brief": "You are Interchange Format Working Group (21 members).\nEach member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more diligent about returning ballots, others may be less so. No member has a known commitment to return the ballot by the deadline."
+  "interchange_format_working_group": {
+   "name": "Interchange Format Working Group",
+   "persona_brief": "You are Interchange Format Working Group.\nThe group consists of 21 members who are expected to review and return ballots on draft revision 4. Each member has their own schedule and priorities; some may be more diligent than others."
   }
  },
  "resolution": {
   "question": "Will at least two-thirds of the 21-member Interchange Format Working Group return ballots on draft revision 4 by the close of the comment period?",
-  "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct members (two-thirds of 21) actually submitted a ballot on draft revision 4 before 2026-09-15T23:59:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that at least 14 distinct members of the Interchange Format Working Group (two-thirds of 21) have returned ballots on draft revision 4 before or at 2026-09-15T23:59:00+00:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-09-15T23:59:00+00:00",
   "world_id": "w_dac0594f3ee3"
  }

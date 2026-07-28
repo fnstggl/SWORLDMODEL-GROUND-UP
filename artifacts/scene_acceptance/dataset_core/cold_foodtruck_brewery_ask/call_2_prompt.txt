@@ -119,32 +119,32 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Bao Tran",
-   "private_context": "Bao runs a well-reviewed banh mi food truck. He plans to approach three brewery managers in person this Saturday (2026-08-08) about parking on their lots. He wants a regular weekend spot. He has no prior agreements with any of the breweries."
+   "private_context": "Bao runs a well-reviewed banh mi food truck. He wants a regular weekend parking spot at a brewery lot. He plans to approach three brewery managers in person this Saturday. He knows two of the breweries already host rotating food trucks, and the third never has."
   },
   {
    "name": "Brewery Manager 1",
-   "private_context": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks but has no prior relationship with Bao."
+   "private_context": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks but has existing commitments."
   },
   {
    "name": "Brewery Manager 2",
-   "private_context": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks but has no prior relationship with Bao."
+   "private_context": "Manager of a brewery that already hosts rotating food trucks. May be open to new trucks but has existing commitments."
   },
   {
    "name": "Brewery Manager 3",
-   "private_context": "Manager of a brewery that never hosts food trucks. May be resistant to the idea but has no prior relationship with Bao."
+   "private_context": "Manager of a brewery that never hosts food trucks. May have a policy or preference against it."
   }
  ],
- "shared_context": "Bao plans to visit three breweries in person on Saturday 2026-08-08 between 10:00 and 20:00 local time. Two of the breweries already host rotating food trucks; the third never has. Each brewery manager can decide whether to allow Bao to park on their lot.",
+ "shared_context": "Bao Tran plans to approach three brewery managers in person this Saturday (2026-08-08) about parking his food truck on their lots. The breweries are local and the managers are typically present during operating hours.",
  "starting_events": [
   {
    "time": "2026-08-08T10:00:00-05:00",
-   "description": "Bao begins his visits to the three breweries.",
+   "description": "Bao Tran begins his rounds to approach the three brewery managers.",
    "visible_to": [
     "Bao Tran"
    ]
   }
  ],
- "resolution": "Resolve YES if, before 2026-08-08T20:00:00-05:00, the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least one brewery manager explicitly agreed to let Bao park on their lot before 2026-08-08T20:00:00-05:00. Otherwise resolve NO at that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

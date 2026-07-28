@@ -23,13 +23,13 @@
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "Khrushchev is the leader of the Soviet Union. He is aware of the US quarantine announcement and is considering his options. He may choose to communicate directly with President Kennedy via letter.",
+    "content": "Khrushchev is the leader of the Soviet Union. He has received news of President Kennedy's October 22 address announcing a quarantine of Cuba. He is considering his options for responding to the crisis, including possibly sending a direct letter to Kennedy.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is watching the escalating crisis. Direct letters between the leaders are a possible channel of communication.",
+    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is now in a tense standoff. Diplomatic channels between the US and USSR are open, including the possibility of direct letters between the leaders.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba. He is open to receiving direct communications from Khrushchev.",
+    "content": "Kennedy is the President of the United States. He has just delivered an address announcing a quarantine of Cuba. He is aware that the Soviet Union may respond, possibly through direct communication.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "1962-10-23T01:00:00+00:00",
     "kind": "context",
-    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is watching the escalating crisis. Direct letters between the leaders are a possible channel of communication.",
+    "content": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is now in a tense standoff. Diplomatic channels between the US and USSR are open, including the possibility of direct letters between the leaders.",
     "source": "scene_manifest:shared_context"
    }
   ],

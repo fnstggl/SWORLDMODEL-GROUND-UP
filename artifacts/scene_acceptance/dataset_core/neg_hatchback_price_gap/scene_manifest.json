@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Ravi",
-   "private_context": "Ravi wants to buy a 2019 hatchback and is 40,000 rupees below the seller's asking price. He has three days before the listing expires. He can negotiate and make offers."
+   "private_context": "Ravi wants to buy a 2019 hatchback and is willing to negotiate. He knows the seller's listed price and is 40,000 rupees below it. He has the funds and can contact the seller."
   },
   {
    "name": "Seller",
-   "private_context": "The seller has listed a 2019 hatchback with a posted price. They are 40,000 rupees above Ravi's offer. The listing expires in three days. They can negotiate and accept or reject offers."
+   "private_context": "The seller is offering a 2019 hatchback at a listed price. They are 40,000 rupees above Ravi's offer. The listing expires in three days. They may be open to negotiation."
   }
  ],
- "shared_context": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The seller's listing expires on 2026-08-23T10:00:00+05:30. They are 40,000 rupees apart on price.",
+ "shared_context": "Ravi and the seller are in contact regarding the sale of a 2019 hatchback. The seller's listing expires on 2026-08-23T10:00:00+05:30. The current price gap is 40,000 rupees.",
  "starting_events": [
   {
    "time": "2026-08-20T10:00:00+05:30",
-   "description": "Ravi and the seller are aware of the price gap and the listing expiration deadline.",
+   "description": "Ravi and the seller are aware of the price gap of 40,000 rupees. No agreement has been reached yet.",
    "visible_to": [
     "Ravi",
     "Seller"

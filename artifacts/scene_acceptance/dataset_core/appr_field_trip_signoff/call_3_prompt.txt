@@ -95,33 +95,34 @@ THE ORIGINAL MANIFEST:
 {
  "actors": [
   {
-   "name": "Principal",
-   "private_context": "The principal is responsible for approving school activities and is aware of the half-term deadline for sending parental consent letters. They have no prior concerns about the coastal field trip, which has run safely for four years. They know the deputy head is on leave until late September."
+   "name": "Principal of Petersfield Secondary",
+   "private_context": "The principal is responsible for approving school trips. They are aware of the geography department's proposed coastal field trip and the half-term deadline for sending parental consent letters. They know the deputy head is on leave until late September, which may affect the new risk-assessment signature requirement."
   },
   {
-   "name": "Geography Department Head",
-   "private_context": "The geography department head has proposed the coastal field trip and needs the principal's sign-off before the half-term deadline. They are aware of the new coach operator and the extra signature requirement from the deputy head, who is on leave."
+   "name": "Geography Department",
+   "private_context": "The geography department has proposed a coastal field trip, which has run without incident for four years. This year, there is a new coach operator and a risk-assessment form that needs an extra signature from the deputy head, who is on leave until late September. The department wants the principal's sign-off before the half-term deadline for sending parental consent letters."
   }
  ],
- "shared_context": "Petersfield Secondary School has a half-term deadline for sending parental consent letters for the coastal field trip. The trip has run without incident for four years. This year, a new coach operator is being used, and the risk-assessment form requires an extra signature from the deputy head, who is on leave until late September. The geography department head can submit the proposal to the principal for sign-off.",
+ "shared_context": "The coastal field trip has run without incident for four years. This year, there is a new coach operator and a risk-assessment form that now needs an extra signature from the deputy head, who is on leave until late September. The half-term deadline for sending parental consent letters is approaching. The principal's sign-off is required for the trip to proceed.",
  "starting_events": [
   {
    "time": "2026-09-07T08:30:00+01:00",
-   "description": "The geography department head has the proposed coastal field trip paperwork ready to submit to the principal for sign-off.",
+   "description": "The geography department has submitted the proposed coastal field trip for the principal's approval, including the risk-assessment form that requires the deputy head's signature.",
    "visible_to": [
-    "Geography Department Head"
+    "Principal of Petersfield Secondary",
+    "Geography Department"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the hard cutoff (2026-10-16T15:30:00+01:00). The half-term deadline is assumed to be before the hard cutoff; if the question's own deadline is earlier, use that instead."
+ "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the deadline."
 }
 
 THE DEFECTS TO CORRECT (apply exactly these, nothing else):
 [
  {
-  "path": "resolution",
-  "problem": "The resolution does not specify the exact half-term deadline date, relying on an assumption that it is before the hard cutoff. This could lead to ambiguity about when the deadline actually occurs.",
-  "correction": "Specify the exact half-term deadline date (e.g., 2026-10-09) based on typical UK school half-term schedules or the user-provided context, or state that the deadline is unknown and must be determined during simulation."
+  "path": "starting_events[0].description",
+  "problem": "The starting event states that the geography department has submitted the proposal including the risk-assessment form that requires the deputy head's signature. However, the deputy head is on leave until late September, and the simulation starts on September 7. The submission of a form that requires a signature from someone on leave is implausible unless the department submitted it without that signature, which contradicts the description. This prewrites a decision about the submission status.",
+  "correction": "Remove the claim that the submitted form includes the deputy head's signature. Instead, state that the geography department has submitted the proposed coastal field trip for approval, but the risk-assessment form still needs the deputy head's signature, which is pending due to their leave."
  }
 ]
 

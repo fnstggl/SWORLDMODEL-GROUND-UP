@@ -23,13 +23,13 @@
    {
     "t": "1914-07-23T11:00:00+00:00",
     "kind": "context",
-    "content": "The German Foreign Office is the recipient of diplomatic communications. It operates during normal business hours and has protocols for receiving official notes from foreign ambassadors. It is aware of the ultimatum and the general diplomatic tensions.",
+    "content": "The German Foreign Office is the recipient of diplomatic communications. It operates during normal business hours and may receive notes through official channels. It has no prior knowledge of the specific protest note.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "1914-07-23T11:00:00+00:00",
     "kind": "context",
-    "content": "The date is July 23, 1914. Diplomatic tensions are high following the assassination of Archduke Franz Ferdinand. France and Germany are in a crisis. The German ultimatum expires on July 28, 1914. Ambassador Dupont has a protest note to deliver to the German Foreign Office.",
+    "content": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -72,7 +72,7 @@
    {
     "t": "1914-07-23T11:00:00+00:00",
     "kind": "context",
-    "content": "The date is July 23, 1914. Diplomatic tensions are high following the assassination of Archduke Franz Ferdinand. France and Germany are in a crisis. The German ultimatum expires on July 28, 1914. Ambassador Dupont has a protest note to deliver to the German Foreign Office.",
+    "content": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,11 +1,11 @@
 {
  "world_id": "w_138490e1d51a",
  "actor_ids": {
-  "Parks Committee Member 1": "parks_committee_member_1",
-  "Parks Committee Member 2": "parks_committee_member_2",
-  "Parks Committee Member 3": "parks_committee_member_3",
-  "Parks Committee Member 4": "parks_committee_member_4",
-  "Parks Committee Member 5": "parks_committee_member_5"
+  "Committee Member 1": "committee_member_1",
+  "Committee Member 2": "committee_member_2",
+  "Committee Member 3": "committee_member_3",
+  "Committee Member 4": "committee_member_4",
+  "Committee Member 5": "committee_member_5"
  },
  "event_records": [
   {
@@ -13,11 +13,11 @@
    "ledger_seq": 20,
    "at": "2026-09-14T15:00:00+00:00",
    "visible_to_ids": [
-    "parks_committee_member_1",
-    "parks_committee_member_2",
-    "parks_committee_member_3",
-    "parks_committee_member_4",
-    "parks_committee_member_5"
+    "committee_member_1",
+    "committee_member_2",
+    "committee_member_3",
+    "committee_member_4",
+    "committee_member_5"
    ],
    "description": "The committee members are aware of the upcoming Thursday session and the skate-park relocation vote."
   }
@@ -28,25 +28,25 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "parks_committee_member_1": {
-   "name": "Parks Committee Member 1",
-   "persona_brief": "You are Parks Committee Member 1.\nLives near the proposed skate-park relocation site. Has received both supportive and opposing letters from neighbors. Has not yet decided how to vote."
+  "committee_member_1": {
+   "name": "Committee Member 1",
+   "persona_brief": "You are Committee Member 1.\nLives near the proposed skate-park relocation site. Has received letters and comments both for and against. Has not yet decided how to vote."
   },
-  "parks_committee_member_2": {
-   "name": "Parks Committee Member 2",
-   "persona_brief": "You are Parks Committee Member 2.\nLives near the proposed skate-park relocation site. Has received both supportive and opposing letters from neighbors. Has not yet decided how to vote."
+  "committee_member_2": {
+   "name": "Committee Member 2",
+   "persona_brief": "You are Committee Member 2.\nLives near the proposed skate-park relocation site. Has received letters and comments both for and against. Has not yet decided how to vote."
   },
-  "parks_committee_member_3": {
-   "name": "Parks Committee Member 3",
-   "persona_brief": "You are Parks Committee Member 3.\nNo special proximity to the site. Aware of the public controversy but has not formed a firm position."
+  "committee_member_3": {
+   "name": "Committee Member 3",
+   "persona_brief": "You are Committee Member 3.\nNo known personal stake in the relocation. Has heard public comments and read letters. Has not yet decided how to vote."
   },
-  "parks_committee_member_4": {
-   "name": "Parks Committee Member 4",
-   "persona_brief": "You are Parks Committee Member 4.\nNo special proximity to the site. Aware of the public controversy but has not formed a firm position."
+  "committee_member_4": {
+   "name": "Committee Member 4",
+   "persona_brief": "You are Committee Member 4.\nNo known personal stake in the relocation. Has heard public comments and read letters. Has not yet decided how to vote."
   },
-  "parks_committee_member_5": {
-   "name": "Parks Committee Member 5",
-   "persona_brief": "You are Parks Committee Member 5.\nNo special proximity to the site. Aware of the public controversy but has not formed a firm position."
+  "committee_member_5": {
+   "name": "Committee Member 5",
+   "persona_brief": "You are Committee Member 5.\nNo known personal stake in the relocation. Has heard public comments and read letters. Has not yet decided how to vote."
   }
  },
  "resolution": {

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Karen Wu is the department manager. She has received Tom Brown's performance review submitted on September 1, 2026. She has the authority to decide on promotions to senior analyst. She has her own criteria and considerations for such decisions.",
+     "content": "Karen Wu is the department manager. She has received Tom Brown's performance review submitted on September 1, 2026, and must decide whether to promote him to senior analyst by September 25, 2026. She has her own criteria for promotion and knowledge of Tom's performance.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T07:00:00+00:00"
     },
     {
-     "content": "Tom Brown submitted a performance review on September 1, 2026, which is available to Karen Wu for review. The promotion decision is to be made by September 25, 2026.",
+     "content": "Tom Brown submitted a performance review on September 1, 2026, as part of the process for potential promotion to senior analyst. Karen Wu, as department manager, is responsible for making the promotion decision by September 25, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Tom Brown is an analyst seeking promotion to senior analyst. He submitted his performance review on September 1, 2026, and is awaiting Karen Wu's decision.",
+     "content": "Tom Brown is an analyst who submitted his performance review on September 1, 2026, seeking promotion to senior analyst. He is aware that Karen Wu will review his submission and decide.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T07:00:00+00:00"
     },
     {
-     "content": "Tom Brown submitted a performance review on September 1, 2026, which is available to Karen Wu for review. The promotion decision is to be made by September 25, 2026.",
+     "content": "Tom Brown submitted a performance review on September 1, 2026, as part of the process for potential promotion to senior analyst. Karen Wu, as department manager, is responsible for making the promotion decision by September 25, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Does department manager Karen Wu decide to promote analyst Tom Brown to senior analyst by September 25, 2026, after reviewing his performance review submitted on September 1?",
-  "scene:shared_context": "Tom Brown submitted a performance review on September 1, 2026, which is available to Karen Wu for review. The promotion decision is to be made by September 25, 2026."
+  "scene:shared_context": "Tom Brown submitted a performance review on September 1, 2026, as part of the process for potential promotion to senior analyst. Karen Wu, as department manager, is responsible for making the promotion decision by September 25, 2026."
  },
  "history": [],
  "infos": {},

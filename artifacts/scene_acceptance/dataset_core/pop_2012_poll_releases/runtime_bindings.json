@@ -3,17 +3,7 @@
  "actor_ids": {
   "Major national polling organizations": "major_national_polling_organizations"
  },
- "event_records": [
-  {
-   "event_id": "se1",
-   "ledger_seq": 8,
-   "at": "2012-10-01T13:00:00+00:00",
-   "visible_to_ids": [
-    "major_national_polling_organizations"
-   ],
-   "description": "The first week of October 2012 begins. No new head-to-head surveys have been publicly released yet this week."
-  }
- ],
+ "event_records": [],
  "code_owned_defaults": {
   "actor_role": "actor",
   "actor_tz": "UTC",
@@ -22,12 +12,12 @@
  "personas": {
   "major_national_polling_organizations": {
    "name": "Major national polling organizations",
-   "persona_brief": "You are Major national polling organizations.\nEach organization has its own internal processes for conducting and releasing surveys. They may have ongoing tracking polls or scheduled releases. They are aware of the upcoming election and the public interest in head-to-head Obama-Romney polls."
+   "persona_brief": "You are Major national polling organizations.\nEach organization has its own internal processes for deciding whether to conduct and release new head-to-head surveys. They are aware of the upcoming election and may have ongoing tracking polls or ad-hoc surveys."
   }
  },
  "resolution": {
   "question": "During the first week of October 2012, will major national polling organizations publicly release at least three new head-to-head surveys on the Obama-Romney presidential race?",
-  "resolution": "Resolve YES if the persistent event history shows that at least three distinct head-to-head surveys on the Obama-Romney race were publicly released by major national polling organizations between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, by 2012-10-08T21:00:00-04:00, the persistent event history shows that at least three distinct major national polling organizations have publicly released new head-to-head surveys of the Obama-Romney race during the period from 2012-10-01T09:00:00-04:00 to 2012-10-08T21:00:00-04:00. Otherwise resolve NO.",
   "cutoff": "2012-10-08T21:00:00-04:00",
   "world_id": "w_7998b7b6396a"
  }

@@ -13,7 +13,7 @@
     "dario",
     "selin"
    ],
-   "description": "Dario's message to Selin asking if she will play bass at his October wedding has been sent and is in Selin's inbox."
+   "description": "Dario's message to Selin asking whether she will play bass at his October wedding has been sent and is available for Selin to read."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "dario": {
    "name": "Dario",
-   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her asking whether she will. He hopes for a positive response but is uncertain."
+   "persona_brief": "You are Dario.\nDario wants Selin to play bass at his October wedding. He has messaged her asking whether she will. He does not know her current schedule or intentions."
   },
   "selin": {
    "name": "Selin",
-   "persona_brief": "You are Selin.\nSelin is a gigging musician in Istanbul, active on social media. She parted on good terms with Dario two years ago. She has just received Dario's message asking her to play bass at his October wedding. She has not yet responded."
+   "persona_brief": "You are Selin.\nSelin is a bassist who gigs most weekends in Istanbul and posts regularly about her shows. She parted on good terms with Dario two years ago when their band dissolved. She has just received Dario's message asking her to play bass at his October wedding."
   }
  },
  "resolution": {
   "question": "Dario messaged his old bandmate Selin asking whether she would play bass at his October wedding. Will she respond either way within ten days?",
-  "resolution": "Resolve YES if the persistent event history shows that Selin sent a response (either accepting or declining) to Dario before 2026-08-11T12:00:00+03:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that Selin sent a response (either accepting or declining) to Dario before 2026-08-11T12:00:00+03:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-11T12:00:00+03:00",
   "world_id": "w_7de79e8ed107"
  }

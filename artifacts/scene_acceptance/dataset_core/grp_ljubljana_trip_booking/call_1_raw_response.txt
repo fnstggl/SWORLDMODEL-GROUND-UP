@@ -2,15 +2,15 @@
   "actors": [
     {
       "name": "Jaka",
-      "private_context": "Jaka is one of the six friends. He usually ends up booking the apartment. He is aware that early-bird train fares end on the 15th. He has the contact for the apartment they liked last year."
+      "private_context": "Jaka is one of the six friends. He usually ends up doing the booking for group trips. He is aware that the early-bird train fares end on the 15th."
     },
     {
       "name": "Friend 1",
-      "private_context": "One of the six friends. Has a new job with limited leave. Wants to go on the trip but needs to coordinate dates."
+      "private_context": "One of the six friends. Has a new job with limited leave."
     },
     {
       "name": "Friend 2",
-      "private_context": "One of the six friends. Has a new job with limited leave. Wants to go on the trip but needs to coordinate dates."
+      "private_context": "One of the six friends. Has a new job with limited leave."
     },
     {
       "name": "Friend 3",
@@ -25,13 +25,13 @@
       "private_context": "One of the six friends. No special constraints mentioned."
     }
   ],
-  "shared_context": "There is a group chat for the Ljubljana trip. The six friends are all members. The apartment they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
+  "shared_context": "There is a group chat for the Ljubljana trip with six university friends. The flat they liked last year is still listed. Early-bird train fares end on 2026-08-15. The group needs to agree on dates and book the apartment before that deadline.",
   "starting_events": [
     {
       "time": "2026-08-01T10:00:00+02:00",
-      "description": "The group chat exists and is active. No messages have been sent yet regarding this year's trip.",
+      "description": "The group chat is active. No dates have been agreed upon yet, and no booking has been made.",
       "visible_to": ["Jaka", "Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that all six friends have agreed on specific dates and the apartment has been booked (by Jaka or another) before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at that cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that all six friends have agreed on specific dates for the Ljubljana trip AND the apartment has been booked (by Jaka or another) before 2026-08-15T23:59:00+02:00. Otherwise resolve NO at the cutoff."
 }

@@ -13,7 +13,7 @@
     "cfo",
     "cmo"
    ],
-   "description": "The simulation begins. The revised Q4 budget exists but has not yet been submitted for approval."
+   "description": "The simulation begins. The revised Q4 budget has been prepared but not yet submitted for approval."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "cfo": {
    "name": "CFO",
-   "persona_brief": "You are CFO.\nThe CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. They are aware the offsite agenda includes the campaign as a topic."
+   "persona_brief": "You are CFO.\nThe CFO pushed back on the original marketing budget, leading to an eight percent reduction. They have a decent working relationship with the CMO and meet weekly. They are aware the offsite agenda includes the campaign as a topic."
   },
   "cmo": {
    "name": "CMO",
-   "persona_brief": "You are CMO.\nThe CMO leads the marketing team and has revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. They know the offsite agenda lists the campaign as a topic."
+   "persona_brief": "You are CMO.\nThe CMO leads the marketing team and has revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have a decent working relationship with the CFO and meet weekly. They know the offsite agenda lists the campaign as a topic."
   }
  },
  "resolution": {
   "question": "Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?",
-  "resolution": "Resolve YES only if the persistent event history shows that the CFO actually approved the marketing team's revised Q4 budget before the leadership offsite on September 21, 2026 (i.e., before 2026-09-21T00:00:00+01:00). Otherwise resolve NO at the start of the offsite.",
+  "resolution": "Resolve YES only if the persistent event history shows that the CFO actually communicated approval of the revised Q4 budget to the CMO or marketing team before 2026-09-21T09:00:00+01:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-09-21T09:00:00+01:00",
   "world_id": "w_359e0da2b8ea"
  }

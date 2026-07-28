@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Yusuf Ndiaye",
-   "private_context": "Yusuf is a painter who has prepared a portfolio of his work. He wants to get noticed by Marlin Bay gallery and hopes for a personal reply from curator Ines Duarte. He has no prior relationship with Ines."
+   "private_context": "Yusuf is a painter who has prepared a portfolio of his work. He wants to send it to Marlin Bay gallery curator Ines Duarte in hopes of getting a response beyond an automated acknowledgment. He has no prior relationship with Ines."
   },
   {
    "name": "Ines Duarte",
-   "private_context": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only replies personally to those that strongly interest her. She has no prior knowledge of Yusuf."
+   "private_context": "Ines is the curator at Marlin Bay gallery. She receives unsolicited portfolios and sometimes replies personally if she finds the work interesting, but often only sends automated acknowledgments. She does not know Yusuf."
   }
  ],
- "shared_context": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email. The gallery has an automated acknowledgment system that replies to incoming emails. Ines can choose to reply personally if she wishes.",
+ "shared_context": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email or postal mail. The gallery has an automated acknowledgment system for incoming submissions.",
  "starting_events": [
   {
    "time": "2026-08-10T11:00:00+00:00",
-   "description": "Yusuf sends his portfolio to Ines Duarte at Marlin Bay gallery via email.",
+   "description": "Yusuf sends his portfolio to Ines Duarte at Marlin Bay gallery.",
    "visible_to": [
     "Yusuf Ndiaye"
    ]

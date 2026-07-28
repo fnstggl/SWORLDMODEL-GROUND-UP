@@ -1,10 +1,10 @@
 {
- "verdict": "REVISE",
- "defects": [
-  {
-   "path": "actors",
-   "problem": "Only one generic 'Procurement Lead 1' is included, but the question involves forty distinct leads. A single actor cannot represent the independent decisions of forty separate individuals.",
-   "correction": "Include all forty procurement leads as distinct actors, or use a single actor 'Procurement Leads' with a collective decision mechanism if the runtime supports it. Alternatively, model the process as a probabilistic event without individual actors."
-  }
- ]
+  "verdict": "REVISE",
+  "defects": [
+    {
+      "path": "actors",
+      "problem": "Only three procurement leads are defined, but the question specifies forty. The scene cannot simulate the full set of forty leads with only three actors.",
+      "correction": "Define all forty procurement leads as actors, or use a single actor representing the group of forty leads (e.g., 'Procurement Leads (40)') with appropriate private context."
+    }
+  ]
 }

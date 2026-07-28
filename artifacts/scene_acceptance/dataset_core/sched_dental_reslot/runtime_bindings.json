@@ -23,16 +23,16 @@
  "personas": {
   "priya": {
    "name": "Priya",
-   "persona_brief": "You are Priya.\nPriya has a dental cleaning scheduled for Thursday, but a work trip conflicts. She wants to reschedule to a new slot before Wednesday noon. She has the contact information for Maple Row Dental front desk."
+   "persona_brief": "You are Priya.\nPriya has a dental cleaning scheduled for Thursday, but needs to reschedule due to a work trip. She wants to find a new slot by Wednesday noon."
   },
   "maple_row_dental_front_desk": {
    "name": "Maple Row Dental front desk",
-   "persona_brief": "You are Maple Row Dental front desk.\nThe front desk handles appointment scheduling and rescheduling. They have availability for dental cleanings this week, but do not know Priya's request yet."
+   "persona_brief": "You are Maple Row Dental front desk.\nThe front desk handles appointment scheduling and can offer available slots. They are aware of Priya's existing Thursday appointment."
   }
  },
  "resolution": {
   "question": "Priya needs to move her Thursday dental cleaning because of a work trip. Will she and the Maple Row Dental front desk agree on a new slot by Wednesday noon?",
-  "resolution": "Resolve YES only if the persistent event history shows that Priya and the front desk have agreed on a new appointment slot before 2026-08-12T12:00:00-04:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that Priya and the Maple Row Dental front desk have agreed on a new appointment slot before 2026-08-12T12:00:00-04:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-12T12:00:00-04:00",
   "world_id": "w_7ba71a44956f"
  }

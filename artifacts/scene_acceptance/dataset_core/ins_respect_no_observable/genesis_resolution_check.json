@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Amara's coworkers respect her more by the end of the quarter?",
-  "resolution": "Resolve YES only if, by 2026-12-31T17:00:00-04:00, there is observable evidence (e.g., coworkers explicitly stating increased respect, deferring to Amara's opinions, or seeking her input more frequently) that indicates a net increase in respect from the coworkers toward Amara compared to the start. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if, by 2026-12-31T17:00:00-04:00, there is observable evidence (e.g., coworkers explicitly stating increased respect, deferring to Amara's opinions, or seeking her input more frequently) that indicates the coworkers respect Amara more than at the start of the quarter. Otherwise resolve NO.",
   "cutoff": "2026-12-31T17:00:00-04:00",
   "world_id": "w_4cf54d8ad18a"
  },

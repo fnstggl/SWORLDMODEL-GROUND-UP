@@ -1,0 +1,22 @@
+{
+ "verdict": "DEFECT",
+ "worst_severity": "MAJOR",
+ "defects": [
+  {
+   "aspect": "missing",
+   "severity": "MAJOR",
+   "detail": "The calibration process typically involves a committee or other stakeholders (e.g., HR, other managers). The scene only includes Rosa Maria, Jonas, and the VP, omitting the calibration committee or other decision-makers who could affect the outcome."
+  },
+  {
+   "aspect": "prewritten",
+   "severity": "MAJOR",
+   "detail": "The starting event states that Rosa Maria has already prepared the case and is ready to submit it for calibration. This pre-decides that the case is complete and submitted, which is a key action that should be open to the simulation. The question asks whether the case clears calibration and receives sign-off; the submission itself should be a decision, not a given."
+  },
+  {
+   "aspect": "info_boundaries",
+   "severity": "MINOR",
+   "detail": "Rosa Maria's private context includes her desire for the promotion to clear before November 15, which is fine. However, the shared context states 'Promotion letters are scheduled to go out on November 15' \u2013 this is common knowledge and acceptable. No major leakage."
+  }
+ ],
+ "id": "appr_promotion_vp_signoff"
+}

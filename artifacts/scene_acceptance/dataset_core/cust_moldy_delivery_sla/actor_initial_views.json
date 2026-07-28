@@ -23,13 +23,13 @@
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "Hana Suzuki is a customer who received a moldy delivery from Ostara Foods. She has submitted a complaint to the support desk and expects a response within the advertised 24-hour window.",
+    "content": "Hana Suzuki is a customer who received a moldy delivery from Ostara Foods. She wants to file a complaint and expects a resolution or substantive reply within 24 hours as advertised.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki's complaint about a moldy delivery was submitted before the simulation start time. The support desk has the complaint on record and can reply via the same channel.",
+    "content": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a moldy delivery and intends to contact the support desk. The current time is 2026-08-19T13:00:00+09:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "The support desk operates with a policy to respond to customer complaints within 24 hours. They have received Hana Suzuki's complaint about a moldy delivery and are processing it.",
+    "content": "The support desk handles customer complaints. It has an advertised policy of responding to complaints within 24 hours. It has not yet received Hana's complaint.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-19T04:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki's complaint about a moldy delivery was submitted before the simulation start time. The support desk has the complaint on record and can reply via the same channel.",
+    "content": "Ostara Foods advertises a 24-hour response window for customer complaints. Hana Suzuki has a moldy delivery and intends to contact the support desk. The current time is 2026-08-19T13:00:00+09:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

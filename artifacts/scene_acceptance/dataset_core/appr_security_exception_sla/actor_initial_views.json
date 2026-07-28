@@ -23,13 +23,13 @@
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "Dev Patel is an analyst at Harborview Credit Union. He has submitted a software-exception request and is awaiting the security team's decision. He has no special influence over the team's process.",
+    "content": "Dev Patel is an analyst at Harborview Credit Union. He has submitted a software-exception request and is awaiting the security team's decision. He knows the team's published service window is five business days.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "Harborview Credit Union has a published policy that software-exception requests are reviewed and decided within five business days. The request from analyst Dev Patel was submitted before the start time and is now under review. The five-business-day window ends on 2026-08-14 (assuming submission on 2026-08-10 or earlier).",
+    "content": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The request was submitted by analyst Dev Patel. The current time is 2026-08-10T10:00:00-08:00, which is the start of the service window.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "The security team at Harborview Credit Union reviews software-exception requests. They follow a published five-business-day service window for decisions. They have received Dev Patel's request and will process it according to their standard procedures.",
+    "content": "The security team at Harborview Credit Union reviews software-exception requests. They have a published service window of five business days to respond. They have received Dev Patel's request and will process it according to their internal procedures.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-10T18:00:00+00:00",
     "kind": "context",
-    "content": "Harborview Credit Union has a published policy that software-exception requests are reviewed and decided within five business days. The request from analyst Dev Patel was submitted before the start time and is now under review. The five-business-day window ends on 2026-08-14 (assuming submission on 2026-08-10 or earlier).",
+    "content": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The request was submitted by analyst Dev Patel. The current time is 2026-08-10T10:00:00-08:00, which is the start of the service window.",
     "source": "scene_manifest:shared_context"
    }
   ],

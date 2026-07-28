@@ -2,32 +2,32 @@
   "actors": [
     {
       "name": "Advisor 1",
-      "private_context": "Part-time advisor, spread across time zones. Has not yet responded to the poll from the CEO's assistant."
+      "private_context": "Has received the poll with four candidate weekends. Has not yet responded."
     },
     {
       "name": "Advisor 2",
-      "private_context": "Part-time advisor, spread across time zones. Has not yet responded to the poll from the CEO's assistant."
+      "private_context": "Has received the poll with four candidate weekends. Has not yet responded."
     },
     {
       "name": "Advisor 3",
-      "private_context": "Part-time advisor, spread across time zones. Has not yet responded to the poll from the CEO's assistant."
+      "private_context": "Has received the poll with four candidate weekends. Has not yet responded."
     },
     {
       "name": "Advisor 4",
-      "private_context": "Part-time advisor, spread across time zones. Has already responded to the poll from the CEO's assistant."
+      "private_context": "Has received the poll with four candidate weekends. Has already responded with their availability."
     },
     {
       "name": "Advisor 5",
-      "private_context": "Part-time advisor, spread across time zones. Has already responded to the poll from the CEO's assistant."
+      "private_context": "Has received the poll with four candidate weekends. Has already responded with their availability."
     }
   ],
-  "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The deadline for settling on a date is within three weeks from 2026-07-29, i.e., by 2026-08-19.",
+  "shared_context": "Ostara Foods has an advisory board of five part-time members spread across three time zones. The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite. Two advisors have already responded; three have not yet responded. The board needs to settle on a date for the offsite.",
   "starting_events": [
     {
       "time": "2026-07-29T09:00:00+01:00",
-      "description": "The CEO's assistant has sent a poll with four candidate weekends for the autumn strategy offsite to all five advisors. Two advisors have already responded.",
+      "description": "The CEO's assistant has sent a poll with four candidate weekends to all five advisors. Two advisors have already responded with their availability.",
       "visible_to": ["Advisor 1", "Advisor 2", "Advisor 3", "Advisor 4", "Advisor 5"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that all five advisors have agreed on a specific date for the autumn strategy offsite before 2026-08-19T09:00:00+01:00. Otherwise resolve NO at that cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that all five advisors have agreed on a specific date for the autumn strategy offsite before 2026-08-19T09:00:00+01:00. Otherwise resolve NO at that time."
 }

@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Astronomy Club President",
-   "private_context": "The president is responsible for organizing club events and making decisions about whether to hold the pier viewing party. They are aware of the scheduled partial solar eclipse on the 12th and need to decide by the 10th whether the party goes ahead, considering weather forecasts, safety, and logistics."
+   "private_context": "The president is responsible for organizing club events and making decisions about the pier viewing party. They have not yet decided whether to go ahead with the event."
   }
  ],
- "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on August 12, 2026. The astronomy club typically holds viewing parties at the pier for such events. The club president is expected to confirm by August 10 whether the party will proceed. The decision may depend on factors like weather, safety, and member interest.",
+ "shared_context": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. The astronomy club is considering a pier viewing party for the eclipse. The president must confirm by the 10th whether the party is going ahead.",
  "starting_events": [
   {
    "time": "2026-08-01T09:00:00-07:00",
-   "description": "The simulation begins. The president has not yet made a decision about the pier viewing party.",
+   "description": "The astronomy club president is aware of the upcoming solar eclipse and the need to confirm the pier viewing party by the 10th.",
    "visible_to": [
     "Astronomy Club President"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the astronomy club president actually communicated a confirmation (e.g., via email, announcement, or message) that the pier viewing party is going ahead, and that communication occurred before 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the astronomy club president actually communicated a confirmation (by any means) that the pier viewing party is going ahead, before the deadline of 2026-08-10T21:00:00-07:00. Otherwise resolve NO at the deadline."
 }

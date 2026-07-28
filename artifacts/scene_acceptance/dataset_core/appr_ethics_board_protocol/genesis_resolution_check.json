@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Ashvale University's research ethics board approve, request amendments to, or reject Dr. Tanaka's survey protocol at or before its next monthly meeting?",
-  "resolution": "Resolve YES if the persistent event history shows that the board has approved, requested amendments to, or rejected the protocol at or before its next monthly meeting (which occurs before 2026-10-06T18:00:00+09:00). Resolve NO if the board has not made any of these decisions by that deadline.",
+  "resolution": "Resolve YES if the persistent event history shows that the board has communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol at or before the next monthly meeting (deadline: 2026-10-06T18:00:00+09:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-06T18:00:00+09:00",
   "world_id": "w_b2bf99ddfb67"
  },

@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Veldt Solar executive team",
-   "private_context": "The executive team (CEO, CFO, head of product, and other relevant executives) will meet at the quarterly review to decide on the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to utility-scale; the CEO is publicly neutral. The team is aware of the pilot's 400-unit sales against a 1,000-unit target, strong reviews, and thin margins."
+   "private_context": "The executive team consists of the CEO, CFO, and head of product. They will meet at the quarterly review to decide on the balcony-panel pilot. The CFO wants to reallocate engineers to utility-scale; the head of product champions the pilot; the CEO is publicly neutral. The team is aware of the pilot's 400-unit sales against a 1,000-unit target, strong reviews, and thin margins."
   },
   {
    "name": "Pilot team",
-   "private_context": "The pilot team is awaiting the executive team's decision on whether to shelve or greenlight the balcony-panel pilot. They have no direct influence on the decision."
+   "private_context": "The pilot team is awaiting the executive team's decision on the balcony-panel pilot. They are not part of the decision-making process."
   }
  ],
- "shared_context": "The quarterly review meeting is scheduled to occur during the week starting 2026-10-05. The executive team will decide whether to formally shelve or greenlight the balcony-panel pilot. If a decision is made, it will be communicated to the pilot team the same week.",
+ "shared_context": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The head of product champions it, the CFO wants those engineers on the utility-scale line, and the CEO has stayed publicly neutral. The executive team will decide whether to formally shelve or greenlight the pilot, and if a decision is made, it will be communicated to the pilot team the same week.",
  "starting_events": [
   {
    "time": "2026-10-05T07:00:00+00:00",
-   "description": "The quarterly review meeting begins.",
+   "description": "The quarterly review meeting begins. The executive team is to discuss and decide on the balcony-panel pilot.",
    "visible_to": [
     "Veldt Solar executive team"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that, before 2026-10-12T18:00:00+02:00 (end of the same week), the executive team formally decided to shelve or greenlight the balcony-panel pilot AND communicated that decision to the pilot team. Otherwise resolve NO at the hard cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that before 2026-10-12T18:00:00+02:00 (end of the same week), the executive team formally decided to either shelve or greenlight the pilot AND communicated that decision to the pilot team. Otherwise resolve NO at the hard cutoff."
 }

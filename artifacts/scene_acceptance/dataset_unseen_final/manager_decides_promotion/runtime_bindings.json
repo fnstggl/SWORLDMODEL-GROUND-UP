@@ -13,7 +13,7 @@
     "karen_wu",
     "tom_brown"
    ],
-   "description": "Tom Brown submits his performance review to Karen Wu."
+   "description": "Tom Brown submits his performance review to Karen Wu for consideration of promotion to senior analyst."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "karen_wu": {
    "name": "Karen Wu",
-   "persona_brief": "You are Karen Wu.\nKaren Wu is the department manager. She has received Tom Brown's performance review submitted on September 1, 2026. She has the authority to decide on promotions to senior analyst. She has her own criteria and considerations for such decisions."
+   "persona_brief": "You are Karen Wu.\nKaren Wu is the department manager. She has received Tom Brown's performance review submitted on September 1, 2026, and must decide whether to promote him to senior analyst by September 25, 2026. She has her own criteria for promotion and knowledge of Tom's performance."
   },
   "tom_brown": {
    "name": "Tom Brown",
-   "persona_brief": "You are Tom Brown.\nTom Brown is an analyst seeking promotion to senior analyst. He submitted his performance review on September 1, 2026, and is awaiting Karen Wu's decision."
+   "persona_brief": "You are Tom Brown.\nTom Brown is an analyst who submitted his performance review on September 1, 2026, seeking promotion to senior analyst. He is aware that Karen Wu will review his submission and decide."
   }
  },
  "resolution": {
   "question": "Does department manager Karen Wu decide to promote analyst Tom Brown to senior analyst by September 25, 2026, after reviewing his performance review submitted on September 1?",
-  "resolution": "Resolve YES only if the persistent event history shows that Karen Wu actually communicated a decision to promote Tom Brown to senior analyst before September 25, 2026T23:59:00-07:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Karen Wu actually communicated a decision to promote Tom Brown to senior analyst before September 25, 2026. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T23:59:00-07:00",
   "world_id": "w_6078625b3c63"
  }

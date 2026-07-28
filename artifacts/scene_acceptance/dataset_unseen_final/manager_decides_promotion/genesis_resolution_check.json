@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Does department manager Karen Wu decide to promote analyst Tom Brown to senior analyst by September 25, 2026, after reviewing his performance review submitted on September 1?",
-  "resolution": "Resolve YES only if the persistent event history shows that Karen Wu actually communicated a decision to promote Tom Brown to senior analyst before September 25, 2026T23:59:00-07:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Karen Wu actually communicated a decision to promote Tom Brown to senior analyst before September 25, 2026. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-25T23:59:00-07:00",
   "world_id": "w_6078625b3c63"
  },

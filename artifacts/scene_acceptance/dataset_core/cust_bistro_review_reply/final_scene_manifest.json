@@ -5,7 +5,7 @@
    "private_context": "Marguerite is the owner of the Copper Kettle bistro. She replies to most reviews within days, usually defensively. She knows the bistro was short two servers on the night in question."
   }
  ],
- "shared_context": "A one-star review of the Copper Kettle bistro was posted on a major review site last night. The review complains about a 45-minute wait. Marguerite can post a public reply on the review site.",
+ "shared_context": "A one-star review of the Copper Kettle bistro went up on a major review site last night. The review complains about a 45-minute wait on a night the bistro was short two servers.",
  "starting_events": [
   {
    "time": "2026-08-30T13:00:00+00:00",

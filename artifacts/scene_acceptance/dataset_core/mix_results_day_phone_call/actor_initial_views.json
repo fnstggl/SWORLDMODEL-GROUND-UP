@@ -29,7 +29,7 @@
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online or through the university portal at that time. He can call his mother using his phone.",
+    "content": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online at that time. The deadline for calling is noon that day.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "She has said she will keep her phone on all Thursday morning, expecting a call from Femi about his results.",
+    "content": "She has said she will keep her phone on all Thursday morning. She is expecting a call from Femi about his results.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-13T08:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online or through the university portal at that time. He can call his mother using his phone.",
+    "content": "Ashvale University releases exam results at 09:00 on Thursday, 2026-08-13. Femi can access his results online at that time. The deadline for calling is noon that day.",
     "source": "scene_manifest:shared_context"
    }
   ],

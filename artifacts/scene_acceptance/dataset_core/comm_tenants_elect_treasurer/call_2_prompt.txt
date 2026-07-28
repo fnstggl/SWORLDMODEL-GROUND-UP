@@ -120,18 +120,18 @@ THE COMPILED SCENE (exact manifest under review):
   },
   {
    "name": "Resident 1",
-   "private_context": "Has shown interest in becoming treasurer. May attend the meeting."
+   "private_context": "Has shown interest in becoming treasurer. Will attend tonight's meeting."
   },
   {
    "name": "Resident 2",
-   "private_context": "Has shown interest in becoming treasurer. May attend the meeting."
+   "private_context": "Has shown interest in becoming treasurer. Will attend tonight's meeting."
   },
   {
    "name": "Resident 3",
-   "private_context": "Has shown interest in becoming treasurer. May attend the meeting."
+   "private_context": "Has shown interest in becoming treasurer. Will attend tonight's meeting."
   }
  ],
- "shared_context": "The Aurora Block tenants' association is holding its first meeting of the season tonight at 18:30. The meeting will include the election of a treasurer. Three residents have expressed interest in the position.",
+ "shared_context": "The tenants' association of the Aurora Block is holding its first meeting of the season tonight at 2026-09-02T18:30:00+02:00. Three residents have expressed interest in the treasurer position. The meeting will proceed until 21:30.",
  "starting_events": [
   {
    "time": "2026-09-02T18:30:00+02:00",
@@ -144,7 +144,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that a treasurer was elected during the meeting before 2026-09-02T21:30:00+02:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that the tenants' association elected a treasurer during the meeting (before 2026-09-02T21:30:00+02:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

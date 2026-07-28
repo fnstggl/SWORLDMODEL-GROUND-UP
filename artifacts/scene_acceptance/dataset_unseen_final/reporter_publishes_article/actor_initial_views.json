@@ -29,7 +29,7 @@
    {
     "t": "2026-08-15T05:00:00+00:00",
     "kind": "context",
-    "content": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the corruption investigation story. The story is about city hall corruption. The investigation is ongoing as of August 15, 2026.",
+    "content": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the investigation on city hall corruption. The story is not yet published as of August 15, 2026.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "editor_daily_chronicle": {
-  "id": "editor_daily_chronicle",
-  "name": "Editor (Daily Chronicle)",
+ "editor": {
+  "id": "editor",
+  "name": "Editor",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-15T05:00:00+00:00",
     "kind": "context",
-    "content": "The editor oversees the newsroom and has set a deadline of September 1, 2026 for Alex's corruption investigation. The editor expects the story to be ready for publication by that date, but may also consider extensions or other factors.",
+    "content": "The editor at the Daily Chronicle set the September 1, 2026 deadline for the corruption story. They expect a publishable piece by that date.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-15T05:00:00+00:00",
     "kind": "context",
-    "content": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the corruption investigation story. The story is about city hall corruption. The investigation is ongoing as of August 15, 2026.",
+    "content": "Alex Torres works for the Daily Chronicle. The editor has set a deadline of September 1, 2026 for the investigation on city hall corruption. The story is not yet published as of August 15, 2026.",
     "source": "scene_manifest:shared_context"
    }
   ],

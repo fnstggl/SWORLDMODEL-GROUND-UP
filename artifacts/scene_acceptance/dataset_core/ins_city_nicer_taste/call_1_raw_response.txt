@@ -1,6 +1,6 @@
 {
   "actors": [],
-  "shared_context": "Lisbon and Porto are two major cities in Portugal, each with distinct characteristics, culture, and attractions. The question asks for a subjective comparison of which city is nicer, which depends on personal preferences and cannot be resolved through observable events within a simulation.",
+  "shared_context": "The question asks for a subjective comparison between Lisbon and Porto, with no specific decision-maker or observable action. There is no social event to simulate.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks for a subjective evaluation of city niceness, which is not an observable event or action that can be resolved through a social simulation."
+  "resolution": "UNRESOLVABLE: The question asks for a subjective opinion ('nicer city') with no observable resolution condition or decision-maker."
 }

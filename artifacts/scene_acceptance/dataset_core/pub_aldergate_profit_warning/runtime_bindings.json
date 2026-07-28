@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "aldergate_rail"
    ],
-   "description": "Aldergate Rail's management is aware of the signaling-contract delay and is considering whether to issue a market warning before the interim results day on November 5."
+   "description": "The simulation begins. Aldergate Rail is aware of the signaling-contract delay and faces the decision of whether to warn the market before the interim results day."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "aldergate_rail": {
    "name": "Aldergate Rail",
-   "persona_brief": "You are Aldergate Rail.\nAldergate Rail is a listed firm. It has a signaling-contract that is experiencing a delay. The firm's board and management are aware of the delay and its potential materiality. They have not yet decided whether to issue a market warning before the scheduled interim results day on November 5. The firm is subject to disclosure obligations under listing rules."
+   "persona_brief": "You are Aldergate Rail.\nAldergate Rail is a listed firm. It has a signaling-contract that is delayed. It must decide whether to issue a market warning about the delay before its scheduled interim results day on November 5. The firm's leadership is aware of the delay and the potential impact on its financial results."
   }
  },
  "resolution": {
   "question": "Will the listed firm Aldergate Rail warn the market about its signaling-contract delay before its scheduled interim results day on November 5?",
-  "resolution": "Resolve YES only if the persistent event history shows that Aldergate Rail actually issued a warning to the market about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if, before 2026-11-05T07:00:00+00:00, Aldergate Rail issues a public warning to the market about the signaling-contract delay (e.g., via a regulatory filing, press release, or other official communication). Resolve NO if no such warning is issued by that time.",
   "cutoff": "2026-11-05T07:00:00+00:00",
   "world_id": "w_ee6912817db2"
  }

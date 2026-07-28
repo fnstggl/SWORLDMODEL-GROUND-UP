@@ -2,14 +2,14 @@
   "actors": [
     {
       "name": "Head Teacher",
-      "private_context": "The head teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter."
+      "private_context": "The Head Teacher decides the content of the Friday parent newsletter. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter."
     },
     {
       "name": "Three Parents",
-      "private_context": "The three parents raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter."
+      "private_context": "The three parents are concerned about the upcoming inspection and raised it at drop-off this week. They hope the Head Teacher will address it in the newsletter."
     }
   ],
-  "shared_context": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a parent newsletter every Friday. This week's newsletter is due on Friday, 2026-09-25. The three parents discussed the inspection at drop-off this week, but it is not known whether the head teacher is aware of their discussion.",
+  "shared_context": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. This week's newsletter will be published on Friday, 2026-09-25. The three parents discussed the inspection at drop-off earlier this week.",
   "starting_events": [
     {
       "time": "2026-09-22T08:00:00+01:00",
@@ -17,5 +17,5 @@
       "visible_to": ["Three Parents"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that the head teacher actually included a mention of the upcoming inspection in the Friday parent newsletter published before 2026-09-25T18:00:00+01:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that the Head Teacher actually included a mention of the upcoming inspection in the Friday parent newsletter published on 2026-09-25. Otherwise resolve NO at the hard cutoff 2026-09-25T18:00:00+01:00."
 }

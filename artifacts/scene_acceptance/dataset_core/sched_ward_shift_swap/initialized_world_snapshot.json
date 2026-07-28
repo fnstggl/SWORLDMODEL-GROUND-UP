@@ -2,7 +2,7 @@
  "action_defs": {},
  "actions": {},
  "actors": {
-  "colleagues_ward_nurses": {
+  "colleagues_in_the_ward": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -17,23 +17,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "colleagues_ward_nurses",
+   "id": "colleagues_in_the_ward",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each colleague may check the swap channel and decide whether to claim the shift based on their own preferences and availability.",
+     "content": "Each colleague may see the swap channel post and decide whether to claim the shift. They have their own preferences and availability.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-12T05:30:00+00:00"
     },
     {
-     "content": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+     "content": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-12T05:30:00+00:00"
     }
    ],
-   "name": "Colleagues (ward nurses)",
+   "name": "Colleagues in the ward",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -70,7 +70,7 @@
      "t": "2026-08-12T05:30:00+00:00"
     },
     {
-     "content": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+     "content": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-12T05:30:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Nurse Karolina posted in her ward's swap channel asking someone to take her Sunday night shift. Will a colleague claim it before the rota locks Friday at 15:00?",
-  "scene:shared_context": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel."
+  "scene:shared_context": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel."
  },
  "history": [],
  "infos": {},

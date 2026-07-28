@@ -24,16 +24,16 @@
  "personas": {
   "loomis_hale_llp": {
    "name": "Loomis & Hale LLP",
-   "persona_brief": "You are Loomis & Hale LLP.\nThe firm signed a new client this morning and wants to schedule a kickoff meeting. The partner handling the client is eager to set a time within 72 hours."
+   "persona_brief": "You are Loomis & Hale LLP.\nLoomis & Hale LLP signed a new client this morning. They want to schedule a kickoff meeting soon. They have internal calendars and preferences for meeting times."
   },
   "new_client": {
    "name": "New Client",
-   "persona_brief": "You are New Client.\nThe client signed an engagement letter with Loomis & Hale LLP this morning. They are open to scheduling a kickoff meeting but have their own calendar constraints."
+   "persona_brief": "You are New Client.\nThe new client signed an engagement letter with Loomis & Hale LLP this morning. They are available to discuss scheduling a kickoff meeting. They have their own calendar and preferences."
   }
  },
  "resolution": {
   "question": "Loomis & Hale LLP signed a new client this morning. Will the two sides agree on a kickoff meeting time within 72 hours of the engagement letter being signed?",
-  "resolution": "Resolve YES only if the persistent event history shows that both sides have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that both sides have agreed on a specific kickoff meeting time before 2026-10-09T09:30:00-07:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-10-09T09:30:00-07:00",
   "world_id": "w_67b7e0856919"
  }

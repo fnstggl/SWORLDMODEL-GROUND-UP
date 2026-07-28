@@ -29,7 +29,7 @@
    {
     "t": "2026-07-27T05:30:00+00:00",
     "kind": "context",
-    "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates on a standard working week. The manager is aware of Sanjay's resignation and his importance to the legacy routing system.",
+    "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-27T05:30:00+00:00",
     "kind": "context",
-    "content": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She knows Sanjay leads the only team that understands the legacy routing system. She has the authority to make a counteroffer.",
+    "content": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation this morning.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-27T05:30:00+00:00",
     "kind": "context",
-    "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates on a standard working week. The manager is aware of Sanjay's resignation and his importance to the legacy routing system.",
+    "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay.",
     "source": "scene_manifest:shared_context"
    }
   ],

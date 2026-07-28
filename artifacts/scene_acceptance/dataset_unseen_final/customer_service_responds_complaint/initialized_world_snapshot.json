@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "David Park is a customer service agent. He has received the complaint from Omega Corp and is aware of the 48-hour response policy. He has other tasks and may prioritize based on workload and urgency.",
+     "content": "David Park is a customer service agent. He has received the complaint from Omega Corp via email on August 12, 2026 at 14:30 CET. He is aware of the 48-hour response policy.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-12T12:30:00+00:00"
     },
     {
-     "content": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The company policy requires a response within 48 hours of receipt.",
+     "content": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The complaint is in the company's email system, accessible to David Park.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-12T12:30:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Omega Corp is a client that has filed a complaint via email. They expect a response within 48 hours.",
+     "content": "Omega Corp is a client that has filed a complaint via email on August 12, 2026 at 14:30 CET. They expect a response within 48 hours.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-12T12:30:00+00:00"
     },
     {
-     "content": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The company policy requires a response within 48 hours of receipt.",
+     "content": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The complaint is in the company's email system, accessible to David Park.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-12T12:30:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Does customer service agent David Park respond to the complaint from client Omega Corp within 48 hours of receipt on August 12, 2026?",
-  "scene:shared_context": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The company policy requires a response within 48 hours of receipt."
+  "scene:shared_context": "Omega Corp filed a complaint via email on August 12, 2026 at 14:30 CET. David Park is the assigned agent. The complaint is in the company's email system, accessible to David Park."
  },
  "history": [],
  "infos": {},

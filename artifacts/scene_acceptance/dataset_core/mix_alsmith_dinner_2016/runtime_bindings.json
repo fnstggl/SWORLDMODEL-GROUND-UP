@@ -13,7 +13,7 @@
     "donald_trump",
     "hillary_clinton"
    ],
-   "description": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016. Both major-party nominees have been invited but have not yet confirmed attendance."
+   "description": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016 in New York City. Both major-party nominees have been invited."
   }
  ],
  "code_owned_defaults": {
@@ -33,7 +33,7 @@
  },
  "resolution": {
   "question": "The Al Smith Memorial Foundation Dinner is set for October 20, 2016 in New York. Will both major-party presidential nominees attend in person?",
-  "resolution": "Resolve YES only if the persistent event history shows that both Donald Trump and Hillary Clinton attended the Al Smith Memorial Foundation Dinner in person on October 20, 2016. Otherwise resolve NO at 2016-10-21T00:00:00-04:00.",
+  "resolution": "Resolve YES only if the persistent event history shows that both Donald Trump and Hillary Clinton actually attended the dinner in person on October 20, 2016. Otherwise resolve NO at 2016-10-21T00:00:00-04:00.",
   "cutoff": "2016-10-21T00:00:00-04:00",
   "world_id": "w_39f3464cfb6b"
  }

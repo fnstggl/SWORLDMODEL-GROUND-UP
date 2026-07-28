@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Family 1",
-   "private_context": "Family 1 has children who need to be driven to school. They are interested in a carpool to share the driving load. They have not yet discussed specific schedules with the other families."
+   "private_context": "Family 1 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   },
   {
    "name": "Family 2",
-   "private_context": "Family 2 has children who need to be driven to school. They are interested in a carpool but have not yet committed to any specific arrangement."
+   "private_context": "Family 2 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   },
   {
    "name": "Family 3",
-   "private_context": "Family 3 has children who need to be driven to school. They are open to a carpool but have not yet discussed details."
+   "private_context": "Family 3 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   }
  ],
- "shared_context": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool. Term starts on Monday morning (2026-09-07). They have not yet agreed on a weekly driving rota. They can communicate with each other (e.g., in person, by phone, or by messaging).",
+ "shared_context": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
  "starting_events": [
   {
    "time": "2026-09-01T21:00:00+00:00",
-   "description": "The three families are aware of the carpool idea and are considering it, but no rota has been agreed upon yet.",
+   "description": "The three families are aware of the carpool idea and have not yet agreed on a rota.",
    "visible_to": [
     "Family 1",
     "Family 2",

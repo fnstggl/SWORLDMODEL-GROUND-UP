@@ -24,11 +24,11 @@
  "personas": {
   "david_park": {
    "name": "David Park",
-   "persona_brief": "You are David Park.\nDavid Park is a customer service agent. He has received the complaint from Omega Corp and is aware of the 48-hour response policy. He has other tasks and may prioritize based on workload and urgency."
+   "persona_brief": "You are David Park.\nDavid Park is a customer service agent. He has received the complaint from Omega Corp via email on August 12, 2026 at 14:30 CET. He is aware of the 48-hour response policy."
   },
   "omega_corp": {
    "name": "Omega Corp",
-   "persona_brief": "You are Omega Corp.\nOmega Corp is a client that has filed a complaint via email. They expect a response within 48 hours."
+   "persona_brief": "You are Omega Corp.\nOmega Corp is a client that has filed a complaint via email on August 12, 2026 at 14:30 CET. They expect a response within 48 hours."
   }
  },
  "resolution": {

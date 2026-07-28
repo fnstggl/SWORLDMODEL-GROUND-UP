@@ -23,16 +23,16 @@
  "personas": {
   "head_teacher": {
    "name": "Head Teacher",
-   "persona_brief": "You are Head Teacher.\nThe head teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter."
+   "persona_brief": "You are Head Teacher.\nThe Head Teacher decides the content of the Friday parent newsletter. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter."
   },
   "three_parents": {
    "name": "Three Parents",
-   "persona_brief": "You are Three Parents.\nThe three parents raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter."
+   "persona_brief": "You are Three Parents.\nThe three parents are concerned about the upcoming inspection and raised it at drop-off this week. They hope the Head Teacher will address it in the newsletter."
   }
  },
  "resolution": {
   "question": "Three parents raised the upcoming inspection at drop-off this week. Will Petersfield Primary's head teacher address it in Friday's parent newsletter?",
-  "resolution": "Resolve YES only if the persistent event history shows that the head teacher actually included a mention of the upcoming inspection in the Friday parent newsletter published before 2026-09-25T18:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the Head Teacher actually included a mention of the upcoming inspection in the Friday parent newsletter published on 2026-09-25. Otherwise resolve NO at the hard cutoff 2026-09-25T18:00:00+01:00.",
   "cutoff": "2026-09-25T18:00:00+01:00",
   "world_id": "w_315fd279701b"
  }

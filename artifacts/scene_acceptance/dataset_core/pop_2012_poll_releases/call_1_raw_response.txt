@@ -2,16 +2,10 @@
   "actors": [
     {
       "name": "Major national polling organizations",
-      "private_context": "Each organization has its own internal processes for conducting and releasing surveys. They may have ongoing tracking polls or scheduled releases. They are aware of the upcoming election and the public interest in head-to-head Obama-Romney polls."
+      "private_context": "Each organization has its own internal processes for deciding whether to conduct and release new head-to-head surveys. They are aware of the upcoming election and may have ongoing tracking polls or ad-hoc surveys."
     }
   ],
-  "shared_context": "The 2012 U.S. presidential election is between incumbent Barack Obama and challenger Mitt Romney. Major national polling organizations regularly conduct and release head-to-head surveys. The first week of October 2012 runs from Monday October 1 to Sunday October 7. The simulation starts at 9:00 AM EDT on October 1, 2012.",
-  "starting_events": [
-    {
-      "time": "2012-10-01T09:00:00-04:00",
-      "description": "The first week of October 2012 begins. No new head-to-head surveys have been publicly released yet this week.",
-      "visible_to": ["Major national polling organizations"]
-    }
-  ],
-  "resolution": "Resolve YES if the persistent event history shows that at least three distinct head-to-head surveys on the Obama-Romney race were publicly released by major national polling organizations between 2012-10-01T09:00:00-04:00 and 2012-10-08T21:00:00-04:00. Otherwise resolve NO at the cutoff."
+  "shared_context": "The 2012 U.S. presidential election is between Barack Obama (incumbent Democrat) and Mitt Romney (Republican). The first week of October 2012 is a period when polling organizations may release new surveys. The public release of a survey means it is made available via press release, website, or media partners.",
+  "starting_events": [],
+  "resolution": "Resolve YES if, by 2012-10-08T21:00:00-04:00, the persistent event history shows that at least three distinct major national polling organizations have publicly released new head-to-head surveys of the Obama-Romney race during the period from 2012-10-01T09:00:00-04:00 to 2012-10-08T21:00:00-04:00. Otherwise resolve NO."
 }

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Family 1 has children who need to be driven to school. They are interested in a carpool to share the driving load. They have not yet discussed specific schedules with the other families.",
+     "content": "Family 1 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T21:00:00+00:00"
     },
     {
-     "content": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool. Term starts on Monday morning (2026-09-07). They have not yet agreed on a weekly driving rota. They can communicate with each other (e.g., in person, by phone, or by messaging).",
+     "content": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T21:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Family 2 has children who need to be driven to school. They are interested in a carpool but have not yet committed to any specific arrangement.",
+     "content": "Family 2 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T21:00:00+00:00"
     },
     {
-     "content": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool. Term starts on Monday morning (2026-09-07). They have not yet agreed on a weekly driving rota. They can communicate with each other (e.g., in person, by phone, or by messaging).",
+     "content": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T21:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Family 3 has children who need to be driven to school. They are open to a carpool but have not yet discussed details.",
+     "content": "Family 3 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T21:00:00+00:00"
     },
     {
-     "content": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool. Term starts on Monday morning (2026-09-07). They have not yet agreed on a weekly driving rota. They can communicate with each other (e.g., in person, by phone, or by messaging).",
+     "content": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T21:00:00+00:00"
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Three families on the same cul-de-sac are trying to set up a school-run carpool. Will they agree a weekly driving rota before term starts on Monday morning?",
-  "scene:shared_context": "Three families live on the same cul-de-sac and are trying to set up a school-run carpool. Term starts on Monday morning (2026-09-07). They have not yet agreed on a weekly driving rota. They can communicate with each other (e.g., in person, by phone, or by messaging)."
+  "scene:shared_context": "Three families live on the same cul-de-sac. They are trying to set up a school-run carpool. Term starts on Monday morning, 2026-09-07. No rota has been agreed yet."
  },
  "history": [],
  "infos": {},

@@ -27,7 +27,7 @@
      "t": "2016-10-01T13:00:00+00:00"
     },
     {
-     "content": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016 in New York City. It is a traditional event where major-party presidential candidates often attend and deliver humorous speeches. Both nominees have been invited. As of October 1, 2016, neither has publicly confirmed whether they will attend in person.",
+     "content": "The Al Smith Memorial Foundation Dinner is a charitable event scheduled for October 20, 2016 in New York City. It is traditional for major-party presidential nominees to attend and deliver humorous speeches. Both nominees have been invited but have not yet publicly confirmed whether they will attend in person.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2016-10-01T13:00:00+00:00"
@@ -70,7 +70,7 @@
      "t": "2016-10-01T13:00:00+00:00"
     },
     {
-     "content": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016 in New York City. It is a traditional event where major-party presidential candidates often attend and deliver humorous speeches. Both nominees have been invited. As of October 1, 2016, neither has publicly confirmed whether they will attend in person.",
+     "content": "The Al Smith Memorial Foundation Dinner is a charitable event scheduled for October 20, 2016 in New York City. It is traditional for major-party presidential nominees to attend and deliver humorous speeches. Both nominees have been invited but have not yet publicly confirmed whether they will attend in person.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2016-10-01T13:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "The Al Smith Memorial Foundation Dinner is set for October 20, 2016 in New York. Will both major-party presidential nominees attend in person?",
-  "scene:shared_context": "The Al Smith Memorial Foundation Dinner is scheduled for October 20, 2016 in New York City. It is a traditional event where major-party presidential candidates often attend and deliver humorous speeches. Both nominees have been invited. As of October 1, 2016, neither has publicly confirmed whether they will attend in person."
+  "scene:shared_context": "The Al Smith Memorial Foundation Dinner is a charitable event scheduled for October 20, 2016 in New York City. It is traditional for major-party presidential nominees to attend and deliver humorous speeches. Both nominees have been invited but have not yet publicly confirmed whether they will attend in person."
  },
  "history": [],
  "infos": {},

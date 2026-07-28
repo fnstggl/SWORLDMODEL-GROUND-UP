@@ -2,10 +2,10 @@
  "actors": [
   {
    "name": "Calloway Regional Hospital employees",
-   "private_context": "Each employee has their own workload, interest in the survey, and likelihood of completing it. No individual preferences are known at the start."
+   "private_context": "Each employee has their own disposition toward completing surveys, typical workload, and personal schedule during the two-week window. No employee has a prior commitment to complete the survey."
   }
  ],
- "shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and ending 2026-09-15T17:00:00-05:00. Employees can complete the survey online during this period. The survey is anonymous and voluntary.",
+ "shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and closing at 2026-09-15T17:00:00-05:00. Employees can complete the survey online or via paper. The survey is anonymous and voluntary. No incentives or reminders have been announced.",
  "starting_events": [
   {
    "time": "2026-09-01T08:00:00-05:00",
@@ -15,5 +15,5 @@
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least 60 distinct employees submitted a completed survey before 2026-09-15T17:00:00-05:00. Otherwise resolve NO at that time."
+ "resolution": "Resolve YES if the persistent event history shows that at least 60 distinct employees completed the survey before 2026-09-15T17:00:00-05:00. Otherwise resolve NO at the cutoff."
 }

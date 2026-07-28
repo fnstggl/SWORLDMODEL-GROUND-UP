@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The caller is assigned to phone alumna Dr. Renata Sousa for a first-time donation ask. The caller has a script and a goal to secure pledges. They have no prior relationship with Renata.",
+     "content": "The caller is assigned to phone alumna Dr. Renata Sousa for a first-time donation ask. The caller has a script and a list of alumni to contact, and will make the call during the shift.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T21:00:00+00:00"
     },
     {
-     "content": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before.",
+     "content": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before. The call is a first-time ask.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T21:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have her own reasons for not donating previously. She is unaware of the upcoming call.",
+     "content": "Renata is an alumna of Ashvale University who has never donated to the annual fund. She may have her own reasons for not donating previously, and may be open or resistant to a first-time ask.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T21:00:00+00:00"
     },
     {
-     "content": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before.",
+     "content": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before. The call is a first-time ask.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T21:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
-  "scene:shared_context": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before."
+  "scene:shared_context": "Ashvale University runs an annual-fund campaign. The caller will phone Renata at some point during the month of October 2026. Renata has never donated before. The call is a first-time ask."
  },
  "history": [],
  "infos": {},

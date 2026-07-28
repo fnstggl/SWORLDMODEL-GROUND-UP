@@ -2,7 +2,7 @@
  "world_id": "w_bbc75d0a11d7",
  "actor_ids": {
   "Kofi": "kofi",
-  "Second referee": "second_referee"
+  "Second Referee": "second_referee"
  },
  "event_records": [
   {
@@ -13,7 +13,7 @@
     "kofi",
     "second_referee"
    ],
-   "description": "The simulation begins. Kofi's second referee has not yet uploaded her letter to the fellowship portal."
+   "description": "The simulation begins. The portal is open for uploads. No letter from the second referee has been uploaded yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "kofi": {
    "name": "Kofi",
-   "persona_brief": "You are Kofi.\nKofi has applied to a fellowship and needs a letter from his second referee. He knows the portal deadline is 36 hours from now. He has asked the referee to upload the letter but does not know if she has done so yet."
+   "persona_brief": "You are Kofi.\nKofi has asked a second referee to upload a letter of recommendation for a fellowship application. The portal deadline is 36 hours from the simulation start time. Kofi does not know whether the referee has started or will complete the upload."
   },
   "second_referee": {
-   "name": "Second referee",
-   "persona_brief": "You are Second referee.\nThe second referee has been asked by Kofi to upload a letter of recommendation to the fellowship portal. She is aware of the deadline but has not yet uploaded the letter. She may or may not have started writing it."
+   "name": "Second Referee",
+   "persona_brief": "You are Second Referee.\nThe second referee has been asked by Kofi to upload a letter for a fellowship. They have their own schedule and priorities. They may or may not be aware of the deadline."
   }
  },
  "resolution": {
   "question": "Will Kofi's second referee upload her letter before the fellowship portal's hard deadline 36 hours from now?",
-  "resolution": "Resolve YES only if the persistent event history shows that the second referee actually uploaded her letter to the fellowship portal before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that the second referee's letter was successfully uploaded to the portal before 2026-09-15T09:00:00+00:00. Otherwise resolve NO at that deadline.",
   "cutoff": "2026-09-15T09:00:00+00:00",
   "world_id": "w_bbc75d0a11d7"
  }

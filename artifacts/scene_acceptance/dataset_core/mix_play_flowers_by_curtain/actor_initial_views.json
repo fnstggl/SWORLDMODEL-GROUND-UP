@@ -23,13 +23,13 @@
    {
     "t": "2026-11-16T09:00:00+00:00",
     "kind": "context",
-    "content": "The group is aware of the tradition of presenting flowers to cast members after the opening night performance. They have not yet collected the flowers or made arrangements for handover.",
+    "content": "The parents' group is aware of the play and intends to collect for flowers and hand them over backstage before curtain. They have not yet collected the money or purchased the flowers.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-11-16T09:00:00+00:00",
     "kind": "context",
-    "content": "Petersfield Secondary's play opens on Friday at 19:00. The cast will be backstage before and after the performance. The parents' group can collect flowers and hand them over backstage before curtain if they choose to do so.",
+    "content": "Petersfield Secondary's play opens on Friday at 19:00. The parents' group can collect money from parents, buy flowers, and deliver them backstage before the curtain rises.",
     "source": "scene_manifest:shared_context"
    }
   ],

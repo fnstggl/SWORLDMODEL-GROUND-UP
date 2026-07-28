@@ -1,7 +1,7 @@
 {
- "neighbors": {
-  "id": "neighbors",
-  "name": "Neighbors",
+ "neighbor_a": {
+  "id": "neighbor_a",
+  "name": "Neighbor A",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The neighbors are aware of some tension but have their own perspectives and routines. They may or may not be open to improving relations.",
+    "content": "Neighbor A has been having ongoing disputes with Neighbor B over property boundaries and noise. A is frustrated and considering legal action but is open to reconciliation if B shows willingness.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "There is a history of minor conflicts between the resident and the neighbors (e.g., noise complaints, boundary disagreements). Both parties live in close proximity and interact occasionally. No formal complaints or mediation have been initiated as of the start time.",
+    "content": "The two neighbors live adjacent to each other in a suburban area. They have had several arguments in the past few months about property lines and noise from B's late-night gatherings. No formal complaints have been filed yet. Both are aware of the tension and have mutual acquaintances who might mediate.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "resident": {
-  "id": "resident",
-  "name": "Resident",
+ "neighbor_b": {
+  "id": "neighbor_b",
+  "name": "Neighbor B",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "The resident has been experiencing ongoing issues with neighbors (e.g., noise, disputes) and hopes for improvement. They are considering possible actions but have not yet decided on any specific approach.",
+    "content": "Neighbor B is aware of the disputes with Neighbor A and feels that A is being unreasonable. B is defensive but not opposed to improving relations if A makes the first move.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T10:00:00+00:00",
     "kind": "context",
-    "content": "There is a history of minor conflicts between the resident and the neighbors (e.g., noise complaints, boundary disagreements). Both parties live in close proximity and interact occasionally. No formal complaints or mediation have been initiated as of the start time.",
+    "content": "The two neighbors live adjacent to each other in a suburban area. They have had several arguments in the past few months about property lines and noise from B's late-night gatherings. No formal complaints have been filed yet. Both are aware of the tension and have mutual acquaintances who might mediate.",
     "source": "scene_manifest:shared_context"
    }
   ],

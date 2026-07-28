@@ -23,13 +23,13 @@
    {
     "t": "2026-09-16T07:00:00+00:00",
     "kind": "context",
-    "content": "Chioma Eze is a parent of a year-five student at Petersfield Primary. She has sent an email to Mr. Abernathy requesting a seating change for her son. She hopes for a response before the weekend.",
+    "content": "Chioma Eze is a parent of a child in Mr. Abernathy's year-five class. She has sent an email about her son's seating change and hopes for a response before the weekend.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-16T07:00:00+00:00",
     "kind": "context",
-    "content": "Petersfield Primary School operates on a standard weekday schedule. The weekend begins after school on Friday, 2026-09-18. Emails sent to teachers are typically read during school hours, but response times vary.",
+    "content": "Petersfield Primary School operates on weekdays. The weekend begins after school on Friday, 2026-09-18. Emails sent to teachers are typically checked during school hours. Chioma Eze's email about her son's seating change has been sent to Mr. Abernathy's school email address.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-16T07:00:00+00:00",
     "kind": "context",
-    "content": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He has received an email from parent Chioma Eze about her son's seating change. He is aware of the weekend approaching and typically checks his email during school hours.",
+    "content": "Mr. Abernathy is a year-five teacher at Petersfield Primary. He receives emails from parents and typically responds during school hours or in the evening. He is aware of the upcoming weekend and may prioritize urgent matters.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-16T07:00:00+00:00",
     "kind": "context",
-    "content": "Petersfield Primary School operates on a standard weekday schedule. The weekend begins after school on Friday, 2026-09-18. Emails sent to teachers are typically read during school hours, but response times vary.",
+    "content": "Petersfield Primary School operates on weekdays. The weekend begins after school on Friday, 2026-09-18. Emails sent to teachers are typically checked during school hours. Chioma Eze's email about her son's seating change has been sent to Mr. Abernathy's school email address.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -27,7 +27,7 @@
      "t": "2026-07-27T05:30:00+00:00"
     },
     {
-     "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates on a standard working week. The manager is aware of Sanjay's resignation and his importance to the legacy routing system.",
+     "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-27T05:30:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She knows Sanjay leads the only team that understands the legacy routing system. She has the authority to make a counteroffer.",
+     "content": "Sanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation this morning.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-07-27T05:30:00+00:00"
     },
     {
-     "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates on a standard working week. The manager is aware of Sanjay's resignation and his importance to the legacy routing system.",
+     "content": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-07-27T05:30:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Sanjay handed in his notice at Nimbus Freight this morning. Will his manager come back with a counteroffer within five working days?",
-  "scene:shared_context": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates on a standard working week. The manager is aware of Sanjay's resignation and his importance to the legacy routing system."
+  "scene:shared_context": "Sanjay handed in his notice at Nimbus Freight this morning (2026-07-27). The company operates with standard working days (Monday to Friday). The manager may consider making a counteroffer to retain Sanjay."
  },
  "history": [],
  "infos": {},

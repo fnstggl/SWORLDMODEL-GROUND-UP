@@ -116,25 +116,25 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Dev Patel",
-   "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has submitted a software-exception request and is awaiting the security team's decision. He has no special influence over the team's process."
+   "private_context": "Dev Patel is an analyst at Harborview Credit Union. He has submitted a software-exception request and is awaiting the security team's decision. He knows the team's published service window is five business days."
   },
   {
    "name": "Harborview Credit Union Security Team",
-   "private_context": "The security team at Harborview Credit Union reviews software-exception requests. They follow a published five-business-day service window for decisions. They have received Dev Patel's request and will process it according to their standard procedures."
+   "private_context": "The security team at Harborview Credit Union reviews software-exception requests. They have a published service window of five business days to respond. They have received Dev Patel's request and will process it according to their internal procedures."
   }
  ],
- "shared_context": "Harborview Credit Union has a published policy that software-exception requests are reviewed and decided within five business days. The request from analyst Dev Patel was submitted before the start time and is now under review. The five-business-day window ends on 2026-08-14 (assuming submission on 2026-08-10 or earlier).",
+ "shared_context": "Harborview Credit Union has a published policy that the security team will respond to software-exception requests within five business days. The request was submitted by analyst Dev Patel. The current time is 2026-08-10T10:00:00-08:00, which is the start of the service window.",
  "starting_events": [
   {
    "time": "2026-08-10T10:00:00-08:00",
-   "description": "Dev Patel's software-exception request is pending review by the security team.",
+   "description": "Dev Patel's software-exception request is pending review by the security team. The five-business-day service window begins now.",
    "visible_to": [
     "Dev Patel",
     "Harborview Credit Union Security Team"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the security team communicated an approval decision to Dev Patel before the end of the five-business-day window (i.e., by 2026-08-14T17:00:00-08:00, assuming submission on 2026-08-10). Resolve NO if the team communicates a rejection within that window, or if no decision is communicated by the window's end. The hard cutoff of 2026-08-17 is not the deadline; the five-business-day window is the deadline."
+ "resolution": "Resolve YES if the persistent event history shows that the security team communicated an approval or rejection decision to Dev Patel before the end of the five-business-day window (i.e., by 2026-08-14T17:00:00-08:00, assuming business days are Monday-Friday and excluding weekends). Otherwise resolve NO at the hard cutoff of 2026-08-17T17:00:00-08:00."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

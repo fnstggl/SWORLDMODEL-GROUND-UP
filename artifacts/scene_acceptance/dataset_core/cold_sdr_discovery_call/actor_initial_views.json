@@ -23,13 +23,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails.",
+    "content": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. His usual booking rate is about one call per sixty cold emails. He intends to cold-email these leads this week.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He will send cold emails to them this week (starting 2026-08-03). Each lead can respond to schedule a discovery call. The end of the month is 2026-08-31.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week (starting 2026-08-03). A discovery call is a scheduled conversation to discuss the software. The end of the month is 2026-08-31.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "procurement_leads": {
-  "id": "procurement_leads",
-  "name": "Procurement Leads",
+ "procurement_leads_40": {
+  "id": "procurement_leads_40",
+  "name": "Procurement Leads (40)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Forty procurement leads at mid-market manufacturers in the Pacific Northwest. Each receives many cold emails and may or may not be interested in invoice-automation software. Their collective response rate is approximately one discovery call per sixty cold emails.",
+    "content": "A group of forty procurement leads at mid-market manufacturers in the Pacific Northwest. They receive many cold emails and may or may not respond to them.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-03T15:00:00+00:00",
     "kind": "context",
-    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He will send cold emails to them this week (starting 2026-08-03). Each lead can respond to schedule a discovery call. The end of the month is 2026-08-31.",
+    "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week (starting 2026-08-03). A discovery call is a scheduled conversation to discuss the software. The end of the month is 2026-08-31.",
     "source": "scene_manifest:shared_context"
    }
   ],

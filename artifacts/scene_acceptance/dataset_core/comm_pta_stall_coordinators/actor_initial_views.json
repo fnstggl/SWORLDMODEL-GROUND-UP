@@ -1,7 +1,7 @@
 {
  "pta_subcommittee_for_the_winter_fair": {
   "id": "pta_subcommittee_for_the_winter_fair",
-  "name": "PTA subcommittee for the winter fair",
+  "name": "PTA Subcommittee for the Winter Fair",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The subcommittee is responsible for organizing the winter fair. It needs to recruit four stall coordinators to manage the stalls at the fair. The subcommittee has not yet recruited any stall coordinators as of the start time. It plans to hold an October planning meeting where recruitment may be discussed.",
+    "content": "The subcommittee is responsible for organizing the winter fair and needs to recruit four stall coordinators. It has an upcoming planning meeting in October. It has not yet recruited any stall coordinators as of the start time.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-22T00:00:00+00:00",
     "kind": "context",
-    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The October planning meeting is scheduled to occur before the hard cutoff. The subcommittee can recruit coordinators through various means (e.g., announcements, personal outreach) before or during the meeting.",
+    "content": "The PTA subcommittee for the winter fair is seeking four stall coordinators. The subcommittee's October planning meeting is scheduled to occur before the hard cutoff. The subcommittee can recruit coordinators through its own efforts or through outreach to potential volunteers.",
     "source": "scene_manifest:shared_context"
    }
   ],

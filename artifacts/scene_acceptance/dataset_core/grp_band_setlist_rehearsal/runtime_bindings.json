@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "cheap_detour_band_as_a_unit"
    ],
-   "description": "The band members are aware of the upcoming rehearsal and the need to finalize the setlist."
+   "description": "The band members are aware of the need to finalize the setlist before or at Thursday's rehearsal."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "cheap_detour_band_as_a_unit": {
    "name": "Cheap Detour (band as a unit)",
-   "persona_brief": "You are Cheap Detour (band as a unit).\nThe four members have a wedding gig on Saturday and need to finalize a twelve-song setlist. They have a rehearsal scheduled for Thursday. Each member has personal preferences and song ideas, but no agreement has been reached yet."
+   "persona_brief": "You are Cheap Detour (band as a unit).\nThe band has a wedding gig coming up and needs to finalize a twelve-song setlist. They have a rehearsal scheduled on Thursday. Each member may have preferences or suggestions for the setlist, but no agreement has been reached yet."
   }
  },
  "resolution": {
   "question": "Will the four members of the covers band Cheap Detour settle their twelve-song wedding setlist at or before Thursday's rehearsal?",
-  "resolution": "Resolve YES if the persistent event history shows that the band collectively agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO.",
+  "resolution": "Resolve YES if the persistent event history shows that the band has agreed on a complete twelve-song setlist at or before the end of Thursday's rehearsal (2026-09-10T22:00:00+01:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-10T22:00:00+01:00",
   "world_id": "w_9f8bf1d5d9e7"
  }

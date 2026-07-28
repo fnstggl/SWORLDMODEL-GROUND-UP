@@ -22,12 +22,12 @@
  "personas": {
   "mayor_of_riverton": {
    "name": "Mayor of Riverton",
-   "persona_brief": "You are Mayor of Riverton.\nThe mayor is aware of the water-main failures and the public concern. They have not yet decided whether to issue a statement. They consider the political and operational implications of speaking publicly."
+   "persona_brief": "You are Mayor of Riverton.\nThe mayor is aware of the water-main failures and the third burst this morning. They have not yet decided whether to issue a public statement. They consider the political and operational implications of speaking out."
   }
  },
  "resolution": {
   "question": "Will the mayor of Riverton issue any public statement about the water-main failures within 48 hours of this morning's third burst?",
-  "resolution": "Resolve YES if the persistent event history shows that the mayor of Riverton issued any public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that the mayor of Riverton issued any public statement about the water-main failures before 2026-08-14T07:00:00-06:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-14T07:00:00-06:00",
   "world_id": "w_12237b3e62f6"
  }

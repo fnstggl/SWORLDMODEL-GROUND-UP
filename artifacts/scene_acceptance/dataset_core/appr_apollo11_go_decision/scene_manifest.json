@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "NASA Senior Managers",
-   "private_context": "They are responsible for the Apollo program and will decide whether to announce a go decision for Apollo 11's July launch window after the flight readiness review. They have access to technical assessments and schedules."
+   "private_context": "They are responsible for the Apollo program and will decide whether to announce a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process. They have access to technical assessments and schedules."
   }
  ],
- "shared_context": "Apollo 11 is scheduled for a July 1969 launch window. A flight readiness review process is underway to assess readiness. The review is expected to conclude before the end of June 1969. A public announcement of a go decision would be made by senior managers at the conclusion of the review.",
+ "shared_context": "Apollo 11 is scheduled for a July 1969 launch window. The flight readiness review process is ongoing, and its conclusion will determine whether a go decision is announced. The public announcement would be made by NASA senior managers at the conclusion of that review. The deadline for the announcement is before the end of June 1969.",
  "starting_events": [
   {
    "time": "1969-06-01T09:00:00-04:00",
-   "description": "The flight readiness review process for Apollo 11 is ongoing.",
+   "description": "The flight readiness review process for Apollo 11 is underway.",
    "visible_to": [
     "NASA Senior Managers"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that NASA's senior managers publicly announced a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before 1969-06-30T18:00:00-04:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that NASA senior managers publicly announced a go decision for Apollo 11's July launch window at the conclusion of the flight readiness review process before 1969-06-30T18:00:00-04:00. Otherwise resolve NO at the cutoff."
 }

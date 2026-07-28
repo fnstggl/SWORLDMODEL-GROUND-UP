@@ -1,11 +1,6 @@
 {
-  "actors": [
-    {
-      "name": "Company leadership",
-      "private_context": "The leadership is aware of current financial and operational challenges. They have plans and strategies for the next quarter but are uncertain about outcomes."
-    }
-  ],
-  "shared_context": "The company operates in a competitive market. The next quarter begins on 2026-10-01 and ends on 2026-12-31. 'Things getting better' is undefined but generally refers to improvements in revenue, profitability, or other key metrics.",
+  "actors": [],
+  "shared_context": "The company is a business entity. The next quarter is Q4 2026, starting October 1, 2026 and ending December 31, 2026. The question asks whether 'things get better' for the company, which is vague and lacks specific observable criteria.",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question 'Will things get better for the company next quarter?' is too vague; 'things' and 'better' lack an observable, measurable resolution condition."
+  "resolution": "UNRESOLVABLE: The question does not specify what 'better' means in observable terms, nor does it identify any decision-maker or action that could be measured."
 }

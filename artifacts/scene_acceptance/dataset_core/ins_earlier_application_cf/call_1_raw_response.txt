@@ -1,15 +1,6 @@
 {
-  "actors": [
-    {
-      "name": "Rosa",
-      "private_context": "Rosa is considering whether she would have gotten an interview if she had submitted her application a week earlier last spring. She has no current actions to take."
-    },
-    {
-      "name": "Hiring Committee",
-      "private_context": "The hiring committee reviewed applications last spring and made interview decisions. They have no current actions to take."
-    }
-  ],
-  "shared_context": "Last spring, Rosa submitted an application for a position. The application was received one week later than she could have submitted it. The hiring committee made interview decisions based on the applications they received. The outcome of whether she would have gotten an interview if submitted earlier is unknown.",
+  "actors": [],
+  "shared_context": "",
   "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is a past counterfactual; no future observation can resolve an alternate past."
+  "resolution": "UNRESOLVABLE: The question is a past counterfactual about an event that would have occurred last spring; no future observation can resolve an alternate past."
 }

@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "Bookkeeper",
-   "private_context": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She knows the deadline is the end of the month. She has access to the necessary payroll records and filing system."
+   "private_context": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has a routine for preparing and submitting the return."
   },
   {
    "name": "Herrera Bakery",
-   "private_context": "The bakery expects the bookkeeper to file the return as usual. It has provided the bookkeeper with the payroll data for the quarter."
+   "private_context": "The bakery relies on the bookkeeper to handle payroll filings. It has no specific knowledge of her current progress on the return."
   }
  ],
- "shared_context": "The quarterly payroll return is due before the revenue service's month-end deadline, which is 2026-10-31. The bookkeeper has filed on time for the past seven quarters. The bakery operates normally during this period.",
+ "shared_context": "The quarterly payroll return is due before the end of October 2026. The revenue service's month-end deadline is October 31, 2026. The bookkeeper has access to the necessary payroll records and filing system.",
  "starting_events": [
   {
    "time": "2026-10-19T09:00:00-06:00",
-   "description": "The bookkeeper has the payroll records for the quarter and is aware of the upcoming deadline.",
+   "description": "The bookkeeper begins her workday and has the quarterly payroll return to prepare and file before the deadline.",
    "visible_to": [
     "Bookkeeper"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the bookkeeper actually submitted the quarterly payroll return to the revenue service before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the bookkeeper actually filed the quarterly payroll return before 2026-10-31T23:59:00-06:00. Otherwise resolve NO at the cutoff."
 }

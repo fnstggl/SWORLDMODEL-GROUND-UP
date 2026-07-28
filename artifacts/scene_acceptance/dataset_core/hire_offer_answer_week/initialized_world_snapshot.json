@@ -27,7 +27,7 @@
      "t": "2026-08-03T14:00:00+00:00"
     },
     {
-     "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. The deadline is one week from Monday. The simulation start time is 2026-08-03T17:00:00+03:00, which is Monday. The deadline is therefore 2026-08-10T17:00:00+03:00.",
+     "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. The offer is a fifteen percent raise over her current telecom salary and fully remote. The deadline is one week from Monday. The current time is 2026-08-03T17:00:00+03:00, which is Monday (the day the offer was extended).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T14:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Wanjiru Kamau received a data-engineer offer from Kestrel Analytics on Monday with a one-week deadline. The offer is a fifteen percent raise over her current telecom salary and fully remote. Her partner is midway through a nursing program in Nairobi. She has told friends she is tired of shift-adjacent support work. She has not yet decided whether to accept.",
+     "content": "Wanjiru Kamau has received a data-engineer offer from Kestrel Analytics with a one-week deadline. She currently works in telecom, earning less than the offered salary. She is tired of shift-adjacent support work. Her partner is midway through a nursing program in Nairobi, and she values stability and proximity to her partner. She has not yet decided whether to accept.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T14:00:00+00:00"
     },
     {
-     "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. The deadline is one week from Monday. The simulation start time is 2026-08-03T17:00:00+03:00, which is Monday. The deadline is therefore 2026-08-10T17:00:00+03:00.",
+     "content": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. The offer is a fifteen percent raise over her current telecom salary and fully remote. The deadline is one week from Monday. The current time is 2026-08-03T17:00:00+03:00, which is Monday (the day the offer was extended).",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T14:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. Will she give Kestrel a definitive answer before the deadline passes?",
-  "scene:shared_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. The deadline is one week from Monday. The simulation start time is 2026-08-03T17:00:00+03:00, which is Monday. The deadline is therefore 2026-08-10T17:00:00+03:00."
+  "scene:shared_context": "Kestrel Analytics extended a data-engineer offer to Wanjiru Kamau on Monday with a one-week deadline. The offer is a fifteen percent raise over her current telecom salary and fully remote. The deadline is one week from Monday. The current time is 2026-08-03T17:00:00+03:00, which is Monday (the day the offer was extended)."
  },
  "history": [],
  "infos": {},

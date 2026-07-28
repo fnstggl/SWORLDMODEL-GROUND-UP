@@ -2,10 +2,10 @@
  "actors": [
   {
    "name": "Board of Directors of Apex Industries",
-   "private_context": "The board is scheduled to meet on September 12, 2026. They have the authority to appoint a new CEO. The board members have their own individual preferences and considerations regarding potential candidates, but no decision has been made yet."
+   "private_context": "The board is scheduled to meet on September 12, 2026. They have the authority to appoint a new CEO. The board members have their own individual preferences and considerations regarding the CEO appointment, but these are not specified."
   }
  ],
- "shared_context": "Apex Industries is a corporation. The board of directors is meeting on September 12, 2026, at 10:00 AM Central Time. The meeting agenda includes the appointment of a new CEO. The current CEO position is vacant or the incumbent is departing. Candidates may have been considered prior to the meeting, but no appointment has been made yet.",
+ "shared_context": "Apex Industries is a company. The board of directors is meeting on September 12, 2026, at 10:00 AM Central Time. The meeting agenda includes the appointment of a new CEO. The current CEO position is vacant or the incumbent is departing, but the exact circumstances are not specified.",
  "starting_events": [
   {
    "time": "2026-09-12T10:00:00-05:00",
@@ -15,5 +15,5 @@
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the board of directors of Apex Industries formally appoints a new CEO during the meeting, before the meeting adjourns or before 2026-09-12T18:00:00-05:00, whichever comes first. Otherwise resolve NO."
+ "resolution": "Resolve YES only if the persistent event history shows that the board of directors of Apex Industries actually appointed a new CEO during the meeting, before the hard cutoff at 2026-09-12T18:00:00-05:00. Otherwise resolve NO at the cutoff."
 }

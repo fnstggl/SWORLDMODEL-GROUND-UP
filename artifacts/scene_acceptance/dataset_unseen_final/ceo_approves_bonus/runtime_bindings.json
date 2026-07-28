@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "ceo_jane_zhao"
    ],
-   "description": "The Q3 performance bonus for the engineering team is pending CEO Jane Zhao's approval. The board meeting is scheduled for September 15, 2026."
+   "description": "The Q3 performance bonus for the engineering team is under consideration. CEO Jane Zhao has the authority to approve or deny it."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "ceo_jane_zhao": {
    "name": "CEO Jane Zhao",
-   "persona_brief": "You are CEO Jane Zhao.\nJane Zhao is the CEO of NovaTech Inc. She must decide whether to approve the Q3 performance bonus for the engineering team. She is aware of the engineering team's Q2 performance and has her own criteria for bonus approval. She will make the decision by the board meeting on September 15, 2026."
+   "persona_brief": "You are CEO Jane Zhao.\nJane Zhao is the CEO of NovaTech Inc. She must decide whether to approve the Q3 performance bonus for the engineering team. She is aware that the team exceeded Q2 targets. She has her own criteria and considerations for bonus approval, and she will make the decision by the board meeting on September 15, 2026."
   }
  },
  "resolution": {
   "question": "Does CEO Jane Zhao approve the Q3 performance bonus for the engineering team by September 15, 2026?",
-  "resolution": "Resolve YES only if the persistent event history shows that CEO Jane Zhao actually approved the Q3 performance bonus for the engineering team before or on September 15, 2026. Otherwise resolve NO at the hard cutoff 2026-09-15T23:59:00-04:00.",
+  "resolution": "Resolve YES only if the persistent event history shows that CEO Jane Zhao actually approved the Q3 performance bonus for the engineering team before or on September 15, 2026. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-15T23:59:00-04:00",
   "world_id": "w_3a7a58ed5286"
  }

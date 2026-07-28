@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The council is a body of elected members. Its standing orders require formal adoption of the precept at the January meeting. The council has a chair and a clerk. The precept proposal has been prepared but not yet formally adopted.",
+     "content": "The council is a body of elected members. Its standing orders require formal adoption of the precept at the January meeting. The council has a chairperson and a clerk. The precept for next year has been prepared but not yet formally adopted.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2027-01-04T09:00:00+00:00"
     },
     {
-     "content": "Kettlewell Parish Council's January meeting is scheduled to occur after the simulation start time. The meeting agenda includes the item to formally adopt next year's precept. The council's standing orders mandate that this adoption occur at the January meeting.",
+     "content": "Kettlewell Parish Council's January meeting is scheduled to occur after 2027-01-04. The meeting is the regular January meeting where the precept is to be formally adopted according to standing orders. The precept is the amount of money the parish council requests from the district council through the council tax.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2027-01-04T09:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Kettlewell parish council formally adopt next year's precept at its January meeting, as its standing orders require?",
-  "scene:shared_context": "Kettlewell Parish Council's January meeting is scheduled to occur after the simulation start time. The meeting agenda includes the item to formally adopt next year's precept. The council's standing orders mandate that this adoption occur at the January meeting."
+  "scene:shared_context": "Kettlewell Parish Council's January meeting is scheduled to occur after 2027-01-04. The meeting is the regular January meeting where the precept is to be formally adopted according to standing orders. The precept is the amount of money the parish council requests from the district council through the council tax."
  },
  "history": [],
  "infos": {},

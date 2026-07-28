@@ -123,20 +123,20 @@ THE COMPILED SCENE (exact manifest under review):
   },
   {
    "name": "German Foreign Office",
-   "private_context": "The German Foreign Office is the recipient of diplomatic communications. It operates during normal business hours and has protocols for receiving official notes from foreign ambassadors. It is aware of the ultimatum and the general diplomatic tensions."
+   "private_context": "The German Foreign Office is the recipient of diplomatic communications. It operates during normal business hours and may receive notes through official channels. It has no prior knowledge of the specific protest note."
   }
  ],
- "shared_context": "The date is July 23, 1914. Diplomatic tensions are high following the assassination of Archduke Franz Ferdinand. France and Germany are in a crisis. The German ultimatum expires on July 28, 1914. Ambassador Dupont has a protest note to deliver to the German Foreign Office.",
+ "shared_context": "In July 1914, tensions are high after the assassination of Archduke Franz Ferdinand. France and Germany are in a diplomatic crisis. The French Ambassador has a protest note to deliver to the German Foreign Office. The ultimatum expires on July 28, 1914.",
  "starting_events": [
   {
    "time": "1914-07-23T12:00:00+01:00",
-   "description": "Ambassador Dupont prepares to deliver the protest note to the German Foreign Office.",
+   "description": "The simulation begins. Ambassador Dupont has the protest note and is preparing to deliver it to the German Foreign Office.",
    "visible_to": [
     "Jean-Pierre Dupont"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Ambassador Dupont actually delivered the protest note to the German Foreign Office before the ultimatum expires on July 28, 1914 at 23:59. Otherwise resolve NO at that deadline."
+ "resolution": "Resolve YES only if the persistent event history shows that Ambassador Dupont actually delivered the protest note to the German Foreign Office before the ultimatum expires on July 28, 1914 (i.e., before 1914-07-28T23:59:00+01:00). Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -23,13 +23,13 @@
    {
     "t": "2026-10-01T14:00:00+00:00",
     "kind": "context",
-    "content": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It has a chair, a secretary, and voting members including faculty representatives from each department. The senate has received a motion to adopt pass-fail grading for the current academic year. Members have varying opinions on the motion, but no formal vote has been taken yet.",
+    "content": "The Academic Senate is the governing body of Ashvale University responsible for academic policy. It consists of faculty representatives, administrators, and possibly student representatives. The members have varying opinions on the pass-fail grading motion, but their individual positions are not predetermined. The Senate operates under standard parliamentary procedures for debate and voting.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-01T14:00:00+00:00",
     "kind": "context",
-    "content": "Ashvale University's academic senate will hold its October plenary meeting on 2026-10-15. The agenda includes a motion to adopt pass-fail grading for the current academic year. The motion was introduced by a faculty member and has been reviewed by the curriculum committee, which recommended sending it back to committee for further study. The senate can vote to pass, reject, or send back to committee.",
+    "content": "Ashvale University's Academic Senate will hold its October plenary meeting on a date within October 2026. A motion to adopt pass-fail grading for certain courses is on the agenda. The Senate can vote to pass the motion, reject it, or send it back to committee for further review. The meeting is scheduled to occur before the hard cutoff of 2026-10-30T18:00:00-05:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

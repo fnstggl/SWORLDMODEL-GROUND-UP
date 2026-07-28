@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Amara is an employee who wants to be respected by her coworkers. She has no specific plan to change their perception.",
+     "content": "Amara is an employee who wants to earn more respect from her coworkers. She is aware of her current standing and may take actions to improve it.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T13:00:00+00:00"
     },
     {
-     "content": "Amara and her coworkers work together in the same organization. The quarter runs from October 1, 2026 to December 31, 2026. Respect is subjective and may be inferred from coworkers' behavior or statements.",
+     "content": "Amara and her coworkers work together in the same organization. The quarter runs from October 1, 2026 to December 31, 2026. Respect is a subjective measure that may be inferred from coworkers' behaviors and statements.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T13:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The coworkers are a group of people who work with Amara. They have their own opinions and perceptions of Amara, which may change over time based on her actions.",
+     "content": "The coworkers are a group of individuals who work with Amara. They have their own perceptions of Amara and may change their respect for her based on her actions.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-10-01T13:00:00+00:00"
     },
     {
-     "content": "Amara and her coworkers work together in the same organization. The quarter runs from October 1, 2026 to December 31, 2026. Respect is subjective and may be inferred from coworkers' behavior or statements.",
+     "content": "Amara and her coworkers work together in the same organization. The quarter runs from October 1, 2026 to December 31, 2026. Respect is a subjective measure that may be inferred from coworkers' behaviors and statements.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-10-01T13:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Amara's coworkers respect her more by the end of the quarter?",
-  "scene:shared_context": "Amara and her coworkers work together in the same organization. The quarter runs from October 1, 2026 to December 31, 2026. Respect is subjective and may be inferred from coworkers' behavior or statements."
+  "scene:shared_context": "Amara and her coworkers work together in the same organization. The quarter runs from October 1, 2026 to December 31, 2026. Respect is a subjective measure that may be inferred from coworkers' behaviors and statements."
  },
  "history": [],
  "infos": {},

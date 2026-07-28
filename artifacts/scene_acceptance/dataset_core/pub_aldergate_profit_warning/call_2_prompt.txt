@@ -116,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Aldergate Rail",
-   "private_context": "Aldergate Rail is a listed firm. It has a signaling-contract that is experiencing a delay. The firm's board and management are aware of the delay and its potential materiality. They have not yet decided whether to issue a market warning before the scheduled interim results day on November 5. The firm is subject to disclosure obligations under listing rules."
+   "private_context": "Aldergate Rail is a listed firm. It has a signaling-contract that is delayed. It must decide whether to issue a market warning about the delay before its scheduled interim results day on November 5. The firm's leadership is aware of the delay and the potential impact on its financial results."
   }
  ],
- "shared_context": "Aldergate Rail is a listed company. Its scheduled interim results day is November 5. The firm has a signaling-contract that is delayed. The market is not yet aware of the delay. The firm may issue a warning about the delay before the results day.",
+ "shared_context": "Aldergate Rail is a listed company. It has a signaling-contract that is delayed. The company is scheduled to release its interim results on November 5. Market regulations may require timely disclosure of material information, but the specific obligations and the firm's interpretation are not predetermined.",
  "starting_events": [
   {
    "time": "2026-10-01T08:00:00+00:00",
-   "description": "Aldergate Rail's management is aware of the signaling-contract delay and is considering whether to issue a market warning before the interim results day on November 5.",
+   "description": "The simulation begins. Aldergate Rail is aware of the signaling-contract delay and faces the decision of whether to warn the market before the interim results day.",
    "visible_to": [
     "Aldergate Rail"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Aldergate Rail actually issued a warning to the market about the signaling-contract delay before 2026-11-05T07:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES if, before 2026-11-05T07:00:00+00:00, Aldergate Rail issues a public warning to the market about the signaling-contract delay (e.g., via a regulatory filing, press release, or other official communication). Resolve NO if no such warning is issued by that time."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -27,7 +27,7 @@
      "t": "2026-08-20T14:00:00+00:00"
     },
     {
-     "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has access to her email and can reply.",
+     "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-20T14:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Ms. Laura Kim is a teacher. She has received John's email about the field trip. She may or may not respond before the deadline.",
+     "content": "Ms. Laura Kim is a teacher. She has received John's email about the field trip but has not yet responded. She may have other commitments and may prioritize responding based on her own schedule.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-20T14:00:00+00:00"
     },
     {
-     "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has access to her email and can reply.",
+     "content": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-20T14:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Does teacher Ms. Laura Kim respond to parent John's email about the field trip by August 25, 2026?",
-  "scene:shared_context": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has access to her email and can reply."
+  "scene:shared_context": "John sent an email to Ms. Laura Kim about the field trip. The email was sent before the simulation start time. Ms. Laura Kim has the email in her inbox. The deadline for a response is August 25, 2026."
  },
  "history": [],
  "infos": {},

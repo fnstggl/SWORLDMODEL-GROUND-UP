@@ -5,12 +5,7 @@
   {
    "aspect": "prewritten",
    "severity": "MAJOR",
-   "detail": "The starting event states that the geography department head submits the paperwork including a risk-assessment form that still needs the deputy head's signature. This implies the form is incomplete, which may pre-decide that the principal cannot sign off until the deputy head signs, effectively making the YES condition impossible before the deputy head returns from leave. The question asks whether the principal will sign off before the deadline; if the deputy head's signature is a prerequisite and they are on leave until late September, the principal may be unable to sign off until after the deputy head returns, potentially after the deadline. This pre-decides a NO outcome if the deputy head's return is too late."
-  },
-  {
-   "aspect": "info_boundaries",
-   "severity": "MINOR",
-   "detail": "The geography department head's private context includes knowledge that the deputy head is on leave until late September, which is also part of shared context. This is not a severe leak, but it is redundant."
+   "detail": "The starting events state that the risk-assessment form still needs the deputy head's signature, which is pending due to their leave. This pre-decides that the form is not yet signed, which may influence the principal's decision and makes the YES condition harder to achieve, effectively pre-deciding a future actor choice."
   }
  ],
  "id": "appr_field_trip_signoff"

@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "david_cameron"
    ],
-   "description": "The campaign for the EU referendum is underway. No televised set-piece event featuring David Cameron has yet occurred, and no specific event has been confirmed for him."
+   "description": "The campaign period for the EU referendum is ongoing. No televised set-piece event featuring David Cameron has been confirmed yet."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "david_cameron": {
    "name": "David Cameron",
-   "persona_brief": "You are David Cameron.\nCameron is Prime Minister and has called the EU referendum for 23 June 2016. He is leading the Remain campaign. He has not yet decided whether to appear in any televised set-piece events, but is aware of the campaign schedule and media requests."
+   "persona_brief": "You are David Cameron.\nCameron is Prime Minister and has publicly stated he will campaign for the UK to remain in the EU. He has not yet confirmed any specific televised set-piece events about the referendum, but he is aware of the upcoming referendum and the need to communicate his position."
   }
  },
  "resolution": {
   "question": "Will Prime Minister David Cameron appear in at least one televised set-piece event about the EU referendum before polling day?",
-  "resolution": "Resolve YES if, before 23 June 2016 (polling day), the persistent event history shows that David Cameron appeared in at least one televised set-piece event (e.g., a debate, a major interview, or a televised town hall) about the EU referendum. Otherwise resolve NO at the close of polling day.",
+  "resolution": "Resolve YES if the persistent event history shows that David Cameron appeared in at least one televised set-piece event about the EU referendum before 23 June 2016 (polling day). Otherwise resolve NO at the hard cutoff of 2016-06-20T22:00:00+01:00.",
   "cutoff": "2016-06-20T22:00:00+01:00",
   "world_id": "w_c1673e5355e9"
  }

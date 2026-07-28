@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Ashvale University's academic senate pass, reject, or send back to committee the pass-fail grading motion at its October plenary?",
-  "resolution": "Resolve YES if the persistent event history shows that the academic senate voted to pass the motion at the October plenary (by 2026-10-15T23:59:59-05:00). Resolve NO if the senate voted to reject the motion. Resolve SEND_BACK if the senate voted to send the motion back to committee. If no vote occurs by the end of the plenary, resolve NO.",
+  "resolution": "Resolve YES if the persistent event history shows that the Academic Senate voted to pass the motion at its October plenary before 2026-10-30T18:00:00-05:00. Resolve NO if the Senate voted to reject the motion or sent it back to committee, or if no final decision was reached by the cutoff. The specific outcome (reject vs. send back) is not distinguished in this resolution; only whether the motion passed or not.",
   "cutoff": "2026-10-30T18:00:00-05:00",
   "world_id": "w_394f4d56b514"
  },

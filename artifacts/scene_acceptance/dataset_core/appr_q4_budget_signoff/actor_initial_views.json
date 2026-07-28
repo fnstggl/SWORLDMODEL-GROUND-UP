@@ -23,13 +23,13 @@
    {
     "t": "2026-09-08T08:00:00+00:00",
     "kind": "context",
-    "content": "The CFO pushed back on the original Q4 marketing budget, leading to a revised proposal eight percent lower. They have weekly meetings with the CMO and a decent working relationship. They are aware the offsite agenda includes the campaign as a topic.",
+    "content": "The CFO pushed back on the original marketing budget, leading to an eight percent reduction. They have a decent working relationship with the CMO and meet weekly. They are aware the offsite agenda includes the campaign as a topic.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-08T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has a leadership offsite scheduled for September 21, 2026. The offsite agenda already lists the campaign as a topic. The marketing team's revised Q4 budget is eight percent below the original ask. The CFO and CMO meet weekly and work together decently.",
+    "content": "The marketing team's revised Q4 budget is eight percent below the original ask. The CFO and CMO meet weekly and work together decently. The leadership offsite is scheduled for September 21, 2026, and its agenda already lists the campaign as a topic. The CFO's approval is needed for the revised budget.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-08T08:00:00+00:00",
     "kind": "context",
-    "content": "The CMO leads the marketing team and has revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have weekly meetings with the CFO and a decent working relationship. They know the offsite agenda lists the campaign as a topic.",
+    "content": "The CMO leads the marketing team and has revised the Q4 budget to eight percent below the original ask after the CFO's pushback. They have a decent working relationship with the CFO and meet weekly. They know the offsite agenda lists the campaign as a topic.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-08T08:00:00+00:00",
     "kind": "context",
-    "content": "Ostara Foods has a leadership offsite scheduled for September 21, 2026. The offsite agenda already lists the campaign as a topic. The marketing team's revised Q4 budget is eight percent below the original ask. The CFO and CMO meet weekly and work together decently.",
+    "content": "The marketing team's revised Q4 budget is eight percent below the original ask. The CFO and CMO meet weekly and work together decently. The leadership offsite is scheduled for September 21, 2026, and its agenda already lists the campaign as a topic. The CFO's approval is needed for the revised budget.",
     "source": "scene_manifest:shared_context"
    }
   ],

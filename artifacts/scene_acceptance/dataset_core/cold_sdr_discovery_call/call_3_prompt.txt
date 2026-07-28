@@ -96,14 +96,22 @@ THE ORIGINAL MANIFEST:
  "actors": [
   {
    "name": "Gustavo",
-   "private_context": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails."
+   "private_context": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. His usual booking rate is about one call per sixty cold emails. He intends to cold-email these leads this week."
   },
   {
    "name": "Procurement Lead 1",
-   "private_context": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not be interested in invoice-automation software."
+   "private_context": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 2",
+   "private_context": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
+  },
+  {
+   "name": "Procurement Lead 3",
+   "private_context": "One of forty procurement leads at a mid-market manufacturer in the Pacific Northwest. Receives many cold emails and may or may not respond to them."
   }
  ],
- "shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He will send cold emails to them this week (starting 2026-08-03). Each lead can respond to schedule a discovery call. The end of the month is 2026-08-31.",
+ "shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week (starting 2026-08-03). A discovery call is a scheduled conversation to discuss the software. The end of the month is 2026-08-31.",
  "starting_events": [
   {
    "time": "2026-08-03T08:00:00-07:00",
@@ -113,15 +121,15 @@ THE ORIGINAL MANIFEST:
    ]
   }
  ],
- "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads actually scheduled or agreed to a discovery call with Gustavo before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at that cutoff."
+ "resolution": "Resolve YES if the persistent event history shows that at least one of the forty procurement leads agreed to a discovery call before 2026-08-31T17:00:00-07:00. Otherwise resolve NO at that time."
 }
 
 THE DEFECTS TO CORRECT (apply exactly these, nothing else):
 [
  {
   "path": "actors",
-  "problem": "Only one generic 'Procurement Lead 1' is included, but the question involves forty distinct leads. A single actor cannot represent the independent decisions of forty separate individuals.",
-  "correction": "Include all forty procurement leads as distinct actors, or use a single actor 'Procurement Leads' with a collective decision mechanism if the runtime supports it. Alternatively, model the process as a probabilistic event without individual actors."
+  "problem": "Only three procurement leads are defined, but the question specifies forty. The scene cannot simulate the full set of forty leads with only three actors.",
+  "correction": "Define all forty procurement leads as actors, or use a single actor representing the group of forty leads (e.g., 'Procurement Leads (40)') with appropriate private context."
  }
 ]
 

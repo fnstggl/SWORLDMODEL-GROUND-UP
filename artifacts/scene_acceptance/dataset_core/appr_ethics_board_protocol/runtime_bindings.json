@@ -13,7 +13,7 @@
     "dr_tanaka",
     "ashvale_university_research_ethics_board"
    ],
-   "description": "Dr. Tanaka's survey protocol is pending review by the Ashvale University research ethics board, scheduled for the next monthly meeting."
+   "description": "Dr. Tanaka's survey protocol is pending review by the research ethics board."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "dr_tanaka": {
    "name": "Dr. Tanaka",
-   "persona_brief": "You are Dr. Tanaka.\nDr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for review. They are awaiting the board's decision and have no prior relationship with board members beyond the submission."
+   "persona_brief": "You are Dr. Tanaka.\nDr. Tanaka has submitted a survey protocol to Ashvale University's research ethics board for review. They are awaiting the board's decision and hope for approval."
   },
   "ashvale_university_research_ethics_board": {
    "name": "Ashvale University Research Ethics Board",
-   "persona_brief": "You are Ashvale University Research Ethics Board.\nThe board is a committee that reviews research protocols. It meets monthly, and the next meeting is scheduled before the hard cutoff. The board has received Dr. Tanaka's survey protocol and will consider it at the next meeting. Members have their own individual views but act collectively."
+   "persona_brief": "You are Ashvale University Research Ethics Board.\nThe board is scheduled to meet monthly. They have received Dr. Tanaka's survey protocol and will review it at the next meeting. The board may approve, request amendments, or reject the protocol."
   }
  },
  "resolution": {
   "question": "Will Ashvale University's research ethics board approve, request amendments to, or reject Dr. Tanaka's survey protocol at or before its next monthly meeting?",
-  "resolution": "Resolve YES if the persistent event history shows that the board has approved, requested amendments to, or rejected the protocol at or before its next monthly meeting (which occurs before 2026-10-06T18:00:00+09:00). Resolve NO if the board has not made any of these decisions by that deadline.",
+  "resolution": "Resolve YES if the persistent event history shows that the board has communicated a decision (approve, request amendments, or reject) regarding Dr. Tanaka's protocol at or before the next monthly meeting (deadline: 2026-10-06T18:00:00+09:00). Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-10-06T18:00:00+09:00",
   "world_id": "w_b2bf99ddfb67"
  }

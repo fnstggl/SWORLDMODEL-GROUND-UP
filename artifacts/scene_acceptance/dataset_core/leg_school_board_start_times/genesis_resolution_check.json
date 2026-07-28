@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the Marlin Bay Unified school board take a recorded vote on the later-start-times proposal at either of its two September meetings?",
-  "resolution": "Resolve YES only if the persistent event history shows that a recorded vote on the later-start-times proposal actually occurred at either of the two September meetings (i.e., before the end of the second meeting, which is before the hard cutoff of 2026-09-30T22:00:00-07:00). Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the Marlin Bay Unified school board took a recorded vote on the later-start-times proposal at either of its two September meetings before 2026-09-30T22:00:00-07:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T22:00:00-07:00",
   "world_id": "w_90d5fd4c6d2b"
  },

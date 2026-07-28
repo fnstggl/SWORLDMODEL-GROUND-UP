@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Chen Wei is an illustrator who has been negotiating with Torchlight Media for a twelve-page commission. They have received an initial offer from Torchlight Media and are preparing to make a counteroffer today, 2026-08-06. Chen Wei wants to settle on a page rate that they find acceptable within a week.",
+     "content": "Chen Wei is an illustrator who has been negotiating with Torchlight Media for a twelve-page commission. They have received an initial offer from Torchlight Media and plan to open with a counteroffer today. Chen Wei wants to settle on a mutually agreeable page rate within one week.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-06T06:00:00+00:00"
     },
     {
-     "content": "Chen Wei and Torchlight Media are in active negotiation for a twelve-page illustration commission. Chen Wei is expected to make a counteroffer today, 2026-08-06, regarding the page rate. Both parties have established communication channels. The deadline for settlement is one week from today, i.e., by 2026-08-13T14:00:00+08:00.",
+     "content": "Chen Wei and Torchlight Media are in active negotiation for a twelve-page illustration commission. Chen Wei is opening a counteroffer today, August 6, 2026. The parties can communicate via email or other agreed channels. The deadline for settlement is one week from today, i.e., by August 13, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-06T06:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Torchlight Media is a publisher that has made an initial offer to illustrator Chen Wei for a twelve-page commission. They are aware that Chen Wei may counteroffer today, 2026-08-06. Torchlight Media has internal decision-making processes for approving page rates and is open to negotiation but has a budget range.",
+     "content": "Torchlight Media is a publisher that wants to commission Chen Wei for a twelve-page project. They have made an initial offer and are aware that Chen Wei may counter. They are open to negotiation but have their own budget constraints.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-06T06:00:00+00:00"
     },
     {
-     "content": "Chen Wei and Torchlight Media are in active negotiation for a twelve-page illustration commission. Chen Wei is expected to make a counteroffer today, 2026-08-06, regarding the page rate. Both parties have established communication channels. The deadline for settlement is one week from today, i.e., by 2026-08-13T14:00:00+08:00.",
+     "content": "Chen Wei and Torchlight Media are in active negotiation for a twelve-page illustration commission. Chen Wei is opening a counteroffer today, August 6, 2026. The parties can communicate via email or other agreed channels. The deadline for settlement is one week from today, i.e., by August 13, 2026.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-06T06:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will illustrator Chen Wei and Torchlight Media settle on a page rate for a twelve-page commission within one week of her opening counteroffer today?",
-  "scene:shared_context": "Chen Wei and Torchlight Media are in active negotiation for a twelve-page illustration commission. Chen Wei is expected to make a counteroffer today, 2026-08-06, regarding the page rate. Both parties have established communication channels. The deadline for settlement is one week from today, i.e., by 2026-08-13T14:00:00+08:00."
+  "scene:shared_context": "Chen Wei and Torchlight Media are in active negotiation for a twelve-page illustration commission. Chen Wei is opening a counteroffer today, August 6, 2026. The parties can communicate via email or other agreed channels. The deadline for settlement is one week from today, i.e., by August 13, 2026."
  },
  "history": [],
  "infos": {},

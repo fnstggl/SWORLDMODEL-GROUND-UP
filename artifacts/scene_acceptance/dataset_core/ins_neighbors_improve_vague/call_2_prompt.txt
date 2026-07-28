@@ -115,26 +115,26 @@ THE COMPILED SCENE (exact manifest under review):
 {
  "actors": [
   {
-   "name": "Resident",
-   "private_context": "The resident has been experiencing ongoing issues with neighbors (e.g., noise, disputes) and hopes for improvement. They are considering possible actions but have not yet decided on any specific approach."
+   "name": "Neighbor A",
+   "private_context": "Neighbor A has been having ongoing disputes with Neighbor B over property boundaries and noise. A is frustrated and considering legal action but is open to reconciliation if B shows willingness."
   },
   {
-   "name": "Neighbors",
-   "private_context": "The neighbors are aware of some tension but have their own perspectives and routines. They may or may not be open to improving relations."
+   "name": "Neighbor B",
+   "private_context": "Neighbor B is aware of the disputes with Neighbor A and feels that A is being unreasonable. B is defensive but not opposed to improving relations if A makes the first move."
   }
  ],
- "shared_context": "There is a history of minor conflicts between the resident and the neighbors (e.g., noise complaints, boundary disagreements). Both parties live in close proximity and interact occasionally. No formal complaints or mediation have been initiated as of the start time.",
+ "shared_context": "The two neighbors live adjacent to each other in a suburban area. They have had several arguments in the past few months about property lines and noise from B's late-night gatherings. No formal complaints have been filed yet. Both are aware of the tension and have mutual acquaintances who might mediate.",
  "starting_events": [
   {
    "time": "2026-08-01T12:00:00+02:00",
-   "description": "The current situation between the resident and the neighbors is as described in shared_context.",
+   "description": "The current state of tension between Neighbor A and Neighbor B is ongoing, with no recent direct communication.",
    "visible_to": [
-    "Resident",
-    "Neighbors"
+    "Neighbor A",
+    "Neighbor B"
    ]
   }
  ],
- "resolution": "Resolve YES only if, by 2026-11-01T12:00:00+02:00, the persistent event history shows a clear, observable improvement in the relationship (e.g., a friendly interaction, a resolved dispute, a mutual agreement, or a sustained reduction in conflicts). Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that, before 2026-11-01T12:00:00+02:00, both neighbors have engaged in at least one positive interaction (e.g., a friendly conversation, a mutual agreement, or a cooperative action) that indicates an improvement in their relationship, as observed by an external party or documented in communication. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

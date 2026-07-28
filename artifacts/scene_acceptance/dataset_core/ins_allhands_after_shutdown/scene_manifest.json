@@ -9,7 +9,7 @@
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+02:00",
-   "description": "The all-hands meeting is scheduled for the 15th, but no decision has been made about whether the CEO will take questions.",
+   "description": "The all-hands meeting is scheduled for the 15th, and the CEO is expected to speak.",
    "visible_to": [
     "CEO"
    ]

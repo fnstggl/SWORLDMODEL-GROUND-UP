@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week. His usual booking rate is about one call per sixty cold emails.",
+     "content": "Gustavo is a mid-tier performer selling invoice-automation software. He has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. His usual booking rate is about one call per sixty cold emails. He intends to cold-email these leads this week.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He will send cold emails to them this week (starting 2026-08-03). Each lead can respond to schedule a discovery call. The end of the month is 2026-08-31.",
+     "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week (starting 2026-08-03). A discovery call is a scheduled conversation to discuss the software. The end of the month is 2026-08-31.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
@@ -45,7 +45,7 @@
    "unprocessed_info": [],
    "values": []
   },
-  "procurement_leads": {
+  "procurement_leads_40": {
    "attention": {
     "scene": {
      "basis": "verified",
@@ -60,23 +60,23 @@
    "deferred_wakes": [],
    "emotional_state": "",
    "goals": [],
-   "id": "procurement_leads",
+   "id": "procurement_leads_40",
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Forty procurement leads at mid-market manufacturers in the Pacific Northwest. Each receives many cold emails and may or may not be interested in invoice-automation software. Their collective response rate is approximately one discovery call per sixty cold emails.",
+     "content": "A group of forty procurement leads at mid-market manufacturers in the Pacific Northwest. They receive many cold emails and may or may not respond to them.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-03T15:00:00+00:00"
     },
     {
-     "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He will send cold emails to them this week (starting 2026-08-03). Each lead can respond to schedule a discovery call. The end of the month is 2026-08-31.",
+     "content": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week (starting 2026-08-03). A discovery call is a scheduled conversation to discuss the software. The end of the month is 2026-08-31.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-03T15:00:00+00:00"
     }
    ],
-   "name": "Procurement Leads",
+   "name": "Procurement Leads (40)",
    "noticed_info": [],
    "ongoing_action": null,
    "physical_state": "",
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least one of the forty procurement leads that Brightline Software's rep Gustavo cold-emails this week agree to a discovery call before the end of the month?",
-  "scene:shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He will send cold emails to them this week (starting 2026-08-03). Each lead can respond to schedule a discovery call. The end of the month is 2026-08-31."
+  "scene:shared_context": "Gustavo has a list of forty procurement leads at mid-market manufacturers in the Pacific Northwest. He plans to cold-email them this week (starting 2026-08-03). A discovery call is a scheduled conversation to discuss the software. The end of the month is 2026-08-31."
  },
  "history": [],
  "infos": {},

@@ -15,7 +15,7 @@
     "family_2",
     "family_3"
    ],
-   "description": "The three families are aware of the carpool idea and are considering it, but no rota has been agreed upon yet."
+   "description": "The three families are aware of the carpool idea and have not yet agreed on a rota."
   }
  ],
  "code_owned_defaults": {
@@ -26,15 +26,15 @@
  "personas": {
   "family_1": {
    "name": "Family 1",
-   "persona_brief": "You are Family 1.\nFamily 1 has children who need to be driven to school. They are interested in a carpool to share the driving load. They have not yet discussed specific schedules with the other families."
+   "persona_brief": "You are Family 1.\nFamily 1 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   },
   "family_2": {
    "name": "Family 2",
-   "persona_brief": "You are Family 2.\nFamily 2 has children who need to be driven to school. They are interested in a carpool but have not yet committed to any specific arrangement."
+   "persona_brief": "You are Family 2.\nFamily 2 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   },
   "family_3": {
    "name": "Family 3",
-   "persona_brief": "You are Family 3.\nFamily 3 has children who need to be driven to school. They are open to a carpool but have not yet discussed details."
+   "persona_brief": "You are Family 3.\nFamily 3 has children who need to be driven to school. They are interested in a carpool rota but have not yet discussed details with the other families."
   }
  },
  "resolution": {

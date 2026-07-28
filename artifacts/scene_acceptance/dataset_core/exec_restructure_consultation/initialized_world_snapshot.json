@@ -27,7 +27,7 @@
      "t": "2026-09-01T07:00:00+00:00"
     },
     {
-     "content": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to inform staff about the decision.",
+     "content": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to communicate the decision to staff. The exact content of the restructuring decision is known to the managing director but not yet shared with staff.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The staff are aware that a restructuring decision is pending but have not been informed of the details. They expect communication from management.",
+     "content": "The staff are aware that a restructuring decision may be forthcoming but have not yet been informed of the details. They are represented by a works council with consultation rights.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T07:00:00+00:00"
     },
     {
-     "content": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to inform staff about the decision.",
+     "content": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to communicate the decision to staff. The exact content of the restructuring decision is known to the managing director but not yet shared with staff.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Torchlight Media's managing director inform staff of the restructuring decision before the works council's consultation deadline at the end of September?",
-  "scene:shared_context": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to inform staff about the decision."
+  "scene:shared_context": "Torchlight Media is undergoing a restructuring process. The works council has a consultation deadline at the end of September 2026. The managing director has the authority to communicate the decision to staff. The exact content of the restructuring decision is known to the managing director but not yet shared with staff."
  },
  "history": [],
  "infos": {},

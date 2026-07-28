@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?",
-  "resolution": "Resolve YES only if the persistent event history shows that Professor Ilse Brandt actually sent a reply to Kofi Asante's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that Ilse Brandt actually sent a reply to Kofi Asante before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-10T10:00:00+01:00",
   "world_id": "w_6687bbc383ae"
  },

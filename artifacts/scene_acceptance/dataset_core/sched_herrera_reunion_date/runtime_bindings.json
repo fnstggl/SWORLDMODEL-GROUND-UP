@@ -1,7 +1,7 @@
 {
  "world_id": "w_677e0c447bae",
  "actor_ids": {
-  "Herrera cousins (14 individuals)": "herrera_cousins_14_individuals"
+  "Herrera cousins (14 individuals in group chat)": "herrera_cousins_14_individuals_in_group_chat"
  },
  "event_records": [
   {
@@ -9,9 +9,9 @@
    "ledger_seq": 8,
    "at": "2026-08-01T16:00:00+00:00",
    "visible_to_ids": [
-    "herrera_cousins_14_individuals"
+    "herrera_cousins_14_individuals_in_group_chat"
    ],
-   "description": "The group chat is active with ongoing discussion about the reunion location and date. No decision has been made yet."
+   "description": "The group chat is active with ongoing discussion about the reunion location and timing."
   }
  ],
  "code_owned_defaults": {
@@ -20,14 +20,14 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "herrera_cousins_14_individuals": {
-   "name": "Herrera cousins (14 individuals)",
-   "persona_brief": "You are Herrera cousins (14 individuals).\nEach cousin has their own preferences and availability for the reunion. Three cousins strongly prefer Oaxaca, two prefer San Antonio, and the rest have not expressed a strong preference. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. No date or location has been agreed upon yet."
+  "herrera_cousins_14_individuals_in_group_chat": {
+   "name": "Herrera cousins (14 individuals in group chat)",
+   "persona_brief": "You are Herrera cousins (14 individuals in group chat).\nEach cousin has their own preferences and constraints for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio, and the others have not stated a strong preference. Tia Marisol, the eldest, privately intends to go with the majority but is more focused on catering details."
   }
  },
  "resolution": {
   "question": "Will the Herrera cousins, trading messages in a fourteen-person group chat, fix a weekend and a town for next spring's family reunion before the end of September?",
-  "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a specific weekend and a specific town for next spring's family reunion have been explicitly agreed upon by the group (e.g., a message stating the chosen weekend and town, with no further dispute). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that before 2026-09-30T22:00:00-06:00, a message in the group chat explicitly states both a specific weekend (e.g., a date range) and a specific town for the reunion, and no subsequent message contradicts that as a final decision. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T22:00:00-06:00",
   "world_id": "w_677e0c447bae"
  }

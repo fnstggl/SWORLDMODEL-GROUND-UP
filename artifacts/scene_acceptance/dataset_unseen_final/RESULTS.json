@@ -10,7 +10,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.64,
+   "wall_s": 4.7,
    "actors": [
     "Board of Directors of Apex Industries"
    ],
@@ -25,7 +25,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.89,
+   "wall_s": 4.75,
    "actors": [
     "CEO Jane Zhao"
    ],
@@ -40,7 +40,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.83,
+   "wall_s": 4.59,
    "actors": [
     "Springfield City Council"
    ],
@@ -55,7 +55,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.8,
+   "wall_s": 4.4,
    "actors": [
     "Coach Mike Johnson"
    ],
@@ -70,7 +70,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.35,
+   "wall_s": 4.32,
    "actors": [
     "David Park",
     "Omega Corp"
@@ -86,7 +86,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.71,
+   "wall_s": 4.93,
    "actors": [
     "Jean-Pierre Dupont",
     "German Foreign Office"
@@ -102,7 +102,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.79,
+   "wall_s": 4.74,
    "actors": [
     "Dr. Alan Reed",
     "Bob Chen"
@@ -118,7 +118,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.68,
+   "wall_s": 5.0,
    "actors": [
     "Judge Patricia O'Neill"
    ],
@@ -133,7 +133,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.35,
+   "wall_s": 4.42,
    "actors": [
     "Green Properties Inc.",
     "Sarah Lee"
@@ -149,7 +149,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.08,
+   "wall_s": 4.36,
    "actors": [
     "Karen Wu",
     "Tom Brown"
@@ -161,11 +161,11 @@
    "kind": "sufficient",
    "category": "pet_care",
    "historical": false,
-   "status": "failed",
-   "reason": "VALIDATION_FAILED: starting_events[0].visible_to: 'Tom\u00e1s' does not resolve to a declared actor",
+   "status": "compiled",
+   "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.41,
+   "wall_s": 4.43,
    "actors": [
     "Tom\u00e1s Garc\u00eda",
     "Lisa"
@@ -181,9 +181,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 5.03,
+   "wall_s": 4.93,
    "actors": [
-    "Maria Santos"
+    "Maria Santos",
+    "Police dispatcher"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_unseen_final/neighbor_notices_breakin"
   },
@@ -193,10 +194,10 @@
    "category": "misc",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a market outcome (stock price change) that is determined by the collective actions of many traders, not by a single social decision or event that can be simulated with identifiable actors. No sp",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a market outcome (stock price change) which is determined by aggregate trading decisions of numerous anonymous market participants, not by any identifiable social actor or decision-maker whose b",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.71,
+   "wall_s": 2.74,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_unseen_final/no_identifiable_party"
   },
@@ -206,10 +207,10 @@
    "category": "physics",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question is about a deterministic physical event with no social decision-making, so it cannot be resolved through social simulation.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (Resolve YES if the ball hits the ground before 2026-08-01T00:00:02+00:00 (2 seconds after start). Otherwise resolve NO at that time.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.46,
+   "wall_s": 2.24,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_unseen_final/no_party_physics"
   },
@@ -219,10 +220,10 @@
    "category": "weather",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a natural weather event, not a social decision or action, so no social simulation can resolve it.)",
+   "reason": "compiler produced an empty cast: not simulatable as a social scene (UNRESOLVABLE: The question asks about a natural weather event, which is not a social decision or action that can be simulated through actor choices and interactions.)",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.48,
+   "wall_s": 1.83,
    "actors": [],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_unseen_final/no_party_weather"
   },
@@ -232,12 +233,12 @@
    "category": "history",
    "historical": false,
    "status": "abstained",
-   "reason": "compiler: UNRESOLVABLE: The question is a past counterfactual that cannot be resolved by observing future events in a simulation starting in 1941, as the actual historical outcome is known and the counterfactual cannot be observed.",
+   "reason": "compiler: UNRESOLVABLE: The question is a past counterfactual that cannot be resolved by observing future events in a simulation starting in 1941, as the actual historical outcome is known and the counterfactual cannot be tested.",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 4.56,
+   "wall_s": 4.73,
    "actors": [
-    "Allied Powers (UK, USSR, and other allies)",
+    "Allied Powers (UK, USSR, and other Allies)",
     "Axis Powers (Germany, Italy, Japan)"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_unseen_final/past_counterfactual"
@@ -251,10 +252,10 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.99,
+   "wall_s": 4.57,
    "actors": [
     "Alex Torres",
-    "Editor (Daily Chronicle)"
+    "Editor"
    ],
    "out_dir": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/scene_acceptance/dataset_unseen_final/reporter_publishes_article"
   },
@@ -267,7 +268,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 4.29,
+   "wall_s": 4.39,
    "actors": [
     "Dr. Emily Zhao"
    ],
@@ -282,7 +283,7 @@
    "reason": "",
    "semantic_calls": 2,
    "provider_requests": 2,
-   "wall_s": 3.94,
+   "wall_s": 4.35,
    "actors": [
     "Ms. Laura Kim",
     "John"
@@ -298,7 +299,7 @@
    "reason": "compiler: UNRESOLVABLE: The question asks about John's internal feeling of happiness, which is not directly observable. No observable proxy for happiness is provided in the question or context.",
    "semantic_calls": 1,
    "provider_requests": 1,
-   "wall_s": 2.48,
+   "wall_s": 2.73,
    "actors": [
     "John"
    ],
@@ -309,12 +310,12 @@
   "total": 20,
   "sufficient": {
    "n": 15,
-   "compiled_first_pass": 93.3,
+   "compiled_first_pass": 100.0,
    "corrected": 0.0,
    "schema_success": 100.0,
-   "instantiated": 93.3,
+   "instantiated": 100.0,
    "abstained": 0,
-   "failed": 1
+   "failed": 0
   },
   "insufficient": {
    "n": 5,
@@ -328,15 +329,9 @@
    "over_budget": 0
   },
   "wall_s": {
-   "median": 4.38,
-   "p95": 4.99
+   "median": 4.425,
+   "p95": 4.93
   },
-  "failures": [
-   {
-    "id": "neighbor_feeds_cat",
-    "status": "failed",
-    "reason": "VALIDATION_FAILED: starting_events[0].visible_to: 'Tom\u00e1s' does not resolve to a declared actor"
-   }
-  ]
+  "failures": []
  }
 }

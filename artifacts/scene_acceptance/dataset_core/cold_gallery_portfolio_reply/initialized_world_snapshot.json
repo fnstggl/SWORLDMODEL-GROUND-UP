@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Ines is the curator at Marlin Bay gallery. She receives many unsolicited portfolios and typically only replies personally to those that strongly interest her. She has no prior knowledge of Yusuf.",
+     "content": "Ines is the curator at Marlin Bay gallery. She receives unsolicited portfolios and sometimes replies personally if she finds the work interesting, but often only sends automated acknowledgments. She does not know Yusuf.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-10T11:00:00+00:00"
     },
     {
-     "content": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email. The gallery has an automated acknowledgment system that replies to incoming emails. Ines can choose to reply personally if she wishes.",
+     "content": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email or postal mail. The gallery has an automated acknowledgment system for incoming submissions.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-10T11:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Yusuf is a painter who has prepared a portfolio of his work. He wants to get noticed by Marlin Bay gallery and hopes for a personal reply from curator Ines Duarte. He has no prior relationship with Ines.",
+     "content": "Yusuf is a painter who has prepared a portfolio of his work. He wants to send it to Marlin Bay gallery curator Ines Duarte in hopes of getting a response beyond an automated acknowledgment. He has no prior relationship with Ines.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-10T11:00:00+00:00"
     },
     {
-     "content": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email. The gallery has an automated acknowledgment system that replies to incoming emails. Ines can choose to reply personally if she wishes.",
+     "content": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email or postal mail. The gallery has an automated acknowledgment system for incoming submissions.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-10T11:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Painter Yusuf Ndiaye is sending an unsolicited portfolio to Marlin Bay gallery curator Ines Duarte. Will Ines reply with anything beyond an automated acknowledgment within six weeks?",
-  "scene:shared_context": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email. The gallery has an automated acknowledgment system that replies to incoming emails. Ines can choose to reply personally if she wishes."
+  "scene:shared_context": "Yusuf has a portfolio ready to send to Ines at Marlin Bay gallery via email or postal mail. The gallery has an automated acknowledgment system for incoming submissions."
  },
  "history": [],
  "infos": {},

@@ -1,7 +1,7 @@
 {
- "sunmark_housing_cooperative_board": {
-  "id": "sunmark_housing_cooperative_board",
-  "name": "Sunmark housing cooperative board",
+ "sunmark_housing_cooperative_membership_as_a_whole": {
+  "id": "sunmark_housing_cooperative_membership_as_a_whole",
+  "name": "Sunmark housing cooperative (membership as a whole)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,56 +23,13 @@
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "The board has called a special general meeting for September 12 to vote on amending the pet policy. They are aware of the two-thirds member turnout requirement in the bylaws. They have sent notices to all members about the meeting and the proposed amendment.",
+    "content": "Each member has their own schedule, priorities, and views on the pet policy amendment. No member knows how many others will attend.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-01T07:00:00+00:00",
     "kind": "context",
-    "content": "Sunmark housing cooperative's bylaws require a two-thirds turnout of all members for a special general meeting to be valid. The special general meeting is scheduled for September 12, 2026. The meeting will decide on a proposed amendment to the pet policy. Members have been notified of the meeting and the agenda.",
-    "source": "scene_manifest:shared_context"
-   }
-  ],
-  "plan": "",
-  "reconsider": [],
-  "ongoing_action": null,
-  "last_decision_at": null,
-  "available_info": [],
-  "noticed_info": [],
-  "unprocessed_info": [],
-  "deferred_wakes": []
- },
- "sunmark_housing_cooperative_members": {
-  "id": "sunmark_housing_cooperative_members",
-  "name": "Sunmark housing cooperative members",
-  "role": "actor",
-  "tz": "UTC",
-  "attention": {
-   "scene": {
-    "calendar": null,
-    "check_every_seconds": null,
-    "basis": "verified",
-    "note": "events declared visible to this actor are directly experienced"
-   }
-  },
-  "goals": [],
-  "values": [],
-  "emotional_state": "",
-  "physical_state": "",
-  "beliefs": {},
-  "relationships": {},
-  "commitments": {},
-  "memories": [
-   {
-    "t": "2026-09-01T07:00:00+00:00",
-    "kind": "context",
-    "content": "Each member has received notice of the special general meeting on September 12 regarding the pet policy amendment. Members have varying levels of interest in the pet policy and may or may not plan to attend. Some members may be unable to attend due to other commitments.",
-    "source": "scene_manifest:private_context"
-   },
-   {
-    "t": "2026-09-01T07:00:00+00:00",
-    "kind": "context",
-    "content": "Sunmark housing cooperative's bylaws require a two-thirds turnout of all members for a special general meeting to be valid. The special general meeting is scheduled for September 12, 2026. The meeting will decide on a proposed amendment to the pet policy. Members have been notified of the meeting and the agenda.",
+    "content": "Sunmark housing cooperative's bylaws require a two-thirds turnout of all members to amend the pet policy. A special general meeting has been called for September 12, 2026, to vote on the amendment. The meeting will be held at a specific time and location known to all members. Members may attend in person or by proxy as permitted by the bylaws.",
     "source": "scene_manifest:shared_context"
    }
   ],

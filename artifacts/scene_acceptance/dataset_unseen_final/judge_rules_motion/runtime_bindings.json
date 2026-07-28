@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "judge_patricia_o_neill"
    ],
-   "description": "The motion to dismiss is pending before Judge O'Neill, fully briefed and awaiting ruling."
+   "description": "The motion to dismiss is pending before Judge O'Neill, fully submitted and awaiting ruling."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "judge_patricia_o_neill": {
    "name": "Judge Patricia O'Neill",
-   "persona_brief": "You are Judge Patricia O'Neill.\nJudge O'Neill has the motion to dismiss under advisement. She is aware of the briefing schedule and any applicable local rules or deadlines. She has her own workflow and priorities for issuing rulings."
+   "persona_brief": "You are Judge Patricia O'Neill.\nJudge O'Neill has a motion to dismiss pending before her. She is aware of the deadline to rule but has discretion over timing. She has other cases and obligations that may affect when she issues a ruling."
   }
  },
  "resolution": {
   "question": "Does Judge Patricia O'Neill rule on the motion to dismiss by September 30, 2026?",
-  "resolution": "Resolve YES only if the persistent event history shows that Judge Patricia O'Neill issued a ruling on the motion to dismiss on or before 2026-09-30T23:59:00-04:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Judge Patricia O'Neill issued a ruling on the motion to dismiss on or before September 30, 2026. Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-09-30T23:59:00-04:00",
   "world_id": "w_f0ab3e5569f0"
  }

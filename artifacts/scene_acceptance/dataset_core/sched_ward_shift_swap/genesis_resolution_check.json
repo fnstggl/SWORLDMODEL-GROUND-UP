@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Nurse Karolina posted in her ward's swap channel asking someone to take her Sunday night shift. Will a colleague claim it before the rota locks Friday at 15:00?",
-  "resolution": "Resolve YES only if the persistent event history shows that a colleague actually claimed the shift before 2026-08-14T15:00:00+02:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the Sunday night shift before Friday 2026-08-14T15:00:00+02:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-14T15:00:00+02:00",
   "world_id": "w_53084529bcac"
  },

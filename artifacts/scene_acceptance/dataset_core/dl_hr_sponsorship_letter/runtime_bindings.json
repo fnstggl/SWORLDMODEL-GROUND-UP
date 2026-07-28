@@ -13,7 +13,7 @@
     "kwame",
     "hr_team"
    ],
-   "description": "Kwame has submitted a request to the HR team for a sponsorship letter needed for his visa renewal."
+   "description": "Kwame has requested a sponsorship letter from the HR team, but the letter has not yet been issued."
   }
  ],
  "code_owned_defaults": {
@@ -33,7 +33,7 @@
  },
  "resolution": {
   "question": "Will Kwame get his employer's HR team to issue the sponsorship letter he needs before his visa-renewal appointment on the 9th?",
-  "resolution": "Resolve YES only if the persistent event history shows that the HR team actually issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that the HR team actually issued the sponsorship letter to Kwame before 2026-11-09T09:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-09T09:00:00+01:00",
   "world_id": "w_cb04c71e345a"
  }

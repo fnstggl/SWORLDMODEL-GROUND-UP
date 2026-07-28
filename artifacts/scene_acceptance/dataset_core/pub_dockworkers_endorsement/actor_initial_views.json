@@ -1,7 +1,7 @@
 {
- "marlin_bay_dockworkers_union_local_executive_board": {
-  "id": "marlin_bay_dockworkers_union_local_executive_board",
-  "name": "Marlin Bay dockworkers' union local executive board",
+ "rank_and_file_caucus": {
+  "id": "rank_and_file_caucus",
+  "name": "Rank-and-File Caucus",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse the memorandum.",
+    "content": "The caucus has been leafleting against the memorandum. They want the local to oppose it.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The local's executive board has not yet issued a press release regarding endorsement of the port automation memorandum. The international union endorsed a similar deal at another port last month. The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local can issue a press release at any time before Monday.",
+    "content": "The local's executive board has not yet issued a press release about the port automation memorandum. The international union endorsed a similar deal at another port last month. The local is considering whether to issue a press release before Monday (2026-08-31).",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "marlin_bay_dockworkers_union_local_rank_and_file_caucus": {
-  "id": "marlin_bay_dockworkers_union_local_rank_and_file_caucus",
-  "name": "Marlin Bay dockworkers' union local rank-and-file caucus",
+ "union_local_executive_board": {
+  "id": "union_local_executive_board",
+  "name": "Union Local Executive Board",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The caucus has been leafleting against the port automation memorandum. They want the local to oppose it.",
+    "content": "The board met twice last week without issuing a statement on the port automation memorandum. They are aware of the international union's endorsement of a similar deal at another port last month. They have not yet decided whether to endorse or oppose the memorandum.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-27T16:00:00+00:00",
     "kind": "context",
-    "content": "The local's executive board has not yet issued a press release regarding endorsement of the port automation memorandum. The international union endorsed a similar deal at another port last month. The local's executive board met twice last week without issuing a statement. A rank-and-file caucus has been leafleting against the memorandum. The local can issue a press release at any time before Monday.",
+    "content": "The local's executive board has not yet issued a press release about the port automation memorandum. The international union endorsed a similar deal at another port last month. The local is considering whether to issue a press release before Monday (2026-08-31).",
     "source": "scene_manifest:shared_context"
    }
   ],

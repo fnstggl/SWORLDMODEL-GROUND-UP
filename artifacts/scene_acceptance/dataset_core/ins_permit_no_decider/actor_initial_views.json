@@ -23,13 +23,13 @@
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "The Applicant has submitted a permit application to the relevant authority and is awaiting a decision. They have no special influence or inside knowledge about the decision process.",
+    "content": "The Applicant has submitted a permit application and is awaiting approval. They have no special influence or inside knowledge about the review process.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "A permit application has been submitted by the Applicant to the Permit Authority. The Permit Authority has a standard review process that may involve checks, consultations, and internal approvals. The deadline for a decision is the end of August 2026.",
+    "content": "A permit application has been submitted and is under review. The deadline for approval is the end of August 2026. The review process involves checking compliance with regulations, and the decision is made by the Permit Reviewer.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "permit_authority": {
-  "id": "permit_authority",
-  "name": "Permit Authority",
+ "permit_reviewer": {
+  "id": "permit_reviewer",
+  "name": "Permit Reviewer",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "The Permit Authority is the organization responsible for reviewing and approving or denying permit applications. They have standard procedures and a backlog of applications. They have not yet made a decision on this application.",
+    "content": "The Permit Reviewer is responsible for evaluating the application and making a decision. They have a standard workload and follow established procedures.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-07-27T14:00:00+00:00",
     "kind": "context",
-    "content": "A permit application has been submitted by the Applicant to the Permit Authority. The Permit Authority has a standard review process that may involve checks, consultations, and internal approvals. The deadline for a decision is the end of August 2026.",
+    "content": "A permit application has been submitted and is under review. The deadline for approval is the end of August 2026. The review process involves checking compliance with regulations, and the decision is made by the Permit Reviewer.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,7 +1,7 @@
 {
- "herrera_cousins_14_individuals": {
-  "id": "herrera_cousins_14_individuals",
-  "name": "Herrera cousins (14 individuals)",
+ "herrera_cousins_14_individuals_in_group_chat": {
+  "id": "herrera_cousins_14_individuals_in_group_chat",
+  "name": "Herrera cousins (14 individuals in group chat)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-01T16:00:00+00:00",
     "kind": "context",
-    "content": "Each cousin has their own preferences and availability for the reunion. Three cousins strongly prefer Oaxaca, two prefer San Antonio, and the rest have not expressed a strong preference. Tia Marisol, the eldest, says she will go with the majority but keeps changing the subject to catering. No date or location has been agreed upon yet.",
+    "content": "Each cousin has their own preferences and constraints for the reunion. Three cousins privately prefer Oaxaca, two prefer San Antonio, and the others have not stated a strong preference. Tia Marisol, the eldest, privately intends to go with the majority but is more focused on catering details.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-01T16:00:00+00:00",
     "kind": "context",
-    "content": "The fourteen Herrera cousins are in a group chat that has been active for a month. They are trying to agree on a weekend and a town for next spring's family reunion. The chat is the only communication channel for this decision. The deadline to decide is the end of September 2026.",
+    "content": "The Herrera cousins have an active group chat that has been running for a month. The chat includes all 14 cousins. The topic of the next spring's family reunion has been discussed, with three cousins advocating for Oaxaca, two for San Antonio, and Tia Marisol frequently changing the subject to catering. No decision on weekend or town has been made yet.",
     "source": "scene_manifest:shared_context"
    }
   ],

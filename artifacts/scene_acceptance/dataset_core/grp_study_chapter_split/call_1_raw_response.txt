@@ -2,32 +2,32 @@
   "actors": [
     {
       "name": "Student 1",
-      "private_context": "Student 1 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation."
+      "private_context": "Student 1 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
     },
     {
       "name": "Student 2",
-      "private_context": "Student 2 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation."
+      "private_context": "Student 2 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
     },
     {
       "name": "Student 3",
-      "private_context": "Student 3 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation."
+      "private_context": "Student 3 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
     },
     {
       "name": "Student 4",
-      "private_context": "Student 4 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation."
+      "private_context": "Student 4 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
     },
     {
       "name": "Student 5",
-      "private_context": "Student 5 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation."
+      "private_context": "Student 5 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present."
     }
   ],
-  "shared_context": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
+  "shared_context": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting.",
   "starting_events": [
     {
       "time": "2026-08-19T19:00:00+08:00",
-      "description": "The five students begin their meeting to discuss chapter assignments for Saturday's session.",
+      "description": "The five students begin their meeting to discuss and agree on who presents which chapter at Saturday's session.",
       "visible_to": ["Student 1", "Student 2", "Student 3", "Student 4", "Student 5"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that all five students have explicitly agreed on a complete assignment of which student presents which chapter before 2026-08-19T23:00:00+08:00. Otherwise resolve NO at the cutoff."
+  "resolution": "Resolve YES only if the persistent event history shows that by 2026-08-19T23:00:00+08:00, all five students have explicitly agreed on a complete assignment of each chapter to a presenter for Saturday's session. Otherwise resolve NO at the cutoff."
 }

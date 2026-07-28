@@ -5,20 +5,20 @@
    "private_context": "Karolina wants someone to take her Sunday night shift. She has posted a request in the ward's swap channel."
   },
   {
-   "name": "Colleagues (ward nurses)",
-   "private_context": "Each colleague may check the swap channel and decide whether to claim the shift based on their own preferences and availability."
+   "name": "Colleagues in the ward",
+   "private_context": "Each colleague may see the swap channel post and decide whether to claim the shift. They have their own preferences and availability."
   }
  ],
- "shared_context": "The ward has a swap channel where nurses can post shift swap requests. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
+ "shared_context": "The ward has a swap channel where shift requests are posted. The rota locks on Friday at 15:00. Karolina's post is visible to all colleagues in the channel.",
  "starting_events": [
   {
    "time": "2026-08-12T05:30:00+00:00",
-   "description": "Nurse Karolina posts in the ward's swap channel asking someone to take her Sunday night shift.",
+   "description": "Nurse Karolina posts a request in the ward's swap channel asking someone to take her Sunday night shift.",
    "visible_to": [
     "Nurse Karolina",
-    "Colleagues (ward nurses)"
+    "Colleagues in the ward"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that a colleague actually claimed the shift before 2026-08-14T15:00:00+02:00. Otherwise resolve NO at that time."
+ "resolution": "Resolve YES if the persistent event history shows that a colleague claimed the Sunday night shift before Friday 2026-08-14T15:00:00+02:00. Otherwise resolve NO at that time."
 }

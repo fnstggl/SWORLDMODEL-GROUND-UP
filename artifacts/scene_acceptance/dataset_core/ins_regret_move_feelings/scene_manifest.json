@@ -2,22 +2,22 @@
  "actors": [
   {
    "name": "User",
-   "private_context": "The user is considering moving in with their partner and is uncertain about the decision. They have private feelings, hopes, and concerns about the relationship and cohabitation."
+   "private_context": "The user is considering moving in with their partner and is uncertain about the decision. They have private feelings and expectations about the relationship and cohabitation."
   },
   {
    "name": "Partner",
-   "private_context": "The partner is the user's romantic partner. They have their own feelings, expectations, and private thoughts about the relationship and the prospect of moving in together."
+   "private_context": "The partner is the user's romantic partner. They have their own feelings and expectations about moving in together, but these are not known to the user."
   }
  ],
- "shared_context": "The user and their partner are in a romantic relationship and have discussed moving in together. They have not yet made a final decision or taken concrete steps toward cohabitation. The user is experiencing doubt about whether this move will lead to regret.",
+ "shared_context": "The user and their partner are in a romantic relationship and have discussed moving in together. They have not yet moved in, but the decision is pending. The move-in date, if it happens, is not specified.",
  "starting_events": [
   {
    "time": "2026-09-01T09:00:00+10:00",
-   "description": "The user is contemplating the decision to move in with their partner, with no action taken yet.",
+   "description": "The user is contemplating the decision to move in with their partner. No action has been taken yet.",
    "visible_to": [
     "User"
    ]
   }
  ],
- "resolution": "UNRESOLVABLE: The question asks about an internal emotional state ('regret') that is not directly observable, and no observable proxy for regret is provided in the question or context."
+ "resolution": "UNRESOLVABLE: The question asks about an internal state ('regret') with no observable proxy provided. Regret is a subjective feeling that cannot be directly observed in the simulation's event history."
 }

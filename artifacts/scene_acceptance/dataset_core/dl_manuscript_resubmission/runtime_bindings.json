@@ -2,8 +2,8 @@
  "world_id": "w_c31314534ade",
  "actor_ids": {
   "Dr. Tanaka": "dr_tanaka",
-  "Co-author 1": "co_author_1",
-  "Co-author 2": "co_author_2"
+  "Co-author A": "co_author_a",
+  "Co-author B": "co_author_b"
  },
  "event_records": [
   {
@@ -12,10 +12,10 @@
    "at": "2026-08-24T00:00:00+00:00",
    "visible_to_ids": [
     "dr_tanaka",
-    "co_author_1",
-    "co_author_2"
+    "co_author_a",
+    "co_author_b"
    ],
-   "description": "The 14-day resubmission window begins. Dr. Tanaka and co-authors have not yet uploaded the revised manuscript."
+   "description": "The 14-day resubmission deadline clock starts ticking. Dr. Tanaka and her two co-authors are aware they need to upload the revised manuscript before the deadline."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "dr_tanaka": {
    "name": "Dr. Tanaka",
-   "persona_brief": "You are Dr. Tanaka.\nTanaka is the lead author responsible for integrating the revised manuscript. She has blocked out the final weekend (August 29-30) to compile all contributions. She is aware of the 14-day resubmission deadline and wants to meet it."
+   "persona_brief": "You are Dr. Tanaka.\nTanaka is the lead author responsible for integrating the revised manuscript. She has blocked out the final weekend (August 29-30) to complete the integration. She is aware of the 14-day resubmission deadline and that one co-author has limited email access until September 1."
   },
-  "co_author_1": {
-   "name": "Co-author 1",
-   "persona_brief": "You are Co-author 1.\nThis co-author is at a field station with patchy email access until September 1. They have contributed writing but may have limited ability to send or receive large files before then."
+  "co_author_a": {
+   "name": "Co-author A",
+   "persona_brief": "You are Co-author A.\nCo-author A is at a field station with patchy email until September 1. They have contributed to the revisions and need to send their final input to Tanaka."
   },
-  "co_author_2": {
-   "name": "Co-author 2",
-   "persona_brief": "You are Co-author 2.\nThis co-author has typical email access and is expected to provide their revisions. No special constraints are known."
+  "co_author_b": {
+   "name": "Co-author B",
+   "persona_brief": "You are Co-author B.\nCo-author B has normal email access and has contributed to the revisions. They are expected to send their final input to Tanaka."
   }
  },
  "resolution": {
   "question": "Will Dr. Tanaka and her two co-authors upload their revised manuscript before the journal's fourteen-day resubmission deadline expires?",
-  "resolution": "Resolve YES only if the persistent event history shows that the revised manuscript was successfully uploaded to the journal's submission system before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the revised manuscript was uploaded by all three authors (Dr. Tanaka, Co-author A, Co-author B) before 2026-09-07T23:59:00+09:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-07T23:59:00+09:00",
   "world_id": "w_c31314534ade"
  }

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will Ostara Foods' support desk resolve, or at least substantively reply to, customer Hana Suzuki's complaint about a moldy delivery within its advertised 24-hour window?",
-  "resolution": "Resolve YES only if the persistent event history shows that Ostara Foods' support desk sent a substantive reply to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. A substantive reply is one that addresses the complaint (e.g., offers a resolution, asks for more details, or acknowledges the issue with intent to resolve). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that Ostara Foods' support desk sent a substantive reply (not an automated acknowledgment) to Hana Suzuki's complaint before 2026-08-20T13:00:00+09:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-20T13:00:00+09:00",
   "world_id": "w_e99cf479af52"
  },

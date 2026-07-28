@@ -2,32 +2,22 @@
  "world_id": "w_d70b06ec32f6",
  "actor_ids": {
   "Chair": "chair",
-  "Member 1": "member_1",
-  "Member 2": "member_2",
-  "Member 3": "member_3",
-  "Member 4": "member_4",
-  "Member 5": "member_5",
-  "Member 6": "member_6",
-  "Member 7": "member_7",
-  "Member 8": "member_8"
+  "Three confirmed members": "three_confirmed_members",
+  "Two traveling members": "two_traveling_members",
+  "Remaining four members": "remaining_four_members"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 32,
+   "ledger_seq": 17,
    "at": "2026-08-09T15:00:00+00:00",
    "visible_to_ids": [
     "chair",
-    "member_1",
-    "member_2",
-    "member_3",
-    "member_4",
-    "member_5",
-    "member_6",
-    "member_7",
-    "member_8"
+    "three_confirmed_members",
+    "two_traveling_members",
+    "remaining_four_members"
    ],
-   "description": "The rescheduled Tuesday evening meeting is upcoming. Three members have confirmed attendance; two members are traveling and cannot attend; the chair intends to attend; three members have not yet confirmed."
+   "description": "The rescheduled Tuesday evening meeting is set to occur during the school-holiday week."
   }
  ],
  "code_owned_defaults": {
@@ -40,42 +30,22 @@
    "name": "Chair",
    "persona_brief": "You are Chair.\nThe chair has never missed a session and intends to attend this rescheduled meeting."
   },
-  "member_1": {
-   "name": "Member 1",
-   "persona_brief": "You are Member 1.\nHas already confirmed attendance for the rescheduled Tuesday evening meeting."
+  "three_confirmed_members": {
+   "name": "Three confirmed members",
+   "persona_brief": "You are Three confirmed members.\nEach of these three members has confirmed attendance for the rescheduled Tuesday evening meeting."
   },
-  "member_2": {
-   "name": "Member 2",
-   "persona_brief": "You are Member 2.\nHas already confirmed attendance for the rescheduled Tuesday evening meeting."
+  "two_traveling_members": {
+   "name": "Two traveling members",
+   "persona_brief": "You are Two traveling members.\nThese two members are traveling during the school-holiday week and are unlikely to attend."
   },
-  "member_3": {
-   "name": "Member 3",
-   "persona_brief": "You are Member 3.\nHas already confirmed attendance for the rescheduled Tuesday evening meeting."
-  },
-  "member_4": {
-   "name": "Member 4",
-   "persona_brief": "You are Member 4.\nIs traveling during the school-holiday week and cannot attend the rescheduled meeting."
-  },
-  "member_5": {
-   "name": "Member 5",
-   "persona_brief": "You are Member 5.\nIs traveling during the school-holiday week and cannot attend the rescheduled meeting."
-  },
-  "member_6": {
-   "name": "Member 6",
-   "persona_brief": "You are Member 6.\nHas not yet confirmed attendance; may or may not attend."
-  },
-  "member_7": {
-   "name": "Member 7",
-   "persona_brief": "You are Member 7.\nHas not yet confirmed attendance; may or may not attend."
-  },
-  "member_8": {
-   "name": "Member 8",
-   "persona_brief": "You are Member 8.\nHas not yet confirmed attendance; may or may not attend."
+  "remaining_four_members": {
+   "name": "Remaining four members",
+   "persona_brief": "You are Remaining four members.\nThese four members have not yet confirmed attendance; their availability is uncertain."
   }
  },
  "resolution": {
   "question": "The Marlin Bay harbor advisory committee needs five of its nine members present to act. Will it reach quorum at its rescheduled Tuesday evening meeting?",
-  "resolution": "Resolve YES only if the persistent event history shows that at least five members (including the chair) are actually present at the rescheduled Tuesday evening meeting before the meeting's end. Otherwise resolve NO at the hard cutoff 2026-08-11T21:00:00-07:00.",
+  "resolution": "Resolve YES only if the persistent event history shows that at least five members (including the chair) are actually present at the meeting before the meeting ends or by 2026-08-11T21:00:00-07:00, whichever is earlier. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-11T21:00:00-07:00",
   "world_id": "w_d70b06ec32f6"
  }

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Anouk is a freelance journalist launching a new energy podcast. She has 9,000 newsletter subscribers. She has prepared a cold email to the founder of Veldt Solar, asking for a 30-minute interview, offering questions in advance and a publication date. She wants a reply within two weeks.",
+     "content": "Anouk is a freelance journalist launching a new energy podcast. She has 9,000 newsletter subscribers. She wants to invite the founder of Veldt Solar onto the podcast for a 30-minute interview, offering questions in advance and a publication date. She has drafted a cold email to send.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-05T07:00:00+00:00"
     },
     {
-     "content": "Anouk Visser has the email address of the founder of Veldt Solar and can send an email. The founder can reply via email if they choose.",
+     "content": "Anouk Visser has prepared a cold email to the founder of Veldt Solar inviting her onto a new energy podcast. The email offers a 30-minute interview, questions in advance, and a publication date. The founder can reply via email.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-05T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The founder of Veldt Solar receives many unsolicited emails. They may or may not respond to interview requests depending on interest, time, and alignment with their priorities. They have no prior relationship with Anouk Visser.",
+     "content": "The founder of Veldt Solar receives unsolicited emails. They may or may not respond to interview requests depending on interest, time, and alignment with their priorities.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-05T07:00:00+00:00"
     },
     {
-     "content": "Anouk Visser has the email address of the founder of Veldt Solar and can send an email. The founder can reply via email if they choose.",
+     "content": "Anouk Visser has prepared a cold email to the founder of Veldt Solar inviting her onto a new energy podcast. The email offers a 30-minute interview, questions in advance, and a publication date. The founder can reply via email.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-05T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
-  "scene:shared_context": "Anouk Visser has the email address of the founder of Veldt Solar and can send an email. The founder can reply via email if they choose."
+  "scene:shared_context": "Anouk Visser has prepared a cold email to the founder of Veldt Solar inviting her onto a new energy podcast. The email offers a 30-minute interview, questions in advance, and a publication date. The founder can reply via email."
  },
  "history": [],
  "infos": {},

@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
-  "resolution": "Resolve YES only if the persistent event history shows that the subtitling agency actually sent a response (any form of communication) to Noor Haddad regarding the test piece before the one-month deadline from the submission date. The submission date is an unknown that the simulation can establish. Otherwise resolve NO at the deadline.",
+  "resolution": "Resolve YES if the persistent event history shows that the subtitling agency actually sent a response to Noor Haddad before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-10-02T10:00:00+02:00",
   "world_id": "w_082487898991"
  },

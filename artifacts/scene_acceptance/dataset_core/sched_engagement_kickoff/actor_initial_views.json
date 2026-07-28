@@ -23,13 +23,13 @@
    {
     "t": "2026-10-06T16:30:00+00:00",
     "kind": "context",
-    "content": "The firm signed a new client this morning and wants to schedule a kickoff meeting. The partner handling the client is eager to set a time within 72 hours.",
+    "content": "Loomis & Hale LLP signed a new client this morning. They want to schedule a kickoff meeting soon. They have internal calendars and preferences for meeting times.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-06T16:30:00+00:00",
     "kind": "context",
-    "content": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both sides have access to standard communication channels (email, phone) to coordinate a meeting time. The 72-hour window ends at 2026-10-09T09:30:00-07:00.",
+    "content": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the contact information to communicate about scheduling a kickoff meeting. The deadline for agreement is 72 hours from the signing, i.e., 2026-10-09T09:30:00-07:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-06T16:30:00+00:00",
     "kind": "context",
-    "content": "The client signed an engagement letter with Loomis & Hale LLP this morning. They are open to scheduling a kickoff meeting but have their own calendar constraints.",
+    "content": "The new client signed an engagement letter with Loomis & Hale LLP this morning. They are available to discuss scheduling a kickoff meeting. They have their own calendar and preferences.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-06T16:30:00+00:00",
     "kind": "context",
-    "content": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both sides have access to standard communication channels (email, phone) to coordinate a meeting time. The 72-hour window ends at 2026-10-09T09:30:00-07:00.",
+    "content": "The engagement letter was signed at 2026-10-06T09:30:00-07:00. Both parties have the contact information to communicate about scheduling a kickoff meeting. The deadline for agreement is 72 hours from the signing, i.e., 2026-10-09T09:30:00-07:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

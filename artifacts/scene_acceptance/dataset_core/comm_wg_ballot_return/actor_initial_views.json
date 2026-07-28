@@ -1,7 +1,7 @@
 {
- "interchange_format_working_group_21_members": {
-  "id": "interchange_format_working_group_21_members",
-  "name": "Interchange Format Working Group (21 members)",
+ "interchange_format_working_group": {
+  "id": "interchange_format_working_group",
+  "name": "Interchange Format Working Group",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-08-15T00:00:00+00:00",
     "kind": "context",
-    "content": "Each member has their own schedule, priorities, and level of engagement with the draft revision. Some may be more diligent about returning ballots, others may be less so. No member has a known commitment to return the ballot by the deadline.",
+    "content": "The group consists of 21 members who are expected to review and return ballots on draft revision 4. Each member has their own schedule and priorities; some may be more diligent than others.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-15T00:00:00+00:00",
     "kind": "context",
-    "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for ballot. The comment period closes at the hard cutoff: 2026-09-15T23:59:00+00:00. Ballots are returned individually by members. The group has no formal enforcement mechanism for ballot return.",
+    "content": "The Interchange Format Working Group has 21 members. Draft revision 4 has been circulated for ballot. The comment period closes at the hard cutoff: 2026-09-15T23:59:00+00:00. Ballots are returned individually by members.",
     "source": "scene_manifest:shared_context"
    }
   ],

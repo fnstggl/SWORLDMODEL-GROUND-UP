@@ -23,13 +23,13 @@
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "Petra is a senior colorist currently employed elsewhere and is happily employed. She has no prior relationship with the recruiter or Torchlight Media. She may or may not check messages from unknown senders.",
+    "content": "Petra is a senior colorist currently employed elsewhere and is happily employed. She has no prior relationship with the recruiter or Torchlight Media. She may or may not check the channel through which the message is sent.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter can send a message to Petra via a professional networking platform or email, and Petra can reply through the same channel. The message is a first-contact inquiry about an opening at Torchlight Media.",
+    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra may receive the message and may choose to reply or not. The business days are Monday to Friday, starting 2026-09-07 (Monday) through 2026-09-11 (Friday). The deadline for a reply is 2026-09-11T18:00:00+02:00 (end of business day Friday).",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -42,9 +42,9 @@
   "unprocessed_info": [],
   "deferred_wakes": []
  },
- "recruiter_from_torchlight_media": {
-  "id": "recruiter_from_torchlight_media",
-  "name": "Recruiter from Torchlight Media",
+ "recruiter": {
+  "id": "recruiter",
+  "name": "Recruiter",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter has identified Petra Kovac as a potential candidate for an opening at Torchlight Media. They have prepared a first-contact message to send to Petra.",
+    "content": "The recruiter works for Torchlight Media and is tasked with filling an opening. They have identified Petra Kovac as a potential candidate and have prepared a first-contact message to send to her.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-07T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter can send a message to Petra via a professional networking platform or email, and Petra can reply through the same channel. The message is a first-contact inquiry about an opening at Torchlight Media.",
+    "content": "The recruiter has a way to contact Petra (e.g., email or LinkedIn message). Petra may receive the message and may choose to reply or not. The business days are Monday to Friday, starting 2026-09-07 (Monday) through 2026-09-11 (Friday). The deadline for a reply is 2026-09-11T18:00:00+02:00 (end of business day Friday).",
     "source": "scene_manifest:shared_context"
    }
   ],

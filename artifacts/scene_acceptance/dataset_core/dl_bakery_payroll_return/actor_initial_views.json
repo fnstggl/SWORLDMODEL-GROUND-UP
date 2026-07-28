@@ -23,13 +23,13 @@
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She knows the deadline is the end of the month. She has access to the necessary payroll records and filing system.",
+    "content": "The bookkeeper has filed the quarterly payroll return on time for the last seven quarters. She is aware of the month-end deadline and has a routine for preparing and submitting the return.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The quarterly payroll return is due before the revenue service's month-end deadline, which is 2026-10-31. The bookkeeper has filed on time for the past seven quarters. The bakery operates normally during this period.",
+    "content": "The quarterly payroll return is due before the end of October 2026. The revenue service's month-end deadline is October 31, 2026. The bookkeeper has access to the necessary payroll records and filing system.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The bakery expects the bookkeeper to file the return as usual. It has provided the bookkeeper with the payroll data for the quarter.",
+    "content": "The bakery relies on the bookkeeper to handle payroll filings. It has no specific knowledge of her current progress on the return.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-19T15:00:00+00:00",
     "kind": "context",
-    "content": "The quarterly payroll return is due before the revenue service's month-end deadline, which is 2026-10-31. The bookkeeper has filed on time for the past seven quarters. The bakery operates normally during this period.",
+    "content": "The quarterly payroll return is due before the end of October 2026. The revenue service's month-end deadline is October 31, 2026. The bookkeeper has access to the necessary payroll records and filing system.",
     "source": "scene_manifest:shared_context"
    }
   ],

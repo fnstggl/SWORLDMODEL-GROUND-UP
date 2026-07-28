@@ -2,20 +2,18 @@
  "world_id": "w_ae66dd5d940a",
  "actor_ids": {
   "Ingrid": "ingrid",
-  "Mattias": "mattias",
-  "Mediator": "mediator"
+  "Mattias": "mattias"
  },
  "event_records": [
   {
    "event_id": "se1",
-   "ledger_seq": 14,
+   "ledger_seq": 11,
    "at": "2026-09-01T08:00:00+00:00",
    "visible_to_ids": [
     "ingrid",
-    "mattias",
-    "mediator"
+    "mattias"
    ],
-   "description": "The negotiation period begins. Ingrid and Mattias are aware of the mediator's final session in six weeks."
+   "description": "Ingrid and Mattias begin negotiations over the December holiday schedule for the children."
   }
  ],
  "code_owned_defaults": {
@@ -30,16 +28,12 @@
   },
   "mattias": {
    "name": "Mattias",
-   "persona_brief": "You are Mattias.\nMattias wants the children for the first week of the December break for a ski trip he has a deposit on. He is aware of Ingrid's family's Lucia gathering. He is on speaking terms with Ingrid and has a lawyer."
-  },
-  "mediator": {
-   "name": "Mediator",
-   "persona_brief": "You are Mediator.\nThe mediator has flagged travel dates as the only open issue between Ingrid and Mattias. They have a final scheduled session in six weeks from the start time."
+   "persona_brief": "You are Mattias.\nMattias wants the children for the December holidays, particularly for the ski trip he has a deposit on for the first week of the break. He is aware of Ingrid's family's Lucia gathering. He is on speaking terms with Ingrid and has a lawyer."
   }
  },
  "resolution": {
   "question": "Separated parents Ingrid and Mattias are negotiating who takes the children for the December holidays. Will they reach a written agreement before their mediator's final scheduled session in six weeks?",
-  "resolution": "Resolve YES only if the persistent event history shows that Ingrid and Mattias have reached a written agreement regarding the December holiday schedule before the mediator's final scheduled session, which is six weeks from 2026-09-01 (i.e., by 2026-10-13T09:00:00+01:00). Otherwise resolve NO at that deadline.",
+  "resolution": "Resolve YES only if the persistent event history shows that Ingrid and Mattias have both signed a written agreement regarding the December holiday schedule for the children before the mediator's final scheduled session on 2026-10-13T17:00:00+01:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-10-13T17:00:00+01:00",
   "world_id": "w_ae66dd5d940a"
  }

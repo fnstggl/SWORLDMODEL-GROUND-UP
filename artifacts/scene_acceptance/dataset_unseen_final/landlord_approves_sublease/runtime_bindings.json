@@ -13,7 +13,7 @@
     "green_properties_inc",
     "sarah_lee"
    ],
-   "description": "Sarah Lee's sublease request is pending review by Green Properties Inc."
+   "description": "Sarah Lee's sublease request is pending with Green Properties Inc. No decision has been made yet."
   }
  ],
  "code_owned_defaults": {
@@ -28,7 +28,7 @@
   },
   "sarah_lee": {
    "name": "Sarah Lee",
-   "persona_brief": "You are Sarah Lee.\nSarah Lee is the tenant who submitted a sublease request to Green Properties Inc. She is awaiting their decision."
+   "persona_brief": "You are Sarah Lee.\nSarah Lee is a tenant of Green Properties Inc. She has submitted a sublease request to Green Properties Inc. and is awaiting their decision. She wants approval by September 20, 2026."
   }
  },
  "resolution": {

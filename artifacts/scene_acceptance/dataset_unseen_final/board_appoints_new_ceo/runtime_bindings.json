@@ -22,12 +22,12 @@
  "personas": {
   "board_of_directors_of_apex_industries": {
    "name": "Board of Directors of Apex Industries",
-   "persona_brief": "You are Board of Directors of Apex Industries.\nThe board is scheduled to meet on September 12, 2026. They have the authority to appoint a new CEO. The board members have their own individual preferences and considerations regarding potential candidates, but no decision has been made yet."
+   "persona_brief": "You are Board of Directors of Apex Industries.\nThe board is scheduled to meet on September 12, 2026. They have the authority to appoint a new CEO. The board members have their own individual preferences and considerations regarding the CEO appointment, but these are not specified."
   }
  },
  "resolution": {
   "question": "Does the board of directors of Apex Industries appoint a new CEO during the September 12, 2026 meeting?",
-  "resolution": "Resolve YES only if the persistent event history shows that the board of directors of Apex Industries formally appoints a new CEO during the meeting, before the meeting adjourns or before 2026-09-12T18:00:00-05:00, whichever comes first. Otherwise resolve NO.",
+  "resolution": "Resolve YES only if the persistent event history shows that the board of directors of Apex Industries actually appointed a new CEO during the meeting, before the hard cutoff at 2026-09-12T18:00:00-05:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-12T18:00:00-05:00",
   "world_id": "w_357cd13df7c7"
  }

@@ -11,7 +11,7 @@
    "visible_to_ids": [
     "parliamentary_transport_committee"
    ],
-   "description": "The rail franchise bill is referred to the parliamentary transport committee, starting the sixty-day window for scheduling a public hearing."
+   "description": "The sixty-day window for scheduling a public hearing on the rail franchise bill opens."
   }
  ],
  "code_owned_defaults": {
@@ -22,12 +22,12 @@
  "personas": {
   "parliamentary_transport_committee": {
    "name": "Parliamentary Transport Committee",
-   "persona_brief": "You are Parliamentary Transport Committee.\nThe committee is responsible for reviewing transport-related legislation. Its rules allow a sixty-day window from the bill's referral to schedule a public hearing. The committee has discretion over scheduling and may consider political factors, workload, and public interest."
+   "persona_brief": "You are Parliamentary Transport Committee.\nThe committee is responsible for scheduling public hearings on transport-related bills. Its members have varying opinions on the rail franchise bill, but no decision has been made yet about scheduling a hearing."
   }
  },
  "resolution": {
   "question": "Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?",
-  "resolution": "Resolve YES only if the persistent event history shows that the parliamentary transport committee actually scheduled a public hearing on the rail franchise bill before 2026-09-30T09:00:00+03:00 (sixty days after referral). Otherwise resolve NO at the hard cutoff of 2026-09-30T18:00:00+03:00.",
+  "resolution": "Resolve YES if the persistent event history shows that the Parliamentary Transport Committee actually scheduled a public hearing on the rail franchise bill before 2026-09-30T18:00:00+03:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T18:00:00+03:00",
   "world_id": "w_04e49ccba4a7"
  }

@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "One of the two directors whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document.",
+     "content": "One of the two required directors who must sign the tender. Their availability and willingness to sign are unknown.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-24T06:00:00+00:00"
     },
     {
-     "content": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to.",
+     "content": "The Valdoria postal-contract tender must be signed by two required directors and submitted before Friday, 2026-08-28 at 12:00. The bid team is working on the tender document. The deadline is approaching.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-24T06:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The other director whose signature is required on the Valdoria postal-contract tender. Has not yet signed the document.",
+     "content": "The other required director who must sign the tender. Their availability and willingness to sign are unknown.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-24T06:00:00+00:00"
     },
     {
-     "content": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to.",
+     "content": "The Valdoria postal-contract tender must be signed by two required directors and submitted before Friday, 2026-08-28 at 12:00. The bid team is working on the tender document. The deadline is approaching.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-24T06:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The team has prepared a tender for the Valdoria postal contract. They need to get the tender document signed by two required directors and submitted before Friday's 12:00 deadline. They are aware of the deadline and the signing requirement.",
+     "content": "The bid team is preparing the Valdoria postal-contract tender. They need to get the contract signed by two required directors and submitted before Friday's 12:00 deadline. They are aware of the deadline and the signing requirement.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-24T06:00:00+00:00"
     },
     {
-     "content": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to.",
+     "content": "The Valdoria postal-contract tender must be signed by two required directors and submitted before Friday, 2026-08-28 at 12:00. The bid team is working on the tender document. The deadline is approaching.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-24T06:00:00+00:00"
@@ -145,7 +145,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will Nimbus Freight's bid team get the Valdoria postal-contract tender signed by both required directors and submitted before Friday's 12:00 deadline?",
-  "scene:shared_context": "Nimbus Freight is bidding for the Valdoria postal contract. The tender document must be signed by two required directors and submitted before Friday's 12:00 deadline (2026-08-28T12:00:00+02:00). The bid team can approach the directors for signatures. The directors are available to sign if they choose to."
+  "scene:shared_context": "The Valdoria postal-contract tender must be signed by two required directors and submitted before Friday, 2026-08-28 at 12:00. The bid team is working on the tender document. The deadline is approaching."
  },
  "history": [],
  "infos": {},

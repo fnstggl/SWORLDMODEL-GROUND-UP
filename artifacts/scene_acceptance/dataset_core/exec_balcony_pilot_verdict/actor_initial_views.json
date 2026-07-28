@@ -23,13 +23,13 @@
    {
     "t": "2026-10-05T07:00:00+00:00",
     "kind": "context",
-    "content": "The pilot team is awaiting the executive team's decision on whether to shelve or greenlight the balcony-panel pilot. They have no direct influence on the decision.",
+    "content": "The pilot team is awaiting the executive team's decision on the balcony-panel pilot. They are not part of the decision-making process.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-05T07:00:00+00:00",
     "kind": "context",
-    "content": "The quarterly review meeting is scheduled to occur during the week starting 2026-10-05. The executive team will decide whether to formally shelve or greenlight the balcony-panel pilot. If a decision is made, it will be communicated to the pilot team the same week.",
+    "content": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The head of product champions it, the CFO wants those engineers on the utility-scale line, and the CEO has stayed publicly neutral. The executive team will decide whether to formally shelve or greenlight the pilot, and if a decision is made, it will be communicated to the pilot team the same week.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-05T07:00:00+00:00",
     "kind": "context",
-    "content": "The executive team (CEO, CFO, head of product, and other relevant executives) will meet at the quarterly review to decide on the balcony-panel pilot. The head of product champions the pilot; the CFO wants engineers reallocated to utility-scale; the CEO is publicly neutral. The team is aware of the pilot's 400-unit sales against a 1,000-unit target, strong reviews, and thin margins.",
+    "content": "The executive team consists of the CEO, CFO, and head of product. They will meet at the quarterly review to decide on the balcony-panel pilot. The CFO wants to reallocate engineers to utility-scale; the head of product champions the pilot; the CEO is publicly neutral. The team is aware of the pilot's 400-unit sales against a 1,000-unit target, strong reviews, and thin margins.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-05T07:00:00+00:00",
     "kind": "context",
-    "content": "The quarterly review meeting is scheduled to occur during the week starting 2026-10-05. The executive team will decide whether to formally shelve or greenlight the balcony-panel pilot. If a decision is made, it will be communicated to the pilot team the same week.",
+    "content": "Veldt Solar's quarterly review is scheduled for 2026-10-05. The balcony-panel pilot sold 400 units against a 1,000-unit target with strong reviews but thin margins. The head of product champions it, the CFO wants those engineers on the utility-scale line, and the CEO has stayed publicly neutral. The executive team will decide whether to formally shelve or greenlight the pilot, and if a decision is made, it will be communicated to the pilot team the same week.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -1,8 +1,8 @@
 {
  "world_id": "w_b8ccf1140398",
  "actor_ids": {
-  "Resident": "resident",
-  "Neighbors": "neighbors"
+  "Neighbor A": "neighbor_a",
+  "Neighbor B": "neighbor_b"
  },
  "event_records": [
   {
@@ -10,10 +10,10 @@
    "ledger_seq": 11,
    "at": "2026-08-01T10:00:00+00:00",
    "visible_to_ids": [
-    "resident",
-    "neighbors"
+    "neighbor_a",
+    "neighbor_b"
    ],
-   "description": "The current situation between the resident and the neighbors is as described in shared_context."
+   "description": "The current state of tension between Neighbor A and Neighbor B is ongoing, with no recent direct communication."
   }
  ],
  "code_owned_defaults": {
@@ -22,18 +22,18 @@
   "scene_channel_latency": "0s (directly experienced)"
  },
  "personas": {
-  "resident": {
-   "name": "Resident",
-   "persona_brief": "You are Resident.\nThe resident has been experiencing ongoing issues with neighbors (e.g., noise, disputes) and hopes for improvement. They are considering possible actions but have not yet decided on any specific approach."
+  "neighbor_a": {
+   "name": "Neighbor A",
+   "persona_brief": "You are Neighbor A.\nNeighbor A has been having ongoing disputes with Neighbor B over property boundaries and noise. A is frustrated and considering legal action but is open to reconciliation if B shows willingness."
   },
-  "neighbors": {
-   "name": "Neighbors",
-   "persona_brief": "You are Neighbors.\nThe neighbors are aware of some tension but have their own perspectives and routines. They may or may not be open to improving relations."
+  "neighbor_b": {
+   "name": "Neighbor B",
+   "persona_brief": "You are Neighbor B.\nNeighbor B is aware of the disputes with Neighbor A and feels that A is being unreasonable. B is defensive but not opposed to improving relations if A makes the first move."
   }
  },
  "resolution": {
   "question": "Will the situation with the neighbors improve over the next few months?",
-  "resolution": "Resolve YES only if, by 2026-11-01T12:00:00+02:00, the persistent event history shows a clear, observable improvement in the relationship (e.g., a friendly interaction, a resolved dispute, a mutual agreement, or a sustained reduction in conflicts). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2026-11-01T12:00:00+02:00, both neighbors have engaged in at least one positive interaction (e.g., a friendly conversation, a mutual agreement, or a cooperative action) that indicates an improvement in their relationship, as observed by an external party or documented in communication. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-11-01T12:00:00+02:00",
   "world_id": "w_b8ccf1140398"
  }

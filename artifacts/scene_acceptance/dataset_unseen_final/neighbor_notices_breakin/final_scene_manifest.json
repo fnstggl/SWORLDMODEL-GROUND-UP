@@ -2,16 +2,22 @@
  "actors": [
   {
    "name": "Maria Santos",
-   "private_context": "Maria Santos lives at 40 Oak Street, next door to 42 Oak Street. She is a light sleeper and often wakes up to noises. She has no prior knowledge of any planned break-in."
+   "private_context": "Maria Santos lives at 42 Oak Street. She is asleep at 2:00 AM on August 20, 2026. She has no prior knowledge of any break-in."
+  },
+  {
+   "name": "Police dispatcher",
+   "private_context": "The police dispatcher has received a report of a break-in at 42 Oak Street and has dispatched officers to the scene. The dispatcher does not know Maria Santos personally."
   }
  ],
- "shared_context": "42 Oak Street is a residential house. A break-in is occurring at 42 Oak Street starting around the simulation start time. The police have been called and are en route, but their exact arrival time is unknown. The break-in may produce audible sounds (e.g., breaking glass, forced entry) that could be heard from neighboring houses.",
+ "shared_context": "42 Oak Street is a residential property. A break-in is occurring at 42 Oak Street at approximately 2:00 AM on August 20, 2026. The police have been notified and are en route. The exact time of police arrival is unknown but expected within the window before 4:00 AM.",
  "starting_events": [
   {
    "time": "2026-08-20T07:00:00+00:00",
-   "description": "A break-in begins at 42 Oak Street.",
-   "visible_to": []
+   "description": "A break-in is in progress at 42 Oak Street. Maria Santos is asleep inside. Police have been dispatched and are en route.",
+   "visible_to": [
+    "Police dispatcher"
+   ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Maria Santos noticed the break-in (e.g., by hearing a noise, looking out the window, or otherwise becoming aware of it) before the police arrive at 42 Oak Street. Otherwise resolve NO at the time the police arrive or at the hard cutoff, whichever comes first."
+ "resolution": "Resolve YES only if the persistent event history shows that Maria Santos noticed the break-in (e.g., woke up, heard noise, saw something) before the police arrived at 42 Oak Street. Otherwise resolve NO at the time of police arrival or at the hard cutoff (2026-08-20T04:00:00-05:00), whichever comes first."
 }

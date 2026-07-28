@@ -2,23 +2,23 @@
  "actors": [
   {
    "name": "McCain campaign",
-   "private_context": "The McCain campaign is aware of the scheduled first presidential debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed Senator McCain's participation for that specific debate, though they have previously indicated general willingness to debate. They are considering the timing and format."
+   "private_context": "The McCain campaign has received an invitation to the first 2008 presidential debate at the University of Mississippi, scheduled for September 26, 2008. They have not yet publicly confirmed their candidate's participation. They are considering the terms and logistics."
   },
   {
    "name": "Obama campaign",
-   "private_context": "The Obama campaign is aware of the scheduled first presidential debate at the University of Mississippi on September 26, 2008. They have not yet publicly confirmed Senator Obama's participation for that specific debate, though they have previously indicated general willingness to debate. They are considering the timing and format."
+   "private_context": "The Obama campaign has received an invitation to the first 2008 presidential debate at the University of Mississippi, scheduled for September 26, 2008. They have not yet publicly confirmed their candidate's participation. They are considering the terms and logistics."
   }
  ],
- "shared_context": "The first presidential debate of the 2008 election is scheduled to take place at the University of Mississippi on September 26, 2008. Both campaigns have been invited and have expressed general interest in debating, but as of September 1, 2008, neither campaign has issued a formal public confirmation of their candidate's participation in this specific debate. The debate is organized by the Commission on Presidential Debates.",
+ "shared_context": "The first 2008 presidential debate is scheduled to take place at the University of Mississippi on September 26, 2008. Both campaigns have been invited and are expected to respond. As of September 1, 2008, neither campaign has publicly confirmed their candidate's participation. The debate is a major media event, and public confirmation is typically done through official statements or press releases.",
  "starting_events": [
   {
    "time": "2008-09-01T14:00:00+00:00",
-   "description": "The McCain campaign and the Obama campaign each have the scheduled debate on their calendars and are internally deliberating whether to publicly confirm participation.",
+   "description": "The McCain campaign and the Obama campaign have each received the invitation to the first presidential debate at the University of Mississippi. Neither has publicly confirmed participation.",
    "visible_to": [
     "McCain campaign",
     "Obama campaign"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public statement (e.g., press release, official campaign announcement, or public comment by a campaign spokesperson) confirming their candidate's participation in the first 2008 presidential debate at the University of Mississippi before September 26, 2008. Otherwise resolve NO at the hard cutoff of 2008-09-26T12:00:00-05:00."
+ "resolution": "Resolve YES only if the persistent event history shows that both the McCain campaign and the Obama campaign have issued a public confirmation (e.g., via official statement, press release, or public announcement) of their candidate's participation in the first 2008 presidential debate at the University of Mississippi before the debate day (September 26, 2008). Otherwise resolve NO at the hard cutoff (2008-09-26T12:00:00-05:00)."
 }

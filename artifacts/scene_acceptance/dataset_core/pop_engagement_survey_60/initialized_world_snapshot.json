@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Each employee has their own workload, interest in the survey, and likelihood of completing it. No individual preferences are known at the start.",
+     "content": "Each employee has their own disposition toward completing surveys, typical workload, and personal schedule during the two-week window. No employee has a prior commitment to complete the survey.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T13:00:00+00:00"
     },
     {
-     "content": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and ending 2026-09-15T17:00:00-05:00. Employees can complete the survey online during this period. The survey is anonymous and voluntary.",
+     "content": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and closing at 2026-09-15T17:00:00-05:00. Employees can complete the survey online or via paper. The survey is anonymous and voluntary. No incentives or reminders have been announced.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will at least 60 of the 400 employees at Calloway Regional Hospital complete the annual engagement survey during its two-week window?",
-  "scene:shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and ending 2026-09-15T17:00:00-05:00. Employees can complete the survey online during this period. The survey is anonymous and voluntary."
+  "scene:shared_context": "Calloway Regional Hospital has 400 employees. The annual engagement survey will be open for two weeks starting 2026-09-01T08:00:00-05:00 and closing at 2026-09-15T17:00:00-05:00. Employees can complete the survey online or via paper. The survey is anonymous and voluntary. No incentives or reminders have been announced."
  },
  "history": [],
  "infos": {},

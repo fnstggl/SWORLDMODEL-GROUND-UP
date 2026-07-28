@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the five members of Ostara Foods' advisory board settle on a date for their autumn strategy offsite within the next three weeks?",
-  "resolution": "Resolve YES only if the persistent event history shows that all five advisors have agreed on a specific date for the autumn strategy offsite before 2026-08-19T09:00:00+01:00. Otherwise resolve NO at that cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that all five advisors have agreed on a specific date for the autumn strategy offsite before 2026-08-19T09:00:00+01:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-19T09:00:00+01:00",
   "world_id": "w_5c1d282cabfc"
  },

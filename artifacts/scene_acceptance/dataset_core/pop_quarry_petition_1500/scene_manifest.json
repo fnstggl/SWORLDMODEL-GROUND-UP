@@ -1,27 +1,24 @@
 {
  "actors": [
   {
-   "name": "Petition organizers",
-   "private_context": "They have gathered 400 signatures in the first fortnight, mostly at the farmers market. They aim to collect 1,500 signatures total to trigger a council debate. They are aware of the six-week deadline from the start date (2026-08-03), meaning the deadline is 2026-09-14. They have seen the counter-flyer from the quarry operator."
+   "name": "Petition Organizers",
+   "private_context": "They have collected 400 signatures so far, mostly at the farmers market. They aim to collect 1,500 total to trigger a council debate. They are aware of the six-week deadline from the start date (2026-08-03), which gives them until approximately 2026-09-14. They know the town has 19,000 residents and that the quarry employs 85. They have seen the counter-flyer from the operator."
   },
   {
-   "name": "Riverton residents",
-   "private_context": "Residents have varying opinions on the quarry extension. Some are concerned about environmental impacts, others value the jobs (85 employed by the quarry). They may sign the petition if approached or if they feel strongly."
-  },
-  {
-   "name": "Quarry operator",
-   "private_context": "The operator distributed a counter-flyer last week opposing the petition. They want to prevent the petition from reaching 1,500 signatures."
+   "name": "Quarry Operator",
+   "private_context": "They distributed a counter-flyer last week opposing the petition. They are aware of the petition drive and want to prevent it from reaching 1,500 signatures. They employ 85 residents."
   }
  ],
- "shared_context": "The town of Riverton has 19,000 residents. The petition against the quarry extension needs 1,500 signatures to trigger a council debate. The submission deadline is six weeks from the start date, i.e., 2026-09-14. The organizers have already collected 400 signatures. The quarry operator distributed a counter-flyer last week.",
+ "shared_context": "The town of Riverton has 19,000 residents. The quarry employs 85 residents. A petition against the quarry extension is being circulated. Organizers have collected 400 signatures in the first fortnight. The submission deadline is in six weeks from the start date (2026-08-03), i.e., by 2026-09-14. A counter-flyer from the quarry operator appeared last week.",
  "starting_events": [
   {
    "time": "2026-08-03T09:00:00-06:00",
-   "description": "The petition organizers have 400 signatures and continue their campaign to collect more signatures from Riverton residents.",
+   "description": "The petition stands at 400 signatures collected so far. The six-week submission deadline begins.",
    "visible_to": [
-    "Petition organizers"
+    "Petition Organizers",
+    "Quarry Operator"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the petition has at least 1,500 valid signatures submitted before the deadline of 2026-09-14T17:00:00-06:00. Otherwise resolve NO at the deadline."
+ "resolution": "Resolve YES only if the persistent event history shows that the petition has collected at least 1,500 valid signatures before 2026-09-14T17:00:00-06:00 (the deadline). Otherwise resolve NO at the deadline."
 }

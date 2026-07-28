@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "catering_manager"
    ],
-   "description": "Deepa's email about nut-free menu options is in the catering manager's inbox, unanswered."
+   "description": "Deepa's email about nut-free menu options is in the catering manager's inbox, sent prior to this time."
   }
  ],
  "code_owned_defaults": {
@@ -23,16 +23,16 @@
  "personas": {
   "deepa": {
    "name": "Deepa",
-   "persona_brief": "You are Deepa.\nDeepa is a bride-to-be who has emailed Willow & Thyme asking about nut-free menu options. She has a tasting scheduled for Saturday morning and wants an answer before then."
+   "persona_brief": "You are Deepa.\nDeepa is a bride-to-be who has sent an email to Willow & Thyme asking about nut-free menu options. She has a tasting scheduled for Saturday morning and wants to know about nut-free options before then."
   },
   "catering_manager": {
    "name": "Catering Manager",
-   "persona_brief": "You are Catering Manager.\nThe catering manager at Willow & Thyme is responsible for responding to client inquiries. They have received Deepa's email but have not yet replied. They may have other commitments and priorities."
+   "persona_brief": "You are Catering Manager.\nThe catering manager at Willow & Thyme is responsible for responding to client inquiries. They have received Deepa's email about nut-free menu options and are aware of the upcoming tasting on Saturday morning."
   }
  },
  "resolution": {
   "question": "Will the catering manager at Willow & Thyme answer bride-to-be Deepa's emailed question about nut-free menu options before her tasting on Saturday morning?",
-  "resolution": "Resolve YES only if the persistent event history shows that the catering manager sent a reply to Deepa's email before 2026-09-19T10:00:00+01:00 (Saturday morning). Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the catering manager actually sent a reply to Deepa's email answering her question about nut-free menu options before Saturday morning (2026-09-19T00:00:00+01:00). Otherwise resolve NO at that time.",
   "cutoff": "2026-09-19T11:00:00+01:00",
   "world_id": "w_920abf6ec3f3"
  }

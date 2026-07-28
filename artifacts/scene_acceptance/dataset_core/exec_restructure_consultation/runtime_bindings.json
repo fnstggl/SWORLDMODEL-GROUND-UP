@@ -13,7 +13,7 @@
     "managing_director",
     "staff_of_torchlight_media"
    ],
-   "description": "The simulation begins. No communication about the restructuring decision has occurred yet."
+   "description": "The simulation begins. The managing director has not yet informed staff of the restructuring decision."
   }
  ],
  "code_owned_defaults": {
@@ -28,12 +28,12 @@
   },
   "staff_of_torchlight_media": {
    "name": "Staff of Torchlight Media",
-   "persona_brief": "You are Staff of Torchlight Media.\nThe staff are aware that a restructuring decision is pending but have not been informed of the details. They expect communication from management."
+   "persona_brief": "You are Staff of Torchlight Media.\nThe staff are aware that a restructuring decision may be forthcoming but have not yet been informed of the details. They are represented by a works council with consultation rights."
   }
  },
  "resolution": {
   "question": "Will Torchlight Media's managing director inform staff of the restructuring decision before the works council's consultation deadline at the end of September?",
-  "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed the staff of the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES if the persistent event history shows that the managing director actually informed staff of the restructuring decision before 2026-09-30T18:00:00+02:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T18:00:00+02:00",
   "world_id": "w_c23f9f5571e5"
  }

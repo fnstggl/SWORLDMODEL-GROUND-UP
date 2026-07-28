@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the principal of Petersfield Secondary sign off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters?",
-  "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the coastal field trip before the half-term deadline for sending parental consent letters. The half-term deadline is assumed to be 2026-10-09 (typical UK half-term), but if the question's own deadline is different, use that instead. Otherwise resolve NO at the hard cutoff (2026-10-16T15:30:00+01:00).",
+  "resolution": "Resolve YES only if the persistent event history shows that the principal actually signed off on the geography department's proposed coastal field trip before the half-term deadline for sending parental consent letters. Otherwise resolve NO at the deadline.",
   "cutoff": "2026-10-16T15:30:00+01:00",
   "world_id": "w_0a9a8f1957c8"
  },

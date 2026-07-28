@@ -13,7 +13,7 @@
     "ravi",
     "seller"
    ],
-   "description": "Ravi and the seller are aware of the price gap and the listing expiration deadline."
+   "description": "Ravi and the seller are aware of the price gap of 40,000 rupees. No agreement has been reached yet."
   }
  ],
  "code_owned_defaults": {
@@ -24,11 +24,11 @@
  "personas": {
   "ravi": {
    "name": "Ravi",
-   "persona_brief": "You are Ravi.\nRavi wants to buy a 2019 hatchback and is 40,000 rupees below the seller's asking price. He has three days before the listing expires. He can negotiate and make offers."
+   "persona_brief": "You are Ravi.\nRavi wants to buy a 2019 hatchback and is willing to negotiate. He knows the seller's listed price and is 40,000 rupees below it. He has the funds and can contact the seller."
   },
   "seller": {
    "name": "Seller",
-   "persona_brief": "You are Seller.\nThe seller has listed a 2019 hatchback with a posted price. They are 40,000 rupees above Ravi's offer. The listing expires in three days. They can negotiate and accept or reject offers."
+   "persona_brief": "You are Seller.\nThe seller is offering a 2019 hatchback at a listed price. They are 40,000 rupees above Ravi's offer. The listing expires in three days. They may be open to negotiation."
   }
  },
  "resolution": {

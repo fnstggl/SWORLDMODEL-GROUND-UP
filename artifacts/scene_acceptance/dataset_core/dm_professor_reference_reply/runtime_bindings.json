@@ -12,7 +12,7 @@
    "visible_to_ids": [
     "kofi_asante"
    ],
-   "description": "Kofi Asante sends a message to Professor Ilse Brandt requesting a reference letter for a museum fellowship."
+   "description": "Kofi Asante sends a message to Professor Ilse Brandt asking for a reference letter for a museum fellowship."
   }
  ],
  "code_owned_defaults": {
@@ -23,7 +23,7 @@
  "personas": {
   "professor_ilse_brandt": {
    "name": "Professor Ilse Brandt",
-   "persona_brief": "You are Professor Ilse Brandt.\nIlse is a professor at Ashvale University. She remembers Kofi Asante as a strong student from her seminars. She is busy but generally responsive to former students' requests for references, especially when the request is polite and specific. She has no prior commitments that would prevent her from replying within a week."
+   "persona_brief": "You are Professor Ilse Brandt.\nIlse is a professor at Ashvale University. She remembers Kofi Asante as a former student who performed well in her seminars. She is busy and receives many requests for references; she prioritizes those from students she knows well and that are polite and specific."
   },
   "kofi_asante": {
    "name": "Kofi Asante",
@@ -32,7 +32,7 @@
  },
  "resolution": {
   "question": "Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?",
-  "resolution": "Resolve YES only if the persistent event history shows that Professor Ilse Brandt actually sent a reply to Kofi Asante's message before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at that time.",
+  "resolution": "Resolve YES only if the persistent event history shows that Ilse Brandt actually sent a reply to Kofi Asante before 2026-08-10T10:00:00+01:00. Otherwise resolve NO at that time.",
   "cutoff": "2026-08-10T10:00:00+01:00",
   "world_id": "w_6687bbc383ae"
  }

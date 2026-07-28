@@ -23,13 +23,13 @@
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "CEO is the chief executive of Brightline. They have prepared a launch announcement for the v4 release and can post it on social media. They want to promote the release.",
+    "content": "CEO is the chief executive of Brightline. They have prepared a launch announcement for the v4 release and can post it on social media. They want the announcement to be seen and shared.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO has a social media account and can post a launch announcement. The three design partners have social media accounts and can repost the CEO's announcement. The ship time is known to all involved.",
+    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO may post a launch announcement on social media. The three design partners are known to be associated with Brightline and may see and repost such an announcement. The ship time is 2026-09-15T10:00:00-07:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "One of three design partners for Brightline v4. They may see and repost the CEO's announcement if they choose.",
+    "content": "One of three design partners for Brightline v4. They have access to social media and may repost content from Brightline's CEO if they notice and choose to.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO has a social media account and can post a launch announcement. The three design partners have social media accounts and can repost the CEO's announcement. The ship time is known to all involved.",
+    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO may post a launch announcement on social media. The three design partners are known to be associated with Brightline and may see and repost such an announcement. The ship time is 2026-09-15T10:00:00-07:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "One of three design partners for Brightline v4. They may see and repost the CEO's announcement if they choose.",
+    "content": "One of three design partners for Brightline v4. They have access to social media and may repost content from Brightline's CEO if they notice and choose to.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO has a social media account and can post a launch announcement. The three design partners have social media accounts and can repost the CEO's announcement. The ship time is known to all involved.",
+    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO may post a launch announcement on social media. The three design partners are known to be associated with Brightline and may see and repost such an announcement. The ship time is 2026-09-15T10:00:00-07:00.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "One of three design partners for Brightline v4. They may see and repost the CEO's announcement if they choose.",
+    "content": "One of three design partners for Brightline v4. They have access to social media and may repost content from Brightline's CEO if they notice and choose to.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-15T17:00:00+00:00",
     "kind": "context",
-    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO has a social media account and can post a launch announcement. The three design partners have social media accounts and can repost the CEO's announcement. The ship time is known to all involved.",
+    "content": "Brightline ships its v4 release at a fixed time on Tuesday, 2026-09-15. The CEO may post a launch announcement on social media. The three design partners are known to be associated with Brightline and may see and repost such an announcement. The ship time is 2026-09-15T10:00:00-07:00.",
     "source": "scene_manifest:shared_context"
    }
   ],

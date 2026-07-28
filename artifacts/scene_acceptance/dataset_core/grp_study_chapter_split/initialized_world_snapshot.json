@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 1 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
+     "content": "Student 1 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
+     "content": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 2 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
+     "content": "Student 2 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
+     "content": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -107,13 +107,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 3 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
+     "content": "Student 3 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
+     "content": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -150,13 +150,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 4 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
+     "content": "Student 4 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
+     "content": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -193,13 +193,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Student 5 is a member of the actuarial study group. They have preferences about which chapter to present but are open to negotiation.",
+     "content": "Student 5 is a member of the actuarial study group. They have their own preferences and constraints regarding which chapter to present.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-19T11:00:00+00:00"
     },
     {
-     "content": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening.",
+     "content": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-08-19T11:00:00+00:00"
@@ -231,7 +231,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?",
-  "scene:shared_context": "The five students are meeting tonight (2026-08-19) to decide who presents which chapter at Saturday's session. They have not yet agreed on the assignments. The meeting starts at 19:00 and they aim to reach a decision before the end of the evening."
+  "scene:shared_context": "The five students are meeting tonight (2026-08-19) to agree on who presents which chapter at Saturday's session. They have not yet decided on the assignments. The meeting is scheduled to start at 19:00 and they aim to reach an agreement by the end of the meeting."
  },
  "history": [],
  "infos": {},

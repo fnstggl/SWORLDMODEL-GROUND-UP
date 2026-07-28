@@ -2,17 +2,16 @@
   "actors": [
     {
       "name": "Parliamentary Transport Committee",
-      "private_context": "The committee is responsible for reviewing transport-related legislation. Its rules allow a sixty-day window from the bill's referral to schedule a public hearing. The committee has discretion over scheduling and may consider political factors, workload, and public interest."
+      "private_context": "The committee is responsible for scheduling public hearings on transport-related bills. Its members have varying opinions on the rail franchise bill, but no decision has been made yet about scheduling a hearing."
     }
   ],
-  "shared_context": "The Republic of Valdoria's parliamentary transport committee has received the rail franchise bill for consideration. The bill has been formally referred to the committee, triggering a sixty-day window within which the committee may schedule a public hearing. The committee's rules do not mandate a hearing but permit one to be scheduled within that period."
-,
+  "shared_context": "The Republic of Valdoria's parliamentary rules allow a sixty-day window for scheduling a public hearing on a bill after its introduction. The rail franchise bill has been introduced, and the sixty-day window began on 2026-08-01. The committee must decide whether to schedule a hearing within this window.",
   "starting_events": [
     {
       "time": "2026-08-01T09:00:00+03:00",
-      "description": "The rail franchise bill is referred to the parliamentary transport committee, starting the sixty-day window for scheduling a public hearing.",
+      "description": "The sixty-day window for scheduling a public hearing on the rail franchise bill opens.",
       "visible_to": ["Parliamentary Transport Committee"]
     }
   ],
-  "resolution": "Resolve YES only if the persistent event history shows that the parliamentary transport committee actually scheduled a public hearing on the rail franchise bill before 2026-09-30T09:00:00+03:00 (sixty days after referral). Otherwise resolve NO at the hard cutoff of 2026-09-30T18:00:00+03:00."
+  "resolution": "Resolve YES if the persistent event history shows that the Parliamentary Transport Committee actually scheduled a public hearing on the rail franchise bill before 2026-09-30T18:00:00+03:00. Otherwise resolve NO at the cutoff."
 }

@@ -116,20 +116,20 @@ THE COMPILED SCENE (exact manifest under review):
  "actors": [
   {
    "name": "Parents' group",
-   "private_context": "The group is aware of the tradition of presenting flowers to cast members after the opening night performance. They have not yet collected the flowers or made arrangements for handover."
+   "private_context": "The parents' group is aware of the play and intends to collect for flowers and hand them over backstage before curtain. They have not yet collected the money or purchased the flowers."
   }
  ],
- "shared_context": "Petersfield Secondary's play opens on Friday at 19:00. The cast will be backstage before and after the performance. The parents' group can collect flowers and hand them over backstage before curtain if they choose to do so.",
+ "shared_context": "Petersfield Secondary's play opens on Friday at 19:00. The parents' group can collect money from parents, buy flowers, and deliver them backstage before the curtain rises.",
  "starting_events": [
   {
    "time": "2026-11-16T09:00:00+00:00",
-   "description": "The parents' group has not yet taken any action regarding flowers for the cast.",
+   "description": "The parents' group begins planning to collect for flowers for the cast.",
    "visible_to": [
     "Parents' group"
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that the parents' group actually collected flowers and handed them over backstage before 2026-11-20T19:00:00+00:00. Otherwise resolve NO at the cutoff."
+ "resolution": "Resolve YES only if the persistent event history shows that the parents' group actually collected money, purchased flowers, and handed them over backstage before 2026-11-20T19:00:00+00:00. Otherwise resolve NO at the cutoff."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

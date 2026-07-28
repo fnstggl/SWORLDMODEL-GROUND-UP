@@ -119,7 +119,7 @@ THE COMPILED SCENE (exact manifest under review):
    "private_context": "Dmytro is a warehouse supervisor at the company. He is aware of the newly posted operations-manager role and is considering whether to apply. He has his own career aspirations, concerns about qualifications, and personal circumstances that may influence his decision."
   }
  ],
- "shared_context": "The company has posted an operations-manager role. Applications close in three weeks from the simulation start time, i.e., by 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply as an internal candidate. The application process is known to employees.",
+ "shared_context": "The company has posted an operations-manager role internally. Applications close in three weeks from the simulation start time, i.e., by 2026-09-07T17:00:00+02:00. Dmytro is eligible to apply as an internal candidate.",
  "starting_events": [
   {
    "time": "2026-08-17T09:00:00+02:00",
@@ -129,7 +129,7 @@ THE COMPILED SCENE (exact manifest under review):
    ]
   }
  ],
- "resolution": "Resolve YES only if the persistent event history shows that Dmytro formally submitted an application for the operations-manager role before 2026-09-07T17:00:00+02:00. Otherwise resolve NO at that deadline."
+ "resolution": "Resolve YES only if the persistent event history shows that Dmytro formally submitted an application for the operations-manager role before the application deadline (2026-09-07T17:00:00+02:00). Otherwise resolve NO at the deadline."
 }
 
 Review it now.  Reply with ONLY the verdict JSON object.

@@ -1,12 +1,6 @@
 {
   "actors": [],
-  "shared_context": "A four-meter Douglas-fir beam spans three meters between posts. The beam is subject to a 40-pounds-per-square-foot snow load. The question is whether the beam will sag under this load. No social decisions or actors are involved; the outcome depends solely on structural engineering properties.",
-  "starting_events": [
-    {
-      "time": "2026-11-01T08:00:00-07:00",
-      "description": "The beam is in place, spanning three meters between posts, with no snow load yet applied.",
-      "visible_to": []
-    }
-  ],
-  "resolution": "UNRESOLVABLE: The question asks about a physical/engineering outcome with no social decision or actor to simulate; it is a factual lookup or physics question, not a social simulation."
+  "shared_context": "A four-meter Douglas-fir beam spans three meters between two posts. The beam is subject to a snow load of 40 pounds per square foot. The structural adequacy of the beam under this load is a matter of engineering calculation, not social decision.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question asks about a physical/engineering outcome with no social decision or actor action to simulate."
 }

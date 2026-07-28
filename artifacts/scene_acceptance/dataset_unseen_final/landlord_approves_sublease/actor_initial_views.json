@@ -29,7 +29,7 @@
    {
     "t": "2026-09-10T16:00:00+00:00",
     "kind": "context",
-    "content": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026.",
+    "content": "Sarah Lee is a tenant of Green Properties Inc. She has submitted a sublease request to Green Properties Inc. The deadline for approval is September 20, 2026. Green Properties Inc. has the authority to approve or deny the request.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-09-10T16:00:00+00:00",
     "kind": "context",
-    "content": "Sarah Lee is the tenant who submitted a sublease request to Green Properties Inc. She is awaiting their decision.",
+    "content": "Sarah Lee is a tenant of Green Properties Inc. She has submitted a sublease request to Green Properties Inc. and is awaiting their decision. She wants approval by September 20, 2026.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-09-10T16:00:00+00:00",
     "kind": "context",
-    "content": "Sarah Lee has submitted a sublease request to Green Properties Inc. The request is under review. The deadline for approval is September 20, 2026.",
+    "content": "Sarah Lee is a tenant of Green Properties Inc. She has submitted a sublease request to Green Properties Inc. The deadline for approval is September 20, 2026. Green Properties Inc. has the authority to approve or deny the request.",
     "source": "scene_manifest:shared_context"
    }
   ],

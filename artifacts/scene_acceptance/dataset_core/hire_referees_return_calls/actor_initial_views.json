@@ -23,13 +23,13 @@
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees. She wants the referees to return the recruiter's calls before the interview panel meets next Thursday.",
+    "content": "Aoife Byrne is a shortlisted candidate for a position. She has listed two referees who she believes will support her application. She has no control over whether they return the recruiter's calls.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a return call from either. The referees have the recruiter's contact information.",
+    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a response. The referees are aware of the recruiter's call but have not yet returned it.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The recruiter is responsible for contacting the referees of shortlisted candidate Aoife Byrne. They have called both referees but have not yet received a return call. They need the calls returned before the interview panel meets next Thursday.",
+    "content": "The recruiter is responsible for contacting the referees of shortlisted candidates. They have called both referees listed by Aoife Byrne but have not yet received a return call. They need the references before the interview panel meets next Thursday.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a return call from either. The referees have the recruiter's contact information.",
+    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a response. The referees are aware of the recruiter's call but have not yet returned it.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -109,13 +109,13 @@
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "Referee 1 is listed by Aoife Byrne as a referee. They have been contacted by the recruiter but have not yet returned the call. They may or may not be aware of the urgency.",
+    "content": "Referee 1 is one of the two referees listed by Aoife Byrne. They have been contacted by the recruiter but have not yet returned the call. They may or may not be willing to provide a reference.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a return call from either. The referees have the recruiter's contact information.",
+    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a response. The referees are aware of the recruiter's call but have not yet returned it.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -152,13 +152,13 @@
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "Referee 2 is listed by Aoife Byrne as a referee. They have been contacted by the recruiter but have not yet returned the call. They may or may not be aware of the urgency.",
+    "content": "Referee 2 is the other referee listed by Aoife Byrne. They have been contacted by the recruiter but have not yet returned the call. They may or may not be willing to provide a reference.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-08-14T08:00:00+00:00",
     "kind": "context",
-    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a return call from either. The referees have the recruiter's contact information.",
+    "content": "The interview panel is scheduled to meet next Thursday, which is 2026-08-20. The recruiter has attempted to contact both referees listed by Aoife Byrne but has not yet received a response. The referees are aware of the recruiter's call but have not yet returned it.",
     "source": "scene_manifest:shared_context"
    }
   ],

@@ -2,14 +2,14 @@
   "actors": [
     {
       "name": "John",
-      "private_context": "John is a person who may have preferences and emotional reactions to receiving gifts. He is about to receive a gift."
+      "private_context": "John has no prior knowledge of receiving a gift today. He has his own emotional tendencies and reactions."
     }
   ],
-  "shared_context": "John is at a location where a gift is being given to him on August 10, 2026. The gift is being presented by someone else (not an actor in this simulation).",
+  "shared_context": "John will receive a gift on August 10, 2026. The gift is given to him at some point after the start time.",
   "starting_events": [
     {
       "time": "2026-08-10T12:00:00-05:00",
-      "description": "John receives a gift.",
+      "description": "John is present and the gift is about to be given to him.",
       "visible_to": ["John"]
     }
   ],

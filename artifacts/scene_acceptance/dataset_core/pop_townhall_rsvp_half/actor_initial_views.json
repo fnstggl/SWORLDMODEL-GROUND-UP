@@ -1,7 +1,7 @@
 {
- "invited_parents_120": {
-  "id": "invited_parents_120",
-  "name": "Invited Parents (120)",
+ "invited_parents_120_individuals": {
+  "id": "invited_parents_120_individuals",
+  "name": "Invited Parents (120 individuals)",
   "role": "actor",
   "tz": "UTC",
   "attention": {
@@ -23,13 +23,13 @@
    {
     "t": "2026-10-05T08:00:00+00:00",
     "kind": "context",
-    "content": "Each parent has received an invitation to the town hall. They may or may not RSVP based on their interest, availability, and other factors.",
+    "content": "Each parent has received an invitation to the town hall. They may or may not RSVP, and may do so by various means (e.g., email, phone, online form). Their decisions are independent.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-05T08:00:00+00:00",
     "kind": "context",
-    "content": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for 2026-10-20 at 18:00. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
+    "content": "Petersfield Secondary School is holding a town hall meeting about curriculum changes. Invitations were sent to 120 parents. The school has set a deadline for RSVPs: the Friday before the town hall. The town hall date is not specified, but the RSVP deadline is the Friday before it. The simulation start time is 2026-10-05T09:00:00+01:00, and the hard cutoff is 2026-10-16T17:00:00+01:00. The Friday before the town hall must be determined from the town hall date, which is unknown; however, the hard cutoff may serve as the latest possible deadline if the town hall is on or after that date. For resolution, the deadline is the Friday before the town hall, but since the town hall date is not given, the resolution will use the hard cutoff as the deadline for counting RSVPs.",
     "source": "scene_manifest:shared_context"
    }
   ],
@@ -66,13 +66,13 @@
    {
     "t": "2026-10-05T08:00:00+00:00",
     "kind": "context",
-    "content": "The school has sent invitations to 120 parents for a curriculum-change town hall. It wants to gauge attendance and may follow up if needed.",
+    "content": "The school has sent invitations to 120 parents for a curriculum-change town hall. It expects RSVPs but has no prior knowledge of how many will respond.",
     "source": "scene_manifest:private_context"
    },
    {
     "t": "2026-10-05T08:00:00+00:00",
     "kind": "context",
-    "content": "Petersfield Secondary School has invited 120 parents to a town hall meeting about curriculum changes. The town hall is scheduled for 2026-10-20 at 18:00. Parents can RSVP through a provided method (e.g., email, phone, online form). The school will track RSVPs.",
+    "content": "Petersfield Secondary School is holding a town hall meeting about curriculum changes. Invitations were sent to 120 parents. The school has set a deadline for RSVPs: the Friday before the town hall. The town hall date is not specified, but the RSVP deadline is the Friday before it. The simulation start time is 2026-10-05T09:00:00+01:00, and the hard cutoff is 2026-10-16T17:00:00+01:00. The Friday before the town hall must be determined from the town hall date, which is unknown; however, the hard cutoff may serve as the latest possible deadline if the town hall is on or after that date. For resolution, the deadline is the Friday before the town hall, but since the town hall date is not given, the resolution will use the hard cutoff as the deadline for counting RSVPs.",
     "source": "scene_manifest:shared_context"
    }
   ],

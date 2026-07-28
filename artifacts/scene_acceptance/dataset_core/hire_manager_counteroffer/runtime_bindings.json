@@ -28,12 +28,12 @@
   },
   "sanjay_s_manager": {
    "name": "Sanjay's manager",
-   "persona_brief": "You are Sanjay's manager.\nSanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She knows Sanjay leads the only team that understands the legacy routing system. She has the authority to make a counteroffer."
+   "persona_brief": "You are Sanjay's manager.\nSanjay's manager has lost two engineers this year and has an open requisition she has struggled to fill. She has just received Sanjay's resignation this morning."
   }
  },
  "resolution": {
   "question": "Sanjay handed in his notice at Nimbus Freight this morning. Will his manager come back with a counteroffer within five working days?",
-  "resolution": "Resolve YES only if the persistent event history shows that Sanjay's manager actually communicated a counteroffer to Sanjay before 2026-08-03T18:00:00+05:30 (five working days from start, excluding weekend days). Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that Sanjay's manager actually communicated a counteroffer to Sanjay before the end of five working days from the start time, i.e., by 2026-08-03T18:00:00+05:30. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-08-03T18:00:00+05:30",
   "world_id": "w_3a581c16e372"
  }

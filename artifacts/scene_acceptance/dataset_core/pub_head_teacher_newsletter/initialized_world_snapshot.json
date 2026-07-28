@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The head teacher is responsible for the Friday parent newsletter and decides its content. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter.",
+     "content": "The Head Teacher decides the content of the Friday parent newsletter. They are aware of the upcoming inspection but have not yet decided whether to address it in the newsletter.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-22T07:00:00+00:00"
     },
     {
-     "content": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a parent newsletter every Friday. This week's newsletter is due on Friday, 2026-09-25. The three parents discussed the inspection at drop-off this week, but it is not known whether the head teacher is aware of their discussion.",
+     "content": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. This week's newsletter will be published on Friday, 2026-09-25. The three parents discussed the inspection at drop-off earlier this week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-22T07:00:00+00:00"
@@ -64,13 +64,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "The three parents raised the upcoming inspection at drop-off this week. They are concerned about the inspection and hope the head teacher will address it in the newsletter.",
+     "content": "The three parents are concerned about the upcoming inspection and raised it at drop-off this week. They hope the Head Teacher will address it in the newsletter.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-22T07:00:00+00:00"
     },
     {
-     "content": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a parent newsletter every Friday. This week's newsletter is due on Friday, 2026-09-25. The three parents discussed the inspection at drop-off this week, but it is not known whether the head teacher is aware of their discussion.",
+     "content": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. This week's newsletter will be published on Friday, 2026-09-25. The three parents discussed the inspection at drop-off earlier this week.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-22T07:00:00+00:00"
@@ -102,7 +102,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Three parents raised the upcoming inspection at drop-off this week. Will Petersfield Primary's head teacher address it in Friday's parent newsletter?",
-  "scene:shared_context": "Petersfield Primary School has an upcoming inspection. The head teacher publishes a parent newsletter every Friday. This week's newsletter is due on Friday, 2026-09-25. The three parents discussed the inspection at drop-off this week, but it is not known whether the head teacher is aware of their discussion."
+  "scene:shared_context": "Petersfield Primary School has an upcoming inspection. The school sends a parent newsletter every Friday. This week's newsletter will be published on Friday, 2026-09-25. The three parents discussed the inspection at drop-off earlier this week."
  },
  "history": [],
  "infos": {},

@@ -2,16 +2,10 @@
   "actors": [
     {
       "name": "Riverton city council",
-      "private_context": "The council is aware that a first reading of the short-term-rental ordinance has occurred. The council has a scheduled August recess beginning on a date known to them. They must hold a second reading before that recess begins. Individual council members may have varying opinions on the ordinance."
+      "private_context": "The council is aware of the short-term-rental ordinance and that a second reading is required before adoption. The council has a scheduled August recess beginning on a date known to them. They have not yet held the second reading as of the start time."
     }
   ],
-  "shared_context": "The Riverton city council has a short-term-rental ordinance that requires a second reading before it can be adopted. The council's August recess is scheduled to begin on a specific date, which is before the hard cutoff of 2026-08-14T17:00:00-06:00. The council has the authority to schedule meetings and readings. The exact date of the recess start is known to the council but not specified here.",
-  "starting_events": [
-    {
-      "time": "2026-07-28T09:00:00-06:00",
-      "description": "The Riverton city council is in session and aware of the need to hold a second reading of the short-term-rental ordinance before the August recess.",
-      "visible_to": ["Riverton city council"]
-    }
-  ],
-  "resolution": "Resolve YES only if the persistent event history shows that the Riverton city council actually held the second reading of the short-term-rental ordinance before the start of the August recess. Otherwise resolve NO at the start of the recess or at the hard cutoff, whichever comes first."
+  "shared_context": "The Riverton city council has a short-term-rental ordinance that requires a second reading before adoption. The council's August recess begins on a date that is known to the council. The second reading has not yet occurred as of July 28, 2026.",
+  "starting_events": [],
+  "resolution": "Resolve YES only if the persistent event history shows that the Riverton city council actually held the second reading of the short-term-rental ordinance before the August recess begins. Otherwise resolve NO at the start of the August recess."
 }

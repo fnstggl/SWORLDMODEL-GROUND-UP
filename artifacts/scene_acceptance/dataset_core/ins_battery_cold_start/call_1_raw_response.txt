@@ -1,12 +1,6 @@
 {
   "actors": [],
-  "shared_context": "A 12-volt battery has been sitting in an unheated garage at minus 20 Celsius for six weeks. The truck is in the garage. The battery is connected to the truck's electrical system. The temperature is minus 20 Celsius.",
-  "starting_events": [
-    {
-      "time": "2026-12-01T08:00:00-06:00",
-      "description": "The battery has been sitting in the unheated garage at minus 20 Celsius for six weeks.",
-      "visible_to": []
-    }
-  ],
-  "resolution": "UNRESOLVABLE: The question asks about a physical outcome (whether the battery will start the truck) with no social decision or actor to simulate; it is a pure physics/operations question."
+  "shared_context": "A 12-volt battery is installed in a truck. The truck is parked in an unheated garage. The ambient temperature is minus 20 Celsius. The battery has been sitting for six weeks as of the start time.",
+  "starting_events": [],
+  "resolution": "UNRESOLVABLE: The question asks about a physical/chemical outcome (whether the battery can start the truck) with no social decision or actor interaction to simulate."
 }

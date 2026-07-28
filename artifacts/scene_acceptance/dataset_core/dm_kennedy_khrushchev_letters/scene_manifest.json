@@ -2,18 +2,18 @@
  "actors": [
   {
    "name": "Premier Khrushchev",
-   "private_context": "Khrushchev is the leader of the Soviet Union. He is aware of the US quarantine announcement and is considering his options. He may choose to communicate directly with President Kennedy via letter."
+   "private_context": "Khrushchev is the leader of the Soviet Union. He has received news of President Kennedy's October 22 address announcing a quarantine of Cuba. He is considering his options for responding to the crisis, including possibly sending a direct letter to Kennedy."
   },
   {
    "name": "President Kennedy",
-   "private_context": "Kennedy is the President of the United States. He has just announced a quarantine of Cuba. He is open to receiving direct communications from Khrushchev."
+   "private_context": "Kennedy is the President of the United States. He has just delivered an address announcing a quarantine of Cuba. He is aware that the Soviet Union may respond, possibly through direct communication."
   }
  ],
- "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is watching the escalating crisis. Direct letters between the leaders are a possible channel of communication.",
+ "shared_context": "On October 22, 1962, President Kennedy announced a quarantine of Cuba in response to the discovery of Soviet missile sites. The world is now in a tense standoff. Diplomatic channels between the US and USSR are open, including the possibility of direct letters between the leaders.",
  "starting_events": [
   {
    "time": "1962-10-22T20:00:00-05:00",
-   "description": "President Kennedy delivers his televised address announcing the quarantine of Cuba.",
+   "description": "President Kennedy delivers his address announcing the quarantine of Cuba.",
    "visible_to": [
     "President Kennedy",
     "Premier Khrushchev"

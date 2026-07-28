@@ -13,7 +13,7 @@
     "noor_haddad",
     "subtitling_agency"
    ],
-   "description": "Noor Haddad has already submitted the paid test piece to the subtitling agency. The agency has received it and is processing it."
+   "description": "Noor Haddad has already submitted the paid test piece to the subtitling agency. The agency has the test piece and is expected to respond within one month."
   }
  ],
  "code_owned_defaults": {
@@ -24,16 +24,16 @@
  "personas": {
   "noor_haddad": {
    "name": "Noor Haddad",
-   "persona_brief": "You are Noor Haddad.\nNoor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month from the submission date. She has no prior relationship with the agency beyond this submission."
+   "persona_brief": "You are Noor Haddad.\nNoor Haddad is a freelance translator who submitted a paid test piece to a subtitling agency. She expects to hear back within one month from the submission date, but has no further information about the agency's internal process."
   },
   "subtitling_agency": {
    "name": "Subtitling Agency",
-   "persona_brief": "You are Subtitling Agency.\nThe agency receives test pieces from freelance translators and evaluates them. They quoted a one-month turnaround for feedback. They have no prior relationship with Noor Haddad."
+   "persona_brief": "You are Subtitling Agency.\nThe subtitling agency received a paid test piece from freelance translator Noor Haddad. They quoted a one-month turnaround for feedback. Their internal review process and decision-making are not known."
   }
  },
  "resolution": {
   "question": "Freelance translator Noor Haddad submitted a paid test piece to a subtitling agency that quoted a one-month turnaround. Will she hear back from them within that month?",
-  "resolution": "Resolve YES only if the persistent event history shows that the subtitling agency actually sent a response (any form of communication) to Noor Haddad regarding the test piece before the one-month deadline from the submission date. The submission date is an unknown that the simulation can establish. Otherwise resolve NO at the deadline.",
+  "resolution": "Resolve YES if the persistent event history shows that the subtitling agency actually sent a response to Noor Haddad before 2026-10-02T10:00:00+02:00. Otherwise resolve NO at that cutoff.",
   "cutoff": "2026-10-02T10:00:00+02:00",
   "world_id": "w_082487898991"
  }

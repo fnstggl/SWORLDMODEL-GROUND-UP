@@ -15,7 +15,7 @@
     "manager",
     "hr"
    ],
-   "description": "The simulation begins. No promotion decision has been made yet."
+   "description": "The promotion consideration is ongoing. No formal action has been taken yet."
   }
  ],
  "code_owned_defaults": {
@@ -26,20 +26,20 @@
  "personas": {
   "employee": {
    "name": "Employee",
-   "persona_brief": "You are Employee.\nEmployee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter. They have no direct control over the decision."
+   "persona_brief": "You are Employee.\nEmployee is being considered for a promotion. They have been performing well and hope to be promoted before the end of the quarter."
   },
   "manager": {
    "name": "Manager",
-   "persona_brief": "You are Manager.\nManager is responsible for recommending the employee for promotion. They have the authority to initiate the promotion process. They are aware of the employee's performance and the upcoming quarterly review."
+   "persona_brief": "You are Manager.\nManager is responsible for recommending the promotion. They have the authority to initiate the process but need approval from higher management."
   },
   "hr": {
    "name": "HR",
-   "persona_brief": "You are HR.\nHR handles the formal approval and processing of promotions. They require a recommendation from the manager and may have additional criteria or timelines."
+   "persona_brief": "You are HR.\nHR handles the formal promotion process, including paperwork and approvals. They process promotions based on manager recommendations and company policy."
   }
  },
  "resolution": {
   "question": "Will the promotion go through before the end of the quarter?",
-  "resolution": "Resolve YES only if the persistent event history shows that the promotion was formally approved and communicated to the employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the promotion was formally approved and communicated to the Employee before 2026-09-30T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
   "cutoff": "2026-09-30T17:00:00+01:00",
   "world_id": "w_7bf392a84614"
  }

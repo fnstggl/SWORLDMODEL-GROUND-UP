@@ -21,13 +21,13 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Jane Zhao is the CEO of NovaTech Inc. She must decide whether to approve the Q3 performance bonus for the engineering team. She is aware of the engineering team's Q2 performance and has her own criteria for bonus approval. She will make the decision by the board meeting on September 15, 2026.",
+     "content": "Jane Zhao is the CEO of NovaTech Inc. She must decide whether to approve the Q3 performance bonus for the engineering team. She is aware that the team exceeded Q2 targets. She has her own criteria and considerations for bonus approval, and she will make the decision by the board meeting on September 15, 2026.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-09-01T13:00:00+00:00"
     },
     {
-     "content": "NovaTech Inc. has a board meeting scheduled for September 15, 2026. The engineering team exceeded Q2 targets. The Q3 performance bonus for the engineering team is pending CEO approval. The decision will be announced at or before the board meeting.",
+     "content": "NovaTech Inc. has a policy for performance bonuses. The engineering team exceeded Q2 targets. The board meeting is scheduled for September 15, 2026, where the bonus decision will be finalized. CEO Jane Zhao is the decision-maker.",
      "kind": "context",
      "source": "scene_manifest:shared_context",
      "t": "2026-09-01T13:00:00+00:00"
@@ -59,7 +59,7 @@
  "entities": {},
  "facts": {
   "scene:question": "Does CEO Jane Zhao approve the Q3 performance bonus for the engineering team by September 15, 2026?",
-  "scene:shared_context": "NovaTech Inc. has a board meeting scheduled for September 15, 2026. The engineering team exceeded Q2 targets. The Q3 performance bonus for the engineering team is pending CEO approval. The decision will be announced at or before the board meeting."
+  "scene:shared_context": "NovaTech Inc. has a policy for performance bonuses. The engineering team exceeded Q2 targets. The board meeting is scheduled for September 15, 2026, where the bonus decision will be finalized. CEO Jane Zhao is the decision-maker."
  },
  "history": [],
  "infos": {},

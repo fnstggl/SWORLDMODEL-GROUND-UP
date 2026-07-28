@@ -1,7 +1,7 @@
 {
  "resolution": {
   "question": "Will the PTA subcommittee for the winter fair recruit the four stall coordinators it needs at or before its October planning meeting?",
-  "resolution": "Resolve YES only if the persistent event history shows that the PTA subcommittee for the winter fair has recruited four stall coordinators at or before the October planning meeting (i.e., by the end of that meeting, which occurs before the hard cutoff). Otherwise resolve NO at the hard cutoff.",
+  "resolution": "Resolve YES only if the persistent event history shows that the PTA subcommittee for the winter fair has recruited four stall coordinators at or before the October planning meeting (i.e., before or at the time of that meeting). Otherwise resolve NO at the hard cutoff.",
   "cutoff": "2026-10-19T21:00:00-05:00",
   "world_id": "w_abd83571e95b"
  },

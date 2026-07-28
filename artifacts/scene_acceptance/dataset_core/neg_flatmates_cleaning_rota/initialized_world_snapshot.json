@@ -21,7 +21,7 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Dana shares a flat with Yusuf. They have not yet agreed on a cleaning rota. Dana wants a rota that is fair and manageable, and is willing to discuss and sign off on a proposal in the group chat.",
+     "content": "Dana lives with Yusuf and wants a cleaning rota that is fair and manageable. Dana is willing to negotiate and sign off on a rota if it seems reasonable.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-04T19:00:00+00:00"
@@ -64,7 +64,7 @@
    "last_decision_at": null,
    "memories": [
     {
-     "content": "Yusuf shares a flat with Dana. They have not yet agreed on a cleaning rota. Yusuf wants a rota that is clear and equitable, and is open to agreeing on one in the group chat.",
+     "content": "Yusuf lives with Dana and wants a cleaning rota that is fair and manageable. Yusuf is willing to negotiate and sign off on a rota if it seems reasonable.",
      "kind": "context",
      "source": "scene_manifest:private_context",
      "t": "2026-08-04T19:00:00+00:00"
