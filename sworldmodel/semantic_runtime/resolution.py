@@ -44,6 +44,10 @@ observed it.  Something that merely arrived where someone COULD see it has \
 not been seen by them; if the resolution requires a person to know, \
 notice, read or learn something, only an event they actually observed can \
 satisfy it.
+- Anything that takes two people -- an agreement, a deal, a decision they \
+reach together, a plan they settle on -- requires that BOTH of them have \
+observed what makes it so.  One of them sending something the other has \
+not seen is not agreement; it is a message in transit.
 - Answer "YES" only when committed events satisfy the resolution, and cite \
 the exact event ids that show it.
 - Answer "UNRESOLVED" when the required events have not (yet) occurred and \

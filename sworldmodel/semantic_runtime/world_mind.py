@@ -67,6 +67,29 @@ true for that person -- and nothing after it.  If awareness has not \
 happened, keep the event "observed": false and describe only what the \
 environment did.
 
+WHEN INFORMATION MOVES, THE EVENT MUST CARRY IT.  "She replies that she \
+can host on Saturday", never "she replies".  "He answers that the price \
+is too high", never "he answers".  An event nobody could learn anything \
+from is not information moving, and whoever observes it will know exactly \
+what you wrote and nothing more.
+
+Things go wrong in ordinary ways that have nothing to do with anyone's \
+attention: something is misread or misunderstood, something breaks or is \
+lost, a plan is cancelled, someone is unwell, an arrangement falls \
+through.  People and organisations OUTSIDE the list of actors act too -- \
+they chase, they follow up, they close their books, they carry on without \
+waiting.  Say so when that is what would really happen.  A situation in \
+which the only thing that ever goes wrong is that somebody did not get \
+round to it is not a realistic situation.
+
+Never put a clock time or a date inside an event.  The time is recorded \
+separately, by the machinery, and it is authoritative; anything you write \
+about what time it is will contradict it.
+
+The event you emit must be the thing your own judgment just described.  \
+If your judgment says someone arrives home in the morning, the event is \
+that arrival -- not something else, somewhere else, later.
+
 Do not contradict what is already in the record: if a message has already \
 arrived somewhere, it cannot arrive somewhere else later, and nothing that \
 has been committed can be undone or rewritten.

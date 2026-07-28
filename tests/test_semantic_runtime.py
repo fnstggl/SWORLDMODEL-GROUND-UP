@@ -1056,7 +1056,8 @@ def test_being_deep_in_your_own_task_does_not_earn_a_fresh_turn():
                 "description": "Ada works on her own thing a while longer",
                 "for": ["ada_vance"], "observed": True,
                 "after": "2 minutes"}, "wakes": []}), {}
-        turns.append(user.splitlines()[1])      # the CURRENT TIME line
+        if "Ada Vance" in user:                 # her turns, not his
+            turns.append(user.splitlines()[1])  # the CURRENT TIME line
         return json.dumps({"decision": "keep at it",
                            "intentions": ["carry on with it"],
                            "private_updates": []}), {}
@@ -1068,6 +1069,7 @@ def test_being_deep_in_your_own_task_does_not_earn_a_fresh_turn():
     # she is revisited on a WIDENING schedule rather than every few
     # simulated minutes, so the run walks forward through real time
     assert len(set(turns)) == len(turns)          # never twice at one instant
+    assert len(turns) > 2
     gaps = [(parse_iso(b) - parse_iso(a)).total_seconds()
             for a, b in zip(turns, turns[1:])]
     assert gaps and gaps[-1] > gaps[0]            # the interval grew
@@ -1121,3 +1123,72 @@ def test_the_runtime_is_frozen_for_the_unseen_case():
                          capture_output=True, text=True, check=True)
     on_disk = dict(zip(paths, out.stdout.split()))
     assert [p for p in paths if on_disk[p] != frozen[p]] == []
+
+
+def test_one_person_noticing_is_not_everyone_noticing():
+    """A world that declares a group has all seen something has decided
+    the one thing it may not.  Attention is per person."""
+    world, journal, bindings = build()
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            return json.dumps({
+                "judgment": "everyone is looking at their phone right now",
+                "event": {"description": "the message goes to the group and "
+                                         "they all see it at once",
+                          "for": ["ada_vance", "bo_ferrer"],
+                          "observed": True, "after": "1 minutes"},
+                "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=transport), max_steps=4,
+                   trace=Trace())
+    group = [e for e in journal.events() if len(e["for"]) > 1]
+    assert group, "the case did not arise"
+    for e in group:
+        assert len(e["observed_by"]) <= 1, e
+        # it is still AVAILABLE to all of them; each is judged separately
+        assert set(e["for"]) == {"ada_vance", "bo_ferrer"}
+
+
+def test_a_person_remembers_what_they_themselves_did():
+    """Without this they have no memory of their own actions: one live run
+    had a man send the same offer twice two seconds apart, another had
+    someone put their phone away and open it again in the same breath."""
+    world, journal, bindings = build()
+    seen = []
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            return json.dumps({"judgment": "she does it", "event": {
+                "description": "Ada does the thing she set out to do",
+                "for": ["ada_vance"], "observed": True,
+                "after": "20 minutes"}, "wakes": []}), {}
+        if "Ada Vance" in user:
+            seen.append(user)
+        return json.dumps({"decision": "I will write to him again",
+                           "intentions": ["send him another note"],
+                           "private_updates": []}), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=transport), max_steps=8,
+                   trace=Trace())
+    assert len(seen) > 1
+    assert "WHAT YOU HAVE ALREADY DECIDED AND TRIED" in seen[0]
+    assert "(you have not done anything yet)" in seen[0]
+    # by her second turn she can see what she already tried
+    assert "send him another note" in seen[1]
+    assert "I will write to him again" in seen[1]
+    # and each person's list is exactly their own calls, nobody else's
+    calls = {}
+    for r in world.records:
+        if r["op"] == "semantic.actor_call":
+            calls[r["data"]["actor"]] = calls.get(r["data"]["actor"], 0) + 1
+    for aid in ("ada_vance", "bo_ferrer"):
+        assert len(build_view(world, journal, aid)["own_actions"]) \
+            == calls.get(aid, 0)

@@ -112,6 +112,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         if trace is not None:
             trace.record(kind, **data)
 
+    #: how many things each person has LEARNED -- events delivered to them
+    #: that were not their own doing -- and how many they had learned when
+    #: they were last consulted.
+    news: dict = {}
+    news_at_turn: dict = {}
+    last_turn_t: dict = {}
+
     #: per-actor revisit interval, widened each time a revisit finds that
     #: nothing has changed (pure time bookkeeping; the world still decides
     #: what, if anything, happens)
@@ -227,7 +234,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         Only event IDS are passed in: the view code looks them up in this
         actor's own observed records, so nothing can reach a person through
         the fact that they were consulted.
+
+        Nobody is consulted twice at the same instant having learned
+        nothing in between -- that is not a second thought, it is the same
+        thought asked twice.
         """
+        if last_turn_t.get(actor_id) == _iso_now(world) \
+                and news_at_turn.get(actor_id) == news.get(actor_id, 0):
+            return
+        last_turn_t[actor_id] = _iso_now(world)
         view = build_view(world, journal, actor_id,
                           trigger_event_ids=trigger_event_ids)
         rendered = render_view(view)
@@ -279,12 +294,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: world writes, the turn comes back to people at a bounded rate.
     MAX_WORLD_RUN = 6
     since_actor = {"n": 0}
-
-    #: how many things each person has LEARNED -- events delivered to them
-    #: that were not their own doing -- and how many they had learned when
-    #: they were last consulted.
-    news: dict = {}
-    news_at_turn: dict = {}
 
     def _has_learned_something(actor_id: str) -> bool:
         return news.get(actor_id, 0) > news_at_turn.get(actor_id, -1)
@@ -455,6 +464,14 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     actor_step(aid, cause=e["seq"], trigger_event_ids=[eid])
 
         while traj.steps < max_steps and not caller.budget_exhausted():
+            # nobody is left out of their own situation.  A person whose
+            # revisit has fired and produced nothing was simply dropped:
+            # one live run left a supervisor mid-sentence with two hours
+            # to a deadline and never asked her anything again, and
+            # another woke a child four times and never once let him act.
+            if world.clock.now < cutoff:
+                for aid in actor_ids:
+                    _schedule_recheck(aid, world.records[-1]["seq"])
             ev = world.queue.peek()
             if ev is None and world.clock.now < cutoff:
                 # nothing is scheduled, but the question is still open and
@@ -478,10 +495,30 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
 
             if ev.kind == K_EVENT:
                 envelope = validate_event(ev.data["envelope"], set(actor_ids))
+                # One person noticing is not everyone noticing.  A world
+                # that declares a group has all seen something -- "they
+                # are all checking their phones at this moment", said over
+                # a night-shift worker and a man who is away -- has
+                # decided the one thing it may not.  Attention is
+                # per-person, so the group keeps it as available and each
+                # of them is judged separately; the one whose own doing it
+                # is, of course, knows.
+                doer = ev.data.get("self_act_of")
+                if envelope["observed"] and len(envelope["for"]) > 1:
+                    note("group_observation_split", t=_iso_now(world),
+                         description=envelope["description"],
+                         had=list(envelope["for"]), kept=doer)
+                    envelope = dict(envelope, observed=False)
                 rec = journal.commit(envelope, cause=fired,
                                      source=ev.data.get("source", "scheduled"),
                                      trajectory_id=tid)
                 note("committed_event", **rec)
+                if doer and doer in envelope["for"] \
+                        and not envelope["observed"]:
+                    journal.mark_observed(rec["event_id"], doer,
+                                          cause=rec["seq"],
+                                          source="own_doing")
+                    rec = dict(rec, observed=True)
                 # attention reaching someone settles the items this step was
                 # asked about: they are that person's business now, not a
                 # pending question to be asked again

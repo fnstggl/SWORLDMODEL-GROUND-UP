@@ -21,7 +21,7 @@ established this actor observed.
 from __future__ import annotations
 
 from .envelope import contained
-from .journal import Journal
+from .journal import Journal, OP_ACTOR_CALL
 
 #: what an actor is told when they are simply being consulted again after
 #: time has passed -- a wake carries no information, only timing
@@ -36,6 +36,17 @@ def build_view(world, journal: Journal, actor_id: str, *,
     observed = journal.observed_by(actor_id)
     memories = [{"t": m.t.isoformat(), "kind": m.kind, "content": m.content}
                 for m in st.memories if m.kind == "private"]
+    # What this person has already decided and attempted, read from their
+    # OWN call records.  Without it they have no memory of their own
+    # actions: one live run had a man send the same offer twice two
+    # seconds apart, another had someone put their phone away and open it
+    # again in the same breath, and a third had a supervisor announce she
+    # had "just" opened a file she opened a day earlier.  A person
+    # remembers what they did.
+    did = [{"t": r["t"], "decision": r["data"]["decision"],
+            "intentions": list(r["data"]["intentions"])}
+           for r in world.records
+           if r["op"] == OP_ACTOR_CALL and r["data"]["actor"] == actor_id]
     # the "why now" line is looked up in this actor's own observed events;
     # an id they did not observe simply produces nothing
     by_id = {e["event_id"]: e for e in observed}
@@ -53,6 +64,7 @@ def build_view(world, journal: Journal, actor_id: str, *,
                              "description": e["description"]}
                             for e in observed],
         "private_memories": memories,
+        "own_actions": did,
         "reasons": reasons,
     }
 
@@ -81,6 +93,15 @@ def render_view(view: dict) -> str:
             parts.append(f"- {e['t']}: {contained(e['description'])}")
     else:
         parts.append("- (you have not observed anything yet)")
+    parts += ["", "WHAT YOU HAVE ALREADY DECIDED AND TRIED"]
+    if view.get("own_actions"):
+        for a in view["own_actions"]:
+            attempts = "; ".join(contained(i) for i in a["intentions"]) \
+                or "nothing"
+            parts.append(f"- {a['t']}: {contained(a['decision'])} "
+                         f"-> you attempted: {attempts}")
+    else:
+        parts.append("- (you have not done anything yet)")
     parts += ["", "YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS"]
     if view["private_memories"]:
         for m in view["private_memories"]:
