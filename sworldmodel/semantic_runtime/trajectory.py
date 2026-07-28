@@ -58,7 +58,13 @@ def budget_for(*, max_steps: int, actors: int,
 
 @dataclass
 class SemanticTrajectory:
-    status: str = "running"     # running | resolved | cutoff | failed
+    #: running    -- still going
+    #: resolved   -- committed events satisfy the resolution
+    #: cutoff     -- the trajectory reached the horizon and did not
+    #: incomplete -- it ran out of steps or calls first, so the horizon was
+    #:               never reached and no NO may be claimed
+    #: failed     -- a technical failure; nothing partial was committed
+    status: str = "running"
     answer: dict | None = None
     reason: str = ""
     steps: int = 0
@@ -267,14 +273,26 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              final=final, **parsed)
         return parsed
 
-    def finish(reason: str) -> SemanticTrajectory:
-        """The one way a run ends without failing: advance to the cutoff
-        and judge the trajectory that actually occurred."""
-        if world.clock.now < cutoff:
+    def finish(reason: str, *, truncated: bool = False) -> SemanticTrajectory:
+        """The one way a run ends without failing.
+
+        A run that actually reached the cutoff is judged AT the cutoff, and
+        that judgment is YES or NO.  A run that stopped early because it
+        ran out of steps or calls is a different thing entirely: the
+        trajectory never reached the horizon, so nothing is known about
+        what would have happened in the time that was not simulated.  Such
+        a run is reported as incomplete and may still return YES on what it
+        did commit -- but it may never return NO, because that would turn a
+        budget artifact into an answer.
+        """
+        if not truncated and world.clock.now < cutoff:
             world.clock.advance_to(cutoff)
-        answer = judge(final=True, cause=world.records[-1]["seq"])
+        answer = judge(final=not truncated, cause=world.records[-1]["seq"])
         traj.answer = answer
-        traj.status = "resolved" if answer["status"] == "YES" else "cutoff"
+        if answer["status"] == "YES":
+            traj.status = "resolved"
+        else:
+            traj.status = "incomplete" if truncated else "cutoff"
         traj.reason = reason
         return traj
 
@@ -372,13 +390,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 traj.answer = checked
                 return traj
 
-        reason = ""
         if traj.steps >= max_steps:
-            reason = f"step ceiling {max_steps} reached before the cutoff"
-        elif caller.budget_exhausted():
-            reason = (f"call ceiling {caller.max_calls} reached before the "
-                      f"cutoff")
-        return finish(reason)
+            return finish(f"step ceiling {max_steps} reached at "
+                          f"{_iso_now(world)}, before the cutoff",
+                          truncated=True)
+        if caller.budget_exhausted():
+            return finish(f"call ceiling {caller.max_calls} reached at "
+                          f"{_iso_now(world)}, before the cutoff",
+                          truncated=True)
+        return finish("")
     except CallBudgetExceeded as e:
         # the backstop is a horizon, not a failure: calls are held in
         # reserve precisely so a run that spends its budget mid-step still

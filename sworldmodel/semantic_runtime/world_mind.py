@@ -57,6 +57,11 @@ Do not contradict what is already in the record: if a message has already \
 arrived somewhere, it cannot arrive somewhere else later, and nothing that \
 has been committed can be undone or rewritten.
 
+Do not restate the record either.  If what you are about to write is \
+already there in different words, that step has HAPPENED -- writing it \
+again would make the same thing occur twice.  Move to whatever genuinely \
+has not happened yet, or return "event": null.
+
 What you are shown about a person's own circumstances is background for \
 YOUR judgment.  Never repeat it, quote it, or restate it inside an event: \
 an event says what visibly happened, not what someone privately thinks, \

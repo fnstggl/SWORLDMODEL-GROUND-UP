@@ -101,7 +101,7 @@ def test_end_to_end_question_to_trajectory_through_production_compiler():
     caller = RuntimeCaller(transport=runtime_model)
     traj = run_trajectory(world, journal, bindings, scene["resolution"],
                           caller, max_steps=6, trace=Trace())
-    assert traj.status in ("resolved", "cutoff"), traj.reason
+    assert traj.status in ("resolved", "cutoff", "incomplete"), traj.reason
     assert len(journal.events()) >= 2          # a real trajectory ran
     verification = replay_trajectory(world.records, live_world=world)
     assert verification["exact"] and verification["llm_calls"] == 0

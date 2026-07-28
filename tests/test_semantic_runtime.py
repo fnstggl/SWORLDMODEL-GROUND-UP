@@ -276,7 +276,7 @@ def test_full_lifecycle_keeps_delivery_notice_and_read_distinct():
     trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=20, trace=trace)
-    assert traj.status in ("resolved", "cutoff"), traj.reason
+    assert traj.status in ("resolved", "cutoff", "incomplete"), traj.reason
     events = journal.events()
     descs = [e["description"] for e in events]
     arrive = next(i for i, d in enumerate(descs) if "arrives in Bo's inbox" in d)
@@ -534,7 +534,7 @@ def test_the_call_ceiling_sits_above_the_ordinary_path():
         "actor": [busy] * 900}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=steps, trace=Trace())
-    assert traj.status == "cutoff"
+    assert traj.status == "incomplete"
     assert traj.reason.startswith("step ceiling")     # steps, not calls
     assert not caller.budget_exhausted()
     assert len(caller.calls) < ceiling
@@ -653,3 +653,41 @@ def test_a_retry_is_told_exactly_what_was_wrong():
     assert "unparseable duration" in seen[1]
     assert seen[0] in seen[1]                    # the original ask is intact
     assert caller.calls[1]["user"] == seen[1]    # and it is what was logged
+
+
+# ------------------------------------ a budget artifact is not an answer
+def test_a_truncated_run_is_incomplete_and_can_never_answer_no():
+    """A run that stops early never reached the horizon, so nothing is
+    known about the time it did not simulate.  It may still report YES on
+    what it committed -- it may not report NO."""
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=Script({
+        "judge": [UNRESOLVED] * 40,
+        "world": [{"judgment": "it moves along", "event": {
+            "description": "another concrete step happens",
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
+            "wakes": []}] * 40,
+        "actor": [{"decision": "d", "intentions": ["keep going"],
+                   "private_updates": []}] * 40}))
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          caller, max_steps=3, trace=Trace())
+    assert traj.status == "incomplete"
+    assert traj.answer["status"] == "UNRESOLVED"      # never NO_AT_CUTOFF
+    assert "step ceiling" in traj.reason
+    # the clock was NOT jumped to the cutoff: the run stopped where it was
+    assert world.clock.now < parse_iso(CUTOFF)
+    assert traj.reason.count(":") >= 1                # it says exactly where
+
+
+def test_a_run_that_reaches_the_horizon_answers_yes_or_no():
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=Script({
+        "judge": [UNRESOLVED] * 10,
+        "world": [{"judgment": "nothing further", "event": None,
+                   "wakes": []}] * 10,
+        "actor": [NOTHING] * 10}))
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          caller, max_steps=40, trace=Trace())
+    assert traj.status == "cutoff"
+    assert traj.answer["status"] == "NO_AT_CUTOFF"
+    assert world.clock.now == parse_iso(CUTOFF)

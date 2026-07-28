@@ -3,20 +3,20 @@
  "trajectory": {
   "status": "cutoff",
   "answer": {
-   "status": "UNRESOLVED",
+   "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No committed event shows that Priya and Dmitri have agreed on a price; they have only exchanged offers and counteroffers."
+   "explanation": "The committed events show only offers and counteroffers up to 1050, but no event shows that Priya Raghavan and Dmitri Sokolov have both agreed on a final price; the last message from Priya ('1050 works for me') was not observed by Dmitri, so no agreement was reached before the deadline."
   },
   "reason": "step ceiling 40 reached before the cutoff",
   "steps": 40,
-  "world_calls": 42,
-  "actor_calls": 6,
+  "world_calls": 43,
+  "actor_calls": 16,
   "judge_calls": 42
  },
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya and Dmitri have agreed on a price; they have only exchanged offers and counteroffers."
+  "explanation": "The committed events show only offers and counteroffers up to 1050, but no event shows that Priya Raghavan and Dmitri Sokolov have both agreed on a final price; the last message from Priya ('1050 works for me') was not observed by Dmitri, so no agreement was reached before the deadline."
  },
  "reason": "step ceiling 40 reached before the cutoff"
 }
