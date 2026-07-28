@@ -144,6 +144,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                          world_mind.make_world_validator(set(actor_ids)),
                          sim_time=_iso_now(world), trigger=trigger_kind)
         traj.world_calls += 1
+        since_actor["n"] += 1
         parsed = out["parsed"]
         envelope = parsed["event_checked"]
         wakes = parsed["wakes_checked"]
@@ -198,6 +199,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                          actor_mind.validate_actor_response,
                          sim_time=_iso_now(world), trigger=f"actor:{actor_id}")
         traj.actor_calls += 1
+        since_actor["n"] = 0
         parsed = out["parsed"]
         aseq = world.apply(OP_ACTOR_CALL,
                            {"call_id": out["call_id"], "actor": actor_id,
@@ -227,6 +229,22 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     MAX_ENV_CHAIN = 3
     env_chain = {"depth": 0}
 
+    #: The world may not run this many steps in a row without a single
+    #: person being consulted.  The rule that people decide what people do
+    #: is a prompt instruction, and a prompt instruction is not a
+    #: guarantee: one live run committed thirty-three consecutive events
+    #: of one man typing, none of them his own model's doing, and the
+    #: budget was gone before anyone was asked anything.  Whatever the
+    #: world writes, the turn comes back to people at a bounded rate.
+    MAX_WORLD_RUN = 6
+    since_actor = {"n": 0}
+
+    def _hand_back_the_turn(actors, rec) -> None:
+        since_actor["n"] = 0
+        env_chain["depth"] = 0
+        for aid in actors:
+            actor_step(aid, cause=rec["seq"])
+
     def _after_commit(rec: dict, envelope: dict, self_act_of=None) -> None:
         """The single post-commit rule, identical for starting events and
         world-produced events: awareness hands the turn to the person;
@@ -240,18 +258,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         question it was asked went nowhere.  What happens instead is what
         happens in life: time passes, and he comes back to things.
         """
-        if envelope["observed"] and envelope["for"]:
+        others = [a for a in envelope["for"] if a != self_act_of]
+        if envelope["observed"] and others:
+            # somebody LEARNED something: their turn, and nothing further
             env_chain["depth"] = 0
-            others = [a for a in envelope["for"] if a != self_act_of]
             for aid in others:
                 actor_step(aid, cause=rec["seq"],
                            trigger_event_ids=[rec["event_id"]])
-            if not others and self_act_of:
-                _schedule_recheck(self_act_of, rec["seq"])
+            return
+        # nobody new learned anything.  If this was a person's own doing,
+        # they get no fresh turn -- but the world must still say what
+        # became of what they did, or a message they sent would simply
+        # stop where it was sent.
+        waiting = envelope["for"] or ([self_act_of] if self_act_of else [])
+        if since_actor["n"] >= MAX_WORLD_RUN and waiting:
+            # the world has been going by itself for too long: whatever it
+            # has been writing, the people in it get to speak
+            _hand_back_the_turn(waiting, rec)
             return
         if env_chain["depth"] >= MAX_ENV_CHAIN:
             env_chain["depth"] = 0
-            for aid in envelope["for"]:
+            for aid in waiting:
                 _schedule_recheck(aid, rec["seq"])
             return
         env_chain["depth"] += 1
@@ -264,7 +291,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         progressed = (len(journal.events()) > before
                       or world.queue.peek() is not None)
         if parsed is not None and not (parsed["wakes"] or progressed):
-            for aid in envelope["for"]:
+            for aid in waiting:
                 _schedule_recheck(aid, rec["seq"])
 
     # ---------------------------------------------------------------
@@ -407,7 +434,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             elif ev.kind == K_WAKE:
                 aid = ev.data["actor"]
                 pending = journal.available_unobserved(aid)
-                if pending:
+                if pending and since_actor["n"] >= MAX_WORLD_RUN:
+                    _hand_back_the_turn([aid], {"seq": fired})
+                elif pending:
                     before = len(journal.events())
                     parsed = world_step(
                         trigger_kind="pending_progression",

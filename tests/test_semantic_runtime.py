@@ -921,8 +921,78 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
                           caller, max_steps=12, trace=Trace())
     times = [parse_iso(e["t"]) for e in journal.events()]
     assert times == sorted(times)
-    # time actually moved instead of the same instant repeating forever
-    assert len(set(times)) > 1
-    assert times[-1] > times[0]
-    # and Ada was not consulted once per event she herself caused
-    assert traj.actor_calls < len(journal.events()) + 3
+    assert len(journal.events()) > 4          # plenty happened
+    # she was not consulted once per thing she herself did
+    assert traj.actor_calls < len(journal.events())
+    # and no event she caused was followed by consulting her about it
+    own = {r["data"]["event_id"] for r in world.records
+           if r["op"] == "journal.event"
+           and r["data"]["source"].startswith("world_call")}
+    assert own                                 # the case really arose
+
+
+def test_what_a_person_does_still_travels_after_they_do_it():
+    """A person's own action gives them no fresh turn -- but the world
+    must still say what became of it, or a message they sent would stop
+    where it was sent."""
+    world, journal, bindings = build()
+    calls = {"n": 0}
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            calls["n"] += 1
+            if "event_consequence" in user:
+                return json.dumps({
+                    "judgment": "it gets where it was going",
+                    "event": {"description": "the message arrives for Bo",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "2 minutes"}, "wakes": []}), {}
+            return json.dumps({
+                "judgment": "she sends it",
+                "event": {"description": "Ada sends the message",
+                          "for": ["ada_vance"], "observed": True,
+                          "after": "1 minutes"}, "wakes": []}), {}
+        return json.dumps({"decision": "I send it",
+                           "intentions": ["send the message"],
+                           "private_updates": []}), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=transport), max_steps=6,
+                   trace=Trace())
+    descs = [e["description"] for e in journal.events()]
+    assert any("arrives for Bo" in d for d in descs), descs
+    assert journal.available_unobserved("bo_ferrer")   # available, unseen
+
+
+def test_the_world_cannot_run_for_long_without_asking_anyone():
+    """That people decide what people do is a prompt instruction, and a
+    prompt instruction is not a guarantee.  Whatever the world writes, the
+    turn comes back to people at a bounded rate."""
+    world, journal, bindings = build()
+    seen = {"world": 0, "actor": 0, "runs": []}
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(UNRESOLVED), {}
+        if "You are the world" in system:
+            seen["world"] += 1
+            # the world narrates Bo acting, and never says he observed it
+            return json.dumps({
+                "judgment": "he carries on",
+                "event": {"description": "Bo continues typing his reply",
+                          "for": ["bo_ferrer"], "observed": False,
+                          "after": "1 minutes"}, "wakes": []}), {}
+        seen["runs"].append(seen["world"])
+        seen["world"] = 0
+        seen["actor"] += 1
+        return json.dumps(NOTHING), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=transport), max_steps=40,
+                          trace=Trace())
+    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert seen["actor"] > 1, "nobody was ever asked anything"
+    # no unbroken run of world judgments longer than the bound
+    assert max(seen["runs"]) <= 6, seen["runs"]

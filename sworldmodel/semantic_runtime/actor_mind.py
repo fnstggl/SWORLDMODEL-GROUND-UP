@@ -9,9 +9,17 @@ actor's private memories, the resolution, the YES/NO target, future
 scheduled events, or hidden world judgments -- the view handed in is
 built by code from their own authorized records alone.
 
-An actor proposes; it never adjudicates.  Claims of success, delivery,
-another person's observation, another person's belief, or the terminal
-are world consequences and are rejected as intentions.
+An actor proposes; it never adjudicates.  Nothing an actor writes is ever
+committed as something that happened: an intention is handed to the world
+as an ATTEMPT and the world decides what, if anything, came of it, and
+only committed events can satisfy the question.
+
+That is a structural guarantee, and it is the only one.  If an actor
+writes an intention phrased as an accomplished fact about someone else --
+"Bo reads my message and agrees" -- code does not detect it; that text is
+passed to the world as what this person attempted, and the world is
+instructed to adjudicate the attempt rather than adopt the claim.  The
+prompt below is where that is asked for; it is not enforced.
 """
 from __future__ import annotations
 

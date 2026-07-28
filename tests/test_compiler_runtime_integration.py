@@ -10,6 +10,7 @@ instead of the compiler's own output, the manifest-identity assertions
 below would fail.
 """
 import json
+import os
 import subprocess
 import sys
 
@@ -133,21 +134,38 @@ def test_runtime_uses_the_existing_kernel_not_a_second_one():
 
 
 def test_frozen_compiler_files_are_unchanged():
-    """The compiler is frozen for this phase: every production blob hash
-    must match the freeze record taken before any work began."""
+    """The compiler is frozen for this phase: every production file on
+    disk must hash to the record taken before any work began.
+
+    Hashing the FILES, not the index: an unstaged edit is still an edit,
+    and an index-only check passed happily with a live backdoor sitting in
+    the working tree.  Untracked files count too -- a compiler that gained
+    a whole new module would otherwise be 'unchanged'.
+    """
     frozen = {}
     with open("artifacts/semantic_runtime/COMPILER_FREEZE.txt") as f:
         for line in f:
             if line.strip():
                 blob, path = line.split()
                 frozen[path] = blob
-    out = subprocess.run(["git", "ls-files", "-s", "compiler/"],
+
+    present = sorted(
+        os.path.join(dirpath, name)
+        for dirpath, _dirs, files in os.walk("compiler")
+        if "__pycache__" not in dirpath
+        for name in files if name.endswith(".py"))
+    assert set(present) == set(frozen), (
+        f"compiler files were added or removed: "
+        f"{sorted(set(present) ^ set(frozen))}")
+
+    out = subprocess.run(["git", "hash-object"] + present,
                          capture_output=True, text=True, check=True)
-    current = {}
-    for line in out.stdout.splitlines():
-        parts = line.split()
-        current[parts[3]] = parts[1]
-    changed = [p for p, h in frozen.items()
-               if current.get(p) != h]
-    assert changed == [], f"frozen compiler files changed: {changed}"
-    assert set(current) == set(frozen), "compiler files were added or removed"
+    on_disk = dict(zip(present, out.stdout.split()))
+    changed = [p for p in present if on_disk[p] != frozen[p]]
+    assert changed == [], f"frozen compiler files changed on disk: {changed}"
+
+    # ... and nothing untracked is hiding in there either
+    untracked = subprocess.run(
+        ["git", "ls-files", "--others", "--exclude-standard", "compiler/"],
+        capture_output=True, text=True, check=True).stdout.split()
+    assert untracked == [], f"untracked files inside the frozen compiler: {untracked}"

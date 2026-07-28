@@ -2,15 +2,15 @@
 **Question:** Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.
 **Result:** resolved — YES
 
-*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No event shows Sam Okonjo sending a text message confirming the appointment; only an incoming message is recorded.*
+*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — The committed event shows a message arriving at Sam Okonjo's phone, but it is from Bristol Plumbing, not sent by Sam Okonjo, and no text message confirming an appointment has been sent by Sam Okonjo.*
 
 **World judgment** (starting_event) at 2026-07-28T08:00:00+00:00
 
 > trigger: Bristol Plumbing's text message arrives on Sam Okonjo's phone.
 >
-> The message has already arrived and been observed by Sam. No new concrete event occurs; the message sits on his phone until he acts on it or the deadline passes.
+> The message has already arrived and been observed by Sam. No new concrete event occurs at this moment; it's simply sitting on his phone.
 - proposes: (no concrete event yet)
-- wake sam_okonjo after 10 hours: The 6pm deadline for confirming the Thursday slot is approaching; check if Sam has responded.
+- wake sam_okonjo after 2 hours: Check if Sam has acted on the message or if his situation changes.
 
 <details><summary>what sam_okonjo could see at 2026-07-28T08:00:00+00:00 (their entire prompt)</summary>
 
@@ -39,23 +39,22 @@ WHY YOU ARE CONSIDERING THINGS NOW
 
 **sam_okonjo decides** at 2026-07-28T08:00:00+00:00
 
-> I need to confirm the appointment by replying to the text message before 6pm today.
-- attempts: I will reply to Bristol Plumbing's text message with 'Yes, I confirm the Thursday 8am slot.'
-- privately: I remember that I must reply by 6pm to keep the appointment.
+> I need to reply to confirm the appointment as soon as possible to avoid losing the slot.
+- attempts: I pick up my phone, open the text message from Bristol Plumbing, and type a reply confirming the Thursday 8am slot, then send it.
+- privately: I am relieved that the appointment is finally being scheduled and I intend to reply immediately so I don't miss the deadline.
 
 **World judgment** (actor_intention) at 2026-07-28T08:00:00+00:00
 
-> trigger: sam_okonjo attempts: I will reply to Bristol Plumbing's text message with 'Yes, I confirm the Thursday 8am slot.'
+> trigger: sam_okonjo attempts: I pick up my phone, open the text message from Bristol Plumbing, and type a reply confirming the Thursday 8am slot, then send it.
 >
-> Sam picks up his phone and taps the reply field. The message is short and requires no additional information, so he can type it quickly.
-- proposes: Sam Okonjo taps out the reply 'Yes, I confirm the Thursday 8am slot.' and presses send. The message leaves his phone. (for [], observed=False, after 10 seconds)
-- wake sam_okonjo after 10 seconds: The message has been sent; the next step is Bristol Plumbing receiving it.
+> Sam picks up his phone, opens the text, types 'Confirm Thursday 8am', and presses send. The message is transmitted.
+- proposes: Sam Okonjo sends a text message to Bristol Plumbing confirming the Thursday 8am slot. (for [], observed=False, after 10 seconds)
 
 ---
 
 ## 2026-07-28T08:00:10+00:00 — committed event `e18`
 
-Sam Okonjo taps out the reply 'Yes, I confirm the Thursday 8am slot.' and presses send. The message leaves his phone.
+Sam Okonjo sends a text message to Bristol Plumbing confirming the Thursday 8am slot.
 
 - available to: no one
 - AVAILABLE but NOT observed
@@ -63,85 +62,47 @@ Sam Okonjo taps out the reply 'Yes, I confirm the Thursday 8am slot.' and presse
 
 **World judgment** (event_consequence) at 2026-07-28T08:00:10+00:00
 
-> trigger: Sam Okonjo taps out the reply 'Yes, I confirm the Thursday 8am slot.' and presses send. The message leaves his phone.
+> trigger: Sam Okonjo sends a text message to Bristol Plumbing confirming the Thursday 8am slot.
 >
-> The message has left Sam's phone and is now in transit to Bristol Plumbing's server. It will take a few seconds to arrive.
-- proposes: The text message 'Yes, I confirm the Thursday 8am slot.' is in transit over the cellular network to Bristol Plumbing's SMS gateway. (for [], observed=False, after now)
-- wake sam_okonjo after 10 seconds: Check if the message has been delivered or if there is any delivery failure.
+> Sam has sent the confirmation text. The message is now traveling to Bristol Plumbing's system.
+- proposes: The confirmation text message is transmitted from Sam's phone to Bristol Plumbing's messaging system. (for [], observed=False, after 2 seconds)
 
-*terminal check at 2026-07-28T08:00:10+00:00: UNRESOLVED — The deadline (2026-07-28T18:00+01:00) has not passed, and no event shows Sam Okonjo's text message being sent and observed by the recipient; e18 shows the message leaving his phone but not reaching anyone.*
-
-<details><summary>what sam_okonjo could see at 2026-07-28T08:00:10+00:00 (their entire prompt)</summary>
-
-```
-CURRENT TIME
-2026-07-28T08:00:10+00:00
-
-WHO YOU ARE
-Sam Okonjo (your identity in this situation: sam_okonjo)
-Sam has been waiting three weeks for a boiler repair appointment. He is at his desk all day with his phone next to him. He knows that confirming the Thursday 8am slot requires one text message reply to Bristol Plumbing's 9am text. He wants to keep the appointment.
-
-SHARED CONTEXT
-Bristol Plumbing sent Sam Okonjo a text message at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm today or lose it. The message is on Sam's phone.
-
-WHAT YOU HAVE OBSERVED
-- 2026-07-28T08:00:00+00:00: Bristol Plumbing's text message arrives on Sam Okonjo's phone.
-
-YOUR PRIVATE MEMORIES, BELIEFS, AND PLANS
-- I remember that I must reply by 6pm to keep the appointment.
-
-WHY YOU ARE CONSIDERING THINGS NOW
-- time has passed and you are looking at your situation again
-```
-
-</details>
-
-**sam_okonjo decides** at 2026-07-28T08:00:10+00:00
-
-> I'll reply to the text now so I don't forget later.
-- attempts: Reply to Bristol Plumbing's text message confirming the Thursday 8am slot
-
-**World judgment** (actor_intention) at 2026-07-28T08:00:10+00:00
-
-> trigger: sam_okonjo attempts: Reply to Bristol Plumbing's text message confirming the Thursday 8am slot
->
-> Sam's reply message has left his phone and is now in transit to Bristol Plumbing's SMS gateway.
-- proposes: Sam Okonjo's reply message arrives at Bristol Plumbing's SMS gateway. (for [], observed=False, after 2 seconds)
+*terminal check at 2026-07-28T08:00:10+00:00: UNRESOLVED — The committed events show Sam Okonjo sent a text message confirming the appointment, but it was not observed by anyone, and the deadline has not passed yet.*
 
 ---
 
-## 2026-07-28T08:00:10+00:00 — committed event `e28`
+## 2026-07-28T08:00:12+00:00 — committed event `e23`
 
-The text message 'Yes, I confirm the Thursday 8am slot.' is in transit over the cellular network to Bristol Plumbing's SMS gateway.
+The confirmation text message is transmitted from Sam's phone to Bristol Plumbing's messaging system.
 
 - available to: no one
 - AVAILABLE but NOT observed
 - source: world_call:c5
 
-**World judgment** (event_consequence) at 2026-07-28T08:00:10+00:00
+**World judgment** (event_consequence) at 2026-07-28T08:00:12+00:00
 
-> trigger: The text message 'Yes, I confirm the Thursday 8am slot.' is in transit over the cellular network to Bristol Plumbing's SMS gateway.
+> trigger: The confirmation text message is transmitted from Sam's phone to Bristol Plumbing's messaging system.
 >
-> The message is travelling through the cellular network; it will reach Bristol Plumbing's SMS gateway in a few seconds under normal conditions.
-- proposes: The text message arrives at Bristol Plumbing's SMS gateway. (for [], observed=False, after 5 seconds)
+> The message has been transmitted and is now in transit to Bristol Plumbing's system. It will arrive at their server or inbox shortly.
+- proposes: The confirmation text message arrives at Bristol Plumbing's messaging system, stored as an unread message. (for [], observed=False, after 5 seconds)
 
-*terminal check at 2026-07-28T08:00:10+00:00: UNRESOLVED — Sam Okonjo sent a text message confirming the appointment, but it has not yet been observed by the recipient before the deadline.*
+*terminal check at 2026-07-28T08:00:12+00:00: UNRESOLVED — The deadline 2026-07-28T18:00:00+01:00 has not yet passed, and no committed event shows Sam Okonjo's text message was observed by the recipient, which is required to confirm the appointment.*
 
 ---
 
-## 2026-07-28T08:00:12+00:00 — committed event `e33`
+## 2026-07-28T08:00:17+00:00 — committed event `e28`
 
-Sam Okonjo's reply message arrives at Bristol Plumbing's SMS gateway.
+The confirmation text message arrives at Bristol Plumbing's messaging system, stored as an unread message.
 
 - available to: no one
 - AVAILABLE but NOT observed
-- source: world_call:c8
+- source: world_call:c7
 
-**World judgment** (event_consequence) at 2026-07-28T08:00:12+00:00
+**World judgment** (event_consequence) at 2026-07-28T08:00:17+00:00
 
-> trigger: Sam Okonjo's reply message arrives at Bristol Plumbing's SMS gateway.
+> trigger: The confirmation text message arrives at Bristol Plumbing's messaging system, stored as an unread message.
 >
-> The message has arrived at Bristol Plumbing's SMS gateway. The next step is for the gateway to process it and make it available to a human operator or system, which happens automatically and quickly.
-- proposes: The SMS gateway processes the incoming message and places it in Bristol Plumbing's message queue, available for the next available staff member to read. (for [], observed=False, after 2 seconds)
+> The message has arrived at Bristol Plumbing's system and is now available for an employee to see, but no one has yet looked at it.
+- proposes: (no concrete event yet)
 
-*terminal check at 2026-07-28T08:00:12+00:00: YES — Sam Okonjo sent a text message confirming the appointment before the deadline, as shown by events e18, e28, and e33.*
+*terminal check at 2026-07-28T08:00:17+00:00: YES — Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline.*
