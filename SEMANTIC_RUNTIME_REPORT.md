@@ -609,9 +609,12 @@ with nothing to verify reports itself vacuous rather than exact.
 
 ## 21. Pull request and commit
 
-Branch `claude/sworldmodel-semantic-runtime`, opened as a **draft** against
-`main` and deliberately not merged. The PR description carries the same
-verdict as §22 below. Commit SHA is recorded in the PR itself.
+**Pull request #4**, https://github.com/fnstggl/SWORLDMODEL-GROUND-UP/pull/4 —
+branch `claude/sworldmodel-semantic-runtime`, opened as a **draft** against
+`main` and deliberately not merged. Its description carries the same
+verdict as §22 below.
+
+Commit at the time the report was written: `509c34be6c8feef0a40cb50befe85d58245ea5ba`.
 
 ## 22. Stopping conditions: what is met, and what is not
 
