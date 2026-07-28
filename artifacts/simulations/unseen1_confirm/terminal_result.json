@@ -5,22 +5,22 @@
   "answer": {
    "status": "YES",
    "supporting_event_ids": [
-    "e28"
+    "e17"
    ],
-   "explanation": "Sam Okonjo sent a reply text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline."
+   "explanation": "Event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
   },
   "reason": "",
-  "steps": 3,
-  "world_calls": 5,
-  "actor_calls": 2,
-  "judge_calls": 4
+  "steps": 1,
+  "world_calls": 3,
+  "actor_calls": 1,
+  "judge_calls": 2
  },
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e28"
+   "e17"
   ],
-  "explanation": "Sam Okonjo sent a reply text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline."
+  "explanation": "Event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
  },
  "reason": ""
 }

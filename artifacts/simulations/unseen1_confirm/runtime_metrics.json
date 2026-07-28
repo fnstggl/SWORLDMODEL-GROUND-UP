@@ -1,44 +1,44 @@
 {
- "provider_calls": 11,
+ "provider_calls": 6,
  "by_role": {
   "judge": {
-   "calls": 4,
-   "retries": 0,
-   "wall_s": 6.17,
-   "input_tokens": 2153,
-   "output_tokens": 201
-  },
-  "world": {
-   "calls": 5,
-   "retries": 0,
-   "wall_s": 9.23,
-   "input_tokens": 8543,
-   "output_tokens": 460
-  },
-  "actor": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.62,
-   "input_tokens": 1419,
-   "output_tokens": 161
+   "wall_s": 3.36,
+   "input_tokens": 982,
+   "output_tokens": 92
+  },
+  "world": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 5.87,
+   "input_tokens": 4932,
+   "output_tokens": 261
+  },
+  "actor": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 2.49,
+   "input_tokens": 706,
+   "output_tokens": 63
   }
  },
- "total_input_tokens": 12115,
- "total_output_tokens": 822,
- "total_wall_s": 19.01,
+ "total_input_tokens": 6620,
+ "total_output_tokens": 416,
+ "total_wall_s": 11.71,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e28"
+   "e17"
   ],
-  "explanation": "Sam Okonjo sent a reply text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline."
+  "explanation": "Event e17 shows Sam Okonjo sent a text message confirming the appointment before the deadline."
  },
  "reason": "",
- "steps": 3,
- "world_calls": 5,
- "actor_calls": 2,
- "judge_calls": 4,
- "committed_events": 4,
- "ledger_records": 32
+ "steps": 1,
+ "world_calls": 3,
+ "actor_calls": 1,
+ "judge_calls": 2,
+ "committed_events": 2,
+ "ledger_records": 21
 }
