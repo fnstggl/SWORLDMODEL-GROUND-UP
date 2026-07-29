@@ -1,65 +1,68 @@
 {
- "provider_calls": 111,
+ "provider_calls": 74,
  "by_role": {
   "judge": {
-   "calls": 6,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 9.54,
-   "input_tokens": 3924,
-   "output_tokens": 330
+   "wall_s": 5.3,
+   "input_tokens": 1728,
+   "output_tokens": 205
   },
   "world": {
-   "calls": 37,
+   "calls": 24,
    "retries": 0,
-   "wall_s": 85.23,
-   "input_tokens": 84726,
-   "output_tokens": 4412
+   "wall_s": 56.27,
+   "input_tokens": 51578,
+   "output_tokens": 3026
   },
   "event_review": {
-   "calls": 7,
+   "calls": 8,
    "retries": 0,
-   "wall_s": 11.37,
-   "input_tokens": 9658,
-   "output_tokens": 317
+   "wall_s": 12.77,
+   "input_tokens": 10285,
+   "output_tokens": 327
   },
   "actor": {
-   "calls": 30,
+   "calls": 19,
    "retries": 0,
-   "wall_s": 49.91,
-   "input_tokens": 57319,
-   "output_tokens": 1726
+   "wall_s": 29.44,
+   "input_tokens": 29001,
+   "output_tokens": 917
   },
   "continuity": {
-   "calls": 30,
+   "calls": 19,
    "retries": 0,
-   "wall_s": 47.77,
-   "input_tokens": 43637,
-   "output_tokens": 1143
+   "wall_s": 30.13,
+   "input_tokens": 20165,
+   "output_tokens": 763
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.25,
-   "input_tokens": 708,
-   "output_tokens": 42
+   "wall_s": 1.51,
+   "input_tokens": 547,
+   "output_tokens": 48
   }
  },
- "total_input_tokens": 199972,
- "total_output_tokens": 7970,
- "total_wall_s": 205.07,
+ "total_input_tokens": 113304,
+ "total_output_tokens": 5286,
+ "total_wall_s": 135.39,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "The committed events show Mark Cuban saw the email (e50) but never sent a response, and the deadline 2026-08-10T09:00:00-05:00 has passed without any response being sent."
+  "supporting_event_ids": [
+   "e11",
+   "e21"
+  ],
+  "explanation": "The resolution requires Mark Cuban to have actually sent a response email, but the committed events show only Jordan Reyes sending an email and it arriving at Mark Cuban's server, with no record of any response sent by Mark Cuban before the cutoff."
  },
  "reason": "",
- "steps": 30,
- "world_calls": 37,
- "actor_calls": 30,
- "judge_calls": 6,
- "review_calls": 38,
- "abandoned_turns": 0,
- "committed_events": 5,
- "ledger_records": 191
+ "steps": 17,
+ "world_calls": 24,
+ "actor_calls": 19,
+ "judge_calls": 3,
+ "review_calls": 28,
+ "abandoned_turns": 1,
+ "committed_events": 2,
+ "ledger_records": 115
 }

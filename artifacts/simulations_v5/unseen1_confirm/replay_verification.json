@@ -1,19 +1,19 @@
 {
  "llm_calls": 0,
- "records_replayed": 25,
+ "records_replayed": 26,
  "event_ids": [
   "e9",
   "e20"
  ],
  "event_order_hash": "[\"e9\",\"e20\"]",
- "state_hash": "81d6f79ffdaf7ad26b2334d9780fa6ae222868b5c49088e3121cc8b9590a35c6",
+ "state_hash": "4b5e02c9da4cdb4942eee219908a0d367559eceb657db449974e0b624029323e",
  "terminal_status": "YES",
  "terminal_support": [
   "e20"
  ],
  "ledger_integrity": [],
  "checked": {
-  "records": 25,
+  "records": 26,
   "events": 2,
   "observations": 0,
   "terminal_checks": 2,

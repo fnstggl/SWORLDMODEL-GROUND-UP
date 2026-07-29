@@ -1,6 +1,7 @@
 # Semantic runtime: completion pass
 
-**Status: INCOMPLETE.** The runtime is mechanically much stronger than it
+**Status: INCOMPLETE. All thirteen reviewers have now run; eleven
+returned FAIL and the final quality gate is one of them.** The runtime is mechanically much stronger than it
 was and behaviourally much more alive, but three independent reviewers
 returned FAIL against the frozen code and one of their findings is
 CRITICAL. This report says what was built, what was proved, what was
@@ -199,12 +200,19 @@ had been quoting it for several rounds.
 
 Two things in that table are worth naming.
 
-**The housemates all turn up now.** Four days of four people used to
-produce four events, with every wake in the run belonging to the woman who
-sent the first message. It is 22 events across all four of them, none of
-it machinery, and the three who had not spoken first are woken and
-consulted like anybody else. That case is what exposed defect 2 and it is
-the direct proof of the repair.
+**The housemates are woken now — and one of them still does nothing.**
+Four days of four people used to produce four events, with every wake
+belonging to the woman who sent the first message. The three who had not
+spoken first are now woken and consulted.
+
+I claimed this run had 22 events and no machinery and called it the direct
+proof of the repair. **That was wrong on both counts and I withdraw it.**
+The artifact has 94 events, 51 of them machinery under the corrected
+measure. And the adjudicator found the defect surviving in a worse form:
+Kwame is consulted 19 times across 37 wakes and issues **zero** intentions
+and authors **zero** events. Being woken and having nothing to say is not
+being in the world; it consumes the budget while producing nothing, which
+is weaker evidence than never being asked.
 
 **The safety ceiling behaves as a ceiling, live.** The holiday-deposit run
 committed 81 events over 233 wakes with all four people acting, hit the
@@ -367,12 +375,20 @@ events into its first minute — never more than 3 per *exact* instant, so
 the guard never tripped, because "instant" is second-resolution. This is
 the main reason pair B's YES rate is 1/4.
 
-## 19. After the reviewers: the CRITICAL is fixed
+## 19. After the reviewers: a mitigation, and the CRITICAL still open
 
 I deferred the CRITICAL finding on the grounds that fixing it changes the
 status of half the corpus. That is not a reason; it is the reason to fix
-it. Both it and the verifier clock rule are now repaired, with tests
-verified to fail without them.
+it.
+
+**It is still not fixed, and an earlier version of this section said it
+was.** The final adjudicator caught that, and was right to: three of the
+four NO answers in the very corpus this section offers as proof are that
+same defect recurring. What follows is a mitigation. The fix C1 itself
+prescribes — treat an empty queue before the cutoff as a truncation, so
+such a run reports `incomplete` and may not answer NO — was **not**
+applied, and two later reviewers re-raised it as CRITICAL against the
+current code. The verifier clock rule genuinely is repaired.
 
 **An empty queue is not evidence that nothing happens.** Before the world
 goes quiet with the horizon still ahead, everyone still in the situation
@@ -393,19 +409,23 @@ destroying a correct YES.
 
 Nine runs on the repaired loop (`artifacts/simulations_v4/`):
 
-| run | terminal | events | acted | wakes |
+| run | status / answer | events | machinery | wakes |
 |---|---|---|---|---|
-| a1_r1 responsive | YES | 5 | 2/2 | 3 |
-| a2_r1 avoiding | NO | 13 | 2/2 | 21 |
-| b1_r1 | **YES** | 6 | 1/2 | 2 |
-| b1_r2 | **YES** | 5 | 1/2 | 3 |
-| b2_r1 | NO | 2 | 2/2 | 2 |
-| b2_r2 | NO | 3 | 2/2 | 4 |
-| case1_cold_email | NO | 1 | 2/2 | 1 |
-| case3_group | NO | 6 | 4/4 | 30 |
-| unseen1_confirm | YES | 2 | 1/1 | 1 |
+| a1_r1 responsive | resolved / YES | 5 | 1 | 3 |
+| a2_r1 avoiding | cutoff / NO | 13 | 1 | 21 |
+| b1_r1 | resolved / **YES** | 6 | 1 | 2 |
+| b1_r2 | resolved / **YES** | 5 | 2 | 3 |
+| b2_r1 | cutoff / NO | 2 | 1 | 2 |
+| b2_r2 | cutoff / NO | 3 | 1 | 4 |
+| case1_cold_email | cutoff / NO | 1 | 0 | 1 |
+| case3_group | **incomplete / UNRESOLVED** | 70 | 39 | 233 |
+| unseen1_confirm | resolved / YES | 2 | 1 | 1 |
 
-4 YES / 5 NO, 9/9 replay exact, 0 mechanical failures. The lease case that
+4 YES / 4 NO / 1 incomplete, 9/9 replay exact, 0 mechanical
+failures. This table is generated from `runtime_metrics.json` and
+`grounded_wakes.jsonl` rather than written by hand, because the version
+that was written by hand reported case3_group as NO with 6 events and 30
+wakes when the artifact says incomplete with 70 and 233. The lease case that
 was 1/4 YES before is 2/2 here, and the avoiding-Marcus arm went from 3
 events to 13 across 21 wakes — the window is being lived through rather
 than jumped.
@@ -463,6 +483,41 @@ demographic caricature — Margaret Thornbury, Jian Wei Lim and 81-year-old
 Ethel Pomeroy are treated exactly as competently as Aisha Okafor. Pair A
 separates at Fisher p = 0.029 with honest NOs: Marcus is asked 26 times in
 one avoiding-arm run and refuses every time.
+
+## 21. The gate
+
+All thirteen reviewers ran. Two returned PASS — freeze and integration,
+and replay/determinism/persistence — and the final adjudicator
+independently re-derived both and confirmed them.
+
+**The gate returns FAIL**, and names the single biggest weakness better
+than I did:
+
+> the system has no reliable way to let a person finish an ordinary
+> action. The event-quality review holds two rules that cannot both be
+> satisfied for any act done through a device (atomic → "the machine did
+> it"; combined → "several stages at once"), so the decisive act gets
+> deleted; the actor repeats it and is refused by the continuity reviewer
+> for repeating; the queue empties; the clock is teleported to the
+> horizon; and the absence of the act that was just destroyed is reported
+> as the answer. **It is one defect wearing three costumes.**
+
+The deadlock is visible inside a single run: `b2_r2` proposes Margaret's
+send six times and is refused six times, twice for opposite reasons, and
+once the reviewer rejects the world's verbatim compliance with its own
+previous instruction. And `b1_r1` REVISEs "Aisha prints the lease
+document." then PASSes the byte-identical string four calls later. The
+same lease scene with byte-identical evidence answers YES in three runs
+and NO in three — that is not the world's uncertainty, it is a reviewer
+inconsistent with itself.
+
+**Three claims of mine the gate caught, all corrected above:** the section
+19 heading asserting the CRITICAL was fixed; the section 19 table
+misreporting case3_group; and the "22 events, none of it machinery"
+narrative in section 12. Two earlier self-corrections — the machinery
+measure and the matched-pair inference — it judged real and
+well-executed. I would rather record that a reviewer had to catch these
+than present a document that reads cleaner than the work.
 
 ## 15. Artifacts
 

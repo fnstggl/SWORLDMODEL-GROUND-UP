@@ -4,49 +4,49 @@
   "judge": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.12,
+   "wall_s": 3.2,
    "input_tokens": 1101,
-   "output_tokens": 89
+   "output_tokens": 97
   },
   "world": {
    "calls": 4,
    "retries": 0,
-   "wall_s": 8.25,
-   "input_tokens": 8236,
-   "output_tokens": 412
+   "wall_s": 7.53,
+   "input_tokens": 8234,
+   "output_tokens": 443
   },
   "actor": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.93,
+   "wall_s": 1.76,
    "input_tokens": 1293,
-   "output_tokens": 77
+   "output_tokens": 82
   },
   "continuity": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.76,
-   "input_tokens": 865,
-   "output_tokens": 47
+   "wall_s": 1.47,
+   "input_tokens": 870,
+   "output_tokens": 37
   },
   "event_review": {
    "calls": 3,
    "retries": 0,
    "wall_s": 4.79,
-   "input_tokens": 3933,
-   "output_tokens": 108
+   "input_tokens": 3939,
+   "output_tokens": 122
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.27,
+   "wall_s": 1.39,
    "input_tokens": 513,
-   "output_tokens": 37
+   "output_tokens": 45
   }
  },
- "total_input_tokens": 15941,
- "total_output_tokens": 770,
- "total_wall_s": 21.12,
+ "total_input_tokens": 15950,
+ "total_output_tokens": 826,
+ "total_wall_s": 20.14,
  "status": "resolved",
  "answer": {
   "status": "YES",
@@ -63,5 +63,5 @@
  "review_calls": 5,
  "abandoned_turns": 0,
  "committed_events": 2,
- "ledger_records": 25
+ "ledger_records": 26
 }
