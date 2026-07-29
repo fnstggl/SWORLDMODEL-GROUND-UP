@@ -1,0 +1,16 @@
+run                          terminal       ev mech  act woke wakes  calls  exact chk
+anti_stereotype              YES            26    3 2/2     2    28    147   True ok
+cold_email                   UNRESOLVED      2    1 2/2     1    54    185   True ok
+evidence_avoiding            UNRESOLVED      3    2 2/2     2     7     34   True ok
+evidence_responsive          YES             7    1 2/2     2     6     31   True ok
+feedback_deadline            YES            31    3 2/2     2    28    143   True ok
+group_coordination           YES            26    2 4/4     4    81    284   True ok
+holiday_deposit              UNRESOLVED     91   11 4/4     4   135    638   True ok
+lease_other_names            YES             4    0 1/2     1     1     16   True ok
+lease_return                 YES            10    6 1/2     2     3     39   True ok
+negotiation                  YES             7    0 2/2     2     2     26   True ok
+plumber_confirm              YES             2    1 1/1     1     1      7   True ok
+
+11 runs | 209 events | machinery 30/209 (14%)
+terminals: 8 YES, 0 NO_AT_CUTOFF, 3 other
+replay exact: 11/11; model calls during replay: 0
