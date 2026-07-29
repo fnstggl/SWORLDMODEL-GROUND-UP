@@ -1,0 +1,2 @@
+{"cause":8,"description":"Bristol Plumbing's text message arrives on Sam Okonjo's phone.","event_id":"e9","for":["sam_okonjo"],"observed":true,"observed_by":["sam_okonjo"],"seq":9,"source":"starting_event[0]","t":"2026-07-28T08:00:00+00:00"}
+{"cause":19,"description":"Sam Okonjo picks up his phone, opens the text from Bristol Plumbing, and sends a reply: 'Yes, please confirm Thursday 8am.'","event_id":"e20","for":["sam_okonjo"],"observed":true,"observed_by":["sam_okonjo"],"seq":20,"source":"world_call:c5","t":"2026-07-28T08:00:30+00:00"}

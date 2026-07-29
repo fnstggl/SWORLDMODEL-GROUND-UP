@@ -1,0 +1,24 @@
+{
+ "question": "Is this cold email likely to get a response from Mark Cuban within two weeks? Jordan Reyes, founder of a bootstrapped sports-analytics startup, has drafted a short cold email to Mark Cuban's public address asking for a 15-minute call and referencing Cuban's Cost Plus Drugs pricing playbook. Jordan will send it today and does not plan to follow up.",
+ "trajectory": {
+  "status": "cutoff",
+  "answer": {
+   "status": "NO_AT_CUTOFF",
+   "supporting_event_ids": [],
+   "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email before the deadline."
+  },
+  "reason": "",
+  "steps": 19,
+  "world_calls": 30,
+  "actor_calls": 20,
+  "judge_calls": 4,
+  "review_calls": 32,
+  "abandoned_turns": 0
+ },
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email before the deadline."
+ },
+ "reason": ""
+}

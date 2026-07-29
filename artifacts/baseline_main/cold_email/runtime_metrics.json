@@ -1,0 +1,65 @@
+{
+ "provider_calls": 87,
+ "by_role": {
+  "judge": {
+   "calls": 5,
+   "retries": 1,
+   "wall_s": 7.48,
+   "input_tokens": 3002,
+   "output_tokens": 264
+  },
+  "world": {
+   "calls": 30,
+   "retries": 0,
+   "wall_s": 73.76,
+   "input_tokens": 66174,
+   "output_tokens": 3754
+  },
+  "event_review": {
+   "calls": 11,
+   "retries": 0,
+   "wall_s": 16.35,
+   "input_tokens": 14421,
+   "output_tokens": 404
+  },
+  "actor": {
+   "calls": 20,
+   "retries": 0,
+   "wall_s": 28.55,
+   "input_tokens": 31229,
+   "output_tokens": 924
+  },
+  "continuity": {
+   "calls": 20,
+   "retries": 0,
+   "wall_s": 28.47,
+   "input_tokens": 21956,
+   "output_tokens": 736
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.17,
+   "input_tokens": 597,
+   "output_tokens": 40
+  }
+ },
+ "total_input_tokens": 137379,
+ "total_output_tokens": 6122,
+ "total_wall_s": 155.8,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows Mark Cuban actually sent a response to Jordan Reyes's email before the deadline."
+ },
+ "reason": "",
+ "steps": 19,
+ "world_calls": 30,
+ "actor_calls": 20,
+ "judge_calls": 4,
+ "review_calls": 32,
+ "abandoned_turns": 0,
+ "committed_events": 3,
+ "ledger_records": 130
+}

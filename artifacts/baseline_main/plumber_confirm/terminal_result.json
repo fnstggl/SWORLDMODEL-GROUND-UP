@@ -1,0 +1,28 @@
+{
+ "question": "Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e20"
+   ],
+   "explanation": "Event e20 shows Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:30+00:00, which is before the deadline."
+  },
+  "reason": "",
+  "steps": 1,
+  "world_calls": 3,
+  "actor_calls": 1,
+  "judge_calls": 2,
+  "review_calls": 4,
+  "abandoned_turns": 0
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e20"
+  ],
+  "explanation": "Event e20 shows Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:30+00:00, which is before the deadline."
+ },
+ "reason": ""
+}
