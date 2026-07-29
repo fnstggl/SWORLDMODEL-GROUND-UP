@@ -4,21 +4,25 @@
   "status": "cutoff",
   "answer": {
    "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [],
-   "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline, and the deadline has passed."
+   "supporting_event_ids": [
+    "e836"
+   ],
+   "explanation": "At the deadline, Marian's bank account shows no deposit of \u00a3600 or any partial payments, as observed in event e836, and no committed event shows any deposit being made."
   },
   "reason": "",
-  "steps": 80,
-  "world_calls": 90,
-  "actor_calls": 63,
-  "judge_calls": 26,
-  "review_calls": 105,
-  "abandoned_turns": 1
+  "steps": 162,
+  "world_calls": 149,
+  "actor_calls": 129,
+  "judge_calls": 47,
+  "review_calls": 195,
+  "abandoned_turns": 4
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline, and the deadline has passed."
+  "supporting_event_ids": [
+   "e836"
+  ],
+  "explanation": "At the deadline, Marian's bank account shows no deposit of \u00a3600 or any partial payments, as observed in event e836, and no committed event shows any deposit being made."
  },
  "reason": ""
 }

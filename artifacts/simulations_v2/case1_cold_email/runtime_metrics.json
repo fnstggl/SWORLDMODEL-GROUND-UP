@@ -1,66 +1,65 @@
 {
- "provider_calls": 27,
+ "provider_calls": 182,
  "by_role": {
   "judge": {
-   "calls": 5,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 7.93,
-   "input_tokens": 3194,
-   "output_tokens": 274
+   "wall_s": 5.09,
+   "input_tokens": 1744,
+   "output_tokens": 144
   },
   "world": {
-   "calls": 8,
+   "calls": 64,
    "retries": 0,
-   "wall_s": 16.31,
-   "input_tokens": 17565,
-   "output_tokens": 904
+   "wall_s": 151.55,
+   "input_tokens": 137900,
+   "output_tokens": 8185
   },
   "event_review": {
-   "calls": 5,
+   "calls": 14,
    "retries": 0,
-   "wall_s": 7.64,
-   "input_tokens": 4813,
-   "output_tokens": 222
+   "wall_s": 20.28,
+   "input_tokens": 14426,
+   "output_tokens": 519
   },
   "actor": {
-   "calls": 4,
+   "calls": 50,
    "retries": 0,
-   "wall_s": 7.83,
-   "input_tokens": 5135,
-   "output_tokens": 369
+   "wall_s": 70.35,
+   "input_tokens": 106649,
+   "output_tokens": 2254
   },
   "continuity": {
-   "calls": 4,
+   "calls": 50,
    "retries": 0,
-   "wall_s": 6.15,
-   "input_tokens": 3671,
-   "output_tokens": 174
+   "wall_s": 74.23,
+   "input_tokens": 85902,
+   "output_tokens": 1916
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.37,
-   "input_tokens": 671,
-   "output_tokens": 43
+   "wall_s": 1.68,
+   "input_tokens": 555,
+   "output_tokens": 39
   }
  },
- "total_input_tokens": 35049,
- "total_output_tokens": 1986,
- "total_wall_s": 47.22,
- "status": "disagreement",
+ "total_input_tokens": 347176,
+ "total_output_tokens": 13057,
+ "total_wall_s": 323.22,
+ "status": "cutoff",
  "answer": {
-  "status": "UNRESOLVED",
+  "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "two independent readings of the record disagree (YES against NO_AT_CUTOFF), so no answer is claimed",
-  "disagreement": true
+  "explanation": "The committed events show the email arrived at Mark Cuban's inbox but was not observed by him, so no response was sent before the deadline."
  },
  "reason": "",
- "steps": 6,
- "world_calls": 8,
- "actor_calls": 4,
- "judge_calls": 5,
- "review_calls": 10,
+ "steps": 50,
+ "world_calls": 64,
+ "actor_calls": 50,
+ "judge_calls": 3,
+ "review_calls": 65,
  "abandoned_turns": 0,
- "committed_events": 4,
- "ledger_records": 56
+ "committed_events": 2,
+ "ledger_records": 282
 }

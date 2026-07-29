@@ -1,67 +1,67 @@
 {
- "provider_calls": 11,
+ "provider_calls": 12,
  "by_role": {
   "judge": {
-   "calls": 2,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 2.74,
-   "input_tokens": 1102,
-   "output_tokens": 91
+   "wall_s": 5.13,
+   "input_tokens": 1748,
+   "output_tokens": 145
   },
   "world": {
-   "calls": 4,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 6.73,
-   "input_tokens": 8193,
-   "output_tokens": 373
+   "wall_s": 6.19,
+   "input_tokens": 6183,
+   "output_tokens": 408
+  },
+  "event_review": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.85,
+   "input_tokens": 3108,
+   "output_tokens": 128
   },
   "actor": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.66,
+   "wall_s": 1.94,
    "input_tokens": 1239,
-   "output_tokens": 70
+   "output_tokens": 101
   },
   "continuity": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.5,
-   "input_tokens": 851,
-   "output_tokens": 44
-  },
-  "event_review": {
-   "calls": 2,
-   "retries": 0,
-   "wall_s": 3.1,
-   "input_tokens": 1847,
-   "output_tokens": 94
+   "wall_s": 1.36,
+   "input_tokens": 879,
+   "output_tokens": 37
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.38,
-   "input_tokens": 514,
-   "output_tokens": 81
+   "wall_s": 1.6,
+   "input_tokens": 578,
+   "output_tokens": 46
   }
  },
- "total_input_tokens": 13746,
- "total_output_tokens": 753,
- "total_wall_s": 17.12,
+ "total_input_tokens": 13735,
+ "total_output_tokens": 865,
+ "total_wall_s": 21.08,
  "status": "resolved",
  "answer": {
   "status": "YES",
   "supporting_event_ids": [
-   "e18"
+   "e25"
   ],
-  "explanation": "Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e18."
+  "explanation": "Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e25."
  },
  "reason": "",
- "steps": 1,
- "world_calls": 4,
+ "steps": 2,
+ "world_calls": 3,
  "actor_calls": 1,
- "judge_calls": 2,
- "review_calls": 4,
+ "judge_calls": 3,
+ "review_calls": 5,
  "abandoned_turns": 0,
- "committed_events": 2,
- "ledger_records": 22
+ "committed_events": 3,
+ "ledger_records": 32
 }

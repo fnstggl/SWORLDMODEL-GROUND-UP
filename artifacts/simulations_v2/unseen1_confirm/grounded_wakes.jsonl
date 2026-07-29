@@ -1,0 +1,2 @@
+{"about":"starting_event","actor":"sam_okonjo","due":"2026-07-28T08:15:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Sam might check his phone during a natural break in his morning routine.","t":"2026-07-28T08:00:00+00:00"}
+{"about":"event_consequence","actor":"sam_okonjo","due":"2026-07-28T08:01:05+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"The message may have been delivered or failed; check if any follow-up is needed.","t":"2026-07-28T08:00:05+00:00"}

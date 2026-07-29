@@ -157,6 +157,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                        "known_deadline",    # a deadline they know is close
                        "action_completion")  # what they started is done
 
+    #: What was last asked about somebody's unopened items, and how much
+    #: had happened at the time.  Asking again when neither has changed
+    #: gets the same answer -- one live run asked twenty-six times and was
+    #: told "the email remains unread" twenty-six times.  Nothing has
+    #: become of it; that is the answer, and it does not need buying again.
+    last_progression: dict = {}
+
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
     #: stacking behind it.
@@ -769,9 +776,23 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 pending_wakes.pop((aid, ev.data.get("about"),
                                    ev.data.get("provenance")), None)
                 pending = journal.available_unobserved(aid)
+                asked = last_progression.get(aid)
+                unchanged = (pending and asked is not None
+                             and asked == (len(journal.events()),
+                                           tuple(e["event_id"]
+                                                 for e in pending)))
                 if pending and since_actor["n"] >= MAX_WORLD_RUN:
                     _hand_back_the_turn([aid], {"seq": fired})
+                elif unchanged:
+                    # the same items, and nothing has happened since we
+                    # last asked.  The answer would be the same answer.
+                    note("progression_skipped", actor=aid, t=_iso_now(world),
+                         items=[e["event_id"] for e in pending])
+                    actor_step(aid, cause=fired)
                 elif pending:
+                    last_progression[aid] = (len(journal.events()),
+                                             tuple(e["event_id"]
+                                                   for e in pending))
                     world_step(
                         trigger_kind="pending_progression",
                         trigger_text=(f"The items listed above are available "

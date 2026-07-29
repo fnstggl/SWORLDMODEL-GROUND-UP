@@ -1,65 +1,67 @@
 {
- "provider_calls": 291,
+ "provider_calls": 530,
  "by_role": {
   "judge": {
-   "calls": 33,
-   "retries": 7,
-   "wall_s": 57.04,
-   "input_tokens": 52126,
-   "output_tokens": 1900
+   "calls": 55,
+   "retries": 8,
+   "wall_s": 91.46,
+   "input_tokens": 132738,
+   "output_tokens": 3435
   },
   "world": {
-   "calls": 90,
+   "calls": 149,
    "retries": 0,
-   "wall_s": 183.37,
-   "input_tokens": 322329,
-   "output_tokens": 10982
-  },
-  "event_review": {
-   "calls": 41,
-   "retries": 0,
-   "wall_s": 59.98,
-   "input_tokens": 65533,
-   "output_tokens": 1702
+   "wall_s": 376.18,
+   "input_tokens": 741762,
+   "output_tokens": 19117
   },
   "actor": {
-   "calls": 63,
-   "retries": 0,
-   "wall_s": 111.69,
-   "input_tokens": 122633,
-   "output_tokens": 5755
+   "calls": 130,
+   "retries": 1,
+   "wall_s": 367.88,
+   "input_tokens": 352002,
+   "output_tokens": 12981
   },
   "continuity": {
-   "calls": 63,
+   "calls": 129,
    "retries": 0,
-   "wall_s": 93.88,
-   "input_tokens": 99047,
-   "output_tokens": 2844
+   "wall_s": 238.36,
+   "input_tokens": 300177,
+   "output_tokens": 6420
+  },
+  "event_review": {
+   "calls": 66,
+   "retries": 1,
+   "wall_s": 124.8,
+   "input_tokens": 117939,
+   "output_tokens": 2932
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.36,
-   "input_tokens": 2129,
-   "output_tokens": 41
+   "wall_s": 1.34,
+   "input_tokens": 3548,
+   "output_tokens": 48
   }
  },
- "total_input_tokens": 663797,
- "total_output_tokens": 23224,
- "total_wall_s": 507.28,
+ "total_input_tokens": 1648166,
+ "total_output_tokens": 44933,
+ "total_wall_s": 1200.01,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline, and the deadline has passed."
+  "supporting_event_ids": [
+   "e836"
+  ],
+  "explanation": "At the deadline, Marian's bank account shows no deposit of \u00a3600 or any partial payments, as observed in event e836, and no committed event shows any deposit being made."
  },
  "reason": "",
- "steps": 80,
- "world_calls": 90,
- "actor_calls": 63,
- "judge_calls": 26,
- "review_calls": 105,
- "abandoned_turns": 1,
- "committed_events": 28,
- "ledger_records": 513
+ "steps": 162,
+ "world_calls": 149,
+ "actor_calls": 129,
+ "judge_calls": 47,
+ "review_calls": 195,
+ "abandoned_turns": 4,
+ "committed_events": 49,
+ "ledger_records": 955
 }

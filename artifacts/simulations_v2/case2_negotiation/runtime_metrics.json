@@ -1,58 +1,70 @@
 {
- "provider_calls": 862,
+ "provider_calls": 231,
  "by_role": {
   "judge": {
-   "calls": 53,
-   "retries": 2,
-   "wall_s": 83.9,
-   "input_tokens": 112688,
-   "output_tokens": 3282
+   "calls": 21,
+   "retries": 0,
+   "wall_s": 35.06,
+   "input_tokens": 24087,
+   "output_tokens": 1252
   },
   "world": {
-   "calls": 326,
+   "calls": 79,
    "retries": 1,
-   "wall_s": 691.64,
-   "input_tokens": 1353727,
-   "output_tokens": 40439
+   "wall_s": 165.31,
+   "input_tokens": 245556,
+   "output_tokens": 8833
   },
   "actor": {
-   "calls": 186,
+   "calls": 47,
    "retries": 0,
-   "wall_s": 344.14,
-   "input_tokens": 882692,
-   "output_tokens": 17499
+   "wall_s": 87.91,
+   "input_tokens": 100612,
+   "output_tokens": 4019
   },
   "continuity": {
-   "calls": 186,
+   "calls": 47,
    "retries": 0,
-   "wall_s": 301.09,
-   "input_tokens": 813449,
-   "output_tokens": 9178
+   "wall_s": 77.65,
+   "input_tokens": 82727,
+   "output_tokens": 2304
   },
   "event_review": {
-   "calls": 111,
+   "calls": 36,
    "retries": 0,
-   "wall_s": 159.74,
-   "input_tokens": 180912,
-   "output_tokens": 4614
+   "wall_s": 56.9,
+   "input_tokens": 58447,
+   "output_tokens": 1516
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.8,
+   "input_tokens": 1653,
+   "output_tokens": 76
   }
  },
- "total_input_tokens": 3343468,
- "total_output_tokens": 75012,
- "total_wall_s": 1580.62,
- "status": "incomplete",
+ "total_input_tokens": 513082,
+ "total_output_tokens": 18000,
+ "total_wall_s": 424.62,
+ "status": "resolved",
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement; the latest messages are unread by one party."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e62",
+   "e78",
+   "e263",
+   "e390"
+  ],
+  "explanation": "Priya observed Dmitri's acceptance of $1100 (e62) when she saw the unread messages (e263, e390), and Dmitri observed Priya's offer of $1100 (e39 via e51) and his own acceptance (e62), so both have observed the agreement on price."
  },
- "reason": "step ceiling 250 reached at 2026-09-15T20:45:10+00:00, before the cutoff",
- "steps": 250,
- "world_calls": 325,
- "actor_calls": 186,
- "judge_calls": 51,
- "review_calls": 297,
- "abandoned_turns": 4,
- "committed_events": 50,
- "ledger_records": 1454
+ "reason": "",
+ "steps": 61,
+ "world_calls": 78,
+ "actor_calls": 47,
+ "judge_calls": 21,
+ "review_calls": 84,
+ "abandoned_turns": 0,
+ "committed_events": 21,
+ "ledger_records": 406
 }

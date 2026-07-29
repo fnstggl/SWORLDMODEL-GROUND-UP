@@ -1,24 +1,34 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "incomplete",
+  "status": "resolved",
   "answer": {
-   "status": "UNRESOLVED",
-   "supporting_event_ids": [],
-   "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement; the latest messages are unread by one party."
+   "status": "YES",
+   "supporting_event_ids": [
+    "e62",
+    "e78",
+    "e263",
+    "e390"
+   ],
+   "explanation": "Priya observed Dmitri's acceptance of $1100 (e62) when she saw the unread messages (e263, e390), and Dmitri observed Priya's offer of $1100 (e39 via e51) and his own acceptance (e62), so both have observed the agreement on price."
   },
-  "reason": "step ceiling 250 reached at 2026-09-15T20:45:10+00:00, before the cutoff",
-  "steps": 250,
-  "world_calls": 325,
-  "actor_calls": 186,
-  "judge_calls": 51,
-  "review_calls": 297,
-  "abandoned_turns": 4
+  "reason": "",
+  "steps": 61,
+  "world_calls": 78,
+  "actor_calls": 47,
+  "judge_calls": 21,
+  "review_calls": 84,
+  "abandoned_turns": 0
  },
  "answer": {
-  "status": "UNRESOLVED",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows both Priya and Dmitri observing a mutual agreement; the latest messages are unread by one party."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e62",
+   "e78",
+   "e263",
+   "e390"
+  ],
+  "explanation": "Priya observed Dmitri's acceptance of $1100 (e62) when she saw the unread messages (e263, e390), and Dmitri observed Priya's offer of $1100 (e39 via e51) and his own acceptance (e62), so both have observed the agreement on price."
  },
- "reason": "step ceiling 250 reached at 2026-09-15T20:45:10+00:00, before the cutoff"
+ "reason": ""
 }
