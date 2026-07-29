@@ -423,6 +423,47 @@ delete the machinery limb of the review while keeping its two
 demonstrably-correct checks. That is a design change, not a patch, and it
 is the first thing the next pass should do.
 
+## 20. What the last four reviewers found
+
+**The terminal mechanics pass.** The verifier never receives the first
+reading's verdict in any of 42 live prompts, it runs on 41 of 41
+non-UNRESOLVED proposals, disagreement is never converted, and across 491
+terminal checks every YES cited a committed event that exists, no
+NO_AT_CUTOFF was returned early and no UNRESOLVED at the horizon.
+
+**The failure is not in the terminal; it is in what reaches it.** Two
+reviewers converged on the same root cause from opposite ends. The lease
+NO is produced by the two-strike event-quality deadlock deleting the very
+act the question asks about: Margaret intends "print, sign, scan, email"
+three times, the world proposes it, the review refuses it as a printer
+acting on its own, and the run reports that she did not return the lease.
+Worse, the review is not even self-consistent — in one run it REVISEs
+"Aisha prints the lease document." and PASSes the byte-identical string
+four calls later. The second reading cannot catch any of this, because
+**two readers of one record cannot disagree about an absence**: 19
+proposed YES, 5 refused; 17 proposed NO, 0 refused.
+
+**Actors cannot tell what day it is.** The view printed a bare ISO
+timestamp while every scene's evidence is written in weekdays. People got
+it wrong constantly and the continuity review — reading the same bare
+string — agreed with them: a man decided 10:17 was past the noon deadline
+he had set himself and went off to list his kiln elsewhere while the
+acceptance sat unread on his phone; a continuity reviewer told a housemate
+that Thursday was Friday, and because its reason is spliced into the
+actor's prompt as a correction to obey, that hallucinated fact outranked
+his own evidence and cost him the turn. **Fixed: the weekday is rendered
+alongside every timestamp.** Time is code's to keep, and handing somebody
+a number and asking them to derive the weekday is handing them a chance to
+be wrong about something people are not wrong about.
+
+**What the reviewers confirmed is good**, and it is worth stating as
+plainly as the failures: actors are not interchangeable in the rich runs,
+zero invented people or organisations across 598 decisions, and zero
+demographic caricature — Margaret Thornbury, Jian Wei Lim and 81-year-old
+Ethel Pomeroy are treated exactly as competently as Aisha Okafor. Pair A
+separates at Fisher p = 0.029 with honest NOs: Marcus is asked 26 times in
+one avoiding-arm run and refuses every time.
+
 ## 15. Artifacts
 
 21 per run: `ledger.jsonl` (authoritative, written first),

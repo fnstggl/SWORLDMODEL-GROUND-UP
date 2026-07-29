@@ -29,6 +29,8 @@ established this actor observed.
 """
 from __future__ import annotations
 
+from sworldmodel.simclock import parse_iso
+
 from .envelope import contained
 from .journal import Journal, OP_ACTOR_CALL
 
@@ -77,6 +79,31 @@ def build_view(world, journal: Journal, actor_id: str, *,
     }
 
 
+def _when(stamp: str) -> str:
+    """An instant as a person would hold it: the day of the week, then the
+    clock.
+
+    A bare ISO string is not a fact anybody has.  Every scene's evidence is
+    written in weekdays -- "away until Friday", "the deadline is Thursday
+    at five" -- and the people in it were given a timestamp and left to do
+    the calendar themselves.  They got it wrong constantly: a man decided
+    10:17 was past the noon deadline he had set himself and went off to
+    list his kiln elsewhere while the acceptance sat unread on his phone;
+    another believed an hour had passed when it had been a day.  The
+    reviewer whose job is to catch that agreed with them, because it was
+    reading the same bare string and doing the same arithmetic.
+
+    Time is code's to keep.  Handing somebody a number and asking them to
+    derive the weekday from it is handing them a chance to be wrong about
+    what day it is, which is not a thing people are wrong about.
+    """
+    try:
+        t = parse_iso(stamp)
+    except Exception:
+        return stamp
+    return f"{stamp} ({t.strftime('%A')})"
+
+
 def render_view(view: dict) -> str:
     """The stable natural-language rendering handed to the actor model.
 
@@ -85,7 +112,7 @@ def render_view(view: dict) -> str:
     one line code gave it and cannot forge a section of its own.
     """
     parts = [
-        "CURRENT TIME", view["now"], "",
+        "CURRENT TIME", _when(view["now"]), "",
         "WHO YOU ARE",
         f"{contained(view['name'])} (your identity in this situation: "
         f"{view['actor_id']})",
@@ -96,7 +123,8 @@ def render_view(view: dict) -> str:
     ]
     if view["observed_events"]:
         for e in view["observed_events"]:
-            parts.append(f"- {e['t']}: {contained(e['description'])}")
+            parts.append(f"- {_when(e['t'])}: "
+                         f"{contained(e['description'])}")
     else:
         parts.append("- (you have not observed anything yet)")
     parts += ["", "WHAT YOU HAVE ALREADY DECIDED AND TRIED"]

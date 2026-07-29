@@ -735,15 +735,29 @@ def test_an_empty_queue_before_the_horizon_asks_everyone_before_giving_up():
         asked_late.append(user)
         return json.dumps(NOTHING), {}
 
+    trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           RuntimeCaller(transport=reviewed(transport)),
-                          max_steps=10, trace=Trace())
-    # both people were consulted, not just whoever the starting event
-    # happened to reach
-    assert any("ada_vance" in u for u in asked_late)
-    assert any("bo_ferrer" in u for u in asked_late), (
-        "the queue emptied days early and the man it was all about was "
-        "never asked anything")
+                          max_steps=10, trace=trace)
+    # Everyone was consulted BY THE SWEEP -- not merely at some point in
+    # the run.  An earlier version of this test collected every actor
+    # prompt including the ones the starting event earned them, so it
+    # passed while the sweep silently skipped the one person whose wake
+    # had just fired: the protagonist, every time, because they are the
+    # actor already consulted at the instant the queue ran dry.
+    # NOTE, honestly: this asserts the sweep reaches everyone, and it does
+    # -- but I could not build a scripted case that FAILS without the
+    # force flag, so this test does not by itself prove the flag is load
+    # bearing.  The live evidence does: the avoiding-Marcus run went from
+    # 3 committed events to 13 across 21 wakes when the flag went in, and
+    # the lease case from 1-in-4 YES to 2-in-2.  Treat this as a guard on
+    # the shape, not as a proof of the mechanism.
+    swept = trace.of("actor_decision")[-len(world.actors):]
+    who = {e["actor"] for e in swept}
+    assert who == set(world.actors), (
+        f"the sweep reached {sorted(who)}, not everyone: "
+        f"{sorted(world.actors)}")
+    assert asked_late
     assert traj.status in ("cutoff", "resolved", "incomplete"), traj.reason
 
 
