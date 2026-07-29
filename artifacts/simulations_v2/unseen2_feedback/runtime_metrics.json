@@ -1,65 +1,65 @@
 {
- "provider_calls": 116,
+ "provider_calls": 8,
  "by_role": {
   "judge": {
-   "calls": 23,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 35.93,
-   "input_tokens": 25458,
-   "output_tokens": 1326
+   "wall_s": 4.12,
+   "input_tokens": 1795,
+   "output_tokens": 141
   },
   "world": {
-   "calls": 36,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 79.36,
-   "input_tokens": 100613,
-   "output_tokens": 4340
+   "wall_s": 1.66,
+   "input_tokens": 1947,
+   "output_tokens": 96
   },
   "event_review": {
-   "calls": 24,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 38.47,
-   "input_tokens": 35365,
-   "output_tokens": 1036
+   "wall_s": 1.59,
+   "input_tokens": 976,
+   "output_tokens": 40
   },
   "actor": {
-   "calls": 16,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 35.31,
-   "input_tokens": 32712,
-   "output_tokens": 1863
+   "wall_s": 1.52,
+   "input_tokens": 1225,
+   "output_tokens": 73
   },
   "continuity": {
-   "calls": 16,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 25.68,
-   "input_tokens": 27203,
-   "output_tokens": 733
+   "wall_s": 1.3,
+   "input_tokens": 838,
+   "output_tokens": 43
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.22,
-   "input_tokens": 1573,
-   "output_tokens": 48
+   "wall_s": 1.2,
+   "input_tokens": 572,
+   "output_tokens": 64
   }
  },
- "total_input_tokens": 222924,
- "total_output_tokens": 9346,
- "total_wall_s": 215.96,
+ "total_input_tokens": 7353,
+ "total_output_tokens": 457,
+ "total_wall_s": 11.39,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows that Dr Aline Mercier actually read the thesis chapter (she only opened the file but never read it) or sent comments to Ravi before the deadline."
+  "explanation": "The deadline has passed and no event shows Dr Aline Mercier actually reading the thesis chapter or sending comments."
  },
  "reason": "",
- "steps": 40,
- "world_calls": 36,
- "actor_calls": 16,
- "judge_calls": 23,
- "review_calls": 41,
+ "steps": 1,
+ "world_calls": 1,
+ "actor_calls": 1,
+ "judge_calls": 3,
+ "review_calls": 3,
  "abandoned_turns": 0,
- "committed_events": 22,
- "ledger_records": 243
+ "committed_events": 2,
+ "ledger_records": 24
 }

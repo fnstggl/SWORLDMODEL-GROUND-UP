@@ -2,66 +2,64 @@
  "provider_calls": 12,
  "by_role": {
   "judge": {
-   "calls": 3,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 5.13,
-   "input_tokens": 1748,
-   "output_tokens": 145
+   "wall_s": 3.53,
+   "input_tokens": 1116,
+   "output_tokens": 127
   },
   "world": {
-   "calls": 3,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 6.19,
-   "input_tokens": 6183,
-   "output_tokens": 408
-  },
-  "event_review": {
-   "calls": 3,
-   "retries": 0,
-   "wall_s": 4.85,
-   "input_tokens": 3108,
-   "output_tokens": 128
+   "wall_s": 3.44,
+   "input_tokens": 3958,
+   "output_tokens": 197
   },
   "actor": {
-   "calls": 1,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 1.94,
-   "input_tokens": 1239,
-   "output_tokens": 101
+   "wall_s": 4.3,
+   "input_tokens": 3886,
+   "output_tokens": 182
   },
   "continuity": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.27,
+   "input_tokens": 2634,
+   "output_tokens": 120
+  },
+  "event_review": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.36,
-   "input_tokens": 879,
-   "output_tokens": 37
+   "wall_s": 1.32,
+   "input_tokens": 1002,
+   "output_tokens": 38
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.6,
-   "input_tokens": 578,
-   "output_tokens": 46
+   "wall_s": 1.25,
+   "input_tokens": 504,
+   "output_tokens": 39
   }
  },
- "total_input_tokens": 13735,
- "total_output_tokens": 865,
- "total_wall_s": 21.08,
- "status": "resolved",
+ "total_input_tokens": 13100,
+ "total_output_tokens": 703,
+ "total_wall_s": 18.11,
+ "status": "cutoff",
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e25"
-  ],
-  "explanation": "Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e25."
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline of 2026-07-28T18:00:00+01:00 has passed, and the committed events show only a message arriving to Sam Okonjo, not Sam Okonjo sending a confirmation text."
  },
  "reason": "",
- "steps": 2,
- "world_calls": 3,
- "actor_calls": 1,
- "judge_calls": 3,
+ "steps": 1,
+ "world_calls": 2,
+ "actor_calls": 3,
+ "judge_calls": 2,
  "review_calls": 5,
  "abandoned_turns": 0,
- "committed_events": 3,
- "ledger_records": 32
+ "committed_events": 1,
+ "ledger_records": 24
 }

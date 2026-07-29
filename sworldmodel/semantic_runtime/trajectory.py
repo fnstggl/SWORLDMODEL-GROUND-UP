@@ -352,9 +352,21 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                      "reason": out["parsed"]["reason"],
                      "description": envelope["description"],
                      "trajectory_id": tid}, cause)
+        verdict = out["parsed"]
+        if verdict["verdict"] == "ACTOR_TURN_REQUIRED" \
+                and trigger_kind == "actor_intention":
+            # This IS their choice: the trigger is the attempt their own
+            # model just made.  Handing it back to them asks them to
+            # decide something they have decided, and a live run stalled
+            # exactly there -- a man who had said "I reply confirming the
+            # appointment" was never allowed to have replied.
+            verdict = {"verdict": "PASS",
+                       "reason": (f"the choice is already theirs: "
+                                  f"{verdict['reason']}")}
         note("event_review", t=_iso_now(world), call_id=out["call_id"],
-             description=envelope["description"], **out["parsed"])
-        return out["parsed"]
+             description=envelope["description"], trigger=trigger_kind,
+             **verdict)
+        return verdict
 
     def actor_step(actor_id: str, *, cause: int, trigger_event_ids=()) -> None:
         """Consult one actor, check that the reply follows from what they

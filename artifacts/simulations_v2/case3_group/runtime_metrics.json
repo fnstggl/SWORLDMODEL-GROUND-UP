@@ -1,65 +1,65 @@
 {
- "provider_calls": 37,
+ "provider_calls": 26,
  "by_role": {
   "judge": {
    "calls": 4,
    "retries": 0,
-   "wall_s": 6.58,
-   "input_tokens": 2511,
-   "output_tokens": 218
+   "wall_s": 5.97,
+   "input_tokens": 2476,
+   "output_tokens": 216
   },
   "world": {
-   "calls": 8,
-   "retries": 0,
-   "wall_s": 15.83,
-   "input_tokens": 17076,
-   "output_tokens": 723
+   "calls": 5,
+   "retries": 1,
+   "wall_s": 8.29,
+   "input_tokens": 10792,
+   "output_tokens": 465
   },
   "actor": {
-   "calls": 11,
+   "calls": 7,
    "retries": 0,
-   "wall_s": 21.46,
-   "input_tokens": 14934,
-   "output_tokens": 902
+   "wall_s": 12.22,
+   "input_tokens": 8800,
+   "output_tokens": 571
   },
   "continuity": {
-   "calls": 11,
+   "calls": 7,
    "retries": 0,
-   "wall_s": 17.55,
-   "input_tokens": 10791,
-   "output_tokens": 473
+   "wall_s": 10.53,
+   "input_tokens": 6088,
+   "output_tokens": 314
   },
   "event_review": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.25,
-   "input_tokens": 2206,
-   "output_tokens": 81
+   "wall_s": 3.41,
+   "input_tokens": 2180,
+   "output_tokens": 86
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.46,
-   "input_tokens": 629,
-   "output_tokens": 57
+   "wall_s": 1.55,
+   "input_tokens": 617,
+   "output_tokens": 58
   }
  },
- "total_input_tokens": 48147,
- "total_output_tokens": 2454,
- "total_wall_s": 66.15,
+ "total_input_tokens": 30953,
+ "total_output_tokens": 1710,
+ "total_wall_s": 41.98,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and the committed events show no collective agreement on a host."
+  "explanation": "The deadline of 2026-10-10T00:00:00+00:00 has passed without any committed event showing that the four housemates collectively agreed on a host."
  },
  "reason": "",
- "steps": 9,
- "world_calls": 8,
- "actor_calls": 11,
+ "steps": 3,
+ "world_calls": 4,
+ "actor_calls": 7,
  "judge_calls": 4,
- "review_calls": 14,
+ "review_calls": 10,
  "abandoned_turns": 0,
  "committed_events": 3,
- "ledger_records": 81
+ "ledger_records": 55
 }

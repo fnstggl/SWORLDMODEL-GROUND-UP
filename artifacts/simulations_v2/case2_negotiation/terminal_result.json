@@ -1,34 +1,24 @@
 {
  "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
  "trajectory": {
-  "status": "resolved",
+  "status": "cutoff",
   "answer": {
-   "status": "YES",
-   "supporting_event_ids": [
-    "e62",
-    "e78",
-    "e263",
-    "e390"
-   ],
-   "explanation": "Priya observed Dmitri's acceptance of $1100 (e62) when she saw the unread messages (e263, e390), and Dmitri observed Priya's offer of $1100 (e39 via e51) and his own acceptance (e62), so both have observed the agreement on price."
+   "status": "NO_AT_CUTOFF",
+   "supporting_event_ids": [],
+   "explanation": "No event shows both Priya and Dmitri observing a mutual agreement on a price; Priya's acceptance (e68) was not observed by Dmitri, and Dmitri's later message (e90) suggests he hadn't seen it, so no agreement was reached by the deadline."
   },
   "reason": "",
-  "steps": 61,
-  "world_calls": 78,
-  "actor_calls": 47,
-  "judge_calls": 21,
-  "review_calls": 84,
+  "steps": 30,
+  "world_calls": 20,
+  "actor_calls": 22,
+  "judge_calls": 12,
+  "review_calls": 35,
   "abandoned_turns": 0
  },
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e62",
-   "e78",
-   "e263",
-   "e390"
-  ],
-  "explanation": "Priya observed Dmitri's acceptance of $1100 (e62) when she saw the unread messages (e263, e390), and Dmitri observed Priya's offer of $1100 (e39 via e51) and his own acceptance (e62), so both have observed the agreement on price."
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No event shows both Priya and Dmitri observing a mutual agreement on a price; Priya's acceptance (e68) was not observed by Dmitri, and Dmitri's later message (e90) suggests he hadn't seen it, so no agreement was reached by the deadline."
  },
  "reason": ""
 }

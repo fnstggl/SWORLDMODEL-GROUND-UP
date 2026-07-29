@@ -1,16 +1,16 @@
 # Trajectory
 **Question:** Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.
-**Result:** resolved — YES
+**Result:** cutoff — NO_AT_CUTOFF
 
-*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No event shows Sam Okonjo sending a text message confirming the appointment; the only event is an incoming message to Sam.*
+*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — The committed events show a message arriving at Sam Okonjo's phone, but not Sam sending a text message confirming the appointment, and the deadline has not passed.*
 
 **World judgment** (starting_event) at 2026-07-28T08:00:00+00:00
 
 > trigger: Bristol Plumbing's text message arrives on Sam Okonjo's phone.
 >
-> The message has arrived on Sam's phone, but Sam has not yet looked at his phone. The phone is in his pocket or nearby, and he is occupied with other morning activities.
-- proposes: Sam Okonjo's phone buzzes with the incoming text message, but he does not immediately check it. (for ['sam_okonjo'], observed=False, after now)
-- wake sam_okonjo after 15 minutes: Sam might check his phone during a natural break in his morning routine.
+> The message has arrived on Sam's phone. Sam has not yet seen it because it is 8:00 AM and he may be occupied or asleep.
+- proposes: (no concrete event yet)
+- wake sam_okonjo after 1 hour: Sam may check his phone after waking up or starting his day.
 
 <details><summary>what sam_okonjo could see at 2026-07-28T08:00:00+00:00 (their entire prompt)</summary>
 
@@ -41,45 +41,39 @@ WHAT HAS CHANGED SINCE YOUR LAST TURN
 
 **sam_okonjo decides** at 2026-07-28T08:00:00+00:00
 
-> I will reply to the text message now to confirm the Thursday 8am appointment, as I've been waiting for this and don't want to miss it.
-- attempts: Reply 'Yes' to Bristol Plumbing's text message to confirm the Thursday 8am appointment
-- privately: I have now received the confirmation text and plan to confirm immediately.
+> I need to reply to confirm the Thursday 8am slot, so I'll do that immediately.
+- attempts: I reply to Bristol Plumbing's text message confirming the Thursday 8am appointment.
+- privately: I have confirmed the boiler repair appointment for Thursday at 8am.
 
-**World judgment** (actor_intention) at 2026-07-28T08:00:00+00:00
+<details><summary>what sam_okonjo could see at 2026-07-28T09:00:00+00:00 (their entire prompt)</summary>
 
-> trigger: sam_okonjo attempts: Reply 'Yes' to Bristol Plumbing's text message to confirm the Thursday 8am appointment
->
-> Sam has the phone in hand and is looking at the message. He types 'Yes' and presses send.
-- proposes: Sam replies 'Yes' to Bristol Plumbing's text message, confirming the Thursday 8am appointment. The message is sent from his phone. (for ['sam_okonjo'], observed=False, after 5 seconds)
+```
+CURRENT TIME
+2026-07-28T09:00:00+00:00
 
----
+WHO YOU ARE
+Sam Okonjo (your identity in this situation: sam_okonjo)
 
-## 2026-07-28T08:00:00+00:00 — committed event `e22`
+AUTHORITATIVE ACTOR EVIDENCE
+Sam has been waiting three weeks for a boiler repair appointment. He is at his desk all day with his phone next to him. He knows that confirming the Thursday 8am slot requires one text message reply to Bristol Plumbing's 9am text. He wants to keep the appointment.
 
-Sam Okonjo's phone buzzes with the incoming text message, but he does not immediately check it.
+WHAT YOU HAVE ACTUALLY OBSERVED
+- 2026-07-28T08:00:00+00:00: Bristol Plumbing's text message arrives on Sam Okonjo's phone.
 
-- available to: sam_okonjo
-- AVAILABLE but NOT observed
-- source: world_call:c2
+WHAT YOU HAVE ALREADY DECIDED AND TRIED
+- 2026-07-28T08:00:00+00:00: I need to reply to confirm the Thursday 8am slot, so I'll do that immediately. -> you attempted: I reply to Bristol Plumbing's text message confirming the Thursday 8am appointment.
 
-*terminal check at 2026-07-28T08:00:00+00:00: UNRESOLVED — No event shows Sam Okonjo sending a text message confirming the appointment; only an incoming message from Bristol Plumbing is recorded, and the deadline has not passed.*
+YOUR CURRENT MEMORIES, BELIEFS, PLANS, AND COMMITMENTS
+- I have confirmed the boiler repair appointment for Thursday at 8am.
 
----
+WHAT HAS CHANGED SINCE YOUR LAST TURN
+- time has passed and you are looking at your situation again
+```
 
-## 2026-07-28T08:00:05+00:00 — committed event `e25`
+</details>
 
-Sam replies 'Yes' to Bristol Plumbing's text message, confirming the Thursday 8am appointment. The message is sent from his phone.
+**sam_okonjo decides** at 2026-07-28T09:00:00+00:00
 
-- available to: sam_okonjo
-- AVAILABLE but NOT observed
-- source: world_call:c6
+> I already replied to the text, so I don't need to do anything more right now. I'll just wait for Thursday.
 
-**World judgment** (event_consequence) at 2026-07-28T08:00:05+00:00
-
-> trigger: Sam replies 'Yes' to Bristol Plumbing's text message, confirming the Thursday 8am appointment. The message is sent from his phone.
->
-> Sam has replied and sent the message. The message is now in transit to Bristol Plumbing's server.
-- proposes: The reply message is transmitted from Sam's phone to the cellular network, en route to Bristol Plumbing's system. (for [], observed=False, after now)
-- wake sam_okonjo after 1 minute: The message may have been delivered or failed; check if any follow-up is needed.
-
-*terminal check at 2026-07-28T08:00:05+00:00: YES — Sam Okonjo sent a text message confirming the appointment before the deadline, as shown in event e25.*
+*terminal check at 2026-07-28T17:00:00+00:00: NO_AT_CUTOFF — The deadline of 2026-07-28T18:00:00+01:00 has passed, and the committed events show only a message arriving to Sam Okonjo, not Sam Okonjo sending a confirmation text.*

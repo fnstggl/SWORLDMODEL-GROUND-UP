@@ -1578,3 +1578,42 @@ def test_a_wake_never_carries_information_to_the_person_it_wakes():
         assert secret not in v["rendered"]
         assert secret not in json.dumps(v["view"])
     assert any(secret in json.dumps(r) for r in world.records)   # traced
+
+
+def test_a_persons_own_intention_is_already_their_choice():
+    """The review may not hand a decision back to the person who just
+    made it.  A live run stalled exactly there: a man who had said "I
+    reply confirming the appointment" was never allowed to have replied."""
+    world, journal, bindings = build()
+
+    def transport(system, user):
+        role = role_of(system)
+        if role == "judge":
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if role == "verifier":
+            return json.dumps(NO_AT_CUTOFF), {}
+        if role == "continuity":
+            return json.dumps(PASSES), {}
+        if role == "event_review":
+            # the review insists, wrongly, that replying is a fresh choice
+            return json.dumps({"verdict": "ACTOR_TURN_REQUIRED",
+                               "reason": "replying is a decision"}), {}
+        if role == "world":
+            if "actor_intention" in user:
+                return json.dumps({"judgment": "she sends it", "event": {
+                    "description": "Ada sends the reply she decided to write",
+                    "for": ["bo_ferrer"], "observed": False,
+                    "after": "1 minutes", "follow_up": False},
+                    "wakes": []}), {}
+            return json.dumps({"judgment": "nothing", "event": None,
+                               "wakes": []}), {}
+        return json.dumps({"decision": "I will reply",
+                           "intentions": ["reply to Bo"],
+                           "private_updates": []}), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=transport), max_steps=8,
+                   trace=Trace())
+    descs = [e["description"] for e in journal.events()]
+    assert any("sends the reply she decided to write" in d for d in descs), descs

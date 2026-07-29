@@ -1,70 +1,65 @@
 {
- "provider_calls": 231,
+ "provider_calls": 89,
  "by_role": {
   "judge": {
-   "calls": 21,
+   "calls": 12,
    "retries": 0,
-   "wall_s": 35.06,
-   "input_tokens": 24087,
-   "output_tokens": 1252
+   "wall_s": 19.22,
+   "input_tokens": 10621,
+   "output_tokens": 760
   },
   "world": {
-   "calls": 79,
-   "retries": 1,
-   "wall_s": 165.31,
-   "input_tokens": 245556,
-   "output_tokens": 8833
+   "calls": 20,
+   "retries": 0,
+   "wall_s": 38.51,
+   "input_tokens": 50592,
+   "output_tokens": 2365
   },
   "actor": {
-   "calls": 47,
+   "calls": 22,
    "retries": 0,
-   "wall_s": 87.91,
-   "input_tokens": 100612,
-   "output_tokens": 4019
+   "wall_s": 40.16,
+   "input_tokens": 39212,
+   "output_tokens": 2114
   },
   "continuity": {
-   "calls": 47,
+   "calls": 22,
    "retries": 0,
-   "wall_s": 77.65,
-   "input_tokens": 82727,
-   "output_tokens": 2304
+   "wall_s": 34.42,
+   "input_tokens": 31233,
+   "output_tokens": 1124
   },
   "event_review": {
-   "calls": 36,
+   "calls": 12,
    "retries": 0,
-   "wall_s": 56.9,
-   "input_tokens": 58447,
-   "output_tokens": 1516
+   "wall_s": 18.28,
+   "input_tokens": 16230,
+   "output_tokens": 557
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.8,
-   "input_tokens": 1653,
-   "output_tokens": 76
+   "wall_s": 1.89,
+   "input_tokens": 1107,
+   "output_tokens": 71
   }
  },
- "total_input_tokens": 513082,
- "total_output_tokens": 18000,
- "total_wall_s": 424.62,
- "status": "resolved",
+ "total_input_tokens": 148995,
+ "total_output_tokens": 6991,
+ "total_wall_s": 152.49,
+ "status": "cutoff",
  "answer": {
-  "status": "YES",
-  "supporting_event_ids": [
-   "e62",
-   "e78",
-   "e263",
-   "e390"
-  ],
-  "explanation": "Priya observed Dmitri's acceptance of $1100 (e62) when she saw the unread messages (e263, e390), and Dmitri observed Priya's offer of $1100 (e39 via e51) and his own acceptance (e62), so both have observed the agreement on price."
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No event shows both Priya and Dmitri observing a mutual agreement on a price; Priya's acceptance (e68) was not observed by Dmitri, and Dmitri's later message (e90) suggests he hadn't seen it, so no agreement was reached by the deadline."
  },
  "reason": "",
- "steps": 61,
- "world_calls": 78,
- "actor_calls": 47,
- "judge_calls": 21,
- "review_calls": 84,
+ "steps": 30,
+ "world_calls": 20,
+ "actor_calls": 22,
+ "judge_calls": 12,
+ "review_calls": 35,
  "abandoned_turns": 0,
- "committed_events": 21,
- "ledger_records": 406
+ "committed_events": 11,
+ "ledger_records": 181
 }

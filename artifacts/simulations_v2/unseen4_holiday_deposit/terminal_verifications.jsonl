@@ -1,1 +1,1 @@
-{"agreed":true,"explanation":"Marian checked her bank account at the deadline and saw no deposit of \u00a3600 or any partial payments.","first":"NO_AT_CUTOFF","kind":"terminal_verification","second":"NO_AT_CUTOFF","t":"2026-09-16T22:59:59+00:00"}
+{"agreed":true,"explanation":"No committed event shows any deposit being paid into Marian Prowse's account.","first":"NO_AT_CUTOFF","kind":"terminal_verification","second":"NO_AT_CUTOFF","t":"2026-09-16T22:59:59+00:00"}

@@ -5,20 +5,20 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No committed event shows that Dr Aline Mercier actually read the thesis chapter (she only opened the file but never read it) or sent comments to Ravi before the deadline."
+   "explanation": "The deadline has passed and no event shows Dr Aline Mercier actually reading the thesis chapter or sending comments."
   },
   "reason": "",
-  "steps": 40,
-  "world_calls": 36,
-  "actor_calls": 16,
-  "judge_calls": 23,
-  "review_calls": 41,
+  "steps": 1,
+  "world_calls": 1,
+  "actor_calls": 1,
+  "judge_calls": 3,
+  "review_calls": 3,
   "abandoned_turns": 0
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows that Dr Aline Mercier actually read the thesis chapter (she only opened the file but never read it) or sent comments to Ravi before the deadline."
+  "explanation": "The deadline has passed and no event shows Dr Aline Mercier actually reading the thesis chapter or sending comments."
  },
  "reason": ""
 }

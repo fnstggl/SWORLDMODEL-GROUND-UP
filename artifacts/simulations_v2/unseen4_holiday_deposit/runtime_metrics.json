@@ -1,67 +1,65 @@
 {
- "provider_calls": 530,
+ "provider_calls": 175,
  "by_role": {
   "judge": {
-   "calls": 55,
-   "retries": 8,
-   "wall_s": 91.46,
-   "input_tokens": 132738,
-   "output_tokens": 3435
+   "calls": 30,
+   "retries": 5,
+   "wall_s": 43.79,
+   "input_tokens": 51746,
+   "output_tokens": 1874
   },
   "world": {
-   "calls": 149,
+   "calls": 37,
    "retries": 0,
-   "wall_s": 376.18,
-   "input_tokens": 741762,
-   "output_tokens": 19117
-  },
-  "actor": {
-   "calls": 130,
-   "retries": 1,
-   "wall_s": 367.88,
-   "input_tokens": 352002,
-   "output_tokens": 12981
-  },
-  "continuity": {
-   "calls": 129,
-   "retries": 0,
-   "wall_s": 238.36,
-   "input_tokens": 300177,
-   "output_tokens": 6420
+   "wall_s": 80.62,
+   "input_tokens": 126843,
+   "output_tokens": 5089
   },
   "event_review": {
-   "calls": 66,
-   "retries": 1,
-   "wall_s": 124.8,
-   "input_tokens": 117939,
-   "output_tokens": 2932
+   "calls": 25,
+   "retries": 0,
+   "wall_s": 37.06,
+   "input_tokens": 44424,
+   "output_tokens": 1074
+  },
+  "actor": {
+   "calls": 41,
+   "retries": 0,
+   "wall_s": 76.47,
+   "input_tokens": 76513,
+   "output_tokens": 3943
+  },
+  "continuity": {
+   "calls": 41,
+   "retries": 0,
+   "wall_s": 61.21,
+   "input_tokens": 61480,
+   "output_tokens": 1800
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.34,
-   "input_tokens": 3548,
-   "output_tokens": 48
+   "wall_s": 1.4,
+   "input_tokens": 2316,
+   "output_tokens": 43
   }
  },
- "total_input_tokens": 1648166,
- "total_output_tokens": 44933,
- "total_wall_s": 1200.01,
+ "total_input_tokens": 363322,
+ "total_output_tokens": 13823,
+ "total_wall_s": 300.51,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e836"
-  ],
-  "explanation": "At the deadline, Marian's bank account shows no deposit of \u00a3600 or any partial payments, as observed in event e836, and no committed event shows any deposit being made."
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows any deposit of \u00a3600 into Marian Prowse's bank account by the deadline."
  },
  "reason": "",
- "steps": 162,
- "world_calls": 149,
- "actor_calls": 129,
- "judge_calls": 47,
- "review_calls": 195,
- "abandoned_turns": 4,
- "committed_events": 49,
- "ledger_records": 955
+ "steps": 59,
+ "world_calls": 37,
+ "actor_calls": 41,
+ "judge_calls": 25,
+ "review_calls": 67,
+ "abandoned_turns": 1,
+ "committed_events": 27,
+ "ledger_records": 363
 }
