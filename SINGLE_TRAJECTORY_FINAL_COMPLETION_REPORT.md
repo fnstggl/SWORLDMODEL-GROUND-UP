@@ -1,6 +1,7 @@
 # Single-trajectory runtime: final completion report
 
-**Frozen SHA:** `37dccff041d606c36a87dc93391cd3703ddceec7`
+**Corpus SHA:** `37dccff` — **INVALIDATED**, see §13.
+**Current SHA:** `25b7f05`
 **Baseline:** merged `main` at `26b5203` (PR #5)
 **Draft PR:** https://github.com/fnstggl/SWORLDMODEL-GROUND-UP/pull/6
 **Recommendation: DO NOT MERGE YET.** See §14.
@@ -98,7 +99,9 @@ question
 Five, and `grep 'caller.ask("'` returns exactly these: `actor`, `world`,
 `continuity`, `judge`, `verifier`. The sixth — `event_review` — is gone.
 Per step the hot path passes through **4** semantic gates where it passed
-through **6**.
+through **5**. My earlier "6 → 4" was wrong: the sixth role was never
+per-step. The removed reviewer was 11.9% of hot-path calls, not the
+"roughly half" I claimed.
 
 ## 7. Code-owned state transitions
 
@@ -116,8 +119,9 @@ Delivery and availability are **not** among them as events: they are
 | | merged main | this branch |
 |---|---|---|
 | runtime lines | 3,362 | 3,194 |
-| hot-path semantic gates per step | 6 | 4 |
-| machinery share of committed events | **52%** | **14%** |
+| hot-path semantic gates per step | 5 | 4 |
+| machinery share of committed events (script) | 52% | 14% |
+| machinery share (reviewer hand count) | — | **44%** — see §13 |
 | tracked artifact files | 4,190 | 1,199 |
 | deterministic tests | 253 | 264 |
 | declared-but-unreachable wake provenances | 3 | 0 |
@@ -188,18 +192,102 @@ mutation/deletion/reordering/forgery · exactly one runtime path.
 `COMPILER_FREEZE.txt`, recomputed rather than trusted. No commit on this
 branch touches `compiler/`.
 
-## 13. Reviewer verdicts
+## 13. Reviewer verdicts, and what they found in my own work
 
-*(pending — four independent read-only reviewers are running against the
-frozen SHA: bloat and universality; terminal honesty; event meaning and
-realism; boundary, separation and replay. Their reports land in
-`artifacts/semantic_runtime/reviews_v2/`. This section and §14 will be
-completed from their findings, not before.)*
+Four independent read-only reviewers ran against `37dccff`. Reports in
+`artifacts/semantic_runtime/reviews_v2/`.
+
+| reviewer | verdict | CRITICAL | HIGH |
+|---|---|---|---|
+| bloat and universality | **FAIL** | 2 | 4 |
+| terminal honesty | **FAIL** | 1 | 3 |
+| event meaning and realism | **FAIL** | 2 | 4 |
+| boundary, separation, replay | **FAIL** | 1 | 4 |
+
+**Four FAILs. This is not complete.** What they got right, and what I have
+since fixed:
+
+**The zero-NO diagnosis in my own §14 was wrong.** I blamed a missing wake
+provenance. Two reviewers independently reproduced the real cause: every
+scheduling site refuses an instant past the cutoff, so the beyond-deadline
+signal was computed and discarded, and `NO_AT_CUTOFF` was reachable only
+when the wake interval happened to divide the window. A wake every two days
+over a fortnight answered NO; every three days answered incomplete, with
+*identical world behaviour*. Fixed, with a test over seven intervals that
+all now agree.
+
+**"The ORIGINAL reply stands" was false.** My comment said it; the loop
+broke with the retry in hand, so what survived was the reply rewritten
+under an instruction naming a contradiction — the more distorted of the
+two, and one the reviewer had refused anyway. All five OVERRULED verdicts
+in the corpus were correct diagnoses of contradictions that were then
+committed. Fixed.
+
+**The identity guard ran on one path in three.** Gated on `did_it`, which
+is set for attempts only, so 37% of committed events came through
+`starting_event` and `pending_progression` unchecked. A reviewer committed
+*"Bo reads Ada's proposal, decides to accept it, and replies agreeing to
+her terms"* through that path — `by` honestly naming Bo — before Bo's model
+had been called once, and `choice_returned_to_its_owner` fired zero times
+in eleven runs. Fixed.
+
+**An incomplete run could still answer NO** when a step ceiling landed
+exactly on the cutoff instant. Fixed: truncation forbids NO outright.
+
+**The machinery headline is wrong again.** The hand count is **44%**, not
+14%: `interface_mechanics.py` counts named people acting — including
+`Aisha scans the signed lease and sends the email`, the event one YES cites
+— and misses every near-duplicate. This metric has now been corrected once
+and is still not trustworthy. **Do not quote 14%.** The honest statement is
+that the *notification bookkeeping* is genuinely gone (baseline
+`group_coordination` was 40+ of 56 events of phones buzzing; the new one is
+26 events in which a reluctant host emerges) but ~22% of the record is the
+same act re-committed under different words, which the exact-string dedupe
+cannot catch.
+
+### Still open, not fixed
+
+- **CRITICAL — conditional intentions execute unconditionally and out of
+  order.** `holiday_deposit`: "If confirmed, transfer £400" fired 30
+  seconds *before* the check it was conditioned on, that check said the
+  money had not arrived, and the £400 was never resolved. The turn's
+  intentions are dispatched as independent world steps. This is my bug and
+  it is the old failure relocated.
+- **CRITICAL — the attention refusal deleted 12.6% of world answers**,
+  including substantive acts the world prompt authorises. The power to
+  delete a valid answer moved from the LLM into code rather than leaving.
+- **HIGH — replay cannot detect mutation of the persisted ledger.** A
+  reviewer rewrote every event description and terminal record and
+  `reverify_replay.py` still reported `exact=True`, because it copies that
+  boolean from a file beside the ledger and no semantic op has a kernel
+  reducer. "11/11 replay exact" is therefore not re-derivable.
+- **HIGH — the sender still learns recipient-side delivery**
+  (`evidence_avoiding/e44`), and the test named for that guarantee is dead
+  code that asserts nothing inside an `if` that is never true.
+- **HIGH — near-duplicate suppression does not exist**, and the test
+  certifying it passes because its run makes exactly one world call.
+- **HIGH — no event carries a duration**, so actors are in two places at
+  once; `feedback_deadline`'s YES rests on a self-contradicting record.
+- **HIGH — a 55-turn no-op actor** in `cold_email` (185 calls, 2 events).
+- **A disagreement I did not resolve.** Two reviewers argue the
+  empty-queue rule overcorrects: the three refused runs lived 92%, 98.8%
+  and 99.2% of their windows with every actor asked and declining, and two
+  had their actors' post-deadline plans silently deleted. The directive
+  states the rule as non-negotiable, so I honoured it and recorded the
+  objection rather than overriding either. **This is the user's call.**
 
 ## 14. Recommendation
 
-**DO NOT MERGE YET**, for two reasons that are independent of the
-reviewers:
+**DO NOT MERGE.** Four reviewers returned FAIL with 6 CRITICAL and 15 HIGH
+findings between them. Five findings are repaired above; the rest are not.
+
+**The frozen corpus is invalidated.** The repairs in §13 changed production
+code after `37dccff`, so every number in §9 predates them and must not be
+quoted as evidence for the current SHA. Per the directive, the candidate
+batch is discarded and the corpus must be rerun from the beginning on
+`25b7f05` before any completion claim. I have not done that rerun.
+
+Two further reasons independent of the reviewers:
 
 **Zero NO_AT_CUTOFF is honest, not good.** Every NO the merged runtime
 produced was the empty-queue kind, and those cases are labelled
