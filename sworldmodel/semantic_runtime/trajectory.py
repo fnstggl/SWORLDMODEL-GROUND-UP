@@ -442,7 +442,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              **verdict)
         return verdict
 
-    def actor_step(actor_id: str, *, cause: int, trigger_event_ids=()) -> None:
+    def actor_step(actor_id: str, *, cause: int, trigger_event_ids=(),
+                   force: bool = False) -> None:
         """Consult one actor, check that the reply follows from what they
         have, store their private updates, ground any plan they made, and
         send each intention to the world as its own separate trigger.
@@ -455,7 +456,14 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         nothing in between -- that is not a second thought, it is the same
         thought asked twice.
         """
-        if last_turn_t.get(actor_id) == _iso_now(world) \
+        # ``force`` is the last call, and only the last call.  The guard
+        # below is right that asking somebody twice at one instant having
+        # learned nothing is the same thought asked twice -- but "the
+        # world is about to go quiet with the deadline still ahead" is not
+        # the same question as the one they just answered, and it lands at
+        # the same instant as their last turn almost by definition, so the
+        # guard suppressed it exactly where it was needed.
+        if not force and last_turn_t.get(actor_id) == _iso_now(world) \
                 and news_at_turn.get(actor_id) == news.get(actor_id, 0):
             return
         last_turn_t[actor_id] = _iso_now(world)
@@ -881,7 +889,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     # the chain stays walkable back to the start
                     here = world.records[-1]["seq"] if world.records else 0
                     for aid in actor_ids:
-                        actor_step(aid, cause=here)
+                        actor_step(aid, cause=here, force=True)
                     continue
                 break
             ev = world.queue.pop()
