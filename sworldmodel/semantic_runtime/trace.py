@@ -80,7 +80,20 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                  trace.of("continuity_review") + trace.of(
                      "actor_response_rejected"))
     _write_jsonl(os.path.join(out_dir, "event_quality_reviews.jsonl"),
-                 trace.of("event_review") + trace.of("event_rejected"))
+                 trace.of("event_review") + trace.of("event_rejected")
+                 + trace.of("event_abandoned"))
+    # Every place code overruled the model.  These were emitted into the
+    # trace and persisted nowhere, which is precisely backwards: they are
+    # the moments a reader most needs, because they are where the record
+    # stopped being the model's judgment.  A run whose decisive act was
+    # proposed and refused twice looked, in the artifacts, exactly like a
+    # run in which the world judged that nothing happened.
+    _write_jsonl(os.path.join(out_dir, "code_overrides.jsonl"),
+                 [dict(e, override=e["kind"]) for k in
+                  ("event_abandoned", "duplicate_event_dropped",
+                   "duration_floored", "actor_turn_abandoned",
+                   "group_observation_split", "progression_skipped")
+                  for e in trace.of(k)])
     _write_jsonl(os.path.join(out_dir, "grounded_wakes.jsonl"),
                  trace.of("wake_scheduled"))
     _write_jsonl(os.path.join(out_dir, "review_exchanges.jsonl"),
@@ -151,6 +164,15 @@ def render_trajectory(question, journal, trace: Trace, trajectory) -> str:
                            f"{ev.get('observed')}, after {ev.get('after')})\n")
             else:
                 out.append("- proposes: (no concrete event yet)\n")
+        elif k == "event_abandoned":
+            # NOT the same as "nothing happened": the world said something
+            # did, twice, and was overruled.  Rendering the two alike is
+            # how a NO produced by a refusal reads as a NO produced by a
+            # quiet afternoon.
+            out.append(f"\n**Proposed and refused twice** at {e['t']} — "
+                       f"nothing was committed\n\n"
+                       f"> would have been: {e['rejected']}\n>\n"
+                       f"> refused because: {e['reason']}\n")
             for w in e.get("wakes") or []:
                 out.append(f"- wake {w['actor']} after {w['after']}: "
                            f"{w['reason']}\n")

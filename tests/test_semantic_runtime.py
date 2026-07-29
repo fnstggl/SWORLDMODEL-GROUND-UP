@@ -816,6 +816,41 @@ def test_the_verifier_is_under_the_same_clock_rule_as_the_judge():
              "explanation": "too early"})
 
 
+def test_every_place_code_overruled_the_model_is_written_down():
+    """A run whose decisive act was proposed and refused twice looked, in
+    the artifacts, exactly like a run in which the world judged nothing
+    happened.  Both rendered as "(no concrete event yet)".
+
+    Six trace kinds recorded code overruling the model and were persisted
+    nowhere -- which is backwards, because those are the moments where the
+    record stops being the model's judgment.
+    """
+    import os
+    import tempfile
+    from sworldmodel.semantic_runtime.trace import write_artifacts
+    from sworldmodel.semantic_runtime.trajectory import SemanticTrajectory
+    trace = Trace()
+    trace.record("event_abandoned", t="2026-07-27T14:00:00+00:00",
+                 call_id="c9", reason="the printer is not the one acting",
+                 rejected="Aisha prints the lease document.")
+    trace.record("duration_floored", t="2026-07-27T14:00:00+00:00",
+                 call_id="c9", description="something at no time at all")
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=lambda s, u: (json.dumps(NOTHING), {}))
+    with tempfile.TemporaryDirectory() as d:
+        write_artifacts(d, scene=SCENE, world=world, journal=journal,
+                        bindings=bindings, trajectory=SemanticTrajectory(),
+                        caller=caller, trace=trace, replay=None,
+                        question="q")
+        rows = [json.loads(l) for l in
+                open(os.path.join(d, "code_overrides.jsonl"))]
+        kinds = {r["override"] for r in rows}
+        assert "event_abandoned" in kinds and "duration_floored" in kinds
+        md = open(os.path.join(d, "trajectory.md")).read()
+        assert "Proposed and refused twice" in md
+        assert "the printer is not the one acting" in md
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
