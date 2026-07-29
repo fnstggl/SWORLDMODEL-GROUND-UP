@@ -1,22 +1,21 @@
-{"actor":"ruth_kelleher","content":"I am not willing to pay the deposit for everyone given the previous experience with the group meal.","source":"actor_call:c5","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"ruth_kelleher","content":"I need to ensure we all pay separately or agree a plan before Wednesday.","source":"actor_call:c5","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I am worried about the deposit deadline and my financial constraints, but still committed to the trip.","source":"actor_call:c10","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"nina_achebe","content":"I feel guilty for not replying, but I'm not ready to commit to the trip or the deposit.","source":"actor_call:c17","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"marian_prowse","content":"I'm holding the week for the group until end of Wednesday 16th September. No deposit yet, but I'll wait until the deadline.","source":"actor_call:c21","t":"2026-09-13T19:40:00+00:00"}
-{"actor":"dev_sandhu","content":"I'm considering asking for an extension or a loan to avoid breaking my promise about the credit card.","source":"actor_call:c34","t":"2026-09-13T19:43:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm relieved I'm not the only one who saw the reminder, but now I need to avoid being the one to lend Dev the \u00a320 or cover his deposit.","source":"actor_call:c55","t":"2026-09-13T19:52:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm waiting for Nina's response to see if she can pay her share.","source":"actor_call:c55","t":"2026-09-13T19:52:00+00:00"}
-{"actor":"dev_sandhu","content":"I sent a message asking for an extension or a small loan. I'll wait for replies before deciding next steps.","source":"actor_call:c65","t":"2026-09-13T19:58:00+00:00"}
-{"actor":"ruth_kelleher","content":"I've done what I can for now; the ball is in Nina's and Dev's court.","source":"actor_call:c67","t":"2026-09-13T19:58:05+00:00"}
-{"actor":"ruth_kelleher","content":"I'm not going to offer to lend Dev the \u00a320; that would set a precedent I want to avoid.","source":"actor_call:c67","t":"2026-09-13T19:58:05+00:00"}
-{"actor":"ruth_kelleher","content":"I'm slightly frustrated that Nina hasn't replied yet, but it's the weekend so I'll give her until Monday morning before nudging her.","source":"actor_call:c92","t":"2026-09-14T20:50:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm getting a bit anxious about the deadline, but I'm sticking to my position of not covering others.","source":"actor_call:c96","t":"2026-09-15T07:58:05+00:00"}
-{"actor":"dev_sandhu","content":"I see that Ruth has already replied to my earlier message suggesting I pay the \u00a3180 and ask for a loan, so I'll follow that route.","source":"actor_call:c108","t":"2026-09-15T08:28:05+00:00"}
-{"actor":"dev_sandhu","content":"I'm still not willing to use the credit card, so I'll ask for a \u00a320 loan from the group.","source":"actor_call:c108","t":"2026-09-15T08:28:05+00:00"}
-{"actor":"ruth_kelleher","content":"I'm now taking individual action because the group chat isn't working.","source":"actor_call:c122","t":"2026-09-15T14:20:00+00:00"}
-{"actor":"ruth_kelleher","content":"I'm still not willing to cover anyone's deposit.","source":"actor_call:c122","t":"2026-09-15T14:20:00+00:00"}
-{"actor":"nina_achebe","content":"I feel increasingly guilty about not replying, but I still don't know my schedule and can't commit to the deposit.","source":"actor_call:c139","t":"2026-09-15T19:43:05+00:00"}
-{"actor":"marian_prowse","content":"The group didn't pay the deposit by the deadline, so the hold is lifted.","source":"actor_call:c145","t":"2026-09-16T19:40:00+00:00"}
-{"actor":"marian_prowse","content":"I need to let the Leeds couple know and secure their booking.","source":"actor_call:c145","t":"2026-09-16T19:40:00+00:00"}
-{"actor":"marian_prowse","content":"The hold for the group has officially ended; I'm now pursuing the Leeds couple.","source":"actor_call:c154","t":"2026-09-16T19:40:30+00:00"}
-{"actor":"marian_prowse","content":"The hold for the original group has expired; I'm no longer expecting their deposit.","source":"actor_call:c164","t":"2026-09-16T19:45:30+00:00"}
+{"actor":"ruth_kelleher","content":"I am not going to pay the full deposit myself and chase people again.","source":"actor_call:c5","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I need a commitment from Dev and Nina before I pay my share.","source":"actor_call:c5","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I'm committed to the trip but financially unable to pay the deposit now due to the clutch repair and my promise to my wife.","source":"actor_call:c10","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I plan to pay the deposit after I get paid on the 28th, if that's still possible.","source":"actor_call:c10","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"nina_achebe","content":"I know I need to decide about the trip and the deposit, but I'm avoiding it because of my mum's situation.","source":"actor_call:c13","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"marian_prowse","content":"I am still holding the week until end of Wednesday 16th September. If no deposit arrives by then, I will release the week to the couple from Leeds.","source":"actor_call:c16","t":"2026-09-13T19:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I have done what I can for now. I will check for replies later today.","source":"actor_call:c34","t":"2026-09-14T03:40:00+00:00"}
+{"actor":"nina_achebe","content":"I'm aware I'm putting this off, but I need more clarity on my mum's situation before I can reply.","source":"actor_call:c36","t":"2026-09-14T09:40:00+00:00"}
+{"actor":"nina_achebe","content":"I feel guilty for delaying but Mum's recovery is my priority. I'll have to decide by Wednesday at the latest.","source":"actor_call:c56","t":"2026-09-14T23:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm starting to get anxious that they might not be interested, but I'll give them one more chance before I decide to cancel.","source":"actor_call:c66","t":"2026-09-15T07:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm now seriously considering that this trip might fall through if they don't respond today.","source":"actor_call:c72","t":"2026-09-15T15:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I'm still waiting for Dev and Nina to reply to my text. I'll check my phone around 9pm.","source":"actor_call:c96","t":"2026-09-15T19:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"If no replies by now, I'm ready to let the cottage go and will message Marian to cancel.","source":"actor_call:c104","t":"2026-09-15T21:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"I now believe Dev and Nina have lost interest or are avoiding me, so the trip is not going ahead.","source":"actor_call:c114","t":"2026-09-16T07:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"The trip is definitely off. I have moved on.","source":"actor_call:c122","t":"2026-09-16T09:40:00+00:00"}
+{"actor":"dev_sandhu","content":"I now realise I can't just wait and hope; I need to communicate my situation clearly or I'll lose the spot.","source":"actor_call:c137","t":"2026-09-16T18:25:00+00:00"}
+{"actor":"marian_prowse","content":"I have released the hold; the group missed the deposit deadline.","source":"actor_call:c151","t":"2026-09-16T19:40:00+00:00"}
+{"actor":"marian_prowse","content":"The voicemail confirms the group is not taking the cottage, so the hold is definitely ended.","source":"actor_call:c166","t":"2026-09-16T19:40:00+00:00"}
+{"actor":"marian_prowse","content":"The October half-term week is now definitely available, and I have no further obligations to Ruth's group.","source":"actor_call:c172","t":"2026-09-16T19:41:00+00:00"}
+{"actor":"dev_sandhu","content":"I've finally acted on my intention to reply to Ruth.","source":"actor_call:c178","t":"2026-09-16T20:40:00+00:00"}
+{"actor":"ruth_kelleher","content":"Dev's text confirms he can't pay upfront, which would have required me to cover him again. I'm relieved I cancelled when I did.","source":"actor_call:c192","t":"2026-09-16T20:50:00+00:00"}

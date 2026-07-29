@@ -1,24 +1,28 @@
 {
  "question": "Will Sam Okonjo confirm the plumber's appointment before 6pm today? Bristol Plumbing texted Sam at 9:00 this morning asking him to confirm a Thursday 8am slot by 6pm or lose it. Sam has been waiting three weeks for this appointment because his boiler is out, he is at his desk all day with his phone next to him, and confirming takes one text message.",
  "trajectory": {
-  "status": "cutoff",
+  "status": "resolved",
   "answer": {
-   "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [],
-   "explanation": "The deadline of 2026-07-28T18:00:00+01:00 has passed, and the committed events show only a message arriving to Sam Okonjo, not Sam Okonjo sending a confirmation text."
+   "status": "YES",
+   "supporting_event_ids": [
+    "e19"
+   ],
+   "explanation": "Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline of 2026-07-28T18:00:00+01:00."
   },
   "reason": "",
   "steps": 1,
-  "world_calls": 2,
-  "actor_calls": 3,
+  "world_calls": 3,
+  "actor_calls": 1,
   "judge_calls": 2,
-  "review_calls": 5,
+  "review_calls": 4,
   "abandoned_turns": 0
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "The deadline of 2026-07-28T18:00:00+01:00 has passed, and the committed events show only a message arriving to Sam Okonjo, not Sam Okonjo sending a confirmation text."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e19"
+  ],
+  "explanation": "Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline of 2026-07-28T18:00:00+01:00."
  },
  "reason": ""
 }

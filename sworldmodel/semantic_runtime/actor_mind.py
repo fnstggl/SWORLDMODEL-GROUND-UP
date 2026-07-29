@@ -203,10 +203,21 @@ def validate_next_wake(proposed):
 
 
 def actor_user_prompt(rendered_view: str) -> str:
+    """The closing question asks for the plan as well as the action.
+
+    Nothing else brings a person back to a situation: there is no timer
+    anywhere in this runtime, by design.  If someone with unfinished
+    business does not say when they will next look at it, they do not look
+    at it again, and the situation stops -- one live negotiation ended
+    after three steps with twelve days still to run.
+    """
     return (rendered_view
-            + "\n\nGiven only what you know above, what do you attempt now, "
-              "and what changes in your own private understanding?  Reply "
-              "with ONLY the JSON object.")
+            + "\n\nGiven only what you know above: what do you attempt now, "
+              "what changes in your own private understanding, and -- if "
+              "this is not finished for you -- when will you next come back "
+              "to it, and why then?  If you genuinely expect to think about "
+              "this again, say so in \"next_wake\"; nothing else will bring "
+              "it back to you.  Reply with ONLY the JSON object.")
 
 
 # ------------------------------------------------- the continuity review

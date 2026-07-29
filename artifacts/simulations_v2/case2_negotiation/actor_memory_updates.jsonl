@@ -1,11 +1,2 @@
-{"actor":"priya_raghavan","content":"I'm willing to go up to 1200 if needed, but I'll start at 1100.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm willing to negotiate down from 1400 but not as low as 900.","source":"actor_call:c7","t":"2026-09-08T09:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm waiting for Priya to reply to my counteroffer of 1200.","source":"actor_call:c17","t":"2026-09-08T09:05:00+00:00"}
-{"actor":"priya_raghavan","content":"I'm relieved to have a deal at my maximum budget.","source":"actor_call:c25","t":"2026-09-08T10:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm starting to wonder if she's lost interest or shopping around, but I'll wait a bit more before lowering further.","source":"actor_call:c37","t":"2026-09-08T11:05:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm getting impatient but still hope she'll respond; I'll give it until end of day before trying a lower offer.","source":"actor_call:c51","t":"2026-09-08T13:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm lowering my counteroffer to 1100 because I'm worried Priya has lost interest.","source":"actor_call:c55","t":"2026-09-08T15:05:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm starting to think Priya might not be interested anymore, but I'll give it until tomorrow before considering other options.","source":"actor_call:c66","t":"2026-09-08T18:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm starting to accept that Priya may not be interested, but I'll wait until tomorrow to see if she responds before taking further action.","source":"actor_call:c68","t":"2026-09-08T19:05:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm starting to accept that Priya may not respond, so I should prepare to find another buyer.","source":"actor_call:c70","t":"2026-09-09T08:00:00+00:00"}
-{"actor":"dmitri_sokolov","content":"I'm now actively seeking other buyers and no longer waiting for Priya.","source":"actor_call:c75","t":"2026-09-09T12:00:00+00:00"}
+{"actor":"priya_raghavan","content":"I'm willing to go up to around $1,200 if needed, but I'll start with $1,100.","source":"actor_call:c3","t":"2026-09-08T09:00:00+00:00"}
+{"actor":"dmitri_sokolov","content":"I'm willing to negotiate down from 1400 to close the deal quickly.","source":"actor_call:c7","t":"2026-09-08T09:00:00+00:00"}

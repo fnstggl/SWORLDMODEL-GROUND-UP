@@ -1,65 +1,65 @@
 {
- "provider_calls": 89,
+ "provider_calls": 17,
  "by_role": {
   "judge": {
-   "calls": 12,
+   "calls": 5,
    "retries": 0,
-   "wall_s": 19.22,
-   "input_tokens": 10621,
-   "output_tokens": 760
+   "wall_s": 7.47,
+   "input_tokens": 3522,
+   "output_tokens": 286
   },
   "world": {
-   "calls": 20,
+   "calls": 4,
    "retries": 0,
-   "wall_s": 38.51,
-   "input_tokens": 50592,
-   "output_tokens": 2365
+   "wall_s": 6.3,
+   "input_tokens": 8407,
+   "output_tokens": 383
   },
   "actor": {
-   "calls": 22,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 40.16,
-   "input_tokens": 39212,
-   "output_tokens": 2114
+   "wall_s": 4.21,
+   "input_tokens": 2529,
+   "output_tokens": 270
   },
   "continuity": {
-   "calls": 22,
+   "calls": 2,
    "retries": 0,
-   "wall_s": 34.42,
-   "input_tokens": 31233,
-   "output_tokens": 1124
+   "wall_s": 2.99,
+   "input_tokens": 1882,
+   "output_tokens": 111
   },
   "event_review": {
-   "calls": 12,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 18.28,
-   "input_tokens": 16230,
-   "output_tokens": 557
+   "wall_s": 4.22,
+   "input_tokens": 3285,
+   "output_tokens": 129
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.89,
-   "input_tokens": 1107,
-   "output_tokens": 71
+   "wall_s": 1.55,
+   "input_tokens": 744,
+   "output_tokens": 44
   }
  },
- "total_input_tokens": 148995,
- "total_output_tokens": 6991,
- "total_wall_s": 152.49,
+ "total_input_tokens": 20369,
+ "total_output_tokens": 1223,
+ "total_wall_s": 26.75,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No event shows both Priya and Dmitri observing a mutual agreement on a price; Priya's acceptance (e68) was not observed by Dmitri, and Dmitri's later message (e90) suggests he hadn't seen it, so no agreement was reached by the deadline."
+  "explanation": "No committed event shows that Priya and Dmitri both observed an agreement on a price before the deadline; messages were sent but not observed."
  },
  "reason": "",
- "steps": 30,
- "world_calls": 20,
- "actor_calls": 22,
- "judge_calls": 12,
- "review_calls": 35,
+ "steps": 3,
+ "world_calls": 4,
+ "actor_calls": 2,
+ "judge_calls": 5,
+ "review_calls": 6,
  "abandoned_turns": 0,
- "committed_events": 11,
- "ledger_records": 181
+ "committed_events": 4,
+ "ledger_records": 40
 }

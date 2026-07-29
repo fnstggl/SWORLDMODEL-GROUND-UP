@@ -4,21 +4,29 @@
   "status": "cutoff",
   "answer": {
    "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [],
-   "explanation": "No event shows Mark Cuban actually sent a response to Jordan Reyes's email; only delivery events occurred, and the deadline has passed."
+   "supporting_event_ids": [
+    "e11",
+    "e23",
+    "e60"
+   ],
+   "explanation": "The committed events show Mark Cuban's email arriving in his inbox but no event shows Mark Cuban actually sending a response to Jordan Reyes's email before the cutoff."
   },
   "reason": "",
-  "steps": 4,
-  "world_calls": 4,
-  "actor_calls": 3,
+  "steps": 9,
+  "world_calls": 12,
+  "actor_calls": 8,
   "judge_calls": 4,
-  "review_calls": 6,
+  "review_calls": 15,
   "abandoned_turns": 0
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No event shows Mark Cuban actually sent a response to Jordan Reyes's email; only delivery events occurred, and the deadline has passed."
+  "supporting_event_ids": [
+   "e11",
+   "e23",
+   "e60"
+  ],
+  "explanation": "The committed events show Mark Cuban's email arriving in his inbox but no event shows Mark Cuban actually sending a response to Jordan Reyes's email before the cutoff."
  },
  "reason": ""
 }

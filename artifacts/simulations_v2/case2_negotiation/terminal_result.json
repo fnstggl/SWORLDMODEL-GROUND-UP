@@ -5,20 +5,20 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No event shows both Priya and Dmitri observing a mutual agreement on a price; Priya's acceptance (e68) was not observed by Dmitri, and Dmitri's later message (e90) suggests he hadn't seen it, so no agreement was reached by the deadline."
+   "explanation": "No committed event shows that Priya and Dmitri both observed an agreement on a price before the deadline; messages were sent but not observed."
   },
   "reason": "",
-  "steps": 30,
-  "world_calls": 20,
-  "actor_calls": 22,
-  "judge_calls": 12,
-  "review_calls": 35,
+  "steps": 3,
+  "world_calls": 4,
+  "actor_calls": 2,
+  "judge_calls": 5,
+  "review_calls": 6,
   "abandoned_turns": 0
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No event shows both Priya and Dmitri observing a mutual agreement on a price; Priya's acceptance (e68) was not observed by Dmitri, and Dmitri's later message (e90) suggests he hadn't seen it, so no agreement was reached by the deadline."
+  "explanation": "No committed event shows that Priya and Dmitri both observed an agreement on a price before the deadline; messages were sent but not observed."
  },
  "reason": ""
 }

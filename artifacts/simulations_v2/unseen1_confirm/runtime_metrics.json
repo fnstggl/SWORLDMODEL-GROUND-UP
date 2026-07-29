@@ -1,65 +1,67 @@
 {
- "provider_calls": 12,
+ "provider_calls": 10,
  "by_role": {
   "judge": {
    "calls": 2,
    "retries": 0,
-   "wall_s": 3.53,
-   "input_tokens": 1116,
-   "output_tokens": 127
+   "wall_s": 3.22,
+   "input_tokens": 1101,
+   "output_tokens": 144
   },
   "world": {
-   "calls": 2,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 3.44,
-   "input_tokens": 3958,
-   "output_tokens": 197
+   "wall_s": 5.22,
+   "input_tokens": 6046,
+   "output_tokens": 309
   },
   "actor": {
-   "calls": 3,
-   "retries": 0,
-   "wall_s": 4.3,
-   "input_tokens": 3886,
-   "output_tokens": 182
-  },
-  "continuity": {
-   "calls": 3,
-   "retries": 0,
-   "wall_s": 4.27,
-   "input_tokens": 2634,
-   "output_tokens": 120
-  },
-  "event_review": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.32,
-   "input_tokens": 1002,
-   "output_tokens": 38
+   "wall_s": 1.81,
+   "input_tokens": 1239,
+   "output_tokens": 85
+  },
+  "continuity": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.77,
+   "input_tokens": 869,
+   "output_tokens": 49
+  },
+  "event_review": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 2.78,
+   "input_tokens": 2058,
+   "output_tokens": 87
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.25,
-   "input_tokens": 504,
-   "output_tokens": 39
+   "wall_s": 1.24,
+   "input_tokens": 513,
+   "output_tokens": 44
   }
  },
- "total_input_tokens": 13100,
- "total_output_tokens": 703,
- "total_wall_s": 18.11,
- "status": "cutoff",
+ "total_input_tokens": 11826,
+ "total_output_tokens": 718,
+ "total_wall_s": 16.04,
+ "status": "resolved",
  "answer": {
-  "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "The deadline of 2026-07-28T18:00:00+01:00 has passed, and the committed events show only a message arriving to Sam Okonjo, not Sam Okonjo sending a confirmation text."
+  "status": "YES",
+  "supporting_event_ids": [
+   "e19"
+  ],
+  "explanation": "Sam Okonjo sent a text message confirming the appointment at 2026-07-28T08:00:10+00:00, which is before the deadline of 2026-07-28T18:00:00+01:00."
  },
  "reason": "",
  "steps": 1,
- "world_calls": 2,
- "actor_calls": 3,
+ "world_calls": 3,
+ "actor_calls": 1,
  "judge_calls": 2,
- "review_calls": 5,
+ "review_calls": 4,
  "abandoned_turns": 0,
- "committed_events": 1,
- "ledger_records": 24
+ "committed_events": 2,
+ "ledger_records": 25
 }
