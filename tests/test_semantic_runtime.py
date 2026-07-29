@@ -649,6 +649,14 @@ def test_a_person_knows_what_they_themselves_just_did():
     # ... and it is still not something BO has seen: it was sent, not read
     assert "bo_ferrer" not in sent["observed_by"]
     assert sent["observed"] is False
+    # ... and the ledger integrity check knows the difference too.  It
+    # enforced "an observer must be one of the recipients", which is right
+    # for everything except the person who did it, and a live run's replay
+    # failed on exactly the record that fixed the false NO.
+    verification = replay_trajectory(world.records, live_world=world)
+    assert verification["ledger_integrity"] == [], \
+        verification["ledger_integrity"]
+    assert verification["exact"] and verification["llm_calls"] == 0
 
 
 def test_replay_is_exact_and_calls_no_model():
