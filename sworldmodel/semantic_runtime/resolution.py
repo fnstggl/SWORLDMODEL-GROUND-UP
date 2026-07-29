@@ -209,10 +209,19 @@ def verifier_user_prompt(resolution: str, now: str, events: list, *,
     return "\n".join(lines)
 
 
-def make_verifier_validator(known_event_ids, *, final: bool = False):
-    """The verifier is under the same citation rules as the judge, and
-    under no time rule: it is asked what the record shows, not what may be
-    concluded at this instant."""
+def make_verifier_validator(known_event_ids, now: datetime, cutoff: datetime,
+                            *, final: bool = False):
+    """The verifier is under the same citation rules as the judge AND the
+    same time rule.
+
+    It used to be under no time rule at all, on the reasoning that it is
+    asked what the record shows rather than what may be concluded at this
+    instant.  That was wrong: a live run had it answer NO_AT_CUTOFF four
+    days before the cutoff -- its own explanation said "the deadline is in
+    the future" -- and that contradicted a correct YES and destroyed it.  A
+    code-owned time invariant enforced for one reader and not the other is
+    not enforced.
+    """
 
     def validate(obj) -> dict:
         if not isinstance(obj, dict):
@@ -233,6 +242,10 @@ def make_verifier_validator(known_event_ids, *, final: bool = False):
                     f"journal")
         if obj.get("status") == "YES" and not ids:
             raise ResolutionError("YES must cite the events that show it")
+        if obj.get("status") == "NO_AT_CUTOFF" and now < cutoff:
+            raise ResolutionError(
+                f"NO_AT_CUTOFF is not permitted before the cutoff "
+                f"({now.isoformat()} < {cutoff.isoformat()})")
         if final and obj.get("status") == "UNRESOLVED":
             raise ResolutionError(
                 "the deadline has been reached: the condition is either "

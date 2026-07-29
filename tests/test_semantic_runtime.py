@@ -709,6 +709,99 @@ def test_the_sender_does_not_see_the_far_end_of_what_they_sent():
     assert landed["observed_by"] == []
 
 
+def test_an_empty_queue_before_the_horizon_asks_everyone_before_giving_up():
+    """An empty queue with days still on the clock is not evidence that
+    nothing happens.  It is evidence that nobody was asked.
+
+    Eleven of eleven NO answers in one corpus stopped this way rather than
+    at the horizon: a cold email jumped its whole fortnight in a single
+    record after one step, and each was reported as though the time had
+    been lived through and nothing had come of it.  Everyone still in the
+    situation is asked once more before the world goes quiet; whether they
+    come back to it, and when, stays theirs.
+    """
+    world, journal, bindings = build()
+    asked_late = []
+
+    def transport(system, user):
+        if "read-only outcome judge" in system \
+                or "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            # a world that schedules nothing at all, ever
+            return json.dumps({"judgment": "nothing follows.",
+                               "event": None, "wakes": []}), {}
+        asked_late.append(user)
+        return json.dumps(NOTHING), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=reviewed(transport)),
+                          max_steps=10, trace=Trace())
+    # both people were consulted, not just whoever the starting event
+    # happened to reach
+    assert any("ada_vance" in u for u in asked_late)
+    assert any("bo_ferrer" in u for u in asked_late), (
+        "the queue emptied days early and the man it was all about was "
+        "never asked anything")
+    assert traj.status in ("cutoff", "resolved", "incomplete"), traj.reason
+
+
+def test_the_last_call_happens_once_not_forever():
+    """Asked once more, not asked repeatedly.  A second sweep with nothing
+    changed in between is the same question again, and a run that kept
+    taking it would never terminate."""
+    world, journal, bindings = build()
+    n = {"actor": 0}
+
+    def transport(system, user):
+        if "read-only outcome judge" in system \
+                or "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            return json.dumps({"judgment": "nothing.", "event": None,
+                               "wakes": []}), {}
+        n["actor"] += 1
+        return json.dumps(NOTHING), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=reviewed(transport)),
+                          max_steps=10, trace=Trace())
+    assert traj.status != "running"
+    # two people, asked once each at the last call plus whatever the
+    # starting event earned them -- not once per remaining step
+    assert n["actor"] <= 2 * len(world.actors) + 2, n["actor"]
+
+
+def test_the_verifier_is_under_the_same_clock_rule_as_the_judge():
+    """A code-owned time invariant enforced for one reader and not the
+    other is not enforced.
+
+    The verifier used to be under no time rule at all.  A live run had it
+    answer NO_AT_CUTOFF four days before the cutoff -- its own explanation
+    read "the deadline is in the future" -- which contradicted a correct
+    YES and destroyed it.
+    """
+    import pytest
+    from sworldmodel.semantic_runtime.resolution import make_verifier_validator
+    now, cut = parse_iso(START), parse_iso(CUTOFF)
+    early = make_verifier_validator({"e1"}, now, cut)
+    with pytest.raises(ResolutionError):
+        early({"status": "NO_AT_CUTOFF", "supporting_event_ids": [],
+               "explanation": "the deadline is in the future"})
+    # ... and it is available once the deadline has actually arrived
+    at_the_end = make_verifier_validator({"e1"}, cut, cut, final=True)
+    assert at_the_end({"status": "NO_AT_CUTOFF", "supporting_event_ids": [],
+                       "explanation": "the time ran out"})["status"] \
+        == "NO_AT_CUTOFF"
+    # the judge's rule is unchanged and they now agree
+    with pytest.raises(ResolutionError):
+        make_validator({"e1"}, now, cut)(
+            {"status": "NO_AT_CUTOFF", "supporting_event_ids": [],
+             "explanation": "too early"})
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))

@@ -177,6 +177,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: world's own answer scheduled.
     arrivals_asked: dict = {}
 
+    #: Whether everyone has been asked once more with the queue empty and
+    #: the horizon still ahead.  Once, not repeatedly: a second sweep with
+    #: nothing changed in between would be the same question again, and
+    #: the point is to make sure people were asked, not to keep asking.
+    last_call: dict = {"done": False}
+
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
     #: stacking behind it.
@@ -765,7 +771,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                "observed_by": e["observed_by"]}
                               for e in events], final=final),
                          resolution_mod.make_verifier_validator(
-                             {e["event_id"] for e in events}, final=final),
+                             {e["event_id"] for e in events},
+                             world.clock.now, cutoff, final=final),
                          sim_time=_iso_now(world), trigger="terminal_verify",
                          reserved=True)
         traj.review_calls += 1
@@ -849,11 +856,33 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 # Nothing grounded is waiting to happen.  Code does not
                 # invent activity to fill the gap -- that is what the
                 # widening poll did, and it produced 3:50 a.m.
-                # reconsiderations of nothing.  If the people in this
-                # situation meant to come back to it they said so, and
-                # their own plan is on the queue.  Otherwise the time
-                # between here and the horizon is time in which nothing
-                # happens, which is a real thing that happens.
+                # reconsiderations of nothing.
+                #
+                # But an empty queue with days still on the clock is not
+                # evidence that nothing happens.  It is evidence that
+                # nobody was asked.  Eleven of eleven NO answers in one
+                # corpus stopped this way rather than at the horizon: a
+                # cold email jumped its entire fortnight in a single
+                # record after one step, and a woman one step from sending
+                # a signed lease stopped two and a half days early -- and
+                # each was reported as though the time had been lived
+                # through and nothing had come of it.
+                #
+                # So before the world goes quiet, everyone still in it is
+                # asked once more.  Code decides only THAT they are asked;
+                # whether they come back to this, and when, is theirs to
+                # say, and it is said the same way it always is -- their
+                # own next_wake.  If nobody schedules anything, the
+                # silence is now their answer rather than the scheduler's,
+                # and the horizon may honestly be claimed.
+                if world.clock.now < cutoff and not last_call["done"]:
+                    last_call["done"] = True
+                    # caused by the last thing that actually happened, so
+                    # the chain stays walkable back to the start
+                    here = world.records[-1]["seq"] if world.records else 0
+                    for aid in actor_ids:
+                        actor_step(aid, cause=here)
+                    continue
                 break
             ev = world.queue.pop()
             if ev.t > world.clock.now:
