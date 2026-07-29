@@ -1,0 +1,24 @@
+{
+ "question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus has not answered Dana's last four messages, told a colleague in August that he is avoiding her since the argument about the invoices, and is on leave with his phone off until the following Tuesday.",
+ "trajectory": {
+  "status": "cutoff",
+  "answer": {
+   "status": "NO_AT_CUTOFF",
+   "supporting_event_ids": [],
+   "explanation": "No committed event shows Marcus Bell actually sent a reply to Dana Whitfield about the venue booking before the deadline; the deadline has passed."
+  },
+  "reason": "",
+  "steps": 33,
+  "world_calls": 36,
+  "actor_calls": 18,
+  "judge_calls": 14,
+  "review_calls": 43,
+  "abandoned_turns": 1
+ },
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows Marcus Bell actually sent a reply to Dana Whitfield about the venue booking before the deadline; the deadline has passed."
+ },
+ "reason": ""
+}

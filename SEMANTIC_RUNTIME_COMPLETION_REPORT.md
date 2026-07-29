@@ -182,8 +182,20 @@ pre-existing invariant tests; none were weakened.
 **23 runs, 373 committed events, 10 YES / 11 NO_AT_CUTOFF / 2 incomplete,
 23/23 replay exact with 0 model calls, 0 mechanical check failures.**
 
-Interface mechanics fell from 35% of committed events at the start of this
-work to **9%** (32/373).
+**The interface-mechanics figure I reported earlier was wrong, by about a
+factor of five.** The measure keyed on a phrase list and, as the device
+reviewer showed by classifying independently, was essentially counting one
+preposition: it missed "the message arrives on Marcus's phone", "Kwame's
+phone buzzes", "the notification appears on the lock screen", "the
+messages remain unread". It has been rewritten to classify by the
+grammatical subject — a device or channel acting on its own — plus
+restatements that nothing changed.
+
+Under the corrected measure the honest numbers are **42%** (147/353) for
+this corpus and **21%** (9/43) for the post-fix runs in §19. The direction
+is right and the absolute level is still much too high. A measure that
+licenses the claim it was built to test is worse than no measure, and I
+had been quoting it for several rounds.
 
 Two things in that table are worth naming.
 

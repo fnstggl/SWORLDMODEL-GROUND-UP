@@ -1,0 +1,18 @@
+{
+ "bea": {
+  "name": "Bea",
+  "private_context": "Bea has the biggest kitchen but works nights, which may affect her availability or willingness to host."
+ },
+ "ines": {
+  "name": "Ines",
+  "private_context": "Ines raised the shared birthday dinner topic in the group chat this morning. She wants to settle on a host before the weekend."
+ },
+ "kwame": {
+  "name": "Kwame",
+  "private_context": "Kwame is away until Friday and may not be reachable until then. He has no strong preference about hosting."
+ },
+ "tomas": {
+  "name": "Tomas",
+  "private_context": "Tomas hates hosting and would prefer not to host."
+ }
+}

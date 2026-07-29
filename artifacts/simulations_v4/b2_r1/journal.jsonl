@@ -1,0 +1,2 @@
+{"cause":10,"description":"Jian Wei's email with the lease is in Margaret's inbox, sent Tuesday morning.","event_id":"e11","for":["margaret_thornbury"],"observed":true,"observed_by":["margaret_thornbury"],"seq":11,"source":"starting_event[0]","t":"2026-09-08T08:00:00+00:00"}
+{"cause":21,"description":"Margaret opens the email from Jian Wei and downloads the lease document to her computer.","event_id":"e22","for":["margaret_thornbury"],"observed":true,"observed_by":["margaret_thornbury"],"seq":22,"source":"world_call:c5","t":"2026-09-08T08:00:00+00:00"}

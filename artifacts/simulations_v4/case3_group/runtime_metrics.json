@@ -1,0 +1,65 @@
+{
+ "provider_calls": 118,
+ "by_role": {
+  "judge": {
+   "calls": 8,
+   "retries": 1,
+   "wall_s": 12.25,
+   "input_tokens": 5614,
+   "output_tokens": 428
+  },
+  "world": {
+   "calls": 27,
+   "retries": 0,
+   "wall_s": 56.91,
+   "input_tokens": 60692,
+   "output_tokens": 2693
+  },
+  "actor": {
+   "calls": 38,
+   "retries": 0,
+   "wall_s": 70.58,
+   "input_tokens": 58007,
+   "output_tokens": 2847
+  },
+  "continuity": {
+   "calls": 38,
+   "retries": 0,
+   "wall_s": 62.57,
+   "input_tokens": 41448,
+   "output_tokens": 1647
+  },
+  "event_review": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 9.3,
+   "input_tokens": 8532,
+   "output_tokens": 229
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.52,
+   "input_tokens": 756,
+   "output_tokens": 54
+  }
+ },
+ "total_input_tokens": 175049,
+ "total_output_tokens": 7898,
+ "total_wall_s": 213.08,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed event shows that the four housemates collectively agreed on a host; Kwame never observed the group chat messages."
+ },
+ "reason": "",
+ "steps": 34,
+ "world_calls": 27,
+ "actor_calls": 38,
+ "judge_calls": 7,
+ "review_calls": 45,
+ "abandoned_turns": 1,
+ "committed_events": 6,
+ "ledger_records": 218
+}

@@ -1,0 +1,67 @@
+{
+ "provider_calls": 32,
+ "by_role": {
+  "judge": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 7.97,
+   "input_tokens": 3111,
+   "output_tokens": 239
+  },
+  "world": {
+   "calls": 11,
+   "retries": 0,
+   "wall_s": 22.76,
+   "input_tokens": 23447,
+   "output_tokens": 1195
+  },
+  "actor": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 5.8,
+   "input_tokens": 4178,
+   "output_tokens": 260
+  },
+  "continuity": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 5.04,
+   "input_tokens": 2913,
+   "output_tokens": 127
+  },
+  "event_review": {
+   "calls": 9,
+   "retries": 0,
+   "wall_s": 15.5,
+   "input_tokens": 12693,
+   "output_tokens": 436
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.43,
+   "input_tokens": 646,
+   "output_tokens": 62
+  }
+ },
+ "total_input_tokens": 46988,
+ "total_output_tokens": 2319,
+ "total_wall_s": 58.52,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e52"
+  ],
+  "explanation": "Committed event e52 shows Aisha Okafor sent the signed lease to Tomas Herrera via email before the deadline."
+ },
+ "reason": "",
+ "steps": 5,
+ "world_calls": 11,
+ "actor_calls": 3,
+ "judge_calls": 5,
+ "review_calls": 13,
+ "abandoned_turns": 0,
+ "committed_events": 5,
+ "ledger_records": 62
+}
