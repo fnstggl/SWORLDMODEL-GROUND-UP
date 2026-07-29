@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Aisha Okafor send the signed lease back to Tomas Herrera before the deadline at 5pm on Thursday? Tomas emailed the lease on Tuesday morning. Aisha has signed and returned every document Tomas has sent her within a day, told him on Monday that she was ready to sign, and has the printer and scanner she uses at home.",
+  "resolution": "Resolve YES only if the persistent event history shows that Aisha Okafor sent the signed lease to Tomas Herrera before 2026-09-10T17:00:00+01:00. Otherwise resolve NO at that time.",
+  "cutoff": "2026-09-10T17:00:00+01:00",
+  "world_id": "w_9b99cf88d084"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

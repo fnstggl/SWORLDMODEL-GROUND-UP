@@ -1,0 +1,65 @@
+{
+ "provider_calls": 16,
+ "by_role": {
+  "judge": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.03,
+   "input_tokens": 1136,
+   "output_tokens": 117
+  },
+  "world": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 9.96,
+   "input_tokens": 10306,
+   "output_tokens": 477
+  },
+  "actor": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 4.06,
+   "input_tokens": 2643,
+   "output_tokens": 170
+  },
+  "continuity": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.36,
+   "input_tokens": 1800,
+   "output_tokens": 81
+  },
+  "event_review": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 5.77,
+   "input_tokens": 5127,
+   "output_tokens": 167
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.26,
+   "input_tokens": 514,
+   "output_tokens": 44
+  }
+ },
+ "total_input_tokens": 21526,
+ "total_output_tokens": 1056,
+ "total_wall_s": 27.43,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline of 2026-09-10T17:00:00+01:00 has passed and no committed event shows Aisha Okafor sending the signed lease to Tomas Herrera."
+ },
+ "reason": "",
+ "steps": 1,
+ "world_calls": 5,
+ "actor_calls": 2,
+ "judge_calls": 2,
+ "review_calls": 7,
+ "abandoned_turns": 0,
+ "committed_events": 1,
+ "ledger_records": 29
+}

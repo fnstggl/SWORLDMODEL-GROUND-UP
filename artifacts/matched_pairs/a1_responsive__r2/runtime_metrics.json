@@ -1,0 +1,67 @@
+{
+ "provider_calls": 40,
+ "by_role": {
+  "judge": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 11.6,
+   "input_tokens": 4871,
+   "output_tokens": 396
+  },
+  "world": {
+   "calls": 13,
+   "retries": 0,
+   "wall_s": 28.52,
+   "input_tokens": 29601,
+   "output_tokens": 1616
+  },
+  "event_review": {
+   "calls": 10,
+   "retries": 0,
+   "wall_s": 16.58,
+   "input_tokens": 14041,
+   "output_tokens": 436
+  },
+  "actor": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 7.61,
+   "input_tokens": 5788,
+   "output_tokens": 325
+  },
+  "continuity": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 6.83,
+   "input_tokens": 3993,
+   "output_tokens": 224
+  },
+  "verifier": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.35,
+   "input_tokens": 1524,
+   "output_tokens": 147
+  }
+ },
+ "total_input_tokens": 59818,
+ "total_output_tokens": 3144,
+ "total_wall_s": 74.46,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e52"
+  ],
+  "explanation": "Marcus Bell actually sent a reply to Dana Whitfield confirming the hall is held for the 14th, as shown in event e52 observed by marcus_bell."
+ },
+ "reason": "",
+ "steps": 7,
+ "world_calls": 13,
+ "actor_calls": 4,
+ "judge_calls": 7,
+ "review_calls": 16,
+ "abandoned_turns": 1,
+ "committed_events": 7,
+ "ledger_records": 77
+}

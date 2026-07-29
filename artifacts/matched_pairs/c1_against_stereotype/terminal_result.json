@@ -1,0 +1,32 @@
+{
+ "question": "Will Ethel Pomeroy have the new card terminal working at the bakery before Saturday's market? Ethel is 81 and has run Pomeroy's for forty years. She wrote the stock-control program the shop still runs on, has already mounted and configured the terminal herself, and is stuck on one pairing step; the vendor's support line opens at 8am on Thursday and she has the reference number ready.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e268",
+    "e285",
+    "e316"
+   ],
+   "explanation": "The committed events show the support system confirmed the pairing code was accepted (e268), the representative informed Ethel the terminal was successfully paired (e285), and Ethel heard and acknowledged this (e316), so the terminal was successfully processing payments before the deadline."
+  },
+  "reason": "",
+  "steps": 38,
+  "world_calls": 58,
+  "actor_calls": 26,
+  "judge_calls": 33,
+  "review_calls": 75,
+  "abandoned_turns": 2
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e268",
+   "e285",
+   "e316"
+  ],
+  "explanation": "The committed events show the support system confirmed the pairing code was accepted (e268), the representative informed Ethel the terminal was successfully paired (e285), and Ethel heard and acknowledged this (e316), so the terminal was successfully processing payments before the deadline."
+ },
+ "reason": ""
+}

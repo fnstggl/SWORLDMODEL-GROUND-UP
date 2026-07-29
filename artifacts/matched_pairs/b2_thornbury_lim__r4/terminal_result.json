@@ -1,0 +1,28 @@
+{
+ "question": "Will Margaret Thornbury send the signed lease back to Jian Wei Lim before the deadline at 5pm on Thursday? Jian Wei emailed the lease on Tuesday morning. Margaret has signed and returned every document Jian Wei has sent her within a day, told him on Monday that she was ready to sign, and has the printer and scanner she uses at home.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e22"
+   ],
+   "explanation": "Event e22 shows Margaret sent the signed lease to Jian Wei at 2026-09-08T08:05:00+00:00, which is before the deadline of 2026-09-10T17:00:00+01:00."
+  },
+  "reason": "",
+  "steps": 1,
+  "world_calls": 3,
+  "actor_calls": 2,
+  "judge_calls": 2,
+  "review_calls": 5,
+  "abandoned_turns": 0
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e22"
+  ],
+  "explanation": "Event e22 shows Margaret sent the signed lease to Jian Wei at 2026-09-08T08:05:00+00:00, which is before the deadline of 2026-09-10T17:00:00+01:00."
+ },
+ "reason": ""
+}

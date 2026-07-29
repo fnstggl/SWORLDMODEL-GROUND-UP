@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Marcus Bell",
+   "private_context": "Marcus has not answered Dana's last four messages. He told a colleague in August that he is avoiding Dana since the argument about the invoices. He is on leave with his phone off until the following Tuesday (2026-09-08)."
+  },
+  {
+   "name": "Dana Whitfield",
+   "private_context": "Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th. She is unaware that Marcus is avoiding her or that he is on leave."
+  }
+ ],
+ "shared_context": "Marcus Bell and Dana Whitfield have a history of an argument about invoices. Dana sent a message to Marcus on Monday morning (2026-09-07) regarding venue booking confirmation for the 14th. Marcus is on leave with his phone off until Tuesday (2026-09-08). The deadline for a reply is before Friday (2026-09-11T17:00:00+01:00).",
+ "starting_events": [
+  {
+   "time": "2026-09-07T09:00:00+01:00",
+   "description": "Dana Whitfield sends a message to Marcus Bell asking him to confirm the hall is held for the 14th.",
+   "visible_to": [
+    "Dana Whitfield"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Marcus Bell actually sent a reply to Dana Whitfield about the venue booking before 2026-09-11T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

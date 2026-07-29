@@ -1,0 +1,65 @@
+{
+ "provider_calls": 125,
+ "by_role": {
+  "judge": {
+   "calls": 11,
+   "retries": 1,
+   "wall_s": 15.89,
+   "input_tokens": 8824,
+   "output_tokens": 621
+  },
+  "world": {
+   "calls": 38,
+   "retries": 0,
+   "wall_s": 86.69,
+   "input_tokens": 95049,
+   "output_tokens": 4979
+  },
+  "event_review": {
+   "calls": 15,
+   "retries": 0,
+   "wall_s": 23.18,
+   "input_tokens": 22534,
+   "output_tokens": 669
+  },
+  "actor": {
+   "calls": 30,
+   "retries": 0,
+   "wall_s": 49.05,
+   "input_tokens": 49359,
+   "output_tokens": 1933
+  },
+  "continuity": {
+   "calls": 30,
+   "retries": 0,
+   "wall_s": 46.47,
+   "input_tokens": 35599,
+   "output_tokens": 1342
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.24,
+   "input_tokens": 935,
+   "output_tokens": 49
+  }
+ },
+ "total_input_tokens": 212300,
+ "total_output_tokens": 9593,
+ "total_wall_s": 222.5,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline of 2026-09-11T17:00:00+01:00 has passed and the committed events show that Marcus Bell never actually opened or replied to Dana's messages about the venue booking."
+ },
+ "reason": "",
+ "steps": 33,
+ "world_calls": 38,
+ "actor_calls": 30,
+ "judge_calls": 10,
+ "review_calls": 46,
+ "abandoned_turns": 1,
+ "committed_events": 9,
+ "ledger_records": 204
+}

@@ -1,0 +1,67 @@
+{
+ "provider_calls": 12,
+ "by_role": {
+  "judge": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 2.8,
+   "input_tokens": 1097,
+   "output_tokens": 126
+  },
+  "world": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 5.62,
+   "input_tokens": 6071,
+   "output_tokens": 342
+  },
+  "actor": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.28,
+   "input_tokens": 2647,
+   "output_tokens": 143
+  },
+  "continuity": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 2.91,
+   "input_tokens": 1775,
+   "output_tokens": 90
+  },
+  "event_review": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.07,
+   "input_tokens": 2616,
+   "output_tokens": 82
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.41,
+   "input_tokens": 508,
+   "output_tokens": 73
+  }
+ },
+ "total_input_tokens": 14714,
+ "total_output_tokens": 856,
+ "total_wall_s": 19.07,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e22"
+  ],
+  "explanation": "Event e22 shows Margaret sent the signed lease to Jian Wei at 2026-09-08T08:05:00+00:00, which is before the deadline of 2026-09-10T17:00:00+01:00."
+ },
+ "reason": "",
+ "steps": 1,
+ "world_calls": 3,
+ "actor_calls": 2,
+ "judge_calls": 2,
+ "review_calls": 5,
+ "abandoned_turns": 0,
+ "committed_events": 2,
+ "ledger_records": 31
+}

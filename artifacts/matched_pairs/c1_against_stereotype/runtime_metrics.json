@@ -1,0 +1,69 @@
+{
+ "provider_calls": 193,
+ "by_role": {
+  "judge": {
+   "calls": 33,
+   "retries": 0,
+   "wall_s": 54.96,
+   "input_tokens": 46190,
+   "output_tokens": 2009
+  },
+  "world": {
+   "calls": 58,
+   "retries": 0,
+   "wall_s": 124.05,
+   "input_tokens": 180724,
+   "output_tokens": 6422
+  },
+  "actor": {
+   "calls": 27,
+   "retries": 1,
+   "wall_s": 48.74,
+   "input_tokens": 52377,
+   "output_tokens": 2239
+  },
+  "continuity": {
+   "calls": 26,
+   "retries": 0,
+   "wall_s": 41.86,
+   "input_tokens": 41100,
+   "output_tokens": 1158
+  },
+  "event_review": {
+   "calls": 48,
+   "retries": 0,
+   "wall_s": 77.05,
+   "input_tokens": 88627,
+   "output_tokens": 2037
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.54,
+   "input_tokens": 2209,
+   "output_tokens": 61
+  }
+ },
+ "total_input_tokens": 411227,
+ "total_output_tokens": 13926,
+ "total_wall_s": 348.24,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e268",
+   "e285",
+   "e316"
+  ],
+  "explanation": "The committed events show the support system confirmed the pairing code was accepted (e268), the representative informed Ethel the terminal was successfully paired (e285), and Ethel heard and acknowledged this (e316), so the terminal was successfully processing payments before the deadline."
+ },
+ "reason": "",
+ "steps": 38,
+ "world_calls": 58,
+ "actor_calls": 26,
+ "judge_calls": 33,
+ "review_calls": 75,
+ "abandoned_turns": 2,
+ "committed_events": 33,
+ "ledger_records": 332
+}

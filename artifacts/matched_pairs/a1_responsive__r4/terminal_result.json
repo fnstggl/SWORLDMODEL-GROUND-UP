@@ -1,0 +1,30 @@
+{
+ "question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus and Dana have run events together for two years; Marcus answers her messages within the hour, has never left one overnight, and is at his desk all week.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e41",
+    "e70"
+   ],
+   "explanation": "Marcus Bell sent a reply to Dana Whitfield confirming the hall is held for the 14th (e41) and Dana Whitfield observed it (e70) before the cutoff."
+  },
+  "reason": "",
+  "steps": 7,
+  "world_calls": 10,
+  "actor_calls": 5,
+  "judge_calls": 8,
+  "review_calls": 15,
+  "abandoned_turns": 0
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e41",
+   "e70"
+  ],
+  "explanation": "Marcus Bell sent a reply to Dana Whitfield confirming the hall is held for the 14th (e41) and Dana Whitfield observed it (e70) before the cutoff."
+ },
+ "reason": ""
+}

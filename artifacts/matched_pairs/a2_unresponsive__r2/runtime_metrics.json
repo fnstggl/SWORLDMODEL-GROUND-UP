@@ -1,0 +1,65 @@
+{
+ "provider_calls": 37,
+ "by_role": {
+  "judge": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 7.81,
+   "input_tokens": 3297,
+   "output_tokens": 256
+  },
+  "world": {
+   "calls": 12,
+   "retries": 0,
+   "wall_s": 27.53,
+   "input_tokens": 26989,
+   "output_tokens": 1545
+  },
+  "event_review": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.21,
+   "input_tokens": 6739,
+   "output_tokens": 214
+  },
+  "actor": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 12.31,
+   "input_tokens": 10011,
+   "output_tokens": 475
+  },
+  "continuity": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 10.63,
+   "input_tokens": 6917,
+   "output_tokens": 293
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.41,
+   "input_tokens": 691,
+   "output_tokens": 41
+  }
+ },
+ "total_input_tokens": 54644,
+ "total_output_tokens": 2824,
+ "total_wall_s": 67.86,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "Marcus Bell never actually sent a reply to Dana Whitfield about the venue booking, and the deadline has passed."
+ },
+ "reason": "",
+ "steps": 9,
+ "world_calls": 12,
+ "actor_calls": 7,
+ "judge_calls": 5,
+ "review_calls": 13,
+ "abandoned_turns": 0,
+ "committed_events": 4,
+ "ledger_records": 73
+}

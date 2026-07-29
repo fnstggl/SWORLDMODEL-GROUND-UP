@@ -1,0 +1,10 @@
+{
+ "dana_whitfield": {
+  "name": "Dana Whitfield",
+  "private_context": "Dana has run events with Marcus Bell for two years. She messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. She expects a reply within the hour based on past experience."
+ },
+ "marcus_bell": {
+  "name": "Marcus Bell",
+  "private_context": "Marcus has run events with Dana Whitfield for two years. He answers her messages within the hour, has never left one overnight, and is at his desk all week. He received Dana's Monday morning message asking him to confirm the hall is held for the 14th."
+ }
+}

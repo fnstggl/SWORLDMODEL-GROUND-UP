@@ -1,0 +1,38 @@
+{
+ "llm_calls": 0,
+ "records_replayed": 79,
+ "event_ids": [
+  "e11",
+  "e23",
+  "e31",
+  "e37",
+  "e40",
+  "e53",
+  "e60",
+  "e63"
+ ],
+ "event_order_hash": "[\"e11\",\"e23\",\"e31\",\"e37\",\"e40\",\"e53\",\"e60\",\"e63\"]",
+ "state_hash": "1273798c94002b9c6310c4923badf39bf089611420e6e2429de7cd31f2c06c13",
+ "terminal_status": "NO_AT_CUTOFF",
+ "terminal_support": [],
+ "ledger_integrity": [],
+ "checked": {
+  "records": 79,
+  "events": 8,
+  "observations": 0,
+  "terminal_checks": 9,
+  "actors": 2,
+  "memories": 1
+ },
+ "vacuous": false,
+ "records_match": true,
+ "state_hash_matches": true,
+ "event_ids_match": true,
+ "events_match": true,
+ "observations_match": true,
+ "views_match": true,
+ "memories_match": true,
+ "terminal_matches": true,
+ "clock_matches": true,
+ "exact": true
+}

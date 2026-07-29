@@ -1,0 +1,68 @@
+{
+ "provider_calls": 38,
+ "by_role": {
+  "judge": {
+   "calls": 8,
+   "retries": 0,
+   "wall_s": 11.88,
+   "input_tokens": 5668,
+   "output_tokens": 455
+  },
+  "world": {
+   "calls": 10,
+   "retries": 0,
+   "wall_s": 19.42,
+   "input_tokens": 22758,
+   "output_tokens": 1179
+  },
+  "event_review": {
+   "calls": 8,
+   "retries": 0,
+   "wall_s": 12.0,
+   "input_tokens": 11457,
+   "output_tokens": 318
+  },
+  "actor": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.54,
+   "input_tokens": 7034,
+   "output_tokens": 371
+  },
+  "continuity": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.05,
+   "input_tokens": 4781,
+   "output_tokens": 216
+  },
+  "verifier": {
+   "calls": 2,
+   "retries": 0,
+   "wall_s": 3.06,
+   "input_tokens": 1581,
+   "output_tokens": 124
+  }
+ },
+ "total_input_tokens": 53279,
+ "total_output_tokens": 2663,
+ "total_wall_s": 62.91,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e41",
+   "e70"
+  ],
+  "explanation": "Marcus Bell sent a reply to Dana Whitfield confirming the hall is held for the 14th (e41) and Dana Whitfield observed it (e70) before the cutoff."
+ },
+ "reason": "",
+ "steps": 7,
+ "world_calls": 10,
+ "actor_calls": 5,
+ "judge_calls": 8,
+ "review_calls": 15,
+ "abandoned_turns": 0,
+ "committed_events": 8,
+ "ledger_records": 79
+}
