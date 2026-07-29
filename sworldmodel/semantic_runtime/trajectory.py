@@ -195,6 +195,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: there was no future at all.
     reached_horizon: dict = {"yes": False}
 
+    #: Somebody's own stated next move lies past the deadline.  Two
+    #: reviewers independently found that the beyond-cutoff signal was
+    #: computed and thrown away, which left NO_AT_CUTOFF reachable only
+    #: when the last scheduled instant happened to divide the window
+    #: exactly -- a wake every two days over a fortnight answered NO, and
+    #: every three days answered incomplete, with identical world
+    #: behaviour.  The horizon is a fact about the state, not about
+    #: arithmetic.
+    intends_after_cutoff: dict = {"yes": False}
+
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
     #: stacking behind it.
@@ -213,6 +223,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         delta = after if isinstance(after, timedelta) else parse_duration(after)
         due = world.clock.now + delta
         if due > cutoff or due <= world.clock.now:
+            # A "later" that falls past the deadline is not nothing: it is
+            # somebody saying their next move is after the question closes,
+            # which is precisely the evidence that nothing more happens
+            # inside the window.  It used to be dropped silently, and the
+            # run then reported that nothing had been scheduled.
+            if due > cutoff:
+                note("wake_beyond_cutoff", actor=actor_id, t=_iso_now(world),
+                     due=iso(due), reason=reason, provenance=provenance)
+                intends_after_cutoff["yes"] = True
             return False
         key = (actor_id, about, provenance)
         old = pending_wakes.get(key)
@@ -253,6 +272,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # as authoritative observed fact, that her offer had reached the
         # other party's phone and he had not looked at it.
         did_it = actor_id if trigger_kind == "actor_intention" else None
+        # Whose turn this adjudication belongs to, for the identity guard.
+        # The guard used to be gated on did_it, so it ran on attempts only
+        # -- and 37% of committed events came in through starting_event and
+        # pending_progression, where the world could write a named person's
+        # decision as history before that person had ever been consulted.
+        adjudicating_for = actor_id
         if trigger_kind == "actor_intention":
             self_act_of = actor_id
         user = world_mind.world_user_prompt(
@@ -343,10 +368,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # belongs to exactly one person, and a consequence in which
         # somebody ELSE makes a voluntary choice is that person's turn to
         # take, not this one's to record.
-        if envelope is not None and did_it:
-            chooser = (envelope.get("by")
-                       if envelope.get("by") and envelope["by"] != did_it
-                       else None)
+        if envelope is not None:
+            by = envelope.get("by")
+            chooser = (by if by and by != adjudicating_for else None)
             if chooser is not None:
                 note("choice_returned_to_its_owner", t=_iso_now(world),
                      call_id=out["call_id"], actor=chooser,
@@ -437,6 +461,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         held = [m["content"] for m in view["private_memories"]]
         base = actor_mind.actor_user_prompt(rendered)
         user, parsed, out = base, None, None
+        first = None            # what they said before any correction
         for attempt in range(2):
             out = caller.ask("actor", actor_mind.ACTOR_SYSTEM, user,
                              lambda o: actor_mind.validate_actor_response(
@@ -445,6 +470,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                              trigger=f"actor:{actor_id}")
             traj.actor_calls += 1
             parsed = out["parsed"]
+            if first is None:
+                first, first_out = parsed, out
             verdict = _continuity_review(actor_id, rendered, parsed,
                                          cause=cause)
             if verdict["verdict"] == "PASS":
@@ -474,6 +501,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                              "verdict": "OVERRULED",
                              "reason": verdict["reason"],
                              "trajectory_id": tid}, cause)
+                # ... and it is the FIRST reply that stands, not the
+                # corrected one.  Breaking here with the retry in hand kept
+                # the more distorted of the two: a reply rewritten under an
+                # instruction naming a contradiction, which the reviewer
+                # then refused anyway.  A reviewer that cannot be satisfied
+                # must not get to choose the version either.
+                parsed, out = first, first_out
                 break
             user = (base + f"\n\nYOUR PREVIOUS REPLY DID NOT FOLLOW FROM WHAT "
                            f"YOU HAVE\n{contained(verdict['reason'])}\n"
@@ -693,7 +727,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         events = journal.events()
         validator = resolution_mod.make_validator(
             {e["event_id"] for e in events}, world.clock.now, cutoff,
-            final=final)
+            final=final, truncated=not final)
         out = caller.ask("judge", resolution_mod.JUDGE_SYSTEM,
                          resolution_mod.judge_user_prompt(
                              resolution, _iso_now(world),
@@ -868,7 +902,29 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     for aid in actor_ids:
                         actor_step(aid, cause=here, force=True)
                     continue
-                reached_horizon["yes"] = ev is not None
+                # THE HORIZON, DEFINED BY THE STATE.
+                #
+                # Nothing lands before the deadline, everyone still in the
+                # situation has been asked at this instant, and nobody
+                # intends anything before it.  That is the window lived
+                # out: what remains is time in which nothing was going to
+                # happen, which is a real thing that happens.
+                #
+                # Not "did the clock land on the cutoff second".  That is
+                # what it used to be, and it made the honest NO a matter of
+                # whether the wake interval divided the window.
+                # A KNOWN future beyond the deadline is not an empty
+                # queue: somebody has said what happens next and it happens
+                # after the question closes, so nothing more lands inside
+                # the window and NO is available.
+                #
+                # A queue that is simply empty stays INCOMPLETE, per the
+                # rule.  Two reviewers argued that is too strict -- three
+                # runs that lived 92-99% of their windows and had every
+                # actor decline were refused a NO -- and that disagreement
+                # is recorded in the report rather than resolved here.
+                reached_horizon["yes"] = (ev is not None
+                                          or intends_after_cutoff["yes"])
                 break
             ev = world.queue.pop()
             if ev.t > world.clock.now:

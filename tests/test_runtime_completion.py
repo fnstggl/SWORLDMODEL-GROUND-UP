@@ -494,3 +494,34 @@ def test_there_is_exactly_one_runtime_path():
         capture_output=True, text=True, check=True).stdout.split()
         if not f.startswith("tests/")]
     assert entry == ["sworldmodel/semantic_runtime/trajectory.py"], entry
+
+
+def test_whether_a_no_is_reachable_does_not_depend_on_arithmetic():
+    """Two independent reviewers found that NO_AT_CUTOFF was reachable only
+    when the last scheduled instant happened to divide the window exactly.
+
+    A wake every two days over a fortnight answered NO; every three days
+    answered incomplete_empty_queue, with identical world behaviour. The
+    beyond-cutoff signal was being computed and thrown away, so the horizon
+    was decided by divisibility rather than by what happened.
+    """
+    seen = {}
+    for interval in ("1 days", "2 days", "3 days", "4 days", "5 days",
+                     "36 hours", "7 days"):
+        def transport(system, user, iv=interval):
+            t = terminal_roles(user, system)
+            if t:
+                return t
+            if "You are the world" in system:
+                return json.dumps({
+                    "judgment": "she checks again", "event": None,
+                    "wakes": [{"actor": "ada_vance", "after": iv,
+                               "reason": "she said she would"}]}), {}
+            return json.dumps(NOTHING), {}
+
+        _, _, traj = run(transport, steps=40)
+        seen[interval] = (traj.status, (traj.answer or {}).get("status"))
+    assert len(set(seen.values())) == 1, (
+        f"the answer depends on the wake interval rather than on the "
+        f"world: {seen}")
+    assert set(seen.values()) == {("cutoff", "NO_AT_CUTOFF")}, seen
