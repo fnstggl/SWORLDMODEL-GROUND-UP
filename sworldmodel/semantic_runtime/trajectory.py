@@ -298,11 +298,23 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 parsed = dict(parsed, event_checked=None, event=None)
                 envelope = None
                 break
+            # Rewording the same fragment is the failure mode here: a run
+            # proposed "she prints it from her printer", was told the
+            # machine is not the one acting, and came back with "she
+            # prints it from the message".  Both were refused, the whole
+            # attempt was destroyed, and a woman who meant to sign a
+            # document and send it back did nothing for two days.  What
+            # the reviewer wants is the thing the fragment ADDS UP TO.
             ask = (user + f"\n\nYOUR PROPOSED EVENT WAS REJECTED\n"
                           f"{contained(verdict['reason'])}\n"
-                          f"Answer again for the same trigger, fixing "
-                          f"exactly that.  \"event\": null is a correct "
-                          f"answer when nothing meaningful has changed.")
+                          f"Answer again for the same trigger.  Do not "
+                          f"reword what you just said: if it was refused "
+                          f"as machinery or as one fragment of something "
+                          f"larger, give the thing it ADDS UP TO -- what "
+                          f"the person was actually doing, finished, in "
+                          f"one event, at the time it would really take.  "
+                          f"\"event\": null is a correct answer only when "
+                          f"nothing has genuinely changed.")
         wakes = parsed["wakes_checked"]
         if parsed.get("duplicate_dropped"):
             note("duplicate_event_dropped", call_id=out["call_id"],
