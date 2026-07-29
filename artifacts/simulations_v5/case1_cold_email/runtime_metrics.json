@@ -1,0 +1,65 @@
+{
+ "provider_calls": 111,
+ "by_role": {
+  "judge": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 9.54,
+   "input_tokens": 3924,
+   "output_tokens": 330
+  },
+  "world": {
+   "calls": 37,
+   "retries": 0,
+   "wall_s": 85.23,
+   "input_tokens": 84726,
+   "output_tokens": 4412
+  },
+  "event_review": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 11.37,
+   "input_tokens": 9658,
+   "output_tokens": 317
+  },
+  "actor": {
+   "calls": 30,
+   "retries": 0,
+   "wall_s": 49.91,
+   "input_tokens": 57319,
+   "output_tokens": 1726
+  },
+  "continuity": {
+   "calls": 30,
+   "retries": 0,
+   "wall_s": 47.77,
+   "input_tokens": 43637,
+   "output_tokens": 1143
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.25,
+   "input_tokens": 708,
+   "output_tokens": 42
+  }
+ },
+ "total_input_tokens": 199972,
+ "total_output_tokens": 7970,
+ "total_wall_s": 205.07,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The committed events show Mark Cuban saw the email (e50) but never sent a response, and the deadline 2026-08-10T09:00:00-05:00 has passed without any response being sent."
+ },
+ "reason": "",
+ "steps": 30,
+ "world_calls": 37,
+ "actor_calls": 30,
+ "judge_calls": 6,
+ "review_calls": 38,
+ "abandoned_turns": 0,
+ "committed_events": 5,
+ "ledger_records": 191
+}

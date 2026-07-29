@@ -181,7 +181,17 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: the horizon still ahead.  Once, not repeatedly: a second sweep with
     #: nothing changed in between would be the same question again, and
     #: the point is to make sure people were asked, not to keep asking.
-    last_call: dict = {"done": False}
+    #: The instant of the last sweep, not a latch.  Latching it to the
+    #: first empty queue spent the whole guarantee at whatever moment that
+    #: happened to be -- typically minutes into a window of days, before
+    #: anybody had anything to react to -- and an empty queue at hour one
+    #: and at hour three hundred were then treated alike.
+    #:
+    #: A different moment is a different question, and that needs no
+    #: threshold to say: if the sweep produced nothing the clock has not
+    #: moved and the run ends, and if it produced something the clock
+    #: moved to reach it.
+    last_call: dict = {"at": None}
 
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
@@ -883,8 +893,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 # own next_wake.  If nobody schedules anything, the
                 # silence is now their answer rather than the scheduler's,
                 # and the horizon may honestly be claimed.
-                if world.clock.now < cutoff and not last_call["done"]:
-                    last_call["done"] = True
+                if world.clock.now < cutoff \
+                        and last_call["at"] != world.clock.now:
+                    last_call["at"] = world.clock.now
                     # caused by the last thing that actually happened, so
                     # the chain stays walkable back to the start
                     here = world.records[-1]["seq"] if world.records else 0

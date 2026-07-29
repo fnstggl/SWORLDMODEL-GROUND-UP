@@ -1493,8 +1493,11 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
     times = [parse_iso(e["t"]) for e in journal.events()]
     assert times == sorted(times)
     assert len(journal.events()) >= 3         # it kept going
-    # she was not consulted once per thing she herself did
-    assert traj.actor_calls < len(journal.events())
+    # She was not consulted once per thing she herself did.  The last
+    # call -- one turn per person when the queue empties before the
+    # horizon -- is not that, and is discounted here rather than the
+    # margin being quietly widened to swallow it.
+    assert traj.actor_calls - len(world.actors) < len(journal.events())
     # and no event she caused was followed by consulting her about it
     own = {r["data"]["event_id"] for r in world.records
            if r["op"] == "journal.event"
