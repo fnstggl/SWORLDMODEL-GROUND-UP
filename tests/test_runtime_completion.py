@@ -489,8 +489,9 @@ def test_there_is_exactly_one_runtime_path():
          "if m.split('.')[0]=='compiler'])"],
         capture_output=True, text=True, check=True)
     assert out.stdout.strip() == "[]", out.stdout
+    # source only: tests script it, and reviewer reports quote it
     entry = [f for f in subprocess.run(
-        ["git", "grep", "-l", "def run_trajectory"],
+        ["git", "grep", "-l", "def run_trajectory", "--", "*.py"],
         capture_output=True, text=True, check=True).stdout.split()
         if not f.startswith("tests/")]
     assert entry == ["sworldmodel/semantic_runtime/trajectory.py"], entry
