@@ -473,6 +473,88 @@ def test_something_arriving_for_someone_who_never_spoke_still_reaches_them():
     assert "bo_ferrer" in asked_about[0]
 
 
+def test_finishing_your_own_action_gives_you_the_next_decision():
+    """Doing a thing is rarely the whole of what somebody meant to do.
+
+    A live run had a man notice a message, read it, and check the booking
+    system in order to answer it -- and then stop, on Monday morning, with
+    four days left.  Nothing brought him back, so the record honestly said
+    he never replied.  When the world says the event he caused is finished
+    in itself, the next decision is his and it is due now.
+    """
+    world, journal, bindings = build()
+    turns = []
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            if "starting_event" in user:
+                return json.dumps({
+                    "judgment": "Ada checks the thing she needed to check.",
+                    "event": {"description": "Ada looks up the booking and "
+                                             "sees the hall is held.",
+                              "for": ["ada_vance"], "observed": True,
+                              "after": "9 minutes", "follow_up": False},
+                    "wakes": []}), {}
+            return json.dumps({"judgment": "Nothing further.",
+                               "event": None, "wakes": []}), {}
+        turns.append(user)
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=8,
+                   trace=Trace())
+    after = [u for u in turns if "sees the hall is held" in u]
+    assert after, (
+        "the thing she did in order to do the next thing completed, and "
+        "she was never asked what she does now")
+
+
+def test_being_mid_task_is_not_interrupted_after_every_fragment():
+    """The other side of the same rule: while the world says something
+    still follows, the person is inside one long thing and is not consulted
+    after each piece of it."""
+    world, journal, bindings = build()
+    n = {"i": 0}
+    reading = {"decision": "I am reading it.",
+               "intentions": ["Read the chapter through."],
+               "private_updates": []}
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            n["i"] += 1
+            # her own reading, still going: the world says something
+            # further follows every time
+            return json.dumps({
+                "judgment": "still going",
+                "event": {"description": f"Ada reads page {n['i']}.",
+                          "for": ["ada_vance"], "observed": True,
+                          "after": "3 minutes", "follow_up": True},
+                "wakes": []}), {}
+        return json.dumps(reading), {}
+
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=reviewed(transport)),
+                          max_steps=10, trace=Trace())
+    pages = [e for e in journal.events() if "reads page" in e["description"]]
+    assert len(pages) >= 3, "the continuing task did not continue"
+    # she is not asked what she wants to do after each page of it
+    assert traj.actor_calls < len(pages), (
+        f"{traj.actor_calls} consultations across {len(pages)} fragments of "
+        f"one continuing task")
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))

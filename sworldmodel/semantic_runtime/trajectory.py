@@ -620,9 +620,29 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
 
         if not envelope.get("follow_up"):
             # the world says this event is finished in itself.  Nothing
-            # further is asked: what happens next is somebody's decision,
-            # or a later thing already scheduled, or nothing at all.
+            # further is asked of it: what happens next is somebody's
+            # decision, or a later thing already scheduled, or nothing.
             env_chain["depth"] = 0
+            # ... and if the thing that just finished was this person's
+            # OWN doing, the decision is theirs and it is due now.  That is
+            # what "action_completion" means, and like the arrival rule it
+            # was in the vocabulary and wired to nothing.
+            #
+            # Doing something is almost never the whole of what someone
+            # meant to do.  A man who checks the booking system checks it
+            # IN ORDER TO answer the question he was asked; a live run left
+            # him at exactly that point on Monday morning and jumped to
+            # Friday's deadline, and the honest record said he never
+            # replied.  He was never asked again.
+            #
+            # Only when the world says the event is finished.  While it
+            # says something still follows -- follow_up -- the person is in
+            # the middle of one long thing, and asking them after every
+            # fragment of it is what turned another run into a supervisor
+            # reading a thesis one page at a time.  Which of the two this
+            # is, is the world's judgment, not a counter's.
+            if self_act_of:
+                actor_step(self_act_of, cause=rec["seq"])
             return
         if env_chain["depth"] >= MAX_ENV_CHAIN:
             env_chain["depth"] = 0
