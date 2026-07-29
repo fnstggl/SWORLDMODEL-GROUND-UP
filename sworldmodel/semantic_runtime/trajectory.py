@@ -249,10 +249,20 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                          if e.kind == K_EVENT
                          and e.t == world.clock.now)) \
             >= MAX_EVENTS_PER_INSTANT
+        # "Already happened" has to include what is already ON ITS WAY to
+        # happening, for the same reason the crowd count does: an event is
+        # scheduled first and committed when its instant arrives, so two
+        # calls made before either lands both saw a journal without the
+        # other's event in it.  One run committed "Marcus notices the
+        # message in his inbox" twice, a minute apart, having checked
+        # against a record that did not yet contain either of them.
+        already = frozenset(
+            [contained(e["description"]).casefold()
+             for e in journal.events()]
+            + [contained(e.data["envelope"]["description"]).casefold()
+               for e in world.queue.pending() if e.kind == K_EVENT])
         validator = world_mind.make_world_validator(
-            set(actor_ids),
-            already_committed=frozenset(contained(e["description"]).casefold()
-                                        for e in journal.events()))
+            set(actor_ids), already_committed=already)
         ask = user
         for attempt in range(2):
             out = caller.ask("world", world_mind.WORLD_SYSTEM, ask, validator,

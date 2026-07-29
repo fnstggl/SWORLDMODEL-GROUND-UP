@@ -193,17 +193,27 @@ def test_frozen_compiler_files_are_unchanged():
     # ... and the kernel files the compiler itself depends on are the ones
     # it was frozen against: freezing compiler/ alone would leave the
     # ground it stands on free to move.
-    kernel = sorted(f"sworldmodel/{n}.py"
-                    for n in ("world", "simclock", "events", "engine",
-                              "terminals"))
-    present_kernel = [k for k in kernel if os.path.exists(k)]
-    out = subprocess.run(["git", "hash-object"] + present_kernel,
-                         capture_output=True, text=True, check=True)
+    #
+    # Keyed by PATH, and the set is checked before the hashes.  The earlier
+    # version skipped any kernel file that did not exist and looked the
+    # rest up by hash, so deleting one passed silently -- which is the one
+    # thing a freeze test on a file set exists to catch.
+    frozen_kernel = {}
     with open("artifacts/semantic_runtime/KERNEL_FREEZE.txt") as f:
-        frozen_kernel = dict(line.split() for line in f if line.strip())
-    for path, h in zip(present_kernel, out.stdout.split()):
-        assert frozen_kernel.get(h) == path, (
-            f"a compiler-critical kernel file changed: {path}")
+        for line in f:
+            if line.strip():
+                blob, path = line.split()
+                frozen_kernel[path] = blob
+
+    missing = [p for p in frozen_kernel if not os.path.exists(p)]
+    assert missing == [], f"a frozen kernel file was deleted: {missing}"
+
+    kernel = sorted(frozen_kernel)
+    out = subprocess.run(["git", "hash-object"] + kernel,
+                         capture_output=True, text=True, check=True)
+    on_disk = dict(zip(kernel, out.stdout.split()))
+    changed = [p for p in kernel if on_disk[p] != frozen_kernel[p]]
+    assert changed == [], f"compiler-critical kernel files changed: {changed}"
 
 
 def test_the_runtime_imports_no_second_compiler():

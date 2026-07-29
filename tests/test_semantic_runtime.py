@@ -555,6 +555,53 @@ def test_being_mid_task_is_not_interrupted_after_every_fragment():
         f"one continuing task")
 
 
+def test_the_same_thing_scheduled_twice_only_happens_once():
+    """"Already happened" has to mean "already on its way to happening"
+    too.
+
+    An event is scheduled at one instant and committed at a later one, so
+    two world calls made before either lands both check against a journal
+    that contains neither.  A live run committed "Marcus notices the
+    message in his inbox" twice, a minute apart, for exactly that reason.
+    """
+    world, journal, bindings = build()
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            if "starting_event" in user:
+                # it reaches BOTH of them, seen by neither: that is two
+                # arrival questions at one instant, and the answer to the
+                # second is chosen before the first has landed
+                return json.dumps({
+                    "judgment": "it reaches them both.",
+                    "event": {"description": "The notice reaches them.",
+                              "for": ["ada_vance", "bo_ferrer"],
+                              "observed": False, "after": "1 minutes",
+                              "follow_up": False},
+                    "wakes": []}), {}
+            return json.dumps({
+                "judgment": "the same thing, whoever is asked about",
+                "event": {"description": "The notice is seen.",
+                          "for": ["bo_ferrer"], "observed": True,
+                          "after": "40 minutes", "follow_up": False},
+                "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=12,
+                   trace=Trace())
+    descs = [e["description"] for e in journal.events()]
+    seen = [d for d in descs if d == "The notice is seen."]
+    assert len(seen) <= 1, (
+        f"the same event was committed {len(seen)} times: {descs}")
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
