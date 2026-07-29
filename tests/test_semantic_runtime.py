@@ -400,6 +400,79 @@ def test_intentions_are_not_committed_events():
     assert calls and any(c["data"]["intentions"] for c in calls)
 
 
+def test_something_passed_over_once_can_still_be_noticed_later():
+    """Attention is driven by time, so declining once must not make an item
+    unnoticeable forever.
+
+    The scripted world says "he is mid-task and does not look" the first
+    time it is asked, and only notices on a later ask.  A run that suppressed
+    the later ask -- because the record and the pending items were the same
+    -- made every unopened message permanently unopenable, and two live runs
+    committed two and three events because of it.
+    """
+    world, journal, bindings = build()
+    model = LifecycleModel()
+    caller = RuntimeCaller(transport=reviewed(model))
+    trace = Trace()
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=20, trace=trace)
+    asks = [e for e in trace.of("world_judgment")
+            if e["trigger"] == "pending_progression"]
+    assert len(asks) >= 2, (
+        f"the world was asked about the unopened message {len(asks)} time(s); "
+        f"once it declines, nothing else can ever make it noticed")
+    assert any("notices the subject" in e["description"]
+               for e in trace.of("committed_event")), \
+        "the item was never noticed despite the world saying it was"
+    # the identical question at the identical instant is still not bought
+    # twice: the guard that remains is about duplication, not about time
+    stamps = [(e["t"], tuple(sorted(e.get("concerns") or ()))) for e in asks]
+    assert len(stamps) == len(set(stamps)), f"same ask repeated: {stamps}"
+
+
+def test_something_arriving_for_someone_who_never_spoke_still_reaches_them():
+    """A person who has not yet acted has scheduled nothing for themselves.
+    If arrival is not itself a cause, they are inert for the entire run.
+
+    A message landed in a group chat of four and only the sender was ever
+    asked anything again: every wake in that live run belonged to her,
+    because a wake existed only where somebody had already planned one.
+    Four days of housemates produced four events.
+    """
+    world, journal, bindings = build()
+    asked_about = []
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            if "starting_event" in user:
+                # it reaches Bo, who has never said or done anything
+                return json.dumps({
+                    "judgment": "It lands where Bo could see it.",
+                    "event": {"description": "Ada's message arrives for Bo.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "1 minutes", "follow_up": False},
+                    "wakes": []}), {}
+            if "has just arrived for" in user:
+                asked_about.append(user)
+            return json.dumps({"judgment": "Nothing further just now.",
+                               "event": None, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=10,
+                   trace=Trace())
+    assert asked_about, (
+        "something arrived for a person who had never acted and the world "
+        "was never asked what became of it -- they can never see it")
+    assert "bo_ferrer" in asked_about[0]
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))

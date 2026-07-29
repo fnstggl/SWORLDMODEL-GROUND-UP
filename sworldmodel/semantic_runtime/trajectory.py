@@ -157,12 +157,25 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                        "known_deadline",    # a deadline they know is close
                        "action_completion")  # what they started is done
 
-    #: What was last asked about somebody's unopened items, and how much
-    #: had happened at the time.  Asking again when neither has changed
-    #: gets the same answer -- one live run asked twenty-six times and was
-    #: told "the email remains unread" twenty-six times.  Nothing has
-    #: become of it; that is the answer, and it does not need buying again.
+    #: What was last asked about somebody's unopened items: the instant it
+    #: was asked at, how much had happened by then, and which items.
+    #:
+    #: Asking the same question twice AT THE SAME INSTANT buys the same
+    #: answer twice.  Asking it again LATER does not: whether attention has
+    #: reached something is a question whose only real input is how long it
+    #: has been sitting there, so an hour later is a different question
+    #: with a legitimately different answer.  An earlier version of this
+    #: compared only the record and the items, which made a message that
+    #: was once passed over unnoticeable forever after -- a cold email that
+    #: nobody could ever open, and a housemate thread nobody could ever
+    #: come back to.
     last_progression: dict = {}
+
+    #: (actor, event) pairs whose arrival has already been put to the
+    #: world once.  An arrival is a single cause and is answered once; what
+    #: happens to the item after that is the business of whatever wake the
+    #: world's own answer scheduled.
+    arrivals_asked: dict = {}
 
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
@@ -224,8 +237,18 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # the validator checks the response AND its event AND its wakes, so
         # an unusable one is retried once inside the call and nothing here
         # is reached until everything is known good
-        crowded = sum(1 for e in journal.events()
-                      if e["t"] == _iso_now(world)) >= MAX_EVENTS_PER_INSTANT
+        # what is already SCHEDULED for this instant counts as much as what
+        # has already landed on it.  Counting only the journal let a chain
+        # queue several events at one timestamp before any of them
+        # committed, and each one measured an instant that still looked
+        # empty -- so the cap was read three times as not yet reached and
+        # six things happened in the same minute.
+        here = _iso_now(world)
+        crowded = (sum(1 for e in journal.events() if e["t"] == here)
+                   + sum(1 for e in world.queue.pending()
+                         if e.kind == K_EVENT
+                         and e.t == world.clock.now)) \
+            >= MAX_EVENTS_PER_INSTANT
         validator = world_mind.make_world_validator(
             set(actor_ids),
             already_committed=frozenset(contained(e["description"]).casefold()
@@ -562,6 +585,39 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             # has been writing, the people in it get to speak
             _hand_back_the_turn(waiting, rec)
             return
+        # Something has ARRIVED for people who have not seen it.  That
+        # arrival is itself a cause, and the world owes an answer for it:
+        # what becomes of this, for this person?
+        #
+        # Without this rule, the only way an unopened item ever got
+        # attention was a wake -- and a wake only existed if the person had
+        # already acted and planned one.  Anybody who had not yet spoken
+        # was therefore inert for the whole run: a message landed in a
+        # group chat of four, and the three who had not already been
+        # talking were never asked anything again.  One live run committed
+        # four events over four days for that reason, and every wake in it
+        # belonged to the one person who had spoken first.
+        #
+        # Code decides only THAT the question is owed, and to whom.  When
+        # it is answered, and what the answer is, stays with the world:
+        # any interval code picked here would be a number of its own
+        # invention deciding when people notice things.
+        unseen = [a for a in envelope["for"]
+                  if a != self_act_of and not envelope["observed"]]
+        for aid in unseen:
+            if arrivals_asked.get((aid, rec["event_id"])):
+                continue
+            arrivals_asked[(aid, rec["event_id"])] = True
+            if since_actor["n"] >= MAX_WORLD_RUN:
+                break
+            world_step(
+                trigger_kind="pending_progression",
+                trigger_text=(f"This has just arrived for {aid}, who has "
+                              f"not seen it.  What concretely becomes of "
+                              f"it for them?"),
+                cause=rec["seq"], actor_id=aid,
+                concerns=[rec["event_id"]])
+
         if not envelope.get("follow_up"):
             # the world says this event is finished in itself.  Nothing
             # further is asked: what happens next is somebody's decision,
@@ -789,22 +845,20 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                    ev.data.get("provenance")), None)
                 pending = journal.available_unobserved(aid)
                 asked = last_progression.get(aid)
-                unchanged = (pending and asked is not None
-                             and asked == (len(journal.events()),
-                                           tuple(e["event_id"]
-                                                 for e in pending)))
+                here = (_iso_now(world), len(journal.events()),
+                        tuple(e["event_id"] for e in pending))
+                # same instant, same record, same items: the identical
+                # question.  A later instant is not the same question --
+                # time is exactly what makes attention arrive.
+                unchanged = pending and asked == here
                 if pending and since_actor["n"] >= MAX_WORLD_RUN:
                     _hand_back_the_turn([aid], {"seq": fired})
                 elif unchanged:
-                    # the same items, and nothing has happened since we
-                    # last asked.  The answer would be the same answer.
                     note("progression_skipped", actor=aid, t=_iso_now(world),
                          items=[e["event_id"] for e in pending])
                     actor_step(aid, cause=fired)
                 elif pending:
-                    last_progression[aid] = (len(journal.events()),
-                                             tuple(e["event_id"]
-                                                   for e in pending))
+                    last_progression[aid] = here
                     world_step(
                         trigger_kind="pending_progression",
                         trigger_text=(f"The items listed above are available "
