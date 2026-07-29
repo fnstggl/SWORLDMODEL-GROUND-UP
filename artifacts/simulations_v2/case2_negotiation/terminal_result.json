@@ -5,20 +5,20 @@
   "answer": {
    "status": "NO_AT_CUTOFF",
    "supporting_event_ids": [],
-   "explanation": "No committed event shows that Priya and Dmitri both observed an agreement on a price before the deadline; messages were sent but not observed."
+   "explanation": "No committed event shows that Priya observed Dmitri's acceptance at 1150; the deadline 2026-09-20T00:00:00+01:00 has passed without agreement."
   },
   "reason": "",
-  "steps": 3,
-  "world_calls": 4,
-  "actor_calls": 2,
-  "judge_calls": 5,
-  "review_calls": 6,
-  "abandoned_turns": 0
+  "steps": 70,
+  "world_calls": 43,
+  "actor_calls": 62,
+  "judge_calls": 18,
+  "review_calls": 87,
+  "abandoned_turns": 2
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
   "supporting_event_ids": [],
-  "explanation": "No committed event shows that Priya and Dmitri both observed an agreement on a price before the deadline; messages were sent but not observed."
+  "explanation": "No committed event shows that Priya observed Dmitri's acceptance at 1150; the deadline 2026-09-20T00:00:00+01:00 has passed without agreement."
  },
  "reason": ""
 }

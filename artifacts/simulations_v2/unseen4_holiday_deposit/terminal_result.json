@@ -4,21 +4,25 @@
   "status": "cutoff",
   "answer": {
    "status": "NO_AT_CUTOFF",
-   "supporting_event_ids": [],
-   "explanation": "No committed event shows any deposit of \u00a3600 or any amount into Marian Prowse's bank account by the deadline."
+   "supporting_event_ids": [
+    "e473"
+   ],
+   "explanation": "The deadline of 2026-09-16T23:59:59+01:00 has passed and event e473 shows that Marian checked her bank account on 2026-09-16T08:15:00+00:00 and saw no deposit of \u00a3600 had been received, and no later committed event shows any deposit being made."
   },
   "reason": "",
-  "steps": 61,
-  "world_calls": 46,
-  "actor_calls": 44,
-  "judge_calls": 27,
-  "review_calls": 75,
-  "abandoned_turns": 0
+  "steps": 101,
+  "world_calls": 89,
+  "actor_calls": 81,
+  "judge_calls": 45,
+  "review_calls": 136,
+  "abandoned_turns": 7
  },
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows any deposit of \u00a3600 or any amount into Marian Prowse's bank account by the deadline."
+  "supporting_event_ids": [
+   "e473"
+  ],
+  "explanation": "The deadline of 2026-09-16T23:59:59+01:00 has passed and event e473 shows that Marian checked her bank account on 2026-09-16T08:15:00+00:00 and saw no deposit of \u00a3600 had been received, and no later committed event shows any deposit being made."
  },
  "reason": ""
 }

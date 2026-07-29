@@ -1,69 +1,65 @@
 {
- "provider_calls": 39,
+ "provider_calls": 16,
  "by_role": {
   "judge": {
-   "calls": 4,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 6.27,
-   "input_tokens": 2404,
-   "output_tokens": 203
+   "wall_s": 4.26,
+   "input_tokens": 1734,
+   "output_tokens": 151
   },
   "world": {
-   "calls": 12,
+   "calls": 3,
    "retries": 0,
-   "wall_s": 22.57,
-   "input_tokens": 25441,
-   "output_tokens": 1414
+   "wall_s": 5.87,
+   "input_tokens": 6202,
+   "output_tokens": 331
   },
   "event_review": {
-   "calls": 6,
+   "calls": 1,
    "retries": 0,
-   "wall_s": 8.63,
-   "input_tokens": 6214,
-   "output_tokens": 241
+   "wall_s": 1.36,
+   "input_tokens": 965,
+   "output_tokens": 42
   },
   "actor": {
-   "calls": 8,
+   "calls": 4,
    "retries": 0,
-   "wall_s": 13.45,
-   "input_tokens": 10595,
-   "output_tokens": 586
+   "wall_s": 6.31,
+   "input_tokens": 5141,
+   "output_tokens": 214
   },
   "continuity": {
-   "calls": 8,
+   "calls": 4,
    "retries": 0,
-   "wall_s": 11.89,
-   "input_tokens": 7520,
-   "output_tokens": 331
+   "wall_s": 6.08,
+   "input_tokens": 3318,
+   "output_tokens": 146
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.33,
-   "input_tokens": 598,
-   "output_tokens": 42
+   "wall_s": 1.25,
+   "input_tokens": 550,
+   "output_tokens": 39
   }
  },
- "total_input_tokens": 52772,
- "total_output_tokens": 2817,
- "total_wall_s": 64.14,
+ "total_input_tokens": 17910,
+ "total_output_tokens": 923,
+ "total_wall_s": 25.11,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [
-   "e11",
-   "e23",
-   "e60"
-  ],
-  "explanation": "The committed events show Mark Cuban's email arriving in his inbox but no event shows Mark Cuban actually sending a response to Jordan Reyes's email before the cutoff."
+  "supporting_event_ids": [],
+  "explanation": "The required response from Mark Cuban was never committed as having been sent or observed by the deadline."
  },
  "reason": "",
- "steps": 9,
- "world_calls": 12,
- "actor_calls": 8,
- "judge_calls": 4,
- "review_calls": 15,
+ "steps": 4,
+ "world_calls": 3,
+ "actor_calls": 4,
+ "judge_calls": 3,
+ "review_calls": 6,
  "abandoned_turns": 0,
- "committed_events": 3,
- "ledger_records": 70
+ "committed_events": 2,
+ "ledger_records": 38
 }

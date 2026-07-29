@@ -1,65 +1,67 @@
 {
- "provider_calls": 204,
+ "provider_calls": 368,
  "by_role": {
   "judge": {
-   "calls": 39,
-   "retries": 12,
-   "wall_s": 56.95,
-   "input_tokens": 63406,
-   "output_tokens": 2272
+   "calls": 61,
+   "retries": 16,
+   "wall_s": 93.09,
+   "input_tokens": 148126,
+   "output_tokens": 4061
   },
   "world": {
-   "calls": 46,
+   "calls": 89,
    "retries": 0,
-   "wall_s": 100.61,
-   "input_tokens": 148784,
-   "output_tokens": 5816
+   "wall_s": 197.6,
+   "input_tokens": 397663,
+   "output_tokens": 11572
   },
   "event_review": {
-   "calls": 30,
+   "calls": 54,
    "retries": 0,
-   "wall_s": 45.91,
-   "input_tokens": 49656,
-   "output_tokens": 1315
+   "wall_s": 82.25,
+   "input_tokens": 97577,
+   "output_tokens": 2315
   },
   "actor": {
-   "calls": 44,
+   "calls": 81,
    "retries": 0,
-   "wall_s": 83.64,
-   "input_tokens": 80714,
-   "output_tokens": 4320
+   "wall_s": 160.59,
+   "input_tokens": 205223,
+   "output_tokens": 8707
   },
   "continuity": {
-   "calls": 44,
-   "retries": 0,
-   "wall_s": 66.43,
-   "input_tokens": 64736,
-   "output_tokens": 1966
+   "calls": 82,
+   "retries": 1,
+   "wall_s": 133.66,
+   "input_tokens": 173607,
+   "output_tokens": 4494
   },
   "verifier": {
    "calls": 1,
    "retries": 0,
-   "wall_s": 1.39,
-   "input_tokens": 2111,
-   "output_tokens": 44
+   "wall_s": 1.65,
+   "input_tokens": 3507,
+   "output_tokens": 53
   }
  },
- "total_input_tokens": 409407,
- "total_output_tokens": 15733,
- "total_wall_s": 354.93,
+ "total_input_tokens": 1025703,
+ "total_output_tokens": 31202,
+ "total_wall_s": 668.76,
  "status": "cutoff",
  "answer": {
   "status": "NO_AT_CUTOFF",
-  "supporting_event_ids": [],
-  "explanation": "No committed event shows any deposit of \u00a3600 or any amount into Marian Prowse's bank account by the deadline."
+  "supporting_event_ids": [
+   "e473"
+  ],
+  "explanation": "The deadline of 2026-09-16T23:59:59+01:00 has passed and event e473 shows that Marian checked her bank account on 2026-09-16T08:15:00+00:00 and saw no deposit of \u00a3600 had been received, and no later committed event shows any deposit being made."
  },
  "reason": "",
- "steps": 61,
- "world_calls": 46,
- "actor_calls": 44,
- "judge_calls": 27,
- "review_calls": 75,
- "abandoned_turns": 0,
- "committed_events": 29,
- "ledger_records": 390
+ "steps": 101,
+ "world_calls": 89,
+ "actor_calls": 81,
+ "judge_calls": 45,
+ "review_calls": 136,
+ "abandoned_turns": 7,
+ "committed_events": 47,
+ "ledger_records": 675
 }
