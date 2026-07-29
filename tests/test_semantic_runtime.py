@@ -332,7 +332,7 @@ def test_full_lifecycle_keeps_delivery_notice_and_read_distinct():
     trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=20, trace=trace)
-    assert traj.status in ("resolved", "cutoff", "incomplete"), traj.reason
+    assert traj.status in ("resolved", "cutoff") or traj.status.startswith("incomplete"), traj.reason
     events = journal.events()
     descs = [e["description"] for e in events]
     arrive = next(i for i, d in enumerate(descs) if "arrives in Bo's inbox" in d)
@@ -758,7 +758,7 @@ def test_an_empty_queue_before_the_horizon_asks_everyone_before_giving_up():
         f"the sweep reached {sorted(who)}, not everyone: "
         f"{sorted(world.actors)}")
     assert asked_late
-    assert traj.status in ("cutoff", "resolved", "incomplete"), traj.reason
+    assert traj.status in ("cutoff", "resolved") or traj.status.startswith("incomplete"), traj.reason
 
 
 def test_the_last_call_happens_once_not_forever():
@@ -968,7 +968,7 @@ def test_time_never_moves_backward_and_cutoff_is_respected():
     times = [parse_iso(e["t"]) for e in journal.events()]
     assert times == sorted(times)
     assert all(t <= parse_iso(CUTOFF) for t in times)
-    assert traj.status in ("cutoff", "resolved", "incomplete", "failed")
+    assert traj.status in ("cutoff", "resolved", "failed") or traj.status.startswith("incomplete")
 
 
 def test_no_probability_or_weight_fields_are_accepted():
@@ -1000,7 +1000,7 @@ def test_a_wake_reason_never_reaches_the_person_it_wakes():
     trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=3, trace=trace)
-    assert traj.status in ("cutoff", "resolved", "incomplete"), traj.reason
+    assert traj.status in ("cutoff", "resolved") or traj.status.startswith("incomplete"), traj.reason
     bo_views = [v for v in trace.of("actor_view") if v["actor"] == "bo_ferrer"]
     assert bo_views                              # Bo was in fact woken
     for v in bo_views:
@@ -1085,7 +1085,7 @@ def test_the_call_ceiling_sits_above_the_ordinary_path():
         "actor": [busy] * 900}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=steps, trace=Trace())
-    assert traj.status == "incomplete"
+    assert traj.status.startswith("incomplete")
     assert traj.reason.startswith("step ceiling")     # steps, not calls
     assert not caller.budget_exhausted()
     assert len(caller.calls) < ceiling
@@ -1102,7 +1102,7 @@ def test_spending_the_call_ceiling_is_a_horizon_not_a_failure():
         "actor": [NOTHING] * 8}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=50, trace=Trace())
-    assert traj.status == "incomplete"            # not "failed", not "cutoff"
+    assert traj.status.startswith("incomplete")            # not "failed", not "cutoff"
     assert "call ceiling" in traj.reason
     assert traj.answer is not None                # a closing judgment happened
     assert traj.answer["status"] != "NO_AT_CUTOFF"
@@ -1230,7 +1230,7 @@ def test_a_truncated_run_is_incomplete_and_can_never_answer_no():
                    "private_updates": []}] * 60}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=3, trace=Trace())
-    assert traj.status == "incomplete"
+    assert traj.status.startswith("incomplete")
     assert traj.answer["status"] == "UNRESOLVED"      # never NO_AT_CUTOFF
     assert "step ceiling" in traj.reason
     # the clock was NOT jumped to the cutoff: the run stopped where it was
@@ -1256,9 +1256,13 @@ def test_nothing_grounded_means_nothing_happens():
         "actor": [NOTHING] * 8}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=60, trace=Trace())
-    assert traj.status == "cutoff"
-    assert traj.answer["status"] == "NO_AT_CUTOFF"
-    assert world.clock.now == parse_iso(CUTOFF)
+    # Corrected again, and this time in the other direction.  Nothing
+    # grounded is waiting AND the horizon was never reached, so the window
+    # was not lived and no NO may be claimed over it.  This test used to
+    # assert exactly the defect four reviewers called CRITICAL.
+    assert traj.status == "incomplete_empty_queue", traj.status
+    assert traj.answer["status"] != "NO_AT_CUTOFF"
+    assert world.clock.now < parse_iso(CUTOFF)
     # no wake was ever invented to fill the silence
     wakes = [r for r in world.records if r["op"] == "event.scheduled"
              and r["data"]["kind"] == "semantic.wake"]
@@ -1440,20 +1444,39 @@ def test_a_merely_verbose_model_cannot_run_up_the_bill():
 
 
 def test_reaching_the_horizon_is_recorded_so_the_run_stays_replayable():
+    """When the horizon IS genuinely reached, the advance to it is a
+    ledger record -- a clock moved without a record is a clock the ledger
+    cannot reproduce.
+
+    The scripted world here says what the future holds and none of it
+    lands before the deadline, which is the horizon honestly reached.  The
+    earlier version of this test had the world schedule nothing at all and
+    asserted the clock jumped fourteen days anyway; that was the defect,
+    not the invariant.
+    """
     world, journal, bindings = build()
-    caller = RuntimeCaller(transport=Script({
-        "judge": [UNRESOLVED] * 300,
-        "world": [{"judgment": "nothing happens", "event": None,
-                   "wakes": []}] * 300,
-        "actor": [NOTHING] * 300}))
+    def transport(system, user):
+        if "read-only outcome judge" in system \
+                or "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            # a world that keeps a real future on the queue all the way
+            # to the deadline: this is the horizon genuinely reached
+            return json.dumps({
+                "judgment": "she keeps checking", "event": None,
+                "wakes": [{"actor": "ada_vance", "after": "2 days",
+                           "reason": "she said she would look again"}]}), {}
+        return json.dumps(NOTHING), {}
+
+    caller = RuntimeCaller(transport=reviewed(transport))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=60, trace=Trace())
-    assert traj.status == "cutoff"
+    assert traj.status == "cutoff", traj.status
     assert world.clock.now == parse_iso(CUTOFF)
-    # the clock did not move without the ledger saying so.  If it had to
-    # be advanced to the horizon at all, that advance is a record; here it
-    # arrives there on its own, so there is nothing to record.
-    assert parse_iso(world.records[-1]["t"]) == parse_iso(CUTOFF)
+    # if the clock had to be advanced to the horizon at all, that advance
+    # is a record; here the scheduled future carries it there on its own,
+    # so there may be nothing to record
     advanced = [r for r in world.records
                 if r["op"] == "semantic.horizon_reached"]
     assert len(advanced) <= 1
@@ -1568,7 +1591,7 @@ def test_the_world_cannot_run_for_long_without_asking_anyone():
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           RuntimeCaller(transport=reviewed(transport)), max_steps=40,
                           trace=Trace())
-    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert traj.status == "cutoff" or traj.status.startswith("incomplete"), traj.reason
     assert seen["actor"] > 1, "nobody was ever asked anything"
     # no unbroken run of world judgments longer than the bound
     assert max(seen["runs"]) <= 6, seen["runs"]
@@ -1776,7 +1799,7 @@ def test_a_person_comes_back_because_they_planned_to():
         "actor": [plans] * 40}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=40, trace=Trace())
-    assert traj.status == "cutoff"
+    assert traj.status in ("cutoff", "incomplete_empty_queue")
     wakes = [r["data"]["data"] for r in world.records
              if r["op"] == "event.scheduled"
              and r["data"]["kind"] == "semantic.wake"]
@@ -1841,7 +1864,7 @@ def test_a_reply_that_does_not_follow_is_sent_back_once():
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           RuntimeCaller(transport=transport), max_steps=6,
                           trace=Trace())
-    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert traj.status == "cutoff" or traj.status.startswith("incomplete"), traj.reason
     assert seen["reasons"], "no correction was ever asked for"
     assert "she has already sent that" in seen["reasons"][0]
     # the refused reply was never committed as a decision
@@ -1878,7 +1901,7 @@ def test_a_reply_that_still_does_not_follow_loses_the_turn_not_the_run():
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           RuntimeCaller(transport=transport), max_steps=6,
                           trace=Trace())
-    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert traj.status == "cutoff" or traj.status.startswith("incomplete"), traj.reason
     assert traj.abandoned_turns > 0
     # nothing of the refused reply is in the record ...
     assert not [r for r in world.records if r["op"] == "semantic.actor_call"]
@@ -1922,7 +1945,7 @@ def test_a_meaningless_event_is_sent_back_and_null_is_accepted():
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           RuntimeCaller(transport=transport), max_steps=6,
                           trace=Trace())
-    assert traj.status in ("cutoff", "incomplete"), traj.reason
+    assert traj.status == "cutoff" or traj.status.startswith("incomplete"), traj.reason
     assert asks["corrections"], "the world was never asked again"
     assert "not an event" in asks["corrections"][0]
     # and the interface event never reached the journal

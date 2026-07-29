@@ -90,8 +90,12 @@ class SemanticTrajectory:
     #: running    -- still going
     #: resolved   -- committed events satisfy the resolution
     #: cutoff     -- the trajectory reached the horizon and did not
-    #: incomplete -- it ran out of steps or calls first, so the horizon was
-    #:               never reached and no NO may be claimed
+    #: incomplete_empty_queue -- nothing was scheduled and the horizon was
+    #:               never reached, so most of the window was never lived
+    #: incomplete_step_limit  -- ran out of steps first
+    #: incomplete_call_limit  -- ran out of calls first
+    #: incomplete_review_failure -- a read-only check could not be settled
+    #: (all four: the horizon was never reached, so no NO may be claimed)
     #: disagreement -- two independent readings of the record disagreed at
     #:               the horizon, so no answer is claimed
     #: failed     -- a technical failure.  No RESPONSE is ever partially
@@ -192,6 +196,11 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: moved and the run ends, and if it produced something the clock
     #: moved to reach it.
     last_call: dict = {"at": None}
+
+    #: Whether the loop stopped because the future it could see lay beyond
+    #: the deadline -- the horizon honestly reached -- rather than because
+    #: there was no future at all.
+    reached_horizon: dict = {"yes": False}
 
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
@@ -802,18 +811,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 "trajectory_id": tid}, cause)
         return out["parsed"]
 
-    def finish(reason: str, *, truncated: bool = False) -> SemanticTrajectory:
+    def finish(reason: str, *, incomplete: str = "") -> SemanticTrajectory:
         """The one way a run ends without failing.
 
         A run that actually reached the cutoff is judged AT the cutoff, and
-        that judgment is YES or NO.  A run that stopped early because it
-        ran out of steps or calls is a different thing entirely: the
-        trajectory never reached the horizon, so nothing is known about
-        what would have happened in the time that was not simulated.  Such
-        a run is reported as incomplete and may still return YES on what it
-        did commit -- but it may never return NO, because that would turn a
-        budget artifact into an answer.
+        that judgment is YES or NO.  A run that stopped early is a
+        different thing entirely: the trajectory never reached the horizon,
+        so nothing is known about what would have happened in the time that
+        was not simulated.  Such a run is reported as incomplete and may
+        still return YES on what it did commit -- but it may never return
+        NO, because that would turn a budget artifact into an answer.
+
+        ``incomplete`` names WHY, and an empty queue is one of the reasons.
+        It did not used to be.  Every NO in the shipped corpus -- eleven of
+        eleven -- was produced by the queue running dry and the clock then
+        being advanced across a window nobody had lived: a cold email
+        jumped its whole fortnight in a single record after one step.  An
+        empty queue with days left is not evidence that nothing happens.
+        It is evidence that nothing was scheduled, which is a fact about
+        the scheduler.
         """
+        truncated = bool(incomplete)
         if not truncated and world.clock.now < cutoff:
             world.clock.advance_to(cutoff)
             # the advance itself is recorded.  A clock moved without a
@@ -834,7 +852,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         elif answer["status"] == "YES":
             traj.status = "resolved"
         else:
-            traj.status = "incomplete" if truncated else "cutoff"
+            traj.status = incomplete if truncated else "cutoff"
         traj.reason = reason
         return traj
 
@@ -871,28 +889,26 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         while traj.steps < max_steps and not caller.budget_exhausted():
             ev = world.queue.peek()
             if ev is None or ev.t > cutoff:
-                # Nothing grounded is waiting to happen.  Code does not
-                # invent activity to fill the gap -- that is what the
-                # widening poll did, and it produced 3:50 a.m.
-                # reconsiderations of nothing.
+                # Two situations the merged runtime treated alike, and
+                # they are not alike.
                 #
-                # But an empty queue with days still on the clock is not
-                # evidence that nothing happens.  It is evidence that
-                # nobody was asked.  Eleven of eleven NO answers in one
-                # corpus stopped this way rather than at the horizon: a
-                # cold email jumped its entire fortnight in a single
-                # record after one step, and a woman one step from sending
-                # a signed lease stopped two and a half days early -- and
-                # each was reported as though the time had been lived
-                # through and nothing had come of it.
+                # The queue is EMPTY: nothing will ever happen again, so
+                # the rest of the window is not going to be simulated by
+                # anybody.  Eleven of eleven NO answers in the shipped
+                # corpus stopped this way and were reported as deadlines
+                # that had passed -- a cold email jumped its whole
+                # fortnight in one record after a single step.  That is
+                # incomplete, and it is settled below rather than here.
                 #
-                # So before the world goes quiet, everyone still in it is
-                # asked once more.  Code decides only THAT they are asked;
-                # whether they come back to this, and when, is theirs to
-                # say, and it is said the same way it always is -- their
-                # own next_wake.  If nobody schedules anything, the
-                # silence is now their answer rather than the scheduler's,
-                # and the horizon may honestly be claimed.
+                # The next thing is BEYOND THE CUTOFF: the world has said
+                # what the future holds and none of it lands before the
+                # deadline.  Nothing more happens in the window because
+                # nothing more was going to, which is the horizon honestly
+                # reached, and NO is available.
+                #
+                # Before either, everyone still in the situation is asked
+                # once more.  Code decides only THAT they are asked; when
+                # they come back is theirs to say, in their own next_wake.
                 if world.clock.now < cutoff \
                         and last_call["at"] != world.clock.now:
                     last_call["at"] = world.clock.now
@@ -902,6 +918,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     for aid in actor_ids:
                         actor_step(aid, cause=here, force=True)
                     continue
+                reached_horizon["yes"] = ev is not None
                 break
             ev = world.queue.pop()
             if ev.t > world.clock.now:
@@ -1042,11 +1059,23 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         if traj.steps >= max_steps:
             return finish(f"step ceiling {max_steps} reached at "
                           f"{_iso_now(world)}, before the cutoff",
-                          truncated=True)
+                          incomplete="incomplete_step_limit")
         if caller.budget_exhausted():
             return finish(f"call ceiling {caller.max_calls} reached at "
                           f"{_iso_now(world)}, before the cutoff",
-                          truncated=True)
+                          incomplete="incomplete_call_limit")
+        if world.clock.now < cutoff and not reached_horizon["yes"]:
+            # THE RULE.  The queue emptied and the horizon never arrived,
+            # so the rest of the window was never simulated and nothing
+            # may be claimed about it.  Not a sweep, not a mitigation: a
+            # status.  (A run whose next scheduled thing falls beyond the
+            # cutoff is the other case and keeps its NO -- there, the
+            # world said what the future held and none of it landed
+            # before the deadline.)
+            return finish(f"nothing further was scheduled at "
+                          f"{_iso_now(world)}, and the cutoff "
+                          f"{iso(cutoff)} was never reached",
+                          incomplete="incomplete_empty_queue")
         return finish("")
     except CallBudgetExceeded as e:
         # the backstop is a horizon, not a failure: calls are held in
@@ -1056,7 +1085,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # answer NO over time it never simulated.
         try:
             return finish(f"call ceiling reached mid-step at "
-                          f"{_iso_now(world)}: {e}", truncated=True)
+                          f"{_iso_now(world)}: {e}",
+                          incomplete="incomplete_call_limit")
         except (EnvelopeError, RuntimeTechnicalFailure, CallBudgetExceeded,
                 ValueError) as e2:
             traj.status = "failed"

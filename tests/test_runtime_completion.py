@@ -83,27 +83,28 @@ def test_incomplete_is_never_translated_into_no():
 
 
 def test_the_horizon_may_only_be_claimed_by_reaching_it():
-    """A run that genuinely runs out of scheduled time at the cutoff may
-    still answer NO -- that is the honest case and must keep working."""
-    n = {"i": 0}
+    """The honest NO must keep working.
 
+    A run whose queue carries it all the way to the deadline has lived the
+    window; if the thing did not happen, NO is the answer. Only a run
+    whose future ran out early is incomplete.
+    """
     def transport(system, user):
         t = terminal_roles(user, system)
         if t:
             return t
         if "You are the world" in system:
-            n["i"] += 1
-            # something real is scheduled right up to the horizon
+            # a real future stays on the queue all the way to the deadline
             return json.dumps({
-                "judgment": "the day goes on.",
-                "event": {"description": f"Ada gets on with thing {n['i']}.",
-                          "for": ["ada_vance"], "observed": True,
-                          "after": "5 days", "follow_up": False},
-                "wakes": []}), {}
+                "judgment": "nothing else before then.",
+                "event": None,
+                "wakes": [{"actor": "ada_vance", "after": "2 days",
+                           "reason": "she said she would look again"}]}), {}
         return json.dumps(NOTHING), {}
 
     _, _, traj = run(transport, steps=40)
-    assert traj.status in ("resolved", "cutoff"), traj.status
+    assert traj.status == "cutoff", traj.status
+    assert (traj.answer or {}).get("status") == "NO_AT_CUTOFF"
 
 
 # ------------------------------- 3, 10: transport is state, not narrative
@@ -491,7 +492,8 @@ def test_there_is_exactly_one_runtime_path():
          "if m.split('.')[0]=='compiler'])"],
         capture_output=True, text=True, check=True)
     assert out.stdout.strip() == "[]", out.stdout
-    entry = subprocess.run(
+    entry = [f for f in subprocess.run(
         ["git", "grep", "-l", "def run_trajectory"],
         capture_output=True, text=True, check=True).stdout.split()
+        if not f.startswith("tests/")]
     assert entry == ["sworldmodel/semantic_runtime/trajectory.py"], entry
