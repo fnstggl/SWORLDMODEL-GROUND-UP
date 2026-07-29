@@ -367,12 +367,25 @@ sentence: the exact defect, or what makes it real"}"""
 
 def event_review_user_prompt(*, now: str, journal_text: str,
                              trigger_kind: str, trigger_text: str,
-                             intention: str | None, event: dict) -> str:
+                             intention: str | None, event: dict,
+                             acting: str | None = None) -> str:
     parts = [f"CURRENT TIME\n{now}", "",
              f"WHAT HAS ALREADY HAPPENED\n{journal_text}", "",
              f"WHAT TRIGGERED THIS ({trigger_kind})\n{contained(trigger_text)}"]
     if intention:
         parts += ["", f"THE ATTEMPT BEHIND IT\n{contained(intention)}"]
+    if acting:
+        # Whose attempt this is.  Without it the reviewer cannot tell the
+        # difference between the person doing what they just decided to do
+        # -- which is not a fresh choice and must PASS -- and the event
+        # putting a decision in SOMEBODY ELSE's mouth, which is the thing
+        # ACTOR_TURN_REQUIRED exists for.
+        parts += ["", f"WHOSE ATTEMPT IT WAS\n{contained(acting)} -- if the "
+                      f"event has {contained(acting)} doing what they just "
+                      f"decided to do, that is not a new choice and it is "
+                      f"not ACTOR_TURN_REQUIRED.  Answer "
+                      f"ACTOR_TURN_REQUIRED when the event has SOMEBODY "
+                      f"ELSE choosing something."]
     parts += ["", "THE PROPOSED EVENT",
               f"description: {contained(event['description'])}",
               f"available to: {', '.join(event['for']) or 'no one'}",

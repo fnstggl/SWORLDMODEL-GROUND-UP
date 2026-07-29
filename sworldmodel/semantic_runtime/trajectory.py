@@ -224,6 +224,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # person's own doing, and so is whatever follows from it: the
         # queue carries that fact so the commit rule can tell it apart
         # from something happening TO them
+        # ... and, separately, whether THIS event is the direct product of
+        # that attempt.  The two are not the same thing and conflating them
+        # leaked: "your own action is not news to you" is inherited down
+        # the chain, but "you know you did this" must not be, or the sender
+        # of a message ends up recorded as having observed its arrival at
+        # the other end -- including whether the other person noticed it,
+        # which is the one thing they cannot know.  A negotiator was told,
+        # as authoritative observed fact, that her offer had reached the
+        # other party's phone and he had not looked at it.
+        did_it = actor_id if trigger_kind == "actor_intention" else None
         if trigger_kind == "actor_intention":
             self_act_of = actor_id
         user = world_mind.world_user_prompt(
@@ -275,20 +285,30 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 break                       # nothing to review
             verdict = _event_review(envelope, trigger_kind=trigger_kind,
                                     trigger_text=trigger_text,
-                                    intention=intention, cause=cause)
+                                    intention=intention, cause=cause,
+                                    acting=did_it)
             if verdict["verdict"] == "PASS":
                 break
             note("event_rejected", t=_iso_now(world), call_id=out["call_id"],
                  attempt=attempt, verdict=verdict["verdict"],
                  reason=verdict["reason"], rejected=envelope["description"])
             if verdict["verdict"] == "ACTOR_TURN_REQUIRED":
-                # the world has written somebody's choice.  It is theirs to
-                # make, and they make it only if they can: if they have the
-                # observation that would let them choose, the turn is
-                # handed over; otherwise the world is asked again for what
-                # the environment did, and nothing of this is committed.
-                who = [a for a in envelope["for"]
-                       if journal.observed_by(a)] or list(envelope["for"])
+                # The world has written somebody's choice.  It is theirs to
+                # make, so it goes back to THEM -- and "them" is the person
+                # this step is about, not the person the event was heading
+                # towards.  Handing it to the audience sent a rejected
+                # "Marcus replies to Dana" to Dana, and a rejected "the
+                # representative greets Ethel" to Ethel: in both the actual
+                # decider was never asked, and the decision the review had
+                # correctly protected simply did not happen.
+                #
+                # The old filter was inert as well.  journal.observed_by(a)
+                # is everything a has ever observed, so its truthiness only
+                # said "has this person ever observed anything at all",
+                # never the comment's claim that they had the observation
+                # that would let them choose.
+                who = ([actor_id] if actor_id
+                       else list(envelope["for"]))
                 if who and attempt == 0:
                     world.apply(OP_WORLD_CALL,
                                 {"call_id": out["call_id"],
@@ -356,6 +376,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 # being pending at THAT instant, not now
                                 "concerns": list(concerns),
                                 "self_act_of": self_act_of,
+                                "did_it": did_it,
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
             else:
@@ -371,7 +392,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         return parsed
 
     def _event_review(envelope: dict, *, trigger_kind: str,
-                      trigger_text: str, intention, cause: int) -> dict:
+                      trigger_text: str, intention, cause: int,
+                      acting: str | None = None) -> dict:
         """Read-only: is this a real thing that happened?
 
         It proposes nothing and never sees the resolution.  It exists
@@ -386,7 +408,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                              journal_text=journal.render_for_world(limit=12),
                              trigger_kind=trigger_kind,
                              trigger_text=trigger_text,
-                             intention=intention, event=envelope),
+                             intention=intention, event=envelope,
+                             acting=acting),
                          world_mind.validate_event_review,
                          sim_time=_iso_now(world),
                          trigger=f"event_review:{trigger_kind}")
@@ -867,12 +890,20 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 # not one of its recipients, he was its author.  The judge
                 # read a confirmation that no one had observed and answered
                 # that he never confirmed.
-                if doer and not envelope["observed"]:
-                    if journal.mark_observed(rec["event_id"], doer,
+                #
+                # ``did_it``, not ``self_act_of``: only what came directly
+                # out of their own attempt.  What FOLLOWS from it happens
+                # at the far end and is not theirs to see -- inheriting the
+                # grant down the chain told a woman that her offer had
+                # reached the other man's phone and that he had not looked
+                # at it, which is exactly what she could not know.
+                did = ev.data.get("did_it")
+                if did and not envelope["observed"]:
+                    if journal.mark_observed(rec["event_id"], did,
                                              cause=rec["seq"],
                                              source="own_doing",
                                              by_own_doing=True):
-                        rec = dict(rec, observed=doer in envelope["for"])
+                        rec = dict(rec, observed=did in envelope["for"])
                 # attention reaching someone settles the items this step was
                 # asked about: they are that person's business now, not a
                 # pending question to be asked again

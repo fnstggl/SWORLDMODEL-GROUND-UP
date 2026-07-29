@@ -659,6 +659,56 @@ def test_a_person_knows_what_they_themselves_just_did():
     assert verification["exact"] and verification["llm_calls"] == 0
 
 
+def test_the_sender_does_not_see_the_far_end_of_what_they_sent():
+    """Knowing what you did must not become knowing what became of it.
+
+    "Your own action is not news to you" is inherited down the consequence
+    chain; "you know you did this" must not be.  Conflating them told a
+    negotiator, as authoritative observed fact, that her offer had reached
+    the other man's phone and that he had not looked at it -- which is the
+    one thing she could not possibly know.
+    """
+    world, journal, bindings = build()
+
+    def transport(system, user):
+        if "read-only outcome judge" in system \
+                or "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            if "actor_intention" in user:
+                return json.dumps({"judgment": "she sends it.", "event": {
+                    "description": "Ada sends her answer to Bo.",
+                    "for": ["bo_ferrer"], "observed": False,
+                    "after": "2 minutes", "follow_up": True}, "wakes": []}), {}
+            if "event_consequence" in user:
+                return json.dumps({"judgment": "it lands at his end.", "event": {
+                    "description": "Ada's answer arrives on Bo's phone; he is "
+                                   "driving and does not notice it.",
+                    "for": ["bo_ferrer"], "observed": False,
+                    "after": "1 minutes", "follow_up": False}, "wakes": []}), {}
+            return json.dumps({"judgment": "nothing.", "event": None,
+                               "wakes": []}), {}
+        if "ada_vance" in user:
+            return json.dumps({"decision": "I answer him.",
+                               "intentions": ["Send Bo my answer."],
+                               "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=8,
+                   trace=Trace())
+    sent = next(e for e in journal.events()
+                if "sends her answer" in e["description"])
+    landed = next(e for e in journal.events()
+                  if "arrives on Bo's phone" in e["description"])
+    assert "ada_vance" in sent["observed_by"]      # she knows she sent it
+    assert "ada_vance" not in landed["observed_by"], (
+        "the sender was told her message had arrived and that he had not "
+        "looked at it")
+    assert landed["observed_by"] == []
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
