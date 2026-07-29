@@ -1,58 +1,58 @@
 {
- "provider_calls": 917,
+ "provider_calls": 818,
  "by_role": {
   "judge": {
-   "calls": 102,
-   "retries": 3,
-   "wall_s": 157.18,
-   "input_tokens": 370902,
-   "output_tokens": 5981
+   "calls": 94,
+   "retries": 15,
+   "wall_s": 150.81,
+   "input_tokens": 315948,
+   "output_tokens": 6020
   },
   "world": {
-   "calls": 314,
+   "calls": 250,
    "retries": 0,
-   "wall_s": 717.17,
-   "input_tokens": 1750739,
-   "output_tokens": 39227
+   "wall_s": 565.05,
+   "input_tokens": 1366822,
+   "output_tokens": 31220
   },
   "event_review": {
-   "calls": 131,
-   "retries": 0,
-   "wall_s": 199.59,
-   "input_tokens": 267140,
-   "output_tokens": 5693
+   "calls": 98,
+   "retries": 1,
+   "wall_s": 164.49,
+   "input_tokens": 199450,
+   "output_tokens": 4266
   },
   "actor": {
-   "calls": 185,
+   "calls": 188,
    "retries": 0,
-   "wall_s": 373.1,
-   "input_tokens": 735697,
-   "output_tokens": 18862
+   "wall_s": 383.73,
+   "input_tokens": 747143,
+   "output_tokens": 18860
   },
   "continuity": {
-   "calls": 185,
+   "calls": 188,
    "retries": 0,
-   "wall_s": 308.06,
-   "input_tokens": 659243,
-   "output_tokens": 8669
+   "wall_s": 311.09,
+   "input_tokens": 669283,
+   "output_tokens": 8873
   }
  },
- "total_input_tokens": 3783721,
- "total_output_tokens": 78432,
- "total_wall_s": 1755.21,
+ "total_input_tokens": 3298646,
+ "total_output_tokens": 69239,
+ "total_wall_s": 1575.11,
  "status": "incomplete",
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "No deposit of \u00a3600 has been made into Marian Prowse's bank account yet; the deadline is 2026-09-16T23:59:59+01:00, which has not passed."
+  "explanation": "No committed event shows that \u00a3600 has been deposited into Marian Prowse's bank account, and the deadline has not yet passed."
  },
- "reason": "step ceiling 250 reached at 2026-09-15T09:40:00+00:00, before the cutoff",
+ "reason": "step ceiling 250 reached at 2026-09-15T14:00:00+00:00, before the cutoff",
  "steps": 250,
- "world_calls": 314,
- "actor_calls": 185,
- "judge_calls": 99,
- "review_calls": 316,
- "abandoned_turns": 0,
- "committed_events": 101,
- "ledger_records": 1755
+ "world_calls": 250,
+ "actor_calls": 188,
+ "judge_calls": 79,
+ "review_calls": 285,
+ "abandoned_turns": 1,
+ "committed_events": 81,
+ "ledger_records": 1592
 }

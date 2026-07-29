@@ -5,20 +5,20 @@
   "answer": {
    "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "No deposit of \u00a3600 has been made into Marian Prowse's bank account yet; the deadline is 2026-09-16T23:59:59+01:00, which has not passed."
+   "explanation": "No committed event shows that \u00a3600 has been deposited into Marian Prowse's bank account, and the deadline has not yet passed."
   },
-  "reason": "step ceiling 250 reached at 2026-09-15T09:40:00+00:00, before the cutoff",
+  "reason": "step ceiling 250 reached at 2026-09-15T14:00:00+00:00, before the cutoff",
   "steps": 250,
-  "world_calls": 314,
-  "actor_calls": 185,
-  "judge_calls": 99,
-  "review_calls": 316,
-  "abandoned_turns": 0
+  "world_calls": 250,
+  "actor_calls": 188,
+  "judge_calls": 79,
+  "review_calls": 285,
+  "abandoned_turns": 1
  },
  "answer": {
   "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "No deposit of \u00a3600 has been made into Marian Prowse's bank account yet; the deadline is 2026-09-16T23:59:59+01:00, which has not passed."
+  "explanation": "No committed event shows that \u00a3600 has been deposited into Marian Prowse's bank account, and the deadline has not yet passed."
  },
- "reason": "step ceiling 250 reached at 2026-09-15T09:40:00+00:00, before the cutoff"
+ "reason": "step ceiling 250 reached at 2026-09-15T14:00:00+00:00, before the cutoff"
 }

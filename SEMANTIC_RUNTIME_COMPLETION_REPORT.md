@@ -177,9 +177,9 @@ pre-existing invariant tests; none were weakened.
 | unseen1_confirm | YES | 2 | 0 | 1/1 | 1 | exact |
 | unseen2_feedback | YES | 19 | 4 | 2/2 | 36 | exact |
 | case3_group | incomplete / UNRESOLVED | 22 | 0 | 4/4 | 30 | exact |
-| unseen4_holiday_deposit | incomplete / UNRESOLVED | 101 | 8 | 4/4 | 250 | exact |
+| unseen4_holiday_deposit | incomplete / UNRESOLVED | 81 | 42 | 4/4 | 233 | exact |
 
-**23 runs, 373 committed events, 10 YES / 11 NO_AT_CUTOFF / 2 incomplete,
+**23 runs, 353 committed events, 10 YES / 11 NO_AT_CUTOFF / 2 incomplete,
 23/23 replay exact with 0 model calls, 0 mechanical check failures.**
 
 **The interface-mechanics figure I reported earlier was wrong, by about a
@@ -207,7 +207,7 @@ consulted like anybody else. That case is what exposed defect 2 and it is
 the direct proof of the repair.
 
 **The safety ceiling behaves as a ceiling, live.** The holiday-deposit run
-committed 101 events over 250 wakes with all four people acting, hit the
+committed 81 events over 233 wakes with all four people acting, hit the
 step ceiling before the horizon, and reported `status = incomplete` with
 `UNRESOLVED`. It was **not** converted into YES or NO. That is the rule
 the directive requires of a technical guard, demonstrated by a run rather
@@ -228,10 +228,21 @@ the other, and it read like the names had done it. Four runs of each arm:
 
 - **Same names, opposite evidence separates completely.** Behaviour tracks
   the evidence.
-- **Different names, same evidence answers at exactly the same rate.**
-  Behaviour does not track the names. The first-pass split was the
-  variance the question has on its own.
-- **Evidence against the stereotype:** an 81-year-old who wrote the shop's
+- **Different names, same evidence answers at the same rate.** The
+  first-pass split was the variance the question has on its own.
+  **But 1/4 against 1/4 is a failure to detect a difference, not a
+  demonstration that there is none** — at four runs per arm the test has
+  very little power, and the evidence reviewer was right to say the
+  earlier wording overstated it. What can be claimed is narrower and
+  still worth having: the two arms are indistinguishable in kind. Both
+  women are written as prompt, committed and competent, both stall at the
+  same step, and Thornbury/Lim actually reaches signing in more runs than
+  Okafor/Herrera. An independent scan of every decision, world judgment
+  and committed event for age, gender, ethnicity, class and occupation
+  caricature found nothing.
+- **Evidence against the stereotype (n=1, against n=4 for every other
+  arm — a single run supports much less than the others):** an
+  81-year-old who wrote the shop's
   stock-control software and had already configured the terminal herself
   got a 33-event trajectory with **zero** machinery events and was treated
   throughout as the competent engineer her evidence describes.
@@ -252,6 +263,8 @@ finding C1.
 Six reviewers ran against the frozen code and the fresh artifacts. Three
 returned PASS, three returned FAIL.
 
+Ten of the thirteen ran. Two returned PASS.
+
 | reviewer | verdict |
 |---|---|
 | freeze and integration | **PASS** |
@@ -260,6 +273,21 @@ returned PASS, three returned FAIL.
 | universality and bloat | **FAIL** (1 HIGH) |
 | actor / world separation | **FAIL** (2 HIGH) |
 | time, causality, terminal | **FAIL** (1 CRITICAL, 2 HIGH) |
+| device and event meaning | **FAIL** (2 CRITICAL, 3 HIGH) |
+| terminal independence | **FAIL** (1 CRITICAL, 1 HIGH) |
+| actor realism | **FAIL** (3 HIGH) |
+| evidence sensitivity | **FAIL** (3 HIGH) |
+
+The terminal-independence reviewer confirms the mechanics are sound — the
+verifier never receives the first reading's verdict across all 42 live
+verifier prompts, it runs on 41 of 41 non-UNRESOLVED proposals,
+disagreement is never converted, and every YES cites a committed event
+that exists — and then finds the same root cause as the device reviewer
+from the other end: **the Pair-B NO is produced by the two-strike review
+deadlock deleting the very act the question asks about, and by the
+last-call sweep skipping the one person who could still perform it.** The
+second reading cannot catch that, because both readings see the same
+record and the act was never in it.
 
 Reports are in `artifacts/semantic_runtime/reviews/*.json`.
 
@@ -430,10 +458,9 @@ vocabularies exist anywhere in the runtime.
 
 ## 17. What is not done
 
-- **Seven of the thirteen required reviewers did not run**: actor realism,
-  causal realism, information and timing, terminal independence, device
-  and event meaning, evidence sensitivity, and the final quality-gate
-  adjudicator. Six ran.
+- **Three of the thirteen required reviewers did not run**: causal
+  realism, information and timing, and the final quality-gate
+  adjudicator. Ten ran; two returned PASS.
 - **The corpus mixes two code versions.** Twenty-one runs predate the
   reviewer fixes in §14; `case3_group` and `unseen4_holiday_deposit` were
   run afterwards. No run predates the six fixes in §10.
