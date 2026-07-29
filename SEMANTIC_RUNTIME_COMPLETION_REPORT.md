@@ -339,6 +339,62 @@ events into its first minute — never more than 3 per *exact* instant, so
 the guard never tripped, because "instant" is second-resolution. This is
 the main reason pair B's YES rate is 1/4.
 
+## 19. After the reviewers: the CRITICAL is fixed
+
+I deferred the CRITICAL finding on the grounds that fixing it changes the
+status of half the corpus. That is not a reason; it is the reason to fix
+it. Both it and the verifier clock rule are now repaired, with tests
+verified to fail without them.
+
+**An empty queue is not evidence that nothing happens.** Before the world
+goes quiet with the horizon still ahead, everyone still in the situation
+is asked once more. Code decides only *that* they are asked; whether they
+come back to it, and when, stays theirs and is said the way it is always
+said — their own `next_wake`. If nobody schedules anything after that, the
+silence is their answer rather than the scheduler's. Once, not repeatedly.
+
+That needed a second correction: the sweep landed at the same instant as
+everyone's last turn — almost by definition, since that is the instant the
+queue ran dry — and the guard against asking somebody twice in one moment
+suppressed it exactly where it was needed.
+
+**The verifier is under the judge's clock rule now.** It was under none,
+and a live run had it answer NO_AT_CUTOFF four days early, its own
+explanation saying the deadline was in the future, contradicting and
+destroying a correct YES.
+
+Nine runs on the repaired loop (`artifacts/simulations_v4/`):
+
+| run | terminal | events | acted | wakes |
+|---|---|---|---|---|
+| a1_r1 responsive | YES | 5 | 2/2 | 3 |
+| a2_r1 avoiding | NO | 13 | 2/2 | 21 |
+| b1_r1 | **YES** | 6 | 1/2 | 2 |
+| b1_r2 | **YES** | 5 | 1/2 | 3 |
+| b2_r1 | NO | 2 | 2/2 | 2 |
+| b2_r2 | NO | 3 | 2/2 | 4 |
+| case1_cold_email | NO | 1 | 2/2 | 1 |
+| case3_group | NO | 6 | 4/4 | 30 |
+| unseen1_confirm | YES | 2 | 1/1 | 1 |
+
+4 YES / 5 NO, 9/9 replay exact, 0 mechanical failures. The lease case that
+was 1/4 YES before is 2/2 here, and the avoiding-Marcus arm went from 3
+events to 13 across 21 wakes — the window is being lived through rather
+than jumped.
+
+**It is still not enough, and the device reviewer says why.** Granularity
+is the visible symptom; the root is that the only feedback on event
+*content* is a binary reviewer whose two error modes point in opposite
+directions. It passes attention bookkeeping at 71% and rejects real human
+acts done through a device 39 times — "Aisha prints the lease", "Marcus
+checks the hall booking system" — which is how a woman who returns every
+document within a day ends up not returning one. The recommended repair is
+structural: stop admitting delivery hops as committed events at all, since
+availability is already a code-owned property of a journal item, and
+delete the machinery limb of the review while keeping its two
+demonstrably-correct checks. That is a design change, not a patch, and it
+is the first thing the next pass should do.
+
 ## 15. Artifacts
 
 21 per run: `ledger.jsonl` (authoritative, written first),
