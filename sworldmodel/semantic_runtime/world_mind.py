@@ -34,24 +34,13 @@ something, the immediate consequence is the sending, not the receiving, \
 the noticing, the reading, the reaction, or the outcome.  Each of those is \
 a separate later step you will be asked about separately.
 
-Keep these genuinely distinct.  Information can exist, then be sent, then \
-arrive somewhere a person could see it, then actually reach their \
-attention, then actually be read, then be understood.  Arriving is NOT \
-noticing.  Noticing is NOT reading.  People miss things, postpone them, \
-skim them, forget them, and never get to them at all.
+DELIVERY IS NOT YOURS AND YOU NEVER NARRATE IT.  Whether something has been sent, has arrived, is sitting where somebody could see it, or has been seen by them is recorded by the machinery, on the thing itself.  Never write that a message arrives, lands in an inbox, is delivered, appears on a screen, buzzes, shows a notification, is still unread, is still waiting, or remains where it was.  None of those are events; they are the state of an item, and it is already known.
 
-Keep every step at the scale a person would actually notice.  Machinery \
-that simply works is ONE step, not several: something either gets where it \
-is going or it does not, and nobody experiences it travelling.  Split a \
-step only where a person could genuinely be involved -- it arriving where \
-they are, them noticing it, them reading it, them acting.
+What you DO decide about attention is whether a person's notice actually reaches something -- "she sees it while clearing her messages", "he does not look at his phone all afternoon".  That is a fact about the person's circumstances and it is yours.  The arriving is not.
 
-Never narrate the MECHANICS of doing something.  Opening an application, \
-a window appearing, scrolling, clicking, typing a title, a file \
-downloading, a screen displaying what someone just asked it to display: \
-none of these are events.  If a person does something, the event is that \
-they did it -- "she puts it in her diary for Thursday", not the diary \
-opening, the field being typed and the window closing.
+ONE MEANINGFUL THING, NOT ITS PIECES.  When somebody does something, the event is the whole of what they did, at the scale another person would describe it: "she signs the lease and sends it back", not opening the file, clicking print, the printer starting, the printer finishing, signing, opening the scanner, the scanner saving, attaching, and pressing send.  Those are not nine events.  They are one thing a person did.
+
+If an attempt only partly comes off, say so as one event -- "she signs it but cannot get the scanner to work" -- rather than splitting it.
 
 You decide circumstances; you never decide what a person intends or \
 chooses.  You may determine that someone is busy, interrupted, away, or \
@@ -137,13 +126,15 @@ Reply with ONLY a JSON object:
     "for": ["actor_id"],
     "observed": false,
     "after": "43 seconds",
-    "follow_up": true
+    "follow_up": true,
+    "by": "actor_id"
   },
   "wakes": [
     {"actor": "actor_id", "after": "2 hours",
      "reason": "why this person's situation should be revisited then"}
   ]
 }
+"by" is WHOSE action this is: the actor id of the person who did it, or null when the environment or somebody outside this situation did it.  It must be the person whose attempt you were asked about; if what would happen next is a DIFFERENT person choosing something, stop and return "event": null, because that choice is theirs to make and they will be asked.
 "event" may be null when nothing concrete happens yet.
 "wakes" may be empty.
 "for" lists the actor ids the event or its information becomes AVAILABLE \
@@ -255,166 +246,10 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
         parsed["event_checked"] = (
             None if env is None
             else {k: env[k] for k in ("description", "for", "observed",
-                                      "after", "follow_up")})
+                                      "after", "follow_up", "by")})
         parsed["wakes_checked"] = [{"actor": w["actor"], "after": w["after"],
                                     "reason": w["reason"]} for w in wakes]
         parsed["duplicate_dropped"] = duplicate
         return parsed
 
     return validate
-
-
-# --------------------------------------------------- the event review
-#: A read-only check on whether a proposed event MEANS anything.  It is
-#: not a second world: it proposes nothing, and it never sees the
-#: resolution, the question or the cutoff.  It exists because instruction
-#: did not work -- the world was told not to narrate interface mechanics,
-#: given the exact counter-example, and half of every committed event in
-#: six live runs was still somebody operating a phone -- and because the
-#: structural version of the same check is impossible: "she sends the
-#: message" and "he puts his phone down" are the same shape, and only one
-#: of them has anywhere to go.
-EVENT_REVIEW_SYSTEM = """You check one thing: whether the proposed event \
-is a real thing that happened.
-
-You are given what triggered it, what has already happened, the attempt \
-that caused it if there was one, the event itself, and the time.  You do \
-not decide what should happen.  You do not know what anyone wants the \
-outcome to be.
-
-PASS IS THE NORMAL ANSWER.  Most of what happens in a real situation is \
-ordinary and small, and it still happened.  You are looking for three \
-specific kinds of thing that are not events at all -- somebody working a \
-device, a restatement that nothing has changed, and a decision put in \
-somebody's mouth -- and everything else passes.  Rejecting an ordinary \
-event costs the situation the thing that would have happened next: a run \
-where most proposals are refused is a run where nothing occurs and \
-nobody learns anything.
-
-Answer PASS when the event changes at least one of these: what concretely \
-happened; what information now exists; who can get at it; who has \
-actually observed it; what somebody finished; what commitment now exists; \
-what changed between people; what future thing is now really scheduled; \
-or whether an attempt succeeded, failed or was interrupted.  It must be \
-ONE stage, caused by what came before, and realistically timed.
-
-THE TEST FOR MACHINERY IS WHO IS ACTING, NOT WHETHER A DEVICE IS \
-INVOLVED.  Almost everything people do now is done through a device, and \
-that does not make it machinery.  Ask: is a PERSON the one doing this, \
-and is anything different afterwards?
-
-  "She opens it and reads what it says" -- a person, and afterwards she \
-knows what it says.  PASS.
-  "He signs it and sends it back" -- a person, and afterwards it is \
-signed and gone.  PASS.
-  "The printer prints it."  "The scanner saves a copy."  "The app \
-finishes syncing."  "The window appears."  Nobody did those; the machine \
-did, and what they add up to is the thing the person was actually doing.  \
-REVISE.
-
-Getting this backwards is expensive in both directions.  One run \
-committed a printer printing, the printing finishing, and a scanner \
-saving a file -- three of its five events were furniture -- while another \
-refused "she opens it and reviews the document" as interface operation, \
-committed nothing at all, and ended with a woman who had done nothing for \
-two days.
-
-Answer REVISE when the event is:
-- a device or a channel acting on its own -- the printer printing, the \
-scanner saving, a window appearing, an app loading or syncing, a page \
-refreshing, a file downloading, something "becoming visible";
-- a person merely working the controls with nothing different afterwards \
--- scrolling, clicking about, typing into a field, pressing save, closing \
-a tab, looking at a screen that shows what they just asked it to show.  \
-What these add up to is: "she puts it in her diary for Thursday", "he \
-sends the reply he decided to write";
-- a restatement that nothing has changed -- still unread, still waiting, \
-still busy;
-- something already in the record, in the same or different words;
-- several stages at once;
-- timed in a way nothing supports;
-- a person, organisation or fact that exists nowhere in what you were \
-given;
-- a contradiction of what is already recorded;
-- more success than the attempt behind it actually supports;
-- convenient progress invented to keep things moving.
-
-ATTENTION IS NOT A CHOICE, and this is the most important thing on this \
-page.  Whether something reaches a person -- whether it arrives, whether \
-they happen to see it, whether they notice it among everything else, \
-whether they are even looking -- is decided by circumstances, not by \
-them.  "The message arrives on her phone", "his phone buzzes and he sees \
-the banner", "she notices it while clearing her messages", "he does not \
-see it because he is driving": every one of those is PASS.  This is how \
-anyone ever comes to know anything here, so refusing them stops the world \
-dead: nobody learns anything, nobody can act, and the situation freezes \
-with a message sitting unread forever.  When in doubt about noticing, \
-PASS.
-
-Answer ACTOR_TURN_REQUIRED only when the event has the person DOING \
-something they decided to do: opening a message they have noticed, \
-reading it, replying, agreeing, refusing, asking, signing, going, buying, \
-carrying on with something, stopping, deciding to wait, deciding not to \
-bother.  Those are still choices when they are negative.  The immediate \
-consequence of an attempt they explicitly made is NOT a new choice -- if \
-they said they would send it, the sending is not their decision to make \
-again.
-
-Reply with ONLY a JSON object:
-{"verdict": "PASS" | "REVISE" | "ACTOR_TURN_REQUIRED", "reason": "one \
-sentence: the exact defect, or what makes it real"}"""
-
-
-def event_review_user_prompt(*, now: str, journal_text: str,
-                             trigger_kind: str, trigger_text: str,
-                             intention: str | None, event: dict,
-                             acting: str | None = None) -> str:
-    parts = [f"CURRENT TIME\n{now}", "",
-             f"WHAT HAS ALREADY HAPPENED\n{journal_text}", "",
-             f"WHAT TRIGGERED THIS ({trigger_kind})\n{contained(trigger_text)}"]
-    if intention:
-        parts += ["", f"THE ATTEMPT BEHIND IT\n{contained(intention)}"]
-    if acting:
-        # Whose attempt this is.  Without it the reviewer cannot tell the
-        # difference between the person doing what they just decided to do
-        # -- which is not a fresh choice and must PASS -- and the event
-        # putting a decision in SOMEBODY ELSE's mouth, which is the thing
-        # ACTOR_TURN_REQUIRED exists for.
-        parts += ["", f"WHOSE ATTEMPT IT WAS\n{contained(acting)} -- if the "
-                      f"event has {contained(acting)} doing what they just "
-                      f"decided to do, that is not a new choice and it is "
-                      f"not ACTOR_TURN_REQUIRED.  Answer "
-                      f"ACTOR_TURN_REQUIRED when the event has SOMEBODY "
-                      f"ELSE choosing something."]
-    parts += ["", "THE PROPOSED EVENT",
-              f"description: {contained(event['description'])}",
-              f"available to: {', '.join(event['for']) or 'no one'}",
-              f"already observed by them: {event['observed']}",
-              f"happens after: {contained(event['after'])}",
-              f"leaves something unresolved: {event.get('follow_up', False)}",
-              "", "Is this a real thing that happened?  Reply with ONLY the "
-              "JSON object."]
-    return "\n".join(parts)
-
-
-class EventReviewError(ValueError):
-    pass
-
-
-def validate_event_review(obj) -> dict:
-    if not isinstance(obj, dict):
-        raise EventReviewError("event review must be an object")
-    unknown = set(obj) - {"verdict", "reason"}
-    if unknown:
-        raise EventReviewError(f"unexpected fields {sorted(unknown)}")
-    if obj.get("verdict") not in ("PASS", "REVISE", "ACTOR_TURN_REQUIRED"):
-        raise EventReviewError(
-            'verdict must be "PASS", "REVISE" or "ACTOR_TURN_REQUIRED"')
-    reason = str(obj.get("reason", "")).strip()
-    if not reason:
-        raise EventReviewError("reason must be a non-empty string")
-    try:
-        reason = clean_text(reason, field="reason")
-    except EnvelopeError as e:
-        raise EventReviewError(str(e)) from None
-    return {"verdict": obj["verdict"], "reason": reason}

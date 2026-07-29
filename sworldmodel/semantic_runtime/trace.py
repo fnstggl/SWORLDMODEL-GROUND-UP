@@ -79,9 +79,10 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
     _write_jsonl(os.path.join(out_dir, "actor_continuity_reviews.jsonl"),
                  trace.of("continuity_review") + trace.of(
                      "actor_response_rejected"))
-    _write_jsonl(os.path.join(out_dir, "event_quality_reviews.jsonl"),
-                 trace.of("event_review") + trace.of("event_rejected")
-                 + trace.of("event_abandoned"))
+    # what code refused, and why -- there is no semantic gate left to log
+    _write_jsonl(os.path.join(out_dir, "structural_refusals.jsonl"),
+                 trace.of("attention_answer_without_attention")
+                 + trace.of("choice_returned_to_its_owner"))
     # Every place code overruled the model.  These were emitted into the
     # trace and persisted nowhere, which is precisely backwards: they are
     # the moments a reader most needs, because they are where the record
@@ -98,7 +99,7 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                  trace.of("wake_scheduled"))
     _write_jsonl(os.path.join(out_dir, "review_exchanges.jsonl"),
                  [c for c in caller.calls
-                  if c["role"] in ("continuity", "event_review", "verifier")])
+                  if c["role"] in ("continuity", "verifier")])
     j("compile_runtime_bindings.json",
       {k: v for k, v in bindings.items() if k != "actor_ids"} |
       {"actor_ids": bindings.get("actor_ids", {}),

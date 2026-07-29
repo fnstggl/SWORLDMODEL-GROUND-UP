@@ -28,24 +28,12 @@ from sworldmodel.simclock import iso, parse_iso
 from . import actor_mind, resolution as resolution_mod, world_mind
 from .envelope import (EnvelopeError, contained, parse_duration,
                        validate_event)
-from .journal import (Journal, OP_ACTOR_CALL, OP_CONTINUITY,
-                      OP_EVENT_REVIEW, OP_HORIZON, OP_TERMINAL,
-                      OP_TURN_ABANDONED, OP_VERIFY,
-                      OP_WORLD_CALL)
+from .journal import (Journal, OP_ACTOR_CALL, OP_ATTEMPT, OP_CONTINUITY,
+                      OP_HORIZON, OP_TERMINAL, OP_TURN_ABANDONED,
+                      OP_VERIFY, OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
-
-class ActorGroundingError(ValueError):
-    """An actor's reply does not follow from what that person has, and one
-    targeted correction did not fix it.  Nothing is committed, and code
-    does not invent a replacement decision."""
-
-
-class EventGroundingError(ValueError):
-    """A proposed event is not a real thing that happened, and one targeted
-    correction did not fix it."""
-
 
 #: How many events may share one exact instant before code stops
 #: accepting "no time at all" for the next one.  A hundred events on a
@@ -155,11 +143,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: middle of a task, and people who quietly stopped being asked
     #: anything at all.  Time passing is not a reason to think about
     #: something again.  These five are:
-    WAKE_PROVENANCE = ("actor_plan",        # they said they would
-                       "observed_event",    # something reached them
-                       "world_process",     # the world said it would happen
-                       "known_deadline",    # a deadline they know is close
-                       "action_completion")  # what they started is done
+    #: Exactly what the scheduler can produce, and nothing aspirational.
+    #: Three further names were declared here and wired to nothing --
+    #: across 1,087 wakes in the shipped corpus not one carried them --
+    #: while two independent reviewers pointed out that a vocabulary
+    #: advertising coverage it does not have is worse than a short one.
+    #: What those names described still happens; it happens as an
+    #: immediate turn rather than as a scheduled wake, which is why they
+    #: never appeared.
+    WAKE_PROVENANCE = ("actor_plan",       # they said they would
+                       "world_process")    # the world said it would happen
 
     #: What was last asked about somebody's unopened items: the instant it
     #: was asked at, how much had happened by then, and which items.
@@ -241,7 +234,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
                    actor_id: str | None = None, concerns=(),
-                   self_act_of=None, intention: str | None = None) -> dict | None:
+                   self_act_of=None, intention: str | None = None,
+                   attempt_id: str | None = None) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
@@ -298,78 +292,73 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                for e in world.queue.pending() if e.kind == K_EVENT])
         validator = world_mind.make_world_validator(
             set(actor_ids), already_committed=already)
-        ask = user
-        for attempt in range(2):
-            out = caller.ask("world", world_mind.WORLD_SYSTEM, ask, validator,
-                             sim_time=_iso_now(world), trigger=trigger_kind)
-            traj.world_calls += 1
-            since_actor["n"] += 1
-            parsed = out["parsed"]
-            envelope = parsed["event_checked"]
-            if envelope is None:
-                break                       # nothing to review
-            verdict = _event_review(envelope, trigger_kind=trigger_kind,
-                                    trigger_text=trigger_text,
-                                    intention=intention, cause=cause,
-                                    acting=did_it)
-            if verdict["verdict"] == "PASS":
-                break
-            note("event_rejected", t=_iso_now(world), call_id=out["call_id"],
-                 attempt=attempt, verdict=verdict["verdict"],
-                 reason=verdict["reason"], rejected=envelope["description"])
-            if verdict["verdict"] == "ACTOR_TURN_REQUIRED":
-                # The world has written somebody's choice.  It is theirs to
-                # make, so it goes back to THEM -- and "them" is the person
-                # this step is about, not the person the event was heading
-                # towards.  Handing it to the audience sent a rejected
-                # "Marcus replies to Dana" to Dana, and a rejected "the
-                # representative greets Ethel" to Ethel: in both the actual
-                # decider was never asked, and the decision the review had
-                # correctly protected simply did not happen.
-                #
-                # The old filter was inert as well.  journal.observed_by(a)
-                # is everything a has ever observed, so its truthiness only
-                # said "has this person ever observed anything at all",
-                # never the comment's claim that they had the observation
-                # that would let them choose.
-                who = ([actor_id] if actor_id
-                       else list(envelope["for"]))
-                if who and attempt == 0:
-                    world.apply(OP_WORLD_CALL,
-                                {"call_id": out["call_id"],
-                                 "trigger": trigger_kind,
-                                 "judgment": parsed["judgment"],
-                                 "handed_to": who[0],
-                                 "trajectory_id": tid}, cause)
-                    actor_step(who[0], cause=cause)
-                    return None
-            if attempt:
-                # One correction was not enough.  The world does not get to
-                # commit it, and the run does not die over it either: what
-                # the world could not say happened, did not happen.
-                note("event_abandoned", t=_iso_now(world),
-                     call_id=out["call_id"], reason=verdict["reason"],
+        # ONE call.  No semantic gate, no correction loop.
+        #
+        # There used to be a read-only reviewer here that judged whether a
+        # proposed event "is a real thing that happened", with one
+        # correction and then destruction.  It held two rules no act done
+        # through a device could satisfy at once -- atomic got "the machine
+        # is the one acting", combined got "several stages at once" -- so
+        # the decisive act of a scenario was deleted, the person was then
+        # refused by the OTHER reviewer for repeating it, the queue
+        # emptied, and the absence of the act that had just been destroyed
+        # became the final answer.  In one run it PASSed and REVISEd the
+        # byte-identical string four calls apart.  The same lease scene on
+        # byte-identical evidence answered YES three times and NO three
+        # times, and the flip was the reviewer, not the world.
+        #
+        # Everything it was legitimately catching -- schema, actor ids,
+        # duplicates, impossible durations, unknown fields -- is decidable
+        # and is decided in make_world_validator, in code, the same way
+        # every time.  What is left over is realism judgment, and that
+        # belongs offline where it can be wrong without deleting anybody's
+        # afternoon.
+        out = caller.ask("world", world_mind.WORLD_SYSTEM, user, validator,
+                         sim_time=_iso_now(world), trigger=trigger_kind)
+        traj.world_calls += 1
+        since_actor["n"] += 1
+        parsed = out["parsed"]
+        envelope = parsed["event_checked"]
+
+        # The attention question may only be answered with attention.
+        # "What becomes of this for them?" is asked about an item they
+        # already have available and have not seen; the only thing that
+        # can change is whether their notice reaches it.  An answer that
+        # does not mark them as observing changes no information state at
+        # all -- it is the arrival narrated a second time, which is where
+        # the inboxes, the buzzing phones and the still-unread messages
+        # came from.  Structural: it is about the state the event changes,
+        # not about its words.
+        if envelope is not None and trigger_kind == "pending_progression" \
+                and actor_id and not (envelope["observed"]
+                                      and actor_id in envelope["for"]):
+            note("attention_answer_without_attention", t=_iso_now(world),
+                 call_id=out["call_id"], actor=actor_id,
+                 rejected=envelope["description"])
+            parsed = dict(parsed, event_checked=None, event=None)
+            envelope = None
+
+        # The one boundary code still enforces on the world's answer, and
+        # it is enforced by IDENTITY rather than by opinion: an attempt
+        # belongs to exactly one person, and a consequence in which
+        # somebody ELSE makes a voluntary choice is that person's turn to
+        # take, not this one's to record.
+        if envelope is not None and did_it:
+            chooser = (envelope.get("by")
+                       if envelope.get("by") and envelope["by"] != did_it
+                       else None)
+            if chooser is not None:
+                note("choice_returned_to_its_owner", t=_iso_now(world),
+                     call_id=out["call_id"], actor=chooser,
                      rejected=envelope["description"])
-                parsed = dict(parsed, event_checked=None, event=None)
-                envelope = None
-                break
-            # Rewording the same fragment is the failure mode here: a run
-            # proposed "she prints it from her printer", was told the
-            # machine is not the one acting, and came back with "she
-            # prints it from the message".  Both were refused, the whole
-            # attempt was destroyed, and a woman who meant to sign a
-            # document and send it back did nothing for two days.  What
-            # the reviewer wants is the thing the fragment ADDS UP TO.
-            ask = (user + f"\n\nYOUR PROPOSED EVENT WAS REJECTED\n"
-                          f"{contained(verdict['reason'])}\n"
-                          f"Answer again for the same trigger.  Do not "
-                          f"reword what you just said: if it was refused "
-                          f"as machinery or as one fragment of something "
-                          f"larger, give the thing it ADDS UP TO -- what "
-                          f"the person was actually doing, finished, in "
-                          f"one event, at the time it would really take.  "
-                          f"\"event\": null is a correct answer only when "
-                          f"nothing has genuinely changed.")
+                world.apply(OP_WORLD_CALL,
+                            {"call_id": out["call_id"],
+                             "trigger": trigger_kind,
+                             "judgment": parsed["judgment"],
+                             "handed_to": chooser,
+                             "trajectory_id": tid}, cause)
+                actor_step(chooser, cause=cause)
+                return None
         wakes = parsed["wakes_checked"]
         if parsed.get("duplicate_dropped"):
             note("duplicate_event_dropped", call_id=out["call_id"],
@@ -402,6 +391,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 "concerns": list(concerns),
                                 "self_act_of": self_act_of,
                                 "did_it": did_it,
+                                "attempt_id": attempt_id,
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
             else:
@@ -415,51 +405,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                            provenance="world_process",
                            about=trigger_kind, cause=wseq)
         return parsed
-
-    def _event_review(envelope: dict, *, trigger_kind: str,
-                      trigger_text: str, intention, cause: int,
-                      acting: str | None = None) -> dict:
-        """Read-only: is this a real thing that happened?
-
-        It proposes nothing and never sees the resolution.  It exists
-        because instruction did not work: the world was told not to
-        narrate interface mechanics, given the exact counter-example, and
-        half of every committed event in six live runs was still somebody
-        operating a phone.
-        """
-        out = caller.ask("event_review", world_mind.EVENT_REVIEW_SYSTEM,
-                         world_mind.event_review_user_prompt(
-                             now=_iso_now(world),
-                             journal_text=journal.render_for_world(limit=12),
-                             trigger_kind=trigger_kind,
-                             trigger_text=trigger_text,
-                             intention=intention, event=envelope,
-                             acting=acting),
-                         world_mind.validate_event_review,
-                         sim_time=_iso_now(world),
-                         trigger=f"event_review:{trigger_kind}")
-        traj.review_calls += 1
-        world.apply(OP_EVENT_REVIEW,
-                    {"call_id": out["call_id"], "trigger": trigger_kind,
-                     "verdict": out["parsed"]["verdict"],
-                     "reason": out["parsed"]["reason"],
-                     "description": envelope["description"],
-                     "trajectory_id": tid}, cause)
-        verdict = out["parsed"]
-        if verdict["verdict"] == "ACTOR_TURN_REQUIRED" \
-                and trigger_kind == "actor_intention":
-            # This IS their choice: the trigger is the attempt their own
-            # model just made.  Handing it back to them asks them to
-            # decide something they have decided, and a live run stalled
-            # exactly there -- a man who had said "I reply confirming the
-            # appointment" was never allowed to have replied.
-            verdict = {"verdict": "PASS",
-                       "reason": (f"the choice is already theirs: "
-                                  f"{verdict['reason']}")}
-        note("event_review", t=_iso_now(world), call_id=out["call_id"],
-             description=envelope["description"], trigger=trigger_kind,
-             **verdict)
-        return verdict
 
     def actor_step(actor_id: str, *, cause: int, trigger_event_ids=(),
                    force: bool = False) -> None:
@@ -504,26 +449,32 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                          cause=cause)
             if verdict["verdict"] == "PASS":
                 break
+            # A REFUSED TURN IS STILL A TURN.
+            #
+            # This used to abandon the turn on a second failure, and the
+            # abandonment was the second half of the chain that produced
+            # the shipped runtime's worst answers: the event reviewer
+            # deleted a woman's attempt to sign and return a lease, she
+            # attempted it again, and this reviewer refused her for
+            # repeating -- so she did nothing for two days and the
+            # absence became the answer.  It also invented calendar facts
+            # and fed them back into the person's next prompt.
+            #
+            # It gets ONE correction, and if the correction does not
+            # satisfy it the ORIGINAL reply stands.  A read-only check
+            # that cannot be satisfied must not be able to silence
+            # somebody; the record notes that it objected, and the person
+            # still gets to have said what they said.
             note("actor_response_rejected", actor=actor_id,
                  t=_iso_now(world), call_id=out["call_id"], attempt=attempt,
                  reason=verdict["reason"], rejected=parsed)
             if attempt:
-                # A second failure is a structured failure -- of the TURN,
-                # not of the run.  Code does not invent a replacement
-                # decision and does not ask the world to invent one: this
-                # person simply did not say anything usable, which is
-                # recorded, and the situation carries on without them for
-                # now.  Ending the trajectory here threw away
-                # twenty-five committed steps over one sentence.
-                world.apply(OP_TURN_ABANDONED,
+                world.apply(OP_CONTINUITY,
                             {"call_id": out["call_id"], "actor": actor_id,
+                             "verdict": "OVERRULED",
                              "reason": verdict["reason"],
                              "trajectory_id": tid}, cause)
-                note("actor_turn_abandoned", actor=actor_id,
-                     t=_iso_now(world), call_id=out["call_id"],
-                     reason=verdict["reason"])
-                traj.abandoned_turns += 1
-                return
+                break
             user = (base + f"\n\nYOUR PREVIOUS REPLY DID NOT FOLLOW FROM WHAT "
                            f"YOU HAVE\n{contained(verdict['reason'])}\n"
                            f"Reply again, as this person, fixing exactly "
@@ -555,11 +506,23 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                            reason=parsed["next_wake"]["reason"],
                            provenance="actor_plan",
                            about=f"plan:{out['call_id']}", cause=aseq)
-        # each intention is judged separately: no batching of futures
-        for intent in parsed["intentions"]:
+        # Each intention becomes a CODE-OWNED OBJECT before it reaches the
+        # world, and the consequence the world returns is stamped with its
+        # id.  Previously the world received prose and returned prose, and
+        # nothing bound a committed consequence to the attempt it came
+        # from -- so a YES could rest on a chain whose decisive step was
+        # never taken by anybody.  No batching of futures: one attempt,
+        # one adjudication.
+        for n, intent in enumerate(parsed["intentions"]):
+            attempt_id = f"a{out['call_id']}.{n}"
+            aid_seq = world.apply(OP_ATTEMPT, {
+                "attempt_id": attempt_id, "actor": actor_id,
+                "description": contained(intent),
+                "trajectory_id": tid}, aseq)
             world_step(trigger_kind="actor_intention",
                        trigger_text=f"{actor_id} attempts: {intent}",
-                       cause=aseq, actor_id=actor_id, intention=intent)
+                       cause=aid_seq, actor_id=actor_id, intention=intent,
+                       attempt_id=attempt_id)
 
     def _continuity_review(actor_id: str, rendered: str, parsed: dict,
                            *, cause: int) -> dict:
@@ -696,40 +659,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 cause=rec["seq"], actor_id=aid,
                 concerns=[rec["event_id"]])
 
-        if not envelope.get("follow_up"):
-            # the world says this event is finished in itself.  Nothing
-            # further is asked of it: what happens next is somebody's
-            # decision, or a later thing already scheduled, or nothing.
-            env_chain["depth"] = 0
-            # ... and if the thing that just finished was this person's
-            # OWN doing, the decision is theirs and it is due now.  That is
-            # what "action_completion" means, and like the arrival rule it
-            # was in the vocabulary and wired to nothing.
-            #
-            # Doing something is almost never the whole of what someone
-            # meant to do.  A man who checks the booking system checks it
-            # IN ORDER TO answer the question he was asked; a live run left
-            # him at exactly that point on Monday morning and jumped to
-            # Friday's deadline, and the honest record said he never
-            # replied.  He was never asked again.
-            #
-            # Only when the world says the event is finished.  While it
-            # says something still follows -- follow_up -- the person is in
-            # the middle of one long thing, and asking them after every
-            # fragment of it is what turned another run into a supervisor
-            # reading a thesis one page at a time.  Which of the two this
-            # is, is the world's judgment, not a counter's.
-            if self_act_of:
-                actor_step(self_act_of, cause=rec["seq"])
-            return
-        if env_chain["depth"] >= MAX_ENV_CHAIN:
-            env_chain["depth"] = 0
-            return
-        env_chain["depth"] += 1
-        world_step(trigger_kind="event_consequence",
-                   trigger_text=envelope["description"], cause=rec["seq"],
-                   actor_id=envelope["for"][0] if envelope["for"] else None,
-                   concerns=[rec["event_id"]], self_act_of=self_act_of)
+        # THE TRANSPORT CHAIN IS GONE.
+        #
+        # "follow_up" meant "this event leaves something in transit", and
+        # the consequence chain it drove is where the arrivals, the
+        # notifications, the buzzing phones and the still-unread messages
+        # came from -- 44% of the merged corpus was that chain talking to
+        # itself.  Delivery is not a story; it is the state of an item, and
+        # the item already carries it: who it reached is ``for``, whether
+        # they have seen it is ``observed_by``.  Nothing needs to narrate
+        # that, so nothing is asked to.
+        #
+        # What survives is the part that was always real: when the thing
+        # that just happened was somebody's OWN doing, the next decision is
+        # theirs and it is due now.  A man who checks a booking system
+        # checks it IN ORDER TO answer the question he was asked, and a
+        # live run left him at exactly that point on Monday morning and
+        # jumped to Friday's deadline.
+        env_chain["depth"] = 0
+        if self_act_of:
+            actor_step(self_act_of, cause=rec["seq"])
+        return
 
     # ---------------------------------------------------------------
     def judge(*, final: bool, cause: int, reserved: bool = False) -> dict:
@@ -946,7 +896,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     envelope = dict(envelope, observed=False)
                 rec = journal.commit(envelope, cause=fired,
                                      source=ev.data.get("source", "scheduled"),
-                                     trajectory_id=tid)
+                                     trajectory_id=tid,
+                                     attempt_id=ev.data.get("attempt_id"))
                 note("committed_event", **rec)
                 # A person knows what they themselves just did, whoever it
                 # was addressed to.  Requiring them to be among the people
@@ -1092,8 +1043,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             traj.status = "failed"
             traj.reason = f"{type(e2).__name__} after budget horizon: {e2}"
             return traj
-    except (EnvelopeError, ActorGroundingError, EventGroundingError,
-            RuntimeTechnicalFailure, ValueError) as e:
+    except (EnvelopeError, RuntimeTechnicalFailure, ValueError) as e:
         traj.status = "failed"
         traj.reason = f"{type(e).__name__}: {e}"
         return traj

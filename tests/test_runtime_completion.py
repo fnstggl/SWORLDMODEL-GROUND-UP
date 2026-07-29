@@ -225,26 +225,24 @@ def test_a_valid_attempt_is_never_deleted_by_a_semantic_reviewer():
 def test_identical_event_text_gets_identical_treatment():
     """The merged runtime PASSed and REVISEd the byte-identical string
     four calls apart in one run, so the same scene on identical evidence
-    answered YES three times and NO three times."""
-    flip = {"n": 0}
+    answered YES three times and NO three times.
 
+    With no semantic gate on the hot path this is structural: the same
+    script produces the same journal, every time.
+    """
     def transport(system, user):
         t = terminal_roles(user, system)
         if t:
             return t
-        if "whether the proposed event" in system:
-            flip["n"] += 1
-            return json.dumps(
-                {"verdict": "PASS" if flip["n"] % 2 else "REVISE",
-                 "reason": "inconsistent on purpose"}), {}
         if "You are the world" in system:
             if "actor_intention" in user:
                 return json.dumps({
-                    "judgment": "he does it.",
+                    "judgment": "she does it.",
                     "event": {"description": "Aisha prints the lease "
                                              "document.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "3 minutes", "follow_up": False},
+                              "after": "3 minutes", "follow_up": False,
+                              "by": "ada_vance"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -254,14 +252,12 @@ def test_identical_event_text_gets_identical_treatment():
                                "private_updates": []}), {}
         return json.dumps(NOTHING), {}
 
-    outcomes = set()
+    journals = []
     for _ in range(4):
-        flip["n"] = 0
-        _, journal, _ = run(transport, wrap=False)
-        outcomes.add(any("prints the lease" in e["description"]
-                         for e in journal.events()))
-    assert outcomes == {True}, \
-        "whether a valid act survives depends on a coin flip in a reviewer"
+        _, journal, _ = run(transport)
+        journals.append([e["description"] for e in journal.events()])
+    assert all(j == journals[0] for j in journals), \
+        f"the same script produced different histories: {journals}"
 
 
 # --------------------------- 6, 7: causes and other people's choices
@@ -318,7 +314,8 @@ def test_the_world_cannot_author_another_persons_voluntary_choice():
                     "event": {"description": "Bo reads Ada's note and "
                                              "replies that he agrees.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "5 minutes", "follow_up": False},
+                              "after": "5 minutes", "follow_up": False,
+                              "by": "bo_ferrer"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
