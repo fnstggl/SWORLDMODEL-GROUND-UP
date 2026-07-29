@@ -68,7 +68,7 @@ class Journal:
                 "source": source}
 
     def mark_observed(self, event_id: str, actor_id: str, *, cause: int,
-                      source: str) -> bool:
+                      source: str, by_own_doing: bool = False) -> bool:
         """Record that an item already available to someone has now been
         observed by them.
 
@@ -79,10 +79,19 @@ class Journal:
         keep asking about something already dealt with.  The ledger stays
         append-only -- the transition is appended and the projections below
         apply it.
+
+        ``by_own_doing`` is the one case where being a recipient is not
+        required, because authorship is not delivery.  A man texted back
+        "yes, please confirm the Thursday slot" and the record of it said
+        nobody had observed it, himself included -- he was not among the
+        people it was sent TO, so nothing here would admit that he knew
+        what he had just done.  The judge, reading a confirmation that no
+        one was aware of, answered that he never confirmed.
         """
         e = self.by_id(event_id)
-        if e is None or actor_id not in e["for"] \
-                or actor_id in e["observed_by"]:
+        if e is None or actor_id in e["observed_by"]:
+            return False
+        if not by_own_doing and actor_id not in e["for"]:
             return False
         self.world.apply(OP_OBSERVED, {"event_id": event_id,
                                        "actor": actor_id,
@@ -93,11 +102,15 @@ class Journal:
     def events(self) -> list:
         """Every committed event, in commit order, with the observation
         transitions that have since been recorded applied."""
+        # Kept in RECORD ORDER, not in a set: replay has to reproduce this
+        # list exactly, and a set's iteration order is not something to
+        # stake that on.
         later: dict = {}
         for r in self.world.records:
             if r["op"] == OP_OBSERVED:
-                later.setdefault(r["data"]["event_id"], set()).add(
-                    r["data"]["actor"])
+                who = later.setdefault(r["data"]["event_id"], [])
+                if r["data"]["actor"] not in who:
+                    who.append(r["data"]["actor"])
         out = []
         for r in self.world.records:
             if r["op"] != OP_EVENT:
@@ -107,9 +120,14 @@ class Journal:
                     != self.trajectory_id:
                 continue
             audience = list(d["for"])
+            observed_it = later.get(d["event_id"], [])
             seen = (list(audience) if d["observed"]
-                    else [a for a in audience
-                          if a in later.get(d["event_id"], ())])
+                    else [a for a in audience if a in observed_it])
+            # ... and whoever DID it, who is not one of the people it was
+            # sent to.  Intersecting the transitions with the audience
+            # threw the author back out again, so a man's own text message
+            # remained something nobody was aware of.
+            seen += [a for a in observed_it if a not in seen]
             out.append({"event_id": d["event_id"], "seq": r["seq"], "t": r["t"],
                         "description": d["description"], "for": audience,
                         "observed": bool(d["observed"]), "observed_by": seen,

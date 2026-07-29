@@ -860,12 +860,19 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                      source=ev.data.get("source", "scheduled"),
                                      trajectory_id=tid)
                 note("committed_event", **rec)
-                if doer and doer in envelope["for"] \
-                        and not envelope["observed"]:
-                    journal.mark_observed(rec["event_id"], doer,
-                                          cause=rec["seq"],
-                                          source="own_doing")
-                    rec = dict(rec, observed=True)
+                # A person knows what they themselves just did, whoever it
+                # was addressed to.  Requiring them to be among the people
+                # it reached left a man's own text message recorded as
+                # something nobody was aware of, himself included: he was
+                # not one of its recipients, he was its author.  The judge
+                # read a confirmation that no one had observed and answered
+                # that he never confirmed.
+                if doer and not envelope["observed"]:
+                    if journal.mark_observed(rec["event_id"], doer,
+                                             cause=rec["seq"],
+                                             source="own_doing",
+                                             by_own_doing=True):
+                        rec = dict(rec, observed=doer in envelope["for"])
                 # attention reaching someone settles the items this step was
                 # asked about: they are that person's business now, not a
                 # pending question to be asked again

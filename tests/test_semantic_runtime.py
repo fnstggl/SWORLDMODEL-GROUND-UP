@@ -602,6 +602,55 @@ def test_the_same_thing_scheduled_twice_only_happens_once():
         f"the same event was committed {len(seen)} times: {descs}")
 
 
+def test_a_person_knows_what_they_themselves_just_did():
+    """Authorship is not delivery.
+
+    A man texted back "yes, please confirm the Thursday slot" and the
+    record of it said nobody had observed it -- himself included, because
+    he was not among the people it was sent TO.  He was its author.  The
+    judge read a confirmation nobody was aware of and answered that he
+    never confirmed it.
+    """
+    world, journal, bindings = build()
+
+    def transport(system, user):
+        if "read-only outcome judge" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            if "actor_intention" in user:
+                return json.dumps({
+                    "judgment": "she does what she said she would.",
+                    # addressed to the OTHER person: she is not a recipient
+                    "event": {"description": "Ada sends her answer to Bo.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "2 minutes", "follow_up": False},
+                    "wakes": []}), {}
+            return json.dumps({"judgment": "nothing further.",
+                               "event": None, "wakes": []}), {}
+        if "ada_vance" in user:
+            return json.dumps({"decision": "I answer him.",
+                               "intentions": ["Send Bo my answer."],
+                               "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=8,
+                   trace=Trace())
+    sent = next((e for e in journal.events()
+                 if "sends her answer" in e["description"]), None)
+    assert sent is not None, "she never sent it"
+    assert "ada_vance" in sent["observed_by"], (
+        f"the person who did it is not recorded as knowing she did: "
+        f"{sent['observed_by']}")
+    # ... and it is still not something BO has seen: it was sent, not read
+    assert "bo_ferrer" not in sent["observed_by"]
+    assert sent["observed"] is False
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))
