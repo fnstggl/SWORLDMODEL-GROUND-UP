@@ -1,8 +1,0 @@
-{
- "question": "Will the Environmental Protection Agency (EPA) approve the permit for the new oil drilling project in Alaska by September 30?",
- "start": "2026-08-15T00:00:00-08:00",
- "cutoff": "2026-09-30T23:59:00-08:00",
- "context": "The EPA has been reviewing the permit for six months. Environmental groups have lobbied against it, while the oil company, Arctic Drilling Inc., has promised jobs. The EPA administrator, Sarah Jenkins, is expected to make a decision by the end of September.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

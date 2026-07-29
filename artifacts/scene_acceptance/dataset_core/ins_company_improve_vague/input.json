@@ -1,8 +1,0 @@
-{
- "question": "Will things get better for the company next quarter?",
- "start": "2026-10-01T09:00:00-05:00",
- "cutoff": "2026-12-31T17:00:00-05:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

@@ -1,8 +1,0 @@
-{
- "question": "Will Harborview Credit Union provisionally credit Marisol's disputed 320-dollar card charge within the ten-business-day window she was quoted when she filed today?",
- "start": "2026-10-14T10:00:00-08:00",
- "cutoff": "2026-10-28T17:00:00-08:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

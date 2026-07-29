@@ -1,4 +1,0 @@
-{"about":"starting_event","actor":"margaret_thornbury","due":"2026-09-08T10:00:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Margaret may check her email later in the morning or after lunch.","t":"2026-09-08T08:00:00+00:00"}
-{"about":"actor_intention","actor":"jian_wei_lim","due":"2026-09-08T08:05:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Jian Wei notices the email in his inbox.","t":"2026-09-08T08:00:00+00:00"}
-{"about":"pending_progression","actor":"jian_wei_lim","due":"2026-09-08T10:00:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Jian Wei may check his email later in the morning.","t":"2026-09-08T08:00:00+00:00"}
-{"about":"event_consequence","actor":"jian_wei_lim","due":"2026-09-08T08:00:10+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"The email has arrived in his inbox and may be noticed soon.","t":"2026-09-08T08:00:00+00:00"}

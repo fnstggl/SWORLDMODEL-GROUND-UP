@@ -1,8 +1,0 @@
-{
- "question": "Will the Springfield School Board adopt the new math curriculum at the August 25 meeting?",
- "start": "2026-08-01T00:00:00-05:00",
- "cutoff": "2026-08-25T23:59:00-05:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

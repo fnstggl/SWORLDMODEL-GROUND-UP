@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks for a factual lookup (population of Tokyo in 2020) with no social decision or interaction to simulate."
-}

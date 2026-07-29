@@ -1,8 +1,0 @@
-{
- "question": "Will the neighbors on Alder Court fill all fourteen slots of the meal train they started for the Okafor family within four days?",
- "start": "2026-10-05T09:00:00-04:00",
- "cutoff": "2026-10-09T09:00:00-04:00",
- "context": "The sign-up was posted to a sixty-household neighborhood app by Fran, who is well known on the street; the Okafors just came home with newborn twins, and eight slots were claimed the first evening.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

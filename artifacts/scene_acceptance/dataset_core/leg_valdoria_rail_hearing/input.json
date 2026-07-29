@@ -1,8 +1,0 @@
-{
- "question": "Will the Republic of Valdoria's parliamentary transport committee schedule a public hearing on the rail franchise bill within the sixty-day window its rules allow?",
- "start": "2026-08-01T09:00:00+03:00",
- "cutoff": "2026-09-30T18:00:00+03:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

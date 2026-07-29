@@ -1,8 +1,0 @@
-{
- "question": "Will the situation with the neighbors improve over the next few months?",
- "start": "2026-08-01T12:00:00+02:00",
- "cutoff": "2026-11-01T12:00:00+02:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

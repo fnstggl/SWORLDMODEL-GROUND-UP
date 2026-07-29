@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "Ostara Foods has both an old logo and a new logo. The question asks for a subjective aesthetic comparison between them.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks about an internal subjective state ('prettier') with no observable proxy provided, and no decision-maker or action is identified that could produce an observable resolution."
-}

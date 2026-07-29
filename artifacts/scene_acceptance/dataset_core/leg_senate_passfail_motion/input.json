@@ -1,8 +1,0 @@
-{
- "question": "Will Ashvale University's academic senate pass, reject, or send back to committee the pass-fail grading motion at its October plenary?",
- "start": "2026-10-01T09:00:00-05:00",
- "cutoff": "2026-10-30T18:00:00-05:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

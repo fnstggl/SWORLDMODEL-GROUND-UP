@@ -1,8 +1,0 @@
-{
- "question": "Before the October 1 deadline, will the editor-in-chief of the Daily Chronicle, after consulting with the publisher, decide to retract the article about the mayor's alleged corruption?",
- "start": "2026-09-01T00:00:00-05:00",
- "cutoff": "2026-10-01T23:59:00-05:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

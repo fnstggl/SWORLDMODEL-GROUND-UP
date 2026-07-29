@@ -1,8 +1,0 @@
-{
- "question": "Will I be happy if I take this job?",
- "start": "2026-08-17T09:00:00-07:00",
- "cutoff": "2026-11-17T09:00:00-07:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

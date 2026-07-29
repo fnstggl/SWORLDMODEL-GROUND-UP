@@ -1,8 +1,0 @@
-{
- "question": "The two founders of the Tidepool app have been at odds over strategy since spring. Will they announce a buyout of one side to their twelve employees within the next three months?",
- "start": "2026-08-01T10:00:00-07:00",
- "cutoff": "2026-11-01T10:00:00-07:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

@@ -1,8 +1,0 @@
-{
- "question": "Will the founder of the Tidepool app post a public response within one week to the viral thread accusing the company of deleting critical reviews?",
- "start": "2026-09-03T15:00:00-07:00",
- "cutoff": "2026-09-10T15:00:00-07:00",
- "context": "The thread has two million views and screenshots that look genuine; Tidepool's head of support has privately confirmed to the founder that some takedowns happened, and two journalists have emailed for comment.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

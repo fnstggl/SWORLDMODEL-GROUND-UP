@@ -1,8 +1,0 @@
-{
- "question": "Will the Riverton city council hold the required second reading of its short-term-rental ordinance before the August recess begins?",
- "start": "2026-07-28T09:00:00-06:00",
- "cutoff": "2026-08-14T17:00:00-06:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

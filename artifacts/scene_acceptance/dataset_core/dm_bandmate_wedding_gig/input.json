@@ -1,8 +1,0 @@
-{
- "question": "Dario messaged his old bandmate Selin asking whether she would play bass at his October wedding. Will she respond either way within ten days?",
- "start": "2026-08-01T12:00:00+03:00",
- "cutoff": "2026-08-11T12:00:00+03:00",
- "context": "Selin and Dario parted on good terms when the band dissolved two years ago; she still gigs most weekends in Istanbul and posts regularly about her shows.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

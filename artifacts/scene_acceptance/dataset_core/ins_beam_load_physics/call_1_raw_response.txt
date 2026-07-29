@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "A four-meter Douglas-fir beam spans three meters between two posts. The beam is subject to a snow load of 40 pounds per square foot. The structural adequacy of the beam under this load is a matter of engineering calculation, not social decision.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks about a physical/engineering outcome with no social decision or actor action to simulate."
-}

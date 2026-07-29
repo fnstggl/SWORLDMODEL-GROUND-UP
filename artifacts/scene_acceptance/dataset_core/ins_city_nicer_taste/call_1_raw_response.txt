@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "The question asks for a subjective comparison between Lisbon and Porto, with no specific decision-maker or observable action. There is no social event to simulate.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks for a subjective opinion ('nicer city') with no observable resolution condition or decision-maker."
-}

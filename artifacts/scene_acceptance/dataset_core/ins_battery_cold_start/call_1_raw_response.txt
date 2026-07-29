@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "A 12-volt battery is installed in a truck. The truck is parked in an unheated garage. The ambient temperature is minus 20 Celsius. The battery has been sitting for six weeks as of the start time.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks about a physical/chemical outcome (whether the battery can start the truck) with no social decision or actor interaction to simulate."
-}

@@ -1,8 +1,0 @@
-{
- "question": "Will at least thirty villagers attend Kettlewell's open meeting about the bus-route cut, given the parish clerk has posted notices and the last such meeting drew 22?",
- "start": "2026-09-10T09:00:00+01:00",
- "cutoff": "2026-09-24T21:00:00+01:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is a past counterfactual about an event that would have occurred last spring; no future observation can resolve an alternate past."
-}

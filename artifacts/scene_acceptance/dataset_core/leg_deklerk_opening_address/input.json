@@ -1,8 +1,0 @@
-{
- "question": "Will State President F. W. de Klerk personally deliver the customary opening address to the South African Parliament during the first week of its February 1990 session?",
- "start": "1990-01-20T09:00:00+02:00",
- "cutoff": "1990-02-06T18:00:00+02:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

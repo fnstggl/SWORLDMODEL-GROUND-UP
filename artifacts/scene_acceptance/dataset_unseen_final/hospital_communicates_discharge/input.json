@@ -1,8 +1,0 @@
-{
- "question": "Does Dr. Alan Reed communicate the discharge instructions to patient Bob Chen before 5 PM on September 3, 2026?",
- "start": "2026-09-03T08:00:00-07:00",
- "cutoff": "2026-09-03T17:00:00-07:00",
- "context": "Patient Bob Chen is being discharged from St. Mary's Hospital. Dr. Alan Reed is the attending physician.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

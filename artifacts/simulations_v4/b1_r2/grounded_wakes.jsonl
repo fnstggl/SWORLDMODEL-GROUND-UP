@@ -1,3 +1,0 @@
-{"about":"starting_event","actor":"aisha_okafor","due":"2026-09-08T08:30:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Aisha may finish breakfast and then decide to act on the lease.","t":"2026-09-08T08:00:00+00:00"}
-{"about":"actor_intention","actor":"tomas_herrera","due":"2026-09-08T08:35:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Email may arrive and be noticed by Tomas.","t":"2026-09-08T08:30:00+00:00"}
-{"about":"pending_progression","actor":"tomas_herrera","due":"2026-09-08T09:30:30+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Tomas may check his email within the hour; revisit to see if he notices the email.","t":"2026-09-08T08:30:30+00:00"}

@@ -1,0 +1,416 @@
+[
+ {
+  "run": "artifacts/baseline_main/cold_email",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 3,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/baseline_main/delayed_response",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 8,
+  "machinery": 6,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/baseline_main/group_coordination",
+  "status": "incomplete",
+  "answer": "UNRESOLVED",
+  "events": 56,
+  "machinery": 28,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/baseline_main/lease_return",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 8,
+  "machinery": 3,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/baseline_main/plumber_confirm",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a1_responsive",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 8,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a1_responsive__r2",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 7,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a1_responsive__r3",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 7,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a1_responsive__r4",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 8,
+  "machinery": 3,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a2_unresponsive",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 3,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a2_unresponsive__r2",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 4,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a2_unresponsive__r3",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 9,
+  "machinery": 3,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/a2_unresponsive__r4",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 4,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b1_okafor_herrera",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 6,
+  "machinery": 4,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b1_okafor_herrera__r2",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 4,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b1_okafor_herrera__r3",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 1,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b1_okafor_herrera__r4",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b2_thornbury_lim",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 8,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b2_thornbury_lim__r2",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 4,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b2_thornbury_lim__r3",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 6,
+  "machinery": 4,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/b2_thornbury_lim__r4",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 2,
+  "machinery": 0,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/matched_pairs/c1_against_stereotype",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 33,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v2/case1_cold_email",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v2/case2_negotiation",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 17,
+  "machinery": 9,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v2/case3_group",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 3,
+  "machinery": 0,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v2/unseen1_confirm",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 5,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v2/unseen2_feedback",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 24,
+  "machinery": 4,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v2/unseen4_holiday_deposit",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 47,
+  "machinery": 16,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v3/case1_cold_email",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 1,
+  "machinery": 0,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v3/case2_negotiation",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 40,
+  "machinery": 20,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v3/case3_group",
+  "status": "incomplete",
+  "answer": "UNRESOLVED",
+  "events": 94,
+  "machinery": 51,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v3/unseen1_confirm",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 2,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v3/unseen2_feedback",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 19,
+  "machinery": 3,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v3/unseen4_holiday_deposit",
+  "status": "incomplete",
+  "answer": "UNRESOLVED",
+  "events": 81,
+  "machinery": 42,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/a1_r1",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 5,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/a2_r1",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 13,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/b1_r1",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 6,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/b1_r2",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 5,
+  "machinery": 2,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/b2_r1",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/b2_r2",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 3,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/case1_cold_email",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 1,
+  "machinery": 0,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/case3_group",
+  "status": "incomplete",
+  "answer": "UNRESOLVED",
+  "events": 70,
+  "machinery": 39,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v4/unseen1",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v5/b2_thornbury_lim",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 3,
+  "machinery": 0,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v5/case1_cold_email",
+  "status": "cutoff",
+  "answer": "NO_AT_CUTOFF",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ },
+ {
+  "run": "artifacts/simulations_v5/unseen1_confirm",
+  "status": "resolved",
+  "answer": "YES",
+  "events": 2,
+  "machinery": 1,
+  "exact": true,
+  "replay_calls": 0
+ }
+]

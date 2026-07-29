@@ -1,8 +1,0 @@
-{
- "question": "Priya wants to apply to a program whose deadline passed a month before applications opened. Will she submit before the deadline?",
- "start": "2026-08-05T09:00:00+05:30",
- "cutoff": "2026-09-05T09:00:00+05:30",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

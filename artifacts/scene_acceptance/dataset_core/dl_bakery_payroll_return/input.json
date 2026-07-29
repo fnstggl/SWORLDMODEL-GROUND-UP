@@ -1,8 +1,0 @@
-{
- "question": "Will the Herrera bakery's part-time bookkeeper file the quarterly payroll return before the revenue service's month-end deadline, as she has for the last seven quarters?",
- "start": "2026-10-19T09:00:00-06:00",
- "cutoff": "2026-10-31T23:59:00-06:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

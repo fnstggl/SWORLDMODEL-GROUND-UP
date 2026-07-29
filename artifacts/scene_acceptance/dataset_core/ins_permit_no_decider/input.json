@@ -1,8 +1,0 @@
-{
- "question": "Will the permit get approved by the end of August?",
- "start": "2026-07-27T09:00:00-05:00",
- "cutoff": "2026-08-31T17:00:00-05:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

@@ -1,8 +1,0 @@
-{
- "question": "Will the CEO of GreenLeaf Energy, Robert Chen, resign by the end of September following the insider trading allegations?",
- "start": "2026-09-01T00:00:00+00:00",
- "cutoff": "2026-09-30T23:59:00+00:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

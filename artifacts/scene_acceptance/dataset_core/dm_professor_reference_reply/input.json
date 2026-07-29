@@ -1,8 +1,0 @@
-{
- "question": "Will Professor Ilse Brandt reply to her former student Kofi Asante's message asking for a reference within one week?",
- "start": "2026-08-03T10:00:00+01:00",
- "cutoff": "2026-08-10T10:00:00+01:00",
- "context": "Kofi took two of Ilse's seminars at Ashvale University and earned top marks in both; they last spoke eight months ago. His message is polite and specific, asking for a reference letter for a museum fellowship due in three weeks.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

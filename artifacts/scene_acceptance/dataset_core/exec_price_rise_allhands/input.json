@@ -1,8 +1,0 @@
-{
- "question": "Will Brightline Software's three co-founders decide whether the January price increase is going ahead, and tell the team, before the all-hands on the 18th?",
- "start": "2026-12-01T09:00:00-08:00",
- "cutoff": "2026-12-18T10:00:00-08:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}
