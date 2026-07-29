@@ -851,6 +851,48 @@ def test_every_place_code_overruled_the_model_is_written_down():
         assert "the printer is not the one acting" in md
 
 
+def test_a_world_process_wake_goes_back_to_the_world():
+    """The world said something was still going on and asked to be brought
+    back for it.  When that moment comes, the question is the world's.
+
+    Provenance was read only to clear the pending key, never to decide
+    anything, so a process that had reached nobody's inbox came back to
+    the PERSON -- who had nothing to look at.  A cold email travelled
+    towards a man who was not in its audience, the wake fired five minutes
+    later, the world was never asked whether it had arrived, and he was
+    shown "you have not observed anything yet".  One event, and a NO over
+    a fortnight.
+    """
+    world, journal, bindings = build()
+    asked = []
+
+    def transport(system, user):
+        if "read-only outcome judge" in system \
+                or "whether a stated condition has been met" in system:
+            return json.dumps(NO_AT_CUTOFF if FINAL_MARKER in user
+                              else UNRESOLVED), {}
+        if "You are the world" in system:
+            if "starting_event" in user:
+                # travelling towards somebody who is not in its audience,
+                # so nothing is ever pending for him
+                return json.dumps({
+                    "judgment": "it is on its way.", "event": None,
+                    "wakes": [{"actor": "bo_ferrer", "after": "5 minutes",
+                               "reason": "it may have reached him by then"}]
+                }), {}
+            asked.append(user)
+            return json.dumps({"judgment": "nothing more.", "event": None,
+                               "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)), max_steps=6,
+                   trace=Trace())
+    assert any("brought back" in u for u in asked), (
+        "the world asked to be brought back and was never asked anything; "
+        f"world calls after the start: {len(asked)}")
+
+
 def test_replay_is_exact_and_calls_no_model():
     world, journal, bindings = build()
     caller = RuntimeCaller(transport=reviewed(lifecycle_script()))

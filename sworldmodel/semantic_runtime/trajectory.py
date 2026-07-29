@@ -989,6 +989,29 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     # inbox leaves the person out of their own life: they
                     # may have something else entirely to do about this.
                     actor_step(aid, cause=fired)
+                elif ev.data.get("provenance") == "world_process":
+                    # The world said this would happen and asked to be
+                    # brought back for it.  Provenance was being read only
+                    # to clear the pending key and never to decide
+                    # anything, so a world process that reached nobody's
+                    # inbox came back to the PERSON instead of to the
+                    # world -- and the person had nothing to look at.
+                    #
+                    # A cold email travelled towards a man who was not in
+                    # its audience, so nothing was ever pending for him;
+                    # the wake fired five minutes later, the world was
+                    # never asked whether the email had arrived, and he
+                    # was shown "you have not observed anything yet".  One
+                    # committed event, and a NO over a fortnight.
+                    world_step(
+                        trigger_kind="pending_progression",
+                        trigger_text=(
+                            f"Earlier you judged that something was still "
+                            f"going on here, and asked to be brought back "
+                            f"to it now: {contained(ev.data.get('reason') or '')}  "
+                            f"What concretely has become of it?"),
+                        cause=fired, actor_id=aid)
+                    actor_step(aid, cause=fired)
                 else:
                     actor_step(aid, cause=fired)
             else:
