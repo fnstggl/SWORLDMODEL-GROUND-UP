@@ -98,7 +98,7 @@ All geometric polling and widening backoff (5/10/20/40/80/160 minutes) is
 deleted, as are automatic "time passed, reconsider" wakes. Every wake
 carries a provenance from a fixed vocabulary and a concrete reason, and
 one pending wake per `(actor, about, provenance)` replaces rather than
-stacks. Verified across all 21 runs: every wake has a valid provenance and
+stacks. Verified across all 23 runs: every wake has a valid provenance and
 a non-empty reason.
 
 **But see finding C2:** only two of the five declared provenances are
@@ -163,7 +163,7 @@ regression test below was verified to **fail** without its fix.
 and 12345. The suite includes the six regression tests above plus the
 pre-existing invariant tests; none were weakened.
 
-## 12. Live evaluation: 21 runs
+## 12. Live evaluation: 23 runs
 
 | run | terminal | events | machinery | acted | wakes | replay |
 |---|---|---|---|---|---|---|
@@ -176,12 +176,30 @@ pre-existing invariant tests; none were weakened.
 | case2_negotiation | YES | 40 | 3 | 2/2 | 104 | exact |
 | unseen1_confirm | YES | 2 | 0 | 1/1 | 1 | exact |
 | unseen2_feedback | YES | 19 | 4 | 2/2 | 36 | exact |
+| case3_group | incomplete / UNRESOLVED | 22 | 0 | 4/4 | 30 | exact |
+| unseen4_holiday_deposit | incomplete / UNRESOLVED | 101 | 8 | 4/4 | 250 | exact |
 
-**21 runs, 178 committed events, 10 YES / 11 NO_AT_CUTOFF, 21/21 replay
-exact with 0 model calls, 0 mechanical check failures.**
+**23 runs, 373 committed events, 10 YES / 11 NO_AT_CUTOFF / 2 incomplete,
+23/23 replay exact with 0 model calls, 0 mechanical check failures.**
 
 Interface mechanics fell from 35% of committed events at the start of this
-work to **10%** (18/178).
+work to **9%** (32/373).
+
+Two things in that table are worth naming.
+
+**The housemates all turn up now.** Four days of four people used to
+produce four events, with every wake in the run belonging to the woman who
+sent the first message. It is 22 events across all four of them, none of
+it machinery, and the three who had not spoken first are woken and
+consulted like anybody else. That case is what exposed defect 2 and it is
+the direct proof of the repair.
+
+**The safety ceiling behaves as a ceiling, live.** The holiday-deposit run
+committed 101 events over 250 wakes with all four people acting, hit the
+step ceiling before the horizon, and reported `status = incomplete` with
+`UNRESOLVED`. It was **not** converted into YES or NO. That is the rule
+the directive requires of a technical guard, demonstrated by a run rather
+than asserted by a docstring.
 
 ## 13. Evidence sensitivity: the matched pairs
 
@@ -348,9 +366,9 @@ vocabularies exist anywhere in the runtime.
   causal realism, information and timing, terminal independence, device
   and event meaning, evidence sensitivity, and the final quality-gate
   adjudicator. Six ran.
-- **The corpus mixes two code versions.** Sixteen runs predate the
+- **The corpus mixes two code versions.** Twenty-one runs predate the
   reviewer fixes in §14; `case3_group` and `unseen4_holiday_deposit` were
-  re-run afterwards. No run predates the six fixes in §10.
+  run afterwards. No run predates the six fixes in §10.
 - **No implementation-blind unseen cases from an independent agent** were
   authored post-freeze this pass.
 - **Group A (≥3 rich synthetic-actor scenarios) and Group B (public-figure
@@ -360,7 +378,7 @@ vocabularies exist anywhere in the runtime.
 
 The runtime is mechanically sound in the areas that were independently
 proved: the compiler is frozen, replay is exact from the persisted ledger
-with zero model calls across all 21 runs, the resolution reaches only the
+with zero model calls across all 23 runs, the resolution reaches only the
 two roles allowed to see it, time never moves backwards, every event has a
 real cause, and no number decides how anybody behaves.
 

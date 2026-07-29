@@ -1,10 +1,33 @@
-{"actor":"ines","content":"I'm aware that Ines wants a host decided before the weekend, but I'm not ready to commit myself right now.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"kwame","content":"Ines asked about hosting; I am away and have no preference, so I'll leave it to others.","source":"actor_call:c8","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c10","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I need to check my work schedule for the birthday dinner date to see if I can host despite working nights.","source":"actor_call:c12","t":"2026-10-06T08:00:00+00:00"}
-{"actor":"bea","content":"I realize I need to know the exact date of the dinner to check my schedule.","source":"actor_call:c34","t":"2026-10-06T08:01:00+00:00"}
-{"actor":"bea","content":"I am scheduled to work at 10 PM on Oct 10, so I can host only if dinner ends by 9:30 PM or people accept me leaving early.","source":"actor_call:c41","t":"2026-10-06T08:01:30+00:00"}
-{"actor":"ines","content":"I'm still not ready to commit to hosting; I'll check back later today to see if anyone responded.","source":"actor_call:c58","t":"2026-10-06T08:05:00+00:00"}
-{"actor":"ines","content":"Bea's offer seems reasonable, so I'm less inclined to host unless it falls through.","source":"actor_call:c81","t":"2026-10-06T08:20:00+00:00"}
-{"actor":"tomas","content":"Bea's offer to host is promising; I'll wait for the group to discuss timing before considering any action.","source":"actor_call:c115","t":"2026-10-06T08:36:30+00:00"}
-{"actor":"ines","content":"Ines has seen Bea's offer; the ball is in her court to respond.","source":"actor_call:c122","t":"2026-10-06T08:40:00+00:00"}
+{"actor":"ines","content":"I'll consider hosting if no one else offers by later today, but I need to check my schedule first.","source":"actor_call:c3","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"kwame","content":"I have seen Ines's message but will not engage until I am back on Friday.","source":"actor_call:c5","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"tomas","content":"I hope someone else offers to host so I don't have to.","source":"actor_call:c7","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"bea","content":"I need to consider if my night shifts allow me to host a dinner. I'll wait for others to respond first.","source":"actor_call:c9","t":"2026-10-06T08:00:00+00:00"}
+{"actor":"ines","content":"I need to decide soon; if I can host, I'll volunteer; if not, I'll wait for someone else.","source":"actor_call:c11","t":"2026-10-06T12:00:00+00:00"}
+{"actor":"ines","content":"I have confirmed my availability and decided to host.","source":"actor_call:c15","t":"2026-10-06T12:00:10+00:00"}
+{"actor":"tomas","content":"I'm getting a bit anxious that no one has replied, but I'll hold out a few more hours.","source":"actor_call:c49","t":"2026-10-06T13:15:10+00:00"}
+{"actor":"bea","content":"I will check my schedule and then decide whether to offer to host.","source":"actor_call:c73","t":"2026-10-06T18:00:10+00:00"}
+{"actor":"bea","content":"I've confirmed that hosting Saturday is not possible due to my work schedule.","source":"actor_call:c83","t":"2026-10-06T18:01:10+00:00"}
+{"actor":"tomas","content":"I'm getting more anxious but will wait until tomorrow morning before I volunteer.","source":"actor_call:c147","t":"2026-10-06T18:15:10+00:00"}
+{"actor":"tomas","content":"Getting more anxious about hosting, but still hoping someone else steps up.","source":"actor_call:c168","t":"2026-10-06T19:01:10+00:00"}
+{"actor":"tomas","content":"I'm getting more anxious but still determined to wait until tomorrow morning before volunteering.","source":"actor_call:c171","t":"2026-10-06T19:15:10+00:00"}
+{"actor":"tomas","content":"I'm feeling more pressure but I'll stick to waiting until tomorrow morning.","source":"actor_call:c174","t":"2026-10-06T19:45:10+00:00"}
+{"actor":"bea","content":"Ines has volunteered to host Saturday evening, so my inability to host is not a problem.","source":"actor_call:c190","t":"2026-10-06T22:00:15+00:00"}
+{"actor":"tomas","content":"I'm still hoping someone else volunteers, but I'm more resigned to offering later today.","source":"actor_call:c202","t":"2026-10-07T06:15:10+00:00"}
+{"actor":"tomas","content":"I am now committed to hosting unless someone objects or offers an alternative.","source":"actor_call:c214","t":"2026-10-07T08:00:10+00:00"}
+{"actor":"tomas","content":"I've committed to hosting, so I'm now mentally preparing for that unless someone objects.","source":"actor_call:c234","t":"2026-10-07T08:01:10+00:00"}
+{"actor":"tomas","content":"I've committed to hosting and am now waiting for others to confirm or suggest an alternative.","source":"actor_call:c246","t":"2026-10-07T08:01:10+00:00"}
+{"actor":"bea","content":"Tomas has offered to host the birthday dinner, but Ines already offered first. I'll wait to see if the group decides on a plan.","source":"actor_call:c303","t":"2026-10-07T13:03:20+00:00"}
+{"actor":"ines","content":"I now know that Tomas has offered to host, so I don't need to press my own offer; I'll go along with his hosting.","source":"actor_call:c330","t":"2026-10-07T18:09:15+00:00"}
+{"actor":"ines","content":"I'm confirmed for Saturday evening at Tomas's place.","source":"actor_call:c346","t":"2026-10-07T18:10:10+00:00"}
+{"actor":"tomas","content":"I'm still committed to hosting unless someone objects, but I'm getting a bit impatient.","source":"actor_call:c440","t":"2026-10-08T07:39:15+00:00"}
+{"actor":"tomas","content":"I'm still committed to hosting but getting a bit frustrated that no one has acknowledged my offer.","source":"actor_call:c451","t":"2026-10-08T08:39:15+00:00"}
+{"actor":"tomas","content":"I'm getting frustrated that no one has replied, but I'll give them a nudge.","source":"actor_call:c455","t":"2026-10-08T09:00:00+00:00"}
+{"actor":"tomas","content":"I've now nudged the group, so I should get some response soon.","source":"actor_call:c489","t":"2026-10-08T09:00:15+00:00"}
+{"actor":"tomas","content":"The birthday dinner is now confirmed at my place on Saturday evening. I'll need to start planning what to prepare.","source":"actor_call:c517","t":"2026-10-08T09:24:15+00:00"}
+{"actor":"tomas","content":"I'm now committed to hosting on Saturday evening; I'll wait for the others to suggest a time before making further plans.","source":"actor_call:c539","t":"2026-10-08T09:25:15+00:00"}
+{"actor":"bea","content":"The plan is now set: Tomas is hosting Saturday evening. I just need to confirm my attendance and preferred time.","source":"actor_call:c620","t":"2026-10-08T14:54:47+00:00"}
+{"actor":"ines","content":"Bea has also confirmed Saturday evening works for her, so the plan is solidifying. I'll wait for others to suggest a time before I chime in.","source":"actor_call:c643","t":"2026-10-08T14:54:59+00:00"}
+{"actor":"tomas","content":"I'm starting to get a bit impatient waiting for time suggestions from the group.","source":"actor_call:c663","t":"2026-10-08T15:25:47+00:00"}
+{"actor":"tomas","content":"I'm still committed to hosting but getting annoyed at the lack of response about timing. I'll wait until morning to nudge again.","source":"actor_call:c790","t":"2026-10-08T19:45:10+00:00"}
+{"actor":"tomas","content":"I'm getting anxious that no one is responding about the time, but I need to finalize plans soon since it's tomorrow.","source":"actor_call:c850","t":"2026-10-09T07:10:47+00:00"}
+{"actor":"tomas","content":"I'll plan for 7 PM unless someone objects before then. I'll start preparing tomorrow morning.","source":"actor_call:c877","t":"2026-10-09T07:11:47+00:00"}
