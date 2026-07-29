@@ -1,24 +1,24 @@
 {
  "question": "Will the four housemates at 14 Ferndale Road settle on who hosts the shared birthday dinner before the weekend? Ines raised it in the group chat this morning; Kwame is away until Friday, Tomas hates hosting, and Bea has the biggest kitchen but works nights.",
  "trajectory": {
-  "status": "cutoff",
+  "status": "incomplete",
   "answer": {
-   "status": "NO_AT_CUTOFF",
+   "status": "UNRESOLVED",
    "supporting_event_ids": [],
-   "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed event shows that the four housemates collectively agreed on a host; Kwame never observed the group chat messages."
+   "explanation": "No committed event shows that all four housemates have collectively agreed on a host; Tomas and Kwame have not observed any agreement."
   },
-  "reason": "",
-  "steps": 34,
-  "world_calls": 27,
-  "actor_calls": 38,
-  "judge_calls": 7,
-  "review_calls": 45,
+  "reason": "step ceiling 250 reached at 2026-10-09T19:50:00+00:00, before the cutoff",
+  "steps": 250,
+  "world_calls": 302,
+  "actor_calls": 180,
+  "judge_calls": 71,
+  "review_calls": 291,
   "abandoned_turns": 1
  },
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed event shows that the four housemates collectively agreed on a host; Kwame never observed the group chat messages."
+  "explanation": "No committed event shows that all four housemates have collectively agreed on a host; Tomas and Kwame have not observed any agreement."
  },
- "reason": ""
+ "reason": "step ceiling 250 reached at 2026-10-09T19:50:00+00:00, before the cutoff"
 }

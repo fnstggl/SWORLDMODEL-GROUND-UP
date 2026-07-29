@@ -1,65 +1,58 @@
 {
- "provider_calls": 118,
+ "provider_calls": 845,
  "by_role": {
   "judge": {
-   "calls": 8,
+   "calls": 72,
    "retries": 1,
-   "wall_s": 12.25,
-   "input_tokens": 5614,
-   "output_tokens": 428
+   "wall_s": 124.13,
+   "input_tokens": 182372,
+   "output_tokens": 4255
   },
   "world": {
-   "calls": 27,
+   "calls": 302,
    "retries": 0,
-   "wall_s": 56.91,
-   "input_tokens": 60692,
-   "output_tokens": 2693
+   "wall_s": 711.41,
+   "input_tokens": 1429820,
+   "output_tokens": 36574
   },
   "actor": {
-   "calls": 38,
+   "calls": 180,
    "retries": 0,
-   "wall_s": 70.58,
-   "input_tokens": 58007,
-   "output_tokens": 2847
+   "wall_s": 356.21,
+   "input_tokens": 572655,
+   "output_tokens": 15438
   },
   "continuity": {
-   "calls": 38,
+   "calls": 180,
    "retries": 0,
-   "wall_s": 62.57,
-   "input_tokens": 41448,
-   "output_tokens": 1647
+   "wall_s": 301.98,
+   "input_tokens": 495818,
+   "output_tokens": 8213
   },
   "event_review": {
-   "calls": 6,
+   "calls": 111,
    "retries": 0,
-   "wall_s": 9.3,
-   "input_tokens": 8532,
-   "output_tokens": 229
-  },
-  "verifier": {
-   "calls": 1,
-   "retries": 0,
-   "wall_s": 1.52,
-   "input_tokens": 756,
-   "output_tokens": 54
+   "wall_s": 186.0,
+   "input_tokens": 221315,
+   "output_tokens": 4854
   }
  },
- "total_input_tokens": 175049,
- "total_output_tokens": 7898,
- "total_wall_s": 213.08,
- "status": "cutoff",
+ "total_input_tokens": 2901980,
+ "total_output_tokens": 69334,
+ "total_wall_s": 1679.73,
+ "status": "incomplete",
  "answer": {
-  "status": "NO_AT_CUTOFF",
+  "status": "UNRESOLVED",
   "supporting_event_ids": [],
-  "explanation": "The deadline 2026-10-10T00:00:00+00:00 has passed and no committed event shows that the four housemates collectively agreed on a host; Kwame never observed the group chat messages."
+  "explanation": "No committed event shows that all four housemates have collectively agreed on a host; Tomas and Kwame have not observed any agreement."
  },
- "reason": "",
- "steps": 34,
- "world_calls": 27,
- "actor_calls": 38,
- "judge_calls": 7,
- "review_calls": 45,
+ "reason": "step ceiling 250 reached at 2026-10-09T19:50:00+00:00, before the cutoff",
+ "steps": 250,
+ "world_calls": 302,
+ "actor_calls": 180,
+ "judge_calls": 71,
+ "review_calls": 291,
  "abandoned_turns": 1,
- "committed_events": 6,
- "ledger_records": 218
+ "committed_events": 70,
+ "ledger_records": 1548
 }
