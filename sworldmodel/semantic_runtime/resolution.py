@@ -140,3 +140,125 @@ def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
                 "explanation": explanation}
 
     return validate
+
+
+# ------------------------------------------------- independent verifier
+#: The second opinion on a candidate answer.  It receives the frozen
+#: resolution, the time, and the committed journal -- and NOT the first
+#: judge's verdict, citations or explanation, because a verifier told what
+#: it is verifying is not independent of it.  A terminal is accepted only
+#: when both agree.
+VERIFIER_SYSTEM = """You decide, from the committed record alone, whether a \
+stated condition has been met.
+
+You are given the condition, the current time, and every event that has \
+actually been committed as having occurred.  Nobody has told you what the \
+answer is supposed to be, and there is no answer anyone wants.
+
+- Judge ONLY from the committed events.  What someone intended, planned, \
+believed or was likely to do does not count.  If a required thing is not \
+in the list, it has not happened.
+- Each event says who it reached and who actually observed it.  Something \
+that merely arrived where a person could see it has not been seen by \
+them.  Anything requiring two people -- an agreement, a decision they \
+reach together -- needs BOTH of them to have observed what makes it so.
+- Every part of the condition must be satisfied.  If it has several \
+requirements and one is missing, the answer is not YES.
+- "YES" means the committed events satisfy it, and you cite the exact \
+event ids that show it.
+- "NO_AT_CUTOFF" means the deadline has arrived and they do not.
+- "UNRESOLVED" means it is not satisfied yet and the deadline has not \
+arrived.
+
+Reply with ONLY a JSON object:
+{"status": "YES" | "UNRESOLVED" | "NO_AT_CUTOFF",
+ "supporting_event_ids": ["e12"],
+ "explanation": "one sentence, from the events alone"}"""
+
+
+def verifier_user_prompt(resolution: str, now: str, events: list, *,
+                         final: bool = False) -> str:
+    """Deliberately NOT the judge's prompt: it never carries the first
+    reading's verdict, citations or explanation.
+
+    It does carry whether the deadline has been reached, because that is a
+    fact about the clock rather than anything the first reader concluded.
+    Withholding it made the two disagree at every horizon by construction:
+    the judge was required to answer YES or NO, and the verifier, not
+    knowing time was up, kept answering "not yet".
+    """
+    lines = [f"CURRENT TIME\n{now}", "",
+             f"THE CONDITION\n{resolution}", ""]
+    if final:
+        lines += ["THE DEADLINE HAS NOW BEEN REACHED.  Either the events "
+                  "below satisfy the condition, or the time for it has run "
+                  "out; \"UNRESOLVED\" is not available.", ""]
+    lines += ["EVERY COMMITTED EVENT"]
+    if events:
+        for e in events:
+            who = ", ".join(e.get("for") or []) or "no one"
+            by = e.get("observed_by") or []
+            seen = ("observed by " + ", ".join(by) if by
+                    else f"reached {who} but NOT observed by anyone")
+            lines.append(f"- {e['event_id']} [{e['t']}] "
+                         f"{contained(e['description'])} | {seen}")
+    else:
+        lines.append("- (nothing has been committed)")
+    lines += ["", "Has the condition been met?  Reply with ONLY the JSON "
+                  "object."]
+    return "\n".join(lines)
+
+
+def make_verifier_validator(known_event_ids, now: datetime, cutoff: datetime,
+                            *, final: bool = False):
+    """The verifier is under the same citation rules as the judge AND the
+    same time rule.
+
+    It used to be under no time rule at all, on the reasoning that it is
+    asked what the record shows rather than what may be concluded at this
+    instant.  That was wrong: a live run had it answer NO_AT_CUTOFF four
+    days before the cutoff -- its own explanation said "the deadline is in
+    the future" -- and that contradicted a correct YES and destroyed it.  A
+    code-owned time invariant enforced for one reader and not the other is
+    not enforced.
+    """
+
+    def validate(obj) -> dict:
+        if not isinstance(obj, dict):
+            raise ResolutionError("verifier response must be an object")
+        unknown = set(obj) - {"status", "supporting_event_ids", "explanation"}
+        if unknown:
+            raise ResolutionError(f"unexpected fields {sorted(unknown)}")
+        if obj.get("status") not in STATUSES:
+            raise ResolutionError(f"status must be one of {list(STATUSES)}")
+        ids = obj.get("supporting_event_ids") or []
+        if not isinstance(ids, list) or any(not isinstance(i, str)
+                                            for i in ids):
+            raise ResolutionError("supporting_event_ids must be a string array")
+        for i in ids:
+            if i not in known_event_ids:
+                raise ResolutionError(
+                    f"cited event {i!r} does not exist in the committed "
+                    f"journal")
+        if obj.get("status") == "YES" and not ids:
+            raise ResolutionError("YES must cite the events that show it")
+        if obj.get("status") == "NO_AT_CUTOFF" and now < cutoff:
+            raise ResolutionError(
+                f"NO_AT_CUTOFF is not permitted before the cutoff "
+                f"({now.isoformat()} < {cutoff.isoformat()})")
+        if final and obj.get("status") == "UNRESOLVED":
+            raise ResolutionError(
+                "the deadline has been reached: the condition is either "
+                "satisfied by the committed events or it is not")
+        if not isinstance(obj.get("explanation"), str) \
+                or not obj["explanation"].strip():
+            raise ResolutionError("explanation must be a non-empty string")
+        try:
+            explanation = clean_text(obj["explanation"].strip(),
+                                     field="explanation")
+        except EnvelopeError as e:
+            raise ResolutionError(str(e)) from None
+        return {"status": obj["status"], "supporting_event_ids": list(ids),
+                "explanation": explanation}
+
+    return validate

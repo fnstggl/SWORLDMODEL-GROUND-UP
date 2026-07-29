@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Marcus Bell",
+   "private_context": "Marcus has run events with Dana Whitfield for two years. He answers her messages within the hour, has never left one overnight, and is at his desk all week. He received Dana's Monday morning message asking him to confirm the hall is held for the 14th."
+  },
+  {
+   "name": "Dana Whitfield",
+   "private_context": "Dana has run events with Marcus Bell for two years. She messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. She expects a reply within the hour based on past experience."
+  }
+ ],
+ "shared_context": "Marcus Bell and Dana Whitfield have run events together for two years. Marcus answers Dana's messages within the hour, has never left one overnight, and is at his desk all week. Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th.",
+ "starting_events": [
+  {
+   "time": "2026-09-07T08:00:00+00:00",
+   "description": "Dana Whitfield sends a message to Marcus Bell asking him to confirm the hall is held for the 14th.",
+   "visible_to": [
+    "Dana Whitfield"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Marcus Bell actually sent a reply to Dana Whitfield confirming the hall is held for the 14th before Friday 2026-09-11T17:00:00+01:00. Otherwise resolve NO at the cutoff."
+}

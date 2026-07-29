@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Margaret Thornbury send the signed lease back to Jian Wei Lim before the deadline at 5pm on Thursday? Jian Wei emailed the lease on Tuesday morning. Margaret has signed and returned every document Jian Wei has sent her within a day, told him on Monday that she was ready to sign, and has the printer and scanner she uses at home.",
+  "resolution": "Resolve YES only if the persistent event history shows that Margaret actually sent the signed lease to Jian Wei before 2026-09-10T17:00:00+01:00. Otherwise resolve NO at that time.",
+  "cutoff": "2026-09-10T17:00:00+01:00",
+  "world_id": "w_be9ffa5acc9f"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

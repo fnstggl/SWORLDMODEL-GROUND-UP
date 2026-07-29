@@ -1,0 +1,58 @@
+{
+ "provider_calls": 910,
+ "by_role": {
+  "judge": {
+   "calls": 96,
+   "retries": 1,
+   "wall_s": 152.91,
+   "input_tokens": 307188,
+   "output_tokens": 5397
+  },
+  "world": {
+   "calls": 314,
+   "retries": 1,
+   "wall_s": 670.11,
+   "input_tokens": 1572745,
+   "output_tokens": 37659
+  },
+  "actor": {
+   "calls": 180,
+   "retries": 2,
+   "wall_s": 324.88,
+   "input_tokens": 655494,
+   "output_tokens": 14197
+  },
+  "continuity": {
+   "calls": 178,
+   "retries": 0,
+   "wall_s": 278.67,
+   "input_tokens": 576859,
+   "output_tokens": 8159
+  },
+  "event_review": {
+   "calls": 142,
+   "retries": 0,
+   "wall_s": 214.7,
+   "input_tokens": 278386,
+   "output_tokens": 6359
+  }
+ },
+ "total_input_tokens": 3390672,
+ "total_output_tokens": 71771,
+ "total_wall_s": 1641.21,
+ "status": "incomplete",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "The committed events show that Ines, Tomas, and Bea have each expressed agreement to Tomas hosting on Saturday evening, but Kwame has never observed any of these messages, so there is no collective agreement by all four housemates before the deadline."
+ },
+ "reason": "step ceiling 250 reached at 2026-10-09T08:00:00+00:00, before the cutoff",
+ "steps": 250,
+ "world_calls": 313,
+ "actor_calls": 178,
+ "judge_calls": 95,
+ "review_calls": 320,
+ "abandoned_turns": 2,
+ "committed_events": 94,
+ "ledger_records": 1628
+}

@@ -1,0 +1,9 @@
+{"actor":"ethel_pomeroy","content":"I am ready to call support for the terminal pairing issue.","source":"actor_call:c3","t":"2026-09-09T07:00:00+00:00"}
+{"actor":"vendor_support_representative","content":"I am now actively handling Ethel's support call for the terminal pairing issue.","source":"actor_call:c25","t":"2026-09-09T08:00:05+00:00"}
+{"actor":"vendor_support_representative","content":"I have the reference number and am actively searching for her account to proceed with pairing guidance.","source":"actor_call:c39","t":"2026-09-09T08:00:15+00:00"}
+{"actor":"vendor_support_representative","content":"I have confirmed Ethel's account and reference number in the system.","source":"actor_call:c50","t":"2026-09-09T08:00:20+00:00"}
+{"actor":"ethel_pomeroy","content":"The pairing step is nearly complete; I just need to relay the code to the representative.","source":"actor_call:c95","t":"2026-09-09T08:01:00+00:00"}
+{"actor":"vendor_support_representative","content":"I now have the pairing code and can guide Ethel to complete the final step.","source":"actor_call:c128","t":"2026-09-09T08:02:05+00:00"}
+{"actor":"vendor_support_representative","content":"The pairing process is complete; Ethel's terminal is now paired and operational.","source":"actor_call:c157","t":"2026-09-09T08:02:12+00:00"}
+{"actor":"ethel_pomeroy","content":"The terminal pairing is now complete and working.","source":"actor_call:c179","t":"2026-09-09T08:03:12+00:00"}
+{"actor":"ethel_pomeroy","content":"The terminal pairing is complete and working.","source":"actor_call:c184","t":"2026-09-09T08:03:12+00:00"}

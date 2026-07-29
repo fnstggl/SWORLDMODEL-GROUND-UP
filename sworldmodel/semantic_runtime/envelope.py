@@ -4,12 +4,19 @@ An LLM may propose at most one immediate event per world judgment, using
 exactly four fields:
 
     {"description": "...", "for": ["actor_id"], "observed": true,
-     "after": "2 hours"}
+     "after": "2 hours", "follow_up": false}
 
 description  what concretely happened
 for          which actors the resulting information or event is available to
 observed     whether EVERY actor in "for" has actually observed it
 after        how much simulated time passes before this event occurs
+follow_up    whether this leaves ONE unresolved environmental consequence
+             that should be worked out next -- a thing in transit has one,
+             a thing that is finished does not.  Code used to guess this
+             from the shape of the event and guessed wrong in both
+             directions: it asked "and then?" about someone putting their
+             phone down, and stopped asking about a message still on its
+             way.
 
 Code adds event_id, exact timestamp, source, caused_by, trajectory_id and
 model-call provenance; the LLM never writes those.  Mixed observation
@@ -141,7 +148,8 @@ def validate_event(proposed, known_actor_ids) -> dict:
     nothing) on any problem."""
     if not isinstance(proposed, dict):
         raise EnvelopeError("event must be an object")
-    unknown = set(proposed) - {"description", "for", "observed", "after"}
+    unknown = set(proposed) - {"description", "for", "observed", "after",
+                               "follow_up"}
     if unknown:
         raise EnvelopeError(
             f"event has fields the model may not write: {sorted(unknown)} "
@@ -154,6 +162,9 @@ def validate_event(proposed, known_actor_ids) -> dict:
         raise EnvelopeError("event.description must be a non-empty string")
     if not isinstance(proposed["observed"], bool):
         raise EnvelopeError("event.observed must be true or false")
+    follow_up = proposed.get("follow_up", False)
+    if not isinstance(follow_up, bool):
+        raise EnvelopeError("event.follow_up must be true or false")
     audience = proposed["for"]
     if not isinstance(audience, list) \
             or any(not isinstance(a, str) for a in audience):
@@ -171,7 +182,8 @@ def validate_event(proposed, known_actor_ids) -> dict:
     return {"description": clean_text(proposed["description"].strip(),
                                       field="event.description"),
             "for": clean_for, "observed": proposed["observed"],
-            "after": proposed["after"].strip(), "delta": delta}
+            "after": proposed["after"].strip(), "follow_up": follow_up,
+            "delta": delta}
 
 
 def validate_wakes(proposed, known_actor_ids) -> list:

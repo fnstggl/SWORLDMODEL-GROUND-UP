@@ -1,0 +1,28 @@
+{
+ "question": "Will Aisha Okafor send the signed lease back to Tomas Herrera before the deadline at 5pm on Thursday? Tomas emailed the lease on Tuesday morning. Aisha has signed and returned every document Tomas has sent her within a day, told him on Monday that she was ready to sign, and has the printer and scanner she uses at home.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e57"
+   ],
+   "explanation": "Committed event e57 shows Aisha Okafor sent the signed lease to Tomas Herrera via email before the deadline."
+  },
+  "reason": "",
+  "steps": 5,
+  "world_calls": 12,
+  "actor_calls": 4,
+  "judge_calls": 6,
+  "review_calls": 15,
+  "abandoned_turns": 0
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e57"
+  ],
+  "explanation": "Committed event e57 shows Aisha Okafor sent the signed lease to Tomas Herrera via email before the deadline."
+ },
+ "reason": ""
+}

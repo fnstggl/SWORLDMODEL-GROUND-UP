@@ -1,0 +1,67 @@
+{
+ "provider_calls": 36,
+ "by_role": {
+  "judge": {
+   "calls": 7,
+   "retries": 0,
+   "wall_s": 10.55,
+   "input_tokens": 4770,
+   "output_tokens": 361
+  },
+  "world": {
+   "calls": 9,
+   "retries": 0,
+   "wall_s": 18.19,
+   "input_tokens": 20314,
+   "output_tokens": 1095
+  },
+  "event_review": {
+   "calls": 9,
+   "retries": 0,
+   "wall_s": 13.89,
+   "input_tokens": 12918,
+   "output_tokens": 377
+  },
+  "actor": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.85,
+   "input_tokens": 6948,
+   "output_tokens": 425
+  },
+  "continuity": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.39,
+   "input_tokens": 4752,
+   "output_tokens": 243
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.58,
+   "input_tokens": 761,
+   "output_tokens": 64
+  }
+ },
+ "total_input_tokens": 50463,
+ "total_output_tokens": 2565,
+ "total_wall_s": 61.41,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e63"
+  ],
+  "explanation": "Event e63 shows Marcus Bell sent a reply to Dana Whitfield confirming the hall is held for the 14th, which satisfies the resolution condition before the deadline."
+ },
+ "reason": "",
+ "steps": 6,
+ "world_calls": 9,
+ "actor_calls": 5,
+ "judge_calls": 7,
+ "review_calls": 15,
+ "abandoned_turns": 0,
+ "committed_events": 7,
+ "ledger_records": 73
+}

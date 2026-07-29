@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus has not answered Dana's last four messages, told a colleague in August that he is avoiding her since the argument about the invoices, and is on leave with his phone off until the following Tuesday.",
+  "resolution": "Resolve YES only if the persistent event history shows that Marcus Bell actually sent a reply to Dana Whitfield about the venue booking before 2026-09-11T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-11T17:00:00+01:00",
+  "world_id": "w_1be67cf93fa4"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

@@ -1,0 +1,39 @@
+{
+ "world_id": "w_1be67cf93fa4",
+ "actor_ids": {
+  "Marcus Bell": "marcus_bell",
+  "Dana Whitfield": "dana_whitfield"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-07T08:00:00+00:00",
+   "visible_to_ids": [
+    "dana_whitfield"
+   ],
+   "description": "Dana Whitfield sends a message to Marcus Bell asking him to confirm the hall is held for the 14th."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "marcus_bell": {
+   "name": "Marcus Bell",
+   "persona_brief": "You are Marcus Bell.\nMarcus has not answered Dana's last four messages. He told a colleague in August that he is avoiding Dana since the argument about the invoices. He is on leave with his phone off until the following Tuesday (2026-09-08)."
+  },
+  "dana_whitfield": {
+   "name": "Dana Whitfield",
+   "persona_brief": "You are Dana Whitfield.\nDana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th. She is unaware that Marcus is avoiding her or that he is on leave."
+  }
+ },
+ "resolution": {
+  "question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus has not answered Dana's last four messages, told a colleague in August that he is avoiding her since the argument about the invoices, and is on leave with his phone off until the following Tuesday.",
+  "resolution": "Resolve YES only if the persistent event history shows that Marcus Bell actually sent a reply to Dana Whitfield about the venue booking before 2026-09-11T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-11T17:00:00+01:00",
+  "world_id": "w_1be67cf93fa4"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "trajectory_id": "traj_abb6b1c6ecaa",
+ "question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus and Dana have run events together for two years; Marcus answers her messages within the hour, has never left one overnight, and is at his desk all week.",
+ "start": "2026-09-07T09:00:00+01:00",
+ "cutoff": "2026-09-11T17:00:00+01:00",
+ "starting_event_ids": [
+  "e11"
+ ],
+ "actor_ids": {
+  "Marcus Bell": "marcus_bell",
+  "Dana Whitfield": "dana_whitfield"
+ },
+ "consumed_fields": [
+  "actors",
+  "shared_context",
+  "starting_events"
+ ],
+ "resolution_reaches": "the read-only judge and verifier only"
+}

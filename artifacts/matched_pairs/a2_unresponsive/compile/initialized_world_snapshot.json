@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "dana_whitfield": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dana_whitfield",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th. She is unaware that Marcus is avoiding her or that he is on leave.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    },
+    {
+     "content": "Marcus Bell and Dana Whitfield have a history of an argument about invoices. Dana sent a message to Marcus on Monday morning (2026-09-07) regarding venue booking confirmation for the 14th. Marcus is on leave with his phone off until Tuesday (2026-09-08). The deadline for a reply is before Friday (2026-09-11T17:00:00+01:00).",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    }
+   ],
+   "name": "Dana Whitfield",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "marcus_bell": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marcus_bell",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Marcus has not answered Dana's last four messages. He told a colleague in August that he is avoiding Dana since the argument about the invoices. He is on leave with his phone off until the following Tuesday (2026-09-08).",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    },
+    {
+     "content": "Marcus Bell and Dana Whitfield have a history of an argument about invoices. Dana sent a message to Marcus on Monday morning (2026-09-07) regarding venue booking confirmation for the 14th. Marcus is on leave with his phone off until Tuesday (2026-09-08). The deadline for a reply is before Friday (2026-09-11T17:00:00+01:00).",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    }
+   ],
+   "name": "Marcus Bell",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus has not answered Dana's last four messages, told a colleague in August that he is avoiding her since the argument about the invoices, and is on leave with his phone off until the following Tuesday.",
+  "scene:shared_context": "Marcus Bell and Dana Whitfield have a history of an argument about invoices. Dana sent a message to Marcus on Monday morning (2026-09-07) regarding venue booking confirmation for the 14th. Marcus is on leave with his phone off until Tuesday (2026-09-08). The deadline for a reply is before Friday (2026-09-11T17:00:00+01:00)."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-07T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-07T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

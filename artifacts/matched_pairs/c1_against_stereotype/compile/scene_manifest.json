@@ -1,0 +1,19 @@
+{
+ "actors": [
+  {
+   "name": "Ethel Pomeroy",
+   "private_context": "Ethel is 81, has run Pomeroy's bakery for forty years, and is technically capable. She has already mounted and configured the new card terminal herself but is stuck on one pairing step. She has the vendor's support reference number ready and plans to call the support line when it opens at 8am on Thursday."
+  }
+ ],
+ "shared_context": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step.",
+ "starting_events": [
+  {
+   "time": "2026-09-09T08:00:00+01:00",
+   "description": "The simulation starts at the opening of the vendor's support line on Thursday. Ethel has the reference number ready and can call for help with the pairing step.",
+   "visible_to": [
+    "Ethel Pomeroy"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the card terminal was successfully processing payments (i.e., the pairing step was completed and the terminal was working) before 2026-09-12T07:00:00+01:00 (the start of Saturday's market). Otherwise resolve NO at that time."
+}

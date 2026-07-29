@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Margaret Thornbury",
+   "private_context": "Margaret has signed and returned every document Jian Wei has sent her within a day. She told Jian Wei on Monday that she was ready to sign. She has a printer and scanner at home."
+  },
+  {
+   "name": "Jian Wei Lim",
+   "private_context": "Jian Wei emailed the lease to Margaret on Tuesday morning. He expects her to sign and return it."
+  }
+ ],
+ "shared_context": "Jian Wei sent the lease to Margaret via email on Tuesday morning. The deadline for returning the signed lease is 5pm on Thursday, 2026-09-10.",
+ "starting_events": [
+  {
+   "time": "2026-09-08T09:00:00+01:00",
+   "description": "Jian Wei's email with the lease is in Margaret's inbox, sent Tuesday morning.",
+   "visible_to": [
+    "Margaret Thornbury"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Margaret actually sent the signed lease to Jian Wei before 2026-09-10T17:00:00+01:00. Otherwise resolve NO at that time."
+}

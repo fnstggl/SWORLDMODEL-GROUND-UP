@@ -1,0 +1,1 @@
+{"call_id":"c3","description":"The cold email arrives at Mark Cuban's email server's inbox.","kind":"event_review","reason":"Emails arriving at a server's inbox is a normal, real-world event that happens after sending, changing information availability and who can access it.","t":"2026-07-27T14:00:00+00:00","trigger":"starting_event","verdict":"PASS"}

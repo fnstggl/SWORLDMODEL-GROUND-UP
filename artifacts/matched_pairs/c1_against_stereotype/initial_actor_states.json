@@ -1,0 +1,10 @@
+{
+ "ethel_pomeroy": {
+  "name": "Ethel Pomeroy",
+  "private_context": "Ethel is 81, has run Pomeroy's bakery for forty years, and is technically capable. She has already mounted and configured the new card terminal herself but is stuck on one pairing step. She has the vendor's support reference number ready and plans to call the support line when it opens at 8am on Thursday."
+ },
+ "vendor_support_representative": {
+  "name": "Vendor Support Representative",
+  "private_context": "The representative works for the card terminal vendor and handles support calls. They have access to the support system and can guide customers through pairing steps."
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "actors": [
+  {
+   "name": "Dr Aline Mercier",
+   "private_context": "Aline is a faculty member serving on the hiring committee this week. She teaches on Tuesday and Thursday. She has four other students waiting on feedback. She received an email from Ravi Patel on Monday morning with his thesis chapter attached. She has not yet read it or sent comments."
+  },
+  {
+   "name": "Ravi Patel",
+   "private_context": "Ravi is a graduate student who emailed his thesis chapter to his supervisor, Dr Aline Mercier, on Monday morning. He hopes to receive comments before the faculty deadline on Friday."
+  }
+ ],
+ "shared_context": "The faculty deadline for thesis chapter comments is Friday, 2026-07-31. Ravi's email with the chapter was sent on Monday, 2026-07-27. Aline is aware of the deadline and her other commitments.",
+ "starting_events": [
+  {
+   "time": "2026-07-27T08:00:00+00:00",
+   "description": "Ravi Patel sends an email to Dr Aline Mercier with his thesis chapter attached.",
+   "visible_to": [
+    "Ravi Patel"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that Dr Aline Mercier actually read Ravi Patel's thesis chapter and sent comments to Ravi before the faculty deadline on Friday, 2026-07-31T17:00:00+01:00. Otherwise resolve NO at the deadline."
+}

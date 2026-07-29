@@ -1,0 +1,52 @@
+{
+ "llm_calls": 0,
+ "records_replayed": 278,
+ "event_ids": [
+  "e11",
+  "e22",
+  "e44",
+  "e54",
+  "e60",
+  "e69",
+  "e96",
+  "e153",
+  "e160",
+  "e170",
+  "e177",
+  "e186",
+  "e209",
+  "e218",
+  "e230",
+  "e250",
+  "e256",
+  "e270",
+  "e275"
+ ],
+ "event_order_hash": "[\"e11\",\"e22\",\"e44\",\"e54\",\"e60\",\"e69\",\"e96\",\"e153\",\"e160\",\"e170\",\"e177\",\"e186\",\"e209\",\"e218\",\"e230\",\"e250\",\"e256\",\"e270\",\"e275\"]",
+ "state_hash": "e0bce4d35abf83d52bbb119239bece4c324b8cfbf46c9c02e065d4a718f3199e",
+ "terminal_status": "YES",
+ "terminal_support": [
+  "e153",
+  "e230"
+ ],
+ "ledger_integrity": [],
+ "checked": {
+  "records": 278,
+  "events": 19,
+  "observations": 3,
+  "terminal_checks": 19,
+  "actors": 2,
+  "memories": 7
+ },
+ "vacuous": false,
+ "records_match": true,
+ "state_hash_matches": true,
+ "event_ids_match": true,
+ "events_match": true,
+ "observations_match": true,
+ "views_match": true,
+ "memories_match": true,
+ "terminal_matches": true,
+ "clock_matches": true,
+ "exact": true
+}

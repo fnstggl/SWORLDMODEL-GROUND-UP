@@ -62,11 +62,23 @@ def compile_via_production_route():
     return compile_scene(QUESTION, START, CUTOFF, caller=caller)
 
 
+_LAST = {"status": "UNRESOLVED"}
+
+
 def runtime_model(system, user):
+    if ("whether what this person just said follows" in system
+            or "whether the proposed event" in system):
+        return json.dumps({"verdict": "PASS", "reason": "fine"}), {}
+    if "whether a stated condition has been met" in system:
+        # the independent second reading, reaching the same conclusion
+        return json.dumps({"status": _LAST["status"],
+                           "supporting_event_ids": [],
+                           "explanation": "the record shows nothing yet"}), {}
     if "read-only outcome judge" in system:
         # UNRESOLVED is not available at the cutoff, and code enforces it
         status = ("NO_AT_CUTOFF" if "THIS IS THE FINAL JUDGMENT" in user
                   else "UNRESOLVED")
+        _LAST["status"] = status
         return json.dumps({"status": status, "supporting_event_ids": [],
                            "explanation": "nothing yet"}), {}
     if "You are the world" in system:
@@ -75,7 +87,8 @@ def runtime_model(system, user):
                 "judgment": "It lands where Bo could see it.",
                 "event": {"description": "Ada's message arrives for Bo.",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes"}, "wakes": []}), {}
+                          "after": "1 minutes",
+                          "follow_up": True}, "wakes": []}), {}
         return json.dumps({"judgment": "Nothing concrete follows.",
                            "event": None, "wakes": []}), {}
     return json.dumps({"decision": "Nothing to do.", "intentions": [],
@@ -164,8 +177,54 @@ def test_frozen_compiler_files_are_unchanged():
     changed = [p for p in present if on_disk[p] != frozen[p]]
     assert changed == [], f"frozen compiler files changed on disk: {changed}"
 
-    # ... and nothing untracked is hiding in there either
+    # ... nothing untracked is hiding in there either ...
     untracked = subprocess.run(
         ["git", "ls-files", "--others", "--exclude-standard", "compiler/"],
         capture_output=True, text=True, check=True).stdout.split()
     assert untracked == [], f"untracked files inside the frozen compiler: {untracked}"
+
+    # ... nor is anything staged but not yet on disk, which would be a
+    # change the on-disk hashes above would report only after a checkout ...
+    staged = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "--", "compiler/"],
+        capture_output=True, text=True, check=True).stdout.split()
+    assert staged == [], f"staged changes to the frozen compiler: {staged}"
+
+    # ... and the kernel files the compiler itself depends on are the ones
+    # it was frozen against: freezing compiler/ alone would leave the
+    # ground it stands on free to move.
+    #
+    # Keyed by PATH, and the set is checked before the hashes.  The earlier
+    # version skipped any kernel file that did not exist and looked the
+    # rest up by hash, so deleting one passed silently -- which is the one
+    # thing a freeze test on a file set exists to catch.
+    frozen_kernel = {}
+    with open("artifacts/semantic_runtime/KERNEL_FREEZE.txt") as f:
+        for line in f:
+            if line.strip():
+                blob, path = line.split()
+                frozen_kernel[path] = blob
+
+    missing = [p for p in frozen_kernel if not os.path.exists(p)]
+    assert missing == [], f"a frozen kernel file was deleted: {missing}"
+
+    kernel = sorted(frozen_kernel)
+    out = subprocess.run(["git", "hash-object"] + kernel,
+                         capture_output=True, text=True, check=True)
+    on_disk = dict(zip(kernel, out.stdout.split()))
+    changed = [p for p in kernel if on_disk[p] != frozen_kernel[p]]
+    assert changed == [], f"compiler-critical kernel files changed: {changed}"
+
+
+def test_the_runtime_imports_no_second_compiler():
+    """A new module under compiler/ would be caught by the freeze; a new
+    module ANYWHERE that the runtime imports as a compiler would not."""
+    out = subprocess.run(
+        [sys.executable, "-c",
+         "import sys;"
+         "before=set(sys.modules);"
+         "import sworldmodel.semantic_runtime;"
+         "print([m for m in set(sys.modules)-before "
+         "if m.split('.')[0] == 'compiler'])"],
+        capture_output=True, text=True, check=True)
+    assert out.stdout.strip() == "[]", out.stdout

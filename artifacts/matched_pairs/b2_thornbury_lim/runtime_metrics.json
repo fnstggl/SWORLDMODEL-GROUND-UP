@@ -1,0 +1,65 @@
+{
+ "provider_calls": 48,
+ "by_role": {
+  "judge": {
+   "calls": 9,
+   "retries": 0,
+   "wall_s": 13.83,
+   "input_tokens": 6290,
+   "output_tokens": 409
+  },
+  "world": {
+   "calls": 15,
+   "retries": 0,
+   "wall_s": 31.16,
+   "input_tokens": 34030,
+   "output_tokens": 1552
+  },
+  "event_review": {
+   "calls": 13,
+   "retries": 0,
+   "wall_s": 20.09,
+   "input_tokens": 19318,
+   "output_tokens": 526
+  },
+  "actor": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.77,
+   "input_tokens": 7586,
+   "output_tokens": 436
+  },
+  "continuity": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 8.36,
+   "input_tokens": 5386,
+   "output_tokens": 252
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.28,
+   "input_tokens": 800,
+   "output_tokens": 47
+  }
+ },
+ "total_input_tokens": 73410,
+ "total_output_tokens": 3222,
+ "total_wall_s": 83.46,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The committed events show Margaret signed the lease but never actually sent it to Jian Wei before the deadline."
+ },
+ "reason": "",
+ "steps": 8,
+ "world_calls": 15,
+ "actor_calls": 5,
+ "judge_calls": 9,
+ "review_calls": 19,
+ "abandoned_turns": 0,
+ "committed_events": 8,
+ "ledger_records": 79
+}

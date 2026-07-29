@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "jian_wei_lim": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "jian_wei_lim",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Jian Wei emailed the lease to Margaret on Tuesday morning. He expects her to sign and return it.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    },
+    {
+     "content": "Jian Wei sent the lease to Margaret via email on Tuesday morning. The deadline for returning the signed lease is 5pm on Thursday, 2026-09-10.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    }
+   ],
+   "name": "Jian Wei Lim",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "margaret_thornbury": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "margaret_thornbury",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Margaret has signed and returned every document Jian Wei has sent her within a day. She told Jian Wei on Monday that she was ready to sign. She has a printer and scanner at home.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    },
+    {
+     "content": "Jian Wei sent the lease to Margaret via email on Tuesday morning. The deadline for returning the signed lease is 5pm on Thursday, 2026-09-10.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    }
+   ],
+   "name": "Margaret Thornbury",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Margaret Thornbury send the signed lease back to Jian Wei Lim before the deadline at 5pm on Thursday? Jian Wei emailed the lease on Tuesday morning. Margaret has signed and returned every document Jian Wei has sent her within a day, told him on Monday that she was ready to sign, and has the printer and scanner she uses at home.",
+  "scene:shared_context": "Jian Wei sent the lease to Margaret via email on Tuesday morning. The deadline for returning the signed lease is 5pm on Thursday, 2026-09-10."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-08T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-08T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

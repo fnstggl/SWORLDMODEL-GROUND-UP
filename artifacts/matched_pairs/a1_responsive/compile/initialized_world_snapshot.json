@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "dana_whitfield": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "dana_whitfield",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Dana has run events with Marcus Bell for two years. She messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. She expects a reply within the hour based on past experience.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    },
+    {
+     "content": "Marcus Bell and Dana Whitfield have run events together for two years. Marcus answers Dana's messages within the hour, has never left one overnight, and is at his desk all week. Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    }
+   ],
+   "name": "Dana Whitfield",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "marcus_bell": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "marcus_bell",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Marcus has run events with Dana Whitfield for two years. He answers her messages within the hour, has never left one overnight, and is at his desk all week. He received Dana's Monday morning message asking him to confirm the hall is held for the 14th.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    },
+    {
+     "content": "Marcus Bell and Dana Whitfield have run events together for two years. Marcus answers Dana's messages within the hour, has never left one overnight, and is at his desk all week. Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-07T08:00:00+00:00"
+    }
+   ],
+   "name": "Marcus Bell",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus and Dana have run events together for two years; Marcus answers her messages within the hour, has never left one overnight, and is at his desk all week.",
+  "scene:shared_context": "Marcus Bell and Dana Whitfield have run events together for two years. Marcus answers Dana's messages within the hour, has never left one overnight, and is at his desk all week. Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-07T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-07T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

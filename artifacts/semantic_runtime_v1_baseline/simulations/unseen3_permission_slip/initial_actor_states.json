@@ -1,0 +1,18 @@
+{
+ "chris": {
+  "name": "Chris",
+  "private_context": "Chris has custody of Ezra Sunday through Friday this week. He started a new job as a service manager three weeks ago, out at 7 a.m., back after 6 p.m. His father had a stent placed Tuesday, so evenings are spent on calls with his mom. He has notifications for the school app turned off. Ezra mentioned 'there's a thing in my folder' on Tuesday while Chris was on a work call, but Chris hasn't followed up."
+ },
+ "ezra": {
+  "name": "Ezra",
+  "private_context": "Ezra is nine years old, in fourth grade. He wants to go on the overnight trip but is not campaigning because his friend Dev said the cabins have spiders. He told Chris about 'a thing in my folder' on Tuesday but hasn't mentioned it since. The permission slip and $85 are still flat in the bottom of his backpack."
+ },
+ "mr_whitcomb": {
+  "name": "Mr. Whitcomb",
+  "private_context": "Mr. Whitcomb is Ezra's fourth-grade teacher. He sent home permission slips and $85 in kids' folders on Monday, due at the school office by 3 p.m. Friday, September 18. He usually pings families still missing forms through the school app."
+ },
+ "naomi": {
+  "name": "Naomi",
+  "private_context": "Naomi normally handles all school paperwork. She skimmed the class newsletter on Monday but does not know about the trip. She works night shifts at the hospital Thursday through Saturday, 7 p.m. to 7:30 a.m., so she will be asleep most of Friday from about 8 a.m. until late afternoon. She receives the school app as a 6 a.m. email digest."
+ }
+}

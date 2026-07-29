@@ -1,0 +1,2 @@
+{"call_id":"c1","explanation":"The committed events show only a text message arriving on Sam Okonjo's phone, not Sam Okonjo sending a text message confirming the appointment.","final":false,"kind":"terminal_check","status":"UNRESOLVED","supporting_event_ids":[],"t":"2026-07-28T08:00:00+00:00"}
+{"call_id":"c11","explanation":"Event e20 shows Sam Okonjo sent a text message confirming the appointment before the deadline.","final":false,"kind":"terminal_check","status":"YES","supporting_event_ids":["e20"],"t":"2026-07-28T08:00:00+00:00"}

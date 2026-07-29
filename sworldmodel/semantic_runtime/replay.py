@@ -84,7 +84,12 @@ def check_ledger_integrity(records: list) -> list:
             if ev is None:
                 problems.append(f"seq {r['seq']} records an observation of "
                                 f"{d.get('event_id')!r}, which does not exist")
-            elif d.get("actor") not in ev.get("for", []):
+            elif d.get("actor") not in ev.get("for", []) \
+                    and d.get("source") != "own_doing":
+                # An observation has to be of something that reached the
+                # person -- unless they are the one who DID it, in which
+                # case they were its author rather than its recipient and
+                # never appear in the list of people it was sent to.
                 problems.append(
                     f"seq {r['seq']} records {d.get('actor')!r} observing "
                     f"{d.get('event_id')}, which never reached them")

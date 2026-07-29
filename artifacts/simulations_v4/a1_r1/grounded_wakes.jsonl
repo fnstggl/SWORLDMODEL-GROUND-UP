@@ -1,0 +1,3 @@
+{"about":"starting_event","actor":"marcus_bell","due":"2026-09-07T08:00:30+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Marcus is at his desk and checks messages frequently; the message should be noticed soon.","t":"2026-09-07T08:00:00+00:00"}
+{"about":"actor_intention","actor":"dana_whitfield","due":"2026-09-07T08:00:15+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Message from Marcus may arrive in Dana's messaging system.","t":"2026-09-07T08:00:10+00:00"}
+{"about":"pending_progression","actor":"dana_whitfield","due":"2026-09-07T08:05:10+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Dana may check her messages soon, as she expects a reply within the hour.","t":"2026-09-07T08:00:10+00:00"}

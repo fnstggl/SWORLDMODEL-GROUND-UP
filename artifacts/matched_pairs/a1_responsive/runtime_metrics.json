@@ -1,0 +1,67 @@
+{
+ "provider_calls": 48,
+ "by_role": {
+  "judge": {
+   "calls": 8,
+   "retries": 0,
+   "wall_s": 11.77,
+   "input_tokens": 5635,
+   "output_tokens": 448
+  },
+  "world": {
+   "calls": 14,
+   "retries": 0,
+   "wall_s": 27.31,
+   "input_tokens": 31776,
+   "output_tokens": 1606
+  },
+  "event_review": {
+   "calls": 13,
+   "retries": 0,
+   "wall_s": 19.0,
+   "input_tokens": 18705,
+   "output_tokens": 516
+  },
+  "actor": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 10.8,
+   "input_tokens": 8335,
+   "output_tokens": 526
+  },
+  "continuity": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 8.6,
+   "input_tokens": 5741,
+   "output_tokens": 269
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.51,
+   "input_tokens": 807,
+   "output_tokens": 49
+  }
+ },
+ "total_input_tokens": 70999,
+ "total_output_tokens": 3414,
+ "total_wall_s": 78.99,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e71"
+  ],
+  "explanation": "Event e71 shows Marcus Bell actually sent a reply to Dana Whitfield confirming the hall is held for the 14th, and the current time is before the cutoff."
+ },
+ "reason": "",
+ "steps": 7,
+ "world_calls": 14,
+ "actor_calls": 6,
+ "judge_calls": 8,
+ "review_calls": 20,
+ "abandoned_turns": 0,
+ "committed_events": 8,
+ "ledger_records": 87
+}

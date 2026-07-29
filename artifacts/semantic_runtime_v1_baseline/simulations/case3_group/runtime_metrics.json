@@ -1,0 +1,51 @@
+{
+ "provider_calls": 259,
+ "by_role": {
+  "judge": {
+   "calls": 42,
+   "retries": 0,
+   "wall_s": 68.16,
+   "input_tokens": 70075,
+   "output_tokens": 2525
+  },
+  "world": {
+   "calls": 98,
+   "retries": 2,
+   "wall_s": 226.05,
+   "input_tokens": 347773,
+   "output_tokens": 11474
+  },
+  "actor": {
+   "calls": 119,
+   "retries": 0,
+   "wall_s": 201.77,
+   "input_tokens": 292696,
+   "output_tokens": 7205
+  }
+ },
+ "total_input_tokens": 710544,
+ "total_output_tokens": 21204,
+ "total_wall_s": 496.04,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e143",
+   "e187",
+   "e250",
+   "e305",
+   "e382",
+   "e464",
+   "e644",
+   "e662"
+  ],
+  "explanation": "By e662, Kwame has observed the full thread confirming Bea's offer to host on Saturday at 2pm, Ines's agreement, and Bea's final confirmation, showing all four housemates collectively agreed on Bea as host before the deadline."
+ },
+ "reason": "",
+ "steps": 145,
+ "world_calls": 96,
+ "actor_calls": 119,
+ "judge_calls": 42,
+ "committed_events": 42,
+ "ledger_records": 678
+}

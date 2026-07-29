@@ -1,0 +1,4 @@
+{"actor":"margaret_thornbury","content":"I am following my usual routine of signing and returning documents within a day.","source":"actor_call:c13","t":"2026-09-08T08:00:05+00:00"}
+{"actor":"jian_wei_lim","content":"I expect Margaret to sign and return the lease soon, but I'll give her until tomorrow morning before chasing.","source":"actor_call:c20","t":"2026-09-08T08:15:00+00:00"}
+{"actor":"jian_wei_lim","content":"I've now followed up once; I'll give her a couple more days before chasing again.","source":"actor_call:c27","t":"2026-09-09T08:15:00+00:00"}
+{"actor":"margaret_thornbury","content":"I'm uncertain whether I actually completed the signing process yesterday despite intending to.","source":"actor_call:c51","t":"2026-09-09T09:15:00+00:00"}

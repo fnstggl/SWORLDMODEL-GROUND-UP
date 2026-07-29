@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Dr Aline Mercier read Ravi Patel's thesis chapter and send comments before the faculty deadline on Friday? Ravi emailed the chapter to his supervisor on Monday morning. Aline is on the hiring committee this week, teaches Tuesday and Thursday, and has four other students waiting on feedback.",
+  "resolution": "Resolve YES only if the persistent event history shows that Dr Aline Mercier actually read Ravi Patel's thesis chapter and sent comments to Ravi before the faculty deadline on Friday, 2026-07-31T17:00:00+01:00. Otherwise resolve NO at the deadline.",
+  "cutoff": "2026-07-31T17:00:00+01:00",
+  "world_id": "w_bccc489ed270"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

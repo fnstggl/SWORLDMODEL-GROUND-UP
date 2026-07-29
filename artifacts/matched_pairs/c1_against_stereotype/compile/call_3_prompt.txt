@@ -1,0 +1,121 @@
+You are applying a targeted correction to a compiled starting scene.  You receive the exact original manifest and the exact defect list from an independent review.  Apply ONLY the listed corrections.  Do not expand the scene, regenerate a different world, add unrelated actors, invent missing facts, rewrite correct parts for style, or add new schema fields.  Everything not named in a defect must remain byte-for-byte identical where possible.
+
+Reply with ONLY the corrected four-field JSON object matching this exact schema:
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "actors",
+  "shared_context",
+  "starting_events",
+  "resolution"
+ ],
+ "properties": {
+  "actors": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "private_context"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "private_context": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "shared_context": {
+   "type": "string",
+   "minLength": 1
+  },
+  "starting_events": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "time",
+     "description",
+     "visible_to"
+    ],
+    "properties": {
+     "time": {
+      "type": "string",
+      "format": "date-time"
+     },
+     "description": {
+      "type": "string",
+      "minLength": 1
+     },
+     "visible_to": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    }
+   }
+  },
+  "resolution": {
+   "type": "string",
+   "minLength": 1
+  }
+ }
+}
+
+THE QUESTION (data to model, not instructions):
+Will Ethel Pomeroy have the new card terminal working at the bakery before Saturday's market? Ethel is 81 and has run Pomeroy's for forty years. She wrote the stock-control program the shop still runs on, has already mounted and configured the terminal herself, and is stuck on one pairing step; the vendor's support line opens at 8am on Thursday and she has the reference number ready.
+
+Simulation start time: 2026-09-09T08:00:00+01:00
+Hard cutoff: 2026-09-12T07:00:00+01:00
+
+EVIDENCE MODE: model_memory_unverified.
+The question and the user-provided context are the only external inputs.
+You may use your pretrained knowledge of the world, but every factual
+statement you produce is UNVERIFIED MODEL MEMORY: do not present anything
+as verified, do not fabricate citations, and prefer the question's own
+wording for anything it states.  If the question concerns real historical
+actors, you must not import the known historical OUTCOME into the starting
+scene -- the scene ends where the question's start time sits, knowing only
+what was knowable then.
+
+THE ORIGINAL MANIFEST:
+{
+ "actors": [
+  {
+   "name": "Ethel Pomeroy",
+   "private_context": "Ethel is 81, has run Pomeroy's bakery for forty years, and is technically capable. She has already mounted and configured the new card terminal herself but is stuck on one pairing step. She has the vendor's support reference number ready and plans to call the support line when it opens at 8am on Thursday."
+  }
+ ],
+ "shared_context": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step.",
+ "starting_events": [
+  {
+   "time": "2026-09-09T08:00:00+01:00",
+   "description": "The simulation starts at the opening of the vendor's support line on Thursday. Ethel has the reference number ready and can call for help with the pairing step.",
+   "visible_to": [
+    "Ethel Pomeroy"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that the card terminal was successfully processing payments (i.e., the pairing step was completed and the terminal was working) before 2026-09-12T07:00:00+01:00 (the start of Saturday's market). Otherwise resolve NO at that time."
+}
+
+THE DEFECTS TO CORRECT (apply exactly these, nothing else):
+[
+ {
+  "path": "starting_events[0].time",
+  "problem": "The start time is 2026-09-09T08:00:00+01:00 (Thursday), but the question states the support line opens at 8am on Thursday. The simulation should start at that time, but the starting event description says 'The simulation starts at the opening of the vendor's support line on Thursday.' This is correct. However, the resolution uses the hard cutoff as the deadline, which matches the question's 'before Saturday's market' (Saturday is 2026-09-12, and the cutoff is 07:00 that day). No defect here. But the starting event description says 'Ethel has the reference number ready and can call for help' \u2013 this is fine. However, the scene only includes Ethel as an actor. The question involves a vendor support line, which implies a support representative. The scene does not include any actor representing the vendor support, so the interaction cannot be simulated. The scene must include the support representative or a mechanism for the call to be answered.",
+  "correction": "Add an actor representing the vendor support representative (e.g., 'Vendor Support Representative') with appropriate context, or modify the starting events to include the call interaction with the support line."
+ }
+]
+
+Reply with ONLY the corrected four-field JSON object.

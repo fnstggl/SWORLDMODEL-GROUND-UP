@@ -1,0 +1,58 @@
+{
+ "provider_calls": 818,
+ "by_role": {
+  "judge": {
+   "calls": 94,
+   "retries": 15,
+   "wall_s": 150.81,
+   "input_tokens": 315948,
+   "output_tokens": 6020
+  },
+  "world": {
+   "calls": 250,
+   "retries": 0,
+   "wall_s": 565.05,
+   "input_tokens": 1366822,
+   "output_tokens": 31220
+  },
+  "event_review": {
+   "calls": 98,
+   "retries": 1,
+   "wall_s": 164.49,
+   "input_tokens": 199450,
+   "output_tokens": 4266
+  },
+  "actor": {
+   "calls": 188,
+   "retries": 0,
+   "wall_s": 383.73,
+   "input_tokens": 747143,
+   "output_tokens": 18860
+  },
+  "continuity": {
+   "calls": 188,
+   "retries": 0,
+   "wall_s": 311.09,
+   "input_tokens": 669283,
+   "output_tokens": 8873
+  }
+ },
+ "total_input_tokens": 3298646,
+ "total_output_tokens": 69239,
+ "total_wall_s": 1575.11,
+ "status": "incomplete",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows that \u00a3600 has been deposited into Marian Prowse's bank account, and the deadline has not yet passed."
+ },
+ "reason": "step ceiling 250 reached at 2026-09-15T14:00:00+00:00, before the cutoff",
+ "steps": 250,
+ "world_calls": 250,
+ "actor_calls": 188,
+ "judge_calls": 79,
+ "review_calls": 285,
+ "abandoned_turns": 1,
+ "committed_events": 81,
+ "ledger_records": 1592
+}

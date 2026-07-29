@@ -1,0 +1,15 @@
+{
+ "verdict": "REVISE",
+ "defects": [
+  {
+   "path": "starting_events[0].visible_to",
+   "problem": "The group chat message is visible only to Ines, but it should be visible to all housemates since it's a group chat.",
+   "correction": "Set visible_to to [\"Ines\", \"Kwame\", \"Tomas\", \"Bea\"]."
+  },
+  {
+   "path": "resolution",
+   "problem": "The resolution deadline is 2026-10-10T00:00:00+00:00, but the hard cutoff is 2026-10-10T20:00:00+00:00. The question asks 'before the weekend', which typically means before the weekend starts (Saturday). However, the hard cutoff is later, so the resolution should use the cutoff as the deadline if the weekend start is ambiguous. But the question explicitly says 'before the weekend', and the weekend starts on Saturday 2026-10-10. The resolution uses midnight, which is correct. However, the resolution should also consider that the weekend might be defined as starting at 00:00:00 on Saturday. This is fine. But note: the starting event time is 08:00, and the resolution deadline is midnight, which is before the cutoff. That's acceptable. No defect here actually. But there is a defect: the resolution says 'persistent event history' but the scene does not define persistent events. The resolution should be based on the simulation state, not an undefined concept.",
+   "correction": "Remove 'persistent event history' and rephrase to 'Resolve YES only if the simulation shows that the four housemates have collectively agreed on a host before 2026-10-10T00:00:00+00:00. Otherwise resolve NO at that time.'"
+  }
+ ]
+}

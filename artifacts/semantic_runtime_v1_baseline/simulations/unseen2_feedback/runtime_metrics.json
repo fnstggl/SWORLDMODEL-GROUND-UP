@@ -1,0 +1,44 @@
+{
+ "provider_calls": 114,
+ "by_role": {
+  "judge": {
+   "calls": 35,
+   "retries": 0,
+   "wall_s": 51.78,
+   "input_tokens": 48727,
+   "output_tokens": 1956
+  },
+  "world": {
+   "calls": 45,
+   "retries": 0,
+   "wall_s": 99.55,
+   "input_tokens": 132969,
+   "output_tokens": 5699
+  },
+  "actor": {
+   "calls": 34,
+   "retries": 0,
+   "wall_s": 61.87,
+   "input_tokens": 67589,
+   "output_tokens": 2514
+  }
+ },
+ "total_input_tokens": 249285,
+ "total_output_tokens": 10169,
+ "total_wall_s": 213.21,
+ "status": "resolved",
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e307"
+  ],
+  "explanation": "Event e307 shows Dr Aline Mercier sent comments to Ravi Patel via email, satisfying the resolution condition."
+ },
+ "reason": "",
+ "steps": 65,
+ "world_calls": 45,
+ "actor_calls": 34,
+ "judge_calls": 35,
+ "committed_events": 35,
+ "ledger_records": 308
+}

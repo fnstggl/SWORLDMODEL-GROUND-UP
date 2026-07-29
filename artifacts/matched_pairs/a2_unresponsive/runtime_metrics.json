@@ -1,0 +1,65 @@
+{
+ "provider_calls": 21,
+ "by_role": {
+  "judge": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 5.79,
+   "input_tokens": 2472,
+   "output_tokens": 223
+  },
+  "world": {
+   "calls": 5,
+   "retries": 0,
+   "wall_s": 10.01,
+   "input_tokens": 10709,
+   "output_tokens": 613
+  },
+  "event_review": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.46,
+   "input_tokens": 3829,
+   "output_tokens": 135
+  },
+  "actor": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 7.09,
+   "input_tokens": 5355,
+   "output_tokens": 272
+  },
+  "continuity": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 6.15,
+   "input_tokens": 3595,
+   "output_tokens": 158
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.5,
+   "input_tokens": 614,
+   "output_tokens": 47
+  }
+ },
+ "total_input_tokens": 26574,
+ "total_output_tokens": 1448,
+ "total_wall_s": 35.01,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows Marcus Bell actually sent a reply to Dana Whitfield about the venue booking before the deadline."
+ },
+ "reason": "",
+ "steps": 5,
+ "world_calls": 5,
+ "actor_calls": 4,
+ "judge_calls": 4,
+ "review_calls": 8,
+ "abandoned_turns": 0,
+ "committed_events": 3,
+ "ledger_records": 47
+}

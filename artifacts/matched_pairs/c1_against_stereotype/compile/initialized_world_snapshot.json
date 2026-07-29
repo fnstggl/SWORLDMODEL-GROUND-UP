@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "ethel_pomeroy": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "ethel_pomeroy",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Ethel is 81, has run Pomeroy's bakery for forty years, and is technically capable. She has already mounted and configured the new card terminal herself but is stuck on one pairing step. She has the vendor's support reference number ready and plans to call the support line when it opens at 8am on Thursday.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-09T07:00:00+00:00"
+    },
+    {
+     "content": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-09T07:00:00+00:00"
+    }
+   ],
+   "name": "Ethel Pomeroy",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "vendor_support_representative": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "vendor_support_representative",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "The representative works for the card terminal vendor and handles support calls. They have access to the support system and can guide customers through pairing steps.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-09T07:00:00+00:00"
+    },
+    {
+     "content": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-09T07:00:00+00:00"
+    }
+   ],
+   "name": "Vendor Support Representative",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Ethel Pomeroy have the new card terminal working at the bakery before Saturday's market? Ethel is 81 and has run Pomeroy's for forty years. She wrote the stock-control program the shop still runs on, has already mounted and configured the terminal herself, and is stuck on one pairing step; the vendor's support line opens at 8am on Thursday and she has the reference number ready.",
+  "scene:shared_context": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-09T07:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-09T07:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

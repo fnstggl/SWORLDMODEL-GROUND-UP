@@ -1,0 +1,88 @@
+{
+ "dana_whitfield": {
+  "id": "dana_whitfield",
+  "name": "Dana Whitfield",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Dana has run events with Marcus Bell for two years. She messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. She expects a reply within the hour based on past experience.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Marcus Bell and Dana Whitfield have run events together for two years. Marcus answers Dana's messages within the hour, has never left one overnight, and is at his desk all week. Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "marcus_bell": {
+  "id": "marcus_bell",
+  "name": "Marcus Bell",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Marcus has run events with Dana Whitfield for two years. He answers her messages within the hour, has never left one overnight, and is at his desk all week. He received Dana's Monday morning message asking him to confirm the hall is held for the 14th.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Marcus Bell and Dana Whitfield have run events together for two years. Marcus answers Dana's messages within the hour, has never left one overnight, and is at his desk all week. Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

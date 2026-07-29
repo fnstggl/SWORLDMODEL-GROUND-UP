@@ -1,0 +1,117 @@
+{
+ "action_defs": {},
+ "actions": {},
+ "actors": {
+  "aisha_okafor": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "aisha_okafor",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Aisha has signed and returned every document Tomas has sent her within a day. She told Tomas on Monday that she was ready to sign. She has a printer and scanner at home.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    },
+    {
+     "content": "Tomas Herrera emailed a lease to Aisha Okafor on Tuesday morning. The deadline to return the signed lease is 5pm on Thursday, 2026-09-10. Aisha has a printer and scanner at home.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    }
+   ],
+   "name": "Aisha Okafor",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  },
+  "tomas_herrera": {
+   "attention": {
+    "scene": {
+     "basis": "verified",
+     "calendar": null,
+     "check_every_seconds": null,
+     "note": "events declared visible to this actor are directly experienced"
+    }
+   },
+   "available_info": [],
+   "beliefs": {},
+   "commitments": {},
+   "deferred_wakes": [],
+   "emotional_state": "",
+   "goals": [],
+   "id": "tomas_herrera",
+   "last_decision_at": null,
+   "memories": [
+    {
+     "content": "Tomas emailed the lease to Aisha on Tuesday morning. He expects her to sign and return it.",
+     "kind": "context",
+     "source": "scene_manifest:private_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    },
+    {
+     "content": "Tomas Herrera emailed a lease to Aisha Okafor on Tuesday morning. The deadline to return the signed lease is 5pm on Thursday, 2026-09-10. Aisha has a printer and scanner at home.",
+     "kind": "context",
+     "source": "scene_manifest:shared_context",
+     "t": "2026-09-08T08:00:00+00:00"
+    }
+   ],
+   "name": "Tomas Herrera",
+   "noticed_info": [],
+   "ongoing_action": null,
+   "physical_state": "",
+   "plan": "",
+   "reconsider": [],
+   "relationships": {},
+   "role": "actor",
+   "tz": "UTC",
+   "unprocessed_info": [],
+   "values": []
+  }
+ },
+ "channels": {
+  "scene": {
+   "latency": {
+    "basis": "verified",
+    "note": "scene events are directly experienced by the actors they are visible to",
+    "seconds": 0.0
+   },
+   "name": "scene"
+  }
+ },
+ "entities": {},
+ "facts": {
+  "scene:question": "Will Aisha Okafor send the signed lease back to Tomas Herrera before the deadline at 5pm on Thursday? Tomas emailed the lease on Tuesday morning. Aisha has signed and returned every document Tomas has sent her within a day, told him on Monday that she was ready to sign, and has the printer and scanner she uses at home.",
+  "scene:shared_context": "Tomas Herrera emailed a lease to Aisha Okafor on Tuesday morning. The deadline to return the signed lease is 5pm on Thursday, 2026-09-10. Aisha has a printer and scanner at home."
+ },
+ "history": [],
+ "infos": {},
+ "now": "2026-09-08T08:00:00+00:00",
+ "processes": {},
+ "relationships": {},
+ "resources": {},
+ "start": "2026-09-08T08:00:00+00:00",
+ "terminal": null,
+ "version": 11,
+ "watches": {}
+}

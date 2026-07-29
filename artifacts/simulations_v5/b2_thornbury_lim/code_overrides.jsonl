@@ -1,0 +1,2 @@
+{"call_id":"c13","kind":"event_abandoned","override":"event_abandoned","reason":"Printing is a device action (the printer printing), not a person doing something that changes the situation.","rejected":"Margaret prints the lease from her email.","t":"2026-09-08T08:00:00+00:00"}
+{"call_id":"c18","description":"The email from Margaret with the signed lease attachment arrives in Jian Wei's inbox.","kind":"duration_floored","override":"duration_floored","t":"2026-09-08T08:00:00+00:00"}

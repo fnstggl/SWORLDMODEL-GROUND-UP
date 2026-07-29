@@ -1,0 +1,88 @@
+{
+ "dr_aline_mercier": {
+  "id": "dr_aline_mercier",
+  "name": "Dr Aline Mercier",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-27T08:00:00+00:00",
+    "kind": "context",
+    "content": "Aline is a faculty member serving on the hiring committee this week. She teaches on Tuesday and Thursday. She has four other students waiting on feedback. She received an email from Ravi Patel on Monday morning with his thesis chapter attached. She has not yet read it or sent comments.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-27T08:00:00+00:00",
+    "kind": "context",
+    "content": "The faculty deadline for thesis chapter comments is Friday, 2026-07-31. Ravi's email with the chapter was sent on Monday, 2026-07-27. Aline is aware of the deadline and her other commitments.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "ravi_patel": {
+  "id": "ravi_patel",
+  "name": "Ravi Patel",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-07-27T08:00:00+00:00",
+    "kind": "context",
+    "content": "Ravi is a graduate student who emailed his thesis chapter to his supervisor, Dr Aline Mercier, on Monday morning. He hopes to receive comments before the faculty deadline on Friday.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-07-27T08:00:00+00:00",
+    "kind": "context",
+    "content": "The faculty deadline for thesis chapter comments is Friday, 2026-07-31. Ravi's email with the chapter was sent on Monday, 2026-07-27. Aline is aware of the deadline and her other commitments.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

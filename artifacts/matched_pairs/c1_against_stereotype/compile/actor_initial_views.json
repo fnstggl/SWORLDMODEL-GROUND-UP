@@ -1,0 +1,88 @@
+{
+ "ethel_pomeroy": {
+  "id": "ethel_pomeroy",
+  "name": "Ethel Pomeroy",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-09T07:00:00+00:00",
+    "kind": "context",
+    "content": "Ethel is 81, has run Pomeroy's bakery for forty years, and is technically capable. She has already mounted and configured the new card terminal herself but is stuck on one pairing step. She has the vendor's support reference number ready and plans to call the support line when it opens at 8am on Thursday.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-09T07:00:00+00:00",
+    "kind": "context",
+    "content": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "vendor_support_representative": {
+  "id": "vendor_support_representative",
+  "name": "Vendor Support Representative",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-09T07:00:00+00:00",
+    "kind": "context",
+    "content": "The representative works for the card terminal vendor and handles support calls. They have access to the support system and can guide customers through pairing steps.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-09T07:00:00+00:00",
+    "kind": "context",
+    "content": "The vendor's support line opens at 8am on Thursday (2026-09-10). Saturday's market is on 2026-09-12. The terminal is already mounted and configured except for the pairing step.",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will Ethel Pomeroy have the new card terminal working at the bakery before Saturday's market? Ethel is 81 and has run Pomeroy's for forty years. She wrote the stock-control program the shop still runs on, has already mounted and configured the terminal herself, and is stuck on one pairing step; the vendor's support line opens at 8am on Thursday and she has the reference number ready.",
+  "resolution": "Resolve YES only if the persistent event history shows that the card terminal was successfully processing payments (i.e., the pairing step was completed and the terminal was working) before 2026-09-12T07:00:00+01:00 (the start of Saturday's market). Otherwise resolve NO at that time.",
+  "cutoff": "2026-09-12T07:00:00+01:00",
+  "world_id": "w_a3b464cf2fa7"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

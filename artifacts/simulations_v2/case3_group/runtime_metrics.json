@@ -1,0 +1,65 @@
+{
+ "provider_calls": 24,
+ "by_role": {
+  "judge": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 5.78,
+   "input_tokens": 2422,
+   "output_tokens": 196
+  },
+  "world": {
+   "calls": 4,
+   "retries": 0,
+   "wall_s": 6.67,
+   "input_tokens": 8170,
+   "output_tokens": 319
+  },
+  "actor": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 10.97,
+   "input_tokens": 7663,
+   "output_tokens": 537
+  },
+  "continuity": {
+   "calls": 6,
+   "retries": 0,
+   "wall_s": 8.25,
+   "input_tokens": 5153,
+   "output_tokens": 254
+  },
+  "event_review": {
+   "calls": 3,
+   "retries": 0,
+   "wall_s": 4.43,
+   "input_tokens": 3111,
+   "output_tokens": 117
+  },
+  "verifier": {
+   "calls": 1,
+   "retries": 0,
+   "wall_s": 1.34,
+   "input_tokens": 599,
+   "output_tokens": 46
+  }
+ },
+ "total_input_tokens": 27118,
+ "total_output_tokens": 1469,
+ "total_wall_s": 37.44,
+ "status": "cutoff",
+ "answer": {
+  "status": "NO_AT_CUTOFF",
+  "supporting_event_ids": [],
+  "explanation": "The deadline has passed and no committed events show the four housemates collectively agreeing on a host."
+ },
+ "reason": "",
+ "steps": 4,
+ "world_calls": 4,
+ "actor_calls": 6,
+ "judge_calls": 4,
+ "review_calls": 10,
+ "abandoned_turns": 0,
+ "committed_events": 3,
+ "ledger_records": 53
+}

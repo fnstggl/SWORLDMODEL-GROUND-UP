@@ -1,0 +1,8 @@
+{
+ "question": "Will Ethel Pomeroy have the new card terminal working at the bakery before Saturday's market? Ethel is 81 and has run Pomeroy's for forty years. She wrote the stock-control program the shop still runs on, has already mounted and configured the terminal herself, and is stuck on one pairing step; the vendor's support line opens at 8am on Thursday and she has the reference number ready.",
+ "start": "2026-09-09T08:00:00+01:00",
+ "cutoff": "2026-09-12T07:00:00+01:00",
+ "context": null,
+ "evidence": null,
+ "compiler_version": "minimal_scene_v1"
+}

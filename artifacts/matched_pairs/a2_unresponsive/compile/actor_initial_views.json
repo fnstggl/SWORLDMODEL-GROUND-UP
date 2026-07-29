@@ -1,0 +1,88 @@
+{
+ "dana_whitfield": {
+  "id": "dana_whitfield",
+  "name": "Dana Whitfield",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Dana messaged Marcus on Monday morning (2026-09-07) asking him to confirm the hall is held for the 14th. She is unaware that Marcus is avoiding her or that he is on leave.",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Marcus Bell and Dana Whitfield have a history of an argument about invoices. Dana sent a message to Marcus on Monday morning (2026-09-07) regarding venue booking confirmation for the 14th. Marcus is on leave with his phone off until Tuesday (2026-09-08). The deadline for a reply is before Friday (2026-09-11T17:00:00+01:00).",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ },
+ "marcus_bell": {
+  "id": "marcus_bell",
+  "name": "Marcus Bell",
+  "role": "actor",
+  "tz": "UTC",
+  "attention": {
+   "scene": {
+    "calendar": null,
+    "check_every_seconds": null,
+    "basis": "verified",
+    "note": "events declared visible to this actor are directly experienced"
+   }
+  },
+  "goals": [],
+  "values": [],
+  "emotional_state": "",
+  "physical_state": "",
+  "beliefs": {},
+  "relationships": {},
+  "commitments": {},
+  "memories": [
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Marcus has not answered Dana's last four messages. He told a colleague in August that he is avoiding Dana since the argument about the invoices. He is on leave with his phone off until the following Tuesday (2026-09-08).",
+    "source": "scene_manifest:private_context"
+   },
+   {
+    "t": "2026-09-07T08:00:00+00:00",
+    "kind": "context",
+    "content": "Marcus Bell and Dana Whitfield have a history of an argument about invoices. Dana sent a message to Marcus on Monday morning (2026-09-07) regarding venue booking confirmation for the 14th. Marcus is on leave with his phone off until Tuesday (2026-09-08). The deadline for a reply is before Friday (2026-09-11T17:00:00+01:00).",
+    "source": "scene_manifest:shared_context"
+   }
+  ],
+  "plan": "",
+  "reconsider": [],
+  "ongoing_action": null,
+  "last_decision_at": null,
+  "available_info": [],
+  "noticed_info": [],
+  "unprocessed_info": [],
+  "deferred_wakes": []
+ }
+}

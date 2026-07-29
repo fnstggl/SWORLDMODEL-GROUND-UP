@@ -1,0 +1,39 @@
+{
+ "world_id": "w_abb6b1c6ecaa",
+ "actor_ids": {
+  "Marcus Bell": "marcus_bell",
+  "Dana Whitfield": "dana_whitfield"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-09-07T08:00:00+00:00",
+   "visible_to_ids": [
+    "dana_whitfield"
+   ],
+   "description": "Dana Whitfield sends a message to Marcus Bell asking him to confirm the hall is held for the 14th."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "marcus_bell": {
+   "name": "Marcus Bell",
+   "persona_brief": "You are Marcus Bell.\nMarcus has run events with Dana Whitfield for two years. He answers her messages within the hour, has never left one overnight, and is at his desk all week. He received Dana's Monday morning message asking him to confirm the hall is held for the 14th."
+  },
+  "dana_whitfield": {
+   "name": "Dana Whitfield",
+   "persona_brief": "You are Dana Whitfield.\nDana has run events with Marcus Bell for two years. She messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. She expects a reply within the hour based on past experience."
+  }
+ },
+ "resolution": {
+  "question": "Will Marcus Bell reply to Dana Whitfield about the venue booking before Friday? Dana messaged Marcus on Monday morning asking him to confirm the hall is held for the 14th. Marcus and Dana have run events together for two years; Marcus answers her messages within the hour, has never left one overnight, and is at his desk all week.",
+  "resolution": "Resolve YES only if the persistent event history shows that Marcus Bell actually sent a reply to Dana Whitfield confirming the hall is held for the 14th before Friday 2026-09-11T17:00:00+01:00. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2026-09-11T17:00:00+01:00",
+  "world_id": "w_abb6b1c6ecaa"
+ }
+}

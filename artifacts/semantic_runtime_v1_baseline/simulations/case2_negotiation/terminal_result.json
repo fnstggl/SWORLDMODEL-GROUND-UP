@@ -1,0 +1,30 @@
+{
+ "question": "Will Priya Raghavan and Dmitri Sokolov agree on a price for the used kiln before Priya's workshop lease renewal on the 20th? Priya has offered 900 and Dmitri is asking 1400; both would rather close than keep looking.",
+ "trajectory": {
+  "status": "resolved",
+  "answer": {
+   "status": "YES",
+   "supporting_event_ids": [
+    "e117",
+    "e131",
+    "e179"
+   ],
+   "explanation": "Dmitri saw Priya's offer of 1100 (e117) and accepted it (e131), and Priya saw that acceptance (e179), forming an agreement before the deadline."
+  },
+  "reason": "",
+  "steps": 33,
+  "world_calls": 26,
+  "actor_calls": 21,
+  "judge_calls": 19
+ },
+ "answer": {
+  "status": "YES",
+  "supporting_event_ids": [
+   "e117",
+   "e131",
+   "e179"
+  ],
+  "explanation": "Dmitri saw Priya's offer of 1100 (e117) and accepted it (e131), and Priya saw that acceptance (e179), forming an agreement before the deadline."
+ },
+ "reason": ""
+}
