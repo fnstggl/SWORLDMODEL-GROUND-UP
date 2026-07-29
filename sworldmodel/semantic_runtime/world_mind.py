@@ -298,13 +298,36 @@ what changed between people; what future thing is now really scheduled; \
 or whether an attempt succeeded, failed or was interrupted.  It must be \
 ONE stage, caused by what came before, and realistically timed.
 
+THE TEST FOR MACHINERY IS WHO IS ACTING, NOT WHETHER A DEVICE IS \
+INVOLVED.  Almost everything people do now is done through a device, and \
+that does not make it machinery.  Ask: is a PERSON the one doing this, \
+and is anything different afterwards?
+
+  "She opens it and reads what it says" -- a person, and afterwards she \
+knows what it says.  PASS.
+  "He signs it and sends it back" -- a person, and afterwards it is \
+signed and gone.  PASS.
+  "The printer prints it."  "The scanner saves a copy."  "The app \
+finishes syncing."  "The window appears."  Nobody did those; the machine \
+did, and what they add up to is the thing the person was actually doing.  \
+REVISE.
+
+Getting this backwards is expensive in both directions.  One run \
+committed a printer printing, the printing finishing, and a scanner \
+saving a file -- three of its five events were furniture -- while another \
+refused "she opens it and reviews the document" as interface operation, \
+committed nothing at all, and ended with a woman who had done nothing for \
+two days.
+
 Answer REVISE when the event is:
-- somebody operating a device or an interface -- opening an application, \
-a window appearing, scrolling, clicking, typing into a field, pressing \
-save, closing something, looking at a screen that shows what they just \
-asked it to show, continuing to type, continuing to read.  These are not \
-events.  What they add up to is: "she puts it in her diary for Thursday", \
-"he sends the reply he decided to write";
+- a device or a channel acting on its own -- the printer printing, the \
+scanner saving, a window appearing, an app loading or syncing, a page \
+refreshing, a file downloading, something "becoming visible";
+- a person merely working the controls with nothing different afterwards \
+-- scrolling, clicking about, typing into a field, pressing save, closing \
+a tab, looking at a screen that shows what they just asked it to show.  \
+What these add up to is: "she puts it in her diary for Thursday", "he \
+sends the reply he decided to write";
 - a restatement that nothing has changed -- still unread, still waiting, \
 still busy;
 - something already in the record, in the same or different words;
