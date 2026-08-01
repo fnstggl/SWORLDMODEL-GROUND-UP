@@ -75,8 +75,17 @@ def build_view(world, journal: Journal, actor_id: str, *,
     # They still know they did it: their own attempt is rendered below,
     # from their own call records.  What is withheld is the world's
     # description of the far end.
+    #
+    # ``authored_by``, not just membership of ``for``.  The withholding
+    # used to rest entirely on the sender not being in the audience -- and
+    # the audience is written by the world, which puts both ends of a
+    # thread in it routinely and breaks no rule by doing so.  When that
+    # happened the leak was wide open again: the guard has to turn on how
+    # the person came to know the thing, which is code's own record, not
+    # on a list the model writes.
     observed = [e for e in journal.observed_by(actor_id)
-                if actor_id in e["for"]]
+                if actor_id in e["for"]
+                and actor_id not in (e.get("authored_by") or [])]
     memories = [{"t": m.t.isoformat(), "kind": m.kind, "content": m.content}
                 for m in st.memories if m.kind == "private"]
     # What this person has already decided and attempted, read from their

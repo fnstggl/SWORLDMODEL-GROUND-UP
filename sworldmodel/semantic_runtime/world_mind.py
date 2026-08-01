@@ -62,12 +62,28 @@ _NUMBERS = re.compile(r"\d+|\b(?:first|second|third|fourth|fifth|sixth|"
 _NAME = re.compile(r"\b([A-Z][a-z]{2,})\b")
 
 
+#: Whether the sentence says a thing happened or says it did not.  A bag
+#: of sorted tokens cannot see this at all: "he can host" against "he
+#: cannot host" scores 0.96, "the booking is going ahead" against "is not
+#: going ahead" 0.95 -- and in every such pair the one that would be
+#: deleted is the decisive act of the scene.  A negation is a fact about
+#: what happened, so it disqualifies a match exactly as a number does.
+_NEGATION = re.compile(
+    r"\b(?:not|n't|no|never|cannot|can't|won't|wouldn't|couldn't|didn't|"
+    r"doesn't|isn't|aren't|wasn't|weren't|hasn't|haven't|without|unable|"
+    r"fails?|failed|refuses?|refused|declines?|declined|denies|denied|"
+    r"cancels?|cancelled|canceled|unsuccessful|neither|nor)\b", re.I)
+
+
 def _facts(text: str) -> tuple:
-    """The parts of a description that are not wording: who is named, and
-    what quantities appear.  These are what an act is ABOUT; the rest is
-    how it happened to be phrased that time."""
-    return (sorted(m.group().casefold() for m in _NUMBERS.finditer(text or "")),
-            sorted({m.group(1).casefold() for m in _NAME.finditer(text or "")}))
+    """The parts of a description that are not wording: who is named, what
+    quantities appear, and whether it is saying yes or no.  These are what
+    an act is ABOUT; the rest is how it happened to be phrased that time."""
+    t = text or ""
+    return (sorted(m.group().casefold() for m in _NUMBERS.finditer(t)),
+            sorted({m.group(1).casefold() for m in _NAME.finditer(t)}),
+            sorted({m.group().casefold().replace("'", "")
+                    for m in _NEGATION.finditer(t)}))
 
 
 def says_the_same_thing(a: str, b: str) -> bool:
@@ -334,6 +350,12 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
             # "Dana asks Marcus to confirm" with "Marcus replies
             # confirming" -- two different people, one of them the
             # decisive act of the scene.
+            # ... and RECENTLY.  Doing the same thing again days later is
+            # not a repeat, it is doing it again -- chasing, ringing back,
+            # asking a second time.  With no time bound this rule deleted
+            # exactly that, cancelling out the reviewer change that had
+            # just stopped a reviewer refusing it.  The caller supplies
+            # which of the record is near enough to still be the same act.
             here = (env.get("by"), tuple(env["for"]),
                     contained(env["description"]))
             same = next((d for d in already_committed

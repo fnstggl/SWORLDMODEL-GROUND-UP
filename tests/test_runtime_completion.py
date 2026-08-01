@@ -522,9 +522,11 @@ def test_whether_a_no_is_reachable_does_not_depend_on_arithmetic():
                 return t
             if "You are the world" in system:
                 return json.dumps({
-                    "judgment": "she checks again", "event": None,
+                    "judgment": "they each check again", "event": None,
                     "wakes": [{"actor": "ada_vance", "after": iv,
-                               "reason": "she said she would"}]}), {}
+                               "reason": "she said she would"},
+                              {"actor": "bo_ferrer", "after": iv,
+                               "reason": "he said he would"}]}), {}
             return json.dumps(NOTHING), {}
 
         _, _, traj = run(transport, steps=40)
@@ -533,6 +535,68 @@ def test_whether_a_no_is_reachable_does_not_depend_on_arithmetic():
         f"the answer depends on the wake interval rather than on the "
         f"world: {seen}")
     assert set(seen.values()) == {("cutoff", "NO_AT_CUTOFF")}, seen
+
+
+def test_one_persons_monday_is_not_everybodys_horizon():
+    """NO over a window is a claim that nothing happened to ANYONE in it.
+
+    One actor saying "I'll look on Monday" is a fact about that actor. Read
+    as a statement about the window it advanced the clock across an unlived
+    fortnight on the strength of a single wake request -- exactly the thing
+    the empty-queue rule exists to stop, arriving by another door.
+    """
+    def only_ada_is_finished(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            return json.dumps({
+                "judgment": "she will look after the deadline.",
+                "event": None,
+                "wakes": [{"actor": "ada_vance", "after": "20 days",
+                           "reason": "she said she would look then"}]}), {}
+        return json.dumps(NOTHING), {}
+
+    _, _, traj = run(only_ada_is_finished, steps=30)
+    assert traj.status == "incomplete_empty_queue", traj.status
+    assert (traj.answer or {}).get("status") != "NO_AT_CUTOFF"
+
+
+def test_a_duration_is_not_a_statement_about_the_window():
+    """A `lasts` running past the deadline made NO available in one step.
+
+    Code -- not the world, not an actor -- computes the instant an action
+    ends and schedules the free-wake there. When that landed past the
+    cutoff it was read as somebody saying nothing more would happen. With
+    everything else held fixed, a `lasts` of 7h58m answered incomplete and
+    8h answered NO: the run that lived 99.8% of its window was refused a
+    NO and the run that lived 0.2% gave one.
+    """
+    def one_long_act(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "attempts" in user:
+                return json.dumps({
+                    "judgment": "she settles in to it.",
+                    "event": {"description": "Ada works on her own thing.",
+                              "for": ["ada_vance"], "observed": True,
+                              "after": "1 minutes", "by": "ada_vance",
+                              "lasts": "20 days"},
+                    "wakes": []}), {}
+            return json.dumps({"judgment": "nothing follows.", "event": None,
+                               "wakes": []}), {}
+        if "ada_vance" in user:
+            return json.dumps({"decision": "I get on with it.",
+                               "intentions": ["work on my own thing"],
+                               "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, _, traj = run(one_long_act, steps=30)
+    assert traj.status.startswith("incomplete"), traj.status
+    assert (traj.answer or {}).get("status") != "NO_AT_CUTOFF", \
+        "a NO was read off one person's stated duration"
 
 
 def test_a_turns_attempts_resolve_in_the_order_they_were_stated():
@@ -987,23 +1051,45 @@ def test_a_known_future_past_the_deadline_is_the_horizon_however_it_is_said():
     happens next and none of it lands inside the window. One of them could
     answer NO and the other could not, purely because the beyond-cutoff
     signal was recorded for wakes and thrown away for events."""
-    def world_says_after_the_deadline(system, user):
+    def as_events(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if " attempts:" not in user:
+                return json.dumps({"judgment": "nothing yet.", "event": None,
+                                   "wakes": []}), {}
+            who = ("bo_ferrer" if "bo_ferrer attempts:" in user
+                   else "ada_vance")
+            return json.dumps({
+                "judgment": "they get to it after the deadline.",
+                "event": {"description": f"{who} turns to it.",
+                          "for": [who], "observed": False,
+                          "after": "20 days", "by": who,
+                          "lasts": "10 minutes"},
+                "wakes": []}), {}
+        return json.dumps({"decision": "I will get to it.",
+                           "intentions": ["turn to it"],
+                           "private_updates": []}), {}
+
+    def as_wakes(system, user):
         t = terminal_roles(user, system)
         if t:
             return t
         if "You are the world" in system:
             return json.dumps({
-                "judgment": "he gets to it well after the deadline.",
-                "event": {"description": "Bo turns to Ada's message.",
-                          "for": ["ada_vance"], "observed": False,
-                          "after": "20 days", "by": "bo_ferrer",
-                          "lasts": "10 minutes"},
-                "wakes": []}), {}
+                "judgment": "they each get to it after the deadline.",
+                "event": None,
+                "wakes": [{"actor": a, "after": "20 days",
+                           "reason": "they said they would look then"}
+                          for a in ("ada_vance", "bo_ferrer")]}), {}
         return json.dumps(NOTHING), {}
 
-    _, _, traj = run(world_says_after_the_deadline, steps=30)
-    assert traj.status == "cutoff", traj.status
-    assert (traj.answer or {}).get("status") == "NO_AT_CUTOFF"
+    outcomes = set()
+    for transport in (as_events, as_wakes):
+        _, _, traj = run(transport, steps=30)
+        outcomes.add((traj.status, (traj.answer or {}).get("status")))
+    assert outcomes == {("cutoff", "NO_AT_CUTOFF")}, outcomes
 
 
 def test_chasing_is_not_something_a_reviewer_may_refuse():
@@ -1030,3 +1116,259 @@ def test_chasing_is_not_something_a_reviewer_may_refuse():
         not in CONTINUITY_SYSTEM
     # ... and what they were protecting is still protected
     assert "already succeeded" in CONTINUITY_SYSTEM
+
+
+# ------------------------------------------------- what two adversarial
+# reviewers broke, and what stops it now
+
+
+def test_waiting_for_an_act_is_not_doing_it():
+    """Occupancy ran from now to start+duration, so a woman who would post
+    a letter on Wednesday was busy from Monday. Every act in between was
+    pushed to Wednesday, and any that then fell past the cutoff was
+    destroyed -- including, in the reviewer's demonstration, the reply that
+    would have answered the question.
+
+    `after` is a wait and `lasts` is the work. The occupancy is
+    [start, start+lasts), and the only question is whether a new act would
+    BEGIN inside it.
+    """
+    state = {"n": 0}
+
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if " attempts:" not in user:
+                return json.dumps({"judgment": "the scene begins.",
+                                   "event": None, "wakes": []}), {}
+            state["n"] += 1
+            if state["n"] == 1:
+                return json.dumps({
+                    "judgment": "she will post it on Wednesday.",
+                    "event": {"description": "Ada posts the papers.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "2 days", "by": "ada_vance",
+                              "lasts": "2 minutes"}, "wakes": []}), {}
+            if state["n"] == 2:
+                return json.dumps({
+                    "judgment": "and she rings him now.",
+                    "event": {"description": "Ada rings Bo about it.",
+                              "for": ["bo_ferrer"], "observed": True,
+                              "after": "0 seconds", "by": "ada_vance",
+                              "lasts": "2 minutes"}, "wakes": []}), {}
+            return json.dumps({"judgment": "nothing further.",
+                               "event": None, "wakes": []}), {}
+        if "ada_vance" in user and state["n"] == 0:
+            return json.dumps({
+                "decision": "Both.", "intentions": ["post the papers",
+                                                    "ring Bo about it"],
+                "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, _ = run(transport, steps=25)
+    by_desc = {e["description"]: parse_iso(e["t"]) for e in journal.events()}
+    assert "Ada rings Bo about it." in by_desc, \
+        "the immediate act was pushed out behind a two-day wait and deleted"
+    assert (by_desc["Ada rings Bo about it."]
+            - parse_iso(START)).total_seconds() < 3600
+
+
+def test_a_repeat_days_later_is_chasing_not_a_duplicate():
+    """The duplicate rule had no time bound, so doing the same thing again
+    four days later was dropped end to end -- which cancels out the change
+    that just stopped a reviewer refusing exactly that."""
+    from sworldmodel.semantic_runtime.world_mind import make_world_validator
+    said = ("ada_vance", ("bo_ferrer",), "Ada messages Bo asking about it.")
+    body = {"judgment": "again", "event": {
+        "description": "Ada messages Bo asking about it.",
+        "for": ["bo_ferrer"], "observed": False, "after": "0 seconds",
+        "by": "ada_vance", "lasts": "1 minutes"}, "wakes": []}
+    # within the hour it is the same act said twice ...
+    near = make_world_validator({"ada_vance", "bo_ferrer"},
+                                already_committed=frozenset({said}))
+    assert near(json.loads(json.dumps(body)))["event_checked"] is None
+    # ... and the runtime only ever offers it what is recent
+    far = make_world_validator({"ada_vance", "bo_ferrer"},
+                               already_committed=frozenset())
+    assert far(json.loads(json.dumps(body)))["event_checked"]
+
+
+def test_saying_a_thing_did_not_happen_is_not_saying_it_did():
+    """A sorted bag of tokens cannot see a negation: "he can host" against
+    "he cannot host" scores 0.96. In every such pair the act that would be
+    deleted is the decisive one."""
+    from sworldmodel.semantic_runtime.world_mind import says_the_same_thing
+    for yes, no in [
+            ("Tomas says he can host the dinner.",
+             "Tomas says he cannot host the dinner."),
+            ("The booking is going ahead.",
+             "The booking is not going ahead."),
+            ("Bo accepts the offer.", "Bo does not accept the offer."),
+            ("Ada reaches him on the line.",
+             "Ada fails to reach him on the line.")]:
+        assert not says_the_same_thing(yes, no), (yes, no)
+    # ... and a genuine reword is still one act
+    assert says_the_same_thing("Ada rings Bo about the papers.",
+                               "Ada rings Bo about the papers again.")
+
+
+def test_an_act_with_no_stated_doer_still_occupies_the_person_who_did_it():
+    """Leaving `by` null switched occupancy off entirely, while code went
+    on stamping the same event as that person's own doing. The second act
+    began two minutes into a thirty-minute call and the ledger could not be
+    audited for it."""
+    state = {"n": 0}
+
+    def no_doer(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if " attempts:" not in user:
+                return json.dumps({"judgment": "the scene begins.",
+                                   "event": None, "wakes": []}), {}
+            state["n"] += 1
+            if state["n"] == 1:
+                return json.dumps({
+                    "judgment": "she gets him on the line.",
+                    "event": {"description": "Ada talks to Bo on the line.",
+                              "for": ["bo_ferrer"], "observed": True,
+                              "after": "0 seconds", "by": None,
+                              "lasts": "30 minutes"}, "wakes": []}), {}
+            if state["n"] == 2:
+                return json.dumps({
+                    "judgment": "and the papers go out.",
+                    "event": {"description": "Ada posts the papers.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "2 minutes", "by": None,
+                              "lasts": "0 seconds"}, "wakes": []}), {}
+            return json.dumps({"judgment": "nothing further.",
+                               "event": None, "wakes": []}), {}
+        if "ada_vance" in user and state["n"] == 0:
+            return json.dumps({
+                "decision": "Both.",
+                "intentions": ["talk to Bo on the line", "post the papers"],
+                "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, _ = run(no_doer, steps=25)
+    by_desc = {e["description"]: e for e in journal.events()}
+    talk = by_desc["Ada talks to Bo on the line."]
+    assert talk["by"] == "ada_vance", "the ledger cannot say who did it"
+    post = by_desc.get("Ada posts the papers.")
+    assert post is not None
+    assert (parse_iso(post["t"]) - parse_iso(talk["t"])).total_seconds() \
+        >= 30 * 60
+
+
+def test_the_world_may_not_run_on_forever_by_teaching_nobody_anything():
+    """The bound on how long the world may go without consulting anybody
+    cleared itself on the way in, whether or not it consulted anyone -- and
+    the only people it ever consulted were ones who had never been asked at
+    all. Measured on the shipped code: 54 consecutive world adjudications
+    against a limit of 6."""
+    from sworldmodel.semantic_runtime.trajectory import MAX_WORLD_RUN
+    n = {"i": 0}
+
+    def busy_world_that_teaches_nobody(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            n["i"] += 1
+            return json.dumps({
+                "judgment": "the situation moves on its own.",
+                "event": {"description": f"Something shifts, step {n['i']}.",
+                          "for": ["ada_vance"], "observed": False,
+                          "after": "3 minutes", "by": None,
+                          "lasts": "0 seconds"}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    trace = Trace()
+    world, journal, bindings = build()
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(
+                       busy_world_that_teaches_nobody)),
+                   max_steps=40, trace=trace)
+    # longest stretch of world judgments with no actor turn between them
+    order = [e["kind"] for e in trace.entries
+             if e["kind"] in ("world_judgment", "actor_decision")]
+    longest = run_len = 0
+    for k in order:
+        run_len = run_len + 1 if k == "world_judgment" else 0
+        longest = max(longest, run_len)
+    assert longest <= MAX_WORLD_RUN + 2, longest
+
+
+def test_a_contested_answer_cannot_be_proposed_again_unchanged():
+    """Disagreement left no trace: the judge was re-asked on the next step
+    that committed ANY event, and the identical claim could be put again
+    until the second reading happened to agree. A byte-identical YES was
+    accepted on its third outing over a record whose only additions were
+    irrelevant to it."""
+    import re as _re
+    state = {"n": 0}
+
+    def judge_insists_verifier_refuses(system, user):
+        if "read-only outcome judge" in system:
+            # the SAME claim every time: the first committed event
+            first = _re.findall(r"- (e\d+) \[", user)[:1]
+            return json.dumps({"status": "YES" if first else "UNRESOLVED",
+                               "supporting_event_ids": first,
+                               "explanation": "it is done"}), {}
+        if "whether a stated condition has been met" in system:
+            return json.dumps({"status": "UNRESOLVED",
+                               "supporting_event_ids": [],
+                               "explanation": "I see nothing of the sort"}), {}
+        if "whether what this person just said follows" in system:
+            return json.dumps({"verdict": "PASS", "reason": "fine"}), {}
+        if "You are the world" in system:
+            state["n"] += 1
+            return json.dumps({
+                "judgment": "something small happens.",
+                "event": {"description": f"A small thing, {state['n']}.",
+                          "for": ["ada_vance"], "observed": False,
+                          "after": "5 minutes", "by": None,
+                          "lasts": "0 seconds"}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    trace = Trace()
+    world, journal, bindings = build()
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(
+                              transport=judge_insists_verifier_refuses),
+                          max_steps=25, trace=trace)
+    assert traj.status != "resolved", "a refused YES was accepted on a retry"
+    # the identical claim is refused without spending a second reading
+    assert trace.of("claim_already_refuted"), \
+        "the same claim on the same evidence was put to the verifier again"
+
+
+def test_an_act_the_world_proposed_and_code_destroyed_is_in_the_ledger():
+    """Three of the four ways an adjudicated act is destroyed wrote only to
+    the trace. The ledger is the authoritative artifact and the digest is
+    taken over it, so an auditor could not discover that an act had been
+    proposed and destroyed -- which is what has to be visible when a NO is
+    claimed over its absence."""
+    def repeats_itself(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            return json.dumps({
+                "judgment": "the same thing again.",
+                "event": {"description": "Ada messages Bo about the hall.",
+                          "for": ["bo_ferrer"], "observed": False,
+                          "after": "1 minutes", "by": "ada_vance",
+                          "lasts": "1 minutes"}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    world, _, _ = run(repeats_itself, steps=20)
+    refusals = [r["data"] for r in world.records
+                if r["op"] == "semantic.world_call"
+                and r["data"].get("refused_event")]
+    assert refusals, "an act was proposed and destroyed with no ledger record"
+    assert refusals[0]["refused_because"]
+    assert refusals[0]["refused_event"]["description"]

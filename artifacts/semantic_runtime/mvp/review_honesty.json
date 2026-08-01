@@ -1,0 +1,149 @@
+{
+ "what_this_is": "Hostile read-only review of the answer-honesty rules R1-R6 against sworldmodel/semantic_runtime at ebeacf9 (codex/world-realistic-simulation-mvp). Every verdict below is backed by a standalone scripted-transport script and its real output. No live provider was called. Scripts live in /tmp/claude-0/-home-user-SWORLDMODEL-GROUND-UP/d6ed917c-38bc-56aa-a050-80f5be912f4e/scratchpad/ (a1..a11 + harness.py, combined output in ALL_OUTPUT.txt) and are reproduced verbatim in the demonstrations below. The shipped test suite was not used as evidence for anything.",
+ "rules": {
+  "R1": {
+   "verdict": "BROKEN",
+   "evidence": "script a1_own_act_finished_no.py -- an eight-hour window (09:00 -> 17:00). The world's only answer is one ordinary event: 'Bo boards the Lisbon flight and the doors close.' with lasts='11 hours'. Output: 'status : cutoff / answer : NO_AT_CUTOFF / steps : 1 / clock at end: 2026-07-27T22:00:00+00:00' with 'queue at end: []'. The queue was empty at 09:01; 7h59m of the window was never simulated; the run reports the deadline as having passed. The only thing that made NO available is the trace line 'wake_beyond_cutoff ... provenance: own_act_finished' -- a wake CODE schedules from the `lasts` field, at trajectory.py:520-525, which sets intends_after_cutoff at trajectory.py:255. a11_A_via_actor_intention.py reproduces it on the fully guarded actor_intention path with ADA's ten-hour task, i.e. the person the question is not about: 'status : cutoff / answer : NO_AT_CUTOFF / steps : 1', 'bo consulted: 1'. a1b_counterfactual.py isolates the cause -- only `lasts` changes: 7h58m -> incomplete_empty_queue/UNRESOLVED, 8h -> cutoff/NO_AT_CUTOFF. A run that lived 7h58m of the 8h window is refused a NO; a run that lived 1 minute of it answers NO. a9_zero_step_no.py G2 reaches the same status with steps=0 over a fortnight, and G1 shows nothing is ever scheduled past the cutoff on any path (0 of 6 scheduled records), so `ev is not None` in the horizon test at trajectory.py:1050 is unreachable and reached_horizon IS intends_after_cutoff."
+  },
+  "R2": {
+   "verdict": "BROKEN",
+   "evidence": "The explicit guard is sound and unbypassable: a7_r2_r3_r5_checks.py drives a judge that answers NO_AT_CUTOFF at every opportunity into all three truncation statuses and gets 'step limit status=failed', 'call limit status=failed', 'empty queue status=failed' -- resolution.make_validator(truncated=True) refuses the NO twice and the run dies rather than answering. But R2's own list includes 'empty queue', and the runs in a1/a2/a3(C2)/a9(G2)/a11 all end with an EMPTY QUEUE before the cutoff and return NO_AT_CUTOFF. They do so because trajectory.py:1050 classifies them `cutoff` rather than incomplete_empty_queue, so `truncated` is False and the guard never engages. The rule is broken upstream of the thing that enforces it."
+  },
+  "R3": {
+   "verdict": "HOLDS",
+   "evidence": "Citations are enforced in code and could not be faked. a7_r2_r3_r5_checks.py scripts a judge that cites 'e999': the call is rejected twice ('ResolutionError: cited event e999 does not exist in the committed journal') and the run ends 'failed' rather than claiming anything. Every YES I could produce (a6, a9 G3, a10 H1) cited an id present in journal.events(). Events destroyed before commit (occupancy-displaced, duplicate, restatement) never receive an event_id, so they cannot be cited. TWO FINDINGS ATTACK THE VALUE OF THIS GUARANTEE WITHOUT VIOLATING ITS LETTER and are filed under R3 anyway: `world_authors_a_choice_by_leaving_by_null` (a10 H1: status=resolved, YES on 'Bo reads Ada's proposal, decides it is worth doing and emails her back agreeing to it', with 'times Bo's own model was consulted: 0'), and `authorship_reads_as_observation` (a8 F2: the judge is told '- e27 ... Bo writes back to Ada agreeing to the proposal. | observed by bo_ferrer' for an event whose audience is ada_vance and which ada_vance has not observed -- the audience is not printed at all)."
+  },
+  "R4": {
+   "verdict": "BROKEN",
+   "evidence": "script a9_zero_step_no.py G3 -- the judge proposes the BYTE-IDENTICAL claim {\"explanation\": \"Bo replied to Ada\", \"status\": \"YES\", \"supporting_event_ids\": [\"e19\"]} three times; the verifier answers UNRESOLVED, UNRESOLVED, then YES; output 'status = resolved | answer = {...YES... e19}' and 'disagreements before acceptance: 2'. a6_judge_verifier_retry.py shows the same with the ledger: seq=12 YES / seq=13 UNRESOLVED, seq=23 YES / seq=24 UNRESOLVED, seq=35 YES / seq=36 YES -> status resolved. Mid-run disagreement produces status 'running', not 'disagreement' (trajectory.py:890-896 returns UNRESOLVED and the loop continues), nothing remembers that a claim was contested, and there is no bound on re-proposal: the candidate is re-put on every step that commits any event, however irrelevant. Only the FINAL judgment converts disagreement into the `disagreement` status."
+  },
+  "R5": {
+   "verdict": "HOLDS",
+   "evidence": "script a8_followups.py F1 -- the resolution carries the canary ZZQX-RESOLUTION-CANARY-4417 through a run that reaches the horizon so all five roles are called: 'roles called: {actor: 5, continuity: 5, judge: 4, world: 3, verifier: 1}', 'roles whose prompt held the canary: {judge, verifier}', 'canary in ledger: False'. Confirmed by reading: `resolution` is a local parameter of run_trajectory and is passed only to resolution_mod.judge_user_prompt (trajectory.py:857) and verifier_user_prompt (trajectory.py:902); adapter.CONSUMED_FIELDS excludes it; the fact keys the world prompt reads are scene:shared_context only; wake `reason` strings never enter an actor view; the per-call retry echo (llm.py:157-161) stays inside the same call and therefore the same role."
+  },
+  "R6": {
+   "verdict": "BROKEN",
+   "evidence": "script a4_sender_learns_far_end.py -- the world answers Ada's attempt with one event, 'Ada's message reaches Bo's phone, which is face down on his desk; he does not look at it all afternoon.', by=ada_vance, for=[ada_vance, bo_ferrer], observed=false. did_it grants Ada observation by authorship (trajectory.py:1135-1141, journal.mark_observed(by_own_doing=True)), views.py:78-79 withholds the far end only by requiring `actor_id in e[\"for\"]` -- and `for` is written by the world. Ada's next prompt (call c7, printed in full in the output) contains under 'WHAT YOU HAVE ACTUALLY OBSERVED': '- 2026-07-27T14:01:00+00:00 (Monday): Ada's message reaches Bo's phone, which is face down on his desk; he does not look at it all afternoon.' The sender is told, as observed fact, that the other end did not look. Second, independent break: a5_busy_until_is_the_future.py -- at 14:30 Ada's prompt says 'You are occupied until 2026-07-27T17:00:00+00:00' while her observed list holds only the starting event; the occupying event is committed at 16:00, ninety minutes LATER. She is told the end-instant of an action that has not begun, from the scheduler's queue (trajectory.py:511 sets busy_until at schedule time, :574 hands it to build_view)."
+  }
+ },
+ "findings": [
+  {
+   "id": "no_from_a_duration",
+   "severity": "CRITICAL",
+   "rule": "R1",
+   "title": "A `lasts` that runs past the deadline makes NO available on an empty queue",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:520",
+   "what_is_wrong": "When an event is scheduled, code computes ends = due + lasts and schedules an `own_act_finished` wake at that instant (trajectory.py:509-525). If `ends` falls past the cutoff, _schedule_wake takes the beyond-cutoff branch and sets intends_after_cutoff (trajectory.py:246-256). trajectory.py:1050 then treats the run as having reached the horizon, finish() advances the clock to the cutoff and the judge is asked final=True, so NO_AT_CUTOFF is available. Nothing about that wake is evidence about the future: nobody proposed it, the world did not say it, and it is not a statement about the window -- it is arithmetic on one person's duration. Worse, G1 in a9 shows nothing is ever scheduled past the cutoff by any of the three scheduling call sites, so `ev is not None` at trajectory.py:1050 is unreachable and this flag is the ONLY door out of incomplete_empty_queue. R2 falls with it: the empty-queue run is never labelled truncated, so the truncated=True guard in resolution.make_validator never engages.",
+   "demonstration": "a1_own_act_finished_no.py: eight-hour window, one world event 'Bo boards the Lisbon flight and the doors close.' lasts='11 hours'. Output: status=cutoff, answer=NO_AT_CUTOFF, steps=1, queue at end=[], trace 'wake_beyond_cutoff ... provenance: own_act_finished, due 2026-07-28T01:01'. a11_A_via_actor_intention.py: the same on the guarded actor_intention path, with the long task belonging to ADA while the question is about BO ('bo consulted: 1'). a1b_counterfactual.py, only `lasts` varying: 7h58m -> incomplete_empty_queue/UNRESOLVED; 8h -> cutoff/NO_AT_CUTOFF. The run that lived 99.8% of its window is refused a NO and the run that lived 0.2% of it gives one.",
+   "smallest_fix": "Make _schedule_wake's beyond-cutoff branch provenance-aware: only a wake somebody actually asked for is evidence. Pass the provenance into the branch and set intends_after_cutoff only for 'actor_plan' and 'world_process' -- never for 'own_act_finished', which code invented. (The occupancy wake still needs to be dropped when it lands past the cutoff; it just must not be read as a statement about the window.)"
+  },
+  {
+   "id": "occupancy_deletes_the_answering_act_and_calls_it_the_horizon",
+   "severity": "HIGH",
+   "rule": "R1",
+   "title": "busy_until pushes a world-adjudicated in-window event past the cutoff; the event is deleted and the deletion becomes horizon evidence",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:471",
+   "what_is_wrong": "world_step schedules at due = now + after, then raises due to busy_until[doer] (trajectory.py:471-477) and to the intra-turn ordering floor (:486-490). If the raised due exceeds the cutoff the event is not scheduled at all (:491), and the else branch notes `event_beyond_cutoff` and sets intends_after_cutoff (:534-536). That branch is documented as 'the world has said what happens next and it happens after the question closes' -- but here the world said it happens INSIDE the window and code moved it. So code overrides the world's answer with its own arithmetic, destroys the act, and then reads its own destruction as the world's statement that nothing more happens before the deadline. The destroyed act is precisely the one that would have answered the question.",
+   "demonstration": "a2_occupancy_deletes_the_answer.py: Bo boards an 11-hour flight at 09:01; Bo then attempts 'Email Ada that I accept her proposal'; the world adjudicates 'Bo emails Ada that he accepts her proposal.' with after='2 minutes' (09:03, inside the 17:00 window). Output: trace 'event_beyond_cutoff ... due 2026-07-28T01:01 ... Bo emails Ada that he accepts her proposal', committed events contain no such event, and 'status = cutoff | answer = NO_AT_CUTOFF'. a8_followups.py F3 adds that the destruction is invisible to any auditor: \"'Bo emails Ada' anywhere in the ledger : False\", 'ops mentioning the dropped act: []' -- only the prose judgment 'He gets it away.' survives, in semantic.world_call.",
+   "smallest_fix": "Split the two cases at trajectory.py:491. If `now + after` was inside the window and only occupancy/ordering moved it out, that is code rescheduling, not the world speaking: do not set intends_after_cutoff there. Set it only when the world's own `after` already placed the event past the cutoff."
+  },
+  {
+   "id": "elapsed_world_hands_out_the_horizon",
+   "severity": "HIGH",
+   "rule": "R1",
+   "title": "The world's own turn, taken across time nobody lived, can make NO available",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:1080",
+   "what_is_wrong": "The `elapsed_world` trigger asks the world what happened in a gap of >= 1h. Its answer goes through the same world_step, so an event it places past the cutoff (:534-536) or a wake it requests past the cutoff (:246-256) sets intends_after_cutoff. The question asked is about a specific gap; the answer is allowed to be about a date far outside the window, and that answer alone then licenses NO for the whole window. Note also what the trigger text tells the world: it interpolates iso(ev.t), the exact instant of the next queued event, so the adjudicator is handed the scheduler's future.",
+   "demonstration": "a3_elapsed_world.py. C1 (control): with an empty queue the trigger is unreachable -- it sits after the `ev is None` break -- 'status=incomplete_empty_queue, elapsed_world_calls=0'. C2: one world_process wake three hours out creates the gap; the world's own turn answers with 'The auditors' notice goes out to the whole firm.' after='20 days'. Output: 'status=cutoff answer=NO_AT_CUTOFF ... elapsed_world_calls=1', event_beyond_cutoff due 2026-08-16, 'committed events: [Ada sends Bo her proposal.]', 'queue at end: []'. One committed event, three hours of a fortnight lived, and the answer is NO.",
+   "smallest_fix": "Do not let the world's own turn contribute horizon evidence: pass a flag through world_step so that on trigger_kind == 'elapsed_world' the beyond-cutoff branches note and drop without setting intends_after_cutoff. It is asked about a gap, not about the window."
+  },
+  {
+   "id": "world_authors_a_choice_by_leaving_by_null",
+   "severity": "CRITICAL",
+   "rule": "R3",
+   "title": "The identity guard is a null-check, and the world's own turn requires the null",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:432",
+   "what_is_wrong": "`chooser = (by if by and by != adjudicating_for else None)` hands an event back only when the world VOLUNTEERS a doer who is not the adjudicated actor. An event whose description says a named person read, decided and acted, but whose `by` is null, passes untouched and commits. On the new `elapsed_world` turn this is not merely possible: adjudicating_for is None there by construction, so the guard requires `by` to be null for anything to commit at all -- the guard therefore admits exactly the shape it cannot inspect, and the code comment claiming 'that is exactly when the guard matters most' is inverted. A YES then rests on a decision no actor ever took: R3's letter holds (the event is in the ledger) but the property it exists to protect does not.",
+   "demonstration": "a10_by_null_and_duplicates.py H1: during the world's own turn across a six-hour gap, the world returns 'Bo reads Ada's proposal, decides it is worth doing and emails her back agreeing to it.' with by=null, for=[ada_vance], observed=true. Output: 'status = resolved | answer = {status: YES, supporting_event_ids: [e20]}', 'times Bo's own model was consulted: 0', 'handed-back notes: []'. The question 'Will Bo reply to Ada?' is answered YES without Bo existing as a decision-maker in the run.",
+   "smallest_fix": "Stop reading `by` as the only identity signal. The cast's names and ids are code-owned (adapter bindings), so on `elapsed_world` refuse any event whose description names a cast member -- the turn is defined as 'what none of these people brought about' -- and on `actor_intention` refuse any that names a cast member other than the one whose attempt it is, exactly as the `by` case is refused today."
+  },
+  {
+   "id": "sender_learns_the_far_end",
+   "severity": "HIGH",
+   "rule": "R6",
+   "title": "Authorship-observation plus a world-written `for` puts the far end into the sender's own view",
+   "file": "sworldmodel/semantic_runtime/views.py:79",
+   "what_is_wrong": "journal.mark_observed(by_own_doing=True) records the author as an observer of the whole event (trajectory.py:1135-1141), and views.build_view withholds the far end from the author only by requiring `actor_id in e[\"for\"]`. `for` is written by the world, and putting both ends of a thread in `for` is entirely ordinary and violates no code rule. When it happens, the world's description of what became of the message at the other end -- including whether the recipient looked -- is rendered to the sender under 'WHAT YOU HAVE ACTUALLY OBSERVED'. This is the exact leak the comment above views.py:78 says has been fixed.",
+   "demonstration": "a4_sender_learns_far_end.py. Committed: e21 by=ada_vance for=[ada_vance, bo_ferrer] observed_by=[ada_vance] :: \"Ada's message reaches Bo's phone, which is face down on his desk; he does not look at it all afternoon.\" Two of Ada's own prompts (c7, c10) contain that sentence; the full text of c7 is printed in the output, with the sentence under 'WHAT YOU HAVE ACTUALLY OBSERVED'.",
+   "smallest_fix": "Distinguish the two kinds of observation. journal.mark_observed already writes source='own_doing'; project that onto the event (e.g. observed_by_own_doing) and have build_view exclude events whose only observation is authorship. The author's knowledge of their own act already reaches them through 'WHAT YOU HAVE ALREADY DECIDED AND TRIED', built from their own call records."
+  },
+  {
+   "id": "busy_until_is_told_to_the_person_before_it_happens",
+   "severity": "MEDIUM",
+   "rule": "R6",
+   "title": "A person is told the end-instant of an action that has not started, from the scheduler",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:511",
+   "what_is_wrong": "busy_until[doer] is written when the event is SCHEDULED, as due + lasts, and build_view is handed it (trajectory.py:574) and renders 'You are occupied until <instant>' (views.py:178-181). Between now and `due` the person is not occupied at all -- the action has not begun -- and the instant they are told is derived from a queue entry that is not yet a committed event, is in nobody's observed records, and is in none of their memories or prior actions. It is knowledge of the future taken straight from the scheduler, and it is also false at the moment it is stated.",
+   "demonstration": "a5_busy_until_is_the_future.py. Ada attempts to book a room at 09:00; the world schedules 'Ada takes the eleven o'clock slot' after='2 hours', lasts='1 hours'. At 09:30 her prompt (c7) says 'You are occupied until 2026-07-27T17:00:00+00:00.  Whatever you decide to do next begins after that, not now.' while her observed list holds only 'The review date is confirmed.' The occupying event is committed at 16:00 UTC, ninety minutes after she was told about it.",
+   "smallest_fix": "Keep the start as well as the end (busy_from, busy_until) and pass occupancy to build_view only when busy_from <= now, so a person is told they are busy while they are actually doing the thing."
+  },
+  {
+   "id": "agreement_by_repetition",
+   "severity": "HIGH",
+   "rule": "R4",
+   "title": "A rejected candidate answer is re-proposed, unchanged and without limit, until the two readings coincide",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:890",
+   "what_is_wrong": "When judge and verifier disagree, judge() returns UNRESOLVED with disagreement=True; mid-run the caller (trajectory.py:1220-1226) simply does not act on it, the run's status stays 'running', and nothing anywhere remembers that this claim was contested. The judge is re-asked on the next step that commits ANY event -- the new event need have nothing to do with the claim -- and the identical claim can be put again. Two independent readings 'must agree' becomes 'must agree once, eventually', which with a stochastic verifier converges to certainty over a long run.",
+   "demonstration": "a9_zero_step_no.py G3: the byte-identical claim {\"explanation\": \"Bo replied to Ada\", \"status\": \"YES\", \"supporting_event_ids\": [\"e19\"]} is proposed three times against a record whose only additions are courier parcels; the verifier says UNRESOLVED, UNRESOLVED, YES; 'status = resolved', 'disagreements before acceptance: 2'. a6_judge_verifier_retry.py shows the ledger trail: seq 12/13 YES-vs-UNRESOLVED, seq 23/24 YES-vs-UNRESOLVED, seq 35/36 YES-vs-YES -> resolved.",
+   "smallest_fix": "Remember contested claims: keep a set of (status, frozenset(supporting_event_ids)) that the verifier has rejected, and refuse to accept a later reading identical to one already rejected unless the supporting events themselves have changed. A disagreement that is not recorded as binding is not a check."
+  },
+  {
+   "id": "authorship_reads_as_observation",
+   "severity": "MEDIUM",
+   "rule": "R3",
+   "title": "The judge and verifier are shown 'observed by <author>' and are never shown who the event was for",
+   "file": "sworldmodel/semantic_runtime/resolution.py:86",
+   "what_is_wrong": "The event line is rendered as 'observed by ...' when observed_by is non-empty and 'reached ... but NOT observed by anyone' otherwise, so the audience (`for`) is printed ONLY in the not-observed case. Because by_own_doing puts the author into observed_by, every authored event reads as 'observed by <author>' with its recipients invisible -- exactly the case where the judge's own rules ('only an event they actually observed can satisfy it'; 'anything that takes two people requires that BOTH of them have observed what makes it so') need the audience and the per-person observation state.",
+   "demonstration": "a8_followups.py F2. Ledger: e27 by=bo_ferrer for=['ada_vance'] observed=False observed_by=['bo_ferrer'] -- Ada has not seen it. Judge prompt (twice) and verifier prompt: '- e27 [2026-07-27T14:02:00+00:00] Bo writes back to Ada agreeing to the proposal. | observed by bo_ferrer'. The reader is told the message was observed, is not told by whom it was NOT observed, and is not told it was for Ada at all.",
+   "smallest_fix": "Always render both sides, in both prompts: f\"available to {who}; observed by {', '.join(by) or 'no one'}\", and mark author-only observation as such (e.g. 'written by bo_ferrer; not yet observed by ada_vance')."
+  },
+  {
+   "id": "destroyed_events_leave_no_ledger_record",
+   "severity": "MEDIUM",
+   "rule": "R3",
+   "title": "Three of the four ways an adjudicated event is destroyed write nothing to the ledger",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:450",
+   "what_is_wrong": "An event the world adjudicated can be destroyed by the occupancy/cutoff drop (:526-536), by the duplicate check (world_mind.py:338-345), and by the restatement refusal (:401-408). All three only call note() into the Trace; the ledger record written for the call, OP_WORLD_CALL, keeps the prose `judgment` and nothing about the event. Only the identity hand-back records anything ('handed_to'). Since the ledger is the authoritative artifact and the digest is taken over it, an offline auditor or a replay cannot discover that an act was proposed and destroyed -- which is precisely what has to be visible when a NO is claimed over its absence.",
+   "demonstration": "a8_followups.py F3: after the occupancy drop, \"'Bo emails Ada' anywhere in the ledger : False\", 'ops mentioning the dropped act: []', and the two semantic.world_call records hold only 'He is boarding.' and 'He gets it away.' The run's answer is NO_AT_CUTOFF.",
+   "smallest_fix": "Add the refused envelope and the reason to the OP_WORLD_CALL data ({'refused_event': envelope, 'refused_because': 'beyond_cutoff'|'duplicate'|'restatement'}) so the ledger says what the world proposed and why it did not happen."
+  },
+  {
+   "id": "no_reachable_without_living_the_window",
+   "severity": "MEDIUM",
+   "rule": "R1",
+   "title": "Even the intended evidence answers a fortnight in zero steps",
+   "file": "sworldmodel/semantic_runtime/trajectory.py:1050",
+   "what_is_wrong": "Because no scheduling call site ever puts anything past the cutoff, `reached_horizon` is exactly intends_after_cutoff, and that flag can be raised by a single beyond-cutoff wake request about a single actor before any step is taken. The design intends this ('the world said what happens next and it is after the deadline'), but a request to revisit ONE person after the deadline is not a statement that nothing happens to anyone else inside the window, and the run then advances the clock across the whole window in one record -- the same behaviour the 'An empty queue before the cutoff is INCOMPLETE' commit was written to stop.",
+   "demonstration": "a9_zero_step_no.py G2: the world's answer to the starting event is event=null plus one wake for ada_vance after '20 days'. Output: 'status = cutoff | answer = NO_AT_CUTOFF', 'steps = 0 | committed events = 1 | beyond-cutoff wakes = 1'. G1 on the same file: 'scheduled records: 0 | any past the cutoff: 0', and on a run that does schedule, 'scheduled = 6 | past the cutoff = 0'.",
+   "smallest_fix": "Require the horizon claim to be about the window rather than about one person: keep the beyond-cutoff signal per actor and treat the horizon as reached only when every actor still in the situation has a known next move past the cutoff (or the clock genuinely reached it). Alternatively schedule beyond-cutoff wakes as never-executed sentinels so `ev.t > cutoff` becomes a real, inspectable state rather than a boolean."
+  },
+  {
+   "id": "duplicate_detection_keyed_on_audience",
+   "severity": "LOW",
+   "rule": "R3",
+   "title": "One act commits twice if the world widens `for`, names `by`, or adds a name to the sentence",
+   "file": "sworldmodel/semantic_runtime/world_mind.py:340",
+   "what_is_wrong": "The new identity-first duplicate rule requires the same `by` AND the same `for` tuple before wording is compared, and _facts() then rejects any pair whose sets of capitalised names or numbers differ. All three are under the model's control on the second telling, so the guard is defeated by changes that do not change what happened.",
+   "demonstration": "a10_by_null_and_duplicates.py H2, at the validator: 'identical, same audience -> dropped as duplicate = True'; 'identical text, audience widened -> False'; 'identical text, `by` now named -> False'; 'one extra name in the text (Ada -> Ada Vance) -> False'.",
+   "smallest_fix": "Treat an audience superset as the same audience, and compare on (by-or-null, description) with the name-set test applied to the intersection rather than to equality, so adding a surname cannot mint a second act."
+  }
+ ],
+ "attacks_that_failed": [
+  "elapsed_world cannot be reached with an empty queue: the trigger sits after the `ev is None or ev.t > cutoff` break, so it can never manufacture a queue where there was none (a3 C1).",
+  "A fabricated or stale event id in a YES is rejected by make_validator/make_verifier_validator and the run dies rather than answers (a7).",
+  "The truncated=True guard could not be talked past: a judge insisting on NO_AT_CUTOFF under the step limit, the call limit and the empty-queue status produced 'failed' three times, never a NO (a7).",
+  "The resolution text reached only the judge and the verifier, in a run where all five roles were called, and never entered the ledger (a8 F1).",
+  "busy_until is monotonically non-decreasing per actor (every new due is >= busy_until, and ends = due + lasts), and the intra-turn `not_before` floor orders attempts within a turn, so I could not commit one actor's two acts out of causal order. The gap is that ordering only applies to events whose `by` names the actor -- an act attributed to a named person with by=null is outside the occupancy model entirely (see world_authors_a_choice_by_leaving_by_null).",
+  "The identity hand-back recursion (actor_step from inside world_step) is bounded: the same-instant/no-news guard at trajectory.py:568 stops the second entry for the same actor, so it cannot recurse without limit."
+ ]
+}

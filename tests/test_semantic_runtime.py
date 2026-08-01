@@ -1081,8 +1081,24 @@ def test_the_judge_is_told_who_actually_observed_each_event():
     delivered = {"event_id": "e9", "t": START, "description": "it arrives",
                  "for": ["bo_ferrer"], "observed_by": []}
     seen = dict(delivered, observed_by=["bo_ferrer"])
-    assert "NOT observed by anyone" in judge_user_prompt("r", START, [delivered])
-    assert "observed by bo_ferrer" in judge_user_prompt("r", START, [seen])
+    # BOTH sides, always: who it reached and who has actually seen it.
+    # The audience used to be printed only when nobody had observed the
+    # event, so an authored event read as "observed by <author>" with its
+    # recipients invisible -- and both readers are told that anything
+    # taking two people needs BOTH of them to have observed it.
+    delivered_p = judge_user_prompt("r", START, [delivered])
+    assert "available to bo_ferrer" in delivered_p
+    assert "observed by no one" in delivered_p
+    seen_p = judge_user_prompt("r", START, [seen])
+    assert "available to bo_ferrer" in seen_p
+    assert "observed by bo_ferrer" in seen_p
+    # ... and knowing a thing because you did it is marked as that, not
+    # rendered as the other person having seen it
+    wrote = dict(delivered, observed_by=["ada_vance"],
+                 authored_by=["ada_vance"])
+    wrote_p = judge_user_prompt("r", START, [wrote])
+    assert "observed by no one" in wrote_p
+    assert "written by ada_vance" in wrote_p
     assert "THIS IS THE FINAL JUDGMENT" in judge_user_prompt(
         "r", START, [seen], final=True)
 
@@ -1944,7 +1960,7 @@ def test_the_verifier_reads_the_record_and_nothing_about_the_first_reading():
                                "description": "something happened",
                                "for": ["a"], "observed_by": []}])
     assert "the condition" in p and "something happened" in p
-    assert "NOT observed by anyone" in p
+    assert "available to a; observed by no one" in p
     assert "judge" not in p.lower()
     assert "there is no answer anyone wants" in VERIFIER_SYSTEM
 

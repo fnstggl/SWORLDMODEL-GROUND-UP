@@ -116,11 +116,20 @@ class Journal:
         # list exactly, and a set's iteration order is not something to
         # stake that on.
         later: dict = {}
+        # Knowing a thing because you DID it is not the same as knowing it
+        # because it reached you, and the difference decides what a person
+        # may be shown.  The two were recorded alike, so the author of a
+        # message counted as having observed the world's whole account of
+        # it -- including what became of it at the other end.
+        authored: dict = {}
         for r in self.world.records:
             if r["op"] == OP_OBSERVED:
                 who = later.setdefault(r["data"]["event_id"], [])
                 if r["data"]["actor"] not in who:
                     who.append(r["data"]["actor"])
+                if r["data"].get("source") == "own_doing":
+                    authored.setdefault(r["data"]["event_id"], []).append(
+                        r["data"]["actor"])
         out = []
         for r in self.world.records:
             if r["op"] != OP_EVENT:
@@ -142,6 +151,9 @@ class Journal:
                         "attempt_id": d.get("attempt_id"),
                         "description": d["description"], "for": audience,
                         "observed": bool(d["observed"]), "observed_by": seen,
+                        # who knows this only because they are the one who
+                        # did it, rather than because it reached them
+                        "authored_by": authored.get(d["event_id"], []),
                         "by": d.get("by"),
                         "lasts": d.get("lasts") or "0 seconds",
                         "source": d.get("source", ""), "cause": r["cause"]})

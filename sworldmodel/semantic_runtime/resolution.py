@@ -81,17 +81,38 @@ def judge_user_prompt(resolution: str, now: str, events: list, *,
               "occurred)"]
     if events:
         for e in events:
-            who = ", ".join(e.get("for") or []) or "no one"
-            by = e.get("observed_by") or []
-            seen = ("observed by " + ", ".join(by) if by
-                    else f"reached {who} but NOT observed by anyone")
             lines.append(f"- {e['event_id']} [{e['t']}] "
-                         f"{contained(e['description'])} | {seen}")
+                         f"{contained(e['description'])} | {_who(e)}")
     else:
         lines.append("- (nothing has been committed yet)")
     lines += ["", "Judge the resolution now.  Reply with ONLY the JSON "
                   "object."]
     return "\n".join(lines)
+
+
+def _who(e: dict) -> str:
+    """Who an event reached, and who has actually observed it -- ALWAYS
+    both.
+
+    The audience used to be printed only when nobody had observed the
+    event, so an event its own author is recorded as knowing about read as
+    "observed by bo_ferrer" with its recipients invisible.  Both judges are
+    told that anything taking two people needs BOTH of them to have
+    observed what makes it so, and they were being shown the one line that
+    cannot support that.  Authorship is marked as authorship for the same
+    reason: knowing a thing because you did it is not the other person
+    having seen it.
+    """
+    audience = ", ".join(e.get("for") or []) or "no one"
+    seen = [a for a in (e.get("observed_by") or [])
+            if a not in (e.get("authored_by") or [])]
+    wrote = ", ".join(e.get("authored_by") or [])
+    parts = [f"available to {audience}",
+             ("observed by " + ", ".join(seen) if seen
+              else "observed by no one")]
+    if wrote:
+        parts.append(f"written by {wrote}, who knows it because they did it")
+    return "; ".join(parts)
 
 
 def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
@@ -204,12 +225,8 @@ def verifier_user_prompt(resolution: str, now: str, events: list, *,
     lines += ["EVERY COMMITTED EVENT"]
     if events:
         for e in events:
-            who = ", ".join(e.get("for") or []) or "no one"
-            by = e.get("observed_by") or []
-            seen = ("observed by " + ", ".join(by) if by
-                    else f"reached {who} but NOT observed by anyone")
             lines.append(f"- {e['event_id']} [{e['t']}] "
-                         f"{contained(e['description'])} | {seen}")
+                         f"{contained(e['description'])} | {_who(e)}")
     else:
         lines.append("- (nothing has been committed)")
     lines += ["", "Has the condition been met?  Reply with ONLY the JSON "
