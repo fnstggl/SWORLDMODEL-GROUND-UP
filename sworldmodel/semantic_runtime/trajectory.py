@@ -524,8 +524,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                             provenance="own_act_finished", about="free",
                             cause=wseq, keep_latest=True)
             else:
+                # The world has said what happens next and it happens
+                # after the question closes.  That is the same evidence as
+                # a wake past the deadline -- the future is known and none
+                # of it lands inside the window -- and it was being
+                # thrown away here while the wake case was kept, so "she
+                # will get to it on Monday" could not answer NO about
+                # Friday and "come back to me on Monday" could.
                 note("event_beyond_cutoff", call_id=out["call_id"],
                      due=iso(due), description=envelope["description"])
+                intends_after_cutoff["yes"] = True
         for w in wakes:
             # the world asking to be called back is a real process it has
             # said will happen.  The reason is recorded and shown to no

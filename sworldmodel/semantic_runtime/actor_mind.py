@@ -250,9 +250,16 @@ You are checking two things only: whether they CONTRADICT what they \
 themselves have already established, and whether they treat as FACT \
 something that is not.
 
+CHASING IS NOT A DEFECT.  Doing a thing again because the thing you were \
+waiting on still has not happened is what people do -- following up, \
+ringing back, asking a second time, sending another message.  It is a \
+choice, and choices are theirs.  What is a defect is presenting it as \
+the first time, or doing again something that already WORKED.
+
 Answer REVISE when the reply:
 - contradicts something they still believe, without saying what changed;
-- does again something they have already done;
+- does again something that already succeeded, or presents something they \
+have already done as though they were doing it for the first time;
 - says again, in different words, something they already believe;
 - abandons or reverses a plan they still hold, without anything having \
 happened that would explain it -- not merely a plan you would have kept;
@@ -265,8 +272,7 @@ what they have;
 - attempts something that is actually someone else's action to take;
 - reads as a generic person going through the motions when their own \
 evidence says something more specific;
-- plays up a stereotype their evidence does not support;
-- goes over an unchanged question again merely because time has passed.
+- plays up a stereotype their evidence does not support.
 
 Answer PASS otherwise, and when in doubt answer PASS.  A plan changed \
 because of something they observed is not a defect: that is what \

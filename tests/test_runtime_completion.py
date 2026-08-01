@@ -979,3 +979,54 @@ def test_a_person_with_nothing_new_is_told_exactly_that():
     assert "nothing new has reached you" in rendered \
         or "for the first time" in rendered
     assert "has changed" not in rendered.lower()
+
+
+def test_a_known_future_past_the_deadline_is_the_horizon_however_it_is_said():
+    """"She will get to it on Monday" and "come back to me on Monday" are
+    the same evidence about a Friday deadline: the world has said what
+    happens next and none of it lands inside the window. One of them could
+    answer NO and the other could not, purely because the beyond-cutoff
+    signal was recorded for wakes and thrown away for events."""
+    def world_says_after_the_deadline(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            return json.dumps({
+                "judgment": "he gets to it well after the deadline.",
+                "event": {"description": "Bo turns to Ada's message.",
+                          "for": ["ada_vance"], "observed": False,
+                          "after": "20 days", "by": "bo_ferrer",
+                          "lasts": "10 minutes"},
+                "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, _, traj = run(world_says_after_the_deadline, steps=30)
+    assert traj.status == "cutoff", traj.status
+    assert (traj.answer or {}).get("status") == "NO_AT_CUTOFF"
+
+
+def test_chasing_is_not_something_a_reviewer_may_refuse():
+    """The actor prompt tells people that they wait, chase and ask again;
+    the continuity reviewer refused a reply that "does again something
+    they have already done" or "goes over an unchanged question again
+    merely because time has passed". Chasing is both of those.
+
+    That is why, in the shipped corpus, a woman owed 600 pounds never
+    contacts the person who owes her, and a student waiting on feedback
+    never follows up once in thirty-one events. The two prompts have to
+    agree, and the one that gets to say what a person may choose is the
+    person's own.
+    """
+    from sworldmodel.semantic_runtime.actor_mind import (ACTOR_SYSTEM,
+                                                         CONTINUITY_SYSTEM)
+    assert "chase" in ACTOR_SYSTEM
+    assert "CHASING IS NOT A DEFECT" in CONTINUITY_SYSTEM
+    # the two rules that made following up refusable, in the exact words
+    # they were written in
+    assert "unchanged question again merely because time has passed" \
+        not in CONTINUITY_SYSTEM
+    assert "- does again something they have already done" \
+        not in CONTINUITY_SYSTEM
+    # ... and what they were protecting is still protected
+    assert "already succeeded" in CONTINUITY_SYSTEM
