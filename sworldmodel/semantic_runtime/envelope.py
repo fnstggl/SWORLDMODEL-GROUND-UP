@@ -1,22 +1,28 @@
 """The smallest possible LLM event envelope, and its validation.
 
 An LLM may propose at most one immediate event per world judgment, using
-exactly four fields:
+exactly six fields, every one of them required:
 
     {"description": "...", "for": ["actor_id"], "observed": true,
-     "after": "2 hours", "follow_up": false}
+     "by": "actor_id", "after": "2 hours", "lasts": "20 minutes"}
 
 description  what concretely happened
 for          which actors the resulting information or event is available to
 observed     whether EVERY actor in "for" has actually observed it
-after        how much simulated time passes before this event occurs
-follow_up    whether this leaves ONE unresolved environmental consequence
-             that should be worked out next -- a thing in transit has one,
-             a thing that is finished does not.  Code used to guess this
-             from the shape of the event and guessed wrong in both
-             directions: it asked "and then?" about someone putting their
-             phone down, and stopped asking about a message still on its
-             way.
+by           WHOSE act this is, or null if the environment did it.  An
+             actor id here is checked against whose attempt is being
+             adjudicated: the world resolving Ada's attempt may not decide
+             that BO chose something, because that is Bo's turn to take.
+after        how much simulated time passes before this event begins
+lasts        how long it takes.  The person named in ``by`` is occupied for
+             this long and cannot begin anything else inside it.
+
+``by`` and ``lasts`` have no defaults, and that is deliberate.  Both were
+optional first, and an optional field that code merely consumes is a field
+a model may skip for free: 65% of a 202-event corpus happened at the same
+instant as its cause while durations sat unanswered.  A required field
+with a clear rejection message is answered, because the call is retried
+saying exactly what was missing.
 
 Code adds event_id, exact timestamp, source, caused_by, trajectory_id and
 model-call provenance; the LLM never writes those.  Mixed observation
@@ -154,7 +160,7 @@ def validate_event(proposed, known_actor_ids) -> dict:
         raise EnvelopeError(
             f"event has fields the model may not write: {sorted(unknown)} "
             f"(event_id, time, cause and provenance are code-owned)")
-    for f in ("description", "for", "observed", "after"):
+    for f in ("description", "for", "observed", "by", "after", "lasts"):
         if f not in proposed:
             raise EnvelopeError(f"event is missing required field {f!r}")
     if not isinstance(proposed["description"], str) \
@@ -173,21 +179,20 @@ def validate_event(proposed, known_actor_ids) -> dict:
     # the same instant as its cause: durations were decorative, so they
     # were not answered.  Code makes it load-bearing -- the actor is
     # occupied for this long -- which is the only reason to get it right.
-    lasts = proposed.get("lasts", "0 seconds")
+    lasts = proposed["lasts"]
     if not isinstance(lasts, str) or not lasts.strip():
-        raise EnvelopeError("event.lasts must be a duration like "
-                            "\"20 minutes\"")
-    try:
-        span = parse_duration(lasts)
-    except EnvelopeError:
-        raise
-    if span.total_seconds() < 0:
-        raise EnvelopeError("event.lasts cannot be negative")
+        raise EnvelopeError(
+            "event.lasts must be how long this takes, written as a duration "
+            "-- \"0 seconds\" if it is over the moment it happens, "
+            "otherwise however long the person doing it is occupied")
+    span = parse_duration(lasts)
 
-    by = proposed.get("by")
+    by = proposed["by"]
     if by is not None:
         if not isinstance(by, str):
-            raise EnvelopeError("event.by must be an actor id or null")
+            raise EnvelopeError(
+                "event.by must be the actor id of whoever did this, or null "
+                "if the environment did it and no person chose anything")
         by = by.strip()
         if by not in known_actor_ids:
             raise EnvelopeError(

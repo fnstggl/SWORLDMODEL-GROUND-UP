@@ -15,10 +15,16 @@ import json
 import os
 import sys
 
-#: The five kinds of reason a wake is allowed to exist for.  A wake with
+#: The kinds of reason a wake is allowed to exist for.  A wake with
 #: anything else -- or with nothing -- is a poll wearing a costume.
-WAKE_PROVENANCE = {"actor_plan", "observed_event", "world_process",
-                   "known_deadline", "action_completion"}
+#
+# IMPORTED, never restated.  The copy that used to live here named three
+# provenances the runtime had deleted and was missing one it schedules, so
+# this checker would have failed every run that used the occupancy model
+# while passing runs whose wakes it could not have produced.  A checker
+# that disagrees with the thing it checks about what the values ARE is not
+# checking anything.
+from sworldmodel.semantic_runtime.trajectory import WAKE_PROVENANCE  # noqa: E402
 
 
 def _jsonl(path):

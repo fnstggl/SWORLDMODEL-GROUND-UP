@@ -89,7 +89,14 @@ def instantiate_scene_manifest(scene: dict, question: str, start_iso: str,
         payload = {"description": e["description"], "for": audience,
                    # a starting event is given by the question: the actors it
                    # is visible to have it as their own situation
-                   "observed": True, "after": "now"}
+                   "observed": True, "after": "now",
+                   # The frozen manifest has four fields and none of them
+                   # says who acted or how long it took, so code says it
+                   # does not know rather than guessing from who can see
+                   # it.  A starting event is the scene's premise, and it
+                   # occupies nobody: whatever the people in it do next,
+                   # they are free to do at the start instant.
+                   "by": None, "lasts": "0 seconds"}
         if when <= start:
             rec = journal.commit(payload, cause=genesis_seq,
                                  source=f"starting_event[{i}]",

@@ -1,0 +1,232 @@
+{
+  "corpus": "artifacts/final_v6 (11 runs, 209 committed events, 1550 provider calls), contrasted with artifacts/baseline_main (5 runs, 77 events)",
+  "branch": "codex/world-realistic-simulation-mvp",
+  "method": "journal.jsonl / ledger.jsonl / world_judgments.jsonl / actor_views.jsonl / grounded_wakes.jsonl parsed per run; durations taken only from what an event states about itself in words ('for about 30 minutes', 'from 08:31 to about 10:30'), never inferred, so every overlap below is self-evidenced by the record",
+
+  "summary": "Your belief is correct but it is not the whole story, and one part of it is already half-built. Duration is real and measurable: 54% of committed events land at the same instant as the judgment that created them, 40% of consecutive events are separated by exactly zero simulated time, and 29 pairs of events in feedback_deadline overlap on evidence the events themselves supply. A per-actor busy-until would have prevented all 29. But three things you have not named are load-bearing. (1) THE WORLD HAS NO TURN OF ITS OWN. The adjudicator is invoked under exactly three triggers -- starting_event (14), actor_intention (179), pending_progression (266) -- all reactive. Nothing can happen that is not somebody in the cast attempting something or an item already in somebody's inbox being noticed. The world prompt explicitly orders the model to let outside parties chase and books close and things break, and the machinery never gives it an occasion to. Across 209 events, zero exogenous events; in 10 of 11 runs no party outside the compiled cast ever appears; of 135 intention-events only 21 contain any thwart at all and every one of them is 'someone did not get round to it' -- exactly the failure mode the prompt names as unrealistic. (2) AN ACT HAS NO IDENTITY, so the same act is committed two, three and four times: 78 near-duplicate pairs across the corpus, 40 in holiday_deposit alone. Duration does not fix this and makes its damage worse -- replaying feedback_deadline with busy-until using each event's own stated duration defers 22 of 30 events and pushes Aline's email to Ravi from 13:34 to 15:46, because six restatements of one reading session now each cost real occupancy. She already narrates 479 minutes of stated activity into a 330-minute window (1.45x overbooked) before her class is counted. Deduplication is a PREREQUISITE for `lasts`, not a follow-on. (3) THE WORLD HAS NO PERSISTENT FACTS. Actor state declares beliefs, goals, commitments, relationships, emotional_state, physical_state, plan, values, attention, ongoing_action -- across 3341 ledger records every one of them is written zero times. The only actor-state write in the whole corpus is actor.memory (157, append-only, never revised, never forgotten). Nothing in the machinery holds 'the support line is shut', 'the deposit is owed', 'she promised Wednesday'. In anti_stereotype the scene says the support line opens 8am Thursday; Ethel reaches a representative at 08:00 WEDNESDAY, the actor herself writes 'The representative asking me to hold doesn't make sense -- maybe I misheard?', and the runtime carries on. Also confirmed for your section 4: `follow_up` is already dead in the frozen runtime -- the model computed it on 213 events, 98 of them true, and nothing read it.",
+
+  "duration_evidence": [
+    {
+      "finding": "29 self-evidenced overlapping pairs, all in feedback_deadline, all one actor",
+      "run": "feedback_deadline",
+      "actor": "dr_aline_mercier",
+      "method": "the FIRST event of each pair states its own duration in words; a later event by the same actor starts before that duration elapses",
+      "worst_cases": [
+        "e115 @2026-07-28T08:31 'Aline attends the hiring committee meeting from 08:31 to about 10:30' -> e123 @09:01 'Aline continues reading the thesis chapter and typing comments for 30 minutes'. She reads a thesis for half an hour inside a hiring committee. 89 minutes of overlap.",
+        "e217 @12:01 'reads the thesis chapter and types comments for about 90 minutes' -> e226 @12:30 'continues teaching her 11:30 class until it ends at 12:30'. 61 minutes of overlap; she is teaching and reading at once.",
+        "e170 @11:16 'reads and types comments for about 45 minutes' -> e186 @11:16 'saves her current place ... to prepare for her 11:30 class'. Starts and abandons the same 45-minute block in the same instant.",
+        "e308 @13:32 'reads for about 30 minutes, reaching the end of the document' -> e318 @13:34 'composes an email to Ravi, attaches her comments document, and sends it' -> e333 @13:36 'continues reading the thesis chapter ... reaching NEAR the end'. She reaches the end, sends it two minutes later, and two minutes after that is still not finished. Her own decision at 13:36 reads: 'I am still reading the thesis chapter; I have not finished yet.'"
+      ],
+      "aggregate": "479 minutes of stated in-the-moment activity (360 min reading + 119 min meeting) committed into the 330-minute window 08:06-13:36, before the 11:30 class is counted at all. 1.45x overbooked.",
+      "would_busy_until_have_prevented_it": "Yes, all 29. Simulated: replaying feedback_deadline with a per-actor busy-until seeded from each event's own stated duration defers 22 of 30 events. But see the warning in `biggest_non_duration_gap` -- the same replay pushes e318 (the email that decides the question) from 13:34 to 15:46, a 2h12m error caused entirely by duplicate narration being charged twice."
+    },
+    {
+      "finding": "135 overlapping pairs when ordinary activity durations are applied (call >= 5 min, meeting >= 60 min, class >= 60 min, night shift >= 4 h)",
+      "by_run": {"feedback_deadline": 74, "holiday_deposit": 48, "lease_return": 9, "anti_stereotype": 2, "group_coordination": 1, "lease_other_names": 1},
+      "examples": [
+        "anti_stereotype e24 @07:02 'Ethel dials the vendor's support line and waits for the representative to answer' and e29 @07:02 'Ethel retrieves the support reference number, places it by the phone, and plugs in the terminal'. She is holding for an operator and setting up the terminal at the same second.",
+        "holiday_deposit e59 @19:41 'Ruth calls Dev Sandhu but the call goes to voicemail', e71 @19:41 'Ruth calls Nina Achebe, gets voicemail, and leaves a message', e76 @19:42 'Ruth calls Nina Achebe but the call goes to voicemail', e88 @19:42 text to Dev, e94 @19:42 text to Nina. Two phone calls with voicemail messages and two texts inside 60 seconds.",
+        "lease_return e61 @08:07:30 'Aisha signs the printed lease document and places it in her scanner', e65 @08:08:00 'Aisha signs all required pages', e78 @08:08:00 'Aisha places the signed lease on the scanner bed ... presses the scan button', e81 @08:09:30 'Aisha signs the lease document and scans it into a PDF'. One signature, committed three times, inside two minutes."
+      ],
+      "would_busy_until_have_prevented_it": "Only if `lasts` is answered honestly. The frozen envelope had no field to answer, so it could not be. The new envelope has one; whether the model uses it is the whole bet."
+    },
+    {
+      "finding": "the single worst duration failure in the corpus is a 23-hour hold, and duration alone would NOT have caught it",
+      "run": "anti_stereotype",
+      "evidence": "e101 @2026-09-09T08:01 (Wednesday) 'Ethel hears the representative ask her to hold while they pull up her account' -> e120 @2026-09-10T07:00 (Thursday) 'Ethel waits on hold while the representative looks up her account'. +22h59m, mid-call, across midnight, with the same representative still on the line. Then e145 @07:02:25 the representative comes back.",
+      "why_duration_misses_it": "busy_until forbids a SECOND act starting early. It says nothing about a gap being absurdly long, and nothing about the call still existing after 23 hours -- nothing in the machinery holds 'a call is in progress'. Occupancy is a floor, not a ceiling."
+    },
+    {
+      "finding": "committed events at the same instant as the world judgment that created them",
+      "number": "112 of 209 (54%)",
+      "by_run": {"anti_stereotype": "14/26", "cold_email": "0/2", "evidence_avoiding": "2/3", "evidence_responsive": "4/7", "feedback_deadline": "15/31", "group_coordination": "18/26", "holiday_deposit": "48/91", "lease_other_names": "2/4", "lease_return": "4/10", "negotiation": "4/7", "plumber_confirm": "1/2"},
+      "note": "This corroborates the 65% in WORLD_REALISM_MVP.md; the difference is which link of the cause chain is measured. Either way it is a majority."
+    },
+    {
+      "finding": "simultaneous acts by two different people who cannot both be right",
+      "run": "group_coordination",
+      "evidence": "e351, e364 and e368 all at 2026-10-08T19:00:00. 'Bea wakes up at 19:00, picks up her phone, and sees the group chat', 'Bea is working her night shift and does not check the group chat', 'Bea sends a message in the group chat: Thanks Tomas, that works for me too!'",
+      "would_busy_until_have_prevented_it": "Partly. It would separate them in time. It would not stop the record saying she both did and did not look at her phone -- that is a contradiction, not an overlap."
+    },
+    {
+      "finding": "an actor acts on a message before the event in which he reads it",
+      "run": "negotiation",
+      "evidence": "e35 @09:00 'Dmitri sends a message to Priya offering the kiln for 1200' precedes e41 @09:01 'Dmitri sees Priya's message offering 1000 for the kiln'. His counteroffer is committed a minute before the observation it answers.",
+      "would_busy_until_have_prevented_it": "No. This is ordering, not occupancy. The trajectory already has a `not_before` for attempts within one turn; it does not cover an act and the observation that motivates it."
+    }
+  ],
+
+  "pacing": {
+    "verdict": "It feels like ten minutes and then a jump. Two thirds of all elapsed time between consecutive events is under five minutes; 40% is zero. The long gaps are not lived, they are skipped -- 6 of 11 runs consume under 2% of their own scenario window.",
+    "gap_histogram_all_11_runs": {
+      "exactly 0 (no simulated time passes)": {"n": 79, "pct": 39.9},
+      "under 1 minute": {"n": 21, "pct": 10.6},
+      "1-5 minutes": {"n": 28, "pct": 14.1},
+      "5-15 minutes": {"n": 12, "pct": 6.1},
+      "15-60 minutes": {"n": 28, "pct": 14.1},
+      "1-4 hours": {"n": 15, "pct": 7.6},
+      "4-12 hours": {"n": 9, "pct": 4.5},
+      "12-24 hours": {"n": 4, "pct": 2.0},
+      "over 1 day": {"n": 2, "pct": 1.0},
+      "total_gaps": 198
+    },
+    "per_run": [
+      {"run": "plumber_confirm", "events": 2, "simulated_span": "0:00:00", "scenario_window": "9:00:00", "window_used_pct": 0.0, "note": "A whole working day with a 6pm deadline resolves in ZERO seconds. e9 (text arrives) and e20 (Sam replies) are both at 2026-07-28T08:00:00. A wake was scheduled for 10:00 and never fired -- the run answered YES and stopped first. Nothing was simulated."},
+      {"run": "negotiation", "events": 7, "simulated_span": "0:02:00", "scenario_window": "12 days 8:00:00", "window_used_pct": 0.0, "note": "A twelve-day negotiation deadline settled in 120 seconds. Priya opens at 1000 and accepts 1200 two minutes later. Both wakes (09:00 -> 11:00) were still pending when the run stopped."},
+      {"run": "cold_email", "events": 2, "simulated_span": "0:00:30", "scenario_window": "14 days", "window_used_pct": 0.0, "note": "The 14-day window advanced 30 seconds in committed history. 54 wakes were then spent walking the clock to 2026-08-10 without committing anything. Terminal: incomplete_empty_queue."},
+      {"run": "lease_other_names", "events": 4, "simulated_span": "0:05:00", "scenario_window": "2 days 8:00:00", "window_used_pct": 0.1},
+      {"run": "lease_return", "events": 10, "simulated_span": "0:10:00", "scenario_window": "2 days 8:00:00", "window_used_pct": 0.3, "note": "Ten events inside ten minutes, of which four are one signature."},
+      {"run": "evidence_responsive", "events": 7, "simulated_span": "2:00:00", "scenario_window": "4 days 8:00:00", "window_used_pct": 1.9},
+      {"run": "feedback_deadline", "events": 31, "simulated_span": "1 day 5:36:00", "scenario_window": "4 days 8:00:00", "window_used_pct": 28.5, "note": "Two very dense clusters (10 zero-gaps) separated by an unexplained 18h05m jump from e71 @2026-07-27T14:01 to e81 @2026-07-28T08:06 in the middle of a reading session she started at 14:01 for the 2-hour block she had reserved 14:00-16:00."},
+      {"run": "anti_stereotype", "events": 26, "simulated_span": "1 day 0:07:40", "scenario_window": "2 days 23:00:00", "window_used_pct": 34.0, "note": "22 of 26 events are inside two clusters of a few minutes each, joined by a single 22h59m jump that occurs mid-phone-call."},
+      {"run": "evidence_avoiding", "events": 3, "simulated_span": "2 days", "scenario_window": "4 days 8:00:00", "window_used_pct": 46.2, "note": "Three events. Two at the same instant, then a 48-hour gap. The whole run is a message sent and a follow-up sent."},
+      {"run": "group_coordination", "events": 26, "simulated_span": "3 days 5:00:00", "scenario_window": "4 days 12:00:00", "window_used_pct": 71.3, "note": "The only run whose long gaps are real: 9 gaps over an hour. But 9 of 25 gaps are still exactly zero, and the biggest single gap (e47 @Tue 08:02 -> e110 @Tue 17:00, then Wed 06:00) is 46 hours in which four housemates say nothing at all."},
+      {"run": "holiday_deposit", "events": 91, "simulated_span": "3 days 2:46:00", "scenario_window": "3 days 3:19:59", "window_used_pct": 99.2, "note": "The one run that lives its window. It is also the only run with more than 15 events per day, 37 zero-gaps, and 40 near-duplicate pairs -- density and repetition arrived together."}
+    ],
+    "baseline_main_contrast": {
+      "gaps_exactly_zero_pct": 48.6,
+      "gaps_under_5_min_pct": 77.8,
+      "note": "final_v6 improved the zero-gap rate from 48.6% to 39.9% and the under-5-minute rate from 78% to 65%. The shape did not change: the corpus is still clusters of instantaneous events separated by skipped time."
+    }
+  },
+
+  "wasted_turns": {
+    "actor_consultations": 399,
+    "produced_no_intention": 240,
+    "pct": 60.2,
+    "by_run": {
+      "cold_email": {"calls": 57, "empty": 57, "pct": 100.0},
+      "evidence_avoiding": {"calls": 10, "empty": 9, "pct": 90.0},
+      "group_coordination": {"calls": 78, "empty": 59, "pct": 75.6},
+      "holiday_deposit": {"calls": 165, "empty": 95, "pct": 57.6},
+      "evidence_responsive": {"calls": 7, "empty": 4, "pct": 57.1},
+      "lease_other_names": {"calls": 3, "empty": 1, "pct": 33.3},
+      "feedback_deadline": {"calls": 34, "empty": 8, "pct": 23.5},
+      "negotiation": {"calls": 5, "empty": 1, "pct": 20.0},
+      "anti_stereotype": {"calls": 32, "empty": 5, "pct": 15.6},
+      "lease_return": {"calls": 7, "empty": 1, "pct": 14.3},
+      "plumber_confirm": {"calls": 1, "empty": 0, "pct": 0.0}
+    },
+    "what_was_in_the_view": {
+      "critical_correction": "The view NEVER says 'nothing has changed'. views.py falls back to ELAPSED_TIME_REASON = 'time has passed and you are looking at your situation again' whenever no trigger event resolves. So a literal reading of the traces says 240/240 empty turns 'had something in the view' -- and that reading is wrong. Classified by whether the CHANGED block contains anything but that boilerplate:",
+      "only_the_boilerplate_line": {"n": 208, "pct": 86.7, "reading": "Honest 'nothing has changed'. The runtime woke them for no reason and they correctly did nothing. This is a machinery defect, not an actor defect."},
+      "had_a_real_new_observation_and_declined_anyway": {"n": 32, "pct": 13.3, "reading": "They had something and declined. Almost all of these are legitimate: 'I hate hosting, I'll wait one more day' (group_coordination c71, c75, tomas), 'I'm too tired and preoccupied to engage now' (holiday_deposit c92, nina_achebe), 'I've already pulled out' (holiday_deposit c110, dev_sandhu)."},
+      "by_run_boilerplate_only": {"holiday_deposit": 84, "cold_email": 56, "group_coordination": 46, "evidence_avoiding": 8, "feedback_deadline": 6, "anti_stereotype": 4, "evidence_responsive": 2, "lease_other_names": 1, "lease_return": 1, "negotiation": 0}
+    },
+    "worst_case": {
+      "run": "cold_email",
+      "detail": "mark_cuban was consulted 55 times and produced zero intentions all 55 times. 54 of those turns showed only the boilerplate; his replies are near-verbatim repeats -- 'No new information or requests have come in; I continue waiting for something that requires my attention' (c11, c14, c17, c20, c23, c31, c34, c37, c40 ...). Meanwhile e20 -- 'The cold email arrives in Mark Cuban's public email inbox' -- had been available to him since 2026-07-27T14:00:30 and was never observed. 185 provider calls, 2 committed events, terminal UNRESOLVED / incomplete_empty_queue.",
+      "the_deeper_point": "He was not idle because he chose to be. The world was asked 'what concretely becomes of this for him?' dozens of times and answered 'nothing' every time, because the only thing the machinery lets it answer is whether attention reaches an inbox. It cannot answer 'it goes to a filter', 'an assistant triages it', 'he deletes it unread' -- those are all events, and they would end the run."
+    },
+    "the_other_half_of_the_waste": {
+      "world_judgments": 459,
+      "proposed_no_event": 246,
+      "pct": 53.6,
+      "by_trigger": {"pending_progression": "266 calls, 69 events (25.9%)", "actor_intention": "179 calls, 135 events (75.4%)", "starting_event": "14 calls, 9 events (64.3%)"},
+      "note": "pending_progression is where the budget goes and where it is wasted: 266 world calls to produce 69 events, and 50 of those 69 are 'someone notices something'. Your section 2 names the actor side; the world side is larger."
+    },
+    "budget_shape": {
+      "provider_calls": 1550,
+      "committed_events": 209,
+      "calls_per_committed_event": 7.4,
+      "split": {"world": 459, "actor": 419, "continuity_review": 431, "judge": 209, "verifier": 12},
+      "note": "41% of every model call in the corpus (continuity + judge = 640) is spent checking, not simulating."
+    },
+    "baseline_contrast": {"actor_consultations": 251, "empty": 219, "pct": 87.3}
+  },
+
+  "missing_from_life": [
+    {
+      "thing": "Nobody chases someone who owes THEM something",
+      "present_or_absent": "almost entirely absent",
+      "evidence": "feedback_deadline: Ravi Patel appears exactly twice in 31 events -- he sends the chapter (e11) and says 'I've just sent the email, so I'll wait' (c3). Over the following 29 hours, with a Thursday deadline on his own chapter, he never emails, never wonders, never asks a labmate. group_coordination: Ines asks 'who will host?' at Tue 08:00 and never mentions it again for the remaining 3 days 5 hours; she is consulted 8 times and produces nothing. holiday_deposit: Marian Prowse is owed 600 pounds by Wednesday with another couple waiting and does not contact Ruth once in three days; her only self-initiated act in 91 events is checking her bank on Wednesday lunchtime (e1321).",
+      "the_one_counterexample": "Ruth chases Nina hard (e280, e292, e659) and Dana sends a follow-up (evidence_avoiding e44). Chasing is possible; it is just rare, and it only ever runs from the person whose question the scene is about."
+    },
+    {
+      "thing": "Nobody forgets, and nobody's belief is ever withdrawn",
+      "present_or_absent": "structurally impossible",
+      "evidence": "Every view renders the complete observed list and the complete list of prior decisions, always, with no decay and no cost. 157 actor.memory records were written across the corpus; zero were removed, replaced or contradicted -- no such ledger op exists. holiday_deposit c110: Dev re-reads Ruth's text and says 'Reading the text confirms what I already knew.' Nobody in this corpus has ever misremembered a number, a name, a date or a promise.",
+      "consequence": "The corpus cannot contain a person who forgot to send the money, only a person who decided not to."
+    },
+    {
+      "thing": "Nobody changes their mind for a reason that is not new information",
+      "present_or_absent": "prohibited by prompt, absent in fact",
+      "evidence": "The actor prompt reads 'Time passing by itself is not a reason to reverse a decision.' It is obeyed. Across 159 non-empty consultations there is no instance of someone reconsidering out of doubt, guilt, second thoughts, embarrassment, or having slept on it. group_coordination tomas says 'I hate hosting, I'll wait one more day' at 11:00, 19:00, 21:00 Tue and 06:00 Wed and then at 06:00 Thu volunteers -- nothing changed, he simply ran out of days.",
+      "note": "This is a defensible guard against drift, but it means the one thing that most often actually resolves a real stalemate -- somebody caving -- can only happen on a clock."
+    },
+    {
+      "thing": "Nobody who is not in the cast ever does anything unprompted",
+      "present_or_absent": "structurally impossible",
+      "evidence": "In 10 of 11 runs no party outside the compiled actor list appears at all. holiday_deposit is the sole exception (Nina's mother, the Leeds couple) and even there they only exist downstream of a cast member's own attempt -- the Leeds couple exist because Marian dialled them (e891-e956), never because they rang her.",
+      "what_is_missing": "Bristol Plumbing never texts Sam again. Mark Cuban's assistant does not exist. The university does not email Aline about the hiring committee. Nina's mother has no appointment that moves. Nobody's boss wants anything."
+    },
+    {
+      "thing": "An outside deadline never bites on its own",
+      "present_or_absent": "one instance in 209 events",
+      "evidence": "The single case is holiday_deposit e1321/e1383: Marian checks her account on Wednesday lunchtime, the Leeds deposit has not arrived, and at 22:26 she crosses out their booking. That is the only event in the corpus where a stated deadline expires and something happens as a result. Everywhere else the cutoff is a stopping rule for the JUDGE, not a fact in the world. plumber_confirm's 6pm never arrives; negotiation's lease renewal on the 20th never arrives; cold_email's two weeks are walked past without a single event.",
+      "why": "There is no scheduled world state. The cutoff lives in the trajectory loop, not in the journal, so nothing an actor or the world can see knows it exists."
+    },
+    {
+      "thing": "Nothing ever breaks, is lost, is misread, or falls through",
+      "present_or_absent": "absent",
+      "evidence": "Of 135 events produced from an actor intention, 21 (16%) contain any thwart at all, and every one is one of three shapes: the call goes to voicemail, they did not look at their phone, the transfer has not arrived. The world prompt explicitly names the failure it wants -- 'something is misread or misunderstood, something breaks or is lost, a plan is cancelled, someone is unwell, an arrangement falls through ... A situation in which the only thing that ever goes wrong is that somebody did not get round to it is not a realistic situation' -- and the corpus is exactly the situation it says is unrealistic.",
+      "closest_to_an_exception": "holiday_deposit's phantom transfer: Nina sends 200 pounds at 15:25 Monday (e469) and it does not appear in Ruth's account until 13:35 Tuesday (e1009). It is the best thing in the corpus. But nothing CAUSED it -- no bank, no clearing time, no state -- the world simply asserted the balance each time it was asked, and then asserted otherwise."
+    },
+    {
+      "thing": "Someone intervening in a conversation they were not addressed in",
+      "present_or_absent": "absent",
+      "evidence": "Every committed event's audience is chosen per-event by the model in `for`. In group_coordination -- a four-person group chat -- Kwame reads the whole history at 07:00 and 08:00 Friday, then at 08:30 volunteers to host 'having seen that no one has responded' (e468) to a chat in which two people had responded, and at 10:00 apologises (e510). Nobody corrects him in between. There is no overhearing, no side-channel, no one bringing something up that was not sent to them."
+    },
+    {
+      "thing": "A person having anything else in their life",
+      "present_or_absent": "absent except where the compiler wrote it in",
+      "evidence": "Every competing obligation in the corpus is verbatim from private_context. Aline's meeting and class are in her compiled evidence; Nina's mother is in hers. Nothing else ever intrudes. Nobody gets a phone call about something unrelated, has a bad morning, is ill, or is interrupted by a person who wants something different. Ruth 'finds her kids in the living room and tells them the trip is off' (e881) and the children never react, ask, or appear again."
+    },
+    {
+      "thing": "Waiting that costs something",
+      "present_or_absent": "absent",
+      "evidence": "holiday_deposit: between 09:40 and 11:56 on Tuesday, Ruth is consulted six times and says 'I'll wait until midday' six times (c-series decisions at 09:40, 09:42, 10:00, 10:41, 10:55, 11:40, 11:55). It costs her nothing and produces nothing. In life the wait is where the fear is: she would have phoned her own bank, asked Nina for a reference number, asked Marian for one more day, or lain awake. She does none of those, and neither does anyone else in the corpus."
+    }
+  ],
+
+  "biggest_non_duration_gap": {
+    "title": "The world is a reaction function, not a place. It has no turn of its own, so nothing can happen that nobody in the cast chose.",
+    "rank": 1,
+    "evidence": "The adjudicator is invoked under exactly three triggers, and all three are reactive: starting_event (14 calls, at t0 only), actor_intention (179 calls, immediately after somebody states an intention), pending_progression (266 calls, an item sitting unobserved in a cast member's inbox, or a world_process wake). There is no fourth. Consequences across the 209 committed events: (a) ZERO exogenous events -- every event traces to a starting event, a cast member's attempt, or an item already in a cast member's inbox; (b) in 10 of 11 runs no party outside the compiled cast appears at all, and in holiday_deposit the Leeds couple exist only because Marian dialled them; (c) 45% of committed events (94/209) are bookkeeping -- 'X sees / notices / checks / picks up her phone' -- because the only thing the world is repeatedly asked about is whether attention reached an inbox; (d) of 135 intention-events only 21 (16%) contain any thwart, and every one of them is 'nobody got round to it', which is precisely the failure the world prompt names as unrealistic; (e) exactly one event in 209 is a deadline expiring on its own (holiday_deposit e1383). The prompt already instructs the model to do all of this -- 'People and organisations OUTSIDE the list of actors act too -- they chase, they follow up, they close their books, they carry on without waiting' -- so this is not a prompt problem. The machinery never asks.",
+    "why": "Duration changes WHEN things happen. This changes WHETHER anything can happen that is not already inside the question. It is why long windows are skipped rather than lived: with no process of its own, an empty queue means an empty world, so the loop has nothing to do but walk the clock (cold_email: 54 wakes, 185 calls, 2 events, 30 seconds of committed history in a 14-day window) or stop early (plumber_confirm and negotiation each resolve without a single wake firing). It is also why `busy_until` alone will not buy as much as expected: making people slower in a world where nothing else moves produces a slower version of the same empty corpus. The smallest fix that is in keeping with the rest of the design is a FOURTH trigger -- the world's own step -- asked when the queue would otherwise be empty and the clock is about to jump: 'between {now} and {next scheduled instant}, what concretely happened in this situation that nobody here caused?' Same envelope, same validator, same one-event-per-judgment cap, `by: null`. It costs one call per otherwise-dead jump, it is the only occasion on which the world's existing instructions about outside parties and things going wrong can ever fire, and it converts a skipped gap into a lived one.",
+    "runners_up": [
+      {
+        "rank": 2,
+        "title": "An act has no identity, so the same act is committed two, three and four times -- and `lasts` will convert that error from cosmetic into wall-clock.",
+        "evidence": "78 near-duplicate committed-event pairs across 209 events (holiday_deposit 40, feedback_deadline 21, group_coordination 8, anti_stereotype 5). Verbatim cases: holiday_deposit e789 @12:00 and e819 @12:01 are the same phone call to Marian; e873 and e884 are the same text to Nina at the same instant; e891/e902/e916/e939 are Marian ringing the Leeds couple FOUR times between 12:02 and 12:03, and e930 @12:03 has her 'find the phone number for the couple' after she has already spoken to them. lease_return e61/e65/e78/e81 are one signature committed four times in 150 seconds. world_mind.says_the_same_thing (SAME_ACT=0.86) exists but is scoped to a small already_committed window and catches none of these. THE WARNING: replaying feedback_deadline with per-actor busy_until seeded from each event's OWN stated duration defers 22 of 30 events and pushes e318 -- the email to Ravi, the event the question turns on -- from 13:34 to 15:46. That 2h12m is pure artefact: e170 and e179 are the same 45-minute reading session narrated twice, so it is charged 90 minutes. Aline already narrates 479 minutes of activity into a 330-minute window. Under `lasts`, every duplicate becomes a real block of somebody's day and every over-narrated act eats the deadline. Deduplicate first, or `lasts` will make the answers worse while making the traces look better.",
+        "why": "Duration is the amplifier for this defect, not the cure."
+      },
+      {
+        "rank": 3,
+        "title": "The world holds no facts. Ten declared actor-state fields are written zero times in 3341 ledger records, and the only actor state that exists is an append-only memory list.",
+        "evidence": "beliefs, goals, commitments, relationships, emotional_state, physical_state, plan, values, attention, reconsider and ongoing_action are all declared in the actor record at genesis and NEVER written again across the whole corpus. The only actor-state write op that appears is actor.memory (157 records, private only, never revised). Nothing holds an institutional fact either. anti_stereotype: the compiled scene says 'The vendor's support line opens at 8am on Thursday (2026-09-10)'; Ethel dials at 07:02 on WEDNESDAY and a representative answers at 08:00 Wednesday (e54) -- a day early. Ethel herself flags it in c43: 'The support line doesn't open until Thursday 8am ... The representative asking me to hold doesn't make sense -- maybe I misheard?' She then stays on hold for 23 hours across midnight (e101 -> e120) and the call resumes on Thursday at 07:00, still before opening. Nothing in the machinery could have said no, because opening hours are prose in a prompt, not state. Same shape everywhere: Ruth's promise to Marian, Nina's promise to Ruth, Marian's Wednesday hold, Priya's lease renewal on the 20th -- all are sentences in a view, none is a fact anything can check.",
+        "why": "This is the reason the continuity reviewer costs 431 calls (28% of the budget): with no state, consistency has to be re-derived by a model from prose on every single turn, and it still misses a support line answering a day early."
+      },
+      {
+        "rank": 4,
+        "title": "Already true and worth confirming for your section 4: `follow_up` is dead in the frozen runtime.",
+        "evidence": "world_mind.py still asks the model to compute it ('\"follow_up\" is true when this event leaves ONE unresolved thing'), envelope.validate_event still accepts and returns it, and 213 committed envelopes carry it (98 true / 115 false). The only remaining mention in trajectory.py is the comment at line 774 explaining that the chain it drove was removed. Every one of those 213 judgments spent output tokens on a field nothing reads. Your working tree already deletes it."
+      }
+    ]
+  },
+
+  "corroborations_and_corrections_to_WORLD_REALISM_MVP": {
+    "confirmed": [
+      "'65% of events are simultaneous with their cause' -- I measure 54% (112/209) against the originating world judgment. Same phenomenon, different link of the chain. Confirmed.",
+      "'60% of turns produce no intention' -- exactly 60.2% (240/399). Confirmed.",
+      "'one actor received 55 consecutive turns and 185 model calls to commit 2 events' -- cold_email/mark_cuban, exactly 55 consultations, 185 provider calls, 2 committed events. Confirmed.",
+      "'a thirty-minute call and a signing two minutes later' -- the corpus form of this is lease_return e61/e65/e78/e81 (one signature, four events, 150 seconds) and feedback_deadline e115/e123 (a 119-minute meeting with 30 minutes of thesis reading inside it). Confirmed.",
+      "'a support call rendered as thirty-three micro-steps' -- anti_stereotype commits 24 events for one phone call. Confirmed."
+    ],
+    "corrections": [
+      "'People are consulted when nothing has changed' understates it: the view CANNOT say nothing has changed. views.py always emits ELAPSED_TIME_REASON as a fallback, so every one of the 240 empty turns was handed a line claiming something had changed. 208 of them (87%) had only that line. Fixing the wake rule without fixing the fallback leaves the actor still being told, falsely, that something has changed.",
+      "The wasted-turn problem is bigger on the world side than the actor side: 246 of 459 world judgments (54%) propose no event, and 266 of those calls are pending_progression producing 69 events. Section 2 of the plan only addresses the actor half.",
+      "'busy_until is one field and one dict' is true of the code and not true of the consequences: on this corpus it silently reprices every duplicated act. See runner-up 2."
+    ]
+  }
+}

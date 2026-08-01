@@ -34,10 +34,21 @@ from sworldmodel.simclock import iso, parse_iso
 from .envelope import contained
 from .journal import Journal, OP_ACTOR_CALL
 
-#: what an actor is told when they are simply being consulted again after
-#: time has passed -- a wake carries no information, only timing
-ELAPSED_TIME_REASON = ("time has passed and you are looking at your "
-                       "situation again")
+#: What a person is told when they are being asked again and nothing new
+#: has reached them.
+#:
+#: It used to say "time has passed and you are looking at your situation
+#: again", printed under a heading reading WHAT HAS CHANGED SINCE YOUR
+#: LAST TURN.  A view can never say "nothing changed", so 208 of 240
+#: no-op consultations in the shipped corpus opened by announcing a change
+#: that had not happened -- and the person, told something was different,
+#: went looking for something to do about it.  Saying the true thing costs
+#: nothing and is the difference between a quiet afternoon and a prompt
+#: implying one is owed.
+NOTHING_NEW = "nothing new has reached you since you last looked at this"
+
+#: ... and the first time, there is no last turn to compare against.
+FIRST_LOOK = "you are looking at this situation for the first time"
 
 
 def build_view(world, journal: Journal, actor_id: str, *,
@@ -85,7 +96,7 @@ def build_view(world, journal: Journal, actor_id: str, *,
     reasons = [f"you observed: {by_id[eid]['description']}"
                for eid in (trigger_event_ids or []) if eid in by_id]
     if not reasons:
-        reasons = [ELAPSED_TIME_REASON]
+        reasons = [NOTHING_NEW if did else FIRST_LOOK]
     return {
         "actor_id": actor_id,
         "name": st.name,
@@ -169,7 +180,9 @@ def render_view(view: dict) -> str:
                   f"You are occupied until {view['busy_until']}.  Whatever "
                   f"you decide to do next begins after that, not now."]
     if view["reasons"]:
-        parts += ["", "WHAT HAS CHANGED SINCE YOUR LAST TURN"]
+        # The heading has to be able to be answered with "nothing".  A
+        # section headed WHAT HAS CHANGED is a claim that something did.
+        parts += ["", "WHAT HAS REACHED YOU SINCE YOUR LAST TURN"]
         for r in view["reasons"]:
             parts.append(f"- {contained(r)}")
     return "\n".join(parts)

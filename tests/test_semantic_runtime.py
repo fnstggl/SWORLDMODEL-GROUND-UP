@@ -194,18 +194,18 @@ def test_event_envelope_rejects_unknown_actors_and_extra_fields():
     known = {"ada_vance", "bo_ferrer"}
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["nobody"],
-                        "observed": True, "after": "now"}, known)
+                        "observed": True, "after": "now", "by": None, "lasts": "0 seconds"}, known)
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["ada_vance"],
                         "observed": True, "after": "now",
-                        "event_id": "e9"}, known)
+                        "event_id": "e9", "by": None, "lasts": "0 seconds"}, known)
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["ada_vance"],
                         "observed": True, "after": "now",
-                        "probability": 0.4}, known)
+                        "probability": 0.4, "by": None, "lasts": "0 seconds"}, known)
     ok = validate_event({"description": " x ", "for": ["ada_vance",
                                                        "ada_vance"],
-                         "observed": False, "after": "5 minutes"}, known)
+                         "observed": False, "after": "5 minutes", "by": None, "lasts": "0 seconds"}, known)
     assert ok["for"] == ["ada_vance"] and ok["delta"].total_seconds() == 300
 
 
@@ -270,7 +270,7 @@ class LifecycleModel:
                     "event": {"description": "Ada's message arrives in "
                                              "Bo's inbox.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "43 seconds"},
+                              "after": "43 seconds", "by": None, "lasts": "0 seconds"},
                     "wakes": [{"actor": "bo_ferrer", "after": "30 minutes",
                                "reason": "he will get to his messages"}]}), {}
             if "pending_progression" in user:
@@ -288,7 +288,7 @@ class LifecycleModel:
                     "event": {"description": "Bo notices the subject line "
                                              "of Ada's message.",
                               "for": ["bo_ferrer"], "observed": True,
-                              "after": "now"},
+                              "after": "now", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             if "Open" in user or "read" in user.lower():
                 return json.dumps({
@@ -296,14 +296,14 @@ class LifecycleModel:
                     "event": {"description": "Bo reads Ada's message in "
                                              "full.",
                               "for": ["bo_ferrer"], "observed": True,
-                              "after": "2 minutes"},
+                              "after": "2 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             if "repl" in user.lower():
                 return json.dumps({
                     "judgment": "He types two lines back.",
                     "event": {"description": "Bo sends a short reply to Ada.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "5 minutes"},
+                              "after": "5 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "Nothing concrete follows.",
                                "event": None, "wakes": []}), {}
@@ -456,7 +456,7 @@ def test_something_arriving_for_someone_who_never_spoke_still_reaches_them():
                     "judgment": "It lands where Bo could see it.",
                     "event": {"description": "Ada's message arrives for Bo.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes"},
+                              "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             if "has just arrived for" in user:
                 asked_about.append(user)
@@ -499,7 +499,7 @@ def test_finishing_your_own_action_gives_you_the_next_decision():
                     "event": {"description": "Ada looks up the booking and "
                                              "sees the hall is held.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "9 minutes"},
+                              "after": "9 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "Nothing further.",
                                "event": None, "wakes": []}), {}
@@ -542,13 +542,13 @@ def test_the_same_thing_scheduled_twice_only_happens_once():
                     "judgment": "it reaches them both.",
                     "event": {"description": "The notice reaches them.",
                               "for": ["ada_vance", "bo_ferrer"],
-                              "observed": False, "after": "1 minutes"},
+                              "observed": False, "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({
                 "judgment": "the same thing, whoever is asked about",
                 "event": {"description": "The notice is seen.",
                           "for": ["bo_ferrer"], "observed": True,
-                          "after": "40 minutes"},
+                          "after": "40 minutes", "by": None, "lasts": "0 seconds"},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -586,7 +586,7 @@ def test_a_person_knows_what_they_themselves_just_did():
                     # addressed to the OTHER person: she is not a recipient
                     "event": {"description": "Ada sends her answer to Bo.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "2 minutes"},
+                              "after": "2 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing further.",
                                "event": None, "wakes": []}), {}
@@ -639,7 +639,7 @@ def test_the_sender_does_not_see_the_far_end_of_what_they_sent():
                     "description": "Ada sends her answer to Bo.",
                     "for": ["bo_ferrer"], "observed": False,
                     "after": "2 minutes",
-                    "by": "ada_vance"}, "wakes": []}), {}
+                    "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
         if "ada_vance" in user:
@@ -872,7 +872,7 @@ def test_invalid_world_output_commits_nothing_after_one_retry():
     before_records = len(world.records)
     bad = {"judgment": "x", "event": {"description": "y",
                                       "for": ["ghost_actor"],
-                                      "observed": True, "after": "now"},
+                                      "observed": True, "after": "now", "by": None, "lasts": "0 seconds"},
            "wakes": []}
     caller = RuntimeCaller(transport=Script({
         "judge": [UNRESOLVED] * 4,
@@ -908,7 +908,7 @@ def test_time_never_moves_backward_and_cutoff_is_respected():
         "judge": [UNRESOLVED] * 300,
         "world": [{"judgment": "far future", "event": {
             "description": "something much later",
-            "for": ["ada_vance"], "observed": True, "after": "3 days"},
+            "for": ["ada_vance"], "observed": True, "after": "3 days", "by": None, "lasts": "0 seconds"},
             "wakes": []}] * 300,
         "actor": [{"decision": "d", "intentions": [], "private_updates": []}]
                  * 300}))
@@ -927,7 +927,7 @@ def test_no_probability_or_weight_fields_are_accepted():
         with pytest.raises(EnvelopeError):
             validate_event({"description": "x", "for": ["ada_vance"],
                             "observed": True, "after": "now",
-                            bad_field: 0.5}, known)
+                            bad_field: 0.5, "by": None, "lasts": "0 seconds"}, known)
 
 
 # ----------------------------------------------- information containment
@@ -944,8 +944,8 @@ def test_a_wake_reason_never_reaches_the_person_it_wakes():
         "judge": [UNRESOLVED] * 6,
         "world": [{"judgment": "nothing concrete yet", "event": None,
                    "wakes": [{"actor": "bo_ferrer", "after": "1 hours",
-                              "reason": secret}]}] * 4,
-        "actor": [NOTHING] * 6}))
+                              "reason": secret}]}] * 12,
+        "actor": [NOTHING] * 12}))
     trace = Trace()
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
                           caller, max_steps=3, trace=trace)
@@ -955,7 +955,9 @@ def test_a_wake_reason_never_reaches_the_person_it_wakes():
     for v in bo_views:
         assert secret not in v["rendered"]
         assert secret not in json.dumps(v["view"])
-        assert "time has passed" in v["rendered"]
+        # ... and what he IS told is the truth: nothing reached him
+        assert ("nothing new has reached you" in v["rendered"]
+                or "for the first time" in v["rendered"])
     # ... and it IS in the ledger, for tracing
     assert any(secret in json.dumps(r) for r in world.records)
 
@@ -1027,7 +1029,7 @@ def test_the_call_ceiling_sits_above_the_ordinary_path():
         "judge": [UNRESOLVED] * 900,
         "world": [{"judgment": "it moves along", "event": {
             "description": "something concrete happens",
-            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes", "by": None, "lasts": "0 seconds"},
             "wakes": [{"actor": "bo_ferrer", "after": "10 minutes",
                        "reason": "there is more of this to come"}]}] * 900,
         "actor": [busy] * 900}))
@@ -1142,10 +1144,10 @@ def test_a_retry_is_told_exactly_what_was_wrong():
         if len(seen) == 1:
             return json.dumps({"judgment": "j", "event": {
                 "description": "d", "for": ["ada_vance"], "observed": True,
-                "after": "in a little while"}, "wakes": []}), {}
+                "after": "in a little while", "by": None, "lasts": "0 seconds"}, "wakes": []}), {}
         return json.dumps({"judgment": "j", "event": {
             "description": "d", "for": ["ada_vance"], "observed": True,
-            "after": "10 minutes"}, "wakes": []}), {}
+            "after": "10 minutes", "by": None, "lasts": "0 seconds"}, "wakes": []}), {}
 
     from sworldmodel.semantic_runtime.world_mind import (WORLD_SYSTEM,
                                                          make_world_validator)
@@ -1170,7 +1172,7 @@ def test_a_truncated_run_is_incomplete_and_can_never_answer_no():
         "judge": [UNRESOLVED] * 60,
         "world": [{"judgment": "it moves along", "event": {
             "description": "another concrete step happens",
-            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes", "by": None, "lasts": "0 seconds"},
             "wakes": [{"actor": "bo_ferrer", "after": "10 minutes",
                        "reason": "there is more of this to come"}]}] * 60,
         "actor": [{"decision": "d", "intentions": ["keep going"],
@@ -1359,7 +1361,7 @@ def test_unstorable_text_is_repaired_before_it_is_committed():
         "judge": [UNRESOLVED] * 6,
         "world": [{"judgment": poison, "event": {
             "description": poison, "for": ["bo_ferrer"], "observed": True,
-            "after": "5 minutes"}, "wakes": []}] * 6,
+            "after": "5 minutes", "by": None, "lasts": "0 seconds"}, "wakes": []}] * 6,
         "actor": [{"decision": poison, "intentions": [],
                    "private_updates": [poison]}] * 6}))
     traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
@@ -1382,7 +1384,7 @@ def test_a_merely_verbose_model_cannot_run_up_the_bill():
     with pytest.raises(EnvelopeError):
         validate_event({"description": "y" * (MAX_TEXT_CHARS + 1),
                         "for": ["ada_vance"], "observed": True,
-                        "after": "now"}, known)
+                        "after": "now", "by": None, "lasts": "0 seconds"}, known)
     from sworldmodel.semantic_runtime.actor_mind import (
         ActorResponseError, validate_actor_response)
     with pytest.raises(ActorResponseError):
@@ -1453,7 +1455,7 @@ def test_a_persons_own_action_does_not_hand_them_another_turn():
             n["i"] += 1
             return json.dumps({"judgment": "she does it", "event": {
                 "description": f"Ada gets on with the {n['i']}th piece of it",
-                "for": ["ada_vance"], "observed": True, "after": after},
+                "for": ["ada_vance"], "observed": True, "after": after, "by": None, "lasts": "0 seconds"},
                 "wakes": []}), {}
         return json.dumps(busy), {}
 
@@ -1493,7 +1495,7 @@ def test_the_world_cannot_run_for_long_without_asking_anyone():
                 "judgment": "he carries on",
                 "event": {"description": "Bo continues typing his reply",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes"},
+                          "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                 "wakes": [{"actor": "bo_ferrer", "after": "10 minutes",
                            "reason": "he is still at it"}]}), {}
         seen["runs"].append(seen["world"])
@@ -1535,7 +1537,7 @@ def test_one_instant_cannot_be_subdivided_forever():
                 "description": f"thing number {n['i']} happens",
                 "for": ["ada_vance"], "observed": True,
                 "after": "now",
-                "by": "ada_vance"},
+                "by": "ada_vance", "lasts": "0 seconds"},
                 "wakes": [{"actor": "ada_vance", "after": "10 minutes",
                            "reason": "it is still going on"}]}), {}
         return json.dumps({"decision": "I keep at it.",
@@ -1561,7 +1563,7 @@ def test_no_wake_exists_without_a_grounded_reason():
         "judge": [UNRESOLVED] * 40,
         "world": [{"judgment": "she gets on with it", "event": {
             "description": "Ada works on her own thing a while longer",
-            "for": ["ada_vance"], "observed": True, "after": "2 minutes"},
+            "for": ["ada_vance"], "observed": True, "after": "2 minutes", "by": None, "lasts": "0 seconds"},
             "wakes": [{"actor": "ada_vance", "after": "3 hours",
                        "reason": "she said she would look again after the "
                                  "school run"}]}] * 40,
@@ -1643,7 +1645,7 @@ def test_one_person_noticing_is_not_everyone_noticing():
                 "event": {"description": "the message goes to the group and "
                                          "they all see it at once",
                           "for": ["ada_vance", "bo_ferrer"],
-                          "observed": True, "after": "1 minutes"},
+                          "observed": True, "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -1673,7 +1675,7 @@ def test_a_person_remembers_what_they_themselves_did():
             return json.dumps({"judgment": "she does it", "event": {
                 "description": "Ada does the thing she set out to do",
                 "for": ["ada_vance"], "observed": True,
-                "after": "20 minutes"}, "wakes": []}), {}
+                "after": "20 minutes", "by": None, "lasts": "0 seconds"}, "wakes": []}), {}
         if "Ada Vance" in user:
             seen.append(user)
         return json.dumps({"decision": "I will write to him again",
@@ -1726,24 +1728,84 @@ def test_a_person_comes_back_because_they_planned_to():
 
 def test_the_same_event_cannot_happen_twice_word_for_word():
     """One live run committed "she reads the next portion of the results
-    section" nine times, and the week that produced its NO was a loop."""
+    section" nine times, and the week that produced its NO was a loop.
+
+    An act is identified by WHO did it and WHO it reached before any
+    wording is compared: those are code-owned and they discriminate,
+    where wording alone cannot.
+    """
     from sworldmodel.semantic_runtime.world_mind import make_world_validator
     body = {"judgment": "again", "event": {
-        "description": "She reads the next portion of the results section",
-        "for": ["ada_vance"], "observed": True, "after": "5 minutes"},
+        "description": "Ada reads the next portion of the results section",
+        "for": ["ada_vance"], "observed": True, "after": "5 minutes",
+        "by": "ada_vance", "lasts": "0 seconds"},
         "wakes": []}
-    seen = frozenset({"she reads the next portion of the results section"})
+    seen = frozenset({("ada_vance", ("ada_vance",),
+                       "Ada reads the next portion of the results section")})
     fresh = make_world_validator({"ada_vance"})
     assert fresh(json.loads(json.dumps(body)))["event_checked"]
-    strict = make_world_validator({"ada_vance"}, already_committed=seen)
+    strict = make_world_validator({"ada_vance", "bo_ferrer"},
+                                  already_committed=seen)
     repeated = strict(json.loads(json.dumps(body)))
     assert repeated["event_checked"] is None      # nothing occurs
     assert repeated["duplicate_dropped"]          # and it is recorded why
     assert repeated["judgment"]                   # the rest of it stands
+    # ... and reworded, which is how a model actually repeats itself
+    reworded = json.loads(json.dumps(body))
+    reworded["event"]["description"] = \
+        "Ada continues reading the next portion of the results section"
+    assert strict(reworded)["event_checked"] is None
     # something genuinely next is fine
     nxt = json.loads(json.dumps(body))
-    nxt["event"]["description"] = "She reaches the end of the section"
+    nxt["event"]["description"] = "Ada reaches the end of the section"
     assert strict(nxt)["event_checked"]
+    # ... and so is somebody ELSE doing a near-identical thing.  Merging
+    # across people is the failure that deletes the decisive act.
+    other = json.loads(json.dumps(body))
+    other["event"]["by"] = "bo_ferrer"
+    assert strict(other)["event_checked"]
+
+
+def test_a_reply_is_never_merged_into_the_message_it_answers():
+    """The exact pair that forbids deciding this on wording alone.
+
+    "Dana sends a message asking Marcus to confirm the hall" and "Marcus
+    replies confirming the hall" are 0.85 identical as text -- higher than
+    many genuine repeats -- because a bag of words has no subject and no
+    verb. Both are real events from one shipped run; merging them deletes
+    the reply, which is the whole answer to that scene's question.
+    """
+    import difflib
+
+    from sworldmodel.semantic_runtime.world_mind import (SAME_ACT, _shape,
+                                                         make_world_validator)
+    ask = ("Dana Whitfield sends a message to Marcus Bell asking him to "
+           "confirm the hall is held for the 14th.")
+    reply = ("Marcus Bell replies to Dana Whitfield's message confirming "
+             "the hall is held for the 14th.")
+    # as text these read as the same act, more strongly than many genuine
+    # repeats do, so no wording threshold can be trusted to separate them
+    assert difflib.SequenceMatcher(None, _shape(ask), _shape(reply)).ratio() \
+        > SAME_ACT
+    # ... so identity does it: different person, so a different act
+    strict = make_world_validator(
+        {"ada_vance", "bo_ferrer"},
+        already_committed=frozenset({("ada_vance", ("bo_ferrer",), ask)}))
+    out = strict({"judgment": "he answers", "event": {
+        "description": reply, "for": ["ada_vance"], "observed": False,
+        "after": "2 hours", "by": "bo_ferrer", "lasts": "1 minutes"},
+        "wakes": []})
+    assert out["event_checked"], "the reply was deleted as a repeat of the ask"
+    # and a different AUDIENCE is a different act too: the same words
+    # reaching somebody new is news to them
+    elsewhere = make_world_validator(
+        {"ada_vance", "bo_ferrer"},
+        already_committed=frozenset({("bo_ferrer", ("ada_vance",), reply)}))
+    out2 = elsewhere({"judgment": "he tells the other one too", "event": {
+        "description": reply, "for": ["bo_ferrer"], "observed": False,
+        "after": "2 hours", "by": "bo_ferrer", "lasts": "1 minutes"},
+        "wakes": []})
+    assert out2["event_checked"]
 
 
 # ================================================== the completion pass
@@ -1811,7 +1873,7 @@ def test_a_human_choice_written_by_the_world_becomes_that_persons_turn():
                     "description": "Bo reads it and agrees to the price.",
                     "for": ["ada_vance"], "observed": True,
                     "after": "5 minutes",
-                    "by": "bo_ferrer"}, "wakes": []}), {}
+                    "by": "bo_ferrer", "lasts": "0 seconds"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
         asked.append(user)
@@ -1964,7 +2026,7 @@ def test_a_persons_own_intention_is_already_their_choice():
                 return json.dumps({"judgment": "she sends it", "event": {
                     "description": "Ada sends the reply she decided to write",
                     "for": ["bo_ferrer"], "observed": False,
-                    "after": "1 minutes"},
+                    "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing", "event": None,
                                "wakes": []}), {}

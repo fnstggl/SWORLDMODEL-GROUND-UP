@@ -124,7 +124,7 @@ def test_delivery_and_notification_are_not_committed_as_events():
                     "judgment": "it goes.",
                     "event": {"description": "Ada sends Bo her proposal.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes"},
+                              "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             # the world tries to narrate transport, as it did throughout
             # the merged corpus
@@ -134,7 +134,7 @@ def test_delivery_and_notification_are_not_committed_as_events():
                                          "inbox and a notification appears "
                                          "on his phone.",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes"},
+                          "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -168,7 +168,7 @@ def test_the_same_physical_act_is_not_committed_twice():
             return json.dumps({
                 "judgment": "she signs it.",
                 "event": {"description": desc, "for": ["ada_vance"],
-                          "observed": True, "after": "2 minutes"}, "wakes": []}), {}
+                          "observed": True, "after": "2 minutes", "by": None, "lasts": "0 seconds"}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
     _, journal, _ = run(transport, steps=12)
@@ -203,7 +203,7 @@ def test_a_valid_attempt_is_never_deleted_by_a_semantic_reviewer():
                     "event": {"description": "Margaret signs the lease and "
                                              "sends it back to Jian Wei.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "20 minutes"},
+                              "after": "20 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -241,7 +241,7 @@ def test_identical_event_text_gets_identical_treatment():
                                              "document.",
                               "for": ["ada_vance"], "observed": True,
                               "after": "3 minutes",
-                              "by": "ada_vance"},
+                              "by": "ada_vance", "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -275,7 +275,7 @@ def test_every_world_consequence_cites_the_attempt_that_caused_it():
                     "judgment": "she does it.",
                     "event": {"description": "Ada sends the note.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes"},
+                              "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -314,7 +314,7 @@ def test_the_world_cannot_author_another_persons_voluntary_choice():
                                              "replies that he agrees.",
                               "for": ["ada_vance"], "observed": True,
                               "after": "5 minutes",
-                              "by": "bo_ferrer"},
+                              "by": "bo_ferrer", "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -350,7 +350,7 @@ def test_a_recipient_cannot_see_information_before_it_is_available():
                     "event": {"description": "Ada sends Bo the figure she "
                                              "will not go below.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes"},
+                              "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -386,7 +386,7 @@ def test_the_sender_does_not_learn_the_recipients_attention():
                                              "delivered.",
                               "for": ["bo_ferrer"], "observed": False,
                               "after": "2 minutes",
-                              "by": "ada_vance"}, "wakes": []}), {}
+                              "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
         if "ada_vance" in user:
@@ -560,7 +560,7 @@ def test_a_turns_attempts_resolve_in_the_order_they_were_stated():
                                              "sees the transfer has arrived.",
                               "for": ["ada_vance"], "observed": True,
                               "after": "30 minutes",
-                              "by": "ada_vance"}, "wakes": []}), {}
+                              "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
             if "attempts: If confirmed" in user:
                 # ... and the dependent one is quick
                 return json.dumps({
@@ -568,7 +568,7 @@ def test_a_turns_attempts_resolve_in_the_order_they_were_stated():
                     "event": {"description": "Ada transfers the deposit on.",
                               "for": ["ada_vance"], "observed": True,
                               "after": "1 minutes",
-                              "by": "ada_vance"}, "wakes": []}), {}
+                              "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
         if "ada_vance" in user:
@@ -612,7 +612,7 @@ def test_a_person_acting_survives_whatever_question_prompted_it():
                     "event": {"description": "Ada asks Bo to confirm the hall.",
                               "for": ["bo_ferrer"], "observed": False,
                               "after": "1 minutes",
-                              "by": "ada_vance"}, "wakes": []}), {}
+                              "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
             # the attention question, answered with a person acting
             return json.dumps({
                 "judgment": "he answers her.",
@@ -620,7 +620,7 @@ def test_a_person_acting_survives_whatever_question_prompted_it():
                                          "confirmed for the 14th.",
                           "for": ["ada_vance"], "observed": True,
                           "after": "20 minutes",
-                          "by": "bo_ferrer"}, "wakes": []}), {}
+                          "by": "bo_ferrer", "lasts": "0 seconds"}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
     _, journal, _ = run(transport)
@@ -643,14 +643,14 @@ def test_a_restatement_that_nothing_changed_is_still_refused():
                     "event": {"description": "Ada sends Bo the proposal.",
                               "for": ["bo_ferrer"], "observed": False,
                               "after": "1 minutes",
-                              "by": "ada_vance"}, "wakes": []}), {}
+                              "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
             return json.dumps({
                 "judgment": "it sits there.",
                 "event": {"description": "The proposal remains unread in "
                                          "Bo's inbox.",
                           "for": ["bo_ferrer"], "observed": False,
                           "after": "2 hours",
-                          "by": None}, "wakes": []}), {}
+                          "by": None, "lasts": "0 seconds"}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
     _, journal, _ = run(transport)
@@ -862,3 +862,120 @@ def test_duration_is_carried_on_the_event_and_survives_replay():
                 if e["description"] == "Ada talks to Bo on the phone.")
     assert call["lasts"] == "30 minutes"
     assert replay_trajectory(world.records, live_world=world)["exact"]
+
+
+# ------------------------------------------- the world is a place, not a
+# reaction function
+#
+# The adjudicator had exactly three occasions, all reactive: a starting
+# event, somebody's attempt, something already in somebody's inbox. So
+# nothing could ever happen that a person in the cast had not chosen.
+# Across 209 committed events in the shipped corpus there were zero events
+# from outside it -- no office shut, no deadline bit on its own, nobody
+# chased what they were owed -- and the one thing that ever went wrong was
+# that somebody had not got round to it, which the world prompt itself
+# calls unrealistic.
+
+
+def quiet_but_moving_world(exogenous_by=None):
+    """Nobody in the cast does anything; the world is asked what happened
+    in the time they spend not doing it."""
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "Nobody here does anything between now and" in user:
+                return json.dumps({
+                    "judgment": "the office closes for the weekend.",
+                    "event": {"description": "The letting office closes "
+                                             "until Monday.",
+                              "for": ["ada_vance"], "observed": False,
+                              "after": "10 minutes", "by": exogenous_by,
+                              "lasts": "0 seconds"},
+                    "wakes": []}), {}
+            return json.dumps({
+                "judgment": "nothing follows from that.", "event": None,
+                "wakes": [{"actor": "ada_vance", "after": "2 days",
+                           "reason": "she said she would look again"}]}), {}
+        return json.dumps(NOTHING), {}
+    return transport
+
+
+def test_something_can_happen_that_nobody_in_the_scene_chose():
+    """Without the world's own turn, a fortnight of simulated time
+    contains only what the cast did to each other."""
+    _, journal, _ = run(quiet_but_moving_world(), steps=30)
+    descs = [e["description"] for e in journal.events()]
+    assert any("letting office closes" in d for d in descs), descs
+    exogenous = [e for e in journal.events() if e["by"] is None
+                 and e["source"].startswith("world_call")]
+    assert exogenous, "every committed event was somebody in the cast acting"
+
+
+def test_the_worlds_own_turn_may_not_write_a_persons_choice():
+    """'Meanwhile, what happened?' is the widest invitation in the runtime
+    to record somebody's decision as weather. There is no adjudicating
+    actor on that turn by construction, which is exactly when the identity
+    guard matters most: nobody here did it is what the turn MEANS."""
+    trace = Trace()
+    world, journal, bindings = build()
+    caller = RuntimeCaller(
+        transport=reviewed(quiet_but_moving_world(exogenous_by="bo_ferrer")))
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=30, trace=trace)
+    handed = trace.of("choice_returned_to_its_owner")
+    assert handed, "the world wrote Bo's choice on its own turn and it stood"
+    assert handed[0]["actor"] == "bo_ferrer"
+    assert not any("letting office closes" in e["description"]
+                   for e in journal.events())
+
+
+def test_the_world_is_asked_about_unlived_time_only_once_per_instant():
+    """Code owns only the threshold -- that the question is owed at all.
+    Asking repeatedly at one instant is the same question again, and each
+    one costs a call."""
+    trace = Trace()
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=reviewed(quiet_but_moving_world()))
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=30, trace=trace)
+    asked = [j for j in trace.of("world_judgment")
+             if j["trigger"] == "elapsed_world"]
+    assert asked
+    assert len(asked) == len({j["t"] for j in asked}), \
+        [j["t"] for j in asked]
+
+
+def test_a_short_hop_is_not_a_stretch_of_unlived_time():
+    """The question is about time a situation could move in. Asking it of
+    the next ninety seconds is not a question, it is a tax."""
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            return json.dumps({
+                "judgment": "nothing follows.", "event": None,
+                "wakes": [{"actor": "ada_vance", "after": "2 minutes",
+                           "reason": "she said she would check back"}]}), {}
+        return json.dumps(NOTHING), {}
+
+    trace = Trace()
+    world, journal, bindings = build()
+    run_trajectory(world, journal, bindings, SCENE["resolution"],
+                   RuntimeCaller(transport=reviewed(transport)),
+                   max_steps=12, trace=trace)
+    assert not [j for j in trace.of("world_judgment")
+                if j["trigger"] == "elapsed_world"]
+
+
+def test_a_person_with_nothing_new_is_told_exactly_that():
+    """A view can never say 'nothing changed', so 208 of 240 no-op
+    consultations opened by announcing a change that had not happened."""
+    from sworldmodel.semantic_runtime.views import build_view, render_view
+    world, journal, _ = run(silent_world)
+    rendered = render_view(build_view(world, journal, "bo_ferrer"))
+    assert "nothing new has reached you" in rendered \
+        or "for the first time" in rendered
+    assert "has changed" not in rendered.lower()

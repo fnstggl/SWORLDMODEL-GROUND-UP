@@ -34,7 +34,7 @@ from .envelope import (EnvelopeError, clean_text, contained,
 #: lease twice a minute apart, a call was released twice, a decisive act was
 #: committed twice.  A model does not write the same sentence twice; it
 #: writes the same event twice.
-SAME_ACT = 0.86
+SAME_ACT = 0.80
 _TRIVIAL = re.compile(r"\b(?:the|a|an|his|her|their|its|then|now|just|"
                       r"finally|and|to|of|in|on|at|with|from|by)\b")
 
@@ -49,18 +49,46 @@ _NUMBERS = re.compile(r"\d+|\b(?:first|second|third|fourth|fifth|sixth|"
                       r"seventh|eighth|ninth|tenth|one|two|three|four|five|"
                       r"six|seven|eight|nine|ten)\b", re.I)
 
+#: A capitalised word: a name.  Two events naming different people are
+#: about different people, whatever else they share -- "Ruth calls Dev
+#: Sandhu, it goes to voicemail" and "Ruth calls Nina Achebe, it goes to
+#: voicemail" read as 0.84 identical and are two different phone calls.
+#:
+#: Sentence-opening words are counted too, which occasionally catches a
+#: "She" or a "The".  That errs towards leaving two events alone, and
+#: leaving a repeat in the record costs a duplicate line; merging two real
+#: acts deletes somebody's afternoon.  The cheap mistake is the one to
+#: make.
+_NAME = re.compile(r"\b([A-Z][a-z]{2,})\b")
+
+
+def _facts(text: str) -> tuple:
+    """The parts of a description that are not wording: who is named, and
+    what quantities appear.  These are what an act is ABOUT; the rest is
+    how it happened to be phrased that time."""
+    return (sorted(m.group().casefold() for m in _NUMBERS.finditer(text or "")),
+            sorted({m.group(1).casefold() for m in _NAME.finditer(text or "")}))
+
 
 def says_the_same_thing(a: str, b: str) -> bool:
-    """Close enough to be one act said twice.
+    """Close enough to be one act said twice, given that code has already
+    established the same person did them for the same audience.
 
-    Different numbers mean different things -- the second page is not the
-    first page, and 400 is not 200 -- so a numeric difference disqualifies
-    a match however similar the rest reads.  Without that, "she gets on
-    with the 1st piece of it" and "the 2nd piece" collapsed into one.
+    Wording alone cannot decide this and must not be asked to.  "Dana
+    sends a message asking Marcus to confirm the hall" and "Marcus replies
+    confirming the hall" score 0.85 against each other -- higher than many
+    genuine repeats -- because a bag of words has no verb and no subject.
+    Lowering the threshold to catch the repeats deletes the reply, which
+    is the decisive act of that scene.
+
+    So identity does the discriminating and wording only finishes the job:
+    the caller supplies same-doer and same-audience, this rejects any pair
+    that names different people or different quantities, and what is left
+    is compared as text.  On the shipped corpus that separates 24 genuine
+    repeats -- one call made four times, one banking app checked five --
+    from every cross-actor pair, with no false merge.
     """
-    na = [m.group().casefold() for m in _NUMBERS.finditer(a or "")]
-    nb = [m.group().casefold() for m in _NUMBERS.finditer(b or "")]
-    if sorted(na) != sorted(nb):
+    if _facts(a) != _facts(b):
         return False
     return difflib.SequenceMatcher(None, _shape(a), _shape(b)).ratio() \
         >= SAME_ACT
@@ -111,6 +139,16 @@ they chase, they follow up, they close their books, they carry on without \
 waiting.  Say so when that is what would really happen.  A situation in \
 which the only thing that ever goes wrong is that somebody did not get \
 round to it is not a realistic situation.
+
+TIME NOBODY HERE IS SPENDING.  Sometimes you are asked what happened \
+across a stretch of time in which none of these people did anything.  \
+That is the world's own turn, and the answer is not always "nothing": \
+offices open and shut, deadlines pass, other people chase what they are \
+owed, weather and transport and machines carry on, third parties make \
+their own arrangements.  Answer with what the SITUATION did while these \
+people were not acting on it -- and because nobody here did it, "by" is \
+null.  If genuinely nothing happened that anyone here would ever find \
+out about, say so in "judgment" and return "event": null.
 
 Never put a clock time or a date inside an event.  The time is recorded \
 separately, by the machinery, and it is authoritative; anything you write \
@@ -206,14 +244,8 @@ sit there untouched while that person deals with other things.  Any of \
 those is a legitimate answer; say which one actually happens.
 "after" is how much simulated time passes before this event occurs: "now", \
 "43 seconds", "5 minutes", "2 hours", or "3 days".
-"follow_up" is true when this event leaves ONE unresolved thing for the \
-world to work out next -- something is in transit, something is underway, \
-something will arrive.  It is false when the event is finished in itself: \
-somebody has put a thing down, an arrival has arrived, a person now has \
-the situation in front of them.  When it is false, nothing further is \
-asked and the next thing to happen is somebody's decision or a later \
-scheduled event.
-Use exactly the actor ids given to you.  Do not add any other fields."""
+Every one of the six event fields is required.  Use exactly the actor ids \
+given to you.  Do not add any other fields."""
 
 
 def world_user_prompt(*, now: str, shared_context: str, journal_text: str,
@@ -290,9 +322,19 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
         duplicate = None
         same = None
         if env is not None:
-            here = contained(env["description"])
+            # Same act = same doer, same audience, same thing said.  The
+            # first two are code-owned identity and do the discriminating;
+            # only then does wording get a vote.  Comparing text alone had
+            # to be set so tight that it missed a call made four times and
+            # a banking app checked five, because loosening it merged
+            # "Dana asks Marcus to confirm" with "Marcus replies
+            # confirming" -- two different people, one of them the
+            # decisive act of the scene.
+            here = (env.get("by"), tuple(env["for"]),
+                    contained(env["description"]))
             same = next((d for d in already_committed
-                         if says_the_same_thing(here, d)), None)
+                         if d[0] == here[0] and d[1] == here[1]
+                         and says_the_same_thing(here[2], d[2])), None)
         if same is not None:
             # Word for word, this has already happened.  One live run
             # committed "she reads the next portion of the results

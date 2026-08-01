@@ -43,9 +43,32 @@ from .views import build_view, render_view
 MAX_EVENTS_PER_INSTANT = 3
 MIN_STEP_ON_A_CROWDED_INSTANT = timedelta(minutes=1)
 
+#: How much unlived time has to lie ahead before code asks the world what
+#: happened in it.  "Meanwhile, elsewhere" is not a question you can ask
+#: about the next ninety seconds; an hour is the smallest stretch over
+#: which a situation can move on its own.  Code owns only the threshold --
+#: that the question is owed at all -- never the answer.
+UNLIVED_TIME_WORTH_ASKING_ABOUT = timedelta(hours=1)
+
 #: kernel queue kinds owned by this layer
 K_EVENT = "semantic.event"      # a world-proposed event, due at its instant
 K_WAKE = "semantic.wake"        # reconsider an actor's situation
+
+#: A wake exists only for a reason that something in the world gives it.
+#: There is no polling: an earlier version widened an interval from five
+#: minutes to a day and back, which produced 3:50 a.m. reconsiderations,
+#: five wakes in five hours, day-long holes in the middle of a task, and
+#: people who quietly stopped being asked anything at all.  Time passing is
+#: not a reason to think about something again.  These three are:
+#:
+#: DEFINED ONCE, at module scope, because this exact vocabulary has now
+#: drifted five separate times -- names declared here and wired to nothing,
+#: and a copy in the acceptance checker listing three values the runtime
+#: cannot emit while missing one it does.  A vocabulary with two homes has
+#: no home.
+WAKE_PROVENANCE = ("actor_plan",         # they said they would
+                   "world_process",      # the world said it would happen
+                   "own_act_finished")   # what they were doing is done
 
 
 def budget_for(*, max_steps: int, actors: int,
@@ -132,25 +155,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     news_at_turn: dict = {}
     last_turn_t: dict = {}
 
-    #: A wake exists only for a reason that something in the world gives
-    #: it.  There is no polling: the previous version widened an interval
-    #: from five minutes to a day and back, which produced 3:50 a.m.
-    #: reconsiderations, five wakes in five hours, day-long holes in the
-    #: middle of a task, and people who quietly stopped being asked
-    #: anything at all.  Time passing is not a reason to think about
-    #: something again.  These five are:
-    #: Exactly what the scheduler can produce, and nothing aspirational.
-    #: Three further names were declared here and wired to nothing --
-    #: across 1,087 wakes in the shipped corpus not one carried them --
-    #: while two independent reviewers pointed out that a vocabulary
-    #: advertising coverage it does not have is worse than a short one.
-    #: What those names described still happens; it happens as an
-    #: immediate turn rather than as a scheduled wake, which is why they
-    #: never appeared.
-    WAKE_PROVENANCE = ("actor_plan",         # they said they would
-                       "world_process",      # the world said it would happen
-                       "own_act_finished")   # what they were doing is done
-
     #: What was last asked about somebody's unopened items: the instant it
     #: was asked at, how much had happened by then, and which items.
     #:
@@ -186,6 +190,11 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: moved and the run ends, and if it produced something the clock
     #: moved to reach it.
     last_call: dict = {"at": None}
+
+    #: The instant at which the world was last asked what becomes of the
+    #: time ahead of it.  Once per instant: a second asking at the same
+    #: moment is the same question.
+    asked_about_the_gap: dict = {"at": None}
 
     #: Whether the loop stopped because the future it could see lay beyond
     #: the deadline -- the horizon honestly reached -- rather than because
@@ -243,7 +252,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                      due=iso(due), reason=reason, provenance=provenance)
                 intends_after_cutoff["yes"] = True
             return False
-        key = (actor_id, about, provenance)
+        # ONE pending revisit per person per kind of reason -- not per
+        # person per reason per whatever prompted the asking.  Keying on
+        # the trigger as well meant the same world callback about the same
+        # man, asked for under two different triggers, sat in the queue
+        # twice at the same instant; and a person's "I'll look again later"
+        # minted a fresh key every turn, so plans stacked.  Somebody has
+        # one next moment they come back to something, and every turn they
+        # take is a chance to say when that is.
+        key = (actor_id, provenance)
         old = pending_wakes.get(key)
         if old is not None:
             # For most purposes the sooner wake is the one worth keeping.
@@ -328,9 +345,11 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # message in his inbox" twice, a minute apart, having checked
         # against a record that did not yet contain either of them.
         already = frozenset(
-            [contained(e["description"]).casefold()
+            [(e.get("by"), tuple(e["for"]), contained(e["description"]))
              for e in journal.events()]
-            + [contained(e.data["envelope"]["description"]).casefold()
+            + [(e.data["envelope"].get("by"),
+                tuple(e.data["envelope"]["for"]),
+                contained(e.data["envelope"]["description"]))
                for e in world.queue.pending() if e.kind == K_EVENT])
         validator = world_mind.make_world_validator(
             set(actor_ids), already_committed=already)
@@ -391,7 +410,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # belongs to exactly one person, and a consequence in which
         # somebody ELSE makes a voluntary choice is that person's turn to
         # take, not this one's to record.
-        if envelope is not None and adjudicating_for is not None:
+        if envelope is not None and (adjudicating_for is not None
+                                     or trigger_kind == "elapsed_world"):
             # Only where there IS somebody whose turn this is.  A starting
             # event has no adjudicating actor -- it is the scene's own
             # premise unfolding -- so there is no attempt for `by` to
@@ -400,6 +420,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             # they are 9 of 195 committed events in the corpus and they
             # come from the frozen compiler, and the report says so rather
             # than claiming otherwise.
+            #
+            # On the world's OWN turn there is no adjudicating actor by
+            # construction, and that is exactly when the guard matters
+            # most: "meanwhile, what happened?" is an invitation to write
+            # somebody's decision as weather.  Nobody here did it is the
+            # definition of that turn, so any named doer hands it back.
             by = envelope.get("by")
             chooser = (by if by and by != adjudicating_for else None)
             if chooser is not None:
@@ -1014,6 +1040,37 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 reached_horizon["yes"] = (ev is not None
                                           or intends_after_cutoff["yes"])
                 break
+            # THE WORLD'S OWN TURN.
+            #
+            # About to cross a stretch of time in which nobody here does
+            # anything.  Until now the adjudicator had exactly three
+            # occasions, all reactive -- a starting event, somebody's
+            # attempt, something sitting in somebody's inbox -- so nothing
+            # could ever happen that a person in the cast had not chosen.
+            # Across 209 committed events in the shipped corpus there were
+            # zero events from outside it: no office shut, no deadline bit
+            # on its own, nobody chased what they were owed, and the one
+            # thing that ever went wrong was that somebody had not got
+            # round to it.  The prompt has always told the world that
+            # outside parties act; the machinery never gave it an occasion
+            # to say so.
+            #
+            # Code decides only THAT the question is owed, and only for
+            # time long enough for the question to mean anything.  What
+            # happened in it is the world's.  Once per instant: if the
+            # answer puts something inside the gap, the loop comes back
+            # round and lives it.
+            if ev.t - world.clock.now >= UNLIVED_TIME_WORTH_ASKING_ABOUT \
+                    and asked_about_the_gap["at"] != world.clock.now:
+                asked_about_the_gap["at"] = world.clock.now
+                world_step(
+                    trigger_kind="elapsed_world",
+                    trigger_text=(
+                        f"Nobody here does anything between now and "
+                        f"{iso(ev.t)}.  What concretely happens in that time "
+                        f"that none of these people brought about?"),
+                    cause=world.records[-1]["seq"])
+                continue
             ev = world.queue.pop()
             if ev.t > world.clock.now:
                 world.clock.advance_to(ev.t)
@@ -1081,8 +1138,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 aid = ev.data["actor"]
                 # this wake has arrived, so it is no longer pending and a
                 # later one for the same purpose may be scheduled
-                pending_wakes.pop((aid, ev.data.get("about"),
-                                   ev.data.get("provenance")), None)
+                pending_wakes.pop((aid, ev.data.get("provenance")), None)
                 pending = journal.available_unobserved(aid)
                 asked = last_progression.get(aid)
                 here = (_iso_now(world), len(journal.events()),
