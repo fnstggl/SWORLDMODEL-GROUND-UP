@@ -81,7 +81,7 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                      "actor_response_rejected"))
     # what code refused, and why -- there is no semantic gate left to log
     _write_jsonl(os.path.join(out_dir, "structural_refusals.jsonl"),
-                 trace.of("attention_answer_without_attention")
+                 trace.of("restatement_refused")
                  + trace.of("choice_returned_to_its_owner"))
     # Every place code overruled the model.  These were emitted into the
     # trace and persisted nowhere, which is precisely backwards: they are
@@ -93,7 +93,9 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                  [dict(e, override=e["kind"]) for k in
                   ("event_abandoned", "duplicate_event_dropped",
                    "duration_floored", "actor_turn_abandoned",
-                   "group_observation_split", "progression_skipped")
+                   "group_observation_split", "progression_skipped",
+                   "restatement_refused", "ordered_after_earlier_attempt",
+                   "choice_returned_to_its_owner", "wake_beyond_cutoff")
                   for e in trace.of(k)])
     _write_jsonl(os.path.join(out_dir, "grounded_wakes.jsonl"),
                  trace.of("wake_scheduled"))

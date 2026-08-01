@@ -254,7 +254,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
                    actor_id: str | None = None, concerns=(),
                    self_act_of=None, intention: str | None = None,
-                   attempt_id: str | None = None) -> dict | None:
+                   attempt_id: str | None = None, not_before=None) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
@@ -345,19 +345,25 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         parsed = out["parsed"]
         envelope = parsed["event_checked"]
 
-        # The attention question may only be answered with attention.
-        # "What becomes of this for them?" is asked about an item they
-        # already have available and have not seen; the only thing that
-        # can change is whether their notice reaches it.  An answer that
-        # does not mark them as observing changes no information state at
-        # all -- it is the arrival narrated a second time, which is where
-        # the inboxes, the buzzing phones and the still-unread messages
-        # came from.  Structural: it is about the state the event changes,
-        # not about its words.
+        # A restatement that nothing changed is not an event.
+        #
+        # This used to say "the attention question may only be answered
+        # with attention", and it deleted 58 world answers across eleven
+        # runs -- among them "Marcus Bell replies to Dana Whitfield that
+        # the hall is confirmed for the 14th", which is the decisive act of
+        # that scenario, and "Ethel calls the vendor's support line".  I
+        # removed a model's power to delete a valid action and handed a
+        # slightly narrower version of it to code, which a reviewer caught
+        # and which is the same mistake.
+        #
+        # What is genuinely not an event is the item's own state narrated
+        # again: nobody did it (`by` is null) and nobody's notice reached
+        # anything.  If a PERSON did something, it happened, whatever
+        # question prompted the answer.
         if envelope is not None and trigger_kind == "pending_progression" \
-                and actor_id and not (envelope["observed"]
-                                      and actor_id in envelope["for"]):
-            note("attention_answer_without_attention", t=_iso_now(world),
+                and actor_id and envelope.get("by") is None \
+                and not (envelope["observed"] and actor_id in envelope["for"]):
+            note("restatement_refused", t=_iso_now(world),
                  call_id=out["call_id"], actor=actor_id,
                  rejected=envelope["description"])
             parsed = dict(parsed, event_checked=None, event=None)
@@ -368,7 +374,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # belongs to exactly one person, and a consequence in which
         # somebody ELSE makes a voluntary choice is that person's turn to
         # take, not this one's to record.
-        if envelope is not None:
+        if envelope is not None and adjudicating_for is not None:
+            # Only where there IS somebody whose turn this is.  A starting
+            # event has no adjudicating actor -- it is the scene's own
+            # premise unfolding -- so there is no attempt for `by` to
+            # contradict, and routing every authored event there deleted
+            # the premise itself.  That leaves starting events unguarded;
+            # they are 9 of 195 committed events in the corpus and they
+            # come from the frozen compiler, and the report says so rather
+            # than claiming otherwise.
             by = envelope.get("by")
             chooser = (by if by and by != adjudicating_for else None)
             if chooser is not None:
@@ -396,6 +410,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              trigger=trigger_kind, trigger_text=trigger_text,
              judgment=parsed["judgment"],
              event=parsed["event"], wakes=parsed["wakes"])
+        landed_at = None
         if envelope is not None:
             delta = parse_duration(envelope["after"])
             if crowded and not delta.total_seconds():
@@ -405,6 +420,19 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 note("duration_floored", call_id=out["call_id"],
                      t=_iso_now(world), description=envelope["description"])
             due = world.clock.now + delta
+            # A person doing two things does the first one first.  Within
+            # one turn each attempt lands no earlier than the one before
+            # it: the intentions were dispatched in order, but the events
+            # they produced fired from a time-ordered queue, so a shorter
+            # second attempt overtook a longer first.  A woman transferred
+            # 400 pounds thirty seconds BEFORE the check she had made it
+            # conditional on -- and that check then said the money had not
+            # arrived.  Ordering is code's, and this is what it is for.
+            if not_before is not None and due < not_before:
+                due = not_before
+                note("ordered_after_earlier_attempt", call_id=out["call_id"],
+                     t=_iso_now(world), due=iso(due),
+                     description=envelope["description"])
             if due <= cutoff:
                 world.schedule(K_EVENT,
                                {"envelope": dict(envelope),
@@ -418,6 +446,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 "attempt_id": attempt_id,
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
+                landed_at = due
             else:
                 note("event_beyond_cutoff", call_id=out["call_id"],
                      due=iso(due), description=envelope["description"])
@@ -428,6 +457,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             _schedule_wake(w["actor"], after=w["after"], reason=w["reason"],
                            provenance="world_process",
                            about=trigger_kind, cause=wseq)
+        parsed = dict(parsed, landed_at=landed_at)
         return parsed
 
     def actor_step(actor_id: str, *, cause: int, trigger_event_ids=(),
@@ -547,16 +577,24 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # from -- so a YES could rest on a chain whose decisive step was
         # never taken by anybody.  No batching of futures: one attempt,
         # one adjudication.
+        # ... in the order the person stated them.  A later attempt lands
+        # no earlier than the one before it, because a person doing two
+        # things does the first one first -- and because the second is
+        # often conditional on the first.
+        floor = None
         for n, intent in enumerate(parsed["intentions"]):
             attempt_id = f"a{out['call_id']}.{n}"
             aid_seq = world.apply(OP_ATTEMPT, {
                 "attempt_id": attempt_id, "actor": actor_id,
                 "description": contained(intent),
                 "trajectory_id": tid}, aseq)
-            world_step(trigger_kind="actor_intention",
-                       trigger_text=f"{actor_id} attempts: {intent}",
-                       cause=aid_seq, actor_id=actor_id, intention=intent,
-                       attempt_id=attempt_id)
+            result = world_step(
+                trigger_kind="actor_intention",
+                trigger_text=f"{actor_id} attempts: {intent}",
+                cause=aid_seq, actor_id=actor_id, intention=intent,
+                attempt_id=attempt_id, not_before=floor)
+            if result and result.get("landed_at") is not None:
+                floor = result["landed_at"]
 
     def _continuity_review(actor_id: str, rendered: str, parsed: dict,
                            *, cause: int) -> dict:

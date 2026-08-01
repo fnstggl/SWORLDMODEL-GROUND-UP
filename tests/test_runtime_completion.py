@@ -526,3 +526,127 @@ def test_whether_a_no_is_reachable_does_not_depend_on_arithmetic():
         f"the answer depends on the wake interval rather than on the "
         f"world: {seen}")
     assert set(seen.values()) == {("cutoff", "NO_AT_CUTOFF")}, seen
+
+
+def test_a_turns_attempts_resolve_in_the_order_they_were_stated():
+    """A person doing two things does the first one first.
+
+    Live: a woman intended "check my bank account to confirm the transfer
+    has arrived" and then "if confirmed, transfer 400 to Marian". The
+    intentions were dispatched in order but their events fired from a
+    time-ordered queue, so the shorter second one overtook the longer
+    first: she sent 400 pounds thirty seconds BEFORE the check, and that
+    check then said the money had not arrived. The condition was stripped
+    because the world adjudicating the second attempt could not see the
+    first -- it had not happened yet.
+    """
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "attempts: Check" in user:
+                # the prerequisite genuinely takes a while
+                return json.dumps({
+                    "judgment": "she looks it up.",
+                    "event": {"description": "Ada checks the account and "
+                                             "sees the transfer has arrived.",
+                              "for": ["ada_vance"], "observed": True,
+                              "after": "30 minutes", "follow_up": False,
+                              "by": "ada_vance"}, "wakes": []}), {}
+            if "attempts: If confirmed" in user:
+                # ... and the dependent one is quick
+                return json.dumps({
+                    "judgment": "she sends it.",
+                    "event": {"description": "Ada transfers the deposit on.",
+                              "for": ["ada_vance"], "observed": True,
+                              "after": "1 minutes", "follow_up": False,
+                              "by": "ada_vance"}, "wakes": []}), {}
+            return json.dumps({"judgment": "nothing.", "event": None,
+                               "wakes": []}), {}
+        if "ada_vance" in user:
+            return json.dumps({
+                "decision": "I check first, then send it on.",
+                "intentions": ["Check the account for the transfer.",
+                               "If confirmed, transfer the deposit on."],
+                "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, _ = run(transport)
+    order = [e["description"] for e in journal.events()]
+    check = next((i for i, d in enumerate(order) if "checks the account" in d),
+                 None)
+    send = next((i for i, d in enumerate(order) if "transfers the deposit" in d),
+                None)
+    assert check is not None and send is not None, order
+    assert check < send, (
+        f"the conditional attempt resolved before the check it depends on: "
+        f"{order}")
+
+
+def test_a_person_acting_survives_whatever_question_prompted_it():
+    """Code must not delete a valid action either.
+
+    The attention rule used to require that an answer to "what becomes of
+    this for them?" be an attention event, and it deleted 58 world answers
+    across eleven runs -- including "Marcus Bell replies to Dana Whitfield
+    that the hall is confirmed", the decisive act of that scenario. That
+    is the failure this whole branch exists to remove, with code in the
+    reviewer's chair instead of a model.
+    """
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "starting_event" in user:
+                return json.dumps({
+                    "judgment": "she asks him.",
+                    "event": {"description": "Ada asks Bo to confirm the hall.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "1 minutes", "follow_up": False,
+                              "by": "ada_vance"}, "wakes": []}), {}
+            # the attention question, answered with a person acting
+            return json.dumps({
+                "judgment": "he answers her.",
+                "event": {"description": "Bo replies that the hall is "
+                                         "confirmed for the 14th.",
+                          "for": ["ada_vance"], "observed": True,
+                          "after": "20 minutes", "follow_up": False,
+                          "by": "bo_ferrer"}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, _ = run(transport)
+    assert any("hall is confirmed" in e["description"]
+               for e in journal.events()), \
+        "a person's reply was deleted because the question was about attention"
+
+
+def test_a_restatement_that_nothing_changed_is_still_refused():
+    """The other side: nobody did it, and nobody's notice reached
+    anything. That is the item's own state narrated again."""
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "starting_event" in user:
+                return json.dumps({
+                    "judgment": "she sends it.",
+                    "event": {"description": "Ada sends Bo the proposal.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "1 minutes", "follow_up": False,
+                              "by": "ada_vance"}, "wakes": []}), {}
+            return json.dumps({
+                "judgment": "it sits there.",
+                "event": {"description": "The proposal remains unread in "
+                                         "Bo's inbox.",
+                          "for": ["bo_ferrer"], "observed": False,
+                          "after": "2 hours", "follow_up": False,
+                          "by": None}, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, _ = run(transport)
+    assert not any("remains unread" in e["description"]
+                   for e in journal.events()), \
+        "the absence of an event was committed as one"
