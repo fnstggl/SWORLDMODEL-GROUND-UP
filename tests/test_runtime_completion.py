@@ -1372,3 +1372,69 @@ def test_an_act_the_world_proposed_and_code_destroyed_is_in_the_ledger():
     assert refusals, "an act was proposed and destroyed with no ledger record"
     assert refusals[0]["refused_because"]
     assert refusals[0]["refused_event"]["description"]
+
+
+def test_an_act_placed_before_a_queued_one_still_cannot_overlap_it():
+    """Acts are not scheduled in the order they happen: an adjudication
+    late in one chain can place an event EARLIER than one already queued.
+
+    Occupancy that keeps only the person's latest interval blocks acts
+    that arrive in time order and nothing else, so this case walked
+    straight through it -- 510 overlapping pairs across 360 events in a
+    live corpus, including a woman on a phone call and describing a fault
+    to that same call one second in.
+    """
+    state = {"n": 0}
+
+    def out_of_order(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if " attempts:" not in user:
+                return json.dumps({"judgment": "the scene begins.",
+                                   "event": None, "wakes": []}), {}
+            state["n"] += 1
+            if state["n"] == 1:
+                # the LATER-starting act is adjudicated first
+                return json.dumps({
+                    "judgment": "she gets to the second thing at half past.",
+                    "event": {"description": "Ada writes up the notes.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": "30 minutes", "by": "ada_vance",
+                              "lasts": "5 minutes"}, "wakes": []}), {}
+            if state["n"] == 2:
+                # ... and this one starts BEFORE it and runs right through
+                return json.dumps({
+                    "judgment": "and the call starts now and runs an hour.",
+                    "event": {"description": "Ada is on a long call.",
+                              "for": ["bo_ferrer"], "observed": True,
+                              "after": "0 seconds", "by": "ada_vance",
+                              "lasts": "60 minutes"}, "wakes": []}), {}
+            return json.dumps({"judgment": "nothing further.",
+                               "event": None, "wakes": []}), {}
+        if "ada_vance" in user and state["n"] == 0:
+            return json.dumps({
+                "decision": "Both.",
+                "intentions": ["write up the notes", "take the long call"],
+                "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, _ = run(out_of_order, steps=25)
+    from evaluation.realism_metrics import measure
+    spans = []
+    for e in journal.events():
+        if e["by"] != "ada_vance":
+            continue
+        begins = parse_iso(e["t"])
+        spans.append((begins, begins + _dur(e["lasts"]), e["description"]))
+    for i, a in enumerate(spans):
+        for b in spans[i + 1:]:
+            assert not (a[0] < b[1] and b[0] < a[1]), \
+                f"one person doing two things at once: {a[2]} || {b[2]}"
+    assert len(spans) == 2, [s[2] for s in spans]
+
+
+def _dur(text):
+    from sworldmodel.semantic_runtime.envelope import parse_duration
+    return parse_duration(text)

@@ -1,0 +1,123 @@
+[
+ {
+  "run": "anti_stereotype",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 59,
+  "steps": 83,
+  "calls": 259,
+  "replay_records": 639,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "cold_email",
+  "status": "incomplete_empty_queue",
+  "terminal": "UNRESOLVED",
+  "events": 2,
+  "steps": 18,
+  "calls": 83,
+  "replay_records": 137,
+  "ledger_problems": [],
+  "reason": "nothing further was scheduled at 2026-07-28T12:35:00+00:00, and the cutoff 2026-08-10T14:00:00+00:00 was never reached"
+ },
+ {
+  "run": "evidence_avoiding",
+  "status": "cutoff",
+  "terminal": "NO_AT_CUTOFF",
+  "events": 4,
+  "steps": 12,
+  "calls": 47,
+  "replay_records": 96,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "evidence_responsive",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 4,
+  "steps": 4,
+  "calls": 17,
+  "replay_records": 46,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "feedback_deadline",
+  "status": "incomplete_step_limit",
+  "terminal": "UNRESOLVED",
+  "events": 127,
+  "steps": 250,
+  "calls": 647,
+  "replay_records": 1649,
+  "ledger_problems": [],
+  "reason": "step ceiling 250 reached at 2026-07-28T20:55:00+00:00, before the cutoff"
+ },
+ {
+  "run": "group_coordination",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 46,
+  "steps": 189,
+  "calls": 618,
+  "replay_records": 1283,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "holiday_deposit",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 94,
+  "steps": 215,
+  "calls": 656,
+  "replay_records": 1537,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "lease_other_names",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 5,
+  "steps": 5,
+  "calls": 16,
+  "replay_records": 51,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "lease_return",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 6,
+  "steps": 8,
+  "calls": 25,
+  "replay_records": 69,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "negotiation",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 9,
+  "steps": 21,
+  "calls": 65,
+  "replay_records": 162,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "plumber_confirm",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 4,
+  "steps": 3,
+  "calls": 14,
+  "replay_records": 36,
+  "ledger_problems": [],
+  "reason": ""
+ }
+]

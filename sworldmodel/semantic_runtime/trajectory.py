@@ -244,15 +244,41 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: so it was not answered.  Made load-bearing, it is answered, and
     #: everything downstream of "people can only do one thing at a time"
     #: follows without a prompt asking for it.
-    busy_until: dict = {}
+    #: EVERY interval, not the latest one.  Acts are not scheduled in the
+    #: order they happen -- an adjudication late in one chain can place an
+    #: event earlier than one already queued -- so a single "next free"
+    #: instant only ever blocks acts that arrive in time order.  Measured
+    #: on a corpus run that kept only the latest: 510 overlapping pairs
+    #: across 360 events, one woman on a phone call and describing a fault
+    #: to the same call one second in.  A person's occupancy is the union
+    #: of what they are doing, and a new act goes in the first gap that
+    #: fits it.
+    occupied: dict = {}
 
-    #: ... and when it starts.  Occupancy is written at SCHEDULING time,
-    #: which is before the action begins, so a person shown "you are busy
-    #: until X" between now and then is being told the end of something
-    #: they have not started -- an instant taken straight from the queue,
-    #: present in no event they observed and in none of their memories,
-    #: and false at the moment it is stated.
-    busy_from: dict = {}
+    def _free_slot(actor: str, start, span):
+        """The earliest instant at or after ``start`` where this person
+        has ``span`` clear.  With no duration this is simply the first
+        instant they are not mid-something."""
+        mine = sorted(occupied.get(actor) or [])
+        moved = True
+        while moved:
+            moved = False
+            for begins, ends in mine:
+                # it clashes if it would BEGIN inside something they are
+                # already doing, or if it would run over the start of one.
+                # Written as two cases because a thing that takes no time
+                # at all still cannot happen in the middle of a call, and
+                # a length-zero interval intersects nothing.
+                if begins <= start < ends or start <= begins < start + span:
+                    start, moved = ends, True
+        return start
+
+    def _occupied_until(actor: str, now):
+        """What they are in the middle of RIGHT NOW, and until when."""
+        for begins, ends in sorted(occupied.get(actor) or []):
+            if begins <= now < ends:
+                return ends
+        return None
 
     #: For each person, the instant their own next move is known to fall,
     #: when that is past the deadline.  The horizon is reached when EVERY
@@ -607,13 +633,14 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             # pushed to Wednesday, and any that then fell past the cutoff
             # was destroyed.  It is the interval [start, start+lasts), and
             # the only question is whether this act would BEGIN inside it.
-            if doer and busy_from.get(doer) is not None \
-                    and busy_from[doer] <= due < busy_until[doer]:
-                note("waited_until_free", call_id=out["call_id"],
-                     t=_iso_now(world), actor=doer,
-                     free_at=iso(busy_until[doer]),
-                     description=envelope["description"])
-                due = busy_until[doer]
+            span = parse_duration(envelope.get("lasts") or "0 seconds")
+            if doer:
+                free = _free_slot(doer, due, span)
+                if free != due:
+                    note("waited_until_free", call_id=out["call_id"],
+                         t=_iso_now(world), actor=doer, free_at=iso(free),
+                         description=envelope["description"])
+                    due = free
             # A person doing two things does the first one first.  Within
             # one turn each attempt lands no earlier than the one before
             # it: the intentions were dispatched in order, but the events
@@ -652,18 +679,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                due, wseq)
                 landed_at = due
                 if doer:
-                    # durations stay as their original text through the
-                    # JSON-safe envelope; code re-parses at the moment it
-                    # needs them, the same way `after` is handled.  The
-                    # wake for when they are free again is scheduled where
-                    # the act COMMITS, not here: scheduled here it was the
-                    # end of something that had not started, and a far-off
-                    # act's ending replaced the nearer one, stranding a
-                    # woman for two days after a call that ended in thirty
-                    # minutes.
-                    busy_from[doer] = due
-                    busy_until[doer] = due + parse_duration(
-                        envelope.get("lasts") or "0 seconds")
+                    # The wake for when they are free again is scheduled
+                    # where the act COMMITS, not here: scheduled here it
+                    # was the end of something that had not started, and a
+                    # far-off act's ending replaced the nearer one,
+                    # stranding a woman for two days after a call that
+                    # ended in thirty minutes.
+                    occupied.setdefault(doer, []).append((due, due + span))
             else:
                 # The world has said what happens next and it happens
                 # after the question closes.  That is the same evidence as
@@ -738,11 +760,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         last_turn_t[actor_id] = _iso_now(world)
         view = build_view(world, journal, actor_id,
                           trigger_event_ids=trigger_event_ids,
-                          busy_until=(
-                              busy_until.get(actor_id)
-                              if busy_from.get(actor_id) is not None
-                              and busy_from[actor_id] <= world.clock.now
-                              else None))
+                          busy_until=_occupied_until(actor_id,
+                                                     world.clock.now))
         rendered = render_view(view)
         held = [m["content"] for m in view["private_memories"]]
         base = actor_mind.actor_user_prompt(rendered)
@@ -1009,9 +1028,10 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # -- so this costs nobody their turn, it only moves it to when they
         # are actually free to take it.
         if self_act_of:
-            if busy_until.get(self_act_of, world.clock.now) > world.clock.now:
+            mid = _occupied_until(self_act_of, world.clock.now)
+            if mid is not None:
                 note("still_mid_task", actor=self_act_of, t=_iso_now(world),
-                     free_at=iso(busy_until[self_act_of]))
+                     free_at=iso(mid))
                 return
             actor_step(self_act_of, cause=rec["seq"])
         return
