@@ -85,10 +85,12 @@ def budget_for(*, max_steps: int, actors: int,
     An actor turn and a world event each carry a read-only review, and a
     rejected one is asked again, so a turn costs up to four calls rather
     than one and an adjudication up to four rather than two.  A candidate
-    answer costs a second, independent reading.
+    answer costs a second, independent reading.  One further world call
+    per step pays for the world's own turn across unlived time, which
+    happens at most once per instant and so at most once per step.
     """
     per_turn = 2 * (2 + 2 * actor_mind.MAX_INTENTIONS_PER_TURN)
-    per_step = 2 + actors * per_turn + 2
+    per_step = 2 + actors * per_turn + 2 + 1
     per_start = 2 + actors * per_turn
     attempts = MAX_RETRIES_PER_CALL + 1
     return (attempts * (max_steps * per_step + starting_events * per_start + 2)
@@ -1060,7 +1062,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             # happened in it is the world's.  Once per instant: if the
             # answer puts something inside the gap, the loop comes back
             # round and lives it.
+            #
+            # ... and it is subject to the same bound as everything else
+            # the world does on its own.  Without that, a world that fills
+            # every gap with a ten-minute event is asked again the moment
+            # the clock reaches it, and the run becomes a weather report:
+            # the turn comes back to people at a bounded rate, whatever
+            # the world is writing.
             if ev.t - world.clock.now >= UNLIVED_TIME_WORTH_ASKING_ABOUT \
+                    and since_actor["n"] < MAX_WORLD_RUN \
                     and asked_about_the_gap["at"] != world.clock.now:
                 asked_about_the_gap["at"] = world.clock.now
                 world_step(
