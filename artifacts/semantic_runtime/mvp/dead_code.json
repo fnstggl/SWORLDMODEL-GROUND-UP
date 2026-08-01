@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "scope": "sworldmodel/semantic_runtime/*.py on branch codex/world-realistic-simulation-mvp",
+    "method": "every module-level name, dataclass field, function parameter, ledger op payload key, queue payload key, envelope field, prompt field, view key and trace kind was read and traced to a reader; AST pass for stores-never-loaded and unused params; repo-wide grep for cross-file readers including evaluation/, run_simulation.py and tests/",
+    "snapshot_taken_at": "2026-08-01T19:19:26Z",
+    "line_numbers_valid_as_of": "2026-08-01T19:24Z working tree (not HEAD)",
+    "concurrency_warning": "agent A1-realism-gaps was editing trajectory.py, envelope.py and world_mind.py DURING this analysis (mtimes 19:17-19:22). Line numbers drift. Every finding therefore carries an 'anchor' string: grep for the anchor, not the line number.",
+    "definitions": {
+      "LIVE": "read somewhere that changes behaviour or output",
+      "TRACE-ONLY": "written to an artifact/ledger but never read back by the runtime",
+      "DEAD": "never read at all, or read only by a comment/docstring"
+    }
+  },
+
+  "summary": "The prior reviewer's 'eight declared-but-unwired names' is real and the true count is higher: 18 dead items, of which 7 are exactly the wake-provenance defect class (a name declared in a vocabulary or a prompt that nothing downstream can ever consume). The confirmed dead set is: OP_TURN_ABANDONED (defined + imported, never applied), abandoned_turns (dataclass field, never incremented, ships as a permanent 0 in every runtime_metrics.json), incomplete_review_failure (a status documented in the SemanticTrajectory docstring that finish() can never produce), MAX_ENV_CHAIN (declared, never compared to anything), env_chain (initialised and reset three times, never read), world_step's intention parameter (passed at every call site, never referenced in the body), render_trajectory's journal parameter, two unused imports in adapter.py, three computed-then-discarded duration keys (validate_event's 'delta' and 'span', validate_wakes' 'delta'), two trace kinds referenced by trace.py that no note() call can ever emit (event_abandoned, actor_turn_abandoned -- the render branch for event_abandoned is 12 lines of unreachable markdown), one trace kind emitted by trajectory.py that no artifact writer consumes (waited_until_free, brand new, invisible in every artifact), and three stale wake-provenance values still enforced by evaluation/verify_run.py that the runtime deliberately deleted. ON THE PROMPT QUESTION -- yes, and it is currently a run-killer rather than merely wasteful: WORLD_SYSTEM still carries a six-line paragraph teaching the model to emit follow_up (world_mind.py:209-215) and envelope.py's module docstring still documents it as one of 'exactly four fields', while validate_event was changed minutes ago to reject follow_up as a field 'the model may not write'. A world response that obeys the prompt is now rejected outright; verified empirically. The mirror-image defect is live in the same edit: the new 'lasts' field defaults to '0 seconds', so busy_until (and the whole one-thing-at-a-time occupancy rule) is inert for any response that omits it. Separately, 12 of the 20 trace kinds emitted are never rendered into trajectory.md, and every runtime ledger op except journal.event/journal.observed/semantic.actor_call/semantic.attempt is written and never read back -- correct by design (the ledger is the artifact), but worth stating so a deletion pass does not mistake it for reachability.",
+
+  "dead": [
+    {
+      "name": "OP_TURN_ABANDONED (constant definition)",
+      "file:line": "sworldmodel/semantic_runtime/journal.py:32",
+      "anchor": "OP_TURN_ABANDONED = \"semantic.actor_turn_abandoned\"",
+      "evidence": "Repo-wide grep for OP_TURN_ABANDONED returns exactly two hits: this definition and the import in trajectory.py:32. There is no world.apply(OP_TURN_ABANDONED, ...) anywhere. No ledger in artifacts/ contains an op 'semantic.actor_turn_abandoned'.",
+      "safe_to_delete_because": "No writer, no reader, no reducer. The abandonment path it named was deliberately removed (see the 'A REFUSED TURN IS STILL A TURN' comment in actor_step): the runtime now overrules the reviewer and keeps the first reply, so a turn is never abandoned."
+    },
+    {
+      "name": "OP_TURN_ABANDONED (unused import)",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:32",
+      "anchor": "OP_HORIZON, OP_TERMINAL, OP_TURN_ABANDONED,",
+      "evidence": "AST pass: name stored by the import, zero Load contexts in trajectory.py.",
+      "safe_to_delete_because": "Unused import; deleting it cannot change any code path."
+    },
+    {
+      "name": "SemanticTrajectory.abandoned_turns",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:102 (field), :111 (to_dict)",
+      "anchor": "abandoned_turns: int = 0",
+      "evidence": "Grep for 'abandoned_turns' in all .py: only the field declaration and the to_dict entry. There is no 'traj.abandoned_turns += 1' anywhere. Every shipped artifact confirms it: artifacts/baseline_main/*/runtime_metrics.json all carry \"abandoned_turns\": 0 except group_coordination, which carries 2 -- from an OLDER binary that still had the increment. The current code cannot produce a non-zero value.",
+      "safe_to_delete_because": "Write-only constant zero. Delete the field and its to_dict entry together; nothing reads the key (evaluation/matched_pairs.py reads actor_calls only)."
+    },
+    {
+      "name": "incomplete_review_failure (status value)",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:85",
+      "anchor": "#: incomplete_review_failure -- a read-only check could not be settled",
+      "evidence": "Appears exactly once in the whole repo, inside the SemanticTrajectory status docstring. finish() is called with incomplete= at four sites and the only values are 'incomplete_step_limit', 'incomplete_call_limit', 'incomplete_empty_queue' (and '' for the honest cutoff). traj.status is otherwise only ever set to 'resolved', 'disagreement', 'cutoff', 'failed'.",
+      "safe_to_delete_because": "Documented-only status. It is the third instance of the exact defect the reviewer flagged: a vocabulary entry advertising a state the scheduler cannot reach. Any downstream consumer branching on status.startswith('incomplete') is unaffected."
+    },
+    {
+      "name": "MAX_ENV_CHAIN",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:667",
+      "anchor": "MAX_ENV_CHAIN = 1",
+      "evidence": "AST pass: stored, never loaded, in the only file that defines it. Grep repo-wide: this line plus SEMANTIC_RUNTIME_REPORT.md:268, which additionally states a STALE value ('bounded to MAX_ENV_CHAIN = 3'). There is no comparison against env_chain['depth'] anywhere.",
+      "safe_to_delete_because": "A cap that is never compared to its counter. The chain it bounded was removed with the transport chain (see the 'THE TRANSPORT CHAIN IS GONE' comment); the constant survived the removal. Delete with env_chain and fix the report line."
+    },
+    {
+      "name": "env_chain",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:668 (init), :695, :720, :789 (resets)",
+      "anchor": "env_chain = {\"depth\": 0}",
+      "evidence": "Four occurrences total. Line 668 initialises {'depth': 0}; lines 695, 720 and 789 all execute env_chain['depth'] = 0. There is no read of env_chain['depth'] in any context -- no comparison, no increment, no trace field. It is a variable that is set to zero four times and never inspected.",
+      "safe_to_delete_because": "Write-only. All three reset statements are dead stores; deleting the variable and all four lines is behaviour-preserving by construction."
+    },
+    {
+      "name": "world_step(..., intention=...) parameter",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:277 (signature), :632 (only call site passing it)",
+      "anchor": "self_act_of=None, intention: str | None = None,",
+      "evidence": "AST unused-parameter pass reports world_step(): unused params ['intention']. The body's three 'intention' matches are all the string literal comparison trigger_kind == \"actor_intention\" and one comment. The attempt text actually reaches the world through trigger_text=f\"{actor_id} attempts: {intent}\" built at the call site, and through OP_ATTEMPT's own 'description' -- never through this parameter.",
+      "safe_to_delete_because": "Formal parameter never referenced. Delete from the signature and drop 'intention=intent' from the single call site; trigger_text already carries the same text."
+    },
+    {
+      "name": "render_trajectory(question, journal, trace, trajectory) -- journal parameter",
+      "file:line": "sworldmodel/semantic_runtime/trace.py:152 (signature), :131 (only call site)",
+      "anchor": "def render_trajectory(question, journal, trace: Trace, trajectory) -> str:",
+      "evidence": "AST unused-parameter pass: render_trajectory(): unused params ['journal']. The body reads only question, trace.entries and trajectory. Called once, from write_artifacts.",
+      "safe_to_delete_because": "Unused positional parameter with exactly one call site inside the same module."
+    },
+    {
+      "name": "trace kind 'event_abandoned'",
+      "file:line": "sworldmodel/semantic_runtime/trace.py:104 (code_overrides list), :180-191 (render branch)",
+      "anchor": "elif k == \"event_abandoned\":",
+      "evidence": "trace.record is called from exactly one place (the note() closure in trajectory.py). Enumerating every note(\"...\") literal gives 20 kinds; 'event_abandoned' is not among them. trace.py both lists it in code_overrides.jsonl and gives it a 12-line render branch with its own explanatory comment ('NOT the same as nothing happened'). Only tests/test_semantic_runtime.py:782 ever produces one, by calling trace.record directly.",
+      "safe_to_delete_because": "Unreachable in production. The two-strike event reviewer that emitted it was removed (the long comment in world_step explains why); the consumers outlived the producer. The trace.of('event_abandoned') entry contributes an always-empty list, and the render branch is unreachable markdown."
+    },
+    {
+      "name": "trace kind 'actor_turn_abandoned'",
+      "file:line": "sworldmodel/semantic_runtime/trace.py:105",
+      "anchor": "\"duration_floored\", \"actor_turn_abandoned\",",
+      "evidence": "Not in the set of 20 note() kinds emitted by trajectory.py. Same root cause as OP_TURN_ABANDONED and abandoned_turns: the abandonment path was deleted and three separate references to it survived in three separate files.",
+      "safe_to_delete_because": "trace.of() over a kind nothing emits returns []; removing it from the code_overrides tuple changes no artifact byte."
+    },
+    {
+      "name": "trace kind 'waited_until_free'",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:449 (emitted)",
+      "anchor": "note(\"waited_until_free\", call_id=out[\"call_id\"],",
+      "evidence": "The reverse of the two above: emitted, consumed by nothing. trace.py's write_artifacts calls trace.of() for exactly 16 kinds and render_trajectory branches on 8; 'waited_until_free' is in neither list. Trace.entries is never dumped wholesale to any file. The entry is appended to an in-memory list and discarded when the process exits. Introduced by the in-flight busy_until edit (added between 19:09 and 19:19 on 2026-08-01).",
+      "safe_to_delete_because": "Either delete the note() call or -- better, since it records a genuine code override of the world's timing -- add 'waited_until_free' to the code_overrides.jsonl tuple in trace.py:104-108, where duration_floored and ordered_after_earlier_attempt (its two siblings, both code overriding a model-chosen instant) already are."
+    },
+    {
+      "name": "follow_up (envelope field, world prompt field, and validator field) -- ALL THREE",
+      "file:line": "sworldmodel/semantic_runtime/world_mind.py:209-215 (prompt); sworldmodel/semantic_runtime/envelope.py:4-19 (docstring); sworldmodel/semantic_runtime/trajectory.py:764 (comment)",
+      "anchor": "\"follow_up\" is true when this event leaves ONE unresolved thing for the",
+      "evidence": "Even before the in-flight edit, follow_up was DEAD as behaviour: validate_event parsed it, make_world_validator copied it into event_checked, trajectory.py put it in the K_EVENT queue payload and re-validated it at pop time -- and no branch anywhere ever read envelope['follow_up']. trajectory.py:764 says so explicitly ('THE TRANSPORT CHAIN IS GONE'), which is precisely the reviewer's pattern: the consumer was deleted and the producer, the validator and the prompt paragraph all survived. As of 19:24 the field has become actively harmful: envelope.py:152 no longer includes 'follow_up' in the set of writable fields, so validate_event raises EnvelopeError('event has fields the model may not write: [follow_up]') -- verified by executing it -- while world_mind.py:209-215 still instructs the model to emit it and envelope.py:4-7 still documents it as one of 'exactly four fields'.",
+      "safe_to_delete_because": "No reader has existed since the transport chain was removed. The prompt paragraph and the docstring block are now not merely wasted tokens but a live rejection path: any world response that follows the instruction is thrown away and retried. Delete world_mind.py:209-215 and rewrite envelope.py's docstring header (lines 3-19) to describe description/for/observed/after/lasts/by."
+    },
+    {
+      "name": "validate_event return key \"span\"",
+      "file:line": "sworldmodel/semantic_runtime/envelope.py:213",
+      "anchor": "\"lasts\": lasts.strip(), \"span\": span,",
+      "evidence": "make_world_validator (world_mind.py:308) copies exactly six keys into event_checked -- description, for, observed, after, lasts, by -- so 'span' never leaves the validator. The other caller, trajectory.py's re-validation at pop time, reads only description/for/observed from the result. trajectory.py:476-477 then RE-PARSES the duration: busy_until[doer] = due + parse_duration(envelope.get('lasts') or '0 seconds').",
+      "safe_to_delete_because": "Computed and immediately discarded at both call sites; the timedelta is derived again from the text where it is needed. Keep the parse_duration(lasts) call (it is the validation that rejects an unparseable duration) and drop only the key from the returned dict."
+    },
+    {
+      "name": "validate_event return key \"delta\"",
+      "file:line": "sworldmodel/semantic_runtime/envelope.py:214",
+      "anchor": "\"by\": by, \"delta\": delta}",
+      "evidence": "Same as 'span': dropped by event_checked's six-key copy, never read at the pop-time re-validation. trajectory.py re-derives it with delta = parse_duration(envelope['after']). The single reader in the repo is tests/test_semantic_runtime.py:209, which asserts on it.",
+      "safe_to_delete_because": "Zero production readers. Deleting the key requires editing one test assertion. The parse_duration call above it must stay -- it is the validation."
+    },
+    {
+      "name": "validate_wakes return key \"delta\"",
+      "file:line": "sworldmodel/semantic_runtime/envelope.py:247",
+      "anchor": "out.append({\"actor\": actor, \"delta\": parse_duration(w.get(\"after\", \"\")),",
+      "evidence": "make_world_validator builds wakes_checked from actor/after/reason only. _schedule_wake receives after=w['after'] (the text) and calls parse_duration itself.",
+      "safe_to_delete_because": "Never read anywhere. Keep the parse_duration call as validation, drop the key."
+    },
+    {
+      "name": "unused import: from datetime import datetime",
+      "file:line": "sworldmodel/semantic_runtime/adapter.py:22",
+      "anchor": "from datetime import datetime",
+      "evidence": "AST pass: imported, zero Load contexts. adapter.py uses parse_iso only.",
+      "safe_to_delete_because": "Unused import."
+    },
+    {
+      "name": "unused import: iso (from sworldmodel.simclock)",
+      "file:line": "sworldmodel/semantic_runtime/adapter.py:25",
+      "anchor": "from sworldmodel.simclock import iso, parse_iso",
+      "evidence": "AST pass: 'iso' imported, zero Load contexts. Only parse_iso is used (lines 51, 52, 87).",
+      "safe_to_delete_because": "Unused import; keep parse_iso."
+    },
+    {
+      "name": "WAKE_PROVENANCE stale values: observed_event, known_deadline, action_completion",
+      "file:line": "evaluation/verify_run.py:20",
+      "anchor": "WAKE_PROVENANCE = {\"actor_plan\", \"observed_event\", \"world_process\",",
+      "evidence": "The runtime's own WAKE_PROVENANCE (trajectory.py:154) is a 2-tuple: ('actor_plan', 'world_process'), and _schedule_wake raises EnvelopeError on anything else. The comment above it says three names were declared and wired to nothing and were removed. The evaluation checker still enforces a FIVE-name set, three of which the runtime can no longer emit, and its docstring still calls them 'the five kinds of reason a wake is allowed to exist for'.",
+      "safe_to_delete_because": "Outside sworldmodel/ but the same defect and the same three names. The check is a superset, so removing the three dead values cannot make a previously-passing run fail -- it only stops the checker from advertising coverage that does not exist. Strictly: this is the FOURTH surviving instance of the wake-provenance defect the reviewer already fixed twice."
+    },
+    {
+      "name": "SEMANTIC_RUNTIME_REPORT.md stale MAX_ENV_CHAIN value",
+      "file:line": "SEMANTIC_RUNTIME_REPORT.md:268",
+      "anchor": "continues as the environment's turn, bounded to `MAX_ENV_CHAIN = 3`",
+      "evidence": "The constant is 1 in code (and is itself dead). The report documents a bound of 3 that has never been in effect on this branch.",
+      "safe_to_delete_because": "Documentation of a constant being deleted; the sentence goes with it."
+    }
+  ],
+
+  "trace_only": [
+    {
+      "name": "SemanticTrajectory.world_calls, .actor_calls, .judge_calls, .review_calls",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:98-101",
+      "note": "Incremented correctly and correctly reported. No runtime branch reads them (steps is the one counter that gates the loop). Readers are run_simulation.py:97-98 (stdout) and evaluation/matched_pairs.py:86 (reads actor_calls back out of the artifact). KEEP -- these are the metrics. Listed only so the deletion pass does not confuse them with abandoned_turns, which sits in the same block and is genuinely dead."
+    },
+    {
+      "name": "ledger op payloads never read back: semantic.world_call, semantic.continuity_review, semantic.terminal_verification, semantic.horizon_reached",
+      "file:line": "sworldmodel/semantic_runtime/journal.py:27-31 (op names); trajectory.py world.apply sites",
+      "note": "journal.py's own comment says so ('all trace-only in the kernel'). No projection, no reducer, no replay check reads any key of these four ops. They exist to make ledger.jsonl a complete history. Correct by design -- do not delete."
+    },
+    {
+      "name": "semantic.world_call payload key 'handed_to'",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py:417",
+      "note": "Written on exactly one branch (choice_returned_to_its_owner) and read by nothing. The same fact is also emitted as a trace note that DOES reach structural_refusals.jsonl and code_overrides.jsonl, so the ledger key is a duplicate record rather than the only record. Harmless; keep for ledger completeness or delete as duplication -- your call."
+    },
+    {
+      "name": "semantic.actor_profile payload key 'name'",
+      "file:line": "sworldmodel/semantic_runtime/adapter.py:80",
+      "note": "journal.profiles() projects only {actor: private_context}. initial_actor_states.json gets the display name from world.actors[aid].name (the kernel ActorState), not from this record. Written once per actor, read never."
+    },
+    {
+      "name": "semantic.attempt payload keys 'description', 'trajectory_id'",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py OP_ATTEMPT apply site",
+      "note": "replay.check_ledger_integrity reads attempt_id and actor from this record; description and trajectory_id are ledger-only."
+    },
+    {
+      "name": "semantic.terminal_check payload keys 'call_id', 'explanation', 'final', 'trajectory_id'",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py judge() apply site",
+      "note": "replay reads status and supporting_event_ids from this op. The user-facing explanation reaches terminal_result.json from traj.answer, not from this record, so the ledger copy is redundant-but-correct."
+    },
+    {
+      "name": "journal.events() projection keys 'attempt_id', 'source', 'cause'",
+      "file:line": "sworldmodel/semantic_runtime/journal.py:132-136",
+      "note": "The runtime reads event_id, seq, t, description, for, observed, observed_by from this projection. attempt_id/source/cause reach journal.jsonl; evaluation/verify_run.py reads 'cause' back out of the artifact (checks no committed event lacks one). The LEDGER's attempt_id is a different matter -- see live_but_suspicious."
+    },
+    {
+      "name": "view keys: observed_events[].event_id, private_memories[].t, private_memories[].kind",
+      "file:line": "sworldmodel/semantic_runtime/views.py:96-99",
+      "note": "render_view never prints any of the three (it renders t via _when for observed events but reads only content for memories). They land in actor_views.jsonl, and evaluation/verify_run.py:68 reads observed_events back out of it to check nobody was shown an unobserved item. IMPORTANT for a deletion pass: replay._projection compares the WHOLE build_view dict field-by-field, so removing any view key changes what views_match verifies. Do not prune these casually."
+    },
+    {
+      "name": "parsed keys 'judgment', 'event' (raw), 'wakes' (raw), 'duplicate_dropped'",
+      "file:line": "sworldmodel/semantic_runtime/world_mind.py:270-311",
+      "note": "The checked forms (event_checked, wakes_checked) drive behaviour. The raw event/wakes and the judgment reach world_judgments.jsonl and trajectory.md only. duplicate_dropped's sole effect is to emit a trace note -- the actual drop happens inside the validator by setting env=None."
+    },
+    {
+      "name": "bindings keys 'question', 'start', 'starting_events_beyond_cutoff'",
+      "file:line": "sworldmodel/semantic_runtime/adapter.py:60-62, :106-108",
+      "note": "run_trajectory reads trajectory_id, cutoff and starting_event_ids only. question/start reach compile_runtime_bindings.json; starting_events_beyond_cutoff reaches the same file and is asserted by tests/test_semantic_runtime.py:1345. Keep -- it records that the scene proposed events outside the question's window."
+    },
+    {
+      "name": "adapter.CONSUMED_FIELDS",
+      "file:line": "sworldmodel/semantic_runtime/adapter.py:31",
+      "note": "Never used to filter anything; it is written verbatim into compile_runtime_bindings.json as a claim about what the adapter reads. Documentation-as-artifact. Nothing enforces it, which is worth knowing: if someone added a fifth consumed field, this tuple would silently lie."
+    },
+    {
+      "name": "all 20 emitted trace kinds",
+      "file:line": "sworldmodel/semantic_runtime/trajectory.py note() call sites",
+      "note": "The trace never feeds back into the run: note() is write-only and Trace is read only by write_artifacts and render_trajectory. Nineteen of the twenty reach at least one .jsonl. The twentieth (waited_until_free) reaches none -- listed under dead. Twelve of the twenty are absent from render_trajectory's if/elif chain, so they never appear in trajectory.md: wake_beyond_cutoff, wake_scheduled, restatement_refused, choice_returned_to_its_owner, duplicate_event_dropped, duration_floored, waited_until_free, ordered_after_earlier_attempt, actor_response_rejected, continuity_review, terminal_verification, group_observation_split, progression_skipped. All but waited_until_free are in a .jsonl, so nothing is lost -- but the human-readable narrative silently omits every code override, which is the thing trace.py's own comment (lines 96-101) says most needs to be visible."
+    },
+    {
+      "name": "caller.calls entry fields: system, user, raw, validation, sim_time, trigger, model, attempt, wall_s, input_tokens, output_tokens",
+      "file:line": "sworldmodel/semantic_runtime/llm.py:162-167",
+      "note": "'role' is read (to split exchanges into per-role .jsonl files) and attempt/wall_s/tokens are read by metrics(). The rest exist to make actor_exchanges.jsonl / world_exchanges.jsonl / review_exchanges.jsonl complete. Correct by design."
+    }
+  ],
+
+  "live_but_suspicious": [
+    {
+      "name": "attempt_id",
+      "file:line": "written trajectory.py:596/605 and journal.py:61; READ at replay.py:93 and replay.py:104",
+      "verdict": "LIVE, but by exactly one reader, and not in the live loop.",
+      "detail": "The user asked whether attempt_id is ever read. It is, once: replay.check_ledger_integrity builds by_attempt = {attempt_id: actor} from semantic.attempt records and uses it at line 104 to decide whether an own_doing observation is legal -- 'the own-doing exemption is tied to a real attempt by that person, not to a free-text string'. A mismatch appends a ledger_integrity problem, which forces replay result exact=False, which evaluation/verify_run.py turns into a run failure. So it does change output. But during the run itself it is only carried: world_step takes it, puts it in the K_EVENT payload, and journal.commit stores it. Nothing at commit time or judgment time consults it. tests/test_runtime_completion.py:292-296 is the only other reader and it does assert. Verdict: keep, but note that its stated purpose ('nothing bound a committed consequence to the attempt it came from -- so a YES could rest on a chain whose decisive step was never taken by anybody', trajectory.py) is enforced only after the fact, by the replay verifier, never by the judge."
+    },
+    {
+      "name": "lasts / span / busy_until / waited_until_free (the new occupancy rule)",
+      "file:line": "envelope.py:176-185, :213; world_mind.py:186-191; trajectory.py:208, :439-444, :476-477",
+      "verdict": "LIVE but currently inert on the default path.",
+      "detail": "lasts defaults to '0 seconds' when the model omits it (envelope.py:176). busy_until[doer] is then due + 0, so the guard at trajectory.py:439 (busy_until[doer] > due) can never fire and waited_until_free can never be emitted. The mechanism is load-bearing only for responses that actually carry the field. The prompt does now teach it (world_mind.py:186-191), so this should self-correct -- but it is the same shape as the defect being hunted, and the silent default is what makes it invisible: a model that ignores the field produces a run in which every event is instantaneous and no artifact records that the rule never engaged."
+    },
+    {
+      "name": "intends_after_cutoff",
+      "file:line": "trajectory.py:218 (init), :246 (only writer), :993 (only reader)",
+      "verdict": "LIVE, but written from one of two places that should arguably both write it.",
+      "detail": "It is set only when a WAKE falls past the cutoff (_schedule_wake). The symmetric case -- a world-proposed EVENT whose due time falls past the cutoff -- emits note('event_beyond_cutoff') at trajectory.py:479 and does NOT set the flag. Both are 'the world has said what the future holds and none of it lands before the deadline', which is the exact justification the comment at trajectory.py:198-217 gives for the flag existing. As written, a run whose only known future is a beyond-cutoff event reports incomplete_empty_queue rather than an honest cutoff. Not dead, but the asymmetry looks unintended."
+    },
+    {
+      "name": "wakes[].reason vs next_wake.reason",
+      "file:line": "envelope.py:217-250 (validated); trajectory.py K_WAKE payload; read at the world_process branch only",
+      "verdict": "LIVE for world wakes, effectively write-only for actor wakes.",
+      "detail": "A wake's reason is read back in exactly one place: the elif ev.data.get('provenance') == 'world_process' branch, which quotes it into the follow-up world prompt. World wakes always carry that provenance, so their reasons are consumed. Actor wakes carry provenance 'actor_plan' and never reach that branch, so an actor's next_wake.reason is validated (must be non-empty, must not be 'reconsider later') and then never read by anything but grounded_wakes.jsonl. See prompt_fields_consumed_by_nothing."
+    },
+    {
+      "name": "MAX_EVENTS_PER_INSTANT / MIN_STEP_ON_A_CROWDED_INSTANT",
+      "file:line": "trajectory.py:44-45, read at :317 and :431",
+      "verdict": "LIVE. Both are genuinely read and both change committed timestamps.",
+      "detail": "Included because the audit asked. The crowd count at :313-317 correctly sums committed events at this instant plus already-scheduled K_EVENTs at this instant, and the floor at :431 applies only when the world said 'now'. Note SINGLE_TRAJECTORY_FIRST_PRINCIPLES_AUDIT.md:77 calls MAX_EVENTS_PER_INSTANT 'REDUNDANT'; that is a design opinion, not a reachability finding, and it is now partly superseded by busy_until, which bounds the same phenomenon per-person rather than per-instant."
+    },
+    {
+      "name": "news / news_at_turn / last_turn_t / arrivals_asked / last_progression / reached_horizon / did_it / self_act_of",
+      "file:line": "trajectory.py:135-136, :137, :175, :169, :196, :286+:1038, :294+:1013+:1057",
+      "verdict": "All LIVE. No action.",
+      "detail": "news and news_at_turn gate the same-instant re-consultation guard (:513) and _has_learned_something (:671). arrivals_asked deduplicates the pending_progression question per (actor, event). last_progression is the (instant, record size, item ids) triple that makes 'same question' precise. reached_horizon is the sole input to the empty-queue-vs-honest-cutoff decision at :1140. did_it and self_act_of are genuinely distinct and both read: did_it grants the author observation of their OWN event only (:1038), self_act_of suppresses news and hands the turn back down the whole consequence chain (:1013, :1057, :706, :723, :747, :780). The distinction is load-bearing -- collapsing them re-creates the 'her offer reached his phone and he had not looked at it' leak the comments describe."
+    }
+  ],
+
+  "prompt_fields_consumed_by_nothing": [
+    {
+      "field": "follow_up",
+      "file:line": "sworldmodel/semantic_runtime/world_mind.py:209-215 (WORLD_SYSTEM); sworldmodel/semantic_runtime/envelope.py:4-19 (module docstring)",
+      "instruction_text": "\"follow_up\" is true when this event leaves ONE unresolved thing for the world to work out next -- something is in transit, something is underway, something will arrive. It is false when the event is finished in itself ... When it is false, nothing further is asked and the next thing to happen is somebody's decision or a later scheduled event.",
+      "what_the_runtime_does_with_it": "Nothing, and now worse than nothing. No branch has read envelope['follow_up'] since the transport chain was deleted (trajectory.py:764 documents the deletion). As of the current working tree, envelope.py:152 removed 'follow_up' from the writable-field set, so validate_event RAISES on any response containing it: verified by execution -- EnvelopeError: event has fields the model may not write: ['follow_up']. The prompt paragraph is now an instruction that causes the response obeying it to be rejected and retried, spending two calls and committing nothing.",
+      "severity": "CRITICAL -- this is not wasted tokens, it is a rejection path. Six lines of the world's system prompt, plus sixteen lines of envelope.py's docstring, teach a field the validator refuses.",
+      "fix": "Delete world_mind.py:209-215 and rewrite envelope.py's docstring header (the 'exactly four fields' block, lines 3-19) to list description/for/observed/after/lasts/by."
+    },
+    {
+      "field": "after (duplicated instruction)",
+      "file:line": "sworldmodel/semantic_runtime/world_mind.py:186-191 and again at :207-208",
+      "instruction_text": "line 186: '\"after\" is when it STARTS, measured from now.' ... line 207: '\"after\" is how much simulated time passes before this event occurs: \"now\", \"43 seconds\", \"5 minutes\", \"2 hours\", or \"3 days\".'",
+      "what_the_runtime_does_with_it": "The field itself is LIVE. The instruction is stated twice, in two different framings, six lines apart, because the second copy is a leftover from the pre-'lasts' prompt. Two definitions of one field in one prompt is exactly the shape that produced the follow_up orphan.",
+      "severity": "LOW -- redundant, not wrong.",
+      "fix": "Delete lines 207-208; line 186's phrasing is the one that distinguishes after from lasts."
+    },
+    {
+      "field": "judgment (world) / decision (actor)",
+      "file:line": "world_mind.py WORLD_SYSTEM JSON template line 172; also 'Say it in \"judgment\"' at :167",
+      "instruction_text": "\"judgment\": \"one or two sentences grounded in the current situation\"",
+      "what_the_runtime_does_with_it": "judgment: recorded in the semantic.world_call ledger record and in world_judgments.jsonl / trajectory.md. No branch reads it. NOT a defect -- it is the human-auditable reason for every adjudication and the prompt is right to demand it. Listed for completeness because it is the largest model-written string the runtime does not consume. (The actor's 'decision' is the counter-example and IS consumed: build_view feeds it back into that same actor's next prompt under WHAT YOU HAVE ALREADY DECIDED AND TRIED.)",
+      "severity": "NONE -- intentional.",
+      "fix": "none"
+    },
+    {
+      "field": "next_wake.reason (actor prompt)",
+      "file:line": "sworldmodel/semantic_runtime/actor_mind.py:112-117 (ACTOR_SYSTEM) and actor_mind.py:205-220 (actor_user_prompt closing question)",
+      "instruction_text": "Say WHAT you will revisit and why that time means something. Never ask to \"reconsider later\" or to check again in general -- that is not a plan, and it will be refused. ... and -- if this is not finished for you -- when will you next come back to it, and why then?",
+      "what_the_runtime_does_with_it": "The 'after' is fully consumed (it schedules the wake). The reason's CONTENT is not. validate_next_wake enforces only that it is non-empty and parseable; _schedule_wake takes it, stores it in the K_WAKE payload and emits it to grounded_wakes.jsonl. The single place a wake reason is read back is the elif ev.data.get('provenance') == 'world_process' branch, which quotes it into a later world prompt -- and actor wakes never have that provenance. So the prompt spends three sentences demanding a specific, grounded, non-generic reason, the validator refuses a vague one, and when the wake fires the reason is discarded and the actor is simply told 'time has passed and you are looking at your situation again' (views.ELAPSED_TIME_REASON).",
+      "severity": "MEDIUM -- the model is being made to compute a justification that shapes its choice of interval (arguably useful) but whose text nothing reads. Defensible as an anti-polling forcing function; indefensible if read as 'the runtime uses this'. The comment at envelope.py:219-224 ('its reason is recorded for tracing and is shown to no one') is honest about it for world wakes but the actor prompt does not say so.",
+      "fix": "Keep the field (it is what stops 'reconsider later' becoming a poll) but the deletion pass should know the text is trace-only, and the world_process branch is the only consumer."
+    }
+  ]
+}

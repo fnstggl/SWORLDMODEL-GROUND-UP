@@ -87,8 +87,7 @@ def runtime_model(system, user):
                 "judgment": "It lands where Bo could see it.",
                 "event": {"description": "Ada's message arrives for Bo.",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes",
-                          "follow_up": True}, "wakes": []}), {}
+                          "after": "1 minutes"}, "wakes": []}), {}
         return json.dumps({"judgment": "Nothing concrete follows.",
                            "event": None, "wakes": []}), {}
     return json.dumps({"decision": "Nothing to do.", "intentions": [],

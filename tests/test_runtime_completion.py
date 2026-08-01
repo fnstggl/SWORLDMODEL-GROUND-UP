@@ -124,7 +124,7 @@ def test_delivery_and_notification_are_not_committed_as_events():
                     "judgment": "it goes.",
                     "event": {"description": "Ada sends Bo her proposal.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False},
+                              "after": "1 minutes"},
                     "wakes": []}), {}
             # the world tries to narrate transport, as it did throughout
             # the merged corpus
@@ -134,7 +134,7 @@ def test_delivery_and_notification_are_not_committed_as_events():
                                          "inbox and a notification appears "
                                          "on his phone.",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes", "follow_up": False},
+                          "after": "1 minutes"},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -168,8 +168,7 @@ def test_the_same_physical_act_is_not_committed_twice():
             return json.dumps({
                 "judgment": "she signs it.",
                 "event": {"description": desc, "for": ["ada_vance"],
-                          "observed": True, "after": "2 minutes",
-                          "follow_up": True}, "wakes": []}), {}
+                          "observed": True, "after": "2 minutes"}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
     _, journal, _ = run(transport, steps=12)
@@ -204,7 +203,7 @@ def test_a_valid_attempt_is_never_deleted_by_a_semantic_reviewer():
                     "event": {"description": "Margaret signs the lease and "
                                              "sends it back to Jian Wei.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "20 minutes", "follow_up": False},
+                              "after": "20 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -241,7 +240,7 @@ def test_identical_event_text_gets_identical_treatment():
                     "event": {"description": "Aisha prints the lease "
                                              "document.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "3 minutes", "follow_up": False,
+                              "after": "3 minutes",
                               "by": "ada_vance"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
@@ -276,7 +275,7 @@ def test_every_world_consequence_cites_the_attempt_that_caused_it():
                     "judgment": "she does it.",
                     "event": {"description": "Ada sends the note.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False},
+                              "after": "1 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -314,7 +313,7 @@ def test_the_world_cannot_author_another_persons_voluntary_choice():
                     "event": {"description": "Bo reads Ada's note and "
                                              "replies that he agrees.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "5 minutes", "follow_up": False,
+                              "after": "5 minutes",
                               "by": "bo_ferrer"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
@@ -351,7 +350,7 @@ def test_a_recipient_cannot_see_information_before_it_is_available():
                     "event": {"description": "Ada sends Bo the figure she "
                                              "will not go below.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False},
+                              "after": "1 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -386,7 +385,7 @@ def test_the_sender_does_not_learn_the_recipients_attention():
                                              "phone is off, so it is not "
                                              "delivered.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "2 minutes", "follow_up": False,
+                              "after": "2 minutes",
                               "by": "ada_vance"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -560,7 +559,7 @@ def test_a_turns_attempts_resolve_in_the_order_they_were_stated():
                     "event": {"description": "Ada checks the account and "
                                              "sees the transfer has arrived.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "30 minutes", "follow_up": False,
+                              "after": "30 minutes",
                               "by": "ada_vance"}, "wakes": []}), {}
             if "attempts: If confirmed" in user:
                 # ... and the dependent one is quick
@@ -568,7 +567,7 @@ def test_a_turns_attempts_resolve_in_the_order_they_were_stated():
                     "judgment": "she sends it.",
                     "event": {"description": "Ada transfers the deposit on.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "1 minutes", "follow_up": False,
+                              "after": "1 minutes",
                               "by": "ada_vance"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -612,7 +611,7 @@ def test_a_person_acting_survives_whatever_question_prompted_it():
                     "judgment": "she asks him.",
                     "event": {"description": "Ada asks Bo to confirm the hall.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False,
+                              "after": "1 minutes",
                               "by": "ada_vance"}, "wakes": []}), {}
             # the attention question, answered with a person acting
             return json.dumps({
@@ -620,7 +619,7 @@ def test_a_person_acting_survives_whatever_question_prompted_it():
                 "event": {"description": "Bo replies that the hall is "
                                          "confirmed for the 14th.",
                           "for": ["ada_vance"], "observed": True,
-                          "after": "20 minutes", "follow_up": False,
+                          "after": "20 minutes",
                           "by": "bo_ferrer"}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -643,14 +642,14 @@ def test_a_restatement_that_nothing_changed_is_still_refused():
                     "judgment": "she sends it.",
                     "event": {"description": "Ada sends Bo the proposal.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False,
+                              "after": "1 minutes",
                               "by": "ada_vance"}, "wakes": []}), {}
             return json.dumps({
                 "judgment": "it sits there.",
                 "event": {"description": "The proposal remains unread in "
                                          "Bo's inbox.",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "2 hours", "follow_up": False,
+                          "after": "2 hours",
                           "by": None}, "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -733,3 +732,133 @@ def test_the_same_act_reworded_is_one_act_but_different_numbers_are_not():
     # and genuinely different acts are never merged
     assert not says_the_same_thing("Bo replies that the hall is confirmed.",
                                    "Ada asks Bo to confirm the hall.")
+
+
+# ------------------------------------------------------ time is occupied
+#
+# One missing concept behind most of two rounds of reviewer findings: an
+# action had a start and no duration, so nobody was ever busy.  65% of a
+# 202-event corpus happened at the same instant as its cause, a woman
+# signed a lease two minutes into a thirty-minute call, and a support call
+# was narrated as thirty-three events inside three minutes.
+
+
+def busy_world(first_lasts="30 minutes", second_after="2 minutes"):
+    """Ada states two things.  The first takes real time; the world says
+    the second follows almost immediately."""
+    state = {"n": 0}
+
+    def transport(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "attempts" not in user:
+                return json.dumps({"judgment": "the scene begins.",
+                                   "event": None, "wakes": []}), {}
+            state["n"] += 1
+            n = state["n"]
+            if n == 1:
+                return json.dumps({
+                    "judgment": "she gets him on the phone.",
+                    "event": {"description": "Ada talks to Bo on the phone.",
+                              "for": ["bo_ferrer"], "observed": True,
+                              "after": "0 seconds", "by": "ada_vance",
+                              "lasts": first_lasts},
+                    "wakes": []}), {}
+            if n == 2:
+                return json.dumps({
+                    "judgment": "she also gets the papers away.",
+                    "event": {"description": "Ada posts the signed papers.",
+                              "for": ["bo_ferrer"], "observed": False,
+                              "after": second_after, "by": "ada_vance",
+                              "lasts": "0 seconds"},
+                    "wakes": []}), {}
+            return json.dumps({"judgment": "nothing further.",
+                               "event": None, "wakes": []}), {}
+        if "ada_vance" in user and state["n"] == 0:
+            return json.dumps({
+                "decision": "I will call him and send the papers.",
+                "intentions": ["call Bo", "post the signed papers"],
+                "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+    return transport
+
+
+def test_a_second_act_cannot_begin_inside_the_first():
+    """A person doing a thirty-minute thing is not also doing something
+    else two minutes in.  This is the whole of the occupancy model, and
+    nothing but code can enforce it: the world proposes each event without
+    knowing what else that person has going on."""
+    _, journal, _ = run(busy_world(), steps=20)
+    by_desc = {e["description"]: parse_iso(e["t"]) for e in journal.events()}
+    call = by_desc["Ada talks to Bo on the phone."]
+    post = by_desc["Ada posts the signed papers."]
+    assert (post - call).total_seconds() >= 30 * 60, \
+        f"the second act began {(post - call)} into a thirty-minute call"
+
+
+def test_an_actor_is_told_what_they_are_in_the_middle_of():
+    """The runtime knew somebody was occupied and the person did not, so
+    they answered as though their afternoon were empty."""
+    from sworldmodel.semantic_runtime.views import build_view, render_view
+    world, journal, _ = run(busy_world(), steps=20)
+    view = build_view(world, journal, "ada_vance",
+                      busy_until=parse_iso(CUTOFF))
+    assert view["busy_until"]
+    assert "in the middle of" in render_view(view).lower()
+    # ... and a person who is free is told nothing at all about it
+    free = build_view(world, journal, "ada_vance")
+    assert free["busy_until"] is None
+    assert "in the middle of" not in render_view(free).lower()
+
+
+def test_finishing_something_brings_the_person_back():
+    """The occupancy model must not be able to strand anybody.  If it can
+    only ever stop a person acting, it produces exactly the abandoned-
+    mid-sentence shape the corpus is full of: somebody goes quiet in the
+    middle of a task and is never asked anything again."""
+    trace = Trace()
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=reviewed(busy_world()))
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=20, trace=trace)
+    finishes = [w for w in trace.of("wake_scheduled")
+                if w["provenance"] == "own_act_finished"]
+    assert finishes, "nothing was scheduled for when the call ends"
+    assert finishes[0]["actor"] == "ada_vance"
+
+
+def test_somebody_mid_task_is_not_consulted_about_the_next_thing():
+    """Asking a person what they want to do twenty seconds into a
+    thirty-minute call is how one actor collected 55 consecutive turns
+    and 185 model calls to commit two events."""
+    trace = Trace()
+    world, journal, bindings = build()
+    caller = RuntimeCaller(transport=reviewed(busy_world()))
+    run_trajectory(world, journal, bindings, SCENE["resolution"], caller,
+                   max_steps=20, trace=trace)
+    held = trace.of("still_mid_task")
+    assert held, "a person on a thirty-minute call was asked what to do next"
+    assert held[0]["actor"] == "ada_vance"
+
+
+def test_an_instantaneous_act_occupies_nobody():
+    """The rule is duration, not a ban on doing two things.  An act the
+    world says takes no time leaves the person free at once, so nothing
+    here slows down a world that really is quick."""
+    _, journal, _ = run(busy_world(first_lasts="0 seconds"), steps=20)
+    by_desc = {e["description"]: parse_iso(e["t"]) for e in journal.events()}
+    gap = (by_desc["Ada posts the signed papers."]
+           - by_desc["Ada talks to Bo on the phone."]).total_seconds()
+    assert gap <= 2 * 60, f"a nil-duration act still blocked for {gap}s"
+
+
+def test_duration_is_carried_on_the_event_and_survives_replay():
+    """`lasts` is load-bearing, so it is part of the committed record and
+    a replay that dropped it would not be exact."""
+    world, journal, _ = run(busy_world(), steps=20)
+    call = next(e for e in journal.events()
+                if e["description"] == "Ada talks to Bo on the phone.")
+    assert call["lasts"] == "30 minutes"
+    assert replay_trajectory(world.records, live_world=world)["exact"]

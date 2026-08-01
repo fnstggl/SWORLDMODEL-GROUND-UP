@@ -29,7 +29,6 @@ OP_TERMINAL = "semantic.terminal_check"
 OP_HORIZON = "semantic.horizon_reached"
 OP_CONTINUITY = "semantic.continuity_review"
 OP_VERIFY = "semantic.terminal_verification"
-OP_TURN_ABANDONED = "semantic.actor_turn_abandoned"
 
 
 class Journal:
@@ -57,6 +56,14 @@ class Journal:
             "description": envelope["description"],
             "for": list(envelope["for"]),
             "observed": bool(envelope["observed"]),
+            # Who did it and how long it took.  Both are load-bearing --
+            # occupancy is computed from them -- so both belong in the
+            # record rather than only in the scheduler's head.  A ledger
+            # that cannot say a call took half an hour cannot be audited
+            # for whether anybody was in two places at once, which is the
+            # single commonest unrealism in the corpus.
+            "by": envelope.get("by"),
+            "lasts": envelope.get("lasts") or "0 seconds",
             "source": source,
             "attempt_id": attempt_id,
             "trajectory_id": trajectory_id,
@@ -66,6 +73,8 @@ class Journal:
                 "description": envelope["description"],
                 "for": list(envelope["for"]),
                 "observed": bool(envelope["observed"]),
+                "by": envelope.get("by"),
+                "lasts": envelope.get("lasts") or "0 seconds",
                 "source": source}
 
     def mark_observed(self, event_id: str, actor_id: str, *, cause: int,
@@ -133,6 +142,8 @@ class Journal:
                         "attempt_id": d.get("attempt_id"),
                         "description": d["description"], "for": audience,
                         "observed": bool(d["observed"]), "observed_by": seen,
+                        "by": d.get("by"),
+                        "lasts": d.get("lasts") or "0 seconds",
                         "source": d.get("source", ""), "cause": r["cause"]})
         return out
 

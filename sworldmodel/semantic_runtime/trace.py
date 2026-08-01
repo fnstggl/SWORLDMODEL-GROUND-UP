@@ -101,11 +101,11 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
     # run in which the world judged that nothing happened.
     _write_jsonl(os.path.join(out_dir, "code_overrides.jsonl"),
                  [dict(e, override=e["kind"]) for k in
-                  ("event_abandoned", "duplicate_event_dropped",
-                   "duration_floored", "actor_turn_abandoned",
+                  ("duplicate_event_dropped", "duration_floored",
                    "group_observation_split", "progression_skipped",
                    "restatement_refused", "ordered_after_earlier_attempt",
-                   "choice_returned_to_its_owner", "wake_beyond_cutoff")
+                   "choice_returned_to_its_owner", "wake_beyond_cutoff",
+                   "waited_until_free", "still_mid_task")
                   for e in trace.of(k)])
     _write_jsonl(os.path.join(out_dir, "grounded_wakes.jsonl"),
                  trace.of("wake_scheduled"))
@@ -173,22 +173,24 @@ def render_trajectory(question, journal, trace: Trace, trajectory) -> str:
                        f"> {e['judgment']}\n")
             if ev:
                 out.append(f"- proposes: {ev['description']} "
-                           f"(for {ev.get('for')}, observed="
-                           f"{ev.get('observed')}, after {ev.get('after')})\n")
+                           f"(by {ev.get('by')}, for {ev.get('for')}, "
+                           f"observed={ev.get('observed')}, "
+                           f"after {ev.get('after')}, "
+                           f"lasts {ev.get('lasts')})\n")
             else:
                 out.append("- proposes: (no concrete event yet)\n")
-        elif k == "event_abandoned":
-            # NOT the same as "nothing happened": the world said something
-            # did, twice, and was overruled.  Rendering the two alike is
-            # how a NO produced by a refusal reads as a NO produced by a
-            # quiet afternoon.
-            out.append(f"\n**Proposed and refused twice** at {e['t']} — "
-                       f"nothing was committed\n\n"
-                       f"> would have been: {e['rejected']}\n>\n"
-                       f"> refused because: {e['reason']}\n")
-            for w in e.get("wakes") or []:
-                out.append(f"- wake {w['actor']} after {w['after']}: "
-                           f"{w['reason']}\n")
+        elif k == "waited_until_free":
+            # Time is code's, and this is code moving a model-proposed
+            # instant.  A reader who cannot see that a thing started later
+            # than the world said cannot tell an unhurried afternoon from
+            # one person's diary being full.
+            out.append(f"\n*{e['actor']} was mid-something, so this starts "
+                       f"at {e['free_at']} rather than {e['t']}: "
+                       f"{e['description']}*\n")
+        elif k == "still_mid_task":
+            out.append(f"\n*{e['actor']} is not asked anything at {e['t']} "
+                       f"— they are in the middle of something until "
+                       f"{e['free_at']}*\n")
         elif k == "item_observed":
             out.append(f"\n*`{e['event_id']}` is now observed by "
                        f"{e['actor']} (attention arrived via "

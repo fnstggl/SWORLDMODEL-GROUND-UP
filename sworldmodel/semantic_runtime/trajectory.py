@@ -29,8 +29,7 @@ from . import actor_mind, resolution as resolution_mod, world_mind
 from .envelope import (EnvelopeError, contained, parse_duration,
                        validate_event)
 from .journal import (Journal, OP_ACTOR_CALL, OP_ATTEMPT, OP_CONTINUITY,
-                      OP_HORIZON, OP_TERMINAL, OP_TURN_ABANDONED,
-                      OP_VERIFY, OP_WORLD_CALL)
+                      OP_HORIZON, OP_TERMINAL, OP_VERIFY, OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
@@ -82,8 +81,7 @@ class SemanticTrajectory:
     #:               never reached, so most of the window was never lived
     #: incomplete_step_limit  -- ran out of steps first
     #: incomplete_call_limit  -- ran out of calls first
-    #: incomplete_review_failure -- a read-only check could not be settled
-    #: (all four: the horizon was never reached, so no NO may be claimed)
+    #: (all three: the horizon was never reached, so no NO may be claimed)
     #: disagreement -- two independent readings of the record disagreed at
     #:               the horizon, so no answer is claimed
     #: failed     -- a technical failure.  No RESPONSE is ever partially
@@ -99,7 +97,6 @@ class SemanticTrajectory:
     actor_calls: int = 0
     judge_calls: int = 0
     review_calls: int = 0
-    abandoned_turns: int = 0
 
     def to_dict(self) -> dict:
         return {"status": self.status, "answer": self.answer,
@@ -107,8 +104,7 @@ class SemanticTrajectory:
                 "world_calls": self.world_calls,
                 "actor_calls": self.actor_calls,
                 "judge_calls": self.judge_calls,
-                "review_calls": self.review_calls,
-                "abandoned_turns": self.abandoned_turns}
+                "review_calls": self.review_calls}
 
 
 def _iso_now(world) -> str:
@@ -151,8 +147,9 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: What those names described still happens; it happens as an
     #: immediate turn rather than as a scheduled wake, which is why they
     #: never appeared.
-    WAKE_PROVENANCE = ("actor_plan",       # they said they would
-                       "world_process")    # the world said it would happen
+    WAKE_PROVENANCE = ("actor_plan",         # they said they would
+                       "world_process",      # the world said it would happen
+                       "own_act_finished")   # what they were doing is done
 
     #: What was last asked about somebody's unopened items: the instant it
     #: was asked at, how much had happened by then, and which items.
@@ -195,6 +192,18 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: there was no future at all.
     reached_horizon: dict = {"yes": False}
 
+    #: When each person is next free.  An action occupies the person doing
+    #: it, and this is the whole of that idea.
+    #:
+    #: Without it an event was a point: sixty-five per cent of a corpus
+    #: happened at the same instant as its cause, a woman signed a lease
+    #: two minutes into a thirty-minute call, and a support call arrived as
+    #: thirty-three events inside three minutes.  Duration was decorative,
+    #: so it was not answered.  Made load-bearing, it is answered, and
+    #: everything downstream of "people can only do one thing at a time"
+    #: follows without a prompt asking for it.
+    busy_until: dict = {}
+
     #: Somebody's own stated next move lies past the deadline.  Two
     #: reviewers independently found that the beyond-cutoff signal was
     #: computed and thrown away, which left NO_AT_CUTOFF reachable only
@@ -211,7 +220,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     pending_wakes: dict = {}
 
     def _schedule_wake(actor_id: str, *, after, reason: str, provenance: str,
-                       about: str, cause: int) -> bool:
+                       about: str, cause: int,
+                       keep_latest: bool = False) -> bool:
         """Code owns the instant, the cause and the identity.  The reason
         is natural language from whoever asked for it, and is recorded for
         tracing only -- it never reaches the person, because a wake is
@@ -235,12 +245,19 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             return False
         key = (actor_id, about, provenance)
         old = pending_wakes.get(key)
-        if old is not None and old["due"] <= due:
-            return False              # already coming, and sooner
         if old is not None:
+            # For most purposes the sooner wake is the one worth keeping.
+            # For "you have finished what you were doing" it is the later
+            # one: somebody who starts a second thing is not free when the
+            # first ends, and keeping the earlier wake would ask them
+            # mid-task and then never ask them again.
+            already_right = (old["due"] >= due if keep_latest
+                             else old["due"] <= due)
+            if already_right:
+                return False
             world.cancel_event(old["seq"],
-                               "replaced by a nearer wake for the same "
-                               "purpose", cause)
+                               "replaced by a better-timed wake for the "
+                               "same purpose", cause)
         ev = world.schedule(K_WAKE,
                             {"actor": actor_id, "reason": reason,
                              "provenance": provenance, "about": about},
@@ -253,8 +270,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
                    actor_id: str | None = None, concerns=(),
-                   self_act_of=None, intention: str | None = None,
-                   attempt_id: str | None = None, not_before=None) -> dict | None:
+                   self_act_of=None, attempt_id: str | None = None,
+                   not_before=None) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
@@ -420,6 +437,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 note("duration_floored", call_id=out["call_id"],
                      t=_iso_now(world), description=envelope["description"])
             due = world.clock.now + delta
+            # ... and not before the person doing it is free.  This is the
+            # whole of "one thing at a time": a second act cannot start in
+            # the middle of the first.
+            doer = envelope.get("by")
+            if doer and busy_until.get(doer) and busy_until[doer] > due:
+                note("waited_until_free", call_id=out["call_id"],
+                     t=_iso_now(world), actor=doer,
+                     free_at=iso(busy_until[doer]),
+                     description=envelope["description"])
+                due = busy_until[doer]
             # A person doing two things does the first one first.  Within
             # one turn each attempt lands no earlier than the one before
             # it: the intentions were dispatched in order, but the events
@@ -447,6 +474,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
                 landed_at = due
+                if doer:
+                    # durations stay as their original text through the
+                    # JSON-safe envelope; code re-parses at the moment it
+                    # needs them, the same way `after` is handled
+                    ends = due + parse_duration(
+                        envelope.get("lasts") or "0 seconds")
+                    busy_until[doer] = ends
+                    # ... and finishing something is a moment in a person's
+                    # life.  A twenty-minute call ends, and the person who
+                    # made it is back.  Without this the occupancy model
+                    # could only ever stop somebody -- they went quiet
+                    # mid-task and nothing ever brought them back, which is
+                    # the shape of "abandoned mid-sentence" the corpus is
+                    # full of.  The wake is grounded in a concrete fact, not
+                    # in an interval code invented.
+                    if ends > world.clock.now:
+                        _schedule_wake(
+                            doer, after=ends - world.clock.now,
+                            reason="what you were doing has finished",
+                            provenance="own_act_finished", about="free",
+                            cause=wseq, keep_latest=True)
             else:
                 note("event_beyond_cutoff", call_id=out["call_id"],
                      due=iso(due), description=envelope["description"])
@@ -486,7 +534,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             return
         last_turn_t[actor_id] = _iso_now(world)
         view = build_view(world, journal, actor_id,
-                          trigger_event_ids=trigger_event_ids)
+                          trigger_event_ids=trigger_event_ids,
+                          busy_until=busy_until.get(actor_id))
         rendered = render_view(view)
         held = [m["content"] for m in view["private_memories"]]
         base = actor_mind.actor_user_prompt(rendered)
@@ -591,7 +640,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             result = world_step(
                 trigger_kind="actor_intention",
                 trigger_text=f"{actor_id} attempts: {intent}",
-                cause=aid_seq, actor_id=actor_id, intention=intent,
+                cause=aid_seq, actor_id=actor_id,
                 attempt_id=attempt_id, not_before=floor)
             if result and result.get("landed_at") is not None:
                 floor = result["landed_at"]
@@ -620,15 +669,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              call_id=out["call_id"], **out["parsed"])
         return out["parsed"]
 
-    #: How many times in a row the runtime asks "and then?" about
-    #: something nobody has noticed.  Once: a thing that was sent arrives,
-    #: and there it sits.  Asking again produced the third event of every
-    #: message -- "it remains unread" -- which is not an event at all but
-    #: the absence of one.  Whether it is ever noticed is a question about
-    #: a later moment, and later moments are what wakes are for.
-    MAX_ENV_CHAIN = 1
-    env_chain = {"depth": 0}
-
     #: The world may not run this many steps in a row without a single
     #: person being consulted.  The rule that people decide what people do
     #: is a prompt instruction, and a prompt instruction is not a
@@ -654,7 +694,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         like from outside.
         """
         since_actor["n"] = 0
-        env_chain["depth"] = 0
         for aid in actors:
             if _has_learned_something(aid):
                 actor_step(aid, cause=rec["seq"])
@@ -679,7 +718,6 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         learned = bool(envelope["observed"] and others)
         if learned:
             # somebody LEARNED something: their turn
-            env_chain["depth"] = 0
             for aid in others:
                 news[aid] = news.get(aid, 0) + 1
                 actor_step(aid, cause=rec["seq"],
@@ -748,8 +786,20 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # checks it IN ORDER TO answer the question he was asked, and a
         # live run left him at exactly that point on Monday morning and
         # jumped to Friday's deadline.
-        env_chain["depth"] = 0
+        #
+        # ... unless what they are doing is still going on.  Somebody
+        # twenty seconds into a thirty-minute call is not deciding what to
+        # do next; they are on the call.  Asking anyway is how one actor
+        # collected fifty-five consecutive turns and a hundred and eighty-
+        # five model calls to commit two events.  They are brought back the
+        # moment it ends, by the wake scheduled where the occupancy was set
+        # -- so this costs nobody their turn, it only moves it to when they
+        # are actually free to take it.
         if self_act_of:
+            if busy_until.get(self_act_of, world.clock.now) > world.clock.now:
+                note("still_mid_task", actor=self_act_of, t=_iso_now(world),
+                     free_at=iso(busy_until[self_act_of]))
+                return
             actor_step(self_act_of, cause=rec["seq"])
         return
 

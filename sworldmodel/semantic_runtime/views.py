@@ -29,7 +29,7 @@ established this actor observed.
 """
 from __future__ import annotations
 
-from sworldmodel.simclock import parse_iso
+from sworldmodel.simclock import iso, parse_iso
 
 from .envelope import contained
 from .journal import Journal, OP_ACTOR_CALL
@@ -41,9 +41,14 @@ ELAPSED_TIME_REASON = ("time has passed and you are looking at your "
 
 
 def build_view(world, journal: Journal, actor_id: str, *,
-               trigger_event_ids=()) -> dict:
+               trigger_event_ids=(), busy_until=None) -> dict:
     """The complete and only input a given actor's model receives."""
     st = world.actors[actor_id]
+    # What they are in the middle of.  A person who is on a call knows they
+    # are on a call, and answers differently because of it.  Without this
+    # the runtime knew somebody was occupied and the person did not.
+    now = world.clock.now
+    occupied = (iso(busy_until) if busy_until and busy_until > now else None)
     # What they have observed -- but NOT the world's account of the far
     # end of something they sent.
     #
@@ -92,6 +97,7 @@ def build_view(world, journal: Journal, actor_id: str, *,
         "private_memories": memories,
         "own_actions": did,
         "reasons": reasons,
+        "busy_until": occupied,
     }
 
 
@@ -158,6 +164,10 @@ def render_view(view: dict) -> str:
             parts.append(f"- {contained(m['content'])}")
     else:
         parts.append("- (none yet)")
+    if view.get("busy_until"):
+        parts += ["", "WHAT YOU ARE IN THE MIDDLE OF RIGHT NOW",
+                  f"You are occupied until {view['busy_until']}.  Whatever "
+                  f"you decide to do next begins after that, not now."]
     if view["reasons"]:
         parts += ["", "WHAT HAS CHANGED SINCE YOUR LAST TURN"]
         for r in view["reasons"]:

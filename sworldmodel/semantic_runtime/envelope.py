@@ -149,7 +149,7 @@ def validate_event(proposed, known_actor_ids) -> dict:
     if not isinstance(proposed, dict):
         raise EnvelopeError("event must be an object")
     unknown = set(proposed) - {"description", "for", "observed", "after",
-                               "follow_up", "by"}
+                               "by", "lasts"}
     if unknown:
         raise EnvelopeError(
             f"event has fields the model may not write: {sorted(unknown)} "
@@ -162,15 +162,28 @@ def validate_event(proposed, known_actor_ids) -> dict:
         raise EnvelopeError("event.description must be a non-empty string")
     if not isinstance(proposed["observed"], bool):
         raise EnvelopeError("event.observed must be true or false")
-    follow_up = proposed.get("follow_up", False)
-    if not isinstance(follow_up, bool):
-        raise EnvelopeError("event.follow_up must be true or false")
     # WHOSE action this is, if it is anybody's.  Null means the
     # environment did it -- a train is late, a shop closes, something
     # arrives.  An actor id means that person acted, and code checks that
     # against whose attempt was being adjudicated: the world resolving
     # Ada's attempt may not decide that BO chose something, because that
     # is Bo's turn to take.  Identity, not keywords.
+    # HOW LONG IT TAKES, not just when it starts.  Without this an event
+    # is a point, a person is never busy, and 65% of a corpus happened at
+    # the same instant as its cause: durations were decorative, so they
+    # were not answered.  Code makes it load-bearing -- the actor is
+    # occupied for this long -- which is the only reason to get it right.
+    lasts = proposed.get("lasts", "0 seconds")
+    if not isinstance(lasts, str) or not lasts.strip():
+        raise EnvelopeError("event.lasts must be a duration like "
+                            "\"20 minutes\"")
+    try:
+        span = parse_duration(lasts)
+    except EnvelopeError:
+        raise
+    if span.total_seconds() < 0:
+        raise EnvelopeError("event.lasts cannot be negative")
+
     by = proposed.get("by")
     if by is not None:
         if not isinstance(by, str):
@@ -196,7 +209,8 @@ def validate_event(proposed, known_actor_ids) -> dict:
     return {"description": clean_text(proposed["description"].strip(),
                                       field="event.description"),
             "for": clean_for, "observed": proposed["observed"],
-            "after": proposed["after"].strip(), "follow_up": follow_up,
+            "after": proposed["after"].strip(),
+            "lasts": lasts.strip(), "span": span,
             "by": by, "delta": delta}
 
 

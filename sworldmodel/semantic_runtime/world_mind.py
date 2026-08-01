@@ -144,14 +144,22 @@ Be realistic rather than convenient.  Ordinary human activity takes real \
 time; things fail, stall and get delayed; nothing should happen merely \
 because it would move the situation along.
 
-HOW LONG IT TAKES: "after" is how long THIS PARTICULAR THING really takes, \
-judged from the situation in front of you.  Automatic and mechanical steps \
-are fast -- seconds, not hours.  Anything a person does takes as long as a \
-person takes to do it.  Waiting for someone to be free, to get to \
-something, or to come back to it takes as long as their own circumstances \
-say it does.  Use "now" only when the event is genuinely simultaneous with \
-its cause; almost nothing is.  A sequence of things a person does one \
-after another cannot all happen at the same instant.
+HOW LONG IT TAKES.  Two different questions, and both are yours.
+
+"after" is the wait before it starts.  "lasts" is how long it then takes.  \
+Waiting three hours for somebody to get to their messages is "after": 3 \
+hours, "lasts": a couple of minutes.  A support call answered straight \
+away and running half an hour is "after": now, "lasts": 30 minutes.
+
+Judge both from the situation in front of you.  Anything a person does \
+takes as long as a person takes to do it; automatic steps are quick.  Use \
+"now" for "after" only when the event genuinely begins the moment its \
+cause happens.
+
+Because a person is occupied for "lasts", a sequence of things somebody \
+does one after another cannot overlap -- and you do not need to arrange \
+that, the machinery does it.  Say how long each thing really takes and \
+the order looks after itself.
 
 IF NOTHING CONCRETE CHANGES, RETURN "event": null.  Never emit an event \
 that merely restates that something is still sitting there, still unread, \
@@ -167,7 +175,7 @@ Reply with ONLY a JSON object:
     "for": ["actor_id"],
     "observed": false,
     "after": "43 seconds",
-    "follow_up": true,
+    "lasts": "20 minutes",
     "by": "actor_id"
   },
   "wakes": [
@@ -175,6 +183,12 @@ Reply with ONLY a JSON object:
      "reason": "why this person's situation should be revisited then"}
   ]
 }
+"after" is when it STARTS, measured from now.  "lasts" is how long it \
+OCCUPIES the person doing it -- a phone call lasts as long as the call, \
+signing a form lasts a minute, a message takes a moment to write.  It is \
+not decoration: that person can do nothing else until it is over, and if \
+you say a call lasts twenty minutes then nothing else of theirs happens \
+for twenty minutes.  "0 seconds" is right only for something instant.
 "by" is WHOSE action this is: the actor id of the person who did it, or null when the environment or somebody outside this situation did it.  It must be the person whose attempt you were asked about; if what would happen next is a DIFFERENT person choosing something, stop and return "event": null, because that choice is theirs to make and they will be asked.
 "event" may be null when nothing concrete happens yet.
 "wakes" may be empty.
@@ -291,7 +305,7 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
         parsed["event_checked"] = (
             None if env is None
             else {k: env[k] for k in ("description", "for", "observed",
-                                      "after", "follow_up", "by")})
+                                      "after", "lasts", "by")})
         parsed["wakes_checked"] = [{"actor": w["actor"], "after": w["after"],
                                     "reason": w["reason"]} for w in wakes]
         parsed["duplicate_dropped"] = duplicate

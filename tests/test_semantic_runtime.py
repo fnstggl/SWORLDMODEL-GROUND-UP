@@ -194,7 +194,7 @@ def test_event_envelope_rejects_unknown_actors_and_extra_fields():
     known = {"ada_vance", "bo_ferrer"}
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["nobody"],
-                        "observed": True, "after": "now", "follow_up": True}, known)
+                        "observed": True, "after": "now"}, known)
     with pytest.raises(EnvelopeError):
         validate_event({"description": "x", "for": ["ada_vance"],
                         "observed": True, "after": "now",
@@ -205,7 +205,7 @@ def test_event_envelope_rejects_unknown_actors_and_extra_fields():
                         "probability": 0.4}, known)
     ok = validate_event({"description": " x ", "for": ["ada_vance",
                                                        "ada_vance"],
-                         "observed": False, "after": "5 minutes", "follow_up": True}, known)
+                         "observed": False, "after": "5 minutes"}, known)
     assert ok["for"] == ["ada_vance"] and ok["delta"].total_seconds() == 300
 
 
@@ -270,7 +270,7 @@ class LifecycleModel:
                     "event": {"description": "Ada's message arrives in "
                                              "Bo's inbox.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "43 seconds", "follow_up": False},
+                              "after": "43 seconds"},
                     "wakes": [{"actor": "bo_ferrer", "after": "30 minutes",
                                "reason": "he will get to his messages"}]}), {}
             if "pending_progression" in user:
@@ -288,7 +288,7 @@ class LifecycleModel:
                     "event": {"description": "Bo notices the subject line "
                                              "of Ada's message.",
                               "for": ["bo_ferrer"], "observed": True,
-                              "after": "now", "follow_up": False},
+                              "after": "now"},
                     "wakes": []}), {}
             if "Open" in user or "read" in user.lower():
                 return json.dumps({
@@ -296,14 +296,14 @@ class LifecycleModel:
                     "event": {"description": "Bo reads Ada's message in "
                                              "full.",
                               "for": ["bo_ferrer"], "observed": True,
-                              "after": "2 minutes", "follow_up": False},
+                              "after": "2 minutes"},
                     "wakes": []}), {}
             if "repl" in user.lower():
                 return json.dumps({
                     "judgment": "He types two lines back.",
                     "event": {"description": "Bo sends a short reply to Ada.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "5 minutes", "follow_up": False},
+                              "after": "5 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "Nothing concrete follows.",
                                "event": None, "wakes": []}), {}
@@ -456,7 +456,7 @@ def test_something_arriving_for_someone_who_never_spoke_still_reaches_them():
                     "judgment": "It lands where Bo could see it.",
                     "event": {"description": "Ada's message arrives for Bo.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False},
+                              "after": "1 minutes"},
                     "wakes": []}), {}
             if "has just arrived for" in user:
                 asked_about.append(user)
@@ -499,7 +499,7 @@ def test_finishing_your_own_action_gives_you_the_next_decision():
                     "event": {"description": "Ada looks up the booking and "
                                              "sees the hall is held.",
                               "for": ["ada_vance"], "observed": True,
-                              "after": "9 minutes", "follow_up": False},
+                              "after": "9 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "Nothing further.",
                                "event": None, "wakes": []}), {}
@@ -542,14 +542,13 @@ def test_the_same_thing_scheduled_twice_only_happens_once():
                     "judgment": "it reaches them both.",
                     "event": {"description": "The notice reaches them.",
                               "for": ["ada_vance", "bo_ferrer"],
-                              "observed": False, "after": "1 minutes",
-                              "follow_up": False},
+                              "observed": False, "after": "1 minutes"},
                     "wakes": []}), {}
             return json.dumps({
                 "judgment": "the same thing, whoever is asked about",
                 "event": {"description": "The notice is seen.",
                           "for": ["bo_ferrer"], "observed": True,
-                          "after": "40 minutes", "follow_up": False},
+                          "after": "40 minutes"},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -587,7 +586,7 @@ def test_a_person_knows_what_they_themselves_just_did():
                     # addressed to the OTHER person: she is not a recipient
                     "event": {"description": "Ada sends her answer to Bo.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "2 minutes", "follow_up": False},
+                              "after": "2 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing further.",
                                "event": None, "wakes": []}), {}
@@ -639,7 +638,7 @@ def test_the_sender_does_not_see_the_far_end_of_what_they_sent():
                 return json.dumps({"judgment": "she sends it.", "event": {
                     "description": "Ada sends her answer to Bo.",
                     "for": ["bo_ferrer"], "observed": False,
-                    "after": "2 minutes", "follow_up": False,
+                    "after": "2 minutes",
                     "by": "ada_vance"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -779,9 +778,10 @@ def test_every_place_code_overruled_the_model_is_written_down():
     from sworldmodel.semantic_runtime.trace import write_artifacts
     from sworldmodel.semantic_runtime.trajectory import SemanticTrajectory
     trace = Trace()
-    trace.record("event_abandoned", t="2026-07-27T14:00:00+00:00",
-                 call_id="c9", reason="the printer is not the one acting",
-                 rejected="Aisha prints the lease document.")
+    trace.record("waited_until_free", t="2026-07-27T14:00:00+00:00",
+                 call_id="c9", actor="aisha_kone",
+                 free_at="2026-07-27T14:30:00+00:00",
+                 description="Aisha signs the lease.")
     trace.record("duration_floored", t="2026-07-27T14:00:00+00:00",
                  call_id="c9", description="something at no time at all")
     world, journal, bindings = build()
@@ -794,10 +794,10 @@ def test_every_place_code_overruled_the_model_is_written_down():
         rows = [json.loads(l) for l in
                 open(os.path.join(d, "code_overrides.jsonl"))]
         kinds = {r["override"] for r in rows}
-        assert "event_abandoned" in kinds and "duration_floored" in kinds
+        assert "waited_until_free" in kinds and "duration_floored" in kinds
         md = open(os.path.join(d, "trajectory.md")).read()
-        assert "Proposed and refused twice" in md
-        assert "the printer is not the one acting" in md
+        assert "was mid-something" in md
+        assert "Aisha signs the lease." in md
 
 
 def test_a_world_process_wake_goes_back_to_the_world():
@@ -872,7 +872,7 @@ def test_invalid_world_output_commits_nothing_after_one_retry():
     before_records = len(world.records)
     bad = {"judgment": "x", "event": {"description": "y",
                                       "for": ["ghost_actor"],
-                                      "observed": True, "after": "now", "follow_up": True},
+                                      "observed": True, "after": "now"},
            "wakes": []}
     caller = RuntimeCaller(transport=Script({
         "judge": [UNRESOLVED] * 4,
@@ -908,7 +908,7 @@ def test_time_never_moves_backward_and_cutoff_is_respected():
         "judge": [UNRESOLVED] * 300,
         "world": [{"judgment": "far future", "event": {
             "description": "something much later",
-            "for": ["ada_vance"], "observed": True, "after": "3 days", "follow_up": True},
+            "for": ["ada_vance"], "observed": True, "after": "3 days"},
             "wakes": []}] * 300,
         "actor": [{"decision": "d", "intentions": [], "private_updates": []}]
                  * 300}))
@@ -1027,8 +1027,7 @@ def test_the_call_ceiling_sits_above_the_ordinary_path():
         "judge": [UNRESOLVED] * 900,
         "world": [{"judgment": "it moves along", "event": {
             "description": "something concrete happens",
-            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes",
-            "follow_up": True},
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
             "wakes": [{"actor": "bo_ferrer", "after": "10 minutes",
                        "reason": "there is more of this to come"}]}] * 900,
         "actor": [busy] * 900}))
@@ -1171,8 +1170,7 @@ def test_a_truncated_run_is_incomplete_and_can_never_answer_no():
         "judge": [UNRESOLVED] * 60,
         "world": [{"judgment": "it moves along", "event": {
             "description": "another concrete step happens",
-            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes",
-            "follow_up": True},
+            "for": ["bo_ferrer"], "observed": True, "after": "5 minutes"},
             "wakes": [{"actor": "bo_ferrer", "after": "10 minutes",
                        "reason": "there is more of this to come"}]}] * 60,
         "actor": [{"decision": "d", "intentions": ["keep going"],
@@ -1495,7 +1493,7 @@ def test_the_world_cannot_run_for_long_without_asking_anyone():
                 "judgment": "he carries on",
                 "event": {"description": "Bo continues typing his reply",
                           "for": ["bo_ferrer"], "observed": False,
-                          "after": "1 minutes", "follow_up": True},
+                          "after": "1 minutes"},
                 "wakes": [{"actor": "bo_ferrer", "after": "10 minutes",
                            "reason": "he is still at it"}]}), {}
         seen["runs"].append(seen["world"])
@@ -1536,7 +1534,7 @@ def test_one_instant_cannot_be_subdivided_forever():
             return json.dumps({"judgment": "and another thing", "event": {
                 "description": f"thing number {n['i']} happens",
                 "for": ["ada_vance"], "observed": True,
-                "after": "now", "follow_up": False,
+                "after": "now",
                 "by": "ada_vance"},
                 "wakes": [{"actor": "ada_vance", "after": "10 minutes",
                            "reason": "it is still going on"}]}), {}
@@ -1563,8 +1561,7 @@ def test_no_wake_exists_without_a_grounded_reason():
         "judge": [UNRESOLVED] * 40,
         "world": [{"judgment": "she gets on with it", "event": {
             "description": "Ada works on her own thing a while longer",
-            "for": ["ada_vance"], "observed": True, "after": "2 minutes",
-            "follow_up": False},
+            "for": ["ada_vance"], "observed": True, "after": "2 minutes"},
             "wakes": [{"actor": "ada_vance", "after": "3 hours",
                        "reason": "she said she would look again after the "
                                  "school run"}]}] * 40,
@@ -1646,7 +1643,7 @@ def test_one_person_noticing_is_not_everyone_noticing():
                 "event": {"description": "the message goes to the group and "
                                          "they all see it at once",
                           "for": ["ada_vance", "bo_ferrer"],
-                          "observed": True, "after": "1 minutes", "follow_up": True},
+                          "observed": True, "after": "1 minutes"},
                 "wakes": []}), {}
         return json.dumps(NOTHING), {}
 
@@ -1733,7 +1730,7 @@ def test_the_same_event_cannot_happen_twice_word_for_word():
     from sworldmodel.semantic_runtime.world_mind import make_world_validator
     body = {"judgment": "again", "event": {
         "description": "She reads the next portion of the results section",
-        "for": ["ada_vance"], "observed": True, "after": "5 minutes", "follow_up": True},
+        "for": ["ada_vance"], "observed": True, "after": "5 minutes"},
         "wakes": []}
     seen = frozenset({"she reads the next portion of the results section"})
     fresh = make_world_validator({"ada_vance"})
@@ -1813,7 +1810,7 @@ def test_a_human_choice_written_by_the_world_becomes_that_persons_turn():
                 return json.dumps({"judgment": "and he agrees.", "event": {
                     "description": "Bo reads it and agrees to the price.",
                     "for": ["ada_vance"], "observed": True,
-                    "after": "5 minutes", "follow_up": False,
+                    "after": "5 minutes",
                     "by": "bo_ferrer"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
@@ -1967,7 +1964,7 @@ def test_a_persons_own_intention_is_already_their_choice():
                 return json.dumps({"judgment": "she sends it", "event": {
                     "description": "Ada sends the reply she decided to write",
                     "for": ["bo_ferrer"], "observed": False,
-                    "after": "1 minutes", "follow_up": False},
+                    "after": "1 minutes"},
                     "wakes": []}), {}
             return json.dumps({"judgment": "nothing", "event": None,
                                "wakes": []}), {}
