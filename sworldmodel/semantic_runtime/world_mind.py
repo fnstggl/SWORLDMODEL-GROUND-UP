@@ -111,6 +111,10 @@ ONE MEANINGFUL THING, NOT ITS PIECES.  When somebody does something, the event i
 
 If an attempt only partly comes off, say so as one event -- "she signs it but cannot get the scanner to work" -- rather than splitting it.
 
+A LIVE EXCHANGE IS ONE EVENT, NOT A TRANSCRIPT.  When two people are talking to each other -- by telephone, face to face, in any back-and-forth where each hears the other as they speak -- the event is the exchange and what came of it: "she talks it through with him and he walks her through the setting", with "lasts" the length of the conversation.  It is NEVER a sequence of one answering, one greeting, one listening, one hearing what the other just said, one asking a question, one hearing the reply.  Those are not events; they are the inside of a conversation, and nobody recounts a conversation that way.
+
+While two people are talking, each hears the other as it happens.  An exchange is "observed": true for both, and there is no separate step in which what one of them said reaches the other.  If the exchange does not finish the matter -- somebody is put on hold, or goes away to try something -- say what was reached as one event and let the rest be a later step.
+
 You decide circumstances; you never decide what a person intends or \
 chooses.  You may determine that someone is busy, interrupted, away, or \
 that something goes wrong -- but whether they decide to act is theirs.
