@@ -18,3 +18,5 @@ artifacts/matched_pairs/*/review_*.jsonl
 artifacts/matched_pairs/*/*.md
 artifacts/baseline_main/*/
 artifacts/final_v*/*/
+artifacts/mvp_v*/*/
+artifacts/*_run.log
