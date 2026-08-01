@@ -21,8 +21,49 @@ anything is committed.
 """
 from __future__ import annotations
 
+import difflib
+import re
+
 from .envelope import (EnvelopeError, clean_text, contained,
                        validate_event, validate_wakes)
+
+
+#: How close two descriptions must be before they are the same act said
+#: twice.  An exact casefold match caught eleven word-for-word repeats in
+#: one corpus and missed roughly forty-six rewordings -- a woman signed one
+#: lease twice a minute apart, a call was released twice, a decisive act was
+#: committed twice.  A model does not write the same sentence twice; it
+#: writes the same event twice.
+SAME_ACT = 0.86
+_TRIVIAL = re.compile(r"\b(?:the|a|an|his|her|their|its|then|now|just|"
+                      r"finally|and|to|of|in|on|at|with|from|by)\b")
+
+
+def _shape(text: str) -> str:
+    """What an event is ABOUT, with the wording sanded off."""
+    return " ".join(sorted(set(
+        _TRIVIAL.sub(" ", (text or "").casefold()).split())))
+
+
+_NUMBERS = re.compile(r"\d+|\b(?:first|second|third|fourth|fifth|sixth|"
+                      r"seventh|eighth|ninth|tenth|one|two|three|four|five|"
+                      r"six|seven|eight|nine|ten)\b", re.I)
+
+
+def says_the_same_thing(a: str, b: str) -> bool:
+    """Close enough to be one act said twice.
+
+    Different numbers mean different things -- the second page is not the
+    first page, and 400 is not 200 -- so a numeric difference disqualifies
+    a match however similar the rest reads.  Without that, "she gets on
+    with the 1st piece of it" and "the 2nd piece" collapsed into one.
+    """
+    na = [m.group().casefold() for m in _NUMBERS.finditer(a or "")]
+    nb = [m.group().casefold() for m in _NUMBERS.finditer(b or "")]
+    if sorted(na) != sorted(nb):
+        return False
+    return difflib.SequenceMatcher(None, _shape(a), _shape(b)).ratio() \
+        >= SAME_ACT
 
 WORLD_SYSTEM = """You are the world: physical reality, institutions, \
 systems, and the ordinary circumstances that surround people.  You decide \
@@ -233,8 +274,12 @@ def make_world_validator(known_actor_ids, *, already_committed=()):
         env = (validate_event(parsed["event"], known_actor_ids)
                if parsed["event"] is not None else None)
         duplicate = None
-        if env is not None and contained(env["description"]).casefold() \
-                in already_committed:
+        same = None
+        if env is not None:
+            here = contained(env["description"])
+            same = next((d for d in already_committed
+                         if says_the_same_thing(here, d)), None)
+        if same is not None:
             # Word for word, this has already happened.  One live run
             # committed "she reads the next portion of the results
             # section" nine times, and the week that produced its NO was

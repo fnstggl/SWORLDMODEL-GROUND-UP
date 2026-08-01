@@ -8,6 +8,7 @@ requested or stored.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 
@@ -46,6 +47,15 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
     # the ledger is the authoritative artifact, so it is written FIRST:
     # nothing later may be able to lose it
     _write_jsonl(os.path.join(out_dir, "ledger.jsonl"), world.records)
+    # ... and a digest OF it, so that "this run replayed exactly" is a
+    # property anyone can re-derive from disk rather than a boolean sitting
+    # in a file beside the ledger.  A reviewer rewrote every event
+    # description and every terminal record in a run and the checker still
+    # reported exact=True, because no semantic op has a kernel reducer and
+    # the state hash therefore does not cover the journal at all.
+    with open(os.path.join(out_dir, "ledger_digest.txt"), "w") as f:
+        f.write(hashlib.sha256(
+            canonical_json(world.records).encode()).hexdigest() + "\n")
     j("compiled_scene.json", scene)
     j("initial_actor_states.json",
       {aid: {"name": st.name,

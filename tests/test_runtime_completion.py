@@ -364,40 +364,48 @@ def test_a_recipient_cannot_see_information_before_it_is_available():
 
 
 def test_the_sender_does_not_learn_the_recipients_attention():
+    """The own-doing grant must not carry the far end of what was sent.
+
+    This test used to branch on `event_consequence`, a trigger kind that no
+    longer exists, so its only assertion sat inside an `if` that was never
+    true and it passed unconditionally -- while a live run handed Dana, as
+    authoritative observed fact, that her message had not been delivered
+    because Marcus's phone was off.
+    """
     def transport(system, user):
         t = terminal_roles(user, system)
         if t:
             return t
         if "You are the world" in system:
             if "actor_intention" in user:
+                # the world writes the sending AND the far end in one event
                 return json.dumps({
                     "judgment": "she sends it.",
-                    "event": {"description": "Ada sends her answer to Bo.",
+                    "event": {"description": "Dana sends the message. It "
+                                             "enters the network but Marcus's "
+                                             "phone is off, so it is not "
+                                             "delivered.",
                               "for": ["bo_ferrer"], "observed": False,
-                              "after": "2 minutes", "follow_up": True},
-                    "wakes": []}), {}
-            if "event_consequence" in user:
-                return json.dumps({
-                    "judgment": "it lands.",
-                    "event": {"description": "It reaches Bo, who is driving "
-                                             "and does not notice it.",
-                              "for": ["bo_ferrer"], "observed": False,
-                              "after": "1 minutes", "follow_up": False},
-                    "wakes": []}), {}
+                              "after": "2 minutes", "follow_up": False,
+                              "by": "ada_vance"}, "wakes": []}), {}
             return json.dumps({"judgment": "nothing.", "event": None,
                                "wakes": []}), {}
         if "ada_vance" in user:
-            return json.dumps({"decision": "I answer him.",
-                               "intentions": ["Send Bo my answer."],
+            return json.dumps({"decision": "I message him.",
+                               "intentions": ["Send Bo the message."],
                                "private_updates": []}), {}
         return json.dumps(NOTHING), {}
 
-    _, journal, _ = run(transport)
-    far = [e for e in journal.events() if "does not notice" in
-           e["description"]]
-    if far:
-        assert "ada_vance" not in far[0]["observed_by"]
-
+    world, journal, _ = run(transport)
+    sent = next((e for e in journal.events()
+                 if "enters the network" in e["description"]), None)
+    if sent is None:
+        pytest.skip("the world did not produce the mixed event")
+    from sworldmodel.semantic_runtime.views import build_view, render_view
+    seen = render_view(build_view(world, journal, "ada_vance"))
+    assert "phone is off" not in seen, (
+        "the sender was told, as observed fact, why the far end did not "
+        "receive it")
 
 # ------------------------------- 11: the same question, over and over
 
@@ -650,3 +658,78 @@ def test_a_restatement_that_nothing_changed_is_still_refused():
     assert not any("remains unread" in e["description"]
                    for e in journal.events()), \
         "the absence of an event was committed as one"
+
+
+def test_tampering_with_a_persisted_ledger_is_detectable_from_disk():
+    """A reviewer copied a finished run, rewrote every event description
+    and every terminal record, and the checker still reported exact=True.
+
+    No semantic op has a kernel reducer, so the kernel state hash does not
+    cover the journal at all, and the tool copied `exact` out of a file
+    sitting in the same directory as the ledger it certified. Both were
+    editable in one edit.
+    """
+    import json as _json
+    import os
+    import subprocess
+    import sys
+    import tempfile
+
+    from sworldmodel.semantic_runtime.trace import write_artifacts
+
+    world, journal, traj = run(silent_world)
+    with tempfile.TemporaryDirectory() as d:
+        write_artifacts(d, scene=SCENE, world=world, journal=journal,
+                        bindings={"trajectory_id": "t1", "cutoff": CUTOFF,
+                                  "starting_event_ids": [], "actor_ids": {}},
+                        trajectory=traj,
+                        caller=RuntimeCaller(transport=silent_world),
+                        trace=Trace(), replay=None, question="q")
+        assert os.path.exists(os.path.join(d, "ledger_digest.txt"))
+        env = dict(os.environ, PYTHONPATH=os.getcwd())
+        clean = subprocess.run(
+            [sys.executable, "evaluation/reverify_replay.py", d],
+            capture_output=True, text=True, env=env)
+        assert clean.returncode == 0, clean.stdout + clean.stderr
+        assert "digest=True" in clean.stdout, clean.stdout
+
+        # now rewrite the record, exactly as the reviewer did
+        path = os.path.join(d, "ledger.jsonl")
+        rows = [_json.loads(l) for l in open(path) if l.strip()]
+        for r in rows:
+            if r["op"] == "journal.event":
+                r["data"] = dict(r["data"],
+                                 description="TAMPERED - she never did it")
+        with open(path, "w") as f:
+            for r in rows:
+                f.write(_json.dumps(r, sort_keys=True) + "\n")
+        dirty = subprocess.run(
+            [sys.executable, "evaluation/reverify_replay.py", d],
+            capture_output=True, text=True, env=env)
+        assert dirty.returncode == 1, dirty.stdout
+        assert "digest=False" in dirty.stdout, dirty.stdout
+
+
+def test_the_same_act_reworded_is_one_act_but_different_numbers_are_not():
+    """The exact-string guard caught 11 word-for-word repeats in one
+    corpus and missed ~46 rewordings -- a woman signed one lease twice a
+    minute apart, and a decisive act was committed twice.
+
+    The other direction matters more: over-merging deletes valid acts,
+    which is the failure this whole branch exists to remove. So a numeric
+    difference disqualifies a match outright, and borderline pairs are
+    left alone.
+    """
+    from sworldmodel.semantic_runtime.world_mind import says_the_same_thing
+
+    assert says_the_same_thing(
+        "Margaret signs the printed lease with a pen.",
+        "Margaret signs the lease with a pen.")
+    # different numbers are different things, however alike they read
+    assert not says_the_same_thing("Ruth transfers 400 to Marian.",
+                                   "Ruth transfers 200 to Marian.")
+    assert not says_the_same_thing("Ada reads the 1st page.",
+                                   "Ada reads the 2nd page.")
+    # and genuinely different acts are never merged
+    assert not says_the_same_thing("Bo replies that the hall is confirmed.",
+                                   "Ada asks Bo to confirm the hall.")
