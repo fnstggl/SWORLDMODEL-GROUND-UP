@@ -45,10 +45,13 @@ The worst single case: a woman attends a committee meeting *"from 08:31 to
 about 10:30"* and continues reading a thesis chapter at 09:01.
 
 **The fix.** The envelope gains `lasts` beside `after`, and `by` beside
-`for`. Code keeps a per-actor instant-they-are-next-free.
+`for`. Code keeps, per actor, the **union of the intervals they are in** —
+not a single next-free instant, which an intermediate build tried and
+which produced 510 overlapping pairs, because acts are not scheduled in
+the order they happen.
 
-- An event by a busy actor is scheduled from when they are free.
-- The actor is occupied for `lasts` once it starts.
+- An act goes in the first gap that fits it: `[start, start+lasts)`.
+- The *wait* before an act is not occupancy; only the act itself is.
 - Their view says what they are in the middle of and until when.
 - **Finishing wakes them** (`own_act_finished`), so occupancy can never
   strand anybody.
