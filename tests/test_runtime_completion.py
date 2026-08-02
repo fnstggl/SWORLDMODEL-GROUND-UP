@@ -1527,3 +1527,29 @@ def test_a_truncated_run_that_insists_on_no_is_narrowed_not_killed():
                  if r["op"] == "semantic.terminal_check"]
     assert any(t.get("narrowed_from") == "NO_AT_CUTOFF" for t in terminals)
     assert not any(t["status"] == "NO_AT_CUTOFF" for t in terminals)
+
+
+def test_english_quantities_are_read_and_vague_ones_are_not():
+    """A finished 34-event trajectory was destroyed because the world said
+    `lasts: "a moment"` -- twice, since the retry told it the grammar and
+    it said the same thing again.
+
+    "an hour" is one hour and "half an hour" is thirty minutes: English
+    writes small quantities without digits, and refusing to read them is
+    code being brittle about notation rather than careful about time. What
+    is still refused is anything that names no quantity at all, because
+    code will not invent one.
+    """
+    from sworldmodel.semantic_runtime.envelope import (EnvelopeError,
+                                                       parse_duration)
+    exact = {"a moment": 0, "an instant": 0, "instantly": 0, "at once": 0,
+             "no time at all": 0, "an hour": 3600, "a day": 86400,
+             "half an hour": 1800, "half a minute": 30, "one minute": 60,
+             # ... and every form that already worked still does
+             "now": 0, "20 minutes": 1200, "1 hour 30 minutes": 5400}
+    for text, seconds in exact.items():
+        assert parse_duration(text).total_seconds() == seconds, text
+    for vague in ("a few minutes", "a while", "some time", "ages", "a bit",
+                  "later", "shortly", "a couple of days"):
+        with pytest.raises(EnvelopeError):
+            parse_duration(vague)

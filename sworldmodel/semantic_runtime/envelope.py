@@ -31,11 +31,15 @@ world adjudications, which is what keeps availability and observation
 genuinely distinct.
 
 The duration grammar is universal time bookkeeping ("now", "43 seconds",
-"5 minutes", "2 hours", "3 days"), never a social-action vocabulary.
+"5 minutes", "2 hours", "3 days", "an hour", "half an hour"), never a
+social-action vocabulary.  It reads exact quantities however they are
+written and refuses vague ones outright: "a moment" is none, "an hour" is
+one hour, and "a few minutes" names no quantity, so code will not invent
+one.
 
 The shape is enforced HERE, in code, not by the provider: the transport
 asks only for a JSON object, so ``validate_event`` is the single place
-that requires the four fields, fixes their types, rejects every additional
+that requires the six fields, fixes their types, rejects every additional
 property, and rejects unknown actor ids.  Nothing reaches the ledger that
 did not pass through it.
 """
@@ -101,6 +105,16 @@ _DURATION_PART = re.compile(r"(\d+(?:\.\d+)?)\s*([a-z]+)")
 #: a rejection rather than five minutes.
 _SEPARATORS = ("and", "&", "+")
 
+#: Ways of saying that a thing is over the moment it happens.  All of them
+#: are exact: none of them names a quantity code has to guess at.
+_NO_TIME_AT_ALL = frozenset((
+    "now", "immediately", "instantly", "at once", "right away", "0", "none",
+    "no time", "no time at all", "a moment", "an instant", "a second"))
+
+#: "an hour", "half an hour", "a day".  One unit, or half of one.
+_BARE_QUANTITY = re.compile(
+    r"(?:(half)\s+)?(?:an?|one)\s+([a-z]+)")
+
 #: Bound on a single proposed step: a jump larger than this is a narration
 #: of the far future rather than an immediate consequence.
 MAX_STEP_DAYS = 30
@@ -118,9 +132,20 @@ def parse_duration(text: str) -> timedelta:
     """
     if not isinstance(text, str):
         raise EnvelopeError(f"duration must be a string, got {type(text).__name__}")
-    s = text.strip().lower()
-    if s in ("now", "immediately", "0", "none"):
+    s = " ".join(text.strip().lower().split())
+    if s in _NO_TIME_AT_ALL:
         return timedelta(0)
+    # "an hour" is one hour and "half an hour" is thirty minutes: English
+    # writes small quantities without digits, and refusing to read them is
+    # code being brittle about notation rather than careful about time.  A
+    # live run lost a finished 34-event trajectory because the world said
+    # "a moment" -- twice, since the retry told it the grammar and it said
+    # the same thing again.  Nothing vague is accepted: "a few minutes"
+    # names no quantity, and code will not invent one.
+    bare = _BARE_QUANTITY.fullmatch(s)
+    if bare and bare.group(2) in _UNITS:
+        how_much = 0.5 if bare.group(1) else 1.0
+        return timedelta(seconds=how_much * _UNITS[bare.group(2)])
     parts = _DURATION_PART.findall(s)
     leftover = [t for t in re.split(r"[\s,]+", _DURATION_PART.sub(" ", s)) if t]
     if not parts or any(t not in _SEPARATORS for t in leftover):

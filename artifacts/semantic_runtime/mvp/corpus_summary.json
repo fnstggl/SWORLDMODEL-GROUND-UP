@@ -1,0 +1,153 @@
+{
+ "frozen_runtime": [
+  "330d812fb130f458d2d77927468b1ab9f6c6b674",
+  "run_simulation.py",
+  "af0267daed8780f4f2fa56e8bcd3e2b73f4e20e4",
+  "sworldmodel/semantic_runtime/__init__.py",
+  "6e2da79d52363b251df30abf71e7563cb55e99f0",
+  "sworldmodel/semantic_runtime/actor_mind.py",
+  "0e12ee234b53227243988b928b2d6098d04601ec",
+  "sworldmodel/semantic_runtime/adapter.py",
+  "8fc0bc4d50ababe4ef0d0aad155604205985d52d",
+  "sworldmodel/semantic_runtime/envelope.py",
+  "f4eb9335ba4d5e31b708cf9ed61cdb9e2a5e10d7",
+  "sworldmodel/semantic_runtime/journal.py",
+  "c85b9080c0dccc756a4f3dad511bd156b06e2adb",
+  "sworldmodel/semantic_runtime/llm.py",
+  "9a96055264f550c692ee3e5ff8af98f75a2698cb",
+  "sworldmodel/semantic_runtime/replay.py",
+  "00086cb1980a2ff2a4815bd9fd4d5fa1cf380823",
+  "sworldmodel/semantic_runtime/resolution.py",
+  "baf3025bcc4901217fb114144231198c231e51c3",
+  "sworldmodel/semantic_runtime/trace.py",
+  "1399fbcd7083a4547155113e8ca45863f795eb55",
+  "sworldmodel/semantic_runtime/trajectory.py",
+  "576b4d1888bf2964462d7da20da0d49aefa0cb4a",
+  "sworldmodel/semantic_runtime/views.py",
+  "fe0e8bef3519b5d5493cb4a1eceadf1272e65d2e",
+  "sworldmodel/semantic_runtime/world_mind.py"
+ ],
+ "runs": [
+  {
+   "run": "anti_stereotype",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 14,
+   "steps": 26,
+   "calls": 75,
+   "replay_records": 183,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "cold_email",
+   "status": "incomplete_empty_queue",
+   "terminal": "UNRESOLVED",
+   "events": 3,
+   "steps": 8,
+   "calls": 37,
+   "replay_records": 72,
+   "ledger_problems": [],
+   "reason": "nothing further was scheduled at 2026-07-29T20:02:00+00:00, and the cutoff 2026-08-10T14:00:00+00:00 was never reached"
+  },
+  {
+   "run": "evidence_avoiding",
+   "status": "cutoff",
+   "terminal": "NO_AT_CUTOFF",
+   "events": 25,
+   "steps": 48,
+   "calls": 149,
+   "replay_records": 357,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "evidence_responsive",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 5,
+   "steps": 4,
+   "calls": 17,
+   "replay_records": 52,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "feedback_deadline",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 35,
+   "steps": 92,
+   "calls": 295,
+   "replay_records": 695,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "group_coordination",
+   "status": "failed",
+   "terminal": null,
+   "events": 34,
+   "steps": 91,
+   "calls": 288,
+   "replay_records": 629,
+   "ledger_problems": [],
+   "reason": "RuntimeTechnicalFailure: world: no valid response after 2 attempts: unparseable duration 'a moment': use 'now', '<number> <seconds|minutes|hours|days>', or several such parts such as '1 hour 30 minutes'"
+  },
+  {
+   "run": "holiday_deposit",
+   "status": "incomplete_step_limit",
+   "terminal": "UNRESOLVED",
+   "events": 123,
+   "steps": 250,
+   "calls": 773,
+   "replay_records": 1867,
+   "ledger_problems": [],
+   "reason": "step ceiling 250 reached at 2026-09-16T22:58:00+00:00, before the cutoff"
+  },
+  {
+   "run": "lease_other_names",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 7,
+   "steps": 21,
+   "calls": 63,
+   "replay_records": 143,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "lease_return",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 3,
+   "steps": 3,
+   "calls": 13,
+   "replay_records": 41,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "negotiation",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 10,
+   "steps": 37,
+   "calls": 115,
+   "replay_records": 245,
+   "ledger_problems": [],
+   "reason": ""
+  },
+  {
+   "run": "plumber_confirm",
+   "status": "resolved",
+   "terminal": "YES",
+   "events": 2,
+   "steps": 3,
+   "calls": 18,
+   "replay_records": 38,
+   "ledger_problems": [],
+   "reason": "nothing further was scheduled at 2026-07-28T09:00:00+00:00, and the cutoff 2026-07-28T17:00:00+00:00 was never reached"
+  }
+ ]
+}
