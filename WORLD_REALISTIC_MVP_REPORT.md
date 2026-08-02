@@ -185,19 +185,149 @@ On the shipped corpus this reproduces both prior figures: **15% device,
 
 ## 6. Corpus on the frozen runtime
 
-<!--CORPUS-->
+Eleven scenes, re-run from the frozen compiler's own artifacts so every
+difference from the baseline is the runtime's. Frozen runtime `b7e56b1`;
+summary at `artifacts/semantic_runtime/mvp/corpus_summary.json`.
+
+| | baseline `final_v6` | this corpus |
+|---|---|---|
+| runs completing | 11/11 | 11/11 |
+| committed events | 209 | 239 |
+| **one person doing two things at once** | not measurable | **0** |
+| consecutive events at zero simulated time | 40% | **29%** |
+| repeats the duplicate rule did not catch | 29 | **10** |
+| consultations producing nothing | 60% | **39%** |
+| **events nobody in the cast chose** | **0** | **27** |
+| the world's own turns taken | 0 | 28 |
+| a device or channel acting on its own | 15% | 10% |
+| replay exact, zero model calls | 11/11 | **11/11** |
+| ledger integrity problems | 0 | **0** |
+| terminals | 8 YES, **0 NO**, 3 other | 8 YES, **1 NO**, 2 incomplete |
+
+Cost: 1,627 provider calls for 239 committed events, 6.8 per event.
+
+**Zero overlaps is the result the occupancy model exists for**, and it is
+exact rather than heuristic: every event carries `by` and `lasts`, so the
+check is arithmetic on the record. An intermediate build of this same
+model produced 510 overlapping pairs across 360 events; that is what the
+measurement is worth.
+
+### The one NO, audited
+
+`evidence_avoiding` is the scene built to be a NO — Marcus has not
+answered Dana's last four messages, told a colleague he is avoiding her,
+and is on leave with his phone off until the following Tuesday.
+
+```
+Mon 08:00  Dana sends a message asking him to confirm the hall
+Mon 08:00  it becomes available to Marcus, but his phone is off
+Fri 10:00  Dana sends a follow-up asking if he has had a chance
+```
+
+At that point Marcus's own next moves are Sept 12, 13 and 14 and Dana's
+are Sept 12 and 14 — every one past the Friday 17:00 cutoff. **Both
+actors have a known next move beyond the deadline**, which is the horizon
+rule, and 94% of the window was lived. NO is available and NO is the
+answer.
+
+Every NO in the shipped corpus — eleven of eleven — came instead from the
+queue running dry, over windows that were 92-99% unlived. This is the
+first honest one.
+
+Note also the third line: Dana **chases**. That is the behaviour the
+continuity reviewer used to refuse as "does again something they have
+already done".
+
+### What the corpus still shows
+
+- `holiday_deposit` reaches the step ceiling at 128 events and is
+  reported `incomplete_step_limit`, which is honest but is not an answer.
+  It is the largest scene (four actors, a real deadline, money moving)
+  and it is the one that most needs a higher ceiling or fewer calls per
+  event.
+- 29% of consecutive events still share an instant. Occupancy stops one
+  person overlapping themselves; it does not stop two people acting in
+  the same second, and nothing should — but some of these are still
+  narration granularity rather than simultaneity.
+- 10 repeats survive the duplicate rule, all of them more than an hour
+  apart, which is where the rule deliberately stops so that chasing
+  survives.
 
 ---
 
 ## 7. Adversarial review
 
-<!--REVIEW-->
+Two independent read-only reviewers, neither of which produced any of the
+trajectories it judged, working from the frozen code and the corpus. Every
+finding came with a script and its real output; nothing was accepted as
+speculative.
+
+**24 findings. Six were serious, and every one of them was introduced by
+this phase's own work.**
+
+| what it did | fixed by |
+|---|---|
+| the wait *before* an act counted as doing it, so an act queued for Wednesday made its actor busy from Monday — and anything pushed past the cutoff was deleted | occupancy is the interval `[start, start+lasts)` |
+| a `lasts` running past the deadline manufactured a NO: `7h58m` gave incomplete, `8h` gave NO | the horizon is per-actor and raised only by somebody *saying* what happens next |
+| the identity guard was a null-check, and the world's own turn *requires* the null — a run returned YES on a decision whose owner was consulted zero times | the cast's names are code-owned, so naming one on the world's own turn hands them the turn |
+| the dedup merged negations: "he can host"/"he cannot host" at 0.96 | negation joins numbers and names as a disqualifier |
+| the world ran 54 consecutive adjudications with nobody consulted, against a limit of 6 | the counter clears only if somebody was actually asked |
+| a contested YES was accepted on its third identical outing | a refuted claim may not be re-proposed until its evidence changes |
+
+Three further defects were found by the corpus rather than by either
+reviewer or the test suite, which is the fact worth recording: **510
+overlapping pairs** from tracking one interval instead of all of them; a
+**three-hour CPU spin** where a zero-length interval made the free-slot
+search loop without advancing; and a finished 84-event trajectory
+returning a **technical failure with no answer** because a truncated run's
+NO was refused twice rather than narrowed.
+
+Every one of those passed a green test suite. Each now has a
+discriminating test: the out-of-order scheduling case, the nil-duration
+act under a twenty-second alarm, and the insisted-on NO.
 
 ---
 
 ## 8. What is still wrong, stated plainly
 
-<!--REMAINING-->
+### Accepted, with reasons
+
+**`by: null` on an act a person really chose.** Code can require the field
+to be answered and can check a named cast member against whose turn it is.
+It cannot tell whether a null is honest without reading prose. The
+world's own turn — the widest opening — is closed by the name check; the
+other triggers are not.
+
+**Starting events are unguarded by the identity rule.** They have no
+adjudicating actor, being the scene's own premise, and they come from the
+frozen compiler. Three of 239 events.
+
+**The restatement refusal can still delete an exogenous event** proposed
+on the attention trigger. Tightening it risks reviving the defect this
+whole branch exists to remove — a valid action deleted — so it stays as
+it is and is recorded here instead.
+
+**No fact store.** Nothing holds "the support line is shut", "the deposit
+is owed", "she promised Wednesday". In one baseline run a support line
+answered a day before the scene said it opened, with the actor herself
+writing *"the representative asking me to hold doesn't make sense — maybe
+I misheard?"*. A structured store of institutional facts is exactly the
+class of arbitrary state controlling social behaviour that this design
+forbids. The facts are in the scene and in the record; honouring them is
+meaning, and meaning is the model's.
+
+**The empty-queue rule stays strict.** A run whose queue simply ran dry
+may not answer NO, even having lived most of its window. Two reviewers
+argued this is too strict. It is the rule that removed eleven false NOs,
+so it stays, and the disagreement is recorded rather than resolved.
+
+### What I would not claim
+
+That the test suite is sufficient. Five of the defects fixed in this
+phase were found by running the corpus against a green suite. The suite
+now has a test for each, but the corpus is what has actually been finding
+things, and a merge decision should rest on the corpus rather than on
+`pytest`.
 
 ---
 
