@@ -18,5 +18,11 @@ artifacts/matched_pairs/*/review_*.jsonl
 artifacts/matched_pairs/*/*.md
 artifacts/baseline_main/*/
 artifacts/final_v*/*/
-artifacts/mvp_v*/*/
+# A corpus run's whole directory, summary included.  The summary used to
+# be tracked in place, so deleting the tree to re-run left the working
+# tree dirty for the hour the new run took -- and a half-finished
+# summary is not evidence of anything.  A FINISHED run's summary is
+# copied to artifacts/semantic_runtime/mvp/, which is where the report
+# cites it from.
+artifacts/mvp_v*/
 artifacts/*_run.log

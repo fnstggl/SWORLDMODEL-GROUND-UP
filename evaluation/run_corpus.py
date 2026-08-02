@@ -95,6 +95,19 @@ def main() -> int:
             print(f"  -> CRASHED {e!r}", flush=True)
         with open(os.path.join(args.out, "corpus.json"), "w") as f:
             json.dump(rows, f, indent=1)
+    # ... and, only once every scene is in, a copy where the report cites
+    # it from.  A run directory is regenerable evidence and is not tracked;
+    # a half-finished summary is not evidence of anything, so this is
+    # written at the end or not at all.
+    if len(rows) == len(cases(args.src)):
+        keep = os.path.join("artifacts", "semantic_runtime", "mvp",
+                            "corpus_summary.json")
+        os.makedirs(os.path.dirname(keep), exist_ok=True)
+        with open(keep, "w") as f:
+            json.dump({"frozen_runtime": open(
+                "artifacts/semantic_runtime/RUNTIME_FREEZE.txt").read().split(),
+                "runs": rows}, f, indent=1)
+        print(f"[summary] {keep}", flush=True)
     return 0
 
 
