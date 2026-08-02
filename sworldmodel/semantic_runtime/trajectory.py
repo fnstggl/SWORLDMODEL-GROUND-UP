@@ -259,17 +259,23 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         """The earliest instant at or after ``start`` where this person
         has ``span`` clear.  With no duration this is simply the first
         instant they are not mid-something."""
-        mine = sorted(occupied.get(actor) or [])
+        # A thing that takes no time occupies nobody, so it is not in the
+        # way of anything.  Leaving zero-length intervals in span a live
+        # run for three hours of CPU: an act proposed at the same instant
+        # as one of them set `start` to an `ends` equal to `start`, which
+        # is no progress at all while still counting as a move.
+        mine = sorted(i for i in (occupied.get(actor) or []) if i[1] > i[0])
         moved = True
         while moved:
             moved = False
             for begins, ends in mine:
+                if ends <= start:
+                    continue      # over before this would begin
                 # it clashes if it would BEGIN inside something they are
-                # already doing, or if it would run over the start of one.
-                # Written as two cases because a thing that takes no time
-                # at all still cannot happen in the middle of a call, and
-                # a length-zero interval intersects nothing.
-                if begins <= start < ends or start <= begins < start + span:
+                # already doing, or would run over the start of one.  Both
+                # branches move `start` strictly forward, to an `ends`
+                # already known to be greater than it, so this terminates.
+                if begins <= start or begins < start + span:
                     start, moved = ends, True
         return start
 

@@ -1438,3 +1438,54 @@ def test_an_act_placed_before_a_queued_one_still_cannot_overlap_it():
 def _dur(text):
     from sworldmodel.semantic_runtime.envelope import parse_duration
     return parse_duration(text)
+
+
+def test_placing_an_act_beside_an_instant_one_terminates():
+    """A live corpus run spun for three hours of CPU here.
+
+    Occupancy searched for the first free gap by moving the start past any
+    interval it clashed with. An act that takes no time is a zero-length
+    interval, so "move past it" moved to the instant it was already at --
+    no progress, still counted as a move, forever.
+
+    A thing that takes no time occupies nobody and is in the way of
+    nothing, and every remaining move goes strictly forward.
+    """
+    import signal
+
+    def die(*_):
+        raise AssertionError("_free_slot did not terminate")
+
+    def instant_then_long(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if " attempts:" not in user:
+                return json.dumps({"judgment": "the scene begins.",
+                                   "event": None, "wakes": []}), {}
+            # a nil-duration act and a real one, proposed at one instant
+            nil = " attempts: note it" in user
+            return json.dumps({
+                "judgment": "she does it.",
+                "event": {"description": ("Ada notes it down." if nil
+                                          else "Ada makes a long call."),
+                          "for": ["bo_ferrer"], "observed": False,
+                          "after": "0 seconds", "by": "ada_vance",
+                          "lasts": "0 seconds" if nil else "45 minutes"},
+                "wakes": []}), {}
+        if "ada_vance" in user:
+            return json.dumps({
+                "decision": "Both, now.",
+                "intentions": ["note it", "make a long call"],
+                "private_updates": []}), {}
+        return json.dumps(NOTHING), {}
+
+    old = signal.signal(signal.SIGALRM, die)
+    signal.alarm(20)
+    try:
+        _, journal, _ = run(instant_then_long, steps=20)
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old)
+    assert [e["description"] for e in journal.events()]
