@@ -1,0 +1,13 @@
+[
+ {
+  "run": "holiday_deposit",
+  "status": "incomplete_empty_queue",
+  "terminal": "UNRESOLVED",
+  "events": 133,
+  "steps": 331,
+  "calls": 1087,
+  "replay_records": 2361,
+  "ledger_problems": [],
+  "reason": "nothing further was scheduled at 2026-09-16T22:58:30+00:00, and the cutoff 2026-09-16T22:59:59+00:00 was never reached"
+ }
+]

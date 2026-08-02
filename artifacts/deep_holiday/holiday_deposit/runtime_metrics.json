@@ -1,0 +1,51 @@
+{
+ "provider_calls": 1090,
+ "by_role": {
+  "judge": {
+   "calls": 132,
+   "retries": 1,
+   "wall_s": 256.15,
+   "input_tokens": 662157,
+   "output_tokens": 13840
+  },
+  "world": {
+   "calls": 378,
+   "retries": 0,
+   "wall_s": 839.37,
+   "input_tokens": 2242172,
+   "output_tokens": 47789
+  },
+  "actor": {
+   "calls": 291,
+   "retries": 2,
+   "wall_s": 628.42,
+   "input_tokens": 1609280,
+   "output_tokens": 33120
+  },
+  "continuity": {
+   "calls": 289,
+   "retries": 0,
+   "wall_s": 488.91,
+   "input_tokens": 1513428,
+   "output_tokens": 12898
+  }
+ },
+ "total_input_tokens": 6027037,
+ "total_output_tokens": 107647,
+ "total_wall_s": 2212.81,
+ "status": "incomplete_empty_queue",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "the committed record does not satisfy the resolution (The deadline has passed and no committed event shows any deposit of \u00a3600 into Marian Prowse's bank account; all checks show no deposit arrived.) -- and because this run stopped before the horizon, no claim is made about the time it did not simulate",
+  "narrowed_from": "NO_AT_CUTOFF"
+ },
+ "reason": "nothing further was scheduled at 2026-09-16T22:58:30+00:00, and the cutoff 2026-09-16T22:59:59+00:00 was never reached",
+ "steps": 331,
+ "world_calls": 378,
+ "actor_calls": 289,
+ "judge_calls": 131,
+ "review_calls": 289,
+ "committed_events": 133,
+ "ledger_records": 2361
+}

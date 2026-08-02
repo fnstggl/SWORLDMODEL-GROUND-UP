@@ -126,6 +126,11 @@ def test_delivery_and_notification_are_not_committed_as_events():
                               "for": ["bo_ferrer"], "observed": False,
                               "after": "1 minutes", "by": None, "lasts": "0 seconds"},
                     "wakes": []}), {}
+            if "none of these people brought about" in user:
+                # the world's own turn asks a different question; nothing
+                # outside this situation is happening in it
+                return json.dumps({"judgment": "nothing outside this.",
+                                   "event": None, "wakes": []}), {}
             # the world tries to narrate transport, as it did throughout
             # the merged corpus
             return json.dumps({
@@ -708,6 +713,11 @@ def test_a_restatement_that_nothing_changed_is_still_refused():
                               "for": ["bo_ferrer"], "observed": False,
                               "after": "1 minutes",
                               "by": "ada_vance", "lasts": "0 seconds"}, "wakes": []}), {}
+            if "none of these people brought about" in user:
+                # the world's own turn is a different question, and the
+                # honest answer here is that nothing outside this happens
+                return json.dumps({"judgment": "nothing outside this.",
+                                   "event": None, "wakes": []}), {}
             return json.dumps({
                 "judgment": "it sits there.",
                 "event": {"description": "The proposal remains unread in "
@@ -1553,3 +1563,47 @@ def test_english_quantities_are_read_and_vague_ones_are_not():
                   "later", "shortly", "a couple of days"):
         with pytest.raises(EnvelopeError):
             parse_duration(vague)
+
+
+def test_the_rest_of_the_window_is_lived_not_assumed():
+    """The world's own turn fired only when there was a next scheduled
+    thing to cross towards, so the one stretch it was never asked about
+    was the largest: everything between an empty queue and the deadline.
+
+    That left the honest NO depending on whether every actor happened to
+    volunteer a next move past the cutoff. The same scene answered
+    NO_AT_CUTOFF on one corpus run and incomplete_empty_queue on the next,
+    on identical code and identical evidence.
+
+    The empty-queue rule is untouched. This is the opposite move: instead
+    of claiming more from an unlived window, it lives more of it.
+    """
+    asked = {"n": 0}
+
+    def quiet_then_something(system, user):
+        t = terminal_roles(user, system)
+        if t:
+            return t
+        if "You are the world" in system:
+            if "none of these people brought about" in user:
+                asked["n"] += 1
+                if asked["n"] == 1:
+                    return json.dumps({
+                        "judgment": "the office shuts for the week.",
+                        "event": {"description": "The hall office closes "
+                                                 "until the following week.",
+                                  "for": ["ada_vance"], "observed": False,
+                                  "after": "6 hours", "by": None,
+                                  "lasts": "0 seconds"}, "wakes": []}), {}
+            return json.dumps({"judgment": "nothing follows.",
+                               "event": None, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    _, journal, traj = run(quiet_then_something, steps=30)
+    assert asked["n"], "the remaining window was never put to the world"
+    descs = [e["description"] for e in journal.events()]
+    assert any("office closes" in d for d in descs), descs
+    # ... and the rule it exists beside has not moved an inch
+    _, _, still = run(silent_world, steps=30)
+    assert still.status == "incomplete_empty_queue", still.status
+    assert (still.answer or {}).get("status") != "NO_AT_CUTOFF"

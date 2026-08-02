@@ -1258,6 +1258,36 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     for aid in actor_ids:
                         actor_step(aid, cause=here, force=True)
                     continue
+                # NOBODY HERE IS GOING TO FILL THE REST OF THE WINDOW.
+                #
+                # The world's own turn fired only when there was a next
+                # scheduled thing to cross towards, so the one stretch it
+                # was never asked about was the largest: everything between
+                # an empty queue and the deadline.  That left the honest NO
+                # depending on whether every actor happened to volunteer a
+                # next move past the cutoff -- the same scene answered
+                # NO_AT_CUTOFF on one run and incomplete_empty_queue on the
+                # next, on identical code and identical evidence.
+                #
+                # This does not weaken the empty-queue rule by a hair.  It
+                # is the opposite move: instead of claiming more from an
+                # unlived window, it lives more of it.  Either something
+                # happens -- and the run carries on and simulates it -- or
+                # the world says what the rest of the window holds, which
+                # is the evidence the horizon has always required.
+                if world.clock.now < cutoff \
+                        and asked_about_the_gap["at"] != world.clock.now \
+                        and since_actor["n"] < MAX_WORLD_RUN:
+                    asked_about_the_gap["at"] = world.clock.now
+                    world_step(
+                        trigger_kind="elapsed_world",
+                        trigger_text=(
+                            f"Nobody here has anything further planned "
+                            f"between now and the deadline at {iso(cutoff)}.  "
+                            f"What concretely happens in that time that none "
+                            f"of these people brought about?"),
+                        cause=world.records[-1]["seq"])
+                    continue
                 # THE HORIZON, DEFINED BY THE STATE.
                 #
                 # Nothing lands before the deadline, everyone still in the
