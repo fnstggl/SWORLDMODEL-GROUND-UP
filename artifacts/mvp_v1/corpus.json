@@ -1,0 +1,123 @@
+[
+ {
+  "run": "anti_stereotype",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 35,
+  "steps": 71,
+  "calls": 190,
+  "replay_records": 464,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "cold_email",
+  "status": "incomplete_empty_queue",
+  "terminal": "UNRESOLVED",
+  "events": 2,
+  "steps": 5,
+  "calls": 25,
+  "replay_records": 51,
+  "ledger_problems": [],
+  "reason": "nothing further was scheduled at 2026-07-28T18:00:00+00:00, and the cutoff 2026-08-10T14:00:00+00:00 was never reached"
+ },
+ {
+  "run": "evidence_avoiding",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 13,
+  "steps": 24,
+  "calls": 72,
+  "replay_records": 179,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "evidence_responsive",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 4,
+  "steps": 4,
+  "calls": 23,
+  "replay_records": 58,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "feedback_deadline",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 59,
+  "steps": 152,
+  "calls": 436,
+  "replay_records": 1055,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "group_coordination",
+  "status": "incomplete_empty_queue",
+  "terminal": "UNRESOLVED",
+  "events": 16,
+  "steps": 44,
+  "calls": 160,
+  "replay_records": 342,
+  "ledger_problems": [],
+  "reason": "nothing further was scheduled at 2026-10-10T08:00:00+00:00, and the cutoff 2026-10-10T20:00:00+00:00 was never reached"
+ },
+ {
+  "run": "holiday_deposit",
+  "status": "failed",
+  "terminal": null,
+  "events": 84,
+  "steps": 152,
+  "calls": 480,
+  "replay_records": 1161,
+  "ledger_problems": [],
+  "reason": "RuntimeTechnicalFailure: judge: no valid response after 2 attempts: this run did not reach the horizon, so no NO may be claimed over the time it did not simulate"
+ },
+ {
+  "run": "lease_other_names",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 3,
+  "steps": 2,
+  "calls": 10,
+  "replay_records": 35,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "lease_return",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 6,
+  "steps": 9,
+  "calls": 24,
+  "replay_records": 70,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "negotiation",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 6,
+  "steps": 7,
+  "calls": 26,
+  "replay_records": 78,
+  "ledger_problems": [],
+  "reason": ""
+ },
+ {
+  "run": "plumber_confirm",
+  "status": "resolved",
+  "terminal": "YES",
+  "events": 3,
+  "steps": 3,
+  "calls": 11,
+  "replay_records": 33,
+  "ledger_problems": [],
+  "reason": ""
+ }
+]

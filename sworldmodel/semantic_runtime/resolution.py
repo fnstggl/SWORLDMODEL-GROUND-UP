@@ -143,14 +143,23 @@ def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
         if status == "YES" and not ids:
             raise ResolutionError(
                 "YES must cite at least one committed event that produced it")
+        narrowed = None
         if status == "NO_AT_CUTOFF" and truncated:
             # A run that stopped early may never answer NO, whatever the
             # clock reads.  The clock test below is not enough on its own:
             # a step ceiling that happens to land ON the cutoff instant
             # passed it, and reported a budget artifact as a deadline.
-            raise ResolutionError(
-                "this run did not reach the horizon, so no NO may be "
-                "claimed over the time it did not simulate")
+            #
+            # NARROWED, not refused.  Refusing it killed a finished
+            # 84-event run outright: the reading was put twice, rejected
+            # twice, and the whole trajectory came back as a technical
+            # failure with no answer at all.  On a truncated run the two
+            # statuses differ in exactly one thing -- NO additionally
+            # claims the time nobody simulated -- so dropping that claim
+            # is code enforcing the rule it owns, not code choosing an
+            # answer.  What the reading actually said is kept in the
+            # explanation and the narrowing is recorded.
+            narrowed, status, ids = "NO_AT_CUTOFF", "UNRESOLVED", []
         if status == "NO_AT_CUTOFF" and now < cutoff:
             raise ResolutionError(
                 f"NO_AT_CUTOFF is not permitted before the cutoff "
@@ -165,8 +174,17 @@ def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
                                      field="explanation")
         except EnvelopeError as e:
             raise ResolutionError(str(e)) from None
-        return {"status": status, "supporting_event_ids": list(ids),
-                "explanation": explanation}
+        if narrowed:
+            explanation = (
+                f"the committed record does not satisfy the resolution "
+                f"({explanation}) -- and because this run stopped before "
+                f"the horizon, no claim is made about the time it did not "
+                f"simulate")
+        out = {"status": status, "supporting_event_ids": list(ids),
+               "explanation": explanation}
+        if narrowed:
+            out["narrowed_from"] = narrowed
+        return out
 
     return validate
 

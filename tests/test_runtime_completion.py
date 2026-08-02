@@ -1489,3 +1489,41 @@ def test_placing_an_act_beside_an_instant_one_terminates():
         signal.alarm(0)
         signal.signal(signal.SIGALRM, old)
     assert [e["description"] for e in journal.events()]
+
+
+def test_a_truncated_run_that_insists_on_no_is_narrowed_not_killed():
+    """Refusing the reading killed a finished 84-event run outright: it
+    was put twice, rejected twice, and the whole trajectory came back as a
+    technical failure with no answer at all.
+
+    On a truncated run the two statuses differ in exactly one thing -- NO
+    additionally claims the time nobody simulated -- so dropping that
+    claim is code enforcing the rule it owns. The rule itself does not
+    move: no truncated run may answer NO.
+    """
+    def judge_insists_on_no(system, user):
+        if "read-only outcome judge" in system \
+                or "whether a stated condition has been met" in system:
+            return json.dumps({"status": "NO_AT_CUTOFF",
+                               "supporting_event_ids": [],
+                               "explanation": "the deadline passed"}), {}
+        if "whether what this person just said follows" in system:
+            return json.dumps({"verdict": "PASS", "reason": "fine"}), {}
+        if "You are the world" in system:
+            return json.dumps({"judgment": "nothing follows.",
+                               "event": None, "wakes": []}), {}
+        return json.dumps(NOTHING), {}
+
+    trace = Trace()
+    world, journal, bindings = build()
+    traj = run_trajectory(world, journal, bindings, SCENE["resolution"],
+                          RuntimeCaller(transport=judge_insists_on_no),
+                          max_steps=10, trace=trace)
+    assert traj.status == "incomplete_empty_queue", traj.status
+    assert (traj.answer or {}).get("status") == "UNRESOLVED"
+    assert (traj.answer or {}).get("narrowed_from") == "NO_AT_CUTOFF"
+    # ... and the ledger says the claim was narrowed, not that it was made
+    terminals = [r["data"] for r in world.records
+                 if r["op"] == "semantic.terminal_check"]
+    assert any(t.get("narrowed_from") == "NO_AT_CUTOFF" for t in terminals)
+    assert not any(t["status"] == "NO_AT_CUTOFF" for t in terminals)

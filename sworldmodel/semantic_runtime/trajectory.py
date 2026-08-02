@@ -1072,7 +1072,13 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                   "supporting_event_ids":
                                       parsed["supporting_event_ids"],
                                   "explanation": parsed["explanation"],
+                                  # what the reading said before code
+                                  # dropped its claim over unlived time
+                                  "narrowed_from": parsed.get("narrowed_from"),
                                   "final": final, "trajectory_id": tid}, cause)
+        if parsed.get("narrowed_from"):
+            note("answer_narrowed", t=_iso_now(world), call_id=out["call_id"],
+                 was=parsed["narrowed_from"], now=parsed["status"])
         note("terminal_check", call_id=out["call_id"], t=_iso_now(world),
              final=final, **parsed)
         if parsed["status"] == "UNRESOLVED":
