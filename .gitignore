@@ -25,4 +25,5 @@ artifacts/final_v*/*/
 # copied to artifacts/semantic_runtime/mvp/, which is where the report
 # cites it from.
 artifacts/mvp_v*/
+artifacts/pairs_v*/
 artifacts/*_run.log

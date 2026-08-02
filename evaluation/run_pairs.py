@@ -103,6 +103,19 @@ def main() -> int:
                   f"{rows[-1].get('terminal')}", flush=True)
             with open(os.path.join(args.out, "pairs.json"), "w") as f:
                 json.dump(rows, f, indent=1)
+    # ... and, once every arm has all its replicates, a copy where the
+    # report cites it from.  A run directory is regenerable evidence and is
+    # not tracked; a half-finished set of replicates is worse than no
+    # measurement, because a rate over three of five runs reads like a rate.
+    if len(rows) == len(PAIRS) * args.replicates:
+        keep = os.path.join("artifacts", "semantic_runtime", "mvp",
+                            "pairs_summary.json")
+        os.makedirs(os.path.dirname(keep), exist_ok=True)
+        with open(keep, "w") as f:
+            json.dump({"frozen_runtime": open(
+                "artifacts/semantic_runtime/RUNTIME_FREEZE.txt").read().split(),
+                "replicates": args.replicates, "runs": rows}, f, indent=1)
+        print(f"[summary] {keep}", flush=True)
     return 0
 
 
