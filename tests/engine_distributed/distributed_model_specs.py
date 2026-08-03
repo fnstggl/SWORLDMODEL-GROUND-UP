@@ -27,6 +27,7 @@ tests from the frozen fixture.
 
 from __future__ import annotations
 
+import random
 import time
 
 from concordia.language_model import language_model
@@ -37,9 +38,18 @@ CANDIDATE_ACTION_TOKEN = "__CANDIDATE_ACTION__"
 
 class ScriptedRuleModel(language_model.LanguageModel):
     """Deterministic strict scripted model over ``(needle, responses)``
-    rules; optional blocking per-call delay for concurrency probes."""
+    rules; optional blocking per-call delay for concurrency probes.
 
-    def __init__(self, rules, *, delay_s: float = 0.0):
+    ``draw_rng=True`` appends one global-``random`` 32-bit draw per call
+    (`` [rng-draw <n>]``): the committed event stream becomes a function
+    of the per-branch seeded RNG scope, so local/distributed equivalence
+    then PROVES the worker-side ``_seeded_branch_scope`` seeds the same
+    stream as the driver-side one (phases 3-7 review finding D5 -- with
+    RNG-blind scripted models, deleting the template's seeded scope
+    would pass every equivalence test)."""
+
+    def __init__(self, rules, *, delay_s: float = 0.0,
+                 draw_rng: bool = False):
         self._rules = []
         for needle, responses in rules:
             responses = list(responses)
@@ -48,6 +58,7 @@ class ScriptedRuleModel(language_model.LanguageModel):
                                  "at least one response")
             self._rules.append((needle, responses))
         self._delay_s = float(delay_s or 0.0)
+        self._draw_rng = bool(draw_rng)
         self.prompts: list = []
 
     def sample_text(self, prompt: str, **kwargs) -> str:
@@ -59,8 +70,12 @@ class ScriptedRuleModel(language_model.LanguageModel):
         for needle, responses in self._rules:
             if needle in prompt:
                 if len(responses) > 1:
-                    return responses.pop(0)
-                return responses[0]
+                    text = responses.pop(0)
+                else:
+                    text = responses[0]
+                if self._draw_rng:
+                    text = f"{text} [rng-draw {random.getrandbits(32)}]"
+                return text
         raise AssertionError(
             "unscripted sample_text call reached the model; prompt head: "
             f"{prompt[:400]!r}")
@@ -108,6 +123,9 @@ def build_scripted_models(params):
           "actor_rules": {actor_id: [[needle, [response, ...]], ...]},
           "gm_rules": [[needle, [response, ...]], ...],
           "delay_s": optional float -- blocking sleep per ACTOR-model call,
+          "rng_draw_actors": optional [actor_id, ...] whose models append
+              one global-``random`` draw per call (the finding-D5
+              seeded-scope discriminator; see ScriptedRuleModel),
           "failing": optional {
               "actor": actor_id whose model raises,
               "candidate_ids": [candidate_id, ...] to fail,
@@ -121,6 +139,7 @@ def build_scripted_models(params):
     marker_prefix = str(failing.get("marker_prefix") or
                         "INJECTED_DISTRIBUTED_FAILURE_")
     delay_s = float(params.get("delay_s") or 0.0)
+    rng_draw_actors = frozenset(params.get("rng_draw_actors") or ())
 
     def provider(candidate, branch_seed):
         del branch_seed  # scripted behavior is fully rule-determined
@@ -132,7 +151,8 @@ def build_scripted_models(params):
                     marker_prefix + candidate.candidate_id)
             else:
                 actor_models[actor_id] = ScriptedRuleModel(
-                    _substituted(rules, candidate), delay_s=delay_s)
+                    _substituted(rules, candidate), delay_s=delay_s,
+                    draw_rng=actor_id in rng_draw_actors)
         gm_model = ScriptedRuleModel(_substituted(params["gm_rules"],
                                                   candidate))
         return actor_models, gm_model
