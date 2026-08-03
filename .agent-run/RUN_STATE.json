@@ -4,10 +4,10 @@
   "status": "IN_PROGRESS",
   "phase": "adversarial_review_phases_8_11",
   "frozen_sha": null,
-  "highest_leverage_blocker": "None open. Phase 9 dependencies all complete (adapter, executor, hardened guard).",
-  "next_action": "Phases 8-11 adversarial boundary review in flight (read-only reviewer: checkpoint, guard hardening, compiler adapter, individual slice, team slice, scale proofs + gate-H semantics confirmation). Lead fixes any actionable findings same-session, then: operational-robustness matrix (gate I, 14 scenarios), final documentation set (gate J, 9 docs), Phase 12 frozen acceptance, remaining reviewer roles, final adjudication.",
+  "highest_leverage_blocker": "Review finding F1 (HIGH): colon/dash attribution (upstream turn-format separators) evades the guard subject detector AND the slice evaluator anchors -- proxy decisions countable. Fix agent in flight (guard boundary patterns + active-player-bound anchors + discriminating tests). BLOCKS robustness/freeze phases until landed.",
+  "next_action": "Land the F1 colon-attribution fix (guard.py + slice anchors + discriminating tests + receipt re-records), write the phases 8-11 review document with dispositions, then: operational-robustness matrix (gate I), final documentation (gate J), Phase 12 frozen acceptance (incl. F3: master receipt re-recorded at the frozen SHA so the validator passes), remaining reviewer confirmation of the two F1-refuted gate-H clauses, final adjudication.",
   "open_critical_count": 0,
-  "open_high_count": 0,
+  "open_high_count": 1,
   "running_background_jobs": [],
   "passed_gates": [
     "static_hook_tests",

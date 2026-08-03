@@ -2481,6 +2481,67 @@
       "stdout_tail": " TestValidatorEndToEnd.test_structural_checks_pass_for_this_repository (check='initialization_level') _\n\nself = <test_validate_control_plane.TestValidatorEndToEnd testMethod=test_structural_checks_pass_for_this_repository>\n\n    def test_structural_checks_pass_for_this_repository(self):\n        checks = {c[\"check\"]: c for c in self.payload[\"checks\"]}\n        for name in (\"required_files_exist\", \"json_files_parse\", \"settings_has_required_events\",\n                     \"settings_hook_shape\", \"settings_script_paths_exist\", \"python_sources_compile\",\n                     \"agent_definitions_parse\", \"no_production_files_changed\", \"claude_md_preserved\",\n                     \"run_state_valid\", \"bootstrap_status_consistent\", \"initialization_level\"):\n            with self.subTest(check=name):\n>               self.assertTrue(checks[name][\"ok\"], f\"{name}: {checks[name]['detail']}\")\nE               AssertionError: False is not true : initialization_level: mode is 'implementation' but the master-context handshake is incomplete: no valid passing receipt exists for task 'master-context-initialization' at the current SHA\n\ntests/control_plane/test_validate_control_plane.py:1023: AssertionError\n=========================== short test summary info ============================\nSUBFAILED(check='initialization_level') tests/control_plane/test_validate_control_plane.py::TestValidatorEndToEnd::test_structural_checks_pass_for_this_repository\n1 failed, 694 passed, 37 skipped, 429 subtests passed in 59.89s\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "review811-nine-suite",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_scale tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q"
+      ],
+      "command_string": "bash -c /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_scale tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "c80787e64953e35cc2d7ec9735fa155fb1937048",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": true,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T19:47:52+00:00",
+      "no_progress_timeout_s": 240.0,
+      "total_timeout_s": 1200.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 235.556,
+      "hard_deadline_at": 1078.536,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/review811-nine-suite",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/review811-nine-suite/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/review811-nine-suite/stderr.log",
+      "progress_file": null,
+      "pid": 31645,
+      "pgid": 31645,
+      "heartbeat_at": "2026-08-03T19:49:53+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 34.62,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T19:50:03+00:00",
+      "elapsed_s": 131.789,
+      "seconds_since_progress": 4.444,
+      "completed_units": null,
+      "cpu_cores_recent": 1.01,
+      "process_group_size": 10,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T19:47:52+00:00",
+          "elapsed_s": 0.052,
+          "until_elapsed_s": 131.586,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.052
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 30%]\n........................................................................ [ 61%]\n........................................................................ [ 91%]\n...................                                                      [100%]\n235 passed in 130.05s (0:02:10)\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }

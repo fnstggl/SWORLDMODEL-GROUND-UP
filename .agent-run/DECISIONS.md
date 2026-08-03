@@ -661,3 +661,37 @@ HANDOFF.md.
   tests/engine_scale/evidence/ (52 files, sha256 manifest).
 - No substrate defects at scale: per-agent failure isolation held at
   250-agent partitions; 4-digit agent ids safe.
+
+## Phases 8-11 adversarial review 2026-08-03 -- verdicts and dispositions
+
+Reviewer verdicts: D1 checkpoint holds-with-findings; D2 guard
+holds-with-findings; D3 adapter HOLDS (no silent-discard input could be
+crafted); D4 slice evidence holds-with-findings; D5 scale evidence HOLDS
+(52/52 hashes reverified); D6 hygiene holds-with-findings. Nine-suite
+battery independently reproduced at 235. Gate H: 6 clauses confirmed, 2
+refuted by F1.
+
+- F1 (HIGH, blocks freeze): `Name:` / `Name --` attribution -- upstream
+  EventResolution's own separators -- evades the guard's
+  whitespace-adjacent subject detector, and the slice evaluators'
+  "attribution anchors" accept substring co-occurrence anywhere in a row.
+  One actor can cast another's reply/vote/veto and have it counted.
+  DISPOSITION: FIX (in flight): guard treats colon/dash as
+  subject-attribution boundaries for non-active roster names (active
+  player's own leading attribution passes); evaluator anchors bind to the
+  row's OWN leading attribution == the predicate-named actor;
+  discriminating tests reproduce all reviewer probes both directions;
+  guard-hashing receipts re-recorded. Committed example artifacts must
+  stay byte-identical (scripted runs contain no proxy forms).
+- F2 (LOW): checkpoint stored_hashes canonicalization inert against
+  current objects and untested. DISPOSITION: unit test added with the F1
+  fix (permutation-identity + passthrough); the defensive branch stays.
+- F3 (MEDIUM): validator FAIL at HEAD is the documented one-commit
+  master-receipt staleness. DISPOSITION: mechanical; the Phase 12 freeze
+  sequence ends with the master receipt re-recorded at the frozen SHA so
+  the validator PASSES at the SHA being adjudicated.
+- F4 (LOW): big-run scale reconciliation trusts committed self-attested
+  equality fields (raw unit ledgers live outside the repo); the
+  reconciliation CODE path has live small-N negative controls and the
+  rollup chain is recomputed from committed summaries. DISPOSITION:
+  accepted two-tier design, disclosed here and in the evidence doc.
