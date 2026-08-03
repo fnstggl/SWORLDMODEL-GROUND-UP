@@ -642,3 +642,22 @@ HANDOFF.md.
   -- the change is the SANCTIONED guard hardening (a4112f6, its own
   completed task). New receipt hashes the hardened guard.py + its test
   file; the guard+builder suites pass with the hardened content.
+
+## Phase 11 notes 2026-08-03 (societal infrastructure proof complete)
+
+- The 600s Bash ceiling made partition-chunked monitored jobs the design:
+  4x250 agents x 2 segments with a declared tick-6 checkpoint boundary,
+  segment B resuming in a fresh process + fresh Ray runtime from
+  persisted workspaces + a spec-hash-bound driver checkpoint. The
+  chunking IS the partitions/checkpoint-resume/aggregation demonstration,
+  not a workaround.
+- run_monitored semantics observation (documented, no hook change
+  needed): progress_source records the most recent signal per poll, so a
+  trailing stdout write can leave it at log_movement even when
+  completed_units advanced; durable strong-progress evidence is the
+  completed_units field, which the verification tier asserts.
+- Raw run roots retained outside the repo at /home/user/scale_runs/
+  phase11/ for post-hoc inspection; durable evidence committed under
+  tests/engine_scale/evidence/ (52 files, sha256 manifest).
+- No substrate defects at scale: per-agent failure isolation held at
+  250-agent partitions; 4-digit agent ids safe.

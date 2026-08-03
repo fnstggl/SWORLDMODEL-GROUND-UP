@@ -661,7 +661,7 @@
       "description": "Monitored, progress-source-mandatory runs proving: 100-agent run; 1,000-agent scripted/deliberately shallow run; AgentSociety distributed execution; bounded concurrency; sparse activation; persistent workspaces; checkpoint/resume; injected individual failures; no duplicate or lost actions; aggregate result collection equal to recorded actions. Labeled infrastructure-only; no population realism claim. All runs through .claude/tools/run_monitored.py.",
       "owner": "test-watchdog",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-8-concordia-actor-workspace-adapter",
@@ -681,7 +681,17 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "G_societal_infrastructure"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "9c0b75b (suite + evidence + doc) / cf091a6 (receipt); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/phase-11-societal-infrastructure-proof__9c0b75bd27d9__20260803T1938220000.json",
+        "receipt_command": "tests/engine_scale via record_receipt --timeout 1200 (16 passed, clean tree, 7 path-labeled hashes)",
+        "receipt_exit_code": 0,
+        "tests_passed": 235,
+        "summary": "Ten monitored scale jobs, all exit 0, no timeout terminations: 100-agent run (394/394 reconciled, observed slot ceiling == configured bound); 1000-agent shallow run as 4 isolated 250-agent partitions x 2 segments with fresh-process fresh-Ray checkpoint/resume at tick 6 (2395/2395 reconciled, aggregate ids byte-equal to raw-workspace recomputation); sparse activation inspectable with inactive-workspace hash-identity probes; injected failures isolated with structured dual-channel artifacts; genesis-recomputed hash chains + refuse-lost/duplicated negative proofs; explicit isolated-partitions-by-design record; infrastructure-only labeling test-enforced everywhere. Evidence: 52 committed files under tests/engine_scale/evidence/ with hashes_manifest.json; PHASE11_SCALE_EVIDENCE.md clause map.",
+        "lead_verification": "independent run at cf091a6: tests/engine_scale 16 passed (verification tier against evidence, not skipped); nine-suite battery 235 at phase11-final-dod",
+        "acceptance_gate_notes": "Gate G fully evidenced; gate F further evidenced (real Option-2 path at scale, checkpoint/resume, token/runtime accounting in ledgers)."
+      }
     },
     {
       "id": "operational-robustness-matrix",
