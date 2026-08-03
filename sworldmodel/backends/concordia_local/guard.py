@@ -19,38 +19,92 @@ LLM-driven and unseeded-shuffle nondeterministic; this guard is
 DETERMINISTIC CODE in its default path (pure string analysis, no model
 call, no document write, no randomness).
 
-Detection basis
-    A KNOWN actor name other than the active player occurring as the
-    grammatical agent of a voluntary-act assertion: the name (optionally
-    a name chain joined by "and"/commas, optionally followed by up to two
-    generic adverb-like lead-in tokens) immediately governing a FINITE
-    voluntary-act verb form.  Verb forms are generated from a curated
-    stem + suffix paradigm table covering the directive's act-category
-    lemmas (reply, agree, vote, purchase, accept, reject, refuse,
-    decline, sign, support, commit, promise, choose, say, decide) in
-    base, third-person-singular, and simple-past form.  These are
-    act-category words, not scenario vocabulary; the table stores stems
-    and suffixes so the assembled surface forms exist only at runtime.
+Detection basis (v2, hardened per the phases 3-7 adversarial review,
+findings 6 and 7):
+
+1. NAMED subjects: a KNOWN actor name other than the active player
+   (optionally a name chain joined by "and"/commas) governing a
+   voluntary-act verb complex.
+2. PRONOUN subjects: a third-person subject pronoun governing a
+   voluntary-act verb complex.  Reference is resolved deterministically:
+   a singular pronoun binds the NEAREST preceding roster name (gender is
+   never inferred); a bare plural binds every distinct preceding roster
+   name; a first-person-plural or universal subject binds every
+   protected actor.  When no preceding roster name resolves the
+   reference, every non-active roster actor is treated as potentially
+   bound -- an unresolvable committed decision must not slip through.
+   A pronoun whose only resolution is the ACTIVE player is the active
+   player's own act and passes.
+3. COLLECTIVE subjects: a determiner plus a generic decision-making
+   group noun (team, board, council, ...) governing a voluntary-act verb
+   complex binds every non-active roster actor (membership is not
+   textually resolvable).
+4. VERB COMPLEXES: the simple finite forms plus perfect ("has agreed",
+   "has been agreeing"), progressive ("is agreeing"), and
+   modal-perfect ("will have accepted") auxiliary chains.  One
+   comma-bounded parenthetical aside may sit between the subject and the
+   verb complex ("Morgan, after some thought, agrees").
+5. NOMINALIZATIONS: a roster name's possessive act noun ("Morgan's
+   agreement to the terms") and a determined act noun with a roster
+   by-agent ("the acceptance by Morgan") assert the same accomplished
+   decision without a finite verb and are treated identically.
+
+All trigger vocabulary below is PLAIN LITERAL WORD FORMS of the
+directive's own act categories.  A prior revision assembled the same
+surface forms from a stem+suffix table, which the review (finding 7)
+judged a circumvention of the scenario-vocabulary scanner's mechanism;
+the sanctioned remedy is literals here plus a documented, narrow
+allowlist entry in tests/test_hardcoding_guard.py.  These are
+act-category words, not scenario vocabulary.
+
+Speaker-stance protection (review finding 6 over-block classes): content
+that merely reports the SPEAKER'S OWN mental state or performative
+request about another actor is the speaker's own content and passes
+byte-identically:
+
+- belief-verb complements: "Alex hopes Morgan agrees", "Alex believes
+  Morgan will reply" (also through a "that" complementizer);
+- performative content requests: "Alex asks that Morgan reply by
+  Friday" -- a request ABOUT another actor's future act is the
+  speaker's own act;
+- anticipation frames before nominalizations: "asks for Morgan's
+  agreement", "waits for Morgan's reply", "without Morgan's signature".
 
 Deliberate conservatism (documented non-detections, chosen to avoid
 false positives on delivery/receipt/hypothetical text):
 
-- Gerund/participle forms are NOT triggers: in "replies to X agreeing
-  to a plan" the agreement belongs to the SUBJECT, not to X (a measured
-  baseline-scenario shape); bare "-ing" adjacency would over-block.
+- Gerund/participle forms are NOT triggers without a BE auxiliary: in
+  "replies to X agreeing to a plan" the agreement belongs to the
+  SUBJECT, not to X (a measured baseline-scenario shape); bare "-ing"
+  adjacency would over-block.
 - A name preceded by a preposition is not an agent ("sends it to X").
 - A name preceded by a conditional frame word is not a committed act
   ("if X agrees" states a condition, not a decision).
-- Modal/auxiliary constructions ("X may agree", "X has agreed",
-  "X does not agree") are not detected in v1; they are predictions,
-  perfects, and negations rather than the canonical simple-finite GM
-  overreach ("..., and X agrees ...").  Listed for later hardening.
-- Passive agents ("signed by X") are not detected in v1.
-- Reported speech ("announces that X agrees") IS detected: the committed
-  ``[event]`` text enters every observer's memory verbatim, so an
-  embedded decision assertion does the same harm as a direct one.  This
-  is the one BORDERLINE class the optional live-model confirmation may
-  relax (see ``make_agency_guard``).
+- Bare modal predictions ("X may agree", "X will agree"), do-support
+  ("X does not agree", "X does agree"), and negated auxiliary chains
+  ("X has not agreed") are predictions, denials, or emphatics rather
+  than committed decisions and are not detected.
+- Passive constructions ("signed by X", "X has been chosen") keep the
+  name in patient position and are not detected as that name's act.
+- Second-person and "it" subjects, pronoun-possessive nominalizations
+  ("their agreement"), collective possessives ("Morgan's team
+  accepts"), and asides longer than one comma pair or 60 characters are
+  out of the deterministic v2 net; listed for later hardening.
+- The comma aside is content-blind: an asyndetic serial-verb tail after
+  a direct-object name ("thanks Morgan, smiles, signs") parses like an
+  aside and is conservatively rewritten.  The failure direction is the
+  recoverable one (removal plus availability), never invented agency.
+- Reported speech ("announces that X agrees") IS detected: the
+  committed ``[event]`` text enters every observer's memory verbatim,
+  so an embedded decision assertion does the same harm as a direct one.
+  This is the one BORDERLINE class the optional live-model confirmation
+  may relax (see ``make_agency_guard``).
+- Stateless trade-off: a nominal reference to a decision that REALLY
+  happened in an earlier turn ("Ada re-reads Bo's reply") is
+  indistinguishable, without history, from an invented one and is
+  conservatively rewritten; the cost is bounded (the actor's attempt
+  prefix survives and the affected actor is offered its own turn),
+  while a missed invention would permanently steal agency.
 
 Rewrite rule (never inventing content, never deciding for the actor in
 either direction):
@@ -88,33 +142,101 @@ AVAILABILITY_MARKER = "is now able to observe"
 _AVAILABILITY_TEMPLATE = ("{name} is now able to observe this and to "
                           "respond in their own turn.")
 
-#: voluntary-act verb morphology: (stem, suffixes) -> finite surface
-#: forms (base / third-person-singular / simple-past), assembled at
-#: runtime.  Gerunds are deliberately not generated (see module
-#: docstring).  Irregular past forms carry their own stem row.
-_ACT_FORM_PARADIGMS = (
-    ("repl", ("y", "ies", "ied")),
-    ("agree", ("", "s", "d")),
-    ("vot", ("e", "es", "ed")),
-    ("purchas", ("e", "es", "ed")),
-    ("accept", ("", "s", "ed")),
-    ("reject", ("", "s", "ed")),
-    ("refus", ("e", "es", "ed")),
-    ("declin", ("e", "es", "ed")),
-    ("sign", ("", "s", "ed")),
-    ("support", ("", "s", "ed")),
-    ("commit", ("", "s", "ted")),
-    ("promis", ("e", "es", "ed")),
-    ("choos", ("e", "es")),
-    ("chos", ("e",)),
-    ("say", ("", "s")),
-    ("said", ("",)),
-    ("decid", ("e", "es", "ed")),
+#: voluntary-act FINITE surface forms (base / third-person-singular /
+#: simple past) of the directive's act-category lemmas, as plain
+#: literals (finding 7).  Gerunds and participles are separate sets
+#: below and trigger only inside auxiliary chains.
+_ACT_FINITE_FORMS = (
+    "reply", "replies", "replied",
+    "agree", "agrees", "agreed",
+    "vote", "votes", "voted",
+    "purchase", "purchases", "purchased",
+    "accept", "accepts", "accepted",
+    "reject", "rejects", "rejected",
+    "refuse", "refuses", "refused",
+    "decline", "declines", "declined",
+    "sign", "signs", "signed",
+    "support", "supports", "supported",
+    "commit", "commits", "committed",
+    "promise", "promises", "promised",
+    "choose", "chooses", "chose",
+    "say", "says", "said",
+    "decide", "decides", "decided",
 )
 
-#: closed-class words that mark the following name as NOT the agent of a
-#: new committed act: prepositions (object position) and hypothetical /
-#: conditional frames (a condition is not a commitment)
+#: past participles (perfect and modal-perfect chains only; after
+#: "been" a participle is passive and deliberately NOT a trigger)
+_ACT_PAST_PARTICIPLES = (
+    "replied", "agreed", "voted", "purchased", "accepted", "rejected",
+    "refused", "declined", "signed", "supported", "committed",
+    "promised", "chosen", "said", "decided",
+)
+
+#: gerunds (progressive chains only: "is agreeing", "has been agreeing")
+_ACT_GERUNDS = (
+    "replying", "agreeing", "voting", "purchasing", "accepting",
+    "rejecting", "refusing", "declining", "signing", "supporting",
+    "committing", "promising", "choosing", "saying", "deciding",
+)
+
+#: act nominalizations ("Morgan's agreement", "the acceptance by
+#: Morgan").  The bare noun "sign" is deliberately absent (a physical
+#: signboard reading would over-block); "signature"/"signing" cover the
+#: act sense.
+_ACT_NOUN_FORMS = (
+    "reply", "replies",
+    "agreement", "agreements",
+    "vote", "votes",
+    "purchase", "purchases",
+    "acceptance", "acceptances",
+    "rejection", "rejections",
+    "refusal", "refusals",
+    "signature", "signatures", "signing",
+    "commitment", "commitments",
+    "promise", "promises",
+    "choice", "choices",
+    "decision", "decisions",
+    "support",
+)
+
+#: third-person singular subject pronouns (nearest-antecedent binding)
+_SINGULAR_SUBJECT_PRONOUNS = ("he", "she")
+#: bare plural subject pronoun (all-preceding-names binding)
+_PLURAL_SUBJECT_PRONOUNS = ("they",)
+#: subjects that bind beyond the speaker by construction
+_UNIVERSAL_SUBJECT_PRONOUNS = ("we", "everyone", "everybody")
+
+#: generic decision-making group nouns for collective subjects; a
+#: closed organizational-category list, not scenario vocabulary.  (One
+#: classic register word is deliberately absent because the scanner
+#: reserves it as scenario vocabulary; "board"/"council" cover that
+#: register -- documented residual.)
+_GROUP_NOUN_FORMS = (
+    "team", "teams", "group", "groups", "board", "boards",
+    "council", "councils", "crew", "crews", "staff",
+    "members", "partners", "colleagues", "others", "rest",
+    "majority", "party", "parties", "delegation", "delegations",
+    "cohort", "cohorts", "firm", "firms", "club", "clubs",
+    "organization", "organizations", "company", "companies",
+    "family", "families",
+)
+
+#: determiners opening a collective subject
+_COLLECTIVE_DETERMINERS = (
+    "the", "this", "that", "these", "those", "his", "her", "their",
+    "its", "our", "my", "your", "both", "all", "each", "every",
+    "a", "an",
+)
+
+#: determiners opening a by-agent nominalization
+_BY_PHRASE_DETERMINERS = (
+    "the", "this", "that", "his", "her", "their", "its", "a", "an",
+    "any", "such", "one",
+)
+
+#: closed-class words that mark the following subject as NOT the agent
+#: of a new committed act: prepositions (object position) and
+#: hypothetical / conditional frames (a condition is not a commitment)
 _NON_AGENT_LEAD_WORDS = frozenset((
     "to", "with", "for", "from", "at", "by", "about", "of", "on", "in",
     "into", "onto", "upon", "toward", "towards", "via", "unto", "per",
@@ -122,6 +244,53 @@ _NON_AGENT_LEAD_WORDS = frozenset((
     "among", "around", "before", "against",
     "if", "whether", "unless", "until", "once", "when", "whenever",
     "should", "assuming", "provided", "suppose", "supposing", "lest",
+))
+
+#: speaker-stance verbs: a belief, hope, fear, or performative request
+#: ABOUT another actor is the SPEAKER'S own content (review finding 6
+#: over-block classes).  Suppresses detection directly before a subject
+#: ("hopes Morgan agrees") and through a "that" complementizer ("asks
+#: that Morgan reply by Friday").
+_STANCE_VERBS = frozenset((
+    "hope", "hopes", "hoped",
+    "believe", "believes", "believed",
+    "think", "thinks", "thought",
+    "expect", "expects", "expected",
+    "doubt", "doubts", "doubted",
+    "wish", "wishes", "wished",
+    "assume", "assumes", "assumed",
+    "suspect", "suspects", "suspected",
+    "fear", "fears", "feared",
+    "imagine", "imagines", "imagined",
+    "predict", "predicts", "predicted",
+    "guess", "guesses", "guessed",
+    "anticipate", "anticipates", "anticipated",
+    "trust", "trusts", "trusted",
+    "worry", "worries", "worried",
+    "await", "awaits", "awaited", "awaiting",
+    "ask", "asks", "asked",
+    "request", "requests", "requested",
+    "insist", "insists", "insisted",
+    "demand", "demands", "demanded",
+    "urge", "urges", "urged",
+    "propose", "proposes", "proposed",
+    "suggest", "suggests", "suggested",
+    "recommend", "recommends", "recommended",
+    "require", "requires", "required",
+    "prefer", "prefers", "preferred",
+    "beg", "begs", "begged",
+    "invite", "invites", "invited",
+    "want", "wants", "wanted",
+    "need", "needs", "needed",
+))
+
+#: frame words before a NOMINALIZATION that anticipate rather than
+#: presuppose the act ("for Morgan's agreement", "without Morgan's
+#: signature", "pending Morgan's decision").  Presupposing frames
+#: ("with Morgan's agreement, ...") are deliberately NOT here.
+_NOMINAL_FRAME_WORDS = frozenset((
+    "for", "without", "pending", "until", "unless", "before", "absent",
+    "if", "whether", "should",
 ))
 
 #: lead words marking a BORDERLINE finding (reported speech): detected by
@@ -149,30 +318,35 @@ _STRIP_TRAIL_CHARS = " \t,;-–—"
 
 
 def voluntary_act_forms() -> frozenset:
-    """The exact finite surface forms the detector triggers on."""
-    return frozenset(stem + suffix
-                     for stem, suffixes in _ACT_FORM_PARADIGMS
-                     for suffix in suffixes)
+    """The exact finite surface forms the simple-clause detector
+    triggers on (auxiliary chains additionally use the participle and
+    gerund literals)."""
+    return frozenset(_ACT_FINITE_FORMS)
 
 
 @dataclass(frozen=True)
 class _Finding:
-    start: int            # subject-chain start offset in the event text
-    end: int              # verb-form end offset
+    start: int            # subject/nominal start offset in the event text
+    end: int              # matched construction end offset
     affected: tuple       # non-active known actors asserted as agents
     borderline: bool      # reported-speech lead ("that")
 
 
-def _word_before(text: str, pos: int) -> str:
+def _word_before_span(text: str, pos: int) -> tuple:
     """The lowercased alphabetic word immediately preceding ``pos``
-    (skipping whitespace), or '' when there is none."""
+    (skipping whitespace) and its start offset; ``('', pos)`` when there
+    is none (any intervening punctuation breaks the chain)."""
     j = pos
     while j > 0 and text[j - 1] in " \t":
         j -= 1
     k = j
     while k > 0 and text[k - 1].isalpha():
         k -= 1
-    return text[k:j].lower()
+    return text[k:j].lower(), k
+
+
+def _word_before(text: str, pos: int) -> str:
+    return _word_before_span(text, pos)[0]
 
 
 def _clause_start(text: str, pos: int) -> int:
@@ -236,6 +410,14 @@ def _clean_piece(piece: str) -> str:
     return p
 
 
+def _alternation(words: Iterable) -> str:
+    """Deterministic longest-first alternation (ties broken
+    lexicographically so the compiled pattern is byte-stable across
+    processes regardless of hash seed)."""
+    return "|".join(re.escape(word)
+                    for word in sorted(words, key=lambda w: (-len(w), w)))
+
+
 def make_agency_guard(
     actor_names: Iterable,
     *,
@@ -247,7 +429,10 @@ def make_agency_guard(
 
     ``actor_names`` is the branch's KNOWN actor roster (Concordia entity
     names as they appear in event text); only these actors are protected
-    -- an unknown name is never treated as an actor.  ``escalate``, when
+    -- an unknown name is never treated as an actor.  Pronoun and
+    collective subjects that cannot be resolved to a specific roster
+    name conservatively bind every non-active roster actor (each such
+    actor receives the availability sentence).  ``escalate``, when
     given, is called as ``escalate(event_in, event_out, active_player,
     affected_actors)`` after every rewrite (never on passthrough).
 
@@ -279,53 +464,165 @@ def make_agency_guard(
             "use_llm_confirmation=True requires a model object; the "
             "deterministic path needs neither")
 
-    name_alt = "|".join(
-        re.escape(name) for name in sorted(names, key=len, reverse=True))
-    verb_alt = "|".join(
-        re.escape(form)
-        for form in sorted(voluntary_act_forms(), key=len, reverse=True))
-    lead_in_alt = "|".join(_LEAD_IN_WORDS)
+    name_alt = _alternation(names)
+    finite_alt = _alternation(_ACT_FINITE_FORMS)
+    participle_alt = _alternation(_ACT_PAST_PARTICIPLES)
+    gerund_alt = _alternation(_ACT_GERUNDS)
+    noun_alt = _alternation(_ACT_NOUN_FORMS)
+    group_alt = _alternation(_GROUP_NOUN_FORMS)
+    pronoun_alt = _alternation(_SINGULAR_SUBJECT_PRONOUNS
+                               + _PLURAL_SUBJECT_PRONOUNS
+                               + _UNIVERSAL_SUBJECT_PRONOUNS)
+    lead_in_alt = _alternation(_LEAD_IN_WORDS)
+
     boundary = r"[\w'’-]"
     separator = r"(?:\s*[,;]\s*(?:(?:and|&)\s+)?|\s+(?:and|&)\s+)"
-    subject = (rf"(?P<subject>(?:{name_alt})"
-               rf"(?:{separator}(?:{name_alt}))*)")
     lead_in = rf"(?:(?:{lead_in_alt}|\w+ly)\s+){{0,2}}"
-    event_pattern = re.compile(
-        rf"(?<!{boundary}){subject}\s+{lead_in}"
-        rf"(?P<verbform>(?i:{verb_alt}))(?!{boundary})")
+    #: one comma-bounded parenthetical aside between subject and verb
+    aside = r"(?:\s*,\s*[^,;.!?\n]{1,60}\s*,)?"
+    #: finite verb or auxiliary chain asserting an accomplished act; a
+    #: "not"/"never" in the chain fails the lead-in slot, so negations
+    #: pass through by construction; "been" + participle (passive) is
+    #: deliberately not an alternative
+    verb_complex = (
+        r"(?:"
+        rf"(?i:has|have|had)\s+{lead_in}"
+        rf"(?:(?i:{participle_alt})|(?i:been)\s+{lead_in}(?i:{gerund_alt}))"
+        rf"|(?i:is|are|was|were)\s+{lead_in}(?i:{gerund_alt})"
+        rf"|(?i:will|shall|would)\s+{lead_in}(?i:have)\s+{lead_in}"
+        rf"(?i:{participle_alt})"
+        rf"|(?i:{finite_alt})"
+        rf")(?!{boundary})")
+    trailer = rf"{aside}\s+{lead_in}{verb_complex}"
+
+    named_pattern = re.compile(
+        rf"(?<!{boundary})(?P<subject>(?:{name_alt})"
+        rf"(?:{separator}(?:{name_alt}))*)(?!{boundary}){trailer}")
+    pronoun_pattern = re.compile(
+        rf"(?<!{boundary})(?P<pron>(?i:{pronoun_alt}))(?!{boundary})"
+        rf"{trailer}")
+    collective_pattern = re.compile(
+        rf"(?<!{boundary})(?P<det>(?i:{_alternation(_COLLECTIVE_DETERMINERS)}))"
+        rf"\s+(?:[\w-]+\s+)?(?P<group>(?i:{group_alt}))(?!{boundary})"
+        rf"{trailer}")
+    possessive_pattern = re.compile(
+        rf"(?<!{boundary})(?P<pname>(?:{name_alt}))(?:'|’)s\s+"
+        rf"(?:[\w-]+\s+)?(?P<pnoun>(?i:{noun_alt}))(?!{boundary})")
+    by_agent_pattern = re.compile(
+        rf"(?<!{boundary})(?P<bdet>(?i:{_alternation(_BY_PHRASE_DETERMINERS)}))"
+        rf"\s+(?:[\w-]+\s+)?(?P<bnoun>(?i:{noun_alt}))\s+"
+        rf"(?:(?i:of)\s+(?:[\w'’-]+\s+){{0,3}})?"
+        rf"(?i:by)\s+(?P<bname>(?:{name_alt}))(?!{boundary})")
     chain_name_pattern = re.compile(
         rf"(?<!{boundary})(?:{name_alt})(?!{boundary})")
 
-    def _detect(event_statement: str, active_player_name: str) -> list:
+    singular_pronouns = frozenset(_SINGULAR_SUBJECT_PRONOUNS)
+    plural_pronouns = frozenset(_PLURAL_SUBJECT_PRONOUNS)
+
+    def _protected_others(active_player_name: str) -> tuple:
+        return tuple(name for name in names if name != active_player_name)
+
+    def _names_before(text: str, pos: int) -> list:
+        return [match.group(0)
+                for match in chain_name_pattern.finditer(text, 0, pos)]
+
+    def _resolve_named(match, text, active):
+        chain = chain_name_pattern.findall(match.group("subject"))
+        affected = []
+        for chain_name in chain:
+            if chain_name != active and chain_name not in affected:
+                affected.append(chain_name)
+        return tuple(affected)
+
+    def _resolve_pronoun(match, text, active):
+        word = match.group("pron").lower()
+        if word in singular_pronouns:
+            prior = _names_before(text, match.start())
+            if prior:
+                nearest = prior[-1]
+                # Nearest-antecedent binding; the active player's own
+                # anaphora is the active player's own act.
+                return () if nearest == active else (nearest,)
+            return _protected_others(active)
+        if word in plural_pronouns:
+            prior = _names_before(text, match.start())
+            distinct = []
+            for prior_name in prior:
+                if prior_name != active and prior_name not in distinct:
+                    distinct.append(prior_name)
+            # A plural bound only by the active player is not plausibly
+            # the active player alone; fall back to every protected
+            # actor rather than let an unresolved plural slip through.
+            return tuple(distinct) or _protected_others(active)
+        # we / universal quantifiers bind beyond the speaker by
+        # construction.
+        return _protected_others(active)
+
+    def _resolve_collective(match, text, active):
+        return _protected_others(active)
+
+    def _resolve_possessive(match, text, active):
+        pname = match.group("pname")
+        return () if pname == active else (pname,)
+
+    def _resolve_by_agent(match, text, active):
+        bname = match.group("bname")
+        return () if bname == active else (bname,)
+
+    verb_rules = (
+        (named_pattern, _resolve_named),
+        (pronoun_pattern, _resolve_pronoun),
+        (collective_pattern, _resolve_collective),
+    )
+    nominal_rules = (
+        (possessive_pattern, _resolve_possessive),
+        (by_agent_pattern, _resolve_by_agent),
+    )
+
+    def _scan(pattern, resolve, text, active, frame_words):
         findings = []
         pos = 0
         while True:
-            match = event_pattern.search(event_statement, pos)
+            match = pattern.search(text, pos)
             if match is None:
                 return findings
-            chain = chain_name_pattern.findall(match.group("subject"))
-            affected = []
-            for chain_name in chain:
-                if (chain_name != active_player_name
-                        and chain_name not in affected):
-                    affected.append(chain_name)
-            lead_word = _word_before(event_statement, match.start())
-            if not affected or lead_word in _NON_AGENT_LEAD_WORDS:
-                # Not a violation AT THIS START (the active player's own
-                # choice, an object position, or a hypothetical frame) --
-                # but a greedy comma chain that began at a non-agent
-                # ("... to X, and X agrees") may still CONTAIN the real
-                # clause subject, so resume just past the start, not past
-                # the whole match.
+            lead_word, lead_start = _word_before_span(text, match.start())
+            before_that = (_word_before(text, lead_start)
+                           if lead_word == "that" else "")
+            suppressed = (
+                lead_word in frame_words
+                or lead_word in _STANCE_VERBS
+                or before_that in _STANCE_VERBS)
+            affected = () if suppressed else resolve(match, text, active)
+            if not affected:
+                # Not a violation AT THIS START (suppressed frame, the
+                # active player's own act, or nobody to protect) -- but
+                # a greedy match that began at a non-agent ("... to X,
+                # and X agrees") may still CONTAIN the real clause
+                # subject, so resume just past the start, not past the
+                # whole match.
                 pos = match.start() + 1
                 continue
             findings.append(_Finding(
                 start=match.start(),
                 end=match.end(),
-                affected=tuple(affected),
+                affected=affected,
                 borderline=lead_word in _BORDERLINE_LEAD_WORDS,
             ))
             pos = match.end()
+
+    def _detect(event_statement: str, active_player_name: str) -> list:
+        findings = []
+        for pattern, resolve in verb_rules:
+            findings.extend(_scan(pattern, resolve, event_statement,
+                                  active_player_name,
+                                  _NON_AGENT_LEAD_WORDS))
+        for pattern, resolve in nominal_rules:
+            findings.extend(_scan(pattern, resolve, event_statement,
+                                  active_player_name,
+                                  _NOMINAL_FRAME_WORDS))
+        findings.sort(key=lambda finding: (finding.start, finding.end))
+        return findings
 
     def _rewrite(event_statement: str, findings: list) -> str:
         spans = [( _clause_start(event_statement, finding.start),

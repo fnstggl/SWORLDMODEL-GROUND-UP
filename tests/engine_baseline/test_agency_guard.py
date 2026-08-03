@@ -32,6 +32,31 @@ Unit (deterministic detector + rewriter, no engine, no model):
      per rewrite with the documented arguments;
  10. the factory validates its roster and options.
 
+Hardened classes (phases 3-7 adversarial review, findings 6 and 7 --
+each class carries a caught case AND a nearby legitimate shape):
+ 13. pronoun and collective subjects are detected ("She agrees to the
+     plan", "They commit to the deadline", "The team accepts the
+     offer"): singular pronouns bind the nearest preceding roster name,
+     plurals bind the distinct preceding names, and unresolvable
+     subjects conservatively bind every non-active roster actor; the
+     active player's own anaphora and non-act verbs pass through;
+ 14. perfect / progressive / modal-perfect auxiliary chains are
+     detected ("has agreed", "is agreeing", "will have accepted");
+     negations, passives ("has been chosen"), possession ("has a
+     signed copy"), and bare modal predictions pass through;
+ 15. nominalizations are detected ("Bo's agreement to the terms",
+     "the acceptance by Bo"); anticipation frames and requests about a
+     future act ("waits for Bo's reply", "asks for Bo's agreement",
+     "without Bo's signature") pass through;
+ 16. a comma-bounded parenthetical aside between subject and verb is
+     detected ("Bo, after some thought, agrees") without blocking the
+     active player's own aside shape;
+ 17. speaker-stance content is never removed (review over-block
+     classes): belief-verb complements ("hopes Bo agrees", "believes
+     Bo will reply") and performative content requests ("asks that Bo
+     reply by Friday") survive byte-identically, while assertion verbs
+     ("confirms", "announces that") remain caught.
+
 Integration (full stock-Concordia loop, scripted models per the Phase 4
 pattern):
  11. an active actor's action text embedding the other actor's agreement
@@ -264,6 +289,256 @@ def test_voluntary_act_forms_cover_the_directive_lemmas():
     # Gerunds are deliberately NOT triggers (participial false-positive
     # protection; see the guard module docstring).
     assert "agreeing" not in forms
+
+
+# ---------------------------------------------------------------------------
+# Unit: hardened detection classes (review findings 6 and 7)
+# ---------------------------------------------------------------------------
+
+
+def test_pronoun_subject_decisions_are_detected():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+
+    # Unresolvable singular subject: every non-active actor is
+    # conservatively bound and offered its own turn.
+    out = guard(None, "She agrees to the plan.", "Ada")
+    assert "agrees to the plan" not in out
+    assert "Bo is now able to observe" in out
+    assert "Cam is now able to observe" in out
+    assert calls[-1][3] == ("Bo", "Cam")
+
+    # Nearest-antecedent singular: binds exactly the nearest preceding
+    # roster name, and the attempt prefix survives verbatim.
+    out = guard(None, "Ada hands the ledger to Bo, and he signs it.", "Ada")
+    assert "signs it" not in out
+    assert "Ada hands the ledger to Bo" in out
+    assert calls[-1][3] == ("Bo",)
+
+    # Unresolvable bare plural (review's literal case).
+    out = guard(None, "They commit to the deadline.", "Ada")
+    assert "commit to the deadline" not in out
+    assert calls[-1][3] == ("Bo", "Cam")
+
+    # Plural resolved by the distinct preceding roster names.
+    out = guard(None, "Ada and Bo confer in the hall. They agree.", "Cam")
+    assert "They agree" not in out
+    assert "Ada and Bo confer in the hall." in out
+    assert calls[-1][3] == ("Ada", "Bo")
+
+    # First-person plural binds beyond the speaker by construction.
+    out = guard(None, "We agree to the terms.", "Ada")
+    assert "agree to the terms" not in out
+    assert calls[-1][3] == ("Bo", "Cam")
+
+
+def test_pronoun_nearby_shapes_are_not_over_blocked():
+    guard = _guard()
+    for event in (
+            # the active player's own anaphora is the active player's
+            # own act (nearest antecedent == active)
+            "Ada reviews the terms, and she signs them.",
+            # non-act verb under a pronoun subject
+            "She reviews the file.",
+            # conditional frame over a pronoun subject
+            "If they agree, the hold lapses.",
+            # object-position pronouns are not subjects
+            "Ada explains the plan to them in detail.",
+    ):
+        assert guard(None, event, "Ada") == event
+
+
+def test_collective_subject_decisions_are_detected():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+
+    out = guard(None, "The team accepts the offer.", "Ada")
+    assert "accepts the offer" not in out
+    assert "Bo is now able to observe" in out
+    assert "Cam is now able to observe" in out
+    assert calls[-1][3] == ("Bo", "Cam")
+
+    # One modifier between determiner and group noun is covered.
+    out = guard(None, "The legal team accepts the offer.", "Ada")
+    assert "accepts the offer" not in out
+
+    # Quantified plural group subject.
+    out = guard(None, "All members agree to the deadline.", "Ada")
+    assert "agree to the deadline" not in out
+
+
+def test_collective_nearby_shapes_are_not_over_blocked():
+    guard = _guard()
+    for event in (
+            # non-act verb under a group subject
+            "The team studies the offer.",
+            # conditional frame over a group subject
+            "If the team accepts, the hold lapses.",
+            # mechanical relay: subject noun is not a decision-making
+            # group, so "says" stays mechanical
+            "The relay says the code twice.",
+            # group noun in object position
+            "Ada forwards the draft to the team.",
+    ):
+        assert guard(None, event, "Ada") == event
+
+
+def test_auxiliary_chain_decisions_are_detected():
+    guard = _guard()
+    for event, gone in (
+            ("Bo has agreed to the terms.", "agreed to the terms"),
+            ("Bo is agreeing to the plan.", "agreeing to the plan"),
+            ("Bo will have accepted by then.", "accepted"),
+            ("Bo has been agreeing all week.", "agreeing"),
+    ):
+        out = guard(None, event, "Ada")
+        assert gone not in out, event
+        assert AVAILABILITY_MARKER in out, event
+        assert "Bo is now able to observe" in out, event
+
+
+def test_auxiliary_nearby_shapes_are_not_over_blocked():
+    guard = _guard()
+    for event in (
+            # negated chains are denials, not commitments
+            "Bo has not agreed.",
+            # BE/HAVE + been + participle keeps the name in patient
+            # position (passive) -- not Bo's act
+            "Bo has been chosen to lead.",
+            # possession, not an auxiliary chain
+            "Bo has a signed copy.",
+            # bare modal prediction (pinned v1 semantics, kept)
+            "Bo may agree later.",
+    ):
+        assert guard(None, event, "Ada") == event
+
+
+def test_nominalization_decisions_are_detected():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+
+    out = guard(None, "Bo's agreement to the terms closes the matter.",
+                "Ada")
+    assert "agreement to the terms" not in out
+    assert "Bo is now able to observe" in out
+    assert calls[-1][3] == ("Bo",)
+
+    out = guard(None, "The acceptance by Bo settles it.", "Ada")
+    assert "acceptance by Bo" not in out
+    assert "Bo is now able to observe" in out
+    assert calls[-1][3] == ("Bo",)
+
+    out = guard(None, "Bo's commitment to attend is noted.", "Ada")
+    assert "commitment to attend" not in out
+    assert calls[-1][3] == ("Bo",)
+
+    # A presupposing reference asserts the same accomplished decision
+    # (stateless conservatism, documented in the guard module).
+    out = guard(None, "Cam files Bo's refusal.", "Cam")
+    assert "refusal" not in out
+    assert calls[-1][3] == ("Bo",)
+
+
+def test_nominalization_nearby_shapes_are_not_over_blocked():
+    guard = _guard()
+    for event in (
+            # anticipation frames: the act has NOT happened yet
+            "Ada waits for Bo's reply.",
+            "Ada asks for Bo's agreement.",
+            "Without Bo's signature, the file stays open.",
+            # request verb directly before the possessive
+            "Ada requests Bo's decision by noon.",
+            # possessive of a non-act noun
+            "Ada returns Bo's ledger to the shelf.",
+            # the active player's own nominal
+            "Ada's decision stands.",
+    ):
+        assert guard(None, event, "Ada") == event
+
+
+def test_parenthetical_comma_decisions_are_detected():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+
+    out = guard(None, "Bo, after some thought, agrees.", "Ada")
+    assert "agrees" not in out
+    assert "Bo is now able to observe" in out
+    assert calls[-1][3] == ("Bo",)
+
+    # A roster name inside the aside is NOT part of the subject chain.
+    out = guard(None, "Bo, prompted by Ada, signs the form.", "Ada")
+    assert "signs the form" not in out
+    assert calls[-1][3] == ("Bo",)
+
+
+def test_parenthetical_nearby_shapes_are_not_over_blocked():
+    guard = _guard()
+    for event in (
+            # the active player's own decision with an aside
+            "Ada, after some thought, agrees to proceed.",
+            # aside followed by a non-act verb
+            "Bo, according to the log, arrives at noon.",
+    ):
+        assert guard(None, event, "Ada") == event
+
+
+def test_belief_verb_complements_are_not_blocked():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+    for event in (
+            # the review's over-block classes: the SPEAKER'S mental
+            # state about another actor is the speaker's own content
+            "Ada hopes Bo agrees.",
+            "Ada believes Bo will reply.",
+            "Ada doubts Bo signed.",
+            "Ada expects that Bo agrees.",
+    ):
+        assert guard(None, event, "Ada") == event
+    assert calls == []
+
+
+def test_performative_content_requests_are_not_blocked():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+    for event in (
+            # a request ABOUT another actor's future act is the
+            # requester's own act; the content must remain
+            "Ada asks that Bo reply by Friday.",
+            "Ada proposes that Bo sign first.",
+            "Ada urges Bo to accept.",
+    ):
+        assert guard(None, event, "Ada") == event
+    assert calls == []
+
+
+def test_stance_boundary_still_catches_assertions():
+    # Nearby caught shapes proving the stance suppression is narrow:
+    # verbs that ASSERT the act (rather than hope for or request it)
+    # remain violations.
+    guard = _guard()
+    out = guard(None, "Ada confirms Bo agrees.", "Ada")
+    assert "agrees" not in out
+    assert "Bo is now able to observe" in out
+
+    out = guard(None, "Ada announces that Bo agreed to the terms.", "Ada")
+    assert "agreed to the terms" not in out
+    assert "Bo is now able to observe" in out
+
+
+def test_hardened_classes_are_idempotent():
+    guard = _guard()
+    for event, active in (
+            ("She agrees to the plan.", "Ada"),
+            ("They commit to the deadline.", "Ada"),
+            ("The team accepts the offer.", "Ada"),
+            ("Bo has agreed to the terms.", "Ada"),
+            ("Bo's agreement to the terms closes the matter.", "Ada"),
+            ("The acceptance by Bo settles it.", "Ada"),
+            ("Bo, after some thought, agrees.", "Ada"),
+    ):
+        once = guard(None, event, active)
+        assert once != event
+        assert guard(None, once, active) == once, event
 
 
 # ---------------------------------------------------------------------------
