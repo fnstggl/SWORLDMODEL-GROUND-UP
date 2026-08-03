@@ -1370,6 +1370,67 @@
       "stdout_tail": "e_identical_under_harness PASSED [ 91%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_document_level_shuffle_is_pinned_by_harness PASSED [ 92%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_without_harness_multiple_choice_shuffling_can_differ PASSED [ 93%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_randomize_choices_false_pins_actor_choices_without_seeding PASSED [ 94%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_switch_act_gm_choice_paths_have_no_randomize_switch PASSED [ 94%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_sequential_run_order_effects_and_event_commit PASSED [ 95%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_terminate_component_ends_loop_before_max_steps PASSED [ 96%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_max_steps_caps_the_loop PASSED [ 97%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_premise_is_committed_as_event_before_first_step PASSED [ 97%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_guard_step_receives_candidate_pre_commit_and_rewrites_the_commit PASSED [ 98%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_guard_step_can_veto_with_a_different_statement PASSED [ 99%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_guard_rewrite_happens_before_observer_notification PASSED [100%]\n\n======================= 134 passed in 104.51s (0:01:44) ========================\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "adapter-final-dod",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q"
+      ],
+      "command_string": "bash -c /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "1ae1196c88eed3f4ddfdb93c4798df2981ef1f63",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": true,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T17:18:19+00:00",
+      "no_progress_timeout_s": 240.0,
+      "total_timeout_s": 600.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 233.734,
+      "hard_deadline_at": 524.085,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/adapter-final-dod",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/adapter-final-dod/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/adapter-final-dod/stderr.log",
+      "progress_file": null,
+      "pid": 3581,
+      "pgid": 3581,
+      "heartbeat_at": "2026-08-03T17:19:35+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 22.17,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T17:19:44+00:00",
+      "elapsed_s": 85.023,
+      "seconds_since_progress": 6.266,
+      "completed_units": null,
+      "cpu_cores_recent": 1.01,
+      "process_group_size": 10,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T17:18:19+00:00",
+          "elapsed_s": 0.027,
+          "until_elapsed_s": 84.82,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.027
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 40%]\n........................................................................ [ 80%]\n....................................                                     [100%]\n180 passed in 83.27s (0:01:23)\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }
