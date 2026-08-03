@@ -1,0 +1,180 @@
+{
+  "budget_total_s": 480.0,
+  "failures": [],
+  "finished_at": "2026-08-03T21:29:09.813501+00:00",
+  "generated_at": "2026-08-03T21:28:46.554717+00:00",
+  "integration_method_doc": "third_party/INTEGRATION_METHOD.md",
+  "monitored_job_id": "robustness-clean-install",
+  "ok": true,
+  "package_inventory": {
+    "count": 151,
+    "key_versions": {
+      "agentsociety2": "2.8.4",
+      "gdm-concordia": "2.4.0",
+      "litellm": "1.95.0",
+      "mcp": "1.29.0",
+      "numpy": "2.5.1",
+      "pytest": "9.1.1",
+      "ray": "2.56.1"
+    }
+  },
+  "phases": [
+    {
+      "name": "verify_pinned_checkouts",
+      "ok": true,
+      "seconds": 0.031
+    },
+    {
+      "argv": [
+        "/root/.local/bin/uv",
+        "venv",
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv",
+        "--python",
+        "/usr/bin/python3.12"
+      ],
+      "name": "create_venv",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 0.014,
+      "stderr_tail": "Using CPython 3.12.3 interpreter at: /usr/bin/python3.12\nCreating virtual environment at: /tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv\nActivate with: source /tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/activate\n",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/root/.local/bin/uv",
+        "pip",
+        "install",
+        "-p",
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/python",
+        "-e",
+        "/home/user/concordia"
+      ],
+      "name": "install_concordia_editable",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 2.769,
+      "stderr_tail": "Using Python 3.12.3 environment at: /tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv\nResolved 34 packages in 1.63s\n   Building gdm-concordia @ file:///home/user/concordia\n      Built gdm-concordia @ file:///home/user/concordia\nPrepared 3 packages in 220ms\nInstalled 34 packages in 841ms\n + absl-py==2.5.0\n + asttokens==3.0.2\n + contourpy==1.3.3\n + cycler==0.12.1\n + executing==2.2.1\n + fonttools==4.63.0\n + gdm-concordia==2.4.0 (from file:///home/user/concordia)\n + ipython==9.16.1\n + ipython-pygments-lexers==1.1.1\n + jedi==0.20.0\n + kiwisolver==1.5.0\n + matplotlib==3.11.1\n + matplotlib-inline==0.2.2\n + numpy==2.5.1\n + packaging==26.2\n + pandas==3.0.5\n + parso==0.8.7\n + pexpect==4.9.0\n + pillow==12.3.0\n + prompt-toolkit==3.0.53\n + psutil==7.2.2\n + ptyprocess==0.7.0\n + pure-eval==0.2.3\n + pygments==2.20.0\n + pyparsing==3.3.2\n + python-dateutil==2.9.0.post0\n + reactivex==5.1.0\n + six==1.17.0\n + stack-data==0.6.3\n + tenacity==9.1.4\n + termcolor==3.3.0\n + traitlets==5.16.1\n + typing-extensions==4.16.0\n + wcwidth==0.8.2\n",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/root/.local/bin/uv",
+        "pip",
+        "install",
+        "-p",
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/python",
+        "-e",
+        "/home/user/agentsociety2/packages/agentsociety2"
+      ],
+      "name": "install_agentsociety2_editable",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 4.758,
+      "stderr_tail": "mcp==2.0.0\n + mcp-types==2.0.0\n + mdurl==0.1.2\n + mem0ai==2.0.15\n + msgpack==1.2.1\n + multidict==6.7.1\n + mypy-extensions==1.1.0\n + narwhals==2.24.0\n + networkx==3.6.1\n + openai==2.52.1\n + opentelemetry-api==1.44.0\n + pathspec==1.1.1\n + platformdirs==4.11.0\n + plotly==6.9.0\n + portalocker==3.2.0\n + posthog==7.37.0\n + propcache==0.5.2\n + protobuf==5.29.6\n + pycityproto==2.4.5\n + pycparser==3.0\n + pydantic==2.13.4\n + pydantic-core==2.46.4\n + pyjwt==2.13.0\n + pyproj==3.7.2\n + python-dotenv==1.2.2\n + python-multipart==0.0.32\n + pytokens==0.4.1\n + pytz==2026.3.post1\n + pyyaml==6.0.3\n + qdrant-client==1.18.0\n + ray==2.56.1\n + referencing==0.37.0\n + regex==2026.7.19\n + requests==2.34.2\n + rich==15.0.0\n + rpds-py==2026.6.3\n + scikit-learn==1.9.0\n + scipy==1.18.0\n + shapely==2.1.2\n + shellingham==1.5.4\n + sniffio==1.3.1\n + sqlalchemy==2.0.51\n + sqlmodel==0.0.39\n + sse-starlette==3.4.6\n + starlette==1.3.1\n + stringcase==1.2.0\n + threadpoolctl==3.6.0\n + tiktoken==0.13.0\n + tokenizers==0.23.1\n + tqdm==4.70.0\n + truststore==0.10.4\n + typer==0.27.1\n + types-protobuf==5.29.1.20250403\n + typing-inspection==0.4.2\n + urllib3==2.7.0\n + uvicorn==0.52.1\n + wsproto==1.3.2\n + yarl==1.24.5\n + zipp==4.1.0\n",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/root/.local/bin/uv",
+        "pip",
+        "install",
+        "-p",
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/python",
+        "mcp[cli]>=1.13.1,<2"
+      ],
+      "name": "install_mcp_environment_pin",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 0.093,
+      "stderr_tail": "Using Python 3.12.3 environment at: /tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv\nResolved 36 packages in 63ms\nUninstalled 1 package in 1ms\nInstalled 3 packages in 7ms\n + httpx-sse==0.4.3\n - mcp==2.0.0\n + mcp==1.29.0\n + pydantic-settings==2.14.2\n",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/root/.local/bin/uv",
+        "pip",
+        "install",
+        "-p",
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/python",
+        "pytest",
+        "pytest-xdist",
+        "pytest-timeout",
+        "pytest-asyncio",
+        "anyio"
+      ],
+      "name": "install_test_plugins",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 0.238,
+      "stderr_tail": "Using Python 3.12.3 environment at: /tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv\nResolved 12 packages in 212ms\nInstalled 7 packages in 7ms\n + execnet==2.1.2\n + iniconfig==2.3.0\n + pluggy==1.6.0\n + pytest==9.1.1\n + pytest-asyncio==1.4.0\n + pytest-timeout==2.4.0\n + pytest-xdist==3.8.0\n",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/python",
+        "-c",
+        "import concordia, agentsociety2, sys; sys.path.insert(0, '/home/user/SWORLDMODEL-GROUND-UP'); import sworldmodel; print('coexistence OK')"
+      ],
+      "name": "coexistence_check",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 11.831,
+      "stderr_tail": "",
+      "stdout_tail": "coexistence OK\n"
+    },
+    {
+      "name": "package_inventory",
+      "ok": true,
+      "seconds": 0.013
+    },
+    {
+      "argv": [
+        "/tmp/claude-0/-home-user/fae0e3e5-ce24-5574-bc91-1406fe07e505/scratchpad/clean-install-venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/engine_counterfactuals/test_failure_isolation.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "name": "engine_smoke_suite",
+      "ok": true,
+      "returncode": 0,
+      "seconds": 3.492,
+      "stderr_tail": "",
+      "stdout_tail": "..                                                                       [100%]\n2 passed in 2.66s\n"
+    }
+  ],
+  "pins": {
+    "agentsociety2": {
+      "clean": true,
+      "head": "6e9fc2e79f89f65a3e3d0d7899e380f7394099be",
+      "local_checkout": "/home/user/agentsociety2",
+      "ok": true,
+      "pinned_commit_sha": "6e9fc2e79f89f65a3e3d0d7899e380f7394099be"
+    },
+    "concordia": {
+      "clean": true,
+      "head": "7779a4c9f96bad10816d88c54e4cb17d53ac5222",
+      "local_checkout": "/home/user/concordia",
+      "ok": true,
+      "pinned_commit_sha": "7779a4c9f96bad10816d88c54e4cb17d53ac5222"
+    }
+  },
+  "repo_sha": "ba934d0683e54f93866c5d1587b8cad0fb46d34f",
+  "repo_worktree_dirty": true,
+  "schema_version": 1,
+  "smoke": {
+    "output_tail": "..                                                                       [100%]\n2 passed in 2.66s\n",
+    "passed_2": true,
+    "returncode": 0,
+    "seconds": 3.492,
+    "test_path": "tests/engine_counterfactuals/test_failure_isolation.py"
+  },
+  "statement": "Clean-installation evidence: the engine environment rebuilt from an empty venv per third_party/INTEGRATION_METHOD.md, with the coexistence check and one fast engine smoke suite green inside it.",
+  "total_seconds": 23.259,
+  "uv_version": "uv 0.8.17",
+  "venv_python_base": "/usr/bin/python3.12",
+  "venv_removed_after_run": true,
+  "within_budget": true
+}
