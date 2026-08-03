@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-5-minimum-agency-guard",
+  "git_sha": "254bbb85e7a3b6e6c8c741191ab46a3eba6b5c14",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_baseline/test_agency_guard.py tests/engine_baseline/test_builder_contracts.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T10:55:14+00:00",
+  "finished_at": "2026-08-03T10:55:16+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/backends/concordia_local/guard.py": "2050d43fec35bcd1b90485fd5cd1ba3716ac4b6b8b64e11a96592ffc080f61bf"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T10:55:16+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": ".............................                                            [100%]\n29 passed in 1.37s\n"
+}
