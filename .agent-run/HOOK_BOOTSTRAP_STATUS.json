@@ -7,12 +7,12 @@
   "fresh_session_hooks_loaded": "PENDING",
   "live_event_tests": "PENDING",
   "verified_commit": null,
-  "static_verified_commit": "7ffe5141927664eb5c996437c7ec4756d1c3231d",
+  "static_verified_commit": "13e527b924fff0ee22ca28d5a8dc252ff85b4df0",
   "static_evidence": {
-    "control_plane_tests": 189,
-    "pythonhashseeds_exercised": [0, 1, 42, 12345, 99991],
-    "mutations_injected": 15,
-    "mutations_caught": 15,
+    "control_plane_tests": 194,
+    "pythonhashseeds_exercised": [0, 1, 7, 42, 12345, 99991],
+    "mutations_injected": 16,
+    "mutations_caught": 16,
     "clean_checkout_validated": true
   },
   "notes": [
