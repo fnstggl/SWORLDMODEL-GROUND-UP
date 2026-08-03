@@ -514,3 +514,26 @@ implementation.
   snapshot + worker registry cache when the distributed suite adopts the
   contracts suite's workspace; DoD-ordered command avoids it. Candidate
   for the operational-robustness matrix, not a product defect.
+
+## Guard hardening notes 2026-08-03 (findings 6+7 closed)
+
+- Unresolved-subject policy: pronoun/collective subjects that cannot be
+  resolved to a roster name conservatively bind every non-active roster
+  actor (each receives an availability sentence) -- errs toward agency
+  preservation; verbose on large rosters by design.
+- Reference resolution is deterministic and gender-blind: singular
+  pronouns bind the nearest preceding roster name; bare "they" binds the
+  distinct preceding roster names with an all-non-active fallback.
+- Documented residuals (guard docstring): second-person/"it" subjects,
+  do-support emphatics, bare-modal futures, pronoun-possessive
+  nominalizations, collective possessives, multi-comma asides; asyndetic
+  serial-verb tails over-rewrite in the recoverable direction. Stateless
+  nominal trade-off: references to genuinely past acts are
+  indistinguishable from invented ones without history and are
+  conservatively rewritten.
+- Hardcoding-guard allowlist mechanism upgraded during the sanctioned
+  remedy: whole-file skips replaced by per-file word allowances (files
+  stay scanned for every other word), with an exactness test rejecting
+  broad/stale/empty entries. guard.py's allowance is exactly
+  {vote, voting}; "committee" was deliberately left off the guard's
+  group-noun list to keep it that narrow.

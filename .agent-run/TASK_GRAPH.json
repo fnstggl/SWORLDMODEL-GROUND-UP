@@ -539,7 +539,7 @@
       "description": "Close the guard evasion classes found by the phases 3-7 adversarial review (docs/engine_migration/reviews/PHASE_3_7_BOUNDARY_REVIEW.md findings 6 and 7) before any phase that lets a live model author event text: detect pronoun/collective subjects, perfect/progressive auxiliaries, and nominalization shapes; stop over-blocking belief-verb complements (e.g. \"hopes Morgan agrees\") and performative content requests; and replace the lemma stem+suffix table circumvention with a documented hardcoding-guard ALLOWLIST entry for guard.py plus plain literals. Public guard API must not change. Sequenced after Phase 8 so concordia_local has one writer at a time.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-8-concordia-actor-workspace-adapter"
@@ -558,7 +558,16 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "H_simulation_semantics"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "a4112f67ce0a (artifacts + clean-worktree receipt); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/agency-guard-hardening__a4112f67ce0a__20260803T1206110000.json",
+        "receipt_command": "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+        "receipt_exit_code": 0,
+        "tests_passed": 134,
+        "summary": "All four finding-6 evasion classes detected (pronoun/collective subjects with deterministic roster-name reference resolution, perfect/progressive auxiliary chains, roster-anchored nominalizations, parenthetical-comma asides) with caught + nearby-shape discriminating tests per class; belief-verb complements and performative content requests no longer over-blocked (byte-identical survival proven, narrowness proven by assert-verbs staying caught); finding-7 lemma table replaced with plain literals and the hardcoding-guard allowlist narrowed to per-file word allowances ({vote, voting} for guard.py) with an exactness test.",
+        "lead_verification": "independent run at 7e6294e: engine_baseline + hardcoding guard 59 passed (engine env), hardcoding guard 3 passed (system python)"
+      }
     },
     {
       "id": "phase-9-individual-vertical-slice",
