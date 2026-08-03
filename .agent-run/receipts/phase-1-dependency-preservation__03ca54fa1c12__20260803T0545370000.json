@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-1-dependency-preservation",
+  "git_sha": "03ca54fa1c12f64c99d1e076ec1b13e313b0f7c8",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python tests/engine_contracts/phase1_coexistence_proof.py",
+  "exit_code": 0,
+  "started_at": "2026-08-03T05:45:29+00:00",
+  "finished_at": "2026-08-03T05:45:37+00:00",
+  "artifact_paths": [
+    "third_party/UPSTREAM_LOCK.json",
+    "third_party/THIRD_PARTY_NOTICES.md",
+    "third_party/INTEGRATION_METHOD.md",
+    "third_party/PATCHES.md"
+  ],
+  "configuration_hashes": {
+    "upstream_lock": "04f8dbf38fccb680132a2b0a8c6ede14640757c99467a5f77c37ba729aaa7b3b"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T05:45:37+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "  ok - imports coexist: concordia + agentsociety2 + sworldmodel\n  ok - concordia EntityAgent observe/act/get_state/set_state with real memory bank\n  ok - agentsociety2 workspace create + AGENT.json schema + opaque state/ blob\n  ok - sworldmodel compiler schema importable in the engine environment\nPHASE1 COEXISTENCE PROOF: 4/4 checks passed\n"
+}

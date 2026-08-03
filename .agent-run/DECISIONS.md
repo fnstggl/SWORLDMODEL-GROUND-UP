@@ -259,3 +259,68 @@ place and made stricter about evidence in three.
 - **Phase 0 baseline artifact path fixed as**
   `docs/engine_migration/PHASE0_BASELINE.md` so the phase's completion
   contract is machine-checkable from the task graph.
+
+## Hook maintenance 2026-08-03 -- change audit was bootstrap-only; docs misclassified as evaluators
+
+Entered `hook_maintenance` from `implementation` (previous mode kept in
+`phase`) because the Phase 0 receipt run demonstrated two validator defects.
+
+**Defect 1 (blocking by design, wrongly).** `validate_control_plane.py::
+check_no_production_changes` unconditionally forbade `production`,
+`evaluator`, `fixture`, and `prompt` categories in the branch diff versus
+main. That rule encodes the *hook-bootstrap* discipline ("the control plane
+may add its own files and its own tests, and nothing else"). Once the
+master-context handshake has passed and the mode is `implementation`,
+changing production/evaluator/fixture/prompt code is the entire point of the
+run -- with the check as it stood, the validator could never PASS on any
+commit that adds engine code, making every downstream current-SHA receipt
+unattainable. Demonstrated live: the full suite failed on
+`docs/engine_migration/ACCEPTANCE_GATES.md (evaluator)` -- a documentation
+file whose creation is directive-mandated.
+
+**Defect 2.** `hook_state.classify_path` ran the evaluator/fixture/prompt
+filename heuristics *before* the `docs/` prefix rule, so any documentation
+path containing words like "acceptance" or "evaluation" classified as
+`evaluator` material. Documentation is explicitly editable even during a
+frozen acceptance batch (HOOKS_README §5), so this order is wrong in general.
+
+**Smallest general causes and fixes.**
+1. `classify_path` now classifies `docs/` (and root-level `*.md`) as `doc`
+   before applying the evaluator/fixture/prompt heuristics. Non-doc paths
+   (`evaluation/score.py`, `acceptance/gate.py`, `worlds/*.json`,
+   `*/prompts/*`) classify exactly as before.
+2. `check_no_production_changes` is now mode-aware, with the forbidden set
+   reported in its payload (`forbidden_categories`): bootstrap modes keep the
+   original strict set; `implementation` (and hook_maintenance / complete /
+   external_blocker) forbid only `upstream_protected`; `frozen_acceptance`
+   forbids production/evaluator/fixture/prompt/test changes measured against
+   `RUN_STATE.frozen_sha` (and fails outright if frozen_sha is unset). Pinned
+   upstream source stays inviolable in every mode.
+
+**Regression coverage added.** `tests/control_plane/
+test_validate_control_plane.py`: docs-over-heuristics classification tests;
+a git-backed mode-awareness suite proving (a) implementation mode accepts a
+production diff, (b) implementation mode still rejects a pinned-upstream
+diff, (c) bootstrap mode still rejects a production diff, (d) frozen
+acceptance passes when nothing changed since frozen_sha and fails on a
+production change after it, and (e) frozen acceptance without frozen_sha
+fails. The end-to-end repository test now derives the allowed categories from
+the check's own reported `forbidden_categories` instead of hardcoding the
+bootstrap set.
+
+Also cleaned: a stray `argv.json` written into the repo root by the
+AgentSociety baseline suite (their tests write it to the invoking cwd);
+future upstream-suite runs cd into the upstream checkout first. Recorded in
+FAILURE_LEDGER.jsonl.
+
+**Outcome.** A third defect of the same naive-text-scan class surfaced during
+revalidation and was fixed in the same window: `check_json_parses` flagged any
+`//` or `/*` in the raw file as "comment syntax", which false-positived on
+URLs inside legitimate JSON string values (live case: monitored-job commands
+in `BACKGROUND_JOBS.json` carrying `http://localhost:9`). Since the strict
+`json.loads` parse already rejects every real comment form, the raw-text scan
+was removed and a regression test added (`test_urls_inside_string_values_are_
+not_comments`); `UPSTREAM_PROTECTED_PATHS.json` URLs were restored to full
+`https://` form. Revalidation: validator suite 81 tests OK, gate suite OK,
+`validate_control_plane.py --run-tests` PASS (hook suite 131 passed + 93
+subtests; runner suite 25 passed). Mode restored to `implementation`.

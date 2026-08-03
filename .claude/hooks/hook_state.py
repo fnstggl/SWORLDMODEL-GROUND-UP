@@ -690,14 +690,17 @@ def classify_path(path_like, root: Path | None = None) -> str:
         return "upstream_protected"
     if rel in TEST_FILES or _under_any(rel, TEST_PREFIXES):
         return "test"
+    # Documentation wins over the evaluator/fixture/prompt filename heuristics:
+    # a doc named "ACCEPTANCE_GATES.md" is prose about evaluators, not an
+    # evaluator, and docs stay editable even during a frozen acceptance batch.
+    if _under_any(rel, DOC_PREFIXES) or (rel.endswith(".md") and "/" not in rel):
+        return "doc"
     if _EVALUATOR_RE.search(rel):
         return "evaluator"
     if _FIXTURE_RE.search(rel):
         return "fixture"
     if _PROMPT_RE.search(rel):
         return "prompt"
-    if _under_any(rel, DOC_PREFIXES) or (rel.endswith(".md") and "/" not in rel):
-        return "doc"
     return "production"
 
 

@@ -1,48 +1,47 @@
 # Handoff
 
-Current state: **master-context initialization complete; mode is
-`implementation`**. The exact master directive is committed at
-`docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md`
-(sha256 `ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb`,
-recorded in `RUN_STATE.json`). The handshake passed on branch
-`claude/engine-migration-setup-j5d0ti` at transition SHA
-`87f8c3d29cc7901d0d7d6ed835190cbde6fb3059`: validator PASS, empty
-`master_context_problems()`, passing `master-context-initialization` receipt
-at that exact SHA (`.agent-run/receipts/`), then
-`ready_for_master` → `implementation`.
+Mode `implementation`, phase `phase_2_upstream_contract_tests`, branch
+`claude/concordia-agentsociety-best-action-engine`, draft PR #9 open into
+main (not merged during the run, per directive).
 
-`.agent-run` is fully initialized from the directive: ARCHITECTURE.md
-(replacement architecture, ownership table, integration stages),
-CRITICAL_PATH.md (single path to final adjudication), TASK_GRAPH.json
-(handshake + branch/PR + audit + phases 0–12 + reviews + adjudication, with
-owners, dependencies, artifacts, receipt contracts), ACCEPTANCE_STATUS.json
-(gates A–J, all NOT_STARTED, overall IN_PROGRESS),
-UPSTREAM_PROTECTED_PATHS.json (pinned repo baselines + protected
-`third_party/` paths + sanctioned import procedure), DECISIONS.md
-(initialization decisions incl. branch authority and the receipt re-record
-protocol).
+## Completed with passing current-SHA receipts (see .agent-run/receipts/)
 
-**First actions for the next fresh session (run `/goal`):**
+1. **Master-context initialization** — directive at
+   `docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md` (sha256
+   `ac863c83…cdbb`), `.agent-run` fully populated, mode transitioned.
+2. **Three-repository audit** — raw evidence in
+   `docs/engine_migration/audit_raw/{CONCORDIA,AGENTSOCIETY,SWORLDMODEL}_AUDIT.md`;
+   synthesized into UPSTREAM_AUDIT, SWORLD_CURRENT_STATE, OWNERSHIP_MAP,
+   INTEGRATION_PLAN, RISK_REGISTER, ACCEPTANCE_GATES,
+   OWNERSHIP_AND_REPLACEMENT_MAP (all under docs/engine_migration/).
+3. **Phase 0 baseline** — PHASE0_BASELINE.md: SWORLDMODEL 483/0, Concordia
+   core 560/0 (20 failures examples-only, fork-introduced), AgentSociety2
+   387/0; engine env Python 3.12.3 at /home/user/engine-env; monitored job
+   records under .agent-run/jobs/phase0-*.
+4. **Hook maintenance (closed)** — validator change audit made mode-aware,
+   docs classify before evaluator heuristics, JSON comment scan replaced by
+   the strict parse; regression tests added; full revalidation PASS.
+   See DECISIONS.md two "Hook maintenance 2026-08-03" entries + FAILURE_LEDGER.
+5. **Phase 1 dependency preservation** — third_party/{UPSTREAM_LOCK.json,
+   THIRD_PARTY_NOTICES.md, INTEGRATION_METHOD.md, PATCHES.md(zero patches)};
+   pins concordia 7779a4c9…, agentsociety2 6e9fc2e7…; coexistence proof
+   `tests/engine_contracts/phase1_coexistence_proof.py` (exit 0).
 
-1. Read GOAL.md, RUN_STATE.json, CRITICAL_PATH.md, BLOCKERS.md; verify the
-   SessionStart summary against the files.
-2. Run `python3 .claude/tools/validate_control_plane.py`. Expected: the only
-   possible failure is a **stale `master-context-initialization` receipt**,
-   because committing the receipt necessarily moved HEAD past the SHA inside
-   it. That is re-verification debt, not lost authority — re-record per
-   DECISIONS.md "Receipt re-record protocol":
-   `python3 .claude/tools/record_receipt.py --task-id
-   master-context-initialization --run -- python3 -m pytest
-   tests/control_plane -q`, then re-run the validator (expect PASS).
-3. Execute critical-path step 2: create
-   `claude/concordia-agentsociety-best-action-engine` from updated main
-   containing this initialization (see DECISIONS.md "Branch authority"),
-   open the one draft PR into main (do not merge it during the run), and
-   begin `three-repository-audit`. Production architecture implementation
-   is gated on the audit gates passing (directive step 13).
+## Next action (critical path)
 
-No background jobs are active. No blockers are open. TeammateIdle remains
-UNAVAILABLE_IN_CLAUDE_CODE_WEB (optional; fallback controls listed in
-RUN_STATE.json). Long-running work must go through
-`.claude/tools/run_monitored.py`. Completion is legal only at
-ACCEPTANCE_STATUS overall PASS or a genuine EXTERNAL_BLOCKER.
+Phase 2 — upstream contract tests in `tests/engine_contracts/` (pytest,
+engine-env only; modules must `pytest.importorskip("concordia")` so the
+system-python suite stays green; the proof script shows the env pattern).
+Contracts to prove are enumerated in INTEGRATION_PLAN.md §Phase 2. Then
+Phase 3 (fixed contracts + frozen fixtures), then the Phase 4 hard gate.
+
+## Session-start ritual (unchanged)
+
+Validator (`python3 .claude/tools/validate_control_plane.py`); if its only
+failure is a stale `master-context-initialization` receipt, re-record per
+DECISIONS.md "Receipt re-record protocol", then continue the critical path.
+Upstream-suite runs: cd into the upstream checkout (their tests write scratch
+to cwd). Engine-env runs need dummy `AGENTSOCIETY_LLM_*` vars offline.
+
+No background jobs active. No open blockers. TeammateIdle remains
+UNAVAILABLE_IN_CLAUDE_CODE_WEB (optional; fallbacks in RUN_STATE.json).

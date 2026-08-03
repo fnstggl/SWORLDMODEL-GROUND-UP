@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-0-freeze-and-baseline",
+  "git_sha": "03ca54fa1c12f64c99d1e076ec1b13e313b0f7c8",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests -q",
+  "exit_code": 1,
+  "started_at": "2026-08-03T05:28:55+00:00",
+  "finished_at": "2026-08-03T05:29:58+00:00",
+  "artifact_paths": [
+    "docs/engine_migration/PHASE0_BASELINE.md",
+    "docs/engine_migration/phase0_engine_env_freeze.txt",
+    ".agent-run/jobs/phase0-sworldmodel-baseline-suite-2/job.json",
+    ".agent-run/jobs/phase0-concordia-baseline-suite-3/job.json",
+    ".agent-run/jobs/phase0-agentsociety-baseline-suite-2/job.json"
+  ],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T05:29:58+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "me]['detail']}\")\nE               AssertionError: False is not true : json_files_parse: .agent-run/BACKGROUND_JOBS.json (contains comment syntax; JSON forbids comments)\n\ntests/control_plane/test_validate_control_plane.py:720: AssertionError\n_ TestValidatorEndToEnd.test_structural_checks_pass_for_this_repository (check='no_production_files_changed') _\n\nself = <test_validate_control_plane.TestValidatorEndToEnd testMethod=test_structural_checks_pass_for_this_repository>\n\n    def test_structural_checks_pass_for_this_repository(self):\n        checks = {c[\"check\"]: c for c in self.payload[\"checks\"]}\n        for name in (\"required_files_exist\", \"json_files_parse\", \"settings_has_required_events\",\n                     \"settings_hook_shape\", \"settings_script_paths_exist\", \"python_sources_compile\",\n                     \"agent_definitions_parse\", \"no_production_files_changed\", \"claude_md_preserved\",\n                     \"run_state_valid\", \"bootstrap_status_consistent\", \"initialization_level\"):\n            with self.subTest(check=name):\n>               self.assertTrue(checks[name][\"ok\"], f\"{name}: {checks[name]['detail']}\")\nE               AssertionError: False is not true : no_production_files_changed: these non-control-plane paths changed: argv.json (production), docs/engine_migration/ACCEPTANCE_GATES.md (evaluator)\n\ntests/control_plane/test_validate_control_plane.py:720: AssertionError\n=========================== short test summary info ============================\nFAILED tests/control_plane/test_validate_control_plane.py::TestValidatorEndToEnd::test_no_production_implementation_files_changed\nSUBFAILED(check='json_files_parse') tests/control_plane/test_validate_control_plane.py::TestValidatorEndToEnd::test_structural_checks_pass_for_this_repository\nSUBFAILED(check='no_production_files_changed') tests/control_plane/test_validate_control_plane.py::TestValidatorEndToEnd::test_structural_checks_pass_for_this_repository\n3 failed, 482 passed, 144 subtests passed in 62.60s (0:01:02)\n"
+}

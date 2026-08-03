@@ -152,6 +152,26 @@ class TestJsonChecks(ValidatorCheckTestCase):
         checks = self.run_check(vcp.check_json_parses)
         self.assertFalse(checks["json_files_parse"]["ok"])
 
+    def test_urls_inside_string_values_are_not_comments(self):
+        """Regression: '//' inside a JSON string value is data, not a comment.
+
+        Monitored-job records legitimately carry commands and URLs like
+        'http://localhost:9'; the audit failed live on BACKGROUND_JOBS.json
+        because the old raw-text scan could not tell values from syntax.
+        """
+        self.write_settings(self.good_settings())
+        self.project.write_state("BACKGROUND_JOBS.json", {
+            "schema_version": 1,
+            "active_jobs": [],
+            "completed_jobs": [{
+                "job_id": "j1",
+                "command": "env API_BASE=http://localhost:9 pytest /* glob */",
+                "url": "https://example.com/path",
+            }],
+        })
+        checks = self.run_check(vcp.check_json_parses)
+        self.assertTrue(checks["json_files_parse"]["ok"], checks["json_files_parse"]["detail"])
+
     def test_invalid_jsonl_ledger_is_detected(self):
         (self.project.agent_run / "FAILURE_LEDGER.jsonl").write_text(
             '{"ok": 1}\nnot json\n', encoding="utf-8")
@@ -539,6 +559,88 @@ class TestPathClassification(unittest.TestCase):
         self.assertEqual(self.classify("worlds/committee.json"), "fixture")
         self.assertEqual(self.classify("pkg/prompts/system.txt"), "prompt")
 
+    def test_docs_take_precedence_over_evaluator_fixture_prompt_heuristics(self):
+        """A doc named after evaluators is prose, not an evaluator.
+
+        Regression for the live failure where the directive-mandated
+        docs/engine_migration/ACCEPTANCE_GATES.md classified as 'evaluator'
+        and the change audit rejected it. Docs are editable even during a
+        frozen acceptance batch (HOOKS_README §5).
+        """
+        for path in ("docs/engine_migration/ACCEPTANCE_GATES.md",
+                     "docs/evaluation/notes.md",
+                     "docs/prompts_overview.md",
+                     "docs/fixtures_guide.md",
+                     "ACCEPTANCE_NOTES.md"):
+            with self.subTest(path=path):
+                self.assertEqual(self.classify(path), "doc")
+
+
+class TestChangeAuditModeAwareness(ValidatorCheckTestCase):
+    """The change audit's forbidden set follows the run mode.
+
+    Bootstrap keeps the original strictness; implementation forbids only
+    pinned upstream paths (adding engine code is the point of the run);
+    frozen acceptance is measured against RUN_STATE.frozen_sha rather than
+    the branch base. Regression for the live defect where the validator
+    could never PASS on an implementation commit that added production or
+    evaluator-named files.
+    """
+
+    def audit(self, base=None):
+        return self.run_check(vcp.check_no_production_changes, base)["no_production_files_changed"]
+
+    def test_bootstrap_mode_still_rejects_production_changes(self):
+        (self.project.path / "engine_core.py").write_text("x = 1\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("engine_core.py", check["detail"])
+
+    def test_implementation_mode_accepts_production_and_evaluator_changes(self):
+        self.project.set_mode("implementation")
+        (self.project.path / "engine_core.py").write_text("x = 1\n", encoding="utf-8")
+        evaluator_dir = self.project.path / "acceptance"
+        evaluator_dir.mkdir()
+        (evaluator_dir / "gate.py").write_text("y = 2\n", encoding="utf-8")
+        check = self.audit()
+        self.assertTrue(check["ok"], check["detail"])
+        self.assertEqual(check["forbidden_categories"], ["upstream_protected"])
+
+    def test_implementation_mode_still_rejects_pinned_upstream_changes(self):
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [], "protected_paths": [{"path": "third_party/concordia/"}],
+        })
+        target = self.project.path / "third_party" / "concordia" / "core.py"
+        target.parent.mkdir(parents=True)
+        target.write_text("hacked = True\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("third_party/concordia/core.py", check["detail"])
+
+    def test_frozen_acceptance_measures_against_frozen_sha(self):
+        self.project._git("checkout", "-q", "-b", "impl")
+        (self.project.path / "engine_core.py").write_text("x = 1\n", encoding="utf-8")
+        self.project._git("add", "-A")
+        self.project._git("commit", "-q", "-m", "engine code")
+        frozen = self.project.head_sha()
+        self.project.set_mode("frozen_acceptance", frozen_sha=frozen)
+        check = self.audit()
+        # The production diff versus main predates the freeze; nothing changed
+        # since frozen_sha, so the frozen scope is intact.
+        self.assertTrue(check["ok"], check["detail"])
+        (self.project.path / "engine_core.py").write_text("x = 2\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("engine_core.py", check["detail"])
+
+    def test_frozen_acceptance_without_frozen_sha_fails(self):
+        self.project.set_mode("frozen_acceptance", frozen_sha=None)
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("frozen_sha", check["detail"])
+
 
 class TestPorcelainParsing(unittest.TestCase):
     """`git status --porcelain` uses a fixed-width 'XY ' prefix; dotfiles are the trap."""
@@ -729,11 +831,17 @@ class TestValidatorEndToEnd(unittest.TestCase):
         if "changed_paths" not in check:
             self.assertIn("skipped", check["detail"])
             self.skipTest(f"no comparable base ref: {check['detail']}")
+        # The forbidden set is mode-dependent (bootstrap discipline vs
+        # implementation vs frozen acceptance); the check reports the set it
+        # enforced, and that report is the single source of truth here.
+        forbidden = set(check.get("forbidden_categories") or [])
+        self.assertTrue(forbidden, "the check must report its forbidden categories")
+        self.assertIn("upstream_protected", forbidden,
+                      "pinned upstream source must be inviolable in every mode")
         for path in check["changed_paths"]:
             with self.subTest(path=path):
-                self.assertIn(hs.classify_path(path, REPO_ROOT),
-                              {"control_plane", "agent_run", "test", "doc"},
-                              f"{path} is not a control-plane path")
+                self.assertNotIn(hs.classify_path(path, REPO_ROOT), forbidden,
+                                 f"{path} is in a category forbidden for this mode")
 
 
 if __name__ == "__main__":

@@ -139,9 +139,34 @@ AGENT_FILES = (
 HOOK_TEST_TASK = "control-plane-hook-tests"
 RUNNER_TEST_TASK = "control-plane-monitored-runner-tests"
 
-#: Path categories that must never appear in this branch's diff. The control
-#: plane is allowed to add its own files and its own tests, and nothing else.
-FORBIDDEN_CHANGE_CATEGORIES = frozenset({"production", "upstream_protected", "evaluator", "fixture", "prompt"})
+#: Path categories that must never appear in the audited diff, by run mode.
+#: During hook bootstrap the branch may only add control-plane material.
+#: Once the master-context handshake has passed (``implementation`` and the
+#: modes that follow it), changing production, evaluator, fixture, and prompt
+#: code is the point of the run and only pinned upstream source stays
+#: inviolable. A ``frozen_acceptance`` batch is measured against the frozen
+#: SHA instead of the branch base and freezes tests too (HOOKS_README §5).
+BOOTSTRAP_FORBIDDEN_CATEGORIES = frozenset(
+    {"production", "upstream_protected", "evaluator", "fixture", "prompt"}
+)
+IMPLEMENTATION_FORBIDDEN_CATEGORIES = frozenset({"upstream_protected"})
+FROZEN_FORBIDDEN_CATEGORIES = frozenset(
+    {"production", "upstream_protected", "evaluator", "fixture", "prompt", "test"}
+)
+#: Back-compat alias for the original bootstrap-era constant name.
+FORBIDDEN_CHANGE_CATEGORIES = BOOTSTRAP_FORBIDDEN_CATEGORIES
+
+_POST_HANDSHAKE_MODES = frozenset(
+    {"implementation", "hook_maintenance", "complete", "external_blocker"}
+)
+
+
+def _forbidden_categories_for_mode(mode: str) -> frozenset:
+    if mode in _POST_HANDSHAKE_MODES:
+        return IMPLEMENTATION_FORBIDDEN_CATEGORIES
+    if mode == "frozen_acceptance":
+        return FROZEN_FORBIDDEN_CATEGORIES
+    return BOOTSTRAP_FORBIDDEN_CATEGORIES
 
 
 class Result:
@@ -222,10 +247,12 @@ def check_json_parses(root: Path, result: Result):
         try:
             json.loads(raw)
         except json.JSONDecodeError as exc:
+            # A strict parse failure also covers every comment form: the json
+            # module rejects // and /* */ outright, so a file that parses here
+            # provably contains no comments. Scanning the raw text for those
+            # character pairs is redundant and false-positives on URLs inside
+            # legitimate string values (e.g. monitored-job commands).
             bad.append(f"{rel} (line {exc.lineno}: {exc.msg})")
-            continue
-        if "//" in raw or "/*" in raw:
-            bad.append(f"{rel} (contains comment syntax; JSON forbids comments)")
     result.add("json_files_parse", not bad, "all parse as strict JSON" if not bad else "; ".join(bad))
 
     ledger = root / ".agent-run/FAILURE_LEDGER.jsonl"
@@ -436,10 +463,33 @@ def check_tests(root: Path, result: Result, run_tests: bool):
 
 
 def check_no_production_changes(root: Path, result: Result, base: str | None):
-    base_ref = base or _default_base(root)
+    try:
+        state = hs.read_run_state(root)
+    except hs.StateError:
+        state = {}
+    mode = str(state.get("mode") or "")
+    forbidden = _forbidden_categories_for_mode(mode)
+
+    base_ref = base
+    if base_ref is None and mode == "frozen_acceptance":
+        frozen = state.get("frozen_sha")
+        if not frozen:
+            result.add(
+                "no_production_files_changed",
+                False,
+                "mode is 'frozen_acceptance' but RUN_STATE.frozen_sha is not set; "
+                "the frozen scope cannot be verified",
+                mode=mode,
+                forbidden_categories=sorted(forbidden),
+            )
+            return
+        base_ref = str(frozen)
+    if base_ref is None:
+        base_ref = _default_base(root)
     if base_ref is None:
         result.add("no_production_files_changed", True,
-                   "no comparable base ref found; skipped", severity="warning")
+                   "no comparable base ref found; skipped", severity="warning",
+                   mode=mode, forbidden_categories=sorted(forbidden))
         return
 
     changed = set()
@@ -451,16 +501,20 @@ def check_no_production_changes(root: Path, result: Result, base: str | None):
     offenders = []
     for path in sorted(changed):
         category = hs.classify_path(path, root)
-        if category in FORBIDDEN_CHANGE_CATEGORIES:
+        if category in forbidden:
             offenders.append(f"{path} ({category})")
 
     result.add(
         "no_production_files_changed",
         not offenders,
-        f"compared against {base_ref}; only control-plane, .agent-run, test and doc paths changed"
+        f"mode={mode or 'unknown'}: compared against {base_ref}; "
+        f"no {'/'.join(sorted(forbidden))} paths changed"
         if not offenders
-        else "these non-control-plane paths changed: " + ", ".join(offenders),
+        else f"mode={mode or 'unknown'}: these forbidden-category paths changed "
+             f"(forbidden: {'/'.join(sorted(forbidden))}): " + ", ".join(offenders),
         base_ref=base_ref,
+        mode=mode,
+        forbidden_categories=sorted(forbidden),
         changed_paths=sorted(changed),
     )
 

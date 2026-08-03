@@ -1,20 +1,19 @@
 {
   "schema_version": 1,
   "status": "INITIALIZED_FROM_MASTER_DIRECTIVE",
-  "url_note": "URLs are recorded scheme-less (prepend https) because the control-plane JSON validator rejects any file containing the character pair used by line comments.",
   "repositories": [
     {
       "name": "SWORLDMODEL-GROUND-UP",
       "role": "product repository (this repo)",
-      "upstream_url": "github.com/fnstggl/SWORLDMODEL-GROUND-UP",
+      "upstream_url": "https://github.com/fnstggl/SWORLDMODEL-GROUND-UP",
       "implementation_base_sha": "87f8c3d29cc7901d0d7d6ed835190cbde6fb3059",
       "note": "Latest main containing the merged verified control plane; recorded at master-context initialization."
     },
     {
       "name": "concordia",
       "role": "upstream local simulation engine",
-      "upstream_url": "github.com/google-deepmind/concordia",
-      "fork_url": "github.com/fnstggl/concordia",
+      "upstream_url": "https://github.com/google-deepmind/concordia",
+      "fork_url": "https://github.com/fnstggl/concordia",
       "local_checkout": "/home/user/concordia",
       "baseline_sha_at_initialization": "7779a4c9f96bad10816d88c54e4cb17d53ac5222",
       "note": "Phase 0 re-records the audited SHA; Phase 1 pins the immutable integration SHA in third_party/UPSTREAM_LOCK.json, which then becomes the pin of record."
@@ -22,8 +21,8 @@
     {
       "name": "agentsociety",
       "role": "upstream distributed orchestration layer (AgentSociety 2)",
-      "upstream_url": "github.com/tsinghua-fib-lab/agentsociety",
-      "fork_url": "github.com/fnstggl/agentsociety2",
+      "upstream_url": "https://github.com/tsinghua-fib-lab/agentsociety",
+      "fork_url": "https://github.com/fnstggl/agentsociety2",
       "local_checkout": "/home/user/agentsociety2",
       "baseline_sha_at_initialization": "6e9fc2e79f89f65a3e3d0d7899e380f7394099be",
       "note": "Phase 0 re-records the audited SHA; Phase 1 pins the immutable integration SHA in third_party/UPSTREAM_LOCK.json, which then becomes the pin of record."

@@ -1,0 +1,32 @@
+# Risk Register — engine migration
+
+Sources: SWORLDMODEL audit (R1–R10, `audit_raw/SWORLDMODEL_AUDIT.md`),
+upstream audits (U1–U10), environment baseline (E1–E3). Each risk names its
+mitigation owner phase. Update on every phase boundary; a realized risk gets a
+FAILURE_LEDGER.jsonl entry.
+
+| ID | Risk | Impact | Mitigation (phase) |
+|---|---|---|---|
+| R1 | Compiler is not standalone: imports 5 kernel modules + `engine.Terminal` | Deleting/moving kernel breaks the frozen compiler's self-checks | Keep kernel files in place (KEEP class); no moves this pass (map) |
+| R2 | Two divergent shared_context precedents (adapter copies to every actor vs runtime withholds after 6/6 leak runs) | Re-importing the omniscience leak into Concordia | Mapping doc picks explicitly: shared_context → Concordia shared memory by design (directive), PLUS SHARED/PRIVATE canary tests prove containment per fixture (Phase 4/adapter) |
+| R3 | NO-side epistemics (C1) is engine-independent: empty queue ≠ horizon reached | False NO outcomes in Concordia too | BranchResult carries explicit `success/failure/cutoff/incomplete`; evaluator never converts early termination into NO; regression test (Phase 3/6) |
+| R4 | Byte-freeze tests pin compiler/kernel/runtime files | Any quarantine move or compiler-adjacent file addition fails the suite | No file moves this pass; if a freeze test must be re-scoped, do it explicitly with a DECISIONS.md entry + equivalent replacement coverage (gate B honesty) |
+| R5 | Compiler insufficient-case abstention is only 70% on the core dataset | Garbage worlds can reach simulation | DecisionProblem route treats `abstained` as terminal and validates compiled output; not assumed airtight (compiler-integration task) |
+| R6 | Credential coupling: DeepSeek (`DEEPSEEK_API_KEY`) vs AgentSociety (`AGENTSOCIETY_LLM_*`) vs Concordia model wrappers | Live-model paths misconfigured / split-brained | One documented credential map in INTEGRATION_METHOD.md; live smoke runs are optional-when-credentialed (gates C/D); deterministic paths never need credentials (Phase 1) |
+| R7 | No RNG seed anywhere in the current runtime; Concordia adds unseeded per-document numpy rng + global random | Gate E determinism unprovable without action | Test-harness seeding/patching at branch boundaries; SimulationSnapshot records seed state; `randomize_choices=False` where exposed (Phases 3–6) |
+| R8 | `COMPILER_DESIGN.md` documents the superseded legacy compiler | Mapping doc could map the wrong schema | Mapping doc cites `compiler/scene_schema.py` + README only; COMPILER_DESIGN.md flagged as legacy (done in SWORLD_CURRENT_STATE.md) |
+| R9 | Acceptance harness "instantiated" metric measures the old kernel path | Headline compiler metric silently measures a quarantined path | Add plan-validity metric when the adapter exists; keep old metric as the kernel self-check metric (compiler-integration task) |
+| R10 | Deleting the semantic runtime loses ~30 paid-for failure lessons | New engine relearns old defects | Runtime ARCHIVEd not deleted; invariant battery ported as the Concordia gate checklist (Phase 4/5; gate H) |
+| U1 | Default Concordia GM is maximally permissive (no terminate component, LLM fallback observations, narrative-push injection in default chain) | Gate H violations: invented facts, forced choices, silent causal events | Explicit GM assembly for our scenarios: deterministic terminate, no narrative push, `allow_llm_fallback` off where invention unacceptable, explicit observer routing; agency guard as final resolution step (Phases 4–5) |
+| U2 | Concordia checkpoint excludes RNG + engine cursor; resume restarts at steps=0 and re-observes premise | Stage B equivalence fails subtly | SWORLDMODEL sidecar: remaining-step budget, premise='' on resume, seed state; restore-equivalence test is the stage gate (Phase 8) |
+| U3 | AgentSociety driver discards per-agent step results | Silent branch failures read as completed runs | BranchResult files written atomically by the branch agent are the source of truth; Option 2 primitives used in the equivalence harness; missing-result = failed branch, loudly (Phase 7; gates F/I) |
+| U4 | `AGENT.json` writes non-atomic upstream | Rare corruption → permanent silent per-agent failure | Our artifacts atomic (tmp+replace); `AGENT.json` treated as best-effort; corruption drill in gate I |
+| U5 | In-batch asyncio.gather is unbounded; AIMD semaphore is per-process | Concurrency bound misconfigured at scale | batch_size=1 for long branches; bounded-concurrency assertion test at Stage A/C (gates F/G) |
+| U6 | Fork-introduced `ScriptedByEntityModel` breaks `get_package_classes` (examples path) | Prefab auto-discovery unusable; masks other example regressions | We construct prefab dicts explicitly (never `get_package_classes` over the whole package); recorded as known upstream-fork defect (gate A honesty) |
+| U7 | `import agentsociety2` hard-requires `AGENTSOCIETY_LLM_API_KEY` at import | Offline/CI paths crash at import | Dummy env vars set in all test harnesses (pattern proven in baseline); documented in RUNBOOK (Phase 1) |
+| U8 | mcp floating bound resolves to incompatible 2.x | Import failure | Environment pin `mcp>=1.13.1,<2` in UPSTREAM_LOCK/INTEGRATION_METHOD (Phase 1) |
+| U9 | No Ray-less society path; local single-node assumption; shared-FS workspaces | Scale tests must run single-node; multi-node is out of scope | Stage C runs single-node with explicit progress sources; documented limitation (gate G labeling) |
+| U10 | Concordia engine has no timeout around `entity.act`; sequential engine propagates exceptions | A hung/broken model call stalls a branch | Model wrappers (RetryLanguageModel/CallLimit) + per-branch wall-clock timeout owned by the branch executor; monitored-runner no-progress timeouts (Phases 7/11; gate I) |
+| E1 | Python floors: Concordia ≥3.12, control plane on 3.11 | Split-interpreter mistakes | Engine env at 3.12.3 (`/home/user/engine-env`), control plane stays on system 3.11; both documented (Phase 1) |
+| E2 | Ephemeral container: env must be reproducible from lock material | Fresh session can't run the engine | INTEGRATION_METHOD.md carries exact recreate commands; UPSTREAM_LOCK.json pins SHAs; freeze file committed (Phase 1) |
+| E3 | Network egress via proxy; upstream installs need it | Env recreation offline-fragile | Local checkouts at pinned SHAs are the primary source; git-URL installs are the fallback; both documented (Phase 1) |
