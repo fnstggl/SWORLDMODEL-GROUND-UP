@@ -620,3 +620,25 @@ HANDOFF.md.
   SHA-exact clean-tree proof is the receipt battery at the completion
   commit. This ordering (monitored battery -> commit -> bounded receipt
   battery at clean HEAD) is the accepted per-phase pattern.
+
+## Phase 10 notes 2026-08-03 (team vertical slice complete)
+
+- Every gate-D clause was expressible through EXISTING configuration:
+  meeting = plan defaults (fixed acting order, notify_observers) with the
+  scripted GM answering the observer question with the full roster;
+  private follow-ups = GM observer-subset answers keyed to turn-unique
+  needles (sound because the aware-question prompt carries only the
+  current event text in this build); authority = attribution-anchored
+  evaluator predicates keyed to the fixture's authority holder (the
+  Phase 9 pattern), proven by an identical-utterance flip probe. No
+  surgical concordia_local addition was needed.
+- Mechanical note for future team scenarios (and reviewers): a branch's
+  FINAL-step event is queued to observers but never delivered (the run
+  ends before the next fan-out) -- last-step turns exist in the world
+  record but reach no actor memory. Team assertions must be designed
+  around delivered steps.
+- Phase-5 receipt re-recorded at the current HEAD: the content-continuity
+  check correctly flagged that guard.py changed after phase-5's receipt
+  -- the change is the SANCTIONED guard hardening (a4112f6, its own
+  completed task). New receipt hashes the hardened guard.py + its test
+  file; the guard+builder suites pass with the hardened content.
