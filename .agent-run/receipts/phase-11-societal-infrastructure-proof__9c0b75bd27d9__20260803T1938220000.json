@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-11-societal-infrastructure-proof",
+  "git_sha": "9c0b75bd27d91d331cccc1cf90dce61e97df8cf5",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_scale -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T19:37:58+00:00",
+  "finished_at": "2026-08-03T19:38:22+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "docs/engine_migration/PHASE11_SCALE_EVIDENCE.md": "43cb402d83bb22467d55ff81d25891e141958814093f2071656960b7b560f26f",
+    "tests/engine_scale/evidence/hashes_manifest.json": "469b657561bb23cd8f170b3a441a96a55f9be33be529bf44ba2761c72afb1a85",
+    "tests/engine_scale/specs/scale100.json": "a50f22897d595d7d5f893b85f07a15bd206bf7091ff09e4e72a9db5d4197ccc0",
+    "tests/engine_scale/specs/scale1000_p1.json": "da8b867b0d724b663f95d3fb977a492f90cf6b2ae2e518adfe75ee31733f2e4e",
+    "tests/engine_scale/specs/scale1000_p2.json": "641e97a45d509bea1e5aebc3934a6db1bcbe3f4a93ebee2b95c20883a3c9ba3e",
+    "tests/engine_scale/specs/scale1000_p3.json": "fd6bd815bf3f43a1f0022db232ff2bbd13630b5d9ba9cfc3d41d772063e5a83b",
+    "tests/engine_scale/specs/scale1000_p4.json": "d40449aced218324d2d70caa2c7832716f5d00676be77bb31d50c4b2e0aae4ad"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T19:38:22+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": "................                                                         [100%]\n16 passed in 22.40s\n"
+}
