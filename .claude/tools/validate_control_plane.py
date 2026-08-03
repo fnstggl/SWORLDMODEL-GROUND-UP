@@ -554,6 +554,76 @@ def check_claude_md_preserved(root: Path, result: Result, base: str | None):
                if not missing else f"{len(missing)} preexisting line(s) were removed, e.g. {missing[0][:120]!r}")
 
 
+def check_phase_receipt_discipline(root: Path, result: Result):
+    """A completed task's newest passing receipt must be completion-grade.
+
+    Committed receipts are inherently one commit behind HEAD (a receipt can
+    never live inside the commit it attests to), so SHA equality alone cannot
+    be the bar. The real bar (adversarial-review finding H2): the newest
+    passing receipt for every complete task must either have been recorded on
+    a clean worktree, or carry ``configuration_hashes`` that all match the
+    CURRENT files — proving it certifies these exact bytes. The
+    master-context task keeps its own stricter SHA-exact check.
+    """
+    try:
+        graph = hs.read_task_graph(root)
+    except hs.StateError as exc:
+        result.add("phase_receipt_discipline", False, f"TASK_GRAPH.json unusable: {exc}")
+        return
+    problems: list[str] = []
+    checked = 0
+    for task in graph.get("tasks", []):
+        if task.get("status") != "complete" or not task.get("required_receipts"):
+            continue
+        task_id = task.get("id")
+        if task_id == hs.MASTER_INIT_TASK_ID:
+            continue
+        receipts = [r for r in hs.load_receipts(task_id, root) if not r.get("_error")]
+        passing = [r for r in receipts if hs.receipt_is_passing(r)]
+        if not passing:
+            problems.append(f"{task_id}: no passing receipt exists")
+            continue
+        newest = passing[-1]
+        checked += 1
+        if newest.get("worktree_clean") is True:
+            continue
+        hashes = newest.get("configuration_hashes") or {}
+        if not hashes:
+            problems.append(
+                f"{task_id}: newest passing receipt is dirty-worktree and carries no "
+                "configuration_hashes to prove content continuity"
+            )
+            continue
+        verified = 0
+        mismatched = False
+        for name, recorded in hashes.items():
+            candidate = root / name if not Path(name).is_absolute() else Path(name)
+            # config-hash keys may be labels rather than paths; only keys that
+            # resolve to real files count as continuity evidence.
+            current = hs.sha256_file(candidate)
+            if current is None:
+                continue
+            verified += 1
+            if current != recorded:
+                mismatched = True
+                problems.append(
+                    f"{task_id}: configuration hash for {name} no longer matches "
+                    f"({str(recorded)[:12]} recorded); the completed work changed after its receipt"
+                )
+        if verified == 0 and not mismatched:
+            problems.append(
+                f"{task_id}: newest passing receipt is dirty-worktree and none of its "
+                "configuration_hashes keys resolve to files — no content-continuity proof"
+            )
+    result.add(
+        "phase_receipt_discipline",
+        not problems,
+        f"{checked} completed task(s) have completion-grade receipts"
+        if not problems else "; ".join(problems),
+        checked=checked,
+    )
+
+
 def check_upstream_checkout_integrity(root: Path, result: Result):
     """Continuously verify the pinned upstream checkouts, when present.
 
@@ -782,6 +852,7 @@ def run(root: Path, run_tests: bool, base: str | None) -> Result:
     check_agents(root, result)
     check_tests(root, result, run_tests)
     check_no_production_changes(root, result, base)
+    check_phase_receipt_discipline(root, result)
     check_upstream_checkout_integrity(root, result)
     check_claude_md_preserved(root, result, base)
     check_git_context(root, result)

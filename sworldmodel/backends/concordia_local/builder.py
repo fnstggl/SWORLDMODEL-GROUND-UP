@@ -188,6 +188,7 @@ def build_branch(
     gm_model,
     guard_step: Callable | None = None,
     guard_escalate: Callable | None = None,
+    skip_initial_seeding: bool = False,
 ) -> BuiltBranch:
     """Construct live Concordia objects exactly as the plan declares.
 
@@ -210,7 +211,18 @@ def build_branch(
     with an injected ``guard_step`` it is refused as ambiguous, and with
     a disabled guard the identity step never rewrites, so the hook is
     inert by construction.
+
+    ``skip_initial_seeding=True`` exists for exactly one caller -- the
+    Phase 8 checkpoint restore path (``checkpoint.restore_branch``) --
+    and skips the two initial-seeding effects (pre-queuing the plan's
+    initial observations and delivering the pre-start game-master event
+    record): a restored branch receives that state, as evolved, from the
+    checkpoint's component state, and seeding it again would duplicate
+    observations and memory rows.  Every other caller must leave the
+    default ``False``.
     """
+    if type(skip_initial_seeding) is not bool:
+        raise PlanBuildError("skip_initial_seeding must be a boolean")
     if not isinstance(plan, ConcordiaInitializationPlan):
         raise PlanBuildError(
             "build_branch expects a ConcordiaInitializationPlan instance, "
@@ -417,14 +429,16 @@ def build_branch(
         context_components=gm_context_components,
     )
 
-    # Pre-queue initial observations exactly as the plan orders them.
-    for actor_id in actor_order:
-        for observation in plan.initial_observations.get(actor_id, ()):
-            make_observation.add_to_queue(actor_names[actor_id], observation)
+    if not skip_initial_seeding:
+        # Pre-queue initial observations exactly as the plan orders them.
+        for actor_id in actor_order:
+            for observation in plan.initial_observations.get(actor_id, ()):
+                make_observation.add_to_queue(actor_names[actor_id],
+                                              observation)
 
-    # Give the game master the pre-start event record.
-    for framed_event in plan.gm_initial_events:
-        game_master.observe(f"{EVENT_TAG} {framed_event}")
+        # Give the game master the pre-start event record.
+        for framed_event in plan.gm_initial_events:
+            game_master.observe(f"{EVENT_TAG} {framed_event}")
 
     return BuiltBranch(
         plan_id=plan.plan_id,

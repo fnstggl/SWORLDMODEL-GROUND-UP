@@ -642,6 +642,81 @@ class TestChangeAuditModeAwareness(ValidatorCheckTestCase):
         self.assertIn("frozen_sha", check["detail"])
 
 
+class TestPhaseReceiptDiscipline(ValidatorCheckTestCase):
+    """Completed tasks need completion-grade receipts (review finding H2)."""
+
+    def complete_task(self, task_id="phase-x"):
+        self.project.set_tasks([{
+            "id": task_id, "subject": "s", "description": "d",
+            "owner": "implementation-agent", "owner_type": "subagent",
+            "status": "complete",
+            "required_receipts": [{"task_id": task_id, "must_pass": True}],
+        }], status="INITIALIZED")
+        return task_id
+
+    def check(self):
+        return self.run_check(vcp.check_phase_receipt_discipline)["phase_receipt_discipline"]
+
+    def test_clean_worktree_receipt_passes(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, worktree_clean=True)
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertEqual(result["checked"], 1)
+
+    def test_dirty_receipt_without_content_proof_fails(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, worktree_clean=False)
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no configuration_hashes to prove content continuity", result["detail"])
+
+    def test_dirty_receipt_with_matching_config_hashes_passes(self):
+        task = self.complete_task()
+        artifact = self.project.path / "module.py"
+        artifact.write_text("x = 1\n", encoding="utf-8")
+        digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        self.project.add_receipt(task, worktree_clean=False,
+                                 configuration_hashes={"module.py": digest})
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+
+    def test_content_drift_after_receipt_fails(self):
+        task = self.complete_task()
+        artifact = self.project.path / "module.py"
+        artifact.write_text("x = 1\n", encoding="utf-8")
+        digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        self.project.add_receipt(task, worktree_clean=False,
+                                 configuration_hashes={"module.py": digest})
+        artifact.write_text("x = 2\n", encoding="utf-8")
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no longer matches", result["detail"])
+
+    def test_label_only_hashes_are_not_continuity_proof(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, worktree_clean=False,
+                                 configuration_hashes={"a_label": "0" * 64})
+        result = self.check()
+        self.assertFalse(result["ok"])
+
+    def test_missing_passing_receipt_fails_and_incomplete_tasks_are_ignored(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, exit_code=1)
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no passing receipt", result["detail"])
+        self.project.set_tasks([{
+            "id": "wip", "subject": "s", "description": "d",
+            "owner": "implementation-agent", "owner_type": "subagent",
+            "status": "in_progress",
+            "required_receipts": [{"task_id": "wip", "must_pass": True}],
+        }], status="INITIALIZED")
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertEqual(result["checked"], 0)
+
+
 class TestAuditExemptProtectedMetadata(ValidatorCheckTestCase):
     """audit_exempt entries skip the branch-diff audit but stay write-protected."""
 

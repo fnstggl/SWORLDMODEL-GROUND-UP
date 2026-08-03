@@ -339,6 +339,32 @@ def _recommendation_semantics(result: RecommendationResult, registry,
                     "ranking", "inconsistent_ranking",
                     f"ranking is not ordered by the declared primary "
                     f"metric {primary!r} (non-increasing order required)")
+            # Full declared-order re-validation (review finding D4-low): the
+            # complete key is (primary, *secondaries in declared order,
+            # candidate_id ascending); an ordering that honors the primary but
+            # inverts a declared secondary must fail here, not only at
+            # construction time.
+            declared = (primary,) + tuple(evaluator_spec.secondary_metrics)
+            full_keys = []
+            for entry in result.ranking:
+                if all(name in entry.metric_values for name in declared):
+                    full_keys.append(
+                        (tuple(_rank_key(entry.metric_values[name])
+                               for name in declared),
+                         entry.candidate_id))
+            if len(full_keys) == len(result.ranking):
+                for i in range(len(full_keys) - 1):
+                    higher, lower = full_keys[i], full_keys[i + 1]
+                    if higher[0] < lower[0] or (
+                            higher[0] == lower[0]
+                            and higher[1] > lower[1]):
+                        issues.add(
+                            "ranking", "inconsistent_ranking",
+                            "ranking violates the declared metric order "
+                            f"between positions {i} and {i + 1} (declared "
+                            f"sequence {list(declared)}, candidate_id "
+                            "ascending as the final tie-break)")
+                        break
 
 
 def _problem_semantics(problem: DecisionProblem, registry, world_id,

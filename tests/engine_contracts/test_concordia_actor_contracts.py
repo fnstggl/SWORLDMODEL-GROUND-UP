@@ -268,8 +268,25 @@ def test_get_state_set_state_round_trips_memory_to_fresh_agent():
 
     memories_b = list(bank_b.get_all_memories_as_text())
     assert memories_b == memories_a
-    # And the restored agent's own get_state matches what it was given.
-    assert agent_b.get_state() == state
+    # And the restored agent's own get_state matches what it was given —
+    # canonicalized: upstream serializes `stored_hashes` from a SET of salted
+    # string hashes (basic_associative_memory.py:53,62,71), so list order
+    # depends on PYTHONHASHSEED (seeds 5 and 13 reproduce a swap ~1/8 of
+    # process launches; adversarial-review finding, FAILURE_LEDGER entry
+    # "hash-order-sensitive-state-comparison"). set_state rebuilds the set,
+    # so order is semantically irrelevant; compare order-insensitively.
+    def _canonical(node):
+        if isinstance(node, dict):
+            return {
+                key: (sorted(value) if key == "stored_hashes" and isinstance(value, list)
+                      else _canonical(value))
+                for key, value in node.items()
+            }
+        if isinstance(node, list):
+            return [_canonical(item) for item in node]
+        return node
+
+    assert _canonical(agent_b.get_state()) == _canonical(state)
 
 
 def test_state_dict_shape_is_engine_serializable():

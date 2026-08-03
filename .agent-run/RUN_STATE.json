@@ -5,7 +5,7 @@
   "phase": "phase_8_whole_branch_persistence",
   "frozen_sha": null,
   "highest_leverage_blocker": "None open. Stage A distributed equivalence proven byte-identical.",
-  "next_action": "Phase 8 Stage B: whole-branch checkpoint/restore (Concordia make_checkpoint_data + SWORLDMODEL sidecar: serialized RNG state at the boundary, engine cursor/remaining budget, premise-delivered flag, config/intervention identity) with the stage gate run-to-checkpoint->save->continue == restore->continue byte-equal, locally AND through an interrupted distributed branch resuming from its workspace. Phases 3-7 adversarial review runs in parallel (read-only).",
+  "next_action": "Await Phase 8 report; at fold-in: re-record p2/p7 receipts (Ray suites) + add the worker-RNG distributed equivalence candidate; then guard hardening (BLOCKS Phase 9): pronouns/perfects/nominalizations/belief-verb complements + hardcoding-guard allowlist honesty; then compiler adapter + Phases 9-10.",
   "open_critical_count": 0,
   "open_high_count": 0,
   "running_background_jobs": [],

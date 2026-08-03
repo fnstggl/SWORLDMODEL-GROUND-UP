@@ -438,3 +438,34 @@ hashes.
   _seeded_branch_scope, _result_from_runner) are the accepted
   reuse-over-duplication tradeoff; promote to public names during the
   documentation phase if churn appears.
+
+
+## Hook maintenance 2026-08-03 (#4) -- completion receipts become completion-grade
+
+Trigger: Phases 3-7 adversarial review finding H2 -- every phase receipt was
+a dirty-worktree run at the completion commit's parent SHA, and the
+validator never checked phase-task receipts, making CLAUDE.md rule 7
+("a receipt against another SHA cannot satisfy completion") decorative.
+
+Fix (smallest general): new validator check `phase_receipt_discipline` --
+for every TASK_GRAPH task with status=complete and required_receipts, the
+newest passing receipt must satisfy clean-worktree OR content continuity:
+every file named in the receipt's configuration_hashes must currently hash
+to the recorded value (a receipt then certifies exact bytes regardless of
+the inherent one-commit SHA staleness of committed receipts). A receipt
+with neither property, a failed/missing receipt, or a hash mismatch fails
+the check. Master-context task excluded (its own stricter SHA-exact check
+stands). Phases 3-7 receipts re-recorded at the clean post-fix HEAD with
+config hashes over each phase's key artifacts.
+
+Companion non-maintenance fixes from the same review: the ~1/8 flaky
+upstream state round-trip test made hash-order-insensitive (stored_hashes
+is set-derived; PYTHONHASHSEED 5/13 reproduced; ledgered); contract
+JSON-tree fields (terminal_world_state, concordia_checkpoint) defensively
+deep-copied at ingest and egress so content_hash cannot be mutated from
+outside; ranking validation_status gains decided_by_metric and the module
+docstring states the descending-order imposition honestly; recommendation
+re-validation now checks the full declared-order key, not primary-only
+monotonicity.
+
+**Outcome (#4).** Control-plane suites green (93 validator tests incl. 6 new; gate suite OK); validator run below records the two honestly-deferred Ray-suite receipts (p2/p7) as the only red until the Phase 8 fold-in. Companion fixes verified: flake killed under reproducing seeds; contracts deep-copy; decided_by_metric + full declared-order re-validation (validation_status widened to short strings). Reviews: docs/engine_migration/reviews/PHASE_3_7_BOUNDARY_REVIEW.md. Mode restored to implementation.

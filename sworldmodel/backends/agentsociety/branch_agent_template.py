@@ -15,7 +15,8 @@ file, a direct ``AgentBase`` subclass, no-arg constructible, overrides
 
 1. read the write-once ``config.json`` -> ``branch_execution`` mapping
    {branch_id, world_id, candidate, plan, model_spec, branch_seed,
-   max_steps} written by the executor at workspace creation;
+   max_steps} written by the executor at workspace creation (plus the
+   optional Stage B keys ``checkpoint_after`` / ``halt_at_checkpoint``);
 2. rebuild the plan and candidate strictly through the Phase 3 contract
    gates; rebuild the model objects from the serializable model spec
    (``model_spec['model_builder']`` is a dotted reference resolving to a
@@ -46,6 +47,29 @@ file, a direct ``AgentBase`` subclass, no-arg constructible, overrides
      (dual-channel failure evidence).  A runner-captured mid-branch
      infrastructure error is escalated the same way AFTER the partial
      result files are written, so the partial trace is never lost.
+
+Whole-branch persistence and recovery (Stage B) extends the SAME step
+contract with three explicit modes, selected at ``step()`` entry:
+
+- RESUME: if ``state/branch_checkpoint.json`` exists, the branch resumes
+  from it -- ``run_branch(..., resume_from=checkpoint)`` inside the same
+  per-branch seeded scope (the runner restores the checkpoint's captured
+  mid-run RNG state within that scope) -- and completes: the FULL result
+  (restored history + continuation, absolute step accounting) is
+  persisted as ``runner_record.json`` + ``branch_result.json`` exactly
+  like an uninterrupted run.  The checkpoint file's presence, never a
+  config change, is the mode switch: the write-once config stays intact.
+- CHECKPOINT-AND-HALT (``checkpoint_after`` set with
+  ``halt_at_checkpoint=true``): the branch runs to the end-of-step
+  boundary, persists the checkpoint blob ATOMICALLY as
+  ``state/branch_checkpoint.json``, writes NO result/record/error file,
+  and returns ``branch_checkpointed:...`` -- the deliberately
+  interrupted state a second ``step_agent_batch`` call resumes from.
+- CHECKPOINT-AND-CONTINUE (``checkpoint_after`` set, halt false): one
+  step call both persists the checkpoint blob and completes the branch
+  (result files as usual; the blob is popped from the runner record --
+  the dedicated file is its home -- while ``checkpoint_captured_at``
+  stays in the record as evidence).
 
 Importing this module requires the optional ``agentsociety2`` package
 (engine environment); without it the import fails with a clear
@@ -84,6 +108,9 @@ _REQUIRED_SPEC_KEYS = ("schema_version", "branch_id", "world_id",
 RESULT_FILE = "branch_result.json"
 RECORD_FILE = "runner_record.json"
 ERROR_FILE = "branch_error.json"
+#: whole-branch checkpoint blob (Stage B); its presence switches step()
+#: into resume mode
+CHECKPOINT_FILE = "branch_checkpoint.json"
 
 
 def _write_json_atomic(path: Path, payload, *, coerce: bool) -> None:
@@ -144,6 +171,7 @@ class DistributedBranchAgent(AgentBase):
         self._step_count += 1
         self._current_time = t
         state_dir = self.workspace_root_path() / "state"
+        checkpoint_path = state_dir / CHECKPOINT_FILE
         started = time.time()
         candidate_id = "unknown"
         branch_id = "unknown"
@@ -152,6 +180,13 @@ class DistributedBranchAgent(AgentBase):
             candidate_id = str(spec["candidate"].get("candidate_id",
                                                      candidate_id))
             branch_id = str(spec["branch_id"])
+            if checkpoint_path.exists():
+                mode = "resume"
+            elif spec.get("checkpoint_after") is not None:
+                mode = ("checkpoint_halt" if spec.get("halt_at_checkpoint")
+                        else "checkpoint_continue")
+            else:
+                mode = "full"
             with self.trace_span(
                 "branch.execute",
                 attributes={
@@ -159,11 +194,24 @@ class DistributedBranchAgent(AgentBase):
                     "branch.id": branch_id,
                     "branch.seed": str(spec["branch_seed"]),
                     "branch.agent_id": self.id,
+                    "branch.mode": mode,
                 },
             ):
-                raw, result = self._run_configured_branch(spec)
+                raw, result = self._run_configured_branch(
+                    spec, mode=mode, checkpoint_path=checkpoint_path)
                 stopped = time.time()
                 execution = self._execution_info(started, stopped, tick)
+                captured = raw.pop("checkpoint", None)
+                if captured is not None:
+                    # The dedicated file is the blob's home; the record
+                    # keeps checkpoint_captured_at as evidence.
+                    _write_json_atomic(checkpoint_path, captured,
+                                       coerce=False)
+                if result is None:
+                    # Deliberate interrupt: checkpoint persisted, no
+                    # result yet -- a second step call resumes from it.
+                    return (f"branch_checkpointed:{self.id}:"
+                            f"{candidate_id}")
                 record_payload = dict(raw)
                 record_payload["worker_execution"] = execution
                 _write_json_atomic(state_dir / RECORD_FILE, record_payload,
@@ -218,12 +266,36 @@ class DistributedBranchAgent(AgentBase):
             raise ValueError(
                 "branch_execution.model_spec must be a mapping with "
                 "'model_builder' (dotted reference) and 'params'")
+        checkpoint_after = spec.get("checkpoint_after")
+        if checkpoint_after is not None and (
+                type(checkpoint_after) is not int or checkpoint_after < 1):
+            raise ValueError(
+                "branch_execution.checkpoint_after must be an integer >= 1 "
+                f"when present, got {checkpoint_after!r}")
+        halt = spec.get("halt_at_checkpoint", False)
+        if type(halt) is not bool:
+            raise ValueError(
+                "branch_execution.halt_at_checkpoint must be a boolean")
+        if halt and checkpoint_after is None:
+            raise ValueError(
+                "branch_execution.halt_at_checkpoint requires "
+                "checkpoint_after")
         return spec
 
-    def _run_configured_branch(self, spec: dict):
+    def _run_configured_branch(self, spec: dict, *, mode: str = "full",
+                               checkpoint_path: Path | None = None):
         """Rebuild contracts and models, run the branch under the local
         manager's seeded scope, and return ``(raw_record, BranchResult)``
-        shaped by the local manager's own result builder."""
+        shaped by the local manager's own result builder.
+
+        ``mode`` selects the Stage B behavior (see the module docstring):
+        ``resume`` loads the persisted checkpoint and continues it;
+        ``checkpoint_halt`` / ``checkpoint_continue`` request a capture at
+        ``spec['checkpoint_after']``.  A halt that actually captured a
+        checkpoint returns ``(raw, None)`` -- the caller persists the blob
+        and reports the interrupted state; a halt whose run legitimately
+        ended BEFORE the boundary returns the normal completed pair.
+        """
         from sworldmodel.backends.concordia_local import runner \
             as runner_module
         from sworldmodel.counterfactuals.manager import (
@@ -261,9 +333,35 @@ class DistributedBranchAgent(AgentBase):
                 "the model provider must return the pair (actor_models, "
                 f"gm_model), got {type(provided).__name__}") from None
 
+        run_kwargs = {}
+        if mode == "resume":
+            if checkpoint_path is None or not checkpoint_path.exists():
+                raise ValueError(
+                    "resume mode requires an existing checkpoint file")
+            run_kwargs["resume_from"] = json.loads(
+                checkpoint_path.read_text(encoding="utf-8"))
+        elif mode in ("checkpoint_halt", "checkpoint_continue"):
+            run_kwargs["checkpoint_after"] = spec["checkpoint_after"]
+            run_kwargs["halt_at_checkpoint"] = mode == "checkpoint_halt"
+            run_kwargs["checkpoint_identity"] = {
+                "seed_material": branch_seed,
+                "candidate_id": candidate.candidate_id,
+                "branch_id": str(spec["branch_id"]),
+                "model_config": {
+                    "model_builder":
+                        str(spec["model_spec"]["model_builder"])},
+            }
+        elif mode != "full":
+            raise ValueError(f"unknown branch execution mode {mode!r}")
+
         with _seeded_branch_scope(branch_seed):
             raw = runner_module.run_branch(
-                plan, actor_models=actor_models, gm_model=gm_model)
+                plan, actor_models=actor_models, gm_model=gm_model,
+                **run_kwargs)
+        if mode == "checkpoint_halt" and raw.get("halted_at_checkpoint") \
+                and raw.get("checkpoint") is not None \
+                and not raw.get("infrastructure_errors"):
+            return raw, None
         result = _result_from_runner(raw, spec["branch_id"],
                                      candidate.candidate_id,
                                      spec["world_id"])

@@ -75,6 +75,21 @@ Concurrency is enforced IN CODE by a submit-window loop (at most
 never by trusting the Ray CPU budget alone -- and observed concurrency
 is measured from in-worker step timestamps.
 
+Stage B (whole-branch persistence and recovery) extends this executor
+without changing the Stage A path: ``run_candidates_distributed(...,
+checkpoint_after=k)`` makes every branch persist its whole-branch
+checkpoint blob (``state/branch_checkpoint.json``) at the end-of-step
+boundary and continue, with the blob required at collection and
+referenced from ``artifact_paths``; ``run_interrupted_then_resume``
+drives the deliberately interrupted variant -- one batch round halts
+every branch AT the checkpoint (no result yet; the driver explicitly
+recognizes the interrupted workspace state), a SECOND batch round
+resumes each branch from its own workspace to completion, and normal
+collection then applies.  The checkpoint content itself is produced and
+consumed entirely by ``sworldmodel.backends.concordia_local.checkpoint``
+inside the workers; this executor stores, locates, schedules, and
+restores it as an opaque versioned artifact.
+
 Import-time dependencies: stdlib + ``sworldmodel`` only, so importing
 this module works on Python 3.11 without ``agentsociety2``/``ray``/
 ``gdm-concordia``; the engine imports happen inside the run call and
@@ -133,6 +148,9 @@ _TEMPLATE_PATH = Path(__file__).with_name("branch_agent_template.py")
 _RESULT_FILE = "branch_result.json"
 _RECORD_FILE = "runner_record.json"
 _ERROR_FILE = "branch_error.json"
+#: whole-branch checkpoint blob (Stage B); its presence in a workspace
+#: switches the agent's next step() into resume mode
+_CHECKPOINT_FILE = "branch_checkpoint.json"
 
 #: fixed simulation clock handed to step_agent_batch -- inert for branch
 #: execution (the branch's own timeline lives in its plan), constant so
@@ -292,7 +310,7 @@ def materialize_branch_agent(workspace_root) -> Path:
     source = _TEMPLATE_PATH.read_text(encoding="utf-8")
     for needle in (f"class {AGENT_CLASS_NAME}(AgentBase)",
                    _RESULT_FILE, _RECORD_FILE, _ERROR_FILE,
-                   "branch_execution"):
+                   _CHECKPOINT_FILE, "branch_execution"):
         if needle not in source:
             raise DistributedExecutionError(
                 "branch_agent_template.py drifted from the executor's "
@@ -451,6 +469,49 @@ def _probe_worker_environment(ray, builder_reference: str) -> dict:
 # Request validation (distributed-specific, ahead of the shared preflight)
 # ---------------------------------------------------------------------------
 
+def _validate_checkpoint_after(checkpoint_after, max_steps) -> None:
+    """Driver-side preflight for the Stage B boundary: the runner inside
+    every worker enforces the same rule, but a bad request must fail
+    before any workspace is created."""
+    if checkpoint_after is None:
+        return
+    if type(checkpoint_after) is not int \
+            or not 1 <= checkpoint_after < max_steps:
+        raise ContractValidationError([ValidationIssue(
+            "checkpoint_after", "invalid_value",
+            "checkpoint_after must be an integer end-of-step boundary in "
+            f"[1, {max_steps}) (max_steps={max_steps}), got "
+            f"{checkpoint_after!r}")])
+
+
+def _branch_execution_config(*, branch_id: str, world_id: str, candidate,
+                             plan, model_spec: dict, branch_seed: int,
+                             max_steps: int, checkpoint_after=None,
+                             halt_at_checkpoint: bool = False) -> dict:
+    """The write-once ``branch_execution`` mapping one workspace carries
+    (single source of truth for BOTH the normal and the interrupt/resume
+    submission paths, so the spec shape cannot drift between them).  The
+    Stage B keys are added only when a checkpoint was requested, keeping
+    Stage A workspaces byte-stable."""
+    config = {
+        "schema_version": 1,
+        "branch_id": branch_id,
+        "world_id": world_id,
+        "candidate": candidate.to_dict(),
+        "plan": plan.to_dict(),
+        "model_spec": {
+            "model_builder": model_spec["model_builder"],
+            "params": model_spec["params"],
+        },
+        "branch_seed": branch_seed,
+        "max_steps": max_steps,
+    }
+    if checkpoint_after is not None:
+        config["checkpoint_after"] = checkpoint_after
+        config["halt_at_checkpoint"] = bool(halt_at_checkpoint)
+    return config
+
+
 def _validate_distributed_args(model_spec, parallelism,
                                pre_collect_hook) -> None:
     issues = IssueCollector()
@@ -595,17 +656,35 @@ def _synthesized_failure_result(*, branch_id: str, candidate_id: str,
 
 
 def _collect_branch(*, candidate_id: str, branch_id: str, world_id: str,
-                    workspace: Path, harvest: dict):
+                    workspace: Path, harvest: dict,
+                    expect_checkpoint: bool = False):
     """One branch: reconcile the driver channel with the workspace files
     (files authoritative) and return
-    ``(BranchResult, raw_record_or_None, report_entry)``."""
+    ``(BranchResult, raw_record_or_None, report_entry)``.
+
+    ``expect_checkpoint=True`` (a run configured with ``checkpoint_after``)
+    additionally requires the persisted ``branch_checkpoint.json`` blob
+    and references it from the result's ``artifact_paths``; a configured
+    checkpoint that never materialized is a loud integrity error, never a
+    silent omission."""
     state_dir = workspace / "state"
     result_path = state_dir / _RESULT_FILE
     record_path = state_dir / _RECORD_FILE
     error_path = state_dir / _ERROR_FILE
+    checkpoint_path = state_dir / _CHECKPOINT_FILE
     file_result = _load_json_evidence(result_path, candidate_id)
     file_record = _load_json_evidence(record_path, candidate_id)
     file_error = _load_json_evidence(error_path, candidate_id)
+    checkpoint_artifacts: list = []
+    if expect_checkpoint:
+        if _load_json_evidence(checkpoint_path, candidate_id) is None:
+            raise CollectionIntegrityError(
+                f"candidate {candidate_id!r}: the run was configured with "
+                f"checkpoint_after but no checkpoint blob exists at "
+                f"{checkpoint_path} -- the persisted-state contract was "
+                "not met (an early termination before the boundary must "
+                "be diagnosed, not silently accepted)")
+        checkpoint_artifacts.append(str(checkpoint_path))
 
     flat_tokens = _flatten_token_stats(harvest.get("token_stats"))
     task_seconds = max(
@@ -645,7 +724,8 @@ def _collect_branch(*, candidate_id: str, branch_id: str, world_id: str,
                 f"candidate {candidate_id!r}: {result_path} exists but the "
                 f"runner record {record_path} is missing -- guard-evidence "
                 "collection would be silently incomplete")
-        artifacts = [str(result_path), str(record_path)]
+        artifacts = [str(result_path), str(record_path)] \
+            + checkpoint_artifacts
         result = _rebuild_result_from_file(
             file_result, candidate_id=candidate_id, branch_id=branch_id,
             world_id=world_id, flat_tokens=flat_tokens,
@@ -669,7 +749,7 @@ def _collect_branch(*, candidate_id: str, branch_id: str, world_id: str,
                     "ok=False but the result file records no "
                     "infrastructure errors -- the channels disagree")
             artifacts = [str(result_path), str(record_path),
-                         str(error_path)]
+                         str(error_path)] + checkpoint_artifacts
             if file_record is None:
                 artifacts.remove(str(record_path))
             result = _rebuild_result_from_file(
@@ -710,6 +790,7 @@ def _collect_branch(*, candidate_id: str, branch_id: str, world_id: str,
         "result_file": file_result is not None,
         "record_file": file_record is not None,
         "error_file": file_error is not None,
+        "checkpoint_file": checkpoint_path.exists(),
         "failure_evidence": failure_evidence,
     }
     return result, file_record, report_entry
@@ -736,6 +817,7 @@ def run_candidates_distributed(
     trace=True,
     task_time: datetime | None = None,
     pre_collect_hook=None,
+    checkpoint_after: int | None = None,
 ) -> DistributedCounterfactualRun:
     """Run every candidate branch as one complete distributed job from
     ONE frozen base; return the full run record (see the module and
@@ -750,9 +832,17 @@ def run_candidates_distributed(
     ``pre_collect_hook`` (test/diagnostic seam: called with
     ``{candidate_id: workspace_path}`` after all tasks finish and before
     file collection).
+
+    ``checkpoint_after`` (Stage B) makes every branch persist a
+    whole-branch checkpoint blob at that end-of-step boundary and then
+    CONTINUE to completion within its single step call; collection then
+    requires the blob and references it from ``artifact_paths``.  For the
+    deliberately interrupted variant (halt at the boundary, resume with a
+    second batch call) use :func:`run_interrupted_then_resume`.
     """
     candidates = tuple(candidates)
     _validate_distributed_args(model_spec, parallelism, pre_collect_hook)
+    _validate_checkpoint_after(checkpoint_after, max_steps)
 
     # Driver-side fail-fast on the spec reference; the built provider also
     # satisfies the shared preflight's model-provider callable contract
@@ -826,19 +916,16 @@ def run_candidates_distributed(
             "id": index,
             "profile": {"id": index, "name": f"branch_{candidate_id}"},
             "config": {
-                "branch_execution": {
-                    "schema_version": 1,
-                    "branch_id": branch_ids[candidate_id],
-                    "world_id": world.world_id,
-                    "candidate": candidate.to_dict(),
-                    "plan": branch_plans[candidate_id].to_dict(),
-                    "model_spec": {
-                        "model_builder": model_spec["model_builder"],
-                        "params": model_spec["params"],
-                    },
-                    "branch_seed": branch_seeds[candidate_id],
-                    "max_steps": max_steps,
-                },
+                "branch_execution": _branch_execution_config(
+                    branch_id=branch_ids[candidate_id],
+                    world_id=world.world_id,
+                    candidate=candidate,
+                    plan=branch_plans[candidate_id],
+                    model_spec=model_spec,
+                    branch_seed=branch_seeds[candidate_id],
+                    max_steps=max_steps,
+                    checkpoint_after=checkpoint_after,
+                    halt_at_checkpoint=False),
             },
         })
     created = ray.get(as2_runner.create_agents_batch.remote(
@@ -918,7 +1005,8 @@ def run_candidates_distributed(
             branch_id=branch_ids[candidate_id],
             world_id=world.world_id,
             workspace=workspaces[candidate_id],
-            harvest=harvests[candidate_id])
+            harvest=harvests[candidate_id],
+            expect_checkpoint=checkpoint_after is not None)
         validate_semantics(result, registry)
         results.append(result)
         runner_records[candidate_id] = record
@@ -944,6 +1032,7 @@ def run_candidates_distributed(
         "workspace_root": str(effective_workspace),
         "branches_root": str(branches_root),
         "trace_dir": trace_dir,
+        "checkpoint_after": checkpoint_after,
         "parallelism_limit": parallelism,
         "driver_max_in_flight": driver_max_in_flight,
         "worker_max_overlap": _max_overlap(windows) if windows else 0,
@@ -951,6 +1040,352 @@ def run_candidates_distributed(
         "expected_candidate_ids": expected_ids,
         "submitted_candidate_ids": submission_order,
         "harvested_candidate_ids": sorted(harvests),
+        "collected_candidate_ids": collected_ids,
+        "exactly_once": True,   # every mismatch above raised instead
+        "created_workspaces": created,
+        "worker_probe": probe,
+        "token_stats_total": token_totals,
+        "per_branch": per_branch,
+    }
+    _write_json_atomic(run_dir / "execution_report.json", execution_report)
+
+    return DistributedCounterfactualRun(
+        base_plan=base_plan,
+        base_plan_content_hash=base_hash,
+        base_snapshot=base_snapshot,
+        branch_plans=branch_plans,
+        branch_ids=branch_ids,
+        branch_seeds=branch_seeds,
+        results=tuple(results),
+        runner_records=runner_records,
+        registry=registry,
+        execution_report=execution_report)
+
+
+# ---------------------------------------------------------------------------
+# Stage B: deliberate interrupt at the checkpoint boundary + resume by a
+# SECOND step_agent_batch call from the same workspace
+# ---------------------------------------------------------------------------
+
+def _submit_step_round(ray, as2_runner, proxy, clock, branches_root: Path,
+                       indexed_candidates, parallelism: int):
+    """One bounded submit-window round over ``[(agent_index,
+    candidate_id), ...]``: at most ``parallelism`` single-branch tasks in
+    flight (enforced here via ``ray.wait``, never by the Ray CPU budget
+    alone).  Returns ``(harvests, submission_order, max_in_flight)`` with
+    exactly-once harvesting enforced."""
+    pending = deque(indexed_candidates)
+    in_flight: dict = {}
+    harvests: dict = {}
+    submission_order: list = []
+    max_in_flight = 0
+    while pending or in_flight:
+        while pending and len(in_flight) < parallelism:
+            index, candidate_id = pending.popleft()
+            ref = as2_runner.step_agent_batch.remote(
+                [index], str(branches_root), AGENT_CLASS_NAME,
+                _TASK_TICK, clock, proxy)
+            in_flight[ref] = (index, candidate_id, time.time())
+            submission_order.append(candidate_id)
+            max_in_flight = max(max_in_flight, len(in_flight))
+        ready, _ = ray.wait(list(in_flight.keys()), num_returns=1)
+        for ref in ready:
+            index, candidate_id, submitted = in_flight.pop(ref)
+            harvest = {"agent_index": index, "submitted_unix": submitted,
+                       "harvested_unix": time.time()}
+            try:
+                payload = ray.get(ref)
+            except Exception as exc:  # noqa: BLE001 - whole-task failure
+                harvest.update({"channel": "task_error",
+                                "driver_ok": False,
+                                "driver_summary": None,
+                                "driver_error": repr(exc),
+                                "token_stats": {}})
+            else:
+                harvest.update(_shape_driver_payload(payload, index,
+                                                     candidate_id))
+            if candidate_id in harvests:
+                raise CollectionIntegrityError(
+                    f"candidate {candidate_id!r} harvested twice -- "
+                    "exactly-once accounting violated")
+            harvests[candidate_id] = harvest
+    return harvests, submission_order, max_in_flight
+
+
+def _verify_interrupted_state(candidate_id: str, workspace: Path,
+                              harvest: dict) -> dict:
+    """Recognize one deliberately interrupted branch after the halt
+    round, refusing every other file/driver combination loudly:
+    driver ok=True with a ``branch_checkpointed`` summary, the checkpoint
+    blob present and JSON-parseable, and NO result/record/error file (the
+    branch has produced no result yet -- that is the point)."""
+    state_dir = workspace / "state"
+    checkpoint_path = state_dir / _CHECKPOINT_FILE
+    if not harvest["driver_ok"]:
+        raise DistributedExecutionError(
+            f"candidate {candidate_id!r}: the checkpoint round failed in "
+            f"the driver channel: {harvest.get('driver_error')!r}")
+    summary = str(harvest.get("driver_summary") or "")
+    if not summary.startswith("branch_checkpointed:") \
+            or not summary.endswith(f":{candidate_id}"):
+        raise CollectionIntegrityError(
+            f"candidate {candidate_id!r}: the checkpoint round returned "
+            f"summary {summary!r}, not the interrupted-state marker")
+    blob = _load_json_evidence(checkpoint_path, candidate_id)
+    if blob is None:
+        raise CollectionIntegrityError(
+            f"candidate {candidate_id!r}: interrupted state claimed but "
+            f"no checkpoint blob exists at {checkpoint_path}")
+    for name in (_RESULT_FILE, _RECORD_FILE, _ERROR_FILE):
+        if (state_dir / name).exists():
+            raise CollectionIntegrityError(
+                f"candidate {candidate_id!r}: interrupted state must "
+                f"carry ONLY the checkpoint blob, but {name} exists")
+    cursor = ((blob.get("sidecar") or {}).get("engine_cursor") or {})
+    return {
+        "checkpoint_file": str(checkpoint_path),
+        "steps_completed": cursor.get("steps_completed"),
+        "remaining_steps": cursor.get("remaining_steps"),
+    }
+
+
+def run_interrupted_then_resume(
+    world,
+    candidates,
+    *,
+    model_spec: dict,
+    seed: int,
+    max_steps: int,
+    evaluator_spec,
+    run_dir,
+    parallelism: int,
+    checkpoint_after: int,
+    acting_order: str | None = None,
+    agency_guard_enabled: bool = True,
+    model_config: dict | None = None,
+    registry: ContractRegistry | None = None,
+    trace=True,
+    task_time: datetime | None = None,
+    between_rounds_hook=None,
+) -> DistributedCounterfactualRun:
+    """The Stage B distributed gate flow, driven explicitly: every branch
+    is INTERRUPTED at the checkpoint boundary and RESUMED by a second
+    ``step_agent_batch`` call from its own workspace.
+
+    Round 1 submits every branch with ``halt_at_checkpoint``: each worker
+    runs to the end-of-step boundary ``checkpoint_after``, atomically
+    persists ``state/branch_checkpoint.json``, and stops WITHOUT writing
+    any result -- the driver then verifies the interrupted state
+    per branch (checkpoint blob present, no result/record/error file)
+    instead of running normal collection.  Round 2 submits the SAME agent
+    indices again; each worker's ``step()`` finds the checkpoint blob and
+    resumes from it inside the same per-branch seeded scope, completing
+    the branch and writing the normal result files, which are collected
+    with the standard file-authoritative rules plus the checkpoint blob
+    referenced in ``artifact_paths``.
+
+    Accounting: every candidate is submitted exactly once PER ROUND and
+    collected exactly once overall; ``execution_report`` records both
+    rounds, the per-branch interrupted state, and per-round token deltas
+    (the collected ``BranchResult.token_stats`` carries the resume
+    round's task delta -- the round split is preserved in the report).
+    ``between_rounds_hook({candidate_id: workspace_path})``, when given,
+    runs after the interrupt verification and before the resume round
+    (test/diagnostic seam, e.g. asserting the interrupted filesystem
+    state).
+
+    Base freeze, branch derivation, and result shapes are identical to
+    :func:`run_candidates_distributed`; the two entry points share the
+    workspace spec builder and the collection path, so results from an
+    interrupted-and-resumed run are directly comparable (signature keys)
+    with an uninterrupted run of the same request.
+    """
+    candidates = tuple(candidates)
+    _validate_distributed_args(model_spec, parallelism, between_rounds_hook)
+    if checkpoint_after is None:
+        raise ContractValidationError([ValidationIssue(
+            "checkpoint_after", "missing_field",
+            "run_interrupted_then_resume requires the explicit "
+            "checkpoint boundary")])
+    _validate_checkpoint_after(checkpoint_after, max_steps)
+
+    builder = _resolve_model_builder(model_spec["model_builder"])
+    driver_provider = builder(model_spec["params"])
+    if not callable(driver_provider):
+        raise ContractValidationError([ValidationIssue(
+            "model_spec.model_builder", "wrong_type",
+            "the builder must return a callable provider(candidate, "
+            f"branch_seed); got {type(driver_provider).__name__}")])
+    registry = _local_manager._preflight(
+        world, candidates, driver_provider, seed, registry)
+
+    base_plan = build_base_plan(
+        world, evaluator_spec, max_steps=max_steps,
+        acting_order=acting_order,
+        agency_guard_enabled=agency_guard_enabled)
+    base_hash = base_plan.content_hash()
+    if model_config is None:
+        model_config = {"model_builder": model_spec["model_builder"]}
+    base_snapshot = build_base_snapshot(
+        base_plan, seed=seed, model_config=model_config, registry=registry)
+
+    branch_plans: dict = {}
+    branch_ids: dict = {}
+    branch_seeds: dict = {}
+    for candidate in candidates:
+        candidate_id = candidate.candidate_id
+        branch_id = derive_branch_id(world.world_id, candidate_id)
+        if registry.has_branch(branch_id):
+            bound = registry.branch_binding(branch_id)
+            if bound != (world.world_id, candidate_id):
+                raise ContractValidationError([ValidationIssue(
+                    "branch_id", "cross_branch_reference",
+                    f"branch {branch_id!r} is already registered for "
+                    f"world {bound[0]!r} / candidate {bound[1]!r}")])
+        else:
+            registry.register_branch(branch_id, world.world_id,
+                                     candidate_id)
+        branch_ids[candidate_id] = branch_id
+        branch_plans[candidate_id] = apply_intervention(base_plan, candidate)
+        branch_seeds[candidate_id] = derive_branch_seed(seed, candidate_id)
+
+    run_dir = Path(run_dir).resolve()
+    run_dir.mkdir(parents=True, exist_ok=True)
+    branches_root = run_dir / BRANCHES_DIRNAME
+    if branches_root.exists() and any(branches_root.iterdir()):
+        raise DistributedExecutionError(
+            f"branches root {branches_root} already contains entries; "
+            "every distributed run owns a fresh run_dir (write-once "
+            "workspaces are part of the evidence contract)")
+    branches_root.mkdir(parents=True, exist_ok=True)
+    materialize_branch_agent(run_dir)
+
+    ray, as2_runner, build_service_proxy = _import_engine()
+    effective_workspace = _ensure_dispatchers(ray, run_dir)
+    _assert_driver_registry_resolves(effective_workspace)
+    probe = _probe_worker_environment(ray, model_spec["model_builder"])
+
+    proxy = build_service_proxy(None, run_dir=run_dir, trace=trace,
+                                replay=False)
+    trace_dir = str(proxy.trace.trace_dir) if proxy.trace is not None \
+        else None
+    clock = task_time if task_time is not None else _DEFAULT_TASK_TIME
+
+    items = []
+    for index, candidate in enumerate(candidates, start=1):
+        candidate_id = candidate.candidate_id
+        items.append({
+            "id": index,
+            "profile": {"id": index, "name": f"branch_{candidate_id}"},
+            "config": {
+                "branch_execution": _branch_execution_config(
+                    branch_id=branch_ids[candidate_id],
+                    world_id=world.world_id,
+                    candidate=candidate,
+                    plan=branch_plans[candidate_id],
+                    model_spec=model_spec,
+                    branch_seed=branch_seeds[candidate_id],
+                    max_steps=max_steps,
+                    checkpoint_after=checkpoint_after,
+                    halt_at_checkpoint=True),
+            },
+        })
+    created = ray.get(as2_runner.create_agents_batch.remote(
+        items, str(branches_root), AGENT_CLASS_NAME))
+    if created != len(candidates):
+        raise DistributedExecutionError(
+            f"create_agents_batch created {created} workspaces for "
+            f"{len(candidates)} branches")
+
+    expected_ids = [candidate.candidate_id for candidate in candidates]
+    workspaces = {
+        candidate.candidate_id: branches_root / f"agent_{index:04d}"
+        for index, candidate in enumerate(candidates, start=1)}
+    indexed = [(index, candidate.candidate_id)
+               for index, candidate in enumerate(candidates, start=1)]
+
+    # ---- Round 1: run to the boundary, persist the blob, stop ----------
+    halt_harvests, halt_order, halt_in_flight = _submit_step_round(
+        ray, as2_runner, proxy, clock, branches_root, indexed, parallelism)
+    if halt_order != expected_ids or sorted(halt_harvests) \
+            != sorted(expected_ids):
+        raise CollectionIntegrityError(
+            f"checkpoint-round accounting mismatch: submitted "
+            f"{halt_order}, harvested {sorted(halt_harvests)}, expected "
+            f"{expected_ids}")
+    interrupted: dict = {}
+    for candidate_id in expected_ids:
+        interrupted[candidate_id] = _verify_interrupted_state(
+            candidate_id, workspaces[candidate_id],
+            halt_harvests[candidate_id])
+
+    if between_rounds_hook is not None:
+        between_rounds_hook(dict(workspaces))
+
+    # ---- Round 2: resume from the workspace, complete, collect ---------
+    resume_harvests, resume_order, resume_in_flight = _submit_step_round(
+        ray, as2_runner, proxy, clock, branches_root, indexed, parallelism)
+    if resume_order != expected_ids or sorted(resume_harvests) \
+            != sorted(expected_ids):
+        raise CollectionIntegrityError(
+            f"resume-round accounting mismatch: submitted {resume_order}, "
+            f"harvested {sorted(resume_harvests)}, expected {expected_ids}")
+
+    results: list = []
+    runner_records: dict = {}
+    per_branch: dict = {}
+    token_totals: dict = {}
+    for candidate in candidates:
+        candidate_id = candidate.candidate_id
+        result, record, report_entry = _collect_branch(
+            candidate_id=candidate_id,
+            branch_id=branch_ids[candidate_id],
+            world_id=world.world_id,
+            workspace=workspaces[candidate_id],
+            harvest=resume_harvests[candidate_id],
+            expect_checkpoint=True)
+        validate_semantics(result, registry)
+        results.append(result)
+        runner_records[candidate_id] = record
+        report_entry["agent_index"] = \
+            resume_harvests[candidate_id]["agent_index"]
+        report_entry["workspace"] = str(workspaces[candidate_id])
+        report_entry["interrupted_state"] = interrupted[candidate_id]
+        report_entry["checkpoint_round"] = {
+            "submitted_unix": halt_harvests[candidate_id]["submitted_unix"],
+            "harvested_unix": halt_harvests[candidate_id]["harvested_unix"],
+            "token_stats": halt_harvests[candidate_id]["token_stats"],
+        }
+        per_branch[candidate_id] = report_entry
+        _merge_flat_token_stats(token_totals, dict(result.token_stats))
+        _merge_flat_token_stats(token_totals, _flatten_token_stats(
+            halt_harvests[candidate_id]["token_stats"]))
+
+    collected_ids = [result.candidate_id for result in results]
+    if collected_ids != expected_ids:
+        raise CollectionIntegrityError(
+            f"collection accounting mismatch: collected {collected_ids}, "
+            f"expected {expected_ids}")
+
+    execution_report = {
+        "schema_version": 1,
+        "mode": "interrupt_resume",
+        "agent_class": AGENT_CLASS_NAME,
+        "workspace_root": str(effective_workspace),
+        "branches_root": str(branches_root),
+        "trace_dir": trace_dir,
+        "checkpoint_after": checkpoint_after,
+        "parallelism_limit": parallelism,
+        "rounds": [
+            {"round": 1, "purpose": "run_to_checkpoint_and_halt",
+             "submitted_candidate_ids": halt_order,
+             "driver_max_in_flight": halt_in_flight},
+            {"round": 2, "purpose": "resume_from_workspace",
+             "submitted_candidate_ids": resume_order,
+             "driver_max_in_flight": resume_in_flight},
+        ],
+        "interrupted_candidate_ids": expected_ids,
+        "expected_candidate_ids": expected_ids,
         "collected_candidate_ids": collected_ids,
         "exactly_once": True,   # every mismatch above raised instead
         "created_workspaces": created,

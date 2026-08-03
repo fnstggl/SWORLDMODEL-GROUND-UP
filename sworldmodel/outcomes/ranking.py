@@ -7,7 +7,9 @@ The rank key is the declared metric sequence itself: the primary metric
 first, then each SECONDARY metric in the ``EvaluatorSpec``'s declared
 order, every component compared descending -- highest value first,
 booleans as 1/0, polarity NOT inferred (the user's declaration supplies
-both the metrics and their priority order; this module invents neither
+both the metrics and their priority order; this module imposes only a
+fixed descending comparison per component (highest value first, polarity
+never inferred from meaning) and invents neither metric nor weight
 direction nor weight).  Only when two candidates are exactly tied on
 EVERY declared metric does the final code-owned tie-break apply:
 ``candidate_id`` in ascending lexicographic order.  That final tie-break
@@ -200,6 +202,20 @@ def rank_branches(
     }
     if tie_break_used:
         validation_status["tie_break_candidate_id_lexicographic"] = True
+    # Transparency (review finding D4): name what separated the top two, so a
+    # reader can tell a primary-metric win from a declared-secondary win (or a
+    # tie-break) without recomputing.
+    if len(ordered) < 2:
+        validation_status["decided_by_metric"] = "single_candidate"
+    else:
+        decided = "candidate_id_tie_break"
+        runner_up = ordered[1]
+        for name in metric_names:
+            if _rank_key(best.outcome_metrics[name].value) != _rank_key(
+                    runner_up.outcome_metrics[name].value):
+                decided = name
+                break
+        validation_status["decided_by_metric"] = decided
 
     recommendation = RecommendationResult.from_dict({
         "contract_type": RecommendationResult.CONTRACT_TYPE,

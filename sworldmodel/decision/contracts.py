@@ -17,6 +17,7 @@ identifiers and messages use generic schema vocabulary only.
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import math
@@ -148,6 +149,19 @@ def _check_bool(value, path, issues):
                    f"expected boolean, got {type(value).__name__}")
         return None
     return value
+
+
+def _check_status_value(value, path, issues):
+    """validation_status values: boolean flags plus short string indicators
+    (e.g. which metric decided a ranking — review finding D4). Widened from
+    booleans-only; recorded in DECISIONS.md 2026-08-03 (#4 companion fixes)."""
+    if type(value) is bool:
+        return value
+    if type(value) is str and 0 < len(value) <= 120:
+        return value
+    issues.add(path, "wrong_type",
+               f"expected boolean or short string, got {type(value).__name__}")
+    return None
 
 
 def _check_int(value, path, issues, *, minimum=None):
@@ -1186,7 +1200,7 @@ class SimulationSnapshot(_Canonical):
             "schema_version": SCHEMA_VERSION,
             "snapshot_id": self.snapshot_id,
             "world_id": self.world_id,
-            "concordia_checkpoint": self.concordia_checkpoint,
+            "concordia_checkpoint": copy.deepcopy(self.concordia_checkpoint),
             "sidecar": self.sidecar.to_dict(),
             "snapshot_manifest": list(self.snapshot_manifest),
         }
@@ -1209,8 +1223,8 @@ class SimulationSnapshot(_Canonical):
                 issues.add("concordia_checkpoint", "wrong_type",
                            f"expected mapping, got {type(raw).__name__}")
             else:
-                checkpoint = _check_json_tree(raw, "concordia_checkpoint",
-                                              issues)
+                checkpoint = copy.deepcopy(
+                    _check_json_tree(raw, "concordia_checkpoint", issues))
                 for key in cls.REQUIRED_CHECKPOINT_KEYS:
                     if key not in raw:
                         issues.add(f"concordia_checkpoint.{key}",
@@ -1262,7 +1276,7 @@ class BranchResult(_Canonical):
             "candidate_id": self.candidate_id,
             "world_id": self.world_id,
             "terminal_status": self.terminal_status,
-            "terminal_world_state": self.terminal_world_state,
+            "terminal_world_state": copy.deepcopy(self.terminal_world_state),
             "event_trace": [event.to_dict() for event in self.event_trace],
             "outcome_metrics": {name: metric.to_dict()
                                 for name, metric in
@@ -1300,7 +1314,8 @@ class BranchResult(_Canonical):
                 issues.add("terminal_world_state", "wrong_type",
                            f"expected mapping, got {type(raw).__name__}")
             else:
-                state = _check_json_tree(raw, "terminal_world_state", issues)
+                state = copy.deepcopy(
+                    _check_json_tree(raw, "terminal_world_state", issues))
         if _require(data, "event_trace", "", issues):
             raw = data["event_trace"]
             if not isinstance(raw, list):
@@ -1436,7 +1451,7 @@ class RecommendationResult(_Canonical):
         if _require(data, "validation_status", "", issues):
             status_map = _check_scalar_map(
                 data["validation_status"], "validation_status", issues,
-                value_check=_check_bool)
+                value_check=_check_status_value)
         issues.raise_if_any()
         return cls(best_candidate_id=best, ranking=tuple(ranking),
                    metric_differences=differences,
