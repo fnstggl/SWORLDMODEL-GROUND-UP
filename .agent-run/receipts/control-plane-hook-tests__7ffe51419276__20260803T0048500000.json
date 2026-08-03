@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "control-plane-hook-tests",
+  "git_sha": "7ffe5141927664eb5c996437c7ec4756d1c3231d",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests/control_plane/test_gate.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T00:48:39+00:00",
+  "finished_at": "2026-08-03T00:48:50+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T00:48:50+00:00",
+  "git_branch": "claude/hook-bootstrap-control-plane-5dfvzt",
+  "worktree_clean": true,
+  "output_tail": ".............................. [ 28%]\n........................................................ [ 80%]\n.....................                                                [100%]\n107 passed, 62 subtests passed in 11.21s\n"
+}
