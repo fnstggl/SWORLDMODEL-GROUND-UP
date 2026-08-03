@@ -1,0 +1,162 @@
+# Frozen manual best-action fixture 2 (directive: "Required fixture 2: team commitment").
+# Five-person team, explicit declared decision rule, three candidates; only
+# actual events are measured. Immutable once committed; changes require a
+# DECISIONS.md entry and are prohibited after the final acceptance run begins.
+
+fixture_id: team_commitment
+
+world:
+  start_time: "2026-08-04T09:00:00Z"
+  cutoff: "2026-08-11T18:00:00Z"
+
+  actors:
+    - id: proposal_owner
+      name: Riley
+      private_context: >
+        Riley owns a proposal to migrate the team's deployment pipeline and
+        wants it adopted this week. Riley knows adoption requires broad,
+        explicit support and that Sam controls implementation capacity.
+
+    - id: operations_lead
+      name: Sam
+      private_context: >
+        Sam is the operations lead and is skeptical: the operations queue is
+        already over capacity this quarter, and Sam has a declared veto over
+        implementation work. Sam opposes any plan that adds unscoped
+        operations load, but would accept a small, strictly time-boxed pilot
+        whose operations cost is explicitly capped after being consulted
+        directly about workload.
+
+    - id: budget_owner
+      name: Dana
+      private_context: >
+        Dana owns the budget and commits only to proposals whose cost is
+        bounded and stated; Dana follows Sam's judgment on operational
+        feasibility.
+
+    - id: product_lead
+      name: Priya
+      private_context: >
+        Priya is the product lead, supportive of the migration because of
+        customer pain, and will commit publicly whenever a concrete plan or
+        pilot is on the table.
+
+    - id: neutral_member
+      name: Chris
+      private_context: >
+        Chris has no stake either way and commits only after seeing that
+        implementation concerns raised by operations have been addressed.
+
+  shared_context: >
+    The five-person team decides on Riley's pipeline-migration proposal this
+    week. The declared decision rule is: the plan proceeds only if at least
+    three members explicitly commit and the operations lead does not exercise
+    their declared implementation veto.
+
+  starting_events: []
+
+decision_rule: >
+  The plan proceeds only if at least three members explicitly commit and
+  the operations lead does not exercise their declared implementation veto.
+
+candidates:
+  - id: announce_full_plan
+    actor_id: proposal_owner
+    time: "2026-08-04T09:30:00Z"
+    action: >
+      Announce the full migration plan publicly to the whole team and
+      immediately request approval.
+
+  - id: private_ops_then_pilot
+    actor_id: proposal_owner
+    time: "2026-08-04T09:30:00Z"
+    action: >
+      Privately address the operations lead's workload concern first, then
+      present a limited, time-boxed pilot to the team.
+
+  - id: immediate_binding_vote
+    actor_id: proposal_owner
+    time: "2026-08-04T09:30:00Z"
+    action: >
+      Request an immediate binding vote without addressing implementation
+      concerns.
+
+evaluator:
+  primary_metric: decision_rule_satisfied
+  secondary_metrics:
+    - explicit_support_commitments
+    - explicit_opposition
+    - veto_exercised
+    - pilot_accepted
+    - final_decision_recorded
+
+# --- Deterministic engineering-test version.
+# Scripted so private_ops_then_pilot succeeds and the others do not
+# (directive requirement). Test-fixture behavior only; never production logic.
+# The Game Master may not cast a vote, invent a commitment, or waive the veto.
+deterministic_script:
+  operations_lead:
+    announce_full_plan:
+      response: state explicit opposition citing unaddressed operations load
+      commit: false
+      veto_exercised: false
+    private_ops_then_pilot:
+      response: >
+        After the private workload conversation, accept the capped pilot and
+        state an explicit commitment; do not exercise the veto.
+      commit: true
+      veto_exercised: false
+    immediate_binding_vote:
+      response: exercise the declared implementation veto explicitly
+      commit: false
+      veto_exercised: true
+  budget_owner:
+    announce_full_plan: {commit: false, response: ask for bounded costs; no commitment}
+    private_ops_then_pilot: {commit: true, response: commit because pilot cost is bounded and Sam accepted}
+    immediate_binding_vote: {commit: false, response: decline to commit in the vote}
+  product_lead:
+    announce_full_plan: {commit: true, response: explicit public commitment}
+    private_ops_then_pilot: {commit: true, response: explicit public commitment to the pilot}
+    immediate_binding_vote: {commit: true, response: vote in favor}
+  neutral_member:
+    announce_full_plan: {commit: false, response: abstain; operations concerns unaddressed}
+    private_ops_then_pilot: {commit: true, response: commit after seeing operations concern addressed}
+    immediate_binding_vote: {commit: false, response: abstain in the vote}
+
+expected_deterministic:
+  ranking_first: private_ops_then_pilot
+  per_candidate:
+    announce_full_plan:
+      explicit_support_commitments: 1     # Priya only
+      explicit_opposition: 1              # Sam
+      veto_exercised: false
+      pilot_accepted: false
+      decision_rule_satisfied: false
+      terminal_status: failure
+    private_ops_then_pilot:
+      explicit_support_commitments: 4     # Sam, Dana, Priya, Chris
+      explicit_opposition: 0
+      veto_exercised: false
+      pilot_accepted: true
+      decision_rule_satisfied: true
+      terminal_status: success
+    immediate_binding_vote:
+      explicit_support_commitments: 1     # Priya
+      explicit_opposition: 0
+      veto_exercised: true                # rule fails regardless of votes
+      pilot_accepted: false
+      decision_rule_satisfied: false
+      terminal_status: failure
+
+# --- Live-model structural-realism assertions (no fixed winner required).
+live_model_assertions:
+  - Every commitment, opposition statement, and veto in the trace is emitted
+    by the owning actor's own turn; the Game Master never casts a vote,
+    invents a commitment, or waives the veto for an actor.
+  - Private conversations (the operations workload discussion) are observed
+    only by their participants.
+  - At least five actors act across multiple rounds with persistent memory
+    (later statements consistent with earlier ones).
+  - No actor references information it could not have observed.
+  - The final outcome is computed from recorded commitment/veto events under
+    the declared decision rule, not from narration.
