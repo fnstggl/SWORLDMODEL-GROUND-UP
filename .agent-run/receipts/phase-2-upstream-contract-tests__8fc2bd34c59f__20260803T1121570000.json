@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-2-upstream-contract-tests",
+  "git_sha": "8fc2bd34c59f5d6e4b23e59f94351beb585bc7b8",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T11:21:16+00:00",
+  "finished_at": "2026-08-03T11:21:57+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T11:21:57+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": ".......................................                                  [100%]\n39 passed in 37.26s\n"
+}

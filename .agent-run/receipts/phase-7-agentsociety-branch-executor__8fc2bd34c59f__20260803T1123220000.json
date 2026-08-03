@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-7-agentsociety-branch-executor",
+  "git_sha": "8fc2bd34c59f5d6e4b23e59f94351beb585bc7b8",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T11:22:03+00:00",
+  "finished_at": "2026-08-03T11:23:22+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T11:23:22+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "........................................................................ [ 66%]\n....................................                                     [100%]\n108 passed in 75.93s (0:01:15)\n"
+}
