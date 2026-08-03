@@ -53,6 +53,24 @@ REQUIRED_HOOK_EVENTS = (
     "ConfigChange",
 )
 
+#: Values of ``live_event_tests`` that may accompany ``overall: PASS``.
+#:
+#: ``PASS_WITH_DOCUMENTED_LIMITATION`` exists because a hook event can be
+#: correctly implemented, correctly registered, statically covered, and still
+#: never be emitted by the host on a given surface. That is a property of the
+#: environment, not a defect in the control plane, and it must be recordable
+#: without either lying (claiming PASS for an event that never fired) or
+#: deadlocking the run forever on something no amount of local work can fix.
+#: It is only accepted alongside an explicit, checked declaration -- see
+#: ``check_bootstrap_status_consistent``.
+LIVE_EVENT_TESTS_PASS_VALUES = ("PASS", "PASS_WITH_DOCUMENTED_LIMITATION")
+
+#: Statuses a declared documented limitation may carry in ``live_checks``.
+DOCUMENTED_LIMITATION_STATUSES = ("UNAVAILABLE_IN_CLAUDE_CODE_WEB",)
+
+#: Fields every entry of ``documented_limitations`` must carry.
+DOCUMENTED_LIMITATION_FIELDS = ("hook_event", "status", "reason", "fallback_controls")
+
 REQUIRED_FILES = (
     "CLAUDE.md",
     ".claude/settings.json",
@@ -369,11 +387,26 @@ def _receipt_status(root: Path, task_id: str):
     return "STALE", passing[-1]
 
 
+def _test_command(target: str) -> list:
+    """Prefer pytest, fall back to the suite's own ``unittest`` entry point.
+
+    The control-plane suites are plain ``unittest`` and run correctly either
+    way. A container without pytest installed must not read as a *failing* test
+    run -- that reports a missing dependency as broken code, which is exactly
+    the kind of false signal the evidence rules exist to prevent.
+    """
+    probe = subprocess.run([sys.executable, "-c", "import pytest"],
+                           capture_output=True, check=False)
+    if probe.returncode == 0:
+        return [sys.executable, "-m", "pytest", target, "-q"]
+    return [sys.executable, target]
+
+
 def check_tests(root: Path, result: Result, run_tests: bool):
     if run_tests:
         for task_id, target in ((HOOK_TEST_TASK, "tests/control_plane/test_gate.py"),
                                 (RUNNER_TEST_TASK, "tests/control_plane/test_run_monitored.py")):
-            command = [sys.executable, "-m", "pytest", target, "-q"]
+            command = _test_command(target)
             try:
                 proc = subprocess.run(command, cwd=str(root), capture_output=True, text=True,
                                       timeout=900, check=False)
@@ -472,6 +505,77 @@ def check_git_context(root: Path, result: Result):
                 dirty_paths=[] if not status else hs.git_dirty_paths(root))
 
 
+def _documented_limitation_problems(status: dict, live) -> list:
+    """Hold ``PASS_WITH_DOCUMENTED_LIMITATION`` to a declared, checkable shape.
+
+    Every entry of ``live_checks`` must be ``PASS`` unless a limitation
+    explicitly names it. A limitation must name a hook event this control plane
+    still registers, carry a recognised status that *matches* that event's
+    ``live_checks`` entry, give a reason, and list the controls covering the gap
+    instead. Without those, the escape hatch would just be a way to wave through
+    an unverified hook.
+    """
+    problems = []
+    checks = status.get("live_checks")
+    if checks is not None and not isinstance(checks, dict):
+        return ["live_checks must be a JSON object"]
+    declared = status.get("documented_limitations")
+
+    if live != "PASS_WITH_DOCUMENTED_LIMITATION":
+        if declared:
+            problems.append(
+                f"documented_limitations is declared but live_event_tests={live!r}; "
+                "record PASS_WITH_DOCUMENTED_LIMITATION or remove the declaration"
+            )
+        for name, value in sorted((checks or {}).items()):
+            if value != "PASS":
+                problems.append(f"live_checks.{name}={value!r} but overall is PASS")
+        return problems
+
+    if not isinstance(declared, list) or not declared:
+        return [
+            "live_event_tests is PASS_WITH_DOCUMENTED_LIMITATION but "
+            "documented_limitations is missing or empty"
+        ]
+
+    excused = set()
+    for index, entry in enumerate(declared):
+        where = f"documented_limitations[{index}]"
+        if not isinstance(entry, dict):
+            problems.append(f"{where} must be a JSON object")
+            continue
+        for field in DOCUMENTED_LIMITATION_FIELDS:
+            if not entry.get(field):
+                problems.append(f"{where}.{field} is missing or empty")
+        event = entry.get("hook_event")
+        declared_status = entry.get("status")
+        if event and event not in REQUIRED_HOOK_EVENTS:
+            problems.append(f"{where}.hook_event={event!r} is not a control-plane hook event")
+        if declared_status and declared_status not in DOCUMENTED_LIMITATION_STATUSES:
+            problems.append(f"{where}.status={declared_status!r} is not a recognised limitation status")
+        if entry.get("fallback_controls") is not None and not isinstance(
+            entry.get("fallback_controls"), list
+        ):
+            problems.append(f"{where}.fallback_controls must be a list")
+        if event and isinstance(checks, dict):
+            if event not in checks:
+                problems.append(f"{where}.hook_event={event!r} has no live_checks entry")
+            elif checks[event] != declared_status:
+                problems.append(
+                    f"{where}.status={declared_status!r} does not match "
+                    f"live_checks.{event}={checks[event]!r}"
+                )
+        if event:
+            excused.add(event)
+
+    for name, value in sorted((checks or {}).items()):
+        if value != "PASS" and name not in excused:
+            problems.append(
+                f"live_checks.{name}={value!r} is not PASS and is not a documented limitation"
+            )
+    return problems
+
+
 def check_bootstrap_status_consistent(root: Path, result: Result):
     try:
         status = hs.read_bootstrap_status(root)
@@ -489,11 +593,15 @@ def check_bootstrap_status_consistent(root: Path, result: Result):
                 problems.append(f"{field}={status.get(field)!r}; live verification must still be PENDING")
     elif overall == "PASS":
         for field in ("static_tests", "settings_validation", "monitored_runner_tests",
-                      "fresh_session_hooks_loaded", "live_event_tests"):
+                      "fresh_session_hooks_loaded"):
             if status.get(field) != "PASS":
                 problems.append(f"{field}={status.get(field)!r} but overall is PASS")
+        live = status.get("live_event_tests")
+        if live not in LIVE_EVENT_TESTS_PASS_VALUES:
+            problems.append(f"live_event_tests={live!r} but overall is PASS")
         if not status.get("verified_commit"):
             problems.append("overall is PASS but verified_commit is not recorded")
+        problems.extend(_documented_limitation_problems(status, live))
     elif overall not in {"IN_PROGRESS", "EXTERNAL_BLOCKER", "FAIL"}:
         problems.append(f"unrecognised overall value {overall!r}")
     result.add("bootstrap_status_consistent", not problems,

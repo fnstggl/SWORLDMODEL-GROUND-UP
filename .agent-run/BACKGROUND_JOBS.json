@@ -785,6 +785,67 @@
       "stdout_tail": "SPAWNER_PID 11964\nCHILD_PIDS 11965 11966 11967\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "final-control-plane-validation",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "python3",
+        ".claude/tools/validate_control_plane.py",
+        "--run-tests"
+      ],
+      "command_string": "python3 .claude/tools/validate_control_plane.py --run-tests",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "5be0dcd1cc2634dbca94f28cd76bdffdf7149beb",
+      "git_branch": "claude/teammatidle-verification-xjodot",
+      "worktree_clean_at_start": false,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T03:58:04+00:00",
+      "no_progress_timeout_s": 300.0,
+      "total_timeout_s": 1800.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 254.518,
+      "hard_deadline_at": 1754.518,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/final-control-plane-validation",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/final-control-plane-validation/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/final-control-plane-validation/stderr.log",
+      "progress_file": null,
+      "pid": 21288,
+      "pgid": 21288,
+      "heartbeat_at": "2026-08-03T03:58:49+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 2.45,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T03:58:51+00:00",
+      "elapsed_s": 47.512,
+      "seconds_since_progress": 45.482,
+      "completed_units": null,
+      "cpu_cores_recent": -0.02,
+      "process_group_size": 3,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T03:58:04+00:00",
+          "elapsed_s": 0.022,
+          "until_elapsed_s": 47.31,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.022
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "\n      \"ok\": true,\n      \"detail\": \"overall=PASS is internally consistent\",\n      \"severity\": \"error\"\n    },\n    {\n      \"check\": \"run_state_valid\",\n      \"ok\": true,\n      \"detail\": \"mode=ready_for_master status=READY phase=awaiting_master_directive\",\n      \"severity\": \"info\"\n    },\n    {\n      \"check\": \"initialization_level\",\n      \"ok\": true,\n      \"detail\": \"level=ready_for_master: placeholders remain valid; production implementation stays blocked (12 master-context precondition(s) still unmet, as expected)\",\n      \"severity\": \"error\",\n      \"level\": \"ready_for_master\",\n      \"outstanding_master_context\": [\n        \"RUN_STATE.json.master_context_loaded is not true\",\n        \"RUN_STATE.json.architecture_initialized is not true\",\n        \"RUN_STATE.json.task_graph_initialized is not true\",\n        \"RUN_STATE.json.acceptance_gates_initialized is not true\",\n        \"RUN_STATE.json.master_directive_path is not set\",\n        \"ARCHITECTURE.md still contains the MASTER_DIRECTIVE_PENDING placeholder\",\n        \"CRITICAL_PATH.md still contains the MASTER_DIRECTIVE_PENDING placeholder\",\n        \"TASK_GRAPH.json status is still MASTER_DIRECTIVE_PENDING\",\n        \"TASK_GRAPH.json contains no implementation tasks\",\n        \"ACCEPTANCE_STATUS.json defines no mandatory acceptance gates\",\n        \"UPSTREAM_PROTECTED_PATHS.json status is still MASTER_DIRECTIVE_PENDING\",\n        \"no valid passing receipt exists for task 'master-context-initialization' at the current SHA\"\n      ]\n    }\n  ]\n}\n",
+      "stderr_tail": "control plane: PASS (/home/user/SWORLDMODEL-GROUND-UP)\n  + required_files_exist: all present\n  + json_files_parse: all parse as strict JSON\n  + failure_ledger_is_valid_jsonl: valid JSONL\n  + settings_has_required_events: all 8 events configured\n  + settings_hook_shape: all hooks are command hooks with ${CLAUDE_PROJECT_DIR}\n  + settings_script_paths_exist: all referenced scripts exist\n  + agent_teams_enabled: CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 is set in settings.env\n  . hooks_not_disabled: disableAllHooks is not set\n  + python_sources_compile: all compile\n  + agent_definitions_parse: all agent definitions parse with required frontmatter\n  + hook_tests_passed: /usr/local/bin/python3 tests/control_plane/test_gate.py -> exit 0: OK\n  + monitored_runner_tests_passed: /usr/local/bin/python3 tests/control_plane/test_run_monitored.py -> exit 0: OK\n  + no_production_files_changed: no comparable base ref found; skipped\n  + claude_md_preserved: no base ref; skipped\n  . git_context_recorded: branch=claude/teammatidle-verification-xjodot sha=5be0dcd1cc2634dbca94f28cd76bdffdf7149beb dirty_paths=10\n  + bootstrap_status_consistent: overall=PASS is internally consistent\n  . run_state_valid: mode=ready_for_master status=READY phase=awaiting_master_directive\n  + initialization_level: level=ready_for_master: placeholders remain valid; production implementation stays blocked (12 master-context precondition(s) still unmet, as expected)\n",
+      "recoverable": true
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "control-plane-monitored-runner-tests",
+  "git_sha": "5be0dcd1cc2634dbca94f28cd76bdffdf7149beb",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 tests/control_plane/test_run_monitored.py",
+  "exit_code": 0,
+  "started_at": "2026-08-03T03:59:54+00:00",
+  "finished_at": "2026-08-03T04:00:28+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T04:00:28+00:00",
+  "git_branch": "claude/teammatidle-verification-xjodot",
+  "worktree_clean": false,
+  "output_tail": ".........................\n----------------------------------------------------------------------\nRan 25 tests in 34.208s\n\nOK\n"
+}

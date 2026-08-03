@@ -40,7 +40,7 @@ either value except from the hook's injected context.
 | 1 | `SessionStart` | **PASS** | host telemetry `SessionStart:startup` → injected 1740 chars; toolless session reproduced 23/23 lines exactly |
 | 2 | `PreToolUse` | **PASS** | frozen sentinel denied via `Write`, shell redirect and `sed -i`; sentinel never created; 13 further invocations incl. 2 denials in a nested session |
 | 3 | `TaskCompleted` | **PASS** | real `TaskUpdate` blocked naming both unmet requirements; allowed once artifact + current-SHA receipt existed |
-| 4 | `TeammateIdle` | **NOT EMITTED** | registered correctly, but never invoked — see the external blocker below |
+| 4 | `TeammateIdle` | **UNAVAILABLE_IN_CLAUDE_CODE_WEB** | registered correctly, never invoked; re-checked from Claude Code web against the host's own debug log with a validated positive control — see check 4 |
 | 5 | `SubagentStop` | **PASS** | host telemetry: `BLOCK` with an incomplete contract, `ALLOW` once satisfied; only 1 invocation for 2 spawned subagents, so `adversarial-reviewer` is never intercepted |
 | 6 | `Stop` | **PASS** | host telemetry: first `Stop` → `decision: block`; second `Stop` → empty output/exit 0, the `stop_hook_active` short-circuit |
 | 7 | `StopFailure` | **PASS** | three synthetic documented API-error inputs; ledger + recovery request written; never blocks |
@@ -104,9 +104,17 @@ but under a *different* command — the gate matches the exact command, not mere
 "some receipt exists". It completed only once both the artifact and the matching
 current-SHA receipt were present.
 
-## Check 4 — TeammateIdle — EXTERNAL BLOCKER
+## Check 4 — TeammateIdle — UNAVAILABLE_IN_CLAUDE_CODE_WEB
 
 **The hook is registered correctly and was never invoked.**
+
+> **Resolved 2026-08-03.** This was re-checked once, cleanly, from a **Claude
+> Code on the web** session — the interactive-surface run the blocker asked a
+> human to perform. It did not fire there either. Per the recorded contingency,
+> `TeammateIdle` is now `UNAVAILABLE_IN_CLAUDE_CODE_WEB`, treated as optional
+> rather than a master-run blocker, and `.claude/HOOKS_README.md` §1/§1.1/§2 are
+> corrected. The re-check is written up under "Re-check" below; the original
+> headless evidence follows unchanged.
 
 Five genuine idles were attempted by named teammates that owned an
 `in_progress` task with a missing required artifact — precisely the condition
@@ -138,6 +146,73 @@ confirm Claude Code ever calls it in this environment.
 The other evidence gates are unaffected: `TaskCompleted`, `SubagentStop`,
 `PreToolUse` and `Stop` are all confirmed live, and they cover the paths that
 protect production code and evidence.
+
+### Re-check — Claude Code on the web, 2026-08-03
+
+One bounded attempt, hook configuration byte-identical to `190b04e`
+(`git diff 190b04e HEAD -- .claude/` is empty; `.claude/settings.json` sha256
+`ad585f6ae64c10d131664d5818611ed10b6aed0bcbe7df723acf0992ba620582`).
+
+**Environment.** Claude Code 2.1.220, `CLAUDE_CODE_ENTRYPOINT=remote`,
+`CLAUDE_CODE_REMOTE=true`, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`.
+
+**Detector — and why it is trustworthy.** The host's own debug log,
+`/tmp/claude-code.log` (`CLAUDE_CODE_DEBUG=true`), which names every hook Claude
+Code invokes. It is written by the Claude Code process, not by any model. Two
+weaker sources were rejected first: the session transcript records only hooks
+that *produce output* (it did not record a real `PreToolUse` denial), and
+`*.diag.log` stops logging `hook_spawn_*` after init.
+
+**Procedure.** A temporary task `tmp-teammate-idle-name` was added to
+`TASK_GRAPH.json` — owner `idleprobe`, `owner_type: teammate`, status
+`in_progress`, one `required_artifacts` entry
+(`.agent-run/live_verification/teammate_idle_required.txt`) that did not exist.
+A second task owned by `general-purpose` covered the case where the payload
+carries the agent *type* rather than the name. The gate was confirmed armed
+against a synthetic payload, then a named background teammate `idleprobe` was
+spawned and instructed to go idle **without** creating the artifact.
+
+**Positive control, inside the same measurement window.** The teammate was told
+to attempt a `Write` to `.claude/hooks/__idleprobe__.txt`. That write is denied
+by `PreToolUse` outside hook maintenance, and the host log recorded it:
+
+```
+03:46:00.337Z [DEBUG] "Hook PreToolUse:Write (PreToolUse) success:
+   {\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\",
+    \"permissionDecision\": \"deny\", ...
+03:46:00.338Z [DEBUG] Hook denied tool use for Write
+```
+
+So the detector demonstrably captures hooks fired in a teammate's context.
+
+**Result.** Window bytes 90452 → 105260, 121 lines, covering the teammate's
+entire life: **zero occurrences of `Teammate` or `TeammateIdle`.**
+
+**The window reconciles exactly**, so the event did not fire silently either:
+
+| Observed | Count | Explained by |
+|---|---|---|
+| generic allow lines (`Hook output does not start with {`) | 6 | the 6 `Bash` dispatches in the window |
+| named denial | 1 | the teammate's `Write`, denied |
+| `Agent` dispatch | 1 | not in the `PreToolUse` matcher, so no hook |
+
+No unexplained hook invocation remains.
+
+**Not a missing feature.** The 2.1.220 binary contains the literal string
+`TeammateIdle` 21 times. The event exists in this build; this surface never
+reaches the code that emits it for Agent-tool teammates.
+
+**What it cost.** The teammate finished and went idle owning an `in_progress`
+task whose required artifact did not exist, and nothing stopped it. Steps 6–7 of
+the procedure — create the artifact, confirm the teammate may then finish — were
+moot: the idle was never blocked, so there was nothing to release. The
+allow-side of the gate cannot be observed on a surface where the block-side
+never fires.
+
+**Cleanup.** Both temporary tasks removed and `TASK_GRAPH.json` restored
+byte-for-byte; `teammate_idle_required.txt` never created; `__idleprobe__.txt`
+never created (the denial held); no probe processes left; no diagnostic hook was
+registered, so `.claude/settings.json` was never touched.
 
 ## Check 5 — SubagentStop
 
@@ -238,10 +313,30 @@ check reports phantom orphans.
   `.agent-run/receipts/` into `.agent-run/live_verification/` so it can never
   satisfy a future completion gate.
 
-## Outcome: EXTERNAL_BLOCKER
+## Outcome: PASS, with one documented environment limitation
 
-Eight of the nine live checks pass against `190b04e`. The ninth cannot be
-produced from inside this environment, so this run does not return PASS.
+Eight of the nine live checks pass against `190b04e`. The ninth,
+`TeammateIdle`, is not produced by *any* surface available here — headless
+first, then Claude Code on the web — so it is recorded as
+`UNAVAILABLE_IN_CLAUDE_CODE_WEB`, documented in `.claude/HOOKS_README.md` §1.1,
+and treated as **optional rather than a master-run blocker**. Silent
+abandonment is covered instead by `TaskCompleted`, `SubagentStop`, `Stop`, and
+explicit task ownership plus lead-agent review — all live-verified at `190b04e`.
+
+`HOOK_BOOTSTRAP_STATUS.json` records `overall: PASS` via
+`live_event_tests: PASS_WITH_DOCUMENTED_LIMITATION`. That value is not a free
+pass: `validate_control_plane.check_bootstrap_status_consistent` accepts it only
+when the limitation names a hook event the control plane still registers,
+carries a status matching that event's `live_checks` entry, gives a reason,
+lists the fallback controls, and leaves every other live check at `PASS`.
+
+**The master implementation may begin.**
+
+### The original blocker, kept for the record
+
+The text below is what the headless run recorded before the web re-check. It is
+retained because it documents what was tried; its "exact human action required"
+has now been carried out, with the negative result above.
 
 **Exact blocker.** Claude Code 2.1.220, running headless in this remote
 execution environment, does not emit the `TeammateIdle` hook event for
