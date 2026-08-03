@@ -1492,6 +1492,128 @@
       "stdout_tail": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n........................................................                 [100%]\n200 passed in 110.44s (0:01:50)\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "phase10-pre-commit-battery",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "cd /home/user/SWORLDMODEL-GROUND-UP && /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q"
+      ],
+      "command_string": "bash -c cd /home/user/SWORLDMODEL-GROUND-UP && /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "d77ae3424d363940c05050042d48ea15c8777458",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": false,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T18:38:51+00:00",
+      "no_progress_timeout_s": 240.0,
+      "total_timeout_s": 1200.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 236.56,
+      "hard_deadline_at": 1093.746,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase10-pre-commit-battery",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase10-pre-commit-battery/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase10-pre-commit-battery/stderr.log",
+      "progress_file": null,
+      "pid": 24708,
+      "pgid": 24708,
+      "heartbeat_at": "2026-08-03T18:40:37+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 35.44,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T18:40:51+00:00",
+      "elapsed_s": 119.834,
+      "seconds_since_progress": 3.44,
+      "completed_units": null,
+      "cpu_cores_recent": 0.681,
+      "process_group_size": 10,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T18:38:51+00:00",
+          "elapsed_s": 0.029,
+          "until_elapsed_s": 119.632,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.029
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 32%]\n........................................................................ [ 65%]\n........................................................................ [ 98%]\n...                                                                      [100%]\n219 passed in 117.85s (0:01:57)\n",
+      "stderr_tail": "",
+      "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "phase10-final-dod",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q"
+      ],
+      "command_string": "bash -c /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "d77ae3424d363940c05050042d48ea15c8777458",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": false,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T18:42:10+00:00",
+      "no_progress_timeout_s": 240.0,
+      "total_timeout_s": 1200.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 238.178,
+      "hard_deadline_at": 1094.094,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase10-final-dod",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase10-final-dod/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase10-final-dod/stderr.log",
+      "progress_file": null,
+      "pid": 876,
+      "pgid": 876,
+      "heartbeat_at": "2026-08-03T18:43:55+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 34.15,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T18:44:10+00:00",
+      "elapsed_s": 120.118,
+      "seconds_since_progress": 1.822,
+      "completed_units": null,
+      "cpu_cores_recent": 1.066,
+      "process_group_size": 10,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T18:42:10+00:00",
+          "elapsed_s": 0.027,
+          "until_elapsed_s": 119.915,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.027
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 32%]\n........................................................................ [ 65%]\n........................................................................ [ 98%]\n...                                                                      [100%]\n219 passed in 118.17s (0:01:58)\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }
