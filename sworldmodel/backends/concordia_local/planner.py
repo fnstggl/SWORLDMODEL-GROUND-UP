@@ -42,9 +42,12 @@ Code-owned mapping rules (v1):
 - ``gm_config``              -- the explicit game-master assembly: engine
   name, acting order, the exact component roster, the fixed action spec,
   the event-resolution chain (never the upstream narrative-push step), the
-  reserved final guard slot (identity in Phase 4; Phase 5 injects a real
-  guard), observer notification, disabled observation fallback, memory
-  backend, and the run metadata described above.
+  final guard slot with its explicit enabled flag (the Phase 5 agency
+  guard occupies the slot by default; ``agency_guard_enabled=False``
+  reserves it with the identity step -- the flag is a scalar because the
+  Phase 3 plan contract validates ``gm_config`` as a scalar map), observer
+  notification, disabled observation fallback, memory backend, and the run
+  metadata described above.
 - ``evaluator_spec``         -- supplied by the caller and passed through
   untouched.  ``world.success_criteria`` (evaluator-only prose) is
   deliberately NOT copied into the plan: nothing evaluator-facing may ever
@@ -67,7 +70,9 @@ from sworldmodel.decision.contracts import (CompiledDecisionWorld,
                                             SCHEMA_VERSION, canonical_time)
 from sworldmodel.decision.validation import validate_semantics
 
-PLANNER_VERSION = "concordia_local_planner_v1"
+from .guard import GUARD_SLOT_VALUE
+
+PLANNER_VERSION = "concordia_local_planner_v2"
 
 #: code-owned default engine-step budget (an argument, never a cutoff proxy)
 DEFAULT_MAX_STEPS = 8
@@ -110,6 +115,7 @@ def build_initialization_plan(
     *,
     max_steps: int = DEFAULT_MAX_STEPS,
     acting_order: str = ACTING_ORDER_FIXED,
+    agency_guard_enabled: bool = True,
 ) -> ConcordiaInitializationPlan:
     """Map one validated world to its deterministic initialization plan.
 
@@ -135,6 +141,10 @@ def build_initialization_plan(
         issues.add("acting_order", "invalid_enum",
                    f"{acting_order!r} is not a supported acting order; "
                    f"allowed: {', '.join(ACTING_ORDERS)}")
+    if type(agency_guard_enabled) is not bool:
+        issues.add("agency_guard_enabled", "invalid_value",
+                   "agency_guard_enabled must be a boolean (the explicit "
+                   "plan-level switch for the reserved final guard slot)")
     issues.raise_if_any()
 
     # Defensive re-checks of references Phase 3 validation already gates on.
@@ -186,7 +196,9 @@ def build_initialization_plan(
         "action_spec_output_type": "free",
         "action_spec_call_to_action": ACTOR_CALL_TO_ACTION,
         "event_resolution_chain": "",
-        "guard_slot": GUARD_SLOT_IDENTITY,
+        "guard_slot": (GUARD_SLOT_VALUE if agency_guard_enabled
+                       else GUARD_SLOT_IDENTITY),
+        "agency_guard_enabled": agency_guard_enabled,
         "notify_observers": True,
         "observation_fallback": False,
         "memory_backend": "list",
@@ -198,7 +210,7 @@ def build_initialization_plan(
 
     plan_identity = "|".join((
         PLANNER_VERSION, world.content_hash(), evaluator_spec.content_hash(),
-        str(max_steps), acting_order))
+        str(max_steps), acting_order, str(agency_guard_enabled)))
     plan_id = "p_" + hashlib.sha256(
         plan_identity.encode("utf-8")).hexdigest()[:16]
 
@@ -231,6 +243,7 @@ def required_gm_config_keys() -> tuple:
     helper for builders and tests; the builder consumes each explicitly)."""
     return ("engine", "gm_name", "acting_order", "component_roster",
             "action_spec_output_type", "action_spec_call_to_action",
-            "event_resolution_chain", "guard_slot", "notify_observers",
-            "observation_fallback", "memory_backend", "history_length",
-            "intervention_boundary", "start_time", "cutoff_time")
+            "event_resolution_chain", "guard_slot", "agency_guard_enabled",
+            "notify_observers", "observation_fallback", "memory_backend",
+            "history_length", "intervention_boundary", "start_time",
+            "cutoff_time")

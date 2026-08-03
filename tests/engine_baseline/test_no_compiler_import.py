@@ -52,6 +52,7 @@ CONTRACTS_DIR = REPO_ROOT / "tests" / "engine_contracts"
 
 BASELINE_PATH_FILES = (
     REPO_ROOT / "sworldmodel" / "backends" / "concordia_local" / "planner.py",
+    REPO_ROOT / "sworldmodel" / "backends" / "concordia_local" / "guard.py",
     REPO_ROOT / "sworldmodel" / "backends" / "concordia_local" / "builder.py",
     REPO_ROOT / "sworldmodel" / "backends" / "concordia_local" / "runner.py",
     BASELINE_DIR / "test_hard_gate_scenario_one.py",

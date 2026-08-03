@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-5-minimum-agency-guard",
+  "git_sha": "ab9eeef810009b3954f8e56547af552a16f2552f",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T08:34:18+00:00",
+  "finished_at": "2026-08-03T08:35:04+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T08:35:04+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "........................................................................ [ 88%]\n.........                                                                [100%]\n81 passed in 42.70s\n"
+}

@@ -4,9 +4,10 @@ silently.
 The Phase 2 contract suite proved the UPSTREAM seam (a final
 ``event_resolution_steps`` callable sees the fully-resolved candidate
 event pre-commit and pre-observer).  This module proves OUR builder
-actually wires that seam from the plan: identity occupies the final slot
-by default (Phase 4), and an injected callable (the Phase 5 shape) runs
-once per resolution and rewrites the committed event.
+actually wires that seam from the plan: since Phase 5 the agency guard
+occupies the final slot by default (identity only when the plan
+explicitly disables it), and an injected callable replaces the slot
+occupant, runs once per resolution, and rewrites the committed event.
 
 It also pins the builder's refusal behavior: unsupported settings,
 missing models, roster inconsistencies, the upstream narrative-push step,
@@ -33,7 +34,7 @@ pytest.importorskip("concordia.environment.engines.sequential",
 from det import seeded_determinism  # tests/engine_contracts (via conftest)
 
 from baseline_helpers import StrictScriptedModel, aware_rule
-from sworldmodel.backends.concordia_local import builder, planner, runner
+from sworldmodel.backends.concordia_local import builder, guard, planner, runner
 from sworldmodel.decision.contracts import (CompiledDecisionWorld,
                                             ConcordiaInitializationPlan,
                                             EvaluatorSpec, SCHEMA_VERSION)
@@ -94,9 +95,27 @@ def _actor_models(models):
 # ---------------------------------------------------------------------------
 
 
-def test_identity_guard_occupies_final_slot_by_default():
+def test_agency_guard_occupies_final_slot_by_default():
+    # Phase 5 adjustment (was: identity by default in Phase 4): the plan
+    # now declares the agency guard as the default slot occupant, and the
+    # builder constructs it from the plan's actor-name roster.
     plan = _plan()
+    assert plan.gm_config["guard_slot"] == guard.GUARD_SLOT_VALUE
+    assert plan.gm_config["agency_guard_enabled"] is True
+    models = _models()
+    built = builder.build_branch(plan, actor_models=_actor_models(models),
+                                 gm_model=models["gm"])
+    assert built.guard_step is not builder.identity_guard_step
+    assert callable(built.guard_step)
+    assert built.guard_step.actor_names == ("Ada", "Bo")
+
+
+def test_identity_guard_occupies_final_slot_when_plan_disables_the_guard():
+    # The Phase 4 identity-default shape remains constructible, but only
+    # through the plan's EXPLICIT switch.
+    plan = _plan(agency_guard_enabled=False)
     assert plan.gm_config["guard_slot"] == "identity"
+    assert plan.gm_config["agency_guard_enabled"] is False
     models = _models()
     built = builder.build_branch(plan, actor_models=_actor_models(models),
                                  gm_model=models["gm"])
@@ -140,14 +159,25 @@ def test_injected_guard_runs_once_per_resolution_and_rewrites_the_commit():
 
 
 def test_guard_slot_mismatch_is_refused():
-    plan = _plan()
-    data = plan.to_dict()
-    data["gm_config"]["guard_slot"] = "agency_guard_v1"
-    modified = ConcordiaInitializationPlan.from_dict(data)
+    # Phase 5 adjustment (the original mismatch -- guard_slot
+    # 'agency_guard_v1' with no injected callable -- is now the valid
+    # default): every INCONSISTENT slot/flag combination is refused, in
+    # both directions and for unknown slot names.
     models = _models()
-    with pytest.raises(builder.PlanBuildError, match="guard slot"):
-        builder.build_branch(modified, actor_models=_actor_models(models),
-                             gm_model=models["gm"])
+    mismatches = (
+        {"guard_slot": "identity"},                     # enabled=True
+        {"guard_slot": guard.GUARD_SLOT_VALUE,
+         "agency_guard_enabled": False},
+        {"guard_slot": "guard_v9"},                     # unknown name
+    )
+    for overrides in mismatches:
+        data = _plan().to_dict()
+        data["gm_config"].update(overrides)
+        modified = ConcordiaInitializationPlan.from_dict(data)
+        with pytest.raises(builder.PlanBuildError, match="guard slot"):
+            builder.build_branch(modified,
+                                 actor_models=_actor_models(models),
+                                 gm_model=models["gm"])
 
 
 # ---------------------------------------------------------------------------

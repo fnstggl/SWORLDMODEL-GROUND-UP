@@ -366,7 +366,7 @@
       "description": "Add the smallest possible post-resolution or pre-commit guard so the Game Master cannot permanently commit a voluntary decision for a different actor without that actor receiving its own turn. Adapter/validator/event-splitter based on real Concordia interfaces; no Game Master fork. Prove the Concordia loop still works.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "in_progress",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-4-stock-concordia-local-baseline"
@@ -386,7 +386,12 @@
       "acceptance_gates": [
         "C_individual_simulation",
         "H_simulation_semantics"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "artifact-bearing commit (this fold-in); receipt at ab9eeef81000, re-record at fold-in HEAD",
+        "results": "Engine env 81 passed (42 baseline incl. 16 guard tests + 39 contracts); system 664 passed/13 skipped + known receipt item; hardcoding guard green both interpreters. Deterministic detector (act-category lemma paradigms + known-name agent pattern), availability-only rewrite, mechanical/receipt passthrough byte-exact, guard_interventions recorded, enabled-vs-disabled control-trace equivalence proven; Concordia loop still green.",
+        "artifacts": "sworldmodel/backends/concordia_local/guard.py; planner/builder/runner surgical wiring; tests/engine_baseline/test_agency_guard.py"
+      }
     },
     {
       "id": "phase-6-counterfactual-branch-manager",
@@ -394,7 +399,7 @@
       "description": "Freeze one base snapshot; run two manually supplied interventions from the same starting snapshot; branches differ only at the intervention boundary; no cross-branch state or memory access; explicit trace-based outcome evaluation and comparison; branch failures reported, never silently replaced.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "in_progress",
       "mandatory": true,
       "dependencies": [
         "phase-5-minimum-agency-guard"

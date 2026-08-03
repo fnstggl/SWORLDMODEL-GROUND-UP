@@ -379,3 +379,19 @@ own parse. Rationale: the wart would compound forever; the immutability rule
 targets semantic gaming, not syntax validity; final acceptance has not
 begun. The frozen-manual-fixtures receipt is re-recorded against the new
 hashes.
+
+
+## Phase 5 notes 2026-08-03
+
+- Guard plan-shape deviation (forced by the frozen Phase 3 contract):
+  `gm_config` is validated as a scalar map, so the agency-guard block is the
+  scalar `agency_guard_enabled: bool` + `guard_slot` string rather than a
+  nested object. Accepted; revisit only if gm_config ever needs structured
+  values for other reasons.
+- `PLANNER_VERSION` bumped v1 -> v2 (default-enabled guard changes the
+  emitted mapping; same-input plan identities must not collide across
+  versions).
+- Detector v1 documented under-detections (modals/perfects/negations/
+  passives) are conservative-by-design for a "minimum" guard; the optional
+  single yes/no live-model confirmation may relax the reported-speech
+  borderline class later. Gate H's semantics reviewer weighs these.

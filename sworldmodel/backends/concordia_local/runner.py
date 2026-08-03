@@ -10,7 +10,13 @@ captures everything the Phase 3 ``BranchResult`` builder needs:
   code-owned event identifiers;
 - per-actor memory texts;
 - the engine's raw log (one entry per step);
-- step count, wall-clock, and default terminal status.
+- step count, wall-clock, and default terminal status;
+- ``guard_interventions``: one record per agency-guard rewrite (shape
+  ``{step, active, affected, original_excerpt, rewritten_excerpt}``,
+  excerpts capped at 120 characters).  Recorded only for the DEFAULT
+  builder-constructed guard: an explicitly injected ``guard_step`` owns
+  its own reporting, and the identity guard never rewrites, so the list
+  is empty in both of those configurations.
 
 Terminal-status rule (contract rule R3, CONTRACTS_DESIGN.md): an engine
 stop without an evaluator verdict is NEVER a failure.  The runner reports
@@ -57,15 +63,32 @@ def committed_event_rows(gm_memory_rows) -> list:
     return [row for row in gm_memory_rows if EVENT_TAG in row]
 
 
-def run_built_branch(built: BuiltBranch, *, capture_raw_log: bool = True
-                     ) -> dict:
-    """Run an already-built branch to termination or its step budget."""
+#: guard-intervention excerpt cap (characters)
+_EXCERPT_LIMIT = 120
+
+
+def run_built_branch(built: BuiltBranch, *, capture_raw_log: bool = True,
+                     step_cell: list | None = None,
+                     guard_interventions: list | None = None) -> dict:
+    """Run an already-built branch to termination or its step budget.
+
+    ``step_cell`` (a single-element mutable list) and
+    ``guard_interventions`` are the runner-side halves of the guard
+    escalation wiring created by :func:`run_branch`: the engine's
+    checkpoint callback keeps ``step_cell[0]`` at the completed-step
+    count so the escalation closure can stamp each intervention with the
+    in-progress step number, and the shared ``guard_interventions`` list
+    is returned in the result.  Both default to ``None`` for direct
+    callers, which yields an empty ``guard_interventions`` entry.
+    """
     engine = sequential.Sequential()
     raw_log: list = []
     steps_seen: list = []
 
     def _record_step(steps_completed: int) -> None:
         steps_seen.append(steps_completed)
+        if step_cell is not None:
+            step_cell[0] = steps_completed
 
     infrastructure_errors: list = []
     started = time.perf_counter()
@@ -116,6 +139,8 @@ def run_built_branch(built: BuiltBranch, *, capture_raw_log: bool = True
         "gm_memory": gm_memory_rows,
         "actor_memories": actor_memories,
         "raw_log": raw_log,
+        "guard_interventions": (list(guard_interventions)
+                                if guard_interventions is not None else []),
         "infrastructure_errors": infrastructure_errors,
         "token_stats": {},
         "runtime_stats": {
@@ -147,7 +172,28 @@ def run_branch(
     engine exceptions are captured in ``infrastructure_errors`` with the
     partial trace preserved, so a broken branch is reported rather than
     silently replaced.
+
+    When no ``guard_step`` is injected, the runner wires an escalation
+    recorder into the builder-constructed agency guard so every rewrite
+    is reported in the result's ``guard_interventions`` list.
     """
-    built = build_branch(plan, actor_models=actor_models, gm_model=gm_model,
-                         guard_step=guard_step)
-    return run_built_branch(built, capture_raw_log=capture_raw_log)
+    guard_interventions: list = []
+    step_cell: list = [0]
+
+    def _record_intervention(event_in, event_out, active_player,
+                             affected_actors) -> None:
+        guard_interventions.append({
+            "step": step_cell[0] + 1,
+            "active": active_player,
+            "affected": list(affected_actors),
+            "original_excerpt": event_in[:_EXCERPT_LIMIT],
+            "rewritten_excerpt": event_out[:_EXCERPT_LIMIT],
+        })
+
+    built = build_branch(
+        plan, actor_models=actor_models, gm_model=gm_model,
+        guard_step=guard_step,
+        guard_escalate=_record_intervention if guard_step is None else None)
+    return run_built_branch(built, capture_raw_log=capture_raw_log,
+                            step_cell=step_cell,
+                            guard_interventions=guard_interventions)

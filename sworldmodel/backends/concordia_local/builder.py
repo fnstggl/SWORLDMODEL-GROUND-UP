@@ -16,9 +16,13 @@ Uses only the audited public upstream APIs (CONCORDIA_AUDIT.md sections A,
   baseline) or ``NextActing`` where the plan says the model chooses,
   ``FixedActionSpec`` for the fixed free-form call to action,
   ``EventResolution(event_resolution_steps=<plan chain> + (guard,),
-  notify_observers=<plan>)`` whose FINAL slot is the guard seam
-  (identity here in Phase 4; Phase 5 injects the real agency guard), an
-  explicit ``Terminate`` component, and a shared game-master memory list.
+  notify_observers=<plan>)`` whose FINAL slot is the guard seam -- by
+  default the Phase 5 minimum agency guard built from the plan's actor
+  roster (``guard.make_agency_guard``); the identity step occupies the
+  slot only when the plan says ``agency_guard_enabled=False``, and an
+  explicitly injected ``guard_step`` callable replaces the slot occupant
+  outright -- an explicit ``Terminate`` component, and a shared
+  game-master memory list.
   Because every SwitchAct dispatch key is present, the game master has no
   model-improvising ("YOLO") fallback path.
 
@@ -38,6 +42,8 @@ from dataclasses import dataclass, field
 from typing import Callable, Mapping
 
 from sworldmodel.decision.contracts import ConcordiaInitializationPlan
+
+from .guard import GUARD_SLOT_VALUE, make_agency_guard
 
 _IMPORT_HELP = (
     "sworldmodel.backends.concordia_local.builder requires the optional "
@@ -95,10 +101,12 @@ class PlanBuildError(ValueError):
 
 def identity_guard_step(document, event_statement: str,
                         active_player_name: str) -> str:
-    """Phase 4 guard-seam occupant: passes the resolved event through
-    unchanged.  Phase 5 replaces this callable with the agency guard; the
-    slot position (final resolution step, pre-commit, pre-observer) is
-    already exercised by every baseline run."""
+    """Identity guard-seam occupant: passes the resolved event through
+    unchanged.  Since Phase 5 the agency guard occupies the slot by
+    default; this step is installed only when the plan explicitly says
+    ``agency_guard_enabled=False`` (the Phase 4 baseline shape), keeping
+    the slot position (final resolution step, pre-commit, pre-observer)
+    exercised in every configuration."""
     del document, active_player_name
     return event_statement
 
@@ -179,15 +187,29 @@ def build_branch(
     actor_models,
     gm_model,
     guard_step: Callable | None = None,
+    guard_escalate: Callable | None = None,
 ) -> BuiltBranch:
     """Construct live Concordia objects exactly as the plan declares.
 
     ``actor_models`` is either one model object used for every actor or a
     mapping ``actor_id -> model``.  ``gm_model`` drives the game master.
-    ``guard_step`` (signature ``(document, event_statement,
-    active_player_name) -> str``) occupies the FINAL event-resolution slot;
-    when ``None`` the plan's declared ``guard_slot`` must be ``'identity'``
-    and :func:`identity_guard_step` is installed.
+
+    The FINAL event-resolution slot is filled from the plan:
+    ``agency_guard_enabled=True`` (the default the planner emits) builds
+    the minimum agency guard from the plan's actor-name roster;
+    ``False`` installs :func:`identity_guard_step`.  The plan's declared
+    ``guard_slot`` string must agree with the flag -- a mismatch is an
+    error, never reconciled silently.  An explicitly injected
+    ``guard_step`` callable (signature ``(document, event_statement,
+    active_player_name) -> str``) REPLACES the slot occupant outright
+    (test/diagnostic wiring).
+
+    ``guard_escalate`` is forwarded as the ``escalate`` hook of the
+    builder-constructed agency guard (the runner uses it to record guard
+    interventions).  It applies ONLY to that constructed guard: combined
+    with an injected ``guard_step`` it is refused as ambiguous, and with
+    a disabled guard the identity step never rewrites, so the hook is
+    inert by construction.
     """
     if not isinstance(plan, ConcordiaInitializationPlan):
         raise PlanBuildError(
@@ -264,16 +286,28 @@ def build_branch(
             "component_roster and shared_init_data disagree: 'shared_setup'"
             " must be rostered exactly when shared_init_data is non-blank")
 
-    if guard_step is None:
-        if guard_slot != "identity":
-            raise PlanBuildError(
-                f"plan reserves guard slot {guard_slot!r} but no guard_step"
-                " callable was injected")
-        guard = identity_guard_step
-    else:
+    agency_guard_enabled = _require_config(gm_config, "agency_guard_enabled")
+    if type(agency_guard_enabled) is not bool:
+        raise PlanBuildError(
+            "gm_config['agency_guard_enabled'] must be a boolean")
+    expected_guard_slot = (GUARD_SLOT_VALUE if agency_guard_enabled
+                           else "identity")
+    if guard_slot != expected_guard_slot:
+        raise PlanBuildError(
+            f"plan declares guard slot {guard_slot!r} but "
+            f"agency_guard_enabled={agency_guard_enabled!r} requires "
+            f"{expected_guard_slot!r}; the builder never reconciles the "
+            "two silently")
+    if guard_escalate is not None and not callable(guard_escalate):
+        raise PlanBuildError("guard_escalate must be callable when provided")
+    if guard_step is not None:
         if not callable(guard_step):
             raise PlanBuildError("guard_step must be callable")
-        guard = guard_step
+        if guard_escalate is not None:
+            raise PlanBuildError(
+                "guard_escalate applies only to the builder-constructed "
+                "agency guard; combining it with an injected guard_step "
+                "is ambiguous")
 
     chain = _resolve_chain(chain_value)
 
@@ -286,6 +320,14 @@ def build_branch(
         raise PlanBuildError(
             "actor names must be unique: Concordia addresses entities by "
             "name")
+
+    # ---------------- final guard slot ----------------
+    if guard_step is not None:
+        guard = guard_step
+    elif agency_guard_enabled:
+        guard = make_agency_guard(names_in_order, escalate=guard_escalate)
+    else:
+        guard = identity_guard_step
 
     actors = {}
     actor_memory_lists = {}
