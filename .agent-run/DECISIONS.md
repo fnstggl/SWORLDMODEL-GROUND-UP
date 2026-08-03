@@ -596,3 +596,27 @@ HANDOFF.md.
   generate_candidates + one-fixed-schema generator, duck-typed
   sample_text seam, exactly one call per generation) is the Phase 9
   entry seam.
+
+## Phase 9 notes 2026-08-03 (individual vertical slice complete)
+
+- reporting/common.py is a third module beyond the directive's two named
+  files (shared canonical serialization) -- sanctioned by the directive's
+  "cleaner structure" clause; responsibilities stay separated.
+- The frozen contract embedded by the report document is
+  RecommendationResult (computed only via outcomes.rank_branches); the
+  report round-trips every embedded contract through strict from_dict/
+  content_hash. Design note, not a gap: full BranchResult dicts are NOT
+  embedded because content_hash covers wall-clock runtime_stats; the
+  report embeds the deterministic evaluation core and documents the
+  exclusion. BranchResult remains the contract of record.
+- Evaluator predicates for the slice are attribution-anchored (require
+  the resolved-actor-turn wrapper), which is what defeats GM-narration
+  satisfaction of success criteria; recorded as the pattern for Phase 10
+  team predicates.
+- Live smoke: requested deepseek-chat; endpoint serves deepseek-v4-flash.
+  Retry-once policy with LIVE_ENDPOINT_UNREACHABLE infrastructure-error
+  distinction. openai 2.52.0 was already in the engine env.
+- Monitored DoD job ran pre-commit (exploratory, dirty tree); the
+  SHA-exact clean-tree proof is the receipt battery at the completion
+  commit. This ordering (monitored battery -> commit -> bounded receipt
+  battery at clean HEAD) is the accepted per-phase pattern.

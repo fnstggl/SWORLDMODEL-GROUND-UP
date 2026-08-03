@@ -584,7 +584,7 @@
       "description": "Complete message/persuasion decision ('Which of these messages most increases the chance of a second meeting?'): the recipient decides whether to reply, the Game Master cannot pre-write the reply, the outcome evaluator reads the actual resulting trace. Deterministic scripted, deterministic mock-model, and live-model smoke runs when credentials are available.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "compiler-to-concordia-adapter",
@@ -606,7 +606,17 @@
       "acceptance_gates": [
         "C_individual_simulation",
         "E_counterfactual_correctness"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "cc4ba2e (artifacts) / 460d502 (monitored DoD job + receipt SHA) / 9ba9b3a (receipt commit); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/phase-9-individual-vertical-slice__460d502400ab__20260803T1802520000.json",
+        "receipt_command": "seven-suite engine DoD via record_receipt --timeout 900 (200 passed, clean tree)",
+        "receipt_exit_code": 0,
+        "tests_passed": 200,
+        "summary": "sworldmodel/reporting/ (recommendation + complete causal trace report, scenario-generic) + tests/engine_individual/ 20 tests: fixture-1 slice end-to-end with measured winner + decided_by_metric; per-clause gate-C battery incl. guard-enforced no-choosing-anothers-response, attribution-anchored evaluator defeating GM narration, all four explicit terminal statuses, 3x byte-identical repeats; deterministic hash-derived mock-model leg (no scenario knowledge); live DeepSeek smoke leg 2 tests, 5 passing executions each, zero transport retries; committed example report/trace artifacts hash-asserted.",
+        "lead_verification": "independent run at 9ba9b3a: tests/engine_individual 20 passed (live included); receipt clean with 6 path-labeled hashes; phase9-final-dod finished/0",
+        "acceptance_gate_notes": "Gate C fully evidenced; gate E further evidenced by cross-branch isolation + determinism tests riding the slice."
+      }
     },
     {
       "id": "phase-10-team-vertical-slice",
