@@ -484,3 +484,33 @@ proof-less receipt (false green — the dangerous direction). Suites green:
 validator 95, gate 134, monitored-runner 25. Validator now names exactly
 the two deferred Ray-suite receipts (p2/p7). Mode restored to
 implementation.
+
+
+## Phase 8 notes 2026-08-03 (fold-in)
+
+- Stage B gate PASSED: whole-branch checkpoint/restore with three-way
+  full-signature equality (A=A'=B, two seeds), RNG stream continuity
+  proven by a divergence discriminator (naive re-seed control visibly
+  diverges; proper restore matches byte-for-byte), and distributed
+  interrupted-resume byte-equal to the uninterrupted run with live RNG
+  draws crossing the worker boundary through the blob.
+- Upstream repairs entirely through public API: ListMemory.set_state
+  re-points its bank at the argument list (refill the original handle and
+  hand it back); EntityAgent.set_state swallows component exceptions, so
+  restore_branch enforces post-restore get_state() byte-equality
+  (canonicalized stored_hashes) as the only trusted success signal.
+- Restore requires behaviorally prompt-pure models (model internals are
+  never serialized) -- documented in checkpoint.py, enforced structurally
+  in the checkpoint suite's model spec.
+- Fold-in items closed: p2/p7 Ray-suite receipts re-recorded clean
+  (p7 with path-labeled config hashes after the batch-ordering effect --
+  a receipt recorded mid-batch sees earlier receipts as untracked and
+  loses worktree_clean; commit between records or carry hashes); the
+  worker-RNG distributed equivalence proof (finding D5) landed as
+  test_worker_rng_equivalence.py with non-vacuity assertions.
+- Known pre-existing issue (reported by the phase-8 writer, reproduced at
+  db41689 pre-phase): engine-env `pytest tests/engine_contracts
+  tests/engine_distributed` in ONE session fails via frozen Ray env
+  snapshot + worker registry cache when the distributed suite adopts the
+  contracts suite's workspace; DoD-ordered command avoids it. Candidate
+  for the operational-robustness matrix, not a product defect.

@@ -502,7 +502,7 @@
       "description": "Persist and reconstruct Concordia state through AgentSociety workspaces as one whole-branch checkpointed unit (opaque versioned artifact; prefer Concordia's own checkpoint/serialization path; smallest SWORLDMODEL sidecar only for proven missing state). Passes only when run-to-checkpoint/save/continue vs restore/continue produce the same deterministic trace and result.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "in_progress",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-7-agentsociety-branch-executor"
@@ -521,7 +521,17 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "F_agentsociety_integration"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "61705f214dc8 (artifacts + clean-worktree receipt); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/phase-8-concordia-actor-workspace-adapter__61705f214dc8__20260803T1109060000.json",
+        "receipt_command": "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+        "receipt_exit_code": 0,
+        "tests_passed": 119,
+        "equivalence_evidence": "A=A'=B full-signature equality under seeds 20260803 and 913026 (run-to-checkpoint/save/continue vs restore/continue vs disk-round-tripped blob); RNG-divergence discriminator proves naive re-seed resume diverges at post-boundary events while proper restore matches byte-for-byte; distributed interrupted-resume signatures byte-equal the uninterrupted distributed run for all three fixture candidates with resumed_from_checkpoint=true records",
+        "canonicalization": "stored_hashes canonicalized at capture and on both sides of restore fidelity comparison (upstream set-derived list; set_state rebuilds the set)",
+        "note": "Writer report in session transcript; upstream surprises (ListMemory.set_state re-pointing, EntityAgent.set_state exception swallowing) documented in checkpoint.py and DECISIONS."
+      }
     },
     {
       "id": "agency-guard-hardening",
