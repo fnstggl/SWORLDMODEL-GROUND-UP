@@ -440,7 +440,7 @@
       "description": "Only after the frozen manual fixtures pass: document every field mapping in docs/engine_migration/COMPILER_TO_CONCORDIA_MAPPING.md; implement the deterministic CompiledDecisionWorld -> ConcordiaInitializationPlan -> validated Concordia objects path (no LLM calls, no paraphrase, no silent defaults); prove canary information-leak tests and manual-vs-compiler-produced initialization equivalence before enabling natural-language compilation in the end-to-end route.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-6-counterfactual-branch-manager"
@@ -462,7 +462,16 @@
       "acceptance_gates": [
         "C_individual_simulation",
         "H_simulation_semantics"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "1ae1196 (artifacts) / a03ee51 (monitored DoD job) / cb995b3 (receipt); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/compiler-to-concordia-adapter__a03ee51f4753__20260803T1723150000.json",
+        "receipt_command": "monitored six-suite engine DoD (job adapter-final-dod)",
+        "receipt_exit_code": 0,
+        "tests_passed": 180,
+        "summary": "Deterministic manifest->CompiledDecisionWorld adapter + DecisionProblem route + COMPILER_TO_CONCORDIA_MAPPING.md (every source field mapped or sidecar-retained with per-field tests); 46-test suite: mapping correctness, artifact-set loading, information-leak canaries end-to-end through real planner+builder+runner, manual-vs-compiler plan equivalence on frozen fixture 1 (differences exactly {plan_id, world_id, compiler_provenance} through the name-keyed ID bijection), route tests incl. one-fixed-schema generator; zero compiler/ modifications, lazy scene_schema gate with import-isolation proofs.",
+        "lead_verification": "independent run at cb995b3: tests/engine_compilation 46 passed; job record finished/0; receipt clean with 4 path-labeled hashes"
+      }
     },
     {
       "id": "phase-7-agentsociety-branch-executor",

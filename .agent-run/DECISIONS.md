@@ -575,3 +575,24 @@ subagent it arms a `send_later` liveness check-in (~45 min) and verifies
 the agent's transcript is advancing when it fires, because a
 permission-paused subagent emits no completion signal. Recorded in
 HANDOFF.md.
+
+## Compiler-adapter notes 2026-08-03 (task complete; lead dispositions)
+
+- Contract-expressiveness finding: the compiler schema permits a starting
+  event with EMPTY visible_to (observer-less ledger fact); frozen
+  StartingEvent requires >=1 observer. Disposition: the adapter's loud
+  refusal STANDS. No frozen fixture or acceptance scenario needs
+  observer-less pre-start facts; if one ever does, that is a
+  contract-version change decided then, not a silent widening now.
+- The compile question has no CompiledDecisionWorld slot. Disposition:
+  identity-hash + provenance + sidecar treatment ACCEPTED as the
+  permanent Stage-A/B answer; DecisionProblem is the question's semantic
+  home. Canary-proven never to reach prompts. Revisit only if a future
+  contract version is opened for other reasons.
+- Undecodable actor names (empty slug / non-letter-leading) are refused,
+  not fabricated -- deliberate divergence from legacy scene_adapter.slug
+  under the no-invented-identities rule. ACCEPTED.
+- Route surface (prepare_decision_inputs / build_user_candidates /
+  generate_candidates + one-fixed-schema generator, duck-typed
+  sample_text seam, exactly one call per generation) is the Phase 9
+  entry seam.
