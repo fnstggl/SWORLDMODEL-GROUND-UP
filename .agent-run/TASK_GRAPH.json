@@ -399,7 +399,7 @@
       "description": "Freeze one base snapshot; run two manually supplied interventions from the same starting snapshot; branches differ only at the intervention boundary; no cross-branch state or memory access; explicit trace-based outcome evaluation and comparison; branch failures reported, never silently replaced.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "in_progress",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-5-minimum-agency-guard"
@@ -418,7 +418,12 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "E_counterfactual_correctness"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "artifact-bearing commit (this fold-in); receipts at 99657b47289a",
+        "results": "Engine env 101 passed (20 counterfactual + 42 baseline + 39 contracts); system 672/17 skipped + known receipt item; hardcoding guard green both interpreters. Gate E invariants proven locally: base plan hash identical across branches, single-intervention diff refusal, cross-branch canary isolation, identical-candidate byte-identical results, order invariance, failure isolation in-position. FIXTURE-1 DETERMINISTIC ACCEPTANCE: per-candidate metrics == frozen expected block, winner concise_relevant MEASURED (declared-order secondary), three byte-identical pipeline runs.",
+        "artifacts": "sworldmodel/counterfactuals/{snapshot,branch,manager}.py; sworldmodel/outcomes/{metrics,evaluator,ranking}.py; tests/engine_counterfactuals/ (7 modules)"
+      }
     },
     {
       "id": "compiler-to-concordia-adapter",
@@ -456,7 +461,7 @@
       "description": "Distribute complete, self-contained Concordia branches through AgentSociety's real worker/dispatcher interfaces: multiple branches concurrently, one failed branch isolated, concurrency limits respected, traces/tokens/runtime/errors recorded, local and distributed results equivalent under deterministic test models, Concordia internals unchanged. No actor-level distribution.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "in_progress",
       "mandatory": true,
       "dependencies": [
         "phase-6-counterfactual-branch-manager"

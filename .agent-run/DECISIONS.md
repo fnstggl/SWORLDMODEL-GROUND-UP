@@ -395,3 +395,21 @@ hashes.
   passives) are conservative-by-design for a "minimum" guard; the optional
   single yes/no live-model confirmation may relax the reported-speech
   borderline class later. Gate H's semantics reviewer weighs these.
+
+
+## Phase 6 notes 2026-08-03
+
+- Ranking semantics (lead adjudication of the agent's deviation): rank key is
+  the user-DECLARED metric sequence -- primary, then secondaries in declared
+  order, all descending, polarity never inferred; candidate_id lexicographic
+  is only the final code-owned tie-break and is FLAGGED in validation_status
+  when it actually decided an ordering. Fixture-1's winner is measured
+  (meeting_scheduled True vs False), not tie-broken -- proven by the flag's
+  asserted absence.
+- Terminal-status mapping: the runner reports only cutoff/incomplete (R3);
+  success/failure verdicts come from the evaluator layer via a caller
+  status_rule over measured metrics, refused on infrastructure-errored
+  branches.
+- guard_interventions have no BranchResult field (frozen contract): they ride
+  the runner diagnostics record; Phase 7's distributed executor persists that
+  record as an artifact file referenced from BranchResult.artifact_paths.

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-6-counterfactual-branch-manager",
+  "git_sha": "99657b47289aee98965975b993324b2b234ebb52",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "sh -c python3 -m pytest tests/test_hardcoding_guard.py -q && /home/user/engine-env/bin/python -m pytest tests/test_hardcoding_guard.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T09:25:17+00:00",
+  "finished_at": "2026-08-03T09:25:19+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T09:25:19+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "..                                                                       [100%]\n2 passed in 0.62s\n..                                                                       [100%]\n2 passed in 0.72s\n"
+}
