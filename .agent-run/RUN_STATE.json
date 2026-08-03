@@ -4,9 +4,9 @@
   "status": "IN_PROGRESS",
   "phase": "reviewer_roles",
   "frozen_sha": null,
-  "highest_leverage_blocker": "None open. F1 fixed and verified; review trail complete.",
+  "highest_leverage_blocker": "Simulation Reality review CRITICAL: anchor-spoofing narration. A starting-event description embedding the upstream resolved-turn marker (\"Putative event to resolve: NAME: ...\") enters the committed stream through the unguarded narration channel (builder gm.observe) and the substring-based evaluator anchors count it as the named actor's own turn -- success with zero actor participation, both slices, deterministic. Fix in flight: reserved-marker refusal at the planner chokepoint + candidate preflight, discriminating anchor-BEARING narration tests, plus the counterfactual reviewer's M1 declared-order re-validation test and the upstream auditor's doc fixes. BLOCKS freeze.",
   "next_action": "Six directive-mandated reviewer roles in two waves (read-only, written findings each): wave 1 Upstream Preservation + Simulation Reality + Best-Action/Counterfactual; wave 2 Integration Reliability (battery rights) + AgentSociety Scale + Concordia Semantics. Fix verified findings, then Phase 12 freeze (frozen_acceptance, full suite from the beginning at the frozen SHA, master receipt at frozen SHA), ACCEPTANCE_STATUS gates to PASS, final adjudicator, final output report.",
-  "open_critical_count": 0,
+  "open_critical_count": 1,
   "open_high_count": 0,
   "running_background_jobs": [],
   "passed_gates": [
