@@ -1,22 +1,44 @@
 {
   "schema_version": 1,
-  "mode": "hook_live_verification",
-  "status": "LIVE_VERIFICATION_IN_PROGRESS",
+  "mode": "external_blocker",
+  "status": "EXTERNAL_BLOCKER",
   "phase": "fresh_session_live_hook_verification",
   "frozen_sha": null,
-  "highest_leverage_blocker": "fresh-session live hook verification has not completed",
-  "next_action": "run the complete live hook verification (SessionStart, PreToolUse, TaskCompleted, TeammateIdle, SubagentStop, Stop, StopFailure, ConfigChange, run_monitored.py) and record the result",
+  "highest_leverage_blocker": "Claude Code 2.1.220 headless does not emit the TeammateIdle hook event, so that one live check cannot be produced from inside this environment; the other eight hooks are live-verified at 190b04e",
+  "next_action": "A human must run the TeammateIdle check once from an interactive Claude Code session with agent teams on commit 190b04e5b2f8652bd1d7a88f847c101f3161243a: give a teammate a TASK_GRAPH.json task naming it owner with a required_artifacts entry that does not exist, let it idle, and confirm the gate blocks it; then create the artifact and confirm it may idle. Record the result in .agent-run/HOOK_BOOTSTRAP_STATUS.json. If it passes, set overall to PASS and this file to mode ready_for_master / status READY, and the master Concordia plus AgentSociety implementation may then begin in a new session using /goal.",
   "open_critical_count": 0,
-  "open_high_count": 0,
+  "open_high_count": 1,
   "running_background_jobs": [],
   "passed_gates": [
     "static_hook_tests",
-    "monitored_runner_tests"
+    "monitored_runner_tests",
+    "control_plane_validator",
+    "live_session_start",
+    "live_pre_tool_use",
+    "live_task_completed",
+    "live_subagent_stop",
+    "live_stop",
+    "live_stop_failure",
+    "live_config_change",
+    "live_monitored_runner"
   ],
   "remaining_gates": [
-    "fresh_session_live_verification"
+    "live_teammate_idle"
   ],
   "completion_allowed": true,
+  "external_blocker": {
+    "blocker": "Claude Code 2.1.220 running headless in this remote execution environment does not emit the TeammateIdle hook event for Agent-tool teammates that go idle owing assigned work",
+    "evidence": "five genuine idles by named teammates owning an in_progress task with a missing required artifact produced zero TeammateIdle invocations; a dedicated diagnostic hook registered on the event captured nothing while provably working, and the gate registered on the same event never blocked any teammate",
+    "alternatives_attempted": [
+      "named Agent-tool teammate with a TASK_GRAPH.json contract naming it owner",
+      "resumed the teammate via SendMessage and instructed a clean idle with no trailing tool call, twice",
+      "assigned a tracked Claude Code task to the teammate and left it in_progress",
+      "a second teammate with a one-line instruction that used zero tools and idled in 4.5 seconds",
+      "verified hook registration, diagnostic-hook operation, the agent-teams env var, and the Claude Code version against the one the hook contract was verified at"
+    ],
+    "exact_human_action_required": "Run the TeammateIdle check once from an interactive Claude Code session with agent teams / FleetView on commit 190b04e5b2f8652bd1d7a88f847c101f3161243a, then record the result in .agent-run/HOOK_BOOTSTRAP_STATUS.json. Full procedure in .agent-run/LIVE_VERIFICATION.md.",
+    "scope": "This blocks only the TeammateIdle live check. The eight other hooks, the monitored runner, and the static control plane are all verified at 190b04e and are recorded in passed_gates."
+  },
   "master_context_loaded": false,
   "master_directive_path": null,
   "master_directive_sha256": null,

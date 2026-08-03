@@ -1,23 +1,69 @@
 {
   "schema_version": 1,
-  "overall": "STATIC_PASS_LIVE_PENDING",
+  "overall": "EXTERNAL_BLOCKER",
   "static_tests": "PASS",
   "settings_validation": "PASS",
   "monitored_runner_tests": "PASS",
-  "fresh_session_hooks_loaded": "PENDING",
-  "live_event_tests": "PENDING",
-  "verified_commit": null,
-  "static_verified_commit": "13e527b924fff0ee22ca28d5a8dc252ff85b4df0",
+  "fresh_session_hooks_loaded": "PASS",
+  "live_event_tests": "PASS_EXCEPT_TEAMMATE_IDLE",
+  "verified_commit": "190b04e5b2f8652bd1d7a88f847c101f3161243a",
+  "static_verified_commit": "190b04e5b2f8652bd1d7a88f847c101f3161243a",
+  "claude_code_version": "2.1.220",
+  "live_checks": {
+    "SessionStart": "PASS",
+    "PreToolUse": "PASS",
+    "TaskCompleted": "PASS",
+    "TeammateIdle": "NOT_EMITTED_EXTERNAL_BLOCKER",
+    "SubagentStop": "PASS",
+    "Stop": "PASS",
+    "StopFailure": "PASS",
+    "ConfigChange": "PASS",
+    "run_monitored": "PASS"
+  },
   "static_evidence": {
-    "control_plane_tests": 194,
-    "pythonhashseeds_exercised": [0, 1, 7, 42, 12345, 99991],
-    "mutations_injected": 16,
-    "mutations_caught": 16,
-    "clean_checkout_validated": true
+    "control_plane_tests": 218,
+    "control_plane_subtests": 159,
+    "pythonhashseeds_exercised": [0, 7, 42, 99991],
+    "deterministic_gate_matrix_checks": 69,
+    "monitored_runner_smoke_checks": 20,
+    "validator": "PASS"
+  },
+  "defects_found_and_fixed_during_live_verification": [
+    {
+      "id": "shell-write-target-detection",
+      "summary": "PreToolUse decided which paths a Bash command writes to by matching raw text, so quoted text and heredoc bodies were read as writes, and `sed -i` captured the sed script instead of the file operand",
+      "impact": "over-blocked harmless read-only commands, and allowed `sed -i` to rewrite .claude/hooks/gate.py, .claude/settings.json and pinned upstream paths outside a freeze",
+      "fixed_in": "17a26cc273c61f64ab80f598e792946d14b9586d"
+    },
+    {
+      "id": "configchange-payload-field",
+      "summary": "handle_config_change read `config_source`, but live payloads name the field `source`, so every real change resolved to 'unknown' and fell through to allow",
+      "impact": "the ConfigChange gate could not block anything in live operation; invisible to the static suite, whose helper built the synthetic spelling",
+      "fixed_in": "190b04e5b2f8652bd1d7a88f847c101f3161243a"
+    }
+  ],
+  "external_blocker": {
+    "blocker": "Claude Code 2.1.220 running headless in this remote execution environment does not emit the TeammateIdle hook event for Agent-tool teammates that go idle owing assigned work",
+    "evidence": "five genuine idles by named teammates owning an in_progress task with a missing required artifact produced zero TeammateIdle invocations; a dedicated diagnostic hook registered on the event captured nothing while provably working (it captured ConfigChange payloads and passed a self-test), and the gate registered on the same event never blocked any teammate",
+    "ruled_out": [
+      "registration: both hooks are listed under TeammateIdle in .claude/settings.json",
+      "agent teams disabled: CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 is set and reaches the process environment",
+      "version drift: the running version 2.1.220 is exactly the version .claude/HOOKS_README.md claims the contract was verified against"
+    ],
+    "alternatives_attempted": [
+      "named Agent-tool teammate with a TASK_GRAPH.json contract naming it owner",
+      "resumed the teammate via SendMessage and instructed a clean idle with no trailing tool call, twice",
+      "assigned a tracked Claude Code task to the teammate and left it in_progress",
+      "a second teammate with a one-line instruction that used zero tools and idled in 4.5 seconds",
+      "verified hook registration, diagnostic-hook operation, the agent-teams env var, and the Claude Code version"
+    ],
+    "exact_human_action_required": "From an interactive Claude Code session with agent teams / FleetView on commit 190b04e, give a teammate a TASK_GRAPH.json task naming it owner with a required_artifacts entry that does not exist, let it go idle, and confirm the gate blocks it with \"BLOCKED: teammate '<name>' going idle with outstanding assigned work\"; then create the artifact and confirm it may idle. If it blocks then allows, set live_checks.TeammateIdle and live_event_tests to PASS, overall to PASS, and RUN_STATE.json to mode ready_for_master / status READY. If it does not fire there either, treat TeammateIdle as unavailable and correct .claude/HOOKS_README.md sections 1 and 2, because the control plane currently documents a guarantee it does not deliver."
   },
   "notes": [
-    "verified_commit stays null until fresh-session live verification passes; see .claude/FRESH_SESSION_VERIFICATION.md",
-    "static_verified_commit records the commit whose static validation passed",
-    "receipts are SHA-bound by design, so a receipt can never carry the SHA of the commit that contains it; the validator reports that as STALE at info severity, not a failure"
+    "verified_commit is the commit whose hook configuration was live-verified; the commit that records this file is necessarily a later one, so its receipts read as STALE at info severity by design",
+    "live evidence was taken from Claude Code's own hook telemetry (system/hook_started and system/hook_response records in --output-format stream-json), not from any model's account of being blocked",
+    "no evidence from a pre-fix configuration is counted: live verification was restarted from the beginning after each of the two fixes",
+    "a first SubagentStop attempt was discarded because the subagent invoked gate.py directly with a synthetic event instead of being intercepted; the check was redone against host telemetry",
+    "full detail: .agent-run/LIVE_VERIFICATION.md"
   ]
 }
