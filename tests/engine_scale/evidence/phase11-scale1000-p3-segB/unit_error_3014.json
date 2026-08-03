@@ -1,0 +1,19 @@
+{
+  "agent_id": 3014,
+  "error": "SCALE_INJECTED_UNIT_FAILURE_3014_tick_11",
+  "error_type": "RuntimeError",
+  "fail_at_tick": 11,
+  "partition_id": "p3",
+  "schema_version": 1,
+  "statement": "infrastructure test only -- injected scripted failure; no population realism claim",
+  "tick": 11,
+  "traceback_tail": "  File \"/home/user/scale_runs/phase11/p3/custom/agents/scale_unit_agent.py\", line 255, in _write_error_artifact\n    \"traceback_tail\": traceback.format_stack()[-1][:2000],\n",
+  "worker_execution": {
+    "agent_id": 3014,
+    "pid": 6574,
+    "started_unix": 1785785233.003385,
+    "step_count": 3,
+    "stopped_unix": 1785785233.0046566,
+    "tick": 11
+  }
+}

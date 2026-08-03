@@ -1,0 +1,18 @@
+{"agents": 100, "event": "job_start", "mode": "run", "partition": "s100", "resume": false, "segment": "full", "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.", "tick_from": 1, "tick_to": 12, "unix": 1785784963.6955717}
+{"chunk_index": 1, "created_total": 50, "event": "create_chunk_done", "partition": "s100", "target": 100, "unix": 1785784977.60887}
+{"chunk_index": 2, "created_total": 100, "event": "create_chunk_done", "partition": "s100", "target": 100, "unix": 1785784977.6335487}
+{"activated": 100, "event": "tick_done", "failed_now": 0, "ok": 100, "partition": "s100", "tick": 1, "unix": 1785784985.8755004}
+{"activated": 100, "event": "tick_done", "failed_now": 0, "ok": 100, "partition": "s100", "tick": 2, "unix": 1785784988.2238677}
+{"activated": 20, "event": "tick_done", "failed_now": 3, "ok": 17, "partition": "s100", "tick": 3, "unix": 1785784988.242321}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 4, "unix": 1785784988.2598872}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 5, "unix": 1785784988.3301773}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 6, "unix": 1785784988.3466203}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 7, "unix": 1785784988.3604589}
+{"activated": 17, "event": "tick_done", "failed_now": 0, "ok": 17, "partition": "s100", "tick": 8, "unix": 1785784988.3742921}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 9, "unix": 1785784988.3889086}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 10, "unix": 1785784988.4044862}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 11, "unix": 1785784988.4200234}
+{"activated": 20, "event": "tick_done", "failed_now": 0, "ok": 20, "partition": "s100", "tick": 12, "unix": 1785784988.4340355}
+{"event": "segment_done", "partition": "s100", "tick_from": 1, "tick_to": 12, "unix": 1785784988.4340742}
+{"actions_total": 394, "event": "reconcile_done", "ok": true, "partition": "s100", "unix": 1785784988.4558067}
+{"driver_max_in_flight": 3, "event": "job_done", "mode": "run", "ok_actions": 394, "partition": "s100", "reconciled": true, "segment": "full", "unix": 1785784988.4559107}

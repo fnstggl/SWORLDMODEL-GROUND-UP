@@ -1,0 +1,10 @@
+{"agents": 250, "event": "job_start", "mode": "run", "partition": "p1", "resume": true, "segment": "B", "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.", "tick_from": 7, "tick_to": 12, "unix": 1785785070.6987936}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p1", "tick": 7, "unix": 1785785084.42611}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p1", "tick": 8, "unix": 1785785084.5271206}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p1", "tick": 9, "unix": 1785785084.6240087}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p1", "tick": 10, "unix": 1785785084.7400734}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p1", "tick": 11, "unix": 1785785084.8392184}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p1", "tick": 12, "unix": 1785785085.1518672}
+{"event": "segment_done", "partition": "p1", "tick_from": 7, "tick_to": 12, "unix": 1785785085.1519294}
+{"actions_total": 600, "event": "reconcile_done", "ok": true, "partition": "p1", "unix": 1785785085.2197545}
+{"driver_max_in_flight": 4, "event": "job_done", "mode": "run", "ok_actions": 300, "partition": "p1", "reconciled": true, "segment": "B", "unix": 1785785085.2198815}

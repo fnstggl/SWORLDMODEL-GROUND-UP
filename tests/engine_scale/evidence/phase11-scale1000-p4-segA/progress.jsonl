@@ -1,0 +1,14 @@
+{"agents": 250, "event": "job_start", "mode": "run", "partition": "p4", "resume": false, "segment": "A", "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.", "tick_from": 1, "tick_to": 6, "unix": 1785785259.111088}
+{"chunk_index": 1, "created_total": 50, "event": "create_chunk_done", "partition": "p4", "target": 250, "unix": 1785785271.9627678}
+{"chunk_index": 2, "created_total": 100, "event": "create_chunk_done", "partition": "p4", "target": 250, "unix": 1785785271.9797661}
+{"chunk_index": 3, "created_total": 150, "event": "create_chunk_done", "partition": "p4", "target": 250, "unix": 1785785271.9938703}
+{"chunk_index": 4, "created_total": 200, "event": "create_chunk_done", "partition": "p4", "target": 250, "unix": 1785785272.0087812}
+{"chunk_index": 5, "created_total": 250, "event": "create_chunk_done", "partition": "p4", "target": 250, "unix": 1785785272.023031}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p4", "tick": 1, "unix": 1785785272.103093}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p4", "tick": 2, "unix": 1785785272.1669135}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p4", "tick": 3, "unix": 1785785272.2279093}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p4", "tick": 4, "unix": 1785785272.2909145}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p4", "tick": 5, "unix": 1785785272.605058}
+{"activated": 50, "event": "tick_done", "failed_now": 0, "ok": 50, "partition": "p4", "tick": 6, "unix": 1785785278.360541}
+{"event": "segment_done", "partition": "p4", "tick_from": 1, "tick_to": 6, "unix": 1785785278.360585}
+{"driver_max_in_flight": 4, "event": "job_done", "mode": "run", "ok_actions": 300, "partition": "p4", "reconciled": false, "segment": "A", "unix": 1785785278.3606675}

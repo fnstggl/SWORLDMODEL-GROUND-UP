@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "partition_id": "p2",
+  "first_agent_id": 2001,
+  "agent_count": 250,
+  "ticks_from": 1,
+  "ticks_to": 12,
+  "stride": 5,
+  "batch_size": 5,
+  "window": 4,
+  "full_ticks": [],
+  "delay_ticks": {},
+  "fail_at": {"2004": 6, "2009": 6},
+  "probe_tick": 5,
+  "overlap_assert_tick": null,
+  "segments": {"A": [1, 6], "B": [7, 12]}
+}

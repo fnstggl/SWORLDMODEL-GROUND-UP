@@ -1,0 +1,1311 @@
+{
+  "aggregate_sha256": {
+    "action_ids_from_files": "bc2ee5bd52feb52b041d690fb9b33af522702fee8199479bba01c830cc0930b9",
+    "action_ids_from_ledger": "bc2ee5bd52feb52b041d690fb9b33af522702fee8199479bba01c830cc0930b9",
+    "equal": true
+  },
+  "concurrency_bound": 12,
+  "counts": {
+    "actions_total": 394,
+    "agents": 100,
+    "expected_actions_total": 394,
+    "failed_agents": [
+      7,
+      42,
+      87
+    ],
+    "ledger_ok_records": 394,
+    "per_tick_actions": {
+      "1": 100,
+      "10": 20,
+      "11": 20,
+      "12": 20,
+      "2": 100,
+      "3": 17,
+      "4": 20,
+      "5": 20,
+      "6": 20,
+      "7": 20,
+      "8": 17,
+      "9": 20
+    }
+  },
+  "driver_max_in_flight": 3,
+  "failed_agents": {
+    "42": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_42_tick_3')",
+      "tick": 3
+    },
+    "7": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_7_tick_3')",
+      "tick": 3
+    },
+    "87": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_87_tick_3')",
+      "tick": 3
+    }
+  },
+  "overlap_assert_tick": 2,
+  "overlap_by_tick": {
+    "1": {
+      "delay_s": 0.25,
+      "distinct_pids": 3,
+      "max_overlap": 4,
+      "n_windows": 100,
+      "span_s": 8.215291261672974
+    },
+    "2": {
+      "delay_s": 0.25,
+      "distinct_pids": 3,
+      "max_overlap": 12,
+      "n_windows": 100,
+      "span_s": 2.3412041664123535
+    }
+  },
+  "overlap_windows_at_assert_tick": [
+    [
+      1785784985.879937,
+      1785784986.1323965
+    ],
+    [
+      1785784985.879988,
+      1785784986.1320424
+    ],
+    [
+      1785784985.8802342,
+      1785784986.1330662
+    ],
+    [
+      1785784985.8803492,
+      1785784986.1333728
+    ],
+    [
+      1785784985.880398,
+      1785784986.1336129
+    ],
+    [
+      1785784985.880569,
+      1785784986.1340206
+    ],
+    [
+      1785784985.8805947,
+      1785784986.134277
+    ],
+    [
+      1785784985.8808932,
+      1785784986.1345024
+    ],
+    [
+      1785784985.8818429,
+      1785784986.1338708
+    ],
+    [
+      1785784985.8820922,
+      1785784986.1348405
+    ],
+    [
+      1785784985.8822658,
+      1785784986.1353118
+    ],
+    [
+      1785784985.8824131,
+      1785784986.1357915
+    ],
+    [
+      1785784986.1412296,
+      1785784986.3936703
+    ],
+    [
+      1785784986.1415708,
+      1785784986.3945518
+    ],
+    [
+      1785784986.1416862,
+      1785784986.393923
+    ],
+    [
+      1785784986.1419094,
+      1785784986.3953319
+    ],
+    [
+      1785784986.1420019,
+      1785784986.3948095
+    ],
+    [
+      1785784986.1421716,
+      1785784986.3958194
+    ],
+    [
+      1785784986.1421964,
+      1785784986.3953874
+    ],
+    [
+      1785784986.1422765,
+      1785784986.3940394
+    ],
+    [
+      1785784986.1424127,
+      1785784986.3958614
+    ],
+    [
+      1785784986.1429243,
+      1785784986.3951774
+    ],
+    [
+      1785784986.1433415,
+      1785784986.3958855
+    ],
+    [
+      1785784986.143603,
+      1785784986.3964233
+    ],
+    [
+      1785784986.401581,
+      1785784986.6532984
+    ],
+    [
+      1785784986.402005,
+      1785784986.6540759
+    ],
+    [
+      1785784986.4020138,
+      1785784986.6543694
+    ],
+    [
+      1785784986.4022176,
+      1785784986.655059
+    ],
+    [
+      1785784986.4023502,
+      1785784986.6548727
+    ],
+    [
+      1785784986.4023952,
+      1785784986.6555028
+    ],
+    [
+      1785784986.4026177,
+      1785784986.6558456
+    ],
+    [
+      1785784986.4027925,
+      1785784986.6553047
+    ],
+    [
+      1785784986.403556,
+      1785784986.6556563
+    ],
+    [
+      1785784986.4038413,
+      1785784986.6571834
+    ],
+    [
+      1785784986.4040487,
+      1785784986.6576633
+    ],
+    [
+      1785784986.4043126,
+      1785784986.6581206
+    ],
+    [
+      1785784986.664034,
+      1785784986.9161072
+    ],
+    [
+      1785784986.664243,
+      1785784986.9172277
+    ],
+    [
+      1785784986.6642947,
+      1785784986.916478
+    ],
+    [
+      1785784986.6644242,
+      1785784986.9179678
+    ],
+    [
+      1785784986.6645193,
+      1785784986.9173014
+    ],
+    [
+      1785784986.6646006,
+      1785784986.9184053
+    ],
+    [
+      1785784986.6647813,
+      1785784986.9177783
+    ],
+    [
+      1785784986.6650252,
+      1785784986.9182675
+    ],
+    [
+      1785784986.6660511,
+      1785784986.9176745
+    ],
+    [
+      1785784986.6664166,
+      1785784986.9184573
+    ],
+    [
+      1785784986.6668494,
+      1785784986.9189782
+    ],
+    [
+      1785784986.667168,
+      1785784986.9194107
+    ],
+    [
+      1785784986.925627,
+      1785784987.177924
+    ],
+    [
+      1785784986.925944,
+      1785784987.178763
+    ],
+    [
+      1785784986.9260418,
+      1785784987.1786144
+    ],
+    [
+      1785784986.9262025,
+      1785784987.1792932
+    ],
+    [
+      1785784986.9263573,
+      1785784987.1795423
+    ],
+    [
+      1785784986.9263823,
+      1785784987.1798139
+    ],
+    [
+      1785784986.9267094,
+      1785784987.1789374
+    ],
+    [
+      1785784986.9267113,
+      1785784987.1801307
+    ],
+    [
+      1785784986.9269931,
+      1785784987.1799912
+    ],
+    [
+      1785784986.927042,
+      1785784987.1807747
+    ],
+    [
+      1785784986.927199,
+      1785784987.1805315
+    ],
+    [
+      1785784986.9273958,
+      1785784987.181031
+    ],
+    [
+      1785784987.1854064,
+      1785784987.4376657
+    ],
+    [
+      1785784987.1857514,
+      1785784987.4389777
+    ],
+    [
+      1785784987.1858563,
+      1785784987.4382095
+    ],
+    [
+      1785784987.1860402,
+      1785784987.4395123
+    ],
+    [
+      1785784987.1861541,
+      1785784987.4393232
+    ],
+    [
+      1785784987.1863234,
+      1785784987.4401174
+    ],
+    [
+      1785784987.1864028,
+      1785784987.439983
+    ],
+    [
+      1785784987.1866724,
+      1785784987.4406445
+    ],
+    [
+      1785784987.1875267,
+      1785784987.4387498
+    ],
+    [
+      1785784987.1879885,
+      1785784987.4401138
+    ],
+    [
+      1785784987.188297,
+      1785784987.4408884
+    ],
+    [
+      1785784987.1885912,
+      1785784987.4415452
+    ],
+    [
+      1785784987.4455898,
+      1785784987.6978378
+    ],
+    [
+      1785784987.4459488,
+      1785784987.6989944
+    ],
+    [
+      1785784987.446144,
+      1785784987.6997705
+    ],
+    [
+      1785784987.4462662,
+      1785784987.6968575
+    ],
+    [
+      1785784987.4463742,
+      1785784987.7003696
+    ],
+    [
+      1785784987.4466279,
+      1785784987.6981146
+    ],
+    [
+      1785784987.4469986,
+      1785784987.699267
+    ],
+    [
+      1785784987.4472978,
+      1785784987.7003431
+    ],
+    [
+      1785784987.4475815,
+      1785784987.6988032
+    ],
+    [
+      1785784987.4478514,
+      1785784987.6999283
+    ],
+    [
+      1785784987.4480586,
+      1785784987.700572
+    ],
+    [
+      1785784987.4482465,
+      1785784987.7012618
+    ],
+    [
+      1785784987.7067876,
+      1785784987.9591703
+    ],
+    [
+      1785784987.7070534,
+      1785784987.9601283
+    ],
+    [
+      1785784987.7071612,
+      1785784987.9589097
+    ],
+    [
+      1785784987.7073445,
+      1785784987.9606628
+    ],
+    [
+      1785784987.7074609,
+      1785784987.960068
+    ],
+    [
+      1785784987.7076702,
+      1785784987.96126
+    ],
+    [
+      1785784987.707746,
+      1785784987.9606102
+    ],
+    [
+      1785784987.7080204,
+      1785784987.9612927
+    ],
+    [
+      1785784987.708634,
+      1785784987.9611049
+    ],
+    [
+      1785784987.70901,
+      1785784987.9619987
+    ],
+    [
+      1785784987.7093625,
+      1785784987.962516
+    ],
+    [
+      1785784987.7096179,
+      1785784987.963013
+    ],
+    [
+      1785784987.9666395,
+      1785784988.2189026
+    ],
+    [
+      1785784987.9669602,
+      1785784988.2201476
+    ],
+    [
+      1785784987.9671755,
+      1785784988.2206693
+    ],
+    [
+      1785784987.9674258,
+      1785784988.221141
+    ]
+  ],
+  "partition_id": "s100",
+  "per_agent": [
+    {
+      "actions_file_sha256": "920f48b4dc9e604a17f5495f10492680627b8c5134f5d4f1ba19b356920c2b84",
+      "agent_id": 1,
+      "chain_final": "e5b8c9f281549493e65d45c56a774bcc66688bdd37f3628f48de3412cd30a030",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "a912d37ac222a0ab6094f9a477a0c466948dae6b7922db9908bc5b81ae4ca552",
+      "agent_id": 2,
+      "chain_final": "7b46474e74d078f8ff540309e1a79522eeffa904e7b9254f1155ee36a86e3760",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "1067e4cd98eb6f33724ba9ce549056a86280d455a7d72af42288b7c4b3a7cf49",
+      "agent_id": 3,
+      "chain_final": "9a58606897c354184040cc4917681cb0595531f9de79e25fabd913a870549dad",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "373c940244c8a57f138716e4e5b8422de82da46b7acb200cbef47a7e66cc6969",
+      "agent_id": 4,
+      "chain_final": "c0d5119b23269da40e4f025c86c595851b40da826e41b509ddec9b3e77d72b6a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "6b5d14ff2a794c2477f221a9fb6c8c007b3a9acb10e49904e1dbbb8b0fa32822",
+      "agent_id": 5,
+      "chain_final": "ac37caf61e097a923b6d68b90ae701b09d03df950dcf2670c4561efd8e953919",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "e8f567d119b1bb6d97499bb1f84563e173a752aa123399056ed45811c1016ce6",
+      "agent_id": 6,
+      "chain_final": "a7128fb71a1195d1fb565d7237ec655f09057df3826a278aebbbb96b55f74c83",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "07c71e7e49d7d0642409b854b0fe7fdf07afd386963e529a18e3e86bf1ad8235",
+      "agent_id": 7,
+      "chain_final": "76547dbe2509c3581fadd50d397c1b1932d104e2ce2ba19f566ca729f89da823",
+      "failed_at_tick": 3,
+      "n_actions": 2,
+      "seq_max": 2
+    },
+    {
+      "actions_file_sha256": "759a2a3896430ee8e27b03660e4272767ca3fe803697949fa8d993e190988a1c",
+      "agent_id": 8,
+      "chain_final": "1971896a99eaa4e8d7d723b587bf3ac5e22cc8c7c290530360cc9a1f28e0d95f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "f72c9be0b46fd6ea04bdee6ebacfc915fdc1f071f46dfe94abc486597f62551f",
+      "agent_id": 9,
+      "chain_final": "3ba149e321b6bbb0650c701aebac16a53ffd1103aa8291a0ddc7248285a2cbd9",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "afda4286d21920298bebd45e5bd31a79a61969b9b7b374381892df4dd362de77",
+      "agent_id": 10,
+      "chain_final": "6d43294a2e6844686fcdf16ec93957f4f198885aa1a49eb2ed839612db21cc08",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "0e793543eec834282597bee37b376db71f3cb498adcf989852a913215a881d07",
+      "agent_id": 11,
+      "chain_final": "c65dbfad44fccdcc1b023609d52b41afeacb23df39720565b25758e7688a8c73",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "e4cf1defb5be944a0e04f777e2e060a45503371e2654147654c8afd8ad296bf6",
+      "agent_id": 12,
+      "chain_final": "bbc137529adb55ff4bbe3288345236abdcfe1de2723a60be85f1821327edde05",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "6c91f13a6a770993f9fa28e3298f077666cca68384e0410da1e55807202f8c6b",
+      "agent_id": 13,
+      "chain_final": "28e0e7509439bb0a9c2b09f0e116ad6266c4683130d2628c1621954f2c218e21",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "5967764ca496903c1ad955f2411bbbe1f09a8abb8adf2c15c2fc02bcf465ddc1",
+      "agent_id": 14,
+      "chain_final": "62553acf0e1ae8716062664145e05242b2dc949b554523b265d2ec14d5219f0a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "71b23abab7eea0dd5a9bc2cc1302ca38ecf22eb9619fc8e241d671905a847c05",
+      "agent_id": 15,
+      "chain_final": "4f2bc3fa7822e8aca81dd868d3b8ef9ddf849e7c02593372d91a3152a04bedac",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "291c954803bcbdc05a43cfa19ee53e3bc3eff5e86d6d6ffe00df81c017f2f100",
+      "agent_id": 16,
+      "chain_final": "61e159fd0989a2a105c864fa9e25ec6b31069ff650c33e397962ac85fe94e717",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "1e392340199396f5ffc8da3e744677ff6109ace24922515553fa7b4782ebe250",
+      "agent_id": 17,
+      "chain_final": "d64f75715e74e9d3dadbcf0032ef6e089b4b00998afbdbaadc9e45fd73c5028f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "116a43fbb3cad8e5d4839218a22bcc919236af10b74abf34888db10c7be0e5d4",
+      "agent_id": 18,
+      "chain_final": "6b03e8f915e3767c7bb06cf881de406286d8960d777bc61cf1e040d397c59b7a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "d46ed33098b7c8d4435c64a49102f5fddf741a8ac2ea9bb458b4693ef3545a0b",
+      "agent_id": 19,
+      "chain_final": "25daac4eb01adc070f3041d73d1c611f1fb6d712c021e57422c11a5438858faf",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "dc44effc2edabf51fa563888d18951b59767d7e7f07c842460c94f062c5c82c1",
+      "agent_id": 20,
+      "chain_final": "33ef4eb62f97db63df9e6f6310c8ab66ee62629b025ffc8d15e217786d50c789",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "6355ca3e179737bbb272f08dbaf755f2ae7448f842945f9edc8709a5cd2472a2",
+      "agent_id": 21,
+      "chain_final": "941f03ea23fad4819268c6e27b3540d15a7b0c0d2772490cb3c5eea2960d8ba4",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "7afb953f80284b563746d0535b784177ea01509d1530fff8922ce5d73edc33be",
+      "agent_id": 22,
+      "chain_final": "52ba7c18b513cbec3af1797a138737ab6e2bbbca220885ace1c89c2b09b0972b",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "a4a5665bf770513daf5511f79e95d3b0be0bc84632b38f57c8d7ed9ce7e466cb",
+      "agent_id": 23,
+      "chain_final": "d7e5587c44491c5343e7d70a79236346e76ee4b98148da2007af42a5fdfce9de",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "7d43b54e3be1adcd6e0d8a91844c86495688d4592dae26d113a8369916c3b050",
+      "agent_id": 24,
+      "chain_final": "53adcf639018fbdd80fbe0b9670ed964417074dc406f0c3532200cf385e2a08a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "c762fae31fa41e3faff273a4eac337e5672f454317481396cf0bba7b5f1a1e46",
+      "agent_id": 25,
+      "chain_final": "c73e579f9f8b398d46c99a8f2d62ccbe39c3b4252cf7e553a8385d2eb98ba6f8",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "36947c3ee4f46891cfdba14ff900a82d8c716c0b367683079aff3bb6bb3df909",
+      "agent_id": 26,
+      "chain_final": "4a0aaf5d0b6e3bf02592697a53d8cce83373f391f5372bdc43fa4cc8cf14d59d",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "31e9a27b0c103bba58a53c80d53af25e8565c869cb5a6636087e94d692ba0650",
+      "agent_id": 27,
+      "chain_final": "da06b089f74eada3abff85dec2e0738b99e9620e2f1291b745e1adc9dfa484a0",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "56b33c233f918138f0a66615e8ebb36cf99a92760db6a8e23b96ffc908a2ac02",
+      "agent_id": 28,
+      "chain_final": "17d4f1899920fc8e2dd81f531b0b776e6328b1de1771fb74d197b5a02743c42e",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "9c113ad720e62986046274358e3f51e9cc19ebd6e7db98fb32055e5526583269",
+      "agent_id": 29,
+      "chain_final": "5119f5f059760c62ff12e7053054d5e918dda7e75533392cc3d3945cf5d85fc2",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "0f521b1cd6862162b8b68b3f3754f8f223bf6f4717fbe28c3c1457226ff5a52f",
+      "agent_id": 30,
+      "chain_final": "af9935c986fdcace13f1a17f43e0dd500715997c2bf262b5772302b6578b2362",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "29829fdb853f4757ec164ddfaa7370a87002b62ede86682c5cd0a5d918632514",
+      "agent_id": 31,
+      "chain_final": "c9ed541a62be6b272a2345dc8ef34265cc54ed111c4515d5d79398b508f5e051",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "3d408f651f34e83e90ccd5ac3d1e1423995fdbed32c739b93868650f2a9e20a8",
+      "agent_id": 32,
+      "chain_final": "64cd808496d9555d57dec0234fe7c571c8dd3f53bba7a37a4e96dfab0a63d910",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "ae56f550ac1e488e2d672b75fb1a5889cc6c494199e534fc320cddf30eac6323",
+      "agent_id": 33,
+      "chain_final": "512168f457b57e68af78abb9be2362b40166439924563d562dc608299d3fa3a4",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "df96dc6e4995c92925655758c289bf2906f4e41f0083e739d391eb101f7882c6",
+      "agent_id": 34,
+      "chain_final": "a9a5028205ea78d27a526d3fdac9aa6cd62bb051d84edc67e363e0c8ae39c2eb",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "3fedf177ae02298c31c795bfb7cdc096dacf36570d9cbeeaaff55dbc697b82b6",
+      "agent_id": 35,
+      "chain_final": "0f7635c32556d431ebbe044c3773dfab0beffd711ecfdba8d0cee1d2454896a7",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "9fe56069b3113c14d830970b674cec2cab61e58e055bb915f1a4814ad1f91e6d",
+      "agent_id": 36,
+      "chain_final": "78e5e1ee95200024f1a66e4f83cabab0514e4f3f446946993707ef72d68adbe1",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "27febd265b8c932bba8b19d72eb2eb9c813dd8df0f55678edf39c1a1d1fc6aa1",
+      "agent_id": 37,
+      "chain_final": "c37d5d47cc38df1ccca3d6c3deb0087920e47e8f2d06df57d0cc661ae9230dc3",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "e1a0a9b782bfda95afbbf26cff9f87e5242dfee49739b72ad1963cf80c00775f",
+      "agent_id": 38,
+      "chain_final": "39dd0f50f382b29a31bd2cfe864b9647ebb240801edf0d0437eb7adb9df4505e",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "405ac5bc4d06965e3d30b45b9c72e3ffd1e8852d676011e38b7c015114a76b3e",
+      "agent_id": 39,
+      "chain_final": "4e660054e59be81001dfd0cbf32b2d87d7981763131c646f645e9c55563ab50a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "ac121a864d146bdd571936746d65e549314221560b0f2c02bdaede39791b526b",
+      "agent_id": 40,
+      "chain_final": "bfc8b832416e75714df4de5fb99a99aacc162eb365831622ef005b22152943b1",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "97bca88d2e2a8134758678a3efd47f7fe3a281fab7512fd0f686a8f762b32071",
+      "agent_id": 41,
+      "chain_final": "93bc2c54c95a8b6b9c362d0d7ca727db177cf8e2a93a53ca0079f9b6f419ddac",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "7e0f5e3ac2c465a60bb06a7b62915edf04e8099841e0d3a2d8ca6c1f0325177a",
+      "agent_id": 42,
+      "chain_final": "9c29c79fbec7f42fc49400e4afc20683a4f571d2226d773553c5901d1abd6e14",
+      "failed_at_tick": 3,
+      "n_actions": 2,
+      "seq_max": 2
+    },
+    {
+      "actions_file_sha256": "76a0fa8ecc46b509d476047f006239469264ff66a266c5e942826b8341ec466a",
+      "agent_id": 43,
+      "chain_final": "b3fbcbe8a204e344e856b51df6484465235802942d97beb37bef3ff11b71c8ce",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "be5b7a9fd6069b908e706fb86ef5d0780fc2b2ea1320b6ebfbb63510cb211104",
+      "agent_id": 44,
+      "chain_final": "d0582a10aac24741655945340a4367579740f7a16b379ff44746a14847f395ea",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "ab3cfac36962a4824c43bb40d99d20dc5f5b6cb5a68d3b2413d82f3ca3c041df",
+      "agent_id": 45,
+      "chain_final": "31ed94907d2f3ee7d2e5945e0d38bb290e9bb4bdeff0bb212e5daa1678727a7a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "a54ccb421c6403a55be8231bc40369fb483cbce8a79d629aeabb3100e765aa31",
+      "agent_id": 46,
+      "chain_final": "c93228367b35627638bbad39d3b71e5d21159a5eb0d840005eeb168bbace3cc6",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "b6d12be9f8da60d5a0167129f72af9873b0e0f213677d069a0a4e93efb002152",
+      "agent_id": 47,
+      "chain_final": "cf95fffad1dcf8086c14548acc091b018de50aea714d5c20796f7bf8c3f392ce",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "9efbeb95a99a939736e6fbbc22f9f6304e00a7a05e53af63ae421a431f3f65d1",
+      "agent_id": 48,
+      "chain_final": "6c880a7fbea5573ceca81c3956137d22fe960e726583389452f123e96de068e1",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "e5d54a30640999821e2115cfee600caf2987a7594670ce2f419c950e6894dd5d",
+      "agent_id": 49,
+      "chain_final": "acf803efa890115f6fd76452ef2499ac288441caa4f766be83b43c551149d468",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "2c3ce66c0f230d06238d7289076697ad87ceb26fbbce12c4d960812f861b6df6",
+      "agent_id": 50,
+      "chain_final": "7df35eddc13f775a1274238ae01c2eef1d8926d57258e965fce389c1a2646dd7",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "13213060ba6060ee9f1317c2b9245b5b31f7fe5d2070a17898cb88e89cf5f43c",
+      "agent_id": 51,
+      "chain_final": "6a203491321756d0a12958e005cbc17ff687b0deb057e364bd43cffb0181a6d1",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "6eaa1ef0715cf378fc24da0f80ce73b609c507b4d1018c535d42c14b5bffb850",
+      "agent_id": 52,
+      "chain_final": "b3ff58512403323ccccab7527d4f87839b47714e1eb038599e318a64fee3d007",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "0c70d59d09e32a9368b0c7bb0a26d95b0c085f997751445e841081eefcdcbd57",
+      "agent_id": 53,
+      "chain_final": "c8ac6b11de11706f02505dd93cfa779247bb21f0dcfbc4b143996214a4654399",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "b3b6ed3c4302c9ee26787e27d590ececaad6d0dd4915f7a546434362fcd9b53a",
+      "agent_id": 54,
+      "chain_final": "751b6cbf296687fb792d55a46a719957ba1c8dc9731dc239ff70bd684f52e585",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "d680268e4e5eda336c52192bce72c506a1f814b0073cdad98b42e54387ba2f8c",
+      "agent_id": 55,
+      "chain_final": "ace0dce6cbdd9bdec044fe632d8dcfffb39a337afa9bd22dd7850102c12d54bf",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "4503da0f6da313a7ca0ccb21f3621dc01f7c064bb8a65c77ae71e8629ef2851c",
+      "agent_id": 56,
+      "chain_final": "9a0867cb7bd84e2d1d44fd9d5b66e82b160e72dc609ff8cf5509d816346a2875",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "f44d8be904071fc577c671d7c84eb13d4f00d1aa03714cee1aa02a27d4224820",
+      "agent_id": 57,
+      "chain_final": "9b881e34f50a186379c7f91b2fcb5b15837b22b596797f684735e5a7afdf5883",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "b839ed02adccfb49908de521693008320d9ad06b92937ac6b149e39e3cb29a36",
+      "agent_id": 58,
+      "chain_final": "ff84d97f47970c46579f6bf7e3a11a0f9614f6ed67c15a5c682fcd15cc895a85",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "b41de80aa902d4d5a5061659625d11e80de2faa099cbf2096db21f6214b79988",
+      "agent_id": 59,
+      "chain_final": "b096bb6bf25e16e9b383b5551f80b34f3ec90d6219266c40c3e7c5a0aeff971d",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "03e8a8b2d79f5691cc38811fd006ab3e7f1b2e4645e6d1c7e3bd0b018b4d9ffa",
+      "agent_id": 60,
+      "chain_final": "5b08e58db475a77997deb7cee44a5cf162ea8ecf2e51fccc5c8e403a90e04916",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "29029e6f0a7accff868db8d01e795c15d219ccc897ed8ed267df1f15d750155a",
+      "agent_id": 61,
+      "chain_final": "ae86108cecf04309ca63fdabd82971d4955221d036637ecd143eb51f9a0e8606",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "3e5318eb025ef3545d4a52988553a9d6cc37e66330dcc9444241b2bd45e65bdc",
+      "agent_id": 62,
+      "chain_final": "65c2e5ff84428044e4699e5d32e9d4132a38e3bdc5510d962b51ac5dbff639b5",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "fddd926ed4643f9272550e846f93f6e9ebb0595ce3afe2b5ee3b2ad998896e87",
+      "agent_id": 63,
+      "chain_final": "313f4cf938236b7ae6f328f298d5be266ab815233b3393b284757da138a3578f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "6bddee592202678b9fa3676e794edd2c0d99e14be4a60cff62fed271843f2a6b",
+      "agent_id": 64,
+      "chain_final": "4849f5e9dc6008544916274bf2fa268fc512a469561dc5f19704a31d1bd3ac6c",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "694928bc62b44570f7a32ecd77dd6569b38370def9a4d1e491266f994e59352c",
+      "agent_id": 65,
+      "chain_final": "95687ad54604edd93c63ecba114436bf3b367e82741ba59f51ea5b2bdfd93a86",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "f271ec77e03530fa3d6014d73a0f09767db16dbcae5781fac03a5d44a8b2a6ee",
+      "agent_id": 66,
+      "chain_final": "aa47a7f8d97e5e6b86cca2999ba12da8fcd547a21a06b4b5537e6de06580e98f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "370eceee497d9770c862a57ef3f0c1dc1a489b55d8c4af8657f35f3590cddfdf",
+      "agent_id": 67,
+      "chain_final": "8839928d4e09ce543667025c7fc587793d6d7cc9cc775c71805bbfc17d6eec55",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "4735fbb7bd0293c2dca2fc74a0d7faa67102246b3ef3b9fa99b0de1845db537f",
+      "agent_id": 68,
+      "chain_final": "99a9d3b741cdfea0c4533ae779be4508894b12c0739bd14ede053e95ebff9de2",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "f2ac0653d907862de8679e2c066a1732b1138c6b86062fbc3f2ad698f38570f2",
+      "agent_id": 69,
+      "chain_final": "fa65318f54f68da61169545acc6448ca603fcf5ab2f1c17eb6287774b6e901b8",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "ac6375951e0f9667ddd195453bde37fb7c4839edb95aaf14956eb832027c9911",
+      "agent_id": 70,
+      "chain_final": "9df44911c86f56757e41d54195a363fb3177e5c51a9df253d64703ac0a6d27bd",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "cf97bf907feac0316df6b9fa54313dfd831e3d699084e957ef236ee55a618a0f",
+      "agent_id": 71,
+      "chain_final": "b46428cfc76e4cee64c1b5065eca2ef2fecb79a74b7e04deb097c4c09c55746a",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "1937e91d61dcd3eb63edb862df44e0d44d5c42565317b2f4a52203766300d9db",
+      "agent_id": 72,
+      "chain_final": "8900f73f96283c0206432946e47d865d02aaedf091de6d835f668633480306c9",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "db0b6dc75b4f600d7b582e4901a62567b442d22f881d8241be72a5972e546048",
+      "agent_id": 73,
+      "chain_final": "be3956684ce42ed05d1cbba62435e14cdff1dc9a650f86e4e1961292d5491bb5",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "674e38104d3edd1d4d226a9743cd7d119a189dd8d9e685b55c3646d60cf1460f",
+      "agent_id": 74,
+      "chain_final": "685c929ea05c433f909e897c947fc4a28836804406edea6d71eca8aa42f19800",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "a71f2bc4180d3b9398ecd71c1d8d32c8b149f38f66ac1e6b42a154e62aef2d2f",
+      "agent_id": 75,
+      "chain_final": "12eb74588be25e1f57e1c12fc3cf87f42f3b9c4f132ee243cd98d4c778f6505f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "8ceefa5ae651716d016cd5099fedb0d41087f2ca94ab2f1a05716bdd3e49f950",
+      "agent_id": 76,
+      "chain_final": "d761a128f77d8f8570ff88f4a98294a40b68edbb50b6be5aa120d09cafa3e4c9",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "7b1f8baa4a413bc1044ba698317fce5780096c33e2de5dbd1159d3d02121ab41",
+      "agent_id": 77,
+      "chain_final": "f73eb21a79f1af4992f89dacb2664670781b0287dea547a5b202c777d6e45425",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "88046ab2b1eb0b03413b19ab9634b146855c5f3a3436c16d655758ba5782cdfd",
+      "agent_id": 78,
+      "chain_final": "78277e2ff892bffd12616d51c9d27772573217dff841b5326717f90291382fbc",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "e2e78194300b577e9e13fc44518979eea58655f1666685c67a8599bc9dfec170",
+      "agent_id": 79,
+      "chain_final": "23c8937c2de7806f07259aba92b23ac186a5f7341ab30c9985cab6cb054a831f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "4405a6152d73973e0939da80b26677ce294afad6eeb7ae21bbac105bdd9d3b55",
+      "agent_id": 80,
+      "chain_final": "6a430758054114f9d3bd78f163574b6770729630732d635c2e7b9319faca5046",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "9e53e938529a12f01814b87aee9cfb279dd46e3871cbb0028e8a1a155c5c0fdd",
+      "agent_id": 81,
+      "chain_final": "e8c36678570f7705074f45809e270ec213e2af220d73d3083642a4b7177fab0f",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "5115aa7f7d04c4b2673b7d8b5fc532fb4eccad0585c030cbff8b4edf22c5e759",
+      "agent_id": 82,
+      "chain_final": "7646197b7a2503ebd64b1a4f2863e371589e90e100ca0103e536236e6b273818",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "8f0a10bbc06c828231063e5bdaffdb2d0127c6201fe0ad66f37eda84fb85e980",
+      "agent_id": 83,
+      "chain_final": "6df796026f29dd319415ac1a6b8e2e622c8d0bf03267242913bb90fe90a1fdd5",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "9189dc9073cc3547c8c70e9125c802fba23c4c4c9e73bc8774ef4139c7d2559a",
+      "agent_id": 84,
+      "chain_final": "018d432f4bac33d882b35b6dbbe5553289b8d0f4700bdd19cd2292dde6892142",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "89c481555fd47f73e584b51a169702cbfe9381e2ed7ca27535610c936652a4e8",
+      "agent_id": 85,
+      "chain_final": "4e616c27164383fad34d642b334b69cb155b99bdd912ece8b9ea958d50ff80d9",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "d27c08c209edee0ec8d27f7070d64655c22bc168ef65bc0eb4250a98ed021153",
+      "agent_id": 86,
+      "chain_final": "f22027535891e9ee29c08a1018573851aec8b690a727b5dbe97d08ed4c8a305d",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "1446859e7f226083e019286540e05db15857e586b323d7929a0d89d3676316b4",
+      "agent_id": 87,
+      "chain_final": "4f4a47a214228ad1515c57baea0132507d330f793f0adaa9f57f9cb2072500cd",
+      "failed_at_tick": 3,
+      "n_actions": 2,
+      "seq_max": 2
+    },
+    {
+      "actions_file_sha256": "4b4a668527b44c68ae7e89a4b1b37f38b722982a6383f161aa536a893010708b",
+      "agent_id": 88,
+      "chain_final": "1194e707ce5ffd71f6bdab4402acc463656266bddc5d32d78a5704fda94de616",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "31795818c9a61f880010e2da8c5feb236b50b77e0e5d50c4ba445424d382e81f",
+      "agent_id": 89,
+      "chain_final": "5be249de946b4f889e587070aab4cd4f81002bbf9fb9dccda80972077a6dfb62",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "0db80661b984bef8f98f62ec05cdcec7310d23372c23dda055fb216765b09fc0",
+      "agent_id": 90,
+      "chain_final": "090af761f94fb1ea195ba7b992fdea36d3f1a5be6d437c231c58044b82a127f3",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "753b200a439591b1724968406d036cace9df22beb29137bc89f552875d713540",
+      "agent_id": 91,
+      "chain_final": "67361923b2ca412493511a9d10fcab32cb8cfea16030cf9d6ff98c33162eefcb",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "a1a5580fde4f410c3729861a2c34e85c29b531cf9a985ad16a6b8350703ca73b",
+      "agent_id": 92,
+      "chain_final": "91ee33a1566a9c5e2882a16e5cd69c57cb269eaf015a91443b471f750adefde8",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "a3f0f959c9de42fb0f0afdbe113420673905fb9476ee8dce0bc70d1b3bd72a4f",
+      "agent_id": 93,
+      "chain_final": "54974beb85504226a707467326e23f0e9d938e058043ab7a47c1471de2f51dc1",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "c57c0395cf605b2eb8d88665da411120d11b7e4b21eede67a8a58b7bde6bbce7",
+      "agent_id": 94,
+      "chain_final": "43db81394051f4d77e7e9afb0cc0803a89b2c75579243eabdae87084aba43b96",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "b3f2e4dc8f76128c37ff711de4a310dabc263b058b863d5b42b9a07ba8fb8449",
+      "agent_id": 95,
+      "chain_final": "61595c1b39f23f443fc1dc59f0eee07f20bd6adf7bfc9b58d6d6a281a5131bf7",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "e86bc050ecd066152778f585794e4451a0a825abcd66845ff48a896d161a644f",
+      "agent_id": 96,
+      "chain_final": "61fc50cf5eef7e53c9efa337f75791824679f6b4544e4afe40282ceb3e0ad842",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "697dc034fa554c3455381bc81afe86be30d1a073001ab7a1298fb5543f94126c",
+      "agent_id": 97,
+      "chain_final": "9f1140d1cf26fc5a491d3c8a26cb543e5943959764ae5f5e095eedf064db6ec1",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "352572769d8272059f496f6d0760dacb2f18092978fdbd06216b53cfc27e3de8",
+      "agent_id": 98,
+      "chain_final": "d2d47c52f7de200e98df5cad8e26e8a7ffdaa42c185c8877427be8cc3fb825a9",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "0277ac9c3fe5ec437361293dc29f66466a87f8cb330a29ff4b96e55b4dfeb375",
+      "agent_id": 99,
+      "chain_final": "d6aff613dc63f21b0fe403f185c425d70da74bd902e530bb15f9838d356cad5d",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    },
+    {
+      "actions_file_sha256": "2a3540495bc019a53fe84ee0198f139291b94d3c07ae4711f2410cf98644e60a",
+      "agent_id": 100,
+      "chain_final": "154744dd48a353a565ef83802e3dd32ae1de0ecee2c4b5c0477be048701da4c9",
+      "failed_at_tick": null,
+      "n_actions": 4,
+      "seq_max": 4
+    }
+  ],
+  "schema_version": 1,
+  "sparse_probe": {
+    "event": "sparse_probe_result",
+    "inactive_count": 80,
+    "mismatched_ids": [],
+    "partition": "s100",
+    "tick": 5,
+    "unchanged": true,
+    "unix": 1785784988.3298223
+  },
+  "spec": {
+    "agent_count": 100,
+    "batch_size": 4,
+    "delay_ticks": {
+      "1": 0.25,
+      "2": 0.25
+    },
+    "fail_at": {
+      "42": 3,
+      "7": 3,
+      "87": 3
+    },
+    "first_agent_id": 1,
+    "full_ticks": [
+      1,
+      2
+    ],
+    "overlap_assert_tick": 2,
+    "partition_id": "s100",
+    "probe_tick": 5,
+    "schema_version": 1,
+    "segments": {},
+    "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+    "stride": 5,
+    "ticks_from": 1,
+    "ticks_to": 12,
+    "window": 3
+  },
+  "spec_sha256": "682f9a0a8246cea51a688d25cbd1a3f24ee65afe24bf22160d8871f28a7537cb",
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "unix": 1785784988.4542594
+}

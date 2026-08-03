@@ -1,0 +1,21 @@
+{
+  "aggregate_sha256": {
+    "action_ids_collected_from_ledgers": "ad4675e8faf59c96fc32f219fa674facf42180f5c1a1375af4100b36e9f74749",
+    "action_ids_recomputed_from_workspaces": "ad4675e8faf59c96fc32f219fa674facf42180f5c1a1375af4100b36e9f74749",
+    "equal": true,
+    "full_records_from_workspaces": "c6f2ce31bc873a8743a3887ad51e31e59f5e91e1597f7efe3462257a3cc389c3",
+    "per_agent_rollup_overall": "5eb6350b1f697d82431fa70ff11c08bda8441c7182a01ecd5deb4eec8c598f3d"
+  },
+  "ok": true,
+  "schema_version": 1,
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "totals": {
+    "actions_total": 2395,
+    "agents": 1000,
+    "expected_actions_total": 2395,
+    "failed_agents_total": 3,
+    "partitions": 4
+  },
+  "unix": 1785785339.8975859,
+  "violations": []
+}

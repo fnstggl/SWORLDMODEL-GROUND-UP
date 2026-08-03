@@ -1,0 +1,152 @@
+{
+  "aggregate_sha256": {
+    "action_ids_collected_from_ledgers": "ad4675e8faf59c96fc32f219fa674facf42180f5c1a1375af4100b36e9f74749",
+    "action_ids_recomputed_from_workspaces": "ad4675e8faf59c96fc32f219fa674facf42180f5c1a1375af4100b36e9f74749",
+    "equal": true,
+    "full_records_from_workspaces": "c6f2ce31bc873a8743a3887ad51e31e59f5e91e1597f7efe3462257a3cc389c3",
+    "per_agent_rollup_overall": "5eb6350b1f697d82431fa70ff11c08bda8441c7182a01ecd5deb4eec8c598f3d"
+  },
+  "isolation": {
+    "action_ids_unique": true,
+    "agent_ids_disjoint": true,
+    "cross_partition_channels": [],
+    "mode": "isolated_partitions_by_design",
+    "note": "partitions exchange NOTHING: disjoint agent-id ranges, disjoint workspace trees, no shared mutable state; this run records that isolation explicitly as its cross-partition communication statement",
+    "workspace_roots": {
+      "p1": "/home/user/scale_runs/phase11/p1",
+      "p2": "/home/user/scale_runs/phase11/p2",
+      "p3": "/home/user/scale_runs/phase11/p3",
+      "p4": "/home/user/scale_runs/phase11/p4"
+    }
+  },
+  "partitions": {
+    "p1": {
+      "action_ids_sha256": "8b1589e6dabf15f318ad76c9a50d4d7103765cc3a73cd33ae24cea4d6342fadc",
+      "actions_total": 600,
+      "agents": 250,
+      "driver_max_in_flight": 4,
+      "expected_actions_total": 600,
+      "failed_agents": {},
+      "first_agent_id": 1001,
+      "partition_root": "/home/user/scale_runs/phase11/p1",
+      "per_agent_rollup_sha256": "45b54335987b7248d73034ab3cd3676e8d387f0ce4b2288269610adcf9e59696",
+      "per_tick_actions": {
+        "1": 50,
+        "10": 50,
+        "11": 50,
+        "12": 50,
+        "2": 50,
+        "3": 50,
+        "4": 50,
+        "5": 50,
+        "6": 50,
+        "7": 50,
+        "8": 50,
+        "9": 50
+      },
+      "window": 4
+    },
+    "p2": {
+      "action_ids_sha256": "8d110c72e1060f7b0319a0e3e17576173b869d61219600ec38b9cd14064cb7c3",
+      "actions_total": 596,
+      "agents": 250,
+      "driver_max_in_flight": 4,
+      "expected_actions_total": 596,
+      "failed_agents": {
+        "2004": {
+          "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_2004_tick_6')",
+          "tick": 6
+        },
+        "2009": {
+          "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_2009_tick_6')",
+          "tick": 6
+        }
+      },
+      "first_agent_id": 2001,
+      "partition_root": "/home/user/scale_runs/phase11/p2",
+      "per_agent_rollup_sha256": "48c377e849e1fd4d7d3d7ea1c784e2e64e14b3ebd3016de7dac33c34a4c99c19",
+      "per_tick_actions": {
+        "1": 50,
+        "10": 50,
+        "11": 48,
+        "12": 50,
+        "2": 50,
+        "3": 50,
+        "4": 50,
+        "5": 50,
+        "6": 48,
+        "7": 50,
+        "8": 50,
+        "9": 50
+      },
+      "window": 4
+    },
+    "p3": {
+      "action_ids_sha256": "33a39a931e522a8a9edb147c256b3d9e16b2283ae3ce02a8d9c3829bbd61e755",
+      "actions_total": 599,
+      "agents": 250,
+      "driver_max_in_flight": 4,
+      "expected_actions_total": 599,
+      "failed_agents": {
+        "3014": {
+          "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_3014_tick_11')",
+          "tick": 11
+        }
+      },
+      "first_agent_id": 3001,
+      "partition_root": "/home/user/scale_runs/phase11/p3",
+      "per_agent_rollup_sha256": "2f393a951b9bb9e1a1d3e3b0d6db67e4638c4976a762602c7ffb40950a6d5097",
+      "per_tick_actions": {
+        "1": 50,
+        "10": 50,
+        "11": 49,
+        "12": 50,
+        "2": 50,
+        "3": 50,
+        "4": 50,
+        "5": 50,
+        "6": 50,
+        "7": 50,
+        "8": 50,
+        "9": 50
+      },
+      "window": 4
+    },
+    "p4": {
+      "action_ids_sha256": "774d4f038b372286d9ded26a3c9fa454c131865f36cb6e1b29dfe6899853150e",
+      "actions_total": 600,
+      "agents": 250,
+      "driver_max_in_flight": 4,
+      "expected_actions_total": 600,
+      "failed_agents": {},
+      "first_agent_id": 4001,
+      "partition_root": "/home/user/scale_runs/phase11/p4",
+      "per_agent_rollup_sha256": "5bd1254438b97f84272d780235bb01770028683000e54922e94701c107e84328",
+      "per_tick_actions": {
+        "1": 50,
+        "10": 50,
+        "11": 50,
+        "12": 50,
+        "2": 50,
+        "3": 50,
+        "4": 50,
+        "5": 50,
+        "6": 50,
+        "7": 50,
+        "8": 50,
+        "9": 50
+      },
+      "window": 4
+    }
+  },
+  "schema_version": 1,
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "totals": {
+    "actions_total": 2395,
+    "agents": 1000,
+    "expected_actions_total": 2395,
+    "failed_agents_total": 3,
+    "partitions": 4
+  },
+  "unix": 1785785339.8971918
+}
