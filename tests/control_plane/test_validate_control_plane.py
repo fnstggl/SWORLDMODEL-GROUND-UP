@@ -202,6 +202,152 @@ class TestBootstrapStatusConsistency(ValidatorCheckTestCase):
         self.assertFalse(check["ok"])
 
 
+class TestDocumentedLimitations(ValidatorCheckTestCase):
+    """``PASS_WITH_DOCUMENTED_LIMITATION`` must cost more than a plain ``PASS``.
+
+    A hook event can be implemented, registered, statically covered and still
+    never emitted by the host. That has to be recordable without lying and
+    without deadlocking the run -- but only against an explicit declaration, or
+    the escape hatch just becomes a way to wave an unverified hook through.
+    """
+
+    LIMITATION = {
+        "hook_event": "TeammateIdle",
+        "status": "UNAVAILABLE_IN_CLAUDE_CODE_WEB",
+        "reason": "the host never emits this event on this surface",
+        "fallback_controls": ["TaskCompleted", "SubagentStop", "Stop", "explicit task ownership"],
+    }
+
+    def passing_checks(self, **overrides):
+        checks = {event: "PASS" for event in vcp.REQUIRED_HOOK_EVENTS}
+        checks.update(overrides)
+        return checks
+
+    def set_pass(self, **fields):
+        base = dict(overall="PASS", static_tests="PASS", settings_validation="PASS",
+                    monitored_runner_tests="PASS", fresh_session_hooks_loaded="PASS",
+                    verified_commit="0" * 40)
+        base.update(fields)
+        self.project.set_bootstrap(**base)
+
+    def check(self):
+        return self.run_check(vcp.check_bootstrap_status_consistent)["bootstrap_status_consistent"]
+
+    def test_declared_limitation_is_accepted(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB"),
+            documented_limitations=[dict(self.LIMITATION)],
+        )
+        self.assertTrue(self.check()["ok"])
+
+    def test_plain_pass_still_requires_every_live_check_to_pass(self):
+        self.set_pass(
+            live_event_tests="PASS",
+            live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB"),
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("TeammateIdle", check["detail"])
+
+    def test_limitation_status_without_a_declaration_is_rejected(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB"),
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("documented_limitations", check["detail"])
+
+    def test_a_limitation_cannot_excuse_an_event_it_does_not_name(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB",
+                                            Stop="NOT_EMITTED"),
+            documented_limitations=[dict(self.LIMITATION)],
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("Stop", check["detail"])
+
+    def test_declaration_must_match_the_live_check_it_excuses(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="NOT_EMITTED"),
+            documented_limitations=[dict(self.LIMITATION)],
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("does not match", check["detail"])
+
+    def test_each_declared_field_is_required(self):
+        for field in vcp.DOCUMENTED_LIMITATION_FIELDS:
+            with self.subTest(field=field):
+                entry = dict(self.LIMITATION)
+                del entry[field]
+                self.set_pass(
+                    live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+                    live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB"),
+                    documented_limitations=[entry],
+                )
+                check = self.check()
+                self.assertFalse(check["ok"])
+                self.assertIn(field, check["detail"])
+
+    def test_unknown_hook_event_cannot_be_excused(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(),
+            documented_limitations=[dict(self.LIMITATION, hook_event="NotAHook")],
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("NotAHook", check["detail"])
+
+    def test_invented_limitation_status_is_rejected(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="WORKS_ON_MY_MACHINE"),
+            documented_limitations=[dict(self.LIMITATION, status="WORKS_ON_MY_MACHINE")],
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("recognised limitation status", check["detail"])
+
+    def test_declaration_alongside_plain_pass_is_rejected(self):
+        self.set_pass(
+            live_event_tests="PASS",
+            live_checks=self.passing_checks(),
+            documented_limitations=[dict(self.LIMITATION)],
+        )
+        check = self.check()
+        self.assertFalse(check["ok"])
+        self.assertIn("documented_limitations", check["detail"])
+
+    def test_empty_declaration_list_is_rejected(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB"),
+            documented_limitations=[],
+        )
+        self.assertFalse(self.check()["ok"])
+
+    def test_non_object_declaration_is_rejected(self):
+        self.set_pass(
+            live_event_tests="PASS_WITH_DOCUMENTED_LIMITATION",
+            live_checks=self.passing_checks(TeammateIdle="UNAVAILABLE_IN_CLAUDE_CODE_WEB"),
+            documented_limitations=["TeammateIdle is broken"],
+        )
+        self.assertFalse(self.check()["ok"])
+
+    def test_the_real_repository_status_is_consistent(self):
+        """The shipped HOOK_BOOTSTRAP_STATUS.json must satisfy the rule it relies on."""
+        repo = Path(__file__).resolve().parents[2]
+        status = json.loads((repo / ".agent-run" / "HOOK_BOOTSTRAP_STATUS.json").read_text("utf-8"))
+        problems = vcp._documented_limitation_problems(status, status.get("live_event_tests"))
+        self.assertEqual(problems, [])
+
+
 class TestInitializationLevels(ValidatorCheckTestCase):
     """The same placeholder is valid at one level and a failure at another."""
 
@@ -576,6 +722,13 @@ class TestValidatorEndToEnd(unittest.TestCase):
     def test_no_production_implementation_files_changed(self):
         check = next(c for c in self.payload["checks"] if c["check"] == "no_production_files_changed")
         self.assertTrue(check["ok"], check["detail"])
+        # The check skips when there is no comparable base ref -- a fresh clone
+        # of a single branch has nothing to diff against. A skip reports no
+        # changed_paths at all, which is not the same as reporting an empty
+        # list, so read it defensively rather than assuming the key is present.
+        if "changed_paths" not in check:
+            self.assertIn("skipped", check["detail"])
+            self.skipTest(f"no comparable base ref: {check['detail']}")
         for path in check["changed_paths"]:
             with self.subTest(path=path):
                 self.assertIn(hs.classify_path(path, REPO_ROOT),

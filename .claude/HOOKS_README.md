@@ -21,7 +21,7 @@ Claude Code upgrade before trusting this table.
 | `SessionStart` | yes | `startup`, `resume`, `clear`, `compact`, `fork` | none — injects `hookSpecificOutput.additionalContext` |
 | `PreToolUse` | yes | tool name | `hookSpecificOutput.permissionDecision = "deny"` + `permissionDecisionReason` |
 | `TaskCompleted` | **no** | — | **exit code 2**, reason on stderr |
-| `TeammateIdle` | **no** | — | **exit code 2**, reason on stderr |
+| `TeammateIdle` | **no** | — | **exit code 2**, reason on stderr — ⚠️ **never emitted on this surface**, see §1.1 |
 | `SubagentStop` | yes | agent type (the `name:` in `.claude/agents/*.md`) | `{"decision": "block", "reason": ...}` |
 | `Stop` | **no** | — | `{"decision": "block", "reason": ...}` |
 | `StopFailure` | yes | error type | **cannot block** — output and exit code are ignored |
@@ -44,8 +44,56 @@ Additional verified facts this design depends on:
   `{matcher?, hooks: [{type: "command", command, timeout?, statusMessage?}]}`.
 - **Agent teams** need `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, set in
   `.claude/settings.json` → `env`. Supported from v2.1.178; this project runs
-  2.1.220, so `TeammateIdle`, `TaskCreated` and `TaskCompleted` are live. The
-  `team_name` field in those payloads is deprecated and is not used here.
+  2.1.220. `TaskCompleted` is live-verified here. `TeammateIdle` is **not** —
+  see §1.1. The `team_name` field in those payloads is deprecated and is not
+  used here.
+
+---
+
+## 1.1 Known limitation — `TeammateIdle` is not emitted here
+
+**Status: `UNAVAILABLE_IN_CLAUDE_CODE_WEB`.** Do not rely on this event.
+
+The table above describes the mechanism `gate.py` *implements*. It does not
+promise the host will call it. On this surface — Claude Code on the web /
+remote execution (`CLAUDE_CODE_ENTRYPOINT=remote`), version 2.1.220, agent teams
+enabled — the host **never emits `TeammateIdle`** for Agent-tool teammates.
+
+Measured twice, most recently at commit `190b04e` against the host's own debug
+log (`/tmp/claude-code.log`, `CLAUDE_CODE_DEBUG=true`), which names every hook
+Claude Code invokes. A named teammate owning an `in_progress` task with a
+missing `required_artifacts` entry — exactly what `handle_teammate_idle` exists
+to block — went idle unimpeded. Zero `TeammateIdle` invocations appeared. The
+detector was validated in the same window by a positive control: the teammate's
+denied `Write` into `.claude/` *was* recorded, so the log does capture hooks
+fired in a teammate's context. Every hook invocation in the window reconciles
+against a known tool call, so the event did not fire silently either. Full
+evidence: `.agent-run/LIVE_VERIFICATION.md` check 4.
+
+The 2.1.220 binary does contain the event name, so this is a missing *emission
+path* on this surface, not a missing feature. The registration in
+`settings.json` is deliberately kept and the handler is fully covered by the
+static suite, so the gate takes effect unchanged wherever the event is emitted.
+
+**What actually prevents silent abandonment here.** Four controls, all
+live-verified at `190b04e`:
+
+1. **`TaskCompleted`** — a task cannot be marked complete without its declared
+   artifacts and a passing current-SHA receipt. Abandonment dressed up as
+   completion is stopped here.
+2. **`SubagentStop`** — `implementation-agent` and `test-watchdog` cannot stop
+   on an incomplete contract. This covers the protected writer roles.
+3. **`Stop`** — the lead cannot end the run with unmet gates, so an abandoned
+   task cannot leave the run quietly.
+4. **Explicit ownership + lead review** — every task names its owner in
+   `TASK_GRAPH.json` before work starts, and the lead reviews each teammate
+   return. Unfinished work is visible in durable state whether or not a hook
+   fired.
+
+**Residual gap, stated plainly:** an *unprotected* teammate type that abandons
+work without claiming completion is caught by ownership and lead review, not by
+a hook. Prefer `implementation-agent` or `test-watchdog` for work that must not
+be silently dropped — those are the types `SubagentStop` protects.
 
 ---
 
@@ -97,12 +145,19 @@ An unknown task blocks during `implementation`/`frozen_acceptance` and is
 allowed with an explicit `systemMessage` otherwise. Override per-graph with
 `"unknown_task_policy": "allow" | "block"`.
 
-### `TeammateIdle` — no silent abandonment
-Blocks a teammate from idling only when it owns an incomplete in-progress task,
-owes a required artifact, owes a test receipt, was assigned implementation but
-produced no artifact, or has unresolved critical findings. It **allows** idling
-when owned tasks are complete, when a read-only reviewer has delivered its
-report, and when the teammate owns nothing. No teammate is trapped indefinitely.
+### `TeammateIdle` — no silent abandonment ⚠️ NOT ENFORCED ON THIS SURFACE
+**This event is never emitted in Claude Code web / remote execution (§1.1), so
+the behaviour below is implemented and statically covered but not live.** Treat
+it as dormant, not as a guarantee. Silent abandonment is covered here by
+`TaskCompleted`, `SubagentStop`, `Stop`, and explicit ownership plus lead
+review.
+
+When the event *is* emitted, the handler blocks a teammate from idling only when
+it owns an incomplete in-progress task, owes a required artifact, owes a test
+receipt, was assigned implementation but produced no artifact, or has unresolved
+critical findings. It **allows** idling when owned tasks are complete, when a
+read-only reviewer has delivered its report, and when the teammate owns nothing.
+No teammate is trapped indefinitely.
 
 ### `SubagentStop` — protected implementation contracts
 Applies only to `implementation-agent` and `test-watchdog`.

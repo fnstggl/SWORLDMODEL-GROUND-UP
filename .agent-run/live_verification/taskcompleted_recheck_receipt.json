@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "3",
+  "git_sha": "190b04e5b2f8652bd1d7a88f847c101f3161243a",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -c print('taskcompleted recheck')",
+  "exit_code": 0,
+  "started_at": "2026-08-03T02:24:35+00:00",
+  "finished_at": "2026-08-03T02:24:35+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T02:24:35+00:00",
+  "git_branch": "claude/sworldmodel-hook-verification-dc02ey",
+  "worktree_clean": false,
+  "output_tail": "taskcompleted recheck\n"
+}

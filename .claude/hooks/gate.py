@@ -297,20 +297,14 @@ def _edited_paths(tool_input: dict) -> list[str]:
 
 
 def _shell_written_paths(command: str, root: Path) -> list[str]:
-    """Best-effort detection of shell redirection and in-place edit targets."""
-    import re
+    """Paths a shell command writes to: redirection and in-place edit targets.
 
-    found: list[str] = []
-    # A redirect target is always on the same line as its operator, so the gap
-    # is [ \t]* and never \s* -- otherwise a trailing '>' (an e-mail address in
-    # a heredoc, say) swallows the first word of the next line. The lookbehind
-    # keeps '->' and '=>' inside quoted code from reading as a redirect, while
-    # '> f', '>> f' and '2> f' still match.
-    for match in re.finditer(r"(?<![-=])>>?[ \t]*([^\s;&|<>]+)", command or ""):
-        found.append(match.group(1).strip("'\""))
-    for match in re.finditer(r"\b(?:tee|sed\s+-i\S*|truncate)[ \t]+(?:-\S+[ \t]+)*([^\s;&|<>]+)", command or ""):
-        found.append(match.group(1).strip("'\""))
-    return [p for p in found if p and not p.startswith("/dev/")]
+    Delegates to the shell-aware parser in ``hook_state`` so that a ``>`` or a
+    ``sed -i`` appearing inside a quoted string or a heredoc body is treated as
+    the data it is, and a real target is still recovered when it is quoted or
+    sits behind option arguments.
+    """
+    return hs.shell_write_targets(command)
 
 
 def _mode_blocks_category(state: dict, category: str) -> str | None:
@@ -1077,7 +1071,14 @@ def handle_stop_failure(event: dict, root: Path) -> int:
 
 
 def handle_config_change(event: dict, root: Path) -> int:
-    source = str(hs.first_present(event, "config_source", "configSource", default="unknown") or "unknown")
+    # Live payloads name this field ``source``; ``config_source`` is accepted as
+    # an alternate spelling. Reading only the latter made every real change
+    # resolve to "unknown", which silently disabled the gate -- an unrecognised
+    # source is never one of BLOCKING_CONFIG_SOURCES, so nothing could block.
+    source = str(
+        hs.first_present(event, "source", "config_source", "configSource", default="unknown")
+        or "unknown"
+    )
     changes = hs.first_present(event, "config_changes", "configChanges", default=None)
 
     log_record = {
@@ -1085,9 +1086,12 @@ def handle_config_change(event: dict, root: Path) -> int:
         "kind": "config_change",
         "timestamp": hs.utc_now_iso(),
         "config_source": source,
+        "changed_file": hs.first_present(event, "file_path", "filePath", default=None),
         "session_id": hs.first_present(event, "session_id", "sessionId", default=None),
         "git_sha": hs.git_sha(root),
     }
+    if source == "unknown":
+        log_record["payload_fields"] = sorted(str(k) for k in event)
     if changes is not None:
         try:
             log_record["config_changes"] = json.loads(json.dumps(changes)[:4000])
@@ -1134,7 +1138,27 @@ def handle_config_change(event: dict, root: Path) -> int:
         )
 
     mode = state.get("mode")
-    if source in BLOCKING_CONFIG_SOURCES and mode in {"implementation", "frozen_acceptance"}:
+    protected_mode = mode in {"implementation", "frozen_acceptance"}
+
+    # An unidentifiable source must not pass as "not one of the blocking ones".
+    # Failing open there is how a renamed payload field silently disables this
+    # gate; during a protected mode the conservative answer is to block and say
+    # exactly why.
+    if source == "unknown" and protected_mode and not in_hook_maintenance(state):
+        return block_decision(
+            "ConfigChange",
+            rejection(
+                f"applying a settings change during '{mode}' whose source could not be identified",
+                f"RUN_STATE.json mode='{mode}'; the ConfigChange payload carried no recognised "
+                f"source field (fields present: {', '.join(sorted(str(k) for k in event)) or 'none'})",
+                "Treat this as a control-plane defect, not a routine change: record a "
+                "hook-maintenance phase, confirm which payload field Claude Code now uses for the "
+                "config source, update handle_config_change to read it, add a regression test, then "
+                "re-apply the change.",
+            ),
+        )
+
+    if source in BLOCKING_CONFIG_SOURCES and protected_mode:
         if in_hook_maintenance(state):
             return allow()
         return block_decision(

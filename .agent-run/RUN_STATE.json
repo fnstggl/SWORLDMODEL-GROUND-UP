@@ -1,26 +1,51 @@
 {
   "schema_version": 1,
-  "mode": "hook_bootstrap",
-  "status": "STATIC_PASS_LIVE_PENDING",
-  "phase": "awaiting_fresh_session_verification",
+  "mode": "ready_for_master",
+  "status": "READY",
+  "phase": "awaiting_master_directive",
   "frozen_sha": null,
-  "highest_leverage_blocker": null,
-  "next_action": "start a fresh Claude Code session from this commit and run live hook verification",
+  "highest_leverage_blocker": "None. The control plane is verified and ready. The next step is loading the exact master Concordia plus AgentSociety implementation directive.",
+  "next_action": "Begin the master implementation in a new session using /goal: load and commit the exact master implementation directive, set master_context_loaded, then initialize the implementation task graph and architecture. TeammateIdle is recorded as UNAVAILABLE_IN_CLAUDE_CODE_WEB and is optional -- it must not be treated as a blocker. Prefer implementation-agent and test-watchdog for work that must not be silently dropped, because SubagentStop protects those types.",
   "open_critical_count": 0,
   "open_high_count": 0,
   "running_background_jobs": [],
   "passed_gates": [
     "static_hook_tests",
-    "monitored_runner_tests"
+    "monitored_runner_tests",
+    "control_plane_validator",
+    "live_session_start",
+    "live_pre_tool_use",
+    "live_task_completed",
+    "live_subagent_stop",
+    "live_stop",
+    "live_stop_failure",
+    "live_config_change",
+    "live_monitored_runner",
+    "live_teammate_idle_resolved_as_unavailable"
   ],
-  "remaining_gates": [
-    "fresh_session_live_verification"
-  ],
+  "remaining_gates": [],
   "completion_allowed": true,
   "master_context_loaded": false,
   "master_directive_path": null,
   "master_directive_sha256": null,
   "architecture_initialized": false,
   "task_graph_initialized": false,
-  "acceptance_gates_initialized": false
+  "acceptance_gates_initialized": false,
+  "environment_limitations": [
+    {
+      "id": "teammate-idle-not-emitted",
+      "hook_event": "TeammateIdle",
+      "status": "UNAVAILABLE_IN_CLAUDE_CODE_WEB",
+      "optional": true,
+      "blocks_master_run": false,
+      "summary": "Claude Code on the web / remote execution at 2.1.220 never emits TeammateIdle for Agent-tool teammates. Proved from the host's own debug log with a validated positive control and a complete accounting of every hook invocation in the window. The gate stays registered and takes effect unchanged on any surface that emits the event.",
+      "fallback_controls": [
+        "TaskCompleted",
+        "SubagentStop",
+        "Stop",
+        "explicit task ownership in TASK_GRAPH.json and lead-agent review"
+      ],
+      "detail": ".claude/HOOKS_README.md section 1.1; .agent-run/LIVE_VERIFICATION.md check 4"
+    }
+  ]
 }
