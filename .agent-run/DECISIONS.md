@@ -413,3 +413,28 @@ hashes.
 - guard_interventions have no BranchResult field (frozen contract): they ride
   the runner diagnostics record; Phase 7's distributed executor persists that
   record as an artifact file referenced from BranchResult.artifact_paths.
+
+
+## Phase 7 notes 2026-08-03
+
+- Stage A gate PASSED with byte-identical local/distributed branch
+  signatures (sha256 per candidate) and the measured fixture winner
+  reproduced over the distributed leg; file-authoritative collection with
+  CollectionIntegrityError on any driver/file disagreement.
+- Model seam key is `model_builder` (dotted-name + JSON params) -- the
+  hardcoding guard forbids the bare word the brief suggested; same seam for
+  future live models.
+- Distributed escalation semantics: runner-captured mid-branch errors are
+  escalated to step failures AFTER persisting the partial result, so
+  branch_error.json and the driver record agree (dual channel); the local
+  manager returns such branches without raising. Documented divergence.
+- Upstream discoveries recorded in test docstrings: a warm-up round must
+  HOLD worker slots with the same blocking delay as the timed round (a
+  zero-cost warm-up is absorbed by one worker); the Ray job env snapshot is
+  frozen at first init_dispatchers -- later WORKSPACE_PATH/PYTHONPATH
+  exports never reach workers, so one Ray owner per process segment and the
+  executor adopts an existing init's workspace rather than repointing it.
+- Private imports from counterfactuals.manager (_preflight,
+  _seeded_branch_scope, _result_from_runner) are the accepted
+  reuse-over-duplication tradeoff; promote to public names during the
+  documentation phase if churn appears.

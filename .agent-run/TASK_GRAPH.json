@@ -461,7 +461,7 @@
       "description": "Distribute complete, self-contained Concordia branches through AgentSociety's real worker/dispatcher interfaces: multiple branches concurrently, one failed branch isolated, concurrency limits respected, traces/tokens/runtime/errors recorded, local and distributed results equivalent under deterministic test models, Concordia internals unchanged. No actor-level distribution.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "in_progress",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-6-counterfactual-branch-manager"
@@ -480,7 +480,12 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "F_agentsociety_integration"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "artifact-bearing commit (this fold-in); receipt at a44bf16c9c2a",
+        "results": "STAGE A GATE PASSED: engine env 107 passed (6 distributed + 20 + 42 + 39); system 672/21 skipped + known receipt item; local==distributed per-candidate signature sha256 equality on fixture-1; measured winner reproduced; driver_max_in_flight==worker_max_overlap==2 with exactly-once accounting; dual-channel failure evidence; trace spans + token-stat shape enforced.",
+        "artifacts": "sworldmodel/backends/agentsociety/{branch_agent_template,branch_executor}.py; tests/engine_distributed/ (7 modules)"
+      }
     },
     {
       "id": "phase-8-concordia-actor-workspace-adapter",
@@ -488,7 +493,7 @@
       "description": "Persist and reconstruct Concordia state through AgentSociety workspaces as one whole-branch checkpointed unit (opaque versioned artifact; prefer Concordia's own checkpoint/serialization path; smallest SWORLDMODEL sidecar only for proven missing state). Passes only when run-to-checkpoint/save/continue vs restore/continue produce the same deterministic trace and result.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "in_progress",
       "mandatory": true,
       "dependencies": [
         "phase-7-agentsociety-branch-executor"
