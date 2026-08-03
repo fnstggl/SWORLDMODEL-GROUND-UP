@@ -24,7 +24,7 @@ from baseline_helpers import (REPO_ROOT, StrictScriptedModel,  # noqa: F401
 from sworldmodel.decision.contracts import (InterventionCandidate,
                                             SCHEMA_VERSION)
 from sworldmodel.decision.fixture_loader import load_fixture_file
-from sworldmodel.outcomes import exists_metric, substring_matcher
+from sworldmodel.outcomes import exists_metric
 
 FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures" / "best_action"
 FIXTURE_ONE_PATH = FIXTURE_DIR / "individual_reply.yaml"
@@ -181,22 +181,74 @@ def simple_model_factory(response_map, capture=None, raising=None):
     return factory
 
 
+#: the upstream sequential engine wraps every RESOLVED ACTOR TURN in this
+#: framing before commit; premise/pre-start rows never carry it (same
+#: anchor as tests/engine_individual/individual_helpers.py -- replicated
+#: because the engine suites are deliberately self-contained)
+_ACTOR_TURN_ANCHOR = "Putative event to resolve:"
+
+#: sentence punctuation/quotes never appear inside a real attribution
+#: name; finding one means the head is not a well-formed turn stamp
+#: (fail closed: such a row matches no metric)
+_NAME_BREAK_CHARS = ".!?\"\n"
+
+
+def _leading_attribution(description):
+    """``(name, content)`` from the row's OWN leading attribution, else
+    ``None``.  Mirrors individual_helpers.leading_attribution: the text
+    between the anchor and the FIRST ``:`` or `` --`` separator is the
+    active player's name; a malformed head refuses rather than guesses."""
+    index = description.find(_ACTOR_TURN_ANCHOR)
+    if index < 0:
+        return None
+    tail = description[index + len(_ACTOR_TURN_ANCHOR):].lstrip(" \t")
+    cuts = [cut for cut in (tail.find(":"), tail.find(" --")) if cut >= 0]
+    if not cuts:
+        return None
+    cut = min(cuts)
+    if tail[cut] == ":":
+        name, content = tail[:cut], tail[cut + 1:]
+    else:
+        name, content = tail[:cut], tail[cut + 3:]
+    name = name.strip()
+    if not name or any(char in name for char in _NAME_BREAK_CHARS):
+        return None
+    return name, content.strip()
+
+
+def _attributed(actor, opening, *needles):
+    """Matcher counting ONLY ``actor``'s own resolved turn: the row's
+    leading attribution must name the actor and the attributed content
+    must START with ``opening`` (review F1: substring co-occurrence
+    anywhere in a row -- e.g. a proxy ``Name: ...`` segment embedded in
+    ANOTHER actor's turn -- must never match)."""
+
+    def matcher(description: str) -> bool:
+        parsed = _leading_attribution(description)
+        if parsed is None:
+            return False
+        name, content = parsed
+        if name != actor or not content.startswith(opening):
+            return False
+        return all(needle in content for needle in needles)
+
+    return matcher
+
+
 def fixture_predicates():
     """Test-supplied metric predicates reading ONLY the event trace.
 
-    Needles are distinctive substrings of the SCRIPTED texts: the engine
-    commits each turn as '<Name>: <action text>' (sequential.py), so
-    'Morgan: Reply' binds the reply to the RECIPIENT'S OWN committed
-    turn -- a reply written by anyone else would not satisfy the metric.
-    """
+    Each metric binds to the RECIPIENT'S OWN committed turn via the
+    row's leading attribution (review F1 closed the co-occurrence gap:
+    a reply written by anyone else no longer satisfies the metric)."""
     return {
         "recipient_reply_sent": exists_metric(
-            substring_matcher("Morgan: Reply")),
+            _attributed("Morgan", "Reply")),
         "meeting_scheduled": exists_metric(
-            substring_matcher("Morgan: Reply",
-                              "agreeing to a fifteen-minute conversation")),
+            _attributed("Morgan", "Reply",
+                        "agreeing to a fifteen-minute conversation")),
         "explicit_decline": exists_metric(
-            substring_matcher("Morgan: Reply declining")),
+            _attributed("Morgan", "Reply declining")),
     }
 
 

@@ -726,7 +726,7 @@
       "description": "Written findings from the directive's required roles: Upstream Preservation Auditor, Integration Reliability Reviewer, Concordia Semantics Reviewer, AgentSociety Scale Reviewer, Simulation Reality Reviewer, Best-Action and Counterfactual Reviewer, plus the standing highest-leverage (strategic drift) reviewer at phase boundaries. Every verified critical finding must be resolved with evidence before final acceptance.",
       "owner": "adversarial-reviewer",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "in_progress",
       "mandatory": true,
       "dependencies": [
         "phase-10-team-vertical-slice",
@@ -748,7 +748,8 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "H_simulation_semantics"
-      ]
+      ],
+      "progress_notes": "Boundary reviews complete: phases 0-2 (PHASE_0_2_BOUNDARY_REVIEW.md), phases 3-7 (PHASE_3_7_BOUNDARY_REVIEW.md), phases 8-11 (PHASE_8_11_BOUNDARY_REVIEW.md; F1 HIGH fixed at 1f8404b + lead cf_helpers hardening; F2 fixed; F3 scheduled into freeze; F4 accepted). Remaining: frozen-SHA review round incl. gate-H re-confirmation of the two F1-refuted clauses, before final adjudication."
     },
     {
       "id": "final-documentation",
