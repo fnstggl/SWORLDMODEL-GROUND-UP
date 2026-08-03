@@ -888,6 +888,26 @@ def config_event(source="project_settings", changes=None):
             "config_changes": changes if changes is not None else {"hooks": {}}}
 
 
+def live_config_event(source="project_settings"):
+    """The ConfigChange payload shape Claude Code actually sends.
+
+    Captured from a real session during live hook verification. It names the
+    source ``source`` -- not ``config_source`` -- and carries no
+    ``config_changes`` at all. Reading only the synthetic spelling made every
+    real change resolve to "unknown", which silently disabled this gate, so the
+    whole matrix is re-run against this shape.
+    """
+    return {
+        "session_id": "live-shape",
+        "transcript_path": "/root/.claude/projects/x/live-shape.jsonl",
+        "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+        "prompt_id": "ff938abf-d752-48f5-8eef-ef0dd2a6a631",
+        "hook_event_name": "ConfigChange",
+        "source": source,
+        "file_path": "/home/user/SWORLDMODEL-GROUND-UP/.claude/settings.json",
+    }
+
+
 class TestConfigChange(GateTestCase):
     def log(self):
         path = self.project.agent_run / "CONFIG_CHANGES.jsonl"
@@ -939,6 +959,63 @@ class TestConfigChange(GateTestCase):
         self.project.write_raw("RUN_STATE.json", "!")
         result = self.gate(config_event())
         self.assertEqual(result.decision, "block")
+
+    # -- the payload shape Claude Code actually sends -------------------
+
+    def test_live_payload_shape_blocks_during_implementation(self):
+        """The whole point: this is the shape that reaches the hook in practice."""
+        self.project.set_mode("implementation")
+        for source in ("project_settings", "local_settings"):
+            with self.subTest(source=source):
+                result = self.gate(live_config_event(source))
+                self.assertEqual(result.decision, "block",
+                                 "a real settings change during implementation must block")
+                self.assertIn("hook_maintenance", result.reason)
+
+    def test_live_payload_shape_records_the_real_source(self):
+        result = self.gate(live_config_event("project_settings"))
+        self.assertIsNone(result.decision)
+        record = self.log()[-1]
+        self.assertEqual(record["config_source"], "project_settings",
+                         "the source must be read from the field the payload actually uses")
+        self.assertEqual(record["changed_file"],
+                         "/home/user/SWORLDMODEL-GROUND-UP/.claude/settings.json")
+
+    def test_live_payload_shape_allows_during_hook_maintenance(self):
+        for mode, extra in (("hook_maintenance", {}), ("implementation", {"hook_maintenance": True})):
+            with self.subTest(mode=mode, extra=extra):
+                self.project.set_mode(mode, **extra)
+                self.assertIsNone(self.gate(live_config_event()).decision)
+
+    def test_live_payload_shape_keeps_user_and_policy_behaviour(self):
+        self.project.set_mode("implementation")
+        self.assertIsNone(self.gate(live_config_event("user_settings")).decision)
+        result = self.gate(live_config_event("policy_settings"))
+        self.assertIsNone(result.decision)
+        self.assertIn("cannot block a managed policy change", result.json.get("systemMessage", ""))
+
+    def test_unidentifiable_source_fails_closed_in_protected_modes(self):
+        """A renamed payload field must not silently disable the gate."""
+        for mode in ("implementation", "frozen_acceptance"):
+            with self.subTest(mode=mode):
+                self.project.set_mode(mode)
+                result = self.gate({"hook_event_name": "ConfigChange",
+                                    "some_future_field": "project_settings"})
+                self.assertEqual(result.decision, "block")
+                self.assertIn("could not be identified", result.reason)
+                self.assertIn("some_future_field", result.reason)
+
+    def test_unidentifiable_source_is_not_blocked_outside_protected_modes(self):
+        for mode in ("hook_bootstrap", "hook_live_verification", "hook_maintenance"):
+            with self.subTest(mode=mode):
+                self.project.set_mode(mode)
+                self.assertIsNone(self.gate({"hook_event_name": "ConfigChange"}).decision)
+
+    def test_unidentifiable_source_records_the_payload_fields(self):
+        self.gate({"hook_event_name": "ConfigChange", "mystery": 1})
+        record = self.log()[-1]
+        self.assertEqual(record["config_source"], "unknown")
+        self.assertIn("mystery", record["payload_fields"])
 
 
 # ---------------------------------------------------------------------------
