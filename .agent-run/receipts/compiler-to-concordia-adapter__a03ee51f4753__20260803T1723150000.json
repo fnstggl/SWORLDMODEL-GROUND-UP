@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "compiler-to-concordia-adapter",
+  "git_sha": "a03ee51f4753070eeb89d3fbcc5b52f01694c91c",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T17:21:47+00:00",
+  "finished_at": "2026-08-03T17:23:15+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "docs/engine_migration/COMPILER_TO_CONCORDIA_MAPPING.md": "60fc983ff28937e2045fc4640b197166fb5331c2ff52e86a3bbd73b727afad7b",
+    "sworldmodel/compilation/__init__.py": "f3a36ecd266652c4481e165e2cfc4561b24a665931a53df5d0ba7ae0e7f15d86",
+    "sworldmodel/compilation/existing_compiler_adapter.py": "719f89c4745bd000231d8b4f112552aedf2ae669f9b2579fd10cf9077f0b685c",
+    "sworldmodel/compilation/decision_route.py": "29742cfd98d29d088ae52efb85d771a04a4ec132cf54a6504f487379989eef7e"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T17:23:15+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 40%]\n........................................................................ [ 80%]\n....................................                                     [100%]\n180 passed in 85.40s (0:01:25)\n"
+}
