@@ -954,6 +954,157 @@ def destructive_git_reason(command: str) -> str | None:
     return None
 
 
+# --------------------------------------------------------------------------
+# Shell write targets
+# --------------------------------------------------------------------------
+
+#: A redirection operator, as produced by :func:`_split_command`. Leading file
+#: descriptors are separate tokens (``2> f`` -> ``2``, ``>``, ``f``), so only the
+#: punctuation run needs matching here. ``<`` is deliberately absent: reading a
+#: file is not writing to it.
+_REDIRECT_OP_RE = re.compile(r"^&?>{1,2}[|&]?$")
+
+#: The same operator with its target glued on (``>out.txt``). ``_split_command``
+#: separates these, so this only matters on its whitespace-split fallback path
+#: for a command with unbalanced quotes.
+_REDIRECT_ATTACHED_RE = re.compile(r"^&?>{1,2}\|?(?!\s)(.+)$")
+
+#: ``<<MARKER`` / ``<<-'MARKER'`` -- but not the ``<<<`` here-string.
+_HEREDOC_RE = re.compile(r"<<-?[ \t]*(['\"]?)([A-Za-z_][A-Za-z0-9_]*)\1")
+
+
+def strip_heredocs(command: str) -> str:
+    """Remove heredoc bodies, keeping the command lines around them.
+
+    A heredoc body is stdin *data* for the command -- often another language
+    entirely -- so shell syntax inside it is text, not shell. Scanning it for
+    redirections produces pure noise: a wrapped e-mail address or a quoted
+    ``sed -i`` in a commit message is not a write.
+    """
+    lines = (command or "").split("\n")
+    kept: list[str] = []
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        kept.append(line)
+        index += 1
+        for match in _HEREDOC_RE.finditer(line):
+            marker = match.group(2)
+            while index < len(lines) and lines[index].strip() != marker:
+                index += 1
+            index += 1  # drop the terminator line as well
+    return "\n".join(kept)
+
+
+def _split_redirections(argv: list[str]) -> tuple[list[str], list[str]]:
+    """Separate ``argv`` into plain words and the files it redirects onto."""
+    words: list[str] = []
+    targets: list[str] = []
+    index = 0
+    while index < len(argv):
+        token = argv[index]
+        if _REDIRECT_OP_RE.match(token):
+            target = argv[index + 1] if index + 1 < len(argv) else None
+            index += 2
+            # '>&1' / '2>&1' duplicate a file descriptor; nothing is written.
+            if target is not None and not (token.endswith("&") and target.isdigit()):
+                targets.append(target)
+            continue
+        attached = _REDIRECT_ATTACHED_RE.match(token)
+        if attached:
+            targets.append(attached.group(1))
+            index += 1
+            continue
+        words.append(token)
+        index += 1
+    return words, targets
+
+
+def _sed_is_in_place(words: list[str]) -> bool:
+    """True for ``sed -i`` / ``-i.bak`` / ``-ni`` / ``--in-place``."""
+    for token in words[1:]:
+        if token == "--":
+            break
+        if token.startswith("--in-place"):
+            return True
+        if token.startswith("-") and not token.startswith("--") and len(token) > 1:
+            if "i" in token[1:].split(".", 1)[0]:
+                return True
+    return False
+
+
+#: Commands that write to their file operands. ``arg_options`` are the options
+#: that consume a following word; ``script_first`` marks a grammar whose first
+#: operand is a program rather than a file (``sed 's/a/b/' file``); ``gate``
+#: decides whether this invocation writes at all.
+_WRITING_COMMANDS = {
+    "tee": {"arg_options": frozenset(), "script_first": False, "gate": None},
+    "truncate": {
+        "arg_options": frozenset({"-s", "--size", "-r", "--reference"}),
+        "script_first": False,
+        "gate": None,
+    },
+    "sed": {
+        "arg_options": frozenset({"-e", "-f", "--expression", "--file"}),
+        "script_first": True,
+        "gate": _sed_is_in_place,
+    },
+}
+
+
+def _file_operands(words: list[str], arg_options, script_first: bool) -> list[str]:
+    """Return a command's file operands, skipping options and their arguments."""
+    operands: list[str] = []
+    script_pending = script_first
+    index = 1
+    while index < len(words):
+        token = words[index]
+        index += 1
+        if token == "--":
+            operands.extend(words[index:])
+            break
+        if token.startswith("-") and token != "-":
+            name = token.split("=", 1)[0]
+            if name in arg_options:
+                # The script came from -e/-f, so no operand is the script.
+                script_pending = False
+                if token == name:  # value is the next word, not glued on
+                    index += 1
+            continue
+        if script_pending:
+            script_pending = False  # this operand is the script, not a file
+            continue
+        operands.append(token)
+    return operands
+
+
+def shell_write_targets(command: str) -> list[str]:
+    """Return the paths a shell command writes to.
+
+    Covers redirection targets and the in-place writers (``tee``, ``sed -i``,
+    ``truncate``). Detection is shell-aware rather than text-matching: a ``>``
+    or a ``sed -i`` that merely appears inside a quoted string or a heredoc body
+    is data and is ignored, while a genuine target is still recovered when it is
+    quoted or preceded by option arguments.
+
+    Best effort by design. It is one classification input among several, never
+    the only thing between a tool call and a protected file.
+    """
+    found: list[str] = []
+    for raw_argv in _split_command(strip_heredocs(command or "")):
+        words, targets = _split_redirections(_strip_env_assignments(raw_argv))
+        found.extend(targets)
+        if not words:
+            continue
+        spec = _WRITING_COMMANDS.get(Path(words[0]).name)
+        if spec is None:
+            continue
+        if spec["gate"] is not None and not spec["gate"](words):
+            continue
+        found.extend(_file_operands(words, spec["arg_options"], spec["script_first"]))
+    return [p for p in found if p and not p.startswith("/dev/")]
+
+
 #: Ephemeral runner scratch: logs and diagnostics the monitored runner recreates
 #: on every job. The durable record of a job also lives in the protected
 #: BACKGROUND_JOBS.json registry, so removing this scratch loses no evidence --

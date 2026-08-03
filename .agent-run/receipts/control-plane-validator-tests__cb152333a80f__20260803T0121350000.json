@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "control-plane-validator-tests",
+  "git_sha": "cb152333a80f2d3dac3a4739ae3ad77b3d28a77a",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests/control_plane/test_validate_control_plane.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T01:21:34+00:00",
+  "finished_at": "2026-08-03T01:21:35+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T01:21:35+00:00",
+  "git_branch": "claude/sworldmodel-hook-verification-dc02ey",
+  "worktree_clean": false,
+  "output_tail": ".............................................. [ 74%]\n................                               [100%]\n62 passed, 52 subtests passed in 1.10s\n"
+}

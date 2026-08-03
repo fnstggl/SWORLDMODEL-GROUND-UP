@@ -297,20 +297,14 @@ def _edited_paths(tool_input: dict) -> list[str]:
 
 
 def _shell_written_paths(command: str, root: Path) -> list[str]:
-    """Best-effort detection of shell redirection and in-place edit targets."""
-    import re
+    """Paths a shell command writes to: redirection and in-place edit targets.
 
-    found: list[str] = []
-    # A redirect target is always on the same line as its operator, so the gap
-    # is [ \t]* and never \s* -- otherwise a trailing '>' (an e-mail address in
-    # a heredoc, say) swallows the first word of the next line. The lookbehind
-    # keeps '->' and '=>' inside quoted code from reading as a redirect, while
-    # '> f', '>> f' and '2> f' still match.
-    for match in re.finditer(r"(?<![-=])>>?[ \t]*([^\s;&|<>]+)", command or ""):
-        found.append(match.group(1).strip("'\""))
-    for match in re.finditer(r"\b(?:tee|sed\s+-i\S*|truncate)[ \t]+(?:-\S+[ \t]+)*([^\s;&|<>]+)", command or ""):
-        found.append(match.group(1).strip("'\""))
-    return [p for p in found if p and not p.startswith("/dev/")]
+    Delegates to the shell-aware parser in ``hook_state`` so that a ``>`` or a
+    ``sed -i`` appearing inside a quoted string or a heredoc body is treated as
+    the data it is, and a real target is still recovered when it is quoted or
+    sits behind option arguments.
+    """
+    return hs.shell_write_targets(command)
 
 
 def _mode_blocks_category(state: dict, category: str) -> str | None:

@@ -271,6 +271,80 @@ class TestPreToolUse(GateTestCase):
             "python3 -c \"print(f'{a} -> {b}')\"")))
         self.assert_allowed(self.gate(bash_event("python3 -c 'x = lambda v: v => 1'")))
 
+    def test_quoted_mention_of_a_write_is_not_a_write(self):
+        """Text that merely *contains* shell-write syntax must not be blocked.
+
+        Every case here denied a harmless read-only command during live hook
+        verification, back when write targets were found by matching raw text.
+        """
+        self.project.set_mode("frozen_acceptance")
+        for command in (
+            'echo "VAR=${FOO:-<unset>}"',
+            'python3 -c "print(1 if 2 > 1 else 0)"',
+            "grep -n 'tee|sed -i|truncate' tests/control_plane/test_gate.py",
+            'echo "run: sed -i s/a/b/ sworldmodel/kernel.py"',
+            "python3 -c 'print(\"a > b\")'",
+        ):
+            with self.subTest(command=command):
+                self.assert_allowed(self.gate(bash_event(command)))
+
+    def test_heredoc_body_is_data_not_shell(self):
+        self.project.set_mode("frozen_acceptance")
+        command = (
+            "python3 - <<'PY'\n"
+            "open('sworldmodel/kernel.py')\n"
+            "print('sed -i s/a/b/ sworldmodel/kernel.py')\n"
+            "print('redirect > sworldmodel/kernel.py')\n"
+            "PY"
+        )
+        self.assert_allowed(self.gate(bash_event(command)))
+
+    def test_in_place_edit_of_protected_paths_blocked_outside_a_freeze(self):
+        """Outside a freeze only control-plane and upstream paths block.
+
+        A mis-parsed target silently degrades to the 'production' category,
+        which is allowed in `implementation` -- so parsing the real file operand
+        is what makes these rules enforceable at all.
+        """
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [{"name": "concordia", "commit": "abc123"}],
+            "protected_paths": ["vendor/concordia"],
+        })
+        for command, fragment in (
+            ("sed -i 's/deny/allow/' .claude/hooks/gate.py", "hook-control"),
+            ("sed -i 's/a/b/' .claude/settings.json", "hook-control"),
+            ("sed -i.bak -e s/a/b/ CLAUDE.md", "hook-control"),
+            ("python3 gen.py | tee .claude/settings.json", "hook-control"),
+            # Caught one rule earlier, by the evidence-deletion guard.
+            ("truncate -s 0 .claude/settings.json", "deletion of control plane state"),
+            ("sed -i 's/a/b/' vendor/concordia/engine.py", "upstream"),
+        ):
+            with self.subTest(command=command):
+                self.assert_denied(self.gate(bash_event(command)), fragment)
+
+    def test_quoted_redirect_target_is_still_detected(self):
+        self.project.set_mode("implementation")
+        for command in ('echo broken > ".claude/settings.json"',
+                        "echo broken > '.claude/settings.json'",
+                        "echo broken >.claude/settings.json"):
+            with self.subTest(command=command):
+                self.assert_denied(self.gate(bash_event(command)), "hook-control")
+
+    def test_read_only_sed_is_not_a_write(self):
+        self.project.set_mode("implementation")
+        for command in ("sed -n 1,5p .claude/settings.json",
+                        "sed -e s/a/b/ .claude/settings.json"):
+            with self.subTest(command=command):
+                self.assert_allowed(self.gate(bash_event(command)))
+
+    def test_file_descriptor_duplication_is_not_a_write(self):
+        self.project.set_mode("frozen_acceptance")
+        for command in ("pytest -q 2>&1", "python3 x.py 2>&1 | head -5"):
+            with self.subTest(command=command):
+                self.assert_allowed(self.gate(bash_event(command)))
+
     def test_production_edit_blocked_during_ready_for_master(self):
         self.project.set_mode("ready_for_master")
         result = self.gate(edit_event("sworldmodel/kernel.py"))
@@ -907,6 +981,87 @@ class TestDispatcher(GateTestCase):
         start = time.monotonic()
         self.gate({"hook_event_name": "SessionStart", "source": "startup"})
         self.assertLess(time.monotonic() - start, 10.0)
+
+
+# ---------------------------------------------------------------------------
+# Shell write-target parsing (the input PreToolUse classifies)
+# ---------------------------------------------------------------------------
+
+
+class TestShellWriteTargets(unittest.TestCase):
+    """Unit-level lock on the parser behind the PreToolUse path rules.
+
+    The end-to-end cases above prove the *gate* decides correctly; these pin the
+    parse itself, so a regression names the wrong-parse cause directly instead of
+    surfacing as a puzzling allow or deny.
+    """
+
+    @staticmethod
+    def targets(command):
+        sys.path.insert(0, str(Path(__file__).resolve().parents[2] / ".claude" / "hooks"))
+        import hook_state as hs
+
+        return hs.shell_write_targets(command)
+
+    def assert_targets(self, command, expected):
+        self.assertEqual(sorted(self.targets(command)), sorted(expected), f"command: {command!r}")
+
+    def test_plain_redirections(self):
+        self.assert_targets("echo hi > out.txt", ["out.txt"])
+        self.assert_targets("echo hi >out.txt", ["out.txt"])
+        self.assert_targets("echo hi >> logs/out.txt", ["logs/out.txt"])
+        self.assert_targets("cat x 2> err.log", ["err.log"])
+        self.assert_targets("python3 x.py &> both.log", ["both.log"])
+        self.assert_targets("echo hi >| forced.txt", ["forced.txt"])
+
+    def test_quoted_and_spaced_targets_are_recovered(self):
+        self.assert_targets('echo hi > "a b.txt"', ["a b.txt"])
+        self.assert_targets("echo hi > 'quoted.txt'", ["quoted.txt"])
+
+    def test_quoting_makes_an_operator_into_text(self):
+        for command in ('echo "VAR=${FOO:-<unset>}"',
+                        'python3 -c "print(1 if 2 > 1 else 0)"',
+                        "python3 -c \"print(f'{a} -> {b}')\"",
+                        "grep 'tee|sed -i' file.py"):
+            with self.subTest(command=command):
+                self.assert_targets(command, [])
+
+    def test_heredoc_bodies_are_ignored(self):
+        self.assert_targets(
+            "git commit -F - <<'MSG'\nAdd a thing\n\nCo-Authored-By: A <a@b.invalid>\nMSG",
+            [],
+        )
+        self.assert_targets("cat <<-EOF > real.txt\ntext > not_a_target\nEOF", ["real.txt"])
+
+    def test_descriptor_duplication_is_not_a_file(self):
+        self.assert_targets("pytest -q 2>&1", [])
+        self.assert_targets("python3 x.py 2>&1 | head -5", [])
+
+    def test_in_place_writers_yield_their_file_operands(self):
+        self.assert_targets("sed -i 's/a/b/' prod.py", ["prod.py"])
+        self.assert_targets("sed -i.bak -e s/a/b/ prod.py", ["prod.py"])
+        self.assert_targets("sed -i -f script.sed a.py b.py", ["a.py", "b.py"])
+        self.assert_targets("tee -a report.json", ["report.json"])
+        self.assert_targets("truncate -s 0 keep.log", ["keep.log"])
+        self.assert_targets("truncate --size=0 keep.log", ["keep.log"])
+
+    def test_sed_without_in_place_writes_nothing(self):
+        self.assert_targets("sed -n 1,5p prod.py", [])
+        self.assert_targets("sed -e s/a/b/ prod.py", [])
+
+    def test_each_pipeline_segment_is_parsed(self):
+        self.assert_targets("python3 gen.py | tee a.txt > b.txt", ["a.txt", "b.txt"])
+        self.assert_targets("echo a > x.txt && echo b > y.txt", ["x.txt", "y.txt"])
+
+    def test_device_files_are_ignored(self):
+        self.assert_targets("echo hi > /dev/null", [])
+
+    def test_environment_assignments_do_not_hide_the_command(self):
+        self.assert_targets("FOO=1 BAR=2 sed -i s/a/b/ prod.py", ["prod.py"])
+
+    def test_unbalanced_quotes_still_yield_a_target(self):
+        """The tokenizer falls back to a whitespace split; detection must survive."""
+        self.assertIn("out.txt", self.targets("echo 'unbalanced > out.txt"))
 
 
 if __name__ == "__main__":
