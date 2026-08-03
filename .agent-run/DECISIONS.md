@@ -245,8 +245,13 @@ place and made stricter about evidence in three.
   `master-context-initialization` receipt, re-records it at the current SHA
   via `python3 .claude/tools/record_receipt.py --task-id
   master-context-initialization --run -- python3 -m pytest
-  tests/control_plane -q` followed by a validator re-run. This is
-  re-verification at the new SHA, not new authority.
+  tests/control_plane -q` (when pytest is absent, the equivalent fallback the
+  validator itself uses: `... --run -- python3
+  tests/control_plane/test_gate.py`) followed by a validator re-run, and
+  optionally a second receipt recording the validator PASS itself. This is
+  re-verification at the new SHA, not new authority. Applied at
+  initialization: transition receipt at 87f8c3d29cc79, re-recorded suite +
+  validator-PASS receipts at the initialization commit that followed it.
 - **TeammateIdle remains UNAVAILABLE_IN_CLAUDE_CODE_WEB** (inherited from
   bootstrap, unchanged): rely on TaskCompleted, selective SubagentStop,
   explicit task ownership in TASK_GRAPH.json, and lead review at phase
