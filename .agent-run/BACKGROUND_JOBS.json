@@ -1309,6 +1309,67 @@
       "stdout_tail": "....................................................... [ 37%]\n........................................................................ [ 55%]\n........................................................................ [ 74%]\n........................................................................ [ 93%]\n...........................                                              [100%]\n=============================== warnings summary ===============================\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\ntests/framework/test_replay_sink.py::test_concurrent_multi_process_large_rows_no_corruption\n  /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2279) is multi-threaded, use of fork() may lead to deadlocks in the child.\n    self.pid = os.fork()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n387 passed, 8 warnings in 27.75s\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "engine-dod-baseline-pre-adapter",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "mkdir -p /home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter; set -o pipefail; cd /home/user/SWORLDMODEL-GROUND-UP && /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -v 2>&1 | tee /home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter/progress.log"
+      ],
+      "command_string": "bash -c mkdir -p /home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter; set -o pipefail; cd /home/user/SWORLDMODEL-GROUND-UP && /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -v 2>&1 | tee /home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter/progress.log",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "7e88b717eb10894184da55cba6f1f5888aa4e153",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": true,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T16:54:31+00:00",
+      "no_progress_timeout_s": 240.0,
+      "total_timeout_s": 480.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 240.0,
+      "hard_deadline_at": 373.986,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter/stderr.log",
+      "progress_file": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/engine-dod-baseline-pre-adapter/progress.log",
+      "pid": 7848,
+      "pgid": 7848,
+      "heartbeat_at": "2026-08-03T16:56:17+00:00",
+      "progress_source": "completed_units",
+      "cpu_seconds": 22.15,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T16:56:21+00:00",
+      "elapsed_s": 109.663,
+      "seconds_since_progress": 0.0,
+      "completed_units": 143,
+      "cpu_cores_recent": 0.0,
+      "process_group_size": 12,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T16:54:31+00:00",
+          "elapsed_s": 0.029,
+          "until_elapsed_s": 109.46,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.029
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "e_identical_under_harness PASSED [ 91%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_document_level_shuffle_is_pinned_by_harness PASSED [ 92%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_without_harness_multiple_choice_shuffling_can_differ PASSED [ 93%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_randomize_choices_false_pins_actor_choices_without_seeding PASSED [ 94%]\ntests/engine_contracts/test_concordia_determinism_harness.py::test_switch_act_gm_choice_paths_have_no_randomize_switch PASSED [ 94%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_sequential_run_order_effects_and_event_commit PASSED [ 95%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_terminate_component_ends_loop_before_max_steps PASSED [ 96%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_max_steps_caps_the_loop PASSED [ 97%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_premise_is_committed_as_event_before_first_step PASSED [ 97%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_guard_step_receives_candidate_pre_commit_and_rewrites_the_commit PASSED [ 98%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_guard_step_can_veto_with_a_different_statement PASSED [ 99%]\ntests/engine_contracts/test_concordia_gm_contracts.py::test_guard_rewrite_happens_before_observer_notification PASSED [100%]\n\n======================= 134 passed in 104.51s (0:01:44) ========================\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }
