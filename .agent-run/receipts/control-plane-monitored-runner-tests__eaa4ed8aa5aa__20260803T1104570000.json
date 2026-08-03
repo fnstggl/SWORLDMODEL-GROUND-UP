@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "control-plane-monitored-runner-tests",
+  "git_sha": "eaa4ed8aa5aad0fb8090cb01e66c1da8d0307624",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 tests/control_plane/test_run_monitored.py",
+  "exit_code": 0,
+  "started_at": "2026-08-03T11:04:21+00:00",
+  "finished_at": "2026-08-03T11:04:57+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T11:04:57+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": ".........................\n----------------------------------------------------------------------\nRan 25 tests in 35.833s\n\nOK\n"
+}
