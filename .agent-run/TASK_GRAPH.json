@@ -1,6 +1,10 @@
 {
   "schema_version": 1,
-  "status": "MASTER_DIRECTIVE_PENDING",
+  "status": "INITIALIZED_FROM_MASTER_DIRECTIVE",
+  "master_directive": {
+    "path": "docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md",
+    "sha256": "ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb"
+  },
   "task_schema": {
     "id": "string, unique, required",
     "subject": "string, short human subject, required",
@@ -17,12 +21,523 @@
     "required_review_artifacts": "array of repository-relative review report paths",
     "worktree": "string or null; repository-relative worktree/branch identity",
     "requires_clean_worktree": "boolean, default false",
-    "completion_evidence": "object written by the completion gate on success"
+    "completion_evidence": "object written by the completion gate on success",
+    "acceptance_gates": "informational: acceptance gates in ACCEPTANCE_STATUS.json this task feeds"
   },
   "receipt_selector_schema": {
     "task_id": "string, required; must match the receipt task_id",
     "command": "string, optional; exact command that must have been run",
     "must_pass": "boolean, default true; requires receipt exit_code == 0 and valid == true"
   },
-  "tasks": []
+  "ownership_rules": [
+    "One primary writer owns each tightly coupled subsystem; two agents never write the same subsystem concurrently.",
+    "implementation-agent is the single primary writer for the current implementation task.",
+    "test-watchdog owns monitored test execution and evidence integrity; it must not modify production code during a frozen evaluation.",
+    "investigation-agent, adversarial-reviewer, and final-adjudicator are read-only.",
+    "Every mandatory phase must also exist in Claude Code's structured task system so TaskCompleted receives completion events."
+  ],
+  "tasks": [
+    {
+      "id": "master-context-initialization",
+      "subject": "Load master directive and initialize durable implementation state",
+      "description": "Save the exact master directive at docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md, record its SHA-256, populate ARCHITECTURE.md, TASK_GRAPH.json, CRITICAL_PATH.md, DECISIONS.md, UPSTREAM_PROTECTED_PATHS.json, ACCEPTANCE_STATUS.json from it, validate, record a current-SHA receipt, and transition ready_for_master -> implementation.",
+      "owner": "lead-orchestrator",
+      "owner_type": "lead",
+      "status": "complete",
+      "mandatory": true,
+      "dependencies": [],
+      "required_artifacts": [
+        "docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md",
+        ".agent-run/ARCHITECTURE.md",
+        ".agent-run/CRITICAL_PATH.md",
+        ".agent-run/TASK_GRAPH.json",
+        ".agent-run/ACCEPTANCE_STATUS.json",
+        ".agent-run/UPSTREAM_PROTECTED_PATHS.json"
+      ],
+      "required_receipts": [
+        {"task_id": "master-context-initialization", "must_pass": true}
+      ],
+      "required_validation_commands": [
+        "python3 .claude/tools/validate_control_plane.py"
+      ],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "completion_evidence": {
+        "completed_at_sha": "87f8c3d29cc7901d0d7d6ed835190cbde6fb3059",
+        "receipt": ".agent-run/receipts/master-context-initialization__87f8c3d29cc7__20260803T0450400000.json",
+        "receipt_command": "python3 .claude/tools/validate_control_plane.py",
+        "receipt_exit_code": 0,
+        "master_directive_sha256": "ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb",
+        "master_context_problems_at_transition": [],
+        "note": "Receipt validity is SHA-exact; after later commits move HEAD, re-record per DECISIONS.md 'Receipt re-record protocol'. This evidence block records the transition moment."
+      },
+      "acceptance_gates": []
+    },
+    {
+      "id": "implementation-branch-and-draft-pr",
+      "subject": "Create implementation branch from updated main and open the draft PR",
+      "description": "Directive mandatory first actions steps 4 and 11: once main contains the merged initialization, create claude/concordia-agentsociety-best-action-engine from that exact main and open one draft PR from it into main. Do not merge it during the run. Do not use codex/single-trajectory-runtime-final-completion as the base.",
+      "owner": "lead-orchestrator",
+      "owner_type": "lead",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["master-context-initialization"],
+      "required_artifacts": [],
+      "required_receipts": [],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": "claude/concordia-agentsociety-best-action-engine",
+      "requires_clean_worktree": false,
+      "acceptance_gates": []
+    },
+    {
+      "id": "three-repository-audit",
+      "subject": "Full audit of Concordia, AgentSociety 2, and SWORLDMODEL-GROUND-UP",
+      "description": "Directive step 12 and 'First mandatory task': trace real production paths of Concordia (engine, GM, EntityAgent, components, memory, serialization) and AgentSociety 2 (AgentBase, workspaces, Ray, dispatcher, ServiceProxy, tracing, checkpointing); classify every SWORLDMODEL component (retain/wrap/reuse later/quarantine/replace/delete-after-proven-unused); record exact SHAs and dependency requirements; compare branch-level vs actor-level integration. Production architecture implementation begins only after the audit gates pass (step 13).",
+      "owner": "lead-orchestrator",
+      "owner_type": "lead",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["master-context-initialization"],
+      "required_artifacts": [
+        "docs/engine_migration/UPSTREAM_AUDIT.md",
+        "docs/engine_migration/SWORLD_CURRENT_STATE.md",
+        "docs/engine_migration/OWNERSHIP_MAP.md",
+        "docs/engine_migration/INTEGRATION_PLAN.md",
+        "docs/engine_migration/RISK_REGISTER.md",
+        "docs/engine_migration/ACCEPTANCE_GATES.md",
+        "docs/engine_migration/OWNERSHIP_AND_REPLACEMENT_MAP.md"
+      ],
+      "required_receipts": [
+        {"task_id": "three-repository-audit", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["A_upstream_integrity"]
+    },
+    {
+      "id": "phase-0-freeze-and-baseline",
+      "subject": "Phase 0: freeze and baseline",
+      "description": "Record all three repository SHAs and Python/dependency requirements; run existing SWORLDMODEL test suites and runnable upstream smoke examples before changing anything; save baseline commands, results, failures, runtime, and environment details; identify known current runtime failures. No production routing changes.",
+      "owner": "test-watchdog",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["three-repository-audit"],
+      "required_artifacts": [
+        "docs/engine_migration/PHASE0_BASELINE.md"
+      ],
+      "required_receipts": [
+        {"task_id": "phase-0-freeze-and-baseline", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["B_baseline_reliability"]
+    },
+    {
+      "id": "phase-1-dependency-preservation",
+      "subject": "Phase 1: dependency preservation and compatibility",
+      "description": "Pin complete upstream repositories to immutable SHAs (git deps, submodules, or complete vendored snapshots); one compatible environment; upstream source unchanged; license notices; prove imports coexist and minimal Concordia and AgentSociety examples run. PATCHES.md initially states no upstream modifications exist.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-0-freeze-and-baseline"],
+      "required_artifacts": [
+        "third_party/UPSTREAM_LOCK.json",
+        "third_party/THIRD_PARTY_NOTICES.md",
+        "third_party/INTEGRATION_METHOD.md",
+        "third_party/PATCHES.md"
+      ],
+      "required_receipts": [
+        {"task_id": "phase-1-dependency-preservation", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["A_upstream_integrity"]
+    },
+    {
+      "id": "phase-2-upstream-contract-tests",
+      "subject": "Phase 2: upstream contract tests",
+      "description": "Independent proofs against pinned upstream code: Concordia actor observation/action, component lifecycle order, Game Master resolution, memory persistence, state restore where supported; AgentSociety workspace creation/reconstruction/execution/persistence, concurrency limiting, worker failure isolation, trace and token accounting. No application logic until these pass.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-1-dependency-preservation"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-2-upstream-contract-tests", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["A_upstream_integrity", "F_agentsociety_integration"]
+    },
+    {
+      "id": "phase-3-decision-and-branch-contracts",
+      "subject": "Phase 3: decision and branch contracts",
+      "description": "Implement the fixed SWORLDMODEL-owned versioned contracts (DecisionProblem, CompiledDecisionWorld, InterventionCandidate, SimulationSnapshot, BranchResult, RecommendationResult) with strict schema validation, separate semantic validation, code-owned IDs/hashes/provenance, and the full required contract-test list (rejection, round-trip, versioning, malformed LLM output, valid-syntax-invalid-meaning).",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-2-upstream-contract-tests"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-3-decision-and-branch-contracts", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["B_baseline_reliability", "E_counterfactual_correctness"]
+    },
+    {
+      "id": "frozen-manual-fixtures",
+      "subject": "Commit the three frozen manual best-action fixtures",
+      "description": "Commit tests/fixtures/best_action/{individual_reply,team_commitment,population_offer}.yaml exactly as specified by the directive; record their hashes and expected deterministic results; implementation code must never change them silently, and they are immutable once the final acceptance run begins.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-3-decision-and-branch-contracts"],
+      "required_artifacts": [
+        "tests/fixtures/best_action/individual_reply.yaml",
+        "tests/fixtures/best_action/team_commitment.yaml",
+        "tests/fixtures/best_action/population_offer.yaml"
+      ],
+      "required_receipts": [
+        {"task_id": "frozen-manual-fixtures", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["E_counterfactual_correctness"]
+    },
+    {
+      "id": "phase-4-stock-concordia-local-baseline",
+      "subject": "Phase 4: stock Concordia local baseline (hard gate)",
+      "description": "Hard gate: prove Concordia independently with two literal, manually written scenarios end to end (observation -> actor attempt -> GM resolution -> second actor response -> persistent state -> outcome trace), deterministic test models first, three clean runs each, no compiler import anywhere in the execution path, no AgentSociety, private context stays private. Freeze this baseline before compiler integration.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["frozen-manual-fixtures"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-4-stock-concordia-local-baseline", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["C_individual_simulation"]
+    },
+    {
+      "id": "phase-5-minimum-agency-guard",
+      "subject": "Phase 5: minimum agency guard",
+      "description": "Add the smallest possible post-resolution or pre-commit guard so the Game Master cannot permanently commit a voluntary decision for a different actor without that actor receiving its own turn. Adapter/validator/event-splitter based on real Concordia interfaces; no Game Master fork. Prove the Concordia loop still works.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-4-stock-concordia-local-baseline"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-5-minimum-agency-guard", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["C_individual_simulation", "H_simulation_semantics"]
+    },
+    {
+      "id": "phase-6-counterfactual-branch-manager",
+      "subject": "Phase 6: counterfactual branch manager",
+      "description": "Freeze one base snapshot; run two manually supplied interventions from the same starting snapshot; branches differ only at the intervention boundary; no cross-branch state or memory access; explicit trace-based outcome evaluation and comparison; branch failures reported, never silently replaced.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-5-minimum-agency-guard"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-6-counterfactual-branch-manager", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["E_counterfactual_correctness"]
+    },
+    {
+      "id": "compiler-to-concordia-adapter",
+      "subject": "Deterministic compiler-to-Concordia adapter (gated on frozen manual fixtures passing)",
+      "description": "Only after the frozen manual fixtures pass: document every field mapping in docs/engine_migration/COMPILER_TO_CONCORDIA_MAPPING.md; implement the deterministic CompiledDecisionWorld -> ConcordiaInitializationPlan -> validated Concordia objects path (no LLM calls, no paraphrase, no silent defaults); prove canary information-leak tests and manual-vs-compiler-produced initialization equivalence before enabling natural-language compilation in the end-to-end route.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-6-counterfactual-branch-manager"],
+      "required_artifacts": [
+        "docs/engine_migration/COMPILER_TO_CONCORDIA_MAPPING.md"
+      ],
+      "required_receipts": [
+        {"task_id": "compiler-to-concordia-adapter", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["C_individual_simulation", "H_simulation_semantics"]
+    },
+    {
+      "id": "phase-7-agentsociety-branch-executor",
+      "subject": "Phase 7: AgentSociety branch executor (Stage A)",
+      "description": "Distribute complete, self-contained Concordia branches through AgentSociety's real worker/dispatcher interfaces: multiple branches concurrently, one failed branch isolated, concurrency limits respected, traces/tokens/runtime/errors recorded, local and distributed results equivalent under deterministic test models, Concordia internals unchanged. No actor-level distribution.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-6-counterfactual-branch-manager"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-7-agentsociety-branch-executor", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["F_agentsociety_integration"]
+    },
+    {
+      "id": "phase-8-concordia-actor-workspace-adapter",
+      "subject": "Phase 8: Concordia actor workspace adapter (Stage B)",
+      "description": "Persist and reconstruct Concordia state through AgentSociety workspaces as one whole-branch checkpointed unit (opaque versioned artifact; prefer Concordia's own checkpoint/serialization path; smallest SWORLDMODEL sidecar only for proven missing state). Passes only when run-to-checkpoint/save/continue vs restore/continue produce the same deterministic trace and result.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-7-agentsociety-branch-executor"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-8-concordia-actor-workspace-adapter", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["F_agentsociety_integration"]
+    },
+    {
+      "id": "phase-9-individual-vertical-slice",
+      "subject": "Phase 9: individual vertical slice",
+      "description": "Complete message/persuasion decision ('Which of these messages most increases the chance of a second meeting?'): the recipient decides whether to reply, the Game Master cannot pre-write the reply, the outcome evaluator reads the actual resulting trace. Deterministic scripted, deterministic mock-model, and live-model smoke runs when credentials are available.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["compiler-to-concordia-adapter", "phase-7-agentsociety-branch-executor"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-9-individual-vertical-slice", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["C_individual_simulation", "E_counterfactual_correctness"]
+    },
+    {
+      "id": "phase-10-team-vertical-slice",
+      "subject": "Phase 10: team vertical slice",
+      "description": "A 5-12 person decision with private information, authority, a meeting, private follow-up conversations, actor-owned commitments or votes, and a declared outcome. The Game Master must not cast votes or make commitments on behalf of actors.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-9-individual-vertical-slice"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-10-team-vertical-slice", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["D_team_simulation"]
+    },
+    {
+      "id": "phase-11-societal-infrastructure-proof",
+      "subject": "Phase 11: societal infrastructure proof (Stage C)",
+      "description": "Monitored, progress-source-mandatory runs proving: 100-agent run; 1,000-agent scripted/deliberately shallow run; AgentSociety distributed execution; bounded concurrency; sparse activation; persistent workspaces; checkpoint/resume; injected individual failures; no duplicate or lost actions; aggregate result collection equal to recorded actions. Labeled infrastructure-only; no population realism claim. All runs through .claude/tools/run_monitored.py.",
+      "owner": "test-watchdog",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-8-concordia-actor-workspace-adapter", "phase-10-team-vertical-slice"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-11-societal-infrastructure-proof", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["G_societal_infrastructure"]
+    },
+    {
+      "id": "operational-robustness-matrix",
+      "subject": "Operational robustness and failure injection",
+      "description": "Gate I test matrix: clean installation, cold startup, repeated runs, interruption, resume, one actor failure, one branch failure, malformed candidate, malformed compiled input, missing model credentials, model timeout, model malformed output, Ray worker failure, partial workspace corruption. Failures must be explicit, bounded, and recoverable where possible.",
+      "owner": "test-watchdog",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-11-societal-infrastructure-proof"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "operational-robustness-matrix", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["I_operational_robustness"]
+    },
+    {
+      "id": "adversarial-review-cycle",
+      "subject": "Adversarial reviewer reports for every mandatory reviewer role",
+      "description": "Written findings from the directive's required roles: Upstream Preservation Auditor, Integration Reliability Reviewer, Concordia Semantics Reviewer, AgentSociety Scale Reviewer, Simulation Reality Reviewer, Best-Action and Counterfactual Reviewer, plus the standing highest-leverage (strategic drift) reviewer at phase boundaries. Every verified critical finding must be resolved with evidence before final acceptance.",
+      "owner": "adversarial-reviewer",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-10-team-vertical-slice", "phase-11-societal-infrastructure-proof"],
+      "required_artifacts": [],
+      "required_receipts": [],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [
+        "docs/engine_migration/reviews/UPSTREAM_PRESERVATION_AUDIT_REPORT.md",
+        "docs/engine_migration/reviews/INTEGRATION_RELIABILITY_REPORT.md",
+        "docs/engine_migration/reviews/CONCORDIA_SEMANTICS_REPORT.md",
+        "docs/engine_migration/reviews/AGENTSOCIETY_SCALE_REPORT.md",
+        "docs/engine_migration/reviews/SIMULATION_REALITY_REPORT.md",
+        "docs/engine_migration/reviews/BEST_ACTION_COUNTERFACTUAL_REPORT.md"
+      ],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["H_simulation_semantics"]
+    },
+    {
+      "id": "final-documentation",
+      "subject": "Gate J documentation set",
+      "description": "Produce docs/engine_migration/{FINAL_ARCHITECTURE, RESPONSIBILITY_OWNERSHIP, UPSTREAM_COMPONENT_MAP, IMPLEMENTATION_LOG, TEST_MATRIX, SOCIETAL_SCALING_PATH, KNOWN_LIMITATIONS, NEXT_REALISM_PHASE, RUNBOOK}.md explaining in plain language what Concordia, AgentSociety, and SWORLDMODEL each own, which code is exact upstream vs adapter vs legacy, how one best-action request flows, what has and has not been proven, and the later grounding/calibration work.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["adversarial-review-cycle"],
+      "required_artifacts": [
+        "docs/engine_migration/FINAL_ARCHITECTURE.md",
+        "docs/engine_migration/RESPONSIBILITY_OWNERSHIP.md",
+        "docs/engine_migration/UPSTREAM_COMPONENT_MAP.md",
+        "docs/engine_migration/IMPLEMENTATION_LOG.md",
+        "docs/engine_migration/TEST_MATRIX.md",
+        "docs/engine_migration/SOCIETAL_SCALING_PATH.md",
+        "docs/engine_migration/KNOWN_LIMITATIONS.md",
+        "docs/engine_migration/NEXT_REALISM_PHASE.md",
+        "docs/engine_migration/RUNBOOK.md"
+      ],
+      "required_receipts": [
+        {"task_id": "final-documentation", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": ["J_documentation"]
+    },
+    {
+      "id": "phase-12-frozen-final-acceptance",
+      "subject": "Phase 12: frozen final acceptance run",
+      "description": "Freeze one final commit (mode frozen_acceptance, frozen_sha recorded, clean tree); run the entire mandatory test and evaluation suite from the beginning through run_monitored.py without changing code, prompts, fixtures, or evaluators; any failure ends the batch -> fix -> new frozen SHA -> restart the complete suite. Evidence must carry the exact frozen SHA.",
+      "owner": "test-watchdog",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["operational-robustness-matrix", "final-documentation", "adversarial-review-cycle"],
+      "required_artifacts": [],
+      "required_receipts": [
+        {"task_id": "phase-12-frozen-final-acceptance", "must_pass": true}
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": true,
+      "acceptance_gates": [
+        "A_upstream_integrity", "B_baseline_reliability", "C_individual_simulation",
+        "D_team_simulation", "E_counterfactual_correctness", "F_agentsociety_integration",
+        "G_societal_infrastructure", "H_simulation_semantics", "I_operational_robustness",
+        "J_documentation"
+      ]
+    },
+    {
+      "id": "final-adjudication",
+      "subject": "Final adjudicator verdict from actual artifacts",
+      "description": "The final-adjudicator reads the actual implementation artifacts, receipts, and all reviewer reports at the frozen SHA and returns PASS or FAIL with the exact unmet gate, evidence, and required correction. Any verified critical failure blocks completion; a majority vote is insufficient. Only ACCEPTANCE_STATUS.json.overall == PASS (or a genuine EXTERNAL_BLOCKER) permits the run to terminate.",
+      "owner": "final-adjudicator",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": ["phase-12-frozen-final-acceptance"],
+      "required_artifacts": [],
+      "required_receipts": [],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [
+        "docs/engine_migration/reviews/FINAL_ADJUDICATION.md"
+      ],
+      "worktree": null,
+      "requires_clean_worktree": true,
+      "acceptance_gates": [
+        "A_upstream_integrity", "B_baseline_reliability", "C_individual_simulation",
+        "D_team_simulation", "E_counterfactual_correctness", "F_agentsociety_integration",
+        "G_societal_infrastructure", "H_simulation_semantics", "I_operational_robustness",
+        "J_documentation"
+      ]
+    }
+  ]
 }

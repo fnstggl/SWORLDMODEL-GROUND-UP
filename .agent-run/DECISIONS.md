@@ -204,3 +204,53 @@ accepts `PASS_WITH_DOCUMENTED_LIMITATION`, and only when the limitation is
 explicitly declared -- naming a registered hook event, carrying a reason, and
 leaving every other live check at `PASS`. The rule was loosened in exactly one
 place and made stricter about evidence in three.
+
+## Master-context initialization 2026-08-03
+
+- **The master implementation directive is loaded and authoritative.** Saved
+  verbatim (no summarizing, no rewriting) at
+  `docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md`, sha256
+  `ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb`, recorded
+  in `RUN_STATE.json.master_directive_sha256`. Where any `.agent-run` summary
+  and the directive disagree, the directive wins.
+- **Branch authority.** This initialization was performed, per the operator's
+  explicit branch designation for this session, on
+  `claude/engine-migration-setup-j5d0ti` (created from main
+  `87f8c3d29cc7901d0d7d6ed835190cbde6fb3059`, the latest main containing the
+  merged verified control plane). The directive's implementation branch
+  `claude/concordia-agentsociety-best-action-engine` is to be created from
+  updated main once this initialization lands there (directive: "Begin from
+  the latest remote main after the verified control-plane PR has been merged"
+  + mandatory first action 4); the draft PR into main is opened from that
+  implementation branch and not merged during the run. If the master run
+  starts before this setup branch is merged, it continues from this
+  initialized branch state rather than re-deriving it.
+- **Upstream baselines recorded at initialization.** Local fork checkouts:
+  concordia `7779a4c9f96bad10816d88c54e4cb17d53ac5222`
+  (fnstggl/concordia, upstream google-deepmind/concordia); agentsociety2
+  `6e9fc2e79f89f65a3e3d0d7899e380f7394099be` (fnstggl/agentsociety2, upstream
+  tsinghua-fib-lab/agentsociety). These are baselines for the audit; Phase 1
+  pins the immutable integration SHAs in `third_party/UPSTREAM_LOCK.json`,
+  which then becomes the pin of record.
+- **Protected upstream paths registered ahead of import.**
+  `third_party/concordia/` and `third_party/agentsociety/` are protected now,
+  before they exist, so no divergent local copy can appear by accident. The
+  sanctioned Phase 1 import window procedure is documented in
+  `UPSTREAM_PROTECTED_PATHS.json.import_procedure`.
+- **Receipt re-record protocol.** A `master-context-initialization` receipt is
+  valid only at the exact SHA it records; committing the receipt necessarily
+  moves HEAD past it (`.claude/HOOKS_README.md` §4: re-record after committing
+  or rebasing). Every fresh session in `implementation` mode therefore starts
+  by running the validator and, if the only failure is a stale
+  `master-context-initialization` receipt, re-records it at the current SHA
+  via `python3 .claude/tools/record_receipt.py --task-id
+  master-context-initialization --run -- python3 -m pytest
+  tests/control_plane -q` followed by a validator re-run. This is
+  re-verification at the new SHA, not new authority.
+- **TeammateIdle remains UNAVAILABLE_IN_CLAUDE_CODE_WEB** (inherited from
+  bootstrap, unchanged): rely on TaskCompleted, selective SubagentStop,
+  explicit task ownership in TASK_GRAPH.json, and lead review at phase
+  boundaries, exactly as the directive's fallback list requires.
+- **Phase 0 baseline artifact path fixed as**
+  `docs/engine_migration/PHASE0_BASELINE.md` so the phase's completion
+  contract is machine-checkable from the task graph.
