@@ -1,0 +1,24 @@
+{
+  "_provenance": "Hand-written manifest-shaped test vector expressing the SAME scene as the frozen manual fixture tests/fixtures/best_action/individual_reply.yaml (fixture 1). Committed as a NEW test file; the frozen fixture itself is immutable. The 'manifest' block follows compiler/scene_schema.py SCENE_SCHEMA (the four-field scene manifest); the surrounding keys are the compile metadata the adapter requires. Names and text bytes deliberately match the fixture so the manual-vs-compiler equivalence test can compare the resulting ConcordiaInitializationPlan objects; actor identifiers differ by construction (the fixture declares ids, the manifest has none, so the adapter derives them from names) and the equivalence test maps them through the documented name-keyed bijection.",
+  "question": "Which candidate message most increases the chance that Morgan agrees to a short conversation with Alex?",
+  "start": "2026-08-03T14:00:00Z",
+  "cutoff": "2026-08-10T14:00:00Z",
+  "insertion_actor": "Alex",
+  "compiler_version": "manual_test_vector_v1",
+  "evidence_mode": "manual_test_vector",
+  "manifest": {
+    "actors": [
+      {
+        "name": "Alex",
+        "private_context": "Alex wants to arrange an introductory meeting with Morgan."
+      },
+      {
+        "name": "Morgan",
+        "private_context": "Morgan is busy, has no prior relationship with Alex, dislikes pressure and generic pitches, but responds to short messages containing clear relevance and a low-effort request."
+      }
+    ],
+    "shared_context": "Alex has Morgan's email address. No message has been sent yet.",
+    "starting_events": [],
+    "resolution": "Resolve from the recorded event history only: whether Morgan sent a reply, whether a short conversation was scheduled, and whether Morgan explicitly declined, by the cutoff."
+  }
+}
