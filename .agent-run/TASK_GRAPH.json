@@ -84,7 +84,7 @@
       "description": "Directive mandatory first actions steps 4 and 11: once main contains the merged initialization, create claude/concordia-agentsociety-best-action-engine from that exact main and open one draft PR from it into main. Do not merge it during the run. Do not use codex/single-trajectory-runtime-final-completion as the base.",
       "owner": "lead-orchestrator",
       "owner_type": "lead",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "master-context-initialization"
@@ -96,7 +96,16 @@
       "required_review_artifacts": [],
       "worktree": "claude/concordia-agentsociety-best-action-engine",
       "requires_clean_worktree": false,
-      "acceptance_gates": []
+      "acceptance_gates": [],
+      "completion_evidence": {
+        "completed_at_sha": "1a6b9917d2060b707d2a548fb9bb9ebe41d1d00b",
+        "verified_via": "GitHub API pull_request_read at 2026-08-03T11:07Z",
+        "pr_url": "https://github.com/fnstggl/SWORLDMODEL-GROUND-UP/pull/9",
+        "pr_state": "open draft, not merged",
+        "head_ref": "claude/concordia-agentsociety-best-action-engine",
+        "base": "main @ 87f8c3d29cc7901d0d7d6ed835190cbde6fb3059 (the recorded implementation_base_sha, i.e. the exact main the directive requires)",
+        "note": "Branch created from updated main at initialization; PR #9 opened 2026-08-03T04:59Z and stays open unmerged for the run per the directive. Task had no required receipts; evidence is the live PR state re-verified at the current HEAD."
+      }
     },
     {
       "id": "three-repository-audit",
@@ -515,6 +524,33 @@
       ]
     },
     {
+      "id": "agency-guard-hardening",
+      "subject": "Agency-guard hardening from the phases 3-7 adversarial review",
+      "description": "Close the guard evasion classes found by the phases 3-7 adversarial review (docs/engine_migration/reviews/PHASE_3_7_BOUNDARY_REVIEW.md findings 6 and 7) before any phase that lets a live model author event text: detect pronoun/collective subjects, perfect/progressive auxiliaries, and nominalization shapes; stop over-blocking belief-verb complements (e.g. \"hopes Morgan agrees\") and performative content requests; and replace the lemma stem+suffix table circumvention with a documented hardcoding-guard ALLOWLIST entry for guard.py plus plain literals. Public guard API must not change. Sequenced after Phase 8 so concordia_local has one writer at a time.",
+      "owner": "implementation-agent",
+      "owner_type": "subagent",
+      "status": "pending",
+      "mandatory": true,
+      "dependencies": [
+        "phase-8-concordia-actor-workspace-adapter"
+      ],
+      "required_artifacts": [],
+      "required_receipts": [
+        {
+          "task_id": "agency-guard-hardening",
+          "must_pass": true
+        }
+      ],
+      "required_validation_commands": [],
+      "blocking_critical_findings": [],
+      "required_review_artifacts": [],
+      "worktree": null,
+      "requires_clean_worktree": false,
+      "acceptance_gates": [
+        "H_simulation_semantics"
+      ]
+    },
+    {
       "id": "phase-9-individual-vertical-slice",
       "subject": "Phase 9: individual vertical slice",
       "description": "Complete message/persuasion decision ('Which of these messages most increases the chance of a second meeting?'): the recipient decides whether to reply, the Game Master cannot pre-write the reply, the outcome evaluator reads the actual resulting trace. Deterministic scripted, deterministic mock-model, and live-model smoke runs when credentials are available.",
@@ -524,7 +560,8 @@
       "mandatory": true,
       "dependencies": [
         "compiler-to-concordia-adapter",
-        "phase-7-agentsociety-branch-executor"
+        "phase-7-agentsociety-branch-executor",
+        "agency-guard-hardening"
       ],
       "required_artifacts": [],
       "required_receipts": [
