@@ -717,3 +717,21 @@ refuted by F1.
 - Clean-install evidence doubles as gate-A "reproducible from a clean
   environment" (23.3s warm-cache, 151 packages, versions match the
   phase-0 freeze).
+
+## Gate J notes 2026-08-03 (documentation complete; stale plan-era docs)
+
+- Nine docs landed at b1bc347; RUNBOOK verified by executing its own
+  worked examples (a standalone-script sys.path drift found and fixed
+  during verification -- the committed snippet is self-contained).
+- Doc-vs-code discrepancies recorded (older docs deliberately unedited;
+  the code and the new as-built docs win): OWNERSHIP_MAP /
+  INTEGRATION_PLAN Phase 8 / CONTRACTS_DESIGN describe a
+  make_checkpoint_data()-based checkpoint -- as built, checkpoint.py
+  uses the public component get_state()/set_state() API with the same
+  payload shape (prefab-wrapper-only upstream helpers; rationale in
+  FINAL_ARCHITECTURE section 4). INTEGRATION_PLAN Phase 7 plans an
+  EnvBase module + hand-written custom agent -- as built, env=None and
+  the agent is materialized from branch_agent_template.py (the plan's
+  own findings addendum superseded it). OWNERSHIP_AND_REPLACEMENT_MAP
+  reachability status "PENDING implementation" predates the proofs that
+  now exist.

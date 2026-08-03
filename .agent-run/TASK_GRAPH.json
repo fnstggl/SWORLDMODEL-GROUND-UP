@@ -767,7 +767,7 @@
       "description": "Produce docs/engine_migration/{FINAL_ARCHITECTURE, RESPONSIBILITY_OWNERSHIP, UPSTREAM_COMPONENT_MAP, IMPLEMENTATION_LOG, TEST_MATRIX, SOCIETAL_SCALING_PATH, KNOWN_LIMITATIONS, NEXT_REALISM_PHASE, RUNBOOK}.md explaining in plain language what Concordia, AgentSociety, and SWORLDMODEL each own, which code is exact upstream vs adapter vs legacy, how one best-action request flows, what has and has not been proven, and the later grounding/calibration work.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "adversarial-review-cycle"
@@ -796,7 +796,17 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "J_documentation"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "b1bc347 (nine docs) / 9ccc28d (receipt); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/final-documentation__b1bc347693d3__20260803T2301130000.json",
+        "receipt_command": "hardcoding guard via record_receipt with 9 path-labeled doc hashes (clean tree)",
+        "receipt_exit_code": 0,
+        "summary": "All nine gate-J docs (2,142 lines, cross-linked): as-built architecture + request flow, plain-language ownership (Concordia/AgentSociety/SWORLDMODEL/exact-upstream/adapter/legacy), upstream component map, phase-by-phase implementation log incl. both incidents and all three boundary reviews, test matrix (suite x proof x gate), scaling path with infrastructure-only bounds, consolidated known limitations, next-realism-phase steps all marked NOT implemented, RUNBOOK verified by executing its own worked examples (one snippet drift found and fixed during verification). Proven/not-proven lists explicit with receipts/tests named per claim.",
+        "lead_verification": "files present at 9ccc28d; receipt clean with 9 doc hashes; suite counts re-confirmed by the agent at 284 engine / 697 system",
+        "stale_docs_noted": "Three plan-era docs (OWNERSHIP_MAP, INTEGRATION_PLAN Phase 7/8 sections, OWNERSHIP_AND_REPLACEMENT_MAP reachability status) describe superseded plans; the as-built docs state the truth and the discrepancies are recorded in DECISIONS. Historical docs left unedited by policy.",
+        "acceptance_gate_notes": "Gate J fully evidenced."
+      }
     },
     {
       "id": "phase-12-frozen-final-acceptance",
