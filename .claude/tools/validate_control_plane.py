@@ -583,7 +583,11 @@ def check_phase_receipt_discipline(root: Path, result: Result):
         if not passing:
             problems.append(f"{task_id}: no passing receipt exists")
             continue
-        newest = passing[-1]
+        # "Newest" must be chronological: receipt FILE order sorts by the
+        # embedded SHA prefix, so a lexicographically-late old SHA would
+        # otherwise shadow a genuinely newer clean receipt.
+        newest = max(passing, key=lambda r: str(r.get("recorded_at")
+                                                or r.get("finished_at") or ""))
         checked += 1
         if newest.get("worktree_clean") is True:
             continue

@@ -716,6 +716,34 @@ class TestPhaseReceiptDiscipline(ValidatorCheckTestCase):
         self.assertTrue(result["ok"], result["detail"])
         self.assertEqual(result["checked"], 0)
 
+    def test_newest_is_chronological_not_file_order(self):
+        """Regression: receipt file names embed the SHA prefix, so file order
+        is lexicographic-by-SHA. An OLD dirty receipt whose SHA sorts late
+        must not shadow a genuinely newer clean receipt."""
+        task = self.complete_task()
+        # Old dirty receipt; sha "fff..." sorts lexicographically LAST.
+        self.project.add_receipt(task, sha="f" * 40, worktree_clean=False,
+                                 finished_at="2026-01-01T00:00:10+00:00")
+        # Newer clean receipt; sha "222..." sorts lexicographically FIRST.
+        self.project.add_receipt(task, sha="2" * 40, worktree_clean=True,
+                                 finished_at="2026-01-02T00:00:10+00:00")
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+
+    def test_chronologically_newest_dirty_receipt_is_not_masked_by_old_clean_one(self):
+        """The inverse direction: a stale clean receipt sorting late by file
+        name must not hide that the actual newest receipt lacks proof."""
+        task = self.complete_task()
+        # Old clean receipt; sha "fff..." sorts lexicographically LAST.
+        self.project.add_receipt(task, sha="f" * 40, worktree_clean=True,
+                                 finished_at="2026-01-01T00:00:10+00:00")
+        # Newer dirty no-proof receipt; sha "222..." sorts FIRST by file name.
+        self.project.add_receipt(task, sha="2" * 40, worktree_clean=False,
+                                 finished_at="2026-01-02T00:00:10+00:00")
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no configuration_hashes", result["detail"])
+
 
 class TestAuditExemptProtectedMetadata(ValidatorCheckTestCase):
     """audit_exempt entries skip the branch-diff audit but stay write-protected."""

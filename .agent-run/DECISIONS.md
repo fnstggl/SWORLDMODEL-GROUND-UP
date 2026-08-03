@@ -469,3 +469,18 @@ re-validation now checks the full declared-order key, not primary-only
 monotonicity.
 
 **Outcome (#4).** Control-plane suites green (93 validator tests incl. 6 new; gate suite OK); validator run below records the two honestly-deferred Ray-suite receipts (p2/p7) as the only red until the Phase 8 fold-in. Companion fixes verified: flake killed under reproducing seeds; contracts deep-copy; decided_by_metric + full declared-order re-validation (validation_status widened to short strings). Reviews: docs/engine_migration/reviews/PHASE_3_7_BOUNDARY_REVIEW.md. Mode restored to implementation.
+
+**Amendment (#4a), same day — "newest" made chronological.** After the
+clean-HEAD re-record, the validator STILL flagged phases 3/5/6/fixtures:
+`phase_receipt_discipline` picked "newest" as `passing[-1]`, which is file
+order, and receipt file names embed the git SHA prefix — so a
+lexicographically-late OLD SHA (9e7609d... > 254bbb8...) shadowed the
+genuinely newer clean receipts. Fixed inside the same maintenance window:
+newest passing receipt is now `max()` by `recorded_at`/`finished_at`. Two
+discriminating tests added (both stash-verified to fail on the old code):
+an old dirty receipt sorting late must not create a false red over a newer
+clean receipt, and an old clean receipt sorting late must not mask a newer
+proof-less receipt (false green — the dangerous direction). Suites green:
+validator 95, gate 134, monitored-runner 25. Validator now names exactly
+the two deferred Ray-suite receipts (p2/p7). Mode restored to
+implementation.
