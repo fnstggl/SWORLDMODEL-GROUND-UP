@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-9-individual-vertical-slice",
+  "git_sha": "460d502400ab3a8fa4d28a7dc86975c4f782a1ba",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T18:01:03+00:00",
+  "finished_at": "2026-08-03T18:02:52+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/reporting/__init__.py": "478eeaf123e9cf8fb489f77e80a3260946d1de7eebcd249b36a9b68293e8f2cb",
+    "sworldmodel/reporting/common.py": "39d2811b7d3363bd3169523cf8d5f53859125387ffe42136e4da017861ecedf4",
+    "sworldmodel/reporting/recommendation.py": "4cac3f1c81c272c5ee1d08c1c9eebd0a21401371b8e1fd881f4f149b36d36680",
+    "sworldmodel/reporting/trace_report.py": "10a968120002fb1846546564e8ee0c809893a3f16626f353cb36f8e9a33d0a2b",
+    "tests/engine_individual/artifacts/individual_reply_recommendation_report.json": "f0e9fff1ab61ceb2da200f90b983528ad061ca8ac2c7fd792304944181f2a19a",
+    "tests/engine_individual/artifacts/individual_reply_trace_report.json": "507eff26f8f4dcaf6dd1fbf24ae1ccde10d0df2a5a65f3df8c2c7c218c8557de"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T18:02:52+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n........................................................                 [100%]\n200 passed in 107.51s (0:01:47)\n"
+}
