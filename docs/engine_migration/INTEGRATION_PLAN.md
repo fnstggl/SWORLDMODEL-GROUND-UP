@@ -140,3 +140,34 @@ reviewers, adjudicator, ACCEPTANCE_STATUS gates.
 
 Actor-level distribution, partitions, calibration, population realism, action
 search, evidence retrieval — per the directive's later-gated stages.
+
+## Phase 2 findings addendum (measured, 2026-08-03)
+
+Pinned by the passing contract suite (39/39 in the engine env); these refine
+the plan above and are binding on Phases 5–8:
+
+1. **Ray runs in this sandbox** (local `init_dispatchers()`, `num_cpus`
+   honored, ~35 s for the whole Ray leg). Phase 7/11 plan on real local Ray;
+   no fake substitute is needed or acceptable.
+2. **`build_service_proxy(env=None)` is valid**, and `AgentBase.restore`
+   guards the env-dependent path. Branch agents that never call `ask_env`
+   need no env module with Option 2 primitives; the trivial `EnvBase` module
+   is only needed if/where `AgentSociety` (Option 1) is used.
+3. **Custom-agent registration across the Ray boundary**: class file under
+   `<WORKSPACE_PATH>/custom/agents/` with `WORKSPACE_PATH` exported before
+   `init_dispatchers()`; scanner requires no-arg constructibility, overridden
+   `to_workspace`/`ask`/`step`, non-empty descriptions. Driver-side registry
+   writes do NOT propagate to workers.
+4. **Guard-commit wrapping (Phase 5 assertion shape)**: the engine commits
+   `[event] {EventResolution pre_act_label}: {guard_return}` — the guard's
+   return value appears verbatim INSIDE that wrapper, not as the bare event
+   string. Guard tests assert by marker/containment, never full-string
+   equality. Rewrite provably lands before observer queueing.
+5. **AGENT.json schema drift upstream**: `create()` and `to_workspace()`
+   write different shapes (top-level skill keys vs nested `skills{}`);
+   post-first-persist restores take skill sets from registry re-discovery.
+   Irrelevant to skill-free branch agents; both shapes pinned by tests.
+6. **Checkpoint payload key set pinned**: `{entities, game_masters, raw_log,
+   checkpoint_counter}` — no engine cursor, no RNG state; the Phase 8 sidecar
+   list in this plan is confirmed necessary, and resumed `play()` re-delivers
+   the premise (proven behaviourally).

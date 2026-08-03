@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task_id": "frozen-manual-fixtures",
+  "git_sha": "5059a468e48a2c5e00496d924d80dfb9321ddac2",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "sh -c cd tests/fixtures/best_action && sha256sum -c FIXTURES.sha256",
+  "exit_code": 0,
+  "started_at": "2026-08-03T06:22:55+00:00",
+  "finished_at": "2026-08-03T06:22:55+00:00",
+  "artifact_paths": [
+    "tests/fixtures/best_action/individual_reply.yaml",
+    "tests/fixtures/best_action/team_commitment.yaml",
+    "tests/fixtures/best_action/population_offer.yaml",
+    "tests/fixtures/best_action/FIXTURES.md"
+  ],
+  "configuration_hashes": {
+    "fixtures_manifest": "dfef175dff24b9380cf3829e19317c450813d8200d0b6cf32fc5ee1f3e7cb1bc"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T06:22:55+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "individual_reply.yaml: OK\nteam_commitment.yaml: OK\npopulation_offer.yaml: OK\n"
+}

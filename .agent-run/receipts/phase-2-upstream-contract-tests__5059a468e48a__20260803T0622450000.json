@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-2-upstream-contract-tests",
+  "git_sha": "5059a468e48a2c5e00496d924d80dfb9321ddac2",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T06:22:05+00:00",
+  "finished_at": "2026-08-03T06:22:45+00:00",
+  "artifact_paths": [
+    "tests/engine_contracts/conftest.py",
+    "tests/engine_contracts/det.py",
+    "tests/engine_contracts/test_concordia_actor_contracts.py",
+    "tests/engine_contracts/test_concordia_gm_contracts.py",
+    "tests/engine_contracts/test_concordia_checkpoint_contracts.py",
+    "tests/engine_contracts/test_concordia_determinism_harness.py",
+    "tests/engine_contracts/test_agentsociety_workspace_contracts.py",
+    "tests/engine_contracts/test_agentsociety_batch_contracts.py",
+    "tests/engine_contracts/test_agentsociety_concurrency_contracts.py"
+  ],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T06:22:45+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": ".......................................                                  [100%]\n39 passed in 36.50s\n"
+}

@@ -195,9 +195,15 @@
       "description": "Independent proofs against pinned upstream code: Concordia actor observation/action, component lifecycle order, Game Master resolution, memory persistence, state restore where supported; AgentSociety workspace creation/reconstruction/execution/persistence, concurrency limiting, worker failure isolation, trace and token accounting. No application logic until these pass.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": ["phase-1-dependency-preservation"],
+      "completion_evidence": {
+        "completed_at_sha": "5059a468e48a (pre-commit; receipt bound)",
+        "receipt": ".agent-run/receipts/phase-2-upstream-contract-tests__5059a468e48a__20260803T0622450000.json",
+        "results": "engine env: 39 passed/0 failed/0 skipped; system python: 7 clean version-guard skips; full system suite 490 passed/7 skipped/0 failed. Guard seam proven (custom final event_resolution_steps callable rewrites/vetoes the committed [event] pre-observer-queueing); checkpoint key set pinned {entities,game_masters,raw_log,checkpoint_counter}; determinism harness (tests/engine_contracts/det.py) gives byte-identical runs; Ray Option 2 primitives prove driver-visible failure isolation, token stats, trace spans, bounded concurrency <=2.",
+        "findings_recorded_in": "docs/engine_migration/INTEGRATION_PLAN.md (Phase 2 findings addendum)"
+      },
       "required_artifacts": [],
       "required_receipts": [
         {"task_id": "phase-2-upstream-contract-tests", "must_pass": true}
@@ -235,9 +241,20 @@
       "description": "Commit tests/fixtures/best_action/{individual_reply,team_commitment,population_offer}.yaml exactly as specified by the directive; record their hashes and expected deterministic results; implementation code must never change them silently, and they are immutable once the final acceptance run begins.",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
-      "dependencies": ["phase-3-decision-and-branch-contracts"],
+      "dependencies": ["master-context-initialization"],
+      "dependency_note": "Authoring requires only the directive (content is directive-dictated); Phase 3's strict loader validates the frozen files, and any loader-driven fixture change requires a DECISIONS.md entry and re-freeze.",
+      "completion_evidence": {
+        "completed_at_sha": "5059a468e48a (fixtures committed at 5059a46; receipt bound)",
+        "receipt": ".agent-run/receipts/frozen-manual-fixtures__5059a468e48a__20260803T0622550000.json",
+        "hashes": {
+          "individual_reply.yaml": "03bf7be7dbbbbe3f9e6768d60cccb6301c459d59b62204e0a9de1e84b6dcd201",
+          "team_commitment.yaml": "2e15efa7cf59c2250213516557b22bd7c65cae934b66856876f54eeb84e4afb6",
+          "population_offer.yaml": "cde6cf80e462c77baa75d6f892a3534ec0a5a0d52e8000127b1ad59e8ccfa84b"
+        },
+        "expected_winners": "concise_relevant / private_ops_then_pilot / offer_premium (on declared primary metric total_revenue)"
+      },
       "required_artifacts": [
         "tests/fixtures/best_action/individual_reply.yaml",
         "tests/fixtures/best_action/team_commitment.yaml",
