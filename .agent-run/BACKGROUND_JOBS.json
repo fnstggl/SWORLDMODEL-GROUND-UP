@@ -1431,6 +1431,67 @@
       "stdout_tail": "........................................................................ [ 40%]\n........................................................................ [ 80%]\n....................................                                     [100%]\n180 passed in 83.27s (0:01:23)\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "phase9-final-dod",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q"
+      ],
+      "command_string": "bash -c /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "34cb8d3030662788633232396b7a2ea6cfef719b",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": false,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-03T17:56:57+00:00",
+      "no_progress_timeout_s": 240.0,
+      "total_timeout_s": 900.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 230.711,
+      "hard_deadline_at": 793.806,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase9-final-dod",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase9-final-dod/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase9-final-dod/stderr.log",
+      "progress_file": null,
+      "pid": 20244,
+      "pgid": 20244,
+      "heartbeat_at": "2026-08-03T17:58:43+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 27.11,
+      "exit_code": 0,
+      "finished_at": "2026-08-03T17:58:50+00:00",
+      "elapsed_s": 112.473,
+      "seconds_since_progress": 9.289,
+      "completed_units": null,
+      "cpu_cores_recent": 0.03,
+      "process_group_size": 10,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-03T17:56:57+00:00",
+          "elapsed_s": 0.025,
+          "until_elapsed_s": 112.271,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.025
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n........................................................                 [100%]\n200 passed in 110.44s (0:01:50)\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }
