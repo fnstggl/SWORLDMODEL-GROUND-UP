@@ -1,47 +1,50 @@
 # Handoff
 
-Mode `implementation`, phase `phase_2_upstream_contract_tests`, branch
-`claude/concordia-agentsociety-best-action-engine`, draft PR #9 open into
-main (not merged during the run, per directive).
+Mode `implementation`, phase `phase_4_stock_concordia_local_baseline`, branch
+`claude/concordia-agentsociety-best-action-engine` (draft PR #9, unmerged by
+design). Everything through Phase 3 is committed and pushed with passing
+config-hashed receipts.
 
-## Completed with passing current-SHA receipts (see .agent-run/receipts/)
+## Position
 
-1. **Master-context initialization** — directive at
-   `docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md` (sha256
-   `ac863c83…cdbb`), `.agent-run` fully populated, mode transitioned.
-2. **Three-repository audit** — raw evidence in
-   `docs/engine_migration/audit_raw/{CONCORDIA,AGENTSOCIETY,SWORLDMODEL}_AUDIT.md`;
-   synthesized into UPSTREAM_AUDIT, SWORLD_CURRENT_STATE, OWNERSHIP_MAP,
-   INTEGRATION_PLAN, RISK_REGISTER, ACCEPTANCE_GATES,
-   OWNERSHIP_AND_REPLACEMENT_MAP (all under docs/engine_migration/).
-3. **Phase 0 baseline** — PHASE0_BASELINE.md: SWORLDMODEL 483/0, Concordia
-   core 560/0 (20 failures examples-only, fork-introduced), AgentSociety2
-   387/0; engine env Python 3.12.3 at /home/user/engine-env; monitored job
-   records under .agent-run/jobs/phase0-*.
-4. **Hook maintenance (closed)** — validator change audit made mode-aware,
-   docs classify before evaluator heuristics, JSON comment scan replaced by
-   the strict parse; regression tests added; full revalidation PASS.
-   See DECISIONS.md two "Hook maintenance 2026-08-03" entries + FAILURE_LEDGER.
-5. **Phase 1 dependency preservation** — third_party/{UPSTREAM_LOCK.json,
-   THIRD_PARTY_NOTICES.md, INTEGRATION_METHOD.md, PATCHES.md(zero patches)};
-   pins concordia 7779a4c9…, agentsociety2 6e9fc2e7…; coexistence proof
-   `tests/engine_contracts/phase1_coexistence_proof.py` (exit 0).
+- Phases 0–3 + frozen fixtures: COMPLETE (task graph carries per-task
+  completion evidence with artifact-bearing commit SHAs and receipts).
+- Phases 0–2 adversarial boundary review: all claims HOLD; every actionable
+  finding fixed with regression tests same-session (verbatim report +
+  dispositions: docs/engine_migration/reviews/PHASE_0_2_BOUNDARY_REVIEW.md;
+  hook maintenance #3 recorded in DECISIONS.md — external checkouts now
+  hook-protected in every mode + continuous upstream_checkouts_integrity
+  validator check + audit_exempt mechanism for the protected lock file).
+- Fixture 3 had a syntax-only re-freeze (DECISIONS.md) — all three fixtures
+  are conforming YAML, hashes in tests/fixtures/best_action/FIXTURES.sha256.
+- IN FLIGHT: Phase 4 hard gate via implementation agent (sole writer:
+  sworldmodel/backends/** + tests/engine_baseline/**): planner
+  (CompiledDecisionWorld → ConcordiaInitializationPlan), builder (explicit GM
+  assembly, no narrative push, no LLM fallback observations, guard SEAM
+  reserved for Phase 5), runner, two manual scenarios, three clean runs,
+  canaries, subprocess import-graph proof of zero compiler imports.
 
-## Next action (critical path)
+## On wake / fresh session
 
-Phase 2 — upstream contract tests in `tests/engine_contracts/` (pytest,
-engine-env only; modules must `pytest.importorskip("concordia")` so the
-system-python suite stays green; the proof script shows the env pattern).
-Contracts to prove are enumerated in INTEGRATION_PLAN.md §Phase 2. Then
-Phase 3 (fixed contracts + frozen fixtures), then the Phase 4 hard gate.
+1. Validator; if the only failure is master-receipt staleness, re-record per
+   DECISIONS "Receipt re-record protocol" (python3
+   .claude/tools/record_receipt.py --task-id master-context-initialization
+   --quiet --config-hash master_directive=docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md
+   --run -- python3 tests/control_plane/test_gate.py).
+2. If the Phase 4 agent has reported: verify both interpreters
+   (engine: pytest tests/engine_baseline tests/engine_contracts; system:
+   pytest tests), record phase-4 receipts with config hashes, mark task-graph
+   complete with evidence, commit + push, then Phase 5 (agency guard as the
+   reserved final event_resolution_steps slot; assertion shape per
+   INTEGRATION_PLAN Phase 2 findings #4 — marker containment, never
+   full-string equality).
+3. Then Phase 6 counterfactual manager, compiler adapter, Phase 7 Stage A
+   (Option 2 primitives + custom agent under custom/agents with
+   WORKSPACE_PATH; batch_size=1; collect BranchResults from workspace files —
+   driver discards step results), Phase 8 checkpoint sidecar (rng, engine
+   cursor, premise='' on resume), Phases 9–11, then frozen acceptance.
 
-## Session-start ritual (unchanged)
-
-Validator (`python3 .claude/tools/validate_control_plane.py`); if its only
-failure is a stale `master-context-initialization` receipt, re-record per
-DECISIONS.md "Receipt re-record protocol", then continue the critical path.
-Upstream-suite runs: cd into the upstream checkout (their tests write scratch
-to cwd). Engine-env runs need dummy `AGENTSOCIETY_LLM_*` vars offline.
-
-No background jobs active. No open blockers. TeammateIdle remains
-UNAVAILABLE_IN_CLAUDE_CODE_WEB (optional; fallbacks in RUN_STATE.json).
+Suites at last verification: system 654+ passed / 7 skipped; engine
+contracts 39/39; contracts+loader 203 on 3.12. Upstream checkouts verified
+clean at pins by the continuous validator check. No background jobs. No open
+critical/high findings.
