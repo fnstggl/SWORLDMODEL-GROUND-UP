@@ -218,7 +218,14 @@ def sha256_text(text: str) -> str:
 # --------------------------------------------------------------------------
 
 
-def _git(root: Path, *args: str, timeout: float = 5.0):
+def _git(root: Path, *args: str, timeout: float = 5.0, strip: bool = True):
+    """Run git and return stdout, or ``None`` on any failure.
+
+    ``strip=False`` matters for ``status --porcelain``: its ``XY `` prefix is
+    fixed-width and the first column is a space for unstaged changes, so
+    stripping would shift the first line and swallow a leading '.' from a path
+    such as ``.agent-run/RUN_STATE.json``.
+    """
     try:
         proc = subprocess.run(
             ["git", *args],
@@ -232,7 +239,7 @@ def _git(root: Path, *args: str, timeout: float = 5.0):
         return None
     if proc.returncode != 0:
         return None
-    return proc.stdout.strip()
+    return proc.stdout.strip() if strip else proc.stdout.rstrip("\n")
 
 
 def git_sha(root: Path | None = None) -> str | None:
@@ -256,7 +263,7 @@ def git_status_porcelain(root: Path | None = None, *, expand_untracked: bool = T
     args = ["status", "--porcelain"]
     if expand_untracked:
         args.append("--untracked-files=all")
-    return _git(root or project_dir(), *args)
+    return _git(root or project_dir(), *args, strip=False)
 
 
 def git_is_clean(root: Path | None = None) -> bool | None:
@@ -266,18 +273,30 @@ def git_is_clean(root: Path | None = None) -> bool | None:
     return status == ""
 
 
-def git_dirty_paths(root: Path | None = None) -> list[str]:
-    status = git_status_porcelain(root)
+def parse_porcelain_paths(status: str | None) -> list[str]:
+    """Extract repository-relative paths from ``git status --porcelain`` output.
+
+    The single porcelain parser for the whole control plane. Each line is
+    ``XY <path>``; a rename is ``XY <old> -> <new>`` and only the new path is
+    reported.
+    """
     if not status:
         return []
     paths: list[str] = []
     for line in status.splitlines():
-        if len(line) > 3:
-            entry = line[3:]
-            if " -> " in entry:
-                entry = entry.split(" -> ", 1)[1]
-            paths.append(entry.strip().strip('"'))
+        if len(line) <= 3:
+            continue
+        entry = line[3:]
+        if " -> " in entry:
+            entry = entry.split(" -> ", 1)[1]
+        entry = entry.strip().strip('"')
+        if entry:
+            paths.append(entry)
     return paths
+
+
+def git_dirty_paths(root: Path | None = None) -> list[str]:
+    return parse_porcelain_paths(git_status_porcelain(root))
 
 
 # --------------------------------------------------------------------------
@@ -699,10 +718,22 @@ def upstream_protected_paths(root: Path | None = None) -> list[str]:
     return out
 
 
+def _strip_leading_dot_slash(path: str) -> str:
+    """Remove a leading ``./`` only.
+
+    ``str.lstrip("./")`` takes a *character set* and would turn
+    ``.agent-run/x`` into ``agent-run/x``.
+    """
+    text = path.replace("\\", "/")
+    while text.startswith("./"):
+        text = text[2:]
+    return text
+
+
 def is_upstream_protected(rel_path: str, root: Path | None = None) -> bool:
-    rel = rel_path.replace("\\", "/").lstrip("./")
+    rel = _strip_leading_dot_slash(rel_path)
     for protected in upstream_protected_paths(root):
-        pat = protected.replace("\\", "/").lstrip("./").rstrip("/")
+        pat = _strip_leading_dot_slash(protected).rstrip("/")
         if not pat:
             continue
         if rel == pat or rel.startswith(pat + "/"):

@@ -413,14 +413,7 @@ def check_no_production_changes(root: Path, result: Result, base: str | None):
     diff = hs._git(root, "diff", "--name-only", f"{base_ref}...HEAD")
     if diff:
         changed.update(l for l in diff.splitlines() if l.strip())
-    working = hs.git_status_porcelain(root)
-    if working:
-        for line in working.splitlines():
-            if len(line) > 3:
-                entry = line[3:]
-                if " -> " in entry:
-                    entry = entry.split(" -> ", 1)[1]
-                changed.add(entry.strip().strip('"'))
+    changed.update(hs.git_dirty_paths(root))
 
     offenders = []
     for path in sorted(changed):

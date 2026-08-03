@@ -394,6 +394,55 @@ class TestPathClassification(unittest.TestCase):
         self.assertEqual(self.classify("pkg/prompts/system.txt"), "prompt")
 
 
+class TestPorcelainParsing(unittest.TestCase):
+    """`git status --porcelain` uses a fixed-width 'XY ' prefix; dotfiles are the trap."""
+
+    def test_unstaged_change_to_a_dotfile_keeps_its_leading_dot(self):
+        self.assertEqual(
+            hs.parse_porcelain_paths(" M .agent-run/RUN_STATE.json"),
+            [".agent-run/RUN_STATE.json"],
+        )
+
+    def test_all_status_codes_parse(self):
+        status = (
+            " M .agent-run/RUN_STATE.json\n"
+            "M  .claude/settings.json\n"
+            "MM .claude/hooks/gate.py\n"
+            "?? .agent-run/new.json\n"
+            "A  tests/control_plane/test_gate.py\n"
+            "R  old/name.py -> new/name.py\n"
+            "D  removed.py"
+        )
+        self.assertEqual(hs.parse_porcelain_paths(status), [
+            ".agent-run/RUN_STATE.json", ".claude/settings.json", ".claude/hooks/gate.py",
+            ".agent-run/new.json", "tests/control_plane/test_gate.py", "new/name.py", "removed.py",
+        ])
+
+    def test_empty_and_none_are_handled(self):
+        self.assertEqual(hs.parse_porcelain_paths(""), [])
+        self.assertEqual(hs.parse_porcelain_paths(None), [])
+
+    def test_live_dirty_dotfile_is_classified_as_agent_run(self):
+        """End-to-end: a real modified tracked dotfile must not read as production."""
+        project = Project.create()
+        self.addCleanup(project.destroy)
+        project.write_text("BLOCKERS.md", "# Blockers\n\nmodified\n")
+        project._git("add", "-A")
+        project._git("commit", "-q", "-m", "add state")
+        project.write_text("BLOCKERS.md", "# Blockers\n\nmodified again\n")
+
+        dirty = hs.git_dirty_paths(project.path)
+        self.assertIn(".agent-run/BLOCKERS.md", dirty)
+        for path in dirty:
+            with self.subTest(path=path):
+                self.assertNotEqual(hs.classify_path(path, project.path), "production")
+
+    def test_leading_dot_slash_is_stripped_without_eating_the_dot(self):
+        self.assertEqual(hs._strip_leading_dot_slash("./vendor/x"), "vendor/x")
+        self.assertEqual(hs._strip_leading_dot_slash(".agent-run/x"), ".agent-run/x")
+        self.assertEqual(hs._strip_leading_dot_slash("././a"), "a")
+
+
 class TestReceiptSchema(unittest.TestCase):
     def valid_receipt(self):
         return {
