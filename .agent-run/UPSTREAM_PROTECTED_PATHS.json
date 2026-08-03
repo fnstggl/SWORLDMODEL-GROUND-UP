@@ -36,6 +36,12 @@
     {
       "path": "third_party/agentsociety/",
       "reason": "Planned location for pinned AgentSociety 2 upstream source if vendoring/submodule is chosen in Phase 1. Upstream source must remain a complete, unchanged unit: no in-place edits, no monkey-patching, no selected-file pseudo-fork."
+    },
+    {
+      "path": "third_party/UPSTREAM_LOCK.json",
+      "reason": "The pin of record. Adversarial-review finding: it classified as freely-editable production. Changing a pin is an architecture decision requiring a DECISIONS.md entry and the documented exception procedure.",
+      "audit_exempt": true,
+      "audit_exempt_reason": "Born on the implementation branch; PreToolUse blocks edits in every mode, but its presence in the branch diff vs main is its legitimate creation."
     }
   ],
   "import_procedure": "Phase 1 initial import only: record a decision entry in .agent-run/DECISIONS.md naming the exact upstream SHA being imported; temporarily remove the affected protected_paths entry in the same session; perform the pristine import (submodule add or complete snapshot copy at the pinned SHA); verify integrity against third_party/UPSTREAM_LOCK.json checksums; restore the protected_paths entry immediately; record the completed import window in DECISIONS.md. Any later change to pinned upstream source requires the directive's fork-or-patch conditions (failing contract test, smallest isolated patch, line-by-line documentation in third_party/PATCHES.md, adversarial-reviewer agreement) and an explicit exception recorded here plus in DECISIONS.md.",

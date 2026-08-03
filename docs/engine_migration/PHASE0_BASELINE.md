@@ -13,10 +13,10 @@ changed before or during these measurements.
 | concordia (fork of google-deepmind/concordia) | local simulation engine | `7779a4c9f96bad10816d88c54e4cb17d53ac5222` | local checkout `/home/user/concordia`, branch `claude/engine-migration-setup-j5d0ti` |
 | agentsociety (fork of tsinghua-fib-lab/agentsociety, v2 package) | distributed orchestration | `6e9fc2e79f89f65a3e3d0d7899e380f7394099be` | local checkout `/home/user/agentsociety2`, branch `claude/engine-migration-setup-j5d0ti` |
 
-Note: the concordia fork HEAD adds "three new social media simulation
-scenarios" on top of upstream; see §4 finding F3 for a fork-introduced
-examples-path defect this causes. Phase 1 pin selection must weigh fork HEAD
-vs the last clean upstream commit.
+Note: both pinned fork SHAs are byte-identical to their upstreams' main
+HEADs at audit time (verified via ls-remote by the Phases 0-2 adversarial
+review) -- the "forks" are pure mirrors. See §4 finding F3 for an
+UPSTREAM examples-path defect present at the pinned HEAD.
 
 ## 2. Python and dependency requirements
 
@@ -45,10 +45,19 @@ Platform: Linux 6.18.5 x86_64.
 
 ## 3. Baseline test-suite results (all via `.claude/tools/run_monitored.py`, exploratory classification)
 
+Disclosure (adversarial-review finding): the baseline jobs ran on a worktree
+whose dirt was the in-progress `.agent-run` control-plane state of this run
+itself (job records show `worktree_clean_at_start: false`); the measured
+product code matched `03ca54f` exactly, and the upstream suites measured the
+external clean checkouts, but SHA-exactness of the product-tree measurement
+rests on that inference plus the reviewer's independent re-runs at a clean
+HEAD, not on the job records alone. Receipts from later phases record
+`--config-hash` artifact hashes to close this gap going forward.
+
 | Suite | Command (child) | Result | Runtime | Job record |
 |---|---|---|---|---|
 | SWORLDMODEL full (product + control plane) | `python3 -m pytest tests -q` (Python 3.11.15) | **483 passed, 162 subtests, 0 failed** | 66 s | `.agent-run/jobs/phase0-sworldmodel-baseline-suite-2/job.json` |
-| SWORLDMODEL product-only (audit cross-check, control_plane excluded) | `python3 -m pytest tests/ -q` | **252 passed, 1 skipped** (only skip = live-LLM smoke, `DEEPSEEK_API_KEY` unset) | 2.5 s | run by read-only auditor; see SWORLD_CURRENT_STATE.md §(d) |
+| SWORLDMODEL product-only (audit cross-check, control_plane excluded) | `python3 -m pytest tests -q --ignore=tests/control_plane` | **252 passed, 1 skipped** offline (the audit receipt's separate run recorded 253 passed with `DEEPSEEK_API_KEY` present: the live smoke executed) | 2.5 s | auditor run, no job record; source: audit_raw/SWORLDMODEL_AUDIT.md §(d) |
 | Concordia full repo | `engine-env pytest /home/user/concordia -q --timeout=120` | **560 passed, 38 subtests; 18 failed + 2 errors — ALL under `examples/`; core library 0 failures** | 14 s | `.agent-run/jobs/phase0-concordia-baseline-suite-3/job.json` |
 | AgentSociety2 tests | `engine-env pytest packages/agentsociety2/tests -q` with dummy `AGENTSOCIETY_LLM_*` | **387 passed, 0 failed** (offline) | 28 s | `.agent-run/jobs/phase0-agentsociety-baseline-suite-2/job.json` |
 
@@ -73,13 +82,15 @@ pytest-asyncio/anyio, cleared by installing the plugins).
 - **F2 (environment): upstream dependency incompatibilities** — Concordia
   needs Python ≥3.12; agentsociety2's floating `mcp>=1.13.1` resolves to the
   incompatible mcp 2.x (fix: environment pin `<2`, no source change).
-- **F3 (fork-introduced, examples-only): all 18 failures + 2 collection errors
-  in the Concordia suite are under `examples/`** and share one root cause: the
-  fork's added `ScriptedByEntityModel` (language-model class requiring
+- **F3 (upstream defect at pinned HEAD, examples-only): all 18 failures + 2
+  collection errors in the Concordia suite are under `examples/`** and share
+  one root cause: `ScriptedByEntityModel` (added by upstream commit `1372a37`,
+  Google-authored; the pinned SHA equals upstream main, so there is no cleaner
+  upstream commit to prefer) (language-model class requiring
   constructor args) breaks `concordia/utils/helper_functions.py:189`
   `get_package_classes()`, which instantiates discovered classes with no
   arguments. Core `concordia/` packages: zero failures. Not on our execution
-  path; recorded for Phase 1 pin selection and gate A honesty.
+  path (we never enumerate prefabs package-wide); recorded for gate A honesty.
 - **F4 (network-dependent test):** `agentsociety2` test
   `test_download_map_file_uses_working_official_url` requires outbound network
   (passed once plugins installed in this proxied environment; flagged as

@@ -262,4 +262,11 @@ def test_switch_act_gm_choice_paths_have_no_randomize_switch():
         gm_components.switch_act.SwitchAct.__init__
     ).parameters
     assert "randomize_choices" not in params
-    assert np.random.default_rng is np.random.default_rng  # harness restored
+
+    # The harness must actually restore numpy's factory on exit (reviewer
+    # finding: the previous self-comparison was a tautology; a leaked
+    # monkeypatch would silently seed every later in-process run).
+    original_factory = np.random.default_rng
+    with seeded_determinism(1234):
+        assert np.random.default_rng is not original_factory
+    assert np.random.default_rng is original_factory

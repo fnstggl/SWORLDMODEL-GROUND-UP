@@ -55,7 +55,10 @@
         ".agent-run/UPSTREAM_PROTECTED_PATHS.json"
       ],
       "required_receipts": [
-        {"task_id": "master-context-initialization", "must_pass": true}
+        {
+          "task_id": "master-context-initialization",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [
         "python3 .claude/tools/validate_control_plane.py"
@@ -65,7 +68,7 @@
       "worktree": null,
       "requires_clean_worktree": false,
       "completion_evidence": {
-        "completed_at_sha": "87f8c3d29cc7901d0d7d6ed835190cbde6fb3059",
+        "completed_at_sha": "ddb14b5c5f3e17b7b4c3522849e3fd19003a92d5 (artifacts); receipts re-verified at each subsequent HEAD per protocol",
         "receipt": ".agent-run/receipts/master-context-initialization__87f8c3d29cc7__20260803T0450400000.json",
         "receipt_command": "python3 .claude/tools/validate_control_plane.py",
         "receipt_exit_code": 0,
@@ -83,7 +86,9 @@
       "owner_type": "lead",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["master-context-initialization"],
+      "dependencies": [
+        "master-context-initialization"
+      ],
       "required_artifacts": [],
       "required_receipts": [],
       "required_validation_commands": [],
@@ -101,9 +106,11 @@
       "owner_type": "lead",
       "status": "complete",
       "mandatory": true,
-      "dependencies": ["master-context-initialization"],
+      "dependencies": [
+        "master-context-initialization"
+      ],
       "completion_evidence": {
-        "completed_at_sha": "03ca54fa1c12 (pre-commit; receipt bound)",
+        "completed_at_sha": "c1618ffad985 (artifact-bearing commit)",
         "receipt": ".agent-run/receipts/three-repository-audit__03ca54fa1c12__20260803T0528500000.json",
         "raw_reports": [
           "docs/engine_migration/audit_raw/CONCORDIA_AUDIT.md",
@@ -121,14 +128,19 @@
         "docs/engine_migration/OWNERSHIP_AND_REPLACEMENT_MAP.md"
       ],
       "required_receipts": [
-        {"task_id": "three-repository-audit", "must_pass": true}
+        {
+          "task_id": "three-repository-audit",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["A_upstream_integrity"]
+      "acceptance_gates": [
+        "A_upstream_integrity"
+      ]
     },
     {
       "id": "phase-0-freeze-and-baseline",
@@ -138,9 +150,11 @@
       "owner_type": "subagent",
       "status": "complete",
       "mandatory": true,
-      "dependencies": ["three-repository-audit"],
+      "dependencies": [
+        "three-repository-audit"
+      ],
       "completion_evidence": {
-        "completed_at_sha": "03ca54fa1c12 (pre-commit; receipt bound)",
+        "completed_at_sha": "c1618ffad985 (artifact-bearing commit)",
         "receipt": ".agent-run/receipts/phase-0-freeze-and-baseline__03ca54fa1c12__20260803T0543000000.json",
         "results": "SWORLDMODEL 483 passed/0 failed; Concordia core 560 passed/0 core failures (20 failures examples-only, fork-introduced); AgentSociety2 387 passed/0 failed; engine env Python 3.12.3 with triple import coexistence",
         "note": "First receipt attempt (exit 1) exposed the validator change-audit defect fixed under the recorded hook-maintenance window; re-recorded receipt passes at the same SHA."
@@ -149,14 +163,19 @@
         "docs/engine_migration/PHASE0_BASELINE.md"
       ],
       "required_receipts": [
-        {"task_id": "phase-0-freeze-and-baseline", "must_pass": true}
+        {
+          "task_id": "phase-0-freeze-and-baseline",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["B_baseline_reliability"]
+      "acceptance_gates": [
+        "B_baseline_reliability"
+      ]
     },
     {
       "id": "phase-1-dependency-preservation",
@@ -166,9 +185,11 @@
       "owner_type": "subagent",
       "status": "complete",
       "mandatory": true,
-      "dependencies": ["phase-0-freeze-and-baseline"],
+      "dependencies": [
+        "phase-0-freeze-and-baseline"
+      ],
       "completion_evidence": {
-        "completed_at_sha": "03ca54fa1c12 (pre-commit; receipt bound)",
+        "completed_at_sha": "c1618ffad985 (artifact-bearing commit)",
         "receipt": ".agent-run/receipts/phase-1-dependency-preservation__03ca54fa1c12__20260803T0545370000.json",
         "proof": "tests/engine_contracts/phase1_coexistence_proof.py exit 0 (triple import coexistence; Concordia EntityAgent observe/act/state round-trip offline; agentsociety2 workspace create + opaque blob; compiler schema import). Upstream suites green in the engine env per Phase 0 job records.",
         "method": "exact Git dependencies pinned to immutable SHAs; no vendored trees; PATCHES.md records zero upstream modifications"
@@ -180,14 +201,19 @@
         "third_party/PATCHES.md"
       ],
       "required_receipts": [
-        {"task_id": "phase-1-dependency-preservation", "must_pass": true}
+        {
+          "task_id": "phase-1-dependency-preservation",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["A_upstream_integrity"]
+      "acceptance_gates": [
+        "A_upstream_integrity"
+      ]
     },
     {
       "id": "phase-2-upstream-contract-tests",
@@ -197,23 +223,31 @@
       "owner_type": "subagent",
       "status": "complete",
       "mandatory": true,
-      "dependencies": ["phase-1-dependency-preservation"],
+      "dependencies": [
+        "phase-1-dependency-preservation"
+      ],
       "completion_evidence": {
-        "completed_at_sha": "5059a468e48a (pre-commit; receipt bound)",
+        "completed_at_sha": "751284bd58f5 (artifact-bearing commit)",
         "receipt": ".agent-run/receipts/phase-2-upstream-contract-tests__5059a468e48a__20260803T0622450000.json",
         "results": "engine env: 39 passed/0 failed/0 skipped; system python: 7 clean version-guard skips; full system suite 490 passed/7 skipped/0 failed. Guard seam proven (custom final event_resolution_steps callable rewrites/vetoes the committed [event] pre-observer-queueing); checkpoint key set pinned {entities,game_masters,raw_log,checkpoint_counter}; determinism harness (tests/engine_contracts/det.py) gives byte-identical runs; Ray Option 2 primitives prove driver-visible failure isolation, token stats, trace spans, bounded concurrency <=2.",
         "findings_recorded_in": "docs/engine_migration/INTEGRATION_PLAN.md (Phase 2 findings addendum)"
       },
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-2-upstream-contract-tests", "must_pass": true}
+        {
+          "task_id": "phase-2-upstream-contract-tests",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["A_upstream_integrity", "F_agentsociety_integration"]
+      "acceptance_gates": [
+        "A_upstream_integrity",
+        "F_agentsociety_integration"
+      ]
     },
     {
       "id": "phase-3-decision-and-branch-contracts",
@@ -221,19 +255,32 @@
       "description": "Implement the fixed SWORLDMODEL-owned versioned contracts (DecisionProblem, CompiledDecisionWorld, InterventionCandidate, SimulationSnapshot, BranchResult, RecommendationResult) with strict schema validation, separate semantic validation, code-owned IDs/hashes/provenance, and the full required contract-test list (rejection, round-trip, versioning, malformed LLM output, valid-syntax-invalid-meaning).",
       "owner": "implementation-agent",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
-      "dependencies": ["phase-2-upstream-contract-tests"],
+      "dependencies": [
+        "phase-2-upstream-contract-tests"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-3-decision-and-branch-contracts", "must_pass": true}
+        {
+          "task_id": "phase-3-decision-and-branch-contracts",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["B_baseline_reliability", "E_counterfactual_correctness"]
+      "acceptance_gates": [
+        "B_baseline_reliability",
+        "E_counterfactual_correctness"
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "this commit (artifact-bearing); receipts recorded post-commit with config hashes",
+        "results": "system suite 654+ passed incl. 116 contract + 48 loader tests; engine env 203 passed; fixtures loaded strictly without edits (one adjudicated syntax-only re-freeze of fixture 3, see DECISIONS); deviations from CONTRACTS_DESIGN.md all narrowing (recorded in the phase-3 agent report)",
+        "artifacts": "sworldmodel/decision/{__init__,contracts,registry,validation,fixture_loader}.py; tests/test_decision_contracts.py; tests/test_fixture_loader.py"
+      }
     },
     {
       "id": "frozen-manual-fixtures",
@@ -243,10 +290,12 @@
       "owner_type": "subagent",
       "status": "complete",
       "mandatory": true,
-      "dependencies": ["master-context-initialization"],
+      "dependencies": [
+        "master-context-initialization"
+      ],
       "dependency_note": "Authoring requires only the directive (content is directive-dictated); Phase 3's strict loader validates the frozen files, and any loader-driven fixture change requires a DECISIONS.md entry and re-freeze.",
       "completion_evidence": {
-        "completed_at_sha": "5059a468e48a (fixtures committed at 5059a46; receipt bound)",
+        "completed_at_sha": "5059a468e48a (original freeze); syntax-only re-freeze this commit per DECISIONS",
         "receipt": ".agent-run/receipts/frozen-manual-fixtures__5059a468e48a__20260803T0622550000.json",
         "hashes": {
           "individual_reply.yaml": "03bf7be7dbbbbe3f9e6768d60cccb6301c459d59b62204e0a9de1e84b6dcd201",
@@ -261,14 +310,19 @@
         "tests/fixtures/best_action/population_offer.yaml"
       ],
       "required_receipts": [
-        {"task_id": "frozen-manual-fixtures", "must_pass": true}
+        {
+          "task_id": "frozen-manual-fixtures",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["E_counterfactual_correctness"]
+      "acceptance_gates": [
+        "E_counterfactual_correctness"
+      ]
     },
     {
       "id": "phase-4-stock-concordia-local-baseline",
@@ -278,17 +332,24 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["frozen-manual-fixtures"],
+      "dependencies": [
+        "frozen-manual-fixtures"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-4-stock-concordia-local-baseline", "must_pass": true}
+        {
+          "task_id": "phase-4-stock-concordia-local-baseline",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["C_individual_simulation"]
+      "acceptance_gates": [
+        "C_individual_simulation"
+      ]
     },
     {
       "id": "phase-5-minimum-agency-guard",
@@ -298,17 +359,25 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-4-stock-concordia-local-baseline"],
+      "dependencies": [
+        "phase-4-stock-concordia-local-baseline"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-5-minimum-agency-guard", "must_pass": true}
+        {
+          "task_id": "phase-5-minimum-agency-guard",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["C_individual_simulation", "H_simulation_semantics"]
+      "acceptance_gates": [
+        "C_individual_simulation",
+        "H_simulation_semantics"
+      ]
     },
     {
       "id": "phase-6-counterfactual-branch-manager",
@@ -318,17 +387,24 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-5-minimum-agency-guard"],
+      "dependencies": [
+        "phase-5-minimum-agency-guard"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-6-counterfactual-branch-manager", "must_pass": true}
+        {
+          "task_id": "phase-6-counterfactual-branch-manager",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["E_counterfactual_correctness"]
+      "acceptance_gates": [
+        "E_counterfactual_correctness"
+      ]
     },
     {
       "id": "compiler-to-concordia-adapter",
@@ -338,19 +414,27 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-6-counterfactual-branch-manager"],
+      "dependencies": [
+        "phase-6-counterfactual-branch-manager"
+      ],
       "required_artifacts": [
         "docs/engine_migration/COMPILER_TO_CONCORDIA_MAPPING.md"
       ],
       "required_receipts": [
-        {"task_id": "compiler-to-concordia-adapter", "must_pass": true}
+        {
+          "task_id": "compiler-to-concordia-adapter",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["C_individual_simulation", "H_simulation_semantics"]
+      "acceptance_gates": [
+        "C_individual_simulation",
+        "H_simulation_semantics"
+      ]
     },
     {
       "id": "phase-7-agentsociety-branch-executor",
@@ -360,17 +444,24 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-6-counterfactual-branch-manager"],
+      "dependencies": [
+        "phase-6-counterfactual-branch-manager"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-7-agentsociety-branch-executor", "must_pass": true}
+        {
+          "task_id": "phase-7-agentsociety-branch-executor",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["F_agentsociety_integration"]
+      "acceptance_gates": [
+        "F_agentsociety_integration"
+      ]
     },
     {
       "id": "phase-8-concordia-actor-workspace-adapter",
@@ -380,17 +471,24 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-7-agentsociety-branch-executor"],
+      "dependencies": [
+        "phase-7-agentsociety-branch-executor"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-8-concordia-actor-workspace-adapter", "must_pass": true}
+        {
+          "task_id": "phase-8-concordia-actor-workspace-adapter",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["F_agentsociety_integration"]
+      "acceptance_gates": [
+        "F_agentsociety_integration"
+      ]
     },
     {
       "id": "phase-9-individual-vertical-slice",
@@ -400,17 +498,26 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["compiler-to-concordia-adapter", "phase-7-agentsociety-branch-executor"],
+      "dependencies": [
+        "compiler-to-concordia-adapter",
+        "phase-7-agentsociety-branch-executor"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-9-individual-vertical-slice", "must_pass": true}
+        {
+          "task_id": "phase-9-individual-vertical-slice",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["C_individual_simulation", "E_counterfactual_correctness"]
+      "acceptance_gates": [
+        "C_individual_simulation",
+        "E_counterfactual_correctness"
+      ]
     },
     {
       "id": "phase-10-team-vertical-slice",
@@ -420,17 +527,24 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-9-individual-vertical-slice"],
+      "dependencies": [
+        "phase-9-individual-vertical-slice"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-10-team-vertical-slice", "must_pass": true}
+        {
+          "task_id": "phase-10-team-vertical-slice",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["D_team_simulation"]
+      "acceptance_gates": [
+        "D_team_simulation"
+      ]
     },
     {
       "id": "phase-11-societal-infrastructure-proof",
@@ -440,17 +554,25 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-8-concordia-actor-workspace-adapter", "phase-10-team-vertical-slice"],
+      "dependencies": [
+        "phase-8-concordia-actor-workspace-adapter",
+        "phase-10-team-vertical-slice"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-11-societal-infrastructure-proof", "must_pass": true}
+        {
+          "task_id": "phase-11-societal-infrastructure-proof",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["G_societal_infrastructure"]
+      "acceptance_gates": [
+        "G_societal_infrastructure"
+      ]
     },
     {
       "id": "operational-robustness-matrix",
@@ -460,17 +582,24 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-11-societal-infrastructure-proof"],
+      "dependencies": [
+        "phase-11-societal-infrastructure-proof"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "operational-robustness-matrix", "must_pass": true}
+        {
+          "task_id": "operational-robustness-matrix",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["I_operational_robustness"]
+      "acceptance_gates": [
+        "I_operational_robustness"
+      ]
     },
     {
       "id": "adversarial-review-cycle",
@@ -480,7 +609,10 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-10-team-vertical-slice", "phase-11-societal-infrastructure-proof"],
+      "dependencies": [
+        "phase-10-team-vertical-slice",
+        "phase-11-societal-infrastructure-proof"
+      ],
       "required_artifacts": [],
       "required_receipts": [],
       "required_validation_commands": [],
@@ -495,7 +627,9 @@
       ],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["H_simulation_semantics"]
+      "acceptance_gates": [
+        "H_simulation_semantics"
+      ]
     },
     {
       "id": "final-documentation",
@@ -505,7 +639,9 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["adversarial-review-cycle"],
+      "dependencies": [
+        "adversarial-review-cycle"
+      ],
       "required_artifacts": [
         "docs/engine_migration/FINAL_ARCHITECTURE.md",
         "docs/engine_migration/RESPONSIBILITY_OWNERSHIP.md",
@@ -518,14 +654,19 @@
         "docs/engine_migration/RUNBOOK.md"
       ],
       "required_receipts": [
-        {"task_id": "final-documentation", "must_pass": true}
+        {
+          "task_id": "final-documentation",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
       "required_review_artifacts": [],
       "worktree": null,
       "requires_clean_worktree": false,
-      "acceptance_gates": ["J_documentation"]
+      "acceptance_gates": [
+        "J_documentation"
+      ]
     },
     {
       "id": "phase-12-frozen-final-acceptance",
@@ -535,10 +676,17 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["operational-robustness-matrix", "final-documentation", "adversarial-review-cycle"],
+      "dependencies": [
+        "operational-robustness-matrix",
+        "final-documentation",
+        "adversarial-review-cycle"
+      ],
       "required_artifacts": [],
       "required_receipts": [
-        {"task_id": "phase-12-frozen-final-acceptance", "must_pass": true}
+        {
+          "task_id": "phase-12-frozen-final-acceptance",
+          "must_pass": true
+        }
       ],
       "required_validation_commands": [],
       "blocking_critical_findings": [],
@@ -546,9 +694,15 @@
       "worktree": null,
       "requires_clean_worktree": true,
       "acceptance_gates": [
-        "A_upstream_integrity", "B_baseline_reliability", "C_individual_simulation",
-        "D_team_simulation", "E_counterfactual_correctness", "F_agentsociety_integration",
-        "G_societal_infrastructure", "H_simulation_semantics", "I_operational_robustness",
+        "A_upstream_integrity",
+        "B_baseline_reliability",
+        "C_individual_simulation",
+        "D_team_simulation",
+        "E_counterfactual_correctness",
+        "F_agentsociety_integration",
+        "G_societal_infrastructure",
+        "H_simulation_semantics",
+        "I_operational_robustness",
         "J_documentation"
       ]
     },
@@ -560,7 +714,9 @@
       "owner_type": "subagent",
       "status": "pending",
       "mandatory": true,
-      "dependencies": ["phase-12-frozen-final-acceptance"],
+      "dependencies": [
+        "phase-12-frozen-final-acceptance"
+      ],
       "required_artifacts": [],
       "required_receipts": [],
       "required_validation_commands": [],
@@ -571,9 +727,15 @@
       "worktree": null,
       "requires_clean_worktree": true,
       "acceptance_gates": [
-        "A_upstream_integrity", "B_baseline_reliability", "C_individual_simulation",
-        "D_team_simulation", "E_counterfactual_correctness", "F_agentsociety_integration",
-        "G_societal_infrastructure", "H_simulation_semantics", "I_operational_robustness",
+        "A_upstream_integrity",
+        "B_baseline_reliability",
+        "C_individual_simulation",
+        "D_team_simulation",
+        "E_counterfactual_correctness",
+        "F_agentsociety_integration",
+        "G_societal_infrastructure",
+        "H_simulation_semantics",
+        "I_operational_robustness",
         "J_documentation"
       ]
     }

@@ -502,6 +502,11 @@ def check_no_production_changes(root: Path, result: Result, base: str | None):
     for path in sorted(changed):
         category = hs.classify_path(path, root)
         if category in forbidden:
+            # Metadata entries explicitly marked audit_exempt (e.g. the
+            # upstream lock, born on this branch) are write-protected by the
+            # hook but legitimately present in the branch diff.
+            if category == "upstream_protected" and hs.is_upstream_audit_exempt(path, root):
+                continue
             offenders.append(f"{path} ({category})")
 
     result.add(
@@ -547,6 +552,56 @@ def check_claude_md_preserved(root: Path, result: Result, base: str | None):
     result.add("claude_md_preserved", not missing,
                "every preexisting CLAUDE.md line is still present"
                if not missing else f"{len(missing)} preexisting line(s) were removed, e.g. {missing[0][:120]!r}")
+
+
+def check_upstream_checkout_integrity(root: Path, result: Result):
+    """Continuously verify the pinned upstream checkouts, when present.
+
+    The lock's integrity guarantee must not be point-in-time only (adversarial
+    review finding): each recorded ``local_checkout`` that exists must sit
+    exactly at its recorded SHA with zero local modifications. An absent
+    checkout is noted, not failed — fresh clones without the engine
+    environment are legitimate.
+    """
+    data = hs.read_json(hs.agent_run_dir(root) / "UPSTREAM_PROTECTED_PATHS.json", default=None)
+    repos = (data or {}).get("repositories") or []
+    problems: list[str] = []
+    notes: list[str] = []
+    checked = 0
+    for entry in repos:
+        if not isinstance(entry, dict):
+            continue
+        checkout = entry.get("local_checkout")
+        if not checkout:
+            continue
+        name = entry.get("name", "?")
+        pinned = entry.get("pinned_sha") or entry.get("baseline_sha_at_initialization")
+        path = Path(checkout)
+        if not path.is_dir():
+            notes.append(f"{name}: checkout absent ({checkout}); skipped")
+            continue
+        head = hs._git(path, "rev-parse", "HEAD")
+        if not head:
+            problems.append(f"{name}: {checkout} is not a usable git checkout")
+            continue
+        checked += 1
+        if pinned and head.strip() != str(pinned):
+            problems.append(
+                f"{name}: HEAD {head.strip()[:12]} does not match the recorded pin {str(pinned)[:12]}"
+            )
+        dirty = hs._git(path, "status", "--porcelain")
+        if dirty and dirty.strip():
+            problems.append(
+                f"{name}: checkout has local modifications ({len(dirty.strip().splitlines())} path(s))"
+            )
+    ok = not problems
+    if ok:
+        detail = f"{checked} pinned checkout(s) verified clean at their recorded SHAs"
+        if notes:
+            detail += "; " + "; ".join(notes)
+    else:
+        detail = "; ".join(problems + notes)
+    result.add("upstream_checkouts_integrity", ok, detail, checked=checked)
 
 
 def check_git_context(root: Path, result: Result):
@@ -727,6 +782,7 @@ def run(root: Path, run_tests: bool, base: str | None) -> Result:
     check_agents(root, result)
     check_tests(root, result, run_tests)
     check_no_production_changes(root, result, base)
+    check_upstream_checkout_integrity(root, result)
     check_claude_md_preserved(root, result, base)
     check_git_context(root, result)
     check_bootstrap_status_consistent(root, result)

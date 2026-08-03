@@ -131,8 +131,18 @@ def test_batch_create_step_token_stats_and_trace(ray_engine, tmp_path):
         assert by_id[agent_id]["ok"] is True, by_id[agent_id]
         assert by_id[agent_id]["summary"] == f"stepped:{agent_id}:1"
 
-    # (c) token accounting key is present (empty here — no LLM calls).
-    assert isinstance(out["token_stats"], dict)
+    # (c) token accounting: with zero LLM calls the drained delta map must be
+    # exactly empty, and any entry that ever appears must carry the audited
+    # shape {calls,input,output} with non-negative ints (reviewer finding:
+    # isinstance(dict) alone accepted any garbage).
+    stats = out["token_stats"]
+    assert isinstance(stats, dict)
+    assert stats == {}, stats
+    for model_name, delta in stats.items():  # shape contract for non-empty case
+        assert isinstance(model_name, str) and model_name
+        assert {"calls", "input", "output"} <= set(delta), delta
+        assert all(isinstance(delta[k], int) and delta[k] >= 0
+                   for k in ("calls", "input", "output")), delta
 
     # Workspace evidence written inside the worker survives on shared disk.
     for agent_id in (1, 2):

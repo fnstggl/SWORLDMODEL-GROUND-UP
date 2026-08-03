@@ -680,6 +680,12 @@ def classify_path(path_like, root: Path | None = None) -> str:
     if not rel:
         return "production"
     if rel.startswith("../") or Path(rel).is_absolute():
+        # Pinned upstream checkouts live OUTSIDE the repository but are still
+        # inviolable in every mode: an edit there silently changes the engine
+        # under contract while producing no repo diff (adversarial review
+        # finding, Phases 0-2 boundary).
+        if _is_external_upstream_checkout(path_like, root):
+            return "upstream_protected"
         return "external"
 
     if rel in CONTROL_PLANE_FILES or _under_any(rel, CONTROL_PLANE_PREFIXES):
@@ -719,6 +725,73 @@ def upstream_protected_paths(root: Path | None = None) -> list[str]:
         elif isinstance(entry, dict) and isinstance(entry.get("path"), str):
             out.append(entry["path"])
     return out
+
+
+def upstream_audit_exempt_paths(root: Path | None = None) -> list[str]:
+    """Protected paths whose *presence in the branch diff* is legitimate.
+
+    Metadata files born on the implementation branch (e.g. the upstream lock)
+    are write-protected by ``PreToolUse`` in every mode, but the branch-diff
+    change audit must not flag their own creation. Exemption is explicit and
+    per-entry (``"audit_exempt": true``); pinned source trees never carry it.
+    """
+    root = root or project_dir()
+    data = read_json(agent_run_dir(root) / "UPSTREAM_PROTECTED_PATHS.json", default=None)
+    if not isinstance(data, dict):
+        return []
+    out: list[str] = []
+    for entry in data.get("protected_paths") or []:
+        if isinstance(entry, dict) and entry.get("audit_exempt") and isinstance(entry.get("path"), str):
+            out.append(entry["path"])
+    return out
+
+
+def is_upstream_audit_exempt(rel_path: str, root: Path | None = None) -> bool:
+    rel = _strip_leading_dot_slash(rel_path)
+    for exempt in upstream_audit_exempt_paths(root):
+        pat = _strip_leading_dot_slash(exempt).rstrip("/")
+        if not pat:
+            continue
+        if rel == pat or rel.startswith(pat + "/"):
+            return True
+        if any(ch in pat for ch in "*?[") and _glob_match(rel, pat):
+            return True
+    return False
+
+
+def upstream_local_checkouts(root: Path | None = None) -> list[str]:
+    """Absolute paths of the pinned upstream checkouts recorded in
+    ``UPSTREAM_PROTECTED_PATHS.json`` ``repositories[].local_checkout``."""
+    root = root or project_dir()
+    data = read_json(agent_run_dir(root) / "UPSTREAM_PROTECTED_PATHS.json", default=None)
+    if not isinstance(data, dict):
+        return []
+    out: list[str] = []
+    for entry in data.get("repositories") or []:
+        if isinstance(entry, dict):
+            checkout = entry.get("local_checkout")
+            if isinstance(checkout, str) and checkout.strip():
+                out.append(checkout)
+    return out
+
+
+def _is_external_upstream_checkout(path_like, root: Path | None = None) -> bool:
+    """True when ``path_like`` resolves inside a recorded upstream checkout."""
+    try:
+        raw = Path(str(path_like))
+        base_root = (root or project_dir()).resolve()
+        target = raw if raw.is_absolute() else (base_root / raw)
+        target = target.resolve(strict=False)
+    except (OSError, ValueError):
+        return False
+    for checkout in upstream_local_checkouts(root):
+        try:
+            base = Path(checkout).resolve(strict=False)
+        except (OSError, ValueError):
+            continue
+        if target == base or str(target).startswith(str(base) + os.sep):
+            return True
+    return False
 
 
 def _strip_leading_dot_slash(path: str) -> str:

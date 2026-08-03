@@ -324,3 +324,58 @@ not_comments`); `UPSTREAM_PROTECTED_PATHS.json` URLs were restored to full
 `https://` form. Revalidation: validator suite 81 tests OK, gate suite OK,
 `validate_control_plane.py --run-tests` PASS (hook suite 131 passed + 93
 subtests; runner suite 25 passed). Mode restored to `implementation`.
+
+
+## Hook maintenance 2026-08-03 (#3) -- external checkouts entered the enforcement perimeter
+
+Trigger: Phases 0-2 adversarial review (verbatim report + per-finding
+disposition: docs/engine_migration/reviews/PHASE_0_2_BOUNDARY_REVIEW.md).
+Its HIGH finding demonstrated live that the pinned upstream checkouts
+classified `external`, which no mode blocks -- an editable-install source
+edit would silently change the engine under contract.
+
+Changes (all with discriminating regression tests, suites green,
+`validate_control_plane.py --run-tests` PASS):
+1. `classify_path` returns `upstream_protected` for any path inside a
+   recorded `repositories[].local_checkout` tree -- blocked in EVERY mode.
+2. New validator check `upstream_checkouts_integrity`: every recorded
+   checkout that exists must sit at its recorded SHA with zero local
+   modifications, on every validator run (absent checkouts are noted, not
+   failed).
+3. `third_party/UPSTREAM_LOCK.json` is now write-protected via
+   `protected_paths` with the new explicit `audit_exempt` flag: PreToolUse
+   blocks edits in every mode, while the branch-diff audit skips its
+   legitimate creation on this branch. Pin changes require the documented
+   exception procedure.
+4. Frozen-mode gate coverage for `tests/**` paths added (reviewer LOW).
+
+## Phase 0-2 boundary review outcome 2026-08-03
+
+All six reviewed claims HOLD; no Phase 4 blocker. Non-maintenance fixes
+applied in the same session: three weak engine-contract tests strengthened
+(steady-state overlap == 2 after a warm-up round -- cold-start serialization
+was real and is now measured around; rng-restoration tautology replaced with
+a real restore assertion; token_stats exact-empty + shape contract);
+provenance corrected (ScriptedByEntityModel is upstream commit 1372a37; the
+pinned fork SHAs equal upstream main -- pure mirrors); baseline
+dirty-worktree disclosure added; receipt-discipline policy hardened
+(completed_at_sha backfilled to artifact-bearing commits; phase receipts
+carry --config-hash going forward). ACCEPTED items: ACCEPTANCE_GATES.md
+stays a doc, mitigated by hashing gate-definition docs into the Phase 12
+freeze record; the historical exit-1 phase-0 receipt is kept deliberately as
+evidence of the defect it exposed.
+
+## Fixture 3 syntax re-freeze 2026-08-03
+
+Phase 3 found `population_offer.yaml` unparseable by conforming YAML
+parsers: a plain-scalar bullet ended with a line-final colon (illegal
+multi-line mapping key). Adjudication: syntax-only re-freeze -- the colon
+became ", meaning" with zero semantic change (rules, counts, expectations
+byte-identical otherwise); new sha256
+93537342df26761bc67cb6cbb6aedc89531a9ab8719040be283047928b418985 recorded in
+FIXTURES.md + FIXTURES.sha256; the loader test now asserts ALL fixtures are
+conforming YAML and that the textual prose-block layer agrees with YAML's
+own parse. Rationale: the wart would compound forever; the immutability rule
+targets semantic gaming, not syntax validity; final acceptance has not
+begun. The frozen-manual-fixtures receipt is re-recorded against the new
+hashes.

@@ -99,7 +99,8 @@ infrastructure_assertions:
   - Exactly 100 customer agents run per branch; expected id set equals the
     collected id set with no duplicates and no losses.
   - Aggregate outcomes equal the sum of per-agent recorded actions.
-  - One injected failing agent (failure-injection variant only) is isolated:
+  - One injected failing agent (failure-injection variant only) is isolated,
+    meaning
     its branch reports failures=1 and completed_agent_runs=99 while every
     other agent completes; other branches are unaffected.
   - Bounded concurrency is respected and observable from run records.

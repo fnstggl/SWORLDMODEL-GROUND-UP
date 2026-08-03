@@ -642,6 +642,104 @@ class TestChangeAuditModeAwareness(ValidatorCheckTestCase):
         self.assertIn("frozen_sha", check["detail"])
 
 
+class TestAuditExemptProtectedMetadata(ValidatorCheckTestCase):
+    """audit_exempt entries skip the branch-diff audit but stay write-protected."""
+
+    def audit(self, base=None):
+        return self.run_check(vcp.check_no_production_changes, base)["no_production_files_changed"]
+
+    def test_exempt_metadata_not_flagged_but_source_trees_still_are(self):
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED", "repositories": [],
+            "protected_paths": [
+                {"path": "third_party/LOCK.json", "audit_exempt": True},
+                {"path": "third_party/vendor/"},
+            ],
+        })
+        lock = self.project.path / "third_party" / "LOCK.json"
+        lock.parent.mkdir(parents=True)
+        lock.write_text("{}\n", encoding="utf-8")
+        check = self.audit()
+        self.assertTrue(check["ok"], check["detail"])
+        # The gate category is unchanged: writes are still blocked by PreToolUse.
+        self.assertEqual(hs.classify_path("third_party/LOCK.json", self.project.path),
+                         "upstream_protected")
+        vendor = self.project.path / "third_party" / "vendor" / "x.py"
+        vendor.parent.mkdir(parents=True)
+        vendor.write_text("x = 1\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("third_party/vendor/x.py", check["detail"])
+
+
+class TestUpstreamCheckoutIntegrity(ValidatorCheckTestCase):
+    """The pinned checkouts are continuously verified, not point-in-time.
+
+    Regression for the adversarial-review finding that nothing enforced the
+    external checkouts staying at their recorded SHAs.
+    """
+
+    def make_checkout(self):
+        checkout = Project.create()
+        self.addCleanup(checkout.destroy)
+        return checkout
+
+    def register(self, checkout, pinned=None, path=None):
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [{
+                "name": "fake-upstream",
+                "local_checkout": path if path is not None else str(checkout.path),
+                "baseline_sha_at_initialization":
+                    pinned if pinned is not None else checkout.head_sha(),
+            }],
+            "protected_paths": [],
+        })
+
+    def check(self):
+        return self.run_check(vcp.check_upstream_checkout_integrity)[
+            "upstream_checkouts_integrity"]
+
+    def test_clean_checkout_at_pinned_sha_passes(self):
+        checkout = self.make_checkout()
+        self.register(checkout)
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertEqual(result["checked"], 1)
+
+    def test_local_modification_is_detected(self):
+        checkout = self.make_checkout()
+        self.register(checkout)
+        (checkout.path / "hacked.py").write_text("x = 1\n", encoding="utf-8")
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("local modifications", result["detail"])
+
+    def test_sha_drift_is_detected(self):
+        checkout = self.make_checkout()
+        self.register(checkout, pinned="0" * 40)
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("does not match", result["detail"])
+
+    def test_absent_checkout_is_noted_not_failed(self):
+        checkout = self.make_checkout()
+        self.register(checkout, path=str(checkout.path / "does-not-exist"))
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertIn("absent", result["detail"])
+        self.assertEqual(result["checked"], 0)
+
+    def test_absolute_checkout_paths_classify_as_upstream_protected(self):
+        checkout = self.make_checkout()
+        self.register(checkout)
+        inside = str(checkout.path / "engine" / "core.py")
+        self.assertEqual(hs.classify_path(inside, self.project.path), "upstream_protected")
+        self.assertEqual(hs.classify_path("/somewhere/else/file.py", self.project.path),
+                         "external")
+
+
 class TestPorcelainParsing(unittest.TestCase):
     """`git status --porcelain` uses a fixed-width 'XY ' prefix; dotfiles are the trap."""
 
@@ -840,7 +938,10 @@ class TestValidatorEndToEnd(unittest.TestCase):
                       "pinned upstream source must be inviolable in every mode")
         for path in check["changed_paths"]:
             with self.subTest(path=path):
-                self.assertNotIn(hs.classify_path(path, REPO_ROOT), forbidden,
+                category = hs.classify_path(path, REPO_ROOT)
+                if category == "upstream_protected" and hs.is_upstream_audit_exempt(path, REPO_ROOT):
+                    continue  # write-protected metadata born on this branch
+                self.assertNotIn(category, forbidden,
                                  f"{path} is in a category forbidden for this mode")
 
 

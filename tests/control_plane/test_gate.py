@@ -208,6 +208,52 @@ class TestPreToolUse(GateTestCase):
         self.assert_denied(self.gate(edit_event("vendor/concordia/engine.py")), "upstream")
         self.assert_denied(self.gate(edit_event("vendor/agentsociety/sim/core.py")), "upstream")
 
+    def test_external_upstream_checkout_write_blocked_in_every_mode(self):
+        """Pinned checkouts OUTSIDE the repo are inviolable too.
+
+        Regression for the adversarial-review HIGH finding: the real engine
+        checkouts classified as 'external', which no mode blocks, so an
+        editable-install source edit produced no repo diff and fired no hook.
+        """
+        import tempfile
+        checkout = tempfile.mkdtemp(prefix="fake-upstream-")
+        self.addCleanup(lambda: __import__("shutil").rmtree(checkout, ignore_errors=True))
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [
+                {"name": "concordia", "local_checkout": checkout,
+                 "baseline_sha_at_initialization": "abc123"}
+            ],
+            "protected_paths": [],
+        })
+        for mode in ("implementation", "frozen_acceptance"):
+            with self.subTest(mode=mode):
+                if mode == "frozen_acceptance":
+                    self.project.set_mode(mode, frozen_sha="deadbeef")
+                else:
+                    self.project.set_mode(mode)
+                self.assert_denied(
+                    self.gate(edit_event(f"{checkout}/concordia/engine.py")), "upstream")
+        # No over-blocking: an unrelated external path stays allowed.
+        self.project.set_mode("implementation")
+        self.assert_allowed(self.gate(edit_event("/tmp/unrelated-scratch.txt")))
+
+    def test_audit_exempt_protected_path_still_blocked_for_writes(self):
+        """audit_exempt affects only the validator's branch-diff audit."""
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED", "repositories": [],
+            "protected_paths": [{"path": "third_party/LOCK.json", "audit_exempt": True}],
+        })
+        self.assert_denied(self.gate(edit_event("third_party/LOCK.json")), "upstream")
+
+    def test_frozen_acceptance_blocks_test_edits(self):
+        """Tests (including tests/fixtures/**) are frozen during acceptance."""
+        self.project.set_mode("frozen_acceptance", frozen_sha="deadbeef")
+        self.assert_denied(self.gate(edit_event("tests/test_semantics.py")), "frozen")
+        self.assert_denied(
+            self.gate(edit_event("tests/fixtures/best_action/individual_reply.yaml")), "frozen")
+
     def test_hook_control_edit_blocked_outside_maintenance_modes(self):
         self.project.set_mode("implementation")
         self.assert_denied(self.gate(edit_event(".claude/hooks/gate.py")), "hook-control")

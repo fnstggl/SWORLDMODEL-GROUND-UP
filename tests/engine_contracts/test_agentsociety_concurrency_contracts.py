@@ -91,7 +91,18 @@ def test_num_cpus_bounds_concurrent_single_agent_batches(ray_engine, tmp_path):
         )
     ) == len(AGENT_IDS)
 
-    # 4 batches of ONE agent each, submitted together.
+    # Warm-up round: Ray worker processes cold-start serially (measured: a
+    # 6s gap serialized an unwarmed round), which is startup lag, not the
+    # scheduling contract. One throwaway round spins up the worker pool so
+    # the timed round below measures steady-state scheduling.
+    ray.get([
+        runner.step_agent_batch.remote(
+            [agent_id], str(agents_root), ray_engine["agent_class_name"], 59, T0, proxy,
+        )
+        for agent_id in AGENT_IDS
+    ])
+
+    # 4 batches of ONE agent each, submitted together (timed round).
     refs = [
         runner.step_agent_batch.remote(
             [agent_id],
@@ -115,7 +126,7 @@ def test_num_cpus_bounds_concurrent_single_agent_batches(ray_engine, tmp_path):
     for agent_id in AGENT_IDS:
         payload = json.loads(
             (
-                agents_root / f"agent_{agent_id:04d}" / "state" / "step_0001.json"
+                agents_root / f"agent_{agent_id:04d}" / "state" / "step_0002.json"
             ).read_text(encoding="utf-8")
         )
         assert payload["stop"] - payload["start"] >= SLEEP_S * 0.9
@@ -131,6 +142,9 @@ def test_num_cpus_bounds_concurrent_single_agent_batches(ray_engine, tmp_path):
     span = max(stop for _, stop in windows) - min(start for start, _ in windows)
     assert span >= 2 * SLEEP_S * 0.95, (span, sorted(windows))
 
-    # Work was spread over more than one worker process (parallelism really
-    # happened; informational sanity, not a strict scheduling assumption).
-    assert len(pids) >= 1
+    # Parallelism actually happened (reviewer finding: the upper bound alone
+    # would pass a dispatcher that serializes everything). With 4 x SLEEP_S of
+    # in-step work, two slots must overlap at some point AND the wall span
+    # must be strictly less than fully-serial execution.
+    assert observed_overlap == 2, (observed_overlap, sorted(windows))
+    assert span < 4 * SLEEP_S * 0.95, ("serialized execution", span, sorted(windows))

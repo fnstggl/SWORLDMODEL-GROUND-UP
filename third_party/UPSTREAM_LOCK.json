@@ -17,8 +17,9 @@
       "license_file": "/home/user/concordia/LICENSE",
       "date_imported": "2026-08-03",
       "known_issues": [
-        "fork HEAD adds ScriptedByEntityModel which breaks no-arg prefab enumeration used by examples/ tests (20 examples-only failures; core library green). We never enumerate prefabs package-wide."
-      ]
+        "Upstream commit 1372a37 (present at the pinned HEAD, which is byte-identical to upstream main at audit time) adds ScriptedByEntityModel, whose required constructor args break the no-arg prefab enumeration used by examples/ tests (20 examples-only failures; core library green). We never enumerate prefabs package-wide."
+      ],
+      "upstream_equivalence": "pinned fork SHA verified equal to google-deepmind/concordia main HEAD via ls-remote (Phases 0-2 adversarial review)"
     },
     {
       "name": "agentsociety2",
@@ -38,7 +39,8 @@
       ],
       "known_issues": [
         "import agentsociety2 requires AGENTSOCIETY_LLM_API_KEY set at module import (dummy value is sufficient for offline use)"
-      ]
+      ],
+      "upstream_equivalence": "pinned fork SHA verified equal to tsinghua-fib-lab/agentsociety main HEAD via ls-remote (Phases 0-2 adversarial review)"
     }
   ],
   "environment": {
@@ -51,5 +53,6 @@
       "pytest-asyncio",
       "anyio"
     ]
-  }
+  },
+  "integrity_enforcement": "Continuous: validate_control_plane.py check 'upstream_checkouts_integrity' verifies each recorded local_checkout sits at its recorded SHA with zero modifications on every validator run; PreToolUse blocks writes into the checkouts in every mode (classify_path -> upstream_protected)."
 }

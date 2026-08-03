@@ -17,7 +17,7 @@ match observed outputs.
 |---|---|---|
 | individual_reply | `individual_reply.yaml` | `03bf7be7dbbbbe3f9e6768d60cccb6301c459d59b62204e0a9de1e84b6dcd201` |
 | team_commitment | `team_commitment.yaml` | `2e15efa7cf59c2250213516557b22bd7c65cae934b66856876f54eeb84e4afb6` |
-| population_offer | `population_offer.yaml` | `cde6cf80e462c77baa75d6f892a3534ec0a5a0d52e8000127b1ad59e8ccfa84b` |
+| population_offer | `population_offer.yaml` | `93537342df26761bc67cb6cbb6aedc89531a9ab8719040be283047928b418985` |
 
 Verification: `cd tests/fixtures/best_action && sha256sum -c FIXTURES.sha256`
 (the sidecar checksum file is frozen alongside the fixtures).
