@@ -47,16 +47,22 @@ fallback rule broadcasts to the full roster.  No production change is
 involved anywhere in this suite.
 
 The metric predicates are ATTRIBUTION-ANCHORED (the recorded Phase 9
-pattern): every needle set requires the upstream resolved-actor-turn
-wrapper (``ACTOR_TURN_ANCHOR``) IN ADDITION to the content text, and
-the two authority-gated metrics (``veto_exercised``,
-``pilot_accepted``) additionally require the AUTHORITY HOLDER'S OWN
-turn attribution (``"Sam: <utterance>"``) -- keyed to the fixture's
-declared authority structure (the shared context and decision rule name
-the operations lead's implementation veto).  Only events emitted by the
-owning actor's own committed turn can satisfy a metric; a Game-Master
-narration row textually claiming a tally, a coalition, or the identical
-utterance spoken by a non-authority actor measures False.
+pattern, hardened by the phases 8-11 review finding F1): every metric
+requires the upstream resolved-actor-turn wrapper
+(``ACTOR_TURN_ANCHOR``) AND binds to the row's OWN leading ``Name:``
+attribution (the ``{name}: {content}`` turn format the engine stamps
+before commit), with the needles read from that actor's attributed
+content -- never from substring co-occurrence anywhere in the row.  The
+two authority-gated metrics (``veto_exercised``, ``pilot_accepted``)
+additionally require the leading attribution to name the AUTHORITY
+HOLDER and the content to OPEN with the utterance -- keyed to the
+fixture's declared authority structure (the shared context and decision
+rule name the operations lead's implementation veto).  Only events
+emitted by the owning actor's own committed turn can satisfy a metric;
+a Game-Master narration row textually claiming a tally, a coalition, or
+the identical utterance spoken by a non-authority actor measures False
+-- and so does a proxy ``Sam: <utterance>`` segment EMBEDDED in another
+actor's turn (the row's leading attribution names the embedding actor).
 """
 
 from __future__ import annotations
@@ -69,7 +75,8 @@ from baseline_helpers import (StrictScriptedModel,  # noqa: F401
 from cf_helpers import (FIXTURE_DIR, SEED,  # noqa: F401
                         file_sha256, make_candidate, recorded_fixture_hash)
 from individual_helpers import (ACTOR_TURN_ANCHOR,  # noqa: F401
-                                route_action_map)
+                                actor_turn_matcher,
+                                attributed_turn_matcher, route_action_map)
 from sworldmodel.compilation.decision_route import prepare_decision_inputs
 from sworldmodel.counterfactuals import run_candidates_detailed
 from sworldmodel.decision.contracts import (CompiledDecisionWorld,
@@ -79,7 +86,7 @@ from sworldmodel.decision.contracts import (CompiledDecisionWorld,
 from sworldmodel.decision.fixture_loader import load_fixture_file
 from sworldmodel.decision.registry import ContractRegistry
 from sworldmodel.outcomes import (count_metric, evaluate_branches,
-                                  exists_metric, substring_matcher)
+                                  exists_metric)
 from sworldmodel.outcomes.metrics import (WHOLE_TRACE_CITATION,
                                           matching_indices)
 from sworldmodel.reporting import (build_recommendation_report,
@@ -335,10 +342,13 @@ def make_team_problem(fx, *, actions=None, permission=False,
 # ---------------------------------------------------------------------------
 
 def anchored_matcher(*needles):
-    """A matcher demanding the resolved-actor-turn anchor IN ADDITION to
-    every content needle -- narration rows (premise / pre-start records)
-    never carry the anchor, so they can never satisfy it."""
-    return substring_matcher(ACTOR_TURN_ANCHOR, *needles)
+    """A matcher demanding a well-formed resolved actor turn (the anchor
+    plus the row's own leading attribution) with every content needle in
+    the attributed content -- narration rows (premise / pre-start
+    records) never carry the anchor, so they can never satisfy it, and
+    needles inside the framing or inside a proxy ``Name:`` segment of
+    the row never count as another actor's content."""
+    return actor_turn_matcher(*needles)
 
 
 def commit_matcher():
@@ -346,9 +356,10 @@ def commit_matcher():
 
 
 def veto_matcher():
-    """Authority-keyed: only the authority holder's OWN turn uttering
-    the veto counts (``"Sam: Exercise ..."``)."""
-    return anchored_matcher(f"{AUTHORITY_NAME}: {VETO_UTTERANCE}")
+    """Authority-keyed: only the authority holder's OWN turn -- the
+    row's leading attribution names Sam AND Sam's attributed content
+    opens with the utterance -- counts as the veto."""
+    return attributed_turn_matcher(AUTHORITY_NAME, VETO_UTTERANCE)
 
 
 def team_predicates() -> dict:
@@ -376,8 +387,8 @@ def team_predicates() -> dict:
         "explicit_support_commitments": count_metric(commits),
         "explicit_opposition": count_metric(anchored_matcher(OPPOSE_MARKER)),
         "veto_exercised": exists_metric(vetoes),
-        "pilot_accepted": exists_metric(anchored_matcher(
-            f"{AUTHORITY_NAME}: {PILOT_ACCEPT_UTTERANCE}")),
+        "pilot_accepted": exists_metric(attributed_turn_matcher(
+            AUTHORITY_NAME, PILOT_ACCEPT_UTTERANCE)),
         "final_decision_recorded": exists_metric(
             anchored_matcher(FINAL_MARKER)),
     }

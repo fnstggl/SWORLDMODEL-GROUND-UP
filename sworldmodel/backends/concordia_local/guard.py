@@ -20,7 +20,8 @@ DETERMINISTIC CODE in its default path (pure string analysis, no model
 call, no document write, no randomness).
 
 Detection basis (v2, hardened per the phases 3-7 adversarial review,
-findings 6 and 7):
+findings 6 and 7; v3 adds class 6, closing the phases 8-11 review
+finding F1):
 
 1. NAMED subjects: a KNOWN actor name other than the active player
    (optionally a name chain joined by "and"/commas) governing a
@@ -48,6 +49,21 @@ findings 6 and 7):
    agreement to the terms") and a determined act noun with a roster
    by-agent ("the acceptance by Morgan") assert the same accomplished
    decision without a finite verb and are treated identically.
+6. PROXY ATTRIBUTION (colon/dash subject boundaries): upstream
+   EventResolution treats ``NAME:`` and ``NAME --`` as active-entity
+   attribution separators (event_resolution.py strips exactly these
+   from a leading active-player prefix), and the sequential engine
+   commits every turn in the ``{name}: {content}`` format -- so a
+   NON-ACTIVE roster name (or "and"/comma chain) immediately followed
+   by ``:`` (optional horizontal space) or by whitespace plus ``--``
+   claims the ENTIRE following content as that actor's own turn:
+   speech, an act phrase, or full sentences alike ("choosing what to
+   say" is itself a voluntary decision, so no act verb is required).
+   The ACTIVE player's own attribution ("Active: <their own act>", the
+   upstream turn format, leading or not) claims nobody else's agency
+   and passes byte-identically.  Because upstream defines no CLOSING
+   delimiter for an attributed segment, the removal span runs from the
+   name to the next line break or end of text.
 
 All trigger vocabulary below is PLAIN LITERAL WORD FORMS of the
 directive's own act categories.  A prior revision assembled the same
@@ -90,6 +106,26 @@ false positives on delivery/receipt/hypothetical text):
   ("their agreement"), collective possessives ("Morgan's team
   accepts"), and asides longer than one comma pair or 60 characters are
   out of the deterministic v2 net; listed for later hardening.
+- Proxy-attribution residuals (v3): a SINGLE em/en dash between a name
+  and content ("Morgan — agrees") is not an upstream attribution
+  separator and stays undetected as an attribution (the pre-existing
+  dash-separated subject-verb gap, now explicit); a name split from its
+  marker across a line break ("Morgan\\n: yes") or by an aside
+  ("Morgan, unprompted,: yes") is undetected (the marker must be
+  name-adjacent); a marker after a non-agent lead word keeps the
+  object-position exemption -- "sends a note to Morgan: 'call me'" is
+  the speaker's own message TO the name, which also exempts
+  received-content frames ("reads the note from Morgan: 'I agree'"),
+  a residual accepted to keep the epistolary form usable, while
+  assertion-verb frames ("quotes Morgan: 'I agree'") and bare markers
+  stay caught.  In the over-removal direction: the attributed segment
+  runs to the line break (upstream has no closing delimiter), so any
+  same-line content AFTER a violating marker -- including the active
+  player's own trailing text -- is removed with it, and a spaced
+  double-dash appositive after a direct-object name ("thanks
+  Morgan -- everyone applauds") parses as an attribution; both fail
+  in the recoverable direction (removal plus availability, attempt
+  prefix preserved), never by inventing agency.
 - The comma aside is content-blind: an asyndetic serial-verb tail after
   a direct-object name ("thanks Morgan, smiles, signs") parses like an
   aside and is conservatively rewritten.  The failure direction is the
@@ -330,6 +366,10 @@ class _Finding:
     end: int              # matched construction end offset
     affected: tuple       # non-active known actors asserted as agents
     borderline: bool      # reported-speech lead ("that")
+    #: exact removal-span end for families with their own boundary rule
+    #: (proxy attribution: next line break / end of text); ``None``
+    #: falls back to the sentence-end rule
+    span_end: int | None = None
 
 
 def _word_before_span(text: str, pos: int) -> tuple:
@@ -498,6 +538,15 @@ def make_agency_guard(
     named_pattern = re.compile(
         rf"(?<!{boundary})(?P<subject>(?:{name_alt})"
         rf"(?:{separator}(?:{name_alt}))*)(?!{boundary}){trailer}")
+    #: detection class 6 -- upstream's own attribution separators: a
+    #: roster name (chain) immediately followed by ":" (optional
+    #: horizontal space) or by whitespace plus "--" attributes the
+    #: following content to that name; content-blind by design (a
+    #: fabricated turn frame is an agency claim whatever it contains)
+    attribution_pattern = re.compile(
+        rf"(?<!{boundary})(?P<subject>(?:{name_alt})"
+        rf"(?:{separator}(?:{name_alt}))*)(?!{boundary})"
+        rf"(?:[ \t]*:|[ \t]+--+)")
     pronoun_pattern = re.compile(
         rf"(?<!{boundary})(?P<pron>(?i:{pronoun_alt}))(?!{boundary})"
         rf"{trailer}")
@@ -579,7 +628,15 @@ def make_agency_guard(
         (by_agent_pattern, _resolve_by_agent),
     )
 
-    def _scan(pattern, resolve, text, active, frame_words):
+    def _attribution_segment_end(match, text) -> int:
+        # Upstream defines no closing delimiter for an attributed
+        # segment: everything after the marker up to the next line
+        # break (or end of text) is the named actor's claimed content.
+        cut = text.find("\n", match.end())
+        return len(text) if cut == -1 else cut
+
+    def _scan(pattern, resolve, text, active, frame_words,
+              span_end_fn=None):
         findings = []
         pos = 0
         while True:
@@ -608,11 +665,19 @@ def make_agency_guard(
                 end=match.end(),
                 affected=affected,
                 borderline=lead_word in _BORDERLINE_LEAD_WORDS,
+                span_end=(None if span_end_fn is None
+                          else span_end_fn(match, text)),
             ))
             pos = match.end()
 
     def _detect(event_statement: str, active_player_name: str) -> list:
         findings = []
+        # Class 6 first: an attribution marker claims everything after
+        # it, so its span subsumes any verb/nominal finding inside.
+        findings.extend(_scan(attribution_pattern, _resolve_named,
+                              event_statement, active_player_name,
+                              _NON_AGENT_LEAD_WORDS,
+                              span_end_fn=_attribution_segment_end))
         for pattern, resolve in verb_rules:
             findings.extend(_scan(pattern, resolve, event_statement,
                                   active_player_name,
@@ -626,7 +691,8 @@ def make_agency_guard(
 
     def _rewrite(event_statement: str, findings: list) -> str:
         spans = [( _clause_start(event_statement, finding.start),
-                   _sentence_end(event_statement, finding.end))
+                   finding.span_end if finding.span_end is not None
+                   else _sentence_end(event_statement, finding.end))
                  for finding in findings]
         pieces = []
         cursor = 0

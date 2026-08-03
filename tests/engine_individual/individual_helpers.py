@@ -23,13 +23,19 @@ Three model legs drive the same slice:
   Concordia ``LanguageModel`` over the DeepSeek OpenAI-compatible API
   (mechanical assertions only; never semantic determinism).
 
-The suite's metric predicates are ATTRIBUTION-ANCHORED: every needle set
-requires the upstream resolved-actor-turn wrapper
-(:data:`ACTOR_TURN_ANCHOR`) IN ADDITION to the recipient-attributed
-reply text, so only events emitted by the recipient's own committed turn
-can satisfy the success metric -- a Game-Master narration row (premise
-or pre-start record) textually claiming the outcome never counts.  The
-gate-C narration test proves exactly that distinction.
+The suite's metric predicates are ATTRIBUTION-ANCHORED, and the anchor
+binds to the resolved turn's ACTIVE PLAYER (phases 8-11 review finding
+F1 closed the earlier substring co-occurrence form): a row counts only
+when it carries the upstream resolved-actor-turn wrapper
+(:data:`ACTOR_TURN_ANCHOR`) AND the row's OWN leading ``Name:``
+attribution -- the ``{name}: {content}`` turn format the upstream
+sequential engine stamps before commit -- names the predicate's actor,
+AND the needles occur in that actor's OWN attributed content.  A
+Game-Master narration row (premise or pre-start record) textually
+claiming the outcome never counts (no anchor), and neither does another
+actor's turn EMBEDDING a ``Morgan: Reply ...`` proxy segment (the row's
+leading attribution names the embedding actor, not Morgan).  The gate-C
+narration test and the proxy-attribution suite prove both distinctions.
 """
 
 from __future__ import annotations
@@ -55,8 +61,7 @@ from sworldmodel.counterfactuals import run_candidates_detailed
 from sworldmodel.decision.contracts import (DecisionProblem,
                                             RecommendationResult,
                                             SCHEMA_VERSION)
-from sworldmodel.outcomes import (evaluate_branches, exists_metric,
-                                  substring_matcher)
+from sworldmodel.outcomes import evaluate_branches, exists_metric
 from sworldmodel.reporting import (build_recommendation_report,
                                    build_trace_report)
 
@@ -70,6 +75,87 @@ TRACE_ARTIFACT_PATH = ARTIFACT_DIR / "individual_reply_trace_report.json"
 #: putative-event framing before commit; premise and pre-start narration
 #: rows never carry it, so it anchors metrics to actor-attributed rows
 ACTOR_TURN_ANCHOR = "Putative event to resolve:"
+
+#: characters that may never appear inside a leading attribution NAME:
+#: their presence means the first separator found belongs to later
+#: content, i.e. the row head is not a well-formed ``{name}: {content}``
+#: turn stamp (fail closed: such a row matches no metric)
+_NAME_BREAK_CHARS = ".!?\"\n"
+
+
+def leading_attribution(description: str):
+    """``(name, content)`` parsed from the row's OWN leading attribution,
+    or ``None`` when the row is not a well-formed resolved actor turn.
+
+    The upstream sequential engine commits every resolved turn as
+    ``{anchor} {name}: {content}`` (engines/sequential.py formats the
+    action as ``f'{name}: {raw_action}'``; EventResolution recognizes
+    ``:`` and `` --`` as the attribution separators).  The name is the
+    text between the anchor and the FIRST separator; a "name" carrying
+    sentence punctuation or a quote means the head is unattributed and
+    the parse refuses (returns ``None``) rather than guessing.
+    """
+    index = description.find(ACTOR_TURN_ANCHOR)
+    if index < 0:
+        return None
+    tail = description[index + len(ACTOR_TURN_ANCHOR):].lstrip(" \t")
+    colon = tail.find(":")
+    dash = tail.find(" --")
+    cuts = [cut for cut in (colon, dash) if cut >= 0]
+    if not cuts:
+        return None
+    cut = min(cuts)
+    if tail[cut] == ":":
+        name, content = tail[:cut], tail[cut + 1:]
+    else:
+        name, content = tail[:cut], tail[cut + 3:]
+    name = name.strip()
+    if not name or any(char in name for char in _NAME_BREAK_CHARS):
+        return None
+    return name, content.strip()
+
+
+def attributed_turn_matcher(actor: str, opening: str, *needles):
+    """A matcher counting ONLY the named actor's own resolved turn: the
+    row's leading attribution must name ``actor``, the actor's attributed
+    content must START with ``opening`` (the old ``"{actor}: {opening}"``
+    adjacency, now bound to the row's real active player), and every
+    additional needle must occur in that content.  Substring
+    co-occurrence elsewhere in the row -- e.g. a proxy ``Name: ...``
+    segment embedded in ANOTHER actor's turn -- never matches."""
+    assert actor and opening
+
+    def matcher(description: str) -> bool:
+        parsed = leading_attribution(description)
+        if parsed is None:
+            return False
+        name, content = parsed
+        if name != actor or not content.startswith(opening):
+            return False
+        return all(needle in content for needle in needles)
+
+    matcher.actor = actor
+    matcher.needles = (opening,) + tuple(needles)
+    return matcher
+
+
+def actor_turn_matcher(*needles):
+    """A matcher for metrics owned by WHICHEVER actor's turn carries the
+    needles: the row must be a well-formed resolved actor turn (anchor +
+    leading attribution) and every needle must occur in the attributed
+    content -- never in the framing, and never in a row that carries no
+    attribution."""
+    assert needles
+
+    def matcher(description: str) -> bool:
+        parsed = leading_attribution(description)
+        if parsed is None:
+            return False
+        _name, content = parsed
+        return all(needle in content for needle in needles)
+
+    matcher.needles = tuple(needles)
+    return matcher
 
 #: the phrase the fixture's expected winner scripts into the reply, used
 #: by the multi-turn memory test
@@ -114,17 +200,18 @@ def make_slice_problem(fx, *, actions=None, permission=False,
 
 def anchored_predicates() -> dict:
     """Fixture-1 metric predicates, attribution-anchored (see module
-    docstring): every needle set requires the resolved-actor-turn wrapper
-    plus the recipient-attributed text."""
+    docstring): every metric requires the resolved-actor-turn wrapper
+    AND binds to the row's OWN leading attribution -- only the
+    recipient's own committed turn, opening with its reply text, can
+    satisfy a reply metric."""
     return {
         "recipient_reply_sent": exists_metric(
-            substring_matcher(ACTOR_TURN_ANCHOR, "Morgan: Reply")),
+            attributed_turn_matcher("Morgan", "Reply")),
         "meeting_scheduled": exists_metric(
-            substring_matcher(ACTOR_TURN_ANCHOR, "Morgan: Reply",
-                              REPLY_AGREE_PHRASE)),
+            attributed_turn_matcher("Morgan", "Reply",
+                                    REPLY_AGREE_PHRASE)),
         "explicit_decline": exists_metric(
-            substring_matcher(ACTOR_TURN_ANCHOR,
-                              "Morgan: Reply declining")),
+            attributed_turn_matcher("Morgan", "Reply declining")),
     }
 
 

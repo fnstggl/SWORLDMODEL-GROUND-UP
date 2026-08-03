@@ -57,6 +57,27 @@ each class carries a caught case AND a nearby legitimate shape):
      reply by Friday") survive byte-identically, while assertion verbs
      ("confirms", "announces that") remain caught.
 
+Proxy attribution (phases 8-11 adversarial review, finding F1 --
+upstream EventResolution's own ``:`` / ``--`` attribution separators):
+ 18. a NON-ACTIVE roster name immediately followed by ``:`` or by
+     whitespace plus ``--`` claims the entire following content (to the
+     line break) as that actor's own turn and is caught: the exact four
+     reviewer probes, the dash variant, mid-text forms, a multi-sentence
+     attributed segment, leading other-name attributions, marker chains
+     ("Bo and Cam:"), and multiple markers in one event;
+ 19. the ACTIVE player's own attribution passes byte-identically --
+     leading (the upstream turn format, alone or under the putative
+     framing) and mid-text alike -- along with a colon after a
+     non-roster word, recipient/epistolary colons after non-agent lead
+     words ("sends a note to Bo: '...'"), performative-request colons
+     after stance verbs ("asks Bo: '...'"), and the documented
+     received-content residual ("reads the note from Bo: '...'");
+     assertion-verb frames ("quotes Bo: 'I agree'") stay caught (the
+     same line the reported-speech class draws);
+ 20. the new class is idempotent, escalates with the documented record
+     shape, and scopes removal to the line break (content after a
+     newline survives).
+
 Integration (full stock-Concordia loop, scripted models per the Phase 4
 pattern):
  11. an active actor's action text embedding the other actor's agreement
@@ -535,6 +556,175 @@ def test_hardened_classes_are_idempotent():
             ("Bo's agreement to the terms closes the matter.", "Ada"),
             ("The acceptance by Bo settles it.", "Ada"),
             ("Bo, after some thought, agrees.", "Ada"),
+    ):
+        once = guard(None, event, active)
+        assert once != event
+        assert guard(None, once, active) == once, event
+
+
+# ---------------------------------------------------------------------------
+# Unit: proxy attribution -- ":" / "--" subject boundaries (phases 8-11
+# adversarial review, finding F1)
+# ---------------------------------------------------------------------------
+
+
+def test_reviewer_probe_colon_dash_attributions_are_caught():
+    """The exact four phases-8-11 reviewer probes, verbatim: upstream's
+    own attribution separators must not smuggle another actor's reply,
+    agreement, or vote past the guard."""
+    guard = make_agency_guard(("Alex", "Morgan", "Sam"))
+    for event, affected in (
+            ("Send the note asking for a call. Morgan: agrees to the "
+             "plan.", "Morgan"),
+            ("Send the note asking for a call. Morgan -- agrees to the "
+             "plan.", "Morgan"),
+            ("Send the note asking for a call. Morgan: Reply agreeing "
+             "to a fifteen-minute conversation next week.", "Morgan"),
+            ("Present the revised plan. Sam: Vote yes.", "Sam"),
+    ):
+        out = guard(None, event, "Alex")
+        assert out != event, event
+        # The attributed segment is gone, the attempt prefix survives,
+        # and the availability sentence names the affected actor.
+        assert f"{affected}:" not in out, event
+        assert f"{affected} --" not in out, event
+        assert out.startswith(("Send the note asking for a call.",
+                               "Present the revised plan.")), event
+        assert f"{affected} {AVAILABILITY_MARKER}" in out, event
+
+
+def test_proxy_attribution_forms_are_caught():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+
+    # Leading other-name attribution: the event claims to BE the other
+    # actor's turn outright.
+    out = guard(None, "Bo: Vote yes.", "Ada")
+    assert out == ("Bo is now able to observe this and to respond in "
+                   "their own turn.")
+    assert calls[-1][3] == ("Bo",)
+
+    # Attributed speech: no act verb required -- choosing what to say
+    # is itself a voluntary decision.
+    out = guard(None, "Ada posts the sheet. Bo: 'Count me in for "
+                      "Tuesday.'", "Ada")
+    assert "Count me in" not in out
+    assert "Ada posts the sheet." in out
+    assert "Bo is now able to observe" in out
+
+    # A multi-sentence attributed segment is removed WHOLE: upstream
+    # defines no closing delimiter, so everything to the line break is
+    # the claimed content -- no trailing sentence may survive as
+    # anyone else's text.
+    out = guard(None, "Ada opens the review. Bo: I accept the terms. "
+                      "I will sign tomorrow.", "Ada")
+    assert out == ("Ada opens the review. Bo is now able to observe "
+                   "this and to respond in their own turn.")
+
+    # The dash form of the same segment.
+    out = guard(None, "Ada opens the review. Bo -- I accept the terms.",
+                "Ada")
+    assert "accept the terms" not in out
+    assert "Bo is now able to observe" in out
+
+    # A name chain before the marker binds every non-active member.
+    out = guard(None, "Bo and Cam: We accept the offer.", "Ada")
+    assert "accept the offer" not in out
+    assert "Bo is now able to observe" in out
+    assert "Cam is now able to observe" in out
+    assert calls[-1][3] == ("Bo", "Cam")
+
+    # Multiple markers in one event: every proxied actor is offered its
+    # own turn.
+    out = guard(None, "Bo: I vote yes. Cam: I vote yes.", "Ada")
+    assert "vote yes" not in out
+    assert "Bo is now able to observe" in out
+    assert "Cam is now able to observe" in out
+
+
+def test_active_players_own_attribution_passes():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+    for event in (
+            # the whole text as one leading attribution to the active
+            # player -- the upstream turn format -- changes not at all
+            "Ada: agrees to the revised terms.",
+            "Ada: Reply agreeing to the plan and file the note.",
+            # the same under the upstream putative framing the guard
+            # sees as a resolution step
+            "Putative event to resolve:  Ada: sends the outline to Bo.",
+            # mid-text self-attribution claims nobody else's agency
+            "The clock strikes nine. Ada: begins the review.",
+            # the dash form of the active player's own attribution
+            "Ada -- opens the ledger and reads.",
+    ):
+        assert guard(None, event, "Ada") == event
+    assert calls == []
+
+
+def test_attribution_nearby_shapes_are_not_over_blocked():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+    for event in (
+            # a colon after a non-roster word is not an attribution
+            "Agenda: review the plan.",
+            "Ada notes one thing: the schedule holds.",
+            # recipient/epistolary colon after a non-agent lead word:
+            # the quoted content is the SPEAKER'S message TO the name
+            "Ada sends a note to Bo: 'please review the draft.'",
+            "Ada leaves a message for Bo: 'call when free.'",
+            # performative-request colon after a stance verb (review
+            # finding 6 class): the question is the speaker's own
+            "Ada asks Bo: 'will you sign?'",
+            # received-content frame: DOCUMENTED residual of the
+            # object-position exemption (see the guard docstring)
+            "Ada reads the note from Bo: 'I agree.'",
+            # digits around a colon are nobody's attribution
+            "The review runs from 9:15 to 10:00.",
+    ):
+        assert guard(None, event, "Ada") == event
+    assert calls == []
+
+
+def test_quoted_attribution_assertion_stays_caught():
+    # Consistency with the reported-speech line: an assertion-shaped
+    # report is caught ("confirms Bo agrees"), so a quoted-stance colon
+    # form lands on the caught side of that same line.
+    guard = _guard()
+    out = guard(None, 'Ada quotes Bo: "I agree to the terms."', "Ada")
+    assert "I agree to the terms" not in out
+    assert "Ada quotes" in out
+    assert "Bo is now able to observe" in out
+
+
+def test_proxy_attribution_scopes_to_the_line_break():
+    guard = _guard()
+    out = guard(None, "Bo: I refuse the offer.\nAda continues the "
+                      "briefing.", "Ada")
+    # The attributed segment dies at the newline; the next line's
+    # narration survives, and the availability sentence is appended.
+    assert "refuse the offer" not in out
+    assert "Ada continues the briefing." in out
+    assert "Bo is now able to observe" in out
+
+
+def test_proxy_attribution_escalation_record_shape():
+    calls = []
+    guard = _guard(lambda *args: calls.append(args))
+    event = "Present the revised plan. Bo: Vote yes."
+    out = guard(None, event, "Ada")
+    assert calls == [(event, out, "Ada", ("Bo",))]
+
+
+def test_proxy_attribution_is_idempotent():
+    guard = _guard()
+    for event, active in (
+            ("Send the note. Bo: agrees to the plan.", "Ada"),
+            ("Send the note. Bo -- agrees to the plan.", "Ada"),
+            ("Bo: Vote yes.", "Ada"),
+            ("Bo: I vote yes. Cam: I vote yes.", "Ada"),
+            ("Bo: I refuse.\nAda continues the briefing.", "Ada"),
+            ("Bo and Cam: We accept the offer.", "Ada"),
     ):
         once = guard(None, event, active)
         assert once != event
